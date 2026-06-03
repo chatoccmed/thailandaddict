@@ -70,6 +70,7 @@ const EXTRA = `<style>
 .nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
+.cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
 </style>`;
 
 const DG = ['d1','d2','d3','d4','d5','d6'];
@@ -123,6 +124,7 @@ function provinceHub(slug, th, r, d){
   const intro = d.introHtml || `คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`;
   const best = d.bestTime || 'เที่ยวได้ตลอดปี';
   const emoji = d.heroEmoji || R.emoji;
+  const heroBanner = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? `<img class="cityhero" src="/images/heroes/${slug}.jpg" alt="${esc(th)}" loading="eager" onerror="this.remove()">` : '';
 
   const jsonld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
@@ -138,7 +140,7 @@ ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',h
   <p class="lead">${esc(intro)}</p>
   <div class="chips"><span class="chip">📍 ${R.th}</span><span class="chip">🗓️ ${esc(best)}</span><span class="chip">✅ คัดจากของจริง</span></div>
 </div></section>
-
+${heroBanner}
 <section class="sec"><div class="wrap">
   <div class="shead"><h2>ไฮไลต์<span class="em"> ${th}</span></h2></div>
   <p class="secintro">${esc(tagline)}</p>
@@ -278,15 +280,15 @@ const ARTDIR = path.join(ROOT,'astro/src/content/articles');
 const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
 const ARTS = {};
 if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
-  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug)}); }catch{}
+  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug), heroImg:a.heroImg||''}); }catch{}
 }
 const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
 function artLinks(cluster, types, label){
   const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
   if(!list.length) return '';
-  return `<p class="secintro" style="margin:20px 0 10px"><strong>${label}</strong> · ${list.length} บทความ</p><div class="hl">`+
-    list.map(a=>`<a class="hlc" href="${a.slug}.html"><h3>${esc(stripTags(a.title))}</h3><p style="color:var(--teal-dk);font-weight:700">อ่านบทความ →</p></a>`).join('')+`</div>`;
+  return `<p class="secintro" style="margin:22px 0 12px"><strong>${label}</strong> · ${list.length} บทความ</p><div class="dgrid">`+
+    list.map((a,i)=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto ${DG[i%6]}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.remove()">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">อ่านบทความ →</span></div></a>`).join('')+`</div>`;
 }
 
 // ---- generate ----
