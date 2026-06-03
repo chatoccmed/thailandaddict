@@ -3,9 +3,9 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = path.join(process.cwd(), 'astro', 'public');
+const root = process.argv[2] ? path.resolve(process.argv[2]) : path.join(process.cwd(), 'astro', 'public');
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.ico': 'image/x-icon', '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml' };
-const port = Number(process.env.PORT) || 4399;
+const port = Number(process.argv[3]) || Number(process.env.PORT) || 4399;
 
 http.createServer((req, res) => {
   let u = decodeURIComponent(req.url.split('?')[0]);

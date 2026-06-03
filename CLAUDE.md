@@ -59,7 +59,14 @@ _internal/
 5. สร้าง `city-*.html` (25 จังหวัด) + `top10-hotels-*.html` — ตอนนี้เป็น future target ที่ index/country/footer ลิงก์ถึง (ยัง 404)
 6. Cloudflare auto-deploy
 
-> hub pages ใช้ design system แยกจาก review/roundup (inline CSS สไตล์ wherebest: Sarabun/Fraunces/Outfit · blue #4A90E2) · chrome ร่วม = nav/footer เดียวกันทุกหน้า · ไม่มี search infra (ลบออก) · local preview: `.claude/launch.json` (static-preview) → `_internal/preview-server.mjs`
+## 🎨 Design system — "Modern Tropical Editorial" (Direction A · LOCKED)
+เอกลักษณ์เฉพาะ thailandaddict (ฉีกจาก wherebest blue/orange) — ใช้**ทุกหน้า** ทั้ง hub + layout รีวิว/roundup
+- **Palette:** teal `#0E7C6B` (+dk `#0a5c4f`) · coral `#FF6B4A` · cream bg `#F7F1E6` · card `#fffdf9` · ink `#14332E` · gold `#E8B84B` · border `#e6dcc8` — **ห้ามใช้ blue `#4A90E2` เดิม**
+- **Fonts:** Fraunces (serif display/หัวข้อ/ชื่อโรงแรม/คะแนน) · Sarabun (body ไทย) · Outfit (UI/ปุ่ม/label)
+- **Booking buttons:** Agoda=coral · Booking=teal · Trip=ink · rating bars = teal→gold gradient · radii ~6px · เอดิทอเรียล whitespace เยอะ
+- **ต้นแบบ/design-system reference = `astro/public/index.html`** (`<style>` block + nav/footer chrome) — หน้า hub อื่นก๊อป block นี้ · layout รีวิว/roundup ฝัง palette เดียวกันใน `review.css`/`roundup.css` + inline `<style>`
+- favicon = teal `T` · chrome ร่วม nav/footer เหมือนกันทุกหน้า · ไม่มี search infra
+- **local preview:** `.claude/launch.json` → static-preview (public, :4399) + dist-preview (`~/ta-build-temp/dist`, :4400) → `_internal/preview-server.mjs` (รับ root/port ผ่าน argv)
 
 ## หมายเหตุ scaffold
 - ลบ ad/monetization tag ของ wherebest (emrldco/Travelpayouts) ออกจาก layout แล้ว — ใส่ tag ของ thailandaddict เองภายหลัง
