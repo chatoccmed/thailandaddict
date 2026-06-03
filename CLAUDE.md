@@ -59,13 +59,15 @@ _internal/
 5. สร้าง `city-*.html` (25 จังหวัด) + `top10-hotels-*.html` — ตอนนี้เป็น future target ที่ index/country/footer ลิงก์ถึง (ยัง 404)
 6. Cloudflare auto-deploy
 
-## 🎨 Design system — "Modern Tropical Editorial" (Direction A · LOCKED)
-เอกลักษณ์เฉพาะ thailandaddict (ฉีกจาก wherebest blue/orange) — ใช้**ทุกหน้า** ทั้ง hub + layout รีวิว/roundup
-- **Palette:** teal `#0E7C6B` (+dk `#0a5c4f`) · coral `#FF6B4A` · cream bg `#F7F1E6` · card `#fffdf9` · ink `#14332E` · gold `#E8B84B` · border `#e6dcc8` — **ห้ามใช้ blue `#4A90E2` เดิม**
-- **Fonts:** Fraunces (serif display/หัวข้อ/ชื่อโรงแรม/คะแนน) · Sarabun (body ไทย) · Outfit (UI/ปุ่ม/label)
-- **Booking buttons:** Agoda=coral · Booking=teal · Trip=ink · rating bars = teal→gold gradient · radii ~6px · เอดิทอเรียล whitespace เยอะ
+## 🎨 Design system — "Vibrant Island Pop" (Direction C · LOCKED)
+เอกลักษณ์เฉพาะ thailandaddict (ฉีกจาก wherebest blue/orange · owner เลือก C) — ใช้**ทุกหน้า** ทั้ง hub + layout รีวิว/roundup
+- **Palette:** teal `#06B6D4` (+dk `#0891b2`) · coral `#FB7185` (+dk `#f43f5e`) · mango `#FBBF24` · ink `#0F172A` · sub `#64748b` · bg ขาว `#ffffff` · soft section `#f1fbfd` · border `#e6eef2`
+- **Fonts:** Outfit 800/900 (display/หัวข้อ/ชื่อโรงแรม/rank/คะแนน — sans หนา ไม่ใช่ serif) · Sarabun (body ไทย) · Outfit (UI/ปุ่ม/label)
+- **สไตล์:** สดใส มนโค้งใหญ่ (การ์ด 20–26px · ปุ่ม 12px · pill 999px) · เงาสีสด · gradient (hero teal→coral, ปุ่ม, score)
+- **Booking buttons:** Agoda=coral gradient · Booking=teal · Trip=ink · rank tile=teal gradient · score=mango→amber gradient pill · rating bars=teal→coral
 - **ต้นแบบ/design-system reference = `astro/public/index.html`** (`<style>` block + nav/footer chrome) — หน้า hub อื่นก๊อป block นี้ · layout รีวิว/roundup ฝัง palette เดียวกันใน `review.css`/`roundup.css` + inline `<style>`
-- favicon = teal `T` · chrome ร่วม nav/footer เหมือนกันทุกหน้า · ไม่มี search infra
+- favicon = teal `T` (`%2306B6D4`) · chrome ร่วม nav/footer เหมือนกันทุกหน้า · ไม่มี search infra
+- (เคยลอง A "Modern Tropical Editorial" cream/teal/Fraunces — owner เลือก C แทน · ห้ามใช้ token A เดิม `#0E7C6B`/`#FF6B4A`/cream/Fraunces)
 - **local preview:** `.claude/launch.json` → static-preview (public, :4399) + dist-preview (`~/ta-build-temp/dist`, :4400) → `_internal/preview-server.mjs` (รับ root/port ผ่าน argv)
 
 ## หมายเหตุ scaffold

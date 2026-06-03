@@ -226,7 +226,7 @@ const schema = {
     },
   ],
 };
-const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E7C6B'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
+const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -251,48 +251,48 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={`${data.name} ${S.twSuffix}`} />
 <meta name="twitter:description" content={data.twDesc} />
-<meta name="theme-color" content="#0E7C6B" />
+<meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,500&family=Outfit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href={favSvg} />
 <link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 <style>
-.lang-sw{display:inline-flex;align-items:center;border-radius:6px;overflow:hidden;border:1.5px solid #0E7C6B;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
+.lang-sw{display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;border:1.5px solid #06B6D4;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
 .lang-sw a,.lang-sw .dis{padding:5px 9px;text-decoration:none;line-height:1.5;}
-.lang-sw a{color:#0E7C6B;background:#fffdf9;transition:background .15s;}
-.lang-sw a:hover{background:#F7F1E6;}
-.lang-sw a.on{background:#0E7C6B;color:#fff;}
-.lang-sw a.on:hover{background:#0a5c4f;}
-.lang-sw .dis{color:#a9b5ad;background:#F7F1E6;cursor:not-allowed;}
+.lang-sw a{color:#06B6D4;background:#ffffff;transition:background .15s;}
+.lang-sw a:hover{background:#f1fbfd;}
+.lang-sw a.on{background:#06B6D4;color:#fff;}
+.lang-sw a.on:hover{background:#0891b2;}
+.lang-sw .dis{color:#94a3b8;background:#f1fbfd;cursor:not-allowed;}
 .mm-lang{margin:10px 0 4px;font-size:13px;align-self:flex-start;flex-wrap:wrap;}
 .mm-lang a,.mm-lang .dis{padding:8px 13px;}
 /* FAQ section — placed after main review body, before footer */
-.rv-faq{background:linear-gradient(180deg,#fffdf9 0%,#F7F1E6 100%);padding:54px 24px 60px;border-top:1px solid #e6dcc8}
+.rv-faq{background:linear-gradient(180deg,#ffffff 0%,#f1fbfd 100%);padding:54px 24px 60px;border-top:1px solid #e6eef2}
 .rv-faq-wrap{max-width:880px;margin:0 auto}
-.rv-faq-title{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#14332E;line-height:1.2;margin-bottom:26px;text-align:center}
+.rv-faq-title{font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:#0F172A;line-height:1.2;margin-bottom:26px;text-align:center}
 @media(max-width:560px){.rv-faq{padding:38px 18px 44px}.rv-faq-title{font-size:24px;margin-bottom:18px}}
 .rv-faq-list{display:flex;flex-direction:column;gap:12px}
-.rv-faq-item{background:#fffdf9;border:1px solid #e6dcc8;border-radius:6px;padding:0;overflow:hidden;transition:box-shadow .2s,border-color .2s}
-.rv-faq-item[open]{border-color:#0E7C6B;box-shadow:0 4px 18px rgba(14,124,107,.08)}
-.rv-faq-q{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Sarabun','Outfit',sans-serif;font-size:16.5px;font-weight:600;color:#14332E;line-height:1.45}
+.rv-faq-item{background:#ffffff;border:1px solid #e6eef2;border-radius:18px;padding:0;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.rv-faq-item[open]{border-color:#06B6D4;box-shadow:0 8px 24px rgba(6,182,212,.18)}
+.rv-faq-q{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Sarabun','Outfit',sans-serif;font-size:16.5px;font-weight:600;color:#0F172A;line-height:1.45}
 .rv-faq-q::-webkit-details-marker{display:none}
 .rv-faq-q-text{flex:1}
-.rv-faq-q-icon{font-family:'Outfit',sans-serif;font-size:22px;font-weight:300;color:#0E7C6B;flex-shrink:0;transition:transform .25s}
+.rv-faq-q-icon{font-family:'Outfit',sans-serif;font-size:22px;font-weight:300;color:#06B6D4;flex-shrink:0;transition:transform .25s}
 .rv-faq-item[open] .rv-faq-q-icon{transform:rotate(45deg)}
-.rv-faq-a{padding:0 22px 20px;font-family:'Sarabun',sans-serif;font-size:15.5px;line-height:1.75;color:#5a6b64}
-.rv-faq-a strong{color:#14332E}
-.rv-faq-a a{color:#0E7C6B;text-decoration:underline;text-underline-offset:2px}
-.rv-faq-a a:hover{color:#0a5c4f}
+.rv-faq-a{padding:0 22px 20px;font-family:'Sarabun',sans-serif;font-size:15.5px;line-height:1.75;color:#64748b}
+.rv-faq-a strong{color:#0F172A}
+.rv-faq-a a{color:#06B6D4;text-decoration:underline;text-underline-offset:2px}
+.rv-faq-a a:hover{color:#0891b2}
 @media(max-width:560px){.rv-faq-q{padding:15px 18px;font-size:15.5px}.rv-faq-a{padding:0 18px 16px;font-size:14.5px}}
 /* Inline body photos — break up the long review text */
-.rv-body-fig{margin:30px 0;border-radius:6px;overflow:hidden;box-shadow:var(--sh);background:#efe7d6}
+.rv-body-fig{margin:30px 0;border-radius:18px;overflow:hidden;box-shadow:var(--sh);background:#e6eef2}
 .rv-body-fig .rv-body-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;display:block}
-.rv-body-fig figcaption{font-family:'Sarabun',sans-serif;font-size:12.5px;color:var(--sub);padding:9px 14px;background:#fffdf9;border-top:1px solid var(--bdr);line-height:1.5}
+.rv-body-fig figcaption{font-family:'Sarabun',sans-serif;font-size:12.5px;color:var(--sub);padding:9px 14px;background:#ffffff;border-top:1px solid var(--bdr);line-height:1.5}
 @media(max-width:560px){.rv-body-fig{margin:22px 0}.rv-body-fig .rv-body-img{aspect-ratio:4/3}}
 .rv-body-imgwrap{position:relative;display:block}
 .rv-body-fig .rv-body-book{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;padding:11px;text-decoration:none}
-.rv-body-fig .rv-body-book span{background:rgba(255,253,249,.95);color:#0E7C6B;font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.22);transition:transform .15s,box-shadow .2s}
+.rv-body-fig .rv-body-book span{background:rgba(255,255,255,.95);color:#06B6D4;font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;box-shadow:0 2px 10px rgba(6,182,212,.22);transition:transform .15s,box-shadow .2s}
 .rv-body-fig .rv-body-book:hover span{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.26)}
 </style>
 <!-- ad/monetization tag removed — add ThailandAddict's own here later -->
@@ -581,13 +581,13 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   </div>
 
   {wc && (
-  <div class="fade-up" style="margin-top:34px;background:linear-gradient(135deg,#0a5c4f 0%,#0E7C6B 100%);border-radius:6px;padding:26px 28px;color:#fff">
-    <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#E8B84B;margin-bottom:8px">⚽ FIFA World Cup 2026</div>
-    <h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin:0 0 8px;color:#fff;line-height:1.25">{isEn ? `Heading to ${wc.en} for the World Cup?` : `มา${wc.th}ช่วงฟุตบอลโลก 2026?`}</h3>
+  <div class="fade-up" style="margin-top:34px;background:linear-gradient(135deg,#0891b2 0%,#06B6D4 100%);border-radius:22px;padding:26px 28px;color:#fff">
+    <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#FBBF24;margin-bottom:8px">⚽ FIFA World Cup 2026</div>
+    <h3 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin:0 0 8px;color:#fff;line-height:1.25">{isEn ? `Heading to ${wc.en} for the World Cup?` : `มา${wc.th}ช่วงฟุตบอลโลก 2026?`}</h3>
     <p style="font-size:14.5px;line-height:1.7;margin:0 0 16px;color:rgba(255,255,255,.9);max-width:640px">{isEn ? `${wc.en} is a 2026 host city — see our full World Cup guide (matches, where to stay, tickets, visa) plus how to reach ${wc.stn} on match day.` : `${wc.th}เป็นเมืองเจ้าภาพฟุตบอลโลก 2026 — ดูคู่มือฉบับเต็ม (แมตช์ ที่พัก ตั๋ว วีซ่า) พร้อมวิธีไปสนาม ${wc.stn} วันแข่ง`}</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href={link(`city-${data.cluster}-world-cup.html`)} style="display:inline-block;background:#FF6B4A;color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px">{isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`}</a>
-      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:6px">{isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`}</a>
+      <a href={link(`city-${data.cluster}-world-cup.html`)} style="display:inline-block;background:#FB7185;color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:12px">{isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`}</a>
+      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:12px">{isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`}</a>
     </div>
   </div>
   )}
