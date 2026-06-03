@@ -1,0 +1,48 @@
+# thailandaddict — Cloudflare Pages Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# ── Global headers (ทุกหน้า) ──
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# ── HTML pages — cache 1 ชั่วโมง (เพื่อให้ update บ่อยได้) ──
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: text/html; charset=utf-8
+
+# ── Homepage ── cache 30 นาที ──
+/index.html
+  Cache-Control: public, max-age=1800, stale-while-revalidate=3600
+
+# ── Sitemap + Robots — cache 1 วัน ──
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+# ── Static assets — cache 1 ปี (รูป CSS JS) ──
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable

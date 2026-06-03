@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "thailandaddict",
+  "compatibility_date": "2026-05-16",
+  "assets": {
+    "directory": "./astro/dist",
+    "not_found_handling": "404-page"
+  }
+}

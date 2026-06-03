@@ -1,0 +1,6 @@
+# thailandaddict — Redirects (Cloudflare Workers Static Assets)
+# www → non-www : ทำผ่าน Cloudflare Redirect Rule (dashboard) ไม่ใช่ไฟล์นี้
+# 404           : จัดการผ่าน not_found_handling ใน wrangler.jsonc
+# target ชี้ตรง clean URL (ไม่มี .html) — redirect ทอดเดียวจบ
+#
+# (ยังไม่มี redirect — เพิ่มเมื่อมีการ rename/retire หน้าในอนาคต)

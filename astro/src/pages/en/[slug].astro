@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import RoundupLayout from '../../layouts/RoundupLayout.astro';
+
+export async function getStaticPaths() {
+  const reviews = await getCollection('reviewsEn');
+  const roundups = await getCollection('roundupsEn');
+  return [
+    ...reviews.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'review' as const, data: r.data },
+    })),
+    ...roundups.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'roundup' as const, data: r.data },
+    })),
+  ];
+}
+
+const { kind, data } = Astro.props;
+---
+{kind === 'review'
+  ? <ReviewLayout data={data} lang="en" />
+  : <RoundupLayout data={data} lang="en" />}

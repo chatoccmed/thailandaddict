@@ -1,0 +1,726 @@
+---
+import '../styles/roundup.css';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  data: CollectionEntry<'roundups'>['data'];
+  lang?: 'th' | 'en';
+}
+const { data, lang = 'th' } = Astro.props;
+const isEn = lang === 'en';
+
+const SITE = 'https://thailandaddict.com';
+const base = isEn ? `${SITE}/en` : SITE;
+const url = `${base}/${data.slug}`;
+const imgAbs = `${SITE}/${data.image}`;
+const today = '2026-05-17';
+
+// Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
+// and the .html suffix stripped (clean URL).
+const link = (h: string) => {
+  if (h === '/' || h === '') return isEn ? '/en/' : '/';
+  if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
+  if (!isEn) return h;
+  // Normalise then add a single /en/ prefix — robust to inputs already stored as
+  // "/en/review-x" (avoids the /en//en/... double-prefix bug), "/review-x" or "review-x.html".
+  let p = h.replace(/\.html$/, '').replace(/^\/en\//, '/');
+  if (!p.startsWith('/')) p = '/' + p;
+  return '/en' + p;
+};
+
+// Asset (image) helper: force a root-absolute path so images resolve
+// correctly from both / (Thai) and /en/ (English) pages.
+const asset = (p: string) => (/^(https?:)?\//.test(p) ? p : `/${p}`);
+
+// World Cup 2026 cross-link: connect host-city hotel roundups (themed + near-stadium)
+// to the WC city guide + stadium transport page. City derived from the slug.
+const WC_CITY: Record<string, {th:string;en:string;st:string;stn:string}> = {
+  atlanta:{th:'แอตแลนตา',en:'Atlanta',st:'mercedes-benz-stadium',stn:'Mercedes-Benz Stadium'},
+  boston:{th:'บอสตัน',en:'Boston',st:'gillette-stadium',stn:'Gillette Stadium'},
+  dallas:{th:'ดัลลัส',en:'Dallas',st:'att-stadium',stn:'AT&T Stadium'},
+  houston:{th:'ฮูสตัน',en:'Houston',st:'nrg-stadium',stn:'NRG Stadium'},
+  'kansas-city':{th:'แคนซัสซิตี้',en:'Kansas City',st:'arrowhead-stadium',stn:'Arrowhead Stadium'},
+  'los-angeles':{th:'ลอสแอนเจลิส',en:'Los Angeles',st:'sofi-stadium',stn:'SoFi Stadium'},
+  miami:{th:'ไมอามี',en:'Miami',st:'hard-rock-stadium',stn:'Hard Rock Stadium'},
+  'new-york':{th:'นิวยอร์ก',en:'New York',st:'metlife-stadium',stn:'MetLife Stadium'},
+  philadelphia:{th:'ฟิลาเดลเฟีย',en:'Philadelphia',st:'lincoln-financial-field',stn:'Lincoln Financial Field'},
+  'san-francisco':{th:'ซานฟรานซิสโก',en:'San Francisco',st:'levis-stadium',stn:"Levi's Stadium"},
+  seattle:{th:'ซีแอตเทิล',en:'Seattle',st:'lumen-field',stn:'Lumen Field'},
+  'mexico-city':{th:'เม็กซิโกซิตี้',en:'Mexico City',st:'estadio-azteca',stn:'Estadio Azteca'},
+  guadalajara:{th:'กวาดาลาฮารา',en:'Guadalajara',st:'estadio-akron',stn:'Estadio Akron'},
+  monterrey:{th:'มอนเตร์เรย์',en:'Monterrey',st:'estadio-bbva',stn:'Estadio BBVA'},
+  toronto:{th:'โตรอนโต',en:'Toronto',st:'bmo-field',stn:'BMO Field'},
+  vancouver:{th:'แวนคูเวอร์',en:'Vancouver',st:'bc-place-vancouver',stn:'BC Place'},
+};
+const WC_STAD: Record<string,string> = {
+  'mercedes-benz-stadium-atlanta':'atlanta','gillette-stadium':'boston','att-stadium':'dallas',
+  'nrg-stadium':'houston','arrowhead-stadium':'kansas-city','sofi-stadium':'los-angeles',
+  'hard-rock-stadium':'miami','metlife-stadium':'new-york','lincoln-financial-field':'philadelphia',
+  'levis-stadium':'san-francisco','lumen-field':'seattle','estadio-azteca':'mexico-city',
+  'estadio-akron':'guadalajara','estadio-bbva':'monterrey','bmo-field':'toronto','bc-place-vancouver':'vancouver',
+};
+function wcFromSlug(s: string): string | null {
+  const m = s.match(/^top\d+-(?:luxury|budget|family|mid-range|romantic|boutique)-hotels-(.+)$/);
+  if (m && WC_CITY[m[1]]) return m[1];
+  if (s.startsWith('hotels-near-')) return WC_STAD[s.slice('hotels-near-'.length)] || null;
+  return null;
+}
+const wcCity = wcFromSlug(data.slug);
+const wc = wcCity ? WC_CITY[wcCity] : null;
+
+// UI strings
+const S = {
+  th: {
+    navDest: 'จุดหมาย', navAbout: 'เกี่ยวกับเรา', navCta: 'ค้นหาโรงแรม',
+    mmHome: 'หน้าแรก', mmContact: 'ติดต่อ',
+    tocTitle: 'สารบัญ — คลิกเพื่อข้ามไปอ่านได้เลย!',
+    priceLabel: 'ราคาเริ่มต้น',
+    btnAgoda: 'จองผ่าน Agoda', btnText: '📖 อ่านรีวิวเต็ม →', imgBook: '🛏️ ดูห้องว่าง',
+    prosTitle: '👍 จุดเด่น', consTitle: '👎 ข้อสังเกต',
+    faqEyebrow: 'คำถามที่พบบ่อย',
+    bylinePublished: 'เผยแพร่',
+    bylineUpdated: 'อัปเดต',
+    bylineReadTime: 'อ่าน',
+    quickAnswerEyebrow: 'คำตอบสั้นๆ',
+    methodologyLabel: 'วิธีการคัดเลือก · ตรวจสอบ · การเปิดเผย',
+    sourcesTitle: 'แหล่งอ้างอิง · Sources & Citations',
+    aboutAuthorTitle: 'เกี่ยวกับผู้เขียน',
+    ftTag: 'Thailand, Done Right',
+    ftDesc: 'รีวิวโรงแรมและที่เที่ยวทั่วโลก โดยผู้เชี่ยวชาญ พร้อมราคาจริงและลิงก์จองตรง ไม่มีโฆษณาแฝง',
+    ftHeadDest: 'จุดหมาย', ftHeadReviews: 'รีวิวโรงแรม', ftHeadAbout: 'เกี่ยวกับ',
+    ftR1: '12 Hostel ไทเป', ftR2: 'Top 10 ซีเหมินติง', ftR3: '5 ที่พักชิงจิ้ง',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · อัปเดตล่าสุด พ.ค. 2026',
+    ftAff: '⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ รีวิวและการจัดอันดับเป็นอิสระจากการสนับสนุนใดๆ',
+    mbarBook: '🔴 จองผ่าน Agoda', mbarAll: 'ดูรีวิวทั้งหมด',
+  },
+  en: {
+    navDest: 'Destinations', navAbout: 'About', navCta: 'Find a Hotel',
+    mmHome: 'Home', mmContact: 'Contact',
+    tocTitle: 'Contents — click to jump straight to a hotel!',
+    priceLabel: 'Starting price',
+    btnAgoda: 'Book via Agoda', btnText: '📖 Read the full review →', imgBook: '🛏️ Check availability',
+    prosTitle: '👍 Pros', consTitle: '👎 Things to note',
+    faqEyebrow: 'Frequently Asked Questions',
+    bylinePublished: 'Published',
+    bylineUpdated: 'Updated',
+    bylineReadTime: 'Read time',
+    quickAnswerEyebrow: 'Quick Answer',
+    methodologyLabel: 'How we picked · Verification · Disclosure',
+    sourcesTitle: 'Sources & Citations',
+    aboutAuthorTitle: 'About the author',
+    ftTag: 'Thailand, Done Right',
+    ftDesc: 'Hotel and destination reviews worldwide, by experts — with real prices and direct booking links. No hidden ads.',
+    ftHeadDest: 'Destinations', ftHeadReviews: 'Hotel Reviews', ftHeadAbout: 'About',
+    ftR1: '12 Hostels in Taipei', ftR2: 'Top 10 Ximending', ftR3: '5 Cingjing Stays',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Last updated May 2026',
+    ftAff: '⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you. Our reviews and rankings remain independent of any sponsorship.',
+    mbarBook: '🔴 Book via Agoda', mbarAll: 'See all reviews',
+  },
+}[lang];
+
+const reviewAbs = (h: string) => `${base}/${h.replace(/\.html$/, '')}`;
+
+const itemList = {
+  '@type': 'ItemList',
+  '@id': url,
+  name: data.metaDesc,
+  url,
+  numberOfItems: data.entries.length,
+  itemListElement: data.entries.map((e, i) => ({
+    '@type': 'ListItem', position: i + 1,
+    url: e.reviewUrl ? reviewAbs(e.reviewUrl) : url, name: e.name,
+  })),
+};
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  itemListElement: data.breadcrumbSchema.map((b, i) => ({
+    '@type': 'ListItem', position: i + 1, name: b.name, item: b.item,
+  })),
+};
+const article = {
+  '@type': 'Article', headline: data.ogTitle, description: data.metaDesc,
+  author: { '@type': 'Organization', name: 'ThailandAddict Editorial' },
+  publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE },
+  datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
+};
+const schema = { '@context': 'https://schema.org', '@graph': [itemList, breadcrumb, article] };
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: data.faq.map((f) => ({
+    '@type': 'Question', name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234A90E2'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
+
+// Author shape may vary — guard each field; bio prefers EN field for /en/ pages when available.
+const author = (data as any).author;
+const authorBio = author ? (isEn && author.bioEn ? author.bioEn : (author.bio || '')) : '';
+// Normalize sources into array of strings (the schema allows any · pilot uses string[]).
+const sources: any[] = Array.isArray((data as any).sourcesAndCitations) ? (data as any).sourcesAndCitations : [];
+// Helper: split "Label — URL" into { label, url } if separator found; else treat full string as label only.
+const splitSource = (s: any): { label: string; url: string | null } => {
+  if (typeof s !== 'string') {
+    // object form: { label, url } passthrough
+    if (s && typeof s === 'object' && (s.url || s.label)) return { label: String(s.label || s.url), url: s.url || null };
+    return { label: String(s), url: null };
+  }
+  const m = s.match(/^(.*?)\s+—\s+(https?:\/\/\S+)$/);
+  if (m) return { label: m[1].trim(), url: m[2].trim() };
+  const mUrl = s.match(/(https?:\/\/\S+)/);
+  if (mUrl) return { label: s.replace(mUrl[1], '').replace(/[—\-:]+\s*$/, '').trim() || mUrl[1], url: mUrl[1] };
+  return { label: s, url: null };
+};
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>{data.title}</title>
+<meta name="description" content={data.metaDesc} />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={url} />
+<link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
+<link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+<link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
+<meta property="og:type" content="article" />
+<meta property="og:title" content={data.ogTitle} />
+<meta property="og:description" content={data.ogDesc} />
+<meta property="og:url" content={url} />
+<meta property="og:site_name" content="ThailandAddict" />
+<meta property="og:image" content={imgAbs} />
+<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#4A90E2" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href={favSvg} />
+<link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+{(data as any).jsonLd && (
+  <script type="application/ld+json" set:html={JSON.stringify((data as any).jsonLd)} />
+)}
+<style>
+.lang-sw{display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;border:1.5px solid #4A90E2;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
+.lang-sw a,.lang-sw .dis{padding:5px 9px;text-decoration:none;line-height:1.5;}
+.lang-sw a{color:#4A90E2;background:#fff;transition:background .15s;}
+.lang-sw a:hover{background:#EBF4FF;}
+.lang-sw a.on{background:#4A90E2;color:#fff;}
+.lang-sw a.on:hover{background:#2f6fc0;}
+.lang-sw .dis{color:#b8c4d4;background:#f4f6f9;cursor:not-allowed;}
+.mm-lang{margin:10px 0 4px;font-size:13px;align-self:flex-start;flex-wrap:wrap;}
+.mm-lang a,.mm-lang .dis{padding:8px 13px;}
+
+/* ===== Skill-compliant additions (Wave 2026+) ===== */
+/* All rules below are SCOPED to new classes; existing roundup CSS is untouched. */
+
+/* Byline strip */
+.byline-strip{display:flex;align-items:center;flex-wrap:wrap;gap:14px;background:#fff;border:1px solid var(--bdr,#e8edf3);border-radius:14px;padding:13px 18px;margin:22px 0 18px;box-shadow:0 2px 12px rgba(20,40,80,.05)}
+.byline-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#4A90E2,#27AE60);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:20px;font-weight:600;flex-shrink:0;overflow:hidden}
+.byline-avatar img{width:100%;height:100%;object-fit:cover}
+.byline-text{flex:1;min-width:170px}
+.byline-name{font-family:'Outfit',sans-serif;font-size:14.5px;font-weight:700;color:#15233b;line-height:1.3}
+.byline-name a{color:#15233b;border-bottom:1px dotted #b8c4d4}
+.byline-name a:hover{color:#4A90E2;border-bottom-color:#4A90E2}
+.byline-job{font-size:12px;color:#9aa7b8;font-family:'Outfit',sans-serif;margin-top:2px}
+.byline-meta{font-family:'Outfit',sans-serif;font-size:12px;color:#5b6b82;display:flex;flex-wrap:wrap;gap:6px 14px}
+.byline-meta span strong{color:#15233b;font-weight:600}
+
+/* Quick-answer (P4 direct answer · above the fold) */
+.quick-answer{background:linear-gradient(180deg,#EBF4FF 0%,#fff 100%);border:1px solid #c5dcf5;border-left:5px solid #4A90E2;border-radius:14px;padding:20px 24px;margin:18px 0 22px;box-shadow:0 4px 16px rgba(74,144,226,.08)}
+.qa-eyebrow{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#4A90E2;font-weight:700;background:#fff;padding:3px 11px;border-radius:14px;border:1px solid #c5dcf5;margin-bottom:10px}
+.quick-answer h2{font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:#15233b;line-height:1.25;margin-bottom:10px}
+.qa-body{font-size:15.5px;line-height:1.8;color:#15233b}
+.qa-body strong{color:#2f6fc0;font-weight:700}
+.qa-body a{color:#2f6fc0;text-decoration:underline;text-decoration-color:rgba(74,144,226,.4);text-underline-offset:2px}
+.qa-body a:hover{text-decoration-color:#4A90E2}
+
+/* Article meta / EEAT box (methodology + last verified + disclosure) */
+.article-meta-box{background:#f6f8fb;border:1px solid #e8edf3;border-radius:12px;padding:16px 20px;margin:20px 0 26px;font-size:13.25px;line-height:1.75;color:#5b6b82}
+.article-meta-label{font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#9aa7b8;font-weight:700;margin-bottom:10px;display:block}
+.article-meta-row{padding:7px 0;border-top:1px solid #e8edf3}
+.article-meta-row:first-of-type{border-top:none;padding-top:2px}
+.article-meta-row strong{color:#15233b;font-weight:700}
+.article-meta-row a{color:#4A90E2;text-decoration:underline;text-underline-offset:2px}
+
+/* Comparison table — top (above entries · at-a-glance) */
+.compare-top{margin:8px 0 32px}
+.compare-top .compare-title{font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:#15233b;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.compare-top .compare-title::before{content:'⚡';font-size:20px}
+.compare-top .table-wrap{background:#fff;border:1px solid #e8edf3;border-radius:18px;overflow:hidden;overflow-x:auto;box-shadow:0 4px 20px rgba(20,40,80,.07)}
+.compare-top table{width:100%;border-collapse:collapse;font-size:13.25px}
+.compare-top th{background:linear-gradient(90deg,#FF6B35,#F39C12);padding:12px 14px;text-align:left;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#fff;font-weight:700;white-space:nowrap}
+.compare-top td{padding:11px 14px;border-bottom:1px solid #e8edf3;vertical-align:middle}
+.compare-top tr:last-child td{border-bottom:none}
+.compare-top tbody tr:nth-child(even) td{background:#fafcfe}
+.compare-top tbody tr:hover td{background:#FFF1EB}
+.compare-top .ct-rank{font-family:'Outfit',sans-serif;font-weight:800;color:#15233b;white-space:nowrap}
+.compare-top .ct-book{display:inline-flex;align-items:center;gap:5px;background:#e9142b;color:#fff;font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 8px rgba(233,20,43,.2)}
+.compare-top .ct-book:hover{background:#c70f24;transform:translateY(-1px)}
+
+/* Comparison insights (P4 sentences for AI extraction) */
+.compare-insights{background:#fff;border:1px solid #e8edf3;border-left:4px solid #F39C12;border-radius:14px;padding:22px 26px;margin:22px 0 18px;box-shadow:0 2px 14px rgba(20,40,80,.06)}
+.compare-insights h2{font-family:'Fraunces',serif;font-size:21px;font-weight:400;color:#15233b;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.compare-insights h2::before{content:'🧠';font-size:18px}
+.compare-insights-body{font-size:14.75px;line-height:1.85;color:#5b6b82}
+.compare-insights-body p{margin:0 0 10px}
+.compare-insights-body p:last-child{margin-bottom:0}
+.compare-insights-body strong{color:#15233b;font-weight:700}
+
+/* Persona closing (Dr Chat conversational summary) */
+.persona-closing{background:linear-gradient(180deg,#E9F7EF 0%,#fff 100%);border:1px solid #b9e6cb;border-radius:18px;padding:26px 28px;margin:30px 0 18px;box-shadow:0 4px 18px rgba(39,174,96,.07)}
+.persona-closing h2{font-family:'Fraunces',serif;font-size:22px;font-weight:400;color:#15233b;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.persona-closing h2::before{content:'💬';font-size:20px}
+.persona-body{font-size:14.75px;line-height:1.85;color:#15233b}
+.persona-body p{margin:0 0 12px}
+.persona-body ul{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-direction:column;gap:8px}
+.persona-body ul li{position:relative;padding:9px 14px 9px 32px;background:#fff;border:1px solid #d6efe0;border-radius:10px;font-size:14px;line-height:1.7;color:#15233b}
+.persona-body ul li::before{content:'→';position:absolute;left:11px;top:9px;color:#27AE60;font-weight:800;font-family:'Outfit',sans-serif}
+.persona-body strong{color:#1b5e20;font-weight:700}
+.persona-body a{color:#2f6fc0;text-decoration:underline}
+
+/* Sources & citations */
+.sources-box{background:#fff;border:1px solid #e8edf3;border-radius:14px;padding:20px 24px;margin:26px 0 8px;box-shadow:0 2px 12px rgba(20,40,80,.05)}
+.sources-box h2{font-family:'Outfit',sans-serif;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:#9aa7b8;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.sources-box h2::before{content:'📚'}
+.sources-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.sources-list li{font-size:12.5px;line-height:1.7;color:#5b6b82;padding:4px 0;border-bottom:1px dashed #e8edf3}
+.sources-list li:last-child{border-bottom:none}
+.sources-list a{color:#4A90E2;text-decoration:none;word-break:break-all}
+.sources-list a:hover{text-decoration:underline}
+.sources-list .src-label{color:#15233b;font-weight:600}
+
+/* Author bio (bottom of article) */
+.author-bio-box{background:linear-gradient(180deg,#fff 0%,#f6f8fb 100%);border:1px solid #e8edf3;border-radius:18px;padding:22px 26px;margin:30px 0 14px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 4px 18px rgba(20,40,80,.06)}
+@media(max-width:520px){.author-bio-box{flex-direction:column;gap:14px;align-items:center;text-align:center}}
+.author-bio-avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,#4A90E2,#27AE60);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:32px;font-weight:600;flex-shrink:0;overflow:hidden;box-shadow:0 4px 14px rgba(74,144,226,.25)}
+.author-bio-avatar img{width:100%;height:100%;object-fit:cover}
+.author-bio-content{flex:1}
+.author-bio-eyebrow{font-family:'Outfit',sans-serif;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#9aa7b8;font-weight:700;margin-bottom:4px}
+.author-bio-name{font-family:'Fraunces',serif;font-size:21px;font-weight:400;color:#15233b;line-height:1.3;margin-bottom:3px}
+.author-bio-name a{color:#15233b}
+.author-bio-name a:hover{color:#4A90E2}
+.author-bio-job{font-family:'Outfit',sans-serif;font-size:12px;color:#9aa7b8;margin-bottom:8px}
+.author-bio-text{font-size:13.5px;line-height:1.75;color:#5b6b82;margin-bottom:10px}
+.author-bio-tagline{font-style:italic;font-size:12.5px;color:#5b6b82;border-left:3px solid #F39C12;padding-left:10px;margin-top:6px}
+.author-bio-link{display:inline-block;margin-top:8px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:#4A90E2;border-bottom:1px solid transparent;transition:border-color .2s}
+.author-bio-link:hover{border-bottom-color:#4A90E2}
+</style>
+<!-- ad/monetization tag removed — add ThailandAddict's own here later -->
+</head>
+<body class="rl-page">
+
+<nav class="nav" id="nav">
+  <a href={link('/')} class="logo">Thailand<em>Addict</em></a>
+  <div class="nav-mid">
+    <a href={link('country-thailand.html')}>{S.navDest}</a>
+    <a href={link(data.navReviewHref)}>{data.navReviewLabel}</a>
+    <a href={link('about.html')}>{S.navAbout}</a>
+  </div>
+  <div class="nav-r">
+    <span class="lang-sw">
+      <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th" aria-label="ภาษาไทย">TH</a>
+      <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">中文</span>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">ES</span>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">FR</span>
+    </span>
+    <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
+    <button class="hb" id="hb">☰</button>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <div class="mm-top">
+    <a href={link('/')} class="logo">Thailand<em>Addict</em></a>
+    <button class="mm-x" id="mmx">✕</button>
+  </div>
+  <a href={link('/')}>{S.mmHome}</a>
+  <a href={link('country-thailand.html')}>{S.navDest}</a>
+  <a href={link(data.navReviewHref)}>{data.navReviewLabel}</a>
+  <a href={link('about.html')}>{S.navAbout}</a>
+  <a href={link('contact.html')}>{S.mmContact}</a>
+  <span class="lang-sw mm-lang">
+    <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th">🇹🇭 ไทย</a>
+    <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en">🇬🇧 English</a>
+    <span class="dis">🇨🇳 中文</span>
+    <span class="dis">🇪🇸 Español</span>
+    <span class="dis">🇫🇷 Français</span>
+  </span>
+  <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
+</div>
+
+<div class="bc">
+  {data.breadcrumb.map((b, i) => (
+    <>
+      {b.href ? <a href={link(b.href)}>{b.name}</a> : <span>{b.name}</span>}
+      {i < data.breadcrumb.length - 1 ? ' › ' : ''}
+    </>
+  ))}
+</div>
+
+<div class="hero">
+  <div class="hero-bg" style={`background-image:url('${asset(data.heroImg)}')`}></div>
+  <div class="hero-ov"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">{data.heroEyebrow}</div>
+    <h1 set:html={data.h1}></h1>
+    <p class="hero-sub">{data.heroSub}</p>
+    <div class="hero-stats">
+      {data.heroStats.map((s) => <div class="stat-pill" set:html={s}></div>)}
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  {author && (
+    <div class="byline-strip rv">
+      <div class="byline-avatar">
+        {author.avatar
+          ? <img src={asset(author.avatar)} alt={author.name || 'Author'} loading="lazy" onerror="this.parentElement.innerHTML=(this.parentElement.dataset.fallback||'W')" data-fallback={(author.name || 'W').charAt(0)} />
+          : <span>{(author.name || 'W').charAt(0)}</span>}
+      </div>
+      <div class="byline-text">
+        <div class="byline-name">
+          {author.url
+            ? <a href={link(author.url.replace(/^https?:\/\/[^/]+/, ''))}>{author.name}</a>
+            : <span>{author.name}</span>}
+        </div>
+        {author.jobTitle && <div class="byline-job">{author.jobTitle}</div>}
+      </div>
+      <div class="byline-meta">
+        {(data as any).publishedDate && <span><strong>{S.bylinePublished}:</strong> {(data as any).publishedDate}</span>}
+        {(data as any).modifiedDate && <span><strong>{S.bylineUpdated}:</strong> {(data as any).modifiedDate}</span>}
+        {(data as any).readTime && <span><strong>{S.bylineReadTime}:</strong> {(data as any).readTime}</span>}
+      </div>
+    </div>
+  )}
+
+  {(data as any).quickAnswerHtml && (
+    <aside class="quick-answer rv">
+      <div class="qa-eyebrow">{S.quickAnswerEyebrow}</div>
+      {(data as any).quickAnswerH2 && <h2>{(data as any).quickAnswerH2}</h2>}
+      <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
+    </aside>
+  )}
+
+  <div class="intro-block rv">
+    <h2 set:html={data.introH2}></h2>
+    <p set:html={data.introHtml}></p>
+  </div>
+
+  {((data as any).methodologyHtml || (data as any).lastVerifiedHtml || (data as any).disclosureHtml) && (
+    <div class="article-meta-box rv">
+      <span class="article-meta-label">{S.methodologyLabel}</span>
+      {(data as any).methodologyHtml && (
+        <div class="article-meta-row" set:html={(data as any).methodologyHtml}></div>
+      )}
+      {(data as any).lastVerifiedHtml && (
+        <div class="article-meta-row" set:html={(data as any).lastVerifiedHtml}></div>
+      )}
+      {(data as any).disclosureHtml && (
+        <div class="article-meta-row" set:html={(data as any).disclosureHtml}></div>
+      )}
+    </div>
+  )}
+
+  {(data as any).compareTopRows && (data as any).compareTopRows.length > 0 && (
+    <section class="compare-top rv">
+      {(data as any).compareTitleTop && <div class="compare-title">{(data as any).compareTitleTop}</div>}
+      <div class="table-wrap">
+        <table>
+          {(data as any).compareTopCols && (data as any).compareTopCols.length > 0 && (
+            <thead>
+              <tr>{(data as any).compareTopCols.map((c: string) => <th>{c}</th>)}</tr>
+            </thead>
+          )}
+          <tbody>
+            {(data as any).compareTopRows.map((r: any) => (
+              <tr>
+                {r.rank !== undefined && <td><span class="ct-rank">{r.rank}</span></td>}
+                {r.name !== undefined && <td><strong set:html={r.name}></strong>{r.type ? <div style="font-size:11.5px;color:#9aa7b8;margin-top:2px">{r.type}</div> : null}</td>}
+                {r.score !== undefined && <td style="font-weight:700;color:#c0521e;white-space:nowrap">{r.score}</td>}
+                {r.price !== undefined && <td style="font-weight:700;color:#1b5e20;white-space:nowrap">{r.price}</td>}
+                {(r.bestFor !== undefined || r.access !== undefined) && <td style="font-size:12.25px;color:#5b6b82">{r.bestFor || r.access}</td>}
+                {r.badge !== undefined && !r.url && <td>{r.badge ? <span class="best-badge" style={r.badgeStyle}>{r.badge}</span> : ''}</td>}
+                {r.url !== undefined && <td><a class="ct-book" href={r.url} target="_blank" rel="sponsored noopener nofollow">Book →</a></td>}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  <div class="mrt-box">
+    <div class="mrt-icon">🚇</div>
+    <div class="mrt-content" set:html={data.mrtHtml}></div>
+  </div>
+
+  <div class="toc-wrap">
+    <div class="toc-title">{S.tocTitle}</div>
+    <div class="toc-grid">
+      {data.toc.map((t, i) => (
+        <a href={`#${data.entries[i].id}`} class="toc-item">
+          <span class="toc-n" style={`background:${t.color}`}>{t.n}</span>
+          <span class="toc-nm" set:html={t.name}></span>
+          <span class="toc-p">{t.price}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="sec-label"><span>{data.secLabel}</span></div>
+
+  {data.entries.map((e) => (
+    <article class="hotel-entry rv" id={e.id}>
+      <div class="entry-header">
+        <div class="rank-num" style={`background:${e.rankColor}`}>{e.rank}</div>
+        <div class="entry-header-info">
+          <div class="entry-type">{e.type}</div>
+          <h2 class="entry-name" set:html={e.name}></h2>
+          <div class="entry-meta-row">
+            <span class="score-pill">★ {e.score}/10</span>
+            <span class="stars-text">{e.stars}</span>
+            <span class="rev-count">{e.revCount}</span>
+          </div>
+        </div>
+        {e.badge && <div class="entry-badge" style={`background:${e.badgeColor}`}>{e.badge}</div>}
+      </div>
+      <div class="entry-body">
+        <div class="entry-img-col">
+          <div class="img-wrap">
+            <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
+            <div class="img-overlay"><div class="mrt-tag">{e.mrtTag}</div></div>
+            <a class="rd-img-book" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
+          </div>
+          <div class="price-block">
+            <div class="price-label-sm">{S.priceLabel}</div>
+            <div class="price-big">{e.priceBig}</div>
+            <div class="price-sub">{e.priceSub}</div>
+          </div>
+          <div class="rooms-list">
+            {e.rooms.map((r) => (
+              <div class="room-opt"><span class="room-type">{r.type}</span><span class="room-price">{r.price}</span></div>
+            ))}
+          </div>
+          <a class="btn-main" href={e.agodaUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
+          <a class="btn-sec" href={e.bookingUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
+          <a class="btn-trip" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
+          {e.reviewUrl && <a class="btn-text" href={link(e.reviewUrl)}>{S.btnText}</a>}
+        </div>
+        <div class="entry-content-col">
+          <div class="tags-row">
+            {e.tags.map((t, i) => <span class={`tag c${i % 4}`}>{t}</span>)}
+          </div>
+          <div class="addr-row">📍 {e.addr}</div>
+          <p class="story-text" set:html={e.storyHtml}></p>
+          <div class="tip-box" set:html={e.tipHtml}></div>
+          <div class="pros-cons-grid">
+            <div class="pros-box">
+              <div class="pc-title p">{S.prosTitle}</div>
+              <ul class="pc-list pros-list">{e.pros.map((p) => <li>✓ {p}</li>)}</ul>
+            </div>
+            <div class="cons-box">
+              <div class="pc-title c">{S.consTitle}</div>
+              <ul class="pc-list cons-list">{e.cons.map((c) => <li>✗ {c}</li>)}</ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="entry-divider"><span>{e.dividerText}</span></div>
+    </article>
+  ))}
+
+  {(data as any).compareInsightsHtml && (
+    <section class="compare-insights rv">
+      {(data as any).compareInsightsTitle && <h2>{(data as any).compareInsightsTitle}</h2>}
+      <div class="compare-insights-body" set:html={(data as any).compareInsightsHtml}></div>
+    </section>
+  )}
+
+  <div class="compare-section rv">
+    <div class="compare-title">{data.compareTitle}</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>{data.compareCols.map((c) => <th>{c}</th>)}</tr>
+        </thead>
+        <tbody>
+          {data.compareRows.map((r) => (
+            <tr>
+              <td><span class="t-rank" style={`background:${r.rankColor}`}>{r.rank}</span></td>
+              <td><strong set:html={r.name}></strong></td>
+              <td>{r.type}</td>
+              <td style="font-weight:700;color:#c0521e;">{r.score}</td>
+              <td style="font-weight:700;color:#1b5e20;">{r.price}</td>
+              <td style="font-size:12px;">{r.access}</td>
+              <td>{r.badge ? <span class="best-badge" style={r.badgeStyle}>{r.badge}</span> : ''}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="advice-section rv">
+    <div class="advice-title">{data.adviceTitle}</div>
+    <div class="advice-grid">
+      {data.advice.map((a) => (
+        <div class="advice-card">
+          <div class="advice-icon">{a.icon}</div>
+          <div class="advice-head">{a.head}</div>
+          <div class="advice-body" set:html={a.bodyHtml}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {(data as any).personaClosingHtml && (
+    <section class="persona-closing rv">
+      {(data as any).personaClosingTitle && <h2>{(data as any).personaClosingTitle}</h2>}
+      <div class="persona-body" set:html={(data as any).personaClosingHtml}></div>
+    </section>
+  )}
+
+  <div class="note-box" set:html={data.noteHtml}></div>
+
+</div>
+
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-eyebrow">{S.faqEyebrow}</div>
+    <h2 class="faq-h2" set:html={data.faqTitle}></h2>
+    {data.faq.map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+{sources.length > 0 && (
+  <div class="page-wrap">
+    <div class="sources-box rv">
+      <h2>{S.sourcesTitle}</h2>
+      <ul class="sources-list">
+        {sources.map((s: any) => {
+          const sp = splitSource(s);
+          return (
+            <li>
+              {sp.url
+                ? <><span class="src-label">{sp.label}</span> — <a href={sp.url} target="_blank" rel="nofollow noopener">{sp.url}</a></>
+                : <span class="src-label">{sp.label}</span>}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+)}
+
+{author && (
+  <div class="page-wrap">
+    <aside class="author-bio-box rv">
+      <div class="author-bio-avatar">
+        {author.avatar
+          ? <img src={asset(author.avatar)} alt={author.name || 'Author'} loading="lazy" onerror="this.parentElement.innerHTML=(this.parentElement.dataset.fallback||'W')" data-fallback={(author.name || 'W').charAt(0)} />
+          : <span>{(author.name || 'W').charAt(0)}</span>}
+      </div>
+      <div class="author-bio-content">
+        <div class="author-bio-eyebrow">{S.aboutAuthorTitle}</div>
+        <div class="author-bio-name">
+          {author.url
+            ? <a href={link(author.url.replace(/^https?:\/\/[^/]+/, ''))}>{author.name}</a>
+            : <span>{author.name}</span>}
+        </div>
+        {author.jobTitle && <div class="author-bio-job">{author.jobTitle}</div>}
+        {authorBio && <p class="author-bio-text">{authorBio}</p>}
+        {author.tagline && <p class="author-bio-tagline">“{author.tagline}”</p>}
+        {author.url && (
+          <a class="author-bio-link" href={link(author.url.replace(/^https?:\/\/[^/]+/, ''))}>
+            {isEn ? 'More about the author →' : 'อ่านเพิ่มเติมเกี่ยวกับผู้เขียน →'}
+          </a>
+        )}
+      </div>
+    </aside>
+  </div>
+)}
+
+{wc && (
+<section style="max-width:1080px;margin:8px auto 0;padding:0 24px">
+  <div style="background:linear-gradient(135deg,#0d2747 0%,#1e5fa8 100%);border-radius:18px;padding:28px 30px;color:#fff">
+    <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#ffd98a;margin-bottom:8px">⚽ FIFA World Cup 2026</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:500;margin:0 0 8px;color:#fff;line-height:1.2">{isEn ? `Going to ${wc.en} for the World Cup?` : `ไปดูบอลโลก 2026 ที่${wc.th}?`}</h2>
+    <p style="font-size:15px;line-height:1.7;margin:0 0 18px;color:rgba(255,255,255,.9);max-width:680px">{isEn ? `${wc.en} is a 2026 host city. Read the full guide — match schedule, where to stay, tickets and visa — plus exactly how to get to ${wc.stn} on match day.` : `${wc.th}เป็นเมืองเจ้าภาพฟุตบอลโลก 2026 — อ่านคู่มือฉบับเต็ม (ตารางแมตช์ ที่พัก ตั๋ว วีซ่า) พร้อมวิธีไปสนาม ${wc.stn} วันแข่งแบบละเอียด`}</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href={link(`city-${wcCity}-world-cup.html`)} style="display:inline-block;background:#FF6B35;color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:30px">{isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`}</a>
+      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:30px">{isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`}</a>
+    </div>
+  </div>
+</section>
+)}
+
+<footer class="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo">Thailand<em>Addict</em></div>
+      <div class="ft-tag">{S.ftTag}</div>
+      <p class="ft-desc">{S.ftDesc}</p>
+      <div class="ft-social">
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="Facebook">👥</a>
+        <a href="#" title="TikTok">🎵</a>
+        <a href="#" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftHeadDest}</h4>
+      <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
+      <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
+      <a href={link('city-taipei.html')}>🏙️ Taipei</a>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftHeadReviews}</h4>
+      <a href={link('top12-hostel-taipei.html')}>{S.ftR1}</a>
+      <a href={link('country-thailand.html')}>{S.ftR2}</a>
+      <a href={link('top5-stay-cingjing-farm.html')}>{S.ftR3}</a>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftHeadAbout}</h4>
+      <a href={link('about.html')}>About ThailandAddict</a>
+      <a href={link('editorial-policy.html')}>Editorial Policy</a>
+      <a href={link('contact.html')}>Contact</a>
+      <a href={link('privacy.html')}>Privacy Policy</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>{S.ftBottom}</span>
+    <div style="display:flex;gap:16px"><a href={link('privacy.html')}>Privacy</a><a href={link('editorial-policy.html')}>Editorial Policy</a></div>
+  </div>
+  <div class="ft-aff">{S.ftAff}</div>
+</footer>
+<div class="mbar">
+  <a class="m1" href="https://www.agoda.com/?cid=1965862" target="_blank" rel="sponsored noopener">{S.mbarBook}</a>
+  <a class="m2" href={`#${data.entries[0].id}`}>{S.mbarAll}</a>
+</div>
+
+<script is:inline>
+(function(){
+  var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');
+  if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}
+  var nav=document.getElementById('nav');
+  if(nav){
+    var toggle=function(){nav.classList.toggle('solid',window.scrollY>80);};
+    toggle();
+    window.addEventListener('scroll',toggle,{passive:true});
+  }
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.07});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>

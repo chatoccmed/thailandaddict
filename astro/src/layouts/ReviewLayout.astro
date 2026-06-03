@@ -1,0 +1,759 @@
+---
+import '../styles/review.css';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  data: CollectionEntry<'reviews'>['data'];
+  lang?: 'th' | 'en';
+}
+const { data, lang = 'th' } = Astro.props;
+const isEn = lang === 'en';
+
+const SITE = 'https://thailandaddict.com';
+const base = isEn ? `${SITE}/en` : SITE;
+const url = `${base}/${data.slug}`;
+const imgAbs = `${SITE}/${data.image}`;
+const today = '2026-05-17';
+
+// Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
+// and the .html suffix stripped (clean URL).
+const link = (h: string) => {
+  if (h === '/' || h === '') return isEn ? '/en/' : '/';
+  return isEn ? `/en/${h.replace(/\.html$/, '')}` : h;
+};
+
+// Asset (image) helper: force a root-absolute path so images resolve
+// correctly from both / (Thai) and /en/ (English) pages.
+const asset = (p: string) => (/^(https?:)?\//.test(p) ? p : `/${p}`);
+
+// Browser-tab title: lead with the hotel name so the tab is identifiable.
+// Many titles are benefit-led with the hotel name buried at the end — the tab
+// truncates before reaching it. Reorder to "{name} — {hook} | ThailandAddict",
+// dropping the trailing segment that already carries the name to avoid repeats.
+const tabTitle = (() => {
+  const raw = (data.title || data.name || '').trim();
+  const brand = /\|\s*ThailandAddict\s*$/i.test(raw) ? ' | ThailandAddict' : '';
+  const core = raw.replace(/\s*\|\s*ThailandAddict\s*$/i, '').trim();
+  const baseName = (data.name || '').replace(/\s*[\(（].*?[\)）]\s*$/, '').trim();
+  if (!baseName || core.startsWith(baseName)) return core + brand;
+  const parts = core.split(' — ');
+  const hookParts = parts.filter((p) => !p.includes(baseName));
+  const hook = (hookParts.length ? hookParts : parts).join(' — ');
+  return `${baseName} — ${hook}${brand}`;
+})();
+
+// UI strings
+const S = {
+  th: {
+    navDest: 'จุดหมาย', navAbout: 'เกี่ยวกับเรา', navCta: 'ค้นหาที่พัก',
+    mmHome: 'หน้าแรก', mmContact: 'ติดต่อ',
+    bcHome: 'หน้าแรก', bcTaiwan: 'ไทย',
+    heroMore: '+ ดูภาพทั้งหมด',
+    qiType: 'ประเภท', qiScore: 'คะแนนรีวิว', qiPrice: 'ราคาเริ่มต้น', qiRooms: 'ห้องพัก',
+    qiBook: 'จองเลย →', qiWish: '♡ บันทึก',
+    secReview: 'Review · รีวิว',
+    updateChip: '📅 อัปเดตล่าสุด พฤษภาคม 2026 · ตรวจสอบราคาและข้อมูลแล้ว',
+    bylineName: 'รีวิวโดย ทีมบรรณาธิการ ThailandAddict', bylineBadge: '✓ ตรวจสอบข้อมูลแล้ว',
+    bylineText: 'ทีมงานมีประสบการณ์รีวิวโรงแรมและทำเว็บท่องเที่ยวมากกว่า 10 ปี — รีวิวนี้ประมวลจากรีวิวแขกจริงหลายร้อยรายการบน Booking &amp; Agoda ผสานกับการตรวจสอบทำเล ราคา และข้อมูลห้องพักโดยทีมงาน · ',
+    bylineLink: 'วิธีการรีวิวของเรา →',
+    secGallery: 'Gallery · ภาพโรงแรมและสถานที่', galleryMore: 'ภาพทั้งหมด',
+    secBody: 'บทวิจารณ์จากทีมงาน · Our Full Review',
+    secRating: 'คะแนนของเรา · Our Rating', ratingOut: 'จาก 10 คะแนน',
+    secGuest: 'สรุปจากแขกจริง · Guest Reviews Summary',
+    prCount: 'หลายร้อยรีวิว', prPros: '✦ จุดเด่น', prCons: '◎ ข้อสังเกต',
+    secHonest: 'ความเห็นตรงๆ · Honest Take',
+    htTitle: 'ที่นี่ <em>เหมาะกับคุณมาก</em> ถ้า...',
+    htChecksLbl: '💡 เช็กให้ชัวร์ก่อนจอง',
+    htChecksSub: '3 จุดนี้สำคัญกับบางคน — ดูให้ชัวร์ว่าตรงกับทริปคุณไหม (เราใส่ทางแก้ไว้ให้แล้ว)',
+    pwLbl: 'ราคาโดยประมาณ · เทียบ 3 เว็บ', pwPer: '/ คืน',
+    pwFromSuffix: ' · ราคาเริ่มต้นโดยประมาณ',
+    pwCtaH: '⚖️ เทียบราคา 3 เว็บ — แล้วจองที่ถูกที่สุด', pwCheck: 'เช็กราคา →',
+    secTips: 'Insider Tips · เคล็ดลับจากทีมงาน',
+    sideInfo: 'ข้อมูลโรงแรม', sideLoc: 'ที่ตั้งและการเดินทาง',
+    mapAlt: 'แผนที่บริเวณโรงแรม', sideNearby: 'จุดใกล้เคียง',
+    ftDesc: 'รีวิวโรงแรมและที่เที่ยวทั่วโลก โดยผู้เชี่ยวชาญ พร้อมราคาจริงและลิงก์จองตรง ไม่มีโฆษณาแฝง',
+    ftDest: 'จุดหมาย', ftContent: 'Content', ftAbout: 'เกี่ยวกับ',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · อัปเดตล่าสุด พ.ค. 2026',
+    ftAff: '⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ',
+    mbarBook: '🔴 จองผ่าน Agoda', mbarAll: 'ดูรีวิวทั้งหมด', rvAgoda: 'เช็คดีลสมาชิก', rvBooking: 'ดูห้องว่างล่าสุด', rvTrip: 'เทียบราคา จ่ายทีหลัง', rvFrom: 'เริ่ม', rvRef: 'ราคาอ้างอิง · กดดูราคาจริง', imgBook: '🛏️ ดูห้องว่าง · เช็กราคา',
+    tsLabel: 'ตรวจสอบข้อมูลล่าสุด: ', locale: 'th-TH',
+    twSuffix: '— รีวิว | ThailandAddict',
+  },
+  en: {
+    navDest: 'Destinations', navAbout: 'About', navCta: 'Find a Hotel',
+    mmHome: 'Home', mmContact: 'Contact',
+    bcHome: 'Home', bcTaiwan: 'Thailand',
+    heroMore: '+ View all photos',
+    qiType: 'Type', qiScore: 'Review Score', qiPrice: 'From', qiRooms: 'Rooms',
+    qiBook: 'Book now →', qiWish: '♡ Save',
+    secReview: 'Review',
+    updateChip: '📅 Last updated May 2026 · Prices &amp; info verified',
+    bylineName: 'Reviewed by the ThailandAddict Editorial Team', bylineBadge: '✓ Fact-checked',
+    bylineText: 'Our team has 10+ years of experience reviewing hotels and running travel sites — this review draws on hundreds of real guest reviews on Booking &amp; Agoda, combined with our own checks on location, pricing and room details. · ',
+    bylineLink: 'Our review methodology →',
+    secGallery: 'Gallery · Hotel &amp; Area Photos', galleryMore: 'all photos',
+    secBody: 'Our Full Review',
+    secRating: 'Our Rating', ratingOut: 'out of 10',
+    secGuest: 'Guest Reviews Summary',
+    prCount: 'hundreds of reviews', prPros: '✦ Pros', prCons: '◎ Things to note',
+    secHonest: 'Honest Take',
+    htTitle: 'This place is <em>a great fit</em> if...',
+    htChecksLbl: '💡 Check before you book',
+    htChecksSub: 'These 3 points matter to some travellers — make sure they fit your trip (we have added the workaround).',
+    pwLbl: 'Estimated price · compare 3 sites', pwPer: '/ night',
+    pwFromSuffix: ' · estimated starting price',
+    pwCtaH: '⚖️ Compare 3 sites — then book the cheapest', pwCheck: 'Check price →',
+    secTips: 'Insider Tips',
+    sideInfo: 'Hotel Info', sideLoc: 'Location &amp; Getting There',
+    mapAlt: 'Hotel area map', sideNearby: 'Nearby',
+    ftDesc: 'Hotel and destination reviews worldwide, by experts — with real prices and direct booking links. No hidden ads.',
+    ftDest: 'Destinations', ftContent: 'Content', ftAbout: 'About',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Last updated May 2026',
+    ftAff: '⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you.',
+    mbarBook: '🔴 Book via Agoda', mbarAll: 'See all reviews', rvAgoda: 'Member deals', rvBooking: 'Latest availability', rvTrip: 'Compare · pay later', rvFrom: 'From', rvRef: 'reference · tap for live price', imgBook: '🛏️ Check availability',
+    tsLabel: 'Last checked: ', locale: 'en-US',
+    twSuffix: '— Review | ThailandAddict',
+  },
+}[lang];
+
+const ratingCountText = isEn
+  ? `Based on ${data.ratingCount}+ reviews`
+  : `รวม ${data.ratingCount}+ รีวิว`;
+const guestH2 = isEn ? 'Summary from <em>Booking &amp; Agoda</em>' : 'สรุปจาก <em>Booking &amp; Agoda</em>';
+
+// ── Interleave the review's own photos through the body, so the long review
+// text isn't a wall of words. We reuse the images the review already ships
+// (no new data needed): gallery shots first, then the hero sub-images and the
+// map thumb. Images are de-duplicated, so the same photo is never repeated in
+// the body, and we only interleave when there are at least 2 distinct photos.
+const bodyImgPool = [...new Set([
+  ...(data.gallery ?? []),
+  data.heroSub2, data.heroSub1, data.mapImg,
+].filter(Boolean))];
+const altForBodyImg = (src) => {
+  const gi = (data.gallery ?? []).indexOf(src);
+  if (gi >= 0 && data.galleryAlts?.[gi]) return data.galleryAlts[gi];
+  if (src === data.heroSub1 && data.galleryAlts?.[0]) return data.galleryAlts[0];
+  if (src === data.heroSub2 && data.galleryAlts?.[1]) return data.galleryAlts[1];
+  return data.name;
+};
+const bodyFlow = [];
+{
+  const blocks = data.body ?? [];
+  const canImg = bodyImgPool.length >= 2 && blocks.length >= 3;
+  // roughly one photo every two paragraphs, capped by how many distinct photos exist
+  const nImgs = canImg ? Math.min(bodyImgPool.length, Math.max(1, Math.floor(blocks.length / 2))) : 0;
+  const afterIdx = new Set();
+  for (let i = 1; i <= nImgs; i++) {
+    let a = Math.round((i * blocks.length) / (nImgs + 1)) - 1; // 0-based block to insert AFTER
+    a = Math.min(Math.max(a, 0), blocks.length - 2);           // never after the final block
+    afterIdx.add(a);
+  }
+  let pi = 0;
+  blocks.forEach((b, idx) => {
+    bodyFlow.push({ kind: b.kind, html: b.html });
+    if (afterIdx.has(idx) && pi < bodyImgPool.length) {
+      const src = bodyImgPool[pi++];
+      bodyFlow.push({ kind: 'img', src, alt: altForBodyImg(src) });
+    }
+  });
+}
+
+// World Cup 2026 cross-link: connect host-city hotel reviews to the WC city
+// guide + the stadium transport page (closes the review<->WC silo).
+const WC_CITY = {
+  atlanta:{th:'แอตแลนตา',en:'Atlanta',st:'mercedes-benz-stadium',stn:'Mercedes-Benz Stadium'},
+  boston:{th:'บอสตัน',en:'Boston',st:'gillette-stadium',stn:'Gillette Stadium'},
+  dallas:{th:'ดัลลัส',en:'Dallas',st:'att-stadium',stn:'AT&T Stadium'},
+  houston:{th:'ฮูสตัน',en:'Houston',st:'nrg-stadium',stn:'NRG Stadium'},
+  'kansas-city':{th:'แคนซัสซิตี้',en:'Kansas City',st:'arrowhead-stadium',stn:'Arrowhead Stadium'},
+  'los-angeles':{th:'ลอสแอนเจลิส',en:'Los Angeles',st:'sofi-stadium',stn:'SoFi Stadium'},
+  miami:{th:'ไมอามี',en:'Miami',st:'hard-rock-stadium',stn:'Hard Rock Stadium'},
+  'new-york':{th:'นิวยอร์ก',en:'New York',st:'metlife-stadium',stn:'MetLife Stadium'},
+  philadelphia:{th:'ฟิลาเดลเฟีย',en:'Philadelphia',st:'lincoln-financial-field',stn:'Lincoln Financial Field'},
+  'san-francisco':{th:'ซานฟรานซิสโก',en:'San Francisco',st:'levis-stadium',stn:"Levi's Stadium"},
+  seattle:{th:'ซีแอตเทิล',en:'Seattle',st:'lumen-field',stn:'Lumen Field'},
+  'mexico-city':{th:'เม็กซิโกซิตี้',en:'Mexico City',st:'estadio-azteca',stn:'Estadio Azteca'},
+  guadalajara:{th:'กวาดาลาฮารา',en:'Guadalajara',st:'estadio-akron',stn:'Estadio Akron'},
+  monterrey:{th:'มอนเตร์เรย์',en:'Monterrey',st:'estadio-bbva',stn:'Estadio BBVA'},
+  toronto:{th:'โตรอนโต',en:'Toronto',st:'bmo-field',stn:'BMO Field'},
+  vancouver:{th:'แวนคูเวอร์',en:'Vancouver',st:'bc-place-vancouver',stn:'BC Place'},
+};
+const wc = WC_CITY[data.cluster] || null;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Hotel',
+      '@id': `${url}#hotel`,
+      name: data.name,
+      description: data.schemaDesc,
+      starRating: { '@type': 'Rating', ratingValue: String(data.starRating) },
+      aggregateRating: {
+        '@type': 'AggregateRating', ratingValue: String(data.score),
+        bestRating: '10', worstRating: '1', ratingCount: String(data.ratingCount),
+      },
+      address: {
+        '@type': 'PostalAddress', streetAddress: data.streetAddress,
+        addressLocality: data.addressLocality, addressCountry: data.addressCountry,
+      },
+      priceRange: data.priceRange,
+      image: imgAbs,
+      url,
+    },
+    {
+      '@type': 'Review', '@id': `${url}#review`,
+      itemReviewed: { '@id': `${url}#hotel` },
+      reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
+      author: { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE },
+      publisher: { '@type': 'Organization', name: 'ThailandAddict', logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
+      datePublished: today, dateModified: today,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'ThailandAddict', item: base },
+        { '@type': 'ListItem', position: 2, name: data.crumbCityName ?? S.bcTaiwan, item: data.crumbCityHref ? `${base}/${data.crumbCityHref.replace(/\.html$/, '')}` : `${base}/country-thailand` },
+        { '@type': 'ListItem', position: 3, name: data.parentCrumbName, item: data.parentCrumbUrl },
+        { '@type': 'ListItem', position: 4, name: data.name, item: url },
+      ],
+    },
+    {
+      '@type': 'WebPage', '@id': url, url, name: data.title,
+      description: data.metaDesc, inLanguage: lang, isPartOf: { '@id': SITE },
+      datePublished: today, dateModified: today,
+    },
+  ],
+};
+const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234A90E2'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
+---
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{tabTitle}</title>
+<meta name="description" content={data.metaDesc} />
+<meta name="keywords" content={data.keywords} />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+<link rel="canonical" href={url} />
+<link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
+<link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+<link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
+<meta property="og:title" content={data.ogTitle} />
+<meta property="og:description" content={data.ogDesc} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ThailandAddict" />
+<meta property="og:image" content={imgAbs} />
+<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={`${data.name} ${S.twSuffix}`} />
+<meta name="twitter:description" content={data.twDesc} />
+<meta name="theme-color" content="#4A90E2" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,500&family=Outfit:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/svg+xml" href={favSvg} />
+<link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<style>
+.lang-sw{display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;border:1.5px solid #4A90E2;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
+.lang-sw a,.lang-sw .dis{padding:5px 9px;text-decoration:none;line-height:1.5;}
+.lang-sw a{color:#4A90E2;background:#fff;transition:background .15s;}
+.lang-sw a:hover{background:#EBF4FF;}
+.lang-sw a.on{background:#4A90E2;color:#fff;}
+.lang-sw a.on:hover{background:#2f6fc0;}
+.lang-sw .dis{color:#b8c4d4;background:#f4f6f9;cursor:not-allowed;}
+.mm-lang{margin:10px 0 4px;font-size:13px;align-self:flex-start;flex-wrap:wrap;}
+.mm-lang a,.mm-lang .dis{padding:8px 13px;}
+/* FAQ section — placed after main review body, before footer */
+.rv-faq{background:linear-gradient(180deg,#fff 0%,#f6f8fb 100%);padding:54px 24px 60px;border-top:1px solid #e8edf3}
+.rv-faq-wrap{max-width:880px;margin:0 auto}
+.rv-faq-title{font-family:'Fraunces',serif;font-size:32px;font-weight:500;color:#15233b;line-height:1.2;margin-bottom:26px;text-align:center}
+@media(max-width:560px){.rv-faq{padding:38px 18px 44px}.rv-faq-title{font-size:24px;margin-bottom:18px}}
+.rv-faq-list{display:flex;flex-direction:column;gap:12px}
+.rv-faq-item{background:#fff;border:1px solid #e8edf3;border-radius:14px;padding:0;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.rv-faq-item[open]{border-color:#4A90E2;box-shadow:0 4px 18px rgba(20,40,80,.06)}
+.rv-faq-q{cursor:pointer;list-style:none;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;font-family:'Sarabun','Outfit',sans-serif;font-size:16.5px;font-weight:600;color:#15233b;line-height:1.45}
+.rv-faq-q::-webkit-details-marker{display:none}
+.rv-faq-q-text{flex:1}
+.rv-faq-q-icon{font-family:'Outfit',sans-serif;font-size:22px;font-weight:300;color:#4A90E2;flex-shrink:0;transition:transform .25s}
+.rv-faq-item[open] .rv-faq-q-icon{transform:rotate(45deg)}
+.rv-faq-a{padding:0 22px 20px;font-family:'Sarabun',sans-serif;font-size:15.5px;line-height:1.75;color:#5b6b82}
+.rv-faq-a strong{color:#15233b}
+.rv-faq-a a{color:#4A90E2;text-decoration:underline;text-underline-offset:2px}
+.rv-faq-a a:hover{color:#2f6fc0}
+@media(max-width:560px){.rv-faq-q{padding:15px 18px;font-size:15.5px}.rv-faq-a{padding:0 18px 16px;font-size:14.5px}}
+/* Inline body photos — break up the long review text */
+.rv-body-fig{margin:30px 0;border-radius:14px;overflow:hidden;box-shadow:var(--sh);background:#eef1f5}
+.rv-body-fig .rv-body-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;display:block}
+.rv-body-fig figcaption{font-family:'Sarabun',sans-serif;font-size:12.5px;color:var(--sub);padding:9px 14px;background:#fff;border-top:1px solid var(--bdr);line-height:1.5}
+@media(max-width:560px){.rv-body-fig{margin:22px 0}.rv-body-fig .rv-body-img{aspect-ratio:4/3}}
+.rv-body-imgwrap{position:relative;display:block}
+.rv-body-fig .rv-body-book{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;padding:11px;text-decoration:none}
+.rv-body-fig .rv-body-book span{background:rgba(255,255,255,.95);color:#2f6fc0;font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.22);transition:transform .15s,box-shadow .2s}
+.rv-body-fig .rv-body-book:hover span{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.26)}
+</style>
+<!-- ad/monetization tag removed — add ThailandAddict's own here later -->
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href={link('/')} class="logo">Thailand<em>Addict</em></a>
+  <div class="nav-mid">
+    <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
+    <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
+    <a href={link('about.html')}>{S.navAbout}</a>
+  </div>
+  <div class="nav-r">
+    <span class="lang-sw">
+      <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th" aria-label="ภาษาไทย">TH</a>
+      <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">中文</span>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">ES</span>
+      <span class="dis" title="เร็วๆ นี้ · Coming soon">FR</span>
+    </span>
+    <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
+    <button class="hb" id="hb">☰</button>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <div class="mm-top">
+    <a href={link('/')} class="logo">Thailand<em>Addict</em></a>
+    <button class="mm-x" id="mmx">✕</button>
+  </div>
+  <a href={link('/')}>{S.mmHome}</a>
+  <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
+  <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
+  <a href={link('about.html')}>{S.navAbout}</a>
+  <a href={link('contact.html')}>{S.mmContact}</a>
+  <span class="lang-sw mm-lang">
+    <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th">🇹🇭 ไทย</a>
+    <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en">🇬🇧 English</a>
+    <span class="dis">🇨🇳 中文</span>
+    <span class="dis">🇪🇸 Español</span>
+    <span class="dis">🇫🇷 Français</span>
+  </span>
+  <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
+</div>
+<div class="breadcrumb"><a href={link('/')}>{S.bcHome}</a> › <a href={link(data.crumbCityHref ?? 'country-thailand.html')}>{data.crumbCityName ?? S.bcTaiwan}</a> › <a href={link(data.parentHref)}>{data.parentShort}</a> › <span>{data.name}</span></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div class="hero-main">
+      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
+      <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      <div class="hero-main-ov"></div>
+      <div class="hero-badges">
+        <span class="htag mid">{data.badgeMid}</span>
+        <span class="htag loc">{data.badgeLoc}</span>
+      </div>
+      <div class="hero-rating"><span class="s">★</span> {data.score} / 10</div>
+      <div class="hero-info">
+        <div class="hi-loc">{data.hiLoc}</div>
+        <div class="hi-name">{data.name}</div>
+        <div class="hi-tag">{data.hiTag}</div>
+      </div>
+    </div>
+    <div class="hero-sub">
+      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+    </div>
+    <div class="hero-sub-2" style="position:relative;">
+      <a href={data.heroSub2Href} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      <button class="hero-more-btn">{S.heroMore}</button>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Info Bar -->
+<div class="quick-bar">
+  <div class="qi-row">
+    <div class="qi">
+      <div class="qi-lbl">{S.qiType}</div>
+      <div class="qi-val" style="font-size:15px;font-family:'Sarabun',sans-serif;">{data.qiType}</div>
+    </div>
+    <div class="qi">
+      <div class="qi-lbl">{S.qiScore}</div>
+      <div class="qi-val">{data.score} <small>/ 10</small></div>
+    </div>
+    <div class="qi">
+      <div class="qi-lbl">{S.qiPrice}</div>
+      <div class="qi-val">{data.qiPrice} <small>{data.qiPriceUnit}</small></div>
+    </div>
+    <div class="qi">
+      <div class="qi-lbl">{S.qiRooms}</div>
+      <div class="qi-val" style="font-size:14px;font-family:'Sarabun',sans-serif;">{data.qiRooms}</div>
+    </div>
+    <div class="qi">
+      <div class="qi-lbl">{data.qiCol5Label}</div>
+      <div class="qi-val" style="font-size:14px;font-family:'Sarabun',sans-serif;" set:html={data.qiCol5Value + (data.qiCol5Small ? ` <small>${data.qiCol5Small}</small>` : '')}></div>
+    </div>
+    <div class="qi">
+      <a href="#book" class="btn-book">{S.qiBook}</a>
+      <button class="btn-wish">{S.qiWish}</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-body">
+<main>
+
+  <div class="fade-up" style="margin-bottom:36px;">
+    <div class="sec-label">{S.secReview}</div>
+    <div class="update-chip" set:html={S.updateChip}></div>
+    <h1 class="sec-title" set:html={data.h1}></h1>
+    <p class="review-intro" set:html={data.intro}></p>
+  </div>
+
+  <div class="fade-up byline">
+    <div class="byline-av">T</div>
+    <div>
+      <div class="byline-name">{S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
+      <div class="byline-text"><Fragment set:html={S.bylineText} /><a href={link('editorial-policy.html')}>{S.bylineLink}</a></div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery fade-up">
+    <div class="sec-label" set:html={S.secGallery}></div>
+    <div class="gal-main">
+      <div class="gp main-gp">
+        <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+      </div>
+      {data.gallery.map((g, i) => (
+        <div class="gp">
+          <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+        </div>
+      ))}
+      <a class="gp-more" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored">
+        <div class="n">+30</div>
+        <div>{S.galleryMore}</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Review Body -->
+  <div class="fade-up" style="margin-top:36px;">
+    <div class="sec-label">{S.secBody}</div>
+    <div class="review-body">
+      {bodyFlow.map((blk) => (
+        blk.kind === 'quote'
+          ? <div class="pull-quote"><p set:html={blk.html}></p></div>
+          : blk.kind === 'img'
+            ? (
+              <figure class="rv-body-fig">
+                <div class="rv-body-imgwrap">
+                  <img class="rv-body-img" src={asset(blk.src)} alt={blk.alt} loading="lazy" onerror="this.closest('.rv-body-fig').style.display='none'" />
+                  <a class="rv-body-book" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name}><span>{S.imgBook}</span></a>
+                </div>
+                {blk.alt ? <figcaption>{blk.alt}</figcaption> : null}
+              </figure>
+            )
+            : <p set:html={blk.html}></p>
+      ))}
+    </div>
+  </div>
+
+  <!-- Highlights -->
+  <div class="highlights fade-up">
+    {data.highlights.map((h) => (
+      <div class="hl-card"><div class="hl-icon">{h.icon}</div><div class="hl-title">{h.title}</div><div class="hl-text">{h.text}</div></div>
+    ))}
+  </div>
+
+  <!-- Rating -->
+  <div class="rating-box fade-up">
+    <div class="sec-label">{S.secRating}</div>
+    <div class="rating-top">
+      <div class="rating-big">
+        <div class="r-num" set:html={data.score.toFixed(1).replace(/\.(\d)/, '.<span>$1</span>')}></div>
+        <div class="r-stars">{Array.from({ length: data.starRating }).map(() => <span class="s">★</span>)}</div>
+        <div class="r-out">{S.ratingOut}</div>
+        <div class="r-count">{ratingCountText}</div>
+      </div>
+      <div class="r-bars">
+        {data.ratingBars.map((b) => (
+          <div class="rbar"><div class="rbar-lbl">{b.label}</div><div class="rbar-track"><div class="rbar-fill" style={`width:${b.width}%`}></div></div><div class="rbar-v">{b.value}</div></div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Platform Reviews -->
+  <div class="fade-up">
+    <div class="sec-label">{S.secGuest}</div>
+    <h2 class="sec-title" style="font-size:20px;" set:html={guestH2}></h2>
+    <div class="pr-grid">
+      <div class="pr-card">
+        <div class="pr-head">
+          <div class="pr-logo-row">
+            <div class="pr-logo booking">B.</div>
+            <div><div class="pr-nm">Booking.com</div><div class="pr-ct">{S.prCount}</div></div>
+          </div>
+          <div class="pr-sc">{data.booking.score} <small>/ 10</small></div>
+        </div>
+        <div class="pr-pos-lbl">{S.prPros}</div>
+        <ul class="pr-ul">
+          {data.booking.pros.map((p) => <li><span class="ic-g">✓</span> {p}</li>)}
+        </ul>
+        <div class="pr-neg-lbl">{S.prCons}</div>
+        <ul class="pr-ul">
+          {data.booking.cons.map((c) => <li><span class="ic-n">!</span> {c}</li>)}
+        </ul>
+      </div>
+      <div class="pr-card">
+        <div class="pr-head">
+          <div class="pr-logo-row">
+            <div class="pr-logo agoda">A</div>
+            <div><div class="pr-nm">Agoda</div><div class="pr-ct">{S.prCount}</div></div>
+          </div>
+          <div class="pr-sc">{data.agoda.score} <small>/ 10</small></div>
+        </div>
+        <div class="pr-pos-lbl">{S.prPros}</div>
+        <ul class="pr-ul">
+          {data.agoda.pros.map((p) => <li><span class="ic-g">✓</span> {p}</li>)}
+        </ul>
+        <div class="pr-neg-lbl">{S.prCons}</div>
+        <ul class="pr-ul">
+          {data.agoda.cons.map((c) => <li><span class="ic-n">!</span> {c}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Honest Take -->
+  <div class="fade-up" style="margin-top:32px;">
+    <div class="sec-label">{S.secHonest}</div>
+    <div class="ht-box">
+      <div class="ht-head">
+        <div class="ht-icon">🎯</div>
+        <div class="ht-title" set:html={S.htTitle}></div>
+      </div>
+      <div class="ht-summary" set:html={'✅ <strong>' + data.honestSummary + '</strong>'}></div>
+      <div class="ht-checks-lbl">{S.htChecksLbl}</div>
+      <div class="ht-checks-sub">{S.htChecksSub}</div>
+      <ul class="ht-list">
+        {data.honestChecks.map((c) => <li><span class="ic">💡</span><span set:html={c}></span></li>)}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Price Widget -->
+  <div id="book" class="pw fade-up">
+    <div class="pw-lbl"><span class="pw-dot"></span> {S.pwLbl}</div>
+    <div class="pw-price-row">
+      <div class="pw-price" id="cur-price">{data.rooms[0].price}</div>
+      <div class="pw-per">{S.pwPer}</div>
+    </div>
+    <div class="pw-from" id="cur-type">{data.rooms[0].full}{S.pwFromSuffix}</div>
+    <div class="pw-opts">
+      {data.rooms.map((r, i) => (
+        <div class={i === 0 ? 'pw-opt sel' : 'pw-opt'} data-price={r.price} data-type={r.full}>
+          <div class="pw-opt-nm">{r.name}</div>
+          <div class="pw-opt-pr">{r.price}</div>
+        </div>
+      ))}
+    </div>
+    <div class="pw-cta-h">{S.pwCtaH}</div>
+    <div class="pw-btns">
+      <button class="pw-btn agoda" data-href={data.bookingAgoda}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
+      <button class="pw-btn booking" data-href={data.bookingBooking}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
+      <button class="pw-btn trip" data-href={data.bookingTrip}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
+    </div>
+    <div class="pw-ts" id="price-ts"></div>
+  </div>
+
+  <!-- Tips -->
+  <div class="fade-up" style="margin-top:32px;">
+    <div class="sec-label">{S.secTips}</div>
+    <div class="tips-grid">
+      {data.tips.map((t) => (
+        <div class="tip-card"><div class="tip-icon">{t.icon}</div><div class="tip-title">{t.title}</div><div class="tip-body">{t.body}</div></div>
+      ))}
+    </div>
+  </div>
+
+  {wc && (
+  <div class="fade-up" style="margin-top:34px;background:linear-gradient(135deg,#0d2747 0%,#1e5fa8 100%);border-radius:16px;padding:26px 28px;color:#fff">
+    <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#ffd98a;margin-bottom:8px">⚽ FIFA World Cup 2026</div>
+    <h3 style="font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin:0 0 8px;color:#fff;line-height:1.25">{isEn ? `Heading to ${wc.en} for the World Cup?` : `มา${wc.th}ช่วงฟุตบอลโลก 2026?`}</h3>
+    <p style="font-size:14.5px;line-height:1.7;margin:0 0 16px;color:rgba(255,255,255,.9);max-width:640px">{isEn ? `${wc.en} is a 2026 host city — see our full World Cup guide (matches, where to stay, tickets, visa) plus how to reach ${wc.stn} on match day.` : `${wc.th}เป็นเมืองเจ้าภาพฟุตบอลโลก 2026 — ดูคู่มือฉบับเต็ม (แมตช์ ที่พัก ตั๋ว วีซ่า) พร้อมวิธีไปสนาม ${wc.stn} วันแข่ง`}</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a href={link(`city-${data.cluster}-world-cup.html`)} style="display:inline-block;background:#FF6B35;color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:30px">{isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`}</a>
+      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:30px">{isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`}</a>
+    </div>
+  </div>
+  )}
+
+</main>
+
+<!-- SIDEBAR -->
+<aside>
+  <div class="side-card">
+    <div class="side-title">{S.sideInfo}</div>
+    {data.info.map((row) => (
+      <div class="info-row"><span class="ik">{row.k}</span><span class="iv">{row.v}</span></div>
+    ))}
+  </div>
+
+  <div class="side-card">
+    <div class="side-title">{S.sideLoc}</div>
+    <div class="map-thumb">
+      <img src={asset(data.mapImg)} alt={S.mapAlt} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6;">{data.mapAddr}</div>
+    <div class="side-title" style="margin-top:16px;">{S.sideNearby}</div>
+    <ul class="nearby-list">
+      {data.nearby.map((n) => (
+        <li><span class="nb-n">{n.n}</span><span class="nb-d">{n.d}</span></li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="side-card">
+    <div class="side-title">{data.relatedTitle}</div>
+    {data.related.map((rel) => (
+      <a class="related-a" href={link(rel.href)}>
+        <img class="rel-img" src={asset(rel.img)} alt={rel.name} style="width:56px;height:56px;border-radius:9px;object-fit:cover;object-position:center;display:block;flex-shrink:0;" onerror="this.style.background='#ddd0ba'" />
+        <div><div class="rel-name">{rel.name}</div><div class="rel-loc">{rel.loc}</div><div class="rel-price">{rel.price}</div></div>
+      </a>
+    ))}
+  </div>
+</aside>
+</div>
+
+{data.faq && data.faq.length > 0 && (
+  <section class="rv-faq" aria-labelledby="rv-faq-h">
+    <div class="rv-faq-wrap">
+      <h2 id="rv-faq-h" class="rv-faq-title">{data.faqTitle || 'คำถามที่พบบ่อย'}</h2>
+      <div class="rv-faq-list">
+        {data.faq.map((item, i) => (
+          <details class="rv-faq-item" name="rv-faq-acc" open={i === 0}>
+            <summary class="rv-faq-q">
+              <span class="rv-faq-q-text">{item.q}</span>
+              <span class="rv-faq-q-icon" aria-hidden="true">＋</span>
+            </summary>
+            <div class="rv-faq-a" set:html={item.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': data.faq.map((item) => ({
+      '@type': 'Question',
+      'name': item.q,
+      'acceptedAnswer': { '@type': 'Answer', 'text': item.a.replace(/<[^>]+>/g, '') }
+    }))
+  })} />
+)}
+
+<!-- Article Footer -->
+<div class="art-footer">
+  <a class="af-link" href={link(data.prevHref)}>
+    <div class="af-lbl">{data.prevLabel}</div>
+    <div class="af-nm">{data.prevName}</div>
+  </a>
+  <div class="share-row">
+    <button class="share-btn">f</button>
+    <button class="share-btn">𝕏</button>
+    <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">🔗</button>
+  </div>
+  <a class="af-link af-r" href={link(data.nextHref)}>
+    <div class="af-lbl">{data.nextLabel}</div>
+    <div class="af-nm">{data.nextName}</div>
+  </a>
+</div>
+
+<footer class="footer">
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo">Thailand<em>Addict</em></div>
+      <div class="ft-tag">Thailand, Done Right</div>
+      <p class="ft-desc">{S.ftDesc}</p>
+      <div class="ft-social">
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="Facebook">👥</a>
+        <a href="#" title="TikTok">🎵</a>
+        <a href="#" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftDest}</h4>
+      <a href={link(data.regionHref ?? 'country-thailand.html')}>{data.regionLabel ?? '🇹🇭 Thailand'}</a>
+      <a href={link(data.countryHref ?? 'country-thailand.html')}>{data.countryLabel ?? '🇹🇭 Thailand'}</a>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftContent}</h4>
+      <a href={link(data.parentHref)}>{data.parentShort}</a>
+      <a href={link(data.crumbCityHref ?? 'country-thailand.html')}>{data.crumbCityName ?? 'เที่ยวไทย'}</a>
+      <a href={link(data.countryHref ?? 'country-thailand.html')}>{data.countryGuideLabel ?? 'Thailand Guide'}</a>
+    </div>
+    <div class="ft-col">
+      <h4>{S.ftAbout}</h4>
+      <a href={link('about.html')}>About ThailandAddict</a>
+      <a href={link('editorial-policy.html')}>Editorial Policy</a>
+      <a href={link('contact.html')}>Contact</a>
+      <a href={link('privacy.html')}>Privacy Policy</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>{S.ftBottom}</span>
+    <div style="display:flex;gap:16px"><a href={link('privacy.html')}>Privacy</a><a href={link('editorial-policy.html')}>Editorial Policy</a></div>
+  </div>
+  <div class="ft-aff">{S.ftAff}</div>
+</footer>
+<div class="rvbar">
+  <div class="rv-price">💰 <span class="rv-pf">{S.rvFrom}</span> <b>{data.qiPrice}</b><span class="rv-pu"> {data.qiPriceUnit}</span><span class="rv-ref">{S.rvRef}</span></div>
+  <div class="rv-cards">
+    <a class="rv-card rv-ag" href={data.bookingAgoda} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
+    <a class="rv-card rv-bk" href={data.bookingBooking} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
+    <a class="rv-card rv-tp" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
+  </div>
+</div>
+
+<script is:inline define:vars={{ tsLabel: S.tsLabel, tsLocale: S.locale, fromSuffix: S.pwFromSuffix }}>
+(function(){
+  var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');
+  if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}
+  document.querySelectorAll('.pw-opt').forEach(function(el){
+    el.addEventListener('click',function(){
+      document.querySelectorAll('.pw-opt').forEach(function(o){o.classList.remove('sel')});
+      el.classList.add('sel');
+      document.getElementById('cur-price').textContent=el.dataset.price;
+      var ct=document.getElementById('cur-type');
+      if(ct)ct.textContent=el.dataset.type+fromSuffix;
+    });
+  });
+  document.querySelectorAll('.pw-btn').forEach(function(el){
+    el.addEventListener('click',function(){window.open(el.dataset.href,'_blank');});
+  });
+  function updateTs(){
+    var now=new Date();
+    var d=now.toLocaleDateString(tsLocale,{day:'numeric',month:'short',year:'numeric'});
+    var t=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+    var el=document.getElementById('price-ts');
+    if(el)el.textContent=tsLabel+d+' '+t;
+  }
+  updateTs();setInterval(updateTs,60000);
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.style.animation='fadeUp .65s ease forwards';io.unobserve(e.target);}});
+  },{threshold:0.08});
+  document.querySelectorAll('.fade-up').forEach(function(el){io.observe(el);});
+  var bo=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.rbar-fill').forEach(function(b){var w=b.style.width;b.style.width='0';setTimeout(function(){b.style.width=w;},120);});bo.unobserve(e.target);}});
+  },{threshold:0.3});
+  document.querySelectorAll('.rating-box').forEach(function(el){bo.observe(el);});
+})();
+</script>
+</body>
+</html>
