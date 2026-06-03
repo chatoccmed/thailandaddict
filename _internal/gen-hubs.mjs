@@ -148,25 +148,28 @@ ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',h
 <section class="sec" id="hotels" style="background:var(--soft)"><div class="wrap">
   <div class="shead"><h2>ที่พัก & <span class="em">โรงแรม</span></h2></div>
   <p class="secintro">รีวิวที่พัก${th} — จัดอันดับรวมกว่า 10 ที่ พร้อมรีวิวแยกทุกโรงแรม คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</p>
-  <div class="callout"><div><h3>Top 10 โรงแรม${th} <span class="soon">กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
+  <div class="callout"><div><h3>Top 10 โรงแรม${th} ${hasRoundup(slug)?'':'<span class="soon">กำลังจัดทำ</span>'}</h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
 </div></section>
 
 <section class="sec" id="eat"><div class="wrap">
   <div class="shead"><h2>ที่กิน<span class="em"> ${th}</span></h2></div>
-  <p class="secintro">ของกินเด่นของ${th} — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่ (กว่า 10 บทความ กำลังทยอยลง)</p>
+  <p class="secintro">ของกินเด่นของ${th} — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่</p>
   <div class="foodgrid">${food}</div>
+  ${artLinks(slug,['food','eat-ranking'],'บทความที่กิน '+th)}
 </div></section>
 
 <section class="sec" id="see" style="background:var(--soft)"><div class="wrap">
   <div class="shead"><h2>ที่เที่ยว<span class="em"> ${th}</span></h2></div>
-  <p class="secintro">ที่เที่ยว${th} ทั้งสายธรรมชาติและสายเมือง (กว่า 10 บทความ กำลังทยอยลง)</p>
+  <p class="secintro">ที่เที่ยว${th} ทั้งสายธรรมชาติและสายเมือง</p>
   <div class="dgrid">${see}</div>
+  ${artLinks(slug,['attraction'],'บทความที่เที่ยว '+th)}
 </div></section>
 
 <section class="sec"><div class="wrap">
   <div class="shead"><h2>แผน<span class="em">เที่ยว ${th}</span></h2></div>
-  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง (กว่า 10 แผน กำลังทยอยลง)</p>
+  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
   <div class="plist">${plans}</div>
+  ${artLinks(slug,['itinerary'],'แผนเที่ยว '+th+' แบบละเอียด')}
   ${nbrs?`<p class="secintro" style="margin:22px 0 10px">เที่ยวต่อจังหวัดข้างเคียง</p><div class="ncards">${nbrs}</div>`:''}
 </div></section>
 
@@ -176,8 +179,9 @@ ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',h
     <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>${esc(best)}</p></div>
     <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไป${th} และการเดินทางในจังหวัด — กำลังจัดทำ</p></div>
     <div class="ecard"><div class="ic">💸</div><h3>งบประมาณ</h3><p>ประเมินค่าใช้จ่ายต่อทริป — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไป${th} — กำลังจัดทำ</p></div>
+    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไป${th} ตามฤดูและกิจกรรม</p></div>
   </div>
+  ${artLinks(slug,['prep','guide'],'คู่มือเตรียมตัว '+th)}
 </div></section>
 
 <section class="sec" style="padding-top:0"><div class="wrap">
@@ -267,6 +271,22 @@ function readData(slug){
   const f=path.join(DATA, slug+'.json');
   if(!fs.existsSync(f)) return null;
   try { return JSON.parse(fs.readFileSync(f,'utf8')); } catch { return null; }
+}
+
+// ---- articles index (auto-link province articles into the hub) ----
+const ARTDIR = path.join(ROOT,'astro/src/content/articles');
+const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
+const ARTS = {};
+if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
+  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug)}); }catch{}
+}
+const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
+function artLinks(cluster, types, label){
+  const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+  if(!list.length) return '';
+  return `<p class="secintro" style="margin:20px 0 10px"><strong>${label}</strong> · ${list.length} บทความ</p><div class="hl">`+
+    list.map(a=>`<a class="hlc" href="${a.slug}.html"><h3>${esc(stripTags(a.title))}</h3><p style="color:var(--teal-dk);font-weight:700">อ่านบทความ →</p></a>`).join('')+`</div>`;
 }
 
 // ---- generate ----
