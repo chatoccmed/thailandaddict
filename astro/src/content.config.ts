@@ -210,4 +210,63 @@ const roundupsEn = defineCollection({
   schema: roundupSchema,
 });
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn };
+// Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
+// One layout (ArticleLayout) renders all of them from a typed list of content blocks.
+const articleBlock = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal('h2'), text: z.string(), id: z.string().optional() }),
+  z.object({ kind: z.literal('p'), html: z.string() }),
+  z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
+  z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
+  z.object({ kind: z.literal('ranked'), items: z.array(z.object({
+    rank: z.union([z.string(), z.number()]).transform(String),
+    name: z.string(), blurb: z.string(),
+    meta: z.string().optional(), price: z.string().optional(),
+    tags: z.array(z.string()).optional(), href: z.string().optional(),
+  })) }),
+  z.object({ kind: z.literal('cards'), items: z.array(z.object({
+    name: z.string(), blurb: z.string(), tag: z.string().optional(), href: z.string().optional(),
+  })) }),
+  z.object({ kind: z.literal('day'), label: z.string(), title: z.string().optional(), items: z.array(z.object({
+    time: z.string().optional(), activity: z.string(), note: z.string().optional(),
+  })) }),
+  z.object({ kind: z.literal('cta'), text: z.string(), href: z.string(), label: z.string().optional() }),
+]);
+
+const articleSchema = z.object({
+  slug: z.string(),
+  type: z.string(),                       // food | eat-ranking | attraction | itinerary | prep | guide
+  cluster: z.string(),                    // province slug, e.g. "chiang-mai"
+  title: z.string(),
+  metaDesc: z.string(),
+  keywords: z.string().optional(),
+  ogTitle: z.string().optional(),
+  ogDesc: z.string().optional(),
+  image: z.string().optional(),
+  crumbCity: z.string(),                  // "เชียงใหม่" / "Chiang Mai"
+  crumbCityHref: z.string(),              // "city-chiang-mai.html"
+  regionLabel: z.string().optional(),
+  regionHref: z.string().optional(),
+  eyebrow: z.string(),
+  h1: z.string(),
+  heroEmoji: z.string().optional(),
+  heroImg: z.string().optional(),
+  intro: z.string(),                      // may contain HTML
+  chips: z.array(z.string()).optional(),
+  readTime: z.string().optional(),
+  publishedDate: z.string().optional(),
+  modifiedDate: z.string().optional(),
+  blocks: z.array(articleBlock),
+  faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+  related: z.array(z.object({ href: z.string(), title: z.string() })).optional(),
+});
+
+const articles = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles' }),
+  schema: articleSchema,
+});
+const articlesEn = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-en' }),
+  schema: articleSchema,
+});
+
+export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn };

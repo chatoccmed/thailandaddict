@@ -1,0 +1,216 @@
+---
+// ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
+// Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
+const { data, lang = 'th' } = Astro.props;
+const isEn = lang === 'en';
+const SITE = 'https://thailandaddict.com';
+const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
+const asset = (p: string) => (p?.startsWith('http') ? p : p?.startsWith('/') ? p : `/${p}`);
+const S = isEn
+  ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right' }
+  : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right' };
+
+const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
+const faq = data.faq ?? [];
+const jsonld = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
+      author: { '@type': 'Organization', name: 'ThailandAddict' },
+      publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE },
+      ...(data.publishedDate ? { datePublished: data.publishedDate } : {}),
+      ...(data.modifiedDate ? { dateModified: data.modifiedDate } : {}),
+      mainEntityOfPage: canonical },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${isEn ? '/en/' : '/'}` },
+      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${isEn ? '/en' : ''}/country-thailand` },
+      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${isEn ? '/en' : ''}/${data.crumbCityHref.replace(/\.html$/, '')}` },
+      { '@type': 'ListItem', position: 4, name: data.title, item: canonical } ] },
+    ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+  ],
+};
+const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='Outfit,sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E";
+---
+<!doctype html>
+<html lang={isEn ? 'en' : 'th'}>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>{data.title}</title>
+<meta name="description" content={data.metaDesc} />
+{data.keywords && <meta name="keywords" content={data.keywords} />}
+<link rel="canonical" href={canonical} />
+<link rel="icon" type="image/svg+xml" href={favSvg} />
+<meta property="og:site_name" content="ThailandAddict" />
+<meta property="og:title" content={data.ogTitle ?? data.title} />
+<meta property="og:description" content={data.ogDesc ?? data.metaDesc} />
+<meta property="og:type" content="article" />
+<meta property="og:url" content={canonical} />
+{data.image && <meta property="og:image" content={asset(data.image)} />}
+<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
+<link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+<meta name="theme-color" content="#06B6D4" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--teal:#06B6D4;--teal-dk:#0891b2;--coral:#FB7185;--coral-dk:#f43f5e;--mango:#FBBF24;--ink:#0F172A;--sub:#64748b;--bg:#ffffff;--soft:#f1fbfd;--bdr:#e6eef2}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--bdr);position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);z-index:99}
+.logo{font-family:'Outfit';font-size:24px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}.logo em{font-style:normal;color:var(--teal)}
+.nmid{display:flex;gap:6px}@media(max-width:820px){.nmid{display:none}}
+.nmid a{font-family:'Outfit';font-size:14px;font-weight:600;color:var(--sub);padding:8px 13px;border-radius:999px}.nmid a:hover{color:var(--teal);background:var(--soft)}
+.nr{display:flex;align-items:center;gap:12px}
+.lang{font-family:'Outfit';font-size:12px;font-weight:700;background:var(--soft);border-radius:999px;display:inline-flex;padding:2px}
+.lang a{padding:5px 10px;color:var(--teal);border-radius:999px}.lang a.on{background:var(--teal);color:#fff}
+.cta{font-family:'Outfit';font-size:13px;font-weight:800;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:11px 20px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.32);border:none;cursor:pointer}@media(max-width:820px){.cta{display:none}}
+.hb{display:none;background:none;border:none;font-size:24px;color:var(--ink);cursor:pointer}@media(max-width:820px){.hb{display:block}}
+.mm{position:fixed;inset:0;z-index:1000;background:#fff;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column;padding:24px;overflow-y:auto}.mm.open{transform:translateX(0)}
+.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.mm-x{background:none;border:none;font-size:28px;cursor:pointer}
+.mm a{font-family:'Outfit';font-size:19px;font-weight:700;padding:14px 0;border-bottom:1px solid var(--bdr)}
+.crumb{max-width:820px;margin:0 auto;padding:18px 24px 0;font-family:'Outfit';font-size:12.5px;color:var(--sub)}.crumb a:hover{color:var(--teal)}
+.hero{padding:34px 0 26px;position:relative;overflow:hidden;background:linear-gradient(135deg,#ecfeff,#fff 55%,#fff5f7)}
+.hero .eyebrow{display:inline-block;font-family:'Outfit';font-size:12.5px;font-weight:800;letter-spacing:.5px;color:var(--teal-dk);background:#cffafe;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.hero h1{font-family:'Outfit';font-size:clamp(30px,5vw,46px);font-weight:900;line-height:1.1;letter-spacing:-1px}
+.hero .lead{font-size:17px;color:var(--sub);margin-top:14px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:'Outfit';font-size:12.5px;font-weight:700;background:#fff;border:2px solid var(--bdr);border-radius:999px;padding:7px 14px}
+.heroimg{width:100%;max-width:820px;margin:22px auto 0;border-radius:20px;aspect-ratio:16/9;object-fit:cover;box-shadow:0 16px 40px rgba(15,23,42,.12)}
+.body{padding:30px 0 10px}
+.body h2{font-family:'Outfit';font-size:24px;font-weight:800;letter-spacing:-.4px;margin:34px 0 12px;scroll-margin-top:80px}
+.body h2:first-child{margin-top:0}
+.body p{font-size:16px;color:#1e293b;margin:0 0 14px}.body p strong{color:var(--ink);font-weight:700}
+.body ul{margin:0 0 16px;padding-left:4px;list-style:none}
+.body ul li{position:relative;padding:6px 0 6px 26px;font-size:15.5px;color:#1e293b}
+.body ul li::before{content:'';position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral))}
+.tip{background:var(--soft);border:2px solid #cffafe;border-radius:18px;padding:18px 20px;margin:18px 0}
+.tip h4{font-family:'Outfit';font-weight:800;font-size:15px;color:var(--teal-dk);margin-bottom:5px}.tip p{font-size:14.5px;color:#1e293b;margin:0}
+.ranked{display:flex;flex-direction:column;gap:12px;margin:16px 0}
+.rk{display:grid;grid-template-columns:auto 1fr;gap:16px;background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+.rk .n{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;font-family:'Outfit';font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center}
+.rk h3{font-family:'Outfit';font-weight:800;font-size:17px;margin-bottom:3px}.rk h3 a:hover{color:var(--teal-dk)}
+.rk .m{font-family:'Outfit';font-size:12.5px;color:var(--sub);font-weight:600;margin-bottom:6px}
+.rk p{font-size:14.5px;color:#1e293b;margin:0 0 8px}
+.rk .tags{display:flex;gap:6px;flex-wrap:wrap}.rk .tag{font-family:'Outfit';font-size:11px;font-weight:700;background:var(--soft);color:var(--teal-dk);padding:4px 10px;border-radius:999px}
+.rk .pr{font-family:'Outfit';font-weight:800;color:var(--coral-dk);font-size:14px;margin-top:6px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.cd{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:18px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+.cd .tag{display:inline-block;font-family:'Outfit';font-size:11px;font-weight:800;background:#cffafe;color:var(--teal-dk);padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.cd h3{font-family:'Outfit';font-weight:800;font-size:16px;margin-bottom:4px}.cd p{font-size:14px;color:var(--sub);margin:0}
+.day{background:#fff;border:1px solid var(--bdr);border-left:5px solid var(--teal);border-radius:16px;padding:18px 20px;margin:14px 0;box-shadow:0 8px 22px rgba(15,23,42,.05)}
+.day .dl{font-family:'Outfit';font-weight:900;font-size:13px;color:var(--teal-dk);letter-spacing:.5px;text-transform:uppercase}
+.day h3{font-family:'Outfit';font-weight:800;font-size:18px;margin:2px 0 12px}
+.day .step{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--bdr)}
+.day .step:first-of-type{border-top:none}.day .tm{font-family:'Outfit';font-weight:800;font-size:13px;color:var(--coral-dk)}
+.day .ac{font-size:15px}.day .ac small{display:block;color:var(--sub);font-size:13px;margin-top:2px}
+.ctaband{background:linear-gradient(135deg,var(--teal),var(--coral));border-radius:24px;padding:34px;text-align:center;color:#fff;margin:26px 0}
+.ctaband p{font-size:17px;font-weight:600;margin-bottom:16px}
+.ctaband a{font-family:'Outfit';font-weight:800;font-size:14px;background:#fff;color:var(--teal-dk);padding:13px 26px;border-radius:999px;display:inline-block}
+.faq{margin:30px 0}.faq h2{font-family:'Outfit';font-size:24px;font-weight:800;margin-bottom:14px}
+.faq details{background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-family:'Outfit';font-weight:700;font-size:15.5px;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';float:right;color:var(--teal);font-weight:800}.faq details[open] summary::after{content:'–'}
+.faq details p{margin-top:10px;font-size:14.5px;color:#1e293b}
+.related{margin:30px 0}.related h2{font-family:'Outfit';font-size:22px;font-weight:800;margin-bottom:14px}
+.related .rg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:600px){.related .rg{grid-template-columns:1fr}}
+.related a{background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:14px 16px;font-family:'Outfit';font-weight:700;font-size:14.5px;box-shadow:0 6px 16px rgba(15,23,42,.04)}
+.related a:hover{border-color:var(--teal);color:var(--teal-dk)}
+.ft{background:var(--ink);color:#94a3b8;padding:46px 28px 26px;margin-top:30px}
+.ftg{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}@media(max-width:680px){.ftg{grid-template-columns:1fr 1fr}}
+.ftlogo{font-family:'Outfit';font-size:23px;font-weight:800;color:#fff}.ftlogo em{font-style:normal;color:var(--teal)}
+.fttag{font-family:'Outfit';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mango);margin:6px 0 12px;font-weight:700}
+.ft h4{font-family:'Outfit';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#64748b;margin-bottom:11px;font-weight:700}
+.ft a{display:block;font-size:13px;color:#94a3b8;margin-bottom:8px}.ft a:hover{color:#fff}
+.ftbar{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-family:'Outfit';font-size:12px;color:#64748b}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href={link('/')} class="logo">Thailand<em>Addict</em></a>
+  <div class="nmid">
+    <a href={link('country-thailand.html')}>{S.nav[0]}</a>
+    <a href={link('country-thailand.html#hotels')}>{S.nav[1]}</a>
+    <a href={link('country-thailand.html#see')}>{S.nav[2]}</a>
+    <a href={link('country-thailand.html#eat')}>{S.nav[3]}</a>
+    <a href={link('about.html')}>{S.nav[4]}</a>
+  </div>
+  <div class="nr">
+    <span class="lang"><a href={`/${data.slug}`} class={isEn ? '' : 'on'}>TH</a><a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a></span>
+    <button class="cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.cta}</button>
+    <button class="hb" id="hb">☰</button>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <div class="mm-top"><a href={link('/')} class="logo">Thailand<em>Addict</em></a><button class="mm-x" id="mmx">✕</button></div>
+  <a href={link('/')}>{S.home}</a>
+  <a href={link('country-thailand.html')}>{S.nav[0]}</a>
+  <a href={link(data.crumbCityHref)}>{data.crumbCity}</a>
+  <a href={link('about.html')}>{S.nav[4]}</a>
+</div>
+
+<div class="crumb"><a href={link('/')}>{S.home}</a> › <a href={link('country-thailand.html')}>{S.th}</a> › <a href={link(data.crumbCityHref)}>{data.crumbCity}</a> › <span>{data.h1}</span></div>
+
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
+  <h1 set:html={data.h1} />
+  <p class="lead" set:html={data.intro} />
+  {data.chips && data.chips.length > 0 &&
+    <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
+</div></section>
+{data.heroImg && <img class="heroimg" src={asset(data.heroImg)} alt={data.h1} onerror="this.remove()" />}
+
+<article class="body"><div class="wrap">
+  {data.blocks.map((b) => (
+    b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
+    b.kind === 'p' ? <p set:html={b.html} /> :
+    b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
+    b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :
+    b.kind === 'ranked' ? <div class="ranked">{b.items.map((it) => (
+      <div class="rk"><div class="n">{it.rank}</div><div>
+        <h3>{it.href ? <a href={it.href} set:html={it.name} /> : <span set:html={it.name} />}</h3>
+        {it.meta && <div class="m" set:html={it.meta} />}
+        <p set:html={it.blurb} />
+        {it.tags && it.tags.length > 0 && <div class="tags">{it.tags.map((t) => <span class="tag" set:html={t} />)}</div>}
+        {it.price && <div class="pr" set:html={it.price} />}
+      </div></div>))}</div> :
+    b.kind === 'cards' ? <div class="cards">{b.items.map((c) => (
+      c.href
+        ? <a class="cd" href={c.href}>{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></a>
+        : <div class="cd">{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></div>))}</div> :
+    b.kind === 'day' ? <div class="day"><div class="dl" set:html={b.label} />{b.title && <h3 set:html={b.title} />}
+      {b.items.map((s) => <div class="step"><div class="tm" set:html={s.time ?? ''} /><div class="ac">{<span set:html={s.activity} />}{s.note && <small set:html={s.note} />}</div></div>)}</div> :
+    b.kind === 'cta' ? <div class="ctaband"><p set:html={b.text} /><a href={b.href} set:html={b.label ?? S.cta} /></div> :
+    null
+  ))}
+</div></article>
+
+{faq.length > 0 &&
+  <section class="wrap"><div class="faq"><h2>{S.faqH}</h2>
+    {faq.map((f) => <details><summary set:html={f.q} /><p set:html={f.a} /></details>)}
+  </div></section>}
+
+{data.related && data.related.length > 0 &&
+  <section class="wrap"><div class="related"><h2>{S.relH}</h2>
+    <div class="rg">{data.related.map((r) => <a href={link(r.href)} set:html={r.title} />)}</div>
+  </div></section>}
+
+<footer class="ft">
+  <div class="ftg">
+    <div><div class="ftlogo">Thailand<em>Addict</em></div><div class="fttag">{S.ftTag}</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.5);max-width:240px">คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ</p></div>
+    <div><h4>จุดหมาย</h4><a href={link('country-thailand.html')}>🇹🇭 เที่ยวไทย</a><a href={link(data.crumbCityHref)}>{data.crumbCity}</a></div>
+    <div><h4>คอนเทนต์</h4><a href={link(data.crumbCityHref + '#eat')}>ที่กิน</a><a href={link(data.crumbCityHref + '#see')}>ที่เที่ยว</a><a href={link(data.crumbCityHref + '#hotels')}>ที่พัก</a></div>
+    <div><h4>เกี่ยวกับ</h4><a href={link('about.html')}>เกี่ยวกับเรา</a><a href={link('editorial-policy.html')}>นโยบายบรรณาธิการ</a><a href={link('contact.html')}>ติดต่อ</a><a href={link('privacy.html')}>ความเป็นส่วนตัว</a></div>
+  </div>
+  <div class="ftbar">© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง</div>
+</footer>
+<script is:inline>
+(function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
+</script>
+</body>
+</html>

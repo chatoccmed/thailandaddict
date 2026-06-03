@@ -2,10 +2,12 @@
 import { getCollection } from 'astro:content';
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
 import RoundupLayout from '../../layouts/RoundupLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
 
 export async function getStaticPaths() {
   const reviews = await getCollection('reviewsEn');
   const roundups = await getCollection('roundupsEn');
+  const articles = await getCollection('articlesEn');
   return [
     ...reviews.map((r) => ({
       params: { slug: r.data.slug },
@@ -15,6 +17,10 @@ export async function getStaticPaths() {
       params: { slug: r.data.slug },
       props: { kind: 'roundup' as const, data: r.data },
     })),
+    ...articles.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'article' as const, data: r.data },
+    })),
   ];
 }
 
@@ -22,4 +28,6 @@ const { kind, data } = Astro.props;
 ---
 {kind === 'review'
   ? <ReviewLayout data={data} lang="en" />
-  : <RoundupLayout data={data} lang="en" />}
+  : kind === 'roundup'
+  ? <RoundupLayout data={data} lang="en" />
+  : <ArticleLayout data={data} lang="en" />}
