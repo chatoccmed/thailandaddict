@@ -8,7 +8,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] chiang-mai — เชียงใหม่ (GOLD TEMPLATE: 12 reviews + Top10 + 38 articles + images)
 
 ## Wave 1 — top destinations
-- [ ] bangkok — กรุงเทพมหานคร
+- [x] bangkok — กรุงเทพมหานคร (12 reviews + Top10 + 38 articles + images)
 - [ ] phuket — ภูเก็ต
 - [ ] krabi — กระบี่
 - [ ] chiang-rai — เชียงราย
