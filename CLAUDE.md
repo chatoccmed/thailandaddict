@@ -53,10 +53,13 @@ _internal/
 
 ## งานต่อไป (ดูแฮนด์ออฟ §แผน)
 1. ✅ scaffold stack + rebrand (เสร็จ)
-2. ดึง 212 posts เดิม → topic list (WP REST: `thailandaddict.com/wp-json/wp/v2/posts?per_page=100&page=N`)
-3. เขียนใหม่สไตล์ v2-clean ทีละหัวข้อ (verify โรงแรมจริง · รูป Trip.com)
-4. สร้าง hub pages ใน public/ (country-thailand, city-*, index ตัวจริง) + wire nav/footer
-5. Cloudflare auto-deploy
+2. ✅ chrome/hub pages: `index.html`, `country-thailand.html`, about/contact/editorial-policy/privacy/404 (Thailand-scoped nav/footer · design system จาก wherebest) — nav/footer ของ layout resolve ครบแล้ว
+3. ดึง 212 posts เดิม → topic list (WP REST: `thailandaddict.com/wp-json/wp/v2/posts?per_page=100&page=N`)
+4. เขียนใหม่สไตล์ v2-clean ทีละหัวข้อ (verify โรงแรมจริง · รูป Trip.com) → ลง content collections
+5. สร้าง `city-*.html` (25 จังหวัด) + `top10-hotels-*.html` — ตอนนี้เป็น future target ที่ index/country/footer ลิงก์ถึง (ยัง 404)
+6. Cloudflare auto-deploy
+
+> hub pages ใช้ design system แยกจาก review/roundup (inline CSS สไตล์ wherebest: Sarabun/Fraunces/Outfit · blue #4A90E2) · chrome ร่วม = nav/footer เดียวกันทุกหน้า · ไม่มี search infra (ลบออก) · local preview: `.claude/launch.json` (static-preview) → `_internal/preview-server.mjs`
 
 ## หมายเหตุ scaffold
 - ลบ ad/monetization tag ของ wherebest (emrldco/Travelpayouts) ออกจาก layout แล้ว — ใส่ tag ของ thailandaddict เองภายหลัง
