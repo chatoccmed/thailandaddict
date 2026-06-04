@@ -1,0 +1,68 @@
+export const meta = {
+  name: 'surat-thani-hotels',
+  description: 'Surat Thani gold-template — hotel layer: pick 12 real hotels, write TH+EN reviews + Top 10 roundup',
+  phases: [
+    { title: 'Plan',    detail: 'pick 12 currently-operating Surat Thani hotels across tiers' },
+    { title: 'Review',  detail: 'one hotel-reviewer agent per hotel → TH+EN review JSON' },
+    { title: 'Roundup', detail: 'build Top 10 โรงแรมสุราษฎร์ธานี roundup TH+EN' },
+  ],
+}
+
+const OVERRIDES = `
+ส่วนสำคัญ (เว็บนี้ = thailandaddict.com ไม่ใช่ tourlogy/wherebest):
+- แบรนด์ = ThailandAddict · โทน v2-clean ไทย (ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด) · honesty "เสียงจากรีวิวจริง" ห้ามอ้างไปพักเอง
+- ดู schema ที่ astro/src/content.config.ts (reviewSchema) และใช้ไฟล์ตัวอย่างรูปแบบ: _internal/templates/review.sample.json — output ต้องตรง schema ทุก field
+- เขียน 2 ไฟล์: astro/src/content/reviews/<slug>.json (ไทย) และ astro/src/content/reviews-en/<slug>.json (อังกฤษ)
+- affiliate: Agoda ?cid=1965862 · Trip.com ?Allianceid=6861268&SID=312919111 · Booking plain URL
+- breadcrumb/parent ชี้ roundup: parentHref="top10-hotels-surat-thani.html", parentCrumbUrl ไทย "https://thailandaddict.com/top10-hotels-surat-thani" (EN ใช้ /en/) · crumbCityName="สุราษฎร์ธานี"/(EN "Surat Thani"), crumbCityHref="city-surat-thani.html" · countryHref="country-thailand.html", countryLabel="🇹🇭 ไทย"(EN "🇹🇭 Thailand"), countryGuideLabel="คู่มือเที่ยวไทย"(EN "Thailand Guide") · addressCountry="TH"
+- related/prev/next ลิงก์ไปรีวิวโรงแรมสุราษฎร์ธานีตัวอื่นในชุดนี้ (ใช้ slug ที่ planner กำหนด)
+- รูป hero: พยายามโหลดจริงไป astro/public/images/hotels/surat-thani-<short>.jpg (ใช้ curl -m 60 --connect-timeout 20) ถ้าโหลดไม่ได้ปล่อยว่าง อย่าใส่ลิงก์ที่ใช้ไม่ได้
+- ราคาบอกเป็น "เริ่มประมาณ" จากช่วงราคาห้องมาตรฐานจริง ไม่เอาราคาพีคจุดเดียว
+`
+
+phase('Plan')
+const PLAN_SCHEMA = { type:'object', additionalProperties:false, required:['hotels'], properties:{ hotels:{ type:'array', minItems:10, maxItems:12, items:{ type:'object', additionalProperties:false, required:['name','slug','area','tier','starTier'], properties:{
+  name:{type:'string'}, slug:{type:'string', description:'review-<hotel-kebab>-surat-thani'}, area:{type:'string'}, tier:{type:'string', enum:['luxury','boutique','midrange','budget','hostel']}, starTier:{type:'number'} } } } } }
+
+const plan = await agent(
+`ค้นเว็บ (Booking/Agoda/Trip.com) เลือกโรงแรม/ที่พักในจังหวัดสุราษฎร์ธานีที่ "เปิดดำเนินการอยู่จริงตอนนี้" 12 แห่ง สำหรับทำชุดรีวิว + จัดอันดับ Top 10 ของ thailandaddict.com
+สุราษฎร์ธานีครอบคลุมทั้งเกาะสมุย เกาะพะงัน เกาะเต่า เขาสก-เชี่ยวหลาน และตัวเมือง — คละให้ครบ: เกาะสมุย (เฉวง/ละไม/บ่อผุด) 4 · เกาะพะงัน 1 · เกาะเต่า 1 · แพ/รีสอร์ทเขาสก-เชี่ยวหลาน 2 · ตัวเมืองสุราษฎร์ 2-3
+คละระดับ: หรู 2-3 · บูทีค/4-5 ดาว 3 · กลาง 3 · ประหยัด 2 · โฮสเทล 1-2
+เลือกที่ที่มีรีวิวจริงเยอะและจองได้จริง ห้ามเลือกที่ปิดถาวรหรือเปลี่ยนชื่อ
+ตั้ง slug = review-<ชื่อโรงแรม-kebab>-surat-thani
+คืนผลตาม schema (name, slug, area, tier, starTier)`,
+  { label:'plan:surat-thani-hotels', phase:'Plan', schema: PLAN_SCHEMA }
+)
+
+const hotels = plan.hotels
+const slugList = hotels.map(h=>`${h.name} → ${h.slug} (${h.tier}, ${h.starTier}★, ${h.area})`).join('\n')
+log(`Planned ${hotels.length} hotels. Writing reviews…`)
+
+phase('Review')
+const reviewed = await parallel(hotels.map(h => () =>
+  agent(
+`รีวิวโรงแรม "${h.name}" สุราษฎร์ธานี · slug=${h.slug} · ระดับ ${h.starTier} ดาว (${h.tier}) · ย่าน ${h.area}
+อยู่ในชุด roundup "Top 10 โรงแรมสุราษฎร์ธานี" (top10-hotels-surat-thani)
+สำคัญ: อ่านไฟล์ .claude/agents/tourlogy-hotel-reviewer.md ก่อน แล้วสวมบทบาทและทำตามทุกขั้นตอนในไฟล์นั้น (วิจัยเว็บ → อ่าน schema → เขียน TH+EN → รูป) ครบทุก field — ยกเว้นจุดที่ override ด้านล่างให้ยึดตาม override
+${OVERRIDES}
+โรงแรมอื่นในชุดนี้ (ใช้ทำ related/prev/next): \n${slugList}`,
+    { label:`review:${h.slug}`, phase:'Review' }
+  ).then(()=>({slug:h.slug, ok:true})).catch(()=>({slug:h.slug, ok:false}))
+))
+const okR = reviewed.filter(x=>x&&x.ok)
+log(`Reviews written: ${okR.length}/${hotels.length}`)
+
+phase('Roundup')
+await agent(
+`สำคัญ: อ่านไฟล์ .claude/agents/tourlogy-roundup-builder.md ก่อน แล้วสวมบทบาทและทำตามทุกขั้นตอนในไฟล์นั้น — ยกเว้นจุด override ด้านล่าง
+สร้างหน้า roundup "Top 10 โรงแรมสุราษฎร์ธานี" ของ thailandaddict.com
+เขียน 2 ไฟล์: astro/src/content/roundups/top10-hotels-surat-thani.json (ไทย) และ astro/src/content/roundups-en/top10-hotels-surat-thani.json (อังกฤษ)
+ดู schema ที่ astro/src/content.config.ts (roundupSchema) และรูปแบบจาก _internal/templates/roundup.sample.json — ตรงทุก field
+slug="top10-hotels-surat-thani" · จัดอันดับจากโรงแรมที่รีวิวไว้แล้วในชุดนี้ (อ่าน JSON ใน astro/src/content/reviews/ ที่ slug ขึ้นต้น review-...-surat-thani)
+แต่ละ entry: reviewUrl="<slug ของรีวิว>.html", agodaUrl/bookingUrl/tripUrl ตามที่รีวิวนั้นใช้, score/stars/price จริง
+${OVERRIDES}
+โรงแรมในชุด:\n${slugList}`,
+  { label:'roundup:surat-thani', phase:'Roundup' }
+)
+
+return { hotels: hotels.length, reviewsOk: okR.length, failed: reviewed.filter(x=>!x||!x.ok).map(x=>x&&x.slug) }
