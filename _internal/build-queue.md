@@ -15,7 +15,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] surat-thani — สุราษฎร์ธานี (12 reviews + Top10 + 38 articles + images)
 - [x] chonburi — ชลบุรี (12 reviews + Top10 + 38 articles + images)
 - [x] prachuap-khiri-khan — ประจวบคีรีขันธ์ (12 reviews + Top10 + 38 articles + images)
-- [ ] kanchanaburi — กาญจนบุรี
+- [x] kanchanaburi — กาญจนบุรี (12 reviews + Top10 + 38 articles + images)
 - [ ] phang-nga — พังงา
 - [ ] ayutthaya — พระนครศรีอยุธยา
 - [ ] trat — ตราด (เกาะช้าง/กูด)
