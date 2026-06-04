@@ -16,7 +16,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] chonburi — ชลบุรี (12 reviews + Top10 + 38 articles + images)
 - [x] prachuap-khiri-khan — ประจวบคีรีขันธ์ (12 reviews + Top10 + 38 articles + images)
 - [x] kanchanaburi — กาญจนบุรี (12 reviews + Top10 + 38 articles + images)
-- [ ] phang-nga — พังงา
+- [x] phang-nga — พังงา (12 reviews + Top10 + 38 articles + images)
 - [ ] ayutthaya — พระนครศรีอยุธยา
 - [ ] trat — ตราด (เกาะช้าง/กูด)
 - [ ] rayong — ระยอง (เกาะเสม็ด)
