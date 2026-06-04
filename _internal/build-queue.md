@@ -10,7 +10,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 ## Wave 1 — top destinations
 - [x] bangkok — กรุงเทพมหานคร (12 reviews + Top10 + 38 articles + images)
 - [x] phuket — ภูเก็ต (12 reviews + Top10 + 38 articles + images)
-- [ ] krabi — กระบี่
+- [x] krabi — กระบี่ (12 reviews + Top10 + 38 articles + images)
 - [ ] chiang-rai — เชียงราย
 - [ ] surat-thani — สุราษฎร์ธานี (เกาะสมุย/พะงัน/เต่า)
 - [ ] chonburi — ชลบุรี (พัทยา)
