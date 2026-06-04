@@ -11,7 +11,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] bangkok — กรุงเทพมหานคร (12 reviews + Top10 + 38 articles + images)
 - [x] phuket — ภูเก็ต (12 reviews + Top10 + 38 articles + images)
 - [x] krabi — กระบี่ (12 reviews + Top10 + 38 articles + images)
-- [ ] chiang-rai — เชียงราย
+- [x] chiang-rai — เชียงราย (12 reviews + Top10 + 38 articles + images)
 - [x] surat-thani — สุราษฎร์ธานี (12 reviews + Top10 + 38 articles + images)
 - [ ] chonburi — ชลบุรี (พัทยา)
 - [ ] prachuap-khiri-khan — ประจวบคีรีขันธ์ (หัวหิน)
