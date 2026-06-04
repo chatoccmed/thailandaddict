@@ -31,6 +31,8 @@ List the province's article slugs (fs) + city/hero. Base on `_internal/wf/provin
 ```bash
 export PATH="$HOME/nodejs:$PATH"; cd "C:\Users\Imac\Thailandaddict"
 # 1. optimize NEW images (sharp via BUFFER — see gotcha #2). Reuse the snippet in gotcha #2.
+# 1b. lint THIS province's content for banned AI words (ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน):
+node _internal/lint-content.mjs <slug>   # ถ้าไม่ clean → แก้คำในไฟล์ที่ฟ้องก่อน commit
 # 2. set heroImg on articles that now have an image:
 node _internal/set-hero.mjs
 # 3. regenerate hubs (province hub gets hero banner + article thumbnails):
