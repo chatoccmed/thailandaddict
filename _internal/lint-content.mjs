@@ -8,6 +8,9 @@ import path from 'node:path';
 const ROOT = 'C:/Users/Imac/Thailandaddict';
 // Unambiguous AI/marketing words (no Thai false-positive risk — all multi-syllable, distinctive)
 const BANNED = ['ตอบโจทย์', 'โดดเด่น', 'ครบครัน', 'ระดับโลก', 'สุดยอด', 'อันซีน'];
+// Proper-noun exceptions (real business/place names) — stripped before counting so the
+// banned substring inside a genuine name doesn't trip the gate. Add entries as discovered.
+const ALLOW = ['สุดยอดเนื้อตุ๋น'];
 const DIRS = ['astro/src/content/articles', 'astro/src/content/reviews', 'astro/src/content/roundups'];
 const onlyCluster = process.argv[2] || null;
 
@@ -16,10 +19,11 @@ for (const d of DIRS) {
   const dir = path.join(ROOT, d);
   if (!fs.existsSync(dir)) continue;
   for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.json'))) {
-    const raw = fs.readFileSync(path.join(dir, f), 'utf8');
+    let raw = fs.readFileSync(path.join(dir, f), 'utf8');
     let cluster = '';
     try { cluster = (JSON.parse(raw).cluster) || ''; } catch {}
     if (onlyCluster && !(f.startsWith(onlyCluster) || cluster === onlyCluster)) continue;
+    for (const a of ALLOW) raw = raw.split(a).join('');  // strip proper-noun exceptions
     for (const w of BANNED) {
       let i = 0, n = 0;
       while ((i = raw.indexOf(w, i)) !== -1) { n++; i += w.length; }
