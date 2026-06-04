@@ -13,7 +13,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] krabi — กระบี่ (12 reviews + Top10 + 38 articles + images)
 - [x] chiang-rai — เชียงราย (12 reviews + Top10 + 38 articles + images)
 - [x] surat-thani — สุราษฎร์ธานี (12 reviews + Top10 + 38 articles + images)
-- [ ] chonburi — ชลบุรี (พัทยา)
+- [x] chonburi — ชลบุรี (12 reviews + Top10 + 38 articles + images)
 - [ ] prachuap-khiri-khan — ประจวบคีรีขันธ์ (หัวหิน)
 - [ ] kanchanaburi — กาญจนบุรี
 - [ ] phang-nga — พังงา
