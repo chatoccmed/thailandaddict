@@ -66,6 +66,7 @@ Then mark the province `[x]` in `_internal/build-queue.md` and move to the next.
 6. **Quality bar (LOCKED)**: v2-clean Thai (ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก) · honesty "เสียงจากรีวิวจริง" ไม่อ้างไปพักเอง · verify โรงแรม/ร้านมีจริง · Direction C design · images licensed (Wikimedia/Unsplash/Pexels) + optimized.
 7. **Schemas/examples**: `astro/src/content.config.ts` + `_internal/templates/{review,roundup,article}.sample.json`.
 8. Build-test builds content only (skips public/). That's expected; the production Cloudflare build runs full `npm run build` incl. public/images.
+9. **Image workflow can HANG** (seen on Phuket: stalled at 19/38 for hours, no completion notification). Cause: an image agent runs `curl` with no timeout, waits forever on a stalled connection, and holds a concurrency slot → whole workflow wedges. **Fix (already in `province-images.template.js`): every curl MUST use `curl -m 60 --connect-timeout 20`, and agents try ≤3 sources then report SKIPPED.** Recovery if it still hangs: compute missing slugs via fs (file absent or <15KB), `TaskStop` the dead task if present, then launch a small recover-workflow scoped to just the missing slugs (see `_internal/wf/phuket-images-recover.js`).
 
 ## Throughput note
 Each province ≈ 12 reviews + ~35 articles + ~45 images ≈ ~90 agents across 3 workflows. Run one province per loop iteration, finalize+commit, then next. Workflows run in background and notify on completion — chain phases on those notifications. Build in priority order (`build-queue.md`).
