@@ -1,5 +1,7 @@
 // Generate region + province hub pages from _internal/province-data/*.json, reusing
 // the Direction-C design system/chrome extracted from astro/public/index.html.
+// Province pages use a 5-tab layout (ที่พัก / ที่เที่ยว / ที่กิน / แผนเที่ยว / เตรียมตัว)
+// with a hero image, real hotel-review cards and real article cards.
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -47,34 +49,78 @@ const navChrome = idx.slice(idx.indexOf('<body>')+6, idx.indexOf('<section class
 const footerChrome = idx.slice(idx.indexOf('<footer class="ft">'));  // footer + script + </body></html>
 
 const EXTRA = `<style>
-.crumb{max-width:1080px;margin:0 auto;padding:18px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+/* province hero */
+.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
+@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
+.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.phero h1 em{font-style:normal;color:var(--mango)}
+.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
+/* sticky tab bar */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--teal-dk);background:var(--soft)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
+.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
+.pnhead .em{color:var(--teal)}
+.pnhead:first-child{margin-top:6px}
+/* hotel cards */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
+.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
+.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
+.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.htype{font-size:12.5px;color:var(--sub)}
+.hloc{font-size:12px;color:var(--sub);margin-top:6px}
+.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
+.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
+.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}
+.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
+/* featured roundup callout */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
+/* highlight + food + info cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
 .hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
 .hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:680px){.plist{grid-template-columns:1fr}}
-.pitem{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.pitem .pn{flex-shrink:0;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
-.pitem span{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
-.soon{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:#fff7ed;color:#c2410c;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--soft);border:2px solid #cffafe;border-radius:22px;padding:24px 26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
 .fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
 .fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
+.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
+.dbody h3{font-size:18px}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
+.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
+.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
 </style>`;
 
 const DG = ['d1','d2','d3','d4','d5','d6'];
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const imgUrl = s => !s ? '' : (/^(https?:|\/)/.test(s) ? s : '/'+s);
 
 function page({ title, desc, slug, jsonld, body }) {
   return `<!doctype html>
@@ -111,20 +157,74 @@ function crumb(parts){
   return `<div class="crumb">`+parts.map((p,i)=> i<parts.length-1 ? `<a href="${p.href}">${p.t}</a> › ` : `<span>${p.t}</span>`).join('')+`</div>`;
 }
 
-// ---------- province hub ----------
+// ---- content indexes ----
+const ARTDIR = path.join(ROOT,'astro/src/content/articles');
+const REVDIR = path.join(ROOT,'astro/src/content/reviews');
+const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
+const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
+
+const ARTS = {};
+if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
+  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug), heroImg:imgUrl(a.heroImg||'')}); }catch{}
+}
+const REVS = {};
+if(fs.existsSync(REVDIR)) for(const f of fs.readdirSync(REVDIR).filter(x=>x.endsWith('.json'))){
+  try{
+    const r=JSON.parse(fs.readFileSync(path.join(REVDIR,f),'utf8'));
+    const c = r.cluster || (f.match(/-([a-z-]+)\.json$/)||[])[1] || '';
+    if(!c) continue;
+    (REVS[c] ||= []).push({
+      slug:r.slug, name:r.name||r.slug, score:+(r.score||0), star:+(r.starRating||0),
+      type:r.typeFull||r.type||'', price:r.priceRange||r.qiPrice||'',
+      loc:r.hiLoc||r.badgeLoc||r.qiCol5Value||r.addressLocality||'',
+      img:imgUrl(r.heroImg||r.image||''),
+      agoda:r.bookingAgoda||'', booking:r.bookingBooking||'', trip:r.bookingTrip||''
+    });
+  }catch{}
+}
+
+function artCards(cluster, types){
+  const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+  if(!list.length) return '';
+  return `<div class="dgrid">`+list.map((a,i)=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto ${DG[i%6]}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.remove()">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">อ่านบทความ →</span></div></a>`).join('')+`</div>`;
+}
+function hotelCards(slug){
+  const list=(REVS[slug]||[]).slice().sort((a,b)=>b.score-a.score);
+  if(!list.length) return `<p class="pintro">รีวิวโรงแรมกำลังจัดทำ — เร็ว ๆ นี้</p>`;
+  return `<div class="hgrid">`+list.map(h=>{
+    const stars = h.star? `<div class="hstars">${'★'.repeat(h.star)}</div>`:'';
+    const sc = h.score? `<span class="hscore">${h.score.toFixed(1)}</span>`:'';
+    const price = h.price? `<div class="hprice">เริ่มประมาณ <b>${esc(h.price)}</b></div>`:'';
+    const bk = (h.agoda?`<a class="hbtn bk1" href="${h.agoda}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')
+             +(h.booking?`<a class="hbtn bk2" href="${h.booking}" target="_blank" rel="nofollow noopener">Booking</a>`:'')
+             +(h.trip?`<a class="hbtn bk3" href="${h.trip}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
+    return `<div class="hcard"><div class="hphoto">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.remove()">`:''}${sc}</div><div class="hbody"><h3>${esc(h.name)}</h3>${stars}<div class="htype">${esc(h.type)}</div>${h.loc?`<div class="hloc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">ดูรีวิวเต็ม →</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
+  }).join('')+`</div>`;
+}
+
+// ---------- province hub (5-tab) ----------
 function provinceHub(slug, th, r, d){
   const R = REGION[r];
-  const hi = (d.highlights||[]).map(h=>`<div class="hlc"><h3>${esc(h.name)}</h3><p>${esc(h.blurb)}</p></div>`).join('');
-  const food = (d.foodScene||[]).map(f=>`<div class="fc"><h4>${esc(f.name)}</h4><p>${esc(f.note)}</p></div>`).join('');
   const kindTh={nature:'ธรรมชาติ',city:'เมือง',culture:'วัฒนธรรม'};
-  const see = (d.attractions||[]).map((a,i)=>`<a class="dcard" href="#"><div class="dphoto ${DG[i%6]}"><span class="tagn">${kindTh[a.kind]||'เที่ยว'}</span></div><div class="dbody"><span class="kbadge k-${a.kind||'city'}">${kindTh[a.kind]||''}</span><h3>${esc(a.name)}</h3><p>${esc(a.blurb)}</p></div></a>`).join('');
-  const plans = (d.itineraryIdeas||[]).map((p,i)=>`<div class="pitem"><div class="pn">${i+1}</div><span>${esc(p)}</span></div>`).join('');
-  const nbrs = (d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${TH[n]} →</a>`).join('');
   const tagline = d.tagline || `เที่ยว${th}`;
-  const intro = d.introHtml || `คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`;
+  const intro = stripTags(d.introHtml) || `คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`;
   const best = d.bestTime || 'เที่ยวได้ตลอดปี';
   const emoji = d.heroEmoji || R.emoji;
-  const heroBanner = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? `<img class="cityhero" src="/images/heroes/${slug}.jpg" alt="${esc(th)}" loading="eager" onerror="this.remove()">` : '';
+  const heroSrc = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? `/images/heroes/${slug}.jpg`
+    : (fs.existsSync(path.join(PUB,'images/cities',slug+'.jpg')) ? `/images/cities/${slug}.jpg` : '');
+
+  const arts = ARTS[slug]||[];
+  const cSee = arts.filter(a=>a.type==='attraction').length;
+  const cEat = arts.filter(a=>['food','eat-ranking'].includes(a.type)).length;
+  const cPlan = arts.filter(a=>a.type==='itinerary').length;
+  const cStay = (REVS[slug]||[]).length;
+
+  const hi = (d.highlights||[]).map(h=>`<div class="hlc"><h3>${esc(h.name)}</h3><p>${esc(h.blurb)}</p></div>`).join('');
+  const food = (d.foodScene||[]).map(f=>`<div class="fc"><h4>${esc(f.name)}</h4><p>${esc(f.note)}</p></div>`).join('');
+  const nbrs = (d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${TH[n]} →</a>`).join('');
+  const tipsArt = arts.find(a=>/travel-tips$/.test(a.slug));
+  const moveArt = arts.find(a=>/getting-around$/.test(a.slug));
 
   const jsonld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
@@ -132,63 +232,87 @@ function provinceHub(slug, th, r, d){
     {"@type":"ListItem","position":3,"name":R.th,"item":`https://thailandaddict.com/region-${R.slug}`},
     {"@type":"ListItem","position":4,"name":th,"item":`https://thailandaddict.com/city-${slug}`}]};
 
+  const tab = (id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
+
   const body = `
 ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:R.th,href:`region-${R.slug}.html`},{t:th}])}
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">${emoji} ${R.th}</div>
-  <h1>เที่ยว<em>${th}</em></h1>
-  <p class="lead">${esc(intro)}</p>
-  <div class="chips"><span class="chip">📍 ${R.th}</span><span class="chip">🗓️ ${esc(best)}</span><span class="chip">✅ คัดจากของจริง</span></div>
-</div></section>
-${heroBanner}
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>ไฮไลต์<span class="em"> ${th}</span></h2></div>
-  <p class="secintro">${esc(tagline)}</p>
-  <div class="hl">${hi}</div>
-</div></section>
+<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(th)}" loading="eager" onerror="this.remove()">`:''}
+  <div class="pherobody">
+    <span class="pheye">${emoji} ${R.th}</span>
+    <h1>เที่ยว<em>${th}</em></h1>
+    <p class="phlead">${esc(tagline)}</p>
+    <div class="phchips"><span class="phchip">🗓️ ${esc(best.split(' ').slice(0,6).join(' '))}</span><span class="phchip">🏨 ${cStay} รีวิวที่พัก</span><span class="phchip">📚 ${arts.length} บทความ</span></div>
+  </div>
+</div>
+<div class="tabwrap"><div class="tabbar">
+  ${tab('stay','🏨','ที่พัก',cStay)}
+  ${tab('see','📍','ที่เที่ยว',cSee)}
+  ${tab('eat','🍜','ที่กิน',cEat)}
+  ${tab('plan','🗺️','แผนเที่ยว',cPlan)}
+  ${tab('prep','🎒','เตรียมตัว',0)}
+</div></div>
 
-<section class="sec" id="hotels" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่พัก & <span class="em">โรงแรม</span></h2></div>
-  <p class="secintro">รีวิวที่พัก${th} — จัดอันดับรวมกว่า 10 ที่ พร้อมรีวิวแยกทุกโรงแรม คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</p>
-  <div class="callout"><div><h3>Top 10 โรงแรม${th} ${hasRoundup(slug)?'':'<span class="soon">กำลังจัดทำ</span>'}</h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
-</div></section>
+<div class="wrap" style="padding-top:30px;padding-bottom:20px">
 
-<section class="sec" id="eat"><div class="wrap">
-  <div class="shead"><h2>ที่กิน<span class="em"> ${th}</span></h2></div>
-  <p class="secintro">ของกินเด่นของ${th} — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่</p>
-  <div class="foodgrid">${food}</div>
-  ${artLinks(slug,['food','eat-ranking'],'บทความที่กิน '+th)}
-</div></section>
+<section class="panel active" id="p-stay">
+  <div class="callout"><div><h3>Top 10 โรงแรม${th} ${hasRoundup(slug)?'':'<span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span>'}</h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
+  <p class="pintro">รีวิวที่พัก${th} คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง</p>
+  ${hotelCards(slug)}
+</section>
 
-<section class="sec" id="see" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่เที่ยว<span class="em"> ${th}</span></h2></div>
-  <p class="secintro">ที่เที่ยว${th} ทั้งสายธรรมชาติและสายเมือง</p>
-  <div class="dgrid">${see}</div>
-  ${artLinks(slug,['attraction'],'บทความที่เที่ยว '+th)}
-</div></section>
+<section class="panel" id="p-see">
+  <h2 class="pnhead">ที่เที่ยว<span class="em"> ${th}</span></h2>
+  <p class="pintro">ไฮไลต์และที่เที่ยว${th} ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>
+  ${hi?`<div class="hl">${hi}</div>`:''}
+  ${artCards(slug,['attraction'])||'<p class="pintro">บทความที่เที่ยวกำลังจัดทำ</p>'}
+</section>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>แผน<span class="em">เที่ยว ${th}</span></h2></div>
-  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
-  <div class="plist">${plans}</div>
-  ${artLinks(slug,['itinerary'],'แผนเที่ยว '+th+' แบบละเอียด')}
-  ${nbrs?`<p class="secintro" style="margin:22px 0 10px">เที่ยวต่อจังหวัดข้างเคียง</p><div class="ncards">${nbrs}</div>`:''}
-</div></section>
+<section class="panel" id="p-eat">
+  <h2 class="pnhead">ที่กิน<span class="em"> ${th}</span></h2>
+  <p class="pintro">ของกินเด่นของ${th} — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>
+  ${food?`<div class="foodgrid">${food}</div>`:''}
+  ${artCards(slug,['food','eat-ranking'])||'<p class="pintro">บทความที่กินกำลังจัดทำ</p>'}
+</section>
 
-<section class="sec" id="prep" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>เตรียมตัว<span class="em">เที่ยว ${th}</span></h2></div>
+<section class="panel" id="p-plan">
+  <h2 class="pnhead">แผน<span class="em">เที่ยว ${th}</span></h2>
+  <p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
+  ${artCards(slug,['itinerary'])||'<p class="pintro">แผนเที่ยวกำลังจัดทำ</p>'}
+  ${nbrs?`<h2 class="pnhead">เที่ยวต่อ<span class="em">จังหวัดข้างเคียง</span></h2><div class="ncards">${nbrs}</div>`:''}
+</section>
+
+<section class="panel" id="p-prep">
+  <h2 class="pnhead">เตรียมตัว<span class="em">เที่ยว ${th}</span></h2>
+  <p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไป${th}</p>
   <div class="eeat">
     <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>${esc(best)}</p></div>
-    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไป${th} และการเดินทางในจังหวัด — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">💸</div><h3>งบประมาณ</h3><p>ประเมินค่าใช้จ่ายต่อทริป — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไป${th} ตามฤดูและกิจกรรม</p></div>
+    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>${moveArt?`อ่านวิธีเดินทางใน${th}แบบละเอียด`:`วิธีไป${th}และเดินทางในจังหวัด`}${moveArt?` · <a href="${moveArt.slug}.html" style="color:var(--teal-dk);font-weight:700">เปิดคู่มือ →</a>`:''}</p></div>
+    <div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>${R.th} · <a href="region-${R.slug}.html" style="color:var(--teal-dk);font-weight:700">เที่ยว${R.th} →</a></p></div>
+    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>${tipsArt?`เช็กลิสต์เตรียมตัวเที่ยว${th}`:`สิ่งที่ควรเตรียมไป${th}`}${tipsArt?` · <a href="${tipsArt.slug}.html" style="color:var(--teal-dk);font-weight:700">อ่านทิป →</a>`:''}</p></div>
   </div>
-  ${artLinks(slug,['prep','guide'],'คู่มือเตรียมตัว '+th)}
-</div></section>
+  ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">คู่มือ<span class="em">เตรียมตัว</span></h2>${artCards(slug,['prep','guide'])}`:''}
+</section>
 
-<section class="sec" style="padding-top:0"><div class="wrap">
+</div>
+
+<section class="sec" style="padding-top:6px"><div class="wrap">
   <div class="ctaband"><h2>วางแผนเที่ยว${th}</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-${slug}.html">เริ่มจากที่พัก →</a></div>
-</div></section>`;
+</div></section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function act(id,scroll){
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
+    panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
+    if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'});}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab);})});
+  var map={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'};
+  var h=(location.hash||'').replace('#','');
+  if(map[h]) act(map[h],true);
+})();
+</script>`;
 
   return page({
     title: `เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict`,
@@ -205,7 +329,8 @@ function regionPage(r){
     const d = readData(s);
     const tg = (d&&d.tagline) || `เที่ยว${th}`;
     const em = (d&&d.heroEmoji) || R.emoji;
-    return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}"><span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว${th} →</span></div></a>`;
+    const img = fs.existsSync(path.join(PUB,'images/cities',s+'.jpg')) ? `/images/cities/${s}.jpg` : (fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:'');
+    return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.remove()">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว${th} →</span></div></a>`;
   }).join('');
   const jsonld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
@@ -240,7 +365,8 @@ function countryHub(){
     const provs=PROVINCES.filter(([,,rr])=>rr===r);
     const cards=provs.map(([s,th],i)=>{
       const d=readData(s); const tg=(d&&d.tagline)||`เที่ยว${th}`; const em=(d&&d.heroEmoji)||R.emoji;
-      return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}"><span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว →</span></div></a>`;
+      const img = fs.existsSync(path.join(PUB,'images/cities',s+'.jpg')) ? `/images/cities/${s}.jpg` : (fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:'');
+      return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.remove()">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว →</span></div></a>`;
     }).join('');
     return `<section class="regsec"><div class="wrap">
   <div class="shead"><h2>${R.emoji} <span class="em">${R.th}</span></h2><a href="region-${R.slug}.html">ดู${R.th} →</a></div>
@@ -273,22 +399,6 @@ function readData(slug){
   const f=path.join(DATA, slug+'.json');
   if(!fs.existsSync(f)) return null;
   try { return JSON.parse(fs.readFileSync(f,'utf8')); } catch { return null; }
-}
-
-// ---- articles index (auto-link province articles into the hub) ----
-const ARTDIR = path.join(ROOT,'astro/src/content/articles');
-const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
-const ARTS = {};
-if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
-  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug), heroImg:a.heroImg||''}); }catch{}
-}
-const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
-function artLinks(cluster, types, label){
-  const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
-  if(!list.length) return '';
-  return `<p class="secintro" style="margin:22px 0 12px"><strong>${label}</strong> · ${list.length} บทความ</p><div class="dgrid">`+
-    list.map((a,i)=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto ${DG[i%6]}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.remove()">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">อ่านบทความ →</span></div></a>`).join('')+`</div>`;
 }
 
 // ---- generate ----

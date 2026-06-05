@@ -117,30 +117,73 @@ img{display:block;max-width:100%}
 .ftaff{max-width:1080px;margin:14px auto 0;font-size:11.5px;color:rgba(255,255,255,.4);line-height:1.6}
 </style>
 <style>
-.crumb{max-width:1080px;margin:0 auto;padding:18px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+/* province hero */
+.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
+@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
+.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.phero h1 em{font-style:normal;color:var(--mango)}
+.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
+/* sticky tab bar */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--teal-dk);background:var(--soft)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
+.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
+.pnhead .em{color:var(--teal)}
+.pnhead:first-child{margin-top:6px}
+/* hotel cards */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
+.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
+.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
+.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.htype{font-size:12.5px;color:var(--sub)}
+.hloc{font-size:12px;color:var(--sub);margin-top:6px}
+.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
+.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
+.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}
+.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
+/* featured roundup callout */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
+/* highlight + food + info cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
 .hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
 .hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:680px){.plist{grid-template-columns:1fr}}
-.pitem{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.pitem .pn{flex-shrink:0;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
-.pitem span{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
-.soon{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:#fff7ed;color:#c2410c;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--soft);border:2px solid #cffafe;border-radius:22px;padding:24px 26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
 .fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
 .fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
+.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
+.dbody h3{font-size:18px}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
+.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
+.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
 </style>
 </head>
 <body>
@@ -171,61 +214,83 @@ img{display:block;max-width:100%}
 </div>
 
 <div class="crumb"><a href="/">หน้าแรก</a> › <a href="country-thailand.html">ประเทศไทย</a> › <a href="region-south.html">ภาคใต้</a> › <span>ยะลา</span></div>
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">🌫️ ภาคใต้</div>
-  <h1>เที่ยว<em>ยะลา</em></h1>
-  <p class="lead">&lt;p&gt;ยะลาเป็นจังหวัดใต้สุดของประเทศ คนนึกถึงกันด้วยตัวเมืองยะลาที่วางผังเป็นวงกลมซ้อนกันรอบศาลหลักเมือง ถนนตัดตรงเรียงเป็นใยแมงมุม จนได้ชื่อว่าเป็นเมืองที่จัดผังสวยที่สุดของไทย กับอีกด้านคือเบตงเมืองในหุบเขาปลายสุดชายแดน ที่มีทะเลหมอกอัยเยอร์เวง สกายวอล์กยื่นออกไปเหนือหมอก และตู้ไปรษณีย์ใหญ่กลางเมืองเป็นภาพจำ&lt;/p&gt;&lt;p&gt;เสน่ห์ของยะลาคือการผสมของวิถีมลายูมุสลิม จีนฮกเกี้ยนในเบตง และไทยพุทธอยู่ในจังหวัดเดียว มีเขื่อนบางลางกับทะเลสาบกว้าง อุโมงค์ปิยะมิตที่เคยเป็นฐานเก่าในป่า และบ่อน้ำพุร้อนให้แช่ ของกินก็เด่นทั้งไก่เบตง เคาหยก ปลานิลสายน้ำไหล และเมนูปลาส้มรสจัด คนมายะลากันเพื่อขับขึ้นเบตงดูหมอก ชิมอาหารจีนถิ่น และสัมผัสเมืองชายแดนใต้ที่หาที่อื่นเทียบยาก&lt;/p&gt;</p>
-  <div class="chips"><span class="chip">📍 ภาคใต้</span><span class="chip">🗓️ พฤศจิกายน–กุมภาพันธ์ อากาศเย็นและมีโอกาสเจอทะเลหมอกอัยเยอร์เวงหนา ๆ เป็นช่วงขึ้นเบตงที่ดีที่สุด ส่วนกลางปีฝนตกชุกตามภาคใต้</span><span class="chip">✅ คัดจากของจริง</span></div>
-</div></section>
+<div class="phero">
+  <div class="pherobody">
+    <span class="pheye">🌫️ ภาคใต้</span>
+    <h1>เที่ยว<em>ยะลา</em></h1>
+    <p class="phlead">ใต้สุดแดนสยาม เมืองผังกลมที่จัดวางสวยที่สุด เบตงทะเลหมอกอัยเยอร์เวง อุโมงค์เก่า และของกินจีนฮกเกี้ยน</p>
+    <div class="phchips"><span class="phchip">🗓️ พฤศจิกายน–กุมภาพันธ์ อากาศเย็นและมีโอกาสเจอทะเลหมอกอัยเยอร์เวงหนา ๆ เป็นช่วงขึ้นเบตงที่ดีที่สุด ส่วนกลางปีฝนตกชุกตามภาคใต้</span><span class="phchip">🏨 0 รีวิวที่พัก</span><span class="phchip">📚 0 บทความ</span></div>
+  </div>
+</div>
+<div class="tabwrap"><div class="tabbar">
+  <div class="tab active" data-tab="stay">🏨 ที่พัก</div>
+  <div class="tab" data-tab="see">📍 ที่เที่ยว</div>
+  <div class="tab" data-tab="eat">🍜 ที่กิน</div>
+  <div class="tab" data-tab="plan">🗺️ แผนเที่ยว</div>
+  <div class="tab" data-tab="prep">🎒 เตรียมตัว</div>
+</div></div>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>ไฮไลต์<span class="em"> ยะลา</span></h2></div>
-  <p class="secintro">ใต้สุดแดนสยาม เมืองผังกลมที่จัดวางสวยที่สุด เบตงทะเลหมอกอัยเยอร์เวง อุโมงค์เก่า และของกินจีนฮกเกี้ยน</p>
+<div class="wrap" style="padding-top:30px;padding-bottom:20px">
+
+<section class="panel active" id="p-stay">
+  <div class="callout"><div><h3>Top 10 โรงแรมยะลา <span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-yala.html">ดูอันดับที่พัก →</a></div>
+  <p class="pintro">รีวิวที่พักยะลา คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง</p>
+  <p class="pintro">รีวิวโรงแรมกำลังจัดทำ — เร็ว ๆ นี้</p>
+</section>
+
+<section class="panel" id="p-see">
+  <h2 class="pnhead">ที่เที่ยว<span class="em"> ยะลา</span></h2>
+  <p class="pintro">ไฮไลต์และที่เที่ยวยะลา ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>
   <div class="hl"><div class="hlc"><h3>ทะเลหมอกอัยเยอร์เวง</h3><p>จุดชมทะเลหมอกบนเขาในเขตเบตงที่หมอกลอยเต็มหุบในตอนเช้า มีสกายวอล์กยื่นออกไปให้ยืนเหนือหมอก เป็นภาพแรกที่คนนึกถึงเวลาพูดถึงเบตงและยะลา</p></div><div class="hlc"><h3>เมืองเบตง</h3><p>เมืองในหุบเขาปลายสุดชายแดนใต้ที่มีกลิ่นอายจีนฮกเกี้ยนชัดเจน มีตู้ไปรษณีย์ใหญ่ หอนาฬิกา สตรีทอาร์ต และของกินจีนถิ่น เป็นจุดหมายหลักที่คนขับรถขึ้นมาเที่ยว</p></div><div class="hlc"><h3>ตัวเมืองยะลาผังวงกลม</h3><p>เมืองยะลาวางผังเป็นวงกลมซ้อนรอบศาลหลักเมือง ถนนตัดตรงเรียงเป็นใยแมงมุม ได้ชื่อว่าเป็นเมืองที่จัดผังสวยที่สุดของไทย เดินดูความเป็นระเบียบของเมืองได้</p></div><div class="hlc"><h3>เขื่อนบางลางและทะเลสาบ</h3><p>เขื่อนใหญ่กลางป่าในอำเภอบันนังสตากับทะเลสาบกว้างล้อมด้วยภูเขา นั่งเรือชมวิว แวะแพริมน้ำ และมองสันเขื่อนทอดยาว เป็นจุดธรรมชาติคู่จังหวัด</p></div><div class="hlc"><h3>อุโมงค์ปิยะมิต</h3><p>อุโมงค์ดินยาวในป่าเขตเบตงที่เคยเป็นฐานหลบภัยเก่า ขุดทะลุเขาเป็นทางคดเคี้ยว เดินลอดชมและฟังเรื่องราวประวัติศาสตร์แถบชายแดนได้</p></div><div class="hlc"><h3>บ่อน้ำพุร้อนเบตง</h3><p>บ่อน้ำร้อนธรรมชาติกลางป่าใกล้เบตงที่ร้อนพอต้มไข่ได้ มีบ่อให้แช่เท้าและแช่ตัวคลายเมื่อย เป็นจุดแวะพักยอดนิยมระหว่างเที่ยวเบตง</p></div></div>
-</div></section>
+  <p class="pintro">บทความที่เที่ยวกำลังจัดทำ</p>
+</section>
 
-<section class="sec" id="hotels" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่พัก & <span class="em">โรงแรม</span></h2></div>
-  <p class="secintro">รีวิวที่พักยะลา — จัดอันดับรวมกว่า 10 ที่ พร้อมรีวิวแยกทุกโรงแรม คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</p>
-  <div class="callout"><div><h3>Top 10 โรงแรมยะลา <span class="soon">กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-yala.html">ดูอันดับที่พัก →</a></div>
-</div></section>
-
-<section class="sec" id="eat"><div class="wrap">
-  <div class="shead"><h2>ที่กิน<span class="em"> ยะลา</span></h2></div>
-  <p class="secintro">ของกินเด่นของยะลา — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่</p>
+<section class="panel" id="p-eat">
+  <h2 class="pnhead">ที่กิน<span class="em"> ยะลา</span></h2>
+  <p class="pintro">ของกินเด่นของยะลา — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>
   <div class="foodgrid"><div class="fc"><h4>ไก่เบตง</h4><p>ไก่พันธุ์พื้นเมืองเนื้อแน่นหนังกรอบของเบตง ทำได้ทั้งต้ม นึ่ง และไก่ตุ๋น กินกับน้ำจิ้มซีอิ๊วขิง เป็นเมนูขึ้นชื่อที่ใครขึ้นเบตงต้องสั่ง</p></div><div class="fc"><h4>อาหารจีนฮกเกี้ยนเบตง</h4><p>เคาหยกหมูสามชั้นตุ๋นเผือก ผัดผักน้ำสด และเมนูจีนถิ่นในร้านเก่าแก่กลางเบตง รสกลมกล่อมแบบจีนใต้ที่สืบทอดกันมาในเมืองนี้</p></div><div class="fc"><h4>ปลานิลสายน้ำไหล</h4><p>ปลานิลเลี้ยงในน้ำไหลเย็นแถบเบตง เนื้อแน่นไม่มีกลิ่นดิน นิยมทอดกรอบราดน้ำปลาหรือนึ่งซีอิ๊ว เป็นของขึ้นชื่ออีกอย่างของเมือง</p></div><div class="fc"><h4>อาหารใต้รสจัด</h4><p>แกงไตปลา คั่วกลิ้ง แกงเหลือง และข้าวยำปักษ์ใต้ หากินได้ทั่วเมืองยะลา รสเผ็ดเค็มจัดกินกับข้าวสวยร้อนและผักเหนาะสด</p></div><div class="fc"><h4>ปลาส้มและปลาแดดเดียว</h4><p>ปลาส้มหมักรสเปรี้ยวและปลาแดดเดียวจากแถบเขื่อนบางลาง ทอดกรอบกินกับข้าวสวยและน้ำพริก เป็นของถิ่นและของฝากที่คนซื้อกลับ</p></div><div class="fc"><h4>อาหารมลายูและน้ำชา</h4><p>นาซิดาแฆ ข้าวยำน้ำบูดู และโรตีกินคู่น้ำชาชักในร้านน้ำชาที่เปิดแต่เช้า เป็นวิถีมื้อเช้าแบบมุสลิมที่อยู่คู่จังหวัดชายแดนใต้</p></div><div class="fc"><h4>ขนมและของหวานจีน</h4><p>ขนมจีนถิ่นในเบตงทั้งฮูแซเปี๊ยะ ขนมพื้นบ้าน และของหวานกะทิแบบมลายู ขายตามตลาดเช้าและร้านเก่า กินคู่กาแฟโบราณเป็นของว่าง</p></div><div class="fc"><h4>เฉาก๊วยและเครื่องดื่มเบตง</h4><p>เฉาก๊วยเบตงเนื้อเหนียวนุ่มที่ขึ้นชื่อ ราดน้ำเชื่อมเย็น ๆ กินคลายร้อน เป็นของหวานประจำเมืองที่คนแวะซื้อชิมกันแทบทุกคน</p></div></div>
-  
-</div></section>
+  <p class="pintro">บทความที่กินกำลังจัดทำ</p>
+</section>
 
-<section class="sec" id="see" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่เที่ยว<span class="em"> ยะลา</span></h2></div>
-  <p class="secintro">ที่เที่ยวยะลา ทั้งสายธรรมชาติและสายเมือง</p>
-  <div class="dgrid"><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>สกายวอล์กอัยเยอร์เวง</h3><p>ทางเดินกระจกยื่นออกไปเหนือหุบเขาในเขตเบตง ขึ้นไปยืนชมทะเลหมอกตอนเช้าได้รอบทิศ เป็นจุดชมวิวยอดนิยมที่สุดของยะลา</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>เมืองเบตงและตู้ไปรษณีย์ใหญ่</h3><p>ย่านกลางเมืองเบตงที่มีตู้ไปรษณีย์ใหญ่ หอนาฬิกา และสตรีทอาร์ต เดินชมตึกเก่า ร้านจีน และซึมซับบรรยากาศเมืองชายแดนในหุบเขา</p></div></a><a class="dcard" href="#"><div class="dphoto d3"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>ป้ายใต้สุดสยามและสวนหมื่นบุปผา</h3><p>ป้ายใต้สุดสยามชายแดนเบตงและสวนดอกไม้เมืองหนาวบนเขาที่ปลูกไม้ดอกหลากสี อากาศเย็นสบาย เป็นจุดถ่ายรูปคู่ปลายแผ่นดินไทย</p></div></a><a class="dcard" href="#"><div class="dphoto d4"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>อุโมงค์ปิยะมิต</h3><p>อุโมงค์ดินยาวในป่าเบตงที่เคยเป็นฐานหลบภัยเก่า เดินลอดชมทางคดเคี้ยวและเรียนรู้ประวัติศาสตร์แถบชายแดนใต้ในอดีต</p></div></a><a class="dcard" href="#"><div class="dphoto d5"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>เขื่อนบางลาง</h3><p>เขื่อนใหญ่กลางป่ากับทะเลสาบกว้างล้อมภูเขา นั่งเรือชมวิว แวะแพริมน้ำ และมองสันเขื่อนทอดยาว เป็นจุดธรรมชาติเงียบ ๆ ของจังหวัด</p></div></a><a class="dcard" href="#"><div class="dphoto d6"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>บ่อน้ำพุร้อนเบตง</h3><p>บ่อน้ำร้อนธรรมชาติกลางป่าใกล้เบตงที่ร้อนพอต้มไข่ได้ มีบ่อแช่เท้าและแช่ตัวคลายเมื่อย เหมาะแวะพักระหว่างทริปเบตง</p></div></a><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>ศาลหลักเมืองและผังเมืองยะลา</h3><p>ศูนย์กลางของเมืองยะลาที่ผังถนนวางเป็นวงกลมซ้อนรอบศาลหลักเมือง เดินดูความเป็นระเบียบของเมืองที่ได้ชื่อว่าจัดผังสวยที่สุดของไทย</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>วัดคูหาภิมุข (วัดถ้ำ)</h3><p>วัดในถ้ำใกล้เมืองยะลาที่มีพระนอนองค์ใหญ่และหินงอกหินย้อยภายในถ้ำ เป็นวัดเก่าแก่และจุดไหว้พระชมถ้ำที่คนท้องถิ่นนับถือ</p></div></a></div>
-  
-</div></section>
+<section class="panel" id="p-plan">
+  <h2 class="pnhead">แผน<span class="em">เที่ยว ยะลา</span></h2>
+  <p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
+  <p class="pintro">แผนเที่ยวกำลังจัดทำ</p>
+  <h2 class="pnhead">เที่ยวต่อ<span class="em">จังหวัดข้างเคียง</span></h2><div class="ncards"><a class="nc" href="city-pattani.html">ปัตตานี →</a><a class="nc" href="city-narathiwat.html">นราธิวาส →</a><a class="nc" href="city-songkhla.html">สงขลา →</a></div>
+</section>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>แผน<span class="em">เที่ยว ยะลา</span></h2></div>
-  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
-  <div class="plist"><div class="pitem"><div class="pn">1</div><span>ยะลา–เบตง 2 วัน 1 คืน เมืองยะลา–ทะเลหมอกอัยเยอร์เวง–ตัวเมืองเบตง</span></div><div class="pitem"><div class="pn">2</div><span>เบตง สายชมหมอกและธรรมชาติ สกายวอล์ก–บ่อน้ำพุร้อน–อุโมงค์ปิยะมิต</span></div><div class="pitem"><div class="pn">3</div><span>ยะลา สายของกินถิ่น ไก่เบตง–เคาหยก–เฉาก๊วย–ร้านน้ำชาเช้า</span></div><div class="pitem"><div class="pn">4</div><span>ยะลา สายเขื่อนและทะเลสาบ เขื่อนบางลาง–นั่งเรือ–แพริมน้ำ</span></div><div class="pitem"><div class="pn">5</div><span>ยะลา–ปัตตานี เลาะชายแดนใต้เที่ยวเมืองและวัฒนธรรมมลายูสองจังหวัด</span></div><div class="pitem"><div class="pn">6</div><span>ยะลา–สงขลา ต่อทริปลงเมืองเก่าและหาดใหญ่กินของอร่อย</span></div></div>
-  
-  <p class="secintro" style="margin:22px 0 10px">เที่ยวต่อจังหวัดข้างเคียง</p><div class="ncards"><a class="nc" href="city-pattani.html">ปัตตานี →</a><a class="nc" href="city-narathiwat.html">นราธิวาส →</a><a class="nc" href="city-songkhla.html">สงขลา →</a></div>
-</div></section>
-
-<section class="sec" id="prep" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>เตรียมตัว<span class="em">เที่ยว ยะลา</span></h2></div>
+<section class="panel" id="p-prep">
+  <h2 class="pnhead">เตรียมตัว<span class="em">เที่ยว ยะลา</span></h2>
+  <p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไปยะลา</p>
   <div class="eeat">
     <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>พฤศจิกายน–กุมภาพันธ์ อากาศเย็นและมีโอกาสเจอทะเลหมอกอัยเยอร์เวงหนา ๆ เป็นช่วงขึ้นเบตงที่ดีที่สุด ส่วนกลางปีฝนตกชุกตามภาคใต้</p></div>
-    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไปยะลา และการเดินทางในจังหวัด — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">💸</div><h3>งบประมาณ</h3><p>ประเมินค่าใช้จ่ายต่อทริป — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไปยะลา ตามฤดูและกิจกรรม</p></div>
+    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไปยะลาและเดินทางในจังหวัด</p></div>
+    <div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>ภาคใต้ · <a href="region-south.html" style="color:var(--teal-dk);font-weight:700">เที่ยวภาคใต้ →</a></p></div>
+    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>สิ่งที่ควรเตรียมไปยะลา</p></div>
   </div>
   
-</div></section>
+</section>
 
-<section class="sec" style="padding-top:0"><div class="wrap">
+</div>
+
+<section class="sec" style="padding-top:6px"><div class="wrap">
   <div class="ctaband"><h2>วางแผนเที่ยวยะลา</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-yala.html">เริ่มจากที่พัก →</a></div>
 </div></section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function act(id,scroll){
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
+    panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
+    if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'});}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab);})});
+  var map={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'};
+  var h=(location.hash||'').replace('#','');
+  if(map[h]) act(map[h],true);
+})();
+</script>
 <footer class="ft">
   <div class="ftg">
     <div><div class="ftlogo">Thailand<em>Addict</em></div><div class="fttag">Thailand, Done Right</div><p style="font-size:13px;color:rgba(255,255,255,.5);max-width:240px">คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ</p></div>

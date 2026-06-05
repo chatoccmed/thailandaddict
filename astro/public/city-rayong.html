@@ -117,30 +117,73 @@ img{display:block;max-width:100%}
 .ftaff{max-width:1080px;margin:14px auto 0;font-size:11.5px;color:rgba(255,255,255,.4);line-height:1.6}
 </style>
 <style>
-.crumb{max-width:1080px;margin:0 auto;padding:18px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+/* province hero */
+.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
+@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
+.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.phero h1 em{font-style:normal;color:var(--mango)}
+.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
+/* sticky tab bar */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--teal-dk);background:var(--soft)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
+.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
+.pnhead .em{color:var(--teal)}
+.pnhead:first-child{margin-top:6px}
+/* hotel cards */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
+.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
+.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
+.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.htype{font-size:12.5px;color:var(--sub)}
+.hloc{font-size:12px;color:var(--sub);margin-top:6px}
+.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
+.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
+.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}
+.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
+/* featured roundup callout */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
+/* highlight + food + info cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
 .hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
 .hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:680px){.plist{grid-template-columns:1fr}}
-.pitem{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.pitem .pn{flex-shrink:0;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
-.pitem span{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
-.soon{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:#fff7ed;color:#c2410c;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--soft);border:2px solid #cffafe;border-radius:22px;padding:24px 26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
 .fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
 .fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
+.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
+.dbody h3{font-size:18px}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
+.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
+.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
 </style>
 </head>
 <body>
@@ -171,61 +214,83 @@ img{display:block;max-width:100%}
 </div>
 
 <div class="crumb"><a href="/">หน้าแรก</a> › <a href="country-thailand.html">ประเทศไทย</a> › <a href="region-east.html">ภาคตะวันออก</a> › <span>ระยอง</span></div>
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">🏝️ ภาคตะวันออก</div>
-  <h1>เที่ยว<em>ระยอง</em></h1>
-  <p class="lead">&lt;p&gt;ระยองอยู่ถัดจากชลบุรีไปทางตะวันออก ขับรถจากกรุงเทพไปราว 2-3 ชั่วโมงก็ถึง เป็นจังหวัดที่มีทั้งเกาะเสม็ดน้ำใส หาดแม่รำพึงที่ยาวเงียบ ๆ และสวนผลไม้ที่ออกทุเรียน เงาะ มังคุดในหน้าร้อน&lt;/p&gt;&lt;p&gt;คนนิยมขับรถมากินอาหารทะเล ซื้อกะปิกับน้ำปลาเป็นของฝาก แล้วนั่งเรือออกเกาะเสม็ดไปนอนพักริมหาด ใครชอบเที่ยวสบาย ๆ ก็เดินเล่นย่านเมืองเก่ายมจินดา ชิมก๋วยเตี๋ยว แวะคาเฟ่ แล้วต่อไปทะเลฝั่งบ้านเพหรือปากน้ำประแสได้&lt;/p&gt;</p>
-  <div class="chips"><span class="chip">📍 ภาคตะวันออก</span><span class="chip">🗓️ พฤศจิกายน–กุมภาพันธ์ ทะเลใสคลื่นน้อยเหมาะออกเกาะ ส่วนเมษายน–มิถุนายนเป็นหน้าผลไม้สวน</span><span class="chip">✅ คัดจากของจริง</span></div>
-</div></section>
+<div class="phero">
+  <div class="pherobody">
+    <span class="pheye">🏝️ ภาคตะวันออก</span>
+    <h1>เที่ยว<em>ระยอง</em></h1>
+    <p class="phlead">เมืองชายทะเลตะวันออก ที่มีเกาะเสม็ด หาดเงียบ ๆ ผลไม้สวน และของทะเลแห้งขึ้นชื่อ</p>
+    <div class="phchips"><span class="phchip">🗓️ พฤศจิกายน–กุมภาพันธ์ ทะเลใสคลื่นน้อยเหมาะออกเกาะ ส่วนเมษายน–มิถุนายนเป็นหน้าผลไม้สวน</span><span class="phchip">🏨 0 รีวิวที่พัก</span><span class="phchip">📚 14 บทความ</span></div>
+  </div>
+</div>
+<div class="tabwrap"><div class="tabbar">
+  <div class="tab active" data-tab="stay">🏨 ที่พัก</div>
+  <div class="tab" data-tab="see">📍 ที่เที่ยว<span class="tc">2</span></div>
+  <div class="tab" data-tab="eat">🍜 ที่กิน<span class="tc">12</span></div>
+  <div class="tab" data-tab="plan">🗺️ แผนเที่ยว</div>
+  <div class="tab" data-tab="prep">🎒 เตรียมตัว</div>
+</div></div>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>ไฮไลต์<span class="em"> ระยอง</span></h2></div>
-  <p class="secintro">เมืองชายทะเลตะวันออก ที่มีเกาะเสม็ด หาดเงียบ ๆ ผลไม้สวน และของทะเลแห้งขึ้นชื่อ</p>
+<div class="wrap" style="padding-top:30px;padding-bottom:20px">
+
+<section class="panel active" id="p-stay">
+  <div class="callout"><div><h3>Top 10 โรงแรมระยอง <span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-rayong.html">ดูอันดับที่พัก →</a></div>
+  <p class="pintro">รีวิวที่พักระยอง คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง</p>
+  <p class="pintro">รีวิวโรงแรมกำลังจัดทำ — เร็ว ๆ นี้</p>
+</section>
+
+<section class="panel" id="p-see">
+  <h2 class="pnhead">ที่เที่ยว<span class="em"> ระยอง</span></h2>
+  <p class="pintro">ไฮไลต์และที่เที่ยวระยอง ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>
   <div class="hl"><div class="hlc"><h3>เกาะเสม็ด</h3><p>เกาะหน้าบ้านเพ น้ำใสหาดทรายขาว นั่งเรือออกไปไม่นาน มีหาดทรายแก้ว อ่าวพร้าว และหาดเล็ก ๆ ให้เลือกพัก</p></div><div class="hlc"><h3>หาดแม่รำพึง</h3><p>หาดทรายยาวในตัวเมืองระยอง มีถนนเลียบหาด ร้านอาหารทะเล และที่พักเรียงริมทะเลให้นั่งชิล</p></div><div class="hlc"><h3>บ้านเพ</h3><p>ท่าเรือไปเกาะเสม็ดและตลาดของฝากใหญ่ของจังหวัด ขายกะปิ น้ำปลา ปลาหมึกแห้ง และของทะเลแห้งสารพัด</p></div><div class="hlc"><h3>ถนนยมจินดา</h3><p>ย่านเมืองเก่าริมแม่น้ำระยอง มีตึกไม้เก่า บ้านขุนนาง ร้านกาแฟ และของกินพื้นถิ่นให้เดินเล่น</p></div><div class="hlc"><h3>ปากน้ำประแส</h3><p>ชุมชนประมงเก่าปลายแม่น้ำประแส มีเรือรบหลวงประแสจอดเป็นอนุสรณ์ สะพานประแสสิน และทุ่งโปรงทอง</p></div><div class="hlc"><h3>สวนผลไม้</h3><p>ระยองเป็นเมืองทุเรียน เงาะ มังคุด หน้าร้อนมีสวนให้เข้าไปกินผลไม้บุฟเฟต์และซื้อกลับบ้าน</p></div></div>
-</div></section>
+  <div class="dgrid"><a class="dcard" href="koh-samet-guide.html"><div class="dphoto d1"><img src="/images/cm/koh-samet-guide.jpg" alt="เกาะเสม็ด เรือจากบ้านเพ หาด และที่พักครบจบ" loading="lazy" onerror="this.remove()"></div><div class="dbody"><h3>เกาะเสม็ด เรือจากบ้านเพ หาด และที่พักครบจบ</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-attractions.html"><div class="dphoto d2"></div><div class="dbody"><h3>ที่เที่ยวระยอง เกาะ หาด เมืองเก่า ป่าชายเลน</h3><span class="go">อ่านบทความ →</span></div></a></div>
+</section>
 
-<section class="sec" id="hotels" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่พัก & <span class="em">โรงแรม</span></h2></div>
-  <p class="secintro">รีวิวที่พักระยอง — จัดอันดับรวมกว่า 10 ที่ พร้อมรีวิวแยกทุกโรงแรม คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</p>
-  <div class="callout"><div><h3>Top 10 โรงแรมระยอง <span class="soon">กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-rayong.html">ดูอันดับที่พัก →</a></div>
-</div></section>
-
-<section class="sec" id="eat"><div class="wrap">
-  <div class="shead"><h2>ที่กิน<span class="em"> ระยอง</span></h2></div>
-  <p class="secintro">ของกินเด่นของระยอง — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่</p>
+<section class="panel" id="p-eat">
+  <h2 class="pnhead">ที่กิน<span class="em"> ระยอง</span></h2>
+  <p class="pintro">ของกินเด่นของระยอง — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>
   <div class="foodgrid"><div class="fc"><h4>อาหารทะเลริมหาด</h4><p>หาดแม่รำพึง บ้านเพ และแถบชายทะเลมีร้านซีฟู้ดเรียงราย กุ้ง หอย ปู ปลาหมึกสด ๆ ราคาจับต้องได้</p></div><div class="fc"><h4>ของทะเลแห้งและกะปิ–น้ำปลา</h4><p>บ้านเพขายปลาหมึกแห้ง กุ้งแห้ง กะปิ และน้ำปลาขึ้นชื่อของระยอง คนแวะซื้อเป็นของฝากก่อนกลับ</p></div><div class="fc"><h4>ก๋วยเตี๋ยวและขนมจีนเมืองระยอง</h4><p>ในเมืองมีร้านก๋วยเตี๋ยวเก่าแก่และขนมจีนน้ำยาปูที่คนท้องถิ่นกินกันมานาน</p></div><div class="fc"><h4>ทุเรียน เงาะ มังคุด</h4><p>หน้าร้อนผลไม้สวนระยองออกเต็มที่ ทุเรียนพันธุ์หมอนทองและเงาะโรงเรียนหาซื้อได้ตามแผงและสวน</p></div><div class="fc"><h4>ขนมและของกินพื้นถิ่น</h4><p>ระยองมีกะละแม ข้าวหลาม และขนมพื้นบ้านขายตามตลาดบ้านเพและร้านของฝาก</p></div><div class="fc"><h4>คาเฟ่ในเมืองและริมทะเล</h4><p>ย่านยมจินดาและริมหาดแม่รำพึงมีคาเฟ่ในตึกเก่าและร้านกาแฟวิวทะเลให้แวะนั่งพัก</p></div><div class="fc"><h4>หมูกระทะและสตรีทฟู้ด</h4><p>ตามย่านชุมชนและหอพักคนทำงานนิคมมีร้านหมูกระทะและของกินข้างทางให้นัดกินมื้อเย็น</p></div></div>
-  
-</div></section>
+  <div class="dgrid"><a class="dcard" href="ban-phe-dried-seafood.html"><div class="dphoto d1"></div><div class="dbody"><h3>ของทะเลแห้ง กะปิ น้ำปลา บ้านเพ ซื้อที่ไหน ร้านไหนดี</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="koh-samet-restaurants.html"><div class="dphoto d2"></div><div class="dbody"><h3>ร้านอาหารเกาะเสม็ด 10 ร้านซีฟู้ดริมหาด กินวิวทะเล</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="mae-ramphueng-beach-eats.html"><div class="dphoto d3"></div><div class="dbody"><h3>ร้านซีฟู้ดหาดแม่รำพึง มื้อเย็นวิวทะเล 10 ร้าน</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-cafe-guide.html"><div class="dphoto d4"></div><div class="dbody"><h3>คาเฟ่ระยอง ตึกเก่ายมจินดา + ริมหาดแม่รำพึง</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-dessert-souvenir.html"><div class="dphoto d5"></div><div class="dbody"><h3>ของฝากระยอง กะละแม ข้าวหลาม ขนมพื้นบ้าน ซื้อที่ไหน</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-food-guide.html"><div class="dphoto d6"></div><div class="dbody"><h3>ของกินระยอง ซีฟู้ด ของแห้งบ้านเพ ผลไม้สวน</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-fruit-orchards.html"><div class="dphoto d1"></div><div class="dbody"><h3>สวนผลไม้ระยอง บุฟเฟต์ทุเรียน เงาะ มังคุด</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-local-breakfast.html"><div class="dphoto d2"></div><div class="dbody"><h3>อาหารเช้าระยอง กินแบบคนพื้นที่</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-mookata-buffet.html"><div class="dphoto d3"></div><div class="dbody"><h3>หมูกระทะ–บุฟเฟต์ปิ้งย่างระยอง 10 ร้านมื้อเย็นคุ้มราคา</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-noodles-local.html"><div class="dphoto d4"></div><div class="dbody"><h3>ก๋วยเตี๋ยว–ขนมจีนน้ำยาปู ร้านเก่าแก่เมืองระยอง</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-seafood.html"><div class="dphoto d5"></div><div class="dbody"><h3>ร้านอาหารทะเลระยอง 10 ร้านซีฟู้ดสด หาดแม่รำพึง–บ้านเพ</h3><span class="go">อ่านบทความ →</span></div></a><a class="dcard" href="rayong-street-food.html"><div class="dphoto d6"></div><div class="dbody"><h3>สตรีทฟู้ดระยอง ของกินข้างทางในเมือง</h3><span class="go">อ่านบทความ →</span></div></a></div>
+</section>
 
-<section class="sec" id="see" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่เที่ยว<span class="em"> ระยอง</span></h2></div>
-  <p class="secintro">ที่เที่ยวระยอง ทั้งสายธรรมชาติและสายเมือง</p>
-  <div class="dgrid"><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>เกาะเสม็ด</h3><p>เกาะน้ำใสหน้าบ้านเพ มีหาดทรายแก้ว อ่าวพร้าว และอ่าวเล็ก ๆ ให้เลือกเล่นน้ำดำน้ำตื้น</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>หาดแม่รำพึง</h3><p>หาดทรายยาวในตัวเมือง มีถนนเลียบหาด ร้านอาหารทะเล และที่พักริมทะเลให้นั่งชมพระอาทิตย์</p></div></a><a class="dcard" href="#"><div class="dphoto d3"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>ถนนยมจินดา</h3><p>ย่านเมืองเก่าริมแม่น้ำระยอง ตึกไม้โบราณ บ้านขุนนาง คาเฟ่ และของกินพื้นถิ่น</p></div></a><a class="dcard" href="#"><div class="dphoto d4"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>ทุ่งโปรงทอง ปากน้ำประแส</h3><p>ป่าชายเลนกับสะพานไม้เดินชมต้นโปรงเขียวทองสุดลูกหูลูกตา อยู่ที่ชุมชนปากน้ำประแส</p></div></a><a class="dcard" href="#"><div class="dphoto d5"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>เรือรบหลวงประแส</h3><p>เรือรบเก่าจอดเป็นอนุสรณ์ที่ปากน้ำประแส ขึ้นไปเดินชมและถ่ายรูปมองวิวแม่น้ำได้</p></div></a><a class="dcard" href="#"><div class="dphoto d6"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>อนุสาวรีย์สุนทรภู่</h3><p>อนุสาวรีย์กวีเอกที่อำเภอแกลง บ้านเกิดฝั่งบิดา มีรูปปั้นตัวละครจากพระอภัยมณีให้เดินชม</p></div></a><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">ธรรมชาติ</span></div><div class="dbody"><span class="kbadge k-nature">ธรรมชาติ</span><h3>อุทยานแห่งชาติเขาแหลมหญ้า–หมู่เกาะเสม็ด</h3><p>พื้นที่ชายฝั่งและเกาะ มีจุดชมวิว หาดเงียบ และเส้นทางธรรมชาติแถบหาดแม่รำพึงถึงเกาะเสม็ด</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>สถาบันวิทยาศาสตร์ทางทะเล/พิพิธภัณฑ์สัตว์น้ำระยอง</h3><p>ที่เที่ยวในร่มดูปลาและสัตว์ทะเล เหมาะพาเด็กและครอบครัวแวะระหว่างเที่ยวทะเล</p></div></a></div>
-  
-</div></section>
+<section class="panel" id="p-plan">
+  <h2 class="pnhead">แผน<span class="em">เที่ยว ระยอง</span></h2>
+  <p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
+  <p class="pintro">แผนเที่ยวกำลังจัดทำ</p>
+  <h2 class="pnhead">เที่ยวต่อ<span class="em">จังหวัดข้างเคียง</span></h2><div class="ncards"><a class="nc" href="city-chonburi.html">ชลบุรี →</a><a class="nc" href="city-chanthaburi.html">จันทบุรี →</a></div>
+</section>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>แผน<span class="em">เที่ยว ระยอง</span></h2></div>
-  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
-  <div class="plist"><div class="pitem"><div class="pn">1</div><span>ระยอง 2 วัน 1 คืน บ้านเพ–เกาะเสม็ด</span></div><div class="pitem"><div class="pn">2</div><span>ระยอง สายทะเลและเกาะ แม่รำพึง–เกาะเสม็ด</span></div><div class="pitem"><div class="pn">3</div><span>ระยอง สายของกิน บ้านเพ–ซีฟู้ด–ของทะเลแห้ง</span></div><div class="pitem"><div class="pn">4</div><span>ระยอง สายเมืองเก่าและคาเฟ่ ยมจินดา–ปากน้ำประแส</span></div><div class="pitem"><div class="pn">5</div><span>ระยอง หน้าผลไม้ เที่ยวสวนทุเรียน–เงาะ</span></div><div class="pitem"><div class="pn">6</div><span>ชลบุรี–ระยอง–จันทบุรี เลาะทะเลตะวันออก</span></div></div>
-  
-  <p class="secintro" style="margin:22px 0 10px">เที่ยวต่อจังหวัดข้างเคียง</p><div class="ncards"><a class="nc" href="city-chonburi.html">ชลบุรี →</a><a class="nc" href="city-chanthaburi.html">จันทบุรี →</a></div>
-</div></section>
-
-<section class="sec" id="prep" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>เตรียมตัว<span class="em">เที่ยว ระยอง</span></h2></div>
+<section class="panel" id="p-prep">
+  <h2 class="pnhead">เตรียมตัว<span class="em">เที่ยว ระยอง</span></h2>
+  <p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไประยอง</p>
   <div class="eeat">
     <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>พฤศจิกายน–กุมภาพันธ์ ทะเลใสคลื่นน้อยเหมาะออกเกาะ ส่วนเมษายน–มิถุนายนเป็นหน้าผลไม้สวน</p></div>
-    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไประยอง และการเดินทางในจังหวัด — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">💸</div><h3>งบประมาณ</h3><p>ประเมินค่าใช้จ่ายต่อทริป — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไประยอง ตามฤดูและกิจกรรม</p></div>
+    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไประยองและเดินทางในจังหวัด</p></div>
+    <div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>ภาคตะวันออก · <a href="region-east.html" style="color:var(--teal-dk);font-weight:700">เที่ยวภาคตะวันออก →</a></p></div>
+    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>สิ่งที่ควรเตรียมไประยอง</p></div>
   </div>
   
-</div></section>
+</section>
 
-<section class="sec" style="padding-top:0"><div class="wrap">
+</div>
+
+<section class="sec" style="padding-top:6px"><div class="wrap">
   <div class="ctaband"><h2>วางแผนเที่ยวระยอง</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-rayong.html">เริ่มจากที่พัก →</a></div>
 </div></section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function act(id,scroll){
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
+    panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
+    if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'});}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab);})});
+  var map={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'};
+  var h=(location.hash||'').replace('#','');
+  if(map[h]) act(map[h],true);
+})();
+</script>
 <footer class="ft">
   <div class="ftg">
     <div><div class="ftlogo">Thailand<em>Addict</em></div><div class="fttag">Thailand, Done Right</div><p style="font-size:13px;color:rgba(255,255,255,.5);max-width:240px">คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ</p></div>

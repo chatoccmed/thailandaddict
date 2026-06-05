@@ -117,30 +117,73 @@ img{display:block;max-width:100%}
 .ftaff{max-width:1080px;margin:14px auto 0;font-size:11.5px;color:rgba(255,255,255,.4);line-height:1.6}
 </style>
 <style>
-.crumb{max-width:1080px;margin:0 auto;padding:18px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+/* province hero */
+.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
+@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
+.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.phero h1 em{font-style:normal;color:var(--mango)}
+.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
+/* sticky tab bar */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--teal-dk);background:var(--soft)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
+.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
+.pnhead .em{color:var(--teal)}
+.pnhead:first-child{margin-top:6px}
+/* hotel cards */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
+.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
+.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
+.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.htype{font-size:12.5px;color:var(--sub)}
+.hloc{font-size:12px;color:var(--sub);margin-top:6px}
+.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
+.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
+.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}
+.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
+/* featured roundup callout */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
+/* highlight + food + info cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
 .hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
 .hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:680px){.plist{grid-template-columns:1fr}}
-.pitem{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.pitem .pn{flex-shrink:0;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
-.pitem span{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
-.soon{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:#fff7ed;color:#c2410c;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--soft);border:2px solid #cffafe;border-radius:22px;padding:24px 26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
 .fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
 .fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
+.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
+.dbody h3{font-size:18px}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
+.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
+.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
 </style>
 </head>
 <body>
@@ -179,7 +222,7 @@ img{display:block;max-width:100%}
 </div></section>
 <section class="sec"><div class="wrap">
   <div class="shead"><h2>จังหวัดใน<span class="em">ภาคใต้</span></h2><a href="country-thailand.html">ทุกภาค →</a></div>
-  <div class="dgrid"><a class="dcard" href="city-chumphon.html"><div class="dphoto d1"><span class="tagn">🌊</span></div><div class="dbody"><h3>ชุมพร</h3><p>ประตูสู่ภาคใต้ ที่มีหาดทรายรี เรือรบหลวงเสด็จเตี่ย หมู่เกาะดำน้ำ และกาแฟโรบัสต้า</p><span class="go">เที่ยวชุมพร →</span></div></a><a class="dcard" href="city-ranong.html"><div class="dphoto d2"><span class="tagn">♨️</span></div><div class="dbody"><h3>ระนอง</h3><p>เมืองฝนแปดแดดสี่ริมทะเลอันดามัน ที่มีบ่อน้ำร้อน เกาะพะยาม และชายแดนพม่า</p><span class="go">เที่ยวระนอง →</span></div></a><a class="dcard" href="city-surat-thani.html"><div class="dphoto d3"><span class="tagn">🛶</span></div><div class="dbody"><h3>สุราษฎร์ธานี</h3><p>เมืองร้อยเกาะริมอ่าวไทย ประตูสู่สมุย เขื่อนเชี่ยวหลาน และถิ่นไหว้พระธาตุไชยา</p><span class="go">เที่ยวสุราษฎร์ธานี →</span></div></a><a class="dcard" href="city-nakhon-si-thammarat.html"><div class="dphoto d4"><span class="tagn">🛕</span></div><div class="dbody"><h3>นครศรีธรรมราช</h3><p>เมืองพระธาตุพันปี ไอ้ไข่วัดเจดีย์ คาเฟ่หนังตะลุง และน้ำตกกับทะเลฝั่งอ่าวไทย</p><span class="go">เที่ยวนครศรีธรรมราช →</span></div></a><a class="dcard" href="city-krabi.html"><div class="dphoto d5"><span class="tagn">🏝️</span></div><div class="dbody"><h3>กระบี่</h3><p>เมืองเขาหินปูนริมอันดามัน หาดทรายขาว เกาะใส ปีนผาเรลเลย์ และน้ำใสเขียวมรกต</p><span class="go">เที่ยวกระบี่ →</span></div></a><a class="dcard" href="city-phang-nga.html"><div class="dphoto d6"><span class="tagn">🏝️</span></div><div class="dbody"><h3>พังงา</h3><p>เมืองอ่าวหินปูนริมอันดามัน ถิ่นเขาตะปู เกาะสิมิลัน และเขาหลัก</p><span class="go">เที่ยวพังงา →</span></div></a><a class="dcard" href="city-phuket.html"><div class="dphoto d1"><span class="tagn">🏖️</span></div><div class="dbody"><h3>ภูเก็ต</h3><p>เกาะใหญ่ฝั่งอันดามัน หาดทรายขาว ย่านเมืองเก่าชิโน-โปรตุกีส และอาหารฮกเกี้ยน</p><span class="go">เที่ยวภูเก็ต →</span></div></a><a class="dcard" href="city-phatthalung.html"><div class="dphoto d2"><span class="tagn">🌾</span></div><div class="dbody"><h3>พัทลุง</h3><p>เมืองริมทะเลสาบสงขลา เขาอกทะลุ บัวแดงทะเลน้อย นาข้าวกับควาย และถิ่นหนังตะลุงมโนราห์</p><span class="go">เที่ยวพัทลุง →</span></div></a><a class="dcard" href="city-trang.html"><div class="dphoto d3"><span class="tagn">🐷</span></div><div class="dbody"><h3>ตรัง</h3><p>เมืองคนช่างกินฝั่งอันดามัน หมูย่างเช้า ติ่มซำร้อน ๆ ถ้ำมรกต และเกาะเงียบ ๆ ให้นอนยาว</p><span class="go">เที่ยวตรัง →</span></div></a><a class="dcard" href="city-satun.html"><div class="dphoto d4"><span class="tagn">🏝️</span></div><div class="dbody"><h3>สตูล</h3><p>เมืองชายแดนใต้ริมอันดามัน อุทยานธรณีโลก หมู่เกาะตะรุเตา-หลีเป๊ะ และวิถีมุสลิมเงียบสงบ</p><span class="go">เที่ยวสตูล →</span></div></a><a class="dcard" href="city-songkhla.html"><div class="dphoto d5"><span class="tagn">🧜</span></div><div class="dbody"><h3>สงขลา</h3><p>เมืองสองทะเลกับเมืองเก่าหลากสี หาดสมิหลานางเงือก ย่านถนนนางงาม และเมืองค้าชายแดนหาดใหญ่</p><span class="go">เที่ยวสงขลา →</span></div></a><a class="dcard" href="city-pattani.html"><div class="dphoto d6"><span class="tagn">🕌</span></div><div class="dbody"><h3>ปัตตานี</h3><p>เมืองท่าเก่าชายแดนใต้ กลิ่นอายมลายู มัสยิดเก่าแก่ ย่านเมืองเก่าตึกชิโน และอาหารถิ่นรสจัด</p><span class="go">เที่ยวปัตตานี →</span></div></a><a class="dcard" href="city-yala.html"><div class="dphoto d1"><span class="tagn">🌫️</span></div><div class="dbody"><h3>ยะลา</h3><p>ใต้สุดแดนสยาม เมืองผังกลมที่จัดวางสวยที่สุด เบตงทะเลหมอกอัยเยอร์เวง อุโมงค์เก่า และของกินจีนฮกเกี้ยน</p><span class="go">เที่ยวยะลา →</span></div></a><a class="dcard" href="city-narathiwat.html"><div class="dphoto d2"><span class="tagn">🕌</span></div><div class="dbody"><h3>นราธิวาส</h3><p>จังหวัดใต้สุดริมอ่าวไทย เมืองชายแดนกลิ่นอายมลายู หาดทรายยาว ป่าพรุโต๊ะแดง และอาหารถิ่นรสจัด</p><span class="go">เที่ยวนราธิวาส →</span></div></a></div>
+  <div class="dgrid"><a class="dcard" href="city-chumphon.html"><div class="dphoto d1"><span class="tagn">🌊</span></div><div class="dbody"><h3>ชุมพร</h3><p>ประตูสู่ภาคใต้ ที่มีหาดทรายรี เรือรบหลวงเสด็จเตี่ย หมู่เกาะดำน้ำ และกาแฟโรบัสต้า</p><span class="go">เที่ยวชุมพร →</span></div></a><a class="dcard" href="city-ranong.html"><div class="dphoto d2"><span class="tagn">♨️</span></div><div class="dbody"><h3>ระนอง</h3><p>เมืองฝนแปดแดดสี่ริมทะเลอันดามัน ที่มีบ่อน้ำร้อน เกาะพะยาม และชายแดนพม่า</p><span class="go">เที่ยวระนอง →</span></div></a><a class="dcard" href="city-surat-thani.html"><div class="dphoto d3"><img src="/images/heroes/surat-thani.jpg" alt="สุราษฎร์ธานี" loading="lazy" onerror="this.remove()"><span class="tagn">🛶</span></div><div class="dbody"><h3>สุราษฎร์ธานี</h3><p>เมืองร้อยเกาะริมอ่าวไทย ประตูสู่สมุย เขื่อนเชี่ยวหลาน และถิ่นไหว้พระธาตุไชยา</p><span class="go">เที่ยวสุราษฎร์ธานี →</span></div></a><a class="dcard" href="city-nakhon-si-thammarat.html"><div class="dphoto d4"><span class="tagn">🛕</span></div><div class="dbody"><h3>นครศรีธรรมราช</h3><p>เมืองพระธาตุพันปี ไอ้ไข่วัดเจดีย์ คาเฟ่หนังตะลุง และน้ำตกกับทะเลฝั่งอ่าวไทย</p><span class="go">เที่ยวนครศรีธรรมราช →</span></div></a><a class="dcard" href="city-krabi.html"><div class="dphoto d5"><img src="/images/cities/krabi.jpg" alt="กระบี่" loading="lazy" onerror="this.remove()"><span class="tagn">🏝️</span></div><div class="dbody"><h3>กระบี่</h3><p>เมืองเขาหินปูนริมอันดามัน หาดทรายขาว เกาะใส ปีนผาเรลเลย์ และน้ำใสเขียวมรกต</p><span class="go">เที่ยวกระบี่ →</span></div></a><a class="dcard" href="city-phang-nga.html"><div class="dphoto d6"><img src="/images/heroes/phang-nga.jpg" alt="พังงา" loading="lazy" onerror="this.remove()"><span class="tagn">🏝️</span></div><div class="dbody"><h3>พังงา</h3><p>เมืองอ่าวหินปูนริมอันดามัน ถิ่นเขาตะปู เกาะสิมิลัน และเขาหลัก</p><span class="go">เที่ยวพังงา →</span></div></a><a class="dcard" href="city-phuket.html"><div class="dphoto d1"><img src="/images/cities/phuket.jpg" alt="ภูเก็ต" loading="lazy" onerror="this.remove()"><span class="tagn">🏖️</span></div><div class="dbody"><h3>ภูเก็ต</h3><p>เกาะใหญ่ฝั่งอันดามัน หาดทรายขาว ย่านเมืองเก่าชิโน-โปรตุกีส และอาหารฮกเกี้ยน</p><span class="go">เที่ยวภูเก็ต →</span></div></a><a class="dcard" href="city-phatthalung.html"><div class="dphoto d2"><span class="tagn">🌾</span></div><div class="dbody"><h3>พัทลุง</h3><p>เมืองริมทะเลสาบสงขลา เขาอกทะลุ บัวแดงทะเลน้อย นาข้าวกับควาย และถิ่นหนังตะลุงมโนราห์</p><span class="go">เที่ยวพัทลุง →</span></div></a><a class="dcard" href="city-trang.html"><div class="dphoto d3"><span class="tagn">🐷</span></div><div class="dbody"><h3>ตรัง</h3><p>เมืองคนช่างกินฝั่งอันดามัน หมูย่างเช้า ติ่มซำร้อน ๆ ถ้ำมรกต และเกาะเงียบ ๆ ให้นอนยาว</p><span class="go">เที่ยวตรัง →</span></div></a><a class="dcard" href="city-satun.html"><div class="dphoto d4"><span class="tagn">🏝️</span></div><div class="dbody"><h3>สตูล</h3><p>เมืองชายแดนใต้ริมอันดามัน อุทยานธรณีโลก หมู่เกาะตะรุเตา-หลีเป๊ะ และวิถีมุสลิมเงียบสงบ</p><span class="go">เที่ยวสตูล →</span></div></a><a class="dcard" href="city-songkhla.html"><div class="dphoto d5"><span class="tagn">🧜</span></div><div class="dbody"><h3>สงขลา</h3><p>เมืองสองทะเลกับเมืองเก่าหลากสี หาดสมิหลานางเงือก ย่านถนนนางงาม และเมืองค้าชายแดนหาดใหญ่</p><span class="go">เที่ยวสงขลา →</span></div></a><a class="dcard" href="city-pattani.html"><div class="dphoto d6"><span class="tagn">🕌</span></div><div class="dbody"><h3>ปัตตานี</h3><p>เมืองท่าเก่าชายแดนใต้ กลิ่นอายมลายู มัสยิดเก่าแก่ ย่านเมืองเก่าตึกชิโน และอาหารถิ่นรสจัด</p><span class="go">เที่ยวปัตตานี →</span></div></a><a class="dcard" href="city-yala.html"><div class="dphoto d1"><span class="tagn">🌫️</span></div><div class="dbody"><h3>ยะลา</h3><p>ใต้สุดแดนสยาม เมืองผังกลมที่จัดวางสวยที่สุด เบตงทะเลหมอกอัยเยอร์เวง อุโมงค์เก่า และของกินจีนฮกเกี้ยน</p><span class="go">เที่ยวยะลา →</span></div></a><a class="dcard" href="city-narathiwat.html"><div class="dphoto d2"><span class="tagn">🕌</span></div><div class="dbody"><h3>นราธิวาส</h3><p>จังหวัดใต้สุดริมอ่าวไทย เมืองชายแดนกลิ่นอายมลายู หาดทรายยาว ป่าพรุโต๊ะแดง และอาหารถิ่นรสจัด</p><span class="go">เที่ยวนราธิวาส →</span></div></a></div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="ctaband"><h2>เลือกจังหวัดที่อยากไป</h2><p>แต่ละจังหวัดมีที่พัก ที่เที่ยว ของกิน และแผนเที่ยวครบ</p><a href="country-thailand.html">ดูทั้งประเทศ →</a></div>

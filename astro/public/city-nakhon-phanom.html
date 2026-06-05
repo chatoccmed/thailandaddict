@@ -117,30 +117,73 @@ img{display:block;max-width:100%}
 .ftaff{max-width:1080px;margin:14px auto 0;font-size:11.5px;color:rgba(255,255,255,.4);line-height:1.6}
 </style>
 <style>
-.crumb{max-width:1080px;margin:0 auto;padding:18px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+/* province hero */
+.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
+@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
+.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
+.phero h1 em{font-style:normal;color:var(--mango)}
+.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
+/* sticky tab bar */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--teal-dk);background:var(--soft)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
+.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
+@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
+.pnhead .em{color:var(--teal)}
+.pnhead:first-child{margin-top:6px}
+/* hotel cards */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
+.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
+.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
+.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.htype{font-size:12.5px;color:var(--sub)}
+.hloc{font-size:12px;color:var(--sub);margin-top:6px}
+.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
+.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
+.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}
+.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
+/* featured roundup callout */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
+/* highlight + food + info cards */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
 .hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
 .hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-.plist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:680px){.plist{grid-template-columns:1fr}}
-.pitem{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.pitem .pn{flex-shrink:0;width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}
-.pitem span{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px}
-.soon{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:#fff7ed;color:#c2410c;padding:4px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.callout{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--soft);border:2px solid #cffafe;border-radius:22px;padding:24px 26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:20px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
 .fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
 .fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:9px 18px}
+.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
 .nc:hover{border-color:var(--teal);color:var(--teal-dk)}
+.dbody h3{font-size:18px}
 .regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
 .cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
+.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
+.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
 </style>
 </head>
 <body>
@@ -171,61 +214,83 @@ img{display:block;max-width:100%}
 </div>
 
 <div class="crumb"><a href="/">หน้าแรก</a> › <a href="country-thailand.html">ประเทศไทย</a> › <a href="region-isan.html">ภาคอีสาน</a> › <span>นครพนม</span></div>
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">🌅 ภาคอีสาน</div>
-  <h1>เที่ยว<em>นครพนม</em></h1>
-  <p class="lead">&lt;p&gt;นครพนมเป็นเมืองริมแม่น้ำโขงที่วิวฝั่งตรงข้ามเป็นแนวภูเขาของลาว ทำให้พระอาทิตย์ขึ้นริมโขงที่นี่สวยจนคนตั้งใจมาดูกันโดยเฉพาะ ในเมืองเดินเล่นสบาย มีถนนริมโขงให้นั่งรับลมตอนเย็น หอนาฬิกาเวียดนามอนุสรณ์ และบ้านเก่าสมัยที่ลุงโฮจิมินห์เคยมาพำนัก ออกนอกเมืองไปอีกหน่อยก็ถึงพระธาตุพนม พระธาตุคู่ลุ่มน้ำโขงที่คนอีสานและคนลาวเคารพศรัทธามากที่สุดองค์หนึ่ง รอบจังหวัดยังมีพระธาตุประจำวันเกิดกระจายตามอำเภอต่าง ๆ ให้ไหว้ตามรอย นครพนมเที่ยวได้ทั้งสายริมโขง สายวัด และสายของกินที่มีกลิ่นอายเวียดนามชัดเจน&lt;/p&gt;</p>
-  <div class="chips"><span class="chip">📍 ภาคอีสาน</span><span class="chip">🗓️ พฤศจิกายน-กุมภาพันธ์ อากาศเย็นสบายเหมาะเดินริมโขงและดูพระอาทิตย์ขึ้น ส่วนช่วงออกพรรษาเดือนตุลาคมมีงานไหลเรือไฟที่เป็นงานใหญ่ประจำปี</span><span class="chip">✅ คัดจากของจริง</span></div>
-</div></section>
+<div class="phero">
+  <div class="pherobody">
+    <span class="pheye">🌅 ภาคอีสาน</span>
+    <h1>เที่ยว<em>นครพนม</em></h1>
+    <p class="phlead">เมืองริมโขงวิวภูเขาลาว พระธาตุพนม สะพานเดินเล่นยามเย็น และชุมชนเวียดนามเก่า</p>
+    <div class="phchips"><span class="phchip">🗓️ พฤศจิกายน-กุมภาพันธ์ อากาศเย็นสบายเหมาะเดินริมโขงและดูพระอาทิตย์ขึ้น ส่วนช่วงออกพรรษาเดือนตุลาคมมีงานไหลเรือไฟที่เป็นงานใหญ่ประจำปี</span><span class="phchip">🏨 0 รีวิวที่พัก</span><span class="phchip">📚 0 บทความ</span></div>
+  </div>
+</div>
+<div class="tabwrap"><div class="tabbar">
+  <div class="tab active" data-tab="stay">🏨 ที่พัก</div>
+  <div class="tab" data-tab="see">📍 ที่เที่ยว</div>
+  <div class="tab" data-tab="eat">🍜 ที่กิน</div>
+  <div class="tab" data-tab="plan">🗺️ แผนเที่ยว</div>
+  <div class="tab" data-tab="prep">🎒 เตรียมตัว</div>
+</div></div>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>ไฮไลต์<span class="em"> นครพนม</span></h2></div>
-  <p class="secintro">เมืองริมโขงวิวภูเขาลาว พระธาตุพนม สะพานเดินเล่นยามเย็น และชุมชนเวียดนามเก่า</p>
+<div class="wrap" style="padding-top:30px;padding-bottom:20px">
+
+<section class="panel active" id="p-stay">
+  <div class="callout"><div><h3>Top 10 โรงแรมนครพนม <span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-nakhon-phanom.html">ดูอันดับที่พัก →</a></div>
+  <p class="pintro">รีวิวที่พักนครพนม คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง</p>
+  <p class="pintro">รีวิวโรงแรมกำลังจัดทำ — เร็ว ๆ นี้</p>
+</section>
+
+<section class="panel" id="p-see">
+  <h2 class="pnhead">ที่เที่ยว<span class="em"> นครพนม</span></h2>
+  <p class="pintro">ไฮไลต์และที่เที่ยวนครพนม ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>
   <div class="hl"><div class="hlc"><h3>พระธาตุพนม</h3><p>พระธาตุคู่ลุ่มน้ำโขงที่คนอีสานและคนลาวเคารพศรัทธา องค์พระธาตุสีขาวยอดทองตั้งเด่นที่อำเภอธาตุพนม คนมากราบขอพรกันไม่ขาดทั้งปี</p></div><div class="hlc"><h3>ถนนริมโขงและวิวภูเขาลาว</h3><p>ทางเดินเลียบแม่น้ำโขงกลางเมืองที่มองข้ามไปเห็นแนวภูเขาของลาว คนออกมานั่งรับลมตอนเย็นและตั้งใจมาดูพระอาทิตย์ขึ้นริมน้ำตอนเช้า</p></div><div class="hlc"><h3>ชุมชนเวียดนามและบ้านลุงโฮ</h3><p>นครพนมมีรากชุมชนชาวเวียดนามมายาวนาน มีหมู่บ้านมิตรภาพไทย-เวียดนามและบ้านที่ลุงโฮจิมินห์เคยมาพำนัก สะท้อนผ่านทั้งสถาปัตยกรรมและอาหารในเมือง</p></div><div class="hlc"><h3>หอนาฬิกาเวียดนามอนุสรณ์</h3><p>หอนาฬิกากลางเมืองที่ชาวเวียดนามสร้างไว้ เป็นจุดสังเกตและจุดถ่ายรูปคู่เมืองนครพนมที่คนแวะกันแทบทุกคน</p></div><div class="hlc"><h3>พระธาตุประจำวันเกิด</h3><p>นอกจากพระธาตุพนม จังหวัดยังมีพระธาตุเรณู พระธาตุท่าอุเทน และพระธาตุประสิทธิ์ กระจายตามอำเภอ คนนิยมไหว้ตามรอยพระธาตุประจำวันเกิด</p></div><div class="hlc"><h3>งานไหลเรือไฟ</h3><p>งานประเพณีออกพรรษาริมโขงที่ปล่อยเรือไฟประดับไฟลอยกลางลำน้ำโขงยามค่ำ เป็นงานใหญ่ประจำปีที่คนทั้งภาคมาชม</p></div></div>
-</div></section>
+  <p class="pintro">บทความที่เที่ยวกำลังจัดทำ</p>
+</section>
 
-<section class="sec" id="hotels" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่พัก & <span class="em">โรงแรม</span></h2></div>
-  <p class="secintro">รีวิวที่พักนครพนม — จัดอันดับรวมกว่า 10 ที่ พร้อมรีวิวแยกทุกโรงแรม คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</p>
-  <div class="callout"><div><h3>Top 10 โรงแรมนครพนม <span class="soon">กำลังจัดทำ</span></h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม</p></div><a href="top10-hotels-nakhon-phanom.html">ดูอันดับที่พัก →</a></div>
-</div></section>
-
-<section class="sec" id="eat"><div class="wrap">
-  <div class="shead"><h2>ที่กิน<span class="em"> นครพนม</span></h2></div>
-  <p class="secintro">ของกินเด่นของนครพนม — รวมและจัดอันดับแยกตามประเภทที่นิยมในพื้นที่</p>
+<section class="panel" id="p-eat">
+  <h2 class="pnhead">ที่กิน<span class="em"> นครพนม</span></h2>
+  <p class="pintro">ของกินเด่นของนครพนม — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>
   <div class="foodgrid"><div class="fc"><h4>อาหารเวียดนาม</h4><p>แหนมเนือง หมูยอ ปอเปี๊ยะสด และข้าวเปียกเส้น หากินได้ทั่วเมืองด้วยรากชุมชนชาวเวียดนามเก่าแก่ เป็นของกินที่ขึ้นชื่อที่สุดของนครพนม</p></div><div class="fc"><h4>อาหารอีสาน</h4><p>ส้มตำ ลาบ ก้อย ไก่ย่าง และซุปหน่อไม้รสจัด เป็นมื้อหลักของคนนครพนมเหมือนทั้งภาค หากินได้ทุกมุมเมือง</p></div><div class="fc"><h4>ปลาแม่น้ำโขง</h4><p>ร้านริมโขงทำปลาน้ำจืดทั้งปลาเผา ต้มยำ ลาบปลา และปลาคัง นั่งกินรับลมเย็นมองวิวภูเขาฝั่งลาวได้บรรยากาศดี</p></div><div class="fc"><h4>ก๋วยจั๊บญวน</h4><p>เส้นแป้งญวนนุ่มในน้ำซุปใส โรยพริกไทยและหมูยอ เป็นมื้อเช้ายอดฮิตที่ได้อิทธิพลจากชุมชนเวียดนามริมโขง</p></div><div class="fc"><h4>คาเฟ่ริมโขง</h4><p>มีคาเฟ่และร้านกาแฟเปิดวิวแม่น้ำโขงหลายร้าน นั่งจิบกาแฟดูพระอาทิตย์ขึ้นตอนเช้าหรือพักก่อนออกเดินถนนริมโขง</p></div><div class="fc"><h4>หมูกระทะและปิ้งย่าง</h4><p>ร้านหมูกระทะกระจายทั่วเมือง เป็นมื้อเย็นที่คนนัดกันเป็นกลุ่ม โดยเฉพาะย่านในเมืองและใกล้ถนนริมโขง</p></div><div class="fc"><h4>ของฝากหมูยอและแหนม</h4><p>หมูยอ แหนม และไส้กรอกอีสาน เป็นของฝากขึ้นชื่อที่คนซื้อกลับบ้าน หาซื้อได้ตามร้านในเมืองและตลาดริมโขง</p></div><div class="fc"><h4>สตรีทฟู้ดและตลาดเย็น</h4><p>ตลาดและถนนริมโขงยามค่ำมีของย่าง ของทอด และขนมพื้นถิ่นให้เดินชิม พร้อมวิวแม่น้ำและลมเย็น</p></div></div>
-  
-</div></section>
+  <p class="pintro">บทความที่กินกำลังจัดทำ</p>
+</section>
 
-<section class="sec" id="see" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>ที่เที่ยว<span class="em"> นครพนม</span></h2></div>
-  <p class="secintro">ที่เที่ยวนครพนม ทั้งสายธรรมชาติและสายเมือง</p>
-  <div class="dgrid"><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>พระธาตุพนม</h3><p>พระธาตุคู่ลุ่มน้ำโขงที่อำเภอธาตุพนม องค์สีขาวยอดทองตั้งเด่น เป็นที่เคารพศรัทธาของคนอีสานและคนลาว คนมากราบขอพรไม่ขาดทั้งปี</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>ถนนริมโขงนครพนม</h3><p>ทางเดินเลียบแม่น้ำโขงกลางเมือง มองข้ามไปเห็นแนวภูเขาลาว คนออกมานั่งรับลมตอนเย็นและมาดูพระอาทิตย์ขึ้นริมน้ำตอนเช้า</p></div></a><a class="dcard" href="#"><div class="dphoto d3"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>หมู่บ้านมิตรภาพไทย-เวียดนาม</h3><p>หมู่บ้านบ้านนาจอกที่ลุงโฮจิมินห์เคยมาพำนัก จัดแสดงบ้านเก่าและเรื่องราวความสัมพันธ์ไทย-เวียดนาม เดินชมได้สบาย ๆ</p></div></a><a class="dcard" href="#"><div class="dphoto d4"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>หอนาฬิกาเวียดนามอนุสรณ์</h3><p>หอนาฬิกากลางเมืองที่ชาวเวียดนามสร้างไว้ เป็นจุดสังเกตคู่เมืองและจุดถ่ายรูปยอดนิยมของนครพนม</p></div></a><a class="dcard" href="#"><div class="dphoto d5"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>พระธาตุเรณูนคร</h3><p>พระธาตุประจำวันจันทร์ที่อำเภอเรณูนคร ใกล้กันยังได้ชมวิถีและการรำผู้ไทยของชุมชนเรณู เป็นจุดไหว้พระต่อจากพระธาตุพนม</p></div></a><a class="dcard" href="#"><div class="dphoto d6"><span class="tagn">วัฒนธรรม</span></div><div class="dbody"><span class="kbadge k-culture">วัฒนธรรม</span><h3>พระธาตุท่าอุเทน</h3><p>พระธาตุริมโขงที่อำเภอท่าอุเทน รูปทรงคล้ายพระธาตุพนมแต่สูงเพรียว เป็นพระธาตุประจำวันศุกร์ที่คนแวะไหว้ตามเส้นริมโขง</p></div></a><a class="dcard" href="#"><div class="dphoto d1"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>สะพานมิตรภาพไทย-ลาว แห่งที่ 3</h3><p>สะพานข้ามแม่น้ำโขงเชื่อมนครพนมกับเมืองท่าแขกของลาว เป็นจุดข้ามแดนและเส้นทางเชื่อมต่อไปเวียดนามผ่านลาว</p></div></a><a class="dcard" href="#"><div class="dphoto d2"><span class="tagn">เมือง</span></div><div class="dbody"><span class="kbadge k-city">เมือง</span><h3>ลานพญาศรีสัตตนาคราช</h3><p>องค์พญานาคทองเหลืองริมโขงกลางเมือง เป็นจุดสักการะและถ่ายรูปยอดฮิต โดยเฉพาะยามเย็นที่คนออกมาเดินริมน้ำ</p></div></a></div>
-  
-</div></section>
+<section class="panel" id="p-plan">
+  <h2 class="pnhead">แผน<span class="em">เที่ยว นครพนม</span></h2>
+  <p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
+  <p class="pintro">แผนเที่ยวกำลังจัดทำ</p>
+  <h2 class="pnhead">เที่ยวต่อ<span class="em">จังหวัดข้างเคียง</span></h2><div class="ncards"><a class="nc" href="city-mukdahan.html">มุกดาหาร →</a><a class="nc" href="city-sakon-nakhon.html">สกลนคร →</a><a class="nc" href="city-nong-khai.html">หนองคาย →</a><a class="nc" href="city-bueng-kan.html">บึงกาฬ →</a></div>
+</section>
 
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>แผน<span class="em">เที่ยว นครพนม</span></h2></div>
-  <p class="secintro">แผนเที่ยวคัดมาให้ ตั้งแต่เช้าเย็นกลับ ไป 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
-  <div class="plist"><div class="pitem"><div class="pn">1</div><span>นครพนม 2 วัน 1 คืน ริมโขง-พระธาตุพนม-ชุมชนเวียดนาม</span></div><div class="pitem"><div class="pn">2</div><span>นครพนม สายไหว้พระธาตุ พระธาตุพนม-เรณูนคร-ท่าอุเทน</span></div><div class="pitem"><div class="pn">3</div><span>นครพนม สายริมโขง พระอาทิตย์ขึ้น-พญาศรีสัตตนาคราช-คาเฟ่วิวแม่น้ำ</span></div><div class="pitem"><div class="pn">4</div><span>นครพนม สายของกินเวียดนาม แหนมเนือง-ก๋วยจั๊บญวน-หมูยอ</span></div><div class="pitem"><div class="pn">5</div><span>นครพนม-มุกดาหาร เส้นทางริมโขงสองเมืองชายแดน</span></div><div class="pitem"><div class="pn">6</div><span>นครพนม-สกลนคร เที่ยววัดและธรรมชาติข้ามจังหวัด</span></div></div>
-  
-  <p class="secintro" style="margin:22px 0 10px">เที่ยวต่อจังหวัดข้างเคียง</p><div class="ncards"><a class="nc" href="city-mukdahan.html">มุกดาหาร →</a><a class="nc" href="city-sakon-nakhon.html">สกลนคร →</a><a class="nc" href="city-nong-khai.html">หนองคาย →</a><a class="nc" href="city-bueng-kan.html">บึงกาฬ →</a></div>
-</div></section>
-
-<section class="sec" id="prep" style="background:var(--soft)"><div class="wrap">
-  <div class="shead"><h2>เตรียมตัว<span class="em">เที่ยว นครพนม</span></h2></div>
+<section class="panel" id="p-prep">
+  <h2 class="pnhead">เตรียมตัว<span class="em">เที่ยว นครพนม</span></h2>
+  <p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไปนครพนม</p>
   <div class="eeat">
     <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>พฤศจิกายน-กุมภาพันธ์ อากาศเย็นสบายเหมาะเดินริมโขงและดูพระอาทิตย์ขึ้น ส่วนช่วงออกพรรษาเดือนตุลาคมมีงานไหลเรือไฟที่เป็นงานใหญ่ประจำปี</p></div>
-    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไปนครพนม และการเดินทางในจังหวัด — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">💸</div><h3>งบประมาณ</h3><p>ประเมินค่าใช้จ่ายต่อทริป — กำลังจัดทำ</p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมของ</h3><p>สิ่งที่ควรเตรียมไปนครพนม ตามฤดูและกิจกรรม</p></div>
+    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>วิธีไปนครพนมและเดินทางในจังหวัด</p></div>
+    <div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>ภาคอีสาน · <a href="region-isan.html" style="color:var(--teal-dk);font-weight:700">เที่ยวภาคอีสาน →</a></p></div>
+    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>สิ่งที่ควรเตรียมไปนครพนม</p></div>
   </div>
   
-</div></section>
+</section>
 
-<section class="sec" style="padding-top:0"><div class="wrap">
+</div>
+
+<section class="sec" style="padding-top:6px"><div class="wrap">
   <div class="ctaband"><h2>วางแผนเที่ยวนครพนม</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-nakhon-phanom.html">เริ่มจากที่พัก →</a></div>
 </div></section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function act(id,scroll){
+    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
+    panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
+    if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'});}
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab);})});
+  var map={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'};
+  var h=(location.hash||'').replace('#','');
+  if(map[h]) act(map[h],true);
+})();
+</script>
 <footer class="ft">
   <div class="ftg">
     <div><div class="ftlogo">Thailand<em>Addict</em></div><div class="fttag">Thailand, Done Right</div><p style="font-size:13px;color:rgba(255,255,255,.5);max-width:240px">คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ</p></div>
