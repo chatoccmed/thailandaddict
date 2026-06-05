@@ -17,7 +17,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] prachuap-khiri-khan — ประจวบคีรีขันธ์ (12 reviews + Top10 + 38 articles + images)
 - [x] kanchanaburi — กาญจนบุรี (12 reviews + Top10 + 38 articles + images)
 - [x] phang-nga — พังงา (12 reviews + Top10 + 38 articles + images)
-- [ ] ayutthaya — พระนครศรีอยุธยา
+- [x] ayutthaya — พระนครศรีอยุธยา (12 reviews + Top10 + 38 articles + images)
 - [ ] trat — ตราด (เกาะช้าง/กูด)
 - [ ] rayong — ระยอง (เกาะเสม็ด)
 - [ ] nan — น่าน
