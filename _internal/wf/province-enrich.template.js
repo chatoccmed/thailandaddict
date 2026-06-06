@@ -61,7 +61,7 @@ const results = await parallel(PROVINCES.map(([slug, th, r]) => () =>
 - neighbors = slug จังหวัดข้างเคียง 2-4 จังหวัด (อังกฤษ kebab เช่น chiang-rai)
 - heroEmoji = อีโมจิ 1 ตัวสื่อจังหวัด
 
-เขียนไฟล์ JSON เดียวด้วย Write tool ที่ path: C:\\Users\\Imac\\Thailandaddict\\_internal\\province-data\\${slug}.json
+เขียนไฟล์ JSON เดียวด้วย Write tool ที่ path: _internal/province-data/${slug}.json (relative กับ repo root)
 โดยมี field: slug="${slug}", th="${th}", tagline, introHtml, bestTime, highlights[], foodScene[], attractions[], itineraryIdeas[], neighbors[], heroEmoji — ตรงตาม schema เป๊ะ แล้ว return object เดียวกันนั้น`,
     { label:`enrich:${slug}`, phase:'Enrich', schema: SCHEMA }
   ).then(d => ({ slug, ok:!!d })).catch(() => ({ slug, ok:false }))

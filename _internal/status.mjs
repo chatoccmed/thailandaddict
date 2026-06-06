@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 
-const ROOT = 'C:/Users/Imac/Thailandaddict';
+const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 const ARTDIR = path.join(ROOT, 'astro/src/content/articles');
 const REVDIR = path.join(ROOT, 'astro/src/content/reviews');
 const RUNDIR = path.join(ROOT, 'astro/src/content/roundups');

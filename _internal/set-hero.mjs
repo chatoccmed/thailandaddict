@@ -2,7 +2,7 @@
 // Run after the image workflow. Safe to re-run.
 import fs from 'node:fs';
 import path from 'node:path';
-const ROOT = 'C:/Users/Imac/Thailandaddict';
+const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 const ARTDIR = path.join(ROOT, 'astro/src/content/articles');
 const IMGDIR = path.join(ROOT, 'astro/public/images/cm');
 let set = 0, miss = [];

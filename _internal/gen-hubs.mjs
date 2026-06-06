@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = 'C:/Users/Imac/Thailandaddict';
+const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 const PUB = path.join(ROOT, 'astro/public');
 const DATA = path.join(ROOT, '_internal/province-data');
 
@@ -39,6 +39,9 @@ const PROVINCES = [
   ['trang','ตรัง','s'],['satun','สตูล','s'],['songkhla','สงขลา','s'],['pattani','ปัตตานี','s'],['yala','ยะลา','s'],['narathiwat','นราธิวาส','s'],
 ];
 const TH = Object.fromEntries(PROVINCES.map(([s,th])=>[s,th]));
+// curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
+// Cards auto-fill hero images as each province's content lands (gen-hubs re-runs per finalize).
+const TOPDEST = ['bangkok','chiang-mai','phuket','krabi','chiang-rai','chonburi','surat-thani','prachuap-khiri-khan','kanchanaburi','ayutthaya','rayong','trat','phang-nga','nan','mae-hong-son','sukhothai','nakhon-ratchasima','phetchabun'];
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const imgUrl = s => !s ? '' : (/^(https?:|\/)/.test(s) ? s : '/'+s);
@@ -226,7 +229,7 @@ const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link 
 const NAV = `<nav class="nav">
   <a href="/" class="logo">Thailand<em>Addict</em></a>
   <div class="nav-mid">
-    <div class="has-drop"><a href="country-thailand.html">จุดหมาย</a><div class="drop"><span class="h">🇹🇭 6 ภาค</span><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-isan.html">🌾 ภาคอีสาน</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-east.html">🏝️ ภาคตะวันออก</a><a href="region-west.html">🌅 ภาคตะวันตก</a><a href="region-south.html">🌊 ภาคใต้</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">→ ดูทั้ง 77 จังหวัด</a></div></div>
+    <div class="has-drop"><a href="country-thailand.html">จุดหมาย</a><div class="drop"><span class="h">✨ ยอดนิยม</span><a href="destinations.html">🔥 เมืองท่องเที่ยว</a><span class="h">🇹🇭 6 ภาค</span><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-isan.html">🌾 ภาคอีสาน</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-east.html">🏝️ ภาคตะวันออก</a><a href="region-west.html">🌅 ภาคตะวันตก</a><a href="region-south.html">🌊 ภาคใต้</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">→ ดูทั้ง 77 จังหวัด</a></div></div>
     <div class="has-drop"><a href="top10-hotels-chiang-mai.html">โรงแรม</a><div class="drop"><span class="h">จัดอันดับยอดนิยม</span><a href="top10-hotels-chiang-mai.html">Top 10 เชียงใหม่</a><a href="top10-hotels-bangkok.html">Top 10 กรุงเทพ</a><a href="top10-hotels-phuket.html">Top 10 ภูเก็ต</a><a href="top10-hotels-krabi.html">Top 10 กระบี่</a></div></div>
     <a href="country-thailand.html">กิน-เที่ยว</a>
     <a href="about.html">เกี่ยวกับเรา</a>
@@ -239,7 +242,7 @@ const NAV = `<nav class="nav">
   </div>
 </nav>
 <div class="mm" id="mm"><div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
-  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">🇹🇭 จุดหมาย · 77 จังหวัด</a><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-south.html">🌊 ภาคใต้</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">🏨 โรงแรม · จัดอันดับ</a><a href="about.html">เกี่ยวกับเรา</a><a href="contact.html">ติดต่อ</a>
+  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">🇹🇭 จุดหมาย · 77 จังหวัด</a><a href="destinations.html">🔥 เมืองท่องเที่ยว</a><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-south.html">🌊 ภาคใต้</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">🏨 โรงแรม · จัดอันดับ</a><a href="about.html">เกี่ยวกับเรา</a><a href="contact.html">ติดต่อ</a>
   <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาโรงแรม</button>
 </div>`;
 
@@ -410,6 +413,18 @@ function countryHub(){
 <div class="cta-sec"><div class="ctaband"><h2>เริ่มวางแผนทริปไทย</h2><p>เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน ได้เลย</p><a href="region-north.html">เริ่มที่ภาคเหนือ →</a></div></div>`;
   return page({title:`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,slug:`country-thailand`,jsonld,body});
 }
+function destinationsHub(){
+  const cards = TOPDEST.filter(s=>TH[s]).map(s=>{const d=readData(s);return provCard(s,TH[s],(d&&d.heroEmoji)||'📍',(d&&d.tagline)||`เที่ยว${TH[s]}`)}).join('');
+  const regCards = Object.keys(REGION).map(r=>{const R=REGION[r];const n=PROVINCES.filter(([,,rr])=>rr===r).length;
+    return `<a class="dcard" href="region-${R.slug}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${R.emoji}</div><div class="dbody"><h3>${R.th}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(R.intro).slice(0,66)}…</p><span class="go">เที่ยว${R.th} · ${n} จังหวัด →</span></div></a>`;}).join('');
+  const jsonld={"@context":"https://schema.org","@type":"ItemList","name":"เมืองท่องเที่ยวยอดนิยมในไทย","itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":TH[s],"url":`https://thailandaddict.com/city-${s}`}))};
+  const body=`${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:'เมืองท่องเที่ยว'}])}
+<div class="thero"><div class="eyebrow">🔥 ยอดนิยม</div><h1>เมือง<em>ท่องเที่ยว</em>ยอดนิยม</h1><p class="lead">รวมเมืองที่คนไปเที่ยวมากที่สุดทั่วไทย — ทะเล เกาะ ภูเขา เมืองเก่า คาเฟ่ ครบทุกสาย แต่ละเมืองคัดที่พัก ที่เที่ยว ของกิน และแผนเที่ยวให้พร้อมลุย</p><div class="chips"><span class="chip">🔥 <b>${TOPDEST.length}</b> เมืองยอดนิยม</span><span class="chip">🧭 <b>6</b> ภาค</span><span class="chip">✅ คัดจากของจริง</span></div></div>
+<section class="sec"><div class="inner"><div class="shead"><h2>เมือง<span class="em">ท่องเที่ยวยอดนิยม</span></h2><a href="country-thailand.html">ดูทั้ง 77 จังหวัด →</a></div><div class="dgrid">${cards}</div></div></section>
+<section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>หรือเลือก<span class="em">ตามภาค</span></h2><a href="country-thailand.html">ทุกภาค →</a></div><div class="dgrid">${regCards}</div></div></section>
+<div class="cta-sec"><div class="ctaband"><h2>เลือกเมืองที่อยากไป</h2><p>แต่ละเมืองมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยวครบ คัดจากเสียงรีวิวจริง</p><a href="country-thailand.html">ดูทั้งประเทศ →</a></div></div>`;
+  return page({title:`เมืองท่องเที่ยวยอดนิยมในไทย — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`รวมเมืองท่องเที่ยวยอดนิยมทั่วไทย — กรุงเทพ เชียงใหม่ ภูเก็ต กระบี่ พัทยา หัวหิน และอีกมาก พร้อมที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง`,slug:`destinations`,jsonld,body});
+}
 function readData(slug){const f=path.join(DATA,slug+'.json');if(!fs.existsSync(f))return null;try{return JSON.parse(fs.readFileSync(f,'utf8'))}catch{return null}}
 
 // ── generate ──
@@ -417,5 +432,6 @@ let nP=0,nMiss=[];
 for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(PUB,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
 let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(PUB,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
 fs.writeFileSync(path.join(PUB,'country-thailand.html'),countryHub());
-console.log(`provinces: ${nP} · regions: ${nR} · country-thailand: 1`);
+fs.writeFileSync(path.join(PUB,'destinations.html'),destinationsHub());
+console.log(`provinces: ${nP} · regions: ${nR} · country-thailand: 1 · destinations: 1 (${TOPDEST.length} cities)`);
 console.log(`missing data (fallback used): ${nMiss.length}${nMiss.length?' → '+nMiss.join(','):''}`);

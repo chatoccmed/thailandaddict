@@ -5,7 +5,7 @@
 // Exit code 1 if any banned word found (so it can gate a build).
 import fs from 'node:fs';
 import path from 'node:path';
-const ROOT = 'C:/Users/Imac/Thailandaddict';
+const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 // Unambiguous AI/marketing words (no Thai false-positive risk — all multi-syllable, distinctive)
 const BANNED = ['ตอบโจทย์', 'โดดเด่น', 'ครบครัน', 'ระดับโลก', 'สุดยอด', 'อันซีน'];
 // Proper-noun exceptions (real business/place names) — stripped before counting so the
