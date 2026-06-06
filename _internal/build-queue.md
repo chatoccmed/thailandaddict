@@ -20,7 +20,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] ayutthaya — พระนครศรีอยุธยา (12 reviews + Top10 + 38 articles + images)
 - [x] trat — ตราด (12 reviews + Top10 + 38 articles + images)
 - [x] rayong — ระยอง (12 reviews + Top10 + 38 articles + images)
-- [ ] nan — น่าน
+- [x] nan — น่าน (12 reviews + Top10 + 38 articles + images)
 - [ ] mae-hong-son — แม่ฮ่องสอน (ปาย)
 - [ ] sukhothai — สุโขทัย
 
