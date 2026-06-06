@@ -22,7 +22,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] rayong — ระยอง (12 reviews + Top10 + 38 articles + images)
 - [x] nan — น่าน (12 reviews + Top10 + 38 articles + images)
 - [x] mae-hong-son — แม่ฮ่องสอน (12 reviews + Top10 + 37 articles + images)
-- [ ] sukhothai — สุโขทัย
+- [x] sukhothai — สุโขทัย (12 reviews + Top10 + 37 articles + images)
 
 ## Wave 2 — popular / regional hubs
 - [x] nakhon-ratchasima — นครราชสีมา (เขาใหญ่) (12 reviews + Top10 + 37 articles + images)
