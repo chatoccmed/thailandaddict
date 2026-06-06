@@ -38,7 +38,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] songkhla — สงขลา
 - [ ] chumphon — ชุมพร
 - [ ] ranong — ระนอง
-- [ ] chanthaburi — จันทบุรี
+- [x] chanthaburi — จันทบุรี (12 reviews + Top10 + 37 articles + images)
 - [ ] nakhon-nayok — นครนายก
 - [ ] ratchaburi — ราชบุรี
 - [ ] samut-songkhram — สมุทรสงคราม (อัมพวา)
