@@ -43,6 +43,14 @@ _internal/
 - **Honesty / EEAT**: "เสียงจากรีวิวจริง" · ห้ามอ้างไปพักเอง · verify โรงแรมว่ามีจริงก่อนเขียน
 - **1 h1 ต่อหน้า** · canonical/og/hreflang · JSON-LD (มีใน layout แล้ว) · self-host รูป (รูปจาก Trip.com)
 
+## 🏷️ แบรนด์ / สโลแกน / ฟอนต์ (LOCKED — ใช้ทุกหน้า)
+- **สโลแกน TH:** `Thailandaddict ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย`
+  - tagline = "ชีวิตติดเที่ยว" · descriptor = "ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย"
+- **สโลแกน EN:** `Thailandaddict — Explore Thailand Like a Local`
+- ใช้ใน: `<title>`/meta/og · hero (h1 = "ชีวิตติดเที่ยว") · footer (ft-tag = EN slogan, ft-desc = TH) ของทุกหน้า (homepage + city + reviews + roundups)
+- **ฟอนต์ไทย (LOCKED):** body = `-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Noto Sans Thai', 'Sarabun', sans-serif` (ได้ฟอนต์ระบบ iOS จริงบน Apple, Noto Sans Thai บนเครื่องอื่น) · หัวข้อ Latin = Fraunces serif (Thai fallback → iOS/Noto sans) · UI/ตัวเลข = Outfit
+- **ดีไซน์ใหม่ (homepage):** พอร์ตเลย์เอาต์ wherebest (repo `tourlogy`) → remap สีเป็น Direction-C (teal/coral/mango) + Fraunces · ต้นแบบ chrome/CSS ใหม่ = `astro/public/index.html` (เวอร์ชันนี้แทนของเดิม) · หน้าจังหวัด (`gen-hubs.mjs`) ต้องอัปเดตให้ใช้ chrome/CSS + 5 แท็บ + สโลแกน + ฟอนต์ชุดนี้
+
 ## Affiliate IDs
 - Agoda `cid=1965862` · Trip.com `Allianceid=6861268&SID=312919111` · Klook `aid=121442`
 
