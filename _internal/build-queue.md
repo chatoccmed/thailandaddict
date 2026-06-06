@@ -25,7 +25,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] sukhothai — สุโขทัย
 
 ## Wave 2 — popular / regional hubs
-- [ ] nakhon-ratchasima — นครราชสีมา (เขาใหญ่)
+- [x] nakhon-ratchasima — นครราชสีมา (เขาใหญ่) (12 reviews + Top10 + 37 articles + images)
 - [ ] phetchabun — เพชรบูรณ์ (เขาค้อ)
 - [ ] loei — เลย
 - [ ] phetchaburi — เพชรบุรี
