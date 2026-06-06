@@ -17,6 +17,7 @@ const OVERRIDES = `
 - breadcrumb/parent ชี้ roundup: parentHref="top10-hotels-chiang-mai.html", parentCrumbUrl ไทย "https://thailandaddict.com/top10-hotels-chiang-mai" (EN ใช้ /en/) · crumbCityName="เชียงใหม่"/(EN "Chiang Mai"), crumbCityHref="city-chiang-mai.html" · countryHref="country-thailand.html", countryLabel="🇹🇭 ไทย"(EN "🇹🇭 Thailand"), countryGuideLabel="คู่มือเที่ยวไทย"(EN "Thailand Guide") · addressCountry="TH"
 - related/prev/next ลิงก์ไปรีวิวโรงแรมเชียงใหม่ตัวอื่นในชุดนี้ (ใช้ slug ที่ planner กำหนด) ไม่ใช่ไทเป
 - รูป hero: พยายามโหลดจริงไป astro/public/images/hotels/chiang-mai-<short>.jpg ถ้าโหลดไม่ได้ปล่อยว่าง (layout มี onerror) อย่าใส่ลิงก์ที่ใช้ไม่ได้
+- ⚠️ ความปลอดภัยไฟล์ (บังคับ): curl -o **ตรงไปยังชื่อไฟล์ปลายทางเท่านั้น** · ห้ามสร้างไฟล์ test/temp/_tmp_ ในโฟลเดอร์ images/ · **ห้ามใช้ `rm` หรือลบไฟล์ใด ๆ เด็ดขาด** โดยเฉพาะ wildcard (เช่น `rm c*.jpg`, `rm *test*`) — images/hotels มีรูปจังหวัดอื่นปนอยู่ ลบพลาดจะทำหน้าจังหวัดอื่นรูปพัง · โหลดผิดให้ curl ทับชื่อเดิม
 - ราคาบอกเป็น "เริ่มประมาณ" จากช่วงราคาห้องมาตรฐานจริง ไม่เอาราคาพีคจุดเดียว
 - ⚠️ ก่อนบันทึกไฟล์รีวิว ค้นไฟล์ตัวเองว่ามีคำต้องห้ามไหม (ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน) ถ้ามีให้แก้ทุกจุดเป็นคำธรรมชาติ (เหมาะ/ลงตัว/ครบ/เด่น/เด็ด) ก่อนบันทึก
 `

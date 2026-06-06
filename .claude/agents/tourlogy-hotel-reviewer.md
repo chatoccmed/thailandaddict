@@ -16,7 +16,7 @@ Find, from Booking.com / Agoda / Trip.com and the hotel's own channels:
 - Address, district, nearest MRT/station and walking time, year opened, number of rooms, key facilities.
 - Room types and prices. PRICING METHOD: never quote a single point-in-time peak price. Find the STANDARD room's typical low–high range (check a few months if needed); present the lowest as "from" and keep the range in mind for the copy.
 - What real guests praise and complain about — distil genuine pros and cons (this is the basis of the review, per Tourlogy's editorial policy: "compiled from real guest reviews"; never claim the team stayed there).
-- Direct hotel-detail URLs on Agoda, Booking and Trip.com. Add affiliate params: Agoda `?cid=1965862`, Trip.com `?Allianceid=6861268&SID=312384787`. Booking has no affiliate id yet — plain hotel URL. Verify each link points at the actual hotel page.
+- Direct hotel-detail URLs on Agoda, Booking and Trip.com. Add affiliate params: Agoda `?cid=1965862`, Trip.com `?Allianceid=6861268&SID=312919111`. Booking has no affiliate id yet — plain hotel URL. Verify each link points at the actual hotel page.
 - A real hero photo URL of the hotel (try Trip.com first, then Agoda/Booking, then the hotel's own site).
 
 ## Step 2 — Learn the exact format
@@ -24,6 +24,7 @@ Read `astro/src/content.config.ts` (the `reviewSchema`) and an existing review a
 
 ## Step 3 — Hero image (self-host, never hotlink)
 Download the real hero photo into `astro/public/images/hotels/<city>-<hotel-short>.jpg` with curl/Bash. If you genuinely cannot obtain a real photo, reuse an existing relevant file from `astro/public/images/hotels/` or `images/gallery/` rather than leaving it broken. Gallery images: use real hotel photos if obtainable, otherwise reuse existing `images/gallery/*` stock (this is the established project pattern).
+- **⚠️ File safety (mandatory):** `curl -o` straight to the FINAL filename. Do NOT create test/temp/`_tmp_` files in `images/`. **NEVER run `rm` or delete any file** — above all NOT a wildcard like `rm c*.jpg` / `rm *test*`: `images/hotels/` holds other provinces' photos and a stray glob will silently wipe them (this caused a real incident). If a download is wrong, just `curl` over the same name.
 
 ## Step 4 — Write the two review JSON files
 Create `astro/src/content/reviews/<slug>.json` (Thai) and `astro/src/content/reviews-en/<slug>.json` (English) — every schema field present, real researched data, both languages written natively (not machine-translated).

@@ -39,8 +39,9 @@ node _internal/set-hero.mjs
 node _internal/gen-hubs.mjs
 # 4. validate build:
 bash _internal/build-test.sh        # must end "BUILD OK"
-# 5. commit + push (auto-deploy):
+# 5. SAFETY GUARD → commit + push (auto-deploy):
 git add -A
+bash _internal/finalize-guard.sh || exit 1   # ⛔ blocks commit on ANY deletion or junk/temp file (gotcha #11)
 git -c user.name="chatoccmed" -c user.email="chatoccmed@users.noreply.github.com" commit -q -F - <<'EOF'
 <slug> gold template: 12 reviews + roundup + N articles + images
 EOF
@@ -70,6 +71,8 @@ Then mark the province `[x]` in `_internal/build-queue.md` and move to the next.
 8. Build-test builds content only (skips public/). That's expected; the production Cloudflare build runs full `npm run build` incl. public/images.
 10. **ANY workflow can HANG (articles too), and then NO completion notification fires.** Seen: Surat Thani articles stalled at 32/38 for ~10h (4 agents stuck on WebFetch blocked the Plan barrier → Prep never ran). **Discipline: never wait indefinitely on the completion notification.** After launching a province's workflows, set a fallback wakeup; on wake, POLL the filesystem for the expected outputs (12 reviews, 38 articles, 38 images). If counts are short and mtimes are stale, the workflow hung → `TaskStop` if present, then launch a small recover-workflow scoped to just the missing slugs (precedents: `phuket-images-recover.js`, `surat-thani-articles-recover.js`). Article/recover prompts now tell agents to skip a hung WebFetch instead of waiting.
 9. **Image workflow can HANG** (seen on Phuket: stalled at 19/38 for hours, no completion notification). Cause: an image agent runs `curl` with no timeout, waits forever on a stalled connection, and holds a concurrency slot → whole workflow wedges. **Fix (already in `province-images.template.js`): every curl MUST use `curl -m 60 --connect-timeout 20`, and agents try ≤3 sources then report SKIPPED.** Recovery if it still hangs: compute missing slugs via fs (file absent or <15KB), `TaskStop` the dead task if present, then launch a small recover-workflow scoped to just the missing slugs (see `_internal/wf/phuket-images-recover.js`).
+
+11. **NEVER delete/temp files in shared image dirs (real incident).** A hotel-reviewer agent ran `rm -f c*.jpg` to clean its own test files in `images/hotels/` — the glob wiped every committed `chiang-mai-*`, `chiang-rai-*`, `chonburi-*` photo (116 files; other provinces' review pages would have 404'd). Cause = agents making test/temp files then `rm`-ing with wildcards in a shared dir. **Prevention (in place):** (a) templates + hotel-reviewer.md forbid temp files / any `rm` — curl straight to the final name; (b) Phase D runs `bash _internal/finalize-guard.sh` after `git add -A`, which BLOCKS the commit if any deletion or junk/`_tmp_` file is staged. Always eyeball the commit's `--diff-filter=D` too. If files were wiped: `git checkout <good-commit> -- <paths>` to restore before committing.
 
 ## Throughput note
 Each province ≈ 12 reviews + ~35 articles + ~45 images ≈ ~90 agents across 3 workflows. Run one province per loop iteration, finalize+commit, then next. Workflows run in background and notify on completion — chain phases on those notifications. Build in priority order (`build-queue.md`).

@@ -53,7 +53,7 @@ Prices change constantly — never quote a single point-in-time peak price.
 - One hotel is reviewed ONCE even if it appears in several roundups — every roundup links to the same review page.
 - One-off pages (food / attractions / itineraries / practical) = HTML in `astro/public/` (Thai) + `astro/public/en/` (English). EN pages use root-absolute `/images/...` paths and carry the 5-language nav switcher.
 - Every page: clean URL (no .html), full SEO meta + JSON-LD per `CLAUDE.md`, interlinked into the city cluster.
-- Affiliate IDs: Agoda `cid=1965862` · Trip.com `Allianceid=6861268&SID=312384787` · Klook `aid=121442` · Booking — none yet.
+- Affiliate IDs: Agoda `cid=1965862` · Trip.com `Allianceid=6861268&SID=312919111` · Klook `aid=121442` · Booking — none yet.
 - Build test only works outside Google Drive (use `C:\Users\MacbookPro\tl-astro-build`); deploy by `git push` (Cloudflare auto-builds).
 - After finishing work, update the relevant `_internal/` checklist (e.g. `TAIPEI-CONTENT-PLAN.md`).
 

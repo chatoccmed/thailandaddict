@@ -19,7 +19,7 @@ Check the page for every applicable item and record pass/fail with the exact loc
 - **JSON-LD:** correct type for the page (`BreadcrumbList` everywhere; `ItemList` for lists; review pages = single `@graph` Hotel+Review+BreadcrumbList+WebPage, never duplicated; `FAQPage` only when a real FAQ exists and its text matches the page).
 - **Content quality:** title earns the click (skill Part 6 — not a flat "[หมวด]+เมือง+ปี" pattern); review body is a genuine 5–7 paragraphs distilled from real guest sentiment; cons/honest checks are truthful, not sugar-coated; prices shown as "from approx." with a season range, never a single peak price; no internal-business content on a visitor-facing page.
 - **Images:** every image is self-hosted under `astro/public/images/` — no external CDN hotlinks; files referenced actually exist on disk; not an obviously wrong placeholder.
-- **Links & affiliate IDs:** internal links go both ways (article ↔ hub); affiliate params correct (Agoda `cid=1965862`, Trip.com `Allianceid=6861268&SID=312384787`, Klook `aid=121442`); booking links point at the intended page.
+- **Links & affiliate IDs:** internal links go both ways (article ↔ hub); affiliate params correct (Agoda `cid=1965862`, Trip.com `Allianceid=6861268&SID=312919111`, Klook `aid=121442`); booking links point at the intended page.
 - **TH/EN parity:** the English page mirrors the Thai page's structure, sections and images; EN uses `/en/` paths and the 5-language switcher; English reads natively, not machine-translated.
 - **Schema validity (review/roundup JSON):** matches `astro/src/content.config.ts` field-for-field; array lengths correct.
 

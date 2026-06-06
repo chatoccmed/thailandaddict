@@ -27,7 +27,7 @@ Create `astro/src/content/roundups/<slug>.json` (Thai) and `astro/src/content/ro
 - `compareRows`: one row per hotel, ordered by rank.
 - `faq`: 4–6 real traveller questions for this theme, answers matching on-page text (feeds `FAQPage` schema).
 - `h1`/`title`/`heroEyebrow`: catchy and benefit-led — apply the Tourlogy title standard (skill Part 6); the EN title is crafted natively, not translated.
-- Affiliate IDs on every booking URL: Agoda `cid=1965862`, Trip.com `Allianceid=6861268&SID=312384787`.
+- Affiliate IDs on every booking URL: Agoda `cid=1965862`, Trip.com `Allianceid=6861268&SID=312919111`.
 
 ## Step 4 — Report
 Report: the roundup slug, final rank order with the one-line justification each, and anything uncertain. Do NOT build or git — the orchestrator handles that.
