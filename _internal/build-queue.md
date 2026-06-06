@@ -31,7 +31,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] phetchaburi — เพชรบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] lampang — ลำปาง (12 reviews + Top10 + 37 articles + images)
 - [x] lamphun — ลำพูน (12 reviews + Top10 + 37 articles + images)
-- [ ] phitsanulok — พิษณุโลก
+- [x] phitsanulok — พิษณุโลก (12 reviews + Top10 + 37 articles + images)
 - [x] nakhon-si-thammarat — นครศรีธรรมราช (12 reviews + Top10 + 37 articles + images)
 - [x] trang — ตรัง (12 reviews + Top10 + 37 articles + images)
 - [x] satun — สตูล (หลีเป๊ะ) (12 reviews + Top10 + 37 articles + images)
