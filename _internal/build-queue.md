@@ -27,7 +27,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 ## Wave 2 — popular / regional hubs
 - [x] nakhon-ratchasima — นครราชสีมา (เขาใหญ่) (12 reviews + Top10 + 37 articles + images)
 - [ ] phetchabun — เพชรบูรณ์ (เขาค้อ)
-- [ ] loei — เลย
+- [x] loei — เลย (12 reviews + Top10 + 37 articles + images)
 - [ ] phetchaburi — เพชรบุรี
 - [ ] lampang — ลำปาง
 - [ ] lamphun — ลำพูน
