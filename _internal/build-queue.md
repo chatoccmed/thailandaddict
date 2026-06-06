@@ -28,7 +28,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] nakhon-ratchasima — นครราชสีมา (เขาใหญ่) (12 reviews + Top10 + 37 articles + images)
 - [x] phetchabun — เพชรบูรณ์ (12 reviews + Top10 + 37 articles + images)
 - [x] loei — เลย (12 reviews + Top10 + 37 articles + images)
-- [ ] phetchaburi — เพชรบุรี
+- [x] phetchaburi — เพชรบุรี (12 reviews + Top10 + 37 articles + images)
 - [ ] lampang — ลำปาง
 - [ ] lamphun — ลำพูน
 - [ ] phitsanulok — พิษณุโลก
