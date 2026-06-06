@@ -184,6 +184,40 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
 .mbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;box-shadow:0 -4px 20px rgba(15,40,70,.12);display:none;gap:10px;padding:10px 14px}@media(max-width:860px){.mbar{display:flex}}
 .mbar a{flex:1;text-align:center;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;padding:13px;border-radius:14px}.mbar .m1{background:linear-gradient(135deg,var(--or),var(--go));color:#fff}.mbar .m2{background:var(--bl-lt);color:var(--bl-dk)}
+/* CITY STATS (overlap hero) */
+.cstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:860px;margin:-44px auto 0;position:relative;z-index:5;padding:0 28px}@media(max-width:560px){.cstats{grid-template-columns:repeat(2,1fr)}}
+.cstat{background:#fff;border:1px solid #eafaff;border-radius:14px;box-shadow:0 12px 30px rgba(6,182,212,.15);padding:18px 12px;text-align:center;position:relative;overflow:hidden}
+.cstat::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--bl),var(--or),var(--go))}
+.cstat .n{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:30px;line-height:1;background-image:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.cstat .l{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--mut);margin-top:6px}
+.updatepill{max-width:1120px;margin:16px auto 0;padding:0 28px}.updatepill span{display:inline-flex;align-items:center;gap:7px;background:var(--bl-lt);color:var(--bl-dk);font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:600;padding:6px 14px;border-radius:30px}
+/* INTRO */
+.section{max-width:1120px;margin:0 auto;padding:46px 28px 8px}
+.sh{text-align:center;margin-bottom:26px}.sh .slbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--or-dk);margin-bottom:6px}.sh h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:clamp(24px,4vw,32px)}.sh h2 em{font-style:normal;background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.sh p{font-size:14px;color:var(--sub);margin-top:8px;max-width:660px;margin-left:auto;margin-right:auto}
+.introgrid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}@media(max-width:740px){.introgrid{grid-template-columns:1fr;gap:26px}}
+.introgrid .slbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--or-dk);margin-bottom:8px}
+.introgrid h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:clamp(23px,3.4vw,31px);line-height:1.18}.introgrid h2 em{font-style:normal;background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.introgrid .ssub{font-size:14.5px;color:var(--sub);margin-top:10px;line-height:1.75}
+.introbtn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--bl),var(--or));color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;padding:13px 24px;border-radius:30px;box-shadow:0 8px 20px rgba(6,182,212,.32);margin-top:18px}
+.icards{display:grid;grid-template-columns:1fr 1fr;gap:12px}.icard{border-radius:16px;padding:22px 18px}.icard .ie{font-size:28px;margin-bottom:8px}.icard h4{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;margin-bottom:4px}.icard p{font-size:12.5px;color:var(--sub)}
+.ic0{background:var(--bl-lt)}.ic1{background:var(--or-lt)}.ic2{background:#E9F7EF}.ic3{background:#F3E8FF}
+/* EDITOR PICKS */
+.ep-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}@media(max-width:1080px){.ep-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:680px){.ep-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:440px){.ep-grid{grid-template-columns:1fr}}
+.ep-card{background:#fff;border:1px solid rgba(6,182,212,.08);border-radius:16px;overflow:hidden;transition:.22s;position:relative;display:flex;flex-direction:column}.ep-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(251,113,133,.22)}
+.ep-rank{position:absolute;top:10px;left:10px;background:linear-gradient(135deg,var(--or),var(--go));color:#fff;font-family:'Fraunces',serif;font-size:17px;font-weight:600;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(251,113,133,.45);z-index:2}
+.ep-img{height:140px;overflow:hidden;background:linear-gradient(150deg,#06B6D4,#22d3ee 55%,#FBBF24)}.ep-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s}.ep-card:hover .ep-img img{transform:scale(1.08)}
+.ep-body{padding:13px 14px 14px;flex:1;display:flex;flex-direction:column}.ep-title{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:15px;line-height:1.3;margin-bottom:5px}.ep-why{font-size:11.5px;color:var(--sub);line-height:1.5;margin-bottom:8px;flex:1}.ep-tag{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10.5px;font-weight:700;color:var(--bl-dk);background:var(--bl-lt);padding:3px 9px;border-radius:20px;align-self:flex-start}
+/* HOODS */
+.hoodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}@media(max-width:880px){.hoodgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.hoodgrid{grid-template-columns:1fr}}
+.hood{border-radius:18px;padding:22px 20px;color:#fff;min-height:128px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(15,40,70,.1)}
+.hood::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 8%,rgba(255,255,255,.2),transparent 60%)}
+.hood h4{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:18px;position:relative;z-index:1}.hood p{font-size:12.5px;color:rgba(255,255,255,.93);margin-top:4px;position:relative;z-index:1}
+.hg0{background:linear-gradient(150deg,#0891b2,#06d6e0)}.hg1{background:linear-gradient(150deg,#f15a86,#FB7185)}.hg2{background:linear-gradient(150deg,#0aa2c0,#22d3ee)}.hg3{background:linear-gradient(150deg,#fb923c,#FBBF24)}.hg4{background:linear-gradient(150deg,#0891b2,#FB7185)}.hg5{background:linear-gradient(150deg,#f43f5e,#fb923c)}
+/* AFFILIATE */
+.affgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}@media(max-width:760px){.affgrid{grid-template-columns:1fr}}
+.affcard{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:24px 22px;text-align:center;box-shadow:var(--sh)}.affcard .adot{width:16px;height:16px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:-2px}.affcard .an{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:6px}.affcard p{font-size:12.5px;color:var(--sub);margin-bottom:14px}.affcard a{display:inline-block;background:var(--ink);color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13px;padding:11px 22px;border-radius:30px}
+/* SEO */
+.seo{max-width:1120px;margin:0 auto;padding:8px 28px 40px}.seobox{background:var(--bl-lt);border-radius:20px;padding:28px 30px}.seobox h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:22px;margin-bottom:12px}.seobox p{font-size:14px;color:#334155;line-height:1.85;margin-bottom:10px}.seobox b{color:var(--ink)}
 </style>`;
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -290,13 +324,42 @@ function provinceHub(slug, th, r, d){
     {"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"},
     {"@type":"ListItem","position":3,"name":R.th,"item":`https://thailandaddict.com/region-${R.slug}`},
     {"@type":"ListItem","position":4,"name":th,"item":`https://thailandaddict.com/city-${slug}`}]};
+  // stats
+  const avg = (REVS[slug]||[]).length ? ((REVS[slug].reduce((s,h)=>s+(h.score||0),0))/(REVS[slug].length)).toFixed(1) : '–';
+  const prices = (REVS[slug]||[]).map(h=>{const m=String(h.price).match(/[\d,]+/);return m?+m[0].replace(/,/g,''):0;}).filter(Boolean);
+  const minP = prices.length ? '฿'+Math.min(...prices).toLocaleString() : '–';
+  const hls=d.highlights||[], atts=d.attractions||[], foods=d.foodScene||[];
+  const intro=stripTags(d.introHtml)||`คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`;
+  const chips=(hls.slice(0,5).map(h=>`<span class="phchip">📍 ${esc(h.name)}</span>`).join(''))||`<span class="phchip">🗓️ ${esc(best.split(' ').slice(0,5).join(' '))}</span>`;
+  // intro 4 cards
+  const ic=[];
+  if(foods[0])ic.push(['ic0','🍜','ของกินเด่น',foods[0].name+' — '+stripTags(foods[0].note).slice(0,46)]);
+  if(hls[0])ic.push(['ic1','⭐','ไฮไลต์ห้ามพลาด',hls[0].name+' — '+stripTags(hls[0].blurb).slice(0,46)]);
+  const natt=atts.find(a=>a.kind==='nature')||hls[1]; if(natt)ic.push(['ic2','🏞️','ธรรมชาติ/วิวสวย',natt.name+' — '+stripTags(natt.blurb).slice(0,42)]);
+  ic.push(['ic3','✅','เที่ยวง่าย ครบจบ','ที่พัก ที่เที่ยว ของกิน แผนเที่ยว รวบไว้ในหน้าเดียว']);
+  const introCards=ic.map(x=>`<div class="icard ${x[0]}"><div class="ie">${x[1]}</div><h4>${esc(x[2])}</h4><p>${esc(x[3])}</p></div>`).join('');
+  // editor picks (top attractions ↔ attraction articles)
+  const attArts=arts.filter(a=>a.type==='attraction'&&!/-attractions$/.test(a.slug)&&a.heroImg);
+  const kindTh={nature:'ธรรมชาติ',city:'เมือง',culture:'วัฒนธรรม'};
+  const epSrc = atts.length ? atts.slice(0,5) : attArts.slice(0,5).map(a=>({name:stripTags(a.title),blurb:'',kind:'city'}));
+  const ep=epSrc.map((a,i)=>{const art=attArts[i]||{};const href=art.slug?`${art.slug}.html`:`city-${slug}.html#see`;const img=art.heroImg||'';const why=a.blurb?`<div class="ep-why">${esc(stripTags(a.blurb).slice(0,80))}</div>`:'';return `<a class="ep-card" href="${href}"><div class="ep-rank">${i+1}</div><div class="ep-img">${img?`<img src="${img}" alt="${esc(a.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="ep-body"><div class="ep-title">${esc(a.name)}</div>${why}<span class="ep-tag">${kindTh[a.kind]||'ที่เที่ยวแนะนำ'}</span></div></a>`;}).join('');
+  // hoods
+  const hoods=hls.map((h,i)=>`<div class="hood hg${i%6}"><h4>${esc(h.name)}</h4><p>${esc(stripTags(h.blurb).slice(0,64))}</p></div>`).join('');
+  // neighbors cards
+  const nbCards=(d.neighbors||[]).filter(n=>TH[n]).map(n=>{const nd=readData(n);return provCard(n,TH[n],(nd&&nd.heroEmoji)||'📍',(nd&&nd.tagline)||`เที่ยว${TH[n]}`)}).join('');
+  const aff=`<div class="affgrid"><div class="affcard"><div class="an"><span class="adot" style="background:#ff5a1f"></span>Agoda</div><p>คนไทยใช้เยอะที่สุด · cashback บ่อย · จ่ายเงินไทยได้</p><a href="https://www.agoda.com/?cid=1965862" target="_blank" rel="nofollow noopener">ค้นหาบน Agoda →</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#003580"></span>Booking.com</div><p>ห้องเยอะที่สุด · ยกเลิกได้ส่วนใหญ่ · UI สะอาด</p><a href="https://www.booking.com/" target="_blank" rel="nofollow noopener">ค้นหาบน Booking →</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#2577e3"></span>Trip.com</div><p>ราคาคุ้มในเอเชีย · ดีลบ่อย · สะสมแต้มได้</p><a href="https://www.trip.com/?Allianceid=6861268&SID=312919111" target="_blank" rel="nofollow noopener">ค้นหาบน Trip.com →</a></div></div>`;
   const tab=(id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
   const body=`
 ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:R.th,href:`region-${R.slug}.html`},{t:th}])}
 <div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(th)}" loading="eager" onerror="this.style.opacity=0">`:''}
   <div class="pherobody"><span class="pheye">${emoji} ${R.th}</span><h1>เที่ยว<em>${th}</em></h1><p class="phlead">${esc(tagline)}</p>
-  <div class="phchips"><span class="phchip">🗓️ ${esc(best.split(' ').slice(0,6).join(' '))}</span><span class="phchip">🏨 ${cStay} รีวิวที่พัก</span><span class="phchip">📚 ${arts.length} บทความ</span></div></div>
+  <div class="phchips">${chips}</div></div>
 </div>
+<div class="cstats"><div class="cstat"><div class="n">${cStay}</div><div class="l">รีวิวที่พัก</div></div><div class="cstat"><div class="n">${arts.length}</div><div class="l">บทความเที่ยว</div></div><div class="cstat"><div class="n">${avg}</div><div class="l">คะแนนเฉลี่ย</div></div><div class="cstat"><div class="n">${minP}</div><div class="l">ราคาเริ่มต้น/คืน</div></div></div>
+<div class="updatepill"><span>📅 อัปเดต 2026 · เรียบเรียงโดยทีม ThailandAddict · ${cStay} รีวิวจริง · ไม่มีโฆษณาแฝง</span></div>
+<div class="section"><div class="introgrid"><div><div class="slbl">ทำไมต้องไป${th}</div><h2>เที่ยว${th} <em>ให้ครบในที่เดียว</em></h2><p class="ssub">${esc(intro.slice(0,280))}</p><a class="introbtn" href="top10-hotels-${slug}.html">เริ่มจากที่พัก →</a></div><div class="icards">${introCards}</div></div></div>
+${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks</div><h2>แนะนำที่เที่ยว<em>ที่น่าสนใจ</em></h2><p>ประสบการณ์เด่นของ${th} — มาทริปแรกห้ามพลาด</p></div><div class="ep-grid">${ep}</div></div>`:''}
+<div class="section" style="padding-bottom:0"><div class="sh"><div class="slbl">บทความที่เราเขียน</div><h2>เลือกอ่าน<em>สิ่งที่คุณสนใจ</em></h2><p>เลือกแท็บเพื่อดูที่พัก ที่เที่ยว ที่กิน แผนเที่ยว และการเตรียมตัว</p></div></div>
 <div class="tabwrap"><div class="tabbar">
   ${tab('stay','🏨','ที่พัก',cStay)}${tab('see','📍','ที่เที่ยว',cSee)}${tab('eat','🍜','ที่กิน',cEat)}${tab('plan','🗺️','แผนเที่ยว',cPlan)}${tab('prep','🎒','เตรียมตัว',0)}
 </div></div>
@@ -313,6 +376,10 @@ ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',h
   <div class="eeat"><div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>${esc(best)}</p></div><div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>${moveArt?`อ่านวิธีเดินทางใน${th}แบบละเอียด · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">เปิดคู่มือ →</a>`:`วิธีไป${th}และเดินทางในจังหวัด`}</p></div><div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>${R.th} · <a href="region-${R.slug}.html" style="color:var(--bl-dk);font-weight:700">เที่ยว${R.th} →</a></p></div><div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>${tipsArt?`เช็กลิสต์เตรียมตัว · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">อ่านทิป →</a>`:`สิ่งที่ควรเตรียมไป${th}`}</p></div></div>
   ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">คู่มือ<em>เตรียมตัว</em></h2>${artCards(slug,['prep','guide'])}`:''}</section>
 </div>
+${hoods?`<div class="section"><div class="sh"><div class="slbl">ไฮไลต์ยอดนิยม</div><h2>ที่ต้องไปให้ครบใน<em>${th}</em></h2></div><div class="hoodgrid">${hoods}</div></div>`:''}
+<div class="section"><div class="sh"><div class="slbl">🔎 ค้นหาเอง</div><h2>ไม่เห็นที่ใช่? <em>ค้นเองได้ทั้ง 3 เว็บ</em></h2><p>เทียบราคาที่พัก${th}เองทั้ง Agoda · Booking · Trip.com</p></div>${aff}</div>
+${nbCards?`<div class="section"><div class="sh"><div class="slbl">📍 เที่ยวต่อ</div><h2>ถ้าชอบ${th} <em>ลองจังหวัดข้างเคียง</em></h2></div><div class="dgrid">${nbCards}</div></div>`:''}
+<div class="seo"><div class="seobox"><h2>เกี่ยวกับ — เที่ยว${th}</h2>${d.introHtml||`<p>คู่มือเที่ยว${th} ครบทั้งที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่</p>`}<p><b>ช่วงเวลาแนะนำ:</b> ${esc(best)}</p></div></div>
 <div class="cta-sec"><div class="ctaband"><h2>วางแผนเที่ยว${th}</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-${slug}.html">เริ่มจากที่พัก →</a></div></div>`;
   const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','');if(m[h])act(m[h],true);})();</script>`;
   return page({title:`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,slug:`city-${slug}`,jsonld,body,extraJS});
