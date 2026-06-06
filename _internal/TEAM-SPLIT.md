@@ -13,11 +13,11 @@
 ### คำสั่ง /loop ของแต่ละคน
 **A (เครื่องนี้):**
 ```
-/loop Build the next unchecked province in _internal/build-queue.md whose region is NORTH(n)/CENTRAL(c)/EAST(e)/WEST(w) (see region in _internal/province-data/<slug>.json), to the Chiang Mai gold standard per _internal/PROVINCE-PLAYBOOK.md. Run hotels+articles+images workflows, optimize, lint, set-hero, gen-hubs, build-test, then `git pull --rebase` and push, mark done in build-queue.md. Keep going until all North/Central/East/West provinces are done. Do not ask.
+/loop Build the next unchecked province in _internal/build-queue.md that is listed under the "🟦 A — เหนือ/กลาง/ตะวันออก/ตะวันตก" section of _internal/TEAM-SPLIT.md, to the Chiang Mai gold standard per _internal/PROVINCE-PLAYBOOK.md. Run hotels+articles+images workflows, optimize, lint, set-hero, gen-hubs, build-test, then `git pull --rebase` and push, mark done in build-queue.md. Keep going until every province in the A list is done. Do not ask.
 ```
 **B (เครื่องช่วย):**
 ```
-/loop Build the next unchecked province in _internal/build-queue.md whose region is ISAN(ne)/SOUTH(s) (see region in _internal/province-data/<slug>.json), to the Chiang Mai gold standard per _internal/PROVINCE-PLAYBOOK.md. Run hotels+articles+images workflows, optimize, lint, set-hero, gen-hubs, build-test, then `git pull --rebase` and push, mark done in build-queue.md. Keep going until all Isan/South provinces are done. Do NOT edit _internal/gen-hubs.mjs, astro/public/index.html, CLAUDE.md, or _internal/wf/*.template.js (A owns those). Do not ask.
+/loop Build the next unchecked province in _internal/build-queue.md that is listed under the "🟧 B — อีสาน/ใต้" section of _internal/TEAM-SPLIT.md, to the Chiang Mai gold standard per _internal/PROVINCE-PLAYBOOK.md. Run hotels+articles+images workflows, optimize, lint, set-hero, gen-hubs, build-test, then `git pull --rebase` and push, mark done in build-queue.md. Keep going until every province in the B list is done. Do NOT edit _internal/gen-hubs.mjs, astro/public/index.html, CLAUDE.md, or _internal/wf/*.template.js (A owns those). Do not ask.
 ```
 
 ## กฎกัน git ชนกัน (สำคัญสุด — push เข้า `main` เดียวกัน)
@@ -44,5 +44,5 @@
 
 ## ส่งให้คน B
 1. สิทธิ์ push เข้า repo `chatoccmed/thailandaddict` (PAT หรือ collaborator)
-2. คู่มือเซ็ตเครื่อง: `ThailandAddict-Migration-Guide.pdf` (clone · Node v24 · แก้ ROOT 2 ไฟล์ใน set-hero.mjs/gen-hubs.mjs · push auth)
+2. คู่มือเซ็ตเครื่อง: `ThailandAddict-Migration-Guide.pdf` (clone · Node v24 · push auth) — **ไม่ต้องแก้ ROOT แล้ว** scripts derive repo root อัตโนมัติจาก `import.meta.dirname` (clone ที่ไหนก็รันได้)
 3. ไฟล์นี้ + `_internal/PROVINCE-PLAYBOOK.md` + `_internal/status.mjs` (อยู่ใน repo แล้ว — clone มาได้เลย)
