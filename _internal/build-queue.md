@@ -29,7 +29,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] phetchabun — เพชรบูรณ์ (12 reviews + Top10 + 37 articles + images)
 - [x] loei — เลย (12 reviews + Top10 + 37 articles + images)
 - [x] phetchaburi — เพชรบุรี (12 reviews + Top10 + 37 articles + images)
-- [ ] lampang — ลำปาง
+- [x] lampang — ลำปาง (12 reviews + Top10 + 37 articles + images)
 - [ ] lamphun — ลำพูน
 - [ ] phitsanulok — พิษณุโลก
 - [x] nakhon-si-thammarat — นครศรีธรรมราช (12 reviews + Top10 + 37 articles + images)
