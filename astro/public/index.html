@@ -215,6 +215,20 @@ button{cursor:pointer;font-family:inherit}
 .nl-h{font-family:'Fraunces',serif;font-size:clamp(26px,4.5vw,38px);font-weight:400;color:#fff;margin-bottom:10px}
 .nl-sub{font-size:14px;color:rgba(255,255,255,.9);margin-bottom:26px}
 .nl-cta{display:inline-block;background:#fff;color:var(--bl-dk);font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;padding:15px 32px;border-radius:40px;box-shadow:0 12px 30px rgba(8,30,55,.22)}
+.nl-form{display:flex;background:#fff;border-radius:50px;padding:6px;box-shadow:0 12px 34px rgba(8,30,55,.25);max-width:450px;margin:0 auto}
+@media(max-width:480px){.nl-form{flex-direction:column;border-radius:18px;gap:6px}}
+.nl-input{flex:1;border:none;outline:none;font-family:'Sarabun',sans-serif;font-size:14px;color:var(--ink);padding:13px 20px;background:transparent}
+.nl-input::placeholder{color:var(--mut)}
+.nl-btn{background:var(--ink);color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:13px 26px;border-radius:40px;white-space:nowrap}
+.nl-note{font-size:12px;color:rgba(255,255,255,.65);margin-top:14px}
+/* AFFILIATE BANNER */
+.aff-banner{margin-top:30px;background:linear-gradient(120deg,#e11d48,#fb7185);border-radius:var(--r);padding:26px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;box-shadow:0 12px 32px rgba(225,29,72,.2)}
+.aff-banner .ab-lbl{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:5px}
+.aff-banner .ab-h{font-family:'Fraunces',serif;font-size:23px;font-weight:400;color:#fff}
+.aff-banner .ab-s{font-size:13px;color:rgba(255,255,255,.86);margin-top:4px}
+.ab-btns{display:flex;gap:10px;flex-wrap:wrap}
+.ab-btn1{background:#fff;color:#e11d48;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:13px 24px;border-radius:30px;white-space:nowrap}
+.ab-btn2{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.45);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:13px 24px;border-radius:30px;white-space:nowrap}
 /* FOOTER */
 .footer{background:var(--ink);padding:52px 24px 100px}
 .ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;max-width:1120px;margin:0 auto 30px}@media(max-width:680px){.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
@@ -323,6 +337,10 @@ button{cursor:pointer;font-family:inherit}
   <div class="inner">
     <div class="s-head"><div><div class="slbl">โรงแรมแนะนำ</div><div class="stit">ที่พักที่<em>รีวิวมาแล้ว</em></div><div class="ssub">คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</div></div></div>
     <div class="hgrid" id="hotelgrid"></div>
+    <div class="aff-banner">
+      <div><div class="ab-lbl">◆ Affiliate Partner</div><div class="ab-h">จองผ่าน Agoda · Booking · Trip ประหยัดกว่า</div><div class="ab-s">ราคาที่ดีที่สุด · ยกเลิกฟรี · เทียบ 3 เว็บก่อนจอง ไม่มีค่าใช้จ่ายเพิ่ม</div></div>
+      <div class="ab-btns"><a class="ab-btn1" href="https://www.agoda.com/?cid=1965862" target="_blank" rel="nofollow noopener">🔴 จอง Agoda ตอนนี้</a><a class="ab-btn2" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">🔵 Booking.com</a></div>
+    </div>
     <div class="see-all-btn"><a href="country-thailand.html">ดูโรงแรมทุกจังหวัด →</a></div>
   </div>
 </section>
@@ -355,9 +373,13 @@ button{cursor:pointer;font-family:inherit}
 
 <section class="nl">
   <div class="nl-c">
-    <div class="nl-h">เริ่มวางแผนทริปไทยของคุณ</div>
-    <div class="nl-sub">เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน และแผนเที่ยว — ครบจบในที่เดียว</div>
-    <a class="nl-cta" href="country-thailand.html">เปิดคู่มือเที่ยวไทย 77 จังหวัด →</a>
+    <div class="nl-h">รับดีลโรงแรมก่อนใคร 📭</div>
+    <div class="nl-sub">สมัครรับจดหมายรายสัปดาห์ — ที่พักเด็ด ของกินใหม่ และจังหวัดใหม่ที่เพิ่งลงเว็บ ก่อนใคร</div>
+    <form class="nl-form" onsubmit="this.querySelector('.nl-btn').textContent='ขอบคุณ! ✓';this.querySelector('.nl-input').value='';return false">
+      <input class="nl-input" type="email" placeholder="อีเมลของคุณ..." required>
+      <button class="nl-btn" type="submit">สมัครเลย</button>
+    </form>
+    <div class="nl-note">📩 ส่งทุกวันจันทร์ · ยกเลิกได้ตลอด · ไม่มี spam</div>
   </div>
 </section>
 
