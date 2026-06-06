@@ -19,7 +19,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] phang-nga — พังงา (12 reviews + Top10 + 38 articles + images)
 - [x] ayutthaya — พระนครศรีอยุธยา (12 reviews + Top10 + 38 articles + images)
 - [x] trat — ตราด (12 reviews + Top10 + 38 articles + images)
-- [ ] rayong — ระยอง (เกาะเสม็ด)
+- [x] rayong — ระยอง (12 reviews + Top10 + 38 articles + images)
 - [ ] nan — น่าน
 - [ ] mae-hong-son — แม่ฮ่องสอน (ปาย)
 - [ ] sukhothai — สุโขทัย
