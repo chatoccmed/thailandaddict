@@ -33,7 +33,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] lamphun — ลำพูน
 - [ ] phitsanulok — พิษณุโลก
 - [x] nakhon-si-thammarat — นครศรีธรรมราช (12 reviews + Top10 + 37 articles + images)
-- [ ] trang — ตรัง
+- [x] trang — ตรัง (12 reviews + Top10 + 37 articles + images)
 - [ ] satun — สตูล (หลีเป๊ะ)
 - [ ] songkhla — สงขลา
 - [ ] chumphon — ชุมพร
