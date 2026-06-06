@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>เทียบฟอนต์ไทย — ThailandAddict</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Anuphan:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&family=Kanit:wght@400;500;600;700&family=Bai+Jamjuree:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{--bl:#06B6D4;--bl-dk:#0891b2;--or:#FB7185;--or-dk:#f43f5e;--go:#FBBF24;--ink:#0F172A;--sub:#64748b;--bdr:#e6eef2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f6fafb;color:var(--ink);font-family:'Outfit','Noto Sans Thai',sans-serif;line-height:1.6;background-image:radial-gradient(circle at 10% 5%,rgba(6,182,212,.1),transparent 40%),radial-gradient(circle at 92% 3%,rgba(251,113,133,.1),transparent 38%)}
+.top{text-align:center;padding:34px 20px 10px}
+.top h1{font-family:'Fraunces',serif;font-size:30px;font-weight:500}
+.top h1 em{font-style:normal;background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.top p{color:var(--sub);font-size:14px;margin-top:6px}
+.wrap{max-width:680px;margin:0 auto;padding:18px}
+.card{background:#fff;border:1px solid var(--bdr);border-radius:22px;box-shadow:0 10px 30px rgba(15,40,70,.07);padding:24px 24px 26px;margin-bottom:20px;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--bl),var(--or),var(--go))}
+.badge{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--bl-dk);background:#ecfeff;padding:6px 14px;border-radius:30px;margin-bottom:4px}
+.num{font-family:'Outfit',sans-serif;font-weight:900;color:#fff;background:linear-gradient(135deg,var(--or),var(--go));width:26px;height:26px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+.note{font-size:12px;color:var(--sub);margin:2px 0 16px}
+.s-h{font-size:26px;font-weight:700;line-height:1.2;letter-spacing:-.3px}
+.s-h em{font-style:normal;color:var(--or-dk)}
+.s-sub{font-size:15px;color:var(--sub);margin-top:8px;font-weight:500}
+.s-body{font-size:15px;margin-top:14px;line-height:1.75}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid var(--bdr);flex-wrap:wrap;gap:12px}
+.h-name{font-size:18px;font-weight:700}
+.h-meta{font-size:13px;color:var(--sub);margin-top:2px}
+.h-price b{color:var(--or-dk);font-size:18px;font-weight:700}
+.btn{font-weight:700;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--bl),var(--or));padding:11px 22px;border-radius:30px;border:none;box-shadow:0 8px 20px rgba(6,182,212,.3)}
+.stats{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.st{flex:1;min-width:90px;background:#f6fafb;border:1px solid var(--bdr);border-radius:14px;padding:12px;text-align:center}
+.st .n{font-weight:800;font-size:22px;background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.st .l{font-size:11px;color:var(--sub);margin-top:2px}
+.pick{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--bdr);padding:12px 18px;text-align:center;font-size:13px;color:var(--sub);box-shadow:0 -4px 18px rgba(15,40,70,.08)}
+.pick b{color:var(--bl-dk)}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>เทียบ<em>ฟอนต์ไทย</em></h1>
+  <p>ข้อความเดียวกันใน 8 ฟอนต์ — เปิดบนไอโฟนแล้วเลือกเบอร์ที่ชอบ</p>
+</div>
+<div class="wrap" id="wrap"></div>
+<div class="pick">เลือกแล้วบอกผม <b>เบอร์ฟอนต์</b> ที่ชอบ — ผมจะใช้ทั้งเว็บให้เลย</div>
+<script>
+var FONTS=[
+ ['ฟอนต์ระบบ iOS (Apple System)','-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif','★ ตรงกับฟอนต์ในแอปไอโฟนจริง — เห็นแบบนี้เฉพาะบน iPhone/iPad/Mac (ปัจจุบันเว็บใช้ตัวนี้เป็นหลัก)'],
+ ['Noto Sans Thai','"Noto Sans Thai",sans-serif','ฟอนต์ fallback ปัจจุบัน (บน Android/Windows) — สะอาด เป็นกลาง ใกล้ iOS'],
+ ['IBM Plex Sans Thai','"IBM Plex Sans Thai",sans-serif','โมเดิร์น คม พรีเมียมแนวเทค'],
+ ['Anuphan','"Anuphan",sans-serif','เรขาคณิต เรียบหรู ทันสมัย'],
+ ['Prompt','"Prompt",sans-serif','กลม เป็นมิตร นิยมในเว็บไทย วัยรุ่น'],
+ ['Kanit','"Kanit",sans-serif','หนา เหลี่ยม สปอร์ต วัยรุ่นจัด'],
+ ['Bai Jamjuree','"Bai Jamjuree",sans-serif','โมเดิร์น ตัวแคบ ดูเทค'],
+ ['Sarabun','"Sarabun",sans-serif','ฟอนต์เดิมของเว็บ — อ่านง่าย ทางการ']
+];
+document.getElementById('wrap').innerHTML=FONTS.map(function(f,i){
+ return '<div class="card" style="font-family:'+f[1]+'">'
+ +'<div class="badge"><span class="num">'+(i+1)+'</span> '+f[0]+'</div>'
+ +'<div class="note">'+f[2]+'</div>'
+ +'<div class="s-h">เที่ยวไทย <em>ให้ดีที่สุด</em></div>'
+ +'<div class="s-sub">รีวิวโรงแรม ที่กิน ที่เที่ยว และแผนเที่ยวทั่วไทย</div>'
+ +'<div class="s-body">เชียงใหม่เป็นเมืองที่เดินช้า ๆ ได้ทั้งวัน มีคาเฟ่ ดอยสูง และอาหารเหนือรสจัดจ้าน — คัดจากเสียงรีวิวจริง บอกตรงทั้งข้อดีและข้อเสีย เทียบราคา 3 เว็บก่อนจอง</div>'
+ +'<div class="stats"><div class="st"><div class="n">144</div><div class="l">รีวิวโรงแรม</div></div><div class="st"><div class="n">470+</div><div class="l">บทความเที่ยว</div></div><div class="st"><div class="n">12</div><div class="l">จังหวัด</div></div></div>'
+ +'<div class="row"><div><div class="h-name">โรงแรมริมน้ำปิง เชียงใหม่</div><div class="h-meta">⭐ 5 ดาว · บูทีคหรู · ริมแม่น้ำปิง</div><div class="h-price">เริ่มประมาณ <b>฿1,200</b>/คืน</div></div><button class="btn">ดูรีวิวเต็ม</button></div>'
+ +'</div>';
+}).join('');
+</script>
+</body>
+</html>
