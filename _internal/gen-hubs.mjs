@@ -1,7 +1,7 @@
-// Generate region + province hub pages from _internal/province-data/*.json, reusing
-// the Direction-C design system/chrome extracted from astro/public/index.html.
-// Province pages use a 5-tab layout (ที่พัก / ที่เที่ยว / ที่กิน / แผนเที่ยว / เตรียมตัว)
-// with a hero image, real hotel-review cards and real article cards.
+// Generate region + province hub pages — self-contained chrome (wherebest-ported,
+// Direction-C teal/coral + Fraunces + iOS Thai font + slogan). Province pages use a
+// hero image + sticky 5-tab layout (ที่พัก/ที่เที่ยว/ที่กิน/แผนเที่ยว/เตรียมตัว) with real
+// hotel-review cards and article cards. Matches astro/public/index.html.
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -17,7 +17,6 @@ const REGION = {
   w:  { slug:'west',    th:'ภาคตะวันตก',    emoji:'🌅', intro:'หัวหิน ปราณบุรี กาญจน์ — น้ำตก ธรรมชาติ และทะเลที่ขับรถจากกรุงเทพไม่ไกล' },
   s:  { slug:'south',   th:'ภาคใต้',        emoji:'🌊', intro:'อันดามันและอ่าวไทย หาดทรายขาว เกาะสวย และอาหารใต้รสจัดจ้าน' },
 };
-
 const PROVINCES = [
   ['chiang-mai','เชียงใหม่','n'],['chiang-rai','เชียงราย','n'],['lamphun','ลำพูน','n'],['lampang','ลำปาง','n'],
   ['mae-hong-son','แม่ฮ่องสอน','n'],['phayao','พะเยา','n'],['phrae','แพร่','n'],['nan','น่าน','n'],['uttaradit','อุตรดิตถ์','n'],
@@ -41,377 +40,315 @@ const PROVINCES = [
 ];
 const TH = Object.fromEntries(PROVINCES.map(([s,th])=>[s,th]));
 
-// ---- extract Direction-C chrome from index.html ----
-const idx = fs.readFileSync(path.join(PUB,'index.html'),'utf8');
-const styleBlock = idx.match(/<style>[\s\S]*?<\/style>/)[0];
-const fontsLink = idx.match(/<link href="https:\/\/fonts[^>]*>/)[0];
-const navChrome = idx.slice(idx.indexOf('<body>')+6, idx.indexOf('<section class="hero">')).trim();
-const footerChrome = idx.slice(idx.indexOf('<footer class="ft">'));  // footer + script + </body></html>
-
-const EXTRA = `<style>
-.crumb{max-width:1080px;margin:0 auto;padding:16px 28px 0;font-family:'Outfit',sans-serif;font-size:12.5px;color:var(--sub)}
-.crumb a{color:var(--sub)}.crumb a:hover{color:var(--teal)}
-/* province hero */
-.phero{position:relative;max-width:1080px;margin:16px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,23,42,.22);background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
-.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04) 30%,rgba(15,23,42,.42) 62%,rgba(15,23,42,.82));z-index:1}
-.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}
-@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
-.pheye{display:inline-block;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);padding:6px 15px;border-radius:999px}
-.phero h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(34px,6vw,58px);line-height:1.04;letter-spacing:-1.5px;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
-.phero h1 em{font-style:normal;color:var(--mango)}
-.phlead{max-width:640px;font-family:'Sarabun',sans-serif;font-weight:500;font-size:15.5px;color:rgba(255,255,255,.94);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
-.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.phchip{font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 15px;border-radius:999px}
-/* sticky tab bar */
-.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
-.tabbar{max-width:1080px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
-.tabbar::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:999px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
-.tab:hover{color:var(--teal-dk);background:var(--soft)}
-.tab.active{color:#fff;background:linear-gradient(135deg,var(--teal),var(--teal-dk));box-shadow:0 8px 18px rgba(6,182,212,.32)}
-.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:999px}
-.tab.active .tc{background:rgba(255,255,255,.28);color:#fff}
-.panel{display:none}.panel.active{display:block;animation:pf .35s ease}
-@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.pintro{font-family:'Sarabun',sans-serif;font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
-.pnhead{font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.5px;margin:30px 0 4px}
-.pnhead .em{color:var(--teal)}
-.pnhead:first-child{margin-top:6px}
-/* hotel cards */
-.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
-.hcard{background:#fff;border:1px solid var(--bdr);border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(15,23,42,.05);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
-.hcard:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(6,182,212,.2)}
-.hphoto{position:relative;height:172px;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185)}
-.hphoto>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hscore{position:absolute;right:12px;top:12px;font-family:'Outfit',sans-serif;font-weight:900;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--mango),#f59e0b);padding:5px 12px;border-radius:999px;z-index:2;box-shadow:0 6px 16px rgba(15,23,42,.25)}
-.hbody{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
-.hbody h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;line-height:1.25}
-.hstars{color:var(--mango);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
-.htype{font-size:12.5px;color:var(--sub)}
-.hloc{font-size:12px;color:var(--sub);margin-top:6px}
-.hprice{font-family:'Outfit',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hprice b{color:var(--coral-dk);font-size:16px}
-.hview{display:block;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12.5px;color:var(--teal-dk);background:var(--soft);padding:10px;border-radius:12px;margin-top:auto}
-.hview:hover{background:#cffafe}
-.hbtns{display:flex;gap:7px;margin-top:8px}
-.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
-.bk1{background:linear-gradient(135deg,var(--coral),var(--coral-dk))}.bk2{background:var(--teal)}.bk3{background:var(--ink)}
-/* featured roundup callout */
-.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
-.callout h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:21px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
-.callout a{font-family:'Outfit',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:13px 24px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.3);white-space:nowrap}
-/* highlight + food + info cards */
-.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
-.hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:0 8px 22px rgba(15,23,42,.05)}
-.hlc h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
-.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:repeat(2,1fr)}}
-.fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,.04)}
-.fc h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
-.ncards{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-.nc{font-family:'Outfit',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:10px 18px}
-.nc:hover{border-color:var(--teal);color:var(--teal-dk)}
-.dbody h3{font-size:18px}
-.regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
-.cityhero{display:block;width:calc(100% - 56px);max-width:1080px;margin:20px auto 0;border-radius:24px;aspect-ratio:21/9;object-fit:cover;box-shadow:0 18px 44px rgba(15,23,42,.16)}
-.secintro{font-size:15px;color:var(--sub);max-width:760px;margin:-10px 0 22px}
-.kbadge{display:inline-block;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;margin-bottom:8px}
-.k-nature{background:#dcfce7;color:#15803d}.k-city{background:#cffafe;color:#0891b2}.k-culture{background:#fef3c7;color:#b45309}
-</style>`;
-
-const DG = ['d1','d2','d3','d4','d5','d6'];
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const imgUrl = s => !s ? '' : (/^(https?:|\/)/.test(s) ? s : '/'+s);
+const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 
-function page({ title, desc, slug, jsonld, body }) {
-  return `<!doctype html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>${title}</title>
-<meta name="description" content="${esc(desc)}">
-<link rel="canonical" href="https://thailandaddict.com/${slug}">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='Outfit,sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
-<meta property="og:site_name" content="ThailandAddict">
-<meta property="og:title" content="${esc(title)}">
-<meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="https://thailandaddict.com/${slug}">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://thailandaddict.com/images/heroes/thailand.jpg">
-<meta property="og:locale" content="th_TH">
-<meta name="theme-color" content="#06B6D4">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-${fontsLink}
-<script type="application/ld+json">${JSON.stringify(jsonld)}</script>
-${styleBlock}
-${EXTRA}
-</head>
-<body>
-${navChrome}
-${body}
-${footerChrome}`;
-}
-
-function crumb(parts){
-  return `<div class="crumb">`+parts.map((p,i)=> i<parts.length-1 ? `<a href="${p.href}">${p.t}</a> › ` : `<span>${p.t}</span>`).join('')+`</div>`;
-}
-
-// ---- content indexes ----
+// ── content indexes ──
 const ARTDIR = path.join(ROOT,'astro/src/content/articles');
 const REVDIR = path.join(ROOT,'astro/src/content/reviews');
 const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
-const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
-
 const ARTS = {};
 if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
-  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug, type:a.type, title:(a.h1||a.title||a.slug), heroImg:imgUrl(a.heroImg||'')}); }catch{}
+  try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8')); (ARTS[a.cluster] ||= []).push({slug:a.slug,type:a.type,title:(a.h1||a.title||a.slug),heroImg:imgUrl(a.heroImg||'')}); }catch{}
 }
 const REVS = {};
 if(fs.existsSync(REVDIR)) for(const f of fs.readdirSync(REVDIR).filter(x=>x.endsWith('.json'))){
-  try{
-    const r=JSON.parse(fs.readFileSync(path.join(REVDIR,f),'utf8'));
-    const c = r.cluster || (f.match(/-([a-z-]+)\.json$/)||[])[1] || '';
-    if(!c) continue;
-    (REVS[c] ||= []).push({
-      slug:r.slug, name:r.name||r.slug, score:+(r.score||0), star:+(r.starRating||0),
-      type:r.typeFull||r.type||'', price:r.priceRange||r.qiPrice||'',
-      loc:r.hiLoc||r.badgeLoc||r.qiCol5Value||r.addressLocality||'',
-      img:imgUrl(r.heroImg||r.image||''),
-      agoda:r.bookingAgoda||'', booking:r.bookingBooking||'', trip:r.bookingTrip||''
-    });
-  }catch{}
+  try{ const r=JSON.parse(fs.readFileSync(path.join(REVDIR,f),'utf8')); const c=r.cluster||(f.match(/-([a-z-]+)\.json$/)||[])[1]||''; if(!c)continue;
+    (REVS[c] ||= []).push({slug:r.slug,name:r.name||r.slug,score:+(r.score||0),star:+(r.starRating||0),type:r.typeFull||r.type||'',price:r.priceRange||r.qiPrice||'',loc:r.hiLoc||r.badgeLoc||r.qiCol5Value||r.addressLocality||'',img:imgUrl(r.heroImg||r.image||''),agoda:r.bookingAgoda||'',booking:r.bookingBooking||'',trip:r.bookingTrip||''}); }catch{}
 }
 
+// ── shared CSS (design system, matches index.html) ──
+const CSS = `<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;background:#f6fafb;color:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.1),transparent 40%),radial-gradient(circle at 92% 3%,rgba(251,113,133,.1),transparent 38%)}
+:root{--bl:#06B6D4;--bl-dk:#0891b2;--bl-lt:#ecfeff;--or:#FB7185;--or-dk:#f43f5e;--or-lt:#fff1f3;--go:#FBBF24;--ink:#0F172A;--sub:#64748b;--mut:#9aa7b8;--bdr:#e6eef2;--r:20px;--r2:13px;--sh:0 6px 22px rgba(15,40,70,.07);--sh2:0 14px 44px rgba(15,40,70,.15)}
+a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit:cover}button{cursor:pointer;font-family:inherit}
+.inner{max-width:1120px;margin:0 auto}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--bdr)}
+@media(max-width:560px){.nav{padding:0 18px}}
+.logo{font-family:'Fraunces',serif;font-size:25px;font-weight:500;color:var(--ink);letter-spacing:-.5px}.logo em{font-style:normal;font-weight:400;color:var(--bl)}
+.nav-mid{display:flex;gap:26px}@media(max-width:860px){.nav-mid{display:none}}
+.nav-mid a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;color:var(--sub)}.nav-mid a:hover{color:var(--bl)}
+.nav-mid .has-drop{position:relative}.nav-mid .has-drop>a::after{content:' ▾';font-size:9px;opacity:.55}
+.nav-mid .drop{position:absolute;top:calc(100% + 8px);left:-14px;min-width:240px;background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:12px;box-shadow:0 16px 40px rgba(15,40,70,.18);opacity:0;visibility:hidden;transform:translateY(-4px);transition:.18s;z-index:1200}
+.nav-mid .has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-mid .drop a{display:block;font-size:13.5px;color:var(--ink);padding:9px 12px;border-radius:8px;font-weight:500}.nav-mid .drop a:hover{background:var(--bl-lt);color:var(--bl-dk)}
+.nav-mid .drop .h{display:block;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);padding:8px 12px 3px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.search-box{position:relative}@media(max-width:760px){.search-box{display:none}}
+.search-input{font-family:inherit;font-size:13.5px;width:200px;padding:9px 14px 9px 34px;border-radius:30px;border:1px solid var(--bdr);background:#fff;color:var(--ink);outline:none;transition:.2s}
+.search-input:focus{width:260px;border-color:var(--bl)}
+.search-box::before{content:'🔍';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7}
+.search-drop{position:absolute;top:calc(100% + 8px);right:0;width:320px;max-height:380px;overflow-y:auto;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 16px 40px rgba(15,40,70,.18);z-index:1300;display:none}
+.search-drop.show{display:block}.search-drop a{display:block;padding:11px 14px;border-bottom:1px solid var(--bdr)}.search-drop a:hover{background:var(--bl-lt)}
+.search-drop .t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:600}.search-drop .c{font-size:11.5px;color:var(--mut)}.search-drop .empty{padding:18px;text-align:center;color:var(--mut);font-size:13px}
+.lang-wrap{display:flex;gap:1px}.lb{background:transparent;border:none;font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;color:var(--mut);padding:5px 8px;border-radius:6px}.lb.active{color:var(--bl);background:var(--bl-lt)}
+.nav-cta{background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:10px 20px;border-radius:30px;box-shadow:0 6px 18px rgba(251,113,133,.5)}@media(max-width:860px){.nav-cta{display:none}}
+.hb{display:none;background:none;border:none;color:var(--ink);font-size:24px}@media(max-width:860px){.hb{display:block}}
+.mm{position:fixed;inset:0;z-index:1000;background:#fff;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:24px;overflow-y:auto}.mm.open{transform:translateX(0)}
+.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.mm-x{background:none;border:none;font-size:28px;color:var(--ink)}
+.mm a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:18px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--bdr)}
+.mm-cta{margin-top:22px;background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;padding:15px;border-radius:30px}
+/* breadcrumb */
+.crumb{max-width:1120px;margin:0 auto;padding:84px 28px 0;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;color:var(--sub)}
+.crumb a:hover{color:var(--bl)}
+/* PROVINCE HERO */
+.phero{position:relative;max-width:1120px;margin:14px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,40,70,.22);background:linear-gradient(135deg,#0891b2,#22d3ee 50%,#FB7185)}
+.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.34) 28%,rgba(8,30,55,.7) 100%),linear-gradient(125deg,rgba(6,182,212,.36),rgba(251,113,133,.3) 60%,rgba(251,191,36,.24));z-index:1}
+.pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
+.pheye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12px;letter-spacing:.5px;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);padding:6px 15px;border-radius:30px}
+.phero h1{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:clamp(34px,6vw,56px);line-height:1.05;letter-spacing:-1px;margin-top:14px;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.phero h1 em{font-style:normal;color:#FFE15D}
+.phlead{max-width:640px;font-size:15.5px;color:rgba(255,255,255,.95);margin-top:10px;text-shadow:0 1px 10px rgba(0,0,0,.3)}
+.phchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.phchip{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:12.5px;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.28);padding:8px 15px;border-radius:30px}
+/* STICKY TABS */
+.tabwrap{position:sticky;top:64px;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);margin-top:20px}
+.tabbar{max-width:1120px;margin:0 auto;display:flex;gap:7px;padding:11px 28px;overflow-x:auto;scrollbar-width:none}.tabbar::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;color:var(--sub);padding:11px 19px;border-radius:30px;cursor:pointer;border:2px solid transparent;white-space:nowrap;display:flex;align-items:center;gap:8px;transition:.2s;user-select:none}
+.tab:hover{color:var(--bl-dk);background:var(--bl-lt)}
+.tab.active{color:#fff;background:linear-gradient(135deg,var(--bl),var(--or));box-shadow:0 8px 18px rgba(6,182,212,.32)}
+.tab .tc{font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;background:rgba(15,23,42,.08);color:var(--sub);padding:1px 8px;border-radius:30px}.tab.active .tc{background:rgba(255,255,255,.3);color:#fff}
+.panel{display:none}.panel.active{display:block;animation:pf .35s ease}@keyframes pf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cwrap{max-width:1120px;margin:0 auto;padding:30px 28px 14px}
+.pintro{font-size:15px;color:var(--sub);max-width:760px;margin:4px 0 22px}
+.pnhead{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:26px;font-weight:500;letter-spacing:-.3px;margin:30px 0 6px}.pnhead:first-child{margin-top:4px}
+.pnhead em{font-style:normal;background:linear-gradient(120deg,var(--bl) 10%,var(--or-dk) 95%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* CALLOUT */
+.callout{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,#ecfeff,#fff5f7);border:2px solid #cffafe;border-radius:24px;padding:24px 28px;margin-bottom:26px}
+.callout h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:22px}.callout p{font-size:13.5px;color:var(--sub);margin-top:3px}
+.callout a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13.5px;background:linear-gradient(135deg,var(--or),var(--go));color:#fff;padding:13px 24px;border-radius:30px;box-shadow:0 10px 22px rgba(251,113,133,.32);white-space:nowrap}
+/* HOTEL CARDS */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border:1px solid rgba(6,182,212,.08);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:flex;flex-direction:column}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 24px 54px rgba(251,113,133,.32)}
+.hc-img{position:relative;height:180px;overflow:hidden;background:linear-gradient(135deg,#0891b2,#22d3ee 55%,#FB7185)}
+.hc-img img{width:100%;height:100%;transition:transform .55s}.hcard:hover .hc-img img{transform:scale(1.07)}
+.hc-score{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--go),#f59e0b);color:#fff;font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;padding:5px 11px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.hc-body{padding:15px 18px 18px;display:flex;flex-direction:column;flex:1}
+.hc-name{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:18px;line-height:1.2}
+.hc-stars{color:var(--go);font-size:12px;letter-spacing:1px;margin:5px 0 2px}
+.hc-type{font-size:12.5px;color:var(--sub)}.hc-loc{font-size:12px;color:var(--sub);margin-top:6px}
+.hc-price{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;color:var(--sub);margin:10px 0 12px}.hc-price b{color:var(--or-dk);font-size:16px;font-weight:800}
+.hview{display:block;text-align:center;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12.5px;color:var(--bl-dk);background:var(--bl-lt);padding:10px;border-radius:12px;margin-top:auto}.hview:hover{background:#cffafe}
+.hbtns{display:flex;gap:7px;margin-top:8px}.hbtn{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px;padding:9px 4px;border-radius:11px;color:#fff}
+.bk1{background:linear-gradient(135deg,var(--or),var(--or-dk))}.bk2{background:var(--bl)}.bk3{background:var(--ink)}
+/* ARTICLE CARDS */
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:760px){.dgrid{grid-template-columns:1fr 1fr}}@media(max-width:480px){.dgrid{grid-template-columns:1fr}}
+.dcard{background:#fff;border:1px solid rgba(6,182,212,.08);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:block}
+.dcard:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(6,182,212,.28)}
+.dphoto{height:160px;position:relative;background:linear-gradient(150deg,#06B6D4,#22d3ee 55%,#FBBF24)}.dphoto>img{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s}.dcard:hover .dphoto>img{transform:scale(1.07)}
+.dbody{padding:15px 17px 17px}.dbody h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:17px;line-height:1.3}.dbody .go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:800;color:var(--bl);margin-top:10px;display:inline-block}.dcard:hover .dbody .go{color:var(--or-dk)}
+/* HIGHLIGHT / FOOD / INFO / NEIGHBOR */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
+.hlc{background:#fff;border:1px solid var(--bdr);border-radius:18px;padding:20px;box-shadow:var(--sh)}.hlc h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:16px;margin-bottom:5px}.hlc p{font-size:13.5px;color:var(--sub)}
+.foodgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:8px}@media(max-width:760px){.foodgrid{grid-template-columns:1fr 1fr}}
+.fc{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px;box-shadow:var(--sh)}.fc h4{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px}.fc p{font-size:12.5px;color:var(--sub);margin-top:3px}
+.eeat{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}@media(max-width:760px){.eeat{grid-template-columns:1fr 1fr}}
+.ecard{background:#fff;border:1px solid var(--bdr);border-radius:var(--r);padding:22px 20px;box-shadow:var(--sh);transition:.2s}.ecard:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(6,182,212,.2)}.ecard .ic{font-size:28px;margin-bottom:10px}.ecard h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:15px;margin-bottom:6px}.ecard p{font-size:13px;color:var(--sub)}
+.ncards{display:flex;gap:12px;flex-wrap:wrap}.nc{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:13.5px;background:#fff;border:1px solid var(--bdr);border-radius:30px;padding:10px 18px}.nc:hover{border-color:var(--bl);color:var(--bl-dk)}
+/* CTA BAND */
+.cta-sec{padding:10px 28px 56px}
+.ctaband{max-width:1120px;margin:0 auto;background:linear-gradient(135deg,#06B6D4 0%,#0aa2c0 32%,#f15a86 78%,#FB7185 100%);border-radius:26px;padding:46px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:0 22px 48px rgba(6,182,212,.3)}
+.ctaband::after{content:'';position:absolute;top:-70px;right:-50px;width:240px;height:240px;background:radial-gradient(circle,rgba(251,191,36,.4),transparent 65%)}
+.ctaband h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:30px;position:relative}.ctaband p{color:rgba(255,255,255,.92);margin:8px 0 22px;position:relative}
+.ctaband a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;background:#fff;color:var(--bl-dk);padding:14px 30px;border-radius:30px;display:inline-block;position:relative;box-shadow:0 10px 24px rgba(8,30,55,.2)}
+/* TEXT HERO (region/country) */
+.thero{position:relative;overflow:hidden;background:linear-gradient(135deg,#06B6D4 0%,#0aa2c0 34%,#f15a86 82%,#FB7185 100%);padding:108px 28px 60px;text-align:center;color:#fff}
+.thero::before{content:'';position:absolute;top:-90px;right:-60px;width:340px;height:340px;background:radial-gradient(circle,rgba(251,191,36,.4),transparent 64%)}
+.thero .eyebrow{display:inline-block;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.5px;background:rgba(255,255,255,.2);padding:7px 16px;border-radius:30px;position:relative}
+.thero h1{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:clamp(32px,5.5vw,52px);line-height:1.06;margin-top:14px;position:relative;text-shadow:0 2px 20px rgba(0,0,0,.2)}
+.thero h1 em{font-style:normal;color:#FFE15D}
+.thero .lead{max-width:600px;margin:12px auto 0;font-size:15.5px;color:rgba(255,255,255,.95);position:relative}
+.thero .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;position:relative}
+.thero .chip{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:12.5px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:8px 15px;border-radius:30px}.thero .chip b{color:#FFE15D}
+.sec{padding:50px 28px}.regsec{padding:34px 0;border-bottom:1px solid var(--bdr)}
+.shead{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.shead h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:28px}.shead h2 .em{background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.shead a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;color:var(--or-dk);background:#fff1f3;padding:8px 16px;border-radius:30px}
+.tagn{position:absolute;left:12px;top:12px;font-family:'Outfit',sans-serif;font-size:18px;z-index:2}
+/* FOOTER */
+.footer{background:var(--ink);padding:52px 28px 100px;margin-top:10px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;max-width:1120px;margin:0 auto 30px}@media(max-width:680px){.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
+.ft-logo{font-family:'Fraunces',serif;font-size:25px;font-weight:400;color:#fff;margin-bottom:6px}.ft-logo em{font-style:normal;color:var(--bl)}
+.ft-tag{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--go);margin-bottom:12px}
+.ft-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px;max-width:250px}
+.ft-col h4{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:13px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:9px}.ft-col a:hover{color:#fff}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);max-width:1120px;margin:0 auto;font-family:'Outfit',sans-serif;font-size:12px;color:rgba(255,255,255,.4)}
+.ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;box-shadow:0 -4px 20px rgba(15,40,70,.12);display:none;gap:10px;padding:10px 14px}@media(max-width:860px){.mbar{display:flex}}
+.mbar a{flex:1;text-align:center;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;padding:13px;border-radius:14px}.mbar .m1{background:linear-gradient(135deg,var(--or),var(--go));color:#fff}.mbar .m2{background:var(--bl-lt);color:var(--bl-dk)}
+</style>`;
+
+const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">`;
+
+const NAV = `<nav class="nav">
+  <a href="/" class="logo">Thailand<em>Addict</em></a>
+  <div class="nav-mid">
+    <div class="has-drop"><a href="country-thailand.html">จุดหมาย</a><div class="drop"><span class="h">🇹🇭 6 ภาค</span><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-isan.html">🌾 ภาคอีสาน</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-east.html">🏝️ ภาคตะวันออก</a><a href="region-west.html">🌅 ภาคตะวันตก</a><a href="region-south.html">🌊 ภาคใต้</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">→ ดูทั้ง 77 จังหวัด</a></div></div>
+    <div class="has-drop"><a href="top10-hotels-chiang-mai.html">โรงแรม</a><div class="drop"><span class="h">จัดอันดับยอดนิยม</span><a href="top10-hotels-chiang-mai.html">Top 10 เชียงใหม่</a><a href="top10-hotels-bangkok.html">Top 10 กรุงเทพ</a><a href="top10-hotels-phuket.html">Top 10 ภูเก็ต</a><a href="top10-hotels-krabi.html">Top 10 กระบี่</a></div></div>
+    <a href="country-thailand.html">กิน-เที่ยว</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+  </div>
+  <div class="nav-r">
+    <div class="lang-wrap"><button class="lb active">TH</button><button class="lb" onclick="location.href='/en/'">EN</button></div>
+    <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="ค้นหาจังหวัด..." autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
+    <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาที่พัก</button>
+    <button class="hb" id="hb">☰</button>
+  </div>
+</nav>
+<div class="mm" id="mm"><div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
+  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">🇹🇭 จุดหมาย · 77 จังหวัด</a><a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-south.html">🌊 ภาคใต้</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">🏨 โรงแรม · จัดอันดับ</a><a href="about.html">เกี่ยวกับเรา</a><a href="contact.html">ติดต่อ</a>
+  <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาโรงแรม</button>
+</div>`;
+
+const FOOTER = `<footer class="footer"><div class="ft-grid">
+  <div><div class="ft-logo">Thailand<em>Addict</em></div><div class="ft-tag">Explore Thailand Like a Local</div><p class="ft-desc">ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง</p></div>
+  <div class="ft-col"><h4>จุดหมาย</h4><a href="country-thailand.html">🇹🇭 เที่ยวไทย</a><a href="city-chiang-mai.html">เชียงใหม่</a><a href="city-bangkok.html">กรุงเทพ</a><a href="city-phuket.html">ภูเก็ต</a><a href="city-krabi.html">กระบี่</a></div>
+  <div class="ft-col"><h4>คอนเทนต์</h4><a href="city-chiang-mai.html#stay">โรงแรมเชียงใหม่</a><a href="city-bangkok.html#eat">ของกินกรุงเทพ</a><a href="country-thailand.html">คู่มือเที่ยวไทย</a></div>
+  <div class="ft-col"><h4>เกี่ยวกับ</h4><a href="about.html">เกี่ยวกับเรา</a><a href="editorial-policy.html">นโยบายบรรณาธิการ</a><a href="contact.html">ติดต่อ</a><a href="privacy.html">ความเป็นส่วนตัว</a></div>
+  </div>
+  <div class="ft-bottom"><span>© 2026 thailandaddict.com — ชีวิตติดเที่ยว</span><span>Privacy · Editorial Policy</span></div>
+  <div class="ft-aff">⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ</div>
+</footer>
+<div class="mbar"><a class="m1" href="country-thailand.html">🇹🇭 เลือกจังหวัด</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">🏨 ค้นหาที่พัก</a></div>`;
+
+const SP_JSON = JSON.stringify(PROVINCES.map(([s,th])=>[s,th]));
+const COMMON_JS = `<script>
+var __SP=${SP_JSON};
+(function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
+var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
+if(ns){ns.addEventListener('input',function(){var q=ns.value.trim().toLowerCase();if(!q){nd.classList.remove('show');return;}var r=__SP.filter(function(p){return p[1].toLowerCase().indexOf(q)>-1||p[0].indexOf(q)>-1;}).slice(0,8);nd.innerHTML=r.length?r.map(function(p){return '<a href="city-'+p[0]+'.html"><div class="t">เที่ยว'+p[1]+'</div><div class="c">city-'+p[0]+'</div></a>';}).join(''):'<div class="empty">ไม่พบจังหวัด</div>';nd.classList.add('show');});
+document.addEventListener('click',function(e){if(!e.target.closest('.search-box'))nd.classList.remove('show');});}})();
+</script>`;
+
+function page({ title, desc, slug, jsonld, body, extraJS }) {
+  return `<!doctype html>
+<html lang="th"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="https://thailandaddict.com/${slug}">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="https://thailandaddict.com/${slug}"><meta property="og:type" content="website">
+<meta property="og:image" content="https://thailandaddict.com/images/heroes/krabi.jpg"><meta property="og:locale" content="th_TH"><meta name="theme-color" content="#06B6D4">
+${FONTS}
+<script type="application/ld+json">${JSON.stringify(jsonld)}</script>
+${CSS}
+</head><body>
+${NAV}
+${body}
+${FOOTER}
+${COMMON_JS}${extraJS||''}
+</body></html>`;
+}
+
+function crumb(parts){
+  return `<div class="crumb">`+parts.map((p,i)=> i<parts.length-1 ? `<a href="${p.href}">${esc(p.t)}</a> › ` : `<span>${esc(p.t)}</span>`).join('')+`</div>`;
+}
 function artCards(cluster, types){
   const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
   if(!list.length) return '';
-  return `<div class="dgrid">`+list.map((a,i)=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto ${DG[i%6]}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.remove()">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">อ่านบทความ →</span></div></a>`).join('')+`</div>`;
+  return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">อ่านบทความ →</span></div></a>`).join('')+`</div>`;
 }
 function hotelCards(slug){
   const list=(REVS[slug]||[]).slice().sort((a,b)=>b.score-a.score);
   if(!list.length) return `<p class="pintro">รีวิวโรงแรมกำลังจัดทำ — เร็ว ๆ นี้</p>`;
   return `<div class="hgrid">`+list.map(h=>{
-    const stars = h.star? `<div class="hstars">${'★'.repeat(h.star)}</div>`:'';
-    const sc = h.score? `<span class="hscore">${h.score.toFixed(1)}</span>`:'';
-    const price = h.price? `<div class="hprice">เริ่มประมาณ <b>${esc(h.price)}</b></div>`:'';
-    const bk = (h.agoda?`<a class="hbtn bk1" href="${h.agoda}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')
-             +(h.booking?`<a class="hbtn bk2" href="${h.booking}" target="_blank" rel="nofollow noopener">Booking</a>`:'')
-             +(h.trip?`<a class="hbtn bk3" href="${h.trip}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
-    return `<div class="hcard"><div class="hphoto">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.remove()">`:''}${sc}</div><div class="hbody"><h3>${esc(h.name)}</h3>${stars}<div class="htype">${esc(h.type)}</div>${h.loc?`<div class="hloc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">ดูรีวิวเต็ม →</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
+    const stars=h.star?`<div class="hc-stars">${'★'.repeat(h.star)}</div>`:'';
+    const sc=h.score?`<span class="hc-score">${h.score.toFixed(1)}</span>`:'';
+    const price=h.price?`<div class="hc-price">เริ่มประมาณ <b>${esc(h.price)}</b></div>`:'';
+    const bk=(h.agoda?`<a class="hbtn bk1" href="${h.agoda}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')+(h.booking?`<a class="hbtn bk2" href="${h.booking}" target="_blank" rel="nofollow noopener">Booking</a>`:'')+(h.trip?`<a class="hbtn bk3" href="${h.trip}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
+    return `<div class="hcard"><div class="hc-img">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}${sc}</div><div class="hc-body"><div class="hc-name">${esc(h.name)}</div>${stars}<div class="hc-type">${esc(h.type)}</div>${h.loc?`<div class="hc-loc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">ดูรีวิวเต็ม →</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
   }).join('')+`</div>`;
 }
 
-// ---------- province hub (5-tab) ----------
+// ── province hub (5-tab) ──
 function provinceHub(slug, th, r, d){
   const R = REGION[r];
-  const kindTh={nature:'ธรรมชาติ',city:'เมือง',culture:'วัฒนธรรม'};
   const tagline = d.tagline || `เที่ยว${th}`;
-  const intro = stripTags(d.introHtml) || `คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`;
   const best = d.bestTime || 'เที่ยวได้ตลอดปี';
   const emoji = d.heroEmoji || R.emoji;
   const heroSrc = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? `/images/heroes/${slug}.jpg`
     : (fs.existsSync(path.join(PUB,'images/cities',slug+'.jpg')) ? `/images/cities/${slug}.jpg` : '');
-
   const arts = ARTS[slug]||[];
-  const cSee = arts.filter(a=>a.type==='attraction').length;
-  const cEat = arts.filter(a=>['food','eat-ranking'].includes(a.type)).length;
-  const cPlan = arts.filter(a=>a.type==='itinerary').length;
-  const cStay = (REVS[slug]||[]).length;
-
-  const hi = (d.highlights||[]).map(h=>`<div class="hlc"><h3>${esc(h.name)}</h3><p>${esc(h.blurb)}</p></div>`).join('');
-  const food = (d.foodScene||[]).map(f=>`<div class="fc"><h4>${esc(f.name)}</h4><p>${esc(f.note)}</p></div>`).join('');
-  const nbrs = (d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${TH[n]} →</a>`).join('');
-  const tipsArt = arts.find(a=>/travel-tips$/.test(a.slug));
-  const moveArt = arts.find(a=>/getting-around$/.test(a.slug));
-
-  const jsonld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  const cSee=arts.filter(a=>a.type==='attraction').length, cEat=arts.filter(a=>['food','eat-ranking'].includes(a.type)).length, cPlan=arts.filter(a=>a.type==='itinerary').length, cStay=(REVS[slug]||[]).length;
+  const hi=(d.highlights||[]).map(h=>`<div class="hlc"><h3>${esc(h.name)}</h3><p>${esc(h.blurb)}</p></div>`).join('');
+  const food=(d.foodScene||[]).map(f=>`<div class="fc"><h4>${esc(f.name)}</h4><p>${esc(f.note)}</p></div>`).join('');
+  const nbrs=(d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${TH[n]} →</a>`).join('');
+  const tipsArt=arts.find(a=>/travel-tips$/.test(a.slug)), moveArt=arts.find(a=>/getting-around$/.test(a.slug));
+  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
     {"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"},
     {"@type":"ListItem","position":3,"name":R.th,"item":`https://thailandaddict.com/region-${R.slug}`},
     {"@type":"ListItem","position":4,"name":th,"item":`https://thailandaddict.com/city-${slug}`}]};
-
-  const tab = (id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
-
-  const body = `
+  const tab=(id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
+  const body=`
 ${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:R.th,href:`region-${R.slug}.html`},{t:th}])}
-<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(th)}" loading="eager" onerror="this.remove()">`:''}
-  <div class="pherobody">
-    <span class="pheye">${emoji} ${R.th}</span>
-    <h1>เที่ยว<em>${th}</em></h1>
-    <p class="phlead">${esc(tagline)}</p>
-    <div class="phchips"><span class="phchip">🗓️ ${esc(best.split(' ').slice(0,6).join(' '))}</span><span class="phchip">🏨 ${cStay} รีวิวที่พัก</span><span class="phchip">📚 ${arts.length} บทความ</span></div>
-  </div>
+<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(th)}" loading="eager" onerror="this.style.opacity=0">`:''}
+  <div class="pherobody"><span class="pheye">${emoji} ${R.th}</span><h1>เที่ยว<em>${th}</em></h1><p class="phlead">${esc(tagline)}</p>
+  <div class="phchips"><span class="phchip">🗓️ ${esc(best.split(' ').slice(0,6).join(' '))}</span><span class="phchip">🏨 ${cStay} รีวิวที่พัก</span><span class="phchip">📚 ${arts.length} บทความ</span></div></div>
 </div>
 <div class="tabwrap"><div class="tabbar">
-  ${tab('stay','🏨','ที่พัก',cStay)}
-  ${tab('see','📍','ที่เที่ยว',cSee)}
-  ${tab('eat','🍜','ที่กิน',cEat)}
-  ${tab('plan','🗺️','แผนเที่ยว',cPlan)}
-  ${tab('prep','🎒','เตรียมตัว',0)}
+  ${tab('stay','🏨','ที่พัก',cStay)}${tab('see','📍','ที่เที่ยว',cSee)}${tab('eat','🍜','ที่กิน',cEat)}${tab('plan','🗺️','แผนเที่ยว',cPlan)}${tab('prep','🎒','เตรียมตัว',0)}
 </div></div>
-
-<div class="wrap" style="padding-top:30px;padding-bottom:20px">
-
+<div class="cwrap">
 <section class="panel active" id="p-stay">
-  <div class="callout"><div><h3>Top 10 โรงแรม${th} ${hasRoundup(slug)?'':'<span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span>'}</h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
+  <div class="callout"><div><h3>Top 10 โรงแรม${th}${hasRoundup(slug)?'':' <span style="font-size:12px;color:#c2410c">· กำลังจัดทำ</span>'}</h3><p>รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com</p></div><a href="top10-hotels-${slug}.html">ดูอันดับที่พัก →</a></div>
   <p class="pintro">รีวิวที่พัก${th} คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง</p>
   ${hotelCards(slug)}
 </section>
-
-<section class="panel" id="p-see">
-  <h2 class="pnhead">ที่เที่ยว<span class="em"> ${th}</span></h2>
-  <p class="pintro">ไฮไลต์และที่เที่ยว${th} ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>
-  ${hi?`<div class="hl">${hi}</div>`:''}
-  ${artCards(slug,['attraction'])||'<p class="pintro">บทความที่เที่ยวกำลังจัดทำ</p>'}
-</section>
-
-<section class="panel" id="p-eat">
-  <h2 class="pnhead">ที่กิน<span class="em"> ${th}</span></h2>
-  <p class="pintro">ของกินเด่นของ${th} — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>
-  ${food?`<div class="foodgrid">${food}</div>`:''}
-  ${artCards(slug,['food','eat-ranking'])||'<p class="pintro">บทความที่กินกำลังจัดทำ</p>'}
-</section>
-
-<section class="panel" id="p-plan">
-  <h2 class="pnhead">แผน<span class="em">เที่ยว ${th}</span></h2>
-  <p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>
-  ${artCards(slug,['itinerary'])||'<p class="pintro">แผนเที่ยวกำลังจัดทำ</p>'}
-  ${nbrs?`<h2 class="pnhead">เที่ยวต่อ<span class="em">จังหวัดข้างเคียง</span></h2><div class="ncards">${nbrs}</div>`:''}
-</section>
-
-<section class="panel" id="p-prep">
-  <h2 class="pnhead">เตรียมตัว<span class="em">เที่ยว ${th}</span></h2>
-  <p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไป${th}</p>
-  <div class="eeat">
-    <div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>${esc(best)}</p></div>
-    <div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>${moveArt?`อ่านวิธีเดินทางใน${th}แบบละเอียด`:`วิธีไป${th}และเดินทางในจังหวัด`}${moveArt?` · <a href="${moveArt.slug}.html" style="color:var(--teal-dk);font-weight:700">เปิดคู่มือ →</a>`:''}</p></div>
-    <div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>${R.th} · <a href="region-${R.slug}.html" style="color:var(--teal-dk);font-weight:700">เที่ยว${R.th} →</a></p></div>
-    <div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>${tipsArt?`เช็กลิสต์เตรียมตัวเที่ยว${th}`:`สิ่งที่ควรเตรียมไป${th}`}${tipsArt?` · <a href="${tipsArt.slug}.html" style="color:var(--teal-dk);font-weight:700">อ่านทิป →</a>`:''}</p></div>
-  </div>
-  ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">คู่มือ<span class="em">เตรียมตัว</span></h2>${artCards(slug,['prep','guide'])}`:''}
-</section>
-
+<section class="panel" id="p-see"><h2 class="pnhead">ที่เที่ยว<em> ${th}</em></h2><p class="pintro">ไฮไลต์และที่เที่ยว${th} ทั้งสายธรรมชาติ เมือง และวัฒนธรรม</p>${hi?`<div class="hl">${hi}</div>`:''}${artCards(slug,['attraction'])||'<p class="pintro">บทความที่เที่ยวกำลังจัดทำ</p>'}</section>
+<section class="panel" id="p-eat"><h2 class="pnhead">ที่กิน<em> ${th}</em></h2><p class="pintro">ของกินเด่นของ${th} — รวมและจัดอันดับร้านจริงที่คนพื้นที่ไป</p>${food?`<div class="foodgrid">${food}</div>`:''}${artCards(slug,['food','eat-ranking'])||'<p class="pintro">บทความที่กินกำลังจัดทำ</p>'}</section>
+<section class="panel" id="p-plan"><h2 class="pnhead">แผน<em>เที่ยว ${th}</em></h2><p class="pintro">แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง</p>${artCards(slug,['itinerary'])||'<p class="pintro">แผนเที่ยวกำลังจัดทำ</p>'}${nbrs?`<h2 class="pnhead">เที่ยวต่อ<em>จังหวัดข้างเคียง</em></h2><div class="ncards">${nbrs}</div>`:''}</section>
+<section class="panel" id="p-prep"><h2 class="pnhead">เตรียมตัว<em>เที่ยว ${th}</em></h2><p class="pintro">ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไป${th}</p>
+  <div class="eeat"><div class="ecard"><div class="ic">🗓️</div><h3>ช่วงเวลาแนะนำ</h3><p>${esc(best)}</p></div><div class="ecard"><div class="ic">🚗</div><h3>การเดินทาง</h3><p>${moveArt?`อ่านวิธีเดินทางใน${th}แบบละเอียด · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">เปิดคู่มือ →</a>`:`วิธีไป${th}และเดินทางในจังหวัด`}</p></div><div class="ecard"><div class="ic">📍</div><h3>ภาค</h3><p>${R.th} · <a href="region-${R.slug}.html" style="color:var(--bl-dk);font-weight:700">เที่ยว${R.th} →</a></p></div><div class="ecard"><div class="ic">🎒</div><h3>เตรียมตัว</h3><p>${tipsArt?`เช็กลิสต์เตรียมตัว · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">อ่านทิป →</a>`:`สิ่งที่ควรเตรียมไป${th}`}</p></div></div>
+  ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">คู่มือ<em>เตรียมตัว</em></h2>${artCards(slug,['prep','guide'])}`:''}</section>
 </div>
-
-<section class="sec" style="padding-top:6px"><div class="wrap">
-  <div class="ctaband"><h2>วางแผนเที่ยว${th}</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-${slug}.html">เริ่มจากที่พัก →</a></div>
-</div></section>
-<script>
-(function(){
-  var tabs=[].slice.call(document.querySelectorAll('.tab'));
-  var panels=[].slice.call(document.querySelectorAll('.panel'));
-  function act(id,scroll){
-    tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});
-    panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});
-    if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'});}
-  }
-  tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab);})});
-  var map={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'};
-  var h=(location.hash||'').replace('#','');
-  if(map[h]) act(map[h],true);
-})();
-</script>`;
-
-  return page({
-    title: `เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict`,
-    desc: `คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,
-    slug: `city-${slug}`, jsonld, body,
-  });
+<div class="cta-sec"><div class="ctaband"><h2>วางแผนเที่ยว${th}</h2><p>ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว</p><a href="top10-hotels-${slug}.html">เริ่มจากที่พัก →</a></div></div>`;
+  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','');if(m[h])act(m[h],true);})();</script>`;
+  return page({title:`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,slug:`city-${slug}`,jsonld,body,extraJS});
 }
 
-// ---------- region page ----------
+function provCard(s,th,em,tg){
+  const img=fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:(fs.existsSync(path.join(PUB,'images/cities',s+'.jpg'))?`/images/cities/${s}.jpg`:'');
+  return `<a class="dcard" href="city-${s}.html"><div class="dphoto">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p style="font-size:13px;color:var(--sub);margin-top:3px">${esc(tg)}</p><span class="go">เที่ยว${th} →</span></div></a>`;
+}
 function regionPage(r){
-  const R = REGION[r];
-  const provs = PROVINCES.filter(([,,rr])=>rr===r);
-  const cards = provs.map(([s,th],i)=>{
-    const d = readData(s);
-    const tg = (d&&d.tagline) || `เที่ยว${th}`;
-    const em = (d&&d.heroEmoji) || R.emoji;
-    const img = fs.existsSync(path.join(PUB,'images/cities',s+'.jpg')) ? `/images/cities/${s}.jpg` : (fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:'');
-    return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.remove()">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว${th} →</span></div></a>`;
-  }).join('');
-  const jsonld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
-    {"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"},
-    {"@type":"ListItem","position":3,"name":R.th,"item":`https://thailandaddict.com/region-${R.slug}`}]};
-  const body = `
-${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:R.th}])}
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">${R.emoji} ภาคของไทย</div>
-  <h1>เที่ยว<em>${R.th}</em></h1>
-  <p class="lead">${R.intro}</p>
-  <div class="chips"><span class="chip">📍 ${provs.length} จังหวัด</span><span class="chip">✅ คัดจากของจริง</span></div>
-</div></section>
-<section class="sec"><div class="wrap">
-  <div class="shead"><h2>จังหวัดใน<span class="em">${R.th}</span></h2><a href="country-thailand.html">ทุกภาค →</a></div>
-  <div class="dgrid">${cards}</div>
-</div></section>
-<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="ctaband"><h2>เลือกจังหวัดที่อยากไป</h2><p>แต่ละจังหวัดมีที่พัก ที่เที่ยว ของกิน และแผนเที่ยวครบ</p><a href="country-thailand.html">ดูทั้งประเทศ →</a></div>
-</div></section>`;
-  return page({
-    title: `เที่ยว${R.th} — จังหวัดน่าเที่ยว ที่พัก ที่เที่ยว ของกิน | ThailandAddict`,
-    desc: `คู่มือเที่ยว${R.th} — รวมจังหวัดน่าเที่ยวใน${R.th} พร้อมที่พัก ที่เที่ยว ของกิน และแผนเดินทาง`,
-    slug: `region-${R.slug}`, jsonld, body,
-  });
+  const R=REGION[r];const provs=PROVINCES.filter(([,,rr])=>rr===r);
+  const cards=provs.map(([s,th])=>{const d=readData(s);return provCard(s,th,(d&&d.heroEmoji)||R.emoji,(d&&d.tagline)||`เที่ยว${th}`)}).join('');
+  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},{"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"},{"@type":"ListItem","position":3,"name":R.th,"item":`https://thailandaddict.com/region-${R.slug}`}]};
+  const body=`${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:R.th}])}
+<div class="thero"><div class="eyebrow">${R.emoji} ภาคของไทย</div><h1>เที่ยว<em>${R.th}</em></h1><p class="lead">${R.intro}</p><div class="chips"><span class="chip">📍 ${provs.length} จังหวัด</span><span class="chip">✅ คัดจากของจริง</span></div></div>
+<section class="sec"><div class="inner"><div class="shead"><h2>จังหวัดใน<span class="em">${R.th}</span></h2><a href="country-thailand.html">ทุกภาค →</a></div><div class="dgrid">${cards}</div></div></section>
+<div class="cta-sec"><div class="ctaband"><h2>เลือกจังหวัดที่อยากไป</h2><p>แต่ละจังหวัดมีที่พัก ที่เที่ยว ของกิน และแผนเที่ยวครบ</p><a href="country-thailand.html">ดูทั้งประเทศ →</a></div></div>`;
+  return page({title:`เที่ยว${R.th} — จังหวัดน่าเที่ยว ที่พัก ที่เที่ยว ของกิน | ThailandAddict`,desc:`คู่มือเที่ยว${R.th} — รวมจังหวัดน่าเที่ยวพร้อมที่พัก ที่เที่ยว ของกิน และแผนเดินทาง`,slug:`region-${R.slug}`,jsonld,body});
 }
-
-// ---------- main hub (country-thailand) ----------
 function countryHub(){
-  const blocks = Object.keys(REGION).map(r=>{
-    const R=REGION[r];
-    const provs=PROVINCES.filter(([,,rr])=>rr===r);
-    const cards=provs.map(([s,th],i)=>{
-      const d=readData(s); const tg=(d&&d.tagline)||`เที่ยว${th}`; const em=(d&&d.heroEmoji)||R.emoji;
-      const img = fs.existsSync(path.join(PUB,'images/cities',s+'.jpg')) ? `/images/cities/${s}.jpg` : (fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:'');
-      return `<a class="dcard" href="city-${s}.html"><div class="dphoto ${DG[i%6]}">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.remove()">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p>${esc(tg)}</p><span class="go">เที่ยว →</span></div></a>`;
-    }).join('');
-    return `<section class="regsec"><div class="wrap">
-  <div class="shead"><h2>${R.emoji} <span class="em">${R.th}</span></h2><a href="region-${R.slug}.html">ดู${R.th} →</a></div>
-  <div class="dgrid">${cards}</div>
-</div></section>`;
-  }).join('\n');
-  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},
-    {"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"}]};
-  const body=`
-${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย'}])}
-<section class="hero"><div class="wrap">
-  <div class="eyebrow">🇹🇭 เที่ยวไทยแบบรู้จริง</div>
-  <h1>เที่ยว<em>ประเทศไทย</em><br>ครบ 77 จังหวัด</h1>
-  <p class="lead">เลือกภาคและจังหวัดที่อยากไป — แต่ละจังหวัดมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริง</p>
-  <div class="chips"><span class="chip">🗺️ <b>77</b> จังหวัด</span><span class="chip">🧭 <b>6</b> ภาค</span><span class="chip">✅ <b>100%</b> รีวิวจริง</span></div>
-</div></section>
-${blocks}
-<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="ctaband"><h2>เริ่มวางแผนทริปไทย</h2><p>เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน ได้เลย</p><a href="region-north.html">เริ่มที่ภาคเหนือ →</a></div>
-</div></section>`;
-  return page({
-    title:`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict`,
-    desc:`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,
-    slug:`country-thailand`, jsonld, body,
-  });
+  const blocks=Object.keys(REGION).map(r=>{const R=REGION[r];const provs=PROVINCES.filter(([,,rr])=>rr===r);
+    const cards=provs.map(([s,th])=>{const d=readData(s);return provCard(s,th,(d&&d.heroEmoji)||R.emoji,(d&&d.tagline)||`เที่ยว${th}`)}).join('');
+    return `<section class="regsec"><div class="inner"><div class="shead"><h2>${R.emoji} <span class="em">${R.th}</span></h2><a href="region-${R.slug}.html">ดู${R.th} →</a></div><div class="dgrid">${cards}</div></div></section>`;}).join('');
+  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"หน้าแรก","item":"https://thailandaddict.com/"},{"@type":"ListItem","position":2,"name":"ประเทศไทย","item":"https://thailandaddict.com/country-thailand"}]};
+  const body=`${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย'}])}
+<div class="thero"><div class="eyebrow">🇹🇭 ชีวิตติดเที่ยว</div><h1>เที่ยว<em>ประเทศไทย</em> ครบ 77 จังหวัด</h1><p class="lead">เลือกภาคและจังหวัดที่อยากไป — แต่ละจังหวัดมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริง</p><div class="chips"><span class="chip">🗺️ <b>77</b> จังหวัด</span><span class="chip">🧭 <b>6</b> ภาค</span><span class="chip">✅ <b>100%</b> รีวิวจริง</span></div></div>
+<div style="max-width:1120px;margin:0 auto;padding:34px 28px 0">${blocks}</div>
+<div class="cta-sec"><div class="ctaband"><h2>เริ่มวางแผนทริปไทย</h2><p>เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน ได้เลย</p><a href="region-north.html">เริ่มที่ภาคเหนือ →</a></div></div>`;
+  return page({title:`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,slug:`country-thailand`,jsonld,body});
 }
+function readData(slug){const f=path.join(DATA,slug+'.json');if(!fs.existsSync(f))return null;try{return JSON.parse(fs.readFileSync(f,'utf8'))}catch{return null}}
 
-function readData(slug){
-  const f=path.join(DATA, slug+'.json');
-  if(!fs.existsSync(f)) return null;
-  try { return JSON.parse(fs.readFileSync(f,'utf8')); } catch { return null; }
-}
-
-// ---- generate ----
-let nP=0, nMiss=[];
-for(const [slug, th, r] of PROVINCES){
-  const d = readData(slug);
-  if(!d) nMiss.push(slug);
-  fs.writeFileSync(path.join(PUB, `city-${slug}.html`), provinceHub(slug, th, r, d||{}));
-  nP++;
-}
-let nR=0;
-for(const r of Object.keys(REGION)){ fs.writeFileSync(path.join(PUB, `region-${REGION[r].slug}.html`), regionPage(r)); nR++; }
-fs.writeFileSync(path.join(PUB,'country-thailand.html'), countryHub());
-
+// ── generate ──
+let nP=0,nMiss=[];
+for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(PUB,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
+let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(PUB,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
+fs.writeFileSync(path.join(PUB,'country-thailand.html'),countryHub());
 console.log(`provinces: ${nP} · regions: ${nR} · country-thailand: 1`);
 console.log(`missing data (fallback used): ${nMiss.length}${nMiss.length?' → '+nMiss.join(','):''}`);
