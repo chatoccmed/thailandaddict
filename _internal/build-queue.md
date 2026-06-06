@@ -34,7 +34,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] phitsanulok — พิษณุโลก
 - [x] nakhon-si-thammarat — นครศรีธรรมราช (12 reviews + Top10 + 37 articles + images)
 - [x] trang — ตรัง (12 reviews + Top10 + 37 articles + images)
-- [ ] satun — สตูล (หลีเป๊ะ)
+- [x] satun — สตูล (หลีเป๊ะ) (12 reviews + Top10 + 37 articles + images)
 - [ ] songkhla — สงขลา
 - [ ] chumphon — ชุมพร
 - [ ] ranong — ระนอง
