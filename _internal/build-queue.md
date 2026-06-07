@@ -42,7 +42,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] nakhon-nayok — นครนายก (12 reviews + Top10 + 37 articles + images)
 - [x] ratchaburi — ราชบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] samut-songkhram — สมุทรสงคราม (12 reviews + Top10 + 37 articles + images)
-- [ ] phrae — แพร่
+- [x] phrae — แพร่ (12 reviews + Top10 + 37 articles + images)
 - [ ] phayao — พะเยา
 - [ ] uttaradit — อุตรดิตถ์
 - [ ] tak — ตาก
