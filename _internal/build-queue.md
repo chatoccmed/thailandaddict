@@ -41,7 +41,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] chanthaburi — จันทบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] nakhon-nayok — นครนายก (12 reviews + Top10 + 37 articles + images)
 - [x] ratchaburi — ราชบุรี (12 reviews + Top10 + 37 articles + images)
-- [ ] samut-songkhram — สมุทรสงคราม (อัมพวา)
+- [x] samut-songkhram — สมุทรสงคราม (12 reviews + Top10 + 37 articles + images)
 - [ ] phrae — แพร่
 - [ ] phayao — พะเยา
 - [ ] uttaradit — อุตรดิตถ์
