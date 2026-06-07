@@ -43,7 +43,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] ratchaburi — ราชบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] samut-songkhram — สมุทรสงคราม (12 reviews + Top10 + 37 articles + images)
 - [x] phrae — แพร่ (12 reviews + Top10 + 37 articles + images)
-- [ ] phayao — พะเยา
+- [x] phayao — พะเยา (12 reviews + Top10 + 37 articles + images)
 - [ ] uttaradit — อุตรดิตถ์
 - [ ] tak — ตาก
 
