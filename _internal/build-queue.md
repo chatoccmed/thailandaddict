@@ -40,7 +40,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] ranong — ระนอง
 - [x] chanthaburi — จันทบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] nakhon-nayok — นครนายก (12 reviews + Top10 + 37 articles + images)
-- [ ] ratchaburi — ราชบุรี
+- [x] ratchaburi — ราชบุรี (12 reviews + Top10 + 37 articles + images)
 - [ ] samut-songkhram — สมุทรสงคราม (อัมพวา)
 - [ ] phrae — แพร่
 - [ ] phayao — พะเยา
