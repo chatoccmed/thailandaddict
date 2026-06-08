@@ -44,7 +44,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] samut-songkhram — สมุทรสงคราม (12 reviews + Top10 + 37 articles + images)
 - [x] phrae — แพร่ (12 reviews + Top10 + 37 articles + images)
 - [x] phayao — พะเยา (12 reviews + Top10 + 37 articles + images)
-- [ ] uttaradit — อุตรดิตถ์
+- [x] uttaradit — อุตรดิตถ์ (11 reviews + Top10 + 37 articles + images)
 - [ ] tak — ตาก
 
 ## Wave 3 — remaining (Isan + central + deep south)
