@@ -45,7 +45,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] phrae — แพร่ (12 reviews + Top10 + 37 articles + images)
 - [x] phayao — พะเยา (12 reviews + Top10 + 37 articles + images)
 - [x] uttaradit — อุตรดิตถ์ (11 reviews + Top10 + 37 articles + images)
-- [ ] tak — ตาก
+- [x] tak — ตาก (10 reviews + Top10 + 37 articles + images)
 
 ## Wave 3 — remaining (Isan + central + deep south)
 - [ ] khon-kaen — ขอนแก่น
