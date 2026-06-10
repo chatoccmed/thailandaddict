@@ -48,7 +48,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] tak — ตาก (10 reviews + Top10 + 37 articles + images)
 
 ## Wave 3 — remaining (Isan + central + deep south)
-- [ ] khon-kaen — ขอนแก่น
+- [x] khon-kaen — ขอนแก่น (12 reviews + Top10 + 37 articles + images)
 - [ ] udon-thani — อุดรธานี
 - [ ] ubon-ratchathani — อุบลราชธานี
 - [ ] nong-khai — หนองคาย
