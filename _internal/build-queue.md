@@ -67,7 +67,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] amnat-charoen — อำนาจเจริญ
 - [ ] nong-bua-lamphu — หนองบัวลำภู
 - [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
-- [ ] phichit — พิจิตร
+- [x] phichit — พิจิตร (11 reviews + Top10 + 37 articles + images)
 - [ ] nakhon-sawan — นครสวรรค์
 - [ ] uthai-thani — อุทัยธานี
 - [ ] nonthaburi — นนทบุรี
