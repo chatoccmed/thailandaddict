@@ -74,7 +74,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] pathum-thani — ปทุมธานี (11 reviews + Top10 + 37 articles + images)
 - [x] samut-prakan — สมุทรปราการ (12 reviews + Top10 + 37 articles + images)
 - [x] samut-sakhon — สมุทรสาคร (12 reviews + Top10 + 37 articles + images)
-- [ ] nakhon-pathom — นครปฐม
+- [x] nakhon-pathom — นครปฐม (11 reviews + Top10 + 37 articles + images)
 - [ ] ang-thong — อ่างทอง
 - [ ] lopburi — ลพบุรี
 - [ ] sing-buri — สิงห์บุรี
