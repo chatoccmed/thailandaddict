@@ -52,7 +52,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] udon-thani — อุดรธานี (12 reviews + Top10 + 37 articles + images)
 - [x] ubon-ratchathani — อุบลราชธานี (12 reviews + Top10 + 37 articles + images)
 - [x] nong-khai — หนองคาย (12 reviews + Top10 + 37 articles + images)
-- [ ] bueng-kan — บึงกาฬ
+- [x] bueng-kan — บึงกาฬ (12 reviews + Top10 + 37 articles + images)
 - [ ] nakhon-phanom — นครพนม
 - [ ] mukdahan — มุกดาหาร
 - [ ] sakon-nakhon — สกลนคร
