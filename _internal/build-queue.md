@@ -50,7 +50,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 ## Wave 3 — remaining (Isan + central + deep south)
 - [x] khon-kaen — ขอนแก่น (12 reviews + Top10 + 37 articles + images)
 - [x] udon-thani — อุดรธานี (12 reviews + Top10 + 37 articles + images)
-- [ ] ubon-ratchathani — อุบลราชธานี
+- [x] ubon-ratchathani — อุบลราชธานี (12 reviews + Top10 + 37 articles + images)
 - [ ] nong-khai — หนองคาย
 - [ ] bueng-kan — บึงกาฬ
 - [ ] nakhon-phanom — นครพนม
