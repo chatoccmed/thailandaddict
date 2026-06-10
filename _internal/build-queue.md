@@ -69,7 +69,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
 - [x] phichit — พิจิตร (11 reviews + Top10 + 37 articles + images)
 - [x] nakhon-sawan — นครสวรรค์ (11 reviews + Top10 + 37 articles + images)
-- [ ] uthai-thani — อุทัยธานี
+- [x] uthai-thani — อุทัยธานี (11 reviews + Top10 + 37 articles + images)
 - [ ] nonthaburi — นนทบุรี
 - [ ] pathum-thani — ปทุมธานี
 - [ ] samut-prakan — สมุทรปราการ
