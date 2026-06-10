@@ -37,7 +37,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] satun — สตูล (หลีเป๊ะ) (12 reviews + Top10 + 37 articles + images)
 - [x] songkhla — สงขลา (12 reviews + Top10 + 34 articles + images)
 - [x] chumphon — ชุมพร (12 reviews + Top10 + 37 articles + images)
-- [ ] ranong — ระนอง
+- [x] ranong — ระนอง (12 reviews + Top10 + 37 articles + images)
 - [x] chanthaburi — จันทบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] nakhon-nayok — นครนายก (12 reviews + Top10 + 37 articles + images)
 - [x] ratchaburi — ราชบุรี (12 reviews + Top10 + 37 articles + images)
