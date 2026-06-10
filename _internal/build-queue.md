@@ -54,7 +54,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] nong-khai — หนองคาย (12 reviews + Top10 + 37 articles + images)
 - [x] bueng-kan — บึงกาฬ (12 reviews + Top10 + 37 articles + images)
 - [x] nakhon-phanom — นครพนม (12 reviews + Top10 + 37 articles + images)
-- [ ] mukdahan — มุกดาหาร
+- [x] mukdahan — มุกดาหาร (12 reviews + Top10 + 37 articles + images)
 - [ ] sakon-nakhon — สกลนคร
 - [ ] buriram — บุรีรัมย์
 - [ ] surin — สุรินทร์
