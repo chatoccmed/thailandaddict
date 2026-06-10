@@ -66,7 +66,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] yasothon — ยโสธร
 - [ ] amnat-charoen — อำนาจเจริญ
 - [ ] nong-bua-lamphu — หนองบัวลำภู
-- [ ] kamphaeng-phet — กำแพงเพชร
+- [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
 - [ ] phichit — พิจิตร
 - [ ] nakhon-sawan — นครสวรรค์
 - [ ] uthai-thani — อุทัยธานี
