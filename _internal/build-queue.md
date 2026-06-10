@@ -68,7 +68,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [ ] nong-bua-lamphu — หนองบัวลำภู
 - [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
 - [x] phichit — พิจิตร (11 reviews + Top10 + 37 articles + images)
-- [ ] nakhon-sawan — นครสวรรค์
+- [x] nakhon-sawan — นครสวรรค์ (11 reviews + Top10 + 37 articles + images)
 - [ ] uthai-thani — อุทัยธานี
 - [ ] nonthaburi — นนทบุรี
 - [ ] pathum-thani — ปทุมธานี
