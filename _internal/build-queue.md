@@ -71,7 +71,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] nakhon-sawan — นครสวรรค์ (11 reviews + Top10 + 37 articles + images)
 - [x] uthai-thani — อุทัยธานี (11 reviews + Top10 + 37 articles + images)
 - [x] nonthaburi — นนทบุรี (11 reviews + Top10 + 37 articles + images)
-- [ ] pathum-thani — ปทุมธานี
+- [x] pathum-thani — ปทุมธานี (11 reviews + Top10 + 37 articles + images)
 - [ ] samut-prakan — สมุทรปราการ
 - [ ] samut-sakhon — สมุทรสาคร
 - [ ] nakhon-pathom — นครปฐม
