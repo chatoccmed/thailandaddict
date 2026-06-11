@@ -61,7 +61,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] sisaket — ศรีสะเกษ (12 reviews + Top10 + 37 articles + images)
 - [x] chaiyaphum — ชัยภูมิ (10 reviews + Top10 + 37 articles + images)
 - [x] kalasin — กาฬสินธุ์ (12 reviews + Top10 + 37 articles + images)
-- [ ] maha-sarakham — มหาสารคาม
+- [x] maha-sarakham — มหาสารคาม (12 reviews + Top10 + 37 articles + images)
 - [ ] roi-et — ร้อยเอ็ด
 - [ ] yasothon — ยโสธร
 - [ ] amnat-charoen — อำนาจเจริญ
