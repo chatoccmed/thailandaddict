@@ -81,7 +81,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] chai-nat — ชัยนาท (12 reviews + Top10 + 37 articles + images)
 - [x] saraburi — สระบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] suphan-buri — สุพรรณบุรี (12 reviews + Top10 + 37 articles + images)
-- [ ] chachoengsao — ฉะเชิงเทรา
+- [x] chachoengsao — ฉะเชิงเทรา (12 reviews + Top10 + 37 articles + images)
 - [ ] prachinburi — ปราจีนบุรี
 - [ ] sa-kaeo — สระแก้ว
 - [ ] phatthalung — พัทลุง
