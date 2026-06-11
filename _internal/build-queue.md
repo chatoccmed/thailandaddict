@@ -77,7 +77,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] nakhon-pathom — นครปฐม (11 reviews + Top10 + 37 articles + images)
 - [x] ang-thong — อ่างทอง (11 reviews + Top10 + 37 articles + images)
 - [x] lopburi — ลพบุรี (11 reviews + Top10 + 37 articles + images)
-- [ ] sing-buri — สิงห์บุรี
+- [x] sing-buri — สิงห์บุรี (12 reviews + Top10 + 37 articles + images)
 - [ ] chai-nat — ชัยนาท
 - [ ] saraburi — สระบุรี
 - [ ] suphan-buri — สุพรรณบุรี
