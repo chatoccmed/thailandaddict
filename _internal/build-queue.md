@@ -57,7 +57,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] mukdahan — มุกดาหาร (12 reviews + Top10 + 37 articles + images)
 - [x] sakon-nakhon — สกลนคร (12 reviews + Top10 + 37 articles + images)
 - [x] buriram — บุรีรัมย์ (12 reviews + Top10 + 37 articles + images)
-- [ ] surin — สุรินทร์
+- [x] surin — สุรินทร์ (12 reviews + Top10 + 37 articles + images)
 - [ ] sisaket — ศรีสะเกษ
 - [ ] chaiyaphum — ชัยภูมิ
 - [ ] kalasin — กาฬสินธุ์
