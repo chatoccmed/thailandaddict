@@ -79,7 +79,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] lopburi — ลพบุรี (11 reviews + Top10 + 37 articles + images)
 - [x] sing-buri — สิงห์บุรี (12 reviews + Top10 + 37 articles + images)
 - [x] chai-nat — ชัยนาท (12 reviews + Top10 + 37 articles + images)
-- [ ] saraburi — สระบุรี
+- [x] saraburi — สระบุรี (12 reviews + Top10 + 37 articles + images)
 - [ ] suphan-buri — สุพรรณบุรี
 - [ ] chachoengsao — ฉะเชิงเทรา
 - [ ] prachinburi — ปราจีนบุรี
