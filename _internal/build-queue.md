@@ -59,7 +59,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] buriram — บุรีรัมย์ (12 reviews + Top10 + 37 articles + images)
 - [x] surin — สุรินทร์ (12 reviews + Top10 + 37 articles + images)
 - [x] sisaket — ศรีสะเกษ (12 reviews + Top10 + 37 articles + images)
-- [ ] chaiyaphum — ชัยภูมิ
+- [x] chaiyaphum — ชัยภูมิ (10 reviews + Top10 + 37 articles + images)
 - [ ] kalasin — กาฬสินธุ์
 - [ ] maha-sarakham — มหาสารคาม
 - [ ] roi-et — ร้อยเอ็ด
