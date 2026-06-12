@@ -65,7 +65,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] roi-et — ร้อยเอ็ด (12 reviews + Top10 + 37 articles + images)
 - [x] yasothon — ยโสธร (12 reviews + Top10 + 37 articles + images)
 - [x] amnat-charoen — อำนาจเจริญ (12 reviews + Top10 + 37 articles + images)
-- [ ] nong-bua-lamphu — หนองบัวลำภู
+- [x] nong-bua-lamphu — หนองบัวลำภู (12 reviews + Top10 + 37 articles + images)
 - [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
 - [x] phichit — พิจิตร (11 reviews + Top10 + 37 articles + images)
 - [x] nakhon-sawan — นครสวรรค์ (11 reviews + Top10 + 37 articles + images)
