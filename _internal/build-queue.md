@@ -85,7 +85,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] prachinburi — ปราจีนบุรี (11 reviews + Top10 + 37 articles + images)
 - [x] sa-kaeo — สระแก้ว (11 reviews + Top10 + 37 articles + images)
 - [x] phatthalung — พัทลุง (12 reviews + Top10 + 37 articles + images)
-- [ ] pattani — ปัตตานี
+- [x] pattani — ปัตตานี (12 reviews + Top10 + 37 articles + images)
 - [ ] yala — ยะลา
 - [ ] narathiwat — นราธิวาส
 
