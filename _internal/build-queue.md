@@ -64,7 +64,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] maha-sarakham — มหาสารคาม (12 reviews + Top10 + 37 articles + images)
 - [x] roi-et — ร้อยเอ็ด (12 reviews + Top10 + 37 articles + images)
 - [x] yasothon — ยโสธร (12 reviews + Top10 + 37 articles + images)
-- [ ] amnat-charoen — อำนาจเจริญ
+- [x] amnat-charoen — อำนาจเจริญ (12 reviews + Top10 + 37 articles + images)
 - [ ] nong-bua-lamphu — หนองบัวลำภู
 - [x] kamphaeng-phet — กำแพงเพชร (12 reviews + Top10 + 37 articles + images)
 - [x] phichit — พิจิตร (11 reviews + Top10 + 37 articles + images)
