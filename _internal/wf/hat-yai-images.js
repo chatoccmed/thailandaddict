@@ -33,8 +33,8 @@ phase('Articles')
 const ALL_ARTICLES = [
   'hat-yai-fried-chicken','hat-yai-dim-sum','hat-yai-chicken-rice','hat-yai-southern-food','hat-yai-chinese-food',
   'hat-yai-cafe-guide','hat-yai-night-market-food','hat-yai-seafood','hat-yai-local-breakfast','hat-yai-souvenir-food','hat-yai-dessert-sweets',
-  'hat-yai-attractions','hat-yai-municipal-park-cable-car','kim-yong-market','khlong-hae-floating-market','wat-hat-yai-nai',
-  'ton-nga-chang-waterfall','hat-yai-asean-night-bazaar','hat-yai-shopping-guide','hat-yai-shrines-mu','hat-yai-street-art-museums',
+  'hat-yai-attractions','hat-yai-municipal-park-cable-car','kim-yong-market','hat-yai-khlong-hae-market','wat-hat-yai-nai',
+  'hat-yai-ton-nga-chang','hat-yai-asean-night-bazaar','hat-yai-shopping-guide','hat-yai-shrines-mu','hat-yai-street-art-museums',
   'songkhla-old-town-trip','samila-beach-trip',
   'hat-yai-1-day-itinerary','hat-yai-2d1n-itinerary','hat-yai-3d2n-itinerary','hat-yai-food-crawl-plan','hat-yai-shopping-plan',
   'hat-yai-mu-temple-plan','hat-yai-songkhla-plan','hat-yai-nature-waterfall-plan','hat-yai-family-plan',
