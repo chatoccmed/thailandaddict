@@ -83,7 +83,7 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] suphan-buri — สุพรรณบุรี (12 reviews + Top10 + 37 articles + images)
 - [x] chachoengsao — ฉะเชิงเทรา (12 reviews + Top10 + 37 articles + images)
 - [x] prachinburi — ปราจีนบุรี (11 reviews + Top10 + 37 articles + images)
-- [ ] sa-kaeo — สระแก้ว
+- [x] sa-kaeo — สระแก้ว (11 reviews + Top10 + 37 articles + images)
 - [ ] phatthalung — พัทลุง
 - [ ] pattani — ปัตตานี
 - [ ] yala — ยะลา
