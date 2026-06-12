@@ -38,7 +38,16 @@ const PROVINCES = [
   ['krabi','กระบี่','s'],['phang-nga','พังงา','s'],['phuket','ภูเก็ต','s'],['phatthalung','พัทลุง','s'],
   ['trang','ตรัง','s'],['satun','สตูล','s'],['songkhla','สงขลา','s'],['pattani','ปัตตานี','s'],['yala','ยะลา','s'],['narathiwat','นราธิวาส','s'],
 ];
-const TH = Object.fromEntries(PROVINCES.map(([s,th])=>[s,th]));
+// Sub-destinations (islands / tourism towns) — get their own city-<slug>.html hub
+// (same layout as provinces) but DO NOT count toward "77 จังหวัด" or appear in region
+// province-lists. Each entry: [slug, thai-name, parent-region].
+const DESTINATIONS = [
+  ['koh-phangan','เกาะพะงัน','s'],['hat-yai','หาดใหญ่','s'],['samui','เกาะสมุย','s'],
+  ['pai','ปาย','n'],['pattaya','พัทยา','e'],['huahin','หัวหิน','w'],['khao-yai','เขาใหญ่','ne'],
+  ['koh-chang','เกาะช้าง','e'],['koh-lipe','เกาะหลีเป๊ะ','s'],['koh-kood','เกาะกูด','e'],
+  ['koh-mak','เกาะหมาก','e'],['koh-larn','เกาะล้าน','e'],
+];
+const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
 // Cards auto-fill hero images as each province's content lands (gen-hubs re-runs per finalize).
 const TOPDEST = ['bangkok','chiang-mai','phuket','krabi','chiang-rai','chonburi','surat-thani','prachuap-khiri-khan','kanchanaburi','ayutthaya','rayong','trat','phang-nga','nan','mae-hong-son','sukhothai','nakhon-ratchasima','phetchabun'];
@@ -257,7 +266,7 @@ const FOOTER = `<footer class="footer"><div class="ft-grid">
 </footer>
 <div class="mbar"><a class="m1" href="country-thailand.html">🇹🇭 เลือกจังหวัด</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">🏨 ค้นหาที่พัก</a></div>`;
 
-const SP_JSON = JSON.stringify(PROVINCES.map(([s,th])=>[s,th]));
+const SP_JSON = JSON.stringify([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 const COMMON_JS = `<script>
 var __SP=${SP_JSON};
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
@@ -415,12 +424,15 @@ function countryHub(){
 }
 function destinationsHub(){
   const cards = TOPDEST.filter(s=>TH[s]).map(s=>{const d=readData(s);return provCard(s,TH[s],(d&&d.heroEmoji)||'📍',(d&&d.tagline)||`เที่ยว${TH[s]}`)}).join('');
+  const dst = DESTINATIONS.filter(([s])=>readData(s));
+  const dstCards = dst.map(([s,th])=>{const d=readData(s);return provCard(s,th,(d&&d.heroEmoji)||'🏝️',(d&&d.tagline)||`เที่ยว${th}`)}).join('');
   const regCards = Object.keys(REGION).map(r=>{const R=REGION[r];const n=PROVINCES.filter(([,,rr])=>rr===r).length;
     return `<a class="dcard" href="region-${R.slug}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${R.emoji}</div><div class="dbody"><h3>${R.th}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(R.intro).slice(0,66)}…</p><span class="go">เที่ยว${R.th} · ${n} จังหวัด →</span></div></a>`;}).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":"เมืองท่องเที่ยวยอดนิยมในไทย","itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":TH[s],"url":`https://thailandaddict.com/city-${s}`}))};
   const body=`${crumb([{t:'หน้าแรก',href:'/'},{t:'ประเทศไทย',href:'country-thailand.html'},{t:'เมืองท่องเที่ยว'}])}
 <div class="thero"><div class="eyebrow">🔥 ยอดนิยม</div><h1>เมือง<em>ท่องเที่ยว</em>ยอดนิยม</h1><p class="lead">รวมเมืองที่คนไปเที่ยวมากที่สุดทั่วไทย — ทะเล เกาะ ภูเขา เมืองเก่า คาเฟ่ ครบทุกสาย แต่ละเมืองคัดที่พัก ที่เที่ยว ของกิน และแผนเที่ยวให้พร้อมลุย</p><div class="chips"><span class="chip">🔥 <b>${TOPDEST.length}</b> เมืองยอดนิยม</span><span class="chip">🧭 <b>6</b> ภาค</span><span class="chip">✅ คัดจากของจริง</span></div></div>
 <section class="sec"><div class="inner"><div class="shead"><h2>เมือง<span class="em">ท่องเที่ยวยอดนิยม</span></h2><a href="country-thailand.html">ดูทั้ง 77 จังหวัด →</a></div><div class="dgrid">${cards}</div></div></section>
+${dst.length?`<section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>เกาะ &amp; <span class="em">จุดหมายเฉพาะทาง</span></h2><span style="font-size:13px;color:var(--sub)">${dst.length} จุดหมาย</span></div><div class="dgrid">${dstCards}</div></div></section>`:''}
 <section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>หรือเลือก<span class="em">ตามภาค</span></h2><a href="country-thailand.html">ทุกภาค →</a></div><div class="dgrid">${regCards}</div></div></section>
 <div class="cta-sec"><div class="ctaband"><h2>เลือกเมืองที่อยากไป</h2><p>แต่ละเมืองมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยวครบ คัดจากเสียงรีวิวจริง</p><a href="country-thailand.html">ดูทั้งประเทศ →</a></div></div>`;
   return page({title:`เมืองท่องเที่ยวยอดนิยมในไทย — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,desc:`รวมเมืองท่องเที่ยวยอดนิยมทั่วไทย — กรุงเทพ เชียงใหม่ ภูเก็ต กระบี่ พัทยา หัวหิน และอีกมาก พร้อมที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง`,slug:`destinations`,jsonld,body});
@@ -430,8 +442,9 @@ function readData(slug){const f=path.join(DATA,slug+'.json');if(!fs.existsSync(f
 // ── generate ──
 let nP=0,nMiss=[];
 for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(PUB,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
+let nD=0;for(const [slug,th,r] of DESTINATIONS){const d=readData(slug);if(!d){nMiss.push(slug);continue;}fs.writeFileSync(path.join(PUB,`city-${slug}.html`),provinceHub(slug,th,r,d));nD++;}
 let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(PUB,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
 fs.writeFileSync(path.join(PUB,'country-thailand.html'),countryHub());
 fs.writeFileSync(path.join(PUB,'destinations.html'),destinationsHub());
-console.log(`provinces: ${nP} · regions: ${nR} · country-thailand: 1 · destinations: 1 (${TOPDEST.length} cities)`);
+console.log(`provinces: ${nP} · destinations(hubs): ${nD}/${DESTINATIONS.length} · regions: ${nR} · country-thailand: 1 · destinations-page: 1 (${TOPDEST.length} cities)`);
 console.log(`missing data (fallback used): ${nMiss.length}${nMiss.length?' → '+nMiss.join(','):''}`);
