@@ -87,6 +87,6 @@ Pipeline + rules: see `_internal/PROVINCE-PLAYBOOK.md`.
 - [x] phatthalung — พัทลุง (12 reviews + Top10 + 37 articles + images)
 - [x] pattani — ปัตตานี (12 reviews + Top10 + 37 articles + images)
 - [x] yala — ยะลา (12 reviews + Top10 + 37 articles + images)
-- [ ] narathiwat — นราธิวาส
+- [x] narathiwat — นราธิวาส (12 reviews + Top10 + 37 articles + images)
 
 > Note: remove the stray "kanchanaburi-check" line — kanchanaburi is in Wave 1. Total real targets = 76 remaining.
