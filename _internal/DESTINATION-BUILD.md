@@ -10,15 +10,17 @@ Site is LIVE: https://thailandaddict.chatmaliwan.workers.dev (auto-deploys on pu
 3. ✅ samui (เกาะสมุย) — DONE (12 reviews + Top10 + 37 articles + images). NOTE: Surat Thani province cluster
    already has a few Koh Samui hotels (cluster=surat-thani, slug …-surat-thani) — those are legit surat-thani
    content, leave them; the samui cluster's own 12 reviews use slug review-…-samui.
-4. ⬜ pai (ปาย) — big-ish town: 12 hotels + ~30 articles
-5. ⬜ pattaya (พัทยา) — big city: 12 hotels + ~37 articles
-6. ⬜ huahin (หัวหิน) — big resort town: 12 hotels + ~37 articles
-7. ⬜ khao-yai (เขาใหญ่) — big area: 12 hotels + ~37 articles  ⚠️ SEE KHAO-YAI NOTE
-8. ⬜ koh-chang (เกาะช้าง) — medium island: ~10-12 hotels + ~26 articles
-9. ⬜ koh-lipe (เกาะหลีเป๊ะ) — small island: ~10 hotels + ~22 articles
-10. ⬜ koh-kood (เกาะกูด) — small island: ~8-10 hotels + ~20 articles
-11. ⬜ koh-mak (เกาะหมาก) — tiny island: ~8 hotels + ~18 articles
-12. ⬜ koh-larn (เกาะล้าน) — day-trip island off Pattaya: ~8 hotels + ~18 articles
+4. ✅ pai (ปาย) — DONE (12 reviews + 30 articles + images). slug review-…-pai (mae-hong-son keeps its own pai-… articles)
+5. ✅ pattaya (พัทยา) — DONE (12 reviews + 37 articles + images). slug review-…-pattaya (chonburi keeps its pattaya-… set)
+6. ✅ huahin (หัวหิน) — DONE (12 reviews + 37 articles + images)
+7. ✅ khao-yai (เขาใหญ่) — DONE (12 reviews + 37 articles + images). Used khaoyai- article prefix + review-…-khao-yai to dodge prachinburi/korat/nakhon-nayok khao-yai-… slugs
+8. ✅ koh-chang (เกาะช้าง) — DONE (12 reviews + 26 articles + images). slug review-…-koh-chang (trat keeps koh-chang-… set)
+9. ✅ koh-lipe (เกาะหลีเป๊ะ) — DONE (12 reviews + 22 articles + images). review-…-koh-lipe
+10. ✅ koh-kood (เกาะกูด) — DONE (12 reviews + 20 articles + images). review-…-koh-kood (trat keeps koh-kood-… set)
+11. ✅ koh-mak (เกาะหมาก) — DONE (12 reviews + 18 articles + images). review-…-koh-mak
+12. ✅ koh-larn (เกาะล้าน) — DONE (12 reviews + 18 articles + images). review-…-koh-larn
+
+**🎉 ALL 12 DESTINATIONS COMPLETE (2026-06-13).** Next phase (future): EN article translation pass · the i18n 9-language + tourism-city layer (see `_internal/I18N-AND-TOURISM-CITY-PLAN.md`).
 
 ## Infra ALREADY done (do NOT redo)
 - `_internal/gen-hubs.mjs` has a `DESTINATIONS` list (all 12 slugs w/ thai name + parent region). It generates
