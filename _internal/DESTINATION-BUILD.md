@@ -7,9 +7,9 @@ Site is LIVE: https://thailandaddict.chatmaliwan.workers.dev (auto-deploys on pu
 ## Order + depth (user-chosen: scale to size, build in this order)
 1. ✅ koh-phangan (เกาะพะงัน) — DONE (12 reviews + 30 articles + images)
 2. ✅ hat-yai (หาดใหญ่) — DONE (12 reviews + 37 articles + images)
-3. 🔨 samui (เกาะสมุย) — IN PROGRESS: hotels+articles workflows were launched in the prior session;
-   files may be partly/fully on disk. RESUME: verify disk, commit hotels (reviews+roundup+hotel imgs),
-   commit articles, run `samui-images.js`, recover gaps, optimize, lint, set-hero, gen-hubs, build-test, finalize.
+3. ✅ samui (เกาะสมุย) — DONE (12 reviews + Top10 + 37 articles + images). NOTE: Surat Thani province cluster
+   already has a few Koh Samui hotels (cluster=surat-thani, slug …-surat-thani) — those are legit surat-thani
+   content, leave them; the samui cluster's own 12 reviews use slug review-…-samui.
 4. ⬜ pai (ปาย) — big-ish town: 12 hotels + ~30 articles
 5. ⬜ pattaya (พัทยา) — big city: 12 hotels + ~37 articles
 6. ⬜ huahin (หัวหิน) — big resort town: 12 hotels + ~37 articles
