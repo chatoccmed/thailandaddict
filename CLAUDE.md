@@ -78,6 +78,14 @@ _internal/
 - (เคยลอง A "Modern Tropical Editorial" cream/teal/Fraunces — owner เลือก C แทน · ห้ามใช้ token A เดิม `#0E7C6B`/`#FF6B4A`/cream/Fraunces)
 - **local preview:** `.claude/launch.json` → static-preview (public, :4399) + dist-preview (`~/ta-build-temp/dist`, :4400) → `_internal/preview-server.mjs` (รับ root/port ผ่าน argv)
 
+## 🌐 ภาษา (i18n) + เมืองท่องเที่ยว (LOCKED policy · แผนเต็ม = `_internal/I18N-AND-TOURISM-CITY-PLAN.md`)
+- **Tier-1 (9 ภาษา):** หน้าหลัก + หน้าจังหวัด/เมืองที่เป็น "เมืองท่องเที่ยว" + ส่วน destination → th·en·zh·ru·ko·ja·he·ar·hi · ⚠️ he+ar = RTL (`dir="rtl"` + mirror layout)
+- **Tier-2 (ไทย+อังกฤษ):** จังหวัดรอง (จังหวัดทั่วไป) + ทุกหน้าอื่น (บทความ/รีวิว/roundup/region/policy)
+- **กติกาทอง:** โครงสร้าง/เลย์เอาต์/ดีไซน์เหมือนกันทุกภาษา เปลี่ยนเฉพาะ "ข้อความที่แสดง" + ทิศอ่าน
+- **เมืองท่องเที่ยว** = ชุด curated (TOPDEST + DESTINATIONS) แยกหมวดจากจังหวัดทั่วไป มีการ์ดพรีเมียม + badge "9 ภาษา" + filter ตามประเภท (เกาะ/ภูเขา/วัฒนธรรม/เมือง) — ดูแผน §2
+- store: `astro/src/i18n/ui.<lang>.json` (chrome) + `_internal/city-i18n/<slug>.<lang>.json` (เนื้อหาเมือง · ไทย=source) · URL = subpath `/<lang>/…` · gen-hubs เป็น locale-aware · fallback en→th
+- สถานะ: **แผน** — ทำเนื้อหา TH/EN ครบก่อน แล้วค่อยทำชั้นภาษา
+
 ## หมายเหตุ scaffold
 - ลบ ad/monetization tag ของ wherebest (emrldco/Travelpayouts) ออกจาก layout แล้ว — ใส่ tag ของ thailandaddict เองภายหลัง
 - nav/footer default ชี้ `country-thailand.html`, `🇹🇭 Thailand` — หน้า hub เหล่านี้ยังไม่มี (สร้างในขั้น 4) ลิงก์จะ 404 จนกว่าจะสร้าง
