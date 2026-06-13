@@ -35,8 +35,11 @@ OUTPUT: เขียนไฟล์เดียวด้วย Write ที่ a
 ก่อนจบ: ls -l ยืนยันไฟล์ถูกเขียน + node -e "const a=require('./astro/src/content/articles-en/<slug>.json'); JSON.parse(JSON.stringify(a))" parse ผ่าน + เช็กว่า top-level keys เท่ากับไฟล์ไทย (slug/type/cluster ตรงกัน). เขียนเฉพาะไฟล์ articles-en/<slug>.json เท่านั้น ห้ามแตะไฟล์ไทย
 `
 
-let slugs = (args && args.slugs) ? args.slugs.slice() : []
-const existing = new Set(args && args.existingEn ? args.existingEn : [])
+log('args typeof=' + (typeof args) + ' value=' + JSON.stringify(args))
+let parsedArgs = args
+if (typeof args === 'string') { try { parsedArgs = JSON.parse(args) } catch {} }
+let slugs = (parsedArgs && parsedArgs.slugs) ? parsedArgs.slugs.slice() : []
+const existing = new Set(parsedArgs && parsedArgs.existingEn ? parsedArgs.existingEn : [])
 slugs = slugs.filter(s => !existing.has(s))
 log(`Translating ${slugs.length} articles → EN`)
 
