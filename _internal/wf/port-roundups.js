@@ -26,6 +26,13 @@ const SINGLE = [
 ];
 const CITY='chiang-mai', TH='เชียงใหม่';
 
+// args.only = [oldSlug,...] limits which posts run (for 1-post test then scaling).
+// args.singles = false skips the single-feature reviews this run.
+const ONLY = (args && Array.isArray(args.only) && args.only.length) ? new Set(args.only) : null;
+const RUN_POSTS = ONLY ? POSTS.filter(p=>ONLY.has(p.old)) : POSTS;
+const RUN_SINGLE = (args && args.singles===false) ? [] : (ONLY ? SINGLE.filter(s=>ONLY.has(s.old)) : SINGLE);
+log(`Running ${RUN_POSTS.length} roundups + ${RUN_SINGLE.length} single features${ONLY?' (filtered)':''}`)
+
 const STYLE=`สไตล์ thailandaddict (v2-clean): "เพื่อนเล่าให้เพื่อนฟัง" จริงใจ บอกข้อดี-ข้อสังเกตตามจริง อ้าง "เสียงจากรีวิวจริง" ไม่อ้างไปพักเอง · ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน · ข้อมูลอัปเดตปัจจุบัน`;
 const norm = s => s.toLowerCase().replace(/[^a-z0-9ก-๙]/g,'');
 
@@ -33,12 +40,13 @@ const PLAN_SCHEMA={type:'object',additionalProperties:false,required:['hotels'],
   name:{type:'string'},reviewSlug:{type:'string',description:'review-<hotel-kebab>-chiang-mai'},area:{type:'string'},tier:{type:'string'},star:{type:'number'},open:{type:'boolean',description:'ยังเปิดจริงไหม'},note:{type:'string'}}}}}};
 
 phase('Plan')
-const plans = await parallel(POSTS.map(P => () =>
-  agent(`ดึงเนื้อหาโพสต์เดิมจาก WP REST API แล้วสกัดรายชื่อโรงแรม:
-WebFetch: https://thailandaddict.com/wp-json/wp/v2/posts?slug=${P.old}&_fields=title,content (ถ้าค้างให้ข้าม)
-งาน: สกัดโรงแรมทุกแห่งในโพสต์ "${P.title}" (จังหวัด${TH}) → สำหรับแต่ละโรงแรม: ชื่อจริง, ย่าน/area, ระดับ tier (luxury/boutique/midrange/budget/hostel) + ดาว, **เช็คว่ายังเปิดจริงไหม (web-search; ถ้าปิดถาวร open=false + note ชื่อโรงแรมตัวแทนที่เปิดจริงในย่าน/ระดับเดียวกัน)**
-- reviewSlug = review-<ชื่อโรงแรม-kebab อังกฤษ>-chiang-mai (สำหรับโรงแรมปิด ให้ใช้ชื่อตัวแทนทำ slug)
-- ถ้าโพสต์มี ~5-12 โรงแรม คืนตามจริง
+const plans = await parallel(RUN_POSTS.map(P => () =>
+  agent(`สกัดรายชื่อโรงแรมจากโพสต์เดิม (เนื้อหาอยู่บนดิสก์แล้ว — อย่าใช้ WebFetch ไปดึงโพสต์เดิม):
+1) อ่านไฟล์ _internal/migration/oldposts/${P.old}.txt (เนื้อหาโพสต์เดิมเต็ม ๆ สกัด HTML แล้ว) ด้วย Read tool
+2) ดู slug รีวิวเชียงใหม่ที่มีอยู่แล้ว: ls astro/src/content/reviews/ | grep chiang-mai (เผื่อ dedup/reuse)
+งาน: สกัดโรงแรมทุกแห่งในโพสต์ "${P.title}" (จังหวัด${TH}) → สำหรับแต่ละโรงแรม: ชื่อจริง, ย่าน/area, ระดับ tier (luxury/boutique/midrange/budget/hostel/nature-stay) + ดาว, **เช็คว่ายังเปิดจริงไหม (web-search ชื่อโรงแรม+เชียงใหม่; ถ้าปิดถาวร open=false + note ชื่อโรงแรมตัวแทนที่เปิดจริงในย่าน/ระดับเดียวกัน)**
+- reviewSlug = review-<ชื่อโรงแรม-kebab อังกฤษ>-chiang-mai · ถ้ามีไฟล์รีวิวชื่อตรงกันอยู่แล้ว ใช้ slug เดิม (reuse) · โรงแรมปิด→ใช้ชื่อตัวแทนทำ slug
+- คืนโรงแรมตามจำนวนจริงในโพสต์ (เลขในชื่อโพสต์ = จำนวน เช่น top5=5, topten=10)
 คืนตาม schema (array hotels)`,
     { label:`plan:${P.old}`, phase:'Plan', schema:PLAN_SCHEMA })
     .then(r=>({P, hotels:((r&&r.hotels)||[])})).catch(()=>({P,hotels:[]}))
@@ -56,7 +64,7 @@ log(`Planned ${POSTS.length} roundups · ${uniqueHotels.length} unique hotels (+
 
 phase('Write')
 const writeList = [...uniqueHotels.map(h=>({name:h.name,slug:h.reviewSlug,area:h.area,tier:h.tier,star:h.star})),
-  ...SINGLE.map(s=>({name:s.name,slug:'review-'+norm(s.name).replace(/[ก-๙]/g,'')+'-chiang-mai',area:'',tier:'',star:5,single:true}))];
+  ...RUN_SINGLE.map(s=>({name:s.name,slug:'review-'+norm(s.name).replace(/[ก-๙]/g,'')+'-chiang-mai',area:'',tier:'',star:5,single:true}))];
 const written = await parallel(writeList.map(t => () =>
   agent(`เขียนรีวิวโรงแรมเชิงลึก "${t.name}" จังหวัด${TH} ลง thailandaddict.com — **body ภาษาไทย ≥2,000 คำ** (สไตล์ https://www.wherebest.com/review-cho-hotel-taipei)
 ก่อนเขียน: ถ้ามีไฟล์ astro/src/content/reviews/${t.slug}.json อยู่แล้ว และ body ยาว ≥2000 คำ → ข้าม (return exists) · ถ้ายาวไม่ถึง → เขียนทับให้ ≥2000 คำ
@@ -64,6 +72,7 @@ const written = await parallel(writeList.map(t => () =>
 OUTPUT: astro/src/content/reviews/${t.slug}.json (ไทยอย่างเดียว — EN ทำทีหลัง) ครบ reviewSchema ทุก field · cluster="${CITY}" · crumbCityName="${TH}", crumbCityHref="city-${CITY}.html" · countryHref="country-thailand.html" · addressCountry="TH"
 - body ≥2000 คำ แบ่งหัวข้อ: ภาพรวม-ใครเหมาะ/ทำเล-เดินทาง/ห้อง-ตกแต่ง/สิ่งอำนวยฯ-สระ-สปา/อาหาร-บาร์/บริการ/เสียงรีวิวจริง(ชม-ติ)/เทียบราคา-ความคุ้ม/ข้อควรรู้ก่อนจอง/สรุป
 - วิจัยเว็บจริงอัปเดต · affiliate Agoda ?cid=1965862 · Trip ?Allianceid=6861268&SID=312919111 · Booking plain · heroSub2Href = Trip/Agoda มี ID
+- **ถ้าเป็นที่พักธรรมชาติ/โฮมสเตย์ที่ไม่มีบน Agoda/Booking/Trip** (เช่น จองผ่าน Facebook/โทร): ห้ามแต่งลิงก์ปลอม — ใส่ลิงก์จองที่มีจริง (เพจ FB/เว็บ/เบอร์โทรในโพสต์เดิม) ลง booking field ที่มี, field OTA ที่ไม่มีให้ชี้ค้นหา Google/Agoda search ของชื่อโรงแรม + ระบุใน body ว่าจองผ่านช่องทางไหน · score/rating ใช้เท่าที่หาได้จริง (อย่าปั้นตัวเลข)
 - รูป hero: curl -m 60 -A "Mozilla/5.0" รูปจริงไป astro/public/images/hotels/${CITY}-<short>.jpg (hero + gallery 3); ถ้าไม่ได้ปล่อย path (onerror)
 ${STYLE}
 ⚠️ นับคำ body ≥2000 · ค้นคำต้องห้ามแล้วแก้ · ยืนยัน ls -l + JSON valid · return: คำ body, เปิดจริงไหม`,
