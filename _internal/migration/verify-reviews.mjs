@@ -6,7 +6,9 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BAN = ['ตอบโจทย์','โดดเด่น','ครบครัน','ระดับโลก','สุดยอด','อันซีน'];
-const SLANG = [' อ่ะ',' ปะ',' แหละ',' ล่ะ'];
+// Slang particles only count at a clause boundary (followed by space/punct/tag/quote/end),
+// so legitimate words like ปะปน / ประปา / ละเอียด don't trip the check.
+const SLANG = ['อ่ะ','ปะ','แหละ','ล่ะ'].map(w => new RegExp(w + '(?=[\\s<"\'.,!?)\\]]|$)'));
 
 const stripTags = (h) => String(h).replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
 // Thai-aware word proxy: count Thai char runs + latin words. The workflow's "2000 words"
@@ -30,7 +32,7 @@ function checkReview(path, obj) {
   // forbidden words across whole file
   const all = JSON.stringify(obj);
   for (const b of BAN) if (all.includes(b)) issues.push(`BAN:${b}`);
-  for (const s of SLANG) if (all.includes(s)) issues.push(`SLANG:${s.trim()}`);
+  for (const re of SLANG) { const m = all.match(re); if (m) issues.push(`SLANG:${m[0]}`); }
   // length constraints from schema
   if (!Array.isArray(obj.gallery) || obj.gallery.length !== 3) issues.push('gallery!=3');
   if (!Array.isArray(obj.highlights) || obj.highlights.length !== 3) issues.push('highlights!=3');
