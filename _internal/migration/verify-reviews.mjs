@@ -8,7 +8,8 @@ import { join } from 'node:path';
 const BAN = ['ตอบโจทย์','โดดเด่น','ครบครัน','ระดับโลก','สุดยอด','อันซีน'];
 // Slang particles only count at a clause boundary (followed by space/punct/tag/quote/end),
 // so legitimate words like ปะปน / ประปา / ละเอียด don't trip the check.
-const SLANG = ['อ่ะ','ปะ','แหละ','ล่ะ'].map(w => new RegExp(w + '(?=[\\s<"\'.,!?)\\]]|$)'));
+// Slang particles only at a clause boundary; ปะ excludes ศิลปะ (art) via negative lookbehind.
+const SLANG = [['อ่ะ',''],['ปะ','(?<!ศิล)'],['แหละ',''],['ล่ะ','']].map(([w,lb]) => new RegExp(lb + w + '(?=[\\s<"\'.,!?)\\]]|$)'));
 
 const stripTags = (h) => String(h).replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
 // Thai-aware word proxy: count Thai char runs + latin words. The workflow's "2000 words"
