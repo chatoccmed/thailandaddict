@@ -1,6 +1,6 @@
 export const meta = {
-  name: 'port-tak',
-  description: 'Single-planner porter for ตาก (cluster=tak): one agent plans all 2 roundup(s) together -> unique hotels -> reviews >=2000w -> roundups. Reuses existing tak reviews.',
+  name: 'port-krabi',
+  description: 'Single-planner porter for กระบี่ (cluster=krabi): one agent plans all 3 roundup(s) together -> unique hotels -> reviews >=2000w -> roundups. Reuses existing krabi reviews.',
   phases: [
     { title: 'Plan', detail: 'one agent reads all old posts + existing reviews -> unified hotel list + membership' },
     { title: 'Write', detail: 'per-hotel reviews >=2000w (unique, skip if already long)' },
@@ -8,13 +8,13 @@ export const meta = {
   ],
 }
 
-const CLUSTER = "tak", PROV = "ตาก", CRUMB = "ตาก", CRUMBHREF = "city-tak.html";
-const POSTS = [{"old":"top10-mae-sot-tak-hotels","newSlug":"top10-mae-sot-hotels-tak","title":"10 ที่พักในเมืองแม่สอด จังหวัดตาก","n":10},{"old":"top10-tak-thailand-hotels","newSlug":"top10-tak-city-hotels","title":"10 ที่พักหลากสไตล์ใจกลางเมืองตาก","n":10}];
+const CLUSTER = "krabi", PROV = "กระบี่", CRUMB = "กระบี่", CRUMBHREF = "city-krabi.html";
+const POSTS = [{"old":"top10-krabi-best-hotels","newSlug":"top10-krabi-budget-city-hotels","title":"10 ที่พักหลักร้อยในอำเภอเมืองกระบี่","n":10},{"old":"top5-krabi-airport-hotels","newSlug":"top5-krabi-airport-hotels","title":"5 ที่พักวิวสวยใกล้สนามบินกระบี่","n":5},{"old":"top15-ao-nang-krabi-hotels","newSlug":"top15-ao-nang-hotels-krabi","title":"15 ที่พักบรรยากาศดีใกล้หาดอ่าวนาง กระบี่","n":15}];
 
 const STYLE = 'สไตล์ thailandaddict (v2-clean): "เพื่อนเล่าให้เพื่อนฟัง" จริงใจ บอกข้อดี-ข้อสังเกตตามจริง อ้าง "เสียงจากรีวิวจริง" ไม่อ้างไปพักเอง · ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน · ข้อมูลอัปเดตปัจจุบัน';
 const GOLD = 'เทมเพลตทอง: astro/src/content/roundups/top5-luxury-5-star-hotels-chiang-mai.json + รีวิว astro/src/content/reviews/review-u-nimman-chiang-mai.json (>=2000w) + schema astro/src/content.config.ts';
 
-const PLAN_SCHEMA = {"type":"object","additionalProperties":false,"required":["hotels","roundups"],"properties":{"hotels":{"type":"array","description":"โรงแรม unique ทั้งหมด (1 slug ต่อ 1 โรงแรมจริง ใช้ซ้ำข้าม roundup ได้)","items":{"type":"object","additionalProperties":false,"required":["name","reviewSlug","area","tier","star","open"],"properties":{"name":{"type":"string"},"reviewSlug":{"type":"string","description":"review-<hotel-kebab-en>-tak"},"area":{"type":"string"},"tier":{"type":"string"},"star":{"type":"number"},"open":{"type":"boolean"},"note":{"type":"string"}}}},"roundups":{"type":"array","description":"membership ต่อ roundup","items":{"type":"object","additionalProperties":false,"required":["newSlug","reviewSlugs"],"properties":{"newSlug":{"type":"string"},"reviewSlugs":{"type":"array","items":{"type":"string"},"description":"reviewSlug เรียงตามอันดับ"}}}}}};
+const PLAN_SCHEMA = {"type":"object","additionalProperties":false,"required":["hotels","roundups"],"properties":{"hotels":{"type":"array","description":"โรงแรม unique ทั้งหมด (1 slug ต่อ 1 โรงแรมจริง ใช้ซ้ำข้าม roundup ได้)","items":{"type":"object","additionalProperties":false,"required":["name","reviewSlug","area","tier","star","open"],"properties":{"name":{"type":"string"},"reviewSlug":{"type":"string","description":"review-<hotel-kebab-en>-krabi"},"area":{"type":"string"},"tier":{"type":"string"},"star":{"type":"number"},"open":{"type":"boolean"},"note":{"type":"string"}}}},"roundups":{"type":"array","description":"membership ต่อ roundup","items":{"type":"object","additionalProperties":false,"required":["newSlug","reviewSlugs"],"properties":{"newSlug":{"type":"string"},"reviewSlugs":{"type":"array","items":{"type":"string"},"description":"reviewSlug เรียงตามอันดับ"}}}}}};
 
 phase('Plan')
 const plan = await agent(`วางแผนพอร์ต ${POSTS.length} roundup ของจังหวัด${PROV} (cluster=${CLUSTER}) พร้อมกัน — เพื่อ **ไม่ให้โรงแรมเดียวกันได้ slug ซ้ำซ้อน** ข้าม list

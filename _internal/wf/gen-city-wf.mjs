@@ -12,6 +12,21 @@ for (const k of ['cluster', 'prov', 'crumb', 'crumbHref', 'posts']) {
 }
 const J = v => JSON.stringify(v);
 
+// Build PLAN_SCHEMA as a real object here (cluster resolved), emit via JSON.stringify
+// → a single-line valid JS literal that never trips the workflow parser.
+const PLAN_SCHEMA = {
+  type: 'object', additionalProperties: false, required: ['hotels', 'roundups'],
+  properties: {
+    hotels: { type: 'array', description: 'โรงแรม unique ทั้งหมด (1 slug ต่อ 1 โรงแรมจริง ใช้ซ้ำข้าม roundup ได้)', items: {
+      type: 'object', additionalProperties: false, required: ['name', 'reviewSlug', 'area', 'tier', 'star', 'open'], properties: {
+        name: { type: 'string' }, reviewSlug: { type: 'string', description: 'review-<hotel-kebab-en>-' + C.cluster },
+        area: { type: 'string' }, tier: { type: 'string' }, star: { type: 'number' }, open: { type: 'boolean' }, note: { type: 'string' } } } },
+    roundups: { type: 'array', description: 'membership ต่อ roundup', items: {
+      type: 'object', additionalProperties: false, required: ['newSlug', 'reviewSlugs'], properties: {
+        newSlug: { type: 'string' }, reviewSlugs: { type: 'array', items: { type: 'string' }, description: 'reviewSlug เรียงตามอันดับ' } } } },
+  },
+};
+
 const script = `export const meta = {
   name: 'port-${C.cluster}',
   description: 'Single-planner porter for ${C.prov} (cluster=${C.cluster}): one agent plans all ${C.posts.length} roundup(s) together -> unique hotels -> reviews >=2000w -> roundups. Reuses existing ${C.cluster} reviews.',
@@ -28,11 +43,7 @@ const POSTS = ${J(C.posts)};
 const STYLE = 'สไตล์ thailandaddict (v2-clean): "เพื่อนเล่าให้เพื่อนฟัง" จริงใจ บอกข้อดี-ข้อสังเกตตามจริง อ้าง "เสียงจากรีวิวจริง" ไม่อ้างไปพักเอง · ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน · ข้อมูลอัปเดตปัจจุบัน';
 const GOLD = 'เทมเพลตทอง: astro/src/content/roundups/top5-luxury-5-star-hotels-chiang-mai.json + รีวิว astro/src/content/reviews/review-u-nimman-chiang-mai.json (>=2000w) + schema astro/src/content.config.ts';
 
-const PLAN_SCHEMA = { type:'object', additionalProperties:false, required:['hotels','roundups'], properties:{
-  hotels:{ type:'array', description:'โรงแรม unique ทั้งหมด (1 slug ต่อ 1 โรงแรมจริง ใช้ซ้ำข้าม roundup ได้)', items:{ type:'object', additionalProperties:false, required:['name','reviewSlug','area','tier','star','open'], properties:{
-    name:{type:'string'}, reviewSlug:{type:'string',description:'review-<hotel-kebab-en>-'+CLUSTER}, area:{type:'string'}, tier:{type:'string'}, star:{type:'number'}, open:{type:'boolean'}, note:{type:'string'} } } },
-  roundups:{ type:'array', description:'membership ต่อ roundup', items:{ type:'object', additionalProperties:false, required:['newSlug','reviewSlugs'], properties:{
-    newSlug:{type:'string'}, reviewSlugs:{type:'array',items:{type:'string'},description:'reviewSlug เรียงตามอันดับ'} } } } };
+const PLAN_SCHEMA = ${J(PLAN_SCHEMA)};
 
 phase('Plan')
 const plan = await agent(\`วางแผนพอร์ต \${POSTS.length} roundup ของจังหวัด\${PROV} (cluster=\${CLUSTER}) พร้อมกัน — เพื่อ **ไม่ให้โรงแรมเดียวกันได้ slug ซ้ำซ้อน** ข้าม list
