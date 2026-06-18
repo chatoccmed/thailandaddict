@@ -24,7 +24,8 @@ ${POSTS.map(p=>'  - '+p.newSlug+' <- _internal/migration/oldposts/'+p.old+'.txt 
 งาน:
 1) รวมโรงแรมจากทุก list -> ทำ **บัญชี hotels unique** (โรงแรมที่โผล่หลาย list ให้มี reviewSlug เดียว ใช้ซ้ำ) · reviewSlug = review-<ชื่อ-kebab อังกฤษ>-${CLUSTER} · เช็คเปิดจริง (web-search; ปิดถาวร open=false + note โรงแรมตัวแทนที่เปิดจริงในย่านเดียวกัน)
 2) ทำ **roundups membership**: แต่ละ newSlug -> reviewSlugs เรียงตามอันดับ (จำนวน = เลข n ในชื่อ; โรงแรมปิด->ใช้ตัวแทน) ให้ครบ n ของแต่ละ roundup
-สำคัญ: โรงแรมเดียวกันต้องได้ reviewSlug **เดียวกันเป๊ะ** ทุกที่ที่อ้างถึง`,
+สำคัญ: โรงแรมเดียวกันต้องได้ reviewSlug **เดียวกันเป๊ะ** ทุกที่ที่อ้างถึง
+⚠️ ค่า newSlug ใน output ต้องตรงกับ newSlug ที่กำหนดด้านบน **เป๊ะทุกตัวอักษร** — ห้ามเปลี่ยน/เพิ่ม/ตัดคำ (เช่น ห้ามเติม -riverside)`,
   { label:'plan:'+CLUSTER, phase:'Plan', schema:PLAN_SCHEMA })
 
 const needSet = new Map();
@@ -51,8 +52,9 @@ ${STYLE}
 log('Reviews: '+written.filter(x=>x&&x.ok).length+'/'+uniqueHotels.length)
 
 phase('Roundup')
-const rounds = await parallel(POSTS.map(P => () => {
-  const revs = memberOf.get(P.newSlug) || [];
+const rounds = await parallel(POSTS.map((P, idx) => () => {
+  // primary: match by exact slug; fallback: by index (plan keeps POSTS order) if the plan agent renamed the slug
+  const revs = memberOf.get(P.newSlug) || ((plan?.roundups||[])[idx]?.reviewSlugs) || [];
   if (!revs.length) return Promise.resolve({slug:P.newSlug, ok:false, e:'no membership'});
   return agent(`สร้าง roundup ใหม่ "${P.title}" (พอร์ตจาก ${P.old}, cluster=${CLUSTER}, จังหวัด${PROV}) เขียนใหม่สไตล์เพื่อนเล่าให้ฟัง
 อ่าน ${GOLD} + อ่านไฟล์รีวิวของโรงแรมในชุดนี้ทุกไฟล์ (ดึง score/price/rooms/agoda/booking/trip/heroImg/ทำเล)
