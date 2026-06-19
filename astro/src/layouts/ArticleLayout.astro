@@ -12,6 +12,9 @@ const S = isEn
 
 const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
 const faq = data.faq ?? [];
+// Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
+const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
+const isResto = restos.length > 0;
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
     { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
@@ -88,6 +91,38 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .body ul{margin:0 0 16px;padding-left:4px;list-style:none}
 .body ul li{position:relative;padding:6px 0 6px 26px;font-size:15.5px;color:#1e293b}
 .body ul li::before{content:'';position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral))}
+/* ===== Restaurant roundup — editorial "award" layout ===== */
+.rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(64px,13vw,128px) 0 clamp(40px,7vw,76px)}
+.rhero .wrap{max-width:860px}
+.rhero .eyebrow{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
+.rhero h1{font-family:'Outfit';font-size:clamp(33px,6.2vw,56px);font-weight:900;line-height:1.07;letter-spacing:-1.2px;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+.rhero h1 .hi{color:var(--mango)}.rhero h1 .hi2{color:#fff}
+.rhero .lead{color:rgba(255,255,255,.93);font-size:clamp(16px,2.3vw,19px);max-width:700px;margin-top:16px;text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.rhero .chips{margin-top:22px}
+.rhero .chip{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.34);color:#fff;backdrop-filter:blur(6px)}
+.qnav{position:sticky;top:60px;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr)}
+.qnav-row{max-width:980px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:11px 20px;scrollbar-width:none}.qnav-row::-webkit-scrollbar{display:none}
+.qnav-row a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-family:'Outfit';font-size:13px;font-weight:600;color:var(--sub);background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:6px 14px 6px 7px;white-space:nowrap;transition:.15s}
+.qnav-row a:hover{color:var(--teal-dk);border-color:var(--teal);background:#fff}
+.qnav-row a b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-size:11px;font-weight:900}
+.resto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:clamp(22px,3.6vw,46px);align-items:center;margin:clamp(40px,6.5vw,72px) 0;scroll-margin-top:128px}
+.resto-media{position:relative;order:0}.resto.flip .resto-media{order:2}
+.resto-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px;box-shadow:0 26px 54px -14px rgba(15,23,42,.34)}
+.resto-rank{position:absolute;top:-16px;left:-10px;width:clamp(50px,7vw,64px);height:clamp(50px,7vw,64px);border-radius:19px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:clamp(23px,3.6vw,31px);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px rgba(244,63,94,.42);z-index:2}
+.resto-cred{position:absolute;left:13px;bottom:13px;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);color:#fff;font-family:'Outfit';font-size:10.5px;font-weight:600;padding:5px 11px;border-radius:999px;max-width:86%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.resto-cred a{color:#fff}
+.resto-body .resto-name{font-family:'Outfit';font-size:clamp(25px,3.7vw,33px);font-weight:900;letter-spacing:-.5px;line-height:1.14;margin:0 0 9px;scroll-margin-top:0}
+.resto-meta{display:flex;flex-wrap:wrap;gap:14px;font-family:'Outfit';font-size:13.5px;font-weight:600;color:var(--sub);margin-bottom:13px}
+.resto-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+.resto-pills .pill{font-family:'Outfit';font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:999px}
+.pill.sig{background:#fff7e6;color:#b45309;border:1px solid #fde68a}.pill.price{background:#e0f7fa;color:var(--teal-dk);border:1px solid #a5e8f0}.pill.score{background:#fff1f3;color:var(--coral-dk);border:1px solid #fecdd3}
+.resto-desc{font-size:15.5px;color:#1e293b;line-height:1.82}.resto-desc strong{color:var(--ink);font-weight:700}.resto-desc p{margin:0 0 12px}
+.resto-must{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:15px}
+.resto-must .ml{font-family:'Outfit';font-weight:800;font-size:11.5px;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.6px}
+.resto-must .mo{font-family:'Outfit';font-size:12.5px;font-weight:600;background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:5px 12px}
+.resto-act{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.rbtn{font-family:'Outfit';font-weight:800;font-size:13px;padding:10px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
+.rbtn.map{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;box-shadow:0 8px 18px rgba(6,182,212,.34)}.rbtn.fb{background:#fff;border:2px solid var(--bdr);color:var(--ink)}.rbtn:hover{transform:translateY(-2px)}
+@media(max-width:760px){.resto{grid-template-columns:1fr;gap:16px;margin:38px 0}.resto-media,.resto.flip .resto-media{order:-1}.resto-rank{top:-12px;left:-6px}}
 .figimg{margin:18px 0 20px}.figimg img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px;box-shadow:0 12px 30px rgba(15,23,42,.10)}
 .figimg figcaption{font-family:'Outfit';font-size:12px;color:var(--sub);margin-top:8px;text-align:center;line-height:1.5}
 .figimg .cap{display:block;color:#1e293b}.figimg .cred{display:block;font-size:11px;opacity:.85}.figimg .cred a{color:var(--teal-dk);text-decoration:underline}
@@ -158,20 +193,54 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 
 <div class="crumb"><a href={link('/')}>{S.home}</a> › <a href={link('country-thailand.html')}>{S.th}</a> › <a href={link(data.crumbCityHref)}>{data.crumbCity}</a> › <span>{data.h1}</span></div>
 
-<section class="hero"><div class="wrap">
-  <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
-  <h1 set:html={data.h1} />
-  <p class="lead" set:html={data.intro} />
-  {data.chips && data.chips.length > 0 &&
-    <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
-</div></section>
-{data.heroImg && <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />}
+{isResto && data.heroImg ? (
+  <section class="rhero" style={`background-image:linear-gradient(177deg,rgba(15,23,42,.12) 0%,rgba(15,23,42,.40) 45%,rgba(15,23,42,.86) 100%),url('${asset(data.heroImg)}')`}>
+    <div class="wrap">
+      <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
+      <h1 set:html={data.h1} />
+      <p class="lead" set:html={data.intro} />
+      {data.chips && data.chips.length > 0 &&
+        <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
+    </div>
+  </section>
+) : (
+  <>
+    <section class="hero"><div class="wrap">
+      <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
+      <h1 set:html={data.h1} />
+      <p class="lead" set:html={data.intro} />
+      {data.chips && data.chips.length > 0 &&
+        <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
+    </div></section>
+    {data.heroImg && <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />}
+  </>
+)}
+{isResto &&
+  <nav class="qnav"><div class="qnav-row">{restos.map((r) => <a href={`#r${r.rank}`}><b>{r.rank}</b><span set:html={r.name} /></a>)}</div></nav>}
 
 <article class="body"><div class="wrap">
   {data.blocks.map((b) => (
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
     b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :
+    b.kind === 'restaurant' ? <section class={Number(b.rank) % 2 === 0 ? 'resto flip' : 'resto'} id={`r${b.rank}`}>
+      <div class="resto-media">
+        <span class="resto-rank">{b.rank}</span>
+        <img src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
+        {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
+      </div>
+      <div class="resto-body">
+        <h2 class="resto-name" set:html={b.name} />
+        {(b.area || b.cuisine) && <div class="resto-meta">{b.area && <span set:html={'📍 ' + b.area} />}{b.cuisine && <span set:html={'🍽️ ' + b.cuisine} />}</div>}
+        {(b.signature || b.priceRange || b.score) &&
+          <div class="resto-pills">{b.signature && <span class="pill sig" set:html={'🥢 ' + b.signature} />}{b.priceRange && <span class="pill price" set:html={'💸 ' + b.priceRange} />}{b.score && <span class="pill score" set:html={'⭐ ' + b.score} />}</div>}
+        <div class="resto-desc" set:html={b.descHtml} />
+        {b.mustOrder && b.mustOrder.length > 0 &&
+          <div class="resto-must"><span class="ml">ต้องลอง</span>{b.mustOrder.map((m) => <span class="mo" set:html={m} />)}</div>}
+        {(b.mapHref || b.fbHref) &&
+          <div class="resto-act">{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">📍 ดูแผนที่</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">เพจร้าน</a>}</div>}
+      </div>
+    </section> :
     b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
     b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :
     b.kind === 'ranked' ? <div class="ranked">{b.items.map((it) => (

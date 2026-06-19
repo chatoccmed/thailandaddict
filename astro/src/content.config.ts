@@ -218,6 +218,14 @@ const articleBlock = z.discriminatedUnion('kind', [
   // Inline credited image (e.g. per-restaurant photo). Additive · back-compat (no existing article uses it).
   z.object({ kind: z.literal('image'), src: z.string(), alt: z.string(),
     caption: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() }),
+  // Rich editorial restaurant card (award-winning roundup layout). Additive · back-compat.
+  z.object({ kind: z.literal('restaurant'),
+    rank: z.union([z.string(), z.number()]).transform(String),
+    name: z.string(), nameEn: z.string().optional(), area: z.string().optional(), cuisine: z.string().optional(),
+    signature: z.string().optional(), priceRange: z.string().optional(), score: z.string().optional(),
+    img: z.string(), alt: z.string(), credit: z.string().optional(), creditHref: z.string().optional(),
+    descHtml: z.string(), mustOrder: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
+    mapHref: z.string().optional(), fbHref: z.string().optional() }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({
