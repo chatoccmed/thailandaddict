@@ -225,7 +225,12 @@ const articleBlock = z.discriminatedUnion('kind', [
     signature: z.string().optional(), priceRange: z.string().optional(), score: z.string().optional(),
     img: z.string(), alt: z.string(), credit: z.string().optional(), creditHref: z.string().optional(),
     descHtml: z.string(), mustOrder: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
-    mapHref: z.string().optional(), fbHref: z.string().optional() }),
+    mapHref: z.string().optional(), fbHref: z.string().optional(),
+    stayHref: z.string().optional(), stayLabel: z.string().optional() }),
+  // Hotel-booking conversion module (drives readers → accommodation pages). Additive · back-compat.
+  z.object({ kind: z.literal('staycta'), title: z.string(), text: z.string().optional(), img: z.string().optional(),
+    links: z.array(z.object({ label: z.string(), href: z.string(), note: z.string().optional() })),
+    ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({

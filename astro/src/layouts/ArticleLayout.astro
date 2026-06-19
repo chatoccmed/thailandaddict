@@ -122,6 +122,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-act{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .rbtn{font-family:'Outfit';font-weight:800;font-size:13px;padding:10px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
 .rbtn.map{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;box-shadow:0 8px 18px rgba(6,182,212,.34)}.rbtn.fb{background:#fff;border:2px solid var(--bdr);color:var(--ink)}.rbtn:hover{transform:translateY(-2px)}
+.rbtn.stay{background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;box-shadow:0 8px 18px rgba(244,63,94,.36)}
+.staycta{background:linear-gradient(125deg,var(--teal-dk),var(--coral));background-size:cover;background-position:center;border-radius:26px;padding:clamp(28px,5vw,46px);margin:clamp(34px,5.5vw,56px) 0;color:#fff;box-shadow:0 24px 54px -16px rgba(244,63,94,.5)}
+.staycta-in{max-width:700px}
+.staycta h3{font-family:'Outfit';font-weight:900;font-size:clamp(22px,3.5vw,31px);line-height:1.18;letter-spacing:-.4px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
+.staycta p{font-size:15.5px;color:rgba(255,255,255,.96);line-height:1.7;margin:12px 0 20px;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+.staycta-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:22px}@media(max-width:600px){.staycta-links{grid-template-columns:1fr}}
+.staycta-links a{display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(6px);border-radius:14px;padding:12px 16px;font-family:'Outfit';font-weight:700;font-size:14.5px;color:#fff;transition:.15s}
+.staycta-links a:hover{background:rgba(255,255,255,.27);transform:translateY(-1px)}
+.staycta-links a .ll{display:flex;align-items:center;gap:7px}.staycta-links a small{font-weight:500;font-size:12px;opacity:.86}
+.staycta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--coral-dk);font-family:'Outfit';font-weight:800;font-size:15px;padding:14px 28px;border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.2);transition:transform .15s}.staycta-btn:hover{transform:translateY(-2px)}
 @media(max-width:760px){.resto{grid-template-columns:1fr;gap:16px;margin:38px 0}.resto-media,.resto.flip .resto-media{order:-1}.resto-rank{top:-12px;left:-6px}}
 .figimg{margin:18px 0 20px}.figimg img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px;box-shadow:0 12px 30px rgba(15,23,42,.10)}
 .figimg figcaption{font-family:'Outfit';font-size:12px;color:var(--sub);margin-top:8px;text-align:center;line-height:1.5}
@@ -237,8 +247,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <div class="resto-desc" set:html={b.descHtml} />
         {b.mustOrder && b.mustOrder.length > 0 &&
           <div class="resto-must"><span class="ml">ต้องลอง</span>{b.mustOrder.map((m) => <span class="mo" set:html={m} />)}</div>}
-        {(b.mapHref || b.fbHref) &&
-          <div class="resto-act">{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">📍 ดูแผนที่</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">เพจร้าน</a>}</div>}
+        {(b.mapHref || b.fbHref || b.stayHref) &&
+          <div class="resto-act">{b.stayHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || 'ที่พักใกล้ร้านนี้')} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">📍 ดูแผนที่</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">เพจร้าน</a>}</div>}
+      </div>
+    </section> :
+    b.kind === 'staycta' ? <section class="staycta" style={b.img ? `background-image:linear-gradient(125deg,rgba(8,145,178,.93),rgba(244,63,94,.9)),url('${asset(b.img)}')` : ''}>
+      <div class="staycta-in">
+        <h3 set:html={b.title} />
+        {b.text && <p set:html={b.text} />}
+        <div class="staycta-links">{b.links.map((l) => <a href={link(l.href)}><span class="ll" set:html={l.label} />{l.note && <small set:html={l.note} />}</a>)}</div>
+        {b.ctaHref && <a class="staycta-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
       </div>
     </section> :
     b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
