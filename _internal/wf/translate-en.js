@@ -49,7 +49,7 @@ const res = await parallel(slugs.map(slug => () =>
 `แปลบทความนี้เป็นภาษาอังกฤษ: อ่าน astro/src/content/articles/${slug}.json (ต้นฉบับไทย) แล้วสร้าง astro/src/content/articles-en/${slug}.json
 ${RULES}
 slug=${slug} (คง slug/type/cluster เดิมจากไฟล์ไทย). รายงานสั้น ๆ: จำนวน blocks ที่แปล + JSON valid ไหม`,
-    { label: `en:${slug}`, phase: 'Translate' }
+    { label: `en:${slug}`, phase: 'Translate', model: 'opus' }
   ).then(()=>({slug, ok:true})).catch(()=>({slug, ok:false}))
 ))
 const ok = res.filter(x=>x&&x.ok).length
