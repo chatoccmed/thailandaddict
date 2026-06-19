@@ -215,6 +215,9 @@ const roundupsEn = defineCollection({
 const articleBlock = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('h2'), text: z.string(), id: z.string().optional() }),
   z.object({ kind: z.literal('p'), html: z.string() }),
+  // Inline credited image (e.g. per-restaurant photo). Additive · back-compat (no existing article uses it).
+  z.object({ kind: z.literal('image'), src: z.string(), alt: z.string(),
+    caption: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({

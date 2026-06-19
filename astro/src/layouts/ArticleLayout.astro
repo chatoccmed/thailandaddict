@@ -88,6 +88,9 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .body ul{margin:0 0 16px;padding-left:4px;list-style:none}
 .body ul li{position:relative;padding:6px 0 6px 26px;font-size:15.5px;color:#1e293b}
 .body ul li::before{content:'';position:absolute;left:4px;top:14px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral))}
+.figimg{margin:18px 0 20px}.figimg img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px;box-shadow:0 12px 30px rgba(15,23,42,.10)}
+.figimg figcaption{font-family:'Outfit';font-size:12px;color:var(--sub);margin-top:8px;text-align:center;line-height:1.5}
+.figimg .cap{display:block;color:#1e293b}.figimg .cred{display:block;font-size:11px;opacity:.85}.figimg .cred a{color:var(--teal-dk);text-decoration:underline}
 .tip{background:var(--soft);border:2px solid #cffafe;border-radius:18px;padding:18px 20px;margin:18px 0}
 .tip h4{font-family:'Outfit';font-weight:800;font-size:15px;color:var(--teal-dk);margin-bottom:5px}.tip p{font-size:14.5px;color:#1e293b;margin:0}
 .ranked{display:flex;flex-direction:column;gap:12px;margin:16px 0}
@@ -168,6 +171,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
   {data.blocks.map((b) => (
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
+    b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :
     b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
     b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :
     b.kind === 'ranked' ? <div class="ranked">{b.items.map((it) => (
