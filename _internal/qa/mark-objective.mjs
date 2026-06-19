@@ -21,6 +21,7 @@ const L = JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
 let tpass = 0, tfail = 0, wfail = 0, ifail = 0;
 const today = '2026-06-19';
 for (const it of L.items) {
+  if (it.status === 'checked') continue; // already fully verified/accepted — never re-check (owner: don't re-check checked)
   const fp = path.join(dirOf(it.kind), it.file);
   let j; try { j = JSON.parse(fs.readFileSync(fp, 'utf8')); } catch (e) { it.dims.template = false; it.status = 'issue'; it.notes = 'BAD JSON: ' + e.message; tfail++; continue; }
   const issues = [];
