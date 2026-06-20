@@ -230,7 +230,11 @@ const articleBlock = z.discriminatedUnion('kind', [
     // Global-tourist info layer (badges) + geo for the map. All optional · back-compat.
     hours: z.string().optional(), priceUsd: z.string().optional(), spice: z.string().optional(),
     halal: z.boolean().optional(), veg: z.boolean().optional(), englishMenu: z.boolean().optional(),
-    lat: z.number().optional(), lng: z.number().optional() }),
+    lat: z.number().optional(), lng: z.number().optional(),
+    // v3: trust signals + scannability + photo gallery. All optional · back-compat.
+    rating: z.number().optional(), ratingCount: z.number().optional(), ratingSrc: z.string().optional(),
+    bestFor: z.string().optional(), zone: z.string().optional(),
+    gallery: z.array(z.object({ src: z.string(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() })).optional() }),
   // Hotel-booking conversion module (drives readers → accommodation pages). Additive · back-compat.
   z.object({ kind: z.literal('staycta'), title: z.string(), text: z.string().optional(), img: z.string().optional(),
     links: z.array(z.object({ label: z.string(), href: z.string(), note: z.string().optional() })),
@@ -239,6 +243,9 @@ const articleBlock = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('foodexp'), title: z.string(), text: z.string().optional(),
     items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional() })),
     ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
+  // "Know before you go" practical tips box (getting around / payment / timing / tipping). Additive · back-compat.
+  z.object({ kind: z.literal('localtips'), title: z.string(),
+    items: z.array(z.object({ icon: z.string().optional(), title: z.string(), text: z.string() })) }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({
