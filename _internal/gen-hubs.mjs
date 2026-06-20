@@ -264,6 +264,7 @@ function navHtml(slug){
     <div class="has-drop"><a href="country-thailand.html">${tx('จุดหมาย','Destinations')}</a><div class="drop"><span class="h">${tx('✨ ยอดนิยม','✨ Popular')}</span><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><span class="h">${tx('🇹🇭 6 ภาค','🇹🇭 6 Regions')}</span><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-isan.html">${tx('🌾 ภาคอีสาน','🌾 Isan')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-east.html">${tx('🏝️ ภาคตะวันออก','🏝️ East')}</a><a href="region-west.html">${tx('🌅 ภาคตะวันตก','🌅 West')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">${tx('→ ดูทั้ง 77 จังหวัด','→ All 77 provinces')}</a></div></div>
     <div class="has-drop"><a href="top10-hotels-chiang-mai.html">${tx('โรงแรม','Hotels')}</a><div class="drop"><span class="h">${tx('จัดอันดับยอดนิยม','Top Rankings')}</span><a href="top10-hotels-chiang-mai.html">Top 10 ${tx('เชียงใหม่','Chiang Mai')}</a><a href="top10-hotels-bangkok.html">Top 10 ${tx('กรุงเทพ','Bangkok')}</a><a href="top10-hotels-phuket.html">Top 10 ${tx('ภูเก็ต','Phuket')}</a><a href="top10-hotels-krabi.html">Top 10 ${tx('กระบี่','Krabi')}</a></div></div>
     <a href="country-thailand.html">${tx('กิน-เที่ยว','Eat &amp; Explore')}</a>
+    <a href="plan-your-trip.html">${tx('เตรียมตัว','Plan Trip')}</a>
     <a href="about.html">${tx('เกี่ยวกับเรา','About')}</a>
   </div>
   <div class="nav-r">
@@ -274,7 +275,7 @@ function navHtml(slug){
   </div>
 </nav>
 <div class="mm" id="mm"><div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
-  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">${tx('🇹🇭 จุดหมาย · 77 จังหวัด','🇹🇭 Destinations · 77 provinces')}</a><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">${tx('🏨 โรงแรม · จัดอันดับ','🏨 Hotels · Rankings')}</a><a href="about.html">${tx('เกี่ยวกับเรา','About')}</a><a href="contact.html">${tx('ติดต่อ','Contact')}</a>
+  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">${tx('🇹🇭 จุดหมาย · 77 จังหวัด','🇹🇭 Destinations · 77 provinces')}</a><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">${tx('🏨 โรงแรม · จัดอันดับ','🏨 Hotels · Rankings')}</a><a href="plan-your-trip.html">${tx('🧭 เตรียมตัวเที่ยว','🧭 Plan Your Trip')}</a><a href="about.html">${tx('เกี่ยวกับเรา','About')}</a><a href="contact.html">${tx('ติดต่อ','Contact')}</a>
   <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">${tx('ค้นหาโรงแรม','Find Hotels')}</button>
 </div>`;
 }
@@ -282,7 +283,7 @@ function navHtml(slug){
 function footerHtml(){ return `<footer class="footer"><div class="ft-grid">
   <div><div class="ft-logo">Thailand<em>Addict</em></div><div class="ft-tag">Explore Thailand Like a Local</div><p class="ft-desc">${tx('ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง','Life on the road — the best stays, food and sights across Thailand, picked from real reviews.')}</p></div>
   <div class="ft-col"><h4>${tx('จุดหมาย','Destinations')}</h4><a href="country-thailand.html">${tx('🇹🇭 เที่ยวไทย','🇹🇭 Thailand')}</a><a href="city-chiang-mai.html">${tx('เชียงใหม่','Chiang Mai')}</a><a href="city-bangkok.html">${tx('กรุงเทพ','Bangkok')}</a><a href="city-phuket.html">${tx('ภูเก็ต','Phuket')}</a><a href="city-krabi.html">${tx('กระบี่','Krabi')}</a></div>
-  <div class="ft-col"><h4>${tx('คอนเทนต์','Content')}</h4><a href="city-chiang-mai.html#stay">${tx('โรงแรมเชียงใหม่','Chiang Mai hotels')}</a><a href="city-bangkok.html#eat">${tx('ของกินกรุงเทพ','Bangkok food')}</a><a href="country-thailand.html">${tx('คู่มือเที่ยวไทย','Thailand guide')}</a></div>
+  <div class="ft-col"><h4>${tx('คอนเทนต์','Content')}</h4><a href="city-chiang-mai.html#stay">${tx('โรงแรมเชียงใหม่','Chiang Mai hotels')}</a><a href="city-bangkok.html#eat">${tx('ของกินกรุงเทพ','Bangkok food')}</a><a href="country-thailand.html">${tx('คู่มือเที่ยวไทย','Thailand guide')}</a><a href="plan-your-trip.html">${tx('เตรียมตัวเที่ยว','Plan Your Trip')}</a></div>
   <div class="ft-col"><h4>${tx('เกี่ยวกับ','About')}</h4><a href="about.html">${tx('เกี่ยวกับเรา','About us')}</a><a href="editorial-policy.html">${tx('นโยบายบรรณาธิการ','Editorial Policy')}</a><a href="contact.html">${tx('ติดต่อ','Contact')}</a><a href="privacy.html">${tx('ความเป็นส่วนตัว','Privacy')}</a></div>
   </div>
   <div class="ft-bottom"><span>© 2026 thailandaddict.com${tx(' — ชีวิตติดเที่ยว','')}</span><span>Privacy · Editorial Policy</span></div>
@@ -476,6 +477,30 @@ ${dst.length?`<section class="sec" style="padding-top:0"><div class="inner"><div
 <div class="cta-sec"><div class="ctaband"><h2>${tx('เลือกเมืองที่อยากไป','Pick a city to explore')}</h2><p>${tx('แต่ละเมืองมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยวครบ คัดจากเสียงรีวิวจริง','Every city has ranked stays, things to do, food and itineraries, picked from real reviews')}</p><a href="country-thailand.html">${tx('ดูทั้งประเทศ →','See the whole country →')}</a></div></div>`;
   return page({title:tx(`เมืองท่องเที่ยวยอดนิยมในไทย — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Top Tourist Cities in Thailand — Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`รวมเมืองท่องเที่ยวยอดนิยมทั่วไทย — กรุงเทพ เชียงใหม่ ภูเก็ต กระบี่ พัทยา หัวหิน และอีกมาก พร้อมที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง`,`Thailand's most popular tourist cities — Bangkok, Chiang Mai, Phuket, Krabi, Pattaya, Hua Hin and more, with ranked stays, things to do, food and itineraries.`),slug:`destinations`,jsonld,body,image:'/images/heroes/phuket.jpg'});
 }
+// ── Plan Your Trip hub (Essential guides cluster) ──
+function planHub(){
+  const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
+  const G = [
+    ['thailand-visa-guide','🛂','วีซ่า & การเข้าเมือง','Visa & entry','ใครได้ยกเว้นวีซ่า อยู่ได้กี่วัน + บัตร TDAC','Who’s visa-free, how long + the TDAC card'],
+    ['thailand-esim-internet','📶','ซิม & อินเทอร์เน็ต','eSIM & internet','eSIM กับซิมสนามบิน แบบไหนคุ้ม','eSIM vs airport SIM — which wins'],
+    ['getting-around-thailand','🚌','การเดินทางในไทย','Getting around','เครื่องบิน รถไฟ เรือ BTS Grab มอเตอร์ไซค์','Flights, trains, ferries, BTS, Grab, bikes'],
+    ['best-time-to-visit-thailand','🗓️','ช่วงเวลา & อากาศ','Best time & weather','อากาศรายเดือน + อ่าวไทย vs อันดามัน','Month-by-month + Gulf vs Andaman'],
+    ['thailand-travel-budget','💰','งบเที่ยวต่อวัน','Daily budget','แบ็คแพ็ค กลาง หรู ใช้วันละเท่าไหร่','Backpacker, mid-range, luxury per day'],
+    ['thailand-safety-scams','🛡️','ความปลอดภัย & สแกม','Safety & scams','กลโกงยอดฮิต + เบอร์ฉุกเฉิน','Common scams + emergency numbers'],
+    ['thailand-money-atm-tipping','🏧','เงิน ATM & ทิป','Money, ATM & tipping','บัตร เงินสด ค่าธรรมเนียมตู้ ทิป','Cards, cash, ATM fees, tipping'],
+    ['thailand-travel-insurance','🩺','ประกันเดินทาง','Travel insurance','ทำไมควรมี + ครอบคลุมมอเตอร์ไซค์','Why you need it + motorbike cover'],
+    ['thailand-packing-list','🎒','ลิสต์ของที่ต้องเอาไป','Packing list','เข้าวัด ปลั๊กไฟ หน้าฝน ยา','Temple wear, plugs, rain, meds'],
+    ['thai-phrases-for-travelers','🗣️','ประโยคภาษาไทยน่ารู้','Thai phrases','ทักทาย ขอบคุณ ตัวเลข สั่งอาหาร','Greetings, thanks, numbers, food'],
+    ['thailand-etiquette-culture','🙏','มารยาท & วัฒนธรรม','Etiquette & culture','ไหว้ เข้าวัด หัว-เท้า สถาบัน','The wai, temples, head/feet, respect'],
+  ];
+  const cards = G.map(([s,emo,th,en,bth,ben])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx('อ่านคู่มือ →','Read the guide →')}</span></div></a>`).join('');
+  const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("คู่มือเตรียมตัวเที่ยวไทย","Plan your Thailand trip"),"itemListElement":G.map((g,i)=>({"@type":"ListItem","position":i+1,"name":tx(g[2],g[3]),"url":J(g[0])}))};
+  const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('เตรียมตัวเที่ยวไทย','Plan Your Trip')}])}
+<div class="thero"><div class="eyebrow">${tx('🧭 เตรียมตัวเที่ยวไทย','🧭 Plan Your Trip')}</div><h1>${tx('คู่มือ<em>เตรียมตัว</em>เที่ยวไทย','Plan your <em>Thailand</em> trip')}</h1><p class="lead">${tx('ทุกอย่างที่ควรรู้ก่อนออกเดินทาง — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย และมารยาท รวบไว้ให้อ่านจบในที่เดียว','Everything to sort before you go — visa, SIM, transport, budget, safety and etiquette, all in one place.')}</p><div class="chips"><span class="chip">🧭 <b>${G.length}</b> ${tx('คู่มือ','guides')}</span><span class="chip">${tx('✅ อัปเดต 2026','✅ Updated 2026')}</span><span class="chip">${tx('🆓 อ่านฟรี','🆓 Free to read')}</span></div></div>
+<section class="sec"><div class="inner"><div class="shead"><h2>${tx('คู่มือ<span class="em">เตรียมตัว</span>','Essential <span class="em">guides</span>')}</h2><a href="country-thailand.html">${tx('เลือกจังหวัด →','Pick a province →')}</a></div><div class="dgrid">${cards}</div></div></section>
+<div class="cta-sec"><div class="ctaband"><h2>${tx('พร้อมแล้ว เลือกจุดหมาย','Ready? Pick a destination')}</h2><p>${tx('อ่านคู่มือเตรียมตัวจบแล้ว ไปต่อที่เมืองและจังหวัดที่อยากเที่ยวได้เลย','Once the basics are planned, dive into the city or province you want to explore')}</p><a href="destinations.html">${tx('ดูเมืองท่องเที่ยว →','See top cities →')}</a></div></div>`;
+  return page({title:tx(`เตรียมตัวเที่ยวไทย — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย | ThailandAddict ชีวิตติดเที่ยว`,`Plan Your Thailand Trip — Visa, eSIM, Transport, Budget & Safety | ThailandAddict`),desc:tx(`รวมคู่มือเตรียมตัวก่อนเที่ยวไทย วีซ่าและการเข้าเมือง ซิม/eSIM การเดินทาง งบต่อวัน ความปลอดภัย ประกัน และมารยาทไทย`,`Everything to plan before visiting Thailand — visa & entry, eSIM, getting around, daily budget, safety, insurance and Thai etiquette.`),slug:`plan-your-trip`,jsonld,body,image:'/images/heroes/bangkok.jpg'});
+}
 function readData(slug){
   const dirs = LOC==='en' ? [DATA+'-en', DATA] : [DATA];   // EN prefers province-data-en, falls back to TH
   for(const dir of dirs){ const f=path.join(dir,slug+'.json'); if(fs.existsSync(f)){ try{return JSON.parse(fs.readFileSync(f,'utf8'))}catch{} } }
@@ -492,7 +517,8 @@ function genAll(loc, outDir){
   let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(outDir,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
   fs.writeFileSync(path.join(outDir,'country-thailand.html'),countryHub());
   fs.writeFileSync(path.join(outDir,'destinations.html'),destinationsHub());
-  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1`);
+  fs.writeFileSync(path.join(outDir,'plan-your-trip.html'),planHub());
+  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1 plan:1`);
   if(nMiss.length) console.log(`   [${loc}] missing data (fallback): ${nMiss.length} → ${nMiss.join(',')}`);
 }
 // which locales to build: args, default both

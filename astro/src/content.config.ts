@@ -252,6 +252,9 @@ const articleBlock = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('localtips'), title: z.string(),
     items: z.array(z.object({ icon: z.string().optional(), title: z.string(), text: z.string() })) }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
+  // Comparison/data table (AEO-friendly — answer engines extract tables). Additive · back-compat.
+  z.object({ kind: z.literal('table'), caption: z.string().optional(),
+    headers: z.array(z.string()), rows: z.array(z.array(z.string())) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({
     rank: z.union([z.string(), z.number()]).transform(String),
