@@ -16,16 +16,39 @@
     "✅ <strong>Real reviews</strong> for every property"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Chiang Mai", "href": "city-chiang-mai.html" },
-    { "name": "Top 10 Chiang Mai Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Chiang Mai",
+      "href": "city-chiang-mai.html"
+    },
+    {
+      "name": "Top 10 Chiang Mai Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Chiang Mai", "item": "https://thailandaddict.com/en/city-chiang-mai" },
-    { "name": "Top 10 Chiang Mai Hotels", "item": "https://thailandaddict.com/en/top10-popular-hotels-chiang-mai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Chiang Mai",
+      "item": "https://thailandaddict.com/en/city-chiang-mai"
+    },
+    {
+      "name": "Top 10 Chiang Mai Hotels",
+      "item": "https://thailandaddict.com/en/top10-popular-hotels-chiang-mai"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-popular-hotels-chiang-mai.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "Chiang Mai has no metro, but the city is compact — a Grab or a red truck (songthaew) is convenient and inexpensive · From Chiang Mai Airport (CNX) it's about 10–15 min into most of the city · The areas in this list: <strong>Old City</strong> — Wat Phra Singh, Wat Chedi Luang, Tha Phae Gate, the Sunday Walking Street (Wing Bed, Hotel De Nara, Green Sleep, HOSTEL by BED) · <strong>Suthep-Nimman</strong> — Chiang Mai University, Nimman cafés (Hyde Park) · <strong>Chang Khlan</strong> — Night Bazaar, Anusarn Market (The Empress) · <strong>Wualai-Chiang Mai Gate</strong> — the Saturday Walking Street, Wat Ngoen (iWualai, Mhonsa) · <strong>Chang Moi-Chang Phueak</strong> — near Warorot Market and Thanin Market (My Chiangmai, The Opium)",
   "secLabel": "All 10 hotels — let's dive in",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "My Chiangmai Boutique Lodge", "price": "฿1,400" },
-    { "n": "2", "color": "#c8a951", "name": "Hyde Park Chiangmai", "price": "฿1,000" },
-    { "n": "3", "color": "#c8a951", "name": "iWualai Hotel", "price": "฿1,380" },
-    { "n": "4", "color": "#c8a951", "name": "The Empress Hotel Chiang Mai", "price": "฿1,400" },
-    { "n": "5", "color": "#9e9e9e", "name": "Hotel De Nara", "price": "฿1,100" },
-    { "n": "6", "color": "#9e9e9e", "name": "The Opium Chiang Mai", "price": "฿980" },
-    { "n": "7", "color": "#9e9e9e", "name": "Green Sleep Hostel", "price": "฿300" },
-    { "n": "8", "color": "#bf8040", "name": "HOSTEL by BED", "price": "฿380" },
-    { "n": "9", "color": "#bf8040", "name": "Mhonsa Hotel", "price": "฿800" },
-    { "n": "10", "color": "#5d4037", "name": "Wing Bed", "price": "฿800" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "My Chiangmai Boutique Lodge",
+      "price": "฿1,400"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hyde Park Chiangmai",
+      "price": "฿1,000"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "iWualai Hotel",
+      "price": "฿1,380"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "The Empress Hotel Chiang Mai",
+      "price": "฿1,400"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Hotel De Nara",
+      "price": "฿1,100"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "The Opium Chiang Mai",
+      "price": "฿980"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Green Sleep Hostel",
+      "price": "฿300"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "HOSTEL by BED",
+      "price": "฿380"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Mhonsa Hotel",
+      "price": "฿800"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Wing Bed",
+      "price": "฿800"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,400",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿1,400/night" },
-        { "type": "Superior Room", "price": "from ฿1,700/night" },
-        { "type": "Deluxe King Suite", "price": "from ฿2,200/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,700/night"
+        },
+        {
+          "type": "Deluxe King Suite",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/my-chiangmai-boutique-lodge/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/my-chiangmai-boutique-lodge-chiang-mai2.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-7074069/my-chiangmai-boutique-lodge/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-my-chiangmai-boutique-lodge-chiang-mai.html",
-      "tags": ["🏊 Pool + poolside bar", "🚶 12-min walk to Tha Phae Gate", "🍳 Fresh-ingredient breakfast", "🤝 Staff get the most praise"],
+      "tags": [
+        "🏊 Pool + poolside bar",
+        "🚶 12-min walk to Tha Phae Gate",
+        "🍳 Fresh-ingredient breakfast",
+        "🤝 Staff get the most praise"
+      ],
       "addr": "425/1 Witchayanon Road, Chang Moi, Chiang Mai",
       "storyHtml": "If you had to name the most popular hotel in this list, it would be My Chiangmai Boutique Lodge — <strong>a 9.1 score from over 2,042 reviews</strong>, and having both a high score and a large review count at once isn't easy to find at the same price point · It's a small boutique of just 23 rooms in the quiet Chang Moi area, yet about a 12-minute walk reaches Tha Phae Gate and the old city walls; Warorot Market (Kad Luang) is around 750 metres away, the Ping River about 600 metres, and the Night Bazaar within walking distance · What guests mention again and again in reviews is the staff — many describe the team as friendly, arranging tours, booking airport transfers, and recommending local restaurants as if you had a Chiang Mai friend on hand · There's an outdoor pool with a separate kids' pool, sun loungers, and a poolside bar to relax at from mid-morning to evening, plus in-room massage and free private parking that suits anyone renting a car for trips up the mountains. Breakfast is a set for about ฿200 using fresh ingredients that reviews call good value · From gathering real reviews, the people who love it most are couples or pairs of friends staying three to four nights, and families with young children who use the kids' pool easily · An honest note from the reviews is that there can be some mosquitoes around the open-air pool and lobby in the evening and rainy season, there's no dinner service at the hotel, and the building has no lift · Overall it's a stay that wins on service and value rather than luxury, suited to anyone with a budget of around one to two thousand baht a night.",
       "tipHtml": "💡 <strong>Tip:</strong> bring mosquito repellent if you'll sit by the pool in the evening, and plan dinner out — Warorot Market and the eateries around Chang Moi are within walking distance.",
@@ -102,15 +189,29 @@
       "priceBig": "฿1,000",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Standard / City View", "price": "from ฿1,000/night" },
-        { "type": "Deluxe Mountain View", "price": "from ฿1,300/night" },
-        { "type": "Family Room", "price": "from ฿1,800/night" }
+        {
+          "type": "Standard / City View",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe Mountain View",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hyde-park-chiangmai-h78634526/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Hyde+Park+Chiangmai",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-5217666/hyde-park-chiangmai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hyde-park-chiangmai-chiang-mai.html",
-      "tags": ["💰 Value 4-star boutique", "🛏️ Spacious, modern-design rooms", "🏊 Indoor pool + gym", "✈️ 10 min from the airport"],
+      "tags": [
+        "💰 Value 4-star boutique",
+        "🛏️ Spacious, modern-design rooms",
+        "🏊 Indoor pool + gym",
+        "✈️ 10 min from the airport"
+      ],
       "addr": "59 Soi Chiangkum, Suthep Road, Chiang Mai",
       "storyHtml": "Hyde Park Chiangmai is <strong>a 4-star boutique hotel many pick because it 'gives more than the price'</strong> — an 8.8 score from over 2,150 reviews, reflecting that a large share of guests leave happy · It's a roughly 44-room hotel in the Suthep area · The most-praised point in reviews is the rooms: many use the words larger than expected for the price, with a bright modern design, clean, soft beds, and strong hot water · The location is fairly central — about 400 metres to Chiang Mai University, around a 15-minute walk to the Old City, about 8 minutes to Wat Suan Dok, roughly 1.7 kilometres to Nimman, and only about 10 minutes by car to the airport, making check-in or the trip home easy · Around the back-of-campus side there are hundreds of student-priced eateries within walking distance. Breakfast is made fresh daily from 6:30–10:00, the hotel lends bicycles and has free parking, and during some periods there's still a shuttle into town — ask at the front desk · An honest note is that the pool is a smaller indoor one with a kids' pool and a small gym, breakfast can be a long wait at some sittings with limited choices, some rooms have a balcony you can't actually step out onto and light leaking under the door, and there have been cases where the bill amount or breakfast count didn't match at check-in, so keep your booking confirmation · It suits people who are out all day and come back to sleep well on a budget, more than those who want the hotel to be the star of the trip.",
       "tipHtml": "💡 <strong>Tip:</strong> confirm the booked bill amount and breakfast count clearly with the front desk at check-in, and if you're light-sensitive, ask for a higher-floor room and bring an eye mask.",
@@ -137,20 +238,34 @@
       "revCount": "Trip.com 9.1 · 450 reviews",
       "badge": "🥈 Right on the Saturday Walking Street",
       "badgeColor": "#00695c",
-      "img": "images/hotels/chiang-mai-wualai-1.jpg",
+      "img": "images/hotels/chiang-mai-iwualai-1.jpg",
       "mrtTag": "📍 Wualai Road · right on the Saturday Walking Street",
       "priceBig": "฿1,380",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Standard Queen / King (~24 sqm)", "price": "from ฿1,380/night" },
-        { "type": "Standard Twin (~24 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Standard Family / Triple (~30 sqm)", "price": "from ฿1,900/night" }
+        {
+          "type": "Standard Queen / King (~24 sqm)",
+          "price": "from ฿1,380/night"
+        },
+        {
+          "type": "Standard Twin (~24 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Standard Family / Triple (~30 sqm)",
+          "price": "from ฿1,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/iwualai-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/i-wualai.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-5707464/iwualai-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-iwualai-hotel-chiang-mai.html",
-      "tags": ["🚶 Step out the door to the Saturday Walking Street", "🍳 Breakfast menu changes almost daily", "🏊 Saltwater pool + free parking", "🥈 Wat Ngoen within walking distance"],
+      "tags": [
+        "🚶 Step out the door to the Saturday Walking Street",
+        "🍳 Breakfast menu changes almost daily",
+        "🏊 Saltwater pool + free parking",
+        "🥈 Wat Ngoen within walking distance"
+      ],
       "addr": "84 Wualai Road, Hai Ya, Chiang Mai",
       "storyHtml": "iWualai Hotel is <strong>a small boutique with a high 9.1 score from 450 reviews and a location that's hard to match</strong> — a 3-star boutique hotel with a Less is More concept, opened in 2016, with 30 rooms · Step out the hotel door and you're at the Wualai Saturday Walking Street (about 240 metres away) and Wat Sri Suphan (the Silver Temple), around 200–300 metres off, so you can shop for silverware, pay respects, and eat local food at Wualai Market right away; Chiang Mai Gate and the Old City are about 5 minutes by car, the airport around 10 minutes by car · The point reviews mention most after location is breakfast — a buffet mixed with made-to-order dishes that many say changes its menu almost daily, so even a multi-night stay doesn't get boring, cooked fresh and good quality · There's an outdoor saltwater pool that's gentle on the skin, a garden to sit in the sun, and free private parking that's rare in this area · Staff are praised for their warmth, helping recommend places and hail rides, with clean rooms and soft beds · An honest note is there's no full spa or gym, power outlets in the room are fairly few, the shower is a wall-mounted fixture rather than a handheld one, soundproofing between rooms still lets some noise through, and Saturday nights the market can get lively right in front of the hotel · It suits anyone who wants to wake up and explore Wualai without hailing a ride, with the Silver Temple at its best lit up at night.",
       "tipHtml": "💡 <strong>Tip:</strong> book to fall on a Friday-Saturday night to enjoy the Saturday Walking Street fully, and if you use several electrical devices, bring a power strip.",
@@ -182,15 +297,29 @@
       "priceBig": "฿1,400",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿1,400/night" },
-        { "type": "Deluxe Room (high floor, city view)", "price": "from ฿2,000/night" },
-        { "type": "Family Room", "price": "from ฿2,800/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe Room (high floor, city view)",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-empress-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-empress-chiangmai.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-711610/the-empress-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-empress-hotel-chiang-mai.html",
-      "tags": ["🏊 Large outdoor pool", "🌃 5-min walk to the Night Bazaar", "🍳 Varied breakfast buffet", "🎤 Large convention & banquet space"],
+      "tags": [
+        "🏊 Large outdoor pool",
+        "🌃 5-min walk to the Night Bazaar",
+        "🍳 Varied breakfast buffet",
+        "🎤 Large convention & banquet space"
+      ],
       "addr": "199/42 Chang Klan Road, Chiang Mai",
       "storyHtml": "The Empress is <strong>a large-scale 4-star city hotel of around 375 rooms across 17 floors, SHA Extra Plus level, that sells on location and value</strong> — an 8.7 score from 311 reviews · The clearest selling point from reviews is the central Chang Khlan location, a roughly 5-minute walk to the Chiang Mai Night Bazaar and Anusarn Market; around the hotel are restaurants, massage shops, and souvenir stalls to browse, so no matter how late you return there's no worry about transport, and Warorot Market and the Old City are about 10–15 minutes by car · A large outdoor pool with a poolside bar is the edge smaller hotels in the same area can't offer — many reviews praise the pool as large and clean, good for families bringing kids to swim — and there's also a spa, massage rooms, a sauna, a gym, and several in-house dining outlets · The breakfast buffet has varied choices and generous portions, and service is a strength reviews mention often, with one writing that staff remembered guests' names by the second visit · An honest note is that some of the décor and in-room facilities are starting to show their age, room quality varies by floor and renovation round, some bathrooms are small with the shower set so low you have to stoop, in-hotel food and drink prices run higher than outside, some reviews found the service charge and tax unclear up front, and during large conventions it gets crowded · It suits travellers, families, and seminar groups who value location and the pool more than how new the room is.",
       "tipHtml": "💡 <strong>Tip:</strong> ask for a higher-floor, renovated room for a better city view and room quality, make the most of breakfast in the hotel, and eat your other meals out around Chang Khlan.",
@@ -222,15 +351,29 @@
       "priceBig": "฿1,100",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿1,100/night" },
-        { "type": "Deluxe Room", "price": "from ฿1,500/night" },
-        { "type": "Room with Spa Bath", "price": "from ฿2,000/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Room with Spa Bath",
+          "price": "from ฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-de-nara/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/de-nara.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-7693960/hotel-de-nara/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-de-nara-chiang-mai.html",
-      "tags": ["🏮 Teak-wood Lanna décor", "🚶 Walk to Chiang Mai Gate and the Walking Street", "🏊 Saltwater pool, easy on the eyes", "💆 In-house spa/massage"],
+      "tags": [
+        "🏮 Teak-wood Lanna décor",
+        "🚶 Walk to Chiang Mai Gate and the Walking Street",
+        "🏊 Saltwater pool, easy on the eyes",
+        "💆 In-house spa/massage"
+      ],
       "addr": "33 Moon Muang Road Lane 2, Phra Sing, Chiang Mai",
       "storyHtml": "Hotel De Nara is <strong>a Lanna boutique hotel in the Old City with as many as 2,596 reviews</strong> — an 8.4 score · It's a small 4-star Lanna-style boutique of just 23 rooms, decorated in teak and local woven fabrics, small and personable enough that staff give attentive care, on Moon Muang Road — about a 5-minute walk to Chiang Mai Gate and the Chiang Mai Gate market, around 7 minutes to Tha Phae Gate, about 10 minutes to Wat Phra Singh, and the Sunday Walking Street on Ratchadamnoen within walking distance, while the Night Bazaar is around 12 minutes by car · What reviews praise is the Lanna charm in a location where you can explore temples and the walking street without hailing rides often, plus a saltwater pool that's easy on the eyes, a quiet setting good for a cooling soak after sightseeing, and an in-house spa/massage, a Thai restaurant, and free parking · Staff are courteous, helping book rides and tours and recommend restaurants, and the evening food market at Chiang Mai Gate has khao soi and khanom jeen nam ngiao within easy walking reach · An honest note that keeps the score from being higher is that this area has nearby bars and shops, so there's late-night noise on some nights, especially weekends, the beds are fairly firm for some, and some room types and the pool are compact · It suits anyone who wants an Old City location and Lanna charm at an affordable price and isn't too bothered by some noise on certain nights.",
       "tipHtml": "💡 <strong>Tip:</strong> if you're a light sleeper, ask for an inner room not facing the street or a bar, and choose Deluxe or above if you want a room larger than the Superior.",
@@ -262,15 +405,29 @@
       "priceBig": "฿980",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Studio (32 sqm · kitchenette)", "price": "from ฿980/night" },
-        { "type": "Grand Studio (36 sqm)", "price": "from ฿1,150/night" },
-        { "type": "1-Bedroom with Balcony (57–58 sqm)", "price": "from ฿1,400/night" }
+        {
+          "type": "Studio (32 sqm · kitchenette)",
+          "price": "from ฿980/night"
+        },
+        {
+          "type": "Grand Studio (36 sqm)",
+          "price": "from ฿1,150/night"
+        },
+        {
+          "type": "1-Bedroom with Balcony (57–58 sqm)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-opium-chiang-mai-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-opium-serviced-apartment-and.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-661427/the-opium-serviced-apartment-and-hotel-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-opium-chiang-mai-chiang-mai.html",
-      "tags": ["🍳 Spacious rooms with a kitchenette", "🏊 Two pools + gym", "🅿️ Free parking", "🗓️ Great for long stays and families"],
+      "tags": [
+        "🍳 Spacious rooms with a kitchenette",
+        "🏊 Two pools + gym",
+        "🅿️ Free parking",
+        "🗓️ Great for long stays and families"
+      ],
       "addr": "41/1 Soi Viangbua, Chotana Road, Chang Phueak, Chiang Mai",
       "storyHtml": "The Opium Chiang Mai is <strong>the serviced apartment with the most reviews in this list — over 3,610, with an 8.5 score</strong>, and a review count at this level reflects that a great many guests have passed through over the years. It's a roughly 32–42-unit stay in the Chang Phueak area, on Soi Viangbua · The standout is spacious rooms, from 32 sqm studios up to 2-bedroom suites, many with a kitchenette, fridge, and microwave, suited to long stays or families who want to cook for themselves; and for 7 nights or more you can ask about clearly cheaper weekly or monthly rates · There are two pools — one open for sun and one shaded and surrounded by trees — plus a gym and free parking, giving more than the price · Almost every review praises the friendly, helpful staff, and many call it a small hidden gem · Around the stay, Thanin Market is about a 5-minute walk, Wat Chiang Man around 5 minutes by car, Chang Phueak Gate and the Old City about 10 minutes by car, and Nimman Road around 12 minutes by car · An honest note is that the location is fairly quiet and away from the main tourist areas, so you rely on rides — budget a few tens of baht for Grab per trip if you don't drive — cleanliness isn't consistent across every room, the pool is closed for maintenance at times, there are reports of cigarette smell along the corridors and a drain smell in some bathrooms, and noise from a nearby KTV carries until late on some nights · It suits anyone who values room space and value over a location in the heart of the tourist area.",
       "tipHtml": "💡 <strong>Tip:</strong> for a long stay, choose a room with a kitchen to save on food, and ask for a room not facing the KTV side to avoid late-night noise.",
@@ -302,15 +459,29 @@
       "priceBig": "฿300",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Mixed dorm bed (10 beds)", "price": "from ฿300/night" },
-        { "type": "Female-only dorm bed (4 beds)", "price": "from ฿380/night" },
-        { "type": "Private bunk-bed room", "price": "from ฿700/night" }
+        {
+          "type": "Mixed dorm bed (10 beds)",
+          "price": "from ฿300/night"
+        },
+        {
+          "type": "Female-only dorm bed (4 beds)",
+          "price": "from ฿380/night"
+        },
+        {
+          "type": "Private bunk-bed room",
+          "price": "from ฿700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?text=Green%20Sleep%20Hostel%20Chiang%20Mai&cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/green-sleep-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-7997324/green-sleep-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-green-sleep-hostel-chiang-mai.html",
-      "tags": ["🧼 Boutique-level clean, hostel price", "🛏️ Dorm beds with a privacy curtain", "🚶 Walk to Wat Phra Singh and the Walking Street", "🤝 Staff who look after you like family"],
+      "tags": [
+        "🧼 Boutique-level clean, hostel price",
+        "🛏️ Dorm beds with a privacy curtain",
+        "🚶 Walk to Wat Phra Singh and the Walking Street",
+        "🤝 Staff who look after you like family"
+      ],
       "addr": "5/10 Soi 7, Ratchadamnoen Road, Si Phum, Chiang Mai",
       "storyHtml": "Green Sleep Hostel is <strong>a budget hostel where real reviews single out cleanliness as the number-one strength</strong> — a 9.0 score, with many saying it's the cleanest hostel they've stayed in, across the rooms, bathrooms, and shared kitchen. It's a small, calm, clean hostel that's been open since 2016 · It sits on Soi 7, Ratchadamnoen Road, in the heart of the Old City — about a 4–6-minute walk to the Three Kings Monument and the museum, around 5–7 minutes to Wat Chedi Luang, about 6–8 minutes to Wat Phra Singh, and the Sunday Walking Street within walking distance, no rides needed, while the airport is about 3 kilometres away · Dorm beds have a privacy curtain, large lockers, cold air-con, good hot water, and fast Wi-Fi, from just ฿300/night, with a shared kitchen and fridge to use for free, bikes to borrow for riding around the Old City, and budget laundry at about 30 baht a load · The all-female staff team is praised for friendliness, helping book tours, recommending places, and remembering guests — many return just for the people. Breakfast is a light continental one, but all around are khao soi and northern-food shops just a few steps away · An honest note is that the beds are fairly firm, so people who like a soft mattress need to adjust, some rooms have no window and may feel cramped or dark, some reviews hear someone showering in the middle of the night from the shared bathroom, and there's no pool or spa · It suits budget travellers who value cleanliness and quiet over luxury facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> if you don't like a dark room, specify a room/bed with a window when booking, and book ahead — it's a small hostel that fills fast on its good reviews.",
@@ -342,15 +513,29 @@
       "priceBig": "฿380",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Bunk bed in mixed dorm", "price": "from ฿380/night" },
-        { "type": "Bed in female-only dorm", "price": "from ฿420/night" },
-        { "type": "Private room (en-suite ~22 sqm)", "price": "from ฿1,100/night" }
+        {
+          "type": "Bunk bed in mixed dorm",
+          "price": "from ฿380/night"
+        },
+        {
+          "type": "Bed in female-only dorm",
+          "price": "from ฿420/night"
+        },
+        {
+          "type": "Private room (en-suite ~22 sqm)",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hostel-by-bed/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/slow-poke-poshtel-by-bed.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-7694148/hostel-by-bed/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hostel-by-bed-chiang-mai.html",
-      "tags": ["🎨 Polished-concrete-and-wood design, quiet and clean", "🛏️ Every bed has a privacy curtain", "🚶 Walk to the Walking Street and temples", "🔞 Adults only"],
+      "tags": [
+        "🎨 Polished-concrete-and-wood design, quiet and clean",
+        "🛏️ Every bed has a privacy curtain",
+        "🚶 Walk to the Walking Street and temples",
+        "🔞 Adults only"
+      ],
       "addr": "54/2-4 Singharat Road, Si Phum, Chiang Mai",
       "storyHtml": "HOSTEL by BED (or The Common Hostel) is <strong>a design hostel in polished-concrete-and-wood tones that focuses on cleanliness and sleep quality over a party vibe</strong> — an 8.9 score from 250 reviews · The atmosphere is quiet and good for resting, not the party type, with no nightly pub crawl, and it's adults only (18+), so it suits solo travellers, budget couples, and digital nomads who want to stay in the Old City in a place with design · Every dorm bed has a curtain, a reading light, a power outlet, and a locker, with a female-only dorm, a queen bed in the dorm, and an en-suite private room that's still cheaper than Old City hotels while getting the same location · There's a shared kitchen to cook in and common areas with a pool table, a projector screen, a games room, and a bar to hang out in, plus motorbike parking · It sits on Singharat Road — about a 500-metre walk to the Sunday Walking Street, around 5 minutes to Wat Phra Singh, about 8 minutes to Wat Chedi Luang, around 12 minutes to Tha Phae Gate, and the Night Bazaar about 10 minutes by car, so you can walk to eat street food and shop for crafts in the evening without hunting for parking · Local staff are praised for being kind and good at recommending places · An honest note is that the Wi-Fi signal is unstable at times, especially in deeper rooms, so it's better to work in the common area where the signal is stronger, the building has no lift so you carry your bags up yourself, and it's not for the party crowd who want a lively scene.",
       "tipHtml": "💡 <strong>Tip:</strong> if you work online, pick a bed near the common area where the Wi-Fi signal is stronger, and for a more comfortable sleep try a queen bed in the dorm or a private room.",
@@ -382,15 +567,29 @@
       "priceBig": "฿800",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Superior Room (~21 sqm)", "price": "from ฿800/night" },
-        { "type": "Deluxe Double Room (~30 sqm)", "price": "from ฿900/night" },
-        { "type": "Deluxe Triple Room (~50 sqm)", "price": "from ฿1,100/night" }
+        {
+          "type": "Superior Room (~21 sqm)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Deluxe Double Room (~30 sqm)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Triple Room (~50 sqm)",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mhonsa-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Mhonsa+Hotel+Chiang+Mai",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-7064450/mhonsa-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mhonsa-hotel-chiang-mai.html",
-      "tags": ["🏊 Has a pool at a budget price", "🚶 By Chiang Mai Gate, walkable sightseeing", "🚲 Free bike loan + free parking", "✈️ 10 min from the airport"],
+      "tags": [
+        "🏊 Has a pool at a budget price",
+        "🚶 By Chiang Mai Gate, walkable sightseeing",
+        "🚲 Free bike loan + free parking",
+        "✈️ 10 min from the airport"
+      ],
       "addr": "46 Rat Chiang Saen Road, Hai Ya, Chiang Mai",
       "storyHtml": "Mhonsa Hotel is <strong>a small boutique hotel of just 20 rooms with a pool from only ฿800/night</strong> — an 8.7 score, opened in 2016 and renovated in 2023 · The review count is still small (27) because it's a small hotel, but the strengths are clear: a location right by Chiang Mai Gate, the Chiang Mai Gate market, and the Wualai Walking Street, about a 2-minute walk away · Wat Sri Suphan (the Silver Temple) is around 600 metres away, Wat Chedi Luang about a 10-minute walk, Wat Phra Singh around 15 minutes, so you can walk to temples and local food in just a few minutes · What reviews call better value than expected is the outdoor pool for a cooling soak, hard to find in a small boutique at this price, plus free bikes to ride around the moat in the cool morning air, an in-house restaurant and room service, and free parking that's rare in the Old City area · Staff are praised for being helpful and friendly, the rooms are clean, and it's close to Chiang Mai Airport at only about 10 minutes by car (around 2.8 kilometres) · The Chiang Mai Gate market is just a few steps out, with khao soi, khanom jeen nam ngiao, and local food to try morning and evening · An honest note is that the building has no lift, so you carry your bags up the stairs if you get an upper-floor room, street-facing rooms hear some traffic, and it's a small hotel that fills fast in high season · It suits budget travellers who want to stay in the Old City but still want a pool and cleanliness.",
       "tipHtml": "💡 <strong>Tip:</strong> if you're carrying heavy bags, request a ground-floor room when booking, and borrow the free bikes for a ride around the moat in the morning before the sun gets strong.",
@@ -422,15 +621,29 @@
       "priceBig": "฿800",
       "priceSub": "approx. starting/night",
       "rooms": [
-        { "type": "Standard Room (~25 sqm)", "price": "from ฿800/night" },
-        { "type": "Superior / Twin Room (~26–28 sqm)", "price": "from ฿950/night" },
-        { "type": "Suite Room", "price": "from ฿1,300/night" }
+        {
+          "type": "Standard Room (~25 sqm)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Superior / Twin Room (~26–28 sqm)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Suite Room",
+          "price": "from ฿1,300/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=16213&text=Wing%20Bed%20The%20Wing%20Lanna%20Chiang%20Mai&cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/wing-bed.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-6474907/wing-bed/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-wing-bed-chiang-mai.html",
-      "tags": ["🤝 Staff are the number-one selling point", "🍳 Breakfast cooked fresh to order, plate by plate", "🌳 By Nong Buak Hat Park, quiet and calm", "🚶 Walk to Wat Phra Singh and the Walking Street"],
+      "tags": [
+        "🤝 Staff are the number-one selling point",
+        "🍳 Breakfast cooked fresh to order, plate by plate",
+        "🌳 By Nong Buak Hat Park, quiet and calm",
+        "🚶 Walk to Wat Phra Singh and the Walking Street"
+      ],
       "addr": "85 Soi Samlan (Samlarn Road), Phra Sing, Chiang Mai",
       "storyHtml": "Wing Bed is <strong>a small boutique hotel in the Old City where real reviews make the staff the number-one selling point</strong> — an 8.6 score from 164 reviews. It's a 3-star, 25-room boutique opened in 2017 (sometimes listed as The Wing Lanna), with a 24-hour front desk · It sits on Soi Samlan in the Phra Sing area, by Nong Buak Hat Park about 200 metres away — around a 5–7-minute walk to Wat Phra Singh, about 10 minutes to Wat Chedi Luang, around 10–12 minutes to the Three Kings Monument, and about a 10–15-minute walk to Tha Phae Gate and the Sunday Walking Street, while the airport is around 12–15 minutes by car · What reviews praise after the service is clean rooms, spacious and matching the photos posted, and a quiet, calm setting tucked away from the main road · Breakfast is served cooked fresh, plate by plate, from 7:00–10:00, with 5–6 dishes to choose from, including a made-to-order fried egg that many reviews praise — not a buffet kept warm and left out — from just around ฿800/night · An honest note is that the room walls are fairly thin, so you sometimes hear the next room or the corridor, the entrance lane is narrow and parking is limited with a fee — large cars or vans need to ask and plan parking ahead — and there's no in-house pool or spa like a big hotel; if you're sensitive to noise, ask for a room not by the corridor or on the top floor and bring earplugs · It suits anyone who wants to stay right in the Old City, walk to temples and the Walking Street, with clean rooms, a fresh-cooked breakfast, and warm service at a price in the high hundreds to low thousands.",
       "tipHtml": "💡 <strong>Tip:</strong> if you arrive by van or a large car, ask about parking ahead since the lane is narrow, and if you sleep light, bring earplugs in case the walls are thin.",
@@ -448,37 +661,191 @@
     }
   ],
   "compareTitle": "Comparison Table — Top 10 Popular Chiang Mai Hotels 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "My Chiangmai Boutique Lodge", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,400", "access": "📍 Chang Moi", "badge": "Most popular overall", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hyde Park Chiangmai", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,000", "access": "📍 Suthep·Nimman", "badge": "Value 4-star", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "iWualai Hotel", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,380", "access": "📍 Wualai Road", "badge": "On the Saturday Walking Street", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "The Empress Hotel Chiang Mai", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,400", "access": "📍 Chang Khlan", "badge": "Big pool·Night Bazaar", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Hotel De Nara", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿1,100", "access": "📍 Old City·Moon Muang", "badge": "Lanna in the Old City", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "The Opium Chiang Mai", "type": "⭐⭐⭐", "score": "8.5", "price": "฿980", "access": "📍 Chang Phueak", "badge": "Most reviews·long stays", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Green Sleep Hostel", "type": "⭐⭐", "score": "9.0", "price": "฿300", "access": "📍 Old City·Ratchadamnoen", "badge": "Cleanest hostel", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "HOSTEL by BED", "type": "⭐⭐", "score": "8.9", "price": "฿380", "access": "📍 Old City·Singharat", "badge": "Design hostel", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Mhonsa Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿800", "access": "📍 Chiang Mai Gate", "badge": "Has a pool·easy price", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Wing Bed", "type": "⭐⭐⭐", "score": "8.6", "price": "฿800", "access": "📍 Phra Sing·Old City", "badge": "Service is the selling point", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "My Chiangmai Boutique Lodge",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,400",
+      "access": "📍 Chang Moi",
+      "badge": "Most popular overall",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hyde Park Chiangmai",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,000",
+      "access": "📍 Suthep·Nimman",
+      "badge": "Value 4-star",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "iWualai Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,380",
+      "access": "📍 Wualai Road",
+      "badge": "On the Saturday Walking Street",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "The Empress Hotel Chiang Mai",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,400",
+      "access": "📍 Chang Khlan",
+      "badge": "Big pool·Night Bazaar",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Hotel De Nara",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,100",
+      "access": "📍 Old City·Moon Muang",
+      "badge": "Lanna in the Old City",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "The Opium Chiang Mai",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿980",
+      "access": "📍 Chang Phueak",
+      "badge": "Most reviews·long stays",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Green Sleep Hostel",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿300",
+      "access": "📍 Old City·Ratchadamnoen",
+      "badge": "Cleanest hostel",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "HOSTEL by BED",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿380",
+      "access": "📍 Old City·Singharat",
+      "badge": "Design hostel",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Mhonsa Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿800",
+      "access": "📍 Chiang Mai Gate",
+      "badge": "Has a pool·easy price",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Wing Bed",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿800",
+      "access": "📍 Phra Sing·Old City",
+      "badge": "Service is the selling point",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "How to pick the popular Chiang Mai hotel that fits you?",
   "advice": [
-    { "icon": "💰", "head": "Tightest budget, want the best value", "bodyHtml": "→ <strong>Green Sleep Hostel</strong> ฿300, the hostel reviews call the cleanest · or <strong>HOSTEL by BED</strong> ฿380, a quiet, clean design hostel — both in the Old City" },
-    { "icon": "🎒", "head": "Solo traveller or digital nomad", "bodyHtml": "→ <strong>HOSTEL by BED</strong> ฿380, quiet design, beds with a privacy curtain, adults only · or <strong>Green Sleep Hostel</strong> ฿300, clean with staff who look after you well" },
-    { "icon": "💎", "head": "Want 4-star but don't want to pay a lot", "bodyHtml": "→ <strong>Hyde Park Chiangmai</strong> ฿1,000, a value 4-star boutique with spacious rooms · or <strong>The Empress</strong> ฿1,400, a big hotel with a pool, walk to the Night Bazaar" },
-    { "icon": "🏮", "head": "Want temples, the Walking Street, the Old City", "bodyHtml": "→ <strong>Hotel De Nara</strong> ฿1,100, a Lanna boutique in the Old City · or <strong>Wing Bed</strong> ฿800, warm service, walk to Wat Phra Singh" },
-    { "icon": "🛍️", "head": "Want to step out to a walking-street market right away", "bodyHtml": "→ <strong>iWualai Hotel</strong> ฿1,380, step out the door to the Saturday Walking Street · or <strong>Mhonsa Hotel</strong> ฿800, by Chiang Mai Gate and the Wualai Walking Street" },
-    { "icon": "👨‍👩‍👧", "head": "Family or long stay, want a spacious room", "bodyHtml": "→ <strong>The Opium Chiang Mai</strong> ฿980, spacious rooms with a kitchenette, two pools · or <strong>My Chiangmai Boutique Lodge</strong> ฿1,400, with a pool and warm service" },
-    { "icon": "🏊", "head": "Want a pool on a budget", "bodyHtml": "→ <strong>Mhonsa Hotel</strong> ฿800, a pool at an easy price · or <strong>The Opium</strong> ฿980, with two pools and a gym" }
+    {
+      "icon": "💰",
+      "head": "Tightest budget, want the best value",
+      "bodyHtml": "→ <strong>Green Sleep Hostel</strong> ฿300, the hostel reviews call the cleanest · or <strong>HOSTEL by BED</strong> ฿380, a quiet, clean design hostel — both in the Old City"
+    },
+    {
+      "icon": "🎒",
+      "head": "Solo traveller or digital nomad",
+      "bodyHtml": "→ <strong>HOSTEL by BED</strong> ฿380, quiet design, beds with a privacy curtain, adults only · or <strong>Green Sleep Hostel</strong> ฿300, clean with staff who look after you well"
+    },
+    {
+      "icon": "💎",
+      "head": "Want 4-star but don't want to pay a lot",
+      "bodyHtml": "→ <strong>Hyde Park Chiangmai</strong> ฿1,000, a value 4-star boutique with spacious rooms · or <strong>The Empress</strong> ฿1,400, a big hotel with a pool, walk to the Night Bazaar"
+    },
+    {
+      "icon": "🏮",
+      "head": "Want temples, the Walking Street, the Old City",
+      "bodyHtml": "→ <strong>Hotel De Nara</strong> ฿1,100, a Lanna boutique in the Old City · or <strong>Wing Bed</strong> ฿800, warm service, walk to Wat Phra Singh"
+    },
+    {
+      "icon": "🛍️",
+      "head": "Want to step out to a walking-street market right away",
+      "bodyHtml": "→ <strong>iWualai Hotel</strong> ฿1,380, step out the door to the Saturday Walking Street · or <strong>Mhonsa Hotel</strong> ฿800, by Chiang Mai Gate and the Wualai Walking Street"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Family or long stay, want a spacious room",
+      "bodyHtml": "→ <strong>The Opium Chiang Mai</strong> ฿980, spacious rooms with a kitchenette, two pools · or <strong>My Chiangmai Boutique Lodge</strong> ฿1,400, with a pool and warm service"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a pool on a budget",
+      "bodyHtml": "→ <strong>Mhonsa Hotel</strong> ฿800, a pool at an easy price · or <strong>The Opium</strong> ฿980, with two pools and a gym"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> all prices are indicative starting prices from the standard-room range and may change by date and season — we recommend checking the real price and comparing 3 sites before every booking · The scores and strengths in this article come from reading real guest reviews on the booking platforms, not from staying ourselves · The ranking is by score combined with review count and the strengths guests mention, not by star count · During festivals (Yi Peng/Loi Krathong in Nov, Songkran 13–15 Apr, New Year) prices rise and rooms sell out fast — book 1–2 months ahead · Chiang Mai has no metro; a Grab or red truck is convenient, and it's about 10–15 min from the airport into town · Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common Traveller Questions About Popular Chiang Mai Hotels",
   "faq": [
-    { "q": "❓ How were the popular hotels in this list picked?", "a": "We picked them by <strong>real review scores on the booking platforms, plus review count and the strengths guests mention again and again</strong>, not by star count · For example, My Chiangmai Boutique Lodge (9.1 from over 2,000 reviews) and The Opium (the most reviews, over 3,600) score high on popularity because they have both good scores and a large number of guests confirming them · Every one comes from reading real reviews, not from staying ourselves" },
-    { "q": "❓ Which area is best to stay in Chiang Mai from this list?", "a": "It depends on your travel style · The <strong>Old City</strong> suits temple-walking and the Walking Street (Hotel De Nara, Wing Bed, Green Sleep, HOSTEL by BED) · <strong>Suthep-Nimman</strong> suits café lovers and is near the airport (Hyde Park) · <strong>Chang Khlan</strong> suits walking the Night Bazaar (The Empress) · <strong>Wualai-Chiang Mai Gate</strong> suits people who love the Saturday Walking Street (iWualai, Mhonsa) · <strong>Chang Moi-Chang Phueak</strong> is quieter but still reaches town (My Chiangmai, The Opium)" },
-    { "q": "❓ How much do the hotels in this list cost?", "a": "Starting prices run from <strong>฿300/night</strong> for a dorm bed at Green Sleep Hostel up to around <strong>฿1,400/night</strong> for boutiques and 4-stars like My Chiangmai or The Empress · Hostels and budget stays are around ฿300–800 · Value boutiques and 4-stars are around ฿980–1,400 · All prices are indicative starting prices from the standard room and rise during festivals" },
-    { "q": "❓ Are there hotels in this list with a pool?", "a": "Several · <strong>The Opium</strong> has two pools and a gym · <strong>The Empress</strong> has a large outdoor pool · <strong>My Chiangmai, Hotel De Nara, Mhonsa, iWualai</strong> have a pool at a budget price (iWualai and De Nara are saltwater pools that are gentle on the skin) · Hyde Park has a small indoor pool · the hostels Green Sleep and HOSTEL by BED have no pool" },
-    { "q": "❓ How far ahead should I book a Chiang Mai hotel?", "a": "On normal weekdays, booking 2–4 weeks ahead is enough · But during Yi Peng/Loi Krathong (November), Songkran (13–15 April), and New Year, good rooms sell out fast — book 1–2 months ahead or more · Especially small Old City hotels like Mhonsa (20 rooms) and well-reviewed hostels like Green Sleep, which fill especially fast" },
-    { "q": "❓ Which site is cheapest to book a Chiang Mai hotel?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time — we recommend opening and comparing all 3 sites before every booking. Each review page in this article has the price-compare links you need, which can save several hundred baht a night" }
+    {
+      "q": "❓ How were the popular hotels in this list picked?",
+      "a": "We picked them by <strong>real review scores on the booking platforms, plus review count and the strengths guests mention again and again</strong>, not by star count · For example, My Chiangmai Boutique Lodge (9.1 from over 2,000 reviews) and The Opium (the most reviews, over 3,600) score high on popularity because they have both good scores and a large number of guests confirming them · Every one comes from reading real reviews, not from staying ourselves"
+    },
+    {
+      "q": "❓ Which area is best to stay in Chiang Mai from this list?",
+      "a": "It depends on your travel style · The <strong>Old City</strong> suits temple-walking and the Walking Street (Hotel De Nara, Wing Bed, Green Sleep, HOSTEL by BED) · <strong>Suthep-Nimman</strong> suits café lovers and is near the airport (Hyde Park) · <strong>Chang Khlan</strong> suits walking the Night Bazaar (The Empress) · <strong>Wualai-Chiang Mai Gate</strong> suits people who love the Saturday Walking Street (iWualai, Mhonsa) · <strong>Chang Moi-Chang Phueak</strong> is quieter but still reaches town (My Chiangmai, The Opium)"
+    },
+    {
+      "q": "❓ How much do the hotels in this list cost?",
+      "a": "Starting prices run from <strong>฿300/night</strong> for a dorm bed at Green Sleep Hostel up to around <strong>฿1,400/night</strong> for boutiques and 4-stars like My Chiangmai or The Empress · Hostels and budget stays are around ฿300–800 · Value boutiques and 4-stars are around ฿980–1,400 · All prices are indicative starting prices from the standard room and rise during festivals"
+    },
+    {
+      "q": "❓ Are there hotels in this list with a pool?",
+      "a": "Several · <strong>The Opium</strong> has two pools and a gym · <strong>The Empress</strong> has a large outdoor pool · <strong>My Chiangmai, Hotel De Nara, Mhonsa, iWualai</strong> have a pool at a budget price (iWualai and De Nara are saltwater pools that are gentle on the skin) · Hyde Park has a small indoor pool · the hostels Green Sleep and HOSTEL by BED have no pool"
+    },
+    {
+      "q": "❓ How far ahead should I book a Chiang Mai hotel?",
+      "a": "On normal weekdays, booking 2–4 weeks ahead is enough · But during Yi Peng/Loi Krathong (November), Songkran (13–15 April), and New Year, good rooms sell out fast — book 1–2 months ahead or more · Especially small Old City hotels like Mhonsa (20 rooms) and well-reviewed hostels like Green Sleep, which fill especially fast"
+    },
+    {
+      "q": "❓ Which site is cheapest to book a Chiang Mai hotel?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time — we recommend opening and comparing all 3 sites before every booking. Each review page in this article has the price-compare links you need, which can save several hundred baht a night"
+    }
   ]
 }
