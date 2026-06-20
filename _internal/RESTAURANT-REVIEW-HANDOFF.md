@@ -1,6 +1,7 @@
 # 🍜 RESTAURANT-REVIEW (Top 10 ร้านอาหารต่อจังหวัด) — RESUME HANDOFF
 
 > สรุปเพื่อขึ้นเซสชั่นใหม่ · อัปเดต 2026-06-20 · source of truth = git (อย่าเชื่อ doc ถ้าขัดของจริง)
+> 📦 **บันทึกเป็น SKILL แล้ว:** `.claude/skills/thailandaddict-restaurant-ranking/` (SKILL.md = pipeline + gotchas · references/format-spec.md = block/field spec) — เรียกด้วย "ทำ 10 ร้านอาหารยอดนิยม [จังหวัด]"
 
 ## 🎯 งานนี้คืออะไร
 content type ใหม่ตาม owner: **"10 ร้านอาหารยอดนิยมในจังหวัด<X>"** ทุกจังหวัด — รีวิว **≥200 คำ/ร้าน** (วิจัยจริงจาก Google/Wongnai/Facebook/YouTube), **รูปจริงของร้าน + เครดิตภาพ** (เว็บทางการ/เพจ FB/Wongnai/บล็อกอาหาร), **ลิงก์ไปหน้าโรงแรม** (รายได้หลัก = จองที่พัก). ใช้ articleSchema (type `eat-ranking`).
