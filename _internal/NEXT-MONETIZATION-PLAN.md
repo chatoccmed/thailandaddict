@@ -1,3 +1,5 @@
+> 📋 **อัปเดต 2026-06-21:** มี gap-analysis ฉบับ verify จริงแล้วที่ `_internal/DEVELOPMENT-PLAN.md` (8-lens audit · 87 ช่องว่าง · roadmap Now/Next/Later) — ใช้อันนั้นเป็นแผนหลัก · ไฟล์นี้คือบริบทเดิม
+
 # 💸 NEXT PHASE — Monetization & Essential Content (handoff for a fresh session)
 
 > เว็บ EN เสร็จครบ + deploy-ready แล้ว (ดู `_internal/EN-DEPLOY-READINESS.md`). เฟสต่อไป = **ทำเงิน + อุดช่องว่างคอนเทนต์** เพื่อยกระดับเป็นเว็บท่องเที่ยวไทยระดับโลก
