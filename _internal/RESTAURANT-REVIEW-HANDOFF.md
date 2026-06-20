@@ -19,13 +19,13 @@ content type ใหม่ตาม owner: **"10 ร้านอาหารย�
 - **⚠️ นโยบายรูป (owner เคาะ 2026-06-20):** ใช้รูป **ทุกแหล่ง + เครดิตทุกใบ + กล่องแจ้งลบ** (ลองนโยบาย "เฉพาะแหล่งทางการ" แล้ว — **ไม่เวิร์ก**: เพจ FB ร้านโพสต์อีเวนต์/โปรโมตไม่ใช่อาหาร, Google Maps ทำ Chrome extension ค้าง 300s, เว็บทางการมีแค่ ~2/10 ร้าน → รูปอาหารจริงอยู่บน Wongnai/รีวิว/บล็อก ใช้พร้อมเครดิต+แจ้งลบตามมาตรฐานเว็บท่องเที่ยว). engine RULES = "ทุกแหล่ง+เครดิต · ห้าม Trip.com/stock/รูปผิดร้าน"
 - **⏸️ รอ owner เคาะ "สเกลต่อ"** — gold reference v3 สมบูรณ์ที่ `:4400` · **อย่าสเกลจนกว่า owner สั่ง**
 
-## ⚙️ ก่อนสเกล: ต้อง WIRE ENGINE ให้ครบ v3 ก่อน (สำคัญ!)
-engine `restaurants-roundup.js` ปัจจุบันมี: PLAN/WRITE(info fields:hours/priceUsd/spice/halal/veg/englishMenu/lat/lng)/FRAME(prose+foodTitle/foodText)/Assemble(restaurant+staycta+foodexp blocks, deterministic return). **ยังขาดสำหรับ v3:**
-- WRITE_SCHEMA ยังไม่มี: `rating`/`ratingCount`/`ratingSrc` (วิจัย Google), `bestFor`, `zone`, `foodType` → ต้องเพิ่ม + ให้ write agent วิจัย
-- ยังไม่ดึง **4 รูป/ร้าน** (ตอนนี้ดึง 1) + ยังไม่สร้าง `gallery` ใน restoBlock → ต้องเพิ่ม
-- ยังไม่ใส่ **rail** (hotel roundups) ใน article + ยังไม่สร้าง **localtips** block → ต้องเพิ่ม (rail ใช้ heroImg ของ roundup จริง — main loop ส่ง list เข้า args)
-- staycta/rail labels ยังดึงจาก h1 roundup (รก) → ให้ Frame agent เขียน label สั้นสวย (ดู `build-resto-args.mjs` draft + ปัญหาที่ note ไว้)
-**แนะนำ:** wire engine ครบ → ทดสอบ Bangkok 1 จังหวัด (owner เลือกตอน lean, 7 roundup) → verify เทียบ CM → owner ดู → ค่อยสเกล 76 ที่เหลือ
+## ⚙️ ENGINE v3 WIRED ✅ + BANGKOK ทดสอบผ่าน (2026-06-20)
+engine `restaurants-roundup.js` v3 ครบแล้ว: PLAN → WRITE(10 ขนาน: descHtml≥200w + rating/ratingCount/ratingSrc(Google) + bestFor + zone + foodType + hours/priceUsd/spice/halal/veg/englishMenu/lat/lng + **ดึง 4 รูป/ร้าน**: main+gallery[3] เครดิตทุกใบ) → FRAME(prose + foodTitle/foodText + **localtips 4-6**) → Assemble(restaurant+staycta+foodexp+localtips blocks + **rail** จาก args + stayHref ตาม zone via stayMap; deterministic return).
+- **✅ Bangkok = จังหวัดแรกที่สเกลสำเร็จ** (`top10-popular-restaurants-bangkok.json`): 10 ร้านจริง (เจ๊ไฝ/ทิพย์สมัย/เจ๊โอว/ครัวอัปษร/เยาวราช...) · 40 รูป · rating 10 (count 8/10) · zone/foodType ครบ · verify PASS errors=0 · BUILD OK · **เจ๊ไฝได้รูป Wikimedia CC BY** (ลิขสิทธิ์ถูก)
+- **🔑 GOTCHA args:** Workflow ส่ง `args` มาเป็น **JSON string** (ไม่ใช่ object!) → engine มี `const A = typeof args==='string'?JSON.parse(args):args||{}` แล้วใช้ `A.x` (อย่าใช้ `args.x` ตรง ๆ ไม่งั้น default ทุกครั้ง = รัน chiang-mai ผิด!)
+- **🔑 GOTCHA return:** workflow return ซ้อนใน task output file = `{summary,logs,result}` โดย `result` เป็น **JSON string** → `JSON.parse(r.result).article` แล้วเขียนไฟล์เอง
+- **🔑 verify:** `node _internal/wf/verify-resto.mjs <city>` — เช็ค 10 ร้าน/≥700อักษร/รูป+gallery ลงดิสก์/rating/zone/foodType/ลิงก์ roundup resolve/lint ban-words · ต้อง errors=0 ก่อน commit
+- **labels staycta/rail:** ตอนนี้ **hand-craft args ต่อจังหวัด** (Bangkok ทำมือคุณภาพดี) · `build-resto-args.mjs` ยัง draft (label จาก h1 รก) — ถ้าจะ auto bulk ต้อง rework label deriver หรือให้ Frame เขียน label
 
 ## 🏗️ Infra (schema/layout — additive, ไม่กระทบ 3,213 บทความเดิม)
 - `astro/src/content.config.ts` articleBlock เพิ่ม 3 ชนิด: **`image`** (รูป+เครดิต), **`restaurant`** (rich card: rank/name/area/cuisine/signature/priceRange/score/img/alt/credit/creditHref/descHtml/mustOrder/tags/mapHref/fbHref/**stayHref/stayLabel**), **`staycta`** (โมดูลจองที่พัก: title/text/img/links[]/ctaLabel/ctaHref)
