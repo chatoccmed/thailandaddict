@@ -215,29 +215,30 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .rgrid .rmain{min-width:0}
 /* sticky must be on the grid ITEM (.rrail), whose grid area spans the full article height,
    so it stays pinned while you scroll. (On an inner div it only sticks for its own height.) */
-.rrail{min-width:0;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}
-.rrail-in{display:flex;flex-direction:column;gap:11px}
+/* no internal scrollbar — whole rail is sticky and follows the page (kept compact to fit the viewport) */
+.rrail{min-width:0;position:sticky;top:80px;align-self:start}
+.rrail-in{display:flex;flex-direction:column;gap:9px}
 .rrail-h{font-family:'Outfit';font-weight:800;font-size:13.5px;color:var(--ink);padding:2px 2px 8px;border-bottom:2px solid var(--bdr)}
 .rrail-card{display:flex;background:#fff;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:.15s}
 .rrail-card:hover{border-color:var(--teal);box-shadow:0 10px 24px rgba(6,182,212,.16);transform:translateY(-1px)}
-.rrail-card img{width:90px;height:auto;align-self:stretch;object-fit:cover;flex-shrink:0;background:#e6eef2}
-.rrail-body{display:flex;flex-direction:column;gap:3px;padding:10px 12px;min-width:0}
-.rrail-title{font-family:'Outfit';font-weight:700;font-size:12.5px;line-height:1.32;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rrail-card img{width:80px;height:auto;align-self:stretch;object-fit:cover;flex-shrink:0;background:#e6eef2}
+.rrail-body{display:flex;flex-direction:column;gap:2px;padding:8px 11px;min-width:0}
+.rrail-title{font-family:'Outfit';font-weight:700;font-size:12.5px;line-height:1.26;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .rrail-body small{font-size:11px;color:var(--sub);line-height:1.35}
 .rrail-go{font-family:'Outfit';font-weight:800;font-size:11px;color:var(--teal-dk);margin-top:2px}
-.rrail-sec{display:flex;flex-direction:column;gap:10px}
-.rrail-sec + .rrail-sec{margin-top:20px}
-.rrail-fsub{font-size:11px;color:var(--sub);line-height:1.4;margin:-3px 0 1px}
-.rrail-fcard{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:8px 11px 8px 8px;transition:.16s}
+.rrail-sec{display:flex;flex-direction:column;gap:9px}
+.rrail-sec + .rrail-sec{margin-top:16px}
+.rrail-fsub{font-size:11px;color:var(--sub);line-height:1.4;margin:-2px 0 1px}
+.rrail-fcard{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--bdr);border-radius:13px;padding:7px 10px 7px 7px;transition:.16s}
 .rrail-fcard:hover{border-color:var(--teal);box-shadow:0 9px 22px rgba(6,182,212,.16);transform:translateY(-1px)}
-.rrail-ficon{width:46px;height:46px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:23px}
+.rrail-ficon{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:21px}
 .rrail-fcard.c0 .rrail-ficon{background:linear-gradient(135deg,#cffafe,#a5f3fc)}
 .rrail-fcard.c1 .rrail-ficon{background:linear-gradient(135deg,#ffe4e6,#fecdd3)}
 .rrail-fcard.c2 .rrail-ficon{background:linear-gradient(135deg,#fef3c7,#fde68a)}
 .rrail-fcard.c3 .rrail-ficon{background:linear-gradient(135deg,#e0f2fe,#bae6fd)}
 .rrail-fbody{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .rrail-ftitle{font-family:'Outfit';font-weight:700;font-size:12.5px;line-height:1.28;color:var(--ink)}
-.rrail-fnote{font-size:10.5px;color:var(--sub);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rrail-fnote{font-size:10.5px;color:var(--sub);line-height:1.35;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .rrail-fchev{font-family:'Outfit';font-size:18px;font-weight:700;color:var(--sub);flex-shrink:0;transition:.16s}
 .rrail-fcard:hover .rrail-fchev{color:var(--teal-dk);transform:translateX(2px)}
 .rrail-fcta{display:flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;font-family:'Outfit';font-weight:800;font-size:12px;padding:11px;border-radius:12px;margin-top:5px;box-shadow:0 8px 18px rgba(6,182,212,.28)}
@@ -466,7 +467,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           {railItems.map((r) => (
             <a class="rrail-card" href={link(r.href)}>
               {r.img && <img src={asset(r.img)} alt="" loading="lazy" onerror="this.style.display='none'" />}
-              <span class="rrail-body"><span class="rrail-title" set:html={r.title} />{r.note && <small set:html={r.note} />}<span class="rrail-go">ดูรีวิว &rarr;</span></span>
+              <span class="rrail-body"><span class="rrail-title" set:html={r.title} />{r.note && <small set:html={r.note} />}</span>
             </a>
           ))}
         </div>
