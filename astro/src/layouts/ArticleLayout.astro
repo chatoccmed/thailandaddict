@@ -74,7 +74,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:description" content={data.ogDesc ?? data.metaDesc} />
 <meta property="og:type" content="article" />
 <meta property="og:url" content={canonical} />
-{data.image && <meta property="og:image" content={asset(data.image)} />}
+{(data.image || data.heroImg) && <meta property="og:image" content={asset(data.image || data.heroImg)} />}
 <meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
 <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
