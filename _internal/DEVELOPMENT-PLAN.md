@@ -2,6 +2,7 @@
 
 > สร้าง 2026-06-21 จาก expert gap-audit แบบ multi-agent (8 มุมผู้เชี่ยวชาญ · repo-grounded · adversarially verified · 87 ช่องว่าง) · source of truth = git + โค้ดจริง (อย่าเชื่อ doc ถ้าขัดของจริง)
 > ต่อยอดจาก `_internal/NEXT-MONETIZATION-PLAN.md` — อันนั้นคือแผนเดิม, อันนี้คือ gap analysis ฉบับ verify จริงแล้ว
+> 📚 บทวิเคราะห์ดิบฉบับเต็ม (87 ช่องว่างครบทุก field + evidence + verify note) = `_internal/GAP-ANALYSIS-2026-06.md` · ไฟล์นี้ = แผน action จัดลำดับ ROI
 
 ## 0. วิธีอ่านแผนนี้
 - จัดลำดับตาม **ROI = (impact + revenue) เทียบ effort** · แต่ละ item ให้คะแนน I/E/$ (1-5)
