@@ -16,16 +16,39 @@
     "✅ รีวิวจริงจากแขกที่เคยพัก"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "เขาใหญ่", "href": "city-khao-yai.html" },
-    { "name": "10 ที่พักเขาใหญ่ยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "เขาใหญ่",
+      "href": "city-khao-yai.html"
+    },
+    {
+      "name": "10 ที่พักเขาใหญ่ยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "เขาใหญ่", "item": "https://thailandaddict.com/city-khao-yai" },
-    { "name": "10 ที่พักเขาใหญ่ยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-khao-yai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "เขาใหญ่",
+      "item": "https://thailandaddict.com/city-khao-yai"
+    },
+    {
+      "name": "10 ที่พักเขาใหญ่ยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-khao-yai"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-khao-yai.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "เขาใหญ่ไม่มีขนส่งสาธารณะในตัว ส่วนใหญ่ต้องมีรถส่วนตัวหรือเช่ารถ · จากกรุงเทพฯ ขับราว 2.5–3 ชั่วโมง ถึงปากช่องแล้วเลี้ยวเข้าถนนธนะรัชต์มุ่งสู่หมูสีและปากทางอุทยาน · โซนหลักในบทความนี้: <strong>หมูสี</strong> — รีสอร์ตหรู คาเฟ่ ไร่องุ่น ใกล้ปากทางอุทยาน · <strong>ถนนธนะรัชต์</strong> — ร้านอาหาร ปาลิโอ Scenical World โครงการ Toscana Valley · <strong>ในเมืองปากช่อง</strong> — สถานีรถไฟ ตลาด ที่พักงบประหยัด · บางที่พักอยู่ลึกจากถนนหลักพอควร ควรเช็กระยะก่อนจองถ้าไม่มีรถ",
   "secLabel": "ทั้ง 10 ที่พัก — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "atta Lakeside Resort Suite", "price": "฿4,500" },
-    { "n": "2", "color": "#c8a951", "name": "U Khao Yai", "price": "฿2,900" },
-    { "n": "3", "color": "#c8a951", "name": "Lala Mukha Tented Resort", "price": "฿2,900" },
-    { "n": "4", "color": "#c8a951", "name": "Mövenpick Resort Khao Yai", "price": "฿3,800" },
-    { "n": "5", "color": "#9e9e9e", "name": "Toscana Valley Castello Della Valle", "price": "฿4,200" },
-    { "n": "6", "color": "#9e9e9e", "name": "Palio Inn Khao Yai", "price": "฿2,600" },
-    { "n": "7", "color": "#9e9e9e", "name": "Botanica Khao Yai", "price": "฿3,800" },
-    { "n": "8", "color": "#bf8040", "name": "The Greenery Resort Khao Yai", "price": "฿2,500" },
-    { "n": "9", "color": "#bf8040", "name": "Klang Dong Mountain View", "price": "฿1,500" },
-    { "n": "10", "color": "#5d4037", "name": "Hello Hostel Pakchong", "price": "฿350" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "atta Lakeside Resort Suite",
+      "price": "฿4,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "U Khao Yai",
+      "price": "฿2,900"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Lala Mukha Tented Resort",
+      "price": "฿2,900"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Mövenpick Resort Khao Yai",
+      "price": "฿3,800"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Toscana Valley Castello Della Valle",
+      "price": "฿4,200"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Palio Inn Khao Yai",
+      "price": "฿2,600"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Botanica Khao Yai",
+      "price": "฿3,800"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "The Greenery Resort Khao Yai",
+      "price": "฿2,500"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Klang Dong Mountain View",
+      "price": "฿1,500"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Hello Hostel Pakchong",
+      "price": "฿350"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿4,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "One Bedroom Suite 65 ตร.ม.", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Two Bedroom Suite 102 ตร.ม.", "price": "เริ่ม ฿8,500/คืน" },
-        { "type": "Penthouse Suite 200–235 ตร.ม.", "price": "เริ่ม ฿14,980/คืน" }
+        {
+          "type": "One Bedroom Suite 65 ตร.ม.",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Two Bedroom Suite 102 ตร.ม.",
+          "price": "เริ่ม ฿8,500/คืน"
+        },
+        {
+          "type": "Penthouse Suite 200–235 ตร.ม.",
+          "price": "เริ่ม ฿14,980/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/atta-lakeside-resort-suite/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/atta-resrot.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-3153635/atta-lakeside-resort-suite/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-atta-lakeside-resort-suite-khao-yai.html",
-      "tags": ["🌊 ทุกห้องวิวทะเลสาบ+เขา", "🛋️ ห้องสวีททั้งหมด มีครัวในตัว", "🍳 อาหารเช้าวิวทะเลสาบ", "📍 ถนนธนะรัชต์ หมูสี"],
+      "tags": [
+        "🌊 ทุกห้องวิวทะเลสาบ+เขา",
+        "🛋️ ห้องสวีททั้งหมด มีครัวในตัว",
+        "🍳 อาหารเช้าวิวทะเลสาบ",
+        "📍 ถนนธนะรัชต์ หมูสี"
+      ],
       "addr": "1/3 หมู่ 6 ถนนธนะรัชต์ ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.4 จาก 389 รีวิว — atta Lakeside คือ <strong>รีสอร์ตที่หลายคนจองเพราะวิวทะเลสาบโดยเฉพาะ</strong> ทุกห้องหันหน้าเข้าน้ำ มีเทือกเขาเขาใหญ่เป็นฉากหลัง · จุดที่ต่างคือห้องเป็นสวีททั้งหมดเริ่มที่ 65 ตร.ม. มีครัวเล็กในห้อง เหมาะนั่งระเบียงดูหมอกเช้าทั้งวัน · ข้อต้องรู้คือสระค่อนข้างเล็กและน้ำเย็น เหมาะแช่ชิลดูวิวมากกว่าว่ายจริงจัง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่หันหน้าเข้าทะเลสาบโดยตรงและชั้นที่มองข้ามต้นไม้ได้ วิวจะเปิดเต็มตา และวิวเช้าหมอกลอยเหนือน้ำคือไฮไลต์ของที่นี่",
@@ -102,15 +189,29 @@
       "priceBig": "฿2,900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Garden View 34–40 ตร.ม.", "price": "เริ่ม ฿2,900/คืน" },
-        { "type": "Superior Pool View", "price": "เริ่ม ฿3,300/คืน" },
-        { "type": "Deluxe Pool Access", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "Superior Garden View 34–40 ตร.ม.",
+          "price": "เริ่ม ฿2,900/คืน"
+        },
+        {
+          "type": "Superior Pool View",
+          "price": "เริ่ม ฿3,300/คืน"
+        },
+        {
+          "type": "Deluxe Pool Access",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/u-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/u-khao-yai-pak-chong.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-6055683/u-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-u-khao-yai.html",
-      "tags": ["🏡 บ้านสวนสไตล์ฝรั่งเศส", "⏱️ เช็คอินยืดหยุ่นพัก 24 ชม.", "🍳 อาหารเช้าได้คำชม", "🛏️ เมนู U Choose เลือกหมอน/ชา"],
+      "tags": [
+        "🏡 บ้านสวนสไตล์ฝรั่งเศส",
+        "⏱️ เช็คอินยืดหยุ่นพัก 24 ชม.",
+        "🍳 อาหารเช้าได้คำชม",
+        "🛏️ เมนู U Choose เลือกหมอน/ชา"
+      ],
       "addr": "99/22 หมู่ 1 ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "U Khao Yai เป็น <strong>ที่พักหมูสีที่มีรีวิวเยอะถึงกว่า 1,100 และครองอันดับ 1 ของหมูสีบน TripAdvisor</strong> คะแนน 9.1 · จุดขายคือบ้านสวนสไตล์ French Country โทนพาสเทลเรียงรอบสระ free-form บรรยากาศอบอุ่นเป็นส่วนตัว · ของเด็ดคือนโยบายเช็คอินยืดหยุ่นที่ให้พักครบ 24 ชั่วโมงนับจากเวลาเช็คอินจริง ขับมาถึงบ่ายก็ไม่ต้องรีบคืนห้องเที่ยง · ทำเลเงียบ ควรมีรถส่วนตัว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เช็คอินช่วงบ่ายเพื่อใช้สิทธิ์พัก 24 ชั่วโมงให้เต็มที่ และเลือกเมนู U Choose แจ้งชนิดหมอน สบู่ ชา ที่อยากได้ล่วงหน้าก่อนเข้าพัก",
@@ -142,15 +243,29 @@
       "priceBig": "฿2,900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Eco Safari Tent", "price": "เริ่ม ฿2,900/คืน" },
-        { "type": "Deluxe Savanna Tent", "price": "เริ่ม ฿4,300/คืน" },
-        { "type": "Loft Tree House", "price": "เริ่ม ฿8,500/คืน" }
+        {
+          "type": "Eco Safari Tent",
+          "price": "เริ่ม ฿2,900/คืน"
+        },
+        {
+          "type": "Deluxe Savanna Tent",
+          "price": "เริ่ม ฿4,300/คืน"
+        },
+        {
+          "type": "Loft Tree House",
+          "price": "เริ่ม ฿8,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lala-mukha-tented-resort-khao-yai-sha-extra-plus/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lala-mukha-tented-resort-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/ban-mu-si-hotel-detail-3724595/lala-mukha-tented-resort-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lala-mukha-tented-resort-khao-yai.html",
-      "tags": ["⛺ แกลมปิ้งธีม African Safari", "🦌 ใกล้ปากทางอุทยานที่สุด", "🏊 สระอินฟินิตี้", "🍳 อาหารเช้าได้คำชม"],
+      "tags": [
+        "⛺ แกลมปิ้งธีม African Safari",
+        "🦌 ใกล้ปากทางอุทยานที่สุด",
+        "🏊 สระอินฟินิตี้",
+        "🍳 อาหารเช้าได้คำชม"
+      ],
       "addr": "515 หมู่ 5 ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Lala Mukha คือ <strong>แกลมปิ้งที่มีรีวิวมากที่สุดในชุดนี้ กว่า 3,900 รีวิว</strong> คะแนน 8.6 · เต็นท์แอร์ติดแอร์ธีม African Safari 40 หลัง ให้ฟีลพักกลางป่าโดยไม่ต้องลำบาก · จุดเด่นคือเป็นที่พักที่อยู่ใกล้ปากทางอุทยานแห่งชาติเขาใหญ่ที่สุดในชุดนี้ ราว 5 นาที เหมาะคนตั้งใจเข้าอุทยานตั้งแต่เช้า · มีสระอินฟินิตี้และอาหารเช้าที่ได้คำชม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าตั้งใจเข้าอุทยานเขาใหญ่ ที่นี่ใกล้ปากทางที่สุด ออกเช้าได้สบาย · จองเต็นท์ที่หันออกวิวสระหรือป่าไว้ บรรยากาศตอนเย็นดีที่สุด",
@@ -182,15 +297,29 @@
       "priceBig": "฿3,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Executive Deluxe 55 ตร.ม.", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Ozone Suite 2 ห้องนอน", "price": "เริ่ม ฿8,500/คืน" },
-        { "type": "2-Bedroom Pool Villa", "price": "เริ่ม ฿12,000/คืน" }
+        {
+          "type": "Executive Deluxe 55 ตร.ม.",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Ozone Suite 2 ห้องนอน",
+          "price": "เริ่ม ฿8,500/คืน"
+        },
+        {
+          "type": "2-Bedroom Pool Villa",
+          "price": "เริ่ม ฿12,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/m-venpick-resort-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/my-ozone-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-10805561/my-ozone-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-movenpick-resort-khao-yai.html",
-      "tags": ["🏰 สไตล์ยุโรปกลางหุบเขา", "👨‍👩‍👧‍👦 สระในร่ม+กลางแจ้ง กิจกรรมเยอะ", "🍇 ใกล้ไร่องุ่นและคาเฟ่", "🏊 พูลวิลล่าเหมากลุ่มใหญ่"],
+      "tags": [
+        "🏰 สไตล์ยุโรปกลางหุบเขา",
+        "👨‍👩‍👧‍👦 สระในร่ม+กลางแจ้ง กิจกรรมเยอะ",
+        "🍇 ใกล้ไร่องุ่นและคาเฟ่",
+        "🏊 พูลวิลล่าเหมากลุ่มใหญ่"
+      ],
       "addr": "ตำบลวังไทร อำเภอปากช่อง นครราชสีมา (โซนหมูสี)",
       "storyHtml": "Mövenpick Resort Khao Yai (เดิม My Ozone) คือ <strong>รีสอร์ตหรูสไตล์ยุโรปกลางหุบเขาในราคาที่จับต้องได้ง่ายกว่ารีสอร์ต 5 ดาวหลายแห่ง</strong> คะแนน 8.8 จาก 272 รีวิว · อาคารหลังคาแหลม สวนดอกไม้ วิวภูเขาเป็นฉากหลัง เป็นจุดถ่ายรูปยอดนิยมของหมูสี · มีสระในร่ม+กลางแจ้ง สระเด็ก กิจกรรมเยอะ อยู่ได้ทั้งวัน เหมาะครอบครัวและกลุ่มเพื่อนที่เช่าพูลวิลล่าทั้งหลัง · ตัวอาคารเปิดมาหลายปี บางห้องเริ่มดูเก่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องฝั่งวิวเขาตอนจอง เพราะวิวเป็นจุดที่คนพักประทับใจที่สุด · มากันหลายคนเช่าพูลวิลล่าทั้งหลังคุ้มกว่าจองหลายห้องแยก",
@@ -222,15 +351,29 @@
       "priceBig": "฿4,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Suite", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "Jacuzzi Suite", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "Balcony Suite", "price": "เริ่ม ฿7,500/คืน" }
+        {
+          "type": "Superior Suite",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "Jacuzzi Suite",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "Balcony Suite",
+          "price": "เริ่ม ฿7,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/toscana-valley-castello-della-valle/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/toscana-valley-castello-della-vella.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-26511042/toscana-valley-castello-della-valle/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-toscana-valley-castello-della-valle-khao-yai.html",
-      "tags": ["🏰 ปราสาทอิตาเลียนกลางเขาใหญ่", "🛏️ ห้องสวีทกว้างทั้งหมด", "🍇 ในโครงการ Toscana Valley", "📍 ถนนธนะรัชต์"],
+      "tags": [
+        "🏰 ปราสาทอิตาเลียนกลางเขาใหญ่",
+        "🛏️ ห้องสวีทกว้างทั้งหมด",
+        "🍇 ในโครงการ Toscana Valley",
+        "📍 ถนนธนะรัชต์"
+      ],
       "addr": "2 หมู่ 11 ตำบลปงตาลอง อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Castello Della Valle คือ <strong>โรงแรมบูทีกในตัวปราสาทอิตาเลียนกลางโครงการ Toscana Valley</strong> คะแนน 8.7 · จุดขายชัดคือดีไซน์ปราสาทยุโรปที่เดินถ่ายรูปได้ทั้งโครงการ ทั้งจัตุรัส หอนาฬิกา และมุมอิตาเลียนต่างๆ · ห้องเป็นสวีทกว้างทั้งหมด บางห้องมีจากุซซี่และระเบียงวิว · เหมาะคู่รักและคนที่อยากได้ที่พักมีธีมชัดเจน อยู่บนถนนธนะรัชต์ใกล้จุดเที่ยว · รีวิวยังไม่เยอะแต่คะแนนดี",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาถ่ายรูปในจัตุรัส Toscana Valley ช่วงเย็นแสงสวยและคนน้อยกว่ากลางวัน · เลือก Balcony Suite ถ้าอยากได้ระเบียงวิวเปิด",
@@ -262,15 +405,29 @@
       "priceBig": "฿2,600",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (Balcony Wing)", "price": "เริ่ม ฿2,600/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿5,500/คืน" }
+        {
+          "type": "Standard Room (Balcony Wing)",
+          "price": "เริ่ม ฿2,600/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿5,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/palio-inn/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/palio-inn.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail/palio-inn/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-palio-inn-khao-yai.html",
-      "tags": ["🏘️ อยู่ในหมู่บ้านปาลิโอ", "🛏️ ห้องมีระเบียง โทนขาว", "🌲 ใกล้ปากทางอุทยาน", "📍 ถนนธนะรัชต์ กม.17"],
+      "tags": [
+        "🏘️ อยู่ในหมู่บ้านปาลิโอ",
+        "🛏️ ห้องมีระเบียง โทนขาว",
+        "🌲 ใกล้ปากทางอุทยาน",
+        "📍 ถนนธนะรัชต์ กม.17"
+      ],
       "addr": "146/1 หมู่ 4 ถนนธนะรัชต์ กม.17 ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Palio Inn คือ <strong>บูทีกโฮเทลเล็กๆ ที่อยู่ในหมู่บ้านปาลิโอ จุดถ่ายรูปยอดฮิตของเขาใหญ่</strong> คะแนน 8.7 · จุดเด่นคือเดินออกจากห้องก็เจอบรรยากาศหมู่บ้านสไตล์ยุโรป ร้านค้า ร้านอาหาร และตลาดกลางคืนของปาลิโอ · 18 ห้องโทนขาวสะอาด มีระเบียง บรรยากาศเงียบกว่าที่คิดเมื่ออยู่ในวิงด้านใน · อยู่บนถนนธนะรัชต์ กม.17 ใกล้ปากทางอุทยาน เหมาะคนอยากได้ที่พักติดจุดเที่ยว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องในวิงสวน (Garden Wing) จะเงียบกว่าฝั่งติดลานปาลิโอที่คนพลุกพล่านช่วงเย็น · เดินเล่นตลาดปาลิโอตอนค่ำได้เลยไม่ต้องขับรถ",
@@ -297,20 +454,34 @@
       "revCount": "Agoda 7.9 · ดีไซน์ Modern Tropical",
       "badge": "🌿 พูลวิลล่าเชิงเขา",
       "badgeColor": "#2e7d32",
-      "img": "images/hotels/khaoyai-botanica-1.jpg",
+      "img": "images/hotels/khao-yai-botanica-01.jpg",
       "mrtTag": "📍 เชิงเขา · ถนนธนะรัชต์ หมูสี",
       "priceBig": "฿3,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Botanica Studio", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Family Suite", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "Pool Villa", "price": "เริ่ม ฿9,500/คืน" }
+        {
+          "type": "Botanica Studio",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Family Suite",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "Pool Villa",
+          "price": "เริ่ม ฿9,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/botanica-khao-yai-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/botanica-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-2259678/botanica-khao-yai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-botanica-khao-yai.html",
-      "tags": ["🌿 ดีไซน์ Modern Tropical", "🛏️ ห้องหลายแบบถึงพูลวิลล่า", "🍳 อาหารเช้าได้คำชม", "📍 เชิงเขา ถนนธนะรัชต์"],
+      "tags": [
+        "🌿 ดีไซน์ Modern Tropical",
+        "🛏️ ห้องหลายแบบถึงพูลวิลล่า",
+        "🍳 อาหารเช้าได้คำชม",
+        "📍 เชิงเขา ถนนธนะรัชต์"
+      ],
       "addr": "666 ถนนธนะรัชต์ ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Botanica Khao Yai คือ <strong>รีสอร์ตเชิงเขาดีไซน์ Modern Tropical ที่มีห้องให้เลือกตั้งแต่สตูดิโอจนถึงพูลวิลล่า</strong> คะแนน 7.9 · จุดเด่นคือดีไซน์โมเดิร์นกลางสวนเชิงเขา และพูลวิลล่าที่มีสระส่วนตัวสำหรับครอบครัวหรือกลุ่มเพื่อน · อาหารเช้าได้คำชม · ทำเลอยู่บนถนนธนะรัชต์ในโซนหมูสี เดินทางสะดวก · รีวิวยังไม่เยอะและคะแนนกลางๆ ควรเช็กประเภทห้องที่จองให้ชัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือมีเด็กให้เลือก Family Suite หรือ Pool Villa จะได้พื้นที่ส่วนตัวคุ้มกว่า · เช็กรูปและประเภทห้องที่จองให้ตรงก่อนยืนยัน",
@@ -342,15 +513,29 @@
       "priceBig": "฿2,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Greenery Premier", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Connecting Room", "price": "เริ่ม ฿4,800/คืน" }
+        {
+          "type": "Greenery Premier",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Connecting Room",
+          "price": "เริ่ม ฿4,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/greenery-resort-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-greenery-resort-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-710986/the-greenery-resort-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-greenery-resort-khao-yai.html",
-      "tags": ["🏊 สวนน้ำ + สระเด็ก สไลเดอร์", "👨‍👩‍👧‍👦 รีสอร์ตใหญ่ รับกรุ๊ปได้", "📍 ติด Scenical World", "🛏️ ห้อง Family + Connecting"],
+      "tags": [
+        "🏊 สวนน้ำ + สระเด็ก สไลเดอร์",
+        "👨‍👩‍👧‍👦 รีสอร์ตใหญ่ รับกรุ๊ปได้",
+        "📍 ติด Scenical World",
+        "🛏️ ห้อง Family + Connecting"
+      ],
       "addr": "188/1 หมู่ 5 ถนนธนะรัชต์ ตำบลหมูสี อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "The Greenery คือ <strong>รีสอร์ตใหญ่กว่า 250 ห้องที่ขายความเป็นที่พักครอบครัวพร้อมสวนน้ำในตัว</strong> คะแนน 7.5 · จุดเด่นคือสวนน้ำ สระเด็ก สไลเดอร์ ที่เด็กๆ เล่นได้ทั้งวัน และห้อง Family/Connecting รองรับกรุ๊ปใหญ่ · ทำเลติด Scenical World บนถนนธนะรัชต์ เที่ยวต่อสะดวก · เป็นรีสอร์ตใหญ่จึงรับกรุ๊ปและสัมมนาได้ แต่ช่วงคนเยอะบริการอาจไม่ทั่วถึงเท่าที่พักเล็ก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากับเด็กให้จองห้อง Family และไปเล่นสวนน้ำช่วงเช้าที่คนน้อยกว่า · เลี่ยงวันหยุดยาวที่กรุ๊ปเยอะถ้าอยากได้บรรยากาศเงียบ",
@@ -382,14 +567,25 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน (เหมาหลัง)",
       "rooms": [
-        { "type": "บ้าน 2 ห้องนอน (เหมาหลัง)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "บ้าน 2 ห้องนอน (วันหยุดยาว)", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "บ้าน 2 ห้องนอน (เหมาหลัง)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "บ้าน 2 ห้องนอน (วันหยุดยาว)",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/klang-dong-mountain-view-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/klang-dong-mountain-view-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-47010900/klang-dong-mountain-view-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-klang-dong-mountain-view-khao-yai.html",
-      "tags": ["🏡 เหมาทั้งหลัง เป็นส่วนตัว", "🍳 มีครัว ทำอาหารเองได้", "🏔️ วิวเขา-วิวสวน", "📍 กลางดง ใกล้ปากทางอุทยาน"],
+      "tags": [
+        "🏡 เหมาทั้งหลัง เป็นส่วนตัว",
+        "🍳 มีครัว ทำอาหารเองได้",
+        "🏔️ วิวเขา-วิวสวน",
+        "📍 กลางดง ใกล้ปากทางอุทยาน"
+      ],
       "addr": "99 หมู่ 9 ตำบลกลางดง อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Klang Dong Mountain View คือ <strong>บ้านพัก 2 ห้องนอนแบบเหมาทั้งหลังในราคาเริ่ม ฿1,500</strong> คะแนน 7.7 · จุดเด่นคือความเป็นส่วนตัว ได้ทั้งหลังเป็นของกลุ่มตัวเอง มีครัวทำอาหารกินเองได้ เหมาะครอบครัวหรือกลุ่มเพื่อนที่อยากประหยัดและไม่อยากแชร์พื้นที่กับคนอื่น · วิวเขา-วิวสวนอยู่โซนกลางดง ใกล้ปากทางขึ้นอุทยาน · เป็นบ้านพักงบประหยัด ไม่มีบริการแบบโรงแรม ต้องดูแลตัวเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มีครัวในบ้าน แวะซื้อของสดที่ตลาดกลางดงหรือปากช่องมาทำกินเองได้ ประหยัดค่าอาหารไปเยอะ · มากันหลายคนหารต่อหัวถูกมาก",
@@ -421,15 +617,29 @@
       "priceBig": "฿350",
       "priceSub": "ราคาเริ่มต้น/เตียง",
       "rooms": [
-        { "type": "เตียงในดอร์ม 6 เตียง", "price": "เริ่ม ฿350/เตียง" },
-        { "type": "เตียงในดอร์ม 4 เตียง", "price": "เริ่ม ฿420/เตียง" },
-        { "type": "ห้องดับเบิล (ห้องน้ำรวม)", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "เตียงในดอร์ม 6 เตียง",
+          "price": "เริ่ม ฿350/เตียง"
+        },
+        {
+          "type": "เตียงในดอร์ม 4 เตียง",
+          "price": "เริ่ม ฿420/เตียง"
+        },
+        {
+          "type": "ห้องดับเบิล (ห้องน้ำรวม)",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hello-hostel-pakchong/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hello-hostel-pakchong.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-7215517/hello-hostel-pakchong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hello-hostel-pakchong-khao-yai.html",
-      "tags": ["✨ สะอาด เงียบ เจ้าของน่ารัก", "🚉 เดินถึงสถานีรถไฟ", "🛏️ ดอร์มมีม่าน + ล็อกเกอร์", "🪙 ถูกสุดในชุด ฿350"],
+      "tags": [
+        "✨ สะอาด เงียบ เจ้าของน่ารัก",
+        "🚉 เดินถึงสถานีรถไฟ",
+        "🛏️ ดอร์มมีม่าน + ล็อกเกอร์",
+        "🪙 ถูกสุดในชุด ฿350"
+      ],
       "addr": "49/5 ถนนเทศบาล 15 ตำบลปากช่อง อำเภอปากช่อง นครราชสีมา",
       "storyHtml": "Hello Hostel คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿350 ต่อเตียง แต่ได้คะแนนสูงสุดในชุดที่ 9.6</strong> · อยู่ในเมืองปากช่อง เดินถึงสถานีรถไฟ เหมาะคนนั่งรถไฟมาเที่ยวเขาใหญ่หรือแบ็คแพ็คเกอร์งบจำกัด · จุดที่รีวิวชมตรงกันคือความสะอาด เงียบ และเจ้าของที่ดูแลดี · ดอร์มมีม่านกั้นและล็อกเกอร์ส่วนตัว · ข้อต้องรู้คืออยู่ในเมือง ไม่ใช่ติดอุทยาน ต้องเดินทางต่อเข้าจุดเที่ยว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เหมาะคนมารถไฟลงสถานีปากช่องแล้วเดินมาได้เลย · อยากเที่ยวอุทยานต้องเช่ารถหรือจองทัวร์ต่อจากในเมือง สอบถามเจ้าของช่วยแนะนำได้",
@@ -447,36 +657,182 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 ที่พักเขาใหญ่ 2026",
-  "compareCols": ["#", "ชื่อที่พัก", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อที่พัก",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "atta Lakeside Resort Suite", "type": "⭐⭐⭐⭐⭐", "score": "9.4", "price": "฿4,500", "access": "📍 ริมทะเลสาบ หมูสี", "badge": "คะแนนสูงสุด+วิวทะเลสาบ", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "U Khao Yai", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿2,900", "access": "📍 หมูสี ปากช่อง", "badge": "รีวิวเยอะ+บริการเด่น", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Lala Mukha Tented Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿2,900", "access": "📍 หมูสี ใกล้อุทยานที่สุด", "badge": "รีวิวมากสุด 3,900+", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Mövenpick Resort Khao Yai", "type": "⭐⭐⭐⭐⭐", "score": "8.8", "price": "฿3,800", "access": "📍 หมูสี ใกล้ไร่องุ่น", "badge": "หรูสไตล์ยุโรป", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Toscana Valley Castello Della Valle", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿4,200", "access": "📍 Toscana Valley ธนะรัชต์", "badge": "ปราสาทอิตาเลียน", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Palio Inn Khao Yai", "type": "⭐⭐⭐", "score": "8.7", "price": "฿2,600", "access": "📍 หมู่บ้านปาลิโอ ธนะรัชต์", "badge": "อยู่ในปาลิโอ", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Botanica Khao Yai", "type": "⭐⭐⭐⭐", "score": "7.9", "price": "฿3,800", "access": "📍 เชิงเขา ธนะรัชต์ หมูสี", "badge": "พูลวิลล่าเชิงเขา", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "The Greenery Resort Khao Yai", "type": "⭐⭐⭐⭐", "score": "7.5", "price": "฿2,500", "access": "📍 ธนะรัชต์ ติด Scenical World" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Klang Dong Mountain View", "type": "⭐⭐", "score": "7.7", "price": "฿1,500", "access": "📍 กลางดง ปากช่อง" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Hello Hostel Pakchong", "type": "⭐⭐", "score": "9.6", "price": "฿350", "access": "📍 ในเมืองปากช่อง", "badge": "ถูกสุด+คะแนนเด่น", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "atta Lakeside Resort Suite",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿4,500",
+      "access": "📍 ริมทะเลสาบ หมูสี",
+      "badge": "คะแนนสูงสุด+วิวทะเลสาบ",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "U Khao Yai",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿2,900",
+      "access": "📍 หมูสี ปากช่อง",
+      "badge": "รีวิวเยอะ+บริการเด่น",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Lala Mukha Tented Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,900",
+      "access": "📍 หมูสี ใกล้อุทยานที่สุด",
+      "badge": "รีวิวมากสุด 3,900+",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Mövenpick Resort Khao Yai",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿3,800",
+      "access": "📍 หมูสี ใกล้ไร่องุ่น",
+      "badge": "หรูสไตล์ยุโรป",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Toscana Valley Castello Della Valle",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿4,200",
+      "access": "📍 Toscana Valley ธนะรัชต์",
+      "badge": "ปราสาทอิตาเลียน",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Palio Inn Khao Yai",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿2,600",
+      "access": "📍 หมู่บ้านปาลิโอ ธนะรัชต์",
+      "badge": "อยู่ในปาลิโอ",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Botanica Khao Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿3,800",
+      "access": "📍 เชิงเขา ธนะรัชต์ หมูสี",
+      "badge": "พูลวิลล่าเชิงเขา",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "The Greenery Resort Khao Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.5",
+      "price": "฿2,500",
+      "access": "📍 ธนะรัชต์ ติด Scenical World"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Klang Dong Mountain View",
+      "type": "⭐⭐",
+      "score": "7.7",
+      "price": "฿1,500",
+      "access": "📍 กลางดง ปากช่อง"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Hello Hostel Pakchong",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿350",
+      "access": "📍 ในเมืองปากช่อง",
+      "badge": "ถูกสุด+คะแนนเด่น",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "เลือกที่พักเขาใหญ่ยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Hello Hostel Pakchong</strong> ฿350/เตียง คะแนน 9.6 ในเมืองปากช่อง · หรือ <strong>Klang Dong Mountain View</strong> ฿1,500 เหมาบ้านทั้งหลังมีครัว มากันหลายคนหารต่อหัวถูก" },
-    { "icon": "🌊", "head": "อยากได้วิวสวย ห้องกว้าง", "bodyHtml": "→ <strong>atta Lakeside Resort Suite</strong> ฿4,500 ห้องสวีทริมทะเลสาบทุกห้องมีระเบียงวิวเขา คะแนนสูงสุด 9.4" },
-    { "icon": "👨‍👩‍👧‍👦", "head": "มาเป็นครอบครัว มีเด็ก", "bodyHtml": "→ <strong>The Greenery Resort</strong> ฿2,500 มีสวนน้ำสไลเดอร์ · หรือ <strong>Mövenpick Resort</strong> ฿3,800 สระในร่ม+กลางแจ้ง กิจกรรมเยอะ" },
-    { "icon": "⛺", "head": "อยากลองแกลมปิ้ง ใกล้เข้าอุทยาน", "bodyHtml": "→ <strong>Lala Mukha Tented Resort</strong> ฿2,900 แกลมปิ้งธีม African Safari ใกล้ปากทางอุทยานที่สุด รีวิวมากสุด 3,900+" },
-    { "icon": "🏰", "head": "อยากได้ที่พักมีธีม ถ่ายรูปสวย", "bodyHtml": "→ <strong>Toscana Valley Castello Della Valle</strong> ฿4,200 ปราสาทอิตาเลียน · หรือ <strong>Palio Inn</strong> ฿2,600 อยู่ในหมู่บ้านปาลิโอ" },
-    { "icon": "🏡", "head": "อยากพักเงียบ บรรยากาศสวน", "bodyHtml": "→ <strong>U Khao Yai</strong> ฿2,900 บ้านสวนฝรั่งเศส เช็คอินยืดหยุ่นพัก 24 ชม. บริการใส่ใจ · หรือ <strong>Botanica</strong> ฿3,800 พูลวิลล่าเชิงเขา" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Hello Hostel Pakchong</strong> ฿350/เตียง คะแนน 9.6 ในเมืองปากช่อง · หรือ <strong>Klang Dong Mountain View</strong> ฿1,500 เหมาบ้านทั้งหลังมีครัว มากันหลายคนหารต่อหัวถูก"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากได้วิวสวย ห้องกว้าง",
+      "bodyHtml": "→ <strong>atta Lakeside Resort Suite</strong> ฿4,500 ห้องสวีทริมทะเลสาบทุกห้องมีระเบียงวิวเขา คะแนนสูงสุด 9.4"
+    },
+    {
+      "icon": "👨‍👩‍👧‍👦",
+      "head": "มาเป็นครอบครัว มีเด็ก",
+      "bodyHtml": "→ <strong>The Greenery Resort</strong> ฿2,500 มีสวนน้ำสไลเดอร์ · หรือ <strong>Mövenpick Resort</strong> ฿3,800 สระในร่ม+กลางแจ้ง กิจกรรมเยอะ"
+    },
+    {
+      "icon": "⛺",
+      "head": "อยากลองแกลมปิ้ง ใกล้เข้าอุทยาน",
+      "bodyHtml": "→ <strong>Lala Mukha Tented Resort</strong> ฿2,900 แกลมปิ้งธีม African Safari ใกล้ปากทางอุทยานที่สุด รีวิวมากสุด 3,900+"
+    },
+    {
+      "icon": "🏰",
+      "head": "อยากได้ที่พักมีธีม ถ่ายรูปสวย",
+      "bodyHtml": "→ <strong>Toscana Valley Castello Della Valle</strong> ฿4,200 ปราสาทอิตาเลียน · หรือ <strong>Palio Inn</strong> ฿2,600 อยู่ในหมู่บ้านปาลิโอ"
+    },
+    {
+      "icon": "🏡",
+      "head": "อยากพักเงียบ บรรยากาศสวน",
+      "bodyHtml": "→ <strong>U Khao Yai</strong> ฿2,900 บ้านสวนฝรั่งเศส เช็คอินยืดหยุ่นพัก 24 ชม. บริการใส่ใจ · หรือ <strong>Botanica</strong> ฿3,800 พูลวิลล่าเชิงเขา"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณช่วงปกติ อาจเปลี่ยนตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · เขาใหญ่ราคาห้องสวิงตามฤดู — ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) และวันหยุดยาว (ปีใหม่ สงกรานต์) ราคาสูงขึ้นและห้องเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือน · เขาใหญ่ไม่มีขนส่งสาธารณะในตัว ส่วนใหญ่ต้องมีรถส่วนตัวหรือเช่ารถ จากกรุงเทพฯ ขับราว 2.5–3 ชั่วโมง · บทความโดย <strong>ThailandAddict</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องที่พักเขาใหญ่",
   "faq": [
-    { "q": "❓ พักโซนไหนดีในเขาใหญ่?", "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>หมูสี</strong> เหมาะคนอยากได้รีสอร์ตหรู คาเฟ่ ไร่องุ่น และใกล้ปากทางอุทยาน (atta Lakeside, U Khao Yai, Lala Mukha, Mövenpick) · <strong>ถนนธนะรัชต์</strong> เหมาะคนอยากติดร้านอาหารและจุดเที่ยว (Toscana Valley, Palio Inn, Botanica, The Greenery) · <strong>ในเมืองปากช่อง</strong> เหมาะคนมารถไฟหรืองบประหยัด (Hello Hostel) · ส่วนใหญ่ต้องมีรถส่วนตัว" },
-    { "q": "❓ ที่พักเขาใหญ่ราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลและบ้านพักงบประหยัดเริ่มราว ฿350–1,500 · บูทีกและรีสอร์ตครอบครัวราว ฿2,500–3,800 · รีสอร์ต 5 ดาวริมทะเลสาบและบ้านสวนหรูเริ่ม ฿2,900–4,500 ขึ้นไป · ราคาห้องเขาใหญ่สวิงตามฤดู ช่วงหน้าหนาวและวันหยุดยาวสูงกว่าปกติมาก" },
-    { "q": "❓ ที่พักไหนใกล้ปากทางอุทยานเขาใหญ่ที่สุด?", "a": "<strong>Lala Mukha Tented Resort</strong> อยู่ใกล้ปากทางอุทยานแห่งชาติเขาใหญ่ที่สุดในชุดนี้ ราว 5 นาที เหมาะคนตั้งใจเข้าอุทยานตั้งแต่เช้า · ส่วน atta Lakeside ห่างปากทางราว 15–20 นาที · ที่พักโซนหมูสีส่วนใหญ่จะใกล้ปากทางมากกว่าโซนปากช่องในเมือง" },
-    { "q": "❓ ควรจองที่พักเขาใหญ่ล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติ จองล่วงหน้า 1–2 สัปดาห์พอ · แต่ช่วง <strong>หน้าหนาว (พฤศจิกายน–มกราคม) วันหยุดยาว ปีใหม่ และสงกรานต์</strong> ห้องดีๆ เต็มเร็วมากและราคาสูงขึ้น ควรจองล่วงหน้า 1–2 เดือน โดยเฉพาะรีสอร์ตหรูและที่พักริมทะเลสาบ เลือก Free Cancellation ไว้ก่อนถ้าแผนยังไม่แน่นอน" },
-    { "q": "❓ ไปเขาใหญ่ต้องมีรถส่วนตัวไหม?", "a": "แนะนำให้มี · เขาใหญ่ไม่มีขนส่งสาธารณะในตัว ที่พักหลายแห่งอยู่ลึกจากถนนหลัก ไม่มีร้านอาหารเดินถึง · ถ้าไม่มีรถ เลือกที่พักในเมืองปากช่อง (เช่น Hello Hostel) แล้วเช่ารถหรือจองทัวร์เข้าจุดเที่ยว · จากกรุงเทพฯ ขับรถมาเองราว 2.5–3 ชั่วโมงสะดวกที่สุด" },
-    { "q": "❓ จองที่พักเขาใหญ่เว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน" }
+    {
+      "q": "❓ พักโซนไหนดีในเขาใหญ่?",
+      "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>หมูสี</strong> เหมาะคนอยากได้รีสอร์ตหรู คาเฟ่ ไร่องุ่น และใกล้ปากทางอุทยาน (atta Lakeside, U Khao Yai, Lala Mukha, Mövenpick) · <strong>ถนนธนะรัชต์</strong> เหมาะคนอยากติดร้านอาหารและจุดเที่ยว (Toscana Valley, Palio Inn, Botanica, The Greenery) · <strong>ในเมืองปากช่อง</strong> เหมาะคนมารถไฟหรืองบประหยัด (Hello Hostel) · ส่วนใหญ่ต้องมีรถส่วนตัว"
+    },
+    {
+      "q": "❓ ที่พักเขาใหญ่ราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลและบ้านพักงบประหยัดเริ่มราว ฿350–1,500 · บูทีกและรีสอร์ตครอบครัวราว ฿2,500–3,800 · รีสอร์ต 5 ดาวริมทะเลสาบและบ้านสวนหรูเริ่ม ฿2,900–4,500 ขึ้นไป · ราคาห้องเขาใหญ่สวิงตามฤดู ช่วงหน้าหนาวและวันหยุดยาวสูงกว่าปกติมาก"
+    },
+    {
+      "q": "❓ ที่พักไหนใกล้ปากทางอุทยานเขาใหญ่ที่สุด?",
+      "a": "<strong>Lala Mukha Tented Resort</strong> อยู่ใกล้ปากทางอุทยานแห่งชาติเขาใหญ่ที่สุดในชุดนี้ ราว 5 นาที เหมาะคนตั้งใจเข้าอุทยานตั้งแต่เช้า · ส่วน atta Lakeside ห่างปากทางราว 15–20 นาที · ที่พักโซนหมูสีส่วนใหญ่จะใกล้ปากทางมากกว่าโซนปากช่องในเมือง"
+    },
+    {
+      "q": "❓ ควรจองที่พักเขาใหญ่ล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติ จองล่วงหน้า 1–2 สัปดาห์พอ · แต่ช่วง <strong>หน้าหนาว (พฤศจิกายน–มกราคม) วันหยุดยาว ปีใหม่ และสงกรานต์</strong> ห้องดีๆ เต็มเร็วมากและราคาสูงขึ้น ควรจองล่วงหน้า 1–2 เดือน โดยเฉพาะรีสอร์ตหรูและที่พักริมทะเลสาบ เลือก Free Cancellation ไว้ก่อนถ้าแผนยังไม่แน่นอน"
+    },
+    {
+      "q": "❓ ไปเขาใหญ่ต้องมีรถส่วนตัวไหม?",
+      "a": "แนะนำให้มี · เขาใหญ่ไม่มีขนส่งสาธารณะในตัว ที่พักหลายแห่งอยู่ลึกจากถนนหลัก ไม่มีร้านอาหารเดินถึง · ถ้าไม่มีรถ เลือกที่พักในเมืองปากช่อง (เช่น Hello Hostel) แล้วเช่ารถหรือจองทัวร์เข้าจุดเที่ยว · จากกรุงเทพฯ ขับรถมาเองราว 2.5–3 ชั่วโมงสะดวกที่สุด"
+    },
+    {
+      "q": "❓ จองที่พักเขาใหญ่เว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน"
+    }
   ]
 }

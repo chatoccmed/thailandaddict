@@ -110,12 +110,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "บริการ", "value": "8.8", "width": 88 },
-    { "label": "ความสะอาด", "value": "8.7", "width": 87 },
-    { "label": "ทำเล", "value": "8.9", "width": 89 },
-    { "label": "ห้องพัก", "value": "8.5", "width": 85 },
-    { "label": "บรรยากาศ", "value": "8.6", "width": 86 },
-    { "label": "อาหาร", "value": "8.0", "width": 80 }
+    {
+      "label": "บริการ",
+      "value": "8.8",
+      "width": 88
+    },
+    {
+      "label": "ความสะอาด",
+      "value": "8.7",
+      "width": 87
+    },
+    {
+      "label": "ทำเล",
+      "value": "8.9",
+      "width": 89
+    },
+    {
+      "label": "ห้องพัก",
+      "value": "8.5",
+      "width": 85
+    },
+    {
+      "label": "บรรยากาศ",
+      "value": "8.6",
+      "width": 86
+    },
+    {
+      "label": "อาหาร",
+      "value": "8.0",
+      "width": 80
+    }
   ],
   "booking": {
     "score": "8.5",
@@ -199,39 +223,87 @@
     }
   ],
   "info": [
-    { "k": "ประเภท", "v": "Beachfront Resort 4★ · ปลายหาดเฉวงฝั่งใต้" },
-    { "k": "ปีเปิด", "v": "ค.ศ. 2009 (ปรับปรุงปี 2023)" },
-    { "k": "จำนวนห้อง", "v": "79 ห้อง (มี Pool Villa)" },
-    { "k": "Check-in", "v": "14:00 น." },
-    { "k": "Check-out", "v": "12:00 น." },
-    { "k": "Wi-Fi", "v": "ฟรีทั่วรีสอร์ต" },
-    { "k": "อาหารเช้า", "v": "บุฟเฟ่ต์ (รวมในบางแพ็กเกจ)" },
-    { "k": "สระว่ายน้ำ", "v": "สระกลางแจ้งติดทะเล + สระส่วนตัวในกลุ่ม Pool Villa" },
-    { "k": "หาดส่วนตัว", "v": "มี (ติดหาดราว 200 เมตร · ปลายเฉวงฝั่งใต้)" },
-    { "k": "รถรับส่ง", "v": "ฟรีไป Central Festival Samui" }
+    {
+      "k": "ประเภท",
+      "v": "Beachfront Resort 4★ · ปลายหาดเฉวงฝั่งใต้"
+    },
+    {
+      "k": "ปีเปิด",
+      "v": "ค.ศ. 2009 (ปรับปรุงปี 2023)"
+    },
+    {
+      "k": "จำนวนห้อง",
+      "v": "79 ห้อง (มี Pool Villa)"
+    },
+    {
+      "k": "Check-in",
+      "v": "14:00 น."
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 น."
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "ฟรีทั่วรีสอร์ต"
+    },
+    {
+      "k": "อาหารเช้า",
+      "v": "บุฟเฟ่ต์ (รวมในบางแพ็กเกจ)"
+    },
+    {
+      "k": "สระว่ายน้ำ",
+      "v": "สระกลางแจ้งติดทะเล + สระส่วนตัวในกลุ่ม Pool Villa"
+    },
+    {
+      "k": "หาดส่วนตัว",
+      "v": "มี (ติดหาดราว 200 เมตร · ปลายเฉวงฝั่งใต้)"
+    },
+    {
+      "k": "รถรับส่ง",
+      "v": "ฟรีไป Central Festival Samui"
+    }
   ],
   "mapImg": "images/hotels/surat-thani-samuiresotel-2.jpg",
   "mapAddr": "17 Moo 3, Chaweng Beach, Bo Phut, Koh Samui, Surat Thani 84320",
   "nearby": [
-    { "n": "ใจกลางหาดเฉวง / ถนนคนเดิน", "d": "~5–10 นาทีรถ" },
-    { "n": "Central Festival Samui", "d": "~8 นาทีรถ (มีรถรับส่งฟรี)" },
-    { "n": "หาดเชิงมน", "d": "~12 นาทีรถ" },
-    { "n": "หาดบ่อผุด / Fisherman's Village", "d": "~15 นาทีรถ" },
-    { "n": "พระใหญ่เกาะสมุย (Big Buddha)", "d": "~18 นาทีรถ" },
-    { "n": "สนามบินสมุย (USM)", "d": "~15 นาทีรถ (ราว 6 กม.)" }
+    {
+      "n": "ใจกลางหาดเฉวง / ถนนคนเดิน",
+      "d": "~5–10 นาทีรถ"
+    },
+    {
+      "n": "Central Festival Samui",
+      "d": "~8 นาทีรถ (มีรถรับส่งฟรี)"
+    },
+    {
+      "n": "หาดเชิงมน",
+      "d": "~12 นาทีรถ"
+    },
+    {
+      "n": "หาดบ่อผุด / Fisherman's Village",
+      "d": "~15 นาทีรถ"
+    },
+    {
+      "n": "พระใหญ่เกาะสมุย (Big Buddha)",
+      "d": "~18 นาทีรถ"
+    },
+    {
+      "n": "สนามบินสมุย (USM)",
+      "d": "~15 นาทีรถ (ราว 6 กม.)"
+    }
   ],
   "relatedTitle": "โรงแรมใกล้เคียงในสุราษฎร์ธานี",
   "related": [
     {
       "href": "review-anantara-lawana-koh-samui-surat-thani.html",
-      "img": "images/hotels/surat-thani-anantaralawana-1.webp",
+      "img": "images/hotels/surat-anantara-lawana-1.jpg",
       "name": "Anantara Lawana Koh Samui Resort",
       "loc": "🇹🇭 หาดเฉวง · เกาะสมุย",
       "price": "เริ่ม ฿9,000 / คืน"
     },
     {
       "href": "review-sala-samui-chaweng-beach-surat-thani.html",
-      "img": "images/hotels/surat-thani-salasamui-1.webp",
+      "img": "images/hotels/surat-thani-salasamui-1.jpg",
       "name": "SALA Samui Chaweng Beach Resort",
       "loc": "🇹🇭 เฉวง/เชิงมน · เกาะสมุย",
       "price": "เริ่ม ฿7,500 / คืน"

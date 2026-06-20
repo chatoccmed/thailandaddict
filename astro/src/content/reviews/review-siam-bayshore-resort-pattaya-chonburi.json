@@ -106,12 +106,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "ทำเล", "value": "8.8", "width": 88 },
-    { "label": "บริการ", "value": "8.4", "width": 84 },
-    { "label": "ความสะอาด", "value": "8.2", "width": 82 },
-    { "label": "บรรยากาศ", "value": "8.5", "width": 85 },
-    { "label": "ห้องพัก", "value": "7.9", "width": 79 },
-    { "label": "ความคุ้มค่า", "value": "8.3", "width": 83 }
+    {
+      "label": "ทำเล",
+      "value": "8.8",
+      "width": 88
+    },
+    {
+      "label": "บริการ",
+      "value": "8.4",
+      "width": 84
+    },
+    {
+      "label": "ความสะอาด",
+      "value": "8.2",
+      "width": 82
+    },
+    {
+      "label": "บรรยากาศ",
+      "value": "8.5",
+      "width": 85
+    },
+    {
+      "label": "ห้องพัก",
+      "value": "7.9",
+      "width": 79
+    },
+    {
+      "label": "ความคุ้มค่า",
+      "value": "8.3",
+      "width": 83
+    }
   ],
   "booking": {
     "score": "8.2",
@@ -195,26 +219,74 @@
     }
   ],
   "info": [
-    { "k": "ประเภท", "v": "Boutique Resort 4★ · รีสอร์ตในสวน" },
-    { "k": "ปีเปิด", "v": "ค.ศ. 1972 (ปรับปรุง 2019)" },
-    { "k": "จำนวนห้อง", "v": "270 ห้อง" },
-    { "k": "Check-in", "v": "14:00 น." },
-    { "k": "Check-out", "v": "12:00 น." },
-    { "k": "Wi-Fi", "v": "ฟรีทุกห้อง" },
-    { "k": "อาหารเช้า", "v": "บุฟเฟ่ต์ (Sunrise Sunset เปิด 24 ชม.)" },
-    { "k": "สระว่ายน้ำ", "v": "2 สระ พร้อมจากุซซี่" },
-    { "k": "สปา", "v": "มี (Lotus Spa of Siam)" },
-    { "k": "สัตว์เลี้ยง", "v": "ไม่อนุญาต" }
+    {
+      "k": "ประเภท",
+      "v": "Boutique Resort 4★ · รีสอร์ตในสวน"
+    },
+    {
+      "k": "ปีเปิด",
+      "v": "ค.ศ. 1972 (ปรับปรุง 2019)"
+    },
+    {
+      "k": "จำนวนห้อง",
+      "v": "270 ห้อง"
+    },
+    {
+      "k": "Check-in",
+      "v": "14:00 น."
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 น."
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "ฟรีทุกห้อง"
+    },
+    {
+      "k": "อาหารเช้า",
+      "v": "บุฟเฟ่ต์ (Sunrise Sunset เปิด 24 ชม.)"
+    },
+    {
+      "k": "สระว่ายน้ำ",
+      "v": "2 สระ พร้อมจากุซซี่"
+    },
+    {
+      "k": "สปา",
+      "v": "มี (Lotus Spa of Siam)"
+    },
+    {
+      "k": "สัตว์เลี้ยง",
+      "v": "ไม่อนุญาต"
+    }
   ],
   "mapImg": "images/hotels/chonburi-siambayshore-2.jpg",
   "mapAddr": "559 Beach Road, South Pattaya, Nong Prue, Bang Lamung, Chonburi 20150 (ปลายพัทยาใต้ ติด Walking Street และท่าเรือ Bali Hai)",
   "nearby": [
-    { "n": "Walking Street พัทยา", "d": "3 นาทีเดิน" },
-    { "n": "ท่าเรือ Bali Hai (ไปเกาะล้าน)", "d": "ติดรีสอร์ต" },
-    { "n": "หาดพัทยา (Pattaya Beach)", "d": "เดินถึง" },
-    { "n": "ห้าง CentralFestival Pattaya Beach", "d": "~10 นาทีรถ" },
-    { "n": "เกาะล้าน (Koh Larn)", "d": "~45 นาทีเรือ" },
-    { "n": "สนามบินอู่ตะเภา (UTP)", "d": "~45 นาทีรถ" }
+    {
+      "n": "Walking Street พัทยา",
+      "d": "3 นาทีเดิน"
+    },
+    {
+      "n": "ท่าเรือ Bali Hai (ไปเกาะล้าน)",
+      "d": "ติดรีสอร์ต"
+    },
+    {
+      "n": "หาดพัทยา (Pattaya Beach)",
+      "d": "เดินถึง"
+    },
+    {
+      "n": "ห้าง CentralFestival Pattaya Beach",
+      "d": "~10 นาทีรถ"
+    },
+    {
+      "n": "เกาะล้าน (Koh Larn)",
+      "d": "~45 นาทีเรือ"
+    },
+    {
+      "n": "สนามบินอู่ตะเภา (UTP)",
+      "d": "~45 นาทีรถ"
+    }
   ],
   "relatedTitle": "โรงแรมใกล้เคียงในชลบุรี-พัทยา",
   "related": [
@@ -227,7 +299,7 @@
     },
     {
       "href": "review-rabbit-resort-pattaya-chonburi.html",
-      "img": "images/hotels/chonburi-rabbit-1.jpg",
+      "img": "images/hotels/chonburi-rabbitresort-1.jpg",
       "name": "Rabbit Resort Pattaya",
       "loc": "🇹🇭 Jomtien Beach · พัทยา",
       "price": "เริ่ม ฿3,200 / คืน"

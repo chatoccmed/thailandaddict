@@ -16,16 +16,39 @@
     "✅ <strong>Real reviews</strong> for every stay"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Rayong", "href": "city-rayong.html" },
-    { "name": "Top 10 Budget Hotels in Central Rayong" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Rayong",
+      "href": "city-rayong.html"
+    },
+    {
+      "name": "Top 10 Budget Hotels in Central Rayong"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Rayong", "item": "https://thailandaddict.com/en/city-rayong" },
-    { "name": "Top 10 Budget Hotels in Central Rayong", "item": "https://thailandaddict.com/en/top10-budget-hotels-rayong" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Rayong",
+      "item": "https://thailandaddict.com/en/city-rayong"
+    },
+    {
+      "name": "Top 10 Budget Hotels in Central Rayong",
+      "item": "https://thailandaddict.com/en/top10-budget-hotels-rayong"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-budget-hotels-rayong.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "Rayong has no metro and public transport within the city is limited, so having your own car or hailing a ride is by far the easiest way to get around — which is why nearly every stay in this article has free parking. The main lodging areas here: <strong>Noen Phra (Sukhumvit Road)</strong> — the city's main artery, near Passione mall and Central Rayong, a 10–15 min drive to Saeng Chan Beach · <strong>Thap Ma</strong> — a residential area near Noen Phra, quieter but still easy to reach the city · <strong>Tha Pradu / old town</strong> — the heart of Rayong's old town, near Yom Chinda Road and the Rayong River, walkable on foot · From U-Tapao Airport (UTP) it's roughly a 30–50 min drive into the city, and Ban Phe pier for the boat to Koh Samet is about a 20–30 min drive from the centre.",
   "secLabel": "All 10 hotels — let's get started",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Crystal Jade Rayong Hotel", "price": "฿1,650" },
-    { "n": "2", "color": "#06B6D4", "name": "Charisma Residence Rayong", "price": "฿700" },
-    { "n": "3", "color": "#06B6D4", "name": "Phavina Serviced Residence Rayong", "price": "฿800" },
-    { "n": "4", "color": "#06B6D4", "name": "Banyan Residence", "price": "฿990" },
-    { "n": "5", "color": "#06B6D4", "name": "BJ Boutique", "price": "฿550" },
-    { "n": "6", "color": "#06B6D4", "name": "Wisdom Hotel & Residence Rayong", "price": "฿800" },
-    { "n": "7", "color": "#06B6D4", "name": "Hub de Leaf at Rayong Design Resort", "price": "฿650" },
-    { "n": "8", "color": "#06B6D4", "name": "IZEN Budget Hotel & Residences", "price": "฿550" },
-    { "n": "9", "color": "#06B6D4", "name": "Caza V1 Serviced Apartment", "price": "฿600" },
-    { "n": "10", "color": "#06B6D4", "name": "Madina Hotel Rayong", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Crystal Jade Rayong Hotel",
+      "price": "฿1,650"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Charisma Residence Rayong",
+      "price": "฿700"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Phavina Serviced Residence Rayong",
+      "price": "฿800"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Banyan Residence",
+      "price": "฿990"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "BJ Boutique",
+      "price": "฿550"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Wisdom Hotel & Residence Rayong",
+      "price": "฿800"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Hub de Leaf at Rayong Design Resort",
+      "price": "฿650"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "IZEN Budget Hotel & Residences",
+      "price": "฿550"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Caza V1 Serviced Apartment",
+      "price": "฿600"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Madina Hotel Rayong",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,650",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Superior Room (~33 sqm, floors 2-3)", "price": "from ฿1,650/night" },
-        { "type": "Deluxe Suite (~33 sqm, floors 4-7)", "price": "from ฿1,950/night" },
-        { "type": "Grand Deluxe Suite", "price": "from ฿2,400/night" }
+        {
+          "type": "Superior Room (~33 sqm, floors 2-3)",
+          "price": "from ฿1,650/night"
+        },
+        {
+          "type": "Deluxe Suite (~33 sqm, floors 4-7)",
+          "price": "from ฿1,950/night"
+        },
+        {
+          "type": "Grand Deluxe Suite",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/crystal-jade-rayong-hotel-sha-extra-plus/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/crtstal-jade-and-service-apartment.html",
       "tripUrl": "https://th.trip.com/hotels/rayong-hotel-detail-1521310/crystal-jade-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-crystal-jade-rayong-hotel-rayong.html",
-      "tags": ["🍳 Kitchenette suites", "🏊 Saltwater pool", "🚗 Free parking", "💼 Great for long EEC work stays"],
+      "tags": [
+        "🍳 Kitchenette suites",
+        "🏊 Saltwater pool",
+        "🚗 Free parking",
+        "💼 Great for long EEC work stays"
+      ],
       "addr": "335/1 Sukhumvit Rd, Noen Phra, Mueang Rayong",
       "storyHtml": "If you're after a mid-priced stay in the city of Rayong with the highest review score in this set, plenty of guests point to <strong>Crystal Jade Rayong Hotel</strong> — a city hotel on Sukhumvit Road in Noen Phra that chose to position itself around suites rather than the usual small bedrooms. What people mention most is that the majority of rooms are suites of around 33 square metres with a kitchenette, fridge and microwave built in, clearly more spacious than similarly priced hotel rooms in the city, and well suited to multi-night stays for those working in the industrial estates and the EEC. Honest takes from real reviews agree that the rooms are spacious and clean, you can heat up your own food, and there's an outdoor saltwater pool that doesn't sting your eyes to cool off in. What really keeps the overall score at 9.4 is the service, which scores high at around 9.6 — many reviews mention staff who are friendly and look after you beyond what the price suggests. The location is an advantage too, on a main road, near a 7-Eleven, about 3.3 kilometres from Central Rayong, with free private parking. The honest caveats from the reviews: some rooms get ants when there's leftover food because the rooms have a kitchen, some rooms have no kettle, water pressure is weak with some leaks in certain rooms, the lobby is fairly small, and the hotel isn't by the sea — anyone set on a beach trip has to drive on to Mae Ramphueng or Ban Phe. In short, it's the best value for someone who wants a central base with a spacious room, a kitchen, cleanliness and easy parking.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a Deluxe Suite on floors 4-7 for a more open view and often a fresher room. If you'll use the kitchen to store food, keep scraps sealed away to avoid ants, and ask whether the room has a kettle or if you can request one.",
@@ -103,15 +190,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿700/night" },
-        { "type": "Deluxe (with kitchen corner)", "price": "from ฿1,100/night" },
-        { "type": "Suite", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe (with kitchen corner)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Suite",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/charisma-residence_2/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/charisma-residence.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-9932473/charisma-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-charisma-residence-rayong.html",
-      "tags": ["🏠 30–40 sqm rooms with balcony", "💰 From the high hundreds", "🅿️ On a main road, free parking", "🍳 Some rooms have a kitchen corner"],
+      "tags": [
+        "🏠 30–40 sqm rooms with balcony",
+        "💰 From the high hundreds",
+        "🅿️ On a main road, free parking",
+        "🍳 Some rooms have a kitchen corner"
+      ],
       "addr": "999 Moo 3, Sukhumvit Rd, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Charisma Residence Rayong</strong>, or \"Charisma Residence\" as locals call it, is an apartment-style stay in the Noen Phra area on Sukhumvit Road that plays the value game hard, and it's the budget stay with the most accumulated reviews — around 612 — of all the residences in this article. What real reviews mention most is the room size — most rooms are around 30–40 square metres with a private balcony, fridge and flat-screen TV, and some Deluxe rooms have a small kitchen corner built in, clearly more spacious than many similarly priced hotel rooms in Rayong. Many people sum it up simply: the rooms are very spacious for the price, clean, look new, the water pressure is good, and the parking is wide and convenient. The location is an advantage too, on a main road that's easy to find, near Passione mall and the Midtown area at around 0.8–1 kilometre, about a 10-minute drive to Saeng Chan Beach — so it suits people who want to stay in the city at night and then drive out to swim or eat seafood during the day. The honest caveats from the reviews: this is a residence, so there's no pool or in-house restaurant, the front desk may not be open 24 hours, the air-con in some rooms doesn't get fully cold on very hot days, soundproofing between rooms isn't tight, and rooms facing Sukhumvit Road do catch some traffic noise. It suits business travellers, long-stay guests and families who weigh budget, room size and parking over luxury.",
       "tipHtml": "💡 <strong>Tip:</strong> If you want a kitchen corner, specify a Deluxe room with a pantry when you book, since not every room has one. If you're a light sleeper, ask for a higher floor or a room not facing the road, and check whether the rate includes breakfast or it's an add-on.",
@@ -144,15 +245,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Studio (standard room)", "price": "from ฿800/night" },
-        { "type": "Deluxe Studio", "price": "from ฿1,000/night" },
-        { "type": "Family Room", "price": "from ฿1,500/night" }
+        {
+          "type": "Studio (standard room)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Deluxe Studio",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phavina-serviced-residence/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phavina-serviced-residence.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-711472/phavina-serviced-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phavina-serviced-residence-rayong.html",
-      "tags": ["🍳 Studio rooms with kitchen", "🏊 Pool + gym", "🍳 Breakfast gets praise", "📅 Daily or monthly bookings"],
+      "tags": [
+        "🍳 Studio rooms with kitchen",
+        "🏊 Pool + gym",
+        "🍳 Breakfast gets praise",
+        "📅 Daily or monthly bookings"
+      ],
       "addr": "28/26 Moo 3, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Phavina Serviced Residence Rayong</strong> is a 4-star serviced residence in the Noen Phra area that sells itself as a \"second home\" for long-stay guests more than a walk-in hotel. What real reviews mention is that the rooms are set up as spacious studios with a small kitchen corner and a fridge built in, from a standard Studio up to a Deluxe Studio and a Family Room that sleeps several — so workers at the estates or families driving in for a holiday can easily store food and heat up their own meals. Unlike a typical budget residence, Phavina has a pool and gym to use, which is why many people choose it: you can unwind after a workday without going anywhere. Another thing consistently praised in the real reviews is the breakfast, which many say is well done and tastier than you'd expect at this price. The residence takes both daily and monthly bookings and has wide parking, ideal for those driving themselves. The location is about 3 kilometres, or roughly a 10-minute drive, from central Rayong, Central Plaza and Saeng Chan Beach, so reaching the city and heading out to the sea are about equally convenient. The honest caveats: because it focuses on long stays, the atmosphere leans residential rather than a tourist hotel, some shared facilities and services aren't as full or flashy as the big-brand hotels, and the building is outside the walkable area so you'll rely on a car. It suits EEC workers on multi-night stays and families who want a spacious room with a kitchen plus a pool on a comfortable budget.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're planning several nights or a month, ask about the monthly rate, which is often better value than stacking daily bookings. And choose a Deluxe Studio or above if you want a clearer sitting area than the standard room.",
@@ -180,20 +295,34 @@
       "revCount": "around 8.8 · 21 reviews · quiet, lovely staff",
       "badge": "🛋️ Suites with a separate sitting area · quiet",
       "badgeColor": "#00695c",
-      "img": "images/hotels/rayong-banyan-1.jpg",
+      "img": "images/hotels/rayong-banyanresidence-1.jpg",
       "mrtTag": "📍 Noen Phra · about 6–7 km from the city",
       "priceBig": "฿990",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Queen Suite (non-smoking)", "price": "from ฿990/night" },
-        { "type": "Executive Suite", "price": "from ฿1,290/night" },
-        { "type": "Family Suite", "price": "from ฿1,690/night" }
+        {
+          "type": "Queen Suite (non-smoking)",
+          "price": "from ฿990/night"
+        },
+        {
+          "type": "Executive Suite",
+          "price": "from ฿1,290/night"
+        },
+        {
+          "type": "Family Suite",
+          "price": "from ฿1,690/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/banyan-residence/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/banyan-residence.html",
       "tripUrl": "https://th.trip.com/hotels/rayong-hotel-detail-3065958/banyan-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-banyan-residence-rayong.html",
-      "tags": ["🛋️ Suites with a separate sitting area", "🚗 Free private parking", "🤫 Quiet", "👨‍👩‍👧 Family Suite for families"],
+      "tags": [
+        "🛋️ Suites with a separate sitting area",
+        "🚗 Free private parking",
+        "🤫 Quiet",
+        "👨‍👩‍👧 Family Suite for families"
+      ],
       "addr": "45 Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Banyan Residence</strong> is a small serviced apartment in the Noen Phra area whose selling point differs from its peers in this set: every room is a \"suite with a separate sitting area\" rather than a bare bedroom, from a non-smoking Queen Suite to an Executive Suite with an added sofa bed and a Family Suite for families or groups. Reviews aren't plentiful since it's a small property, but the average of around 8.8 is high, and real reviews agree on two main things — first, the quietness: it isn't on a busy main road, so the atmosphere is calm and you sleep well, ideal for anyone sensitive to noise; second, the staff, whom many praise as lovely and attentive, making it feel more like staying at a home than a hotel. There's free private parking, which matters in a car-dependent city like Rayong. The location is in a residential area, near Soi 5 Phong Phet park at around 0.9 kilometres, while central Rayong with its malls and restaurants is about 6–7 kilometres or a 10–15 min drive. The honest caveats from the reviews: because it's in a residential area, there aren't many restaurants or convenience stores within walking distance like in the city centre, so you'll need to drive out for food; it's a small property with limited shared facilities and no pool, and rooms book up fast because there are so few. It suits couples, long-stay guests and families who want a quiet suite with a sitting area on a low-four-figure budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Because it's a small property and rooms fill up fast, book ahead especially over long weekends. If you're a group or have kids, the Executive Suite and Family Suite are better value for the sitting area and extra beds.",
@@ -226,15 +355,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "from ฿550/night" },
-        { "type": "Superior King Room", "price": "from ฿750/night" },
-        { "type": "Suite", "price": "from ฿1,000/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Superior King Room",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Suite",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bj-boutique/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bj-boutique.html",
       "tripUrl": "https://th.trip.com/hotels/rayong-hotel-detail-9148386/bj-boutique/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bj-boutique-rayong.html",
-      "tags": ["🛏️ Spacious rooms with balcony", "🏪 7-Eleven at the soi entrance", "🚗 Free parking", "🛍️ Near Passione / Mor Sorot Market"],
+      "tags": [
+        "🛏️ Spacious rooms with balcony",
+        "🏪 7-Eleven at the soi entrance",
+        "🚗 Free parking",
+        "🛍️ Near Passione / Mor Sorot Market"
+      ],
       "addr": "42 Nakhon Rayong 3 Rd, Thap Ma-Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>BJ Boutique</strong> is a boutique hotel in the Thap Ma-Noen Phra area with the lowest starting price in this set at around 550 baht, yet you get a spacious room with a private balcony — the thing real reviews mention most. Rooms split into a spacious Deluxe Room with a balcony, a Superior King Room that steps up in both size and bed, and a Suite for small families or anyone wanting a sitting area, all with air-con, an LED TV, a fridge and an en-suite bathroom with hot water. The average of around 8.9 is high for a budget stay, and many reviews conclude it's better value than the price suggests, with clean rooms and comfortable beds. A convenience many people like is the 7-Eleven a few steps away at the soi entrance, plus free parking, making daily life easy even on a longer stay. The location is in the city of Rayong, near Passione mall and Mor Sorot Market at about a 5-minute drive, and a 10–15 min drive to Saeng Chan Beach and the Mid-Water Pagoda, so you can reach both the food-and-shopping spots and the sea in a short time. The honest caveats from the reviews: it's a small boutique of 40 rooms with limited shared facilities, no pool or large gym; the property is down a soi so watch your route on the way in; and parts of the building are starting to show some wear in line with the price. It suits couples, solo travellers and small families on a budget who want a spacious room with a balcony in the city at the lowest starting price.",
       "tipHtml": "💡 <strong>Tip:</strong> The ฿550 starting price is usually a Deluxe Room; if you want a king bed or more space, step up to a Superior King or Suite. Over long weekends the price climbs to around ฿1,200, so book ahead and compare the 3 sites.",
@@ -267,15 +410,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Deluxe City View (~35 sqm)", "price": "from ฿800/night" },
-        { "type": "Deluxe Pool View (~35 sqm)", "price": "from ฿950/night" },
-        { "type": "Suite With City View (~45 sqm)", "price": "from ฿1,400/night" }
+        {
+          "type": "Deluxe City View (~35 sqm)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Deluxe Pool View (~35 sqm)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Suite With City View (~45 sqm)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/wisdom-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/wisdom-grandiose.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-21846213/wisdom-hotel-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-wisdom-hotel-rayong.html",
-      "tags": ["🏊 Saltwater pool", "🏙️ High-rise with city-view rooms", "🚗 Free parking", "🛍️ Near Passione & Central"],
+      "tags": [
+        "🏊 Saltwater pool",
+        "🏙️ High-rise with city-view rooms",
+        "🚗 Free parking",
+        "🛍️ Near Passione & Central"
+      ],
       "addr": "83 Moo 3, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Wisdom Hotel & Residence Rayong</strong> is a 4-star hotel and residence in a high-rise tower in the Noen Phra area of the city, and it's the budget stay closest in structure to a big-brand hotel in this set, with around 291 rooms, a saltwater pool and a gym. What real reviews mention is rooms that are spacious for the price, from a Deluxe City View and Deluxe Pool View of around 35 square metres designed to soundproof well, up to a Suite of 45–50 square metres for families or long stays. Because it's a high-rise, the upper-floor rooms get open city or pool views, and it has around 515 reviews accumulated, a lot for this group, showing a steady flow of real guests. The location is in the Noen Phra area, near Passione mall at about a 3–5 min drive and Central Plaza Rayong at around 3–4 kilometres, a 12–15 min drive to Saeng Chan Beach, so it suits both workers and families who want a pool and a spacious room from the high hundreds. The honest caveats from the reviews: the average of around 8.4 is slightly below several others in the set, because it's a large hotel where the consistency of rooms and service can vary; some reviews mention room condition and upkeep differing by floor and room type, and the common areas can get lively when it's busy. It suits people who want a hotel with a more complete pool and gym than a residence, plus a spacious room, at a price that's still affordable.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a higher floor for a more open city or pool view. If you want a fresher room, ask which zone or floor has been most recently refurbished, since it's a large tower where rooms aren't all the same.",
@@ -308,15 +465,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Queen (~28 sqm)", "price": "from ฿650/night" },
-        { "type": "Standard Twin (~28 sqm)", "price": "from ฿700/night" },
-        { "type": "Triple Room (~28 sqm)", "price": "from ฿950/night" }
+        {
+          "type": "Standard Queen (~28 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin (~28 sqm)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Triple Room (~28 sqm)",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hub-de-leaf-at-rayong-design-resort/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hub-de-leaf-rayong.html",
       "tripUrl": "https://th.trip.com/hotels/rayong-hotel-detail-711451/hub-de-leaf-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hub-de-leaf-rayong.html",
-      "tags": ["🌿 Minimalist design, rooms with balcony", "🤫 Quiet, easy to sleep", "🚗 Wide free parking", "🏖️ 5 min to Saeng Chan Beach"],
+      "tags": [
+        "🌿 Minimalist design, rooms with balcony",
+        "🤫 Quiet, easy to sleep",
+        "🚗 Wide free parking",
+        "🏖️ 5 min to Saeng Chan Beach"
+      ],
       "addr": "93/39 Moo 7, Soi Saeng Chan 1, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Hub de Leaf at Rayong Design Resort</strong> is a design boutique resort in the Noen Phra area that breaks from the typical budget stay with clean, minimalist-toned décor, and it has around 552 reviews accumulated, a lot for the budget group. The rooms are simple but good-looking, around 28 square metres, with a balcony overlooking the garden or courtyard, from a Standard Queen and Standard Twin for friends or colleagues to a Triple Room that sleeps three. What real reviews agree on is the quietness and easy sleep — many say the atmosphere is calm and the design makes it feel more relaxing than a typical city hotel, with a green garden to rest your eyes. Wide free parking is an advantage too for those driving themselves. The standout of the location is being the closest to the sea in the Noen Phra group, just around 3.7 kilometres or a 5-minute drive from Saeng Chan Beach, about 5 minutes to Ao Toei, and around 10 minutes into the city centre or Central Rayong — so you get quiet, proximity to the sea and city convenience all at once. The honest caveats from the reviews: it's a small resort with limited shared facilities; the rooms favour design over size, so they aren't as spacious as some residences in the set; the property is down a soi so watch your route; and at times rooms fill up fast because the reviews are good. It suits couples, solo travellers and anyone who values a quiet, attractive atmosphere and proximity to the sea on a light budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a higher floor (3rd-4th) where the balcony overlooks the garden or courtyard for the best atmosphere. Because it's just 5 minutes from Saeng Chan Beach, it works as a base for both the beach and the city, so book ahead since rooms fill up fast.",
@@ -349,15 +520,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿550/night" },
-        { "type": "Superior Room", "price": "from ฿700/night" },
-        { "type": "Residence (long stay)", "price": "from ฿900/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Residence (long stay)",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/izen-budget-hotel-residences/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/izen-budget-amp-residence.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-1518948/izen-budget-hotel-and-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-izen-budget-hotel-rayong.html",
-      "tags": ["🏙️ In the old-town centre", "🤫 Quiet", "🚗 Free parking", "💰 From the hundreds, great value"],
+      "tags": [
+        "🏙️ In the old-town centre",
+        "🤫 Quiet",
+        "🚗 Free parking",
+        "💰 From the hundreds, great value"
+      ],
       "addr": "Soi Plang Si, Sukhumvit Rd, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>IZEN Budget Hotel & Residences</strong> is a budget hotel on Soi Plang Si in the Noen Phra area that interprets \"affordable but in the old-town centre\" most literally in this set, with prices from around 550 baht. There are several room types, from a Standard Room with air-con, a TV, a fridge and an en-suite bathroom, stepping up to a larger Superior Room, and a Residence room suited to longer multi-night stays. What real reviews mention is the cleanliness for the price, the quiet despite being in the city centre, and a location that genuinely lets you walk to Rayong's old-town landmarks — the Krom Luang Chumphon Shrine is around 200 metres away, Wat Pa Pradu around 500 metres, and Yom Chinda Road in the old town around 600 metres, with dozens of restaurants within a 500-metre radius. It's about a 10-minute drive to Saeng Chan Beach and the Mid-Water Pagoda, with free parking, ideal for those who want to explore Rayong's old town on foot and eat local food on the lightest budget. The honest caveats from the reviews: the average of around 8.1 is the lowest in the set and there aren't many reviews yet at around 39; it's a budget stay focused on basic bedrooms with few shared facilities, no pool, simple rooms and décor in line with the price, and parts of the building are starting to show some wear. It suits solo travellers, couples and workers who weigh an affordable price and a walkable old-town location over a full set of facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're set on walking Yom Chinda Road and the old town, this is a base you can genuinely walk from, so try it in the cooler early evening. For a longer stay, ask about the Residence room, which is more convenient for managing your own belongings.",
@@ -390,15 +575,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Double Room", "price": "from ฿600/night" },
-        { "type": "Standard Triple Room", "price": "from ฿900/night" },
-        { "type": "Deluxe Double Studio", "price": "from ฿1,000/night" }
+        {
+          "type": "Standard Double Room",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Standard Triple Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Double Studio",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/caza-v1-serviced-apartment/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/caza-v1-serviced-apartment.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-711438/caza-v1-serviced-apartment/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-caza-v1-serviced-apartment-rayong.html",
-      "tags": ["✨ Spotless rooms with balcony", "🌃 Walk to Star Night Bazaar", "💪 Gym + massage room", "🔌 Free parking + EV charging"],
+      "tags": [
+        "✨ Spotless rooms with balcony",
+        "🌃 Walk to Star Night Bazaar",
+        "💪 Gym + massage room",
+        "🔌 Free parking + EV charging"
+      ],
       "addr": "8 Soi Khlong Khut, Tha Pradu, Mueang Rayong",
       "storyHtml": "Measured by review score, <strong>Caza V1 Serviced Apartment</strong> is the budget stay with the second-highest score in this set at around 9.2 from 112 reviews, behind only Crystal Jade. It's a serviced apartment in Tha Pradu, in central Rayong, whose clear selling points are how spotless it is and a location you can genuinely walk the city from. The rooms have a private balcony, from a Standard Double with a large bed plus a fridge and a 32-inch TV, a Standard Triple for three, up to a Deluxe Double Studio that's more spacious with a sitting area for longer stays. Real reviews agree the rooms are clean like new and well kept, and there's a gym and a massage room to use, which you rarely find at this price, while the breakfast is consistently praised too. The standout of the location is how walkable it is — about a 10-minute walk to Star Night Bazaar, the city's night market, near Wat Pa Pradu at around 1 kilometre, a 5-minute drive into the city and markets, a 10-minute drive to Saeng Chan Beach, with free parking and an EV charging point, which is more modern than its rivals in the group. The honest caveats from the reviews: it's a mid-sized stay of around 50 rooms that focuses on rooms and function over large common areas, with no pool; the property is down a soi so watch your route on the way in; and rooms fill up fast because the scores are good. It suits couples, solo travellers, workers and small families who want a clean room they can walk the city from, with EV charging, on a light budget.",
       "tipHtml": "💡 <strong>Tip:</strong> If you drive an EV, there's a charging point here, which is rare at this price. Because it's a 10-minute walk to Star Night Bazaar, try walking over for dinner and walking back without driving to find parking, and book ahead since good scores mean rooms fill up fast.",
@@ -431,15 +630,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Room (~24–32 sqm)", "price": "from ฿700/night" },
-        { "type": "Standard River View", "price": "from ฿900/night" },
-        { "type": "Deluxe River View (~32 sqm)", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Room (~24–32 sqm)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Standard River View",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe River View (~32 sqm)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/madina-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/madina-rayong.html",
       "tripUrl": "https://th.trip.com/hotels/rayong-hotel-detail-6337348/madina-rayong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-madina-hotel-rayong.html",
-      "tags": ["🌊 Rayong River views", "🚶 Stroll Yom Chinda Rd in the old town", "🚗 Free parking", "☕ In-house café"],
+      "tags": [
+        "🌊 Rayong River views",
+        "🚶 Stroll Yom Chinda Rd in the old town",
+        "🚗 Free parking",
+        "☕ In-house café"
+      ],
       "addr": "41 Rim Nam Rd, Tha Pradu, Mueang Rayong",
       "storyHtml": "<strong>Madina Hotel Rayong</strong> is a riverside lifestyle hotel on the Rayong River in the old town, with a selling point unlike anywhere else in this set — instead of a city hotel or a roadside residence, it's a stay where some rooms look straight out over the Rayong River, within walking distance of Yom Chinda Road in the old town with its street art, old buildings and cafés. There are several room types, from a Standard Room of around 24–32 square metres, a Standard River View and a Deluxe River View with river views, to a Superior Room with a queen bed for couples, all with a balcony and a work desk. Real reviews mention the calm riverside atmosphere, being able to stroll Yom Chinda Road within walking distance, and an in-house café that's a relaxed place to sit, while the breakfast gets praise too. There's free parking, and Rim Nam Garden by the river is just around 0.4 kilometres or a 5-minute walk away. This location suits people who want to soak up the charm of Rayong's old town more than focus on the sea, with Mae Ramphueng Beach around a 15–20 min drive and Central/Passione about 15 minutes. The honest caveats from the reviews: the average is around 8.2 and there aren't many reviews yet at around 40; rooms not on the riverside don't have a standout view, so choose a River View if the view matters to you; it's a mid-sized hotel where shared facilities lean simple, and the old town is fairly quiet at night. It suits couples and city-exploring travellers who want a riverside atmosphere and old-town strolls on a budget-to-mid spend.",
       "tipHtml": "💡 <strong>Tip:</strong> If the view matters, choose a Standard River View or Deluxe River View directly, since rooms not on the riverside don't have a standout view. Once there, try strolling Yom Chinda Road in the cooler evening to soak up the old-town atmosphere.",
@@ -458,37 +671,191 @@
     }
   ],
   "compareTitle": "Comparison table: 10 budget hotels in central Rayong, 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Crystal Jade Rayong Hotel", "type": "⭐⭐⭐", "score": "9.4", "price": "฿1,650", "access": "📍 Sukhumvit Rd, Noen Phra", "badge": "Highest score · kitchenette suites", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Charisma Residence Rayong", "type": "⭐⭐⭐", "score": "8.6", "price": "฿700", "access": "📍 Noen Phra · near Passione", "badge": "Spacious rooms · lots of reviews", "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Phavina Serviced Residence", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿800", "access": "📍 Noen Phra · 3 km from the city", "badge": "Studio with kitchen · pool + gym", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Banyan Residence", "type": "⭐⭐⭐", "score": "8.8", "price": "฿990", "access": "📍 Noen Phra", "badge": "Suite with sitting area · quiet", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "BJ Boutique", "type": "⭐⭐⭐", "score": "8.9", "price": "฿550", "access": "📍 Thap Ma-Noen Phra", "badge": "Spacious boutique · lowest starting price", "badgeStyle": "background:#ffebee;color:#c62828;border-color:#ef9a9a;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Wisdom Hotel & Residence", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿800", "access": "📍 Noen Phra · near Central", "badge": "High-rise 4★ · saltwater pool", "badgeStyle": "background:#e3f2fd;color:#1565c0;border-color:#90caf9;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "Hub de Leaf Design Resort", "type": "⭐⭐⭐", "score": "8.6", "price": "฿650", "access": "📍 Noen Phra · near Saeng Chan Beach", "badge": "Design boutique · quiet", "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "IZEN Budget Hotel & Residences", "type": "⭐⭐⭐", "score": "8.1", "price": "฿550", "access": "📍 Noen Phra · old town", "badge": "Budget · old-town centre", "badgeStyle": "background:#fff3e0;color:#ef6c00;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#06B6D4", "name": "Caza V1 Serviced Apartment", "type": "⭐⭐⭐", "score": "9.2", "price": "฿600", "access": "📍 Tha Pradu · walk to the night market", "badge": "Spotless · second-highest score", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "Madina Hotel Rayong", "type": "⭐⭐⭐", "score": "8.2", "price": "฿700", "access": "📍 Old town · on the Rayong River", "badge": "Riverside · stroll the old town", "badgeStyle": "background:#e0f7fa;color:#00838f;border-color:#80deea;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Crystal Jade Rayong Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,650",
+      "access": "📍 Sukhumvit Rd, Noen Phra",
+      "badge": "Highest score · kitchenette suites",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Charisma Residence Rayong",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿700",
+      "access": "📍 Noen Phra · near Passione",
+      "badge": "Spacious rooms · lots of reviews",
+      "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Phavina Serviced Residence",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿800",
+      "access": "📍 Noen Phra · 3 km from the city",
+      "badge": "Studio with kitchen · pool + gym",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Banyan Residence",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿990",
+      "access": "📍 Noen Phra",
+      "badge": "Suite with sitting area · quiet",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "BJ Boutique",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿550",
+      "access": "📍 Thap Ma-Noen Phra",
+      "badge": "Spacious boutique · lowest starting price",
+      "badgeStyle": "background:#ffebee;color:#c62828;border-color:#ef9a9a;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Wisdom Hotel & Residence",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿800",
+      "access": "📍 Noen Phra · near Central",
+      "badge": "High-rise 4★ · saltwater pool",
+      "badgeStyle": "background:#e3f2fd;color:#1565c0;border-color:#90caf9;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "Hub de Leaf Design Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿650",
+      "access": "📍 Noen Phra · near Saeng Chan Beach",
+      "badge": "Design boutique · quiet",
+      "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "IZEN Budget Hotel & Residences",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿550",
+      "access": "📍 Noen Phra · old town",
+      "badge": "Budget · old-town centre",
+      "badgeStyle": "background:#fff3e0;color:#ef6c00;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#06B6D4",
+      "name": "Caza V1 Serviced Apartment",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿600",
+      "access": "📍 Tha Pradu · walk to the night market",
+      "badge": "Spotless · second-highest score",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "Madina Hotel Rayong",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿700",
+      "access": "📍 Old town · on the Rayong River",
+      "badge": "Riverside · stroll the old town",
+      "badgeStyle": "background:#e0f7fa;color:#00838f;border-color:#80deea;"
+    }
   ],
   "adviceTitle": "How to choose a budget stay in central Rayong that fits your trip",
   "advice": [
-    { "icon": "🍳", "head": "Long stay, EEC work, want a kitchen", "bodyHtml": "→ <strong>Crystal Jade Rayong Hotel</strong> ฿1,650, kitchenette suites, saltwater pool, score 9.4, the highest in the set · or <strong>Phavina</strong> ฿800, studio with kitchen plus a pool" },
-    { "icon": "💰", "head": "Lightest budget, want a spacious room", "bodyHtml": "→ <strong>BJ Boutique</strong> ฿550, spacious room with a balcony, 7-Eleven at the soi entrance · or <strong>Charisma Residence</strong> ฿700, 30–40 sqm rooms, great value" },
-    { "icon": "🏊", "head": "Want a hotel with a pool and gym", "bodyHtml": "→ <strong>Wisdom Hotel & Residence</strong> ฿800, high-rise 4★, saltwater pool, spacious city-view rooms · or <strong>Phavina</strong> ฿800, has a pool and gym" },
-    { "icon": "🌿", "head": "Want a quiet atmosphere and nice design", "bodyHtml": "→ <strong>Hub de Leaf Design Resort</strong> ฿650, quiet minimalist boutique near Saeng Chan Beach · or <strong>Banyan Residence</strong> ฿990, quiet suite with a sitting area" },
-    { "icon": "🚶", "head": "Want to explore Rayong's old town on foot", "bodyHtml": "→ <strong>Caza V1</strong> ฿600, a 10-minute walk to Star Night Bazaar, spotless · or <strong>IZEN Budget</strong> ฿550, walk to Yom Chinda Road" },
-    { "icon": "🌊", "head": "Want a riverside atmosphere", "bodyHtml": "→ <strong>Madina Hotel Rayong</strong> ฿700, a riverside lifestyle hotel on the Rayong River with full river views, strolling Yom Chinda Road in the old town" },
-    { "icon": "🏖️", "head": "Want to be closest to the sea among the city stays", "bodyHtml": "→ <strong>Hub de Leaf</strong> ฿650, just around a 5-minute drive from Saeng Chan Beach · or <strong>Caza V1</strong> / <strong>BJ Boutique</strong>, a 10-minute drive to the beach" }
+    {
+      "icon": "🍳",
+      "head": "Long stay, EEC work, want a kitchen",
+      "bodyHtml": "→ <strong>Crystal Jade Rayong Hotel</strong> ฿1,650, kitchenette suites, saltwater pool, score 9.4, the highest in the set · or <strong>Phavina</strong> ฿800, studio with kitchen plus a pool"
+    },
+    {
+      "icon": "💰",
+      "head": "Lightest budget, want a spacious room",
+      "bodyHtml": "→ <strong>BJ Boutique</strong> ฿550, spacious room with a balcony, 7-Eleven at the soi entrance · or <strong>Charisma Residence</strong> ฿700, 30–40 sqm rooms, great value"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a hotel with a pool and gym",
+      "bodyHtml": "→ <strong>Wisdom Hotel & Residence</strong> ฿800, high-rise 4★, saltwater pool, spacious city-view rooms · or <strong>Phavina</strong> ฿800, has a pool and gym"
+    },
+    {
+      "icon": "🌿",
+      "head": "Want a quiet atmosphere and nice design",
+      "bodyHtml": "→ <strong>Hub de Leaf Design Resort</strong> ฿650, quiet minimalist boutique near Saeng Chan Beach · or <strong>Banyan Residence</strong> ฿990, quiet suite with a sitting area"
+    },
+    {
+      "icon": "🚶",
+      "head": "Want to explore Rayong's old town on foot",
+      "bodyHtml": "→ <strong>Caza V1</strong> ฿600, a 10-minute walk to Star Night Bazaar, spotless · or <strong>IZEN Budget</strong> ฿550, walk to Yom Chinda Road"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want a riverside atmosphere",
+      "bodyHtml": "→ <strong>Madina Hotel Rayong</strong> ฿700, a riverside lifestyle hotel on the Rayong River with full river views, strolling Yom Chinda Road in the old town"
+    },
+    {
+      "icon": "🏖️",
+      "head": "Want to be closest to the sea among the city stays",
+      "bodyHtml": "→ <strong>Hub de Leaf</strong> ฿650, just around a 5-minute drive from Saeng Chan Beach · or <strong>Caza V1</strong> / <strong>BJ Boutique</strong>, a 10-minute drive to the beach"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates based on the standard-room range and may change by date and season; we recommend checking the real price and comparing the 3 sites before every booking. The scores and highlights in this article come from reading guests' real reviews on the booking platforms, not from staying ourselves. All the stays are in the city of Rayong, not by the sea, so if you're set on the beach or Koh Samet, allow travel time to Saeng Chan Beach, Mae Ramphueng or Ban Phe pier. Rayong has no metro, so your own car or a hailed ride is the easiest way to get around, and nearly every stay has free parking. Over long weekends and the tourist season prices rise and rooms fill up fast, so book ahead. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — questions travellers often ask about budget hotels in central Rayong",
   "faq": [
-    { "q": "❓ Which is the best budget hotel in central Rayong?", "a": "It depends on your travel style · By score and as a hotel with kitchenette suites, <strong>Crystal Jade Rayong Hotel</strong> at 9.4 is the highest in the article · By cleanliness and walking the city, <strong>Caza V1</strong> at around 9.2 is a walk to the night market · For a spacious room on a light budget, <strong>Charisma Residence</strong> or <strong>BJ Boutique</strong> from the hundreds · For a hotel with a pool, <strong>Wisdom Hotel & Residence</strong> or <strong>Phavina</strong> · And for a riverside old-town atmosphere, <strong>Madina Hotel</strong>" },
-    { "q": "❓ How much do central Rayong stays cost?", "a": "In this article prices start at around <strong>฿550–1,650 per night</strong> · The lightest budget is BJ Boutique and IZEN Budget from ฿550 · Caza V1 from ฿600, Hub de Leaf ฿650, Charisma and Madina ฿700, Phavina and Wisdom ฿800, Banyan ฿990 · And the highest is Crystal Jade from ฿1,650 · All prices are approximate starting rates for the standard room, and over long weekends and the tourist season prices may be higher than usual" },
-    { "q": "❓ Is it convenient to reach the sea and Koh Samet from a city stay in Rayong?", "a": "Every stay in this article is in the city, not by the sea · But most are <strong>about a 10-minute drive to Saeng Chan Beach</strong>, especially Hub de Leaf at around 5 minutes from the beach · Mae Ramphueng Beach is around a 15–25 min drive, and Ban Phe pier for the boat to Koh Samet is around a 20–30 min drive from the centre · Rayong has no metro, so having your own car or hailing a ride is the most convenient, and nearly every stay has free parking" },
-    { "q": "❓ Which area is best for a budget stay in central Rayong?", "a": "<strong>Noen Phra (Sukhumvit Road)</strong> suits those who want to be near Passione mall, Central and restaurants (Crystal Jade, Charisma, Phavina, Wisdom, Hub de Leaf) · <strong>Thap Ma</strong> is quieter but still easy to reach the city (BJ Boutique) · <strong>Tha Pradu / old town</strong> suits those who want to stroll Yom Chinda Road, the night market and the riverside (Caza V1, IZEN Budget, Madina)" },
-    { "q": "❓ Which budget stay in central Rayong suits long stays and work?", "a": "The standouts for long stays are the stays with a kitchen · <strong>Crystal Jade Rayong Hotel</strong>, kitchenette suites and a saltwater pool, great for EEC workers · <strong>Phavina Serviced Residence</strong>, studio with kitchen plus a pool, takes monthly bookings · and <strong>Charisma Residence</strong>, where some rooms have a kitchen corner, spacious, with free parking · All three let you heat up food and store your own groceries, ideal for multiple nights" },
-    { "q": "❓ How far ahead should I book a stay in the city of Rayong?", "a": "Many stays in this article are small to mid-sized (some just around 40–50 rooms), and the high-scoring ones like Crystal Jade, Caza V1 and Hub de Leaf fill up fast · Over <strong>long weekends and the tourist season, book 2–4 weeks ahead or more</strong>, while on weekdays booking a few days ahead usually finds a room · Every platform usually offers Free Cancellation, so we recommend locking in a price early if your plans aren't fixed, then comparing Agoda / Booking / Trip.com for the best rate" }
+    {
+      "q": "❓ Which is the best budget hotel in central Rayong?",
+      "a": "It depends on your travel style · By score and as a hotel with kitchenette suites, <strong>Crystal Jade Rayong Hotel</strong> at 9.4 is the highest in the article · By cleanliness and walking the city, <strong>Caza V1</strong> at around 9.2 is a walk to the night market · For a spacious room on a light budget, <strong>Charisma Residence</strong> or <strong>BJ Boutique</strong> from the hundreds · For a hotel with a pool, <strong>Wisdom Hotel & Residence</strong> or <strong>Phavina</strong> · And for a riverside old-town atmosphere, <strong>Madina Hotel</strong>"
+    },
+    {
+      "q": "❓ How much do central Rayong stays cost?",
+      "a": "In this article prices start at around <strong>฿550–1,650 per night</strong> · The lightest budget is BJ Boutique and IZEN Budget from ฿550 · Caza V1 from ฿600, Hub de Leaf ฿650, Charisma and Madina ฿700, Phavina and Wisdom ฿800, Banyan ฿990 · And the highest is Crystal Jade from ฿1,650 · All prices are approximate starting rates for the standard room, and over long weekends and the tourist season prices may be higher than usual"
+    },
+    {
+      "q": "❓ Is it convenient to reach the sea and Koh Samet from a city stay in Rayong?",
+      "a": "Every stay in this article is in the city, not by the sea · But most are <strong>about a 10-minute drive to Saeng Chan Beach</strong>, especially Hub de Leaf at around 5 minutes from the beach · Mae Ramphueng Beach is around a 15–25 min drive, and Ban Phe pier for the boat to Koh Samet is around a 20–30 min drive from the centre · Rayong has no metro, so having your own car or hailing a ride is the most convenient, and nearly every stay has free parking"
+    },
+    {
+      "q": "❓ Which area is best for a budget stay in central Rayong?",
+      "a": "<strong>Noen Phra (Sukhumvit Road)</strong> suits those who want to be near Passione mall, Central and restaurants (Crystal Jade, Charisma, Phavina, Wisdom, Hub de Leaf) · <strong>Thap Ma</strong> is quieter but still easy to reach the city (BJ Boutique) · <strong>Tha Pradu / old town</strong> suits those who want to stroll Yom Chinda Road, the night market and the riverside (Caza V1, IZEN Budget, Madina)"
+    },
+    {
+      "q": "❓ Which budget stay in central Rayong suits long stays and work?",
+      "a": "The standouts for long stays are the stays with a kitchen · <strong>Crystal Jade Rayong Hotel</strong>, kitchenette suites and a saltwater pool, great for EEC workers · <strong>Phavina Serviced Residence</strong>, studio with kitchen plus a pool, takes monthly bookings · and <strong>Charisma Residence</strong>, where some rooms have a kitchen corner, spacious, with free parking · All three let you heat up food and store your own groceries, ideal for multiple nights"
+    },
+    {
+      "q": "❓ How far ahead should I book a stay in the city of Rayong?",
+      "a": "Many stays in this article are small to mid-sized (some just around 40–50 rooms), and the high-scoring ones like Crystal Jade, Caza V1 and Hub de Leaf fill up fast · Over <strong>long weekends and the tourist season, book 2–4 weeks ahead or more</strong>, while on weekdays booking a few days ahead usually finds a room · Every platform usually offers Free Cancellation, so we recommend locking in a price early if your plans aren't fixed, then comparing Agoda / Booking / Trip.com for the best rate"
+    }
   ]
 }

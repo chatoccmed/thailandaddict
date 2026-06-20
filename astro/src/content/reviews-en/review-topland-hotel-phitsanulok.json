@@ -114,12 +114,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "Location", "value": "9.3", "width": 93 },
-    { "label": "Service", "value": "8.9", "width": 89 },
-    { "label": "Cleanliness", "value": "8.8", "width": 88 },
-    { "label": "Value", "value": "8.8", "width": 88 },
-    { "label": "Rooms", "value": "8.6", "width": 86 },
-    { "label": "Atmosphere", "value": "8.4", "width": 84 }
+    {
+      "label": "Location",
+      "value": "9.3",
+      "width": 93
+    },
+    {
+      "label": "Service",
+      "value": "8.9",
+      "width": 89
+    },
+    {
+      "label": "Cleanliness",
+      "value": "8.8",
+      "width": 88
+    },
+    {
+      "label": "Value",
+      "value": "8.8",
+      "width": 88
+    },
+    {
+      "label": "Rooms",
+      "value": "8.6",
+      "width": 86
+    },
+    {
+      "label": "Atmosphere",
+      "value": "8.4",
+      "width": 84
+    }
   ],
   "booking": {
     "score": "8.8",
@@ -203,34 +227,88 @@
     }
   ],
   "info": [
-    { "k": "Type", "v": "City Convention Hotel 4★ · downtown Phitsanulok" },
-    { "k": "Location", "v": "Akathodsarot Road, Nai Mueang, Mueang Phitsanulok" },
-    { "k": "Opened", "v": "2010 (renovated 2023)" },
-    { "k": "Rooms", "v": "252 rooms" },
-    { "k": "Check-in", "v": "2:00 PM" },
-    { "k": "Check-out", "v": "12:00 PM" },
-    { "k": "Wi-Fi", "v": "Free in all rooms" },
-    { "k": "Breakfast", "v": "Buffet (included in some packages)" },
-    { "k": "Pool", "v": "Outdoor + children's pool" },
-    { "k": "Spa", "v": "Yes (spa and massage)" },
-    { "k": "Parking", "v": "Free" },
-    { "k": "Front desk", "v": "24 hours" }
+    {
+      "k": "Type",
+      "v": "City Convention Hotel 4★ · downtown Phitsanulok"
+    },
+    {
+      "k": "Location",
+      "v": "Akathodsarot Road, Nai Mueang, Mueang Phitsanulok"
+    },
+    {
+      "k": "Opened",
+      "v": "2010 (renovated 2023)"
+    },
+    {
+      "k": "Rooms",
+      "v": "252 rooms"
+    },
+    {
+      "k": "Check-in",
+      "v": "2:00 PM"
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 PM"
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "Free in all rooms"
+    },
+    {
+      "k": "Breakfast",
+      "v": "Buffet (included in some packages)"
+    },
+    {
+      "k": "Pool",
+      "v": "Outdoor + children's pool"
+    },
+    {
+      "k": "Spa",
+      "v": "Yes (spa and massage)"
+    },
+    {
+      "k": "Parking",
+      "v": "Free"
+    },
+    {
+      "k": "Front desk",
+      "v": "24 hours"
+    }
   ],
   "mapImg": "images/hotels/phitsanulok-topland-2.jpg",
   "mapAddr": "68/33 Akathodsarot Road, Nai Mueang, Mueang Phitsanulok, Phitsanulok 65000",
   "nearby": [
-    { "n": "Topland Plaza mall", "d": "linked from the lobby" },
-    { "n": "Wat Phra Si Rattana Mahathat (Wat Yai)", "d": "~10 min walk" },
-    { "n": "Nan River (riverside)", "d": "~10 min walk" },
-    { "n": "Phitsanulok train station", "d": "~10 min walk" },
-    { "n": "City markets and restaurants", "d": "~5 min drive" },
-    { "n": "Phitsanulok Airport (PHS)", "d": "~15 min drive" }
+    {
+      "n": "Topland Plaza mall",
+      "d": "linked from the lobby"
+    },
+    {
+      "n": "Wat Phra Si Rattana Mahathat (Wat Yai)",
+      "d": "~10 min walk"
+    },
+    {
+      "n": "Nan River (riverside)",
+      "d": "~10 min walk"
+    },
+    {
+      "n": "Phitsanulok train station",
+      "d": "~10 min walk"
+    },
+    {
+      "n": "City markets and restaurants",
+      "d": "~5 min drive"
+    },
+    {
+      "n": "Phitsanulok Airport (PHS)",
+      "d": "~15 min drive"
+    }
   ],
   "relatedTitle": "Nearby hotels in Phitsanulok",
   "related": [
     {
       "href": "review-yodia-heritage-hotel-phitsanulok.html",
-      "img": "images/hotels/phitsanulok-yodia-heritage-1.jpg",
+      "img": "images/hotels/phitsanulok-yodia-1.jpg",
       "name": "Yodia Heritage Hotel",
       "loc": "🇹🇭 Nan riverside · Phitsanulok",
       "price": "from ฿2,200 / night"
