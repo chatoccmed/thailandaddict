@@ -2,7 +2,7 @@
   "slug": "review-phakawan-hotel-maha-sarakham",
   "name": "Phakawan Hotel",
   "cluster": "khon-kaen",
-  "score": 7.0,
+  "score": 7,
   "starRating": 3,
   "ratingCount": 340,
   "type": "Hotel",
@@ -106,12 +106,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "Cleanliness", "value": "7.5", "width": 75 },
-    { "label": "Quiet", "value": "8.0", "width": 80 },
-    { "label": "Service", "value": "7.3", "width": 73 },
-    { "label": "Value", "value": "7.6", "width": 76 },
-    { "label": "Rooms", "value": "6.8", "width": 68 },
-    { "label": "Location", "value": "6.0", "width": 60 }
+    {
+      "label": "Cleanliness",
+      "value": "7.5",
+      "width": 75
+    },
+    {
+      "label": "Quiet",
+      "value": "8.0",
+      "width": 80
+    },
+    {
+      "label": "Service",
+      "value": "7.3",
+      "width": 73
+    },
+    {
+      "label": "Value",
+      "value": "7.6",
+      "width": 76
+    },
+    {
+      "label": "Rooms",
+      "value": "6.8",
+      "width": 68
+    },
+    {
+      "label": "Location",
+      "value": "6.0",
+      "width": 60
+    }
   ],
   "booking": {
     "score": "7.0",
@@ -148,9 +172,21 @@
     "<strong>If you book through an online platform</strong> — there's been a report of arriving to a full hotel → call the hotel to confirm your booking a day ahead."
   ],
   "rooms": [
-    { "name": "Standard Room", "price": "฿490", "full": "Standard Room · double bed · flat-screen TV · air-con · balcony" },
-    { "name": "Deluxe Double Room", "price": "฿590", "full": "Deluxe Double Room · double bed · roomier · fridge, bottled water" },
-    { "name": "Deluxe Twin Room", "price": "฿650", "full": "Deluxe Twin Room · two single beds · good for friends or a small family" }
+    {
+      "name": "Standard Room",
+      "price": "฿490",
+      "full": "Standard Room · double bed · flat-screen TV · air-con · balcony"
+    },
+    {
+      "name": "Deluxe Double Room",
+      "price": "฿590",
+      "full": "Deluxe Double Room · double bed · roomier · fridge, bottled water"
+    },
+    {
+      "name": "Deluxe Twin Room",
+      "price": "฿650",
+      "full": "Deluxe Twin Room · two single beds · good for friends or a small family"
+    }
   ],
   "bookingAgoda": "https://www.agoda.com/phakawan-hotel/hotel/mahasarakham-th.html?cid=1965862",
   "bookingBooking": "https://www.booking.com/hotel/th/po-phakawan-hotel-maha-sarakham.html",
@@ -178,26 +214,74 @@
     }
   ],
   "info": [
-    { "k": "Type", "v": "3★ Hotel · Garden" },
-    { "k": "Rooms", "v": "20 rooms" },
-    { "k": "Check-in", "v": "2:00 PM" },
-    { "k": "Check-out", "v": "12:00 PM" },
-    { "k": "Wi-Fi", "v": "Free in all rooms" },
-    { "k": "Parking", "v": "Free" },
-    { "k": "Breakfast", "v": "Simple set breakfast" },
-    { "k": "Restaurant", "v": "Yes" },
-    { "k": "Conference room", "v": "Yes" },
-    { "k": "Pets", "v": "Ask the hotel" }
+    {
+      "k": "Type",
+      "v": "3★ Hotel · Garden"
+    },
+    {
+      "k": "Rooms",
+      "v": "20 rooms"
+    },
+    {
+      "k": "Check-in",
+      "v": "2:00 PM"
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 PM"
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "Free in all rooms"
+    },
+    {
+      "k": "Parking",
+      "v": "Free"
+    },
+    {
+      "k": "Breakfast",
+      "v": "Simple set breakfast"
+    },
+    {
+      "k": "Restaurant",
+      "v": "Yes"
+    },
+    {
+      "k": "Conference room",
+      "v": "Yes"
+    },
+    {
+      "k": "Pets",
+      "v": "Ask the hotel"
+    }
   ],
   "mapImg": "images/gallery/220t180000014yxfw73B0.webp",
   "mapAddr": "349 Moo 12, Waeng Nang, Mueang Maha Sarakham 44000",
   "nearby": [
-    { "n": "Kaeng Loeng Chan (reservoir)", "d": "~5 km" },
-    { "n": "Maha Sarakham Model Railway Museum", "d": "~3 km" },
-    { "n": "Maha Sarakham central market", "d": "~6 km" },
-    { "n": "Mahasarakham University (Kham Riang)", "d": "~12 km" },
-    { "n": "Chaloem Phra Kiat Public Park", "d": "~6 km" },
-    { "n": "Sermthai Complex", "d": "~6 km" }
+    {
+      "n": "Kaeng Loeng Chan (reservoir)",
+      "d": "~5 km"
+    },
+    {
+      "n": "Maha Sarakham Model Railway Museum",
+      "d": "~3 km"
+    },
+    {
+      "n": "Maha Sarakham central market",
+      "d": "~6 km"
+    },
+    {
+      "n": "Mahasarakham University (Kham Riang)",
+      "d": "~12 km"
+    },
+    {
+      "n": "Chaloem Phra Kiat Public Park",
+      "d": "~6 km"
+    },
+    {
+      "n": "Sermthai Complex",
+      "d": "~6 km"
+    }
   ],
   "relatedTitle": "Nearby hotels in Maha Sarakham",
   "related": [
@@ -210,14 +294,14 @@
     },
     {
       "href": "review-hop-inn-mahasarakham-maha-sarakham.html",
-      "img": "images/hotels/maha-sarakham-hopinn.jpg",
+      "img": "images/hotels/maha-sarakham-hopinn-1.jpg",
       "name": "Hop Inn Mahasarakham",
       "loc": "🇹🇭 Koeng · Maha Sarakham",
       "price": "from ฿590 / night"
     },
     {
       "href": "review-top-inn-hotel-maha-sarakham.html",
-      "img": "images/hotels/maha-sarakham-topinn.jpg",
+      "img": "images/hotels/maha-sarakham-top-inn.jpg",
       "name": "Top Inn Hotel",
       "loc": "🇹🇭 City centre · Maha Sarakham",
       "price": "from ฿550 / night"

@@ -110,12 +110,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "Service", "value": "9.0", "width": 90 },
-    { "label": "Cleanliness", "value": "8.7", "width": 87 },
-    { "label": "Atmosphere", "value": "9.2", "width": 92 },
-    { "label": "Rooms", "value": "8.4", "width": 84 },
-    { "label": "Food", "value": "8.5", "width": 85 },
-    { "label": "Location", "value": "8.6", "width": 86 }
+    {
+      "label": "Service",
+      "value": "9.0",
+      "width": 90
+    },
+    {
+      "label": "Cleanliness",
+      "value": "8.7",
+      "width": 87
+    },
+    {
+      "label": "Atmosphere",
+      "value": "9.2",
+      "width": 92
+    },
+    {
+      "label": "Rooms",
+      "value": "8.4",
+      "width": 84
+    },
+    {
+      "label": "Food",
+      "value": "8.5",
+      "width": 85
+    },
+    {
+      "label": "Location",
+      "value": "8.6",
+      "width": 86
+    }
   ],
   "booking": {
     "score": "8.8",
@@ -199,32 +223,80 @@
     }
   ],
   "info": [
-    { "k": "Type", "v": "Pool Villa Resort 4★ · headland pool villas" },
-    { "k": "Location", "v": "Ao Yai Ki, near Klong Rahan (Secret Beach), west coast of Koh Kood" },
-    { "k": "Rooms", "v": "~27 villas" },
-    { "k": "Check-in", "v": "2:00 PM" },
-    { "k": "Check-out", "v": "12:00 PM" },
-    { "k": "Wi-Fi", "v": "Free (common areas)" },
-    { "k": "Breakfast", "v": "Included in some packages (mostly Thai)" },
-    { "k": "Pool", "v": "Outdoor pool + private pools in pool villas" },
-    { "k": "Activities", "v": "Kayak · SUP · snorkelling · mangrove canal paddle · spa (many free)" },
-    { "k": "Access", "v": "Reached by the resort's long-tail boat" }
+    {
+      "k": "Type",
+      "v": "Pool Villa Resort 4★ · headland pool villas"
+    },
+    {
+      "k": "Location",
+      "v": "Ao Yai Ki, near Klong Rahan (Secret Beach), west coast of Koh Kood"
+    },
+    {
+      "k": "Rooms",
+      "v": "~27 villas"
+    },
+    {
+      "k": "Check-in",
+      "v": "2:00 PM"
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 PM"
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "Free (common areas)"
+    },
+    {
+      "k": "Breakfast",
+      "v": "Included in some packages (mostly Thai)"
+    },
+    {
+      "k": "Pool",
+      "v": "Outdoor pool + private pools in pool villas"
+    },
+    {
+      "k": "Activities",
+      "v": "Kayak · SUP · snorkelling · mangrove canal paddle · spa (many free)"
+    },
+    {
+      "k": "Access",
+      "v": "Reached by the resort's long-tail boat"
+    }
   ],
   "mapImg": "images/hotels/koh-kood-captainhook-2.jpg",
   "mapAddr": "15/9 Moo 4, Ao Yai Ki, near Klong Rahan (Secret Beach), Koh Kood, Trat 23000",
   "nearby": [
-    { "n": "Private beaches in front of the resort (2 beaches)", "d": "0 min (on the beach)" },
-    { "n": "Klong Rahan / Secret Beach", "d": "~short walk/boat from resort" },
-    { "n": "Khlong Yai Ki Waterfall", "d": "~near the resort" },
-    { "n": "Ao Talo Udang / west-coast beaches", "d": "~by truck on the island" },
-    { "n": "Khlong Chao Waterfall (Koh Kood's signature falls)", "d": "~by truck on the island" },
-    { "n": "Koh Kood pier · Trat pier", "d": "~speedboat transfer" }
+    {
+      "n": "Private beaches in front of the resort (2 beaches)",
+      "d": "0 min (on the beach)"
+    },
+    {
+      "n": "Klong Rahan / Secret Beach",
+      "d": "~short walk/boat from resort"
+    },
+    {
+      "n": "Khlong Yai Ki Waterfall",
+      "d": "~near the resort"
+    },
+    {
+      "n": "Ao Talo Udang / west-coast beaches",
+      "d": "~by truck on the island"
+    },
+    {
+      "n": "Khlong Chao Waterfall (Koh Kood's signature falls)",
+      "d": "~by truck on the island"
+    },
+    {
+      "n": "Koh Kood pier · Trat pier",
+      "d": "~speedboat transfer"
+    }
   ],
   "relatedTitle": "Nearby places to stay on Koh Kood",
   "related": [
     {
       "href": "review-the-beach-natural-resort-koh-kood.html",
-      "img": "images/hotels/koh-kood-thebeachnatural-1.jpg",
+      "img": "images/hotels/koh-kood-thebeach-1.jpg",
       "name": "The Beach Natural Resort",
       "loc": "🇹🇭 Bang Bao · Koh Kood",
       "price": "from THB 4,000 / night"

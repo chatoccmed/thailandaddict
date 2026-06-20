@@ -2,7 +2,7 @@
   "slug": "review-movenpick-asara-huahin",
   "name": "Mövenpick Asara Resort & Spa Hua Hin",
   "cluster": "huahin",
-  "score": 9.0,
+  "score": 9,
   "starRating": 5,
   "ratingCount": 368,
   "type": "Luxury All-Suite Lagoon Resort",
@@ -110,12 +110,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "Atmosphere", "value": "9.3", "width": 93 },
-    { "label": "Service", "value": "9.2", "width": 92 },
-    { "label": "Rooms", "value": "9.1", "width": 91 },
-    { "label": "Cleanliness", "value": "9.0", "width": 90 },
-    { "label": "Food", "value": "8.9", "width": 89 },
-    { "label": "Location", "value": "8.6", "width": 86 }
+    {
+      "label": "Atmosphere",
+      "value": "9.3",
+      "width": 93
+    },
+    {
+      "label": "Service",
+      "value": "9.2",
+      "width": 92
+    },
+    {
+      "label": "Rooms",
+      "value": "9.1",
+      "width": 91
+    },
+    {
+      "label": "Cleanliness",
+      "value": "9.0",
+      "width": 90
+    },
+    {
+      "label": "Food",
+      "value": "8.9",
+      "width": 89
+    },
+    {
+      "label": "Location",
+      "value": "8.6",
+      "width": 86
+    }
   ],
   "booking": {
     "score": "8.5",
@@ -199,32 +223,80 @@
     }
   ],
   "info": [
-    { "k": "Type", "v": "Luxury All-Suite & Pool Villa Resort 5★ · Mövenpick" },
-    { "k": "Opened", "v": "2008 (renovated 2018)" },
-    { "k": "Rooms", "v": "96 suites and pool villas" },
-    { "k": "Check-in", "v": "15:00" },
-    { "k": "Check-out", "v": "12:00" },
-    { "k": "Wi-Fi", "v": "Free in all rooms" },
-    { "k": "Breakfast", "v": "Buffet (included in some packages)" },
-    { "k": "Pools", "v": "Two outdoor pools + private pools in villas" },
-    { "k": "Spa", "v": "Yes (Asara Spa)" },
-    { "k": "Beach", "v": "Near the beach (short walk)" }
+    {
+      "k": "Type",
+      "v": "Luxury All-Suite & Pool Villa Resort 5★ · Mövenpick"
+    },
+    {
+      "k": "Opened",
+      "v": "2008 (renovated 2018)"
+    },
+    {
+      "k": "Rooms",
+      "v": "96 suites and pool villas"
+    },
+    {
+      "k": "Check-in",
+      "v": "15:00"
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00"
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "Free in all rooms"
+    },
+    {
+      "k": "Breakfast",
+      "v": "Buffet (included in some packages)"
+    },
+    {
+      "k": "Pools",
+      "v": "Two outdoor pools + private pools in villas"
+    },
+    {
+      "k": "Spa",
+      "v": "Yes (Asara Spa)"
+    },
+    {
+      "k": "Beach",
+      "v": "Near the beach (short walk)"
+    }
   ],
   "mapImg": "images/hotels/huahin-movenpick-3.jpg",
   "mapAddr": "53 Hua Hin Soi 5, Hua Hin, Prachuap Khiri Khan 77110",
   "nearby": [
-    { "n": "Beach (Khao Takiab / north side)", "d": "short walk" },
-    { "n": "Cicada Market", "d": "~7 min drive" },
-    { "n": "Khao Takiab temple", "d": "~10 min drive" },
-    { "n": "Hua Hin Floating Market", "d": "~10 min drive" },
-    { "n": "Night market · central Hua Hin", "d": "~12 min drive" },
-    { "n": "Hua Hin Airport (HHQ)", "d": "~15 min drive" }
+    {
+      "n": "Beach (Khao Takiab / north side)",
+      "d": "short walk"
+    },
+    {
+      "n": "Cicada Market",
+      "d": "~7 min drive"
+    },
+    {
+      "n": "Khao Takiab temple",
+      "d": "~10 min drive"
+    },
+    {
+      "n": "Hua Hin Floating Market",
+      "d": "~10 min drive"
+    },
+    {
+      "n": "Night market · central Hua Hin",
+      "d": "~12 min drive"
+    },
+    {
+      "n": "Hua Hin Airport (HHQ)",
+      "d": "~15 min drive"
+    }
   ],
   "relatedTitle": "Nearby hotels in Hua Hin",
   "related": [
     {
       "href": "review-hyatt-regency-huahin.html",
-      "img": "images/hotels/huahin-hyattregency-1.jpg",
+      "img": "images/hotels/huahin-hyatt-1.jpg",
       "name": "Hyatt Regency Hua Hin",
       "loc": "🇹🇭 Khao Takiab · Hua Hin",
       "price": "from ฿5,000 / night"

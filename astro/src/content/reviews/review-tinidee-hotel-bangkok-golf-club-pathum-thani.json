@@ -106,12 +106,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "ทำเล/วิว", "value": "8.8", "width": 88 },
-    { "label": "บริการ", "value": "8.7", "width": 87 },
-    { "label": "ความสะอาด", "value": "8.6", "width": 86 },
-    { "label": "ห้องพัก", "value": "8.5", "width": 85 },
-    { "label": "สิ่งอำนวยความสะดวก", "value": "8.4", "width": 84 },
-    { "label": "ความคุ้มค่า", "value": "8.3", "width": 83 }
+    {
+      "label": "ทำเล/วิว",
+      "value": "8.8",
+      "width": 88
+    },
+    {
+      "label": "บริการ",
+      "value": "8.7",
+      "width": 87
+    },
+    {
+      "label": "ความสะอาด",
+      "value": "8.6",
+      "width": 86
+    },
+    {
+      "label": "ห้องพัก",
+      "value": "8.5",
+      "width": 85
+    },
+    {
+      "label": "สิ่งอำนวยความสะดวก",
+      "value": "8.4",
+      "width": 84
+    },
+    {
+      "label": "ความคุ้มค่า",
+      "value": "8.3",
+      "width": 83
+    }
   ],
   "booking": {
     "score": "8.3",
@@ -195,32 +219,80 @@
     }
   ],
   "info": [
-    { "k": "ประเภท", "v": "Luxury 4★ · ติดสนาม Bangkok Golf Club" },
-    { "k": "จำนวนห้อง", "v": "128 ห้อง" },
-    { "k": "ปีเปิด", "v": "2018" },
-    { "k": "Check-in", "v": "14:00 น." },
-    { "k": "Check-out", "v": "12:00 น." },
-    { "k": "Wi-Fi", "v": "ฟรีทุกห้อง" },
-    { "k": "อาหารเช้า", "v": "มี (Café Nidee)" },
-    { "k": "สระว่ายน้ำ", "v": "มี (น้ำเกลือ กลางแจ้ง)" },
-    { "k": "สปา / ฟิตเนส", "v": "มี (D Health Massage · ฟิตเนส · ซาวน่า · เทนนิส)" },
-    { "k": "ที่จอดรถ", "v": "มี (ฟรี)" }
+    {
+      "k": "ประเภท",
+      "v": "Luxury 4★ · ติดสนาม Bangkok Golf Club"
+    },
+    {
+      "k": "จำนวนห้อง",
+      "v": "128 ห้อง"
+    },
+    {
+      "k": "ปีเปิด",
+      "v": "2018"
+    },
+    {
+      "k": "Check-in",
+      "v": "14:00 น."
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 น."
+    },
+    {
+      "k": "Wi-Fi",
+      "v": "ฟรีทุกห้อง"
+    },
+    {
+      "k": "อาหารเช้า",
+      "v": "มี (Café Nidee)"
+    },
+    {
+      "k": "สระว่ายน้ำ",
+      "v": "มี (น้ำเกลือ กลางแจ้ง)"
+    },
+    {
+      "k": "สปา / ฟิตเนส",
+      "v": "มี (D Health Massage · ฟิตเนส · ซาวน่า · เทนนิส)"
+    },
+    {
+      "k": "ที่จอดรถ",
+      "v": "มี (ฟรี)"
+    }
   ],
   "mapImg": "images/hotels/pathum-thani-tinidee-golf-2.jpg",
   "mapAddr": "99/3 หมู่ 2 ถนนติวานนท์ ตำบลบางกะดี อำเภอเมืองปทุมธานี 12000",
   "nearby": [
-    { "n": "สนาม Bangkok Golf Club", "d": "ติดโรงแรม" },
-    { "n": "นิคมอุตสาหกรรมบางกะดี", "d": "~5 นาทีรถ" },
-    { "n": "ฟิวเจอร์พาร์ค รังสิต", "d": "~20–30 นาทีรถ" },
-    { "n": "ตลาดไท", "d": "~25 นาทีรถ" },
-    { "n": "สนามบินดอนเมือง (DMK)", "d": "~25 นาทีรถ" },
-    { "n": "ใจกลางกรุงเทพ", "d": "~1 ชั่วโมงรถ" }
+    {
+      "n": "สนาม Bangkok Golf Club",
+      "d": "ติดโรงแรม"
+    },
+    {
+      "n": "นิคมอุตสาหกรรมบางกะดี",
+      "d": "~5 นาทีรถ"
+    },
+    {
+      "n": "ฟิวเจอร์พาร์ค รังสิต",
+      "d": "~20–30 นาทีรถ"
+    },
+    {
+      "n": "ตลาดไท",
+      "d": "~25 นาทีรถ"
+    },
+    {
+      "n": "สนามบินดอนเมือง (DMK)",
+      "d": "~25 นาทีรถ"
+    },
+    {
+      "n": "ใจกลางกรุงเทพ",
+      "d": "~1 ชั่วโมงรถ"
+    }
   ],
   "relatedTitle": "โรงแรมใกล้เคียงในปทุมธานี",
   "related": [
     {
       "href": "review-novotel-bangkok-future-park-rangsit-pathum-thani.html",
-      "img": "images/hotels/pathum-thani-novotel-future-park.jpg",
+      "img": "images/hotels/pathum-thani-novotel-futurepark.jpg",
       "name": "Novotel Bangkok Future Park Rangsit",
       "loc": "🇹🇭 รังสิต-ฟิวเจอร์พาร์ค · ธัญบุรี",
       "price": "เริ่ม ฿2,200 / คืน"
@@ -234,7 +306,7 @@
     },
     {
       "href": "review-pathum-thani-place-hotel-pathum-thani.html",
-      "img": "images/hotels/pathum-thani-place-hotel.jpg",
+      "img": "images/hotels/pathum-thani-place.jpg",
       "name": "Pathum Thani Place Hotel",
       "loc": "🇹🇭 ตัวเมืองปทุมธานี",
       "price": "เริ่ม ฿900 / คืน"
