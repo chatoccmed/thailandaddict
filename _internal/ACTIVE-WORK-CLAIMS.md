@@ -7,15 +7,10 @@
 ---
 
 ## 🟢 ACTIVE
-
-### EN translation: reviews-en + roundups-en  — claimed 2026-06-19
-- **Owner:** session 292fd849 (Opus · owner เครื่องหลัก)
-- **Scope:** แปล `astro/src/content/reviews/*.json` → `reviews-en/` (ขาด 868 ไฟล์ · 38 clusters) + `roundups/*.json` → `roundups-en/` (ขาด 125 ไฟล์)
-- **Files touched:** เฉพาะ `astro/src/content/reviews-en/*.json`, `astro/src/content/roundups-en/*.json`, `_internal/wf/translate-reviews-en.js`, `_internal/wf/translate-roundups-en.js`, `_internal/en-check-reviews.mjs`, `_internal/en-rev-missing.json`
-- **⚠️ เพื่อนร่วมงาน:** อย่าแตะ `reviews-en/` หรือ `roundups-en/` จนกว่าจะ ✅ DONE · งาน QA TH reviews (`qa(phase-a)`) ทำต่อได้ตามปกติ (คนละไฟล์ — แก้ `reviews/` ไม่ใช่ `reviews-en/`)
-- **Status:** กำลังแปลเป็น batch (Opus parallel) → verify ต่อ cluster → commit → push
+_(ว่าง)_
 
 ---
 
 ## ✅ DONE
+- EN translation: **reviews-en ครบ 1,939/1,939 + roundups-en ครบ 215/215** (2026-06-20) — แปลครบ · verify ZERO Thai ทุกไฟล์ + JSON valid + structure parity + /en/ links · build-test BUILD OK (10,735 pages) · pushed. ใช้ `_internal/wf/translate-reviews-en.js` + `translate-roundups-en.js` + cleanup `fix-en-thai.js` (กันไทยตกค้างใน address/type/label) · verifier `en-check-reviews.mjs`
 - EN translation: **articles-en ครบ 3,213/3,213** (pushed bc88d028) — บทความทั้งหมดแปลครบแล้ว

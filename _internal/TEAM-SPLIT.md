@@ -1,4 +1,4 @@
-> 🚦 **ก่อนเริ่มงานใหญ่ เปิด `_internal/ACTIVE-WORK-CLAIMS.md` ก่อน** — กันงานซ้ำ (ตอนนี้มี session กำลังแปล reviews-en + roundups-en อยู่ · อย่าแตะ `reviews-en/`, `roundups-en/`)
+> 🚦 **ก่อนเริ่มงานใหญ่ เปิด `_internal/ACTIVE-WORK-CLAIMS.md` ก่อน** — กันงานซ้ำ (ตอนนี้ไม่มีงาน claim ค้าง · EN reviews/roundups/articles แปลครบแล้ว)
 
 # 👥 TEAM-SPLIT — แบ่งงานสร้าง 77 จังหวัด ระหว่าง 2 เครื่อง/คน
 
