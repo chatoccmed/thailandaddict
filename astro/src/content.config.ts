@@ -282,6 +282,8 @@ const articleSchema = z.object({
   blocks: z.array(articleBlock),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   related: z.array(z.object({ href: z.string(), title: z.string() })).optional(),
+  // Sticky right-rail of featured hotel roundups (desktop only; hidden on mobile). Additive · back-compat.
+  rail: z.array(z.object({ title: z.string(), href: z.string(), note: z.string().optional(), img: z.string().optional() })).optional(),
 });
 
 const articles = defineCollection({
