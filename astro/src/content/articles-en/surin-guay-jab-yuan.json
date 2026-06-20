@@ -42,6 +42,43 @@
       ]
     },
     {
+      "kind": "foodexp",
+      "title": "Want to taste deeper? Try a Surin food tour or cooking class",
+      "text": "Half a day with a local who knows the lanes — or cooking a dish yourself — teaches you more than just eating. Book ahead on Klook or GetYourGuide.",
+      "items": [
+        {
+          "emoji": "🍜",
+          "provider": "Klook",
+          "label": "Surin street-food tour",
+          "note": "A local guides you, many stops",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20food%20tour&aid=121442"
+        },
+        {
+          "emoji": "👩‍🍳",
+          "provider": "Klook",
+          "label": "Thai cooking class",
+          "note": "Market walk + hands-on",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20cooking%20class&aid=121442"
+        },
+        {
+          "emoji": "🌃",
+          "provider": "Klook",
+          "label": "Market & night-eats walk",
+          "note": "Street food after dark",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20night%20market%20food&aid=121442"
+        },
+        {
+          "emoji": "🍢",
+          "provider": "GetYourGuide",
+          "label": "Food experiences (GetYourGuide)",
+          "note": "Compare another marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin%20food&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🍢 See all Surin food tours & classes (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin%20food&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Why Surin has Vietnamese guay jab",
       "id": "why-surin"
@@ -68,7 +105,11 @@
           "blurb": "One of the most talked-about Vietnamese guay jab shops in Surin, on Suriyakan Road in the town center. Known for wide, chewy noodles and a clear, bone-sweet broth, with a choice of pork knuckle, spare ribs, or chicken feet, plus a full set of soft-boiled egg and pork sausage. Comfortable seating and a menu to order from. It sells from morning until it runs out in the afternoon, so come before noon to get everything.",
           "meta": "Suriyakan Road, in town · open daily ~9:45–14:30 (closed 3 days/month)",
           "price": "35 THB a bowl, 45 THB special",
-          "tags": ["Town favorite", "Wide soft noodles", "Clear broth"]
+          "tags": [
+            "Town favorite",
+            "Wide soft noodles",
+            "Clear broth"
+          ]
         },
         {
           "rank": 2,
@@ -76,7 +117,11 @@
           "blurb": "An old shop on Suriyakan Road that goes straight for the Ubon recipe. The broth is clear and well balanced, the noodles wide and soft, the pork sausage generous, and the spring rolls fried crisp. Locals eat here regularly. Good for anyone who wants the original Ubon-side Vietnamese guay jab flavor in Surin.",
           "meta": "33/3 Suriyakan Road, in town",
           "price": "40–50 THB a bowl",
-          "tags": ["Ubon recipe", "Old shop", "Generous pork sausage"]
+          "tags": [
+            "Ubon recipe",
+            "Old shop",
+            "Generous pork sausage"
+          ]
         },
         {
           "rank": 3,
@@ -84,7 +129,11 @@
           "blurb": "A legendary shop for Surin kids of the 90s, right across from Wat Nong Bua. The standouts are Vietnamese guay jab, longan water, pork sausage, and fried wontons, with everything priced under 100 THB. The clear broth goes down easy, and it's a relaxed spot to eat and sit and chat.",
           "meta": "Opposite Wat Nong Bua, in town",
           "price": "35–45 THB a bowl",
-          "tags": ["Long-running shop", "Easy on the wallet", "Longan water"]
+          "tags": [
+            "Long-running shop",
+            "Easy on the wallet",
+            "Longan water"
+          ]
         },
         {
           "rank": 4,
@@ -92,7 +141,10 @@
           "blurb": "A shop Surin locals pass around for its well-balanced broth and chewy noodles, loaded with toppings — both pork sausage and tender pork rib, and some bowls come with kale. The flavor isn't overdone, so it suits all ages. Good for a late breakfast or a lunch before you head out to explore.",
           "meta": "Opposite Anuban Surin School, next to 7-Eleven, in town · open 08:00–17:00, closed Wednesdays",
           "price": "40–50 THB a bowl",
-          "tags": ["Well-balanced broth", "Loaded with toppings"]
+          "tags": [
+            "Well-balanced broth",
+            "Loaded with toppings"
+          ]
         },
         {
           "rank": 5,
@@ -100,7 +152,10 @@
           "blurb": "A suburban shop that does both Vietnamese guay jab and thick-broth guay jab under one roof. Soft noodles, a well-balanced broth, and a full set of toppings including pork sausage and tender pork rib. It runs as a som tam and made-to-order place with easy parking — good if you're driving through the Kae Yai side and want to sit down for a proper meal.",
           "meta": "Patthamanon Road (Surin–Chom Phra), Kae Yai subdistrict, Mueang Surin · open daily 09:00–21:00",
           "price": "40–79 THB a bowl",
-          "tags": ["Both styles served", "Has parking"]
+          "tags": [
+            "Both styles served",
+            "Has parking"
+          ]
         },
         {
           "rank": 6,
@@ -108,7 +163,11 @@
           "blurb": "A hole-in-the-wall locals pass around, in the lane beside Wat Sa-ngam. It's a noodle and made-to-order shop that gives a generous Vietnamese guay jab for the price. The clear broth goes down easy. Good if you want a homey, uncrowded spot.",
           "meta": "Lane beside Wat Sa-ngam, in town",
           "price": "35–45 THB a bowl",
-          "tags": ["Hole in the wall", "Generous portions", "Homey"]
+          "tags": [
+            "Hole in the wall",
+            "Generous portions",
+            "Homey"
+          ]
         },
         {
           "rank": 7,
@@ -116,7 +175,10 @@
           "blurb": "Not a single shop but a way to order that several old shops in town offer — adding tender stewed chicken feet to a bowl of Vietnamese guay jab, alongside the wide noodles and clear broth, so you get both the softness of the noodles and the richness of the chicken feet. If you like something to chew on, ask the top shops on this list whether they have chicken feet — many offer them as an add-on.",
           "meta": "Available at old Vietnamese shops in Surin town",
           "price": "Chicken feet add-on around 10–20 THB/bowl",
-          "tags": ["Ordering tip", "Stewed chicken feet"]
+          "tags": [
+            "Ordering tip",
+            "Stewed chicken feet"
+          ]
         },
         {
           "rank": 8,
@@ -124,7 +186,11 @@
           "blurb": "In and around Surin Municipal Fresh Market there are several Vietnamese guay jab stalls open in the morning. Prices are light, the broth clear and the toppings complete — good if you're doing the morning market and want a hot bowl before you carry on shopping. Most have pork sausage and spring rolls as add-ons. Look for the stall with the longest queue and give it a try.",
           "meta": "Surin Municipal Fresh Market area · open mornings",
           "price": "From 35 THB a bowl",
-          "tags": ["In the market", "Open mornings", "Easy on the wallet"]
+          "tags": [
+            "In the market",
+            "Open mornings",
+            "Easy on the wallet"
+          ]
         },
         {
           "rank": 9,
@@ -132,7 +198,10 @@
           "blurb": "Surin town has several Vietnamese restaurants that list Vietnamese guay jab on the menu, alongside nem nuang, fresh spring rolls, and pork sausage. Good for coming as a group and ordering several dishes to share, getting a range of Vietnamese flavors in one place rather than coming just for guay jab.",
           "meta": "Vietnamese restaurants in Surin town",
           "price": "Guay jab 45–55 THB · other dishes à la carte",
-          "tags": ["Has nem nuang", "Good for groups"]
+          "tags": [
+            "Has nem nuang",
+            "Good for groups"
+          ]
         },
         {
           "rank": 10,
@@ -140,7 +209,11 @@
           "blurb": "In the evenings, Vietnamese guay jab carts come out at the night markets and community areas around Surin — the cheapest on this list. Clear broth, soft noodles, with pork sausage and soft-boiled egg. Good for a light dinner or a snack before heading back to your room. Look for them at whichever evening market is running that day.",
           "meta": "Evening markets around Surin (open late afternoon to evening)",
           "price": "30–40 THB a bowl",
-          "tags": ["Cart", "Dinner", "Easy on the wallet"]
+          "tags": [
+            "Cart",
+            "Dinner",
+            "Easy on the wallet"
+          ]
         }
       ]
     },
@@ -219,8 +292,17 @@
     }
   ],
   "related": [
-    { "href": "city-surin.html", "title": "🗺️ Surin Travel Guide" },
-    { "href": "top10-hotels-surin.html", "title": "🏨 Top 10 Surin Hotels" },
-    { "href": "surin-khanom-jeen-nam-ya.html", "title": "🍜 Surin Khanom Jeen Nam Ya Pa" }
+    {
+      "href": "city-surin.html",
+      "title": "🗺️ Surin Travel Guide"
+    },
+    {
+      "href": "top10-hotels-surin.html",
+      "title": "🏨 Top 10 Surin Hotels"
+    },
+    {
+      "href": "surin-khanom-jeen-nam-ya.html",
+      "title": "🍜 Surin Khanom Jeen Nam Ya Pa"
+    }
   ]
 }

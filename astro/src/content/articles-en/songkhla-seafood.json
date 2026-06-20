@@ -163,6 +163,43 @@
       "html": "Large seafood items — roe-filled crab, whole prawns, and whole fish — are priced by weight. Always ask the price per kilogram and watch them weigh it at the table before it goes to the kitchen. You won't be surprised when the bill arrives. Popular Koh Yor restaurants fill up on weekend evenings; call ahead to book a lakeside table if you want the view."
     },
     {
+      "kind": "foodexp",
+      "title": "Want to taste deeper? Try a Songkhla food tour or cooking class",
+      "text": "Half a day with a local who knows the lanes — or cooking a dish yourself — teaches you more than just eating. Book ahead on Klook or GetYourGuide.",
+      "items": [
+        {
+          "emoji": "🍜",
+          "provider": "Klook",
+          "label": "Songkhla street-food tour",
+          "note": "A local guides you, many stops",
+          "href": "https://www.klook.com/en-US/search/?query=Songkhla%20food%20tour&aid=121442"
+        },
+        {
+          "emoji": "👩‍🍳",
+          "provider": "Klook",
+          "label": "Thai cooking class",
+          "note": "Market walk + hands-on",
+          "href": "https://www.klook.com/en-US/search/?query=Songkhla%20cooking%20class&aid=121442"
+        },
+        {
+          "emoji": "🌃",
+          "provider": "Klook",
+          "label": "Market & night-eats walk",
+          "note": "Street food after dark",
+          "href": "https://www.klook.com/en-US/search/?query=Songkhla%20night%20market%20food&aid=121442"
+        },
+        {
+          "emoji": "🍢",
+          "provider": "GetYourGuide",
+          "label": "Food experiences (GetYourGuide)",
+          "note": "Compare another marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Songkhla%20food&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🍢 See all Songkhla food tours & classes (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Songkhla%20food&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Picking a Restaurant by Area and Occasion",
       "id": "by-occasion"
@@ -216,10 +253,26 @@
       "label": "Day 1",
       "title": "Samila Beach — Gulf-side seafood",
       "items": [
-        { "time": "Morning", "activity": "Walk Samila Beach, photograph the Golden Mermaid statue with Koh Nu and Koh Maew in the background", "note": "The breeze is strong in the morning and the sun is still manageable — the best time for photos" },
-        { "time": "Lunch", "activity": "Lunch on city-side seafood at Sujinda or Monthathip", "note": "Order sour barramundi curry and steamed squid with lime" },
-        { "time": "Afternoon", "activity": "Wander the Songkhla Old Town, Nang Ngam Road, stop in a café", "note": "Escape the afternoon heat inside the Sino-Portuguese shophouses" },
-        { "time": "Evening", "activity": "Watch the sunset at Bang Lamphu, eat seafood with live music", "note": "Book a waterside table ahead if you want the view" }
+        {
+          "time": "Morning",
+          "activity": "Walk Samila Beach, photograph the Golden Mermaid statue with Koh Nu and Koh Maew in the background",
+          "note": "The breeze is strong in the morning and the sun is still manageable — the best time for photos"
+        },
+        {
+          "time": "Lunch",
+          "activity": "Lunch on city-side seafood at Sujinda or Monthathip",
+          "note": "Order sour barramundi curry and steamed squid with lime"
+        },
+        {
+          "time": "Afternoon",
+          "activity": "Wander the Songkhla Old Town, Nang Ngam Road, stop in a café",
+          "note": "Escape the afternoon heat inside the Sino-Portuguese shophouses"
+        },
+        {
+          "time": "Evening",
+          "activity": "Watch the sunset at Bang Lamphu, eat seafood with live music",
+          "note": "Book a waterside table ahead if you want the view"
+        }
       ]
     },
     {
@@ -227,10 +280,26 @@
       "label": "Day 2",
       "title": "Cross the bridge to Koh Yor",
       "items": [
-        { "time": "Morning", "activity": "Drive across the Tinsulanonda Bridge to Koh Yor, stop for lake-view photos", "note": "The bridge stretches long across Songkhla Lake — wide, open views both ways" },
-        { "time": "Lunch", "activity": "Lakeside lunch at Sirida or Namkiengdin", "note": "Sit on the water-facing side with a breeze; order chabuai prawns and steamed fish" },
-        { "time": "Afternoon", "activity": "Visit the Southern Folklore Studies Institute or pick up Koh Yor woven fabric as a souvenir", "note": "Koh Yor fabric is a well-known local craft" },
-        { "time": "Evening", "activity": "Head back into town; finish the trip with affordable seafood at Uncle Jiew or Mahatsajan", "note": "Order the tamarind-sauce prawns as a final bite" }
+        {
+          "time": "Morning",
+          "activity": "Drive across the Tinsulanonda Bridge to Koh Yor, stop for lake-view photos",
+          "note": "The bridge stretches long across Songkhla Lake — wide, open views both ways"
+        },
+        {
+          "time": "Lunch",
+          "activity": "Lakeside lunch at Sirida or Namkiengdin",
+          "note": "Sit on the water-facing side with a breeze; order chabuai prawns and steamed fish"
+        },
+        {
+          "time": "Afternoon",
+          "activity": "Visit the Southern Folklore Studies Institute or pick up Koh Yor woven fabric as a souvenir",
+          "note": "Koh Yor fabric is a well-known local craft"
+        },
+        {
+          "time": "Evening",
+          "activity": "Head back into town; finish the trip with affordable seafood at Uncle Jiew or Mahatsajan",
+          "note": "Order the tamarind-sauce prawns as a final bite"
+        }
       ]
     },
     {

@@ -85,6 +85,43 @@
       "html": "The trick at Talay Thai is to check prices at several stalls before you buy, since the same item can vary in price. For flower crab and prawns, look for freshness: clear eyes and firm shells. Once you've got your seafood, carry it over to a cooking stall and tell them how you want it done; they only charge a cooking fee per dish. This usually works out cheaper than ordering ready-made plates, and the seafood is fresher."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Samut Sakhon trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Samut Sakhon",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Samut%20Sakhon%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Samut Sakhon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Samut%20Sakhon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Samut Sakhon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Samut%20Sakhon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Samut Sakhon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Samut%20Sakhon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Samut Sakhon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Samut%20Sakhon&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 2 — waterfront restaurants at Krasae Khao, Ban Bo and Tha Chalom",
       "id": "day2"
@@ -152,49 +189,70 @@
           "name": "Krua Chao Phraya Rim Talay Krasae Khao",
           "blurb": "A waterfront restaurant in the Ban Bo–Krasae Khao area with hundreds of seafood dishes to choose from and fresh catch coming in by boat every day. Take a waterside table in the breeze. This is the place that comes to mind when people talk about Samut Sakhon's waterfront restaurants.",
           "meta": "Ban Bo subdistrict · open daily 10:00–22:00 · tel 094 340 3355",
-          "tags": ["Waterfront", "Standout"]
+          "tags": [
+            "Waterfront",
+            "Standout"
+          ]
         },
         {
           "rank": 2,
           "name": "Krua Rim Talay Krasae Khao",
           "blurb": "A restaurant set in the mangroves, with bamboo pavilions and waterside tables for taking in the view, ringed by mangrove trees. The focus is fresh seafood at fair prices, with a relaxed feel that's good for settling in over a long meal with the family.",
           "meta": "Krasae Khao subdistrict · open 10:00–21:00 (kitchen closes 19:00–20:00)",
-          "tags": ["Waterfront", "Mangroves"]
+          "tags": [
+            "Waterfront",
+            "Mangroves"
+          ]
         },
         {
           "rank": 3,
           "name": "Talay Thai market (buy fresh, have it cooked)",
           "blurb": "A wholesale seafood market on Rama II Road where you pick out fresh catch yourself, then have a stall in the market — such as Pongpan, Noknun or Je Tun — cook it. They charge a cooking fee per dish, so you get it fresh and keep control of your budget.",
           "meta": "On Rama II Road · open roughly 08:00–18:00 · tel 034 414 191",
-          "tags": ["Fresh market", "Cooked fresh"]
+          "tags": [
+            "Fresh market",
+            "Cooked fresh"
+          ]
         },
         {
           "rank": 4,
           "name": "Khun Tum Restaurant Mahachai",
           "blurb": "A seafood restaurant in Mahachai town where locals go for lunch and dinner. The menu is fresh seafood and boldly flavoured Thai dishes, and it's easy to reach in town, making it a good lunch stop on day one.",
           "meta": "Chetsadawithi Rd, Mahachai subdistrict · open 10:30–20:00 · closed Mondays",
-          "tags": ["In town", "Lunch"]
+          "tags": [
+            "In town",
+            "Lunch"
+          ]
         },
         {
           "rank": 5,
           "name": "New Rot Thip Restaurant Mahachai",
           "blurb": "An old restaurant going back more than 40 years in Mahachai town, with both fresh seafood and Thai dishes. It suits big groups or family meals, and the cooking stays consistent in the traditional style.",
           "meta": "Setthakit 1 Rd, Mahachai subdistrict · long-standing town restaurant",
-          "tags": ["In town", "Long-standing"]
+          "tags": [
+            "In town",
+            "Long-standing"
+          ]
         },
         {
           "rank": 6,
           "name": "Je Phrai Rim Khuean Tha Chalom",
           "blurb": "A local seafood restaurant with Tha Chin River views on the Tha Chalom side, with fresh coastal ingredients, bold home-style flavours and friendly prices. Park at Wat Chong Lom and there's a shuttle.",
           "meta": "Tha Chalom · open 09:30–20:00 · park at Wat Chong Lom",
-          "tags": ["Tha Chalom", "Friendly prices"]
+          "tags": [
+            "Tha Chalom",
+            "Friendly prices"
+          ]
         },
         {
           "rank": 7,
           "name": "Hia Huat Rice Soup Tha Chalom",
           "blurb": "A long-running rice soup shop in Tha Chalom that's been open for years, good for dinner or a late-night meal. Order stir-fried and fried seafood dishes to go with hot rice soup. It's a place Mahachai locals know well.",
           "meta": "Tha Chalom · dinner to late night · traditional rice soup shop",
-          "tags": ["Tha Chalom", "Dinner"]
+          "tags": [
+            "Tha Chalom",
+            "Dinner"
+          ]
         }
       ]
     },

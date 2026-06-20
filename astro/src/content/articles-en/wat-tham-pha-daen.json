@@ -73,6 +73,43 @@
       "html": "The stone carvings are spread across several points along the cliff — take your time and look at each one rather than rushing. Some pieces you need to step back a little to see in full. Wear comfortable shoes for walking, since the ground is rock with steps in places."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Sakon Nakhon? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🛕",
+          "provider": "Klook",
+          "label": "Temple & culture tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=temple%20tour%20Sakon%20Nakhon&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sakon Nakhon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sakon Nakhon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sakon Nakhon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sakon%20Nakhon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sakon Nakhon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "The skywalk and city viewpoint",
       "id": "viewpoint"
@@ -137,13 +174,41 @@
       "label": "Morning half-day",
       "title": "Carvings, the view and the cafe before the sun gets harsh",
       "items": [
-        { "time": "07:00", "activity": "Leave Sakon Nakhon town, drive toward Dong Mafai", "note": "Leave early for clear skies, a sharp city view and cool air" },
-        { "time": "07:40", "activity": "Reach the parking lot, take the temple shuttle up", "note": "Fare around 20 THB per person round trip" },
-        { "time": "08:00", "activity": "Walk the cliff carvings of the Buddha's life and Isan scenes", "note": "Take your time at each spot, don't rush" },
-        { "time": "09:00", "activity": "Photograph the 7-headed naga and the gold stone pagoda", "note": "Fewer people in the morning, clearer shots" },
-        { "time": "09:45", "activity": "Head out on the skywalk for the city and Nong Han view", "note": "Cool breeze; leave time for photos" },
-        { "time": "10:15", "activity": "Sit at the cliffside cafe, coffee in the breeze", "note": "Drinks around 30–50 THB" },
-        { "time": "11:00", "activity": "Head down and back into town for lunch", "note": "Carry on with Sakon Nakhon's local food in town" }
+        {
+          "time": "07:00",
+          "activity": "Leave Sakon Nakhon town, drive toward Dong Mafai",
+          "note": "Leave early for clear skies, a sharp city view and cool air"
+        },
+        {
+          "time": "07:40",
+          "activity": "Reach the parking lot, take the temple shuttle up",
+          "note": "Fare around 20 THB per person round trip"
+        },
+        {
+          "time": "08:00",
+          "activity": "Walk the cliff carvings of the Buddha's life and Isan scenes",
+          "note": "Take your time at each spot, don't rush"
+        },
+        {
+          "time": "09:00",
+          "activity": "Photograph the 7-headed naga and the gold stone pagoda",
+          "note": "Fewer people in the morning, clearer shots"
+        },
+        {
+          "time": "09:45",
+          "activity": "Head out on the skywalk for the city and Nong Han view",
+          "note": "Cool breeze; leave time for photos"
+        },
+        {
+          "time": "10:15",
+          "activity": "Sit at the cliffside cafe, coffee in the breeze",
+          "note": "Drinks around 30–50 THB"
+        },
+        {
+          "time": "11:00",
+          "activity": "Head down and back into town for lunch",
+          "note": "Carry on with Sakon Nakhon's local food in town"
+        }
       ]
     },
     {
@@ -196,8 +261,17 @@
     }
   ],
   "related": [
-    { "href": "city-sakon-nakhon.html", "title": "🗺️ Sakon Nakhon travel guide" },
-    { "href": "top10-hotels-sakon-nakhon.html", "title": "🏨 Top 10 hotels in Sakon Nakhon" },
-    { "href": "phu-phan-national-park.html", "title": "⛰️ Phu Phan National Park" }
+    {
+      "href": "city-sakon-nakhon.html",
+      "title": "🗺️ Sakon Nakhon travel guide"
+    },
+    {
+      "href": "top10-hotels-sakon-nakhon.html",
+      "title": "🏨 Top 10 hotels in Sakon Nakhon"
+    },
+    {
+      "href": "phu-phan-national-park.html",
+      "title": "⛰️ Phu Phan National Park"
+    }
   ]
 }

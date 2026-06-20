@@ -215,6 +215,10 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .foodexp-body small{font-size:12px;color:var(--sub)}
 .foodexp-prov{position:absolute;top:9px;right:11px;font-family:'Outfit';font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--coral-dk)}
 .foodexp-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;font-family:'Outfit';font-weight:800;font-size:14.5px;padding:13px 26px;border-radius:999px;box-shadow:0 12px 24px rgba(6,182,212,.3);transition:transform .15s}.foodexp-btn:hover{transform:translateY(-2px)}
+/* experiences (tours / tickets) module — coral accent to differentiate from the food (teal) module */
+.exp{background:linear-gradient(135deg,#fff5f7,#ecfeff)}
+.exp .foodexp-btn{background:linear-gradient(135deg,var(--coral),var(--coral-dk));box-shadow:0 12px 24px rgba(244,63,94,.3)}
+.exp .foodexp-prov{color:var(--teal-dk)}
 /* all-restaurants map (Leaflet / OpenStreetMap) */
 .rmap-sec{padding:4px 0 18px}
 .rmap-h{font-family:'Outfit';font-weight:900;font-size:clamp(20px,3vw,26px);letter-spacing:-.4px;color:var(--ink)}
@@ -533,6 +537,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
       {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
+    </section> :
+    b.kind === 'experiences' ? <section class="foodexp exp">
+      <div class="foodexp-head"><span class="foodexp-ic">🎟️</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
+      <div class="foodexp-grid">{b.items.map((it) => (
+        <a class="foodexp-card" href={it.href} target="_blank" rel="sponsored nofollow noopener">
+          <span class="foodexp-emoji">{it.emoji ?? '🎟️'}</span>
+          <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
+          {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
+        </a>))}</div>
+      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (isEn ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
     </section> :
     b.kind === 'localtips' ? <section class="localtips">
       <h3 class="lt-h">💡 <span set:html={b.title} /></h3>

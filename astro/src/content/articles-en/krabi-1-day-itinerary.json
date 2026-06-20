@@ -82,6 +82,43 @@
       "html": "Longtails dock in shallow water, so you'll wade in and out — wear strap-back sandals or be ready to take your shoes off. Railay has no ATM and few places take cards, so bring enough cash. Public boats stop around 18:00, so if you want to stay for sunset on Railay you'll have to charter a boat back, which costs more."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Krabi trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Krabi",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Krabi attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Krabi",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Krabi activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Krabi&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Krabi tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Krabi&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "The 4 Islands–Talay Waek tour, if you have more than half a day",
       "id": "four-islands"
@@ -99,7 +136,10 @@
           "blurb": "Krabi's single most popular tour. You board a shared boat looping Poda Island–Chicken Island–Talay Waek–Phra Nang, with lunch and snorkelling gear included. Best for budget travellers and solo / couple trips.",
           "meta": "Departs ~09:00, back ~15:00 · Ao Nang pier",
           "price": "Around 600–800 THB for Thais, ~1,200–1,500 THB for foreigners",
-          "tags": ["Join tour", "Budget"]
+          "tags": [
+            "Join tour",
+            "Budget"
+          ]
         },
         {
           "rank": 2,
@@ -107,7 +147,10 @@
           "blurb": "Faster than a longtail, reaching each island quickly so you get more time in the water. Good if you get seasick easily or want to fit several stops into a short time. Costs noticeably more than a longtail.",
           "meta": "Half-day–full-day · Ao Nang / Nopparat Thara pier",
           "price": "Around 1,200–1,800 THB per person",
-          "tags": ["Faster", "More swim time"]
+          "tags": [
+            "Faster",
+            "More swim time"
+          ]
         },
         {
           "rank": 3,
@@ -115,7 +158,10 @@
           "blurb": "Charter the whole boat and set your own route — no waiting for it to fill. Good for groups of friends or families of 4–6, picking the stops you want and taking your time.",
           "meta": "Whole boat, 1–5 people · Ao Nang pier",
           "price": "Around 2,200–3,500 THB per boat (depending on route)",
-          "tags": ["Private", "Group / family"]
+          "tags": [
+            "Private",
+            "Group / family"
+          ]
         }
       ]
     },

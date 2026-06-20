@@ -48,6 +48,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Koh Kood? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Koh Kood",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Koh Kood attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Koh Kood",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Koh Kood activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Koh%20Kood&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Koh Kood tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Koh%20Kood&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Sunset at Ao Tapao",
       "id": "sunset"
@@ -73,10 +110,26 @@
     {
       "kind": "cards",
       "items": [
-        { "name": "Shantaa Koh Kood", "blurb": "A boutique resort on a low rise at the northern end of the beach, with great sea and sunset views. Reviewers mention it often for being quiet with a nice atmosphere; it's pricier than its neighbors.", "tag": "Boutique · Sunset view" },
-        { "name": "Koh Kood Paradise Beach", "blurb": "A large beachfront resort with a pool and roomy rooms, run by the same group as the one on Koh Chang. Good for families and groups of friends.", "tag": "Family · Has a pool" },
-        { "name": "Seafar Resort", "blurb": "A mid-range resort with a relaxed feel and easy beach access, with its own seaside restaurant and coffee shop.", "tag": "Mid-range · Seaside spot" },
-        { "name": "Meedee Resort", "blurb": "Clean, tidy rooms and a well-reviewed breakfast, right on a lovely beach. Good for couples and anyone after some quiet.", "tag": "Clean · Quiet" }
+        {
+          "name": "Shantaa Koh Kood",
+          "blurb": "A boutique resort on a low rise at the northern end of the beach, with great sea and sunset views. Reviewers mention it often for being quiet with a nice atmosphere; it's pricier than its neighbors.",
+          "tag": "Boutique · Sunset view"
+        },
+        {
+          "name": "Koh Kood Paradise Beach",
+          "blurb": "A large beachfront resort with a pool and roomy rooms, run by the same group as the one on Koh Chang. Good for families and groups of friends.",
+          "tag": "Family · Has a pool"
+        },
+        {
+          "name": "Seafar Resort",
+          "blurb": "A mid-range resort with a relaxed feel and easy beach access, with its own seaside restaurant and coffee shop.",
+          "tag": "Mid-range · Seaside spot"
+        },
+        {
+          "name": "Meedee Resort",
+          "blurb": "Clean, tidy rooms and a well-reviewed breakfast, right on a lovely beach. Good for couples and anyone after some quiet.",
+          "tag": "Clean · Quiet"
+        }
       ]
     },
     {
@@ -95,14 +148,81 @@
     {
       "kind": "ranked",
       "items": [
-        { "rank": 1, "name": "Lomtapao Restaurant & Bar", "blurb": "A beachfront spot on Ao Tapao where you can sit, catch the breeze and look out to sea — a popular place to order a drink and wait for the sunset, with both food and a bar.", "meta": "Beachfront · Sunset view", "tags": ["Seaside", "Bar"] },
-        { "rank": 2, "name": "Tidkoh Seafood", "blurb": "A seafood place in the area focused on fresh catch — fish, prawns, crab — at island seafood prices. Good for a group dinner.", "meta": "Seafood · Dinner", "tags": ["Seafood"] },
-        { "rank": 3, "name": "Seafar Restaurant", "blurb": "The seaside restaurant and coffee shop at Seafar Resort, open to non-guests, with a relaxed feel — a good spot for a meal with a beach view.", "meta": "Seaside · Food + coffee", "tags": ["Seaside", "Cafe"] },
-        { "rank": 4, "name": "Little 9 Cafe", "blurb": "A small cafe in the area for a midday coffee break out of the heat, with a chill vibe — good to stop by before or after the beach.", "meta": "Cafe · Coffee", "tags": ["Cafe"] },
-        { "rank": 5, "name": "Esan Family", "blurb": "An Isan restaurant in the Hin Dam area — som tam, grilled chicken, larb — at friendly prices. A solid single-plate option that won't break the bank on the island.", "meta": "Isan · Easy on the wallet", "tags": ["Isan", "Budget-friendly"] },
-        { "rank": 6, "name": "Pizza & Pasta", "blurb": "A small Italian spot in the area, for the days you want a change from Thai food — pizza and pasta on the menu.", "meta": "Italian", "tags": ["Western"] },
-        { "rank": 7, "name": "The French Bakery", "blurb": "A bakery in the area — bread, croissants, coffee — good for grabbing an easy breakfast before you head out.", "meta": "Bakery · Breakfast", "tags": ["Bakery"] },
-        { "rank": 8, "name": "Leo Station", "blurb": "A made-to-order and drinks spot in the area with a relaxed feel — good for a lunch stop or a break along the way.", "meta": "Made-to-order · Lunch", "tags": ["Single-plate meals"] }
+        {
+          "rank": 1,
+          "name": "Lomtapao Restaurant & Bar",
+          "blurb": "A beachfront spot on Ao Tapao where you can sit, catch the breeze and look out to sea — a popular place to order a drink and wait for the sunset, with both food and a bar.",
+          "meta": "Beachfront · Sunset view",
+          "tags": [
+            "Seaside",
+            "Bar"
+          ]
+        },
+        {
+          "rank": 2,
+          "name": "Tidkoh Seafood",
+          "blurb": "A seafood place in the area focused on fresh catch — fish, prawns, crab — at island seafood prices. Good for a group dinner.",
+          "meta": "Seafood · Dinner",
+          "tags": [
+            "Seafood"
+          ]
+        },
+        {
+          "rank": 3,
+          "name": "Seafar Restaurant",
+          "blurb": "The seaside restaurant and coffee shop at Seafar Resort, open to non-guests, with a relaxed feel — a good spot for a meal with a beach view.",
+          "meta": "Seaside · Food + coffee",
+          "tags": [
+            "Seaside",
+            "Cafe"
+          ]
+        },
+        {
+          "rank": 4,
+          "name": "Little 9 Cafe",
+          "blurb": "A small cafe in the area for a midday coffee break out of the heat, with a chill vibe — good to stop by before or after the beach.",
+          "meta": "Cafe · Coffee",
+          "tags": [
+            "Cafe"
+          ]
+        },
+        {
+          "rank": 5,
+          "name": "Esan Family",
+          "blurb": "An Isan restaurant in the Hin Dam area — som tam, grilled chicken, larb — at friendly prices. A solid single-plate option that won't break the bank on the island.",
+          "meta": "Isan · Easy on the wallet",
+          "tags": [
+            "Isan",
+            "Budget-friendly"
+          ]
+        },
+        {
+          "rank": 6,
+          "name": "Pizza & Pasta",
+          "blurb": "A small Italian spot in the area, for the days you want a change from Thai food — pizza and pasta on the menu.",
+          "meta": "Italian",
+          "tags": [
+            "Western"
+          ]
+        },
+        {
+          "rank": 7,
+          "name": "The French Bakery",
+          "blurb": "A bakery in the area — bread, croissants, coffee — good for grabbing an easy breakfast before you head out.",
+          "meta": "Bakery · Breakfast",
+          "tags": [
+            "Bakery"
+          ]
+        },
+        {
+          "rank": 8,
+          "name": "Leo Station",
+          "blurb": "A made-to-order and drinks spot in the area with a relaxed feel — good for a lunch stop or a break along the way.",
+          "meta": "Made-to-order · Lunch",
+          "tags": [
+            "Single-plate meals"
+          ]
+        }
       ]
     },
     {
@@ -141,15 +261,39 @@
     }
   ],
   "faq": [
-    { "q": "Where on Koh Kood is Ao Tapao Beach?", "a": "It's on the northwest side of Koh Kood, just north of Klong Chao — the main accommodation hub. Drive or ride a motorbike along the coastal road and you'll be there in a few minutes. It's the longest continuous stretch of sand on the island's west coast." },
-    { "q": "Can you swim and snorkel at Ao Tapao Beach?", "a": "Yes, you can swim — the sea is fairly calm during the tourist season (Nov–Apr) and the water is clear enough to see the sand below. The northern end of the beach has rocks and shallow coral, a good snorkeling spot for seeing small fish, but during the monsoon the waves are strong, so check conditions first." },
-    { "q": "Is Ao Tapao good for watching the sunset?", "a": "Very good, because the beach faces straight out to the western sea — in the evening the sun drops into the water right in front of the beach. The northern end, around Shantaa resort, is an especially nice spot for the sunset. The best time is around 5:30–6:30 PM." },
-    { "q": "Are there beachfront resorts and restaurants?", "a": "Yes — beachfront resorts include Shantaa, Koh Kood Paradise Beach, Seafar and Meedee, plus seaside spots like Lomtapao, as well as seafood places, cafes and restaurants in the neighboring Hin Dam area. But things cost more on the island than on the mainland, so bring cash to be safe." },
-    { "q": "When is the best time to visit Ao Tapao?", "a": "November–April, when the sea is calm, the sky is clear and the water is at its clearest. May–October is the monsoon season: frequent rain, strong waves, and many resorts and boats close or cut schedules, so if you're coming then, check the accommodation and boats ahead of booking." }
+    {
+      "q": "Where on Koh Kood is Ao Tapao Beach?",
+      "a": "It's on the northwest side of Koh Kood, just north of Klong Chao — the main accommodation hub. Drive or ride a motorbike along the coastal road and you'll be there in a few minutes. It's the longest continuous stretch of sand on the island's west coast."
+    },
+    {
+      "q": "Can you swim and snorkel at Ao Tapao Beach?",
+      "a": "Yes, you can swim — the sea is fairly calm during the tourist season (Nov–Apr) and the water is clear enough to see the sand below. The northern end of the beach has rocks and shallow coral, a good snorkeling spot for seeing small fish, but during the monsoon the waves are strong, so check conditions first."
+    },
+    {
+      "q": "Is Ao Tapao good for watching the sunset?",
+      "a": "Very good, because the beach faces straight out to the western sea — in the evening the sun drops into the water right in front of the beach. The northern end, around Shantaa resort, is an especially nice spot for the sunset. The best time is around 5:30–6:30 PM."
+    },
+    {
+      "q": "Are there beachfront resorts and restaurants?",
+      "a": "Yes — beachfront resorts include Shantaa, Koh Kood Paradise Beach, Seafar and Meedee, plus seaside spots like Lomtapao, as well as seafood places, cafes and restaurants in the neighboring Hin Dam area. But things cost more on the island than on the mainland, so bring cash to be safe."
+    },
+    {
+      "q": "When is the best time to visit Ao Tapao?",
+      "a": "November–April, when the sea is calm, the sky is clear and the water is at its clearest. May–October is the monsoon season: frequent rain, strong waves, and many resorts and boats close or cut schedules, so if you're coming then, check the accommodation and boats ahead of booking."
+    }
   ],
   "related": [
-    { "href": "city-koh-kood.html", "title": "🗺️ Koh Kood travel guide" },
-    { "href": "top10-hotels-koh-kood.html", "title": "🏨 Top 10 places to stay on Koh Kood" },
-    { "href": "koh-kood-ao-phrao-beach.html", "title": "🏖️ Ao Phrao Beach, Koh Kood" }
+    {
+      "href": "city-koh-kood.html",
+      "title": "🗺️ Koh Kood travel guide"
+    },
+    {
+      "href": "top10-hotels-koh-kood.html",
+      "title": "🏨 Top 10 places to stay on Koh Kood"
+    },
+    {
+      "href": "koh-kood-ao-phrao-beach.html",
+      "title": "🏖️ Ao Phrao Beach, Koh Kood"
+    }
   ]
 }

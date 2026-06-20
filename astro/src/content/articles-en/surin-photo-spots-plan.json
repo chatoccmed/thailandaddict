@@ -57,6 +57,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Surin trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Surin",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 1 — Ban Ta Klang Elephant Village, elephants and their mahouts",
       "id": "day1"
@@ -74,14 +111,46 @@
       "label": "Day 1",
       "title": "Ban Ta Klang Elephant Village + Sikhoraphum Temple",
       "items": [
-        { "time": "07:30", "activity": "Leave town heading for Ban Ta Klang Elephant Village", "note": "About 58 km, an hour and a half drive — leave buffer" },
-        { "time": "09:00", "activity": "Arrive at the elephant village, walk and shoot elephants with their mahouts", "note": "Soft morning light, elephants wandering the village" },
-        { "time": "10:00", "activity": "Watch the elephant show, catch the action", "note": "Morning show 10:00, another at 14:00" },
-        { "time": "11:00", "activity": "Visit the elephant study center and feed elephants for close-ups", "note": "Elephant reaches its trunk in for a sweet shot" },
-        { "time": "12:00", "activity": "Head back toward town for lunch, rest out of the midday heat", "note": "Try lower-Isan food or Vietnamese kuai chap" },
-        { "time": "15:00", "activity": "Head to Sikhoraphum Temple, shoot the five brick towers", "note": "East of town, about 34 km" },
-        { "time": "15:45", "activity": "Capture the Shiva Nataraja lintel and apsaras on the doorframe pillars", "note": "Fine carving, great for close-ups" },
-        { "time": "16:30", "activity": "Shoot the temple with its reflection in the moat in late-afternoon sun", "note": "Orange brick warms up as the sun lowers" }
+        {
+          "time": "07:30",
+          "activity": "Leave town heading for Ban Ta Klang Elephant Village",
+          "note": "About 58 km, an hour and a half drive — leave buffer"
+        },
+        {
+          "time": "09:00",
+          "activity": "Arrive at the elephant village, walk and shoot elephants with their mahouts",
+          "note": "Soft morning light, elephants wandering the village"
+        },
+        {
+          "time": "10:00",
+          "activity": "Watch the elephant show, catch the action",
+          "note": "Morning show 10:00, another at 14:00"
+        },
+        {
+          "time": "11:00",
+          "activity": "Visit the elephant study center and feed elephants for close-ups",
+          "note": "Elephant reaches its trunk in for a sweet shot"
+        },
+        {
+          "time": "12:00",
+          "activity": "Head back toward town for lunch, rest out of the midday heat",
+          "note": "Try lower-Isan food or Vietnamese kuai chap"
+        },
+        {
+          "time": "15:00",
+          "activity": "Head to Sikhoraphum Temple, shoot the five brick towers",
+          "note": "East of town, about 34 km"
+        },
+        {
+          "time": "15:45",
+          "activity": "Capture the Shiva Nataraja lintel and apsaras on the doorframe pillars",
+          "note": "Fine carving, great for close-ups"
+        },
+        {
+          "time": "16:30",
+          "activity": "Shoot the temple with its reflection in the moat in late-afternoon sun",
+          "note": "Orange brick warms up as the sun lowers"
+        }
       ]
     },
     {
@@ -120,13 +189,41 @@
       "label": "Day 2",
       "title": "Ban Tha Sawang silk + Huai Saneng sunset",
       "items": [
-        { "time": "09:00", "activity": "Leave town for the Ban Tha Sawang silk village", "note": "Close to town, under half an hour's drive" },
-        { "time": "09:30", "activity": "Shoot the looms — weavers' hands with the gold silk threads", "note": "Indoors all day, no fighting the sun" },
-        { "time": "10:30", "activity": "Visit the silk museum and pick a small piece as a souvenir", "note": "Scarves or silk make good props too" },
-        { "time": "12:00", "activity": "Head back to town for lunch, rest through the harsh light", "note": "Light is hard now — wait it out for the evening" },
-        { "time": "16:30", "activity": "Head to Huai Saneng Reservoir, find a spot by the water", "note": "About 5 km from town, a 10–15 min drive" },
-        { "time": "17:30", "activity": "Shoot golden-hour light over the wide water", "note": "Cool breeze, sky reflected on the water" },
-        { "time": "18:15", "activity": "Catch the sunset before heading back for dinner in town", "note": "When Huai Saneng looks its best" }
+        {
+          "time": "09:00",
+          "activity": "Leave town for the Ban Tha Sawang silk village",
+          "note": "Close to town, under half an hour's drive"
+        },
+        {
+          "time": "09:30",
+          "activity": "Shoot the looms — weavers' hands with the gold silk threads",
+          "note": "Indoors all day, no fighting the sun"
+        },
+        {
+          "time": "10:30",
+          "activity": "Visit the silk museum and pick a small piece as a souvenir",
+          "note": "Scarves or silk make good props too"
+        },
+        {
+          "time": "12:00",
+          "activity": "Head back to town for lunch, rest through the harsh light",
+          "note": "Light is hard now — wait it out for the evening"
+        },
+        {
+          "time": "16:30",
+          "activity": "Head to Huai Saneng Reservoir, find a spot by the water",
+          "note": "About 5 km from town, a 10–15 min drive"
+        },
+        {
+          "time": "17:30",
+          "activity": "Shoot golden-hour light over the wide water",
+          "note": "Cool breeze, sky reflected on the water"
+        },
+        {
+          "time": "18:15",
+          "activity": "Catch the sunset before heading back for dinner in town",
+          "note": "When Huai Saneng looks its best"
+        }
       ]
     },
     {
@@ -170,7 +267,11 @@
           "blurb": "A restaurant right on Huai Saneng that locals often recommend, with fresh fish and a punchy lime-steamed fish. Sit by the water in the cool breeze — it's a good spot to wait for the sunset light and frame the food with the reservoir view.",
           "meta": "Waterside dining · Chaniang subdistrict, on the reservoir",
           "price": "Lime-steamed fish ฿180–200 / plate",
-          "tags": ["Fresh fish", "Reservoir view", "Wait for the light"]
+          "tags": [
+            "Fresh fish",
+            "Reservoir view",
+            "Wait for the light"
+          ]
         },
         {
           "rank": 2,
@@ -178,7 +279,11 @@
           "blurb": "A cafe on the Ban Khok side with a view over rice fields and Huai Saneng. Simple, warm decor with both an air-conditioned zone and garden seating, plenty of photo angles — good for chilling before heading out for the evening light by the water.",
           "meta": "Rice-field-view cafe · open 09:00–20:00 (closed Thu)",
           "price": "Drinks ฿55–90",
-          "tags": ["Cafe", "Rice-field view", "Lots of angles"]
+          "tags": [
+            "Cafe",
+            "Rice-field view",
+            "Lots of angles"
+          ]
         },
         {
           "rank": 3,
@@ -186,7 +291,11 @@
           "blurb": "In town there are several specialty-coffee cafes with photogenic interiors — good for an afternoon break out of the harsh sun while you wait for the evening light. Grab a coffee to recharge before heading out to Huai Saneng.",
           "meta": "Coffee cafe · in Surin town",
           "price": "Drinks ฿50–80",
-          "tags": ["Cafe", "Afternoon break", "In town"]
+          "tags": [
+            "Cafe",
+            "Afternoon break",
+            "In town"
+          ]
         },
         {
           "rank": 4,
@@ -194,7 +303,11 @@
           "blurb": "Cap the day with a proper dinner. Lower-Isan spots in town do som tam, larb, koi, grilled chicken, and local Surin Khmer dishes — bright, colorful plates that shoot well for the feed, at friendly prices.",
           "meta": "Lower-Isan food · in Surin town",
           "price": "Per person ฿100–150",
-          "tags": ["Lower Isan", "Dinner", "Photogenic plates"]
+          "tags": [
+            "Lower Isan",
+            "Dinner",
+            "Photogenic plates"
+          ]
         }
       ]
     },
@@ -217,11 +330,31 @@
       "label": "One-day condensed",
       "title": "Temple + silk + Huai Saneng at dusk",
       "items": [
-        { "time": "08:00", "activity": "Head to Sikhoraphum Temple, shoot the brick towers and apsaras", "note": "Orange brick is warm in the morning sun" },
-        { "time": "10:30", "activity": "Stop at Ban Tha Sawang silk, shoot the looms", "note": "Indoors, no fighting the sun" },
-        { "time": "12:30", "activity": "Head back to town for lunch, rest through the harsh light", "note": "Avoid shooting in hard midday light" },
-        { "time": "16:30", "activity": "Head to Huai Saneng, find a spot by the water in the breeze", "note": "About 5 km from town" },
-        { "time": "18:15", "activity": "Shoot the sunset over the reservoir before heading back", "note": "Close the trip on a warm tone for the feed" }
+        {
+          "time": "08:00",
+          "activity": "Head to Sikhoraphum Temple, shoot the brick towers and apsaras",
+          "note": "Orange brick is warm in the morning sun"
+        },
+        {
+          "time": "10:30",
+          "activity": "Stop at Ban Tha Sawang silk, shoot the looms",
+          "note": "Indoors, no fighting the sun"
+        },
+        {
+          "time": "12:30",
+          "activity": "Head back to town for lunch, rest through the harsh light",
+          "note": "Avoid shooting in hard midday light"
+        },
+        {
+          "time": "16:30",
+          "activity": "Head to Huai Saneng, find a spot by the water in the breeze",
+          "note": "About 5 km from town"
+        },
+        {
+          "time": "18:15",
+          "activity": "Shoot the sunset over the reservoir before heading back",
+          "note": "Close the trip on a warm tone for the feed"
+        }
       ]
     },
     {

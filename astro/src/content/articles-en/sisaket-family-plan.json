@@ -115,6 +115,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Sisaket trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Sisaket",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sisaket attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sisaket",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sisaket activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sisaket&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sisaket tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sisaket&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "With 3 days, what else can you add for the kids",
       "id": "day3"
@@ -196,63 +233,90 @@
           "name": "Fried tilapia with sweet fish sauce",
           "blurb": "Sisaket is known for farm-raised tilapia — fried crisp and topped with sweet fish sauce. The fish is sweet and not spicy, easy for kids, eaten with steamed or sticky rice. Local shops in town and Khun Han do it well.",
           "meta": "Main dish · Non-spicy, kid-friendly",
-          "tags": ["Kid-friendly", "Local specialty"]
+          "tags": [
+            "Kid-friendly",
+            "Local specialty"
+          ]
         },
         {
           "rank": 2,
           "name": "Volcanic durian (seasonal)",
           "blurb": "The southern star, grown on volcanic soil around Khun Han–Kantharalak. The flesh is sweet and rich with a less pungent smell, and kids who can handle durian will like it for the soft, sweet texture. Available from the tree June–August.",
           "meta": "Seasonal fruit · 180–250 THB/kg",
-          "tags": ["Seasonal", "Local specialty"]
+          "tags": [
+            "Seasonal",
+            "Local specialty"
+          ]
         },
         {
           "rank": 3,
           "name": "Grilled chicken & sticky rice",
           "blurb": "An easy dish for kids — fragrant grilled chicken pulled apart and eaten with hot sticky rice, found all over town and across the districts. Order som tam alongside for the adults, while the kids stick to chicken and sticky rice.",
           "meta": "Main · Kid-friendly",
-          "tags": ["Kid-friendly", "Local"]
+          "tags": [
+            "Kid-friendly",
+            "Local"
+          ]
         },
         {
           "rank": 4,
           "name": "Volcanic-orchard rambutan & mangosteen (seasonal)",
           "blurb": "Same window as durian — orchards around Kantharalak–Khun Han have fresh rambutan and mangosteen, picked sweet and juicy. Kids love them because they're easy to eat with no cooking, and they make good souvenirs to take home.",
           "meta": "Seasonal fruit · At the orchard",
-          "tags": ["Seasonal", "Kid-friendly"]
+          "tags": [
+            "Seasonal",
+            "Kid-friendly"
+          ]
         },
         {
           "rank": 5,
           "name": "Noodles & rice porridge in town",
           "blurb": "On days when kids don't want anything bold, the noodle and rice-porridge shops in town are a safe fallback — mild broth kids can sip, filling and quick. Found all over town.",
           "meta": "In-town shops · Kid-friendly",
-          "tags": ["Kid-friendly", "In town"]
+          "tags": [
+            "Kid-friendly",
+            "In town"
+          ]
         },
         {
           "rank": 6,
           "name": "Lhong Pah Cafe",
           "blurb": "A leafy garden cafe with lots of trees, photo corners and space for kids to wander. Coffee, cold drinks and bakery items. Open around 09:00–20:00 — a good spot to rest during the hot afternoon.",
           "meta": "Garden cafe · Drinks 50–90 THB",
-          "tags": ["Cafe", "Easy with kids"]
+          "tags": [
+            "Cafe",
+            "Easy with kids"
+          ]
         },
         {
           "rank": 7,
           "name": "Cafe De Tree",
           "blurb": "A cafe in town with a food zone, drinks and a chill rooftop. There's a food and dessert menu — order iced milk and snacks for kids while the adults sip coffee. Open all day.",
           "meta": "In-town cafe · Has food too",
-          "tags": ["Cafe", "In town"]
+          "tags": [
+            "Cafe",
+            "In town"
+          ]
         },
         {
           "rank": 8,
           "name": "Som tam & laap (order for the adults)",
           "blurb": "Bold local dishes the adults shouldn't miss — fiery Sisaket-style som tam and local laap and koi. Order a separate plate for kids, and you can ask the shop to make it mildly spicy if you want the kids to try it.",
           "meta": "Spicy & bold · For adults",
-          "tags": ["Spicy", "Local"]
+          "tags": [
+            "Spicy",
+            "Local"
+          ]
         },
         {
           "rank": 9,
           "name": "Sweets & snacks at the evening market",
           "blurb": "The evening market in town has plenty of sweets and snacks — Thai desserts, fried bites, cut fruit — so kids can walk around and sample several things in one place. Cheap.",
           "meta": "Evening market · Snacks",
-          "tags": ["Kid-friendly", "Market"]
+          "tags": [
+            "Kid-friendly",
+            "Market"
+          ]
         }
       ]
     },

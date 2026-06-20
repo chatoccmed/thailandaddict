@@ -39,42 +39,66 @@
           "name": "Caffeingest",
           "blurb": "A cafe on the ground floor of a condo in Kangsadan, with a warm look from wood and plants and natural light all day. Reviewers mention it often as a place you can genuinely sit and work or read for hours. It has outlets and free WiFi, and it's fairly quiet because it sits in a private corner — good for anyone who wants to focus on work for a long stretch.",
           "meta": "Kangsadan, behind KKU · Open 7:00–23:00 · From ฿50",
-          "tags": ["Work-friendly", "Power outlets", "Quiet"]
+          "tags": [
+            "Work-friendly",
+            "Power outlets",
+            "Quiet"
+          ]
         },
         {
           "rank": 2,
           "name": "inch & ounce",
           "blurb": "A two-floor minimalist cafe near Mittraphap Road, about 100 meters past Ratchaphruek Hospital. The space is wide and airy, with outlets spread throughout and WiFi. The drink and cake menu is big, with cups running 60–90 THB. It's a favorite among people who work because the seating is comfortable and never cramped.",
           "meta": "Near Mittraphap Rd, past Ratchaphruek Hospital · From ฿60–90",
-          "tags": ["Work-friendly", "Power outlets", "WiFi"]
+          "tags": [
+            "Work-friendly",
+            "Power outlets",
+            "WiFi"
+          ]
         },
         {
           "rank": 3,
           "name": "Sri Brown Cafe",
           "blurb": "A leafy garden cafe in Kangsadan near KKU, with both a two-floor air-conditioned indoor section and an outdoor garden zone. There's plenty of seating for solo workers and groups alike, and prices are fair for the quality. Students and workers use it regularly as a study spot.",
           "meta": "Adunyaram Rd, Kangsadan · Open 7:00–23:00 · Mid-range prices",
-          "tags": ["Work-friendly", "Garden", "Plenty of seating"]
+          "tags": [
+            "Work-friendly",
+            "Garden",
+            "Plenty of seating"
+          ]
         },
         {
           "rank": 4,
           "name": "GOODBEANS Roastery",
           "blurb": "A roastery and specialty cafe in Kangsadan, seriously put together across a two-floor indoor section and an outdoor garden with a koi pond. Coffee is the draw here since they roast their own beans, so it's worth a stop if you want a good cup. There are outlets for working, and prices start around 90 THB — a touch higher than the usual student spots, but you get the bean quality.",
           "meta": "Tawan Mai Rd, Kangsadan · Open 7:30–22:30 · From ฿90",
-          "tags": ["Self-roasted coffee", "Work-friendly", "Garden"]
+          "tags": [
+            "Self-roasted coffee",
+            "Work-friendly",
+            "Garden"
+          ]
         },
         {
           "rank": 5,
           "name": "Loading Matcha Cafe",
           "blurb": "A minimalist specialty matcha cafe in Kangsadan with a calm, quiet feel and a cat to play with on the second floor. It has outlets and WiFi and stays open until midnight, so it suits people who like working late and matcha fans who want a place that takes its green-tea drinks seriously. Prices start around 75 THB.",
           "meta": "Kangsadan · Open 8:30–24:00 · From ฿75",
-          "tags": ["Matcha", "Open late", "Has a cat"]
+          "tags": [
+            "Matcha",
+            "Open late",
+            "Has a cat"
+          ]
         },
         {
           "rank": 6,
           "name": "JuneKo.house",
           "blurb": "A cafe inside the Khon Kaen University grounds — wide, open, and bright, good for groups studying or having a team meeting. Drinks run 45–65 THB, the cheapest in this group, and it's open until 22:00. It's where students meet up since it's on campus and you don't have to go anywhere.",
           "meta": "On KKU campus · Open 8:00–22:00 · ฿45–65",
-          "tags": ["On campus", "Budget-friendly", "Groups"]
+          "tags": [
+            "On campus",
+            "Budget-friendly",
+            "Groups"
+          ]
         }
       ]
     },
@@ -82,6 +106,43 @@
       "kind": "tip",
       "title": "Tip",
       "html": "During midterms and finals, the cafes in Kangsadan get very crowded from afternoon into the night. If you're planning a long work session, come in the morning before 11am to grab a table near an outlet more easily. Late-opening spots like Loading Matcha and Moooo are good options if you want to sit after the others close."
+    },
+    {
+      "kind": "foodexp",
+      "title": "Want to taste deeper? Try a Khon Kaen food tour or cooking class",
+      "text": "Half a day with a local who knows the lanes — or cooking a dish yourself — teaches you more than just eating. Book ahead on Klook or GetYourGuide.",
+      "items": [
+        {
+          "emoji": "🍜",
+          "provider": "Klook",
+          "label": "Khon Kaen street-food tour",
+          "note": "A local guides you, many stops",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20food%20tour&aid=121442"
+        },
+        {
+          "emoji": "👩‍🍳",
+          "provider": "Klook",
+          "label": "Thai cooking class",
+          "note": "Market walk + hands-on",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20cooking%20class&aid=121442"
+        },
+        {
+          "emoji": "🌃",
+          "provider": "Klook",
+          "label": "Market & night-eats walk",
+          "note": "Street food after dark",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20night%20market%20food&aid=121442"
+        },
+        {
+          "emoji": "🍢",
+          "provider": "GetYourGuide",
+          "label": "Food experiences (GetYourGuide)",
+          "note": "Compare another marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Khon%20Kaen%20food&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🍢 See all Khon Kaen food tours & classes (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20food&aid=121442"
     },
     {
       "kind": "h2",
@@ -100,35 +161,55 @@
           "name": "11AM Cafe & Space",
           "blurb": "A bright white-building cafe in town, decked out in a minimalist style that photographs well from every angle. The signature is a fresh-milk cake with a new flavor every month. Beyond being a cafe, it also has a work-friendly zone, and the location is easy to reach in town — good for anyone who wants both nice photos and real seating.",
           "meta": "In town, near KKU · Co-working zone · Fresh-milk cake",
-          "tags": ["Photos", "Minimalist", "Fresh-milk cake"]
+          "tags": [
+            "Photos",
+            "Minimalist",
+            "Fresh-milk cake"
+          ]
         },
         {
           "rank": 8,
           "name": "Engmore KKC",
           "blurb": "A Japanese-style cafe behind KKU on the Sila side, with a shady, quiet Japanese garden. It's a favorite for people who shoot Japanese-style photos. The hours are short — 10:00–17:00 — and focused on the daytime atmosphere. Prices start around 120 THB, higher than student spots because it's selling the atmosphere and the decor.",
           "meta": "Behind KKU, Sila side · Open 10:00–17:00 · From ฿120",
-          "tags": ["Japanese style", "Garden", "Photos"]
+          "tags": [
+            "Japanese style",
+            "Garden",
+            "Photos"
+          ]
         },
         {
           "rank": 9,
           "name": "Tempris Cafe",
           "blurb": "A cafe across from Wat Nong Waeng. The highlight is the second floor, where you can frame a full shot with Phra Mahathat Kaen Nakhon, the city's landmark, in the background — an angle you can only get at this spot. It's an easy stop after visiting Wat Nong Waeng, and the atmosphere works well for content in the evening when the light is nice.",
           "meta": "Across from Wat Nong Waeng · Phra Mahathat Kaen Nakhon view",
-          "tags": ["Temple view", "Photos", "Second floor"]
+          "tags": [
+            "Temple view",
+            "Photos",
+            "Second floor"
+          ]
         },
         {
           "rank": 10,
           "name": "Moooo Milk Bar",
           "blurb": "A loft-style cafe by Nong Waeng lake, with a seating zone that looks out over the water. It stays open until midnight and has a food menu too, so it's good for sitting back from evening into the night and shooting water views. Prices start around 50 THB, and there are outlets for working late if you want a change of scenery from Kangsadan.",
           "meta": "By Nong Waeng lake · Open 12:00–24:00 · From ฿50",
-          "tags": ["Lakeside", "Open late", "Has food"]
+          "tags": [
+            "Lakeside",
+            "Open late",
+            "Has food"
+          ]
         },
         {
           "rank": 11,
           "name": "Khontemporary Coffee Bar",
           "blurb": "A loft cafe blended with an art gallery in the Colombo area, with raw exposed concrete walls and rotating art exhibitions to look at. It has a cool industrial feel, with prices starting around 50 THB. Good for art lovers who want a cafe with more to look at than just the coffee — you'll get photo angles that are different from the usual minimalist cafe.",
           "meta": "Colombo area · Open 10:30–18:00 · From ฿50",
-          "tags": ["Art gallery", "Loft", "Photos"]
+          "tags": [
+            "Art gallery",
+            "Loft",
+            "Photos"
+          ]
         }
       ]
     },

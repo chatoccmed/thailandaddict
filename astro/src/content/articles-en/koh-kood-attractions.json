@@ -48,6 +48,43 @@
       "html": "Khlong Chao waterfall is free — it's pay-what-you-want in a donation box. It's open during daylight hours; we'd go mid-morning to early afternoon when the light is nice and the crowds are still thin. Bring shoes you don't mind getting wet and a waterproof pouch for your phone."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Koh Kood? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Koh Kood",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Koh Kood attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Koh Kood",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Kood%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Koh Kood activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Koh%20Kood&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Koh Kood tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Koh%20Kood&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Khlong Yai Kee Waterfall — the quiet falls in the north",
       "id": "khlong-yai-kee"
@@ -179,9 +216,21 @@
       "label": "Day 1",
       "title": "Waterfall + main beaches",
       "items": [
-        { "time": "Morning", "activity": "Kayak or walk in to Khlong Chao waterfall, swim, and hunt for the Wor Por Ror inscription", "note": "Go mid-morning before the sun gets harsh, and bring shoes you don't mind getting wet" },
-        { "time": "Midday", "activity": "Eat at a beachfront spot on Khlong Chao, then stroll and photograph the leaning coconut palm", "note": "This area has the most restaurants on the island" },
-        { "time": "Afternoon–evening", "activity": "Chill on Khlong Chao beach, or move to Ao Bang Bao to wait for the sunset", "note": "On some Saturday evenings there are fireflies around Bang Bao" }
+        {
+          "time": "Morning",
+          "activity": "Kayak or walk in to Khlong Chao waterfall, swim, and hunt for the Wor Por Ror inscription",
+          "note": "Go mid-morning before the sun gets harsh, and bring shoes you don't mind getting wet"
+        },
+        {
+          "time": "Midday",
+          "activity": "Eat at a beachfront spot on Khlong Chao, then stroll and photograph the leaning coconut palm",
+          "note": "This area has the most restaurants on the island"
+        },
+        {
+          "time": "Afternoon–evening",
+          "activity": "Chill on Khlong Chao beach, or move to Ao Bang Bao to wait for the sunset",
+          "note": "On some Saturday evenings there are fireflies around Bang Bao"
+        }
       ]
     },
     {
@@ -189,9 +238,21 @@
       "label": "Day 2",
       "title": "Giant Makha tree + fishing villages",
       "items": [
-        { "time": "Morning", "activity": "Head up Khao Din Daeng to pay respects and photograph the 500-year-old giant Makha tree, with a stop at Khao Ruea Rop", "note": "Go with a local tour if you don't know the route" },
-        { "time": "Midday", "activity": "Go to the Ao Salat fishing village, eat fresh seafood by the water, and take in the wooden-house views", "note": "Bring cash — some places only take cash" },
-        { "time": "Afternoon–evening", "activity": "Stop at Khlong Yai Kee waterfall in the north, or relax on Ao Phrao beach for the sunset", "note": "Khlong Yai Kee has a steep path — go slow and watch for slippery spots" }
+        {
+          "time": "Morning",
+          "activity": "Head up Khao Din Daeng to pay respects and photograph the 500-year-old giant Makha tree, with a stop at Khao Ruea Rop",
+          "note": "Go with a local tour if you don't know the route"
+        },
+        {
+          "time": "Midday",
+          "activity": "Go to the Ao Salat fishing village, eat fresh seafood by the water, and take in the wooden-house views",
+          "note": "Bring cash — some places only take cash"
+        },
+        {
+          "time": "Afternoon–evening",
+          "activity": "Stop at Khlong Yai Kee waterfall in the north, or relax on Ao Phrao beach for the sunset",
+          "note": "Khlong Yai Kee has a steep path — go slow and watch for slippery spots"
+        }
       ]
     },
     {
@@ -199,9 +260,21 @@
       "label": "Day 3",
       "title": "Snorkeling at Koh Rang",
       "items": [
-        { "time": "Morning", "activity": "Hop on a snorkeling boat tour to Koh Rang to see the coral and fish", "note": "Check the weather first — rough days may be cancelled" },
-        { "time": "Midday", "activity": "Have lunch on the boat or an island, then snorkel the next spot", "note": "Most tours include lunch" },
-        { "time": "Afternoon", "activity": "Head back to the island, relax by the beach, and pack up for the boat back to the mainland", "note": "Book your return boat in advance" }
+        {
+          "time": "Morning",
+          "activity": "Hop on a snorkeling boat tour to Koh Rang to see the coral and fish",
+          "note": "Check the weather first — rough days may be cancelled"
+        },
+        {
+          "time": "Midday",
+          "activity": "Have lunch on the boat or an island, then snorkel the next spot",
+          "note": "Most tours include lunch"
+        },
+        {
+          "time": "Afternoon",
+          "activity": "Head back to the island, relax by the beach, and pack up for the boat back to the mainland",
+          "note": "Book your return boat in advance"
+        }
       ]
     },
     {

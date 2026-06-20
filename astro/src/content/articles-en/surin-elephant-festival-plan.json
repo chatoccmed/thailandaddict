@@ -55,6 +55,43 @@
       "html": "Before you hit book on a hotel or transport ticket, check that year's schedule from the Surin provincial page, TAT Surin, or local news pages like Long Surin and Surin Guide, because the actual show days set up the whole trip. If you book the wrong night and miss the show, you'll really kick yourself."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Surin trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🐘",
+          "provider": "Klook",
+          "label": "Ethical elephant sanctuary",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=elephant%20sanctuary%20Surin&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Overview of this 2-day, 1-night plan",
       "id": "overview"
@@ -87,14 +124,46 @@
       "label": "Day 1",
       "title": "Friday — Elephant buffet + elephant fair at night",
       "items": [
-        { "time": "07:30", "activity": "If you reach town early, have a light breakfast and walk over to the elephant buffet site", "note": "The buffet is usually held around the Phraya Surin Phakdi Monument, right in the town center" },
-        { "time": "08:30", "activity": "Watch the elephants file in for the buffet — hundreds of them eating fruit laid out in a long line down the street", "note": "Free to watch from the roadside. Arrive early for good photo angles; it gets crowded by late morning" },
-        { "time": "11:00", "activity": "Stroll around the old town, pay respects at Wat Burapharam, and photograph the monument", "note": "This temple at the heart of town is tied to Luang Pu Dun and is within walking distance of the buffet site" },
-        { "time": "12:30", "activity": "Have lunch at an Isan spot in town, or the famous Vietnamese kuay jap noodles", "note": "See the restaurants in the section below" },
-        { "time": "14:00", "activity": "Check in at your in-town hotel and rest a bit before the evening push", "note": "Pick a place near the arena or the walking street so it's an easy walk back late at night" },
-        { "time": "17:00", "activity": "Start walking the elephant fair at Si Narong Stadium — shop for Thai silk, OTOP goods, and souvenirs", "note": "It's Surin's local goods market, open late until 9 p.m., with plenty of food" },
-        { "time": "19:00", "activity": "Find some Isan food at the fair and catch the concert stage with that night's lineup", "note": "Each night has a different artist; check the lineup on the festival page ahead of time" },
-        { "time": "21:00", "activity": "Walk or take a tram back to your hotel and rest up for an early start the next day", "note": "You need to be up early for the arena show tomorrow, so don't stay out too late" }
+        {
+          "time": "07:30",
+          "activity": "If you reach town early, have a light breakfast and walk over to the elephant buffet site",
+          "note": "The buffet is usually held around the Phraya Surin Phakdi Monument, right in the town center"
+        },
+        {
+          "time": "08:30",
+          "activity": "Watch the elephants file in for the buffet — hundreds of them eating fruit laid out in a long line down the street",
+          "note": "Free to watch from the roadside. Arrive early for good photo angles; it gets crowded by late morning"
+        },
+        {
+          "time": "11:00",
+          "activity": "Stroll around the old town, pay respects at Wat Burapharam, and photograph the monument",
+          "note": "This temple at the heart of town is tied to Luang Pu Dun and is within walking distance of the buffet site"
+        },
+        {
+          "time": "12:30",
+          "activity": "Have lunch at an Isan spot in town, or the famous Vietnamese kuay jap noodles",
+          "note": "See the restaurants in the section below"
+        },
+        {
+          "time": "14:00",
+          "activity": "Check in at your in-town hotel and rest a bit before the evening push",
+          "note": "Pick a place near the arena or the walking street so it's an easy walk back late at night"
+        },
+        {
+          "time": "17:00",
+          "activity": "Start walking the elephant fair at Si Narong Stadium — shop for Thai silk, OTOP goods, and souvenirs",
+          "note": "It's Surin's local goods market, open late until 9 p.m., with plenty of food"
+        },
+        {
+          "time": "19:00",
+          "activity": "Find some Isan food at the fair and catch the concert stage with that night's lineup",
+          "note": "Each night has a different artist; check the lineup on the festival page ahead of time"
+        },
+        {
+          "time": "21:00",
+          "activity": "Walk or take a tram back to your hotel and rest up for an early start the next day",
+          "note": "You need to be up early for the arena show tomorrow, so don't stay out too late"
+        }
       ]
     },
     {
@@ -102,14 +171,46 @@
       "label": "Day 2",
       "title": "Saturday — Arena elephant show + souvenirs before heading home",
       "items": [
-        { "time": "06:30", "activity": "Wake up early and have breakfast at the hotel or a spot near your stay", "note": "The show starts early, so leave time for travel and finding a seat" },
-        { "time": "07:30", "activity": "Park at a free lot and take a tram into the arena", "note": "Avoid driving close to the arena, as roads close and traffic is heavy on show mornings" },
-        { "time": "08:00", "activity": "Enter the arena, find your seat by ticket zone, and photograph the elephants before the show", "note": "Arriving early gets you a good seat in your booked zone" },
-        { "time": "08:30", "activity": "Watch the elephant show — wild elephant round-up scenes, the war elephant procession, and elephants playing football", "note": "It's the biggest gathering of elephants in one place, running until around noon" },
-        { "time": "12:00", "activity": "Leave the arena, ride a tram back to your car, and find lunch", "note": "Everyone leaves at once when the show ends, so allow extra time waiting for a tram" },
-        { "time": "13:30", "activity": "Have lunch — Isan food or moo kratha in town — and rest up", "note": "In-town restaurants are easy to find; see the list below" },
-        { "time": "15:00", "activity": "Grab souvenirs — Thai silk, single-clove garlic, jasmine rice, moo yor — before you go", "note": "Souvenir shops in town and at the elephant fair have a full range to choose from" },
-        { "time": "16:30", "activity": "Set off home, or sit at a cafe to close out the trip before an evening train", "note": "The Lower Isan rail line stops at Surin station, conveniently in the town center" }
+        {
+          "time": "06:30",
+          "activity": "Wake up early and have breakfast at the hotel or a spot near your stay",
+          "note": "The show starts early, so leave time for travel and finding a seat"
+        },
+        {
+          "time": "07:30",
+          "activity": "Park at a free lot and take a tram into the arena",
+          "note": "Avoid driving close to the arena, as roads close and traffic is heavy on show mornings"
+        },
+        {
+          "time": "08:00",
+          "activity": "Enter the arena, find your seat by ticket zone, and photograph the elephants before the show",
+          "note": "Arriving early gets you a good seat in your booked zone"
+        },
+        {
+          "time": "08:30",
+          "activity": "Watch the elephant show — wild elephant round-up scenes, the war elephant procession, and elephants playing football",
+          "note": "It's the biggest gathering of elephants in one place, running until around noon"
+        },
+        {
+          "time": "12:00",
+          "activity": "Leave the arena, ride a tram back to your car, and find lunch",
+          "note": "Everyone leaves at once when the show ends, so allow extra time waiting for a tram"
+        },
+        {
+          "time": "13:30",
+          "activity": "Have lunch — Isan food or moo kratha in town — and rest up",
+          "note": "In-town restaurants are easy to find; see the list below"
+        },
+        {
+          "time": "15:00",
+          "activity": "Grab souvenirs — Thai silk, single-clove garlic, jasmine rice, moo yor — before you go",
+          "note": "Souvenir shops in town and at the elephant fair have a full range to choose from"
+        },
+        {
+          "time": "16:30",
+          "activity": "Set off home, or sit at a cafe to close out the trip before an evening train",
+          "note": "The Lower Isan rail line stops at Surin station, conveniently in the town center"
+        }
       ]
     },
     {
@@ -129,14 +230,102 @@
     {
       "kind": "ranked",
       "items": [
-        { "rank": 1, "name": "Thong Tarin Hotel", "blurb": "A large, long-standing hotel that's a Surin institution, with a swimming pool, big rooms, breakfast, and on-site parking. It's in town within reach of the elephant fair and the food district, making it a comfortable choice for families.", "meta": "Sirirat Rd, Nai Mueang · pool + parking", "price": "About ฿1,000–1,800/night (higher during the festival)", "tags": ["Pool", "Parking", "Family"] },
-        { "rank": 2, "name": "Surin Majestic Hotel (The Grand)", "blurb": "A mid-range in-town hotel with clean rooms, breakfast, and parking. It's near the mall and the central district, so getting to the event is easy. Good for anyone who wants comfort without overspending.", "meta": "Central Surin · parking", "price": "About ฿900–1,500/night", "tags": ["Mid-range", "Parking", "Near mall"] },
-        { "rank": 3, "name": "Arena Hotel Surin", "blurb": "An in-town hotel near Robinson Surin, with fresh, clean rooms and parking. It usually runs a festival-season package each year and has a convenient location for the event, suited to couples or small groups.", "meta": "Near Robinson Surin, Mueang district · parking", "price": "About ฿700–1,200/night", "tags": ["Near mall", "Fresh rooms", "Parking"] },
-        { "rank": 4, "name": "MaYU Hotel Surin", "blurb": "A modern boutique hotel in town with well-designed, clean rooms and parking. It joins the festival-season packages each year and has an in-town location that's easy to reach the event from, ideal for those who like a stylish, photogenic stay.", "meta": "In town, Surin · boutique, parking", "price": "About ฿800–1,400/night", "tags": ["Boutique", "Good design", "Parking"] },
-        { "rank": 5, "name": "Beelive Hotel Surin", "blurb": "A mid-size hotel near the airport, just a few minutes out of town. Its standout feature is a large parking lot that holds several hundred cars, ideal for drivers worried about parking during the festival. Clean rooms at a good price.", "meta": "Near Surin Airport · very large parking", "price": "About ฿700–1,100/night", "tags": ["Lots of parking", "Driving in", "Good value"] },
-        { "rank": 6, "name": "The Wood Hotel Surin", "blurb": "A warm, three-star hotel about ten minutes from the town center, with convenient parking. It's quieter than the center, good for anyone with a car who wants to avoid the chaos of the festival streets.", "meta": "Outskirts of Surin · parking", "price": "About ฿800–1,300/night", "tags": ["Quiet and relaxed", "Parking", "Have a car"] },
-        { "rank": 7, "name": "The Hub Hotel Surin", "blurb": "A three-star hotel near Surin Airport with 24-hour check-in and parking. Clean rooms at a friendly price, good for budget travelers who don't mind being away from the center of the action.", "meta": "Near Surin Airport · parking", "price": "About ฿600–1,000/night", "tags": ["Light on the wallet", "24-hr check-in", "Parking"] },
-        { "rank": 8, "name": "Guesthouses and daily-rate stays in town", "blurb": "If the big hotels are all full, there are still small guesthouses and daily-rate apartments in the old town to book. They're cheap and within walking distance of the elephant fair, ideal for backpackers or late bookers.", "meta": "Old town, near the market · walk to the event", "price": "From ฿400–700/night", "tags": ["Budget", "Late booking", "Walk to event"] }
+        {
+          "rank": 1,
+          "name": "Thong Tarin Hotel",
+          "blurb": "A large, long-standing hotel that's a Surin institution, with a swimming pool, big rooms, breakfast, and on-site parking. It's in town within reach of the elephant fair and the food district, making it a comfortable choice for families.",
+          "meta": "Sirirat Rd, Nai Mueang · pool + parking",
+          "price": "About ฿1,000–1,800/night (higher during the festival)",
+          "tags": [
+            "Pool",
+            "Parking",
+            "Family"
+          ]
+        },
+        {
+          "rank": 2,
+          "name": "Surin Majestic Hotel (The Grand)",
+          "blurb": "A mid-range in-town hotel with clean rooms, breakfast, and parking. It's near the mall and the central district, so getting to the event is easy. Good for anyone who wants comfort without overspending.",
+          "meta": "Central Surin · parking",
+          "price": "About ฿900–1,500/night",
+          "tags": [
+            "Mid-range",
+            "Parking",
+            "Near mall"
+          ]
+        },
+        {
+          "rank": 3,
+          "name": "Arena Hotel Surin",
+          "blurb": "An in-town hotel near Robinson Surin, with fresh, clean rooms and parking. It usually runs a festival-season package each year and has a convenient location for the event, suited to couples or small groups.",
+          "meta": "Near Robinson Surin, Mueang district · parking",
+          "price": "About ฿700–1,200/night",
+          "tags": [
+            "Near mall",
+            "Fresh rooms",
+            "Parking"
+          ]
+        },
+        {
+          "rank": 4,
+          "name": "MaYU Hotel Surin",
+          "blurb": "A modern boutique hotel in town with well-designed, clean rooms and parking. It joins the festival-season packages each year and has an in-town location that's easy to reach the event from, ideal for those who like a stylish, photogenic stay.",
+          "meta": "In town, Surin · boutique, parking",
+          "price": "About ฿800–1,400/night",
+          "tags": [
+            "Boutique",
+            "Good design",
+            "Parking"
+          ]
+        },
+        {
+          "rank": 5,
+          "name": "Beelive Hotel Surin",
+          "blurb": "A mid-size hotel near the airport, just a few minutes out of town. Its standout feature is a large parking lot that holds several hundred cars, ideal for drivers worried about parking during the festival. Clean rooms at a good price.",
+          "meta": "Near Surin Airport · very large parking",
+          "price": "About ฿700–1,100/night",
+          "tags": [
+            "Lots of parking",
+            "Driving in",
+            "Good value"
+          ]
+        },
+        {
+          "rank": 6,
+          "name": "The Wood Hotel Surin",
+          "blurb": "A warm, three-star hotel about ten minutes from the town center, with convenient parking. It's quieter than the center, good for anyone with a car who wants to avoid the chaos of the festival streets.",
+          "meta": "Outskirts of Surin · parking",
+          "price": "About ฿800–1,300/night",
+          "tags": [
+            "Quiet and relaxed",
+            "Parking",
+            "Have a car"
+          ]
+        },
+        {
+          "rank": 7,
+          "name": "The Hub Hotel Surin",
+          "blurb": "A three-star hotel near Surin Airport with 24-hour check-in and parking. Clean rooms at a friendly price, good for budget travelers who don't mind being away from the center of the action.",
+          "meta": "Near Surin Airport · parking",
+          "price": "About ฿600–1,000/night",
+          "tags": [
+            "Light on the wallet",
+            "24-hr check-in",
+            "Parking"
+          ]
+        },
+        {
+          "rank": 8,
+          "name": "Guesthouses and daily-rate stays in town",
+          "blurb": "If the big hotels are all full, there are still small guesthouses and daily-rate apartments in the old town to book. They're cheap and within walking distance of the elephant fair, ideal for backpackers or late bookers.",
+          "meta": "Old town, near the market · walk to the event",
+          "price": "From ฿400–700/night",
+          "tags": [
+            "Budget",
+            "Late booking",
+            "Walk to event"
+          ]
+        }
       ]
     },
     {
@@ -201,15 +390,107 @@
     {
       "kind": "ranked",
       "items": [
-        { "rank": 1, "name": "Som Tam Phet Mani", "blurb": "A som tam shop that's been a town favorite for decades, known for nam tok pork, tom saap with pork ribs, oam with free-range chicken, and larb, all boldly flavored in true Isan style. Locals fill it up at lunch.", "meta": "Opposite Wat Sala Loi, Mueang district · open around 10:00–16:00", "price": "฿40–80 per dish", "tags": ["Som tam", "True Isan", "Long-running"] },
-        { "rank": 2, "name": "Mae Phim Pla Phao", "blurb": "Well-rounded Isan food — som tam, larb, nam tok, tom saap with soft bones, grilled pork neck, grilled chicken — with grilled fish as the standout dish. Good for groups ordering several things to share.", "meta": "Mulasat Sathon Rd, Nai Mueang · open around 11:00–20:00", "price": "฿120–200 per person", "tags": ["Grilled fish", "Group seating"] },
-        { "rank": 3, "name": "Som Tam Je Bang", "blurb": "A som tam shop open for over twenty years, with the savory, punchy flavor locals love. Order it with grilled chicken and sticky rice for an easy lunch at a wallet-friendly price.", "meta": "Nai Mueang, Mueang Surin district · local shop, open daytime", "price": "฿35–70 per dish", "tags": ["Som tam", "Light on the wallet"] },
-        { "rank": 4, "name": "Vietnamese kuay jap in town", "blurb": "Vietnamese kuay jap is a Surin specialty — chewy, soft noodles in a clear broth with minced pork, egg, and moo yor, eaten with patongko. A good light breakfast or lunch before the event.", "meta": "In-town area, several spots near the market", "price": "฿40–60 per bowl", "tags": ["Breakfast", "Local specialty"] },
-        { "rank": 5, "name": "Surin-style khanom jeen nam ya", "blurb": "Khanom jeen with Surin-style nam ya — a rich curry sauce eaten with plenty of fresh vegetables. It's a filling, cheap, home-style breakfast you can find at the morning markets, good for lining your stomach before the elephant buffet.", "meta": "Morning markets in town", "price": "฿30–50 per plate", "tags": ["Breakfast", "Home-style"] },
-        { "rank": 6, "name": "Moo kratha in Surin town", "blurb": "The dinner where Surin locals meet up — good-value grill-and-hotpot buffets, perfect for closing out the first day after walking the festival. There are several spots scattered around town.", "meta": "Several spots around town · open evenings", "price": "฿150–250 per person", "tags": ["Dinner", "Buffet"] },
-        { "rank": 7, "name": "Food at the elephant fair", "blurb": "The fair has a long food zone — Isan grills, fried snacks, local sweets, and street bites. You can graze your way through it in the evening, ideal for a first-night dinner while you're already in the event for a while.", "meta": "Inside the elephant fair, Si Narong Stadium · open until 9 p.m.", "price": "From ฿20–60 per item", "tags": ["At the event", "Street bites", "Evening"] },
-        { "rank": 8, "name": "Cafes in town", "blurb": "Surin town has several new-wave cafes in the old town. Stop in for a coffee to rest your legs before the train home, or to duck out of the afternoon sun.", "meta": "In-town area", "price": "฿55–90 per cup", "tags": ["Cafe", "Rest your legs"] },
-        { "rank": 9, "name": "Surin souvenir and food shops", "blurb": "Before you go, stop at a souvenir shop to pick up single-clove garlic, jasmine rice, moo yor, and local sweets to take home. They make take-home food gifts that won't disappoint.", "meta": "Souvenir shops in town and near the train station", "price": "From ฿50", "tags": ["Souvenirs", "Before heading home"] }
+        {
+          "rank": 1,
+          "name": "Som Tam Phet Mani",
+          "blurb": "A som tam shop that's been a town favorite for decades, known for nam tok pork, tom saap with pork ribs, oam with free-range chicken, and larb, all boldly flavored in true Isan style. Locals fill it up at lunch.",
+          "meta": "Opposite Wat Sala Loi, Mueang district · open around 10:00–16:00",
+          "price": "฿40–80 per dish",
+          "tags": [
+            "Som tam",
+            "True Isan",
+            "Long-running"
+          ]
+        },
+        {
+          "rank": 2,
+          "name": "Mae Phim Pla Phao",
+          "blurb": "Well-rounded Isan food — som tam, larb, nam tok, tom saap with soft bones, grilled pork neck, grilled chicken — with grilled fish as the standout dish. Good for groups ordering several things to share.",
+          "meta": "Mulasat Sathon Rd, Nai Mueang · open around 11:00–20:00",
+          "price": "฿120–200 per person",
+          "tags": [
+            "Grilled fish",
+            "Group seating"
+          ]
+        },
+        {
+          "rank": 3,
+          "name": "Som Tam Je Bang",
+          "blurb": "A som tam shop open for over twenty years, with the savory, punchy flavor locals love. Order it with grilled chicken and sticky rice for an easy lunch at a wallet-friendly price.",
+          "meta": "Nai Mueang, Mueang Surin district · local shop, open daytime",
+          "price": "฿35–70 per dish",
+          "tags": [
+            "Som tam",
+            "Light on the wallet"
+          ]
+        },
+        {
+          "rank": 4,
+          "name": "Vietnamese kuay jap in town",
+          "blurb": "Vietnamese kuay jap is a Surin specialty — chewy, soft noodles in a clear broth with minced pork, egg, and moo yor, eaten with patongko. A good light breakfast or lunch before the event.",
+          "meta": "In-town area, several spots near the market",
+          "price": "฿40–60 per bowl",
+          "tags": [
+            "Breakfast",
+            "Local specialty"
+          ]
+        },
+        {
+          "rank": 5,
+          "name": "Surin-style khanom jeen nam ya",
+          "blurb": "Khanom jeen with Surin-style nam ya — a rich curry sauce eaten with plenty of fresh vegetables. It's a filling, cheap, home-style breakfast you can find at the morning markets, good for lining your stomach before the elephant buffet.",
+          "meta": "Morning markets in town",
+          "price": "฿30–50 per plate",
+          "tags": [
+            "Breakfast",
+            "Home-style"
+          ]
+        },
+        {
+          "rank": 6,
+          "name": "Moo kratha in Surin town",
+          "blurb": "The dinner where Surin locals meet up — good-value grill-and-hotpot buffets, perfect for closing out the first day after walking the festival. There are several spots scattered around town.",
+          "meta": "Several spots around town · open evenings",
+          "price": "฿150–250 per person",
+          "tags": [
+            "Dinner",
+            "Buffet"
+          ]
+        },
+        {
+          "rank": 7,
+          "name": "Food at the elephant fair",
+          "blurb": "The fair has a long food zone — Isan grills, fried snacks, local sweets, and street bites. You can graze your way through it in the evening, ideal for a first-night dinner while you're already in the event for a while.",
+          "meta": "Inside the elephant fair, Si Narong Stadium · open until 9 p.m.",
+          "price": "From ฿20–60 per item",
+          "tags": [
+            "At the event",
+            "Street bites",
+            "Evening"
+          ]
+        },
+        {
+          "rank": 8,
+          "name": "Cafes in town",
+          "blurb": "Surin town has several new-wave cafes in the old town. Stop in for a coffee to rest your legs before the train home, or to duck out of the afternoon sun.",
+          "meta": "In-town area",
+          "price": "฿55–90 per cup",
+          "tags": [
+            "Cafe",
+            "Rest your legs"
+          ]
+        },
+        {
+          "rank": 9,
+          "name": "Surin souvenir and food shops",
+          "blurb": "Before you go, stop at a souvenir shop to pick up single-clove garlic, jasmine rice, moo yor, and local sweets to take home. They make take-home food gifts that won't disappoint.",
+          "meta": "Souvenir shops in town and near the train station",
+          "price": "From ฿50",
+          "tags": [
+            "Souvenirs",
+            "Before heading home"
+          ]
+        }
       ]
     },
     {
@@ -252,9 +533,24 @@
     {
       "kind": "cards",
       "items": [
-        { "name": "Ban Ta Klang Elephant Village", "blurb": "The home base of the elephants that come to the festival. Go to see the Kui mahouts' way of life with their elephants all year round, not just during the festival. It's in Tha Tum district, about 50–60 km from town.", "tag": "Elephant village", "href": "ban-ta-klang-elephant-village.html" },
-        { "name": "Sikhoraphum Sanctuary", "blurb": "A Khmer sanctuary of five brick prangs, with apsara carvings reminiscent of Angkor Wat. The morning light is great for photos, and it's an easy stop on the way home.", "tag": "Khmer sanctuary", "href": "prasat-sikhoraphum.html" },
-        { "name": "Ban Tha Sawang Silk Village", "blurb": "A source of high-grade gold-brocade Thai silk, Surin's famous souvenir, which you can buy straight from the source. It's about 10 km from town and free to visit.", "tag": "Thai silk", "href": "ban-tha-sawang-silk.html" }
+        {
+          "name": "Ban Ta Klang Elephant Village",
+          "blurb": "The home base of the elephants that come to the festival. Go to see the Kui mahouts' way of life with their elephants all year round, not just during the festival. It's in Tha Tum district, about 50–60 km from town.",
+          "tag": "Elephant village",
+          "href": "ban-ta-klang-elephant-village.html"
+        },
+        {
+          "name": "Sikhoraphum Sanctuary",
+          "blurb": "A Khmer sanctuary of five brick prangs, with apsara carvings reminiscent of Angkor Wat. The morning light is great for photos, and it's an easy stop on the way home.",
+          "tag": "Khmer sanctuary",
+          "href": "prasat-sikhoraphum.html"
+        },
+        {
+          "name": "Ban Tha Sawang Silk Village",
+          "blurb": "A source of high-grade gold-brocade Thai silk, Surin's famous souvenir, which you can buy straight from the source. It's about 10 km from town and free to visit.",
+          "tag": "Thai silk",
+          "href": "ban-tha-sawang-silk.html"
+        }
       ]
     },
     {

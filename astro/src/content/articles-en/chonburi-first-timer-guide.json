@@ -40,6 +40,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Chonburi trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Chonburi",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Chonburi%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Chonburi attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Chonburi%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Chonburi",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Chonburi%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Chonburi activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Chonburi&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Chonburi tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Chonburi&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Which zone to stay in for first-timers",
       "id": "where-stay"
@@ -82,56 +119,80 @@
           "name": "Sanctuary of Truth",
           "blurb": "An entirely hand-carved wooden palace on the water at Naklua, intricately worked from top to bottom. It's the landmark to tick off on a first Pattaya trip — allow about 1.5–2 hours to walk around, and dress modestly with your shoulders covered.",
           "meta": "Open daily 08:00–18:00 · adult admission around THB 500",
-          "tags": ["Landmark", "First-time must"]
+          "tags": [
+            "Landmark",
+            "First-time must"
+          ]
         },
         {
           "rank": 2,
           "name": "Koh Larn",
           "blurb": "The island just off Pattaya, with clear water and white sand. The ferry from Bali Hai Pier takes about 45 minutes, and there are several beaches to choose from, including Tawaen Beach and Samae Beach. Perfect as a morning-out, evening-back day trip.",
           "meta": "Ferry from Bali Hai around THB 30/trip · speedboat around THB 200–300",
-          "tags": ["Clear water", "Day trip"]
+          "tags": [
+            "Clear water",
+            "Day trip"
+          ]
         },
         {
           "rank": 3,
           "name": "Bang Saen Beach + Khao Sam Muk",
           "blurb": "A long sandy beach you can swim at, with deckchairs to rent along the sand. Drive up Khao Sam Muk at the end of the beach to feed the monkeys, pay respects at the Chao Mae Sam Muk shrine, and take in the sea view. Watch the monkeys — they grab things, so keep your car windows shut.",
           "meta": "No admission · deckchairs around THB 100–150/set",
-          "tags": ["Beach near Bangkok", "Viewpoint"]
+          "tags": [
+            "Beach near Bangkok",
+            "Viewpoint"
+          ]
         },
         {
           "rank": 4,
           "name": "Pratamnak Hill Viewpoint",
           "blurb": "The spot for a photo with the Pattaya City sign, with a view over the whole bay. It sits between South Pattaya and Jomtien, and the Big Buddha temple is nearby if you want to pay your respects. No admission and there's parking.",
           "meta": "No admission · late afternoon light is best for photos",
-          "tags": ["Viewpoint", "Free"]
+          "tags": [
+            "Viewpoint",
+            "Free"
+          ]
         },
         {
           "rank": 5,
           "name": "Nong Nooch Garden",
           "blurb": "A large botanical garden in the Sattahip area, with landscaped gardens, an elephant show, a cultural show, and lots of photo corners. Great with family or for photo lovers — you can easily spend half a day here.",
           "meta": "Paid admission — check the latest price before you go · south of Pattaya",
-          "tags": ["Family", "Pretty gardens"]
+          "tags": [
+            "Family",
+            "Pretty gardens"
+          ]
         },
         {
           "rank": 6,
           "name": "Khao Chi Chan",
           "blurb": "A huge Buddha image etched in gold lines on a cliff face in the Bang Saray–Sattahip area, visible from far off, with a wide plaza to pay respects and take photos. A good stop on the way down to the southern beaches.",
           "meta": "No admission · in the Sattahip area",
-          "tags": ["Pay respects", "Landmark"]
+          "tags": [
+            "Pay respects",
+            "Landmark"
+          ]
         },
         {
           "rank": 7,
           "name": "Nong Mon Market",
           "blurb": "The well-known souvenir market on Sukhumvit Road near Bang Saen — Nong Mon sticky rice in bamboo, khanom jak (palm-leaf sweets), hoi jor, dried shrimp, dried squid, and chilli pastes. A good place to graze and shop before heading home.",
           "meta": "Open morning to late · souvenirs start in the tens of baht",
-          "tags": ["Souvenirs", "Snacks"]
+          "tags": [
+            "Souvenirs",
+            "Snacks"
+          ]
         },
         {
           "rank": 8,
           "name": "Lan Pho Seafood Market, Naklua",
           "blurb": "Naklua's fresh market has good-value fresh seafood — pick out prawns, crab, shellfish or squid and have a shop steam, boil or grill it for you, paid by weight. Come in the late afternoon before closing while it's still fresh.",
           "meta": "Open around 06:00–18:00 · priced by weight",
-          "tags": ["Seafood", "Fresh market"]
+          "tags": [
+            "Seafood",
+            "Fresh market"
+          ]
         }
       ]
     },

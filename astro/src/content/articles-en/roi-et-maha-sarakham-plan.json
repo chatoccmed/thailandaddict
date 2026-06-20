@@ -100,6 +100,43 @@
       "html": "If you can set out early, knock out the in-town spots (Bueng Phlan Chai, the tower, Wat Burapha Phiram) from morning to midday, then head down to Kaset Wisai in the afternoon, because the softer afternoon light makes the paddies and Ku Ka Sing photograph beautifully — and you'll roll back into town right around evening. If you'd rather not drive far, you can drop Ku Ka Sing and just take Roi Et town slowly all day; save it for next time."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Roi Et trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Roi Et",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Roi Et attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Roi Et",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Roi Et activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Roi%20Et&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Roi Et tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Roi%20Et&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Isan dishes worth trying across both towns",
       "id": "food"
@@ -116,56 +153,78 @@
           "name": "Som tam pla ra + sticky rice",
           "blurb": "The heart of an Isan meal — pounded fresh in the mortar with fragrant pla ra and eaten with hot sticky rice. You'll find it at every market and roadside stall. In Roi Et, the som tam spots around Bueng Phlan Chai give you plenty to choose from.",
           "meta": "Every meal · from ฿20–60",
-          "tags": ["Pure Isan", "Must try"]
+          "tags": [
+            "Pure Isan",
+            "Must try"
+          ]
         },
         {
           "rank": 2,
           "name": "Thung Kula Ronghai jasmine rice",
           "blurb": "Not a single dish but the rice that comes with every meal. The GI jasmine rice from the Kula plain has a standout fragrance, and eating it with larb or som tam is noticeably different from ordinary rice. You can buy it to take home, too.",
           "meta": "Food + souvenir",
-          "tags": ["GI", "Souvenir"]
+          "tags": [
+            "GI",
+            "Souvenir"
+          ]
         },
         {
           "rank": 3,
           "name": "Larb / koi, beef or pork",
           "blurb": "Boldly seasoned larb tossed with toasted rice and herbs, eaten with fresh vegetables and sticky rice — a dish Isan locals order all the time. Both towns have plenty of larb places to pick from.",
           "meta": "Lunch–dinner · from ฿50–80",
-          "tags": ["Pure Isan"]
+          "tags": [
+            "Pure Isan"
+          ]
         },
         {
           "rank": 4,
           "name": "Grilled chicken / grilled pork neck",
           "blurb": "Chicken marinated and grilled until fragrant, eaten with jaew dipping sauce and sticky rice — the inseparable partner to som tam. Roadside stalls around the Kula plain grill it fresh all day.",
           "meta": "Every meal · from ฿60–120",
-          "tags": ["Pure Isan", "Grilled"]
+          "tags": [
+            "Pure Isan",
+            "Grilled"
+          ]
         },
         {
           "rank": 5,
           "name": "Tom saep / offal soup",
           "blurb": "A hot, sour-spicy soup with offal or soft bone, fragrant with kaffir lime leaf and lemongrass. It's a popular dinner around Bueng Phlan Chai — perfect slurped hot in the evening.",
           "meta": "Dinner · from ฿80–150",
-          "tags": ["Dinner"]
+          "tags": [
+            "Dinner"
+          ]
         },
         {
           "rank": 6,
           "name": "Lakeside Isan fusion",
           "blurb": "Newer spots in Roi Et like Tara by Bueng Phlan Chai and craft-leaning places like Hed reworking Isan ingredients to be more approachable while keeping the regional flavour. Good for a long, relaxed meal in a nice setting.",
           "meta": "Dinner · settle in",
-          "tags": ["Good vibe", "Lakeside"]
+          "tags": [
+            "Good vibe",
+            "Lakeside"
+          ]
         },
         {
           "rank": 7,
           "name": "Lakeside cafes & homemade sweets",
           "blurb": "In the afternoon, drop into a cafe by Bueng Phlan Chai with a view of the tower — everything from bare-concrete spots to garden-style ones. A drink and a slice of cake are enough to shake off the drowsiness before carrying on.",
           "meta": "Afternoon snack",
-          "tags": ["Cafe", "Break"]
+          "tags": [
+            "Cafe",
+            "Break"
+          ]
         },
         {
           "rank": 8,
           "name": "Khanom jeen nam ya & Maha Sarakham local food",
           "blurb": "On the Maha Sarakham side there are morning markets and local spots around the university. Try khanom jeen nam ya and an Isan-style breakfast before heading down to Na Dun — filling and cheap.",
           "meta": "Breakfast · from ฿35–60",
-          "tags": ["Maha Sarakham", "Breakfast"]
+          "tags": [
+            "Maha Sarakham",
+            "Breakfast"
+          ]
         }
       ]
     },
@@ -271,21 +330,30 @@
           "name": "Jasmine rice & Kula plain life",
           "blurb": "Give day one to Kaset Wisai — walk Thung Kula Ronghai, Ku Ka Sing and the silk-weaving community, and buy GI jasmine rice straight from where it's grown. On day two take Na Dun lightly, leaning into farm life and on-theme souvenirs.",
           "meta": "Focus on paddies & souvenirs",
-          "tags": ["Jasmine rice", "Community"]
+          "tags": [
+            "Jasmine rice",
+            "Community"
+          ]
         },
         {
           "rank": 2,
           "name": "History & archaeology",
           "blurb": "Tie the two Khmer ruins together. Day one is Ku Ka Sing in Kaset Wisai; day two is Ku Santarat and Phra That Na Dun in Na Dun. Both ruins were built around the same era, so the Khmer–Dvaravati storyline carries through the whole trip.",
           "meta": "Focus on Khmer ruins & stupa",
-          "tags": ["History", "Archaeology"]
+          "tags": [
+            "History",
+            "Archaeology"
+          ]
         },
         {
           "rank": 3,
           "name": "Relaxed — cafes & food",
           "blurb": "Trim the sightseeing. Bueng Phlan Chai and the tower are enough; sit at a lakeside cafe and eat Isan fusion. Day two, just hit Phra That Na Dun and shop for jasmine rice on the way home. More eating, drinking and photos than running around.",
           "meta": "Focus on food & lounging",
-          "tags": ["Cafe", "Food"]
+          "tags": [
+            "Cafe",
+            "Food"
+          ]
         }
       ]
     },

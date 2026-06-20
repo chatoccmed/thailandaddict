@@ -44,6 +44,43 @@
       "html": "Just west of Ao Nang, across the bridge, is Noppharat Thara — a long beach that's quieter and more natural, great for an evening stroll and for watching the sunset with fewer people than Ao Nang. At low tide you can even see a sandbar linking out to a small island."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Krabi? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Krabi",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Krabi attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Krabi",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Krabi%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Krabi activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Krabi&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Krabi tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Krabi&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Which area to stay in around Ao Nang",
       "id": "where-to-stay"
@@ -120,56 +157,80 @@
           "name": "Krua Thara",
           "blurb": "A seafood restaurant locals and travellers alike rate as one of the best in Krabi. There are tanks of live fish, prawns, shellfish and crab to pick from out front — everything's fresh, and prices are more reasonable than the beachfront view places. Standouts are the fresh oysters, stir-fried crab and steamed fish. It's at the end of Noppharat Thara beach near the pier and park office.",
           "meta": "Open 11:00–23:00 · fresh seafood, good value",
-          "tags": ["Seafood", "Locals go here"]
+          "tags": [
+            "Seafood",
+            "Locals go here"
+          ]
         },
         {
           "rank": 2,
           "name": "Lae Lay Grill",
           "blurb": "A hilltop seafood restaurant with a panoramic view over the sea and the Noppharat Thara islands — a popular spot for dinner with the sunset. There's a free shuttle from hotels in the area. Prices run higher than ground-level places, but you're paying for the view. Good for a special meal or a celebration; book a table ahead in high season.",
           "meta": "Hilltop view · sunset dinner · shuttle service",
-          "tags": ["Seafood", "Sunset view"]
+          "tags": [
+            "Seafood",
+            "Sunset view"
+          ]
         },
         {
           "rank": 3,
           "name": "The Last Fisherman Bar",
           "blurb": "A bar-restaurant on the beachfront walkway at the southeastern end of Ao Nang, and it fills up fast at sunset. The menu is Thai–Western, with an evening BBQ buffet — pick ribs, squid, chicken or kebabs, served with baked potato and a salad bar. You can sit with your feet in the sand and watch the sea.",
           "meta": "Open 12:00–24:00 · beachfront, sunset",
-          "tags": ["Beach bar", "Sunset"]
+          "tags": [
+            "Beach bar",
+            "Sunset"
+          ]
         },
         {
           "rank": 4,
           "name": "The Hilltop Ao Nang",
           "blurb": "Another hilltop spot, looking down over Ao Nang and the surrounding islands. Good for a drink or a dinner with the sunset, with a more relaxed feel than the ground-level places. Mid to high prices.",
           "meta": "Hilltop view · sunset spot",
-          "tags": ["Sunset view", "Atmosphere"]
+          "tags": [
+            "Sunset view",
+            "Atmosphere"
+          ]
         },
         {
           "rank": 5,
           "name": "Thai spots in the Ao Nang town sois",
           "blurb": "A short way back from the beach you'll find made-to-order joints and local-priced Thai restaurants scattered around. Pad thai, tom yum, crab fried rice — dishes run 60–150 THB, half the price of the beachfront places. Good for lunch or an easy meal during the day.",
           "meta": "Made-to-order · ฿60–150 a dish",
-          "tags": ["Thai food", "Budget"]
+          "tags": [
+            "Thai food",
+            "Budget"
+          ]
         },
         {
           "rank": 6,
           "name": "Night market / Ao Nang street food",
           "blurb": "In the evening there are street-food stalls and small markets around Ao Nang and Noppharat Thara beach, selling snacks, grilled seafood, fruit and fresh juice at easygoing prices. An easy place to grab dinner and graze as you wander.",
           "meta": "Evening–night · easygoing prices",
-          "tags": ["Street food", "Evening bites"]
+          "tags": [
+            "Street food",
+            "Evening bites"
+          ]
         },
         {
           "rank": 7,
           "name": "Cafés along the Ao Nang road",
           "blurb": "The beachfront road and the town sois have plenty of fresh-coffee cafés, dessert shops and ice cream spots. Good for a break out of the afternoon sun, or a light breakfast before heading out on a boat. Some have seats with a view of the beach.",
           "meta": "Morning–afternoon · coffee & desserts",
-          "tags": ["Café", "Break stop"]
+          "tags": [
+            "Café",
+            "Break stop"
+          ]
         },
         {
           "rank": 8,
           "name": "Western & Indian restaurants along the road",
           "blurb": "Ao Nang gets a lot of international visitors, so there are pizza, steak, Indian and other international restaurants lined up along the beachfront road — handy for a day when you want a change from seafood and Thai food. Quality ranges from middling to good, so check reviews before you pick.",
           "meta": "Along the beachfront road · international",
-          "tags": ["Western food", "Alternatives"]
+          "tags": [
+            "Western food",
+            "Alternatives"
+          ]
         }
       ]
     },

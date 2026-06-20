@@ -73,6 +73,43 @@
       "html": "Half a day → Kham Hom Waterfall + the snake curve is plenty · A full day → add Seri Thai Cave and Lan Sao Eh · Driving on to Kalasin → stop at Pha Sawoei as a rest break."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Sakon Nakhon? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🏞️",
+          "provider": "Klook",
+          "label": "National park day tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=national%20park%20tour%20Sakon%20Nakhon&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sakon Nakhon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sakon Nakhon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sakon Nakhon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sakon%20Nakhon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sakon Nakhon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "When the waterfalls look best",
       "id": "season"
@@ -146,10 +183,26 @@
       "label": "Morning half day",
       "title": "Hit the highlights fast",
       "items": [
-        { "time": "07:00", "activity": "Leave Sakon Nakhon town, drive Route 213 toward Kalasin", "note": "Leave early for cool air and thin mist" },
-        { "time": "07:40", "activity": "Stop at the snake-curve viewpoint, photograph the city and Nong Han Lake", "note": "Park somewhere safe and watch for traffic on the curve" },
-        { "time": "08:30", "activity": "Visit Kham Hom Waterfall, walk around, dip your feet, light picnic", "note": "Water is strongest from late rainy to early cool season" },
-        { "time": "11:00", "activity": "Drive back down to town for lunch", "note": "Follow up with Sakon Nakhon eats in town" }
+        {
+          "time": "07:00",
+          "activity": "Leave Sakon Nakhon town, drive Route 213 toward Kalasin",
+          "note": "Leave early for cool air and thin mist"
+        },
+        {
+          "time": "07:40",
+          "activity": "Stop at the snake-curve viewpoint, photograph the city and Nong Han Lake",
+          "note": "Park somewhere safe and watch for traffic on the curve"
+        },
+        {
+          "time": "08:30",
+          "activity": "Visit Kham Hom Waterfall, walk around, dip your feet, light picnic",
+          "note": "Water is strongest from late rainy to early cool season"
+        },
+        {
+          "time": "11:00",
+          "activity": "Drive back down to town for lunch",
+          "note": "Follow up with Sakon Nakhon eats in town"
+        }
       ]
     },
     {
@@ -157,12 +210,36 @@
       "label": "Full day",
       "title": "Cover the waterfalls, caves and viewpoints",
       "items": [
-        { "time": "07:00", "activity": "Leave town, stop at Phu Phan Rajanivet Palace (if open to visitors)", "note": "Check opening days first, as it only opens at certain times" },
-        { "time": "08:30", "activity": "Kham Hom Waterfall + snake-curve viewpoint", "note": "Allow an easy 1.5–2 hours to walk around" },
-        { "time": "10:30", "activity": "Seri Thai Cave, read the WWII history signboards", "note": "Cool and quiet atmosphere" },
-        { "time": "12:00", "activity": "Lunch at the service area, or head down to Pha Sawoei on the Kalasin side", "note": "Pha Sawoei has restaurants and souvenirs" },
-        { "time": "14:00", "activity": "Lan Sao Eh + natural stone bridge, stroll and take photos", "note": "Late rainy season brings wildflowers across the rocks" },
-        { "time": "16:30", "activity": "Drive back down the mountain into town", "note": "Head down before dusk — mountain roads get dark fast" }
+        {
+          "time": "07:00",
+          "activity": "Leave town, stop at Phu Phan Rajanivet Palace (if open to visitors)",
+          "note": "Check opening days first, as it only opens at certain times"
+        },
+        {
+          "time": "08:30",
+          "activity": "Kham Hom Waterfall + snake-curve viewpoint",
+          "note": "Allow an easy 1.5–2 hours to walk around"
+        },
+        {
+          "time": "10:30",
+          "activity": "Seri Thai Cave, read the WWII history signboards",
+          "note": "Cool and quiet atmosphere"
+        },
+        {
+          "time": "12:00",
+          "activity": "Lunch at the service area, or head down to Pha Sawoei on the Kalasin side",
+          "note": "Pha Sawoei has restaurants and souvenirs"
+        },
+        {
+          "time": "14:00",
+          "activity": "Lan Sao Eh + natural stone bridge, stroll and take photos",
+          "note": "Late rainy season brings wildflowers across the rocks"
+        },
+        {
+          "time": "16:30",
+          "activity": "Drive back down the mountain into town",
+          "note": "Head down before dusk — mountain roads get dark fast"
+        }
       ]
     },
     {
@@ -210,8 +287,17 @@
     }
   ],
   "related": [
-    { "href": "city-sakon-nakhon.html", "title": "🗺️ Sakon Nakhon travel guide" },
-    { "href": "top10-hotels-sakon-nakhon.html", "title": "🏨 Top 10 Sakon Nakhon hotels" },
-    { "href": "kham-hom-waterfall.html", "title": "💧 Kham Hom Waterfall, Phu Phan" }
+    {
+      "href": "city-sakon-nakhon.html",
+      "title": "🗺️ Sakon Nakhon travel guide"
+    },
+    {
+      "href": "top10-hotels-sakon-nakhon.html",
+      "title": "🏨 Top 10 Sakon Nakhon hotels"
+    },
+    {
+      "href": "kham-hom-waterfall.html",
+      "title": "💧 Kham Hom Waterfall, Phu Phan"
+    }
   ]
 }

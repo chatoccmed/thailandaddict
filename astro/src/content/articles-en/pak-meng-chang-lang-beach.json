@@ -44,6 +44,43 @@
       "html": "The tide swing on this coast is big. At low tide the beach opens up wide and the water pulls a long way out, and some boats have to wait for the right moment. Before you plan a boat trip or photos by the beach, check that day's tide table so your timing lines up better."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Trang? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Trang",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Trang%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Trang attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Trang%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Trang",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Trang%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Trang activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Trang&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Trang tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Trang&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Chang Lang Beach — a long, quiet stretch under the pines",
       "id": "chang-lang-beach"
@@ -105,63 +142,90 @@
           "name": "Tontoey Seafood",
           "blurb": "A seafood place on Pak Meng Beach you'll often hear about when visiting Trang. The seafood is fresh, and the standouts are the steamed blue crab, grouper steamed in soy sauce, garlic-fried prawns, and stir-fried pak liang with egg, a southern Thai local green. You can eat looking out at the sea, and the prices are mid-range and fair for how fresh it is.",
           "meta": "Beachfront seafood · fresh catch",
-          "tags": ["Seafood", "Local favourite"]
+          "tags": [
+            "Seafood",
+            "Local favourite"
+          ]
         },
         {
           "rank": 2,
           "name": "Koh Pu Koh Pla",
           "blurb": "A popular seafood spot around Pak Meng–Sikao that locals and visitors talk up for freshness and bold southern flavours. The picks are crab fried in curry powder, seafood tom yum, and stir-fried squid. Good for a group ordering a few dishes to share.",
           "meta": "Southern-style seafood · good for groups",
-          "tags": ["Seafood", "Bold flavours"]
+          "tags": [
+            "Seafood",
+            "Bold flavours"
+          ]
         },
         {
           "rank": 3,
           "name": "Acqua – Anantara Si Kao",
           "blurb": "The beachfront restaurant at the Anantara Si Kao resort on Chang Lang Beach, with a nice atmosphere and an open sea view. Good for a special meal or an easygoing dinner watching the sunset. Prices run higher than the usual beachfront places, since you're paying for the setting and the view.",
           "meta": "Resort restaurant · Chang Lang sea view",
-          "tags": ["Atmosphere", "Sunset view"]
+          "tags": [
+            "Atmosphere",
+            "Sunset view"
+          ]
         },
         {
           "rank": 4,
           "name": "Khrua Ladawan",
           "blurb": "A Thai–seafood place around Sikao–Pak Meng that locals drop by, bold and properly southern. The sour curry, yellow curry, and fish dishes are made full-on, the prices are local, and it suits anyone after homestyle flavours over a tourist spot.",
           "meta": "Southern Thai–seafood · local prices",
-          "tags": ["Southern food", "Local prices"]
+          "tags": [
+            "Southern food",
+            "Local prices"
+          ]
         },
         {
           "rank": 5,
           "name": "Ban Suan Kan Sung",
           "blurb": "A roadside garden spot focused on made-to-order dishes and seafood, shaded and easy to sit at, good for a lunch stop on the way to or from Pak Meng. The prices are friendly.",
           "meta": "Made-to-order–seafood · garden setting",
-          "tags": ["Made-to-order", "Roadside stop"]
+          "tags": [
+            "Made-to-order",
+            "Roadside stop"
+          ]
         },
         {
           "rank": 6,
           "name": "Suanson",
           "blurb": "A chilled spot under the sea pines by the beach, focused on snacks, drinks, and simple food. Good for catching the sea breeze in the afternoon while you wait for sunset.",
           "meta": "Beachfront hangout · snacks",
-          "tags": ["Hangout", "Beachfront"]
+          "tags": [
+            "Hangout",
+            "Beachfront"
+          ]
         },
         {
           "rank": 7,
           "name": "WHITE LAY BAY (Pakmeng Guesthouse)",
           "blurb": "A cafe tucked into a guesthouse on Pak Meng Beach, with a wide view of the sand and the sun going down in the evening. Good for sipping a coffee or a cold drink and watching the sunset without fighting for a spot.",
           "meta": "Beach-view cafe · sunset spot",
-          "tags": ["Cafe", "Sunset view"]
+          "tags": [
+            "Cafe",
+            "Sunset view"
+          ]
         },
         {
           "rank": 8,
           "name": "B.I.T Cafe and Bar",
           "blurb": "A cafe-bar around Pak Meng that's good for a long sit from evening into the night, with coffee, drinks, and snacks. An easygoing change of pace from the seafood places.",
           "meta": "Cafe-bar · evening into night",
-          "tags": ["Cafe", "Lingering"]
+          "tags": [
+            "Cafe",
+            "Lingering"
+          ]
         },
         {
           "rank": 9,
           "name": "Grilled seafood stalls–beachfront snacks at Pak Meng",
           "blurb": "In the evening the Pak Meng beachfront has grilled seafood stalls with grilled squid, shellfish, prawns, and snacks at easy prices. An easy place to grab a bite while you stroll and wait for sunset.",
           "meta": "Evening · easy prices",
-          "tags": ["Evening eats", "Beachfront"]
+          "tags": [
+            "Evening eats",
+            "Beachfront"
+          ]
         }
       ]
     },
@@ -231,12 +295,36 @@
       "label": "Day 1",
       "title": "Boat out to the islands",
       "items": [
-        { "time": "08:00", "activity": "Arrive at Pak Meng pier, check in for the tour", "note": "Turning up at the pier yourself is cheaper than a hotel pickup" },
-        { "time": "09:00", "activity": "Boat out to the Emerald Cave, swim through the passage to the hidden beach inside", "note": "Bring a life jacket and wear strap-on shoes" },
-        { "time": "12:00", "activity": "Break for lunch on Koh Kradan, swim at the white-sand beach", "note": "Koh Kradan has the clearest water of the trip" },
-        { "time": "14:00", "activity": "Snorkel over the coral at Koh Cheuk", "note": "Koh Cheuk has colourful soft coral" },
-        { "time": "16:30", "activity": "Back at Pak Meng pier", "note": "Clean up and shower at the resort" },
-        { "time": "18:00", "activity": "Watch the sunset under the casuarinas, then a seafood dinner", "note": "Try Tontoey or the grilled stalls by the beach" }
+        {
+          "time": "08:00",
+          "activity": "Arrive at Pak Meng pier, check in for the tour",
+          "note": "Turning up at the pier yourself is cheaper than a hotel pickup"
+        },
+        {
+          "time": "09:00",
+          "activity": "Boat out to the Emerald Cave, swim through the passage to the hidden beach inside",
+          "note": "Bring a life jacket and wear strap-on shoes"
+        },
+        {
+          "time": "12:00",
+          "activity": "Break for lunch on Koh Kradan, swim at the white-sand beach",
+          "note": "Koh Kradan has the clearest water of the trip"
+        },
+        {
+          "time": "14:00",
+          "activity": "Snorkel over the coral at Koh Cheuk",
+          "note": "Koh Cheuk has colourful soft coral"
+        },
+        {
+          "time": "16:30",
+          "activity": "Back at Pak Meng pier",
+          "note": "Clean up and shower at the resort"
+        },
+        {
+          "time": "18:00",
+          "activity": "Watch the sunset under the casuarinas, then a seafood dinner",
+          "note": "Try Tontoey or the grilled stalls by the beach"
+        }
       ]
     },
     {
@@ -244,12 +332,36 @@
       "label": "Day 2",
       "title": "Chill by the beach–stop at Chang Lang",
       "items": [
-        { "time": "07:30", "activity": "Morning stroll along Pak Meng Beach, catch the sea breeze", "note": "At low tide the beach opens up wide for an easy walk" },
-        { "time": "09:00", "activity": "Breakfast and coffee at a beachfront cafe", "note": "WHITE LAY BAY has a beach view" },
-        { "time": "10:30", "activity": "Drive south to Chang Lang Beach, stop at the Hat Chao Mai National Park HQ", "note": "Quiet beach, easy for photos" },
-        { "time": "12:00", "activity": "Seafood lunch around Chang Lang–Sikao", "note": "Try Khrua Ladawan or Koh Pu Koh Pla" },
-        { "time": "14:00", "activity": "Stop at Hat Yao–Yong Ling for photos before heading back", "note": "A run of white sand that hasn't been fully discovered" },
-        { "time": "15:30", "activity": "Head back to Trang town", "note": "Allow about 45 minutes to reach town" }
+        {
+          "time": "07:30",
+          "activity": "Morning stroll along Pak Meng Beach, catch the sea breeze",
+          "note": "At low tide the beach opens up wide for an easy walk"
+        },
+        {
+          "time": "09:00",
+          "activity": "Breakfast and coffee at a beachfront cafe",
+          "note": "WHITE LAY BAY has a beach view"
+        },
+        {
+          "time": "10:30",
+          "activity": "Drive south to Chang Lang Beach, stop at the Hat Chao Mai National Park HQ",
+          "note": "Quiet beach, easy for photos"
+        },
+        {
+          "time": "12:00",
+          "activity": "Seafood lunch around Chang Lang–Sikao",
+          "note": "Try Khrua Ladawan or Koh Pu Koh Pla"
+        },
+        {
+          "time": "14:00",
+          "activity": "Stop at Hat Yao–Yong Ling for photos before heading back",
+          "note": "A run of white sand that hasn't been fully discovered"
+        },
+        {
+          "time": "15:30",
+          "activity": "Head back to Trang town",
+          "note": "Allow about 45 minutes to reach town"
+        }
       ]
     },
     {

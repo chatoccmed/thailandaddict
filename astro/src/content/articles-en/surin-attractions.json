@@ -50,6 +50,43 @@
       "html": "Ban Ta Klang is a fair way out of town and the show runs at set times, so leave the city a little earlier to make the 10am slot, and check the show times and opening days in advance — some days have special events or no show. If you're an animal lover, choosing activities that let you watch elephants in a more natural setting, rather than ones that push the animals, will sit easier with you."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Surin? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Surin",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "The Khmer Temple Trail — Sikhoraphum and the Border Group",
       "id": "khmer-temple"
@@ -167,11 +204,31 @@
       "label": "Day 1",
       "title": "In town + silk + nature near the city",
       "items": [
-        { "time": "8.30am", "activity": "Start at the Phraya Surin Phakdi Monument and Wat Burapharam in the centre of town", "note": "Photograph the landmark and pay respects at the city temple" },
-        { "time": "10.00am", "activity": "Drive to Ban Tha Sawang to watch brocade silk weaving and pick out souvenirs", "note": "About 10 km from town, free entry" },
-        { "time": "12.00pm", "activity": "Head back into town for Lower Isan food — som tam, larb, koi", "note": "See restaurants in the Surin Isan food guide" },
-        { "time": "3.00pm", "activity": "Head up Phanom Sawai Forest Park to pay respects, ring the bells and take in the town view", "note": "About 20 km from town" },
-        { "time": "5.30pm", "activity": "Finish at Huai Saneng Reservoir for the breeze and the sunset", "note": "The Sea of Surin near town" }
+        {
+          "time": "8.30am",
+          "activity": "Start at the Phraya Surin Phakdi Monument and Wat Burapharam in the centre of town",
+          "note": "Photograph the landmark and pay respects at the city temple"
+        },
+        {
+          "time": "10.00am",
+          "activity": "Drive to Ban Tha Sawang to watch brocade silk weaving and pick out souvenirs",
+          "note": "About 10 km from town, free entry"
+        },
+        {
+          "time": "12.00pm",
+          "activity": "Head back into town for Lower Isan food — som tam, larb, koi",
+          "note": "See restaurants in the Surin Isan food guide"
+        },
+        {
+          "time": "3.00pm",
+          "activity": "Head up Phanom Sawai Forest Park to pay respects, ring the bells and take in the town view",
+          "note": "About 20 km from town"
+        },
+        {
+          "time": "5.30pm",
+          "activity": "Finish at Huai Saneng Reservoir for the breeze and the sunset",
+          "note": "The Sea of Surin near town"
+        }
       ]
     },
     {
@@ -179,11 +236,31 @@
       "label": "Day 2",
       "title": "Ban Ta Klang Elephant Village",
       "items": [
-        { "time": "8.00am", "activity": "Leave the city for Ban Ta Klang in Tha Tum district", "note": "About 50–60 km, allow time to make the show" },
-        { "time": "10.00am", "activity": "Watch the morning elephant show and walk through the elephant museum", "note": "Check the show times and opening days before you go" },
-        { "time": "12.00pm", "activity": "Stop for lunch around Tha Tum or head back into town", "note": "You can feed the elephants before you leave" },
-        { "time": "2.30pm", "activity": "Stop at Prasat Ban Phluang or another spot along the way back", "note": "Adjust to the route you drive" },
-        { "time": "5.00pm", "activity": "Return to town and pick up silk souvenirs and Surin treats", "note": "Wrap up the trip with dinner in town" }
+        {
+          "time": "8.00am",
+          "activity": "Leave the city for Ban Ta Klang in Tha Tum district",
+          "note": "About 50–60 km, allow time to make the show"
+        },
+        {
+          "time": "10.00am",
+          "activity": "Watch the morning elephant show and walk through the elephant museum",
+          "note": "Check the show times and opening days before you go"
+        },
+        {
+          "time": "12.00pm",
+          "activity": "Stop for lunch around Tha Tum or head back into town",
+          "note": "You can feed the elephants before you leave"
+        },
+        {
+          "time": "2.30pm",
+          "activity": "Stop at Prasat Ban Phluang or another spot along the way back",
+          "note": "Adjust to the route you drive"
+        },
+        {
+          "time": "5.00pm",
+          "activity": "Return to town and pick up silk souvenirs and Surin treats",
+          "note": "Wrap up the trip with dinner in town"
+        }
       ]
     },
     {
@@ -191,10 +268,26 @@
       "label": "Day 3",
       "title": "Khmer temples for the history",
       "items": [
-        { "time": "8.30am", "activity": "Drive to Sikhoraphum Temple in Sikhoraphum district", "note": "Morning light photographs well, about 35 km from town" },
-        { "time": "10.30am", "activity": "Follow the temples and Khmer traces in the surrounding area", "note": "Avoid the border temple group that's still closed" },
-        { "time": "12.30pm", "activity": "Head back into town for lunch, then visit the Surin National Museum", "note": "Open Wed–Sun, closed Mon–Tue" },
-        { "time": "3.00pm", "activity": "Spend the afternoon hitting cafes and food spots around town", "note": "See the Surin cafe guide" }
+        {
+          "time": "8.30am",
+          "activity": "Drive to Sikhoraphum Temple in Sikhoraphum district",
+          "note": "Morning light photographs well, about 35 km from town"
+        },
+        {
+          "time": "10.30am",
+          "activity": "Follow the temples and Khmer traces in the surrounding area",
+          "note": "Avoid the border temple group that's still closed"
+        },
+        {
+          "time": "12.30pm",
+          "activity": "Head back into town for lunch, then visit the Surin National Museum",
+          "note": "Open Wed–Sun, closed Mon–Tue"
+        },
+        {
+          "time": "3.00pm",
+          "activity": "Spend the afternoon hitting cafes and food spots around town",
+          "note": "See the Surin cafe guide"
+        }
       ]
     },
     {

@@ -41,6 +41,43 @@
       "html": "The classic Khao Sok image is the steep limestone peaks shooting up vertically from the forest floor, with mist often hanging around their bases in the morning. It's a view you can shoot from the riverbank along the Sok or right from your accommodation without having to hike anywhere."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Surat Thani? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🏞️",
+          "provider": "Klook",
+          "label": "National park day tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=national%20park%20tour%20Surat%20Thani&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surat Thani attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surat%20Thani%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surat Thani",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surat%20Thani%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surat Thani activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surat%20Thani&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surat Thani tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surat%20Thani&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "The main trekking trail — Bang Hua Raet to Ton Kloi waterfall",
       "id": "trekking"
@@ -57,28 +94,40 @@
           "name": "Bang Hua Raet Waterfall (Bang Hua Raet)",
           "blurb": "The first waterfall on the trail, about 4–4.5 kilometres from the headquarters. The path is fairly level and easy, and you can stop for a swim in the pool. This is as far as you can walk on your own without a guide — good for a morning half-day.",
           "meta": "~4.5 km · no guide needed · half day",
-          "tags": ["first waterfall", "easy walk"]
+          "tags": [
+            "first waterfall",
+            "easy walk"
+          ]
         },
         {
           "rank": 2,
           "name": "Tham Nam Talu (Tham Nam Talu)",
           "blurb": "A through-cave with a stream running right through the middle of it — you wade through water and scramble over rocks with a guide. Exciting and fun, but it closes in the rainy season because flash flooding makes it dangerous. Tourists have been trapped inside before, so always check the weather first.",
           "meta": "guide required · closed in rainy season · wading",
-          "tags": ["stream cave", "adventure"]
+          "tags": [
+            "stream cave",
+            "adventure"
+          ]
         },
         {
           "rank": 3,
           "name": "Ton Kloi Waterfall (Ton Kloi)",
           "blurb": "The waterfall at the far end of the main trail, roughly 7 kilometres from the headquarters. The last stretch means wading up the stream on a faint path, so a guide is required, and the round trip takes nearly a full day. It's a quieter spot where the forest still feels untouched.",
           "meta": "~7 km · guide required · full day",
-          "tags": ["trail's end", "few people"]
+          "tags": [
+            "trail's end",
+            "few people"
+          ]
         },
         {
           "rank": 4,
           "name": "Rafflesia hunting spot (Rafflesia)",
           "blurb": "Tracking down a Rafflesia bloom is a separate trek that local guides run, climbing up the slope into the forest to wherever a flower is blooming. It's only around in certain seasons (usually late rainy season into early cool season), so ask the guide beforehand whether anything is in bloom at the time.",
           "meta": "separate tour · seasonal blooms · guided",
-          "tags": ["Rafflesia", "seasonal"]
+          "tags": [
+            "Rafflesia",
+            "seasonal"
+          ]
         }
       ]
     },
@@ -164,10 +213,26 @@
       "label": "Day 1",
       "title": "Travel into Khao Sok + a half-day trek",
       "items": [
-        { "time": "08:30", "activity": "Leave Surat Thani town/airport, taking a Phantip minivan or a private car toward Khao Sok", "note": "About 100–110 km, roughly 2–2.5 hours" },
-        { "time": "11:00", "activity": "Check in at a Sok riverside stay, drop your bags, then grab lunch in the village", "note": "Village spots serve southern Thai food and made-to-order dishes" },
-        { "time": "13:30", "activity": "Half-day trek to Bang Hua Raet waterfall, swim in the pool, then walk back", "note": "You can do this on your own, or hire a guide if you want to go deeper" },
-        { "time": "17:30", "activity": "Back to your stay, shower, and chill by the river watching the evening mist on the peaks", "note": "Many places have mountain-view terraces" }
+        {
+          "time": "08:30",
+          "activity": "Leave Surat Thani town/airport, taking a Phantip minivan or a private car toward Khao Sok",
+          "note": "About 100–110 km, roughly 2–2.5 hours"
+        },
+        {
+          "time": "11:00",
+          "activity": "Check in at a Sok riverside stay, drop your bags, then grab lunch in the village",
+          "note": "Village spots serve southern Thai food and made-to-order dishes"
+        },
+        {
+          "time": "13:30",
+          "activity": "Half-day trek to Bang Hua Raet waterfall, swim in the pool, then walk back",
+          "note": "You can do this on your own, or hire a guide if you want to go deeper"
+        },
+        {
+          "time": "17:30",
+          "activity": "Back to your stay, shower, and chill by the river watching the evening mist on the peaks",
+          "note": "Many places have mountain-view terraces"
+        }
       ]
     },
     {
@@ -175,9 +240,21 @@
       "label": "Day 2",
       "title": "Tubing / caves, then move on",
       "items": [
-        { "time": "08:00", "activity": "Breakfast with a mountain view, then pick an activity — tubing the Sok River or a Tham Nam Talu cave tour with a guide", "note": "The cave closes during floods — check first" },
-        { "time": "11:30", "activity": "Back to your stay, check out, and have lunch in the village", "note": "Leave time for souvenirs/coffee" },
-        { "time": "13:00", "activity": "Set off again — if you're doing a Cheow Lan raft house, head to the Ratchaprapha Dam pier; otherwise back to Surat Thani or on to Phang Nga–Phuket", "note": "Cheow Lan deserves another separate night" }
+        {
+          "time": "08:00",
+          "activity": "Breakfast with a mountain view, then pick an activity — tubing the Sok River or a Tham Nam Talu cave tour with a guide",
+          "note": "The cave closes during floods — check first"
+        },
+        {
+          "time": "11:30",
+          "activity": "Back to your stay, check out, and have lunch in the village",
+          "note": "Leave time for souvenirs/coffee"
+        },
+        {
+          "time": "13:00",
+          "activity": "Set off again — if you're doing a Cheow Lan raft house, head to the Ratchaprapha Dam pier; otherwise back to Surat Thani or on to Phang Nga–Phuket",
+          "note": "Cheow Lan deserves another separate night"
+        }
       ]
     },
     {

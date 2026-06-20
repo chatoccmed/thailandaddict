@@ -51,6 +51,43 @@
       "html": "The entrance to Kai Bae Viewpoint is a short, steep slope. If you're riding two-up on a motorbike and aren't used to steep roads, take extra care or park at the bottom and walk up. The evening crowd waiting for sunset fills the car park fast, so give yourself a little extra time and it'll be easier."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Koh Chang? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Koh Chang",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Koh Chang attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Koh Chang",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Koh Chang activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Koh%20Chang&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Koh Chang tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Koh%20Chang&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Laem Chai Chet — sunset at the end of Klong Prao Beach",
       "id": "chai-chet"
@@ -85,42 +122,66 @@
           "name": "Kai Bae Viewpoint",
           "blurb": "The main one to stop at — a 180-degree view of the sea and 4 islands. Free entry, with a cafe and restrooms. Best at sunset. The climb up is short but steep, so take care if you're riding two-up.",
           "meta": "Between Kai Bae and Lonely Beach · free entry · cafe",
-          "tags": ["4-island view", "sunset", "has a cafe"]
+          "tags": [
+            "4-island view",
+            "sunset",
+            "has a cafe"
+          ]
         },
         {
           "rank": 2,
           "name": "Laem Chai Chet (Klong Prao)",
           "blurb": "A rocky point at the end of Klong Prao Beach, an easy walk from accommodation in this area. Lovely sunset, quieter than Kai Bae — good for anyone who doesn't want to drive far in the evening.",
           "meta": "Northern end of Klong Prao Beach · easy walk",
-          "tags": ["sunset", "quiet", "near accommodation"]
+          "tags": [
+            "sunset",
+            "quiet",
+            "near accommodation"
+          ]
         },
         {
           "rank": 3,
           "name": "Pha Suk Niran (Laem Sing)",
           "blurb": "A rock platform by the sea in the north of the island — a check-in spot with an open sea view and big boulders. Good for people staying around White Sand Beach and Laem Sing. The path down over the rocks is slippery, so watch your footing.",
           "meta": "Northern zone, Laem Sing · check-in spot",
-          "tags": ["photo spot", "seaside rocks", "northern zone"]
+          "tags": [
+            "photo spot",
+            "seaside rocks",
+            "northern zone"
+          ]
         },
         {
           "rank": 4,
           "name": "White Sand Beach (beachside sunset)",
           "blurb": "A popular beach in the north. In the evening it's an easy place to sit on the sand and watch the sun go down, with beach bars playing music. Good for anyone who wants to watch the sunset with food and drinks on hand.",
           "meta": "Northern beach · beach bars · easy seating",
-          "tags": ["sunset", "beach bars", "first-timers"]
+          "tags": [
+            "sunset",
+            "beach bars",
+            "first-timers"
+          ]
         },
         {
           "rank": 5,
           "name": "Kai Bae Beach (island view off the beach)",
           "blurb": "Kai Bae Beach itself has a small island just off the sand — at low tide you can walk out to it. It's a sand-level photo angle with the sunset, a different perspective from the viewpoint up the hill.",
           "meta": "Kai Bae Beach · island off the shore · walkable at low tide",
-          "tags": ["island view", "sunset", "photos"]
+          "tags": [
+            "island view",
+            "sunset",
+            "photos"
+          ]
         },
         {
           "rank": 6,
           "name": "Bang Bao Fishing Village (lighthouse)",
           "blurb": "At the end of the west-coast road, a long wooden pier runs out to sea and ends at a white lighthouse — a photo spot with a view of the bay and the fishing boats. The evening light is lovely. It's not a hilltop lookout but a sea-level angle.",
           "meta": "Southern tip · wooden pier + lighthouse · photos",
-          "tags": ["lighthouse", "wooden pier", "fishing village"]
+          "tags": [
+            "lighthouse",
+            "wooden pier",
+            "fishing village"
+          ]
         }
       ]
     },
@@ -176,8 +237,16 @@
       "label": "First half-day",
       "title": "North–central zone, sea photos",
       "items": [
-        { "time": "Afternoon", "activity": "Start at Pha Suk Niran, Laem Sing, and shoot the rock platform by the sea", "note": "The path down over the rocks is slippery — wear shoes with grip" },
-        { "time": "Late afternoon", "activity": "Stop at Laem Chai Chet at the end of Klong Prao Beach and sit in the breeze", "note": "Easy to walk to — a good warm-up before sunset" }
+        {
+          "time": "Afternoon",
+          "activity": "Start at Pha Suk Niran, Laem Sing, and shoot the rock platform by the sea",
+          "note": "The path down over the rocks is slippery — wear shoes with grip"
+        },
+        {
+          "time": "Late afternoon",
+          "activity": "Stop at Laem Chai Chet at the end of Klong Prao Beach and sit in the breeze",
+          "note": "Easy to walk to — a good warm-up before sunset"
+        }
       ]
     },
     {
@@ -185,9 +254,21 @@
       "label": "Evening",
       "title": "Kai Bae for the sunset",
       "items": [
-        { "time": "16:30–17:00", "activity": "Head up to Kai Bae Viewpoint, claim a spot, and order a drink at the cafe", "note": "Allow extra time — the car park fills fast in the evening" },
-        { "time": "Sunset", "activity": "Shoot the 4-island view, wait out golden hour into blue hour", "note": "Stay another 15–20 minutes after the sun drops — the sky is beautiful in a different way" },
-        { "time": "Evening", "activity": "Drive back to your accommodation or carry on to a beach bar at White Sand Beach", "note": "Driving back in the dark, watch the bends — use your headlights and drive slowly" }
+        {
+          "time": "16:30–17:00",
+          "activity": "Head up to Kai Bae Viewpoint, claim a spot, and order a drink at the cafe",
+          "note": "Allow extra time — the car park fills fast in the evening"
+        },
+        {
+          "time": "Sunset",
+          "activity": "Shoot the 4-island view, wait out golden hour into blue hour",
+          "note": "Stay another 15–20 minutes after the sun drops — the sky is beautiful in a different way"
+        },
+        {
+          "time": "Evening",
+          "activity": "Drive back to your accommodation or carry on to a beach bar at White Sand Beach",
+          "note": "Driving back in the dark, watch the bends — use your headlights and drive slowly"
+        }
       ]
     },
     {
@@ -220,8 +301,17 @@
     }
   ],
   "related": [
-    { "href": "city-koh-chang.html", "title": "🗺️ Koh Chang Travel Guide" },
-    { "href": "top10-hotels-koh-chang.html", "title": "🏨 Top 10 Koh Chang Hotels" },
-    { "href": "koh-chang-kai-bae-beach.html", "title": "🏖️ Kai Bae Beach, Koh Chang" }
+    {
+      "href": "city-koh-chang.html",
+      "title": "🗺️ Koh Chang Travel Guide"
+    },
+    {
+      "href": "top10-hotels-koh-chang.html",
+      "title": "🏨 Top 10 Koh Chang Hotels"
+    },
+    {
+      "href": "koh-chang-kai-bae-beach.html",
+      "title": "🏖️ Kai Bae Beach, Koh Chang"
+    }
   ]
 }

@@ -46,6 +46,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Narathiwat trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🛕",
+          "provider": "Klook",
+          "label": "Temple & culture tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=temple%20tour%20Narathiwat&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Narathiwat attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Narathiwat%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Narathiwat",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Narathiwat%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Narathiwat activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Narathiwat&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Narathiwat tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Narathiwat&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 1 — Taksin Palace, Ao Manao, Narathat Beach",
       "id": "day1"
@@ -164,56 +201,77 @@
           "name": "Nasi dagang",
           "blurb": "Sticky rice cooked in coconut milk, eaten with a rich mackerel or tuna curry. It's the beloved Narathiwat breakfast, found at morning markets and Malay restaurants in town.",
           "meta": "Breakfast · from ฿20–40",
-          "tags": ["Malay food", "Must try"]
+          "tags": [
+            "Malay food",
+            "Must try"
+          ]
         },
         {
           "rank": 2,
           "name": "Southern khao yam (nasi kabu)",
           "blurb": "Rice tossed with fresh vegetables, toasted coconut and budu sauce, with a balanced sour-salty-sweet flavor — refreshing and easy to eat, a dish that reflects the home cooking of the south.",
           "meta": "Breakfast–lunch · from ฿30–50",
-          "tags": ["Malay food"]
+          "tags": [
+            "Malay food"
+          ]
         },
         {
           "rank": 3,
           "name": "Nasi lemak (coconut rice with chicken curry)",
           "blurb": "Fragrant coconut-cooked rice served with chicken or beef curry, similar to Malaysia's nasi lemak, with a full mouthful of spice.",
           "meta": "Lunch · from ฿40–60",
-          "tags": ["Malay food"]
+          "tags": [
+            "Malay food"
+          ]
         },
         {
           "rank": 4,
           "name": "Roti and teh tarik",
           "blurb": "Roti that's crisp outside and soft inside, eaten with curry or condensed milk, paired with hot teh tarik pulled into a froth. A breakfast and afternoon snack at tea shops all over town.",
           "meta": "Morning/afternoon · from ฿15–35",
-          "tags": ["Snack", "Drinks"]
+          "tags": [
+            "Snack",
+            "Drinks"
+          ]
         },
         {
           "rank": 5,
           "name": "Ayam golek",
           "blurb": "Grilled chicken topped with an orange coconut-curry sauce, with a balanced sweet-salty flavor — a Malay dish you can find at evening markets and curry-rice shops.",
           "meta": "Lunch–dinner · from ฿40–60",
-          "tags": ["Malay food", "Must try"]
+          "tags": [
+            "Malay food",
+            "Must try"
+          ]
         },
         {
           "rank": 6,
           "name": "Narathiwat-style yam (Khon La Yam shop)",
           "blurb": "A well-known yam spot in the Bai Bas Road area before the Phiman curve, with bold-flavored yam and fresh ingredients. Locals pack it out. Open evening into the night.",
           "meta": "Dinner · price by ingredient",
-          "tags": ["Yam", "Popular spot"]
+          "tags": [
+            "Yam",
+            "Popular spot"
+          ]
         },
         {
           "rank": 7,
           "name": "Yentafo and foyam at Kadah",
           "blurb": "An old shop on Suriya Pradit Road, known for its yellow-noodle foyam and yentafo. Open morning to evening, closed Sundays — a good spot for a light lunch.",
           "meta": "Morning–evening (closed Sun)",
-          "tags": ["Noodles"]
+          "tags": [
+            "Noodles"
+          ]
         },
         {
           "rank": 8,
           "name": "Malay sweets and souvenirs",
           "blurb": "Try local sweets like putu Penang, akok and colorful coconut-milk desserts to take home as gifts. Find them at the town market and Yakang market.",
           "meta": "Snack/souvenir",
-          "tags": ["Dessert", "Souvenir"]
+          "tags": [
+            "Dessert",
+            "Souvenir"
+          ]
         }
       ]
     },

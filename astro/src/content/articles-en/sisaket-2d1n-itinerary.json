@@ -126,6 +126,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Sisaket trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Sisaket",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sisaket attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sisaket",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sisaket activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sisaket&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sisaket tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sisaket&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Pha Mo I Daeng–Khao Phra Wihan: why they're not in this plan",
       "id": "border"
@@ -165,56 +202,80 @@
           "name": "Lawae Katam (rice-paddy crab om curry)",
           "blurb": "A local dish of the Kuy people, an om curry made with rice-paddy crabs pounded with the spice paste, rich and savoury from the crab and wild vegetables. The province lists it among its honoured local dishes; it nearly disappeared and was brought back.",
           "meta": "Kuy dish · main course",
-          "tags": ["rare find", "Kuy"]
+          "tags": [
+            "rare find",
+            "Kuy"
+          ]
         },
         {
           "rank": 2,
           "name": "Fried tilapia with sweet fish sauce and neem",
           "blurb": "Sisaket is known for its farmed tilapia, fried crisp and drizzled with sweet fish sauce, eaten with blanched neem leaves — a little bitter, a little sweet. Plenty of local restaurants do it well.",
           "meta": "Plated dish · local restaurant",
-          "tags": ["tilapia", "well-known"]
+          "tags": [
+            "tilapia",
+            "well-known"
+          ]
         },
         {
           "rank": 3,
           "name": "Bo Katat (Sisaket-style papaya salad)",
           "blurb": "A bold local-style papaya salad that's a signature of the province. The ingredients and the kind of heat differ from the usual Thai version. You can find it at local restaurants in town.",
           "meta": "Spicy bite · snack/side dish",
-          "tags": ["bold flavour", "well-known"]
+          "tags": [
+            "bold flavour",
+            "well-known"
+          ]
         },
         {
           "rank": 4,
           "name": "Home-style larb-koi and om",
           "blurb": "The Lao-Isan side of things, found at larb-koi places all over town. Om is offal cooked with seasonal greens like phak i-rok and phak tiu, savoury from the paste and lemon basil, eaten with hot sticky rice.",
           "meta": "Home-style side · all day",
-          "tags": ["home-style", "Lao"]
+          "tags": [
+            "home-style",
+            "Lao"
+          ]
         },
         {
           "rank": 5,
           "name": "Pon pla–pla som",
           "blurb": "Humble home meals that live in every kitchen. Pon pla is a boiled-fish chilli dip eaten with fresh vegetables; pla som is fermented fish fried and eaten with sticky rice. Filling and tasty, and they go well together.",
           "meta": "Lao-Isan dish · side",
-          "tags": ["home-style", "Lao"]
+          "tags": [
+            "home-style",
+            "Lao"
+          ]
         },
         {
           "rank": 6,
           "name": "Volcanic durian (in season)",
           "blurb": "The province's standout, grown on volcanic soil around Khun Han–Kantharalak. The flesh is sweet and creamy, the smell isn't too pungent, the flesh is thick and the seeds small. You can eat it straight from the tree from Jun–Aug.",
           "meta": "Seasonal fruit · 180–250 THB/kg",
-          "tags": ["seasonal", "well-known"]
+          "tags": [
+            "seasonal",
+            "well-known"
+          ]
         },
         {
           "rank": 7,
           "name": "Sao Ang (khanom pad)",
           "blurb": "A legendary sweet of the local Khmer people, made from stirred flour then grilled or roasted over the fire, chewy and lightly sweet. An old-fashioned snack that many younger people still haven't tried. Find it during festivals or order it ahead.",
           "meta": "Khmer dessert · rare",
-          "tags": ["heritage sweet", "Khmer"]
+          "tags": [
+            "heritage sweet",
+            "Khmer"
+          ]
         },
         {
           "rank": 8,
           "name": "Thung Kula jasmine rice–hang rice",
           "blurb": "Sisaket sits within the Thung Kula Ronghai plains, a source of fine jasmine rice. Hang rice is paddy that's steamed then milled, fragrant and high in nutrition — good to buy and take home.",
           "meta": "Souvenir · ingredient",
-          "tags": ["Thung Kula", "souvenir"]
+          "tags": [
+            "Thung Kula",
+            "souvenir"
+          ]
         }
       ]
     },

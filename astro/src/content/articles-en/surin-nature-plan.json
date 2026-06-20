@@ -57,6 +57,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Surin trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Surin",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 1 — Climb Khao Sawai for the Buddha and city view",
       "id": "day1"
@@ -74,14 +111,46 @@
       "label": "Day 1",
       "title": "Khao Sawai + silk + Huai Saneng evening",
       "items": [
-        { "time": "07:30", "activity": "Leave town for Phnom Sawai Forest Park", "note": "About 25 km, roughly half an hour by car" },
-        { "time": "08:15", "activity": "Arrive at Khao Sawai, climb the 1,080-bell stairway to the big Buddha", "note": "Sun still gentle, easy walking — wear comfortable shoes" },
-        { "time": "09:15", "activity": "Pay respects to Phra Phuttha Surin Mongkol and head to the viewpoint behind the Buddha", "note": "Photo angle over the city and wide rice fields" },
-        { "time": "10:15", "activity": "Visit the hill's sacred guardian shrines and the stone turtles", "note": "Hear the legend of Khao Sawai's stone turtles" },
-        { "time": "11:30", "activity": "Head down, stop at Ban Tha Sawang to watch gold-brocade silk weaving and shop for souvenirs", "note": "Free entry, on the side near Khao Sawai" },
-        { "time": "12:30", "activity": "Back into town for lunch, out of the midday heat", "note": "Try Lower Isan food or Vietnamese kuay jab" },
-        { "time": "16:30", "activity": "Head out to Huai Saneng reservoir, sit at a lakeside spot in the breeze", "note": "Only about 5 km from town, 10–15 min drive" },
-        { "time": "18:15", "activity": "Catch the sunset on the water before heading back", "note": "When Huai Saneng looks its best" }
+        {
+          "time": "07:30",
+          "activity": "Leave town for Phnom Sawai Forest Park",
+          "note": "About 25 km, roughly half an hour by car"
+        },
+        {
+          "time": "08:15",
+          "activity": "Arrive at Khao Sawai, climb the 1,080-bell stairway to the big Buddha",
+          "note": "Sun still gentle, easy walking — wear comfortable shoes"
+        },
+        {
+          "time": "09:15",
+          "activity": "Pay respects to Phra Phuttha Surin Mongkol and head to the viewpoint behind the Buddha",
+          "note": "Photo angle over the city and wide rice fields"
+        },
+        {
+          "time": "10:15",
+          "activity": "Visit the hill's sacred guardian shrines and the stone turtles",
+          "note": "Hear the legend of Khao Sawai's stone turtles"
+        },
+        {
+          "time": "11:30",
+          "activity": "Head down, stop at Ban Tha Sawang to watch gold-brocade silk weaving and shop for souvenirs",
+          "note": "Free entry, on the side near Khao Sawai"
+        },
+        {
+          "time": "12:30",
+          "activity": "Back into town for lunch, out of the midday heat",
+          "note": "Try Lower Isan food or Vietnamese kuay jab"
+        },
+        {
+          "time": "16:30",
+          "activity": "Head out to Huai Saneng reservoir, sit at a lakeside spot in the breeze",
+          "note": "Only about 5 km from town, 10–15 min drive"
+        },
+        {
+          "time": "18:15",
+          "activity": "Catch the sunset on the water before heading back",
+          "note": "When Huai Saneng looks its best"
+        }
       ]
     },
     {
@@ -107,11 +176,31 @@
       "label": "Day 2",
       "title": "Huai Saneng cycling + rice-field cafe",
       "items": [
-        { "time": "06:30", "activity": "Leave your accommodation and reach Huai Saneng while the sun is still soft", "note": "About 10–15 min drive from town" },
-        { "time": "07:00", "activity": "Cycle or run along the dam crest in the breeze off the water", "note": "Route is about 4 km, few cars, flat surface" },
-        { "time": "08:15", "activity": "Stop to feed the fish, photograph the water and sky", "note": "Bring a hat and water — little shade on the dam crest" },
-        { "time": "09:00", "activity": "Sit at Voyage cafe with rice-field views, coffee and breakfast", "note": "Open 09:00–20:00, closed Thursdays" },
-        { "time": "10:30", "activity": "Back into town for souvenirs or to pack up", "note": "Silk, garlic, jasmine rice souvenirs" }
+        {
+          "time": "06:30",
+          "activity": "Leave your accommodation and reach Huai Saneng while the sun is still soft",
+          "note": "About 10–15 min drive from town"
+        },
+        {
+          "time": "07:00",
+          "activity": "Cycle or run along the dam crest in the breeze off the water",
+          "note": "Route is about 4 km, few cars, flat surface"
+        },
+        {
+          "time": "08:15",
+          "activity": "Stop to feed the fish, photograph the water and sky",
+          "note": "Bring a hat and water — little shade on the dam crest"
+        },
+        {
+          "time": "09:00",
+          "activity": "Sit at Voyage cafe with rice-field views, coffee and breakfast",
+          "note": "Open 09:00–20:00, closed Thursdays"
+        },
+        {
+          "time": "10:30",
+          "activity": "Back into town for souvenirs or to pack up",
+          "note": "Silk, garlic, jasmine rice souvenirs"
+        }
       ]
     },
     {
@@ -137,7 +226,10 @@
           "blurb": "A restaurant right on Huai Saneng lake that locals recommend often. The draw is fresh fish, with sharp-flavored steamed lime fish, lakeside seating in the cool breeze, and a good sunset view. It's a popular spot after exercising.",
           "meta": "Lakeside food · Chaniang sub-district, by the lake",
           "price": "Steamed lime fish ฿180–200 / plate",
-          "tags": ["Fresh fish", "Lake view"]
+          "tags": [
+            "Fresh fish",
+            "Lake view"
+          ]
         },
         {
           "rank": 2,
@@ -145,7 +237,11 @@
           "blurb": "A cafe on the Ban Khok side with views over rice fields and the Huai Saneng lake. Simple, warm decor with an air-conditioned zone and garden seating, plus a play corner for kids. Good for relaxing and photos, with coffee, bakery, desserts and mains.",
           "meta": "Rice-field-view cafe · Open 09:00–20:00 (closed Thu)",
           "price": "Drinks ฿55–90",
-          "tags": ["Cafe", "Rice-field view", "Kid-friendly"]
+          "tags": [
+            "Cafe",
+            "Rice-field view",
+            "Kid-friendly"
+          ]
         },
         {
           "rank": 3,
@@ -153,7 +249,10 @@
           "blurb": "A row of Isan-food places along the lakeside road, with grilled fish, koi, larb, som tam and fish tom yum — an easy dinner at local prices. Good for groups of friends or families who want to sit a while in the breeze.",
           "meta": "Lakeside Isan food · along the lake edge",
           "price": "Som tam–larb from ฿40–60",
-          "tags": ["Isan", "Lingering seats"]
+          "tags": [
+            "Isan",
+            "Lingering seats"
+          ]
         },
         {
           "rank": 4,
@@ -161,7 +260,10 @@
           "blurb": "On the way back into town you can find a proper dinner. Lower Isan places in town have som tam, larb, koi, grilled chicken and local Khmer-Surin dishes at friendly prices — a satisfying way to end the day.",
           "meta": "Lower Isan food · in Surin town",
           "price": "Per person ฿100–150",
-          "tags": ["Lower Isan", "Dinner"]
+          "tags": [
+            "Lower Isan",
+            "Dinner"
+          ]
         }
       ]
     },
@@ -184,10 +286,26 @@
       "label": "One-day condensed",
       "title": "Khao Sawai morning + Huai Saneng evening",
       "items": [
-        { "time": "07:30", "activity": "Climb Khao Sawai to the big Buddha, ring the bells, take in the city view", "note": "Morning sun still gentle" },
-        { "time": "11:00", "activity": "Head down and back into town for lunch", "note": "Out of the harsh midday sun" },
-        { "time": "16:30", "activity": "Head out to Huai Saneng, walk the dam crest in the breeze", "note": "About 5 km from town" },
-        { "time": "18:15", "activity": "Watch the lakeside sunset before heading back, dinner in town", "note": "Close the day with som tam, larb, koi" }
+        {
+          "time": "07:30",
+          "activity": "Climb Khao Sawai to the big Buddha, ring the bells, take in the city view",
+          "note": "Morning sun still gentle"
+        },
+        {
+          "time": "11:00",
+          "activity": "Head down and back into town for lunch",
+          "note": "Out of the harsh midday sun"
+        },
+        {
+          "time": "16:30",
+          "activity": "Head out to Huai Saneng, walk the dam crest in the breeze",
+          "note": "About 5 km from town"
+        },
+        {
+          "time": "18:15",
+          "activity": "Watch the lakeside sunset before heading back, dinner in town",
+          "note": "Close the day with som tam, larb, koi"
+        }
       ]
     },
     {

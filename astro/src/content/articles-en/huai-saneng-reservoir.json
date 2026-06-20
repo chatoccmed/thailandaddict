@@ -50,6 +50,43 @@
       "html": "Huai Saneng is at its prettiest and most comfortable in two windows: early morning before 8am, and the evening from 4:00–6:30pm, when the sun is soft and the breeze is cool. Midday is harsh and very hot, since there's barely any shade on the dam wall. If you're set on cycling or running, skipping the noon hours makes it far more enjoyable — and bring water and a hat."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Surin? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Surin",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "What there is to do at Huai Saneng",
       "id": "activities"
@@ -82,7 +119,10 @@
           "blurb": "A restaurant right on the edge of Huai Saneng that locals recommend often. The draw is fresh fish — the bold steamed lime fish — eaten by the water in the cool breeze, with a lovely view at sunset. It's a popular spot after a workout.",
           "meta": "Waterside dining · Chaniang sub-district, lakeside",
           "price": "Steamed lime fish ฿180–200 / plate",
-          "tags": ["Fresh fish", "Lake view"]
+          "tags": [
+            "Fresh fish",
+            "Lake view"
+          ]
         },
         {
           "rank": 2,
@@ -90,7 +130,11 @@
           "blurb": "A cafe on the Ban Khok side, with views over rice fields and the Huai Saneng water. Simple, warm decor with an air-conditioned zone and garden seating, plus a play area for kids — good for chilling and taking photos. Coffee, bakery, desserts, and mains.",
           "meta": "Rice-field-view cafe · open 9:00am–8:00pm (closed Thu)",
           "price": "Drinks ฿55–90",
-          "tags": ["Cafe", "Rice-field view", "Kid-friendly"]
+          "tags": [
+            "Cafe",
+            "Rice-field view",
+            "Kid-friendly"
+          ]
         },
         {
           "rank": 3,
@@ -98,7 +142,10 @@
           "blurb": "The row of Isan eateries along the lakeside road, serving grilled fish, koi, larb, som tam, and fish tom yum — an easy dinner at local prices. Good for a group of friends or a family that wants to settle in and enjoy the breeze.",
           "meta": "Lakeside Isan food · drive along the lake's edge",
           "price": "Som tam / larb from ฿40–60",
-          "tags": ["Isan", "Settle in"]
+          "tags": [
+            "Isan",
+            "Settle in"
+          ]
         }
       ]
     },
@@ -147,9 +194,21 @@
       "label": "Morning",
       "title": "A cool-air ride",
       "items": [
-        { "time": "06:30", "activity": "Leave town and arrive at Huai Saneng while the sun is still soft", "note": "About a 10–15 minute drive from town" },
-        { "time": "07:00", "activity": "Cycle or run along the dam wall, catching the breeze off the water", "note": "The route runs about 4 km, light traffic, smooth surface" },
-        { "time": "08:00", "activity": "Stop to feed the fish by the lake and shoot the water and sky", "note": "Great if you've brought the kids" }
+        {
+          "time": "06:30",
+          "activity": "Leave town and arrive at Huai Saneng while the sun is still soft",
+          "note": "About a 10–15 minute drive from town"
+        },
+        {
+          "time": "07:00",
+          "activity": "Cycle or run along the dam wall, catching the breeze off the water",
+          "note": "The route runs about 4 km, light traffic, smooth surface"
+        },
+        {
+          "time": "08:00",
+          "activity": "Stop to feed the fish by the lake and shoot the water and sky",
+          "note": "Great if you've brought the kids"
+        }
       ]
     },
     {
@@ -157,9 +216,21 @@
       "label": "Evening",
       "title": "Cafe time + a lakeside meal",
       "items": [
-        { "time": "16:00", "activity": "Sit at Voyage Cafe with its rice-field view, sip a coffee in the breeze before the sun softens", "note": "Closed Thursdays — check before you come" },
-        { "time": "17:30", "activity": "Move to a lakeside restaurant, order steamed fish and som tam and wait for the evening light", "note": "Krua Rim Chon and the roadside fish spots" },
-        { "time": "18:15", "activity": "Catch the sunset on the water before heading back into town", "note": "The most beautiful moment at Huai Saneng" }
+        {
+          "time": "16:00",
+          "activity": "Sit at Voyage Cafe with its rice-field view, sip a coffee in the breeze before the sun softens",
+          "note": "Closed Thursdays — check before you come"
+        },
+        {
+          "time": "17:30",
+          "activity": "Move to a lakeside restaurant, order steamed fish and som tam and wait for the evening light",
+          "note": "Krua Rim Chon and the roadside fish spots"
+        },
+        {
+          "time": "18:15",
+          "activity": "Catch the sunset on the water before heading back into town",
+          "note": "The most beautiful moment at Huai Saneng"
+        }
       ]
     },
     {

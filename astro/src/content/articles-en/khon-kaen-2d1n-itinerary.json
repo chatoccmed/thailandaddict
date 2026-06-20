@@ -38,6 +38,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Khon Kaen trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Khon Kaen",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Khon Kaen attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Khon Kaen",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Khon%20Kaen%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Khon Kaen activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Khon%20Kaen&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Khon Kaen tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Khon%20Kaen&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 1 — City, lake and food",
       "id": "day1"
@@ -106,7 +143,10 @@
           "blurb": "A big night market where Khon Kaen locals actually come to eat, with savoury food, desserts, cafes, grills and snacks all in one place. You can browse a lot of stalls without moving far, the atmosphere is lively, and it's an easy, wallet-friendly way to end the day. Come hungry and you'll get through plenty.",
           "meta": "Evening–late · Si Chan Rd, city centre",
           "price": "฿100–250 per person",
-          "tags": ["Night market", "Mixed food"]
+          "tags": [
+            "Night market",
+            "Mixed food"
+          ]
         },
         {
           "rank": 2,
@@ -114,7 +154,10 @@
           "blurb": "Khao Suan Kwang grilled chicken is one of Khon Kaen's signatures: tender meat, fragrant skin, eaten with funky pla ra som tam and sticky rice. There are several spots both in town and along Mittraphap Road out near Khao Suan Kwang district. The in-town ones are handier if you don't fancy a long drive.",
           "meta": "Lunch–evening · city centre / Mittraphap Rd",
           "price": "฿100–180 per person",
-          "tags": ["Proper Isan", "Local signature"]
+          "tags": [
+            "Proper Isan",
+            "Local signature"
+          ]
         },
         {
           "rank": 3,
@@ -122,7 +165,10 @@
           "blurb": "A roomy Isan restaurant with a long menu and comfortable air-conditioned seating. The standouts are the salt-grilled fish with sweet flesh and the big sharing platters of tam. It's a great pick for a group ordering to share, open from afternoon till late every day.",
           "meta": "Open 2.00pm–10.00pm · city centre",
           "price": "฿150–250 per person",
-          "tags": ["Isan", "Comfortable seating"]
+          "tags": [
+            "Isan",
+            "Comfortable seating"
+          ]
         },
         {
           "rank": 4,
@@ -130,7 +176,10 @@
           "blurb": "Larb, koi, nam tok, bamboo-shoot soup, all punchy and properly Isan, the dishes locals eat every day. Plenty of spots in town do them well, deeply savoury and seriously spicy, eaten with hot sticky rice. Ask for a milder level if you're not a chilli person.",
           "meta": "Lunch–evening · city centre",
           "price": "฿60–120 per dish",
-          "tags": ["Larb & koi", "Punchy flavours"]
+          "tags": [
+            "Larb & koi",
+            "Punchy flavours"
+          ]
         },
         {
           "rank": 5,
@@ -138,7 +187,10 @@
           "blurb": "This is the dinner Khon Kaen locals meet up for: moo kratha buffet grill and jim jum herbal-broth hotpot. There are loads of spots across town, the price is good value, and you can sit for ages. Great for a group.",
           "meta": "Evening–late · all over town",
           "price": "฿159–299 buffet",
-          "tags": ["Grill", "Group of friends"]
+          "tags": [
+            "Grill",
+            "Group of friends"
+          ]
         },
         {
           "rank": 6,
@@ -146,7 +198,10 @@
           "blurb": "A buffet grill at Ton Tan market that people talk about for its beef: fragrant, not gamey, balanced against a punchy dipping sauce. It's the one for beef lovers who want to eat their fill. It gets busy in the evening, and you can book ahead on weekends.",
           "meta": "Evening · Ton Tan market",
           "price": "฿299–399 buffet",
-          "tags": ["Beef", "Buffet"]
+          "tags": [
+            "Beef",
+            "Buffet"
+          ]
         },
         {
           "rank": 7,
@@ -154,7 +209,10 @@
           "blurb": "An organic salad place that grows its own produce: big plates, fresh greens, and a menu that runs from salads to steaks and rice dishes. It's the one for a day you want a break from fried and rich food, with comfortable seating and long opening hours. Expect a queue at dinner.",
           "meta": "Open 10.00am–10.00pm · Ton Tan market",
           "price": "฿200–350 per person",
-          "tags": ["Organic veg", "Healthy"]
+          "tags": [
+            "Organic veg",
+            "Healthy"
+          ]
         },
         {
           "rank": 8,
@@ -162,7 +220,10 @@
           "blurb": "The area behind Khon Kaen University is a hub for student-priced desserts: soy milk, bingsu, crepes, toast, even fresh milk. It stays open late, so it's perfect for a post-dinner stop or a night you fancy snacking. A few tens of baht does it.",
           "meta": "Evening–late · behind KKU, Sila",
           "price": "฿40–100 per person",
-          "tags": ["Desserts", "Cheap"]
+          "tags": [
+            "Desserts",
+            "Cheap"
+          ]
         }
       ]
     },

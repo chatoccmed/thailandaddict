@@ -44,28 +44,42 @@
           "name": "Phra Burapha Banphot (the Big Buddha)",
           "blurb": "A large stucco Buddha image in the open-world posture, standing tall on the hilltop terrace. It's the principal image everyone climbs up to bow to first before anything else. The Buddha faces out toward the sea, and it photographs beautifully both morning and evening. It's become the symbol of the temple and of Pathio district as a whole.",
           "meta": "Hilltop terrace · principal Buddha, open-world posture",
-          "tags": ["Big Buddha", "pay respects", "photo spot"]
+          "tags": [
+            "Big Buddha",
+            "pay respects",
+            "photo spot"
+          ]
         },
         {
           "rank": 2,
           "name": "The ancient hilltop stupa",
           "blurb": "A white stupa with a square base about 9 metres on each side, set on a three-tier redented base, ringed by a low wall with a circumambulation path for walking around it. The original stupa is thought to date back to the late Ayutthaya period, and it's where the temple gets its name. Walk around it and you take in the town and sea views at the same time.",
           "meta": "Ayutthaya-era stupa · circumambulation path",
-          "tags": ["ancient stupa", "history"]
+          "tags": [
+            "ancient stupa",
+            "history"
+          ]
         },
         {
           "rank": 3,
           "name": "The Buddha footprint in the viharn",
           "blurb": "Inside the old viharn there's a replica Buddha footprint enshrined for veneration — another spot the merit-minded come specifically to honour. The viharn is shady and cool, a nice break from the sun out on the terrace. If you like noticing the details of Buddhist art, it's a pleasant place to wander.",
           "meta": "Old viharn · replica Buddha footprint",
-          "tags": ["Buddha footprint", "merit-making"]
+          "tags": [
+            "Buddha footprint",
+            "merit-making"
+          ]
         },
         {
           "rank": 4,
           "name": "The Pathio town and sea viewpoint",
           "blurb": "The edge of the top terrace is the viewpoint that takes in Pathio town, the rice fields, coconut groves, and the Gulf of Thailand stretching off into the distance. On a clear day you can make out the coastline and small islands out at sea. For a lot of people this is the main reason they come up — wide views with great photos, no long walk required.",
           "meta": "Edge of the top terrace · 180-degree view",
-          "tags": ["viewpoint", "sea view", "photo spot"]
+          "tags": [
+            "viewpoint",
+            "sea view",
+            "photo spot"
+          ]
         }
       ]
     },
@@ -73,6 +87,43 @@
       "kind": "tip",
       "title": "Driving up vs. walking the stairs",
       "html": "If you're coming with older relatives or just don't want to wear yourself out, drive the concrete road straight up and park on the top terrace — it's the easiest option. But if you want a bit of atmosphere and some light exercise, walking the stairs lets you catch the views on the way up. The road up the hill is fairly steep and narrow, so if you drive, use a low gear and go slowly, especially when passing other cars or people on foot."
+    },
+    {
+      "kind": "experiences",
+      "title": "Want more out of Chumphon? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🛕",
+          "provider": "Klook",
+          "label": "Temple & culture tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=temple%20tour%20Chumphon&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Chumphon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Chumphon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Chumphon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Chumphon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Chumphon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Chumphon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Chumphon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Chumphon&aid=121442"
     },
     {
       "kind": "h2",
@@ -152,11 +203,31 @@
       "label": "Morning half-day",
       "title": "Up the hill to the Buddha and views, then on to the sea",
       "items": [
-        { "time": "07:00", "activity": "Have breakfast in Chumphon town or along the way to Pathio to fuel up before setting off", "note": "Local robusta coffee shops open early — grab a coffee for the road" },
-        { "time": "08:00", "activity": "Drive from Chumphon town up to Pathio, following the Wat Khao Chedi signs", "note": "About 40–50 minutes; the turn-off to the temple is clearly signed" },
-        { "time": "09:00", "activity": "Head up the hill to pay respects to Phra Burapha Banphot, walk around the ancient stupa, and honour the Buddha footprint in the viharn", "note": "Drive up to the top terrace or walk the stairs — the air is still cool this early" },
-        { "time": "10:00", "activity": "Take in the town and sea viewpoint along the edge of the top terrace", "note": "On a clear day you can see the coastline and the Gulf of Thailand stretching off into the distance" },
-        { "time": "11:00", "activity": "Head back down and drive on to Thung Wua Laen or Bang Son beach for a swim or seafood by the shore", "note": "A seaside lunch is a perfect way to close out the half-day" }
+        {
+          "time": "07:00",
+          "activity": "Have breakfast in Chumphon town or along the way to Pathio to fuel up before setting off",
+          "note": "Local robusta coffee shops open early — grab a coffee for the road"
+        },
+        {
+          "time": "08:00",
+          "activity": "Drive from Chumphon town up to Pathio, following the Wat Khao Chedi signs",
+          "note": "About 40–50 minutes; the turn-off to the temple is clearly signed"
+        },
+        {
+          "time": "09:00",
+          "activity": "Head up the hill to pay respects to Phra Burapha Banphot, walk around the ancient stupa, and honour the Buddha footprint in the viharn",
+          "note": "Drive up to the top terrace or walk the stairs — the air is still cool this early"
+        },
+        {
+          "time": "10:00",
+          "activity": "Take in the town and sea viewpoint along the edge of the top terrace",
+          "note": "On a clear day you can see the coastline and the Gulf of Thailand stretching off into the distance"
+        },
+        {
+          "time": "11:00",
+          "activity": "Head back down and drive on to Thung Wua Laen or Bang Son beach for a swim or seafood by the shore",
+          "note": "A seaside lunch is a perfect way to close out the half-day"
+        }
       ]
     },
     {

@@ -44,35 +44,55 @@
           "name": "White Sand Beach (Hat Sai Khao)",
           "blurb": "The island's most popular beach, up north, with fine white sand, clear water, and the widest choice of restaurants, beach bars and places to stay. In the evening bars play music and it's a good sunset spot. Best for first-timers who want everything close and convenient — the trade-off is more crowds and higher room rates than the other beaches.",
           "meta": "Far north · Lively, lots of shops · Good for first-timers",
-          "tags": ["Most popular beach", "Beach bars", "Sunset"]
+          "tags": [
+            "Most popular beach",
+            "Beach bars",
+            "Sunset"
+          ]
         },
         {
           "rank": 2,
           "name": "Klong Prao Beach",
           "blurb": "The longest beach on the island, in the middle, with soft sloping sand and few rocks — easy for long walks and a more relaxed feel than White Sand. There are beachfront resorts at several price points. Good for families and couples who want a wide, quiet beach but still within reach of food. At the far end, a canal mouth is fun to paddle a kayak around.",
           "meta": "Mid-island · Longest beach, quieter · Families/couples",
-          "tags": ["Long beach", "Soft sloping sand", "Kayaking"]
+          "tags": [
+            "Long beach",
+            "Soft sloping sand",
+            "Kayaking"
+          ]
         },
         {
           "rank": 3,
           "name": "Kai Bae Beach",
           "blurb": "The next beach south from Klong Prao, with small islets just offshore that make a pretty view at low tide — you can walk out to them. The mood sits nicely between lively and quiet, with a fair few beach bars and restaurants, and it's a sunset spot many people love. The water here is shallow in places with rocks underfoot, so water shoes make it easier on the feet.",
           "meta": "Further south · Islets offshore · Sunset spot",
-          "tags": ["Islet views", "Beach bars", "Sunset"]
+          "tags": [
+            "Islet views",
+            "Beach bars",
+            "Sunset"
+          ]
         },
         {
           "rank": 4,
           "name": "Lonely Beach (Hat Sai Yao)",
           "blurb": "The island's party and backpacker beach, down south — chilled by day, lively by night with beach bars and music. Lots of budget places to stay. Best for younger travelers and solo travelers who want to meet people. Worth knowing: parts of the beach get rip currents at low tide, so check the warning signs before heading into deep water.",
           "meta": "South · Party/backpacker · Budget stays",
-          "tags": ["Party", "Cheap stays", "Young crowd"]
+          "tags": [
+            "Party",
+            "Cheap stays",
+            "Young crowd"
+          ]
         },
         {
           "rank": 5,
           "name": "Bang Bao / Southern Tip",
           "blurb": "The very end of the west-coast road is Bang Bao. It's not a long sandy beach like the ones up north, but a bay with a fishing village and the pier for snorkeling boats. Best for a slow-life vibe, photos of the wooden walkway and lighthouse, and as the launch point for island trips — more than for lying out and sunbathing.",
           "meta": "Far south · Fishing village + pier · Slow life",
-          "tags": ["Fishing village", "Snorkel pier", "Photo spot"]
+          "tags": [
+            "Fishing village",
+            "Snorkel pier",
+            "Photo spot"
+          ]
         }
       ]
     },
@@ -80,6 +100,43 @@
       "kind": "tip",
       "title": "Match the beach to what you want",
       "html": "<strong>First visit, want it all and easy</strong> → White Sand Beach · <strong>Family, want a wide quiet beach</strong> → Klong Prao · want <strong>sunsets with island views</strong> → Kai Bae · <strong>party crowd / tight budget</strong> → Lonely Beach · want <strong>slow life and a snorkel boat from the door</strong> → Bang Bao"
+    },
+    {
+      "kind": "experiences",
+      "title": "Want more out of Koh Chang? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Koh Chang",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Koh Chang attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Koh Chang",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Koh%20Chang%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Koh Chang activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Koh%20Chang&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Koh Chang tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Koh%20Chang&aid=121442"
     },
     {
       "kind": "h2",
@@ -146,7 +203,11 @@
           "blurb": "The cheapest and most popular option. A big wooden boat leaves around 8 a.m. and returns late afternoon, stopping to snorkel at several spots including Koh Rang, with lunch cooked on board. Good for travelers on a budget who aren't in a rush — but you spend more time on the boat than on a speedboat.",
           "meta": "Wooden boat · 08:00–17:30 · Lunch included",
           "price": "Around 700–900 THB/person",
-          "tags": ["Budget", "Several islands", "Good for beginners"]
+          "tags": [
+            "Budget",
+            "Several islands",
+            "Good for beginners"
+          ]
         },
         {
           "rank": 2,
@@ -154,7 +215,11 @@
           "blurb": "A fast boat that reaches the snorkel spots quickly, so you get more time in the water, with fewer people per boat. Good if you don't want a long boat ride and want to dive several spots in one day. The trade-off: the small boats have no toilet or shower, and it costs more than the wooden boat.",
           "meta": "Speedboat · More time in the water",
           "price": "Around 1,000–1,200 THB/person",
-          "tags": ["Fast", "Fewer people", "Several spots"]
+          "tags": [
+            "Fast",
+            "Fewer people",
+            "Several spots"
+          ]
         },
         {
           "rank": 3,
@@ -162,7 +227,11 @@
           "blurb": "An uninhabited island inside the national park with the healthiest coral and fish in the area — every trip stops here. There's a park fee collected at Bang Bao pier: around 200 THB for foreign adults, 100 THB for kids (Thais pay less).",
           "meta": "Inside the national park · Park fee applies",
           "price": "Foreigner park fee ~200 THB",
-          "tags": ["Beautiful coral", "Main spot", "Park fee"]
+          "tags": [
+            "Beautiful coral",
+            "Main spot",
+            "Park fee"
+          ]
         },
         {
           "rank": 4,
@@ -170,7 +239,11 @@
           "blurb": "A small island with a white-sand beach and clear water, outside the park boundary so there's no fee for this part. Some trips stop here for a beach walk and shallow snorkeling near shore. The mood is quiet and calm, and some people choose to stay overnight here to escape the crowds.",
           "meta": "Outside the park · White sand, clear water",
           "price": "Included in the tour package",
-          "tags": ["Lovely beach", "Quiet", "Overnight stays"]
+          "tags": [
+            "Lovely beach",
+            "Quiet",
+            "Overnight stays"
+          ]
         }
       ]
     },
@@ -207,10 +280,26 @@
       "label": "Day 1",
       "title": "West-coast beaches + waterfall",
       "items": [
-        { "time": "Morning", "activity": "Arrive on the island, drop your bags at a place around Klong Prao or White Sand", "note": "A mid-island stay keeps everything within easy driving distance" },
-        { "time": "Late morning", "activity": "Swim at White Sand Beach or Klong Prao", "note": "Beaches are quiet in the morning, still few people" },
-        { "time": "Afternoon", "activity": "Drive to Klong Plu waterfall and walk in for a cool swim", "note": "Park entry fee applies; bring grippy footwear" },
-        { "time": "Evening", "activity": "Watch the sunset at Kai Bae Beach, then a beach bar", "note": "Mind the curvy roads on the drive back after dark" }
+        {
+          "time": "Morning",
+          "activity": "Arrive on the island, drop your bags at a place around Klong Prao or White Sand",
+          "note": "A mid-island stay keeps everything within easy driving distance"
+        },
+        {
+          "time": "Late morning",
+          "activity": "Swim at White Sand Beach or Klong Prao",
+          "note": "Beaches are quiet in the morning, still few people"
+        },
+        {
+          "time": "Afternoon",
+          "activity": "Drive to Klong Plu waterfall and walk in for a cool swim",
+          "note": "Park entry fee applies; bring grippy footwear"
+        },
+        {
+          "time": "Evening",
+          "activity": "Watch the sunset at Kai Bae Beach, then a beach bar",
+          "note": "Mind the curvy roads on the drive back after dark"
+        }
       ]
     },
     {
@@ -218,10 +307,26 @@
       "label": "Day 2",
       "title": "Island snorkeling + Bang Bao",
       "items": [
-        { "time": "Early morning", "activity": "Head to Bang Bao pier and board the snorkel-trip boat", "note": "Book ahead and check the weather the night before" },
-        { "time": "Midday", "activity": "Snorkel Koh Rang and Koh Wai, lunch on the boat", "note": "Park fee applies when entering the Koh Rang area" },
-        { "time": "Late afternoon", "activity": "Back at Bang Bao, walk the wooden pier and photograph the lighthouse", "note": "The late light makes for good photos" },
-        { "time": "Evening", "activity": "Fresh seafood at a restaurant along the Bang Bao walkway", "note": "Ask the by-weight price before ordering" }
+        {
+          "time": "Early morning",
+          "activity": "Head to Bang Bao pier and board the snorkel-trip boat",
+          "note": "Book ahead and check the weather the night before"
+        },
+        {
+          "time": "Midday",
+          "activity": "Snorkel Koh Rang and Koh Wai, lunch on the boat",
+          "note": "Park fee applies when entering the Koh Rang area"
+        },
+        {
+          "time": "Late afternoon",
+          "activity": "Back at Bang Bao, walk the wooden pier and photograph the lighthouse",
+          "note": "The late light makes for good photos"
+        },
+        {
+          "time": "Evening",
+          "activity": "Fresh seafood at a restaurant along the Bang Bao walkway",
+          "note": "Ask the by-weight price before ordering"
+        }
       ]
     },
     {
@@ -254,8 +359,17 @@
     }
   ],
   "related": [
-    { "href": "city-koh-chang.html", "title": "🗺️ Koh Chang Travel Guide" },
-    { "href": "top10-hotels-koh-chang.html", "title": "🏨 Top 10 Koh Chang Hotels" },
-    { "href": "koh-chang-bang-bao-village.html", "title": "⛵ Bang Bao Fishing Village" }
+    {
+      "href": "city-koh-chang.html",
+      "title": "🗺️ Koh Chang Travel Guide"
+    },
+    {
+      "href": "top10-hotels-koh-chang.html",
+      "title": "🏨 Top 10 Koh Chang Hotels"
+    },
+    {
+      "href": "koh-chang-bang-bao-village.html",
+      "title": "⛵ Bang Bao Fishing Village"
+    }
   ]
 }

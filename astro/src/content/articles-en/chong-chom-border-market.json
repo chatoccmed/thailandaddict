@@ -45,6 +45,43 @@
       "html": "The market itself is a zone of shops and long stalls in front of the checkpoint, easy to stroll through. You don't have to cross the border to shop on the Thai side. Crossing into Cambodia requires border-pass paperwork and depends on whether the checkpoint is letting people cross at the time."
     },
     {
+      "kind": "experiences",
+      "title": "Want more out of Surin? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Surin",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Surin attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Surin",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Surin%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Surin activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Surin&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Surin tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Surin&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "What's for sale at Chong Chom market?",
       "id": "goods"
@@ -61,56 +98,75 @@
           "name": "Secondhand clothes and winter wear",
           "blurb": "This is what Chong Chom is known for. Warehouses and stalls of imported secondhand clothes give you plenty to dig through — winter jackets, branded pieces, Japanese and Korean fashion. If you love hunting for cheap finds, it's well worth it. In the cool season people pour in to grab winter wear.",
           "meta": "From THB 10–50 a piece; branded or good-condition items in the hundreds",
-          "tags": ["highlight", "cheap finds"]
+          "tags": [
+            "highlight",
+            "cheap finds"
+          ]
         },
         {
           "rank": 2,
           "name": "Forest products and herbs",
           "blurb": "Forest products from the Cambodian side — mushrooms, bamboo shoots, herbs, spices, dried goods — are exactly what people come to a border market for, since many are hard to find in town and cheaper here.",
           "meta": "Seasonal prices, from tens to hundreds of baht",
-          "tags": ["local goods"]
+          "tags": [
+            "local goods"
+          ]
         },
         {
           "rank": 3,
           "name": "Brassware and metalwork",
           "blurb": "Brass vessels, bowls, trays, and handmade metalwork from the Cambodian side — pieces that collectors and fans of antique-style home decor like to browse. The handwork has lovely patterns.",
           "meta": "Priced by size and craft, from hundreds to thousands of baht",
-          "tags": ["home decor", "handmade"]
+          "tags": [
+            "home decor",
+            "handmade"
+          ]
         },
         {
           "rank": 4,
           "name": "Basketry and woodwork",
           "blurb": "Baskets, hampers, mats, and basketry from the Cambodian side, plus sawn wood and household items, all at gentle prices — good to grab as everyday goods or souvenirs.",
           "meta": "Tens to hundreds of baht",
-          "tags": ["household goods", "souvenirs"]
+          "tags": [
+            "household goods",
+            "souvenirs"
+          ]
         },
         {
           "rank": 5,
           "name": "Cambodian fabric and sarongs",
           "blurb": "Woven cloth, sarongs, and Khmer-patterned tube skirts that many people come for, since the patterns and prices differ from in town. Feel the fabric and look at the patterns before deciding — there are several grades to choose from.",
           "meta": "From hundreds of baht depending on the fabric",
-          "tags": ["woven cloth"]
+          "tags": [
+            "woven cloth"
+          ]
         },
         {
           "rank": 6,
           "name": "Fresh and dried food and spices",
           "blurb": "Dried fish, pla ra fermented fish, dried chilies, spices, and local eats from both the Thai and Cambodian sides. Locals genuinely come here to buy food, and it's the corner where you get the full border-market atmosphere.",
           "meta": "Tens of baht per bag/kilo",
-          "tags": ["food"]
+          "tags": [
+            "food"
+          ]
         },
         {
           "rank": 7,
           "name": "Toys, trinkets, and odds and ends",
           "blurb": "Small bits and pieces — stationery, toys, cheap trinkets from the other side. Fun to browse and good for picking up little gifts for nieces, nephews, or the kids.",
           "meta": "Tens of baht",
-          "tags": ["trinkets"]
+          "tags": [
+            "trinkets"
+          ]
         },
         {
           "rank": 8,
           "name": "Cambodian-specific goods",
           "blurb": "Unusual items brought over from the O Smach side — snacks, drinks, neighboring-country brands. It's the charm of a border market, things you can't get in town. Check the labels and expiry dates before buying.",
           "meta": "Prices vary",
-          "tags": ["hard-to-find"]
+          "tags": [
+            "hard-to-find"
+          ]
         }
       ]
     },
@@ -211,12 +267,36 @@
       "label": "Day 1",
       "title": "Walking Chong Chom market (when the checkpoint is open as usual)",
       "items": [
-        { "time": "07:30", "activity": "Leave Surin city for Chong Chom via Highway 214", "note": "About 70 km, a little over an hour's drive — leave early to catch the morning market" },
-        { "time": "09:00", "activity": "Walk the market in front of the checkpoint, digging through secondhand clothes, forest goods, and brass", "note": "Compare prices across several stalls, haggle politely, bring small cash" },
-        { "time": "11:00", "activity": "Check with the checkpoint whether you can cross to the O Smach side; if so, do the border-pass paperwork", "note": "Depends on the checkpoint status that day — if not, keep walking the Thai side" },
-        { "time": "12:30", "activity": "Eat around Kap Choeng or buy local eats in the market", "note": "Try the dried goods and border food" },
-        { "time": "14:00", "activity": "On the way back, stop at Prasat Ban Phluang in Prasat district", "note": "It's right on the route back into the city" },
-        { "time": "16:30", "activity": "Back in Surin city for souvenirs and dinner in town", "note": "Wrap up the border-route trip" }
+        {
+          "time": "07:30",
+          "activity": "Leave Surin city for Chong Chom via Highway 214",
+          "note": "About 70 km, a little over an hour's drive — leave early to catch the morning market"
+        },
+        {
+          "time": "09:00",
+          "activity": "Walk the market in front of the checkpoint, digging through secondhand clothes, forest goods, and brass",
+          "note": "Compare prices across several stalls, haggle politely, bring small cash"
+        },
+        {
+          "time": "11:00",
+          "activity": "Check with the checkpoint whether you can cross to the O Smach side; if so, do the border-pass paperwork",
+          "note": "Depends on the checkpoint status that day — if not, keep walking the Thai side"
+        },
+        {
+          "time": "12:30",
+          "activity": "Eat around Kap Choeng or buy local eats in the market",
+          "note": "Try the dried goods and border food"
+        },
+        {
+          "time": "14:00",
+          "activity": "On the way back, stop at Prasat Ban Phluang in Prasat district",
+          "note": "It's right on the route back into the city"
+        },
+        {
+          "time": "16:30",
+          "activity": "Back in Surin city for souvenirs and dinner in town",
+          "note": "Wrap up the border-route trip"
+        }
       ]
     },
     {
@@ -224,11 +304,31 @@
       "label": "Backup plan",
       "title": "For days when the border checkpoint still isn't open",
       "items": [
-        { "time": "08:30", "activity": "Start in town at the Phraya Surin Phakdi monument and Wat Burapharam", "note": "Visit spots that are open as usual instead of the border route" },
-        { "time": "10:00", "activity": "Drive to Ban Tha Sawang to see gold-brocade silk weaving", "note": "About 10 km from the city, free entry" },
-        { "time": "12:00", "activity": "Head back into town for Lower Isan food — som tam, larb, koi", "note": "See the Surin Isan food guide" },
-        { "time": "14:00", "activity": "Stop at Prasat Sikhoraphum, the easiest Khmer sanctuary to visit", "note": "Avoid the border-area sanctuaries that still aren't open" },
-        { "time": "16:30", "activity": "Finish at Huai Saneng Reservoir for the cool breeze", "note": "Surin's lakeside, close to town" }
+        {
+          "time": "08:30",
+          "activity": "Start in town at the Phraya Surin Phakdi monument and Wat Burapharam",
+          "note": "Visit spots that are open as usual instead of the border route"
+        },
+        {
+          "time": "10:00",
+          "activity": "Drive to Ban Tha Sawang to see gold-brocade silk weaving",
+          "note": "About 10 km from the city, free entry"
+        },
+        {
+          "time": "12:00",
+          "activity": "Head back into town for Lower Isan food — som tam, larb, koi",
+          "note": "See the Surin Isan food guide"
+        },
+        {
+          "time": "14:00",
+          "activity": "Stop at Prasat Sikhoraphum, the easiest Khmer sanctuary to visit",
+          "note": "Avoid the border-area sanctuaries that still aren't open"
+        },
+        {
+          "time": "16:30",
+          "activity": "Finish at Huai Saneng Reservoir for the cool breeze",
+          "note": "Surin's lakeside, close to town"
+        }
       ]
     },
     {

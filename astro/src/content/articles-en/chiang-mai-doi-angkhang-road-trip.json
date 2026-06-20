@@ -52,6 +52,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Chiang Mai trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🏞️",
+          "provider": "Klook",
+          "label": "National park day tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=national%20park%20tour%20Chiang%20Mai&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Chiang Mai attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Chiang%20Mai%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Chiang Mai",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Chiang%20Mai%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Chiang Mai activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Chiang%20Mai&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Chiang Mai tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Chiang%20Mai&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Which route should you take — the 1178 back road or the steep 1249 from Fang?",
       "id": "routes"
@@ -108,7 +145,10 @@
           "blurb": "A limestone cave with stalactites and stalagmites beneath Doi Luang Chiang Dao, where local guides carry lanterns to walk you through the deeper chambers. A popular stop before the Doi Ang Khang climb, just a few kilometres off the main route. The walk isn't strenuous, so it's good for a mid-morning stop.",
           "meta": "Chiang Dao district · open roughly 08:00–17:00",
           "price": "Entry around ฿40 + a guide fee by zone",
-          "tags": ["Nature", "Easy stop"]
+          "tags": [
+            "Nature",
+            "Easy stop"
+          ]
         },
         {
           "rank": 2,
@@ -116,7 +156,10 @@
           "blurb": "Around Chiang Dao there are several roadside cafes that look out onto the Doi Luang Chiang Dao peak as a backdrop. Stop for a coffee and a stretch before the climb, and shoot the mountain on a clear morning.",
           "meta": "Roadside on 107 around Chiang Dao",
           "price": "Coffee ฿60–120",
-          "tags": ["Coffee", "Mountain view"]
+          "tags": [
+            "Coffee",
+            "Mountain view"
+          ]
         },
         {
           "rank": 3,
@@ -124,7 +167,10 @@
           "blurb": "The last town with a big petrol station, convenience stores and full restaurants before the turnoff up the mountain. Stop to fill up, grab water and snacks for the car, and use the bathroom while you can.",
           "meta": "Chiang Dao district",
           "price": "Pay as you go",
-          "tags": ["Supplies", "Rest stop"]
+          "tags": [
+            "Supplies",
+            "Rest stop"
+          ]
         },
         {
           "rank": 4,
@@ -132,7 +178,10 @@
           "blurb": "Around km 137 on Highway 107 in Fang district, this is where you turn onto the steep 1249 — and where people who aren't driving themselves park and switch to a songthaew up the mountain.",
           "meta": "Fang district · 1249 turnoff",
           "price": "Songthaew charter up the mountain by agreement",
-          "tags": ["Junction", "Switch vehicle"]
+          "tags": [
+            "Junction",
+            "Switch vehicle"
+          ]
         }
       ]
     },
@@ -154,7 +203,10 @@
           "blurb": "The heart of the mountain, with cool-climate flower gardens, the Suan 80 tea garden, strawberry fields and greenhouses of cold-climate vegetables. An easy walk around, with the flowers in full bloom in winter. There are also station guesthouses you can book to stay overnight inside.",
           "meta": "Open daily 07:00–20:00",
           "price": "Entry ฿50 per person + ฿50 per car",
-          "tags": ["Royal Project", "Flower gardens"]
+          "tags": [
+            "Royal Project",
+            "Flower gardens"
+          ]
         },
         {
           "rank": 2,
@@ -162,7 +214,10 @@
           "blurb": "Terraced tea plantings stepping down the hillside. Early mornings, mist drifts over the rows for great photos. Walk the rows for shots, or sit at the tea house and take in the view. Best in the early morning before the sun gets harsh.",
           "meta": "Best in the early morning",
           "price": "Free to walk · drinks pay as you go",
-          "tags": ["Scenic", "Photo spot"]
+          "tags": [
+            "Scenic",
+            "Photo spot"
+          ]
         },
         {
           "rank": 3,
@@ -170,7 +225,10 @@
           "blurb": "A sea-of-mist and sunrise spot that draws crowds in the morning, looking out over the border and the hill-tribe villages below. It's bitterly cold at dawn, so have your warm layers ready.",
           "meta": "Go before sunrise",
           "price": "Free",
-          "tags": ["Sea of mist", "Sunrise"]
+          "tags": [
+            "Sea of mist",
+            "Sunrise"
+          ]
         },
         {
           "rank": 4,
@@ -178,7 +236,10 @@
           "blurb": "A pine-covered rise that's both a viewpoint and a camping ground. Wake up, unzip the tent and the sea of mist and sunrise are right in front of you. It fills up fast on winter weekends, so book ahead.",
           "meta": "Overnight camping available",
           "price": "Camping / gear rental at the service point",
-          "tags": ["Camping", "Sea of mist"]
+          "tags": [
+            "Camping",
+            "Sea of mist"
+          ]
         },
         {
           "rank": 5,
@@ -186,7 +247,10 @@
           "blurb": "A Palaung hill-tribe village right on the border, with local handicrafts for sale and a way of life you can take in. Some mornings there's an alms-giving to the monks. Walk through respectfully — don't photograph people without asking.",
           "meta": "Ethnic village",
           "price": "Free · support local goods",
-          "tags": ["Culture", "Border"]
+          "tags": [
+            "Culture",
+            "Border"
+          ]
         },
         {
           "rank": 6,
@@ -194,7 +258,10 @@
           "blurb": "A Lahu village with a sunset viewpoint and terraced strawberry fields. In winter you can buy fresh strawberries right at the fields. There are homestays if you want to stay close to the community.",
           "meta": "Sunset spot",
           "price": "Free · strawberries in season",
-          "tags": ["Strawberries", "Homestay"]
+          "tags": [
+            "Strawberries",
+            "Homestay"
+          ]
         }
       ]
     },

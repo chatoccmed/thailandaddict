@@ -37,6 +37,43 @@
       "html": "Buses fill up fast on long weekends. Book online through sites like busonlineticket or busx to secure your seat — prices are sometimes lower than buying at the counter."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Phrae trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Phrae",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Phrae%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Phrae attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Phrae%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Phrae",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Phrae%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Phrae activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Phrae&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Phrae tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Phrae&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Budget Stays in Phrae",
       "id": "stay"
@@ -54,7 +91,10 @@
           "blurb": "A clean, airy minimalist hostel with dorms and private rooms, a shared kitchen, a café, and parking. Smack in the old town — step out the door and you are already sightseeing.",
           "meta": "Old town center",
           "price": "From ฿689",
-          "tags": ["Hostel", "Walkable location"]
+          "tags": [
+            "Hostel",
+            "Walkable location"
+          ]
         },
         {
           "rank": 2,
@@ -62,7 +102,9 @@
           "blurb": "A no-frills daily-rate guesthouse in town at a very low price — solid pick for budget travelers who just need a clean bed near the sights.",
           "meta": "Town center",
           "price": "Under ฿500",
-          "tags": ["Budget"]
+          "tags": [
+            "Budget"
+          ]
         },
         {
           "rank": 3,
@@ -70,7 +112,10 @@
           "blurb": "A small affordable hotel with private rooms starting in the lower hundreds. Good if you want your own room without paying boutique prices.",
           "meta": "Near town center",
           "price": "From ฿570",
-          "tags": ["Private room", "Good value"]
+          "tags": [
+            "Private room",
+            "Good value"
+          ]
         }
       ]
     },

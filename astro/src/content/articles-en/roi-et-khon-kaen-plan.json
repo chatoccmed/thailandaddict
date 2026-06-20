@@ -85,6 +85,43 @@
       "html": "Staying in Khon Kaen tonight is the most convenient option, since you can start exploring Khon Kaen first thing the next morning. Khon Kaen is a big city with far more accommodation choices than Roi Et, from budget chain hotels to large hotels attached to shopping centers. Pick somewhere central or near Bueng Kaen Nakhon and you can easily walk to food and cafes."
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Roi Et trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Roi Et",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Roi Et attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Roi Et",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Roi%20Et%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Roi Et activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Roi%20Et&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Roi Et tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Roi%20Et&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 2 — Bueng Kaen Nakhon, the 9-tier stupa, and Khon Kaen cafes",
       "id": "day2"
@@ -138,42 +175,60 @@
           "name": "101 Tower (Roi Et)",
           "blurb": "A city-view tower about 101 meters tall in Somdet Phra Srinagarindra Park, next to Bueng Phlan Chai. From the top you see Roi Et in every direction, and there's a city museum, a coffee shop, and a zipline off the tower. It's the new landmark and the main highlight on the Roi Et side.",
           "meta": "In Roi Et town · admission applies, check times before going",
-          "tags": ["Landmark", "City view"]
+          "tags": [
+            "Landmark",
+            "City view"
+          ]
         },
         {
           "rank": 2,
           "name": "Bueng Kaen Nakhon and the 9-tier Phra That Kaen Nakhon (Khon Kaen)",
           "blurb": "A large lake in central Khon Kaen with the 9-tier Phra Maha That Kaen Nakhon at Wat Nong Waeng. Climb to the top floor and you see the whole lake and city. It's a spot where you get both merit-making and a city view in one place, the main highlight on the Khon Kaen side.",
           "meta": "Central Khon Kaen · make merit as you wish",
-          "tags": ["Temples", "City view"]
+          "tags": [
+            "Temples",
+            "City view"
+          ]
         },
         {
           "rank": 3,
           "name": "Bueng Phlan Chai (Roi Et)",
           "blurb": "A lake in the center of Roi Et covering around 50 rai, with an island, the city pillar shrine, and a large walking-pose Buddha. It's a public park where locals come to walk and exercise, and a fitting place to open a Roi Et trip.",
           "meta": "In Roi Et town · free entry",
-          "tags": ["In town", "Relaxing"]
+          "tags": [
+            "In town",
+            "Relaxing"
+          ]
         },
         {
           "rank": 4,
           "name": "Wat Burapha Phiram and the Great Buddha (Roi Et)",
           "blurb": "A temple in Roi Et town with a very tall blessing-pose Buddha you can spot from far away, a city icon that locals revere. It's near Bueng Phlan Chai, so it's easy to drop by for some merit-making.",
           "meta": "In Roi Et town · free entry",
-          "tags": ["Temples", "City icon"]
+          "tags": [
+            "Temples",
+            "City icon"
+          ]
         },
         {
           "rank": 5,
           "name": "Phra Maha Chedi Chai Mongkhon (Roi Et)",
           "blurb": "A large white-and-gold chedi about 101 meters tall at Wat Pha Nam Thip Thep Prasit Wararam in Nong Phok district. It sits on a hill and is visible from far off, with intricate detailing inside and out. It's about 80 km from Roi Et town, good if you can add another day.",
           "meta": "Nong Phok district · ~80 km from town",
-          "tags": ["Temples", "Large chedi"]
+          "tags": [
+            "Temples",
+            "Large chedi"
+          ]
         },
         {
           "rank": 6,
           "name": "Phu Wiang Dinosaur Museum (Khon Kaen)",
           "blurb": "A museum displaying dinosaur skeletons and fossils excavated at Phu Wiang, out in Wiang Kao district to the west of the city, about an hour and a half drive away. Great for traveling with kids and anyone who loves dinosaurs.",
           "meta": "Wiang Kao district, Khon Kaen · admission applies",
-          "tags": ["Museum", "Family"]
+          "tags": [
+            "Museum",
+            "Family"
+          ]
         }
       ]
     },

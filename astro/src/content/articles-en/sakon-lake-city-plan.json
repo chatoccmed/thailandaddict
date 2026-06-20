@@ -46,6 +46,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Sakon Nakhon trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Sakon Nakhon",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sakon Nakhon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sakon Nakhon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sakon Nakhon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sakon%20Nakhon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sakon Nakhon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sakon%20Nakhon&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "Day 1 — Old town by the water: the stupa, a stupa-view cafe, Khu Sut at dusk",
       "id": "day1"
@@ -236,7 +273,10 @@
           "blurb": "Sakon Nakhon's famous Vietnamese nem nueang shop, open for over 40 years. Bouncy, fragrant meat wrapped in fresh greens with noodles and a house dipping sauce; the fried cha gio is excellent too. It's both a lunch and a souvenir, and locals consider it the original. It fits a lakeside trip because it's in town and easy to reach.",
           "meta": "Sukkasem Road, in town · air-conditioned, plenty of seating",
           "price": "around 100–250 THB per person",
-          "tags": ["Vietnamese food", "famous spot"]
+          "tags": [
+            "Vietnamese food",
+            "famous spot"
+          ]
         },
         {
           "rank": 2,
@@ -244,7 +284,10 @@
           "blurb": "The heart of a lake trip: fresh freshwater fish from Nong Han — tom yum, fried, steamed, and local pla som. Several fish restaurants in town and by the water do it well, and it's the dinner that fits the Nong Han setting best.",
           "meta": "Restaurants in town / by Nong Han · mostly open in the evening",
           "price": "around 150–350 THB per person",
-          "tags": ["freshwater fish", "local food"]
+          "tags": [
+            "freshwater fish",
+            "local food"
+          ]
         },
         {
           "rank": 3,
@@ -252,7 +295,10 @@
           "blurb": "Phon Yang Kham beef from Sakon's famous cattle cooperative, tender and sweet, served as steak, grilled, or jim jum. It's a provincial signature worth trying at least once on the trip.",
           "meta": "Restaurants in town · open in the evening",
           "price": "around 200–500 THB per person",
-          "tags": ["Phon Yang Kham beef", "signature"]
+          "tags": [
+            "Phon Yang Kham beef",
+            "signature"
+          ]
         },
         {
           "rank": 4,
@@ -260,7 +306,11 @@
           "blurb": "A two-storey cafe right at the Wat Phra That Choeng Chum intersection. Sit upstairs and the stupa becomes your backdrop for great photos all day. House-roasted coffee with several profiles and a fresh bakery — a cafe that combines the landmark and the coffee in one spot.",
           "meta": "Wat Phra That Choeng Chum intersection · Mon–Fri 08:00–19:00, Sat–Sun 09:00–19:00",
           "price": "about ฿80–160 per person",
-          "tags": ["stupa view", "house roast", "photos"]
+          "tags": [
+            "stupa view",
+            "house roast",
+            "photos"
+          ]
         },
         {
           "rank": 5,
@@ -268,7 +318,11 @@
           "blurb": "A lakeside cafe in the Si Wicha area that locals like to come to in the cool of the evening, serving both coffee and food. There's a large garden zone overlooking the water and a warm, friendly atmosphere, open late — good for a long sit on day two when you want a cafe you can also eat a meal at.",
           "meta": "Si Wicha area, by the water · open late · closed Tuesdays",
           "price": "about ฿100–250 per person",
-          "tags": ["lakeside", "serves food", "family"]
+          "tags": [
+            "lakeside",
+            "serves food",
+            "family"
+          ]
         },
         {
           "rank": 6,
@@ -276,7 +330,11 @@
           "blurb": "A specialty coffee shop Sakon's coffee crowd rates near the top. They roast their own beans seriously, from light roasts with fruity notes to dark roasts with nutty notes; order a slow-bar pour-over and chat with the barista. Perfect for a last cup on the day you leave.",
           "meta": "Bypass / That Choeng Chum · Mon–Fri 07:30–19:00, Sat–Sun 10:00–19:00",
           "price": "about ฿80–180 per person",
-          "tags": ["specialty", "house roast", "pour-over"]
+          "tags": [
+            "specialty",
+            "house roast",
+            "pour-over"
+          ]
         },
         {
           "rank": 7,
@@ -284,7 +342,10 @@
           "blurb": "Besides nem nueang, Sakon also has khao piak sen (an Isan-style pho) and khanom bueang yuan at the Vietnamese restaurants in town — a light breakfast-to-brunch meal locals eat regularly. Ideal for breakfast on the last day.",
           "meta": "Vietnamese restaurants in town · open morning to late morning",
           "price": "40–80 THB per bowl/plate",
-          "tags": ["Vietnamese food", "breakfast"]
+          "tags": [
+            "Vietnamese food",
+            "breakfast"
+          ]
         },
         {
           "rank": 8,
@@ -292,7 +353,11 @@
           "blurb": "A dark, modern cafe in the town centre, nicely air-conditioned, focused on specialty coffee with both a speed bar and a slow bar. There are mocktails for non-coffee drinkers, dogs are welcome, and the in-town location is comfortable for working without driving out of the centre.",
           "meta": "Town centre · open 07:30–18:00",
           "price": "about ฿80–170 per person",
-          "tags": ["specialty", "in town", "work-friendly"]
+          "tags": [
+            "specialty",
+            "in town",
+            "work-friendly"
+          ]
         },
         {
           "rank": 9,
@@ -300,7 +365,10 @@
           "blurb": "The local staples you can't skip: rich pla ra som tam, larb, koi, with sticky rice. There are plenty of som tam shops in town, boldly seasoned in true Isan style. Good for a budget lunch during the day.",
           "meta": "Restaurants in town · open midday to evening",
           "price": "around 60–150 THB per person",
-          "tags": ["Isan food", "bold flavours"]
+          "tags": [
+            "Isan food",
+            "bold flavours"
+          ]
         },
         {
           "rank": 10,
@@ -308,7 +376,10 @@
           "blurb": "The Tha Rae shore of Nong Han has local food from its long-established Catholic community, both home-style dishes and local snacks. Good for a day-two lunch when you cross over to explore the Tha Rae side.",
           "meta": "Tha Rae community, by Nong Han · open midday",
           "price": "around 80–200 THB per person",
-          "tags": ["Tha Rae", "local food"]
+          "tags": [
+            "Tha Rae",
+            "local food"
+          ]
         }
       ]
     },

@@ -66,6 +66,43 @@
       ]
     },
     {
+      "kind": "foodexp",
+      "title": "Want to taste deeper? Try a Hua Hin food tour or cooking class",
+      "text": "Half a day with a local who knows the lanes — or cooking a dish yourself — teaches you more than just eating. Book ahead on Klook or GetYourGuide.",
+      "items": [
+        {
+          "emoji": "🍜",
+          "provider": "Klook",
+          "label": "Hua Hin street-food tour",
+          "note": "A local guides you, many stops",
+          "href": "https://www.klook.com/en-US/search/?query=Hua%20Hin%20food%20tour&aid=121442"
+        },
+        {
+          "emoji": "👩‍🍳",
+          "provider": "Klook",
+          "label": "Thai cooking class",
+          "note": "Market walk + hands-on",
+          "href": "https://www.klook.com/en-US/search/?query=Hua%20Hin%20cooking%20class&aid=121442"
+        },
+        {
+          "emoji": "🌃",
+          "provider": "Klook",
+          "label": "Market & night-eats walk",
+          "note": "Street food after dark",
+          "href": "https://www.klook.com/en-US/search/?query=Hua%20Hin%20night%20market%20food&aid=121442"
+        },
+        {
+          "emoji": "🍢",
+          "provider": "GetYourGuide",
+          "label": "Food experiences (GetYourGuide)",
+          "note": "Compare another marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Hua%20Hin%20food&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🍢 See all Hua Hin food tours & classes (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Hua%20Hin%20food&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "What to eat in the Cicada Cuisine zone — 10 things people order most",
       "id": "ranking"
@@ -83,7 +120,11 @@
           "blurb": "The most-photographed dish in the food zone. Fried rice with prawns, cashews and pork floss, served right inside a halved pineapple. It leans slightly sweet, photographs well, and is easy eating — a safe order with no spice surprises, and a good match for sitting and listening to the band.",
           "meta": "Thai stall, Cicada Cuisine zone",
           "price": "~120–180 coupons/plate",
-          "tags": ["Thai food", "Photogenic", "Highlight"]
+          "tags": [
+            "Thai food",
+            "Photogenic",
+            "Highlight"
+          ]
         },
         {
           "rank": 2,
@@ -91,7 +132,10 @@
           "blurb": "A Western stall baking thin-crust pizza fresh and serving hot plates of pasta — a fallback for anyone who doesn't want Thai food every meal, or who's with kids who can't take the spice. It's solid market-grade food rather than a serious Italian kitchen, but it works in a garden setting on a warm evening.",
           "meta": "Western stall, Cicada Cuisine zone",
           "price": "~150–280 coupons/plate",
-          "tags": ["Western food", "Kid-friendly"]
+          "tags": [
+            "Western food",
+            "Kid-friendly"
+          ]
         },
         {
           "rank": 3,
@@ -99,7 +143,10 @@
           "blurb": "Pad thai with prawns wrapped in egg, fried to order at the front of the stall: soft noodles, well-balanced flavour. It's the safe pick both Thais and visitors order, and an easy bite to keep you going while you browse the crafts. It runs a little pricier than pad thai at a regular market, as Cicada tends to.",
           "meta": "Thai stall, Cicada Cuisine zone",
           "price": "~100–150 coupons/plate",
-          "tags": ["Pad thai", "One-plate"]
+          "tags": [
+            "Pad thai",
+            "One-plate"
+          ]
         },
         {
           "rank": 4,
@@ -107,7 +154,11 @@
           "blurb": "A grill stall with pork skewers, Korean-sauce grilled chicken, and beef on sticks — the smell pulls you in as you walk past. Easy snacking, cheap per skewer, and good to carry around or pair with a drink while you listen to music.",
           "meta": "Grill stall, Cicada Cuisine zone",
           "price": "~25–60 coupons/skewer",
-          "tags": ["Grilled", "Skewers", "Snack"]
+          "tags": [
+            "Grilled",
+            "Skewers",
+            "Snack"
+          ]
         },
         {
           "rank": 5,
@@ -115,7 +166,10 @@
           "blurb": "An Isan stall for the spice lovers: som tam pounded to order, larb, nam tok, with sticky rice on the side, and you can call your own heat level. It's a more filling, proper meal than the snacks — but Cicada only has a couple of Isan stalls. If you want more Isan options, Tamarind Market next door has a wider spread.",
           "meta": "Isan stall, Cicada Cuisine zone",
           "price": "~60–120 coupons/plate",
-          "tags": ["Isan food", "Spicy"]
+          "tags": [
+            "Isan food",
+            "Spicy"
+          ]
         },
         {
           "rank": 6,
@@ -123,7 +177,10 @@
           "blurb": "A small grilled-seafood stall with prawns, squid and shellfish on skewers brushed with seafood dipping sauce. Portions are skewer-sized snacks, not the big plates of a proper seafood restaurant in town, and per-skewer prices run higher because of the ingredients. For serious seafood, we'd point you to the downtown night market or a seafood restaurant in town instead.",
           "meta": "Seafood stall, Cicada Cuisine zone",
           "price": "~60–200 coupons/skewer by size",
-          "tags": ["Seafood", "Snack"]
+          "tags": [
+            "Seafood",
+            "Snack"
+          ]
         },
         {
           "rank": 7,
@@ -131,7 +188,11 @@
           "blurb": "A dessert stall with crispy roti drizzled with condensed milk and sugar (with banana or egg), Thai sweets, and Western-style cake and waffles — to round off a meal or snack on while the music plays. The roti has the longest queue in the dessert row, made fresh and hot.",
           "meta": "Dessert stall, Cicada Cuisine zone",
           "price": "~40–90 coupons/serving",
-          "tags": ["Dessert", "Roti", "To finish"]
+          "tags": [
+            "Dessert",
+            "Roti",
+            "To finish"
+          ]
         },
         {
           "rank": 8,
@@ -139,7 +200,10 @@
           "blurb": "A drinks stand with fresh blends — mango, watermelon, passion fruit — plus cold coconut water to cool off on a muggy night. It's the natural companion to sitting and listening to the band, and you can ask for less sugar if you don't want it too sweet.",
           "meta": "Drinks stand, Cicada Cuisine zone",
           "price": "~50–90 coupons/glass",
-          "tags": ["Drinks", "Cool down"]
+          "tags": [
+            "Drinks",
+            "Cool down"
+          ]
         },
         {
           "rank": 9,
@@ -147,7 +211,11 @@
           "blurb": "There are small bar stalls pouring draught beer, bottled beer and simple cocktails for sipping while you catch the live music — a charm Cicada has that most food markets don't. Some bars take cash or bank transfer separately from the coupon system, so ask before you order to be sure.",
           "meta": "Bar stall, near the music lawn",
           "price": "Beer ~80–150 · cocktails ~120–220",
-          "tags": ["Drinks", "Bar", "Listen to music"]
+          "tags": [
+            "Drinks",
+            "Bar",
+            "Listen to music"
+          ]
         },
         {
           "rank": 10,
@@ -155,7 +223,10 @@
           "blurb": "Small stalls that rotate through the seasons — ice cream, gyoza, takoyaki, fried things on sticks — the kind of snacking you can graze through without filling up fast. Good for sharing among a group.",
           "meta": "Rotating stall, Cicada Cuisine zone",
           "price": "~30–90 coupons/serving",
-          "tags": ["Street food", "Snack"]
+          "tags": [
+            "Street food",
+            "Snack"
+          ]
         }
       ]
     },

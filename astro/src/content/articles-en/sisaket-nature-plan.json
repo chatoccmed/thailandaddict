@@ -120,6 +120,43 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book the activities in your Sisaket trip ahead",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Top tours in Sisaket",
+          "note": "Highlights, guided",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20tour&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Sisaket attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Sisaket",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Sisaket%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Sisaket activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Sisaket&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Sisaket tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Sisaket&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "If you have 3 days, what can you add",
       "id": "day3"
@@ -230,56 +267,80 @@
           "name": "Volcanic-soil durian (season only)",
           "blurb": "The south's signature, grown on volcanic soil around Khun Han–Kantharalak. Sweet and creamy with a milder smell, thick flesh and small seeds. You can eat it straight from the tree from Jun–Aug.",
           "meta": "Seasonal fruit · 180–250 THB/kg",
-          "tags": ["Seasonal", "Signature"]
+          "tags": [
+            "Seasonal",
+            "Signature"
+          ]
         },
         {
           "rank": 2,
           "name": "Tilapia with sweet fish sauce and sadao",
           "blurb": "Sisaket is known for its farmed tilapia, fried crisp and drizzled with sweet fish sauce, eaten with blanched sadao (neem) — a touch bitter, a touch sweet. Plenty of local spots do it well.",
           "meta": "Main dish · local eateries",
-          "tags": ["Tilapia", "Signature"]
+          "tags": [
+            "Tilapia",
+            "Signature"
+          ]
         },
         {
           "rank": 3,
           "name": "Home-style larb-koi and om",
           "blurb": "Lao-Isan food you'll find at larb-koi shops across the district. Om is an offal stew with seasonal local vegetables, savory and rounded from the spice paste and lemon basil, eaten with hot sticky rice.",
           "meta": "Home cooking · all day",
-          "tags": ["Home-style", "Lao"]
+          "tags": [
+            "Home-style",
+            "Lao"
+          ]
         },
         {
           "rank": 4,
           "name": "Som tam — bold Sisaket-style",
           "blurb": "A local take with a bolder mix and a punchier heat than the usual som tam. Eat it with fried tilapia or grilled chicken at local eateries across Kantharalak–Khun Han.",
           "meta": "Spicy · snack/side",
-          "tags": ["Bold", "Signature"]
+          "tags": [
+            "Bold",
+            "Signature"
+          ]
         },
         {
           "rank": 5,
           "name": "Pon pla and pla som",
           "blurb": "Homely dishes found in every kitchen. Pon pla is a boiled-fish chili dip eaten with fresh vegetables; pla som is fermented fish fried and eaten with sticky rice. Filling and tasty — order them together.",
           "meta": "Lao-Isan food · side",
-          "tags": ["Home-style", "Lao"]
+          "tags": [
+            "Home-style",
+            "Lao"
+          ]
         },
         {
           "rank": 6,
           "name": "Rambutan and mangosteen from volcanic orchards (season only)",
           "blurb": "Same window as durian — the orchards around Kantharalak–Khun Han have fresh rambutan and mangosteen, picked straight from the tree, sweet and juicy, friendly prices. Good to take home too.",
           "meta": "Seasonal fruit · farm-gate",
-          "tags": ["Seasonal", "Souvenir"]
+          "tags": [
+            "Seasonal",
+            "Souvenir"
+          ]
         },
         {
           "rank": 7,
           "name": "Coffee at a rice-field café",
           "blurb": "Cafés with rice-field and mountain views around Kantharalak, like Nata Café and backyard-style spots. Good for a coffee break when the sun is harsh, with a shady feel.",
           "meta": "Café · coffee around 50–80 THB",
-          "tags": ["View café", "Relax"]
+          "tags": [
+            "View café",
+            "Relax"
+          ]
         },
         {
           "rank": 8,
           "name": "Thung Kula jasmine rice and khao hang",
           "blurb": "Sisaket sits in the Thung Kula Ronghai area, a source of fine jasmine rice. Khao hang is steamed-then-milled paddy that's fragrant and high in nutrients — a good thing to take home.",
           "meta": "Souvenir · ingredient",
-          "tags": ["Thung Kula", "Souvenir"]
+          "tags": [
+            "Thung Kula",
+            "Souvenir"
+          ]
         }
       ]
     },

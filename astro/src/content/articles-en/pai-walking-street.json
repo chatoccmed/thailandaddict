@@ -44,6 +44,43 @@
       "html": "The Chiang Mai–Pai road has 762 mountain curves in total. If you get carsick easily, take motion-sickness pills before you set off and sit up front. If you're riding a motorbike yourself, be extra careful — the road is winding, steep and slick in places when it rains. By the time you reach Pai for the walking street, plenty of people are already worn out, so give yourself a little time to recover from the drive before you head out to eat."
     },
     {
+      "kind": "foodexp",
+      "title": "Want to taste deeper? Try a Pai food tour or cooking class",
+      "text": "Half a day with a local who knows the lanes — or cooking a dish yourself — teaches you more than just eating. Book ahead on Klook or GetYourGuide.",
+      "items": [
+        {
+          "emoji": "🍜",
+          "provider": "Klook",
+          "label": "Pai street-food tour",
+          "note": "A local guides you, many stops",
+          "href": "https://www.klook.com/en-US/search/?query=Pai%20food%20tour&aid=121442"
+        },
+        {
+          "emoji": "👩‍🍳",
+          "provider": "Klook",
+          "label": "Thai cooking class",
+          "note": "Market walk + hands-on",
+          "href": "https://www.klook.com/en-US/search/?query=Pai%20cooking%20class&aid=121442"
+        },
+        {
+          "emoji": "🌃",
+          "provider": "Klook",
+          "label": "Market & night-eats walk",
+          "note": "Street food after dark",
+          "href": "https://www.klook.com/en-US/search/?query=Pai%20night%20market%20food&aid=121442"
+        },
+        {
+          "emoji": "🍢",
+          "provider": "GetYourGuide",
+          "label": "Food experiences (GetYourGuide)",
+          "note": "Compare another marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Pai%20food&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🍢 See all Pai food tours & classes (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Pai%20food&aid=121442"
+    },
+    {
       "kind": "h2",
       "text": "What to eat as you walk",
       "id": "must-eat"
@@ -60,84 +97,118 @@
           "name": "Grilled skewers (pork skewers, grilled chicken, sai ua)",
           "blurb": "The star of Pai Walking Street. Charcoal-grill carts line up and send the smell down the whole road — pork skewers, grilled chicken, northern herb sausage (sai ua) and hill-tribe-style marinated grills. Easy to grab a skewer and nibble as you walk.",
           "meta": "Grilled · ฿10–30 per skewer",
-          "tags": ["Grilled", "Must try"]
+          "tags": [
+            "Grilled",
+            "Must try"
+          ]
         },
         {
           "rank": 2,
           "name": "Khao soi",
           "blurb": "The northern dish to try now that you're in the region — egg noodles in a coconut-curry broth with northern curry paste, topped with crispy fried noodles, with chicken or beef, a squeeze of lime and pickled greens. Some spots in the area have sit-down bowls, others box it up so you can carry it.",
           "meta": "Northern · ฿50–70",
-          "tags": ["Northern", "Must try"]
+          "tags": [
+            "Northern",
+            "Must try"
+          ]
         },
         {
           "rank": 3,
           "name": "Pad thai & stir-fried noodles",
           "blurb": "Fresh-prawn pad thai stir-fried hot in the wok right at the front of the stall, boxed up to eat as you go. A favorite with foreign travelers and easy to find all along the strip.",
           "meta": "One-plate · ฿40–60",
-          "tags": ["One-plate", "Easy to find"]
+          "tags": [
+            "One-plate",
+            "Easy to find"
+          ]
         },
         {
           "rank": 4,
           "name": "Fried & steamed dumplings",
           "blurb": "The crispy-bottomed fried dumpling stall is a Pai Walking Street favorite where people queue up. Well-stuffed and good with the dipping sauce — a fun snack, available fried or steamed.",
           "meta": "Snack · from ฿40–60",
-          "tags": ["Snack", "Popular stall"]
+          "tags": [
+            "Snack",
+            "Popular stall"
+          ]
         },
         {
           "rank": 5,
           "name": "Falafel & veggie burgers",
           "blurb": "Pai has a lot of long-stay foreign travelers, so Western and vegetarian stalls are tucked into the walking street — falafel wraps, veggie burgers and vegan dishes. Good if you don't eat meat.",
           "meta": "Western/vegan · ฿60–120",
-          "tags": ["Vegan", "Western"]
+          "tags": [
+            "Vegan",
+            "Western"
+          ]
         },
         {
           "rank": 6,
           "name": "Fried skewers & fried meatballs",
           "blurb": "Fried meatballs, battered squid and fried sausage on skewers with dipping sauce — something to hold and snack on while you browse the craft stalls, and about the cheapest thing on the strip.",
           "meta": "Snack · ฿10–20 per skewer",
-          "tags": ["Snack", "Cheap"]
+          "tags": [
+            "Snack",
+            "Cheap"
+          ]
         },
         {
           "rank": 7,
           "name": "Som tam, yam & Isan food",
           "blurb": "The spicy corner of the street — papaya salad pounded fresh, mixed yam, grilled pork neck. Sit at a roadside table and make it a proper meal; with a cold beer it suits the atmosphere even more.",
           "meta": "Main meal · ฿40–80 per plate",
-          "tags": ["Spicy", "Main meal"]
+          "tags": [
+            "Spicy",
+            "Main meal"
+          ]
         },
         {
           "rank": 8,
           "name": "Banana roti & egg roti",
           "blurb": "The classic walking-street sweet, fried fresh at the stall, drizzled with condensed milk and chocolate, with banana or egg — buttery, crisp outside and soft inside. Kids and adults both love it.",
           "meta": "Sweet · ฿30–50",
-          "tags": ["Sweet", "Must try"]
+          "tags": [
+            "Sweet",
+            "Must try"
+          ]
         },
         {
           "rank": 9,
           "name": "Banana grilled in banana leaf (Grandma's stall)",
           "blurb": "A local sweet that regular visitors pass along to each other — banana grilled over charcoal wrapped in banana leaf, with that smoky banana-leaf aroma. You won't find it everywhere, so if you spot Grandma's stall, try a skewer.",
           "meta": "Local sweet · ฿15–30",
-          "tags": ["Sweet", "Local"]
+          "tags": [
+            "Sweet",
+            "Local"
+          ]
         },
         {
           "rank": 10,
           "name": "Mango sticky rice & Thai sweets",
           "blurb": "Mango sticky rice with coconut cream, khanom krok, banana-leaf-wrapped Thai sweets and coconut ice cream — several stalls to choose from to finish the meal.",
           "meta": "Sweet · from ฿20–80",
-          "tags": ["Sweet"]
+          "tags": [
+            "Sweet"
+          ]
         },
         {
           "rank": 11,
           "name": "Thai iced tea, coffee & fruit smoothies",
           "blurb": "Cool off as you walk with iced tea, milk tea, blended coffee and big cups of fresh fruit smoothies. Some stalls serve a whole pineapple with a straw — photogenic and refreshing.",
           "meta": "Drinks · ฿25–60 per cup",
-          "tags": ["Drinks"]
+          "tags": [
+            "Drinks"
+          ]
         },
         {
           "rank": 12,
           "name": "Cocktail carts & draft beer",
           "blurb": "In the evening, cocktail carts and tiny bars pop up along the strip — mocktails and cocktails at easy prices, good to carry on with or sip while listening to live music at a bar nearby.",
           "meta": "Drinks · ฿60–150 per glass",
-          "tags": ["Drinks", "Evening"]
+          "tags": [
+            "Drinks",
+            "Evening"
+          ]
         }
       ]
     },

@@ -49,56 +49,77 @@
           "name": "Ko Ngam Yai",
           "blurb": "The big rock island that's the star of the Chumphon sea. It's ringed by hard-coral gardens and sea fans, with fish of every kind, and it's the spot in the park with the best chance of meeting a whale shark. Good for both snorkeling and diving.",
           "meta": "Snorkeling & diving · whale shark chance",
-          "tags": ["Highlight", "Coral"]
+          "tags": [
+            "Highlight",
+            "Coral"
+          ]
         },
         {
           "rank": 2,
           "name": "Ko Ngam Noi",
           "blurb": "Right next to Ko Ngam Yai, its underwater rock walls are lined with sea fans and brightly colored soft coral, with moray eels, groupers and schools of small fish gathered in clusters. A favorite of underwater photographers.",
           "meta": "Snorkeling & diving · sea-fan wall",
-          "tags": ["Soft coral", "Photography"]
+          "tags": [
+            "Soft coral",
+            "Photography"
+          ]
         },
         {
           "rank": 3,
           "name": "Ko Maphrao",
           "blurb": "A small island with a clean white-sand beach and clear shallow water, good for beginners and kids because the shallow-water coral sits close to the surface and is easy to see. Easy to walk the beach too.",
           "meta": "Snorkeling · good for beginners",
-          "tags": ["Beach", "Family"]
+          "tags": [
+            "Beach",
+            "Family"
+          ]
         },
         {
           "rank": 4,
           "name": "Ko Kalok",
           "blurb": "An oddly shaped rock island where boats usually stop so you can snorkel the coral around it. The water is clear and you can see the fish schools easily — a popular stop on the one-day 4-island programs.",
           "meta": "Snorkeling · coral around the island",
-          "tags": ["Clear water", "Day tour"]
+          "tags": [
+            "Clear water",
+            "Day tour"
+          ]
         },
         {
           "rank": 5,
           "name": "Ko Thalu",
           "blurb": "An island whose standout feature is a rock arch you can pass through. The water around it is clear, with coral and fish schools to snorkel over. It's another island on the tour route over by Ko Ran Pet and Ko Ran Kai.",
           "meta": "Snorkeling · rock arch",
-          "tags": ["Photo spot"]
+          "tags": [
+            "Photo spot"
+          ]
         },
         {
           "rank": 6,
           "name": "Ko Ran Pet–Ko Ran Kai",
           "blurb": "A pair of islands that make up another popular snorkeling spot on the far side, with clear shallow water and coral of many kinds. They're usually run as a one-day tour paired with Ko Thalu, with easy boat access from the Lang Suan–Thung Tako piers.",
           "meta": "Snorkeling · day tour",
-          "tags": ["Clear shallows"]
+          "tags": [
+            "Clear shallows"
+          ]
         },
         {
           "rank": 7,
           "name": "Ko Mattra",
           "blurb": "An island with both a sandy beach and a reef. Some tours use it as a lunch and swim stop. The atmosphere is laid-back, good for a mid-trip break.",
           "meta": "Snorkeling · beach break",
-          "tags": ["Beach"]
+          "tags": [
+            "Beach"
+          ]
         },
         {
           "rank": 8,
           "name": "Ko Kula",
           "blurb": "An island on the Ao Kram side with the shortest boat ride, just 15–20 minutes. It has a sandy beach and clear shallow water, with snorkeling and kayaking around the island. Good for anyone who wants an island day without a long boat ride.",
           "meta": "Snorkeling · short boat ride",
-          "tags": ["Kayak", "Close to shore"]
+          "tags": [
+            "Kayak",
+            "Close to shore"
+          ]
         }
       ]
     },
@@ -106,6 +127,43 @@
       "kind": "tip",
       "title": "Where should beginners start",
       "html": "If you've never snorkeled before, start at Ko Maphrao or Ko Kula, where the water is shallow and the coral sits close to the surface. Once you're comfortable, move on to the Ko Ngam group, where the water is deeper and there's a chance of a whale shark. Most tours include life jackets and a guide who stays with you, so just tell the guide up front if you're not a strong swimmer."
+    },
+    {
+      "kind": "experiences",
+      "title": "Want more out of Chumphon? Book tours & activities",
+      "text": "Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue. Pick only the experiences you actually want — prices and availability are shown live on each site.",
+      "items": [
+        {
+          "emoji": "🏞️",
+          "provider": "Klook",
+          "label": "National park day tour",
+          "note": "Popular · book in minutes",
+          "href": "https://www.klook.com/en-US/search/?query=national%20park%20tour%20Chumphon&aid=121442"
+        },
+        {
+          "emoji": "🎟️",
+          "provider": "Klook",
+          "label": "Chumphon attractions & tickets",
+          "note": "Skip-the-line entry tickets",
+          "href": "https://www.klook.com/en-US/search/?query=Chumphon%20attractions%20ticket&aid=121442"
+        },
+        {
+          "emoji": "🚐",
+          "provider": "Klook",
+          "label": "Day trips from Chumphon",
+          "note": "Out and back in a day",
+          "href": "https://www.klook.com/en-US/search/?query=Chumphon%20day%20trip&aid=121442"
+        },
+        {
+          "emoji": "🌎",
+          "provider": "GetYourGuide",
+          "label": "Chumphon activities (GetYourGuide)",
+          "note": "Global tour marketplace",
+          "href": "https://www.getyourguide.com/s/?q=Chumphon&partner_id=__GYG_PARTNER_ID__"
+        }
+      ],
+      "ctaLabel": "🎟️ See all Chumphon tours & activities (Klook)",
+      "ctaHref": "https://www.klook.com/en-US/search/?query=Chumphon&aid=121442"
     },
     {
       "kind": "h2",
@@ -177,14 +235,42 @@
       "label": "Day trip",
       "title": "Snorkel 3–4 islands, there and back in a day",
       "items": [
-        { "time": "07:30", "activity": "Meet at the pier, check in with the tour, pick up your life jacket and snorkeling gear", "note": "Arrive a little early in case parking takes a while" },
-        { "time": "08:00", "activity": "Set off toward the first island; on the way the guide goes over the dive spots and the basic rules" },
-        { "time": "09:00", "activity": "First snorkel stop around Ko Ngam Noi, taking in the soft coral and fish schools", "note": "Sunscreen should be the reef-safe kind" },
-        { "time": "10:30", "activity": "Move on to Ko Ngam Yai, the spot with the best chance of seeing a whale shark" },
-        { "time": "12:00", "activity": "Land on Ko Mattra or Ko Maphrao for lunch and a swim off the beach", "note": "Rest up before the afternoon session" },
-        { "time": "13:30", "activity": "Last snorkel stop at Ko Kalok, clear water with the fish schools easy to see" },
-        { "time": "15:00", "activity": "Pack up and head back to shore, shower and change at the pier" },
-        { "time": "16:00", "activity": "Back at the pier, then on to a seafood meal at the river mouth or in town", "note": "Finish the day with grilled prawns and crab-roe gaeng som" }
+        {
+          "time": "07:30",
+          "activity": "Meet at the pier, check in with the tour, pick up your life jacket and snorkeling gear",
+          "note": "Arrive a little early in case parking takes a while"
+        },
+        {
+          "time": "08:00",
+          "activity": "Set off toward the first island; on the way the guide goes over the dive spots and the basic rules"
+        },
+        {
+          "time": "09:00",
+          "activity": "First snorkel stop around Ko Ngam Noi, taking in the soft coral and fish schools",
+          "note": "Sunscreen should be the reef-safe kind"
+        },
+        {
+          "time": "10:30",
+          "activity": "Move on to Ko Ngam Yai, the spot with the best chance of seeing a whale shark"
+        },
+        {
+          "time": "12:00",
+          "activity": "Land on Ko Mattra or Ko Maphrao for lunch and a swim off the beach",
+          "note": "Rest up before the afternoon session"
+        },
+        {
+          "time": "13:30",
+          "activity": "Last snorkel stop at Ko Kalok, clear water with the fish schools easy to see"
+        },
+        {
+          "time": "15:00",
+          "activity": "Pack up and head back to shore, shower and change at the pier"
+        },
+        {
+          "time": "16:00",
+          "activity": "Back at the pier, then on to a seafood meal at the river mouth or in town",
+          "note": "Finish the day with grilled prawns and crab-roe gaeng som"
+        }
       ]
     },
     {
@@ -192,12 +278,33 @@
       "label": "2 days, 1 night",
       "title": "Dive your fill, stay on an island or in town",
       "items": [
-        { "time": "Day 1 morning", "activity": "Set off to dive the Ko Ngam group, focusing on the deeper spots that day tours don't fully reach" },
-        { "time": "Day 1 afternoon", "activity": "Carry on to another spot, then stay overnight on an island or head back to town", "note": "Some tours have homestays on the Ao Kram side" },
-        { "time": "Day 1 evening", "activity": "Watch the sunset over the sea and have a fresh seafood dinner" },
-        { "time": "Day 2 morning", "activity": "Snorkel a clear-water spot in the morning before the sun gets harsh — fewer people, calmer water", "note": "The water is usually clearer in the morning than the afternoon" },
-        { "time": "Day 2 mid-morning", "activity": "Stop at Ko Maphrao or Ko Kula for shallow-water swimming and kayaking around the island" },
-        { "time": "Day 2 midday", "activity": "Head back to shore, pack up, then pick up some Chumphon souvenirs before you leave", "note": "Robusta coffee and lady-finger bananas are the standout souvenirs" }
+        {
+          "time": "Day 1 morning",
+          "activity": "Set off to dive the Ko Ngam group, focusing on the deeper spots that day tours don't fully reach"
+        },
+        {
+          "time": "Day 1 afternoon",
+          "activity": "Carry on to another spot, then stay overnight on an island or head back to town",
+          "note": "Some tours have homestays on the Ao Kram side"
+        },
+        {
+          "time": "Day 1 evening",
+          "activity": "Watch the sunset over the sea and have a fresh seafood dinner"
+        },
+        {
+          "time": "Day 2 morning",
+          "activity": "Snorkel a clear-water spot in the morning before the sun gets harsh — fewer people, calmer water",
+          "note": "The water is usually clearer in the morning than the afternoon"
+        },
+        {
+          "time": "Day 2 mid-morning",
+          "activity": "Stop at Ko Maphrao or Ko Kula for shallow-water swimming and kayaking around the island"
+        },
+        {
+          "time": "Day 2 midday",
+          "activity": "Head back to shore, pack up, then pick up some Chumphon souvenirs before you leave",
+          "note": "Robusta coffee and lady-finger bananas are the standout souvenirs"
+        }
       ]
     },
     {
