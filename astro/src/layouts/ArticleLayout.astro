@@ -8,15 +8,25 @@ const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${
 const asset = (p: string) => (p?.startsWith('http') ? p : p?.startsWith('/') ? p : `/${p}`);
 const S = isEn
   ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
-      priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page' }
+      priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
+      hoursL: 'Hours', halalL: 'Halal', vegL: 'Veg options', enMenuL: 'English menu', spiceL: 'Spice', usdL: '≈',
+      mapTitle: 'All restaurants on the map', mapSub: 'Tap a pin for the spot + nearby stays', mapStay: 'Stays near here' }
   : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
-      priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน' };
+      priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน',
+      hoursL: 'เวลาเปิด', halalL: 'ฮาลาล', vegL: 'มีเมนูเจ/มังสวิรัติ', enMenuL: 'เมนูอังกฤษ', spiceL: 'ความเผ็ด', usdL: '≈',
+      mapTitle: 'แผนที่ร้านทั้งหมด', mapSub: 'แตะหมุดเพื่อดูร้าน + ที่พักย่านนั้น', mapStay: 'ที่พักย่านนี้' };
 
 const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
 const faq = data.faq ?? [];
+const strip = (s) => (s || '').replace(/<[^>]+>/g, '').trim();
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
+// Map pins (only restaurants with real coordinates). Map renders only when ≥3 pins are available.
+const mapPins = restos
+  .filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number')
+  .map((b) => ({ rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay }));
+const showMap = isResto && mapPins.length >= 3;
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
     { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
@@ -30,6 +40,16 @@ const jsonld = {
       { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${isEn ? '/en' : ''}/country-thailand` },
       { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${isEn ? '/en' : ''}/${data.crumbCityHref.replace(/\.html$/, '')}` },
       { '@type': 'ListItem', position: 4, name: data.title, item: canonical } ] },
+    // Honest ItemList + Restaurant graph (no fabricated ratings) → rich results + AI answer-engine citations.
+    ...(isResto ? [{ '@type': 'ItemList', name: strip(data.title), numberOfItems: restos.length,
+      itemListElement: restos.map((b) => ({ '@type': 'ListItem', position: Number(b.rank),
+        item: { '@type': 'Restaurant', name: strip(b.name),
+          ...(b.cuisine ? { servesCuisine: strip(b.cuisine) } : {}),
+          ...(b.priceRange ? { priceRange: strip(b.priceRange) } : {}),
+          ...(b.lat && b.lng ? { geo: { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng } } : {}),
+          ...(b.area ? { address: { '@type': 'PostalAddress', addressLocality: strip(b.area), addressRegion: data.crumbCity, addressCountry: 'TH' } } : {}),
+          ...(b.img ? { image: b.img.startsWith('http') ? b.img : `${SITE}${b.img}` } : {}),
+          url: `${canonical}#r${b.rank}` } })) }] : []),
     ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ],
 };
@@ -59,6 +79,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+{showMap && <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />}
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--teal:#06B6D4;--teal-dk:#0891b2;--coral:#FB7185;--coral-dk:#f43f5e;--mango:#FBBF24;--ink:#0F172A;--sub:#64748b;--bg:#ffffff;--soft:#f1fbfd;--bdr:#e6eef2}
@@ -154,6 +175,36 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .staycta-links a:hover{background:rgba(255,255,255,.27);transform:translateY(-1px)}
 .staycta-links a .ll{display:flex;align-items:center;gap:7px}.staycta-links a small{font-weight:500;font-size:12px;opacity:.86}
 .staycta-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--coral-dk);font-family:'Outfit';font-weight:800;font-size:15px;padding:14px 28px;border-radius:999px;box-shadow:0 12px 26px rgba(0,0,0,.2);transition:transform .15s}.staycta-btn:hover{transform:translateY(-2px)}
+/* global-tourist info badges */
+.resto-info{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:15px}
+.resto-info .ri{display:inline-flex;align-items:center;gap:5px;font-family:'Outfit';font-size:12px;font-weight:600;color:var(--sub);background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:4px 11px}
+.resto-info .ri b{font-weight:400}
+.resto-info .ri.ok{color:var(--teal-dk);background:#cffafe;border-color:transparent;font-weight:700}
+/* food-experience (tours / cooking classes) module */
+.foodexp{background:var(--soft);border:1.5px solid var(--bdr);border-radius:24px;padding:clamp(22px,4vw,34px);margin:clamp(30px,5vw,48px) 0}
+.foodexp-head{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.foodexp-ic{font-size:34px;line-height:1;flex-shrink:0}
+.foodexp-head h3{font-family:'Outfit';font-weight:900;font-size:clamp(19px,2.8vw,24px);letter-spacing:-.3px;line-height:1.2;color:var(--ink)}
+.foodexp-head p{font-size:14.5px;color:var(--sub);line-height:1.6;margin-top:6px}
+.foodexp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;margin-bottom:18px}@media(max-width:600px){.foodexp-grid{grid-template-columns:1fr}}
+.foodexp-card{position:relative;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--bdr);border-radius:15px;padding:13px 15px 13px 15px;transition:.15s}
+.foodexp-card:hover{border-color:var(--teal);box-shadow:0 8px 20px rgba(6,182,212,.14);transform:translateY(-1px)}
+.foodexp-emoji{font-size:24px;flex-shrink:0}
+.foodexp-body{display:flex;flex-direction:column;gap:2px;min-width:0}
+.foodexp-label{font-family:'Outfit';font-weight:700;font-size:14.5px;color:var(--ink);line-height:1.25}
+.foodexp-body small{font-size:12px;color:var(--sub)}
+.foodexp-prov{position:absolute;top:9px;right:11px;font-family:'Outfit';font-size:9.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--coral-dk)}
+.foodexp-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;font-family:'Outfit';font-weight:800;font-size:14.5px;padding:13px 26px;border-radius:999px;box-shadow:0 12px 24px rgba(6,182,212,.3);transition:transform .15s}.foodexp-btn:hover{transform:translateY(-2px)}
+/* all-restaurants map (Leaflet / OpenStreetMap) */
+.rmap-sec{padding:30px 0 6px}
+.rmap-h{font-family:'Outfit';font-weight:900;font-size:clamp(20px,3vw,26px);letter-spacing:-.4px;color:var(--ink)}
+.rmap-sub{font-size:14px;color:var(--sub);margin:5px 0 16px}
+#rmap{height:clamp(320px,52vw,440px);border-radius:20px;border:1.5px solid var(--bdr);box-shadow:0 14px 36px rgba(15,23,42,.1);position:relative;z-index:1}
+.rpin{background:none!important;border:none!important}
+.rpin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:14px;box-shadow:0 3px 10px rgba(244,63,94,.45);border:2px solid #fff}
+.leaflet-popup-content{font-family:'Sarabun',sans-serif;font-size:14px;margin:11px 14px}
+.leaflet-popup-content b{font-family:'Outfit';font-weight:800}
+.leaflet-popup-content a{color:var(--teal-dk);font-weight:700}
 @media(max-width:760px){.resto{grid-template-columns:1fr;gap:16px;margin:38px 0}.resto-media,.resto.flip .resto-media{order:-1}.resto-rank{top:-12px;left:-6px}}
 .figimg{margin:18px 0 20px}.figimg img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px;box-shadow:0 12px 30px rgba(15,23,42,.10)}
 .figimg figcaption{font-family:'Outfit';font-size:12px;color:var(--sub);margin-top:8px;text-align:center;line-height:1.5}
@@ -250,6 +301,38 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 {isResto &&
   <nav class="qnav"><div class="qnav-row">{restos.map((r) => <a href={`#r${r.rank}`}><b>{r.rank}</b><span set:html={r.name} /></a>)}</div></nav>}
 
+{showMap && (
+  <section class="rmap-sec"><div class="wrap">
+    <h2 class="rmap-h">📍 {S.mapTitle}</h2>
+    <p class="rmap-sub">{S.mapSub}</p>
+    <div id="rmap"></div>
+  </div></section>
+)}
+{showMap && <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>}
+{showMap && (
+  <script define:vars={{ pins: mapPins }}>
+    (function () {
+      function init() {
+        if (!window.L || !document.getElementById('rmap')) return;
+        var map = L.map('rmap', { scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+        var pts = [];
+        pins.forEach(function (p) {
+          var icon = L.divIcon({ className: 'rpin', html: '<span>' + p.rank + '</span>', iconSize: [30, 30], iconAnchor: [15, 15] });
+          var m = L.marker([p.lat, p.lng], { icon: icon }).addTo(map);
+          var html = '<b>' + p.name + '</b>';
+          if (p.stayHref) html += '<br><a href="' + p.stayHref + '">🏨 ' + p.stayLabel + ' &rarr;</a>';
+          m.bindPopup(html);
+          pts.push([p.lat, p.lng]);
+        });
+        if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 15 });
+      }
+      if (document.readyState !== 'loading' && window.L) init();
+      else window.addEventListener('load', init);
+    })();
+  </script>
+)}
+
 <article class="body"><div class="wrap">
   {data.blocks.map((b) => (
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
@@ -280,6 +363,15 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <div class="resto-content">
           {b.tags && b.tags.length > 0 &&
             <div class="resto-tags">{b.tags.map((t, i) => <span class={`resto-tag c${i % 3}`} set:html={t} />)}</div>}
+          {(b.hours || b.priceUsd || b.spice || b.halal || b.veg || b.englishMenu) &&
+            <div class="resto-info">
+              {b.hours && <span class="ri"><b>🕐</b><span set:html={b.hours} /></span>}
+              {b.priceUsd && <span class="ri"><b>💵</b>{S.usdL}&nbsp;<span set:html={b.priceUsd} /></span>}
+              {b.spice && <span class="ri"><b>🌶️</b><span set:html={b.spice} /></span>}
+              {b.halal && <span class="ri ok"><b>🕌</b>{S.halalL}</span>}
+              {b.veg && <span class="ri ok"><b>🥗</b>{S.vegL}</span>}
+              {b.englishMenu && <span class="ri ok"><b>📋</b>{S.enMenuL}</span>}
+            </div>}
           {b.signature && <div class="resto-sig"><span>🥢</span><span><b>{S.sigLabel} — </b><span set:html={b.signature} /></span></div>}
           <div class="resto-desc" set:html={b.descHtml} />
           {b.mustOrder && b.mustOrder.length > 0 &&
@@ -294,6 +386,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <div class="staycta-links">{b.links.map((l) => <a href={link(l.href)}><span class="ll" set:html={l.label} />{l.note && <small set:html={l.note} />}</a>)}</div>
         {b.ctaHref && <a class="staycta-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
       </div>
+    </section> :
+    b.kind === 'foodexp' ? <section class="foodexp">
+      <div class="foodexp-head"><span class="foodexp-ic">🍢</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
+      <div class="foodexp-grid">{b.items.map((it) => (
+        <a class="foodexp-card" href={it.href} target="_blank" rel="sponsored nofollow noopener">
+          <span class="foodexp-emoji">{it.emoji ?? '🥢'}</span>
+          <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
+          {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
+        </a>))}</div>
+      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
     </section> :
     b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
     b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :

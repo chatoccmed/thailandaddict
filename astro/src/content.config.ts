@@ -226,10 +226,18 @@ const articleBlock = z.discriminatedUnion('kind', [
     img: z.string(), alt: z.string(), credit: z.string().optional(), creditHref: z.string().optional(),
     descHtml: z.string(), mustOrder: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
     mapHref: z.string().optional(), fbHref: z.string().optional(),
-    stayHref: z.string().optional(), stayLabel: z.string().optional() }),
+    stayHref: z.string().optional(), stayLabel: z.string().optional(),
+    // Global-tourist info layer (badges) + geo for the map. All optional · back-compat.
+    hours: z.string().optional(), priceUsd: z.string().optional(), spice: z.string().optional(),
+    halal: z.boolean().optional(), veg: z.boolean().optional(), englishMenu: z.boolean().optional(),
+    lat: z.number().optional(), lng: z.number().optional() }),
   // Hotel-booking conversion module (drives readers → accommodation pages). Additive · back-compat.
   z.object({ kind: z.literal('staycta'), title: z.string(), text: z.string().optional(), img: z.string().optional(),
     links: z.array(z.object({ label: z.string(), href: z.string(), note: z.string().optional() })),
+    ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
+  // Food-experience monetization module (food tours / cooking classes — Klook/affiliate). Additive · back-compat.
+  z.object({ kind: z.literal('foodexp'), title: z.string(), text: z.string().optional(),
+    items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional() })),
     ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
   z.object({ kind: z.literal('list'), items: z.array(z.string()) }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
