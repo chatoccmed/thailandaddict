@@ -5,17 +5,27 @@
 ## 🎯 งานนี้คืออะไร
 content type ใหม่ตาม owner: **"10 ร้านอาหารยอดนิยมในจังหวัด<X>"** ทุกจังหวัด — รีวิว **≥200 คำ/ร้าน** (วิจัยจริงจาก Google/Wongnai/Facebook/YouTube), **รูปจริงของร้าน + เครดิตภาพ** (เว็บทางการ/เพจ FB/Wongnai/บล็อกอาหาร), **ลิงก์ไปหน้าโรงแรม** (รายได้หลัก = จองที่พัก). ใช้ articleSchema (type `eat-ranking`).
 
-## ✅ สถานะ (2026-06-20): GOLD REFERENCE เชียงใหม่ "v2" — เพิ่ม 4 ฟีเจอร์ใหญ่ + sticky rail (committed `97714eed`, pushed)
-ไฟล์: `astro/src/content/articles/top10-popular-restaurants-chiang-mai.json` · slug `top10-popular-restaurants-chiang-mai` · cluster chiang-mai
-- 10 ร้านจริง · ทุกร้าน ≥300 คำ · รูป+เครดิตครบ 10/10 (`astro/public/images/food/chiang-mai/<slug>.jpg`)
-- **owner สั่ง(2026-06-20) ให้ฝัง 4 อย่างใน template ก่อนสเกลทุกจังหวัด** แล้วทำ CM เป็น gold reference:
-  1. **foodexp** — โมดูลฟู้ดทัวร์/คลาสทำอาหาร (Klook `aid=121442`, ลิงก์ search/<city>) = รายได้สายอาหารตรง ๆ (วางหลังร้าน#10 ก่อน tip)
-  2. **ชั้นข้อมูลนักท่องเที่ยวต่างชาติ** (badges ต่อร้าน): hours/priceUsd/spice/halal/veg/englishMenu — honest (ไม่จริงไม่ใส่)
-  3. **แผนที่ Leaflet/OSM** ปักหมุด 10 ร้าน (ต้องมี lat/lng ≥3 จุดถึงโชว์) หมุด → popup ลิงก์ที่พักย่านนั้น · อยู่ในคอลัมน์เนื้อหา
-  4. **JSON-LD AEO** (bonus, owner ไม่ได้เลือกแต่ผมแถมเพราะคุ้ม) = ItemList + Restaurant + GeoCoordinates (ไม่มี rating ปลอม → EEAT ผ่าน)
-- **+ sticky right rail (owner feedback รอบ 2)** — แถบการ์ดรีวิวโรงแรม (รูป+ชื่อ+โน้ต) ด้านขวา เลื่อนตาม (sticky top:80px) · **เดสก์ท็อปเท่านั้น ≥1025px, มือถือซ่อน** (ใช้ staycta/foodexp inline แทน) · field ใหม่ `rail` ใน articleSchema · CM ใช้ 5 roundup (heroImg)
-- เลย์เอาต์เดิม (roundup-style entry: .resto-head → .resto-body 2 คอลัมน์) ยังอยู่ครบ แค่เสริมของใหม่
-- **⏸️ PAUSED รอ owner (2026-06-20):** owner กำลังรีวิว gold reference v2 ที่ `:4400` เอง — **อย่าสเกลจนกว่า owner สั่ง** ("[User dismissed — wait for next instruction]")
+## ✅ สถานะ (2026-06-20): GOLD REFERENCE เชียงใหม่ "v3" สมบูรณ์ (committed `8b2075ee`, pushed) — รอ owner เคาะ "สเกลต่อ"
+ไฟล์: `astro/src/content/articles/top10-popular-restaurants-chiang-mai.json` · 10 ร้านจริง ≥300 คำ · รูป 40 รูป (10×4) เครดิตครบ
+**ฟีเจอร์ครบใน template (ฝังใน ArticleLayout + articleSchema, additive ไม่กระทบ 3,213 บทความเดิม):**
+1. **คะแนน+จำนวนรีวิวจริง** ทุกร้าน (Google) → `rating/ratingCount/ratingSrc` + **AggregateRating JSON-LD** (ของจริง ไม่ปลอม)
+2. **แกลเลอรี 4 รูป/ร้าน** (main + `gallery[3]`) กดสลับ thumbnail ได้ (JS in layout)
+3. **ตัวกรอง 4 แกน** (client JS): ประเภท `foodType` / ย่าน `zone` / ราคา (derived จาก priceUsd) / 🥗veg+🕌halal toggle — AND-combine + นับผลสด + sync qnav (chip group conditional: โชว์เมื่อ data ≥2 ค่า)
+4. **best-for** (`bestFor`) badge ต่อร้าน · **zone** tag
+5. **แผนที่ Leaflet/OSM** + **ระยะร้านใกล้สุด** ใน popup (Haversine จาก lat/lng) · **ชั้นข้อมูลต่างชาติ** (hours/priceUsd/spice/halal/veg/englishMenu badges)
+6. **กล่อง "รู้ก่อนไปกิน"** (`localtips` block: icon/title/text) · **บรรทัดความสด** (`🔄 ตรวจสอบล่าสุด <modifiedDate>`)
+7. **sticky right rail** (เดสก์ท็อป ≥1025px): 🏨 hotel roundups + 🍢 foodexp (Klook) 2 ส่วน follow scroll, ไม่มี scrollbar · มือถือซ่อน rail → inline staycta/foodexp แทน
+8. **foodexp** (Klook `aid=121442`) · **staycta** (Agoda) · **นโยบายลิขสิทธิ์+แจ้งลบ** ท้ายทุกบทความ (ลิงก์ contact.html, TH+EN)
+- **⚠️ นโยบายรูป (owner เคาะ 2026-06-20):** ใช้รูป **ทุกแหล่ง + เครดิตทุกใบ + กล่องแจ้งลบ** (ลองนโยบาย "เฉพาะแหล่งทางการ" แล้ว — **ไม่เวิร์ก**: เพจ FB ร้านโพสต์อีเวนต์/โปรโมตไม่ใช่อาหาร, Google Maps ทำ Chrome extension ค้าง 300s, เว็บทางการมีแค่ ~2/10 ร้าน → รูปอาหารจริงอยู่บน Wongnai/รีวิว/บล็อก ใช้พร้อมเครดิต+แจ้งลบตามมาตรฐานเว็บท่องเที่ยว). engine RULES = "ทุกแหล่ง+เครดิต · ห้าม Trip.com/stock/รูปผิดร้าน"
+- **⏸️ รอ owner เคาะ "สเกลต่อ"** — gold reference v3 สมบูรณ์ที่ `:4400` · **อย่าสเกลจนกว่า owner สั่ง**
+
+## ⚙️ ก่อนสเกล: ต้อง WIRE ENGINE ให้ครบ v3 ก่อน (สำคัญ!)
+engine `restaurants-roundup.js` ปัจจุบันมี: PLAN/WRITE(info fields:hours/priceUsd/spice/halal/veg/englishMenu/lat/lng)/FRAME(prose+foodTitle/foodText)/Assemble(restaurant+staycta+foodexp blocks, deterministic return). **ยังขาดสำหรับ v3:**
+- WRITE_SCHEMA ยังไม่มี: `rating`/`ratingCount`/`ratingSrc` (วิจัย Google), `bestFor`, `zone`, `foodType` → ต้องเพิ่ม + ให้ write agent วิจัย
+- ยังไม่ดึง **4 รูป/ร้าน** (ตอนนี้ดึง 1) + ยังไม่สร้าง `gallery` ใน restoBlock → ต้องเพิ่ม
+- ยังไม่ใส่ **rail** (hotel roundups) ใน article + ยังไม่สร้าง **localtips** block → ต้องเพิ่ม (rail ใช้ heroImg ของ roundup จริง — main loop ส่ง list เข้า args)
+- staycta/rail labels ยังดึงจาก h1 roundup (รก) → ให้ Frame agent เขียน label สั้นสวย (ดู `build-resto-args.mjs` draft + ปัญหาที่ note ไว้)
+**แนะนำ:** wire engine ครบ → ทดสอบ Bangkok 1 จังหวัด (owner เลือกตอน lean, 7 roundup) → verify เทียบ CM → owner ดู → ค่อยสเกล 76 ที่เหลือ
 
 ## 🏗️ Infra (schema/layout — additive, ไม่กระทบ 3,213 บทความเดิม)
 - `astro/src/content.config.ts` articleBlock เพิ่ม 3 ชนิด: **`image`** (รูป+เครดิต), **`restaurant`** (rich card: rank/name/area/cuisine/signature/priceRange/score/img/alt/credit/creditHref/descHtml/mustOrder/tags/mapHref/fbHref/**stayHref/stayLabel**), **`staycta`** (โมดูลจองที่พัก: title/text/img/links[]/ctaLabel/ctaHref)
