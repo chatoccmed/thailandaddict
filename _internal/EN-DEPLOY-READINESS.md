@@ -26,7 +26,7 @@
 - **ไม่ต้องรัน gen-hubs ตอน deploy** — ไฟล์ hub HTML commit ไว้ใน repo แล้ว (เป็น source ของ `public/`)
 
 ## ✅ Pre-deploy checklist
-- [x] **sitemap: ทำแล้ว** — `astro/public/sitemap.xml` (10,942 URLs: TH 5,471 + EN 5,471 · มี hreflang th/en/x-default · clean URLs) · regenerate: `node _internal/gen-sitemap.mjs` · robots.txt ชี้ไฟล์นี้อยู่แล้ว
+- [x] **sitemap + หน้าแรก auto จาก build** — `npm run build` มี **prebuild** (`astro/prebuild.mjs`) ที่รัน `gen-home.mjs` (สถิติหน้าแรก + ข้อมูลแผนที่ 77 จังหวัด) + `gen-sitemap.mjs` ทุกครั้ง → ตัวเลข/sitemap ไม่มีวันค้าง · prebuild no-op เองตอน build-test (isolated) · sitemap = 10,942 URLs (TH 5,471 + EN 5,471 · hreflang · clean URLs)
 - [x] **`_redirects` / `_headers`**: ตรวจแล้ว — `_headers /*` ครอบ /en/ · `_redirects` ว่าง ไม่ block · (redirect ภาษา Accept-Language = optional ทำทีหลังได้)
 - [x] **robots.txt**: `Allow: /` ครอบ /en/ แล้ว · Sitemap ชี้ /sitemap.xml (มีไฟล์แล้ว)
 - [ ] 404: EN มี `/en/404.html` แล้ว — ตรวจ Cloudflare (`not_found_handling` ใน wrangler) ว่าเสิร์ฟ 404 ต่อ path /en/ ถูก (หรือใช้ root 404)
@@ -37,6 +37,7 @@
 - เพิ่ม/แก้ content: แก้ JSON ใน `articles-en/`, `reviews-en/`, `roundups-en/` (โครง/คีย์ตาม TH · ห้ามมีไทยใน field ที่ผู้ใช้เห็น)
 - re-gen hubs: `node _internal/gen-hubs.mjs` — **ต้องมี `province-data-en/` ครบ 89** ไม่งั้น neighbor cards โชว์ไทย
 - เพิ่มจังหวัด/เมืองใหม่: เพิ่มชื่อ EN ใน `EN_NAME` map (ใน `gen-hubs.mjs`) + สร้าง `province-data-en/<slug>.json`
+- **หน้าแรก (สถิติ + แผนที่ 77 จังหวัด):** อัตโนมัติจาก content ทุก build ผ่าน `_internal/gen-home.mjs` (มีตาราง lat/lng 77 จังหวัด + region/สี · markercluster) → ถ้าเพิ่มจังหวัดต้องเพิ่มพิกัดใน `PV` array ของ gen-home.mjs · สถิติใช้รูปแบบ `1,900+` (ปัดร้อย) จึงไม่ค้างเมื่อ content โต · รันมือ: `node _internal/gen-home.mjs`
 - ตรวจ ZERO Thai ก่อน push เสมอ: `node -e '...regex /[ก-๛]/...'` (ยกเว้น ฿)
 
 ## งานถัดไป (ยังไม่เริ่ม)

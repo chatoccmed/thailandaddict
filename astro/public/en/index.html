@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"ThailandAddict","url":"https://thailandaddict.com","description":"A Thailand travel guide from people who actually go — hotel, food and attraction reviews plus trip plans across Thailand","inLanguage":"en","potentialAction":{"@type":"SearchAction","target":"https://thailandaddict.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
 </script>
@@ -197,7 +198,14 @@ button{cursor:pointer;font-family:inherit}
 /* MAP */
 .map-box{height:440px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--bdr)}
 @media(max-width:600px){.map-box{height:340px}}
-#map{width:100%;height:100%}
+#map{width:100%;height:100%;background:#eaf4f7}
+.mpin{display:block;width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 7px rgba(15,40,70,.35);transition:transform .15s}
+.leaflet-marker-icon:hover .mpin{transform:scale(1.35)}
+.mclu{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--bl),var(--or));color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;border:3px solid #fff;box-shadow:0 4px 14px rgba(6,182,212,.4)}
+.map-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:14px;justify-content:center}
+.mleg{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:600;color:var(--sub)}
+.mleg i{width:11px;height:11px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 14px 40px rgba(15,40,70,.22)}.leaflet-popup-content{margin:13px 15px}
 .lp{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;min-width:170px}
 .lp-name{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px}
 .lp-loc{font-size:11.5px;color:var(--mut);margin-bottom:8px}
@@ -335,9 +343,9 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="n">77</div><div class="l">Provinces ready</div></div>
-  <div class="stat"><div class="n">1,900+</div><div class="l">Hotel reviews</div></div>
-  <div class="stat"><div class="n">3,200+</div><div class="l">Travel articles</div></div>
+  <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">Provinces ready</div></div>
+  <div class="stat"><div class="n" data-stat="reviews">1,900+</div><div class="l">Hotel reviews</div></div>
+  <div class="stat"><div class="n" data-stat="articles">3,200+</div><div class="l">Travel articles</div></div>
   <div class="stat"><div class="n">100%</div><div class="l">Real reviews</div></div>
 </div>
 
@@ -383,6 +391,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
   <div class="inner">
     <div class="s-head"><div><div class="slbl">Every destination on the map</div><div class="stit">Popular provinces <em>ready to go</em></div><div class="ssub">Tap a pin to open that province's travel guide</div></div></div>
     <div class="map-box"><div id="map"></div></div>
+    <div class="map-legend"><span class="mleg"><i style="background:#06B6D4"></i>North</span><span class="mleg"><i style="background:#FBBF24"></i>Isan</span><span class="mleg"><i style="background:#FB7185"></i>Central</span><span class="mleg"><i style="background:#10B981"></i>East</span><span class="mleg"><i style="background:#A78BFA"></i>West</span><span class="mleg"><i style="background:#F97316"></i>South</span></div>
   </div>
 </section>
 
@@ -424,21 +433,89 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 <div class="mbar"><a class="m1" href="country-thailand.html">🇹🇭 Pick a province</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">🏨 Find a stay</a></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script>
+/*GEN:PROV*/
 var PROV=[
- {s:'chiang-mai',n:'Chiang Mai',r:'North',t:'old town, cafes, mountain views',lat:18.79,lng:98.98},
- {s:'bangkok',n:'Bangkok',r:'Central',t:'old temples, markets, cafes, rooftops',lat:13.75,lng:100.50},
- {s:'phuket',n:'Phuket',r:'Andaman',t:'beaches, Sino old town, clear islands',lat:7.88,lng:98.39},
- {s:'krabi',n:'Krabi',r:'Andaman',t:'clear sea, pretty islands, limestone cliffs',lat:8.09,lng:98.91},
- {s:'chiang-rai',n:'Chiang Rai',r:'North',t:'art temples, mountains, tea farms',lat:19.91,lng:99.84},
- {s:'surat-thani',n:'Surat Thani',r:'South',t:'Cheow Lan lake, Samui, Koh Tao',lat:9.14,lng:99.33},
- {s:'chonburi',n:'Chonburi · Pattaya',r:'East',t:'Bang Saen, Koh Larn, Pattaya',lat:12.93,lng:100.88},
- {s:'prachuap-khiri-khan',n:'Hua Hin · Prachuap',r:'West',t:'Hua Hin beach, Sam Roi Yot',lat:12.57,lng:99.96},
- {s:'kanchanaburi',n:'Kanchanaburi',r:'West',t:'waterfalls, River Kwai, river rafts',lat:14.02,lng:99.53},
- {s:'phang-nga',n:'Phang Nga',r:'Andaman',t:'Phang Nga Bay, Similan, Khao Lak',lat:8.45,lng:98.53},
- {s:'ayutthaya',n:'Ayutthaya',r:'Central',t:'old temples, world heritage, cycling',lat:14.35,lng:100.58},
- {s:'trat',n:'Trat',r:'East',t:'Koh Chang, Koh Kood, Koh Mak',lat:12.24,lng:102.51}
+ {s:'bangkok',n:'Bangkok',r:'Central',t:'The capital where old temples, high-rises, and street food share the same soi',lat:13.75,lng:100.5,c:'#FB7185'},
+ {s:'chiang-mai',n:'Chiang Mai',r:'North',t:'An old town in the valley that’s easy to stay in longer than planned',lat:18.79,lng:98.98,c:'#06B6D4'},
+ {s:'phuket',n:'Phuket',r:'South',t:'A big Andaman island with white-sand beaches, a Sino-Portuguese old town, and Hokkien food',lat:7.88,lng:98.39,c:'#F97316'},
+ {s:'krabi',n:'Krabi',r:'South',t:'Andaman limestone cliffs, white-sand beaches, clear islands, rock climbing at Railay, and emerald-green water',lat:8.09,lng:98.91,c:'#F97316'},
+ {s:'chiang-rai',n:'Chiang Rai',r:'North',t:'Thailand’s northernmost city, with striking temples, high mountains, and tea farms',lat:19.91,lng:99.84,c:'#06B6D4'},
+ {s:'chonburi',n:'Chonburi',r:'East',t:'Thailand’s eastern seaboard — Pattaya, nearby islands, and fresh seafood, all a short drive from Bangkok',lat:13.36,lng:100.98,c:'#10B981'},
+ {s:'surat-thani',n:'Surat Thani',r:'South',t:'The ’town of a hundred islands’ on the Gulf of Thailand — gateway to Samui, Cheow Lan Lake, and the old temple town of Chaiya',lat:9.14,lng:99.33,c:'#F97316'},
+ {s:'prachuap-khiri-khan',n:'Prachuap Khiri Khan',r:'West',t:'Thailand’s narrowest province, home to Hua Hin, the three-bay coast of Prachuap, Khao Takiab, and Khao Sam Roi Yot National Park',lat:12.57,lng:99.96,c:'#A78BFA'},
+ {s:'kanchanaburi',n:'Kanchanaburi',r:'West',t:'Home of the Bridge over the River Kwai, big waterfalls, the forested west, and riverside raft houses you can stay on all year',lat:14.02,lng:99.53,c:'#A78BFA'},
+ {s:'ayutthaya',n:'Ayutthaya',r:'Central',t:'A former royal capital and World Heritage city — wander old temple ruins and cycle the island.',lat:14.35,lng:100.58,c:'#FB7185'},
+ {s:'rayong',n:'Rayong',r:'East',t:'An eastern seaside province with Koh Samet, quiet beaches, fruit orchards, and famous dried seafood',lat:12.68,lng:101.28,c:'#10B981'},
+ {s:'trat',n:'Trat',r:'East',t:'Thailand’s last province on the eastern coast, home to Koh Chang, Koh Kood, and Koh Mak — clear water and quiet seas',lat:12.24,lng:102.51,c:'#10B981'},
+ {s:'phang-nga',n:'Phang Nga',r:'South',t:'Limestone-bay country on the Andaman — home to James Bond Island, the Similans, and Khao Lak',lat:8.45,lng:98.53,c:'#F97316'},
+ {s:'nan',n:'Nan',r:'North',t:'An old town in a valley with pretty temples, good coffee, and mountain roads up to the morning mist',lat:18.78,lng:100.77,c:'#06B6D4'},
+ {s:'mae-hong-son',n:'Mae Hong Son',r:'North',t:'City of three mists at the end of the winding road',lat:19.3,lng:97.97,c:'#06B6D4'},
+ {s:'sukhothai',n:'Sukhothai',r:'North',t:'A World Heritage city — old stupas scattered across open fields',lat:17.01,lng:99.82,c:'#06B6D4'},
+ {s:'nakhon-ratchasima',n:'Nakhon Ratchasima',r:'Isan',t:'The gateway to Isan — Khao Yai, Khmer temples, and vineyards an easy drive from Bangkok',lat:14.97,lng:102.1,c:'#FBBF24'},
+ {s:'phetchabun',n:'Phetchabun',r:'North',t:'Mist over Khao Kho, chilly nights on Phu Tab Berk, and the sweet tamarind the province is known for',lat:16.42,lng:101.16,c:'#06B6D4'},
+ {s:'lamphun',n:'Lamphun',r:'North',t:'A quiet little town that’s the oldest in the North',lat:18.58,lng:99.01,c:'#06B6D4'},
+ {s:'lampang',n:'Lampang',r:'North',t:'Horse carriages and old temples — a town made for slow walks all day',lat:18.29,lng:99.49,c:'#06B6D4'},
+ {s:'phayao',n:'Phayao',r:'North',t:'A small town by the lake where you slow down and watch the sunset every evening',lat:19.17,lng:99.9,c:'#06B6D4'},
+ {s:'phrae',n:'Phrae',r:'North',t:'Teak houses and indigo-dyed cloth, an old town to wander slowly',lat:18.14,lng:100.14,c:'#06B6D4'},
+ {s:'uttaradit',n:'Uttaradit',r:'North',t:'Home of langsat fruit, Sirikit Dam, and the legendary town of Laplae',lat:17.62,lng:100.1,c:'#06B6D4'},
+ {s:'phitsanulok',n:'Phitsanulok',r:'North',t:'Home of the Phra Phuttha Chinnarat, gateway to the eastern mountains',lat:16.82,lng:100.27,c:'#06B6D4'},
+ {s:'tak',n:'Tak',r:'North',t:'A western border province with a huge waterfall deep in the jungle',lat:16.87,lng:99.13,c:'#06B6D4'},
+ {s:'kamphaeng-phet',n:'Kamphaeng Phet',r:'North',t:'A quiet World Heritage town known for its sweet egg bananas',lat:16.48,lng:99.52,c:'#06B6D4'},
+ {s:'phichit',n:'Phichit',r:'North',t:'Chalawan’s town, Bueng Si Fai, and riverside life along the Nan',lat:16.44,lng:100.35,c:'#06B6D4'},
+ {s:'nakhon-sawan',n:'Nakhon Sawan',r:'North',t:'Pak Nam Pho, where the Chao Phraya River begins and the biggest Chinese New Year in Thailand happens',lat:15.7,lng:100.14,c:'#06B6D4'},
+ {s:'uthai-thani',n:'Uthai Thani',r:'North',t:'A small town on the Sakae Krang River, next to the Huai Kha Khaeng World Heritage forest',lat:15.38,lng:100.02,c:'#06B6D4'},
+ {s:'buriram',n:'Buriram',r:'Isan',t:'Stone temples on extinct volcanoes, plus the home of Thai football and big-league motorsport',lat:14.99,lng:103.1,c:'#FBBF24'},
+ {s:'surin',n:'Surin',r:'Isan',t:'Elephant country, Khmer temples, and the handwoven silk of southern Isan',lat:14.88,lng:103.49,c:'#FBBF24'},
+ {s:'sisaket',n:'Sisaket',r:'Isan',t:'Volcanic-soil durian, Khmer temples, and the Khao Phra Wihan border trail in the deep south of Isan',lat:15.12,lng:104.32,c:'#FBBF24'},
+ {s:'ubon-ratchathani',n:'Ubon Ratchathani',r:'Isan',t:'A Mekong-side city in Thailand’s far east — Pha Taem, Sam Phan Bok, and the Candle Festival',lat:15.24,lng:104.85,c:'#FBBF24'},
+ {s:'yasothon',n:'Yasothon',r:'Isan',t:'Home of the rocket festival, Phra That Kong Khao Noi, and the Ban Singha Tha old town',lat:15.79,lng:104.15,c:'#FBBF24'},
+ {s:'chaiyaphum',n:'Chaiyaphum',r:'Isan',t:'Pink siam tulip fields in the rains, the stone pillars of Mo Hin Khao, and Ban Khwao silk',lat:15.81,lng:102.03,c:'#FBBF24'},
+ {s:'amnat-charoen',n:'Amnat Charoen',r:'Isan',t:'A small town in the southern Isan, home to the giant Phra Mongkhon Ming Muang Buddha and quiet rice-field life',lat:15.86,lng:104.63,c:'#FBBF24'},
+ {s:'nong-bua-lamphu',n:'Nong Bua Lamphu',r:'Isan',t:'A small town below the Phu Phan range, Luang Pu Khao’s Wat Tham Klong Phen, and the Ubolratana reservoir',lat:17.2,lng:102.44,c:'#FBBF24'},
+ {s:'khon-kaen',n:'Khon Kaen',r:'Isan',t:'Isaan’s hub city — dinosaurs, Bueng Kaen Nakhon lake, and countryside mudmee silk',lat:16.44,lng:102.83,c:'#FBBF24'},
+ {s:'udon-thani',n:'Udon Thani',r:'Isan',t:'The big city of the upper Isan, with the Ban Chiang World Heritage site, the Red Lotus Sea, and great Vietnamese food',lat:17.41,lng:102.79,c:'#FBBF24'},
+ {s:'loei',n:'Loei',r:'Isan',t:'Cool mountain air, the Phu Kradueng sea of fog, and the Phi Ta Khon festival in Dan Sai',lat:17.49,lng:101.73,c:'#FBBF24'},
+ {s:'nong-khai',n:'Nong Khai',r:'Isan',t:'A Mekong border town with the Friendship Bridge to Laos, Sala Kaew Ku, and the Naga fireballs',lat:17.88,lng:102.74,c:'#FBBF24'},
+ {s:'maha-sarakham',n:'Maha Sarakham',r:'Isan',t:'The education hub of central Isan — Phra That Na Dun, ancient Khmer ruins, and a lively student scene',lat:16.18,lng:103.3,c:'#FBBF24'},
+ {s:'roi-et',n:'Roi Et',r:'Isan',t:'Home of Bueng Phlan Chai, the great Phra Maha Chedi Chai Mongkol, and the Thung Kula Ronghai plains',lat:16.05,lng:103.65,c:'#FBBF24'},
+ {s:'kalasin',n:'Kalasin',r:'Isan',t:'Isan’s dinosaur town — Praewa silk, Lam Pao Dam, and the Phu Phan range',lat:16.43,lng:103.51,c:'#FBBF24'},
+ {s:'sakon-nakhon',n:'Sakon Nakhon',r:'Isan',t:'Home of Wat Phra That Choeng Chum, hand-dyed indigo cloth, the wide Nong Han lake, and the Phu Phan hills',lat:17.16,lng:104.15,c:'#FBBF24'},
+ {s:'nakhon-phanom',n:'Nakhon Phanom',r:'Isan',t:'A Mekong town facing the mountains of Laos — Phra That Phanom, an evening riverside walk, and an old Vietnamese quarter',lat:17.39,lng:104.78,c:'#FBBF24'},
+ {s:'mukdahan',n:'Mukdahan',r:'Isan',t:'A Mekong border town across from Savannakhet — the Indochina Market, Ho Kaeo Mukdahan tower, and the rock views of Phu Pha Thoep',lat:16.54,lng:104.72,c:'#FBBF24'},
+ {s:'bueng-kan',n:'Bueng Kan',r:'Isan',t:'Isan’s newest Mekong town — Phu Tok’s wooden stairways, the Three Whale Rocks, and rubber plantations as far as you can see',lat:18.36,lng:103.65,c:'#FBBF24'},
+ {s:'nonthaburi',n:'Nonthaburi',r:'Central',t:'A Chao Phraya riverside town that blends seamlessly into Bangkok',lat:13.86,lng:100.51,c:'#FB7185'},
+ {s:'pathum-thani',n:'Pathum Thani',r:'Central',t:'Rangsit at the end of the train line, canal-side rice fields, theme parks, and a big science museum',lat:14.02,lng:100.53,c:'#FB7185'},
+ {s:'samut-prakan',n:'Samut Prakan',r:'Central',t:'The river-mouth town on the Gulf of Thailand, with old forts, the Ancient City, and seaside fish markets',lat:13.6,lng:100.6,c:'#FB7185'},
+ {s:'samut-sakhon',n:'Samut Sakhon',r:'Central',t:'Mahachai, the port town on the Gulf with a huge fish market, salt flats, and fresh seafood',lat:13.55,lng:100.27,c:'#FB7185'},
+ {s:'samut-songkhram',n:'Samut Songkhram',r:'Central',t:'The small riverside town of Mae Klong, where three waters meet — home to the Maeklong Railway Market, Amphawa Floating Market, and coconut groves everywhere',lat:13.41,lng:100,c:'#FB7185'},
+ {s:'nakhon-pathom',n:'Nakhon Pathom',r:'Central',t:'Home of the giant Phra Pathom Chedi, next door to Bangkok, with old markets, floating markets, and loads of famous food',lat:13.82,lng:100.06,c:'#FB7185'},
+ {s:'ang-thong',n:'Ang Thong',r:'Central',t:'A flat river plain with a giant Buddha, old temples, craft villages, and life along the Chao Phraya',lat:14.59,lng:100.45,c:'#FB7185'},
+ {s:'lopburi',n:'Lopburi',r:'Central',t:'City of monkeys and King Narai’s palace, with sunflower fields in the cool season',lat:14.8,lng:100.65,c:'#FB7185'},
+ {s:'sing-buri',n:'Sing Buri',r:'Central',t:'Home of the Bang Rachan heroes, Mae La snakehead fish, and old temples along the Chao Phraya River',lat:14.89,lng:100.4,c:'#FB7185'},
+ {s:'chai-nat',n:'Chai Nat',r:'Central',t:'A Chao Phraya riverside town with a bird park, a big dam, and the old town of Sankhaburi',lat:15.19,lng:100.13,c:'#FB7185'},
+ {s:'saraburi',n:'Saraburi',r:'Central',t:'Home of the Buddha’s Footprint, Muak Lek milk, and waterfalls at the foot of Khao Yai',lat:14.53,lng:100.91,c:'#FB7185'},
+ {s:'suphan-buri',n:'Suphan Buri',r:'Central',t:'An old town on the Tha Chin River — home of luk thung music, century-old markets, and a city where everything worth seeing sits close together',lat:14.47,lng:100.12,c:'#FB7185'},
+ {s:'nakhon-nayok',n:'Nakhon Nayok',r:'Central',t:'Waterfall country at the foot of Khao Yai near Bangkok, with rafting, camping, and local fruit',lat:14.21,lng:101.21,c:'#FB7185'},
+ {s:'chanthaburi',n:'Chanthaburi',r:'East',t:'An eastern town of fruit and gemstones, with an old riverside community, mountains, and the sea',lat:12.61,lng:102.1,c:'#10B981'},
+ {s:'chachoengsao',n:'Chachoengsao',r:'East',t:'Home of Luang Pho Sothon on the Bang Pakong River, an easy trip from Bangkok with old markets, big temples, and mango orchards',lat:13.69,lng:101.07,c:'#10B981'},
+ {s:'prachinburi',n:'Prachinburi',r:'East',t:'Home of Abhaibhubejhr herbal medicine, the eastern foothills of Khao Yai, with ancient ruins, the Hin Phoeng rapids, and sweet santol fruit',lat:14.05,lng:101.37,c:'#10B981'},
+ {s:'sa-kaeo',n:'Sa Kaeo',r:'East',t:'An eastern border province next to Cambodia, with Rong Kluea Market, Khmer temples, hills, and waterfalls',lat:13.81,lng:102.07,c:'#10B981'},
+ {s:'ratchaburi',n:'Ratchaburi',r:'West',t:'The dragon-jar town on the Mae Klong River, home to Damnoen Saduak floating market, Khao Ngu caves, and the Tenasserim hills out at Suan Phueng',lat:13.54,lng:99.81,c:'#A78BFA'},
+ {s:'phetchaburi',n:'Phetchaburi',r:'West',t:'An old town on the Phetchaburi River with the Phra Nakhon Khiri palace, craftsman temples, mor kaeng custard, and the beaches of Cha-am and Laem Phak Bia',lat:13.11,lng:99.94,c:'#A78BFA'},
+ {s:'chumphon',n:'Chumphon',r:'South',t:'The gateway to the south, with long Sai Ri Beach, the Prince of Chumphon’s warship, dive islands, and robusta coffee',lat:10.49,lng:99.18,c:'#F97316'},
+ {s:'ranong',n:'Ranong',r:'South',t:'An Andaman coast town of hot springs, Koh Phayam, and the Myanmar border, known for eight months of rain and four of sun',lat:9.96,lng:98.64,c:'#F97316'},
+ {s:'nakhon-si-thammarat',n:'Nakhon Si Thammarat',r:'South',t:'A thousand-year-old stupa, Ai Khai of Wat Chedi, shadow-puppet cafes, and waterfalls plus the Gulf coast',lat:8.43,lng:99.96,c:'#F97316'},
+ {s:'phatthalung',n:'Phatthalung',r:'South',t:'A lakeside town on Songkhla Lake — Khao Ok Thalu mountain, red lotus blooms at Thale Noi, rice fields with water buffalo, and the home of shadow puppetry and Manora dance',lat:7.62,lng:100.08,c:'#F97316'},
+ {s:'trang',n:'Trang',r:'South',t:'The Andaman coast’s food town — morning roast pork, hot dim sum, the Emerald Cave, and quiet islands made for slow nights',lat:7.56,lng:99.61,c:'#F97316'},
+ {s:'satun',n:'Satun',r:'South',t:'A southern border town on the Andaman, a UNESCO Global Geopark, the Tarutao–Koh Lipe islands, and a quiet Muslim way of life',lat:6.62,lng:100.07,c:'#F97316'},
+ {s:'songkhla',n:'Songkhla',r:'South',t:'A two-sea province with a colorful old town, Samila Beach and its mermaid, the Nang Ngam street quarter, and the border trade city of Hat Yai',lat:7.2,lng:100.6,c:'#F97316'},
+ {s:'pattani',n:'Pattani',r:'South',t:'An old southern port town with a Malay soul — historic mosques, a Sino-Portuguese old quarter, and bold local food',lat:6.87,lng:101.25,c:'#F97316'},
+ {s:'yala',n:'Yala',r:'South',t:'Thailand’s southernmost province — a town laid out in perfect circles, plus Betong with the Aiyoeweng sea of fog, an old tunnel, and Hokkien Chinese food',lat:6.54,lng:101.28,c:'#F97316'},
+ {s:'narathiwat',n:'Narathiwat',r:'South',t:'Thailand’s southernmost province on the Gulf coast — a Malay-flavored border town with long sandy beaches, the Toh Daeng peat swamp, and bold local food',lat:6.43,lng:101.82,c:'#F97316'}
 ];
+/*GEN:PROV-END*/
 var TOPN=[['chiang-mai','Chiang Mai'],['bangkok','Bangkok'],['phuket','Phuket'],['krabi','Krabi'],['chonburi','Pattaya · Chonburi'],['phang-nga','Phang Nga'],['prachuap-khiri-khan','Hua Hin · Prachuap'],['surat-thani','Surat Thani'],['kanchanaburi','Kanchanaburi'],['ayutthaya','Ayutthaya'],['chiang-rai','Chiang Rai'],['trat','Trat']];
 var HOTELS=[
  {h:'top10-hotels-chiang-mai',img:'/images/heroes/chiang-mai.jpg',n:'Top 10 Chiang Mai Hotels',loc:'🇹🇭 Chiang Mai',sc:'9.5',pr:'฿900'},
@@ -478,11 +555,14 @@ var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop'
 if(ns){ns.addEventListener('input',function(){runSearch(ns.value,nd);});}
 document.addEventListener('click',function(e){if(si&&!e.target.closest('.sc-field')){sidrop.classList.remove('show');}if(ns&&!e.target.closest('.search-box')){nd.classList.remove('show');}});
 function goSearch(){var q=(si.value||'').trim().toLowerCase();var hit=IDX.filter(function(i){return (i.t+i.c).toLowerCase().indexOf(q)>-1;})[0];if(hit)location.href=hit.u;else location.href='country-thailand.html';}
-// map
-try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.5,100.5],5);
+// map — all 77 provinces, region-coloured pins, clustered
+try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:18}).addTo(map);
-var ic=L.divIcon({className:'',html:'<div style="width:18px;height:18px;border-radius:50%;background:#06B6D4;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
-PROV.forEach(function(p){L.marker([p.lat,p.lng],{icon:ic}).addTo(map).bindPopup('<div class="lp"><div class="lp-name">'+p.n+'</div><div class="lp-loc">'+p.r+' · '+p.t+'</div><a class="lp-btn" href="city-'+p.s+'.html">Open guide →</a></div>');});
+function mpin(c){return L.divIcon({className:'',html:'<span class="mpin" style="background:'+c+'"></span>',iconSize:[16,16],iconAnchor:[8,8]});}
+var grp=(typeof L.markerClusterGroup==='function')?L.markerClusterGroup({maxClusterRadius:26,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.4,disableClusteringAtZoom:8,iconCreateFunction:function(cl){return L.divIcon({html:'<span class="mclu">'+cl.getChildCount()+'</span>',className:'',iconSize:[40,40]});}}):L.layerGroup();
+PROV.forEach(function(p){L.marker([p.lat,p.lng],{icon:mpin(p.c||'#06B6D4'),title:p.n}).bindPopup('<div class="lp"><div class="lp-name">'+p.n+'</div><div class="lp-loc">'+p.r+' · '+p.t+'</div><a class="lp-btn" href="city-'+p.s+'.html">Open guide →</a></div>').addTo(grp);});
+map.addLayer(grp);
+try{map.fitBounds(grp.getBounds().pad(0.06));}catch(e){}
 }catch(e){}
 // reveal
 try{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}

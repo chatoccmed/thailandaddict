@@ -27,6 +27,7 @@ mkdir -p "$TMP"
 rm -rf "$TMP/src"
 cp -r "$ASTRO/src" "$TMP/src"
 cp "$ASTRO/package.json" "$ASTRO/package-lock.json" "$ASTRO/astro.config.mjs" "$ASTRO/tsconfig.json" "$TMP/"
+cp "$ASTRO/prebuild.mjs" "$TMP/"   # prebuild no-ops here (gens live in repo _internal, not copied)
 
 cd "$TMP"
 # install only when deps are missing or package-lock changed
