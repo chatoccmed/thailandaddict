@@ -26,11 +26,12 @@
 - **ไม่ต้องรัน gen-hubs ตอน deploy** — ไฟล์ hub HTML commit ไว้ใน repo แล้ว (เป็น source ของ `public/`)
 
 ## ✅ Pre-deploy checklist
-- [ ] sitemap: ถ้ามี ต้องเพิ่ม URL `/en/*` (ตรวจว่า generator/Astro integration ครอบ /en/ ด้วย)
-- [ ] `_redirects` / `_headers` ใน `public/`: ตรวจว่าไม่ block `/en/` · พิจารณา redirect ภาษา (Accept-Language) ถ้าต้องการ (optional)
-- [ ] 404: EN มี `/en/404.html` แล้ว — ตรวจ Cloudflare ว่าเสิร์ฟ 404 ต่อ path /en/ ถูก (หรือใช้ root 404)
-- [ ] robots.txt: อนุญาต /en/ ให้ index
-- [ ] หลัง deploy: สุ่มเปิด `/en/`, `/en/city-chiang-mai.html`, `/en/review-*.html`, `/en/top10-hotels-*.html`, `/en/about.html` — เช็ก hreflang + ปุ่มสลับ TH⇄EN + รูปโหลด
+- [x] **sitemap: ทำแล้ว** — `astro/public/sitemap.xml` (10,942 URLs: TH 5,471 + EN 5,471 · มี hreflang th/en/x-default · clean URLs) · regenerate: `node _internal/gen-sitemap.mjs` · robots.txt ชี้ไฟล์นี้อยู่แล้ว
+- [x] **`_redirects` / `_headers`**: ตรวจแล้ว — `_headers /*` ครอบ /en/ · `_redirects` ว่าง ไม่ block · (redirect ภาษา Accept-Language = optional ทำทีหลังได้)
+- [x] **robots.txt**: `Allow: /` ครอบ /en/ แล้ว · Sitemap ชี้ /sitemap.xml (มีไฟล์แล้ว)
+- [ ] 404: EN มี `/en/404.html` แล้ว — ตรวจ Cloudflare (`not_found_handling` ใน wrangler) ว่าเสิร์ฟ 404 ต่อ path /en/ ถูก (หรือใช้ root 404)
+- [ ] ⚠️ ตรวจ Cloudflare เสิร์ฟ **clean URL** (เช่น `/city-nan` → `city-nan.html`) — canonical + sitemap ใช้แบบไม่มี `.html` ทั้งหมด (เป็น convention เดิมของเว็บ ควรใช้ได้อยู่แล้ว)
+- [ ] หลัง deploy: สุ่มเปิด `/en/`, `/en/city-chiang-mai.html`, `/en/review-*.html`, `/en/top10-hotels-*.html`, `/en/about.html` + เปิด `/sitemap.xml` — เช็ก hreflang + ปุ่มสลับ TH⇄EN + รูปโหลด
 
 ## ⚠️ ถ้าจะแก้เนื้อหา/เพิ่มเมืองภายหลัง
 - เพิ่ม/แก้ content: แก้ JSON ใน `articles-en/`, `reviews-en/`, `roundups-en/` (โครง/คีย์ตาม TH · ห้ามมีไทยใน field ที่ผู้ใช้เห็น)
