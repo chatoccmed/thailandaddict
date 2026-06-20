@@ -477,6 +477,7 @@ function destinationsHub(){
     ['phuket-vs-koh-samui','ภูเก็ต vs เกาะสมุย','Phuket vs Koh Samui'],['krabi-vs-koh-samui','กระบี่ vs เกาะสมุย','Krabi vs Koh Samui'],
     ['chiang-mai-vs-chiang-rai','เชียงใหม่ vs เชียงราย','Chiang Mai vs Chiang Rai'],['bangkok-vs-chiang-mai','กรุงเทพ vs เชียงใหม่','Bangkok vs Chiang Mai'],
     ['pattaya-vs-hua-hin','พัทยา vs หัวหิน','Pattaya vs Hua Hin'],['phuket-vs-pattaya','ภูเก็ต vs พัทยา','Phuket vs Pattaya'],
+    ['koh-chang-vs-koh-kood','เกาะช้าง vs เกาะกูด','Koh Chang vs Koh Kood'],['pai-vs-khao-yai','ปาย vs เขาใหญ่','Pai vs Khao Yai'],
   ];
   const cmpCards = CMP.map(([s,th,en])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">⚖️</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('เทียบให้ตรง ๆ →','Honest comparison →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("เมืองท่องเที่ยวยอดนิยมในไทย","Top tourist cities in Thailand"),"itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":NAME(s),"url":J(`city-${s}`)}))};

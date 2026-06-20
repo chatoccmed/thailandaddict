@@ -12,7 +12,7 @@ const DATE = '2026-06-20';
 const AGODA = 'https://www.agoda.com/?cid=1965862';
 
 // cities that get a where-to-stay guide (used to guard cross-links)
-const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan']);
+const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya']);
 
 // ---------- NEIGHBORHOOD ("where to stay in X") ----------
 const HOODS = [
@@ -265,6 +265,103 @@ const HOODS = [
     { q:{th:'พักท้องศาลาดีไหม?',en:'Is Thong Sala a good place to stay?'},
       a:{th:'ดีถ้าเน้นความสะดวก ท้องศาลาเป็นเมืองหลักและท่าเรือ มีตลาด ร้านค้า และรถต่อไปหาดอื่นง่าย แต่หาดตรงนี้ไม่สวยเท่าทางเหนือ',
         en:'Good for convenience — Thong Sala is the main town and ferry pier with markets, shops and easy transport to other beaches, though the beach here is not as nice as those in the north.'} },
+  ] },
+{ city:'ao-nang', cluster:'krabi', hub:'city-krabi.html', roundup:'top15-ao-nang-hotels-krabi.html', hubTh:'กระบี่', hubEn:'Krabi', th:'อ่าวนาง', en:'Ao Nang', hero:'krabi',
+  extraRel:{ th:[{href:'where-to-stay-krabi.html',title:'🏨 พักย่านไหนใน กระบี่ (ภาพรวม)'}], en:[{href:'where-to-stay-krabi.html',title:'🏨 Where to stay in Krabi (overview)'}] },
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> คนส่วนใหญ่พักที่ <strong>หาดอ่าวนาง</strong> (ศูนย์กลาง เดินถึงร้านอาหารและท่าเรือออกทัวร์เกาะ) ถ้าอยากเงียบเลือก <strong>นพรัตน์ธารา</strong> ปลายหาดด้านตะวันตก สายธรรมชาติ-หน้าผาเลือก <strong>ไร่เลย์</strong> (ต่อเรือเข้า ไม่มีรถ) สายหรู-เงียบเลือกโซน <strong>คลองม่วง/ทับแขก</strong> ทางเหนือ',
+    en:'<strong>Short answer:</strong> Most people stay on <strong>Ao Nang Beach</strong> — central, walkable to restaurants and the pier for island tours. For quiet pick <strong>Nopparat Thara</strong> at the west end; for nature and cliffs choose <strong>Railay</strong> (boat-access, no cars); for quiet luxury head to <strong>Klong Muang/Tubkaek</strong> in the north.' },
+  areas:[
+    { a:{th:'หาดอ่าวนาง',en:'Ao Nang Beach'}, v:{th:'ศูนย์กลาง เดินได้ เรือออกเกาะ',en:'Central, walkable, tour boats'}, n:{th:'สะดวกสุด เหมาะครั้งแรก',en:'Most convenient; best for first-timers'} },
+    { a:{th:'นพรัตน์ธารา',en:'Nopparat Thara'}, v:{th:'เงียบกว่า หาดยาว',en:'Quieter, long beach'}, n:{th:'ปลายหาดตะวันตก ใกล้ท่าเรือ',en:'West end, near the pier'} },
+    { a:{th:'ในซอย/ตัวอ่าวนาง',en:'Inland Ao Nang'}, v:{th:'ถูกกว่า เดินถึงหาด',en:'Cheaper, short walk to the beach'}, n:{th:'คุ้มสำหรับสายประหยัด',en:'Good value for budget travelers'} },
+    { a:{th:'ไร่เลย์',en:'Railay'}, v:{th:'หน้าผา ปีนผา ไม่มีรถ',en:'Cliffs, climbing, car-free'}, n:{th:'เข้าด้วยเรือเท่านั้น เงียบสวย',en:'Boat-access only; quiet and scenic'} },
+    { a:{th:'คลองม่วง & ทับแขก',en:'Klong Muang & Tubkaek'}, v:{th:'รีสอร์ตหรู เงียบ ทางเหนือ',en:'Luxury resorts, quiet, north'}, n:{th:'เหมาะฮันนีมูน ต้องมีรถ',en:'Great for honeymoons; need transport'} },
+  ],
+  styles:{ th:[
+    '<strong>มาครั้งแรก/เที่ยวเกาะสะดวก</strong> → หาดอ่าวนาง',
+    '<strong>เงียบแต่ยังใกล้ทุกอย่าง</strong> → นพรัตน์ธารา',
+    '<strong>ประหยัด</strong> → ในซอยอ่าวนาง',
+    '<strong>ธรรมชาติ-ปีนผา</strong> → ไร่เลย์',
+    '<strong>หรู-ฮันนีมูน</strong> → คลองม่วง/ทับแขก',
+  ], en:[
+    '<strong>First time / easy island trips</strong> → Ao Nang Beach',
+    '<strong>Quiet but still near everything</strong> → Nopparat Thara',
+    '<strong>Budget</strong> → inland Ao Nang',
+    '<strong>Nature & climbing</strong> → Railay',
+    '<strong>Luxury / honeymoon</strong> → Klong Muang/Tubkaek',
+  ] },
+  faq:[
+    { q:{th:'พักอ่าวนางย่านไหนดีสำหรับครั้งแรก?',en:'Where in Ao Nang should I stay for a first visit?'},
+      a:{th:'หาดอ่าวนางดีสุดสำหรับครั้งแรก เป็นศูนย์กลางที่พักทุกงบ ร้านอาหาร และท่าเรือออกทัวร์ 4 เกาะกับเกาะพีพี เดินเล่นริมหาดได้สะดวก',
+        en:'Ao Nang Beach is best for a first visit — the hub for hotels of all budgets, restaurants and boats to the 4 Islands and Phi Phi, with an easy, walkable beachfront.'} },
+    { q:{th:'พักไร่เลย์กับอ่าวนางต่างกันยังไง?',en:'Railay vs Ao Nang — what is the difference?'},
+      a:{th:'อ่าวนางสะดวกกว่า มีร้านและรถเข้าออกง่าย ส่วนไร่เลย์เข้าได้ด้วยเรือเท่านั้น เงียบสงบ วิวหน้าผาสวย เหมาะคนรักธรรมชาติและปีนผา แต่ของกินของใช้ราคาสูงกว่า',
+        en:'Ao Nang is more convenient with shops and road access, while Railay is boat-access only — quiet, with gorgeous cliffs, ideal for nature lovers and climbers, though food and supplies cost more there.'} },
+    { q:{th:'อ่าวนางอยู่ในจังหวัดอะไร?',en:'Which province is Ao Nang in?'},
+      a:{th:'อ่าวนางเป็นชายหาดในจังหวัดกระบี่ เป็นย่านที่พักหลักของคนมาเที่ยวกระบี่ ห่างจากสนามบินกระบี่ราว 30–40 นาที',
+        en:'Ao Nang is a beach area in Krabi province and the main accommodation hub for Krabi visitors, about 30–40 minutes from Krabi Airport.'} },
+  ] },
+{ city:'chiang-rai', th:'เชียงราย', en:'Chiang Rai', hero:'chiang-rai',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> มาเชียงรายครั้งแรกพัก <strong>ใจกลางเมือง</strong> แถวหอนาฬิกาและไนต์บาซาร์ เดินกินเดินเที่ยวและต่อรถสะดวกสุด สายเงียบ-วิวสวยเลือก <strong>ริมแม่น้ำกก</strong> ส่วนรีสอร์ตเงียบใกล้แหล่งเที่ยว (วัดร่องขุ่น ไร่ชา) อยู่ <strong>นอกเมือง</strong> ต้องมีรถ',
+    en:'<strong>Short answer:</strong> For a first visit stay in the <strong>city center</strong> around the Clock Tower and Night Bazaar — easiest for walking, eating and onward transport. For quiet and views choose the <strong>Kok riverside</strong>; quiet resorts near the sights (White Temple, tea plantations) are <strong>out of town</strong> and need a car.' },
+  areas:[
+    { a:{th:'ใจกลางเมือง (หอนาฬิกา)',en:'City center (Clock Tower)'}, v:{th:'เดินได้ ร้านอาหาร ต่อรถสะดวก',en:'Walkable, dining, easy transport'}, n:{th:'เหมาะครั้งแรก ครบในที่เดียว',en:'Best for first-timers; all-in-one'} },
+    { a:{th:'ไนต์บาซาร์',en:'Night Bazaar'}, v:{th:'ของกินยามค่ำ ใกล้ขนส่ง',en:'Night eats, near the bus terminal'}, n:{th:'สะดวกคนเดินทางต่อ',en:'Handy for onward travel'} },
+    { a:{th:'ริมแม่น้ำกก',en:'Kok riverside'}, v:{th:'เงียบ รีสอร์ตวิวแม่น้ำ',en:'Quiet, river-view resorts'}, n:{th:'บรรยากาศดี ห่างเมืองนิด',en:'Lovely feel, a little out of center'} },
+    { a:{th:'นอกเมือง/ใกล้แหล่งเที่ยว',en:'Outskirts / near the sights'}, v:{th:'รีสอร์ตเงียบ ใกล้วัดร่องขุ่น/ไร่ชา',en:'Quiet resorts near White Temple/tea'}, n:{th:'ต้องมีรถ เหมาะพักผ่อน',en:'Need a car; good for a rest'} },
+  ],
+  styles:{ th:[
+    '<strong>มาครั้งแรก/เดินเที่ยว-กิน</strong> → ใจกลางเมือง',
+    '<strong>เดินทางต่อสะดวก</strong> → ไนต์บาซาร์',
+    '<strong>เงียบ-วิวแม่น้ำ</strong> → ริมแม่น้ำกก',
+    '<strong>รีสอร์ตเงียบ-ใกล้แหล่งเที่ยว</strong> → นอกเมือง',
+  ], en:[
+    '<strong>First time / walking & food</strong> → city center',
+    '<strong>Easy onward travel</strong> → Night Bazaar',
+    '<strong>Quiet & river views</strong> → Kok riverside',
+    '<strong>Quiet resort near the sights</strong> → outskirts',
+  ] },
+  faq:[
+    { q:{th:'พักย่านไหนดีในเชียงรายสำหรับครั้งแรก?',en:'Where should I stay in Chiang Rai for a first visit?'},
+      a:{th:'ใจกลางเมืองแถวหอนาฬิกาและไนต์บาซาร์ดีสุด เดินกินเดินเที่ยวได้ ใกล้ตลาดและสถานีขนส่ง มีที่พักทุกงบและต่อรถไปวัดร่องขุ่นหรือไร่ชาง่าย',
+        en:'The city center around the Clock Tower and Night Bazaar is best — walkable for food and sights, near the market and bus terminal, with rooms for every budget and easy transport to the White Temple or tea farms.'} },
+    { q:{th:'อยากพักใกล้วัดร่องขุ่นได้ไหม?',en:'Can I stay near the White Temple?'},
+      a:{th:'วัดร่องขุ่นอยู่นอกเมืองราว 15 นาทีโดยรถ มีรีสอร์ตเงียบ ๆ แถวนั้นบ้าง แต่ถ้าไม่มีรถพักในเมืองสะดวกกว่าแล้วนั่งรถไปเที่ยวเอาเป็นรอบ ๆ',
+        en:'The White Temple is about 15 minutes out of town by car. There are some quiet resorts nearby, but without a car it is more convenient to stay in town and visit on a trip out.'} },
+    { q:{th:'เชียงรายเที่ยวกี่วันดี?',en:'How many days do I need in Chiang Rai?'},
+      a:{th:'2–3 วันกำลังดีสำหรับวัดร่องขุ่น วัดสีน้ำเงิน ไร่ชา และดอยรอบ ๆ หลายคนมาจากเชียงใหม่แบบค้าง 1–2 คืน',
+        en:'Two to three days is ideal for the White Temple, Blue Temple, tea plantations and the surrounding mountains. Many come from Chiang Mai for 1–2 nights.'} },
+  ] },
+{ city:'ayutthaya', th:'อยุธยา', en:'Ayutthaya', hero:'ayutthaya',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> ถ้าจะเที่ยววัดแบบปั่นจักรยานพักบน <strong>เกาะเมือง</strong> (ใกล้อุทยานประวัติศาสตร์) สายประหยัด-เดินทางสะดวกเลือกแถว <strong>สถานีรถไฟ</strong> ฝั่งตะวันออก สายบรรยากาศเลือก <strong>ริมแม่น้ำ</strong> ที่มีเกสต์เฮาส์วิวสวย หลายคนมาเที่ยวอยุธยาแบบเดย์ทริปจากกรุงเทพก็ได้',
+    en:'<strong>Short answer:</strong> To tour the temples by bicycle, stay <strong>on the island</strong> near the Historical Park. For budget and easy transport pick the area <strong>near the train station</strong> on the east bank; for atmosphere choose the <strong>riverside</strong> with its scenic guesthouses. Many also visit Ayutthaya as a day trip from Bangkok.' },
+  areas:[
+    { a:{th:'บนเกาะเมือง (อุทยานประวัติศาสตร์)',en:'On the island (Historical Park)'}, v:{th:'ใกล้วัด ปั่นจักรยานเที่ยว',en:'By the temples, cycle around'}, n:{th:'เหมาะสายประวัติศาสตร์ ครั้งแรก',en:'Best for history fans / first-timers'} },
+    { a:{th:'ใกล้สถานีรถไฟ',en:'Near the train station'}, v:{th:'ขนส่งสะดวก ถูกกว่า',en:'Transport hub, cheaper'}, n:{th:'ฝั่งตะวันออก ข้ามเรือเข้าเกาะ',en:'East bank; cross by ferry to the island'} },
+    { a:{th:'ริมแม่น้ำ',en:'Riverside'}, v:{th:'เกสต์เฮาส์วิวแม่น้ำ บรรยากาศดี',en:'River-view guesthouses, atmospheric'}, n:{th:'เหมาะสายชิล ถ่ายรูปสวย',en:'Relaxed and photogenic'} },
+    { a:{th:'ตัวเมือง (ถนนอู่ทอง)',en:'City center (U-Thong Rd)'}, v:{th:'ร้านอาหาร ตลาดกลางคืน',en:'Restaurants, night market'}, n:{th:'กินเที่ยวสะดวก',en:'Easy for food and going out'} },
+  ],
+  styles:{ th:[
+    '<strong>เที่ยววัด-ปั่นจักรยาน</strong> → บนเกาะเมือง',
+    '<strong>ประหยัด-เดินทางต่อ</strong> → ใกล้สถานีรถไฟ',
+    '<strong>บรรยากาศ-วิวแม่น้ำ</strong> → ริมแม่น้ำ',
+    '<strong>กิน-ตลาดกลางคืน</strong> → ตัวเมือง',
+  ], en:[
+    '<strong>Temple touring by bike</strong> → on the island',
+    '<strong>Budget / onward transport</strong> → near the station',
+    '<strong>Atmosphere & river views</strong> → riverside',
+    '<strong>Food & night market</strong> → city center',
+  ] },
+  faq:[
+    { q:{th:'พักย่านไหนดีในอยุธยา?',en:'Where should I stay in Ayutthaya?'},
+      a:{th:'ถ้าจะเที่ยววัดเยอะ ๆ พักบนเกาะเมืองใกล้อุทยานประวัติศาสตร์ดีสุด เช่าจักรยานหรือมอเตอร์ไซค์ปั่นชมวัดได้สะดวก ส่วนสายประหยัดและเน้นเดินทางต่อเลือกแถวสถานีรถไฟ',
+        en:'If you plan to see lots of temples, stay on the island near the Historical Park — rent a bicycle or motorbike to tour the ruins easily. For budget and onward transport, choose the area near the train station.'} },
+    { q:{th:'เที่ยวอยุธยาต้องค้างคืนไหม?',en:'Do I need to stay overnight in Ayutthaya?'},
+      a:{th:'ไม่จำเป็น อยุธยาเที่ยวเดย์ทริปจากกรุงเทพได้สบาย แต่ถ้าค้างคืนจะได้เที่ยววัดตอนเช้า-เย็นที่คนน้อยและแสงสวย และได้ชมวัดยามค่ำที่เปิดไฟ',
+        en:'Not necessarily — Ayutthaya works well as a day trip from Bangkok. But staying overnight lets you see the temples in the quieter, prettier morning and evening light, and the illuminated ruins at night.'} },
+    { q:{th:'พักริมแม่น้ำอยุธยาดีไหม?',en:'Is staying by the river in Ayutthaya worth it?'},
+      a:{th:'ดีถ้าชอบบรรยากาศ มีเกสต์เฮาส์และที่พักวิวแม่น้ำสวย ๆ หลายแห่ง นั่งชิลริมน้ำได้ แต่บางจุดต้องนั่งรถหรือข้ามเรือไปยังกลุ่มวัดบนเกาะ',
+        en:'Worth it if you like atmosphere — there are scenic river-view guesthouses and stays where you can relax by the water, though some spots need a ride or ferry to reach the temple cluster on the island.'} },
   ] },
 ];
 
@@ -526,14 +623,80 @@ const COMPARE = [
       a:{th:'พัทยาเหมาะกว่าสำหรับทริปสั้น เพราะขับรถจากกรุงเทพแค่ราว 2 ชั่วโมง ไม่ต้องบิน ส่วนภูเก็ตต้องบินลงใต้ จึงเหมาะทริปที่มีเวลาหลายวันมากกว่า',
         en:'Pattaya suits short trips better — just a ~2-hour drive from Bangkok with no flight needed — while Phuket requires flying south, so it is better when you have several days.'} },
   ] },
+{ slug:'koh-chang-vs-koh-kood', hero:'koh-kood',
+  a:{slug:'koh-chang',th:'เกาะช้าง',en:'Koh Chang'}, b:{slug:'koh-kood',th:'เกาะกูด',en:'Koh Kood'},
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> ทั้งคู่เป็นเกาะในจังหวัดตราดฝั่งตะวันออก เลือก <strong>เกาะช้าง</strong> ถ้าอยากได้เกาะใหญ่ที่ครบกว่า เดินทางง่ายและถูกกว่า มีหาด ร้านอาหาร ไนต์ไลฟ์ น้ำตก และที่พักทุกงบ เลือก <strong>เกาะกูด</strong> ถ้าอยากได้เกาะเงียบ น้ำใสหาดสวยกว่า บรรยากาศธรรมชาติและรีสอร์ตเป็นส่วนตัว แต่ไกลและตัวเลือกน้อยกว่า',
+    en:'<strong>Short answer:</strong> Both are islands off Trat in the eastern Gulf. Choose <strong>Koh Chang</strong> for a bigger, more complete island that is easier and cheaper to reach, with beaches, dining, nightlife, waterfalls and rooms for every budget. Choose <strong>Koh Kood</strong> for a quieter island with clearer water and prettier beaches, a nature feel and private resorts — but it is farther and has fewer options.' },
+  factors:[
+    { f:{th:'ขนาด/ความครบ',en:'Size/development'}, a:{th:'ใหญ่ ครบกว่า',en:'Bigger, more developed'}, b:{th:'เล็ก เงียบ ธรรมชาติ',en:'Small, quiet, natural'} },
+    { f:{th:'หาด/น้ำทะเล',en:'Beaches/water'}, a:{th:'หาดดี มีน้ำตก',en:'Good beaches + waterfalls'}, b:{th:'น้ำใสกว่า หาดสวยกว่า',en:'Clearer water, prettier beaches'} },
+    { f:{th:'เดินทางไป',en:'Getting there'}, a:{th:'ใกล้กว่า เรือถี่ ถูกกว่า',en:'Closer, frequent ferries, cheaper'}, b:{th:'ไกลกว่า เรือน้อยกว่า',en:'Farther, fewer boats'} },
+    { f:{th:'ไนต์ไลฟ์/ร้าน',en:'Nightlife/dining'}, a:{th:'มีพอสมควร',en:'A fair amount'}, b:{th:'เงียบมาก เน้นรีสอร์ต',en:'Very quiet, resort-based'} },
+    { f:{th:'ราคา',en:'Prices'}, a:{th:'มีทุกงบ',en:'Every budget'}, b:{th:'เน้นกลาง-บน',en:'Mid-to-high'} },
+    { f:{th:'เหมาะกับ',en:'Best for'}, a:{th:'ครั้งแรก ครอบครัว งบประหยัด',en:'First-timers, families, budget'}, b:{th:'คู่รัก พักผ่อน หนีคนเยอะ',en:'Couples, rest, escaping crowds'} },
+  ],
+  choose:{ th:[
+    '<strong>เลือกเกาะช้าง ถ้า</strong> อยากได้เกาะครบ เดินทางง่าย-ถูก มีร้าน ไนต์ไลฟ์ น้ำตก และที่พักทุกงบ',
+    '<strong>เลือกเกาะกูด ถ้า</strong> อยากได้หาดสวยน้ำใส เงียบสงบ บรรยากาศธรรมชาติและรีสอร์ตเป็นส่วนตัว',
+    '<strong>มาทั้งคู่ได้</strong> อยู่จังหวัดตราดเหมือนกัน ต่อเรือระหว่างเกาะได้ในช่วงไฮซีซั่น',
+  ], en:[
+    '<strong>Pick Koh Chang if</strong> you want a complete island, easy and cheap to reach, with dining, nightlife, waterfalls and every budget',
+    '<strong>Pick Koh Kood if</strong> you want pretty beaches and clear water, quiet, with a natural feel and private resorts',
+    '<strong>Do both</strong> — both off Trat, with island-hop boats in high season',
+  ] },
+  faq:[
+    { q:{th:'เกาะช้างหรือเกาะกูดดีกว่า?',en:'Koh Chang or Koh Kood — which is better?'},
+      a:{th:'เกาะช้างครบกว่าและเดินทางง่าย-ถูกกว่า เหมาะครั้งแรก ครอบครัว และงบประหยัด ส่วนเกาะกูดหาดสวยน้ำใสกว่าและเงียบกว่ามาก เหมาะคู่รักและคนอยากพักผ่อนหนีความวุ่นวาย',
+        en:'Koh Chang is more complete and easier/cheaper to reach — good for first-timers, families and budgets. Koh Kood has prettier beaches and clearer water and is far quieter — ideal for couples and anyone wanting to escape the crowds.'} },
+    { q:{th:'เกาะกูดเดินทางยากไหม?',en:'Is Koh Kood hard to get to?'},
+      a:{th:'ไกลกว่าเกาะช้าง ต้องนั่งรถไปตราดแล้วต่อเรือเร็วราว 1–1.5 ชั่วโมง เรือมีน้อยรอบกว่าและนอกไฮซีซั่นบางช่วงทะเลแรง ควรเช็กรอบเรือและจองล่วงหน้า',
+        en:'It is farther than Koh Chang — reach Trat by road then take a speedboat of about 1–1.5 hours. Boats are less frequent and seas can be rough off-season, so check schedules and book ahead.'} },
+    { q:{th:'ไปเกาะช้าง/เกาะกูดจากกรุงเทพยังไง?',en:'How do I get to Koh Chang/Koh Kood from Bangkok?'},
+      a:{th:'นั่งรถหรือบินไปตราด แล้วต่อรถไปท่าเรือและนั่งเรือข้ามเกาะ เกาะช้างใกล้และเรือถี่กว่า ส่วนเกาะกูดต่อเรือเร็วไกลกว่า รวมเวลาเดินทางจากกรุงเทพราวครึ่งวัน',
+        en:'Travel to Trat by road or air, then transfer to a pier and ferry across. Koh Chang is closer with more frequent boats; Koh Kood is a longer speedboat ride. From Bangkok, allow around half a day either way.'} },
+  ] },
+{ slug:'pai-vs-khao-yai', hero:'pai',
+  a:{slug:'pai',th:'ปาย',en:'Pai'}, b:{slug:'khao-yai',th:'เขาใหญ่',en:'Khao Yai'},
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> สองที่นี้คนละโซนและคนละสไตล์ เลือก <strong>ปาย</strong> ถ้าอยากได้เมืองภูเขาชิล ๆ ทางเหนือ (ต่อจากเชียงใหม่) บรรยากาศฮิปปี้ คาเฟ่ น้ำพุร้อน วิวทะเลหมอก เหมาะแบ็คแพ็คและสายชิล เลือก <strong>เขาใหญ่</strong> ถ้าอยากได้ธรรมชาติ-อุทยานใกล้กรุงเทพ (ขับรถ ~2.5 ชม.) ไวเนอรี่ คาเฟ่สวย รีสอร์ตหรู เหมาะโรดทริปและครอบครัว',
+    en:'<strong>Short answer:</strong> These two are in different regions with different vibes. Choose <strong>Pai</strong> for a chilled northern mountain town (beyond Chiang Mai) — bohemian cafés, hot springs and sea-of-mist views, great for backpackers and slow travelers. Choose <strong>Khao Yai</strong> for nature and a national park near Bangkok (~2.5h drive) — wineries, scenic cafés and luxury resorts, ideal for a road trip and families.' },
+  factors:[
+    { f:{th:'ทำเล/เดินทาง',en:'Location/access'}, a:{th:'ภาคเหนือ · ~3 ชม.จากเชียงใหม่',en:'North · ~3h from Chiang Mai'}, b:{th:'ใกล้กรุงเทพ · ขับ ~2.5 ชม.',en:'Near Bangkok · ~2.5h drive'} },
+    { f:{th:'บรรยากาศ',en:'Vibe'}, a:{th:'ฮิปปี้ ชิล แบ็คแพ็ค',en:'Bohemian, chilled, backpacker'}, b:{th:'ธรรมชาติ-หรู โรดทริป',en:'Nature-meets-upscale, road trip'} },
+    { f:{th:'ไฮไลต์',en:'Highlights'}, a:{th:'น้ำพุร้อน ทะเลหมอก แคนยอน',en:'Hot springs, mist, canyon'}, b:{th:'อุทยาน ไวเนอรี่ คาเฟ่',en:'National park, wineries, cafés'} },
+    { f:{th:'ที่พัก',en:'Accommodation'}, a:{th:'เกสต์เฮาส์ บังกะโลวิวเขา',en:'Guesthouses, mountain bungalows'}, b:{th:'รีสอร์ต-วิลล่าหรู ฟาร์มสเตย์',en:'Luxury resorts/villas, farm stays'} },
+    { f:{th:'เดินทางในพื้นที่',en:'Getting around'}, a:{th:'เช่ามอเตอร์ไซค์/เดิน',en:'Rent a bike / walk'}, b:{th:'ต้องมีรถ พื้นที่กว้าง',en:'Need a car; area is spread out'} },
+    { f:{th:'เหมาะกับ',en:'Best for'}, a:{th:'แบ็คแพ็ค คู่รัก สายชิล',en:'Backpackers, couples, slow travel'}, b:{th:'ครอบครัว โรดทริป สายคาเฟ่',en:'Families, road trips, café lovers'} },
+  ],
+  choose:{ th:[
+    '<strong>เลือกปาย ถ้า</strong> เที่ยวภาคเหนือ/เชียงใหม่อยู่แล้ว และอยากได้เมืองภูเขาชิล ๆ คาเฟ่ น้ำพุร้อน วิวทะเลหมอก',
+    '<strong>เลือกเขาใหญ่ ถ้า</strong> อยู่กรุงเทพและอยากได้ธรรมชาติ-อุทยานใกล้ ๆ ไวเนอรี่ คาเฟ่สวย และรีสอร์ตหรู',
+    '<strong>เลือกตามภูมิภาค</strong> ปายเหมาะต่อทริปเหนือ ส่วนเขาใหญ่เหมาะโรดทริปสุดสัปดาห์จากกรุงเทพ',
+  ], en:[
+    '<strong>Pick Pai if</strong> you are already in the north/Chiang Mai and want a chilled mountain town with cafés, hot springs and mist views',
+    '<strong>Pick Khao Yai if</strong> you are near Bangkok and want nature and a national park close by, with wineries, scenic cafés and luxury resorts',
+    '<strong>Choose by region</strong> — Pai pairs with a northern trip; Khao Yai is a weekend road trip from Bangkok',
+  ] },
+  faq:[
+    { q:{th:'ปายหรือเขาใหญ่ดีกว่า?',en:'Pai or Khao Yai — which is better?'},
+      a:{th:'ขึ้นกับว่าคุณอยู่โซนไหนและชอบแบบไหน ปายเป็นเมืองภูเขาชิล ๆ ทางเหนือ เหมาะต่อจากเชียงใหม่และสายแบ็คแพ็ค ส่วนเขาใหญ่อยู่ใกล้กรุงเทพ เน้นธรรมชาติ ไวเนอรี่ คาเฟ่ และรีสอร์ตหรู เหมาะโรดทริปและครอบครัว',
+        en:'It depends on where you are and what you like. Pai is a chilled northern mountain town, great after Chiang Mai and for backpackers, while Khao Yai is near Bangkok with nature, wineries, cafés and luxury resorts — ideal for road trips and families.'} },
+    { q:{th:'ไปปายกับเขาใหญ่ในทริปเดียวคุ้มไหม?',en:'Should I combine Pai and Khao Yai in one trip?'},
+      a:{th:'ไม่ค่อยคุ้มเพราะอยู่คนละภาค ปายอยู่เหนือสุดต่อจากเชียงใหม่ ส่วนเขาใหญ่อยู่อีสานตอนล่างใกล้กรุงเทพ ส่วนใหญ่เลือกอย่างใดอย่างหนึ่งตามภูมิภาคที่เที่ยว',
+        en:'Not really — they are in different regions. Pai is in the far north beyond Chiang Mai, while Khao Yai is in the lower northeast near Bangkok. Most people pick one based on the region they are visiting.'} },
+    { q:{th:'เขาใหญ่ต้องมีรถไหม?',en:'Do I need a car for Khao Yai?'},
+      a:{th:'แนะนำให้มีรถ เพราะที่เที่ยว ไวเนอรี่ คาเฟ่ และรีสอร์ตกระจายตัวกว้างและขนส่งสาธารณะน้อย ส่วนปายในตัวเมืองเดินหรือเช่ามอเตอร์ไซค์เที่ยวได้',
+        en:'A car is recommended — the sights, wineries, cafés and resorts are spread out with little public transport. In Pai, by contrast, you can walk the town or rent a motorbike.'} },
+  ] },
 ];
 
 // ---------- builders ----------
 const hasThai = (s) => /[ก-฾เ-๛]/.test(s);
 function neighborhoodArticle(H, loc) {
-  const cityName = loc === 'en' ? H.en : H.th;
   const slug = `where-to-stay-${H.city}`;
-  const roundup = `top10-hotels-${H.city}.html`;
+  const cluster = H.cluster || H.city;                 // article cluster (e.g. ao-nang lives under krabi)
+  const hub = H.hub || `city-${cluster}.html`;
+  const roundup = H.roundup || `top10-hotels-${cluster}.html`;
+  const hubName = loc === 'en' ? (H.hubEn || H.en) : (H.hubTh || H.th);  // breadcrumb/hub city name
   const title = loc === 'en'
     ? `Where to Stay in ${H.en} 2026 — Best Areas & Neighborhoods by Travel Style | ThailandAddict`
     : `พักย่านไหนดีใน${H.th} 2026 — ย่านที่พักยอดนิยม เลือกตามสไตล์เที่ยว | ThailandAddict`;
@@ -553,23 +716,24 @@ function neighborhoodArticle(H, loc) {
         : `ดูรีวิวโรงแรม${H.th}จัดอันดับ เทียบราคา Agoda · Booking · Trip.com แล้วจองย่านที่ใช่กับสไตล์คุณ`,
       links: [
         { label: loc === 'en' ? `🏨 Top hotels in ${H.en}` : `🏨 Top โรงแรม${H.th}`, href: roundup, note: loc === 'en' ? 'Ranked + price compare' : 'จัดอันดับ + เทียบราคา' },
-        { label: loc === 'en' ? `🗺️ ${H.en} travel guide` : `🗺️ คู่มือเที่ยว${H.th}`, href: `city-${H.city}.html`, note: loc === 'en' ? 'Stays, food, things to do' : 'ที่พัก ที่กิน ที่เที่ยว' },
+        { label: loc === 'en' ? `🗺️ ${hubName} travel guide` : `🗺️ คู่มือเที่ยว${hubName}`, href: hub, note: loc === 'en' ? 'Stays, food, things to do' : 'ที่พัก ที่กิน ที่เที่ยว' },
       ],
       ctaLabel: loc === 'en' ? 'Search hotels on Agoda' : 'ค้นหาโรงแรมบน Agoda', ctaHref: AGODA },
   ];
-  const rel = loc === 'en'
-    ? [{ href: `city-${H.city}.html`, title: `🗺️ Explore ${H.en}` }, { href: roundup, title: `🏨 Top hotels in ${H.en}` },
+  const baseRel = loc === 'en'
+    ? [{ href: hub, title: `🗺️ Explore ${hubName}` }, { href: roundup, title: `🏨 Top hotels in ${H.en}` },
        { href: 'getting-around-thailand.html', title: '🚌 Getting around Thailand' }, { href: 'plan-your-trip.html', title: '🧭 Plan Your Trip hub' }]
-    : [{ href: `city-${H.city}.html`, title: `🗺️ เที่ยว${H.th}` }, { href: roundup, title: `🏨 Top โรงแรม${H.th}` },
+    : [{ href: hub, title: `🗺️ เที่ยว${hubName}` }, { href: roundup, title: `🏨 Top โรงแรม${H.th}` },
        { href: 'getting-around-thailand.html', title: '🚌 คู่มือการเดินทางทั่วไทย' }, { href: 'plan-your-trip.html', title: '🧭 ศูนย์รวมคู่มือเตรียมตัว' }];
+  const rel = baseRel.concat(H.extraRel ? (H.extraRel[loc] || []) : []);
   return {
-    slug, type: 'prep', cluster: H.city,
+    slug, type: 'prep', cluster,
     title, metaDesc: loc === 'en'
       ? `Where to stay in ${H.en}: the best areas and neighborhoods compared by travel style — first-timers, nightlife, families, quiet and budget — with the right hotels for each.`
       : `พักย่านไหนดีใน${H.th} รวมย่านที่พักยอดนิยมเทียบกันตามสไตล์ ทั้งมาครั้งแรก ไนต์ไลฟ์ ครอบครัว เงียบสงบ และประหยัด พร้อมโรงแรมที่เหมาะกับแต่ละย่าน`,
     ogTitle: title.split(' | ')[0], ogDesc: loc === 'en' ? `The best areas to stay in ${H.en}, by travel style.` : `ย่านที่พักที่ใช่ใน${H.th} เลือกตามสไตล์เที่ยว`,
     image: `/images/heroes/${H.hero}.jpg`,
-    crumbCity: cityName, crumbCityHref: `city-${H.city}.html`,
+    crumbCity: hubName, crumbCityHref: hub,
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
     eyebrow: loc === 'en' ? `Where to stay · ${H.en}` : `พักย่านไหน · ${H.th}`,
     h1: loc === 'en' ? `Where to stay in<br>${H.en}` : `พักย่านไหนดี<br>ใน${H.th}`,
