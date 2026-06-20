@@ -553,9 +553,9 @@ function runSearch(q,box){q=q.trim().toLowerCase();if(!q){box.classList.remove('
 var si=document.getElementById('si'),sidrop=document.getElementById('sidrop');
 if(si){si.addEventListener('input',function(){runSearch(si.value,sidrop);});si.addEventListener('keydown',function(e){if(e.key==='Enter')goSearch();});}
 var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
-if(ns){ns.addEventListener('input',function(){runSearch(ns.value,nd);});}
+if(ns){ns.addEventListener('input',function(){runSearch(ns.value,nd);});ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});}
 document.addEventListener('click',function(e){if(si&&!e.target.closest('.sc-field')){sidrop.classList.remove('show');}if(ns&&!e.target.closest('.search-box')){nd.classList.remove('show');}});
-function goSearch(){var q=(si.value||'').trim().toLowerCase();var hit=IDX.filter(function(i){return (i.t+i.c).toLowerCase().indexOf(q)>-1;})[0];if(hit)location.href=hit.u;else location.href='country-thailand.html';}
+function goSearch(){var v=(si.value||'').trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}
 // map — all 77 provinces, region-coloured pins, clustered
 try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:18}).addTo(map);

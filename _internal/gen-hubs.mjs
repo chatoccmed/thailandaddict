@@ -294,12 +294,14 @@ function footerHtml(){ return `<footer class="footer"><div class="ft-grid">
 
 function commonJs(){
   const SP_JSON = JSON.stringify([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s, LOC==='en'?(EN_NAME[s]||th):th]));
-  const verb = tx('เที่ยว','Explore '), empty = tx('ไม่พบจังหวัด','No provinces found');
+  const verb = tx('เที่ยว','Explore '), empty = tx('ไม่พบจังหวัด','No provinces found'), all = tx('🔎 ค้นหาทั้งเว็บ','🔎 Search the whole site');
   return `<script>
 var __SP=${SP_JSON};
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
 var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
-if(ns){ns.addEventListener('input',function(){var q=ns.value.trim().toLowerCase();if(!q){nd.classList.remove('show');return;}var r=__SP.filter(function(p){return p[1].toLowerCase().indexOf(q)>-1||p[0].indexOf(q)>-1;}).slice(0,8);nd.innerHTML=r.length?r.map(function(p){return '<a href="city-'+p[0]+'.html"><div class="t">${verb}'+p[1]+'</div><div class="c">city-'+p[0]+'</div></a>';}).join(''):'<div class="empty">${empty}</div>';nd.classList.add('show');});
+if(ns){function full(){var v=ns.value.trim();return '<a href="search.html?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
+ns.addEventListener('input',function(){var q=ns.value.trim().toLowerCase();if(!q){nd.classList.remove('show');return;}var r=__SP.filter(function(p){return p[1].toLowerCase().indexOf(q)>-1||p[0].indexOf(q)>-1;}).slice(0,6);nd.innerHTML=(r.length?r.map(function(p){return '<a href="city-'+p[0]+'.html"><div class="t">${verb}'+p[1]+'</div><div class="c">city-'+p[0]+'</div></a>';}).join(''):'')+full();nd.classList.add('show');});
+ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});
 document.addEventListener('click',function(e){if(!e.target.closest('.search-box'))nd.classList.remove('show');});}})();
 </script>`;
 }
@@ -527,6 +529,56 @@ function planHub(){
 <div class="cta-sec"><div class="ctaband"><h2>${tx('พร้อมแล้ว เลือกจุดหมาย','Ready? Pick a destination')}</h2><p>${tx('อ่านคู่มือเตรียมตัวจบแล้ว ไปต่อที่เมืองและจังหวัดที่อยากเที่ยวได้เลย','Once the basics are planned, dive into the city or province you want to explore')}</p><a href="destinations.html">${tx('ดูเมืองท่องเที่ยว →','See top cities →')}</a></div></div>`;
   return page({title:tx(`เตรียมตัวเที่ยวไทย — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย | ThailandAddict ชีวิตติดเที่ยว`,`Plan Your Thailand Trip — Visa, eSIM, Transport, Budget & Safety | ThailandAddict`),desc:tx(`รวมคู่มือเตรียมตัวก่อนเที่ยวไทย วีซ่าและการเข้าเมือง ซิม/eSIM การเดินทาง งบต่อวัน ความปลอดภัย ประกัน และมารยาทไทย`,`Everything to plan before visiting Thailand — visa & entry, eSIM, getting around, daily budget, safety, insurance and Thai etiquette.`),slug:`plan-your-trip`,jsonld,body,image:'/images/heroes/bangkok.jpg'});
 }
+// ── site-wide search page (client-side, reads /search-index.json) ──
+function searchPage(){
+  const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
+  const idxUrl = (LOC==='en'?'/en/':'/')+'search-index.json';
+  const cats = [['all',tx('ทั้งหมด','All')],['stay',tx('🏨 ที่พัก','🏨 Stays')],['rank',tx('🏆 จัดอันดับ','🏆 Rankings')],['see',tx('📍 ที่เที่ยว','📍 See')],['eat',tx('🍜 ที่กิน','🍜 Eat')],['plan',tx('🗺️ แผนเที่ยว','🗺️ Plans')],['guide',tx('🧭 คู่มือ','🧭 Guides')],['city',tx('🏙️ เมือง/จังหวัด','🏙️ Places')]];
+  const chips = cats.map((c,i)=>`<button class="schip${i===0?' on':''}" data-cat="${c[0]}">${c[1]}</button>`).join('');
+  const badge = JSON.stringify({stay:tx('ที่พัก','Stay'),rank:tx('จัดอันดับ','Ranking'),see:tx('ที่เที่ยว','See'),eat:tx('ที่กิน','Eat'),plan:tx('แผน','Plan'),guide:tx('คู่มือ','Guide'),city:tx('เมือง','Place')});
+  const STR = JSON.stringify({ph:tx('พิมพ์ชื่อที่พัก เมือง ที่เที่ยว หรือคู่มือ…','Search hotels, cities, sights or guides…'),none:tx('ไม่พบผลลัพธ์ ลองคำอื่น','No results — try another word'),found:tx('พบ','Found'),results:tx('ผลลัพธ์','results'),more:tx('ผลลัพธ์ · แสดง 100 แรก','results · showing first 100'),start:tx('เริ่มพิมพ์เพื่อค้นหาทั้งเว็บ','Start typing to search the whole site')});
+  const body=`<style>
+.swrap{max-width:760px;margin:0 auto;padding:26px 22px 60px}
+.sbig{width:100%;font-family:inherit;font-size:18px;padding:16px 18px;border:2px solid var(--bdr);border-radius:16px;outline:none;transition:border-color .15s}
+.sbig:focus{border-color:var(--bl)}
+.schips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px}
+.schip{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:600;color:var(--sub);background:#fff;border:1.5px solid var(--bdr);border-radius:30px;padding:7px 14px;cursor:pointer;transition:.15s}
+.schip:hover{border-color:var(--bl);color:var(--bl-dk)}.schip.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));border-color:transparent;color:#fff}
+.scount{font-size:13px;color:var(--sub);margin:10px 2px 14px}
+.sres{display:flex;flex-direction:column;gap:8px}
+.srow{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:12px 15px;transition:.15s}
+.srow:hover{border-color:var(--bl);box-shadow:0 8px 22px rgba(6,182,212,.12);transform:translateY(-1px)}
+.sbadge{flex-shrink:0;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;border-radius:20px;padding:4px 9px;min-width:62px;text-align:center}
+.sbadge.stay{color:#0e7490;background:#cffafe}.sbadge.rank{color:#b45309;background:#fef3c7}.sbadge.see{color:#7c3aed;background:#f3e8ff}.sbadge.eat{color:#be123c;background:#ffe4e6}.sbadge.plan{color:#0891b2;background:#e0f7fa}.sbadge.guide{color:#15803d;background:#dcfce7}.sbadge.city{color:#475569;background:#f1f5f9}
+.sinfo{min-width:0}.stitle{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:600;font-size:15px;line-height:1.3;color:var(--ink)}
+.splace{font-size:12.5px;color:var(--sub);margin-top:2px}
+</style>
+${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ค้นหา','Search')}])}
+<div class="thero" style="padding-bottom:14px"><div class="eyebrow">🔎 ${tx('ค้นหาทั้งเว็บ','Search the whole site')}</div><h1>${tx('ค้นหา<em>ที่พัก ที่เที่ยว คู่มือ</em>','Search <em>stays, sights & guides</em>')}</h1></div>
+<div class="swrap">
+  <input type="text" id="sq" class="sbig" placeholder="" autocomplete="off" autofocus>
+  <div class="schips" id="schips">${chips}</div>
+  <div class="scount" id="scount"></div>
+  <div class="sres" id="sres"></div>
+</div>`;
+  const extraJS=`<script>
+(function(){var IDX=${JSON.stringify(idxUrl)},B=${badge},S=${STR},data=[],q='',cat='all';
+var inp=document.getElementById('sq'),res=document.getElementById('sres'),cnt=document.getElementById('scount'),chips=document.getElementById('schips');
+inp.placeholder=S.ph;var p=new URLSearchParams(location.search),q0=p.get('q')||'';if(q0){inp.value=q0;q=q0.trim().toLowerCase();}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function render(){if(!data.length){return;}if(!q){cnt.textContent='';res.innerHTML='<div class="scount">'+S.start+'</div>';return;}
+var out=[];for(var i=0;i<data.length;i++){var e=data[i];if(cat!=='all'&&e[2]!==cat)continue;if((e[0]+' '+e[3]).toLowerCase().indexOf(q)===-1)continue;out.push(e);}
+out.sort(function(a,b){return (a[0].toLowerCase().indexOf(q)===0?0:1)-(b[0].toLowerCase().indexOf(q)===0?0:1);});
+var total=out.length;cnt.textContent=total?(S.found+' '+total+' '+(total>100?S.more:S.results)):'';
+if(!total){res.innerHTML='<div class="scount">'+S.none+'</div>';return;}
+res.innerHTML=out.slice(0,100).map(function(e){return '<a class="srow" href="'+e[1]+'"><span class="sbadge '+e[2]+'">'+(B[e[2]]||'')+'</span><span class="sinfo"><span class="stitle">'+esc(e[0])+'</span>'+(e[3]?'<span class="splace">📍 '+esc(e[3])+'</span>':'')+'</span></a>';}).join('');}
+var t;inp.addEventListener('input',function(){q=inp.value.trim().toLowerCase();clearTimeout(t);t=setTimeout(render,110);});
+chips.addEventListener('click',function(e){var b=e.target.closest('.schip');if(!b)return;cat=b.getAttribute('data-cat');chips.querySelectorAll('.schip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();});
+fetch(IDX).then(function(r){return r.json();}).then(function(j){data=j;render();}).catch(function(){cnt.textContent='';});})();
+</script>`;
+  const jsonld={"@context":"https://schema.org","@type":"WebSite","url":"https://thailandaddict.com/","potentialAction":{"@type":"SearchAction","target":J('search.html')+"?q={query}","query-input":"required name=query"}};
+  return page({title:tx('ค้นหา — ที่พัก ที่เที่ยว คู่มือเที่ยวไทย | ThailandAddict','Search — Hotels, Sights & Thailand Travel Guides | ThailandAddict'),desc:tx('ค้นหาที่พัก ที่เที่ยว ของกิน แผนเที่ยว และคู่มือเตรียมตัวทั่วไทยในที่เดียว','Search hotels, things to do, food, itineraries and travel guides across Thailand in one place.'),slug:'search',jsonld,body,extraJS,image:'/images/heroes/bangkok.jpg'});
+}
 function readData(slug){
   const dirs = LOC==='en' ? [DATA+'-en', DATA] : [DATA];   // EN prefers province-data-en, falls back to TH
   for(const dir of dirs){ const f=path.join(dir,slug+'.json'); if(fs.existsSync(f)){ try{return JSON.parse(fs.readFileSync(f,'utf8'))}catch{} } }
@@ -544,7 +596,8 @@ function genAll(loc, outDir){
   fs.writeFileSync(path.join(outDir,'country-thailand.html'),countryHub());
   fs.writeFileSync(path.join(outDir,'destinations.html'),destinationsHub());
   fs.writeFileSync(path.join(outDir,'plan-your-trip.html'),planHub());
-  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1 plan:1`);
+  fs.writeFileSync(path.join(outDir,'search.html'),searchPage());
+  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1 plan:1 search:1`);
   if(nMiss.length) console.log(`   [${loc}] missing data (fallback): ${nMiss.length} → ${nMiss.join(',')}`);
 }
 // which locales to build: args, default both

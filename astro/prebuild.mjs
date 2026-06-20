@@ -3,7 +3,7 @@
 // `cd astro && npm run build`). No-ops gracefully where the generators aren't
 // reachable (e.g. the isolated _internal/build-test.sh copy), so it never breaks
 // a content-only validation build.
-for (const mod of ['../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs']) {
+for (const mod of ['../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs']) {
   try { await import(mod); }
   catch (e) { console.log(`prebuild: skipped ${mod} (${e && e.code || e})`); }
 }
