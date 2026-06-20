@@ -233,7 +233,7 @@ const articleBlock = z.discriminatedUnion('kind', [
     lat: z.number().optional(), lng: z.number().optional(),
     // v3: trust signals + scannability + photo gallery. All optional · back-compat.
     rating: z.number().optional(), ratingCount: z.number().optional(), ratingSrc: z.string().optional(),
-    bestFor: z.string().optional(), zone: z.string().optional(),
+    bestFor: z.string().optional(), zone: z.string().optional(), foodType: z.string().optional(),
     gallery: z.array(z.object({ src: z.string(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() })).optional() }),
   // Hotel-booking conversion module (drives readers → accommodation pages). Additive · back-compat.
   z.object({ kind: z.literal('staycta'), title: z.string(), text: z.string().optional(), img: z.string().optional(),

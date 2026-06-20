@@ -26,14 +26,20 @@ const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.len
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
 // Map pins (only restaurants with real coordinates). Map renders only when ≥3 pins are available.
-const mapPins = restos
-  .filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number')
-  .map((b) => ({ rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay }));
+const geoRestos = restos.filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number');
+const haversineKm = (a, b) => { const R = 6371, toR = (d) => d * Math.PI / 180, dLa = toR(b.lat - a.lat), dLo = toR(b.lng - a.lng); const x = Math.sin(dLa/2)**2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLo/2)**2; return 2 * R * Math.asin(Math.sqrt(x)); };
+const nearestOf = (b) => { let best = null, bd = Infinity; for (const o of geoRestos) { if (o.rank === b.rank) continue; const d = haversineKm(b, o); if (d < bd) { bd = d; best = o; } } return best ? { name: strip(best.name), km: bd } : null; };
+const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ม.` : `~${km.toFixed(1)} กม.`);
+const mapPins = geoRestos.map((b) => { const nr = nearestOf(b); return { rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay, near: nr ? `${nr.name} · ${distLabel(nr.km)}` : '' }; });
 const showMap = isResto && mapPins.length >= 3;
-// v3: zone filter chips (built from restaurants that declare a zone) + diet toggle.
+// v3 filters: zone / food-type / price-tier axes + diet toggles. Each group is conditional on data.
+const priceTier = (u) => { const m = String(u || '').match(/([\d.]+)/); if (!m) return ''; const n = parseFloat(m[1]); return n < 5 ? '฿' : n <= 12 ? '฿฿' : '฿฿฿'; };
 const zones = [...new Set(restos.map((b) => b.zone).filter(Boolean))];
+const types = [...new Set(restos.map((b) => b.foodType).filter(Boolean))];
+const prices = [...new Set(restos.map((b) => priceTier(b.priceUsd)).filter(Boolean))].sort((a, b) => a.length - b.length);
 const hasVeg = restos.some((b) => b.veg);
-const showFilters = isResto && (zones.length >= 2 || hasVeg);
+const hasHalal = restos.some((b) => b.halal);
+const showFilters = isResto && (zones.length >= 2 || types.length >= 2 || prices.length >= 2 || hasVeg || hasHalal);
 // Sticky right-rail (desktop only): featured hotel roundups + the food-tour module, both follow scroll.
 const railItems = (data.rail && data.rail.length ? data.rail : []);
 const foodBlock = isResto ? (data.blocks.find((b) => b.kind === 'foodexp') || null) : null;
@@ -269,13 +275,15 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .lt-ic{font-size:24px;flex-shrink:0;line-height:1.25}
 .lt-body b{font-family:'Outfit';font-weight:800;font-size:14px;color:var(--ink);display:block;margin-bottom:3px}
 .lt-body p{font-size:13.5px;color:#475569;line-height:1.55}
-.rfilter{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 22px}
-.rfilter-l{font-family:'Outfit';font-weight:800;font-size:13px;color:var(--ink);margin-right:2px}
-.rchip{font-family:'Outfit';font-weight:700;font-size:13px;color:var(--sub);background:#fff;border:1.5px solid var(--bdr);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.15s}
+.rfilter{display:flex;flex-direction:column;gap:9px;margin:0 0 24px;padding:14px 16px;background:var(--soft);border:1px solid var(--bdr);border-radius:16px}
+.rfg{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.rfg-l{font-family:'Outfit';font-weight:800;font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;min-width:50px}
+.rchip{font-family:'Outfit';font-weight:700;font-size:12.5px;color:var(--sub);background:#fff;border:1.5px solid var(--bdr);border-radius:999px;padding:6px 13px;cursor:pointer;transition:.15s}
 .rchip:hover{border-color:var(--teal);color:var(--teal-dk)}
 .rchip.on{background:linear-gradient(135deg,var(--teal),var(--teal-dk));border-color:transparent;color:#fff}
 .rchip.veg.on{background:linear-gradient(135deg,#10b981,#059669)}
-.rfilter-count{font-family:'Outfit';font-size:12.5px;color:var(--sub);margin-left:4px}
+.rchip.halal.on{background:linear-gradient(135deg,#0891b2,#0e7490)}
+.rfilter-count{font-family:'Outfit';font-weight:700;font-size:12px;color:var(--teal-dk)}
 .rfresh{font-size:12.5px;color:var(--sub);background:var(--soft);border:1px dashed var(--bdr);border-radius:10px;padding:8px 13px;margin:0 0 18px}
 /* food module shows in BOTH places on desktop (inline in content + in the sticky rail) per owner */
 @media(max-width:1024px){.rgrid{display:block;max-width:820px}.rrail{display:none}}
@@ -388,6 +396,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           var icon = L.divIcon({ className: 'rpin', html: '<span>' + p.rank + '</span>', iconSize: [30, 30], iconAnchor: [15, 15] });
           var m = L.marker([p.lat, p.lng], { icon: icon }).addTo(map);
           var html = '<b>' + p.name + '</b>';
+          if (p.near) html += '<br><span style="color:#64748b">🚶 ร้านใกล้สุด: ' + p.near + '</span>';
           if (p.stayHref) html += '<br><a href="' + p.stayHref + '">🏨 ' + p.stayLabel + ' &rarr;</a>';
           m.bindPopup(html);
           pts.push([p.lat, p.lng]);
@@ -414,10 +423,30 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
   )}
   {showFilters && (
     <div class="rfilter" id="rfilter">
-      <span class="rfilter-l">กรองร้าน</span>
-      <button class="rchip on" type="button" data-zone="">ทั้งหมด</button>
-      {zones.map((z) => <button class="rchip" type="button" data-zone={z}>{'🧭 ' + z}</button>)}
-      {hasVeg && <button class="rchip veg" type="button" data-veg="1">🥗 มังสวิรัติ</button>}
+      {types.length >= 2 && (
+        <div class="rfg"><span class="rfg-l">ประเภท</span>
+          <button class="rchip on" type="button" data-axis="type" data-val="">ทั้งหมด</button>
+          {types.map((t) => <button class="rchip" type="button" data-axis="type" data-val={t}>{t}</button>)}
+        </div>
+      )}
+      {zones.length >= 2 && (
+        <div class="rfg"><span class="rfg-l">ย่าน</span>
+          <button class="rchip on" type="button" data-axis="zone" data-val="">ทั้งหมด</button>
+          {zones.map((z) => <button class="rchip" type="button" data-axis="zone" data-val={z}>{'🧭 ' + z}</button>)}
+        </div>
+      )}
+      {prices.length >= 2 && (
+        <div class="rfg"><span class="rfg-l">ราคา</span>
+          <button class="rchip on" type="button" data-axis="price" data-val="">ทั้งหมด</button>
+          {prices.map((p) => <button class="rchip" type="button" data-axis="price" data-val={p}>{p}</button>)}
+        </div>
+      )}
+      {(hasVeg || hasHalal) && (
+        <div class="rfg">
+          {hasVeg && <button class="rchip veg" type="button" data-toggle="veg">🥗 มังสวิรัติ</button>}
+          {hasHalal && <button class="rchip halal" type="button" data-toggle="halal">🕌 ฮาลาล</button>}
+        </div>
+      )}
       <span class="rfilter-count" id="rfilter-count"></span>
     </div>
   )}
@@ -425,7 +454,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
     b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :
-    b.kind === 'restaurant' ? <section class="resto" id={`r${b.rank}`} data-zone={b.zone || ''} data-veg={b.veg ? '1' : '0'}>
+    b.kind === 'restaurant' ? <section class="resto" id={`r${b.rank}`} data-zone={b.zone || ''} data-veg={b.veg ? '1' : '0'} data-type={b.foodType || ''} data-price={priceTier(b.priceUsd)} data-halal={b.halal ? '1' : '0'}>
       <div class="resto-head">
         <span class="resto-rank">{b.rank}</span>
         <div class="resto-head-info">
@@ -574,31 +603,38 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       media.querySelectorAll('.resto-thumb').forEach(function (x) { x.classList.remove('on'); });
       t.classList.add('on');
     });
-    // zone + diet filters
+    // multi-axis filters (type / zone / price single-select + veg / halal toggles, AND-combined)
     var fbar = document.getElementById('rfilter');
     if (fbar) {
-      var zone = '', veg = false, cnt = document.getElementById('rfilter-count');
+      var sel = { type: '', zone: '', price: '' }, tog = { veg: false, halal: false };
+      var cnt = document.getElementById('rfilter-count');
       function apply() {
-        var shown = 0, total = 0;
+        var shown = 0, total = 0, active = sel.type || sel.zone || sel.price || tog.veg || tog.halal;
         document.querySelectorAll('.resto').forEach(function (card) {
           total++;
-          var okZ = !zone || card.getAttribute('data-zone') === zone;
-          var okV = !veg || card.getAttribute('data-veg') === '1';
-          var show = okZ && okV; card.style.display = show ? '' : 'none'; if (show) shown++;
+          var ok = (!sel.type || card.getAttribute('data-type') === sel.type)
+            && (!sel.zone || card.getAttribute('data-zone') === sel.zone)
+            && (!sel.price || card.getAttribute('data-price') === sel.price)
+            && (!tog.veg || card.getAttribute('data-veg') === '1')
+            && (!tog.halal || card.getAttribute('data-halal') === '1');
+          card.style.display = ok ? '' : 'none'; if (ok) shown++;
         });
         document.querySelectorAll('.qnav-row a').forEach(function (a) {
           var id = a.getAttribute('href'), card = id && document.querySelector(id);
           if (card) a.style.display = card.style.display === 'none' ? 'none' : '';
         });
-        if (cnt) cnt.textContent = (zone || veg) ? ('แสดง ' + shown + '/' + total + ' ร้าน') : '';
+        if (cnt) cnt.textContent = active ? ('แสดง ' + shown + '/' + total + ' ร้าน') : '';
       }
       fbar.addEventListener('click', function (e) {
         var b = e.target.closest('button'); if (!b) return;
-        if (b.hasAttribute('data-zone')) {
-          zone = b.getAttribute('data-zone');
-          fbar.querySelectorAll('[data-zone]').forEach(function (x) { x.classList.remove('on'); });
+        if (b.hasAttribute('data-axis')) {
+          var ax = b.getAttribute('data-axis');
+          sel[ax] = b.getAttribute('data-val');
+          b.parentNode.querySelectorAll('[data-axis="' + ax + '"]').forEach(function (x) { x.classList.remove('on'); });
           b.classList.add('on');
-        } else if (b.hasAttribute('data-veg')) { veg = !veg; b.classList.toggle('on'); }
+        } else if (b.hasAttribute('data-toggle')) {
+          var tg = b.getAttribute('data-toggle'); tog[tg] = !tog[tg]; b.classList.toggle('on');
+        }
         apply();
       });
     }
