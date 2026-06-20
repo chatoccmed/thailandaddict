@@ -303,10 +303,11 @@ document.addEventListener('click',function(e){if(!e.target.closest('.search-box'
 </script>`;
 }
 
-function page({ title, desc, slug, jsonld, body, extraJS }) {
+function page({ title, desc, slug, jsonld, body, extraJS, image }) {
   const canon = `https://thailandaddict.com/${LOC==='en'?'en/':''}${slug}`;
   const altTH = `https://thailandaddict.com/${slug}`;
   const altEN = `https://thailandaddict.com/en/${slug}`;
+  const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
   return `<!doctype html>
 <html lang="${LOC}"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -317,7 +318,7 @@ function page({ title, desc, slug, jsonld, body, extraJS }) {
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canon}"><meta property="og:type" content="website">
-<meta property="og:image" content="https://thailandaddict.com/images/heroes/krabi.jpg"><meta property="og:locale" content="${LOC==='en'?'en_US':'th_TH'}"><meta name="theme-color" content="#06B6D4">
+<meta property="og:image" content="${ogImg}"><meta property="og:locale" content="${LOC==='en'?'en_US':'th_TH'}"><meta name="theme-color" content="#06B6D4">
 ${FONTS}
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 ${CSS}
@@ -429,7 +430,7 @@ ${nbCards?`<div class="section"><div class="sh"><div class="slbl">${tx('📍 เ
 <div class="seo"><div class="seobox"><h2>${tx(`เกี่ยวกับ — เที่ยว${th}`,`About — ${nm}`)}</h2>${d.introHtml||tx(`<p>คู่มือเที่ยว${th} ครบทั้งที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่</p>`,`<p>A complete ${nm} guide — stays, sights, food and itineraries, picked from the real thing on the ground.</p>`)}<p><b>${tx('ช่วงเวลาแนะนำ:','Best time:')}</b> ${esc(best)}</p></div></div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx(`วางแผนเที่ยว${th}`,`Plan your ${nm} trip`)}</h2><p>${tx('ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว','Stays, sights, food and routes — all gathered for you')}</p><a href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div></div>`;
   const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','');if(m[h])act(m[h],true);})();</script>`;
-  return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS});
+  return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS,image:heroSrc});
 }
 
 function provCard(s,th,em,tg){
@@ -445,7 +446,7 @@ function regionPage(r){
 <div class="thero"><div class="eyebrow">${R.emoji} ${tx('ภาคของไทย','A region of Thailand')}</div><h1>${tx(`เที่ยว<em>${R.th}</em>`,`Explore <em>${rn}</em>`)}</h1><p class="lead">${RINTRO(r)}</p><div class="chips"><span class="chip">📍 ${provs.length} ${tx('จังหวัด','provinces')}</span><span class="chip">${tx('✅ คัดจากของจริง','✅ picked from the real thing')}</span></div></div>
 <section class="sec"><div class="inner"><div class="shead"><h2>${tx(`จังหวัดใน<span class="em">${R.th}</span>`,`Provinces in <span class="em">${rn}</span>`)}</h2><a href="country-thailand.html">${tx('ทุกภาค →','All regions →')}</a></div><div class="dgrid">${cards}</div></div></section>
 <div class="cta-sec"><div class="ctaband"><h2>${tx('เลือกจังหวัดที่อยากไป','Pick a province to explore')}</h2><p>${tx('แต่ละจังหวัดมีที่พัก ที่เที่ยว ของกิน และแผนเที่ยวครบ','Every province has stays, sights, food and itineraries')}</p><a href="country-thailand.html">${tx('ดูทั้งประเทศ →','See the whole country →')}</a></div></div>`;
-  return page({title:tx(`เที่ยว${R.th} — จังหวัดน่าเที่ยว ที่พัก ที่เที่ยว ของกิน | ThailandAddict`,`${rn} — Provinces, Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`คู่มือเที่ยว${R.th} — รวมจังหวัดน่าเที่ยวพร้อมที่พัก ที่เที่ยว ของกิน และแผนเดินทาง`,`A guide to ${rn} — the best provinces to visit, with stays, sights, food and itineraries.`),slug:`region-${R.slug}`,jsonld,body});
+  return page({title:tx(`เที่ยว${R.th} — จังหวัดน่าเที่ยว ที่พัก ที่เที่ยว ของกิน | ThailandAddict`,`${rn} — Provinces, Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`คู่มือเที่ยว${R.th} — รวมจังหวัดน่าเที่ยวพร้อมที่พัก ที่เที่ยว ของกิน และแผนเดินทาง`,`A guide to ${rn} — the best provinces to visit, with stays, sights, food and itineraries.`),slug:`region-${R.slug}`,jsonld,body,image:'/images/heroes/'+({n:'chiang-mai',ne:'nakhon-ratchasima',c:'ayutthaya',e:'trat',w:'kanchanaburi',s:'krabi'}[r]||'krabi')+'.jpg'});
 }
 function countryHub(){
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
@@ -457,7 +458,7 @@ function countryHub(){
 <div class="thero"><div class="eyebrow">${tx('🇹🇭 ชีวิตติดเที่ยว','🇹🇭 Explore Thailand Like a Local')}</div><h1>${tx('เที่ยว<em>ประเทศไทย</em> ครบ 77 จังหวัด','Explore <em>Thailand</em> — all 77 provinces')}</h1><p class="lead">${tx('เลือกภาคและจังหวัดที่อยากไป — แต่ละจังหวัดมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริง','Pick a region and province — each one has ranked stays, things to do, food and itineraries, picked from the real thing.')}</p><div class="chips"><span class="chip">🗺️ <b>77</b> ${tx('จังหวัด','provinces')}</span><span class="chip">🧭 <b>6</b> ${tx('ภาค','regions')}</span><span class="chip">✅ <b>100%</b> ${tx('รีวิวจริง','real reviews')}</span></div></div>
 <div style="max-width:1120px;margin:0 auto;padding:34px 28px 0">${blocks}</div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx('เริ่มวางแผนทริปไทย','Start planning your Thailand trip')}</h2><p>${tx('เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน ได้เลย','Pick a province, then dive into stays, sights and food')}</p><a href="region-north.html">${tx('เริ่มที่ภาคเหนือ →','Start in the North →')}</a></div></div>`;
-  return page({title:tx(`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Explore Thailand — All 77 Provinces, Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,`A complete Thailand guide — all 77 provinces across 6 regions, with ranked hotel reviews, things to do, food and itineraries.`),slug:`country-thailand`,jsonld,body});
+  return page({title:tx(`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Explore Thailand — All 77 Provinces, Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,`A complete Thailand guide — all 77 provinces across 6 regions, with ranked hotel reviews, things to do, food and itineraries.`),slug:`country-thailand`,jsonld,body,image:'/images/heroes/bangkok.jpg'});
 }
 function destinationsHub(){
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
@@ -473,7 +474,7 @@ function destinationsHub(){
 ${dst.length?`<section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>${tx('เกาะ &amp; <span class="em">จุดหมายเฉพาะทาง</span>','Islands &amp; <span class="em">special destinations</span>')}</h2><span style="font-size:13px;color:var(--sub)">${dst.length} ${tx('จุดหมาย','destinations')}</span></div><div class="dgrid">${dstCards}</div></div></section>`:''}
 <section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>${tx('หรือเลือก<span class="em">ตามภาค</span>','Or browse <span class="em">by region</span>')}</h2><a href="country-thailand.html">${tx('ทุกภาค →','All regions →')}</a></div><div class="dgrid">${regCards}</div></div></section>
 <div class="cta-sec"><div class="ctaband"><h2>${tx('เลือกเมืองที่อยากไป','Pick a city to explore')}</h2><p>${tx('แต่ละเมืองมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยวครบ คัดจากเสียงรีวิวจริง','Every city has ranked stays, things to do, food and itineraries, picked from real reviews')}</p><a href="country-thailand.html">${tx('ดูทั้งประเทศ →','See the whole country →')}</a></div></div>`;
-  return page({title:tx(`เมืองท่องเที่ยวยอดนิยมในไทย — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Top Tourist Cities in Thailand — Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`รวมเมืองท่องเที่ยวยอดนิยมทั่วไทย — กรุงเทพ เชียงใหม่ ภูเก็ต กระบี่ พัทยา หัวหิน และอีกมาก พร้อมที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง`,`Thailand's most popular tourist cities — Bangkok, Chiang Mai, Phuket, Krabi, Pattaya, Hua Hin and more, with ranked stays, things to do, food and itineraries.`),slug:`destinations`,jsonld,body});
+  return page({title:tx(`เมืองท่องเที่ยวยอดนิยมในไทย — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Top Tourist Cities in Thailand — Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`รวมเมืองท่องเที่ยวยอดนิยมทั่วไทย — กรุงเทพ เชียงใหม่ ภูเก็ต กระบี่ พัทยา หัวหิน และอีกมาก พร้อมที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง`,`Thailand's most popular tourist cities — Bangkok, Chiang Mai, Phuket, Krabi, Pattaya, Hua Hin and more, with ranked stays, things to do, food and itineraries.`),slug:`destinations`,jsonld,body,image:'/images/heroes/phuket.jpg'});
 }
 function readData(slug){
   const dirs = LOC==='en' ? [DATA+'-en', DATA] : [DATA];   // EN prefers province-data-en, falls back to TH
