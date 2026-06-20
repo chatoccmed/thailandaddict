@@ -6,11 +6,24 @@
 
 ---
 
+## ⏸️ PAUSED (เตรียม deploy)
+- **2026-06-20:** พักงานชั่วคราว — เตรียมย้ายขึ้นเว็บจริง (deploy) · ทุกอย่าง commit+push แล้ว (HEAD = `d4f91625`, sync กับ origin/main) · ไม่มีงาน claim ค้าง
+- งานถัดไป (ยังไม่เริ่ม): i18n Tier-1 อีก 7 ภาษา (zh·ru·ko·ja·he·ar·hi) ยัง 0 หน้า — ดู `_internal/I18N-AND-TOURISM-CITY-PLAN.md`
+
 ## 🟢 ACTIVE
 _(ว่าง)_
 
 ---
 
-## ✅ DONE
-- EN translation: **reviews-en ครบ 1,939/1,939 + roundups-en ครบ 215/215** (2026-06-20) — แปลครบ · verify ZERO Thai ทุกไฟล์ + JSON valid + structure parity + /en/ links · build-test BUILD OK (10,735 pages) · pushed. ใช้ `_internal/wf/translate-reviews-en.js` + `translate-roundups-en.js` + cleanup `fix-en-thai.js` (กันไทยตกค้างใน address/type/label) · verifier `en-check-reviews.mjs`
-- EN translation: **articles-en ครบ 3,213/3,213** (pushed bc88d028) — บทความทั้งหมดแปลครบแล้ว
+## ✅ DONE — เว็บภาษาอังกฤษ (EN) ครบทั้งเว็บ (2026-06-20)
+**สรุป: TH 5,472 หน้า · EN 5,471 หน้า (ต่างกัน 1 = `font-compare.html` หน้า dev เท่านั้น) · ภาษาอื่น 0 · ทุกหน้า EN ZERO Thai · build OK 10,736 pages**
+
+- **EN content แปลครบ:** articles-en 3,214/3,214 · reviews-en 1,939/1,939 · roundups-en 215/215 — verify ZERO Thai + JSON valid + structure/array parity + /en/ links ถูกต้อง
+  - workflows: `_internal/wf/translate-reviews-en.js` · `translate-roundups-en.js` · `translate-en.js` · cleanup `fix-en-thai.js` (กันไทยตกค้าง address/type/qiType/parentShort/label) · verifier `en-check-reviews.mjs`
+- **EN hub pages ครบ (`/en/`):** homepage + 89 city hubs + 6 region + country-thailand + destinations + about/contact/editorial-policy/privacy/404
+  - **engine = `_internal/gen-hubs.mjs` (locale-aware)** — generator ตัวเดียวออกทั้ง TH (`/`) และ EN (`/en/`) → โครงสร้าง/CSS/รูป เหมือนกัน by construction (TH output byte-identical ยกเว้นเพิ่ม hreflang + lang toggle ราย-หน้า) · รัน: `node _internal/gen-hubs.mjs` (ทั้ง 2 ภาษา) หรือ `node _internal/gen-hubs.mjs th|en`
+  - curated data EN: `_internal/province-data-en/*.json` (89 ไฟล์ · workflow `translate-province-data-en.js`) — ใช้คู่กับ `province-data/` (TH)
+  - static pages EN: workflow `translate-static-en.js`
+  - hreflang th/en/x-default + canonical /en/ + ปุ่มสลับ TH⇄EN ครบทุกหน้า
+- **⚠️ เวลา re-run gen-hubs ต้องมี `province-data-en/` ครบ 89** ไม่งั้น neighbor cards จะโชว์ไทย (fallback) · ถ้าเพิ่มจังหวัด/เมืองใหม่ → เพิ่ม EN name ใน `EN_NAME` map ใน gen-hubs.mjs ด้วย
+- EN translation: **articles-en เดิม 3,213/3,213** (pushed bc88d028)
