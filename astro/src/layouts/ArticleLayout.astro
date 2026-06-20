@@ -7,8 +7,10 @@ const SITE = 'https://thailandaddict.com';
 const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
 const asset = (p: string) => (p?.startsWith('http') ? p : p?.startsWith('/') ? p : `/${p}`);
 const S = isEn
-  ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right' }
-  : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right' };
+  ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
+      priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page' }
+  : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
+      priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน' };
 
 const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
 const faq = data.faq ?? [];
@@ -105,24 +107,44 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .qnav-row a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-family:'Outfit';font-size:13px;font-weight:600;color:var(--sub);background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:6px 14px 6px 7px;white-space:nowrap;transition:.15s}
 .qnav-row a:hover{color:var(--teal-dk);border-color:var(--teal);background:#fff}
 .qnav-row a b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-size:11px;font-weight:900}
-.resto{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:clamp(22px,3.6vw,46px);align-items:center;margin:clamp(40px,6.5vw,72px) 0;scroll-margin-top:128px}
-.resto-media{position:relative;order:0}.resto.flip .resto-media{order:2}
-.resto-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:26px;box-shadow:0 26px 54px -14px rgba(15,23,42,.34)}
-.resto-rank{position:absolute;top:-16px;left:-10px;width:clamp(50px,7vw,64px);height:clamp(50px,7vw,64px);border-radius:19px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:clamp(23px,3.6vw,31px);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 28px rgba(244,63,94,.42);z-index:2}
-.resto-cred{position:absolute;left:13px;bottom:13px;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);color:#fff;font-family:'Outfit';font-size:10.5px;font-weight:600;padding:5px 11px;border-radius:999px;max-width:86%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.resto-cred a{color:#fff}
-.resto-body .resto-name{font-family:'Outfit';font-size:clamp(25px,3.7vw,33px);font-weight:900;letter-spacing:-.5px;line-height:1.14;margin:0 0 9px;scroll-margin-top:0}
-.resto-meta{display:flex;flex-wrap:wrap;gap:14px;font-family:'Outfit';font-size:13.5px;font-weight:600;color:var(--sub);margin-bottom:13px}
-.resto-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
-.resto-pills .pill{font-family:'Outfit';font-size:12.5px;font-weight:700;padding:6px 13px;border-radius:999px}
-.pill.sig{background:#fff7e6;color:#b45309;border:1px solid #fde68a}.pill.price{background:#e0f7fa;color:var(--teal-dk);border:1px solid #a5e8f0}.pill.score{background:#fff1f3;color:var(--coral-dk);border:1px solid #fecdd3}
-.resto-desc{font-size:15.5px;color:#1e293b;line-height:1.82}.resto-desc strong{color:var(--ink);font-weight:700}.resto-desc p{margin:0 0 12px}
-.resto-must{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:15px}
-.resto-must .ml{font-family:'Outfit';font-weight:800;font-size:11.5px;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.6px}
-.resto-must .mo{font-family:'Outfit';font-size:12.5px;font-weight:600;background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:5px 12px}
-.resto-act{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-.rbtn{font-family:'Outfit';font-weight:800;font-size:13px;padding:10px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;transition:transform .15s}
-.rbtn.map{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;box-shadow:0 8px 18px rgba(6,182,212,.34)}.rbtn.fb{background:#fff;border:2px solid var(--bdr);color:var(--ink)}.rbtn:hover{transform:translateY(-2px)}
-.rbtn.stay{background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;box-shadow:0 8px 18px rgba(244,63,94,.36)}
+/* card layout — mirrors hotel-roundup rhythm: header band + fixed image sidebar + flexible text */
+.resto{background:#fff;border:1px solid var(--bdr);border-radius:24px;overflow:hidden;margin:0 0 26px;box-shadow:0 10px 30px rgba(15,23,42,.06);transition:box-shadow .25s,transform .25s;scroll-margin-top:128px}
+.resto:hover{box-shadow:0 22px 48px -18px rgba(15,23,42,.24);transform:translateY(-3px)}
+.resto-head{display:flex;align-items:flex-start;gap:15px;padding:20px 24px 16px;border-bottom:1px solid var(--bdr)}
+.resto-rank{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(244,63,94,.32)}
+.resto-head-info{flex:1;min-width:0}
+.resto-type{font-family:'Outfit';font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);font-weight:700;margin-bottom:3px}
+.resto-name{font-family:'Outfit';font-size:clamp(20px,2.8vw,25px);font-weight:900;letter-spacing:-.4px;line-height:1.16;color:var(--ink)}
+.resto-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:9px;font-family:'Outfit';font-size:13px;font-weight:600;color:var(--sub)}
+.resto-score{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--mango),#f59e0b);color:#fff;padding:3px 11px;border-radius:999px;font-size:12.5px;font-weight:800}
+.resto-body{display:grid;grid-template-columns:280px 1fr;gap:0}
+@media(max-width:720px){.resto-body{grid-template-columns:1fr}}
+.resto-media{background:var(--soft);border-right:1px solid var(--bdr);display:flex;flex-direction:column}
+@media(max-width:720px){.resto-media{border-right:none;border-bottom:1px solid var(--bdr)}}
+.resto-imgwrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e6eef2;flex-shrink:0}
+.resto-imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.resto:hover .resto-imgwrap img{transform:scale(1.04)}
+.resto-cred{position:absolute;left:11px;bottom:11px;background:rgba(15,23,42,.62);backdrop-filter:blur(4px);color:#fff;font-family:'Outfit';font-size:10px;font-weight:600;padding:4px 10px;border-radius:999px;max-width:88%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.resto-cred a{color:#fff}
+.resto-side{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.resto-price{font-family:'Outfit';line-height:1.15}
+.resto-price .pl{display:block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);font-weight:700}
+.resto-price .pv{font-size:19px;font-weight:900;color:var(--teal-dk);letter-spacing:-.3px}
+.resto-act{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.rbtn{font-family:'Outfit';font-weight:800;font-size:13px;padding:11px 14px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:transform .15s,box-shadow .2s}
+.rbtn.stay{background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;box-shadow:0 6px 16px rgba(244,63,94,.32)}
+.rbtn.map{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;box-shadow:0 6px 16px rgba(6,182,212,.3)}
+.rbtn.fb{background:#fff;border:2px solid var(--bdr);color:var(--ink)}
+.rbtn:hover{transform:translateY(-2px)}
+.resto-content{padding:20px 24px 22px;min-width:0}
+.resto-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+.resto-tag{font-family:'Outfit';font-size:11.5px;font-weight:700;padding:4px 12px;border-radius:999px;white-space:nowrap}
+.resto-tag.c0{background:#cffafe;color:var(--teal-dk)}.resto-tag.c1{background:#fff1f3;color:var(--coral-dk)}.resto-tag.c2{background:#fef6e0;color:#b45309}
+.resto-sig{display:flex;gap:9px;align-items:flex-start;background:var(--soft);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:10px 14px;margin-bottom:15px;font-size:13.5px;line-height:1.6;color:#1e293b}
+.resto-sig b{font-family:'Outfit';color:var(--teal-dk);font-weight:800}
+.resto-desc{font-size:15px;color:#1e293b;line-height:1.8}.resto-desc strong{color:var(--ink);font-weight:700}.resto-desc p{margin:0 0 12px}.resto-desc p:last-child{margin-bottom:0}
+.resto-must{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--bdr)}
+.resto-must .ml{font-family:'Outfit';font-weight:800;font-size:11px;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.6px}
+.resto-must .mo{font-family:'Outfit';font-size:12.5px;font-weight:600;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:5px 12px}
 .staycta{background:linear-gradient(125deg,var(--teal-dk),var(--coral));background-size:cover;background-position:center;border-radius:26px;padding:clamp(28px,5vw,46px);margin:clamp(34px,5.5vw,56px) 0;color:#fff;box-shadow:0 24px 54px -16px rgba(244,63,94,.5)}
 .staycta-in{max-width:700px}
 .staycta h3{font-family:'Outfit';font-weight:900;font-size:clamp(22px,3.5vw,31px);line-height:1.18;letter-spacing:-.4px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
@@ -233,22 +255,36 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
     b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :
-    b.kind === 'restaurant' ? <section class={Number(b.rank) % 2 === 0 ? 'resto flip' : 'resto'} id={`r${b.rank}`}>
-      <div class="resto-media">
+    b.kind === 'restaurant' ? <section class="resto" id={`r${b.rank}`}>
+      <div class="resto-head">
         <span class="resto-rank">{b.rank}</span>
-        <img src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
-        {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
+        <div class="resto-head-info">
+          {b.cuisine && <div class="resto-type" set:html={b.cuisine} />}
+          <h2 class="resto-name" set:html={b.name} />
+          {(b.area || b.score) &&
+            <div class="resto-meta">{b.area && <span set:html={'📍 ' + b.area} />}{b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}</div>}
+        </div>
       </div>
       <div class="resto-body">
-        <h2 class="resto-name" set:html={b.name} />
-        {(b.area || b.cuisine) && <div class="resto-meta">{b.area && <span set:html={'📍 ' + b.area} />}{b.cuisine && <span set:html={'🍽️ ' + b.cuisine} />}</div>}
-        {(b.signature || b.priceRange || b.score) &&
-          <div class="resto-pills">{b.signature && <span class="pill sig" set:html={'🥢 ' + b.signature} />}{b.priceRange && <span class="pill price" set:html={'💸 ' + b.priceRange} />}{b.score && <span class="pill score" set:html={'⭐ ' + b.score} />}</div>}
-        <div class="resto-desc" set:html={b.descHtml} />
-        {b.mustOrder && b.mustOrder.length > 0 &&
-          <div class="resto-must"><span class="ml">ต้องลอง</span>{b.mustOrder.map((m) => <span class="mo" set:html={m} />)}</div>}
-        {(b.mapHref || b.fbHref || b.stayHref) &&
-          <div class="resto-act">{b.stayHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || 'ที่พักใกล้ร้านนี้')} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">📍 ดูแผนที่</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">เพจร้าน</a>}</div>}
+        <div class="resto-media">
+          <div class="resto-imgwrap">
+            <img src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
+            {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
+          </div>
+          <div class="resto-side">
+            {b.priceRange && <div class="resto-price"><span class="pl">{S.priceLabel}</span><span class="pv" set:html={b.priceRange} /></div>}
+            {(b.stayHref || b.mapHref || b.fbHref) &&
+              <div class="resto-act">{b.stayHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || S.stayDefault)} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">{'📍 ' + S.mapLabel}</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">{S.fbLabel}</a>}</div>}
+          </div>
+        </div>
+        <div class="resto-content">
+          {b.tags && b.tags.length > 0 &&
+            <div class="resto-tags">{b.tags.map((t, i) => <span class={`resto-tag c${i % 3}`} set:html={t} />)}</div>}
+          {b.signature && <div class="resto-sig"><span>🥢</span><span><b>{S.sigLabel} — </b><span set:html={b.signature} /></span></div>}
+          <div class="resto-desc" set:html={b.descHtml} />
+          {b.mustOrder && b.mustOrder.length > 0 &&
+            <div class="resto-must"><span class="ml">{S.mustLabel}</span>{b.mustOrder.map((m) => <span class="mo" set:html={m} />)}</div>}
+        </div>
       </div>
     </section> :
     b.kind === 'staycta' ? <section class="staycta" style={b.img ? `background-image:linear-gradient(125deg,rgba(8,145,178,.93),rgba(244,63,94,.9)),url('${asset(b.img)}')` : ''}>
