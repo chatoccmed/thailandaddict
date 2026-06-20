@@ -2,7 +2,7 @@
   "slug": "review-baan-imm-sook-resort-chanthaburi",
   "name": "Baan Imm Sook Resort",
   "cluster": "chanthaburi",
-  "score": 9.0,
+  "score": 9,
   "starRating": 3,
   "ratingCount": 44,
   "type": "Beachside Resort",
@@ -21,7 +21,7 @@
   "addressCountry": "TH",
   "priceRange": "฿1,600",
   "parentName": "10 Popular Chanthaburi Hotels",
-  "parentShort": "Top 10 จันทบุรี",
+  "parentShort": "Top 10 Chanthaburi",
   "parentHref": "top10-hotels-chanthaburi.html",
   "parentCrumbName": "10 Popular Chanthaburi Hotels",
   "parentCrumbUrl": "https://thailandaddict.com/en/top10-hotels-chanthaburi",
@@ -126,12 +126,36 @@
     }
   ],
   "ratingBars": [
-    { "label": "Location", "value": "9.5", "width": 95 },
-    { "label": "Cleanliness", "value": "9.6", "width": 96 },
-    { "label": "Service", "value": "9.3", "width": 93 },
-    { "label": "Atmosphere", "value": "9.4", "width": 94 },
-    { "label": "Facilities", "value": "9.2", "width": 92 },
-    { "label": "Value for money", "value": "9.0", "width": 90 }
+    {
+      "label": "Location",
+      "value": "9.5",
+      "width": 95
+    },
+    {
+      "label": "Cleanliness",
+      "value": "9.6",
+      "width": 96
+    },
+    {
+      "label": "Service",
+      "value": "9.3",
+      "width": 93
+    },
+    {
+      "label": "Atmosphere",
+      "value": "9.4",
+      "width": 94
+    },
+    {
+      "label": "Facilities",
+      "value": "9.2",
+      "width": 92
+    },
+    {
+      "label": "Value for money",
+      "value": "9.0",
+      "width": 90
+    }
   ],
   "booking": {
     "score": "9.0",
@@ -215,26 +239,74 @@
     }
   ],
   "info": [
-    { "k": "Type", "v": "Beachside resort (garden-style)" },
-    { "k": "Year opened", "v": "Around 2010 (renovated 2018)" },
-    { "k": "Number of rooms", "v": "Around 47 rooms" },
-    { "k": "Location", "v": "Near Chao Lao Beach ~500 m, Tha Mai district" },
-    { "k": "Check-in", "v": "2:00 PM" },
-    { "k": "Check-out", "v": "12:00 PM" },
-    { "k": "Pool", "v": "Outdoor pool + children's pool" },
-    { "k": "Private beach", "v": "Yes" },
-    { "k": "Restaurant", "v": "Rusenjhan (Thai/seafood)" },
-    { "k": "Bikes / Wi-Fi / Parking", "v": "Free bikes · free Wi-Fi and parking" }
+    {
+      "k": "Type",
+      "v": "Beachside resort (garden-style)"
+    },
+    {
+      "k": "Year opened",
+      "v": "Around 2010 (renovated 2018)"
+    },
+    {
+      "k": "Number of rooms",
+      "v": "Around 47 rooms"
+    },
+    {
+      "k": "Location",
+      "v": "Near Chao Lao Beach ~500 m, Tha Mai district"
+    },
+    {
+      "k": "Check-in",
+      "v": "2:00 PM"
+    },
+    {
+      "k": "Check-out",
+      "v": "12:00 PM"
+    },
+    {
+      "k": "Pool",
+      "v": "Outdoor pool + children's pool"
+    },
+    {
+      "k": "Private beach",
+      "v": "Yes"
+    },
+    {
+      "k": "Restaurant",
+      "v": "Rusenjhan (Thai/seafood)"
+    },
+    {
+      "k": "Bikes / Wi-Fi / Parking",
+      "v": "Free bikes · free Wi-Fi and parking"
+    }
   ],
   "mapImg": "images/hotels/chanthaburi-baanimmsook-4.jpg",
   "mapAddr": "50/7 Moo 5, Khlong Khut, Tha Mai, Chanthaburi 22120 (near Chao Lao Beach)",
   "nearby": [
-    { "n": "Chao Lao Beach", "d": "~500 m (walk / bike)" },
-    { "n": "Chao Lao roundabout (dugong statue)", "d": "~400 m" },
-    { "n": "Kung Krabaen Bay Royal Development Study Center", "d": "~5 min drive" },
-    { "n": "Kung Wiman Beach · Noen Nang Phaya viewpoint", "d": "~15–20 min drive" },
-    { "n": "Chanthaburi town · Chanthaboon Riverside community", "d": "~30 min drive" },
-    { "n": "U-Tapao Airport (UTP)", "d": "~1.5 hr drive" }
+    {
+      "n": "Chao Lao Beach",
+      "d": "~500 m (walk / bike)"
+    },
+    {
+      "n": "Chao Lao roundabout (dugong statue)",
+      "d": "~400 m"
+    },
+    {
+      "n": "Kung Krabaen Bay Royal Development Study Center",
+      "d": "~5 min drive"
+    },
+    {
+      "n": "Kung Wiman Beach · Noen Nang Phaya viewpoint",
+      "d": "~15–20 min drive"
+    },
+    {
+      "n": "Chanthaburi town · Chanthaboon Riverside community",
+      "d": "~30 min drive"
+    },
+    {
+      "n": "U-Tapao Airport (UTP)",
+      "d": "~1.5 hr drive"
+    }
   ],
   "relatedTitle": "Other beachside stays around Chao Lao Beach / Chanthaburi worth a look",
   "related": [
