@@ -12,7 +12,7 @@ const DATE = '2026-06-20';
 const AGODA = 'https://www.agoda.com/?cid=1965862';
 
 // cities that get a where-to-stay guide (used to guard cross-links)
-const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai']);
+const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood']);
 
 // ---------- NEIGHBORHOOD ("where to stay in X") ----------
 const HOODS = [
@@ -546,6 +546,99 @@ const HOODS = [
       a:{th:'1–2 วันกำลังดี สำหรับอุทยานประวัติศาสตร์สุโขทัยและศรีสัชนาลัย หลายคนแวะระหว่างทางเชียงใหม่–กรุงเทพ หรือมาค้างคืนเพื่อชมโบราณสถานยามเย็นที่เปิดไฟ',
         en:'One to two days is ideal for the Sukhothai and Si Satchanalai historical parks. Many stop here between Chiang Mai and Bangkok, or stay overnight to see the illuminated ruins in the evening.'} },
   ] },
+{ city:'koh-kood', th:'เกาะกูด', en:'Koh Kood', hero:'koh-kood',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> คนส่วนใหญ่พักแถว <strong>หาดคลองเจ้า</strong> (หาดยาวสุด รีสอร์ตเยอะ ใกล้น้ำตกคลองเจ้า) สายเงียบ-ดำน้ำตื้นเลือก <strong>อ่าวตาเป่า/บางเบ้า</strong> ทางใต้ สายวิวพระอาทิตย์ตกเลือก <strong>อ่าวพร้าว</strong> ทางตะวันตก ส่วน <strong>อ่าวสลัด</strong> ทางเหนือเป็นหมู่บ้านชาวประมง เกาะกูดเงียบและเป็นรีสอร์ตเป็นหลัก ควรจองล่วงหน้า',
+    en:'<strong>Short answer:</strong> Most people stay around <strong>Khlong Chao</strong> (the longest beach, most resorts, near Khlong Chao Waterfall). For quiet and snorkeling pick <strong>Ao Tao/Bang Bao</strong> in the south; for sunsets choose <strong>Ao Phrao</strong> in the west; <strong>Ao Salad</strong> in the north is a fishing village. Koh Kood is quiet and resort-based, so book ahead.' },
+  areas:[
+    { a:{th:'หาดคลองเจ้า',en:'Khlong Chao'}, v:{th:'หาดหลัก ยาวสุด รีสอร์ตเยอะ',en:'Main, longest beach, most resorts'}, n:{th:'สะดวกสุด ใกล้น้ำตก',en:'Most convenient; near the waterfall'} },
+    { a:{th:'อ่าวตาเป่า / บางเบ้า',en:'Ao Tao / Bang Bao'}, v:{th:'ใต้เกาะ เงียบ ดำน้ำตื้น',en:'South, quiet, snorkeling'}, n:{th:'น้ำใส หาดเงียบ',en:'Clear water, quiet sand'} },
+    { a:{th:'อ่าวพร้าว',en:'Ao Phrao'}, v:{th:'ตะวันตก วิวพระอาทิตย์ตก',en:'West, sunset views'}, n:{th:'รีสอร์ตชิล เหมาะคู่รัก',en:'Chilled resorts; good for couples'} },
+    { a:{th:'อ่าวสลัด',en:'Ao Salad'}, v:{th:'เหนือเกาะ หมู่บ้านชาวประมง',en:'North, fishing village'}, n:{th:'บรรยากาศท้องถิ่น เงียบ',en:'Local feel, very quiet'} },
+  ],
+  styles:{ th:[
+    '<strong>มาครั้งแรก/สะดวก</strong> → หาดคลองเจ้า',
+    '<strong>เงียบ-ดำน้ำตื้น</strong> → อ่าวตาเป่า/บางเบ้า',
+    '<strong>วิวพระอาทิตย์ตก-คู่รัก</strong> → อ่าวพร้าว',
+    '<strong>บรรยากาศท้องถิ่น</strong> → อ่าวสลัด',
+  ], en:[
+    '<strong>First time / convenience</strong> → Khlong Chao',
+    '<strong>Quiet & snorkeling</strong> → Ao Tao/Bang Bao',
+    '<strong>Sunsets / couples</strong> → Ao Phrao',
+    '<strong>Local village feel</strong> → Ao Salad',
+  ] },
+  faq:[
+    { q:{th:'พักหาดไหนดีในเกาะกูด?',en:'Which beach should I stay on in Koh Kood?'},
+      a:{th:'หาดคลองเจ้าดีสุดสำหรับครั้งแรก เป็นหาดยาวที่มีรีสอร์ตและร้านอาหารมากสุด ใกล้น้ำตกคลองเจ้า ส่วนใครอยากเงียบเลือกอ่าวทางใต้หรือตะวันตก เกาะกูดไม่มีถนนคนเดินใหญ่ ๆ เน้นพักผ่อนในรีสอร์ต',
+        en:'Khlong Chao is best for a first visit — the longest beach with the most resorts and restaurants, near Khlong Chao Waterfall. For more quiet, pick a south or west bay. Koh Kood has no big walking street; it is about relaxing at your resort.'} },
+    { q:{th:'เกาะกูดไปยังไง?',en:'How do I get to Koh Kood?'},
+      a:{th:'นั่งรถหรือบินไปตราด แล้วต่อเรือเร็วจากท่าแหลมศอก/ท่าเรือในตราดราว 1–1.5 ชั่วโมง เรือมีน้อยรอบกว่าเกาะช้าง ควรเช็กรอบและจองล่วงหน้า โดยเฉพาะนอกไฮซีซั่น',
+        en:'Travel to Trat by road or air, then take a speedboat from a Trat pier (about 1–1.5 hours). Boats are less frequent than to Koh Chang, so check schedules and book ahead, especially off-season.'} },
+    { q:{th:'เกาะกูดเหมาะกับใคร?',en:'Who is Koh Kood best for?'},
+      a:{th:'เหมาะคู่รัก ฮันนีมูน และคนอยากพักผ่อนเงียบ ๆ ท่ามกลางธรรมชาติ น้ำใสและป่าเขียว แต่ไม่เหมาะคนหาไนต์ไลฟ์หรือความคึกคักแบบเกาะใหญ่',
+        en:'It suits couples, honeymooners and anyone wanting a quiet, nature-filled rest with clear water and green jungle — but not those after nightlife or the buzz of a bigger island.'} },
+  ] },
+{ city:'nan', th:'น่าน', en:'Nan', hero:'nan',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> มาน่านครั้งแรกพัก <strong>ในเมืองน่าน</strong> (ใกล้วัดภูมินทร์และถนนคนเดิน เดินเที่ยวกินง่าย) สายชิลเลือก <strong>ริมแม่น้ำน่าน</strong> ส่วนสายธรรมชาติ-วิวนาขั้นบันได-ภูเขาเลือก <strong>อำเภอปัว</strong> (เหนือเมือง ใกล้ดอยภูคา) หรือลึกเข้าไป <strong>บ่อเกลือ/สะปัน</strong> ที่วิวภูเขาสวย — โซนเหนือควรมีรถ',
+    en:'<strong>Short answer:</strong> For a first visit stay in <strong>Nan town</strong> (near Wat Phumin and the walking street — easy to explore and eat on foot). For a chilled feel choose the <strong>Nan riverside</strong>; for terraced fields and mountains pick <strong>Pua district</strong> (north, near Doi Phu Kha) or, deeper in, <strong>Bo Kluea/Sapan</strong> with its scenic mountains — the northern zones need a car.' },
+  areas:[
+    { a:{th:'ในเมืองน่าน (เมืองเก่า)',en:'Nan town (old town)'}, v:{th:'ใกล้วัดภูมินทร์ ถนนคนเดิน เดินได้',en:'Near Wat Phumin, walking street, walkable'}, n:{th:'เหมาะครั้งแรก ครบในที่เดียว',en:'Best for first-timers; all-in-one'} },
+    { a:{th:'ริมแม่น้ำน่าน',en:'Nan riverside'}, v:{th:'เงียบ วิวแม่น้ำ บรรยากาศดี',en:'Quiet, river views, atmospheric'}, n:{th:'เหมาะพักผ่อน ใกล้เมือง',en:'Relaxing, near the center'} },
+    { a:{th:'อำเภอปัว',en:'Pua district'}, v:{th:'วิวนาขั้นบันได ดอยภูคา คาเฟ่วิวภูเขา',en:'Terraced fields, Doi Phu Kha, mountain cafés'}, n:{th:'เหนือเมือง ~1 ชม. ต้องมีรถ',en:'~1h north; need a car'} },
+    { a:{th:'บ่อเกลือ / สะปัน',en:'Bo Kluea / Sapan'}, v:{th:'ภูเขาลึก หมู่บ้านวิวสวย',en:'Deep mountains, scenic villages'}, n:{th:'ไกล เหมาะสายธรรมชาติจริง ๆ',en:'Remote; for serious nature lovers'} },
+  ],
+  styles:{ th:[
+    '<strong>มาครั้งแรก/เดินเที่ยววัด-กิน</strong> → ในเมืองน่าน',
+    '<strong>ชิล-ริมน้ำ</strong> → ริมแม่น้ำน่าน',
+    '<strong>วิวนา-ภูเขา-คาเฟ่</strong> → อำเภอปัว',
+    '<strong>ธรรมชาติลึก-วิวภูเขา</strong> → บ่อเกลือ/สะปัน',
+  ], en:[
+    '<strong>First time / temples & food</strong> → Nan town',
+    '<strong>Chilled riverside</strong> → Nan riverside',
+    '<strong>Fields, mountains & cafés</strong> → Pua district',
+    '<strong>Deep nature & mountain views</strong> → Bo Kluea/Sapan',
+  ] },
+  faq:[
+    { q:{th:'พักย่านไหนดีในน่านสำหรับครั้งแรก?',en:'Where should I stay in Nan for a first visit?'},
+      a:{th:'ในเมืองน่านดีสุดสำหรับครั้งแรก ใกล้วัดภูมินทร์ ถนนคนเดิน และร้านอาหาร เดินเที่ยวได้และมีที่พักทุกงบ ส่วนสายธรรมชาติค่อยขยับขึ้นไปทางปัวและดอยภูคา',
+        en:'Nan town is best for a first visit — near Wat Phumin, the walking street and restaurants, walkable with rooms for every budget. For nature, head north later to Pua and Doi Phu Kha.'} },
+    { q:{th:'อยากเที่ยวดอยภูคา/ปัว ควรพักไหน?',en:'Where to stay for Doi Phu Kha / Pua?'},
+      a:{th:'พักอำเภอปัวจะใกล้ดอยภูคา วิวนาขั้นบันได และคาเฟ่วิวภูเขา ห่างจากตัวเมืองน่านราว 1 ชั่วโมง ควรมีรถ ส่วนคนอยากลุยลึกไปบ่อเกลือ-สะปันก็พักแถวนั้นได้',
+        en:'Stay in Pua district for Doi Phu Kha, terraced fields and mountain-view cafés — about an hour from Nan town, and you will want a car. For deeper exploring, you can also stay around Bo Kluea/Sapan.'} },
+    { q:{th:'น่านเที่ยวกี่วันดี?',en:'How many days do I need in Nan?'},
+      a:{th:'2–3 วันสำหรับตัวเมืองและวัดสวย ๆ และเพิ่มอีก 1–2 วันถ้าจะขึ้นปัว-ดอยภูคา-บ่อเกลือ น่านเที่ยวชิล ๆ ไม่ต้องรีบ เหมาะสายธรรมชาติและวัฒนธรรม',
+        en:'Two to three days for the town and its beautiful temples, plus 1–2 more for Pua, Doi Phu Kha and Bo Kluea. Nan is a slow, unhurried destination — great for nature and culture lovers.'} },
+  ] },
+{ city:'hat-yai', th:'หาดใหญ่', en:'Hat Yai', hero:'hat-yai',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> หาดใหญ่เป็นเมืองกิน-ช้อป ไม่ใช่เมืองทะเล พักใน <strong>ใจกลางเมือง (ถนนนิพัทธ์อุทิศ)</strong> ดีสุด ใกล้ตลาดกลางคืน ของกิน และร้านค้า เดินได้ สายห้าง-โรงแรมใหญ่เลือกย่าน <strong>เซ็นทรัล/ลีการ์เดนส์</strong> สายประหยัด-เดินทางต่อ (เช่น ไปด่านมาเลเซีย) เลือก <strong>ใกล้สถานีรถไฟ</strong>',
+    en:'<strong>Short answer:</strong> Hat Yai is a food-and-shopping city, not a beach town. Stay in the <strong>city center (Niphat Uthit roads)</strong> — near the night markets, food and shops, and walkable. For malls and bigger hotels choose the <strong>Central Festival / Lee Gardens</strong> area; for budget and onward transport (e.g. to the Malaysia border) pick <strong>near the train station</strong>.' },
+  areas:[
+    { a:{th:'ใจกลางเมือง (นิพัทธ์อุทิศ)',en:'City center (Niphat Uthit)'}, v:{th:'ตลาดกลางคืน ของกิน ช้อปปิ้ง',en:'Night markets, food, shopping'}, n:{th:'เดินได้ เหมาะครั้งแรก',en:'Walkable; best for first-timers'} },
+    { a:{th:'เซ็นทรัล / ลีการ์เดนส์',en:'Central Festival / Lee Gardens'}, v:{th:'ห้างใหญ่ โรงแรมสูง',en:'Big malls, high-rise hotels'}, n:{th:'สะดวกสายช้อป',en:'Convenient for shoppers'} },
+    { a:{th:'ใกล้สถานีรถไฟ',en:'Near the train station'}, v:{th:'เดินทางต่อสะดวก ถูกกว่า',en:'Onward transport, cheaper'}, n:{th:'เหมาะไปต่อมาเลเซีย/ที่อื่น',en:'Good for onward trips (Malaysia etc.)'} },
+    { a:{th:'ย่านตลาดกิมหยง',en:'Kim Yong market area'}, v:{th:'ของฝาก ของกิน คึกคัก',en:'Souvenirs, food, bustling'}, n:{th:'หัวใจการกิน-ช้อปของเมือง',en:'The city’s food-and-shop heart'} },
+  ],
+  styles:{ th:[
+    '<strong>มาครั้งแรก/กิน-ตลาดกลางคืน</strong> → ใจกลางเมือง นิพัทธ์อุทิศ',
+    '<strong>ช้อปห้าง-โรงแรมใหญ่</strong> → เซ็นทรัล/ลีการ์เดนส์',
+    '<strong>ประหยัด-เดินทางต่อ</strong> → ใกล้สถานีรถไฟ',
+    '<strong>ของฝาก-ของกิน</strong> → ย่านกิมหยง',
+  ], en:[
+    '<strong>First time / food & night markets</strong> → city center (Niphat Uthit)',
+    '<strong>Malls & big hotels</strong> → Central Festival/Lee Gardens',
+    '<strong>Budget / onward travel</strong> → near the train station',
+    '<strong>Souvenirs & food</strong> → Kim Yong market area',
+  ] },
+  faq:[
+    { q:{th:'พักย่านไหนดีในหาดใหญ่?',en:'Where should I stay in Hat Yai?'},
+      a:{th:'ใจกลางเมืองแถวถนนนิพัทธ์อุทิศดีสุด เดินถึงตลาดกลางคืน ของกิน และร้านค้า เหมาะสายกิน-ช้อปซึ่งเป็นจุดเด่นของหาดใหญ่ ส่วนสายห้างเลือกแถวเซ็นทรัล',
+        en:'The city center around Niphat Uthit roads is best — walk to night markets, food and shops, ideal for the eating-and-shopping that Hat Yai is known for. For malls, choose the Central Festival area.'} },
+    { q:{th:'หาดใหญ่มีทะเลไหม?',en:'Does Hat Yai have a beach?'},
+      a:{th:'ไม่มี หาดใหญ่เป็นเมืองกิน-ช้อปและศูนย์กลางคมนาคมของภาคใต้ ถ้าอยากเที่ยวทะเลต้องต่อรถไปสงขลา (หาดสมิหลา ~30 นาที) หรือลงไปทางสตูล/ปากบารา เพื่อต่อเรือไปเกาะหลีเป๊ะ',
+        en:'No — Hat Yai is a food, shopping and transport hub for the south. For a beach, take a ride to Songkhla (Samila Beach, ~30 min) or head to Satun/Pak Bara to catch a boat to Koh Lipe.'} },
+    { q:{th:'หาดใหญ่เหมาะมาทำอะไร?',en:'What is Hat Yai good for?'},
+      a:{th:'เด่นเรื่องของกิน (ติ่มซำ ไก่ทอด ตลาดกลางคืน) ช้อปปิ้งราคาดี และเป็นจุดเปลี่ยนเครื่อง/ต่อรถไปสงขลา สตูล หรือข้ามไปมาเลเซีย หลายคนแวะ 1–2 คืนเพื่อกินและช้อป',
+        en:'It is known for food (dim sum, fried chicken, night markets), good-value shopping, and as a transfer hub to Songkhla, Satun or across to Malaysia. Many stop for 1–2 nights to eat and shop.'} },
+  ] },
 ];
 
 // ---------- COMPARISON ("X vs Y") ----------
@@ -1061,6 +1154,70 @@ const COMPARE = [
     { q:{th:'ไปทั้งภูเก็ตและหลีเป๊ะในทริปเดียวได้ไหม?',en:'Can I combine Phuket and Koh Lipe?'},
       a:{th:'ได้ในช่วงไฮซีซั่นที่มีเรือเชื่อมต่อ (ผ่านเกาะลันตา) แต่ใช้เวลาเดินทางพอควร เหมาะถ้ามีเวลาหลายวัน ถ้าเวลาน้อยเลือกอย่างใดอย่างหนึ่งจะคุ้มกว่า',
         en:'Yes in high season when connecting boats run (via Koh Lanta), but it takes a fair bit of travel — worthwhile with several days. With limited time, focusing on one is better value.'} },
+  ] },
+{ slug:'koh-lipe-vs-koh-kood', hero:'koh-kood',
+  a:{slug:'koh-lipe',th:'เกาะหลีเป๊ะ',en:'Koh Lipe'}, b:{slug:'koh-kood',th:'เกาะกูด',en:'Koh Kood'},
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> ทั้งคู่เป็นเกาะเล็กน้ำใสและเงียบ แต่คนละฝั่งทะเล เลือก <strong>เกาะหลีเป๊ะ</strong> (อันดามัน/สตูล) ถ้าตามหาน้ำใสและดำน้ำตื้นระดับท็อป มีหาดสวย 3 หาดกับวอล์กกิงสตรีทเล็ก ๆ แต่ต่อเรือไกลและเที่ยวเป็นฤดู เลือก <strong>เกาะกูด</strong> (อ่าวไทย/ตราด) ถ้าอยากได้เกาะป่าเขียว น้ำตก เงียบสงบแบบรีสอร์ตส่วนตัว และเดินทางจากกรุงเทพง่ายกว่า',
+    en:'<strong>Short answer:</strong> Both are small, clear-water, quiet islands — but on opposite coasts. Choose <strong>Koh Lipe</strong> (Andaman/Satun) for top-tier clear water and snorkeling, three pretty beaches and a small walking street, though it is a long boat ride and seasonal. Choose <strong>Koh Kood</strong> (Gulf/Trat) for a lush green island with waterfalls, quiet private-resort seclusion, and easier access from Bangkok.' },
+  factors:[
+    { f:{th:'ทะเลฝั่ง/เดินทาง',en:'Coast/access'}, a:{th:'อันดามัน · เรือไกลจากปากบารา',en:'Andaman · long boat from Pak Bara'}, b:{th:'อ่าวไทย · จากตราด ง่ายกว่าจากกรุงเทพ',en:'Gulf · from Trat, easier from Bangkok'} },
+    { f:{th:'น้ำ/หาด',en:'Water/beaches'}, a:{th:'ใสสุด ดำน้ำตื้นเด่น',en:'Clearest; great snorkeling'}, b:{th:'ใสสวย หาดเงียบ ป่าเขียว',en:'Clear & quiet, lush jungle'} },
+    { f:{th:'บรรยากาศ',en:'Vibe'}, a:{th:'เกาะเล็กชิล + วอล์กกิงสตรีท',en:'Tiny, chilled + walking street'}, b:{th:'เงียบมาก เน้นรีสอร์ต',en:'Very quiet, resort-based'} },
+    { f:{th:'ฤดูเที่ยว',en:'Season'}, a:{th:'ราว ต.ค.–พ.ค. (มรสุมปิด)',en:'~Oct–May (closed in monsoon)'}, b:{th:'หน้าเขียวยาวกว่า เรือเงียบช่วงมรสุม',en:'Longer green season; quiet boats in monsoon'} },
+    { f:{th:'ไฮไลต์',en:'Highlights'}, a:{th:'ดำน้ำตะรุเตา 3 หาด',en:'Tarutao snorkeling, 3 beaches'}, b:{th:'น้ำตก ป่า พายเรือคายัค',en:'Waterfalls, jungle, kayaking'} },
+    { f:{th:'เหมาะกับ',en:'Best for'}, a:{th:'สายน้ำใส-ดำน้ำ-คู่รัก',en:'Clear-water, snorkel, couples'}, b:{th:'คู่รัก ฮันนีมูน หนีคนเงียบ ๆ',en:'Couples, honeymoons, quiet escapes'} },
+  ],
+  choose:{ th:[
+    '<strong>เลือกเกาะหลีเป๊ะ ถ้า</strong> ตามหาน้ำใสและดำน้ำตื้นที่สุด ชอบหาดสวยและบรรยากาศเกาะเล็กมีชีวิตนิด ๆ',
+    '<strong>เลือกเกาะกูด ถ้า</strong> อยากได้เกาะป่าเขียว น้ำตก เงียบสงบแบบรีสอร์ตส่วนตัว และเดินทางจากกรุงเทพง่ายกว่า',
+    '<strong>ดูฤดู + ทำเล</strong> หลีเป๊ะใต้สุด (ผ่านสตูล) เที่ยว ต.ค.–พ.ค. · เกาะกูดฝั่งตะวันออก (ผ่านตราด) จากกรุงเทพสะดวกกว่า',
+  ], en:[
+    '<strong>Pick Koh Lipe if</strong> you are chasing the clearest water and best snorkeling, with pretty beaches and a touch of small-island buzz',
+    '<strong>Pick Koh Kood if</strong> you want a lush green island with waterfalls, quiet private-resort seclusion, and easier access from Bangkok',
+    '<strong>Mind season + location</strong> — Lipe is far south (via Satun), Oct–May; Koh Kood is in the east (via Trat) and easier from Bangkok',
+  ] },
+  faq:[
+    { q:{th:'เกาะหลีเป๊ะหรือเกาะกูด น้ำใสกว่ากัน?',en:'Koh Lipe or Koh Kood — which has clearer water?'},
+      a:{th:'เกาะหลีเป๊ะขึ้นชื่อเรื่องน้ำใสและดำน้ำตื้นที่สุดเพราะอยู่ในเขตอุทยานหมู่เกาะตะรุเตา ส่วนเกาะกูดน้ำใสสวยและเด่นเรื่องป่าเขียวกับน้ำตกมากกว่า ถ้าเน้นดำน้ำตื้นหลีเป๊ะชนะ',
+        en:'Koh Lipe is famous for the clearest water and best snorkeling, being inside the Tarutao marine park, while Koh Kood is also clear but stands out more for lush jungle and waterfalls. For snorkeling, Lipe wins.'} },
+    { q:{th:'เกาะไหนไปง่ายกว่าจากกรุงเทพ?',en:'Which is easier to reach from Bangkok?'},
+      a:{th:'เกาะกูดง่ายกว่า ไปตราด (รถ/บิน) แล้วต่อเรือ ส่วนเกาะหลีเป๊ะต้องลงใต้ไกลถึงสตูลแล้วต่อเรือสปีดโบ๊ทจากปากบารา และเที่ยวได้เป็นฤดู (ราว ต.ค.–พ.ค.)',
+        en:'Koh Kood is easier — reach Trat (road/air) then take a boat. Koh Lipe requires going far south to Satun then a speedboat from Pak Bara, and it is seasonal (~Oct–May).'} },
+    { q:{th:'เหมาะฮันนีมูนทั้งคู่ไหม?',en:'Are both good for honeymoons?'},
+      a:{th:'เหมาะทั้งคู่เพราะเงียบและธรรมชาติสวย เกาะกูดเด่นรีสอร์ตส่วนตัวกลางป่า-ริมหาด ส่วนหลีเป๊ะเด่นน้ำใสและหาดสวย แต่มีร้านและคนพลุกพล่านกว่าช่วงไฮซีซั่น',
+        en:'Both are great — quiet with beautiful nature. Koh Kood shines for private resorts amid jungle and beach, while Koh Lipe shines for clear water and pretty beaches, though it is livelier and busier in high season.'} },
+  ] },
+{ slug:'hua-hin-vs-khao-yai', hero:'huahin',
+  a:{slug:'huahin',th:'หัวหิน',en:'Hua Hin'}, b:{slug:'khao-yai',th:'เขาใหญ่',en:'Khao Yai'},
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> สองที่นี้เป็นจุดหนีกรุงเทพสุดสัปดาห์ยอดฮิต เลือก <strong>หัวหิน</strong> (~2.5–3 ชม.) ถ้าอยากได้ทะเล หาดยาว ตลาดกลางคืน อาหารทะเล และกอล์ฟ เลือก <strong>เขาใหญ่</strong> (~2.5 ชม.) ถ้าอยากได้ภูเขา อุทยานสัตว์ป่า ไวเนอรี่ คาเฟ่สวย และอากาศเย็น สรุปคือ ทะเล vs ภูเขา',
+    en:'<strong>Short answer:</strong> Both are popular weekend escapes from Bangkok. Choose <strong>Hua Hin</strong> (~2.5–3h) for the sea, a long beach, night markets, seafood and golf. Choose <strong>Khao Yai</strong> (~2.5h) for mountains, a wildlife national park, wineries, scenic cafés and cooler air. In short: beach vs mountains.' },
+  factors:[
+    { f:{th:'ประเภท',en:'Type'}, a:{th:'เมืองทะเล หาดยาว',en:'Beach town, long beach'}, b:{th:'ภูเขา-อุทยาน',en:'Mountains & national park'} },
+    { f:{th:'จากกรุงเทพ',en:'From Bangkok'}, a:{th:'~2.5–3 ชม.',en:'~2.5–3h'}, b:{th:'~2.5 ชม.',en:'~2.5h'} },
+    { f:{th:'ซิกเนเจอร์',en:'Signature'}, a:{th:'หาด ตลาดกลางคืน อาหารทะเล',en:'Beach, night markets, seafood'}, b:{th:'ส่องสัตว์ ไวเนอรี่ คาเฟ่',en:'Wildlife, wineries, cafés'} },
+    { f:{th:'อากาศ',en:'Weather'}, a:{th:'ทะเลร้อนชื้น',en:'Warm, coastal'}, b:{th:'เย็นกว่า (หน้าหนาวเด่น)',en:'Cooler (great in cool season)'} },
+    { f:{th:'เดินทางในพื้นที่',en:'Getting around'}, a:{th:'ในเมืองเดิน/รถได้',en:'Walkable town / easy rides'}, b:{th:'ต้องมีรถ พื้นที่กว้าง',en:'Need a car; spread out'} },
+    { f:{th:'เหมาะกับ',en:'Best for'}, a:{th:'ครอบครัว ทะเล กอล์ฟ',en:'Families, beach, golf'}, b:{th:'โรดทริป คู่รัก สายคาเฟ่',en:'Road trips, couples, café lovers'} },
+  ],
+  choose:{ th:[
+    '<strong>เลือกหัวหิน ถ้า</strong> อยากได้ทะเล หาดยาว ตลาดกลางคืน อาหารทะเล และเหมาะครอบครัว',
+    '<strong>เลือกเขาใหญ่ ถ้า</strong> อยากได้ภูเขา อากาศเย็น อุทยานสัตว์ป่า ไวเนอรี่ และคาเฟ่สวย',
+    '<strong>ทั้งคู่ใกล้กรุงเทพ</strong> เหมาะหนีกรุงสุดสัปดาห์ เลือกตามว่าอยากได้ทะเลหรือภูเขา',
+  ], en:[
+    '<strong>Pick Hua Hin if</strong> you want the sea, a long beach, night markets, seafood and a family-friendly trip',
+    '<strong>Pick Khao Yai if</strong> you want mountains, cooler air, a wildlife park, wineries and scenic cafés',
+    '<strong>Both are close to Bangkok</strong> — ideal weekend escapes; choose by whether you want beach or mountains',
+  ] },
+  faq:[
+    { q:{th:'หัวหินหรือเขาใหญ่ดีกว่า?',en:'Hua Hin or Khao Yai — which is better?'},
+      a:{th:'ขึ้นกับว่าชอบทะเลหรือภูเขา หัวหินเป็นเมืองทะเลที่มีหาดยาว ตลาดกลางคืน และอาหารทะเล เหมาะครอบครัว ส่วนเขาใหญ่เป็นภูเขา-อุทยานที่มีไวเนอรี่ คาเฟ่ และอากาศเย็น เหมาะโรดทริปและคู่รัก',
+        en:'It depends on whether you prefer beach or mountains. Hua Hin is a beach town with a long beach, night markets and seafood, great for families, while Khao Yai is mountains and a national park with wineries, cafés and cooler air, ideal for road trips and couples.'} },
+    { q:{th:'อันไหนเหมาะครอบครัวมากกว่า?',en:'Which is more family-friendly?'},
+      a:{th:'ทั้งคู่เหมาะครอบครัว หัวหินมีหาด สวนน้ำ และตลาดให้เดิน ส่วนเขาใหญ่มีฟาร์มแกะ คาเฟ่ฟาร์ม และส่องสัตว์ในอุทยาน เลือกตามว่าเด็ก ๆ ชอบเล่นน้ำทะเลหรือชอบธรรมชาติ-สัตว์',
+        en:'Both work for families — Hua Hin has the beach, water parks and markets, while Khao Yai has sheep farms, farm cafés and wildlife spotting. Choose by whether the kids prefer the sea or nature and animals.'} },
+    { q:{th:'ไม่มีรถไปที่ไหนสะดวกกว่า?',en:'Without a car, which is easier?'},
+      a:{th:'หัวหินสะดวกกว่าถ้าไม่มีรถ เพราะตัวเมืองเดินได้ มีรถตู้/รถไฟตรงจากกรุงเทพ ส่วนเขาใหญ่ที่เที่ยวกระจายและขนส่งน้อย เกือบต้องมีรถหรือเช่ารถพร้อมคนขับ',
+        en:'Hua Hin is easier without a car — the town is walkable with direct minivans/trains from Bangkok — while Khao Yai is spread out with little transport, so you almost need a car or a hired car with driver.'} },
   ] },
 ];
 
