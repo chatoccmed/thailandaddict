@@ -198,6 +198,29 @@ const GUIDES = [
     { k:'tip', t:{ th:'มอเตอร์ไซค์: สะดวกแต่เสี่ยง', en:'Motorbikes: convenient but risky' },
       th:'อุบัติเหตุมอเตอร์ไซค์เป็นสาเหตุบาดเจ็บอันดับต้น ๆ ของนักท่องเที่ยว ขับเฉพาะถ้าขับเป็นจริง ใส่หมวกทุกครั้ง และเช็กว่าประกันเดินทางครอบคลุมการขับขี่',
       en:'Motorbike crashes are a leading cause of tourist injury. Only ride if you genuinely know how, wear a helmet every time, and make sure your travel insurance covers riding.' },
+    { k:'h2', id:'routes', th:'เส้นทางยอดฮิต — ไปยังไงดี', en:'Popular routes — how to get there' },
+    { k:'p', th:'คู่มือ "ไปยังไงดี" รายเส้นทาง เทียบเครื่องบิน รถไฟ รถบัส และเรือ พร้อมเวลาและราคาคร่าว ๆ', en:'Route-by-route “how to get there” guides comparing flights, trains, buses and ferries, with times and rough costs.' },
+    { k:'cards',
+      th:[
+        { name:'🚆 กรุงเทพ → เชียงใหม่', blurb:'เครื่องบิน รถไฟตู้นอน หรือรถบัส', href:'bangkok-to-chiang-mai.html' },
+        { name:'✈️ กรุงเทพ → ภูเก็ต', blurb:'บินตรงเร็วสุด หรือรถบัสประหยัด', href:'bangkok-to-phuket.html' },
+        { name:'✈️ กรุงเทพ → กระบี่', blurb:'บินลงกระบี่ หรือผ่านภูเก็ต', href:'bangkok-to-krabi.html' },
+        { name:'🚐 กรุงเทพ → พัทยา', blurb:'รถตู้ รถบัส แท็กซี่ ใกล้แค่ 2 ชม.', href:'bangkok-to-pattaya.html' },
+        { name:'🚆 กรุงเทพ → อยุธยา', blurb:'รถไฟเดย์ทริปถูกและง่าย', href:'bangkok-to-ayutthaya.html' },
+        { name:'🏝️ กรุงเทพ → เกาะสมุย', blurb:'บินตรง หรือรถ+เรือประหยัด', href:'bangkok-to-koh-samui.html' },
+        { name:'⛴️ ภูเก็ต → เกาะพีพี', blurb:'เฟอร์รี่หรือสปีดโบ๊ทจากท่ารัษฎา', href:'phuket-to-phi-phi.html' },
+        { name:'🚇 รถไฟฟ้า BTS & MRT', blurb:'เที่ยวกรุงเทพแบบเลี่ยงรถติด', href:'bangkok-bts-mrt-guide.html' },
+      ],
+      en:[
+        { name:'🚆 Bangkok → Chiang Mai', blurb:'Flight, sleeper train or bus', href:'bangkok-to-chiang-mai.html' },
+        { name:'✈️ Bangkok → Phuket', blurb:'Fastest by air, or a budget bus', href:'bangkok-to-phuket.html' },
+        { name:'✈️ Bangkok → Krabi', blurb:'Fly into Krabi or via Phuket', href:'bangkok-to-krabi.html' },
+        { name:'🚐 Bangkok → Pattaya', blurb:'Minivan, bus or taxi — just 2 hours', href:'bangkok-to-pattaya.html' },
+        { name:'🚆 Bangkok → Ayutthaya', blurb:'Cheap, easy day trip by train', href:'bangkok-to-ayutthaya.html' },
+        { name:'🏝️ Bangkok → Koh Samui', blurb:'Fly direct, or bus + ferry to save', href:'bangkok-to-koh-samui.html' },
+        { name:'⛴️ Phuket → Phi Phi', blurb:'Ferry or speedboat from Rassada', href:'phuket-to-phi-phi.html' },
+        { name:'🚇 Bangkok BTS & MRT', blurb:'See the city without the traffic', href:'bangkok-bts-mrt-guide.html' },
+      ] },
   ],
   faq: [
     { q:{ th:'กรุงเทพไปเชียงใหม่/ภูเก็ตไปยังไงดี?', en:'How should I get from Bangkok to Chiang Mai or Phuket?' },
@@ -711,6 +734,7 @@ function toBlocks(spec, loc) {
     if (b.k === 'p') return { kind: 'p', html: b[loc] };
     if (b.k === 'h2') return { kind: 'h2', text: b[loc], ...(b.id ? { id: b.id } : {}) };
     if (b.k === 'list') return { kind: 'list', items: b[loc] };
+    if (b.k === 'cards') return { kind: 'cards', items: b[loc] };
     if (b.k === 'tip') return { kind: 'tip', ...(b.t ? { title: b.t[loc] } : {}), html: b[loc] };
     if (b.k === 'cta') return { kind: 'cta', text: b[loc].text, href: b[loc].href, label: b[loc].label };
     if (b.k === 'table') return { kind: 'table', ...(b.cap ? { caption: b.cap[loc] } : {}), headers: b.h[loc], rows: b.r[loc] };

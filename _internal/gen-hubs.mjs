@@ -493,11 +493,27 @@ function planHub(){
     ['thai-phrases-for-travelers','🗣️','ประโยคภาษาไทยน่ารู้','Thai phrases','ทักทาย ขอบคุณ ตัวเลข สั่งอาหาร','Greetings, thanks, numbers, food'],
     ['thailand-etiquette-culture','🙏','มารยาท & วัฒนธรรม','Etiquette & culture','ไหว้ เข้าวัด หัว-เท้า สถาบัน','The wai, temples, head/feet, respect'],
   ];
+  const R = [
+    ['bangkok-to-chiang-mai','🚆','กรุงเทพ → เชียงใหม่','Bangkok → Chiang Mai'],
+    ['bangkok-to-phuket','✈️','กรุงเทพ → ภูเก็ต','Bangkok → Phuket'],
+    ['bangkok-to-krabi','✈️','กรุงเทพ → กระบี่','Bangkok → Krabi'],
+    ['bangkok-to-pattaya','🚐','กรุงเทพ → พัทยา','Bangkok → Pattaya'],
+    ['bangkok-to-ayutthaya','🚆','กรุงเทพ → อยุธยา','Bangkok → Ayutthaya'],
+    ['bangkok-to-koh-samui','🏝️','กรุงเทพ → เกาะสมุย','Bangkok → Koh Samui'],
+    ['phuket-to-phi-phi','⛴️','ภูเก็ต → เกาะพีพี','Phuket → Phi Phi'],
+    ['krabi-to-phuket','🚐','กระบี่ → ภูเก็ต','Krabi → Phuket'],
+    ['surat-thani-to-koh-samui','⛴️','สุราษฎร์ → เกาะอ่าวไทย','Surat Thani → Gulf islands'],
+    ['suvarnabhumi-airport-to-bangkok','✈️','สนามบินสุวรรณภูมิ → ในเมือง','Suvarnabhumi → city'],
+    ['bangkok-bts-mrt-guide','🚇','รถไฟฟ้า BTS & MRT กรุงเทพ','Bangkok BTS & MRT'],
+    ['chiang-mai-to-pai','🚐','เชียงใหม่ → ปาย','Chiang Mai → Pai'],
+  ];
   const cards = G.map(([s,emo,th,en,bth,ben])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx('อ่านคู่มือ →','Read the guide →')}</span></div></a>`).join('');
-  const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("คู่มือเตรียมตัวเที่ยวไทย","Plan your Thailand trip"),"itemListElement":G.map((g,i)=>({"@type":"ListItem","position":i+1,"name":tx(g[2],g[3]),"url":J(g[0])}))};
+  const routeCards = R.map(([s,emo,th,en])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ไปยังไงดี →','How to get there →')}</span></div></a>`).join('');
+  const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("คู่มือเตรียมตัวเที่ยวไทย","Plan your Thailand trip"),"itemListElement":[...G,...R].map((g,i)=>({"@type":"ListItem","position":i+1,"name":tx(g[2],g[3]),"url":J(g[0])}))};
   const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('เตรียมตัวเที่ยวไทย','Plan Your Trip')}])}
-<div class="thero"><div class="eyebrow">${tx('🧭 เตรียมตัวเที่ยวไทย','🧭 Plan Your Trip')}</div><h1>${tx('คู่มือ<em>เตรียมตัว</em>เที่ยวไทย','Plan your <em>Thailand</em> trip')}</h1><p class="lead">${tx('ทุกอย่างที่ควรรู้ก่อนออกเดินทาง — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย และมารยาท รวบไว้ให้อ่านจบในที่เดียว','Everything to sort before you go — visa, SIM, transport, budget, safety and etiquette, all in one place.')}</p><div class="chips"><span class="chip">🧭 <b>${G.length}</b> ${tx('คู่มือ','guides')}</span><span class="chip">${tx('✅ อัปเดต 2026','✅ Updated 2026')}</span><span class="chip">${tx('🆓 อ่านฟรี','🆓 Free to read')}</span></div></div>
+<div class="thero"><div class="eyebrow">${tx('🧭 เตรียมตัวเที่ยวไทย','🧭 Plan Your Trip')}</div><h1>${tx('คู่มือ<em>เตรียมตัว</em>เที่ยวไทย','Plan your <em>Thailand</em> trip')}</h1><p class="lead">${tx('ทุกอย่างที่ควรรู้ก่อนออกเดินทาง — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย และมารยาท รวบไว้ให้อ่านจบในที่เดียว','Everything to sort before you go — visa, SIM, transport, budget, safety and etiquette, all in one place.')}</p><div class="chips"><span class="chip">🧭 <b>${G.length}</b> ${tx('คู่มือ','guides')}</span><span class="chip">🚌 <b>${R.length}</b> ${tx('เส้นทางเดินทาง','routes')}</span><span class="chip">${tx('✅ อัปเดต 2026','✅ Updated 2026')}</span></div></div>
 <section class="sec"><div class="inner"><div class="shead"><h2>${tx('คู่มือ<span class="em">เตรียมตัว</span>','Essential <span class="em">guides</span>')}</h2><a href="country-thailand.html">${tx('เลือกจังหวัด →','Pick a province →')}</a></div><div class="dgrid">${cards}</div></div></section>
+<section class="sec" style="padding-top:0"><div class="inner"><div class="shead"><h2>${tx('ไปยังไงดี — <span class="em">เส้นทางยอดฮิต</span>','Getting around — <span class="em">popular routes</span>')}</h2><a href="getting-around-thailand.html">${tx('คู่มือเดินทางทั่วไทย →','Full transport guide →')}</a></div><div class="dgrid">${routeCards}</div></div></section>
 <div class="cta-sec"><div class="ctaband"><h2>${tx('พร้อมแล้ว เลือกจุดหมาย','Ready? Pick a destination')}</h2><p>${tx('อ่านคู่มือเตรียมตัวจบแล้ว ไปต่อที่เมืองและจังหวัดที่อยากเที่ยวได้เลย','Once the basics are planned, dive into the city or province you want to explore')}</p><a href="destinations.html">${tx('ดูเมืองท่องเที่ยว →','See top cities →')}</a></div></div>`;
   return page({title:tx(`เตรียมตัวเที่ยวไทย — วีซ่า ซิม การเดินทาง งบ ความปลอดภัย | ThailandAddict ชีวิตติดเที่ยว`,`Plan Your Thailand Trip — Visa, eSIM, Transport, Budget & Safety | ThailandAddict`),desc:tx(`รวมคู่มือเตรียมตัวก่อนเที่ยวไทย วีซ่าและการเข้าเมือง ซิม/eSIM การเดินทาง งบต่อวัน ความปลอดภัย ประกัน และมารยาทไทย`,`Everything to plan before visiting Thailand — visa & entry, eSIM, getting around, daily budget, safety, insurance and Thai etiquette.`),slug:`plan-your-trip`,jsonld,body,image:'/images/heroes/bangkok.jpg'});
 }
