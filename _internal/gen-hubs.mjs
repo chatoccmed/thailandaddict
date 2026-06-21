@@ -492,6 +492,15 @@ function destinationsHub(){
     ['best-honeymoon-escapes-thailand','ฮันนีมูนเงียบ ๆ','Honeymoon escapes','💛'],
     ['best-nightlife-thailand','สายปาร์ตี้-ไนต์ไลฟ์','Nightlife & parties','🎉'],
     ['best-rainy-season-thailand','หน้าฝนเที่ยวไหนดี','Rainy-season trips','🌧️'],
+    ['best-day-trips-from-bangkok','เดย์ทริปใกล้กรุงเทพ','Day trips from Bangkok','🚆'],
+    ['best-temple-destinations-thailand','สายวัด-สายมู','Temple destinations','🛕'],
+    ['best-cafe-hopping-thailand','สายคาเฟ่','Café-hopping','☕'],
+    ['best-waterfalls-nature-thailand','น้ำตก-ธรรมชาติ','Waterfalls & nature','💦'],
+    ['best-budget-backpacker-thailand','แบ็คแพ็คงบน้อย','Budget backpacking','🎒'],
+    ['best-solo-travel-thailand','เที่ยวคนเดียว','Solo travel','🧳'],
+    ['best-river-mekong-thailand','เที่ยวริมโขง','Mekong river towns','🛶'],
+    ['best-quiet-islands-thailand','เกาะเงียบหนีคน','Quiet islands','🏝️'],
+    ['best-historic-old-towns-thailand','เมืองเก่า','Historic old towns','🏛️'],
   ];
   const bestCards = BESTOF.map(([s,th,en,em])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">${em}</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ดูอันดับ →','See the picks →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("เมืองท่องเที่ยวยอดนิยมในไทย","Top tourist cities in Thailand"),"itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":NAME(s),"url":J(`city-${s}`)}))};
