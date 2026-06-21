@@ -122,8 +122,12 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--teal:#06B6D4;--teal-dk:#0891b2;--coral:#FB7185;--coral-dk:#f43f5e;--mango:#FBBF24;--ink:#0F172A;--sub:#64748b;--bg:#ffffff;--soft:#f1fbfd;--bdr:#e6eef2}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:'Sarabun',sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+/* review.css + roundup.css ship body{overflow-x:hidden}; Astro bundles them into this page's CSS too → body becomes a scroll-container → the sticky rail never pins. Override with higher specificity (html body beats body). No real horizontal overflow on this page (verified docW==viewport). */
+html body{overflow:visible}
+/* belt-and-braces: clip h-overflow only on full-bleed sections (NOT ancestors of .rrail, so sticky stays intact) */
+.nav,.hero,.rhero,.qnav{overflow-x:clip}
 a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .wrap{max-width:820px;margin:0 auto;padding:0 24px}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--bdr);position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);z-index:99}
@@ -159,15 +163,20 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .qa-body{font-size:15.5px;line-height:1.8;color:#0F172A}
 .qa-body strong{color:#0891b2;font-weight:700}
 .qa-body a{color:#0891b2}
-.rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(64px,13vw,128px) 0 clamp(40px,7vw,76px);position:relative}
-.rhero-cred{position:absolute;bottom:6px;right:12px;font-size:10px;color:rgba(255,255,255,.7)}.rhero-cred a{color:rgba(255,255,255,.7);text-decoration:underline}
+.rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(72px,12vw,118px) 0 clamp(56px,7vw,76px);position:relative;min-height:clamp(440px,58vh,620px);display:flex;flex-direction:column;justify-content:flex-end}
+.rhero-kick{font-family:'Outfit';font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:16px;display:flex;align-items:center;gap:9px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.rhero-kick::before{content:"";width:28px;height:2px;background:var(--mango);border-radius:2px;flex-shrink:0}
+.rhero-scroll{position:absolute;bottom:18px;right:clamp(18px,4vw,40px);display:inline-flex;align-items:center;gap:9px;color:#fff;font-family:'Outfit';font-weight:700;font-size:12.5px;opacity:.92;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.rhero-scroll em{font-style:normal;font-size:17px;animation:rhBounce 1.6s ease-in-out infinite}
+@keyframes rhBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.rhero-cred{position:absolute;bottom:8px;left:14px;font-size:10px;color:rgba(255,255,255,.6)}.rhero-cred a{color:rgba(255,255,255,.6);text-decoration:underline}
 .rhero .wrap{max-width:860px}
 .rhero .eyebrow{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
 .rhero h1{font-family:'Outfit';font-size:clamp(33px,6.2vw,56px);font-weight:900;line-height:1.07;letter-spacing:-1.2px;text-shadow:0 2px 30px rgba(0,0,0,.4)}
 .rhero h1 .hi{color:var(--mango)}.rhero h1 .hi2{color:#fff}
 .rhero .lead{color:rgba(255,255,255,.93);font-size:clamp(16px,2.3vw,19px);max-width:700px;margin-top:16px;text-shadow:0 1px 14px rgba(0,0,0,.45)}
 .rhero .chips{margin-top:22px}
-.rhero .chip{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.34);color:#fff;backdrop-filter:blur(6px)}
+.rhero .chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;backdrop-filter:blur(8px);font-size:12px;padding:6px 13px;font-weight:600}
 .qnav{position:sticky;top:60px;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr)}
 .qnav-row{max-width:980px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;padding:11px 20px;scrollbar-width:none}.qnav-row::-webkit-scrollbar{display:none}
 .qnav-row a{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-family:'Outfit';font-size:13px;font-weight:600;color:var(--sub);background:var(--soft);border:1px solid var(--bdr);border-radius:999px;padding:6px 14px 6px 7px;white-space:nowrap;transition:.15s}
@@ -177,10 +186,10 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto{background:#fff;border:1px solid var(--bdr);border-radius:24px;overflow:hidden;margin:0 0 26px;box-shadow:0 10px 30px rgba(15,23,42,.06);transition:box-shadow .25s,transform .25s;scroll-margin-top:128px}
 .resto:hover{box-shadow:0 22px 48px -18px rgba(15,23,42,.24);transform:translateY(-3px)}
 .resto-head{display:flex;align-items:flex-start;gap:15px;padding:20px 24px 16px;border-bottom:1px solid var(--bdr)}
-.resto-save{flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:5px;font-family:'Outfit';font-weight:800;font-size:12.5px;color:var(--teal-dk);background:#ecfeff;border:1.5px solid #a5f0fc;border-radius:999px;padding:8px 14px;cursor:pointer;transition:.15s;white-space:nowrap}
-.resto-save:hover{background:#cffafe;transform:translateY(-1px)}
-.resto-save.saved{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(8,145,178,.3)}
-.resto-save .rs-ico{font-weight:900;font-size:15px;line-height:1}
+.resto-save{flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:6px;font-family:'Outfit';font-weight:800;font-size:13px;color:#e11d48;background:#fff1f3;border:1.5px solid #fecdd3;border-radius:999px;padding:9px 16px;cursor:pointer;transition:.18s;white-space:nowrap;box-shadow:0 2px 8px rgba(244,63,94,.1)}
+.resto-save:hover{background:#ffe4e6;transform:translateY(-1px);box-shadow:0 5px 14px rgba(244,63,94,.22)}
+.resto-save.saved{background:linear-gradient(135deg,#fb7185,#f43f5e);color:#fff;border-color:transparent;box-shadow:0 7px 16px rgba(244,63,94,.36)}
+.resto-save .rs-ico{font-size:15px;line-height:1}
 @media(max-width:760px){.resto-save .rs-label{display:none}.resto-save{padding:9px 11px}}
 .resto-rank{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(244,63,94,.32)}
 .resto-head-info{flex:1;min-width:0}
@@ -426,13 +435,14 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 
 {isResto && data.heroImg ? (
   <section class="rhero" style={`background-image:linear-gradient(100deg,rgba(6,46,66,.9) 0%,rgba(11,32,51,.62) 40%,rgba(15,23,42,.32) 72%,rgba(15,23,42,.48) 100%),linear-gradient(0deg,rgba(15,23,42,.72) 0%,rgba(15,23,42,0) 40%),url('${asset(data.heroImg)}')`}>
-    <div class="wrap">
-      <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
+    <div class="wrap rhero-in">
+      <div class="rhero-kick">📍 {data.crumbCity}{data.regionLabel ? ` · ${data.regionLabel}` : ''}{data.eyebrow ? ` · ${data.eyebrow}` : ''}</div>
       <h1 set:html={data.h1} />
       <p class="lead" set:html={data.intro} />
       {data.chips && data.chips.length > 0 &&
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div>
+    <a class="rhero-scroll" href="#r1"><span>{isEn ? 'Explore all 10' : 'เลื่อนดูทั้ง 10 ร้าน'}</span><em>↓</em></a>
     {data.heroCredit && <span class="rhero-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener">{data.heroCredit}</a> : data.heroCredit}</span>}
   </section>
 ) : (
@@ -544,7 +554,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="บันทึกร้านนี้เข้าทริป"><span class="rs-ico">+</span> <span class="rs-label">เข้าทริป</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="บันทึกร้านนี้เข้าทริป"><span class="rs-ico">♡</span> <span class="rs-label">เก็บไว้ในทริป</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
@@ -750,7 +760,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '+'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในทริป' : 'เข้าทริป'; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '♥' : '♡'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในทริปแล้ว' : 'เก็บไว้ในทริป'; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
