@@ -159,7 +159,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .qa-body{font-size:15.5px;line-height:1.8;color:#0F172A}
 .qa-body strong{color:#0891b2;font-weight:700}
 .qa-body a{color:#0891b2}
-.rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(64px,13vw,128px) 0 clamp(40px,7vw,76px)}
+.rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(64px,13vw,128px) 0 clamp(40px,7vw,76px);position:relative}
+.rhero-cred{position:absolute;bottom:6px;right:12px;font-size:10px;color:rgba(255,255,255,.7)}.rhero-cred a{color:rgba(255,255,255,.7);text-decoration:underline}
 .rhero .wrap{max-width:860px}
 .rhero .eyebrow{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
 .rhero h1{font-family:'Outfit';font-size:clamp(33px,6.2vw,56px);font-weight:900;line-height:1.07;letter-spacing:-1.2px;text-shadow:0 2px 30px rgba(0,0,0,.4)}
@@ -191,11 +192,13 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .re-tab{flex:1;padding:9px 4px;border:0;background:#e3f6fb;color:var(--teal-dk);font-family:'Outfit';font-weight:800;font-size:12px;border-radius:11px 11px 0 0;cursor:pointer;transition:.15s}
 .re-tab:hover{background:#cdeef6}
 .re-tab.on{background:var(--teal);color:#fff}
-.re-body{flex:1;position:relative;min-height:430px;background:#fff;border-top:2px solid var(--teal)}
-.re-pane{display:none;width:100%;height:100%;min-height:430px;border:0}
+.re-body{flex:1;position:relative;min-height:540px;background:#fff;border-top:2px solid var(--teal)}
+.re-pane{display:none;width:100%;height:540px;min-height:540px;border:0}
 .re-pane.on{display:block}
+.re-pic{position:relative;padding:0}.re-pic img{width:100%;height:540px;object-fit:cover;display:block}
+.re-piccred{position:absolute;bottom:8px;right:8px;font-size:9.5px;background:rgba(15,23,42,.6);color:#fff;padding:3px 8px;border-radius:7px}.re-piccred a{color:#fff;text-decoration:underline}
 .re-foot{font-size:11px;color:var(--sub);padding:8px 12px;background:#f6fdff;border-top:1px solid var(--bdr)}
-@media(max-width:760px){.re-body,.re-pane{min-height:380px}}
+@media(max-width:760px){.re-body,.re-pane{height:440px;min-height:440px}.re-pic img{height:440px}}
 .resto-imgwrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e6eef2;flex-shrink:0}
 .resto-imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .resto:hover .resto-imgwrap img{transform:scale(1.04)}
@@ -413,7 +416,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
   <a href={link('about.html')}>{S.nav[4]}</a>
 </div>
 
-<div class="crumb"><a href={link('/')}>{S.home}</a> › <a href={link('country-thailand.html')}>{S.th}</a> › <a href={link(data.crumbCityHref)}>{data.crumbCity}</a> › <span>{data.h1}</span></div>
+<div class="crumb"><a href={link('/')}>{S.home}</a> › <a href={link('country-thailand.html')}>{S.th}</a> › <a href={link(data.crumbCityHref)}>{data.crumbCity}</a> › <span>{data.h1.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()}</span></div>
 
 {isResto && data.heroImg ? (
   <section class="rhero" style={`background-image:linear-gradient(177deg,rgba(15,23,42,.12) 0%,rgba(15,23,42,.40) 45%,rgba(15,23,42,.86) 100%),url('${asset(data.heroImg)}')`}>
@@ -424,6 +427,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       {data.chips && data.chips.length > 0 &&
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div>
+    {data.heroCredit && <span class="rhero-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener">{data.heroCredit}</a> : data.heroCredit}</span>}
   </section>
 ) : (
   <>
@@ -537,19 +541,21 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       </div>
       <div class="resto-body">
         <div class="resto-media">
-          {(b.fbPage || b.igPost || !b.img) ? (
+          {(b.igPost || b.fbPage || b.libImg || !b.img) ? (
             <div class="resto-embed">
               <div class="re-tabs">
-                <button class="re-tab on" type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
-                {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 Facebook</button>}
-                {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 Instagram</button>}
+                {b.igPost && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-ig`}>📷 Instagram</button>}
+                {b.fbPage && <button class={b.igPost ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-fb`}>📘 Facebook</button>}
+                {b.libImg && <button class={(b.igPost || b.fbPage) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-pic`}>🍜 รูป</button>}
+                <button class={(b.igPost || b.fbPage || b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
               </div>
               <div class="re-body">
-                <iframe id={`emb${b.rank}-map`} class="re-pane on" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
-                {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
-                {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
+                {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane on" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
+                {b.fbPage && <iframe id={`emb${b.rank}-fb`} class={b.igPost ? 're-pane' : 're-pane on'} loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
+                {b.libImg && <div id={`emb${b.rank}-pic`} class={(b.igPost || b.fbPage) ? 're-pane re-pic' : 're-pane re-pic on'}><img src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}</div>}
+                <iframe id={`emb${b.rank}-map`} class={(b.igPost || b.fbPage || b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
               </div>
-              <div class="re-foot">📸 รูป/แผนที่จริงจาก Google &amp; Facebook (ฝังจากต้นทาง — ถูกลิขสิทธิ์)</div>
+              <div class="re-foot">📸 รูปจริงจาก Instagram/Facebook · แผนที่จาก Google (ฝังจากต้นทาง — ถูกลิขสิทธิ์)</div>
             </div>
           ) : (
             <Fragment>

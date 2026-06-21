@@ -226,6 +226,7 @@ const articleBlock = z.discriminatedUnion('kind', [
     img: z.string().optional(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional(),
     descHtml: z.string(), mustOrder: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
     mapHref: z.string().optional(), fbHref: z.string().optional(), fbPage: z.string().optional(), igPost: z.string().optional(),
+    libImg: z.string().optional(), libCredit: z.string().optional(), libCreditHref: z.string().optional(),
     stayHref: z.string().optional(), stayLabel: z.string().optional(),
     // Global-tourist info layer (badges) + geo for the map. All optional · back-compat.
     hours: z.string().optional(), priceUsd: z.string().optional(), spice: z.string().optional(),
@@ -293,6 +294,8 @@ const articleSchema = z.object({
   h1: z.string(),
   heroEmoji: z.string().optional(),
   heroImg: z.string().optional(),
+  heroCredit: z.string().optional(),
+  heroCreditHref: z.string().optional(),
   intro: z.string(),                      // may contain HTML
   chips: z.array(z.string()).optional(),
   readTime: z.string().optional(),
