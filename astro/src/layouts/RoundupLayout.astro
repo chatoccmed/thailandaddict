@@ -10,9 +10,10 @@ const { data, lang = 'th' } = Astro.props;
 const isEn = lang === 'en';
 
 const SITE = 'https://thailandaddict.com';
+const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || '';   // '' = local /images; set to R2 base (e.g. https://img.thailandaddict.com) in prod
 const base = isEn ? `${SITE}/en` : SITE;
 const url = `${base}/${data.slug}`;
-const imgAbs = `${SITE}/${data.image}`;
+const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 const today = '2026-05-17';
 
 // Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
@@ -30,7 +31,7 @@ const link = (h: string) => {
 
 // Asset (image) helper: force a root-absolute path so images resolve
 // correctly from both / (Thai) and /en/ (English) pages.
-const asset = (p: string) => (/^(https?:)?\//.test(p) ? p : `/${p}`);
+const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (/^\//.test(p) ? p : `/${p}`)));
 
 // World Cup 2026 cross-link: connect host-city hotel roundups (themed + near-stadium)
 // to the WC city guide + stadium transport page. City derived from the slug.

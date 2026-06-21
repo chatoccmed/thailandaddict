@@ -4,8 +4,9 @@
 const { data, lang = 'th' } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
+const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || '';   // '' = local /images; set to R2 base (e.g. https://img.thailandaddict.com) in prod
 const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
-const asset = (p: string) => (p?.startsWith('http') ? p : p?.startsWith('/') ? p : `/${p}`);
+const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 const S = isEn
   ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
       priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
@@ -67,7 +68,7 @@ const jsonld = {
           ...(b.priceRange ? { priceRange: strip(b.priceRange) } : {}),
           ...(b.lat && b.lng ? { geo: { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng } } : {}),
           ...(b.area ? { address: { '@type': 'PostalAddress', addressLocality: strip(b.area), addressRegion: data.crumbCity, addressCountry: 'TH' } } : {}),
-          ...(b.img ? { image: b.img.startsWith('http') ? b.img : `${SITE}${b.img}` } : {}),
+          ...(b.img ? { image: b.img.startsWith('http') ? b.img : `${IMG_BASE || SITE}${b.img}` } : {}),
           ...(b.rating && b.ratingCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: b.rating, reviewCount: b.ratingCount, bestRating: 5, worstRating: 1 } } : {}),
           url: `${canonical}#r${b.rank}` } })) }] : []),
     ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),

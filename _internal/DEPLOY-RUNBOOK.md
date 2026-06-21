@@ -30,6 +30,22 @@
 
 ---
 
+## 🖼️ Phase R — R2 image migration (⛔ BLOCKER — content ไม่ขึ้นจนกว่าจะทำ)
+**ทำไม:** dist ≈ 22,400 ไฟล์ > ลิมิต Cloudflare 20,000 ไฟล์/deploy → build ตัด content ทิ้ง (ตอนนี้ content 0/15 ขึ้น) · รูป = ตัวถ่วง (11,161 ไฟล์) → ย้ายขึ้น R2 → static เหลือ ~11,400 < 20,000 ✓
+**โค้ดพร้อมแล้ว (push เป็น inert ไม่กระทบจนกว่าจะ activate):** layout ทุกตัวเติม `IMG_BASE` จาก env `PUBLIC_IMG_BASE` (ว่าง = พฤติกรรมเดิม) ครอบรูป content ทั้งหมดผ่าน `asset()`
+
+ลำดับ activate (ไม่มีช่วงรูปเสีย — R2 ต้องพร้อมก่อนตัดรูปออก static):
+1. 👤 Cloudflare → **R2 → Create bucket** `thailandaddict-images` → เปิด public access (ได้ URL `https://pub-xxxx.r2.dev`) *หรือ* ผูก custom domain `img.thailandaddict.com` (ต้องย้ายโดเมนเข้า Cloudflare ก่อน — ดู Phase 1)
+2. 👤 R2 → **Manage R2 API Tokens** → Object Read & Write → เซฟลง `~/.r2-creds` (ดูหัว `_internal/upload-r2.sh`) *ไม่ต้องพิมพ์ในแชต*
+3. ผม/👤 `bash _internal/upload-r2.sh` → อัปรูป 11,161 ไฟล์ขึ้น R2 (keys = `images/...`) · ต้องมี rclone
+4. 👤 Worker → **Settings → Variables/Build → เพิ่ม env** `PUBLIC_IMG_BASE` = ค่า public base ของ R2 (เช่น `https://pub-xxxx.r2.dev` หรือ `https://img.thailandaddict.com`)
+5. ผม **activate .assetsignore:** `cp _internal/assetsignore.for-cutover astro/public/.assetsignore` → commit + push
+6. build ใหม่จะ: static < 20,000 (content ขึ้นครบ) + รูปเสิร์ฟจาก R2 ✓ — verify ด้วย Phase 5
+> หมายเหตุ: `heroes/` + `cities/` เก็บไว้ static (ให้ hub) + อัปขึ้น R2 ด้วย (ให้ content ที่อ้าง heroes ทำงาน) — .assetsignore ตัดเฉพาะ hotels/cm/food/gallery
+> ทำ Phase R ได้ทันทีบน workers.dev (ใช้ r2.dev URL) ไม่ต้องรอย้ายโดเมน — content จะขึ้นครบบน workers.dev ให้ดูก่อน cutover
+
+---
+
 ## Phase 0 — Pre-flight (ทำบนเครื่อง ก่อน deploy) ✅ ผมทำได้
 ```bash
 cd /c/Users/Imac/Thailandaddict/thailandaddict
