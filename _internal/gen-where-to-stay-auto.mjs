@@ -29,7 +29,9 @@ const HANDWRITTEN = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','
   // Tier A hand-written upgrades
   'phang-nga','surat-thani','trang','nakhon-ratchasima','udon-thani','khon-kaen','ubon-ratchathani','nong-khai','lampang','mae-hong-son','loei','phetchaburi','prachuap-khiri-khan','lopburi','buriram',
   // Tier B hand-written upgrades (≥3 genuinely distinct geographic stay-zones each)
-  'nakhon-si-thammarat','satun','chumphon','chanthaburi','trat','chonburi','ratchaburi','koh-larn','koh-mak','nakhon-phanom']);
+  'nakhon-si-thammarat','satun','chumphon','chanthaburi','trat','chonburi','ratchaburi','koh-larn','koh-mak','nakhon-phanom',
+  // Tier C hand-written upgrades (the few remaining provinces with ≥3 real distinct stay-zones)
+  'tak','phetchabun','samut-songkhram','ranong']);
 // Intentionally KEPT data-driven (compact in-town provinces — a single central stay-zone, no
 // ≥3 distinct tourist neighborhoods to write honestly; fabricating areas is forbidden):
 //   phitsanulok (riverside center is one core zone) · phrae (old-town vs downtown = same small
