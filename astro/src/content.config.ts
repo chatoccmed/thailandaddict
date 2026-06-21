@@ -223,9 +223,9 @@ const articleBlock = z.discriminatedUnion('kind', [
     rank: z.union([z.string(), z.number()]).transform(String),
     name: z.string(), nameEn: z.string().optional(), area: z.string().optional(), cuisine: z.string().optional(),
     signature: z.string().optional(), priceRange: z.string().optional(), score: z.string().optional(),
-    img: z.string(), alt: z.string(), credit: z.string().optional(), creditHref: z.string().optional(),
+    img: z.string().optional(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional(),
     descHtml: z.string(), mustOrder: z.array(z.string()).optional(), tags: z.array(z.string()).optional(),
-    mapHref: z.string().optional(), fbHref: z.string().optional(),
+    mapHref: z.string().optional(), fbHref: z.string().optional(), fbPage: z.string().optional(), igPost: z.string().optional(),
     stayHref: z.string().optional(), stayLabel: z.string().optional(),
     // Global-tourist info layer (badges) + geo for the map. All optional · back-compat.
     hours: z.string().optional(), priceUsd: z.string().optional(), spice: z.string().optional(),

@@ -186,6 +186,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 @media(max-width:720px){.resto-body{grid-template-columns:1fr}}
 .resto-media{background:var(--soft);border-right:1px solid var(--bdr);display:flex;flex-direction:column}
 @media(max-width:720px){.resto-media{border-right:none;border-bottom:1px solid var(--bdr)}}
+.resto-embed{display:flex;flex-direction:column;height:100%}
+.re-tabs{display:flex;gap:5px;padding:10px 10px 0}
+.re-tab{flex:1;padding:9px 4px;border:0;background:#e3f6fb;color:var(--teal-dk);font-family:'Outfit';font-weight:800;font-size:12px;border-radius:11px 11px 0 0;cursor:pointer;transition:.15s}
+.re-tab:hover{background:#cdeef6}
+.re-tab.on{background:var(--teal);color:#fff}
+.re-body{flex:1;position:relative;min-height:430px;background:#fff;border-top:2px solid var(--teal)}
+.re-pane{display:none;width:100%;height:100%;min-height:430px;border:0}
+.re-pane.on{display:block}
+.re-foot{font-size:11px;color:var(--sub);padding:8px 12px;background:#f6fdff;border-top:1px solid var(--bdr)}
+@media(max-width:760px){.re-body,.re-pane{min-height:380px}}
 .resto-imgwrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e6eef2;flex-shrink:0}
 .resto-imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .resto:hover .resto-imgwrap img{transform:scale(1.04)}
@@ -527,17 +537,35 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       </div>
       <div class="resto-body">
         <div class="resto-media">
-          <div class="resto-imgwrap">
-            <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
-            {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
-          </div>
-          {b.gallery && b.gallery.length > 0 && (
-            <div class="resto-thumbs">
-              <button class="resto-thumb on" type="button" data-full={asset(b.img)} data-credit={b.credit || ''} data-href={b.creditHref || ''}><img src={asset(b.img)} alt="" loading="lazy" /></button>
-              {b.gallery.map((g) => (
-                <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={g.alt || ''} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
-              ))}
+          {(b.fbPage || b.igPost || !b.img) ? (
+            <div class="resto-embed">
+              <div class="re-tabs">
+                <button class="re-tab on" type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
+                {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 Facebook</button>}
+                {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 Instagram</button>}
+              </div>
+              <div class="re-body">
+                <iframe id={`emb${b.rank}-map`} class="re-pane on" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
+                {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=560&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
+                {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
+              </div>
+              <div class="re-foot">📸 รูป/แผนที่จริงจาก Google &amp; Facebook (ฝังจากต้นทาง — ถูกลิขสิทธิ์)</div>
             </div>
+          ) : (
+            <Fragment>
+              <div class="resto-imgwrap">
+                <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
+                {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
+              </div>
+              {b.gallery && b.gallery.length > 0 && (
+                <div class="resto-thumbs">
+                  <button class="resto-thumb on" type="button" data-full={asset(b.img)} data-credit={b.credit || ''} data-href={b.creditHref || ''}><img src={asset(b.img)} alt="" loading="lazy" /></button>
+                  {b.gallery.map((g) => (
+                    <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={g.alt || ''} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
+                  ))}
+                </div>
+              )}
+            </Fragment>
           )}
           <div class="resto-side">
             {b.priceRange && <div class="resto-price"><span class="pl">{S.priceLabel}</span><span class="pv" set:html={b.priceRange} /></div>}
@@ -690,6 +718,20 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       if (cred) { if (c) { cred.style.display = ''; cred.innerHTML = h ? '📷 <a href="' + h + '" target="_blank" rel="nofollow noopener">' + c + '</a>' : '📷 ' + c; } else { cred.style.display = 'none'; } }
       media.querySelectorAll('.resto-thumb').forEach(function (x) { x.classList.remove('on'); });
       t.classList.add('on');
+    });
+    // tabbed embeds (map / facebook / instagram) — lazy-load iframe src on first activation
+    function actPane(p) { if (p && !p.getAttribute('src') && p.getAttribute('data-src')) p.setAttribute('src', p.getAttribute('data-src')); }
+    document.querySelectorAll('.resto-embed').forEach(function (box) {
+      actPane(box.querySelector('.re-pane.on'));
+      box.querySelectorAll('.re-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          box.querySelectorAll('.re-tab').forEach(function (x) { x.classList.remove('on'); });
+          box.querySelectorAll('.re-pane').forEach(function (x) { x.classList.remove('on'); });
+          tab.classList.add('on');
+          var p = document.getElementById(tab.getAttribute('data-pane'));
+          if (p) { actPane(p); p.classList.add('on'); }
+        });
+      });
     });
     // multi-axis filters (type / zone / price single-select + veg / halal toggles, AND-combined)
     var fbar = document.getElementById('rfilter');
