@@ -25,7 +25,9 @@ const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
 const hasThai = (s) => /[ก-฾เ-๛]/.test(s);
 
 // Cities already covered by hand-written guides in gen-stay-compare.mjs — skip these.
-const HANDWRITTEN = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood','rayong']);
+const HANDWRITTEN = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood','rayong',
+  // Tier A hand-written upgrades
+  'phang-nga','surat-thani','trang','nakhon-ratchasima','udon-thani','khon-kaen','ubon-ratchathani','nong-khai','lampang','mae-hong-son','loei','phetchaburi','prachuap-khiri-khan','lopburi','buriram']);
 
 // English city names (province-data has Thai only) — copied from gen-hubs.mjs.
 const EN_NAME = {
