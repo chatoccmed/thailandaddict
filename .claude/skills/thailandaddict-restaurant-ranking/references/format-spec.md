@@ -46,7 +46,7 @@ Global-tourist: `hours`, `priceUsd`, `spice`, `halal` (bool), `veg` (bool), `eng
 `p` = `{kind:"p",html}` (opening honesty disclaimer). `tip` = `{kind:"tip",title?,html}`. `cta` = `{kind:"cta",text,href,label?}` (closing → hotels).
 
 ## 3. `rail` (sticky right column)
-`rail: [{href, img, name, loc?, price?}]` — 3–5 hotel-roundup cards. `href` → real roundup `.html`; `img` → that roundup's heroImg on disk. The layout pins the rail (sticky grid item; body uses `overflow-x:clip` not `hidden`, else sticky breaks). The `foodexp` module renders below the hotel cards in the same rail.
+`rail: [{title, href, note?, img?}]` — **3–4 cards minimum** (a 1-card rail looks empty — owner). Mix the city's hotel roundup(s) + single-hotel reviews (`review-*-<city>.html`) so every card has an `img` (hotel hero, served from R2). The layout pins the rail via `position:sticky;top:80px` on the grid item (`.rrail`) with `.rgrid{align-items:start}`. **CRITICAL: `overflow-x:clip` must be on `html`, NOT `body`** — `body{overflow-x:clip}` is a full-page-height ancestor that captures the sticky element so it never pins to the viewport (the rail "doesn't follow on scroll"). Verified fix: move clip to `html`. The `foodexp` module renders below the hotel cards in the same rail.
 
 ## 4. `args` contract (input to the engine)
 ```js
