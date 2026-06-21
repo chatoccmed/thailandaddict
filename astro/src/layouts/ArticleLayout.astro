@@ -184,7 +184,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;margin-top:9px;font-family:'Outfit';font-size:13px;font-weight:600;color:var(--sub)}
 .resto-score{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--mango),#f59e0b);color:#fff;padding:3px 11px;border-radius:999px;font-size:12.5px;font-weight:800}
 .resto-body{display:grid;grid-template-columns:280px 1fr;gap:0}
-@media(max-width:720px){.resto-body{grid-template-columns:1fr}}
+.resto.emb .resto-body{grid-template-columns:360px 1fr}
+@media(max-width:720px){.resto-body,.resto.emb .resto-body{grid-template-columns:1fr}}
 .resto-media{background:var(--soft);border-right:1px solid var(--bdr);display:flex;flex-direction:column}
 @media(max-width:720px){.resto-media{border-right:none;border-bottom:1px solid var(--bdr)}}
 .resto-embed{display:flex;flex-direction:column;height:100%}
@@ -273,7 +274,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 /* sticky must be on the grid ITEM (.rrail), whose grid area spans the full article height,
    so it stays pinned while you scroll. (On an inner div it only sticks for its own height.) */
 /* no internal scrollbar — whole rail is sticky and follows the page (kept compact to fit the viewport) */
-.rrail{min-width:0;position:sticky;top:80px;align-self:start}
+.rrail{min-width:0;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}.rrail::-webkit-scrollbar{width:5px}.rrail::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:9px}
 .rrail-in{display:flex;flex-direction:column;gap:9px}
 .rrail-h{font-family:'Outfit';font-weight:800;font-size:13.5px;color:var(--ink);padding:2px 2px 8px;border-bottom:2px solid var(--bdr)}
 .rrail-card{display:flex;background:#fff;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:.15s}
@@ -523,7 +524,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
     b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :
-    b.kind === 'restaurant' ? <section class="resto" id={`r${b.rank}`} data-zone={b.zone || ''} data-veg={b.veg ? '1' : '0'} data-type={b.foodType || ''} data-price={priceTier(b.priceUsd)} data-halal={b.halal ? '1' : '0'}>
+    b.kind === 'restaurant' ? <section class={(b.igPost || b.fbPage || b.libImg || !b.img) ? 'resto emb' : 'resto'} id={`r${b.rank}`} data-zone={b.zone || ''} data-veg={b.veg ? '1' : '0'} data-type={b.foodType || ''} data-price={priceTier(b.priceUsd)} data-halal={b.halal ? '1' : '0'}>
       <div class="resto-head">
         <span class="resto-rank">{b.rank}</span>
         <div class="resto-head-info">
