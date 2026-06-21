@@ -12,7 +12,7 @@ const DATE = '2026-06-20';
 const AGODA = 'https://www.agoda.com/?cid=1965862';
 
 // cities that get a where-to-stay guide (used to guard cross-links)
-const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood']);
+const NB = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood','rayong']);
 
 // ---------- NEIGHBORHOOD ("where to stay in X") ----------
 const HOODS = [
@@ -639,6 +639,38 @@ const HOODS = [
       a:{th:'เด่นเรื่องของกิน (ติ่มซำ ไก่ทอด ตลาดกลางคืน) ช้อปปิ้งราคาดี และเป็นจุดเปลี่ยนเครื่อง/ต่อรถไปสงขลา สตูล หรือข้ามไปมาเลเซีย หลายคนแวะ 1–2 คืนเพื่อกินและช้อป',
         en:'It is known for food (dim sum, fried chicken, night markets), good-value shopping, and as a transfer hub to Songkhla, Satun or across to Malaysia. Many stop for 1–2 nights to eat and shop.'} },
   ] },
+{ city:'rayong', th:'ระยอง', en:'Rayong', hero:'rayong',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> มาระยองเที่ยวทะเล ส่วนใหญ่พัก <strong>บ้านเพ</strong> (ท่าเรือไปเกาะเสม็ด) หรือข้ามไปนอนบน <strong>เกาะเสม็ด</strong> ที่หาดทรายขาวน้ำใส สายหาดใกล้เมืองเลือก <strong>หาดแม่รำพึง</strong> สายเงียบ-ครอบครัวเลือก <strong>หาดแม่พิมพ์</strong> ทางตะวันออก ส่วนตัวเมืองระยองเหมาะสายสะดวก-ประหยัด',
+    en:'<strong>Short answer:</strong> For a Rayong beach trip, most people stay at <strong>Ban Phe</strong> (the pier to Koh Samet) or cross to <strong>Koh Samet</strong> itself for white-sand beaches and clear water. For a long beach near town choose <strong>Mae Ramphueng</strong>; for a quiet, family beach pick <strong>Mae Phim</strong> to the east; Rayong city suits convenience and budget.' },
+  areas:[
+    { a:{th:'บ้านเพ',en:'Ban Phe'}, v:{th:'ท่าเรือไปเกาะเสม็ด ตลาด อาหารทะเล',en:'Pier to Koh Samet, market, seafood'}, n:{th:'จุดตั้งต้นไปเกาะเสม็ด',en:'Gateway to Koh Samet'} },
+    { a:{th:'เกาะเสม็ด',en:'Koh Samet'}, v:{th:'หาดทรายขาว น้ำใส (ต่อเรือจากบ้านเพ)',en:'White-sand beaches (ferry from Ban Phe)'}, n:{th:'นอนบนเกาะ ใกล้กรุงเทพสุด',en:'Stay on the island; closest to Bangkok'} },
+    { a:{th:'หาดแม่รำพึง',en:'Mae Ramphueng'}, v:{th:'หาดยาวใกล้เมือง รีสอร์ต',en:'Long beach near town, resorts'}, n:{th:'สะดวก ไม่ต้องลงเรือ',en:'Convenient; no boat needed'} },
+    { a:{th:'หาดแม่พิมพ์',en:'Mae Phim'}, v:{th:'หาดเงียบ ครอบครัว ทางตะวันออก',en:'Quiet family beach, east'}, n:{th:'เหมาะพักผ่อนเงียบ ๆ',en:'Good for a quiet rest'} },
+    { a:{th:'ตัวเมืองระยอง',en:'Rayong city'}, v:{th:'สะดวก ร้านอาหาร ถูกกว่า',en:'Convenient, dining, cheaper'}, n:{th:'ไม่ติดหาด ต่อรถไปทะเล',en:'Not on a beach; drive to the coast'} },
+  ],
+  styles:{ th:[
+    '<strong>มาเที่ยวเกาะเสม็ด</strong> → บ้านเพ หรือ นอนบนเกาะเสม็ด',
+    '<strong>หาดใกล้เมือง/ไม่ลงเรือ</strong> → หาดแม่รำพึง',
+    '<strong>เงียบ-ครอบครัว</strong> → หาดแม่พิมพ์',
+    '<strong>สะดวก-ประหยัด</strong> → ตัวเมืองระยอง',
+  ], en:[
+    '<strong>Visiting Koh Samet</strong> → Ban Phe or stay on Koh Samet',
+    '<strong>Beach near town / no boat</strong> → Mae Ramphueng',
+    '<strong>Quiet & family</strong> → Mae Phim',
+    '<strong>Convenient & budget</strong> → Rayong city',
+  ] },
+  faq:[
+    { q:{th:'ไปเกาะเสม็ดพักที่ไหนดี?',en:'Where to stay for Koh Samet?'},
+      a:{th:'นอนบนเกาะเสม็ดเลยดีสุดถ้าอยากเล่นน้ำหาดสวยเช้า-เย็น เลือกหาดทรายแก้วถ้าอยากสะดวกคึกคัก หรือหาดเงียบ ๆ ทางใต้ของเกาะ ถ้าไม่อยากค้างบนเกาะก็พักบ้านเพแล้วนั่งเรือไปเล่นรายวันได้',
+        en:'Staying on Koh Samet itself is best if you want the beaches morning and evening — pick Sai Kaew for convenience and buzz, or a quieter southern beach. If you prefer not to stay on the island, base at Ban Phe and day-trip across by ferry.'} },
+    { q:{th:'ระยองเหมาะไปเที่ยวจากกรุงเทพไหม?',en:'Is Rayong a good trip from Bangkok?'},
+      a:{th:'เหมาะมาก ระยองและเกาะเสม็ดเป็นทะเลที่ใกล้กรุงเทพสุดแห่งหนึ่ง ขับรถราว 3 ชั่วโมงถึงบ้านเพ แล้วต่อเรือไปเกาะเสม็ดอีกราว 30–40 นาที เหมาะหนีกรุงสุดสัปดาห์',
+        en:'Very much — Rayong and Koh Samet are among the closest beaches to Bangkok, about a 3-hour drive to Ban Phe then a 30–40 minute ferry to Koh Samet. Great for a weekend escape.'} },
+    { q:{th:'หาดแม่พิมพ์กับเกาะเสม็ดต่างกันยังไง?',en:'Mae Phim vs Koh Samet — what is the difference?'},
+      a:{th:'เกาะเสม็ดเป็นเกาะต้องต่อเรือ หาดทรายขาวน้ำใสและคึกคักกว่า ส่วนหาดแม่พิมพ์อยู่บนแผ่นดินใหญ่ ขับรถถึงเลย เงียบและเหมาะครอบครัวที่ไม่อยากลงเรือ',
+        en:'Koh Samet is an island reached by ferry, with white sand, clear water and more buzz, while Mae Phim is on the mainland (drive straight there), quieter and good for families who would rather skip the boat.'} },
+  ] },
 ];
 
 // ---------- COMPARISON ("X vs Y") ----------
@@ -1219,10 +1251,71 @@ const COMPARE = [
       a:{th:'หัวหินสะดวกกว่าถ้าไม่มีรถ เพราะตัวเมืองเดินได้ มีรถตู้/รถไฟตรงจากกรุงเทพ ส่วนเขาใหญ่ที่เที่ยวกระจายและขนส่งน้อย เกือบต้องมีรถหรือเช่ารถพร้อมคนขับ',
         en:'Hua Hin is easier without a car — the town is walkable with direct minivans/trains from Bangkok — while Khao Yai is spread out with little transport, so you almost need a car or a hired car with driver.'} },
   ] },
+{ slug:'chiang-mai-vs-pai', hero:'pai',
+  a:{slug:'chiang-mai',th:'เชียงใหม่',en:'Chiang Mai'}, b:{slug:'pai',th:'ปาย',en:'Pai'},
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> ไม่ค่อยใช่ "เลือกอย่างใดอย่างหนึ่ง" เพราะปายเป็นปลายทางต่อจากเชียงใหม่ <strong>เชียงใหม่</strong> คือเมืองครบ (วัด คาเฟ่ อาหาร ไนต์ไลฟ์) ใช้เป็นฐาน ส่วน <strong>ปาย</strong> คือเมืองภูเขาเล็ก ๆ ชิล ๆ (น้ำพุร้อน ทะเลหมอก แคนยอน) ห่างราว 3 ชม. 762 โค้ง ส่วนใหญ่อยู่เชียงใหม่เป็นหลักแล้วแยกไปปาย 2–3 คืน',
+    en:'<strong>Short answer:</strong> It is less either/or — Pai is a popular add-on from Chiang Mai. <strong>Chiang Mai</strong> is a complete city (temples, cafés, food, nightlife) and a great base; <strong>Pai</strong> is a small, chilled mountain town (hot springs, sea of mist, a canyon) about 3 hours away over 762 curves. Most base in Chiang Mai and add 2–3 nights in Pai.' },
+  factors:[
+    { f:{th:'ประเภท',en:'Type'}, a:{th:'เมืองครบ ใช้เป็นฐาน',en:'Complete city, a base'}, b:{th:'เมืองภูเขาเล็ก ชิล',en:'Small chilled mountain town'} },
+    { f:{th:'เดินทาง',en:'Access'}, a:{th:'บินตรงเยอะ',en:'Many direct flights'}, b:{th:'รถตู้ ~3 ชม. 762 โค้ง',en:'~3h minivan, 762 curves'} },
+    { f:{th:'ไฮไลต์',en:'Highlights'}, a:{th:'วัด ดอยสุเทพ คาเฟ่ ช้าง',en:'Temples, Doi Suthep, cafés, elephants'}, b:{th:'น้ำพุร้อน ทะเลหมอก แคนยอน',en:'Hot springs, mist, canyon'} },
+    { f:{th:'บรรยากาศ',en:'Vibe'}, a:{th:'คึกคัก ครบรส',en:'Lively, all-round'}, b:{th:'ชิล ฮิปปี้ ช้า ๆ',en:'Chilled, bohemian, slow'} },
+    { f:{th:'อยู่กี่วัน',en:'Stay length'}, a:{th:'3–4 วันขึ้นไป',en:'3–4+ days'}, b:{th:'2–3 คืน',en:'2–3 nights'} },
+    { f:{th:'เหมาะกับ',en:'Best for'}, a:{th:'ครั้งแรก อยู่ยาว ครบรส',en:'First time, long stays, all-round'}, b:{th:'สายชิล ธรรมชาติ พักสั้น',en:'Chill, nature, a short add-on'} },
+  ],
+  choose:{ th:[
+    '<strong>เลือกเชียงใหม่ ถ้า</strong> อยากได้เมืองครบ วัด คาเฟ่ อาหาร ไนต์ไลฟ์ และที่พักทุกงบ ใช้เป็นฐานเที่ยวเหนือ',
+    '<strong>เพิ่มปาย ถ้า</strong> อยากได้เมืองภูเขาชิล ๆ น้ำพุร้อน ทะเลหมอก และบรรยากาศช้า ๆ',
+    '<strong>ทำทั้งคู่ดีสุด</strong> อยู่เชียงใหม่เป็นหลัก แล้วแยกไปปาย 2–3 คืน (เผื่อยาแก้เมารถสำหรับ 762 โค้ง)',
+  ], en:[
+    '<strong>Pick Chiang Mai if</strong> you want a complete city — temples, cafés, food, nightlife and rooms for every budget — as a northern base',
+    '<strong>Add Pai if</strong> you want a chilled mountain town with hot springs, mist and a slow pace',
+    '<strong>Doing both is best</strong> — base in Chiang Mai, then add 2–3 nights in Pai (bring motion-sickness pills for the 762 curves)',
+  ] },
+  faq:[
+    { q:{th:'ควรไปปายต่อจากเชียงใหม่ไหม?',en:'Should I add Pai to a Chiang Mai trip?'},
+      a:{th:'ถ้ามีเวลาและชอบบรรยากาศภูเขาชิล ๆ ควรไป ปายอยู่ห่างเชียงใหม่ราว 3 ชั่วโมงโดยรถตู้ เหมาะค้าง 2–3 คืน แต่ถ้าเวลาน้อยหรือเมารถง่ายกับทางโค้ง อยู่เชียงใหม่อย่างเดียวก็เที่ยวได้ครบ',
+        en:'If you have time and like a chilled mountain vibe, yes — Pai is about 3 hours from Chiang Mai by minivan and suits 2–3 nights. With limited time or if winding roads make you carsick, Chiang Mai alone still offers plenty.'} },
+    { q:{th:'เชียงใหม่กับปายต่างกันยังไง?',en:'How are Chiang Mai and Pai different?'},
+      a:{th:'เชียงใหม่เป็นเมืองใหญ่ครบทั้งวัด คาเฟ่ อาหาร และไนต์ไลฟ์ ใช้เป็นฐานเที่ยวเหนือ ส่วนปายเป็นเมืองภูเขาเล็ก ๆ เน้นชิล น้ำพุร้อน ทะเลหมอก และธรรมชาติ ไม่ได้มีของเที่ยวเยอะแต่บรรยากาศดี',
+        en:'Chiang Mai is a big city with temples, cafés, food and nightlife, used as a northern base, while Pai is a small mountain town focused on chilling, hot springs, mist and nature — fewer sights but a lovely vibe.'} },
+    { q:{th:'ทางไปปายเป็นยังไง?',en:'What is the road to Pai like?'},
+      a:{th:'เป็นทางเขา 762 โค้ง ใช้เวลาราว 3 ชั่วโมงโดยรถตู้จากเชียงใหม่ วิวสวยแต่คดเคี้ยว คนเมารถง่ายควรกินยาก่อนออกและนั่งด้านหน้า',
+        en:'It is a mountain road of 762 curves, about 3 hours by minivan from Chiang Mai — scenic but very winding, so if you get carsick, take medicine beforehand and sit near the front.'} },
+  ] },
 ];
 
 // ---------- builders ----------
 const hasThai = (s) => /[ก-฾เ-๛]/.test(s);
+// Klook/GetYourGuide experiences block (monetize tours). Klook aid is live; GYG is a placeholder.
+const klookU = (q) => `https://www.klook.com/en-US/search/?query=${encodeURIComponent(q)}&aid=121442`;
+const gygU = (q) => `https://www.getyourguide.com/s/?q=${encodeURIComponent(q)}&partner_id=__GYG_PARTNER_ID__`;
+function expCity(cityTh, cityEn, loc) {
+  const en = loc === 'en';
+  return { kind: 'experiences',
+    title: en ? `Things to do in ${cityEn} — book tours & tickets` : `เที่ยว ${cityTh} ให้สนุก — จองทัวร์ & กิจกรรม`,
+    text: en ? `Booking online ahead on Klook or GetYourGuide is usually cheaper than the gate and skips the queue.` : `จองออนไลน์ล่วงหน้าผ่าน Klook หรือ GetYourGuide มักได้ราคาดีกว่าหน้างานและไม่ต้องต่อคิว`,
+    items: [
+      { emoji: '🎟️', provider: 'Klook', label: en ? `Top tours in ${cityEn}` : `ทัวร์ยอดนิยม ${cityTh}`, note: en ? 'Highlights, guided' : 'ไฮไลต์ มีไกด์พาไป', href: klookU(`${cityEn} tour`) },
+      { emoji: '🎟️', provider: 'Klook', label: en ? `${cityEn} attractions & tickets` : `ตั๋ว & ที่เที่ยว ${cityTh}`, note: en ? 'Skip-the-line tickets' : 'ตั๋วเข้าชม ไม่ต้องต่อคิว', href: klookU(`${cityEn} attractions ticket`) },
+      { emoji: '🚐', provider: 'Klook', label: en ? `Day trips from ${cityEn}` : `เดย์ทริปจาก ${cityTh}`, note: en ? 'Out and back in a day' : 'ไปเช้า-เย็นกลับ', href: klookU(`${cityEn} day trip`) },
+      { emoji: '🌎', provider: 'GetYourGuide', label: en ? `${cityEn} activities (GetYourGuide)` : `กิจกรรม ${cityTh} (GetYourGuide)`, note: en ? 'Compare another marketplace' : 'อีกเจ้าให้เทียบราคา', href: gygU(cityEn) },
+    ],
+    ctaLabel: en ? `🎟️ See all ${cityEn} tours & activities (Klook)` : `🎟️ ดูทัวร์ & กิจกรรม ${cityTh} ทั้งหมด (Klook)`, ctaHref: klookU(cityEn) };
+}
+function expCompare(aTh, aEn, bTh, bEn, loc) {
+  const en = loc === 'en';
+  return { kind: 'experiences',
+    title: en ? `Book tours in ${aEn} or ${bEn}` : `จองทัวร์ & กิจกรรม ${aTh} หรือ ${bTh}`,
+    text: en ? `Compare and book experiences in either destination ahead on Klook or GetYourGuide.` : `เทียบและจองกิจกรรมของทั้งสองที่ผ่าน Klook หรือ GetYourGuide ล่วงหน้าได้`,
+    items: [
+      { emoji: '🎟️', provider: 'Klook', label: en ? `Tours in ${aEn}` : `ทัวร์ ${aTh}`, note: en ? 'Highlights, guided' : 'ไฮไลต์ มีไกด์', href: klookU(`${aEn} tour`) },
+      { emoji: '🎟️', provider: 'Klook', label: en ? `Tours in ${bEn}` : `ทัวร์ ${bTh}`, note: en ? 'Highlights, guided' : 'ไฮไลต์ มีไกด์', href: klookU(`${bEn} tour`) },
+      { emoji: '🌎', provider: 'GetYourGuide', label: en ? `${aEn} activities` : `กิจกรรม ${aTh}`, href: gygU(aEn) },
+      { emoji: '🌎', provider: 'GetYourGuide', label: en ? `${bEn} activities` : `กิจกรรม ${bTh}`, href: gygU(bEn) },
+    ],
+    ctaLabel: en ? `🎟️ See ${aEn} & ${bEn} tours (Klook)` : `🎟️ ดูทัวร์ ${aTh} & ${bTh} (Klook)`, ctaHref: klookU(aEn) };
+}
 function neighborhoodArticle(H, loc) {
   const slug = `where-to-stay-${H.city}`;
   const cluster = H.cluster || H.city;                 // article cluster (e.g. ao-nang lives under krabi)
@@ -1241,6 +1334,7 @@ function neighborhoodArticle(H, loc) {
       rows: H.areas.map((x) => [x.a[loc], x.v[loc], x.n[loc]]) },
     { kind: 'h2', text: loc === 'en' ? 'Pick your area by travel style' : 'เลือกย่านตามสไตล์เที่ยว', id: 'style' },
     { kind: 'list', items: H.styles[loc] },
+    expCity(H.th, H.en, loc),
     { kind: 'staycta',
       title: loc === 'en' ? `Found your area? Compare ${H.en} hotels` : `รู้แล้วว่าจะพักย่านไหน? เทียบราคาโรงแรม${H.th}`,
       text: loc === 'en'
@@ -1302,6 +1396,7 @@ function comparisonArticle(C, loc) {
       { name: loc === 'en' ? `🏨 ${C.a.en} hotels` : `🏨 โรงแรม${C.a.th}`, blurb: loc === 'en' ? 'Ranked + price compare' : 'จัดอันดับ + เทียบราคา', href: `top10-hotels-${C.a.slug}.html` },
       { name: loc === 'en' ? `🏨 ${C.b.en} hotels` : `🏨 โรงแรม${C.b.th}`, blurb: loc === 'en' ? 'Ranked + price compare' : 'จัดอันดับ + เทียบราคา', href: `top10-hotels-${C.b.slug}.html` },
     ] },
+    expCompare(C.a.th, C.a.en, C.b.th, C.b.en, loc),
   ];
   const sib = COMPARE[(COMPARE.indexOf(C) + 1) % COMPARE.length];
   const rel = loc === 'en'

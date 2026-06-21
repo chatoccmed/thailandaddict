@@ -482,6 +482,7 @@ function destinationsHub(){
     ['kanchanaburi-vs-khao-yai','กาญจนบุรี vs เขาใหญ่','Kanchanaburi vs Khao Yai'],['bangkok-vs-pattaya','กรุงเทพ vs พัทยา','Bangkok vs Pattaya'],
     ['pai-vs-chiang-rai','ปาย vs เชียงราย','Pai vs Chiang Rai'],['phuket-vs-koh-lipe','ภูเก็ต vs เกาะหลีเป๊ะ','Phuket vs Koh Lipe'],
     ['koh-lipe-vs-koh-kood','เกาะหลีเป๊ะ vs เกาะกูด','Koh Lipe vs Koh Kood'],['hua-hin-vs-khao-yai','หัวหิน vs เขาใหญ่','Hua Hin vs Khao Yai'],
+    ['chiang-mai-vs-pai','เชียงใหม่ vs ปาย','Chiang Mai vs Pai'],
   ];
   const cmpCards = CMP.map(([s,th,en])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">⚖️</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('เทียบให้ตรง ๆ →','Honest comparison →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("เมืองท่องเที่ยวยอดนิยมในไทย","Top tourist cities in Thailand"),"itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":NAME(s),"url":J(`city-${s}`)}))};
