@@ -1,6 +1,6 @@
 # 🚀 DEPLOY & CUTOVER RUNBOOK — WordPress → Astro (thailandaddict.com)
 
-> สร้าง 2026-06-21 · เป้าหมาย: เอาเว็บ Astro (10,737 หน้า, TH+EN) ขึ้นแทนเว็บ WordPress เดิมบนโดเมน `thailandaddict.com` โดยไม่เสีย SEO
+> สร้าง 2026-06-21 · เป้าหมาย: เอาเว็บ Astro (11,001 หน้า, TH+EN) ขึ้นแทนเว็บ WordPress เดิมบนโดเมน `thailandaddict.com` โดยไม่เสีย SEO
 > source of truth = โค้ดจริง + Cloudflare dashboard (อย่าเชื่อ doc ถ้าขัดของจริง)
 
 ## 🔴 สถานะปัจจุบัน (ตรวจสด 2026-06-21)
@@ -41,7 +41,7 @@ bash _internal/build-test.sh                        # BUILD OK (ยืนยั�
 ```
 - [x] `_redirects` generate แล้ว (195 โพสต์เก่า → หน้าใหม่ + 14 demo → home + WooCommerce patterns · 0 target พัง)
 - [x] `llms.txt` + `robots.txt` (AI bots) + `sitemap.xml` (auto ทุก build) พร้อม
-- [ ] build-test = **BUILD OK** (กำลังรัน — ดู §สถานะท้ายไฟล์)
+- [x] build-test = **BUILD OK** (11,001 หน้า · audit errors=0 · ตรวจสด 2026-06-21)
 
 ## Phase 1 — ย้ายโดเมนเข้า Cloudflare 👤 เจ้าของ
 > ทำไมต้องย้าย: Workers Static Assets ผูก custom domain ได้เฉพาะโดเมนที่อยู่บน Cloudflare · ได้ของแถม: CDN, SSL ฟรี, Redirect Rules, cache
@@ -72,7 +72,7 @@ npx wrangler deploy                                  # อ่าน wrangler.jso
 
 ## Phase 4 — SEO handoff (กัน ranking ตก) ✅ ผมเตรียมแล้ว / 👤 verify
 - `_redirects` (ใน dist) จัดการ 301 ของ **URL เก่า 195 อัน → หน้าใหม่** + WooCommerce/tours → home อัตโนมัติเมื่อ deploy
-- **Google Search Console:** เพิ่ม property `thailandaddict.com` (ถ้ายังไม่มี) → **ส่ง `https://thailandaddict.com/sitemap.xml`** (อันใหม่ของ Astro 10,942 URLs) → ลบ/แทน sitemap WP เดิม
+- **Google Search Console:** เพิ่ม property `thailandaddict.com` (ถ้ายังไม่มี) → **ส่ง `https://thailandaddict.com/sitemap.xml`** (อันใหม่ของ Astro 11,211 URLs) → ลบ/แทน sitemap WP เดิม
 - **Bing Webmaster Tools:** เพิ่ม + ส่ง sitemap เช่นกัน
 - ถ้ามี GSC เดิมของ WP: ใช้ **Removals/Change of Address ไม่ต้อง** (โดเมนเดิม) — แค่ให้ Google ไต่ 301 ใหม่ (จะ re-index ภายในไม่กี่สัปดาห์)
 - llms.txt (`/llms.txt`) จะ live เอง → AI engines เริ่มอ้างอิงได้
@@ -108,6 +108,7 @@ for f in sitemap.xml robots.txt llms.txt; do curl -s -o /dev/null -w "%{http_cod
 4. **workers.dev limit** — ถ้า assets เยอะมาก deploy ครั้งแรกอาจนาน (อัป ~10k ไฟล์)
 
 ---
-## สถานะ build (อัปเดตล่าสุดตอนสร้างไฟล์นี้)
-- build-test: กำลังรัน (static entrypoints) — ดูผลจริงด้วย `tail /tmp/ta-prodbuild.log`
-- `_redirects`: ✅ 428 rules (0 target พัง) · `llms.txt`: ✅ · `sitemap.xml`: auto ทุก build
+## สถานะ build (ตรวจสด 2026-06-21)
+- ✅ **build-test = BUILD OK · 11,001 หน้า** · migration audit `errors=0 warns=0` · git clean + synced (origin/main)
+- ✅ `_redirects` 428 rules (209 posts · 0 target พัง) · `llms.txt` · `robots.txt` · `sitemap.xml` 11,211 URLs (auto ทุก build) · `search-index.json` 5,599/locale
+- ✅ Pre-flight (Phase 0) ครบทุกข้อในฝั่ง Claude — เหลือเฉพาะงานเจ้าของ (Cloudflare account · เปลี่ยน NS · wrangler deploy · ผูก custom domain · ส่ง sitemap GSC/Bing)
