@@ -31,14 +31,20 @@ const HANDWRITTEN = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','
   // Tier B hand-written upgrades (≥3 genuinely distinct geographic stay-zones each)
   'nakhon-si-thammarat','satun','chumphon','chanthaburi','trat','chonburi','ratchaburi','koh-larn','koh-mak','nakhon-phanom',
   // Tier C hand-written upgrades (the few remaining provinces with ≥3 real distinct stay-zones)
-  'tak','phetchabun','samut-songkhram','ranong']);
-// Intentionally KEPT data-driven (compact in-town provinces — a single central stay-zone, no
-// ≥3 distinct tourist neighborhoods to write honestly; fabricating areas is forbidden):
-//   phitsanulok (riverside center is one core zone) · phrae (old-town vs downtown = same small
-//   town; lodging is the town's weak point) · phayao (Kwan Phayao lakeside ≈ town center, 5-min
-//   walk) · sakon-nakhon (city hugs Nong Han lake = one zone) · mukdahan (compact Mekong/Indochina
-//   riverside core) · surin (in-town + distant Ban Ta Klang elephant village day-base) · sisaket
-//   (compact in-town) · nakhon-pathom (compact city around Phra Pathom Chedi, day-trip from BKK).
+  'tak','phetchabun','samut-songkhram','ranong',
+  // NEXT-EXPANSION re-verify upgrade: phitsanulok now has a hand-written HOODS guide
+  // (3 real stay zones: Nan-riverside city · Route 12 Kaeng Song/Wang Thong Khek-river resorts · Phu Hin Rong Kla/Nakhon Thai mountain)
+  'phitsanulok']);
+// Re-verified 2026-06 with district-level WebSearch. Intentionally KEPT data-driven — no ≥3 distinct
+// tourist STAY zones to write honestly (day-trip attractions far from any lodging cluster don't count;
+// fabricating areas is forbidden):
+//   phrae (old-town = downtown, one small town; Wat Cho Hae/Phae Muang Phi are day-trips; lodging weak) ·
+//   phayao (2 zones only: Kwan Phayao lakeside-city + Chiang Kham — below the 3-zone bar) ·
+//   sakon-nakhon (city hugs Nong Han lake = one zone; Phu Phan NP is a ~25km day-trip) ·
+//   mukdahan (compact Mekong/Indochina riverside core; Phu Pha Thoep is a day-trip) ·
+//   surin (in-town one zone; Ban Ta Klang elephant village is a ~58km day-base, scant lodging) ·
+//   sisaket (2 zones only: city + Kantharalak for Khao Phra Wihan/Pha Mo I Daeng — below the bar) ·
+//   nakhon-pathom (compact city around Phra Pathom Chedi, day-trip from BKK; Sampran is ~26km).
 
 // English city names (province-data has Thai only) — copied from gen-hubs.mjs.
 const EN_NAME = {
