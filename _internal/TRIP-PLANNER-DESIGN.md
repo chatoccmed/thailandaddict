@@ -172,3 +172,25 @@ async function callAI(env, prompt) {
 4. ✅ Save หน้ารีวิว = ง่ายสุด · คำถามอยู่หน้า /trip
 5. ✅ มี **infographic สรุป 1 หน้า** + โลโก้ + แชร์
 - เหลือ: URL = `/trip` (default) · **รอ go build v1**
+
+---
+
+## 12. Expert critique → v1 adjustments (2026-06-21 · 7 lenses, 63 recs)
+> รายละเอียดเต็ม: `_internal/TRIP-PLANNER-CRITIQUE.md` · **ground จาก code จริง: feeds ไม่มีพิกัด/ไม่มี affiliate deep-link/ไม่มีเวลาเปิด-ปิด**
+
+**Reframe ใหญ่:** v1 = **"trip briefing" (สรุปทริปที่เชื่อถือได้)** ไม่ใช่ schedule เป๊ะวินาที — เพราะไม่มีพิกัด การ fake "20 นาที" ผิดแล้วพังความเชื่อใจ (= พังการจอง) → ใช้ **ช่วงเวลา (range) + ลิงก์ Google Maps ต่อ leg + legend ความมั่นใจ** (saved / AI-suggested / ⚠️ยังไม่ verify)
+
+**2 การตัดสินใจที่ gate ทุกอย่าง:**
+1. **GA4 + UTM + custom events ก่อน launch** (form_start/plan_generated/booking_click[provider]/infographic_download/email) — ไม่มีก็วัดอะไรไม่ได้
+2. **เก็บทริปเป็น server object ใน Workers KV ตั้งแต่ v1** (endpoint `/api/trips` → คืน tripId + shareUrl, TTL 30 วัน, link=สิทธิ์เข้าถึง) เก็บแค่ tripId ใน localStorage → **กันการ rewrite ตอนทำ app** (~6 ชม.ตอนนี้ vs เป็นสัปดาห์ทีหลัง) + เป็นฐานของ share/og:image/email/global
+
+**ปรับตาม 5 มิติ:**
+- **ง่าย:** empty-state + 3 quick-start template (ทำงานได้แม้ไม่ save อะไรเลย — อย่าบังคับ save ก่อน) · progressive disclosure (วัน→จังหวัด→style card รวม pace+interests→transport→optional) · loading UX จริง (skeleton+cycling) · itinerary mobile-first collapsible 48px
+- **ได้ประโยชน์:** ทดสอบ Workers AI กับ 10 ทริปจริงก่อน — ถ้า <80% สลับ Claude Haiku (~$20/เดือน/1000 ทริป) · respect saved items (toggle ต้องมี/น่าสน/ตัด) · ถามเวลาเริ่มแต่ละวัน + late-arrival day 1 · validate province order
+- **รายได้:** GA4 ก่อน · auto-insert SafetyWing (คอม 25-30%) + Airalo eSIM + Klook activities ต่อเมือง (10-15%) · เรียง booking checklist ตามค่าคอมมิชชัน · email capture จังหวะ intent สูง (หลัง render) · gate เฉพาะ provider ที่ signup แล้ว
+- **app:** KV server-trips (ข้อ 2) · เก็บแค่ tripId · versioned ITINERARY_SCHEMA + validate ใน Worker · wrap localStorage ใน versioned accessor · logic อยู่ใน Worker/API (ไม่ฝังใน Astro page)
+- **global:** **คนละ product/domain** — thailandaddict ผูกกับไทย (อย่า rebrand) · candidate-pool homegrown ไม่ scale global → ต้อง pluggable content provider (Booking/Google Places) + directions API จริง · sketch param `contentProvider='local'` ไว้ตอนนี้ build ทีหลังหลังไทยพิสูจน์ว่า funnel work
+
+**ตัดออกจาก v1:** booking checkbox ปลอม (ติ๊กแล้วไม่เกิดอะไร) · per-item lock + regenerate-รายวัน (Llama ทำพัง) → เหลือ "จัด 1 ครั้ง" + "เริ่มใหม่" · server-side infographic (ใช้ html2canvas ฝั่ง client ไปก่อน) · Pro tier/PDF paywall (รอข้อมูล) · global rebrand · RTL
+
+**Build sequence:** (1) pre-build gate: GA4+UTM live + owner signup affiliate + 10-trip AI test → เคาะ Workers AI/Haiku · (2) core: /api/trips บน KV + schema validate + timeout/fallback + travel-time ranges · (3) funnel: Save+toast+floating badge + /trip form progressive + empty-state + must-include · (4) output: mobile itinerary + legend/disclaimer + booking summary เรียงตามคอม + auto insurance/eSIM/activities + infographic (UTM/QR→tripId) + email · (5) วัดผล→v2: coords ตาม route ที่คลิกเยอะ, server infographic+og:image, edit/lock/regenerate, offline PDF (หลัง scrub data), แล้วค่อยพิจารณา Pro + global product
