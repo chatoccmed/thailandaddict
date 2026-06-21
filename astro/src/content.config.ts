@@ -299,6 +299,9 @@ const articleSchema = z.object({
   related: z.array(z.object({ href: z.string(), title: z.string() })).optional(),
   // Sticky right-rail of featured hotel roundups (desktop only; hidden on mobile). Additive · back-compat.
   rail: z.array(z.object({ title: z.string(), href: z.string(), note: z.string().optional(), img: z.string().optional() })).optional(),
+  // AEO direct-answer box (40-60 words) rendered near the top — additive · back-compat.
+  quickAnswerHtml: z.string().optional(),
+  quickAnswerH2: z.string().optional(),
 });
 
 const articles = defineCollection({

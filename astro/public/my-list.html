@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>รายการที่บันทึก | ThailandAddict</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root{--teal:#06B6D4;--teal-dk:#0891b2;--ink:#0F172A;--sub:#64748b;--bdr:#e6eef2;--bg:#f1fbfd}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Sarabun',-apple-system,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Outfit';font-weight:800;font-size:20px;color:#fff;text-decoration:none}
+  .back{color:#fff;text-decoration:none;font-size:14px;opacity:.92}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 20px 60px}
+  h1{font-family:'Outfit';font-weight:800;font-size:26px;margin:0 0 4px}
+  .sub{color:var(--sub);font-size:14px;margin:0 0 24px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card{background:#fff;border:1px solid var(--bdr);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .card img{width:100%;height:150px;object-fit:cover;background:#e6eef2;display:block}
+  .cbody{padding:13px 15px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .cname{font-family:'Outfit';font-weight:700;font-size:15.5px;line-height:1.3}
+  .crow{display:flex;gap:8px;margin-top:auto}
+  .view{flex:1;text-align:center;background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;text-decoration:none;font-family:'Outfit';font-weight:700;font-size:13.5px;padding:9px;border-radius:10px}
+  .rm{background:#fff;border:1px solid var(--bdr);color:var(--sub);border-radius:10px;padding:9px 12px;cursor:pointer;font-size:13px}
+  .rm:hover{border-color:#f43f5e;color:#f43f5e}
+  .empty{text-align:center;padding:60px 20px;color:var(--sub)}
+  .empty a{color:var(--teal-dk);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/">ThailandAddict</a>
+  <a class="back" href="/">← กลับหน้าแรก</a>
+</header>
+<div class="wrap">
+  <h1>♥ รายการที่บันทึก</h1>
+  <p class="sub">โรงแรมที่คุณกดบันทึกไว้ (เก็บในเบราว์เซอร์นี้)</p>
+  <div id="list" class="grid"></div>
+</div>
+<script>
+(function(){
+  var KEY='ta_wishlist', el=document.getElementById('list');
+  function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function render(){
+    var l=get();
+    if(!l.length){el.outerHTML='<div class="empty">ยังไม่มีรายการที่บันทึก<br><br>กดปุ่ม <b>♡ บันทึก</b> ในหน้ารีวิวโรงแรม แล้วกลับมาดูที่นี่<br><br><a href="/">เลือกที่พัก →</a></div>';return}
+    el.innerHTML=l.map(function(x){return '<div class="card">'+(x.img?'<img src="'+esc(x.img)+'" alt="'+esc(x.name)+'" onerror="this.style.opacity=0">':'')+'<div class="cbody"><div class="cname">'+esc(x.name)+'</div><div class="crow"><a class="view" href="'+esc(x.url)+'">ดูรีวิว →</a><button class="rm" data-slug="'+esc(x.slug)+'">ลบ</button></div></div></div>'}).join('');
+    el.querySelectorAll('.rm').forEach(function(b){b.addEventListener('click',function(){localStorage.setItem(KEY,JSON.stringify(get().filter(function(x){return x.slug!==b.dataset.slug})));render()})});
+  }
+  render();
+})();
+</script>
+</body>
+</html>

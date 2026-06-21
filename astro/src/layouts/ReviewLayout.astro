@@ -395,7 +395,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </div>
     <div class="qi">
       <a href="#book" class="btn-book">{S.qiBook}</a>
-      <button class="btn-wish">{S.qiWish}</button>
+      <button class="btn-wish" data-slug={data.slug} data-name={data.name} data-img={asset(data.heroImg)} data-url={url} data-word={S.qiWish.replace(/^\S+\s/, '')}>{S.qiWish}</button>
     </div>
   </div>
 </div>
@@ -754,6 +754,22 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.rbar-fill').forEach(function(b){var w=b.style.width;b.style.width='0';setTimeout(function(){b.style.width=w;},120);});bo.unobserve(e.target);}});
   },{threshold:0.3});
   document.querySelectorAll('.rating-box').forEach(function(el){bo.observe(el);});
+})();
+</script>
+<script is:inline>
+(function(){
+  var KEY='ta_wishlist', btn=document.querySelector('.btn-wish');
+  if(!btn)return;
+  function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  function has(){return get().some(function(x){return x.slug===btn.dataset.slug})}
+  function render(){var s=has();btn.classList.toggle('saved',s);btn.innerHTML=(s?'♥ ':'♡ ')+btn.dataset.word}
+  render();
+  btn.addEventListener('click',function(){
+    var l=get();
+    if(has()){l=l.filter(function(x){return x.slug!==btn.dataset.slug})}
+    else{l.push({slug:btn.dataset.slug,name:btn.dataset.name,img:btn.dataset.img,url:btn.dataset.url})}
+    localStorage.setItem(KEY,JSON.stringify(l)); render();
+  });
 })();
 </script>
 </body>
