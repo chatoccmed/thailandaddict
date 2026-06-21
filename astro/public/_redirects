@@ -1,9 +1,6 @@
-# thailandaddict — _redirects (Cloudflare Workers Static Assets)
-# Only WooCommerce/WordPress paths that no longer exist (splat rules; Cloudflare caps dynamic rules at 100).
-# The 195 old-post → new-page 301s live in _internal/bulk-redirects.csv → load via Cloudflare
-# Bulk Redirects at domain cutover (they only apply once thailandaddict.com points here).
-# Regenerate: node _internal/gen-redirects.mjs
-# www -> non-www : Cloudflare Redirect Rule (dashboard) · 404 : not_found_handling in wrangler.jsonc
+# thailandaddict — _redirects (Cloudflare Workers Static Assets · ≤100 dynamic)
+# Splat patterns for WooCommerce/WP/theme paths. Old-URL 301s (both slash variants) are in
+# _internal/bulk-redirects.csv → Cloudflare Bulk Redirects. Regenerate: node _internal/gen-redirects.mjs
 /product/* / 301
 /product-category/* / 301
 /cart / 301
@@ -14,3 +11,7 @@
 /tour/* / 301
 /deals/* / 301
 /destination/* / 301
+/main-demo/* / 301
+/tour-category/* / 301
+/tour-destination/* / 301
+/tour-month/* / 301
