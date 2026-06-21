@@ -191,10 +191,10 @@ const schema = {
       name: data.name,
       description: data.schemaDesc,
       starRating: { '@type': 'Rating', ratingValue: String(data.starRating) },
-      aggregateRating: {
+      ...((Number(data.score) > 0 && Number(data.ratingCount) > 0) ? { aggregateRating: {
         '@type': 'AggregateRating', ratingValue: String(data.score),
         bestRating: '10', worstRating: '1', ratingCount: String(data.ratingCount),
-      },
+      } } : {}),
       address: {
         '@type': 'PostalAddress', streetAddress: data.streetAddress,
         addressLocality: data.addressLocality, addressCountry: data.addressCountry,
@@ -203,14 +203,14 @@ const schema = {
       image: imgAbs,
       url,
     },
-    {
+    ...(Number(data.score) > 0 ? [{
       '@type': 'Review', '@id': `${url}#review`,
       itemReviewed: { '@id': `${url}#hotel` },
       reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
       author: { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE },
       publisher: { '@type': 'Organization', name: 'ThailandAddict', logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: today, dateModified: today,
-    },
+    }] : []),
     {
       '@type': 'BreadcrumbList',
       itemListElement: [

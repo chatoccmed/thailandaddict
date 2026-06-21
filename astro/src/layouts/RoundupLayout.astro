@@ -139,9 +139,9 @@ const breadcrumb = {
   })),
 };
 const article = {
-  '@type': 'Article', headline: data.ogTitle, description: data.metaDesc,
+  '@type': 'Article', headline: data.ogTitle, description: data.metaDesc, image: imgAbs,
   author: { '@type': 'Organization', name: 'ThailandAddict Editorial' },
-  publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE },
+  publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
   datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
 };
 const schema = { '@context': 'https://schema.org', '@graph': [itemList, breadcrumb, article] };

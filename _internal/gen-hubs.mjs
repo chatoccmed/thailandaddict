@@ -582,7 +582,7 @@ var t;inp.addEventListener('input',function(){q=inp.value.trim().toLowerCase();c
 chips.addEventListener('click',function(e){var b=e.target.closest('.schip');if(!b)return;cat=b.getAttribute('data-cat');chips.querySelectorAll('.schip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();});
 fetch(IDX).then(function(r){return r.json();}).then(function(j){data=j;render();}).catch(function(){cnt.textContent='';});})();
 </script>`;
-  const jsonld={"@context":"https://schema.org","@type":"WebSite","url":"https://thailandaddict.com/","potentialAction":{"@type":"SearchAction","target":J('search.html')+"?q={query}","query-input":"required name=query"}};
+  const jsonld={"@context":"https://schema.org","@type":"WebSite","name":"ThailandAddict","url":"https://thailandaddict.com/","potentialAction":{"@type":"SearchAction","target":J('search.html')+"?q={query}","query-input":"required name=query"}};
   return page({title:tx('ค้นหา — ที่พัก ที่เที่ยว คู่มือเที่ยวไทย | ThailandAddict','Search — Hotels, Sights & Thailand Travel Guides | ThailandAddict'),desc:tx('ค้นหาที่พัก ที่เที่ยว ของกิน แผนเที่ยว และคู่มือเตรียมตัวทั่วไทยในที่เดียว','Search hotels, things to do, food, itineraries and travel guides across Thailand in one place.'),slug:'search',jsonld,body,extraJS,image:'/images/heroes/bangkok.jpg'});
 }
 function readData(slug){

@@ -57,7 +57,7 @@ const jsonld = {
   '@context': 'https://schema.org', '@graph': [
     { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
       author: { '@type': 'Organization', name: 'ThailandAddict' },
-      publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE },
+      publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       ...(data.publishedDate ? { datePublished: data.publishedDate } : {}),
       ...(data.modifiedDate ? { dateModified: data.modifiedDate } : {}),
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
