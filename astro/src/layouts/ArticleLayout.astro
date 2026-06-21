@@ -60,6 +60,7 @@ const jsonld = {
       publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE },
       ...(data.publishedDate ? { datePublished: data.publishedDate } : {}),
       ...(data.modifiedDate ? { dateModified: data.modifiedDate } : {}),
+      ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
       mainEntityOfPage: canonical },
     { '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${isEn ? '/en/' : '/'}` },
@@ -77,6 +78,13 @@ const jsonld = {
           ...(b.img ? { image: b.img.startsWith('http') ? b.img : `${IMG_BASE || SITE}${b.img}` } : {}),
           ...(b.rating && b.ratingCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: b.rating, reviewCount: b.ratingCount, bestRating: 5, worstRating: 1 } } : {}),
           url: `${canonical}#r${b.rank}` } })) }] : []),
+    // Entity schema for AI answer-engines + Google knowledge graph (derived from existing data, nothing fabricated).
+    ...(data.type === 'attraction' ? [{ '@type': 'TouristAttraction', name: strip(data.h1 || data.title), description: data.metaDesc,
+      ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
+      address: { '@type': 'PostalAddress', addressLocality: data.crumbCity, addressRegion: data.crumbCity, addressCountry: 'TH' },
+      ...(data.lat && data.lng ? { geo: { '@type': 'GeoCoordinates', latitude: data.lat, longitude: data.lng } } : {}), url: canonical }] : []),
+    ...(data.type === 'itinerary' ? [{ '@type': 'TouristTrip', name: strip(data.h1 || data.title), description: data.metaDesc,
+      ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}), url: canonical }] : []),
     ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ],
 };
