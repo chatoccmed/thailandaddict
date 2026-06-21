@@ -269,6 +269,10 @@ const articleBlock = z.discriminatedUnion('kind', [
     time: z.string().optional(), activity: z.string(), note: z.string().optional(),
   })) }),
   z.object({ kind: z.literal('cta'), text: z.string(), href: z.string(), label: z.string().optional() }),
+  // Social/map embeds — show real content legally (IG/FB/Google hosted by source, not copied). Additive · back-compat.
+  z.object({ kind: z.literal('embed'), title: z.string().optional(), note: z.string().optional(),
+    gmapsQuery: z.string().optional(), lat: z.number().optional(), lng: z.number().optional(),
+    fbPage: z.string().optional(), igPost: z.string().optional(), mapsLink: z.string().optional() }),
 ]);
 
 const articleSchema = z.object({
