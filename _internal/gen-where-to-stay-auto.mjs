@@ -27,7 +27,16 @@ const hasThai = (s) => /[ก-฾เ-๛]/.test(s);
 // Cities already covered by hand-written guides in gen-stay-compare.mjs — skip these.
 const HANDWRITTEN = new Set(['bangkok','chiang-mai','phuket','krabi','pattaya','samui','huahin','koh-phangan','chiang-rai','ayutthaya','koh-chang','koh-lipe','khao-yai','pai','kanchanaburi','sukhothai','hat-yai','nan','koh-kood','rayong',
   // Tier A hand-written upgrades
-  'phang-nga','surat-thani','trang','nakhon-ratchasima','udon-thani','khon-kaen','ubon-ratchathani','nong-khai','lampang','mae-hong-son','loei','phetchaburi','prachuap-khiri-khan','lopburi','buriram']);
+  'phang-nga','surat-thani','trang','nakhon-ratchasima','udon-thani','khon-kaen','ubon-ratchathani','nong-khai','lampang','mae-hong-son','loei','phetchaburi','prachuap-khiri-khan','lopburi','buriram',
+  // Tier B hand-written upgrades (≥3 genuinely distinct geographic stay-zones each)
+  'nakhon-si-thammarat','satun','chumphon','chanthaburi','trat','chonburi','ratchaburi','koh-larn','koh-mak','nakhon-phanom']);
+// Intentionally KEPT data-driven (compact in-town provinces — a single central stay-zone, no
+// ≥3 distinct tourist neighborhoods to write honestly; fabricating areas is forbidden):
+//   phitsanulok (riverside center is one core zone) · phrae (old-town vs downtown = same small
+//   town; lodging is the town's weak point) · phayao (Kwan Phayao lakeside ≈ town center, 5-min
+//   walk) · sakon-nakhon (city hugs Nong Han lake = one zone) · mukdahan (compact Mekong/Indochina
+//   riverside core) · surin (in-town + distant Ban Ta Klang elephant village day-base) · sisaket
+//   (compact in-town) · nakhon-pathom (compact city around Phra Pathom Chedi, day-trip from BKK).
 
 // English city names (province-data has Thai only) — copied from gen-hubs.mjs.
 const EN_NAME = {
