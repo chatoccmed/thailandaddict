@@ -177,6 +177,11 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto{background:#fff;border:1px solid var(--bdr);border-radius:24px;overflow:hidden;margin:0 0 26px;box-shadow:0 10px 30px rgba(15,23,42,.06);transition:box-shadow .25s,transform .25s;scroll-margin-top:128px}
 .resto:hover{box-shadow:0 22px 48px -18px rgba(15,23,42,.24);transform:translateY(-3px)}
 .resto-head{display:flex;align-items:flex-start;gap:15px;padding:20px 24px 16px;border-bottom:1px solid var(--bdr)}
+.resto-save{flex-shrink:0;align-self:center;display:inline-flex;align-items:center;gap:5px;font-family:'Outfit';font-weight:800;font-size:12.5px;color:var(--teal-dk);background:#ecfeff;border:1.5px solid #a5f0fc;border-radius:999px;padding:8px 14px;cursor:pointer;transition:.15s;white-space:nowrap}
+.resto-save:hover{background:#cffafe;transform:translateY(-1px)}
+.resto-save.saved{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(8,145,178,.3)}
+.resto-save .rs-ico{font-weight:900;font-size:15px;line-height:1}
+@media(max-width:760px){.resto-save .rs-label{display:none}.resto-save{padding:9px 11px}}
 .resto-rank{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(244,63,94,.32)}
 .resto-head-info{flex:1;min-width:0}
 .resto-type{font-family:'Outfit';font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);font-weight:700;margin-bottom:3px}
@@ -420,7 +425,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <div class="crumb"><a href={link('/')}>{S.home}</a> › <a href={link('country-thailand.html')}>{S.th}</a> › <a href={link(data.crumbCityHref)}>{data.crumbCity}</a> › <span>{data.h1.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()}</span></div>
 
 {isResto && data.heroImg ? (
-  <section class="rhero" style={`background-image:linear-gradient(177deg,rgba(15,23,42,.12) 0%,rgba(15,23,42,.40) 45%,rgba(15,23,42,.86) 100%),url('${asset(data.heroImg)}')`}>
+  <section class="rhero" style={`background-image:linear-gradient(100deg,rgba(6,46,66,.9) 0%,rgba(11,32,51,.62) 40%,rgba(15,23,42,.32) 72%,rgba(15,23,42,.48) 100%),linear-gradient(0deg,rgba(15,23,42,.72) 0%,rgba(15,23,42,0) 40%),url('${asset(data.heroImg)}')`}>
     <div class="wrap">
       <span class="eyebrow">{data.heroEmoji} {data.eyebrow}</span>
       <h1 set:html={data.h1} />
@@ -539,6 +544,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="บันทึกร้านนี้เข้าทริป"><span class="rs-ico">+</span> <span class="rs-label">เข้าทริป</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
@@ -738,6 +744,19 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           var p = document.getElementById(tab.getAttribute('data-pane'));
           if (p) { actPane(p); p.classList.add('on'); }
         });
+      });
+    });
+    // save-to-trip buttons (per restaurant → ta_wishlist localStorage, shared with /my-list + trip planner)
+    document.querySelectorAll('.resto-save').forEach(function (btn) {
+      var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
+      function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '+'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในทริป' : 'เข้าทริป'; }
+      render();
+      btn.addEventListener('click', function () {
+        var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
+        if (i >= 0) l.splice(i, 1); else l.push({ slug: slug, name: btn.getAttribute('data-name'), type: btn.getAttribute('data-type'), city: btn.getAttribute('data-city'), url: btn.getAttribute('data-url'), img: btn.getAttribute('data-img') });
+        try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
+        render();
       });
     });
     // multi-axis filters (type / zone / price single-select + veg / halal toggles, AND-combined)
