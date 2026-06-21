@@ -4,7 +4,7 @@
 const { data, lang = 'th' } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
-const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || '';   // '' = local /images; set to R2 base (e.g. https://img.thailandaddict.com) in prod
+const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
 const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 const S = isEn
