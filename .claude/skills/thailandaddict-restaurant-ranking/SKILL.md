@@ -64,8 +64,15 @@ The Leaflet/OSM map keeps the network busy → the screenshot tool times out. Be
 
 ---
 
-## 🖼️ Image policy (owner-relaxed final form)
-**รูปจากทุกแหล่ง + เครดิตทุกใบ + กล่องแจ้งลบภาพท้ายบทความ.** (Started "official/FB only" — impractical: FB pages aren't food galleries, Google Maps hangs the extension. Relaxed to any source.) Order of preference: official site → restaurant FB → Wongnai/food blogs → Google Business of the restaurant → **Wikimedia/CC (best — properly licensed, e.g. Jay Fai)**. Every image needs `credit` + `creditHref`. Never fabricate. The takedown notice block renders automatically from layout strings (links to contact). **No Trip.com / stock / wrong-restaurant photos.**
+## 🖼️ Image policy (v4 — embed-first, copyright-safe · CURRENT)
+> Supersedes the old "scrape any-source galleries + credit" policy (owner: copyright risk too high). Demo'd on Lampang.
+
+Restaurant card media = a **tabbed embed** (`📷 Instagram · 📘 Facebook · 🗺️ แผนที่`) — NOT scraped per-restaurant gallery photos.
+- **IG is the default tab** (most engaging), FB 2nd (iframe Page Plugin, `height=540` to fit the box), Map 3rd (Google Maps `?q=<name> <province>&output=embed`, lazy). Layout: `ArticleLayout.astro` embed-mode (triggers on `igPost||fbPage||libImg||!img`).
+- **Show only WebFetch-VERIFIED social URLs.** Auto-research returns wrong-location / hallucinated URLs OFTEN (e.g. a Krabi branch's FB for the Lampang shop, a stranger's reel). Verify EACH: `https://www.instagram.com/p/<code>/embed/` exists + names this restaurant; FB page og:title = right business + province. Drop anything unverified. Honesty over coverage.
+- **No verified IG/FB → reusable CC library.** `_internal/food-image-lib.json` (19 dishes, CC-licensed, on R2 at `/images/food/_lib/`) via `matchFoodImage(foodType,cuisine,signature,name)` in `_internal/wf/lib-match.mjs` → sets `libImg`/`libCredit`/`libCreditHref` (renders as a `🍜 รูป` tab). Rebuild/extend: `cd astro && node ../_internal/build-food-lib.mjs`.
+- **Hero** = one CC dish/landmark image (Wikimedia, sized 1600w, served from R2), credited via `heroCredit`/`heroCreditHref`.
+- Every image keeps `credit`+`creditHref`; takedown box still renders. **Never** scrape/store a restaurant's copyrighted photos or use Trip.com/wrong-restaurant images. `img` field is now optional (embed-mode cards have no hero photo).
 
 ## ✅ Quality gates (honesty-first — brand LOCKED)
 - 10 restaurants, each `descHtml` ≥200 Thai words (verify checks ≥700 Thai chars), real & review-backed.
@@ -88,5 +95,6 @@ The Leaflet/OSM map keeps the network busy → the screenshot tool times out. Be
 
 ## Related files
 - Engine: `_internal/wf/restaurants-roundup.js` · Verify: `_internal/wf/verify-resto.mjs` · Args helper: `_internal/wf/build-resto-args.mjs` (draft — labels need rework for bulk)
+- Image library (v4): `_internal/food-image-lib.json` (manifest, 19 dishes) · `_internal/wf/lib-match.mjs` (matcher) · `_internal/build-food-lib.mjs` (builder) · images on R2 `/images/food/_lib/`
 - Handoff/history: `_internal/RESTAURANT-REVIEW-HANDOFF.md` · Format spec: [`references/format-spec.md`](./references/format-spec.md)
 - Affiliate IDs (CLAUDE.md): Agoda cid=1965862 · Trip Allianceid=6861268&SID=312919111 · Klook aid=121442 · GetYourGuide via `getyourguide.com/s/?q=<city>`
