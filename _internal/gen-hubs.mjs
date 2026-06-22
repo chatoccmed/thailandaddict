@@ -179,6 +179,23 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .dcard{background:#fff;border:1px solid rgba(6,182,212,.08);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:block}
 .dcard:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(6,182,212,.28)}
 .dphoto{height:160px;position:relative;background:linear-gradient(150deg,#06B6D4,#22d3ee 55%,#FBBF24)}.dphoto>img{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s}.dcard:hover .dphoto>img{transform:scale(1.07)}
+/* neighbourhood photo-cards (reference-style: emoji + name + descriptor overlaid on the photo) */
+.hccg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media(max-width:880px){.hccg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.hccg{grid-template-columns:1fr}}
+.hcc{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185);box-shadow:0 6px 20px rgba(8,40,60,.10)}
+.hcc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.hcc:hover>img{transform:scale(1.08)}
+.hcc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,20,30,.82),rgba(4,20,30,.12) 54%,rgba(4,20,30,0))}
+.hcc-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:13px 14px;color:#fff}
+.hcc-e{font-size:18px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.hcc-cap b{display:block;margin-top:5px;font-size:16px;font-weight:800;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.hcc-cap i{display:block;margin-top:3px;font-size:12px;font-style:normal;font-weight:600;opacity:.93;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.hccmore{margin-top:16px}
+.hccmore>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#0891b2;background:#ecfeff;border:1.5px solid #a5f0fb;border-radius:999px;padding:10px 22px;transition:background .2s}
+.hccmore>summary::-webkit-details-marker{display:none}
+.hccmore>summary:hover{background:#d6f7fd}
+.hccmore[open]>summary{margin-bottom:16px}
 .dbody{padding:15px 17px 17px}.dbody h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:17px;line-height:1.3}.dbody .go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:800;color:var(--bl);margin-top:10px;display:inline-block}.dcard:hover .dbody .go{color:var(--or-dk)}
 /* HIGHLIGHT / FOOD / INFO / NEIGHBOR */
 .hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
@@ -347,12 +364,57 @@ function artCards(cluster, types, excludeRe){
   if(!list.length) return '';
   return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">${tx('อ่านบทความ →','Read article →')}</span></div></a>`).join('')+`</div>`;
 }
-// per-area "where to stay in <city>-<area>" hotel guides → neighborhood index grid (gathered on the city hub Stay tab)
+// Curated Bangkok neighbourhood cards: [order, emoji, nameTH, nameEN, captionTH, captionEN].
+// Order sets the display sequence; the first 12 show on the hub, the rest behind a "see all" toggle.
+const HOOD_CARDS = {
+  'where-to-stay-bangkok-sukhumvit':[1,'🍸','สุขุมวิท','Sukhumvit','อโศก-นานา · ไนต์ไลฟ์ · BTS-MRT','Asok–Nana · nightlife · BTS-MRT'],
+  'where-to-stay-bangkok-silom-sathorn':[2,'🌆','สีลม-สาทร','Silom–Sathorn','ย่านธุรกิจ · รูฟท็อปบาร์','CBD · rooftop bars'],
+  'where-to-stay-bangkok-khao-san':[3,'🎒','ข้าวสาร-เมืองเก่า','Khao San–Old City','สายแบกเป้ · วัด·วัง','Backpacker · temples & palace'],
+  'where-to-stay-bangkok-riverside':[4,'⛵','ริมเจ้าพระยา','Riverside','วิวแม่น้ำ · โรงแรมหรู','River views · grand hotels'],
+  'where-to-stay-bangkok-chinatown':[5,'🏮','เยาวราช','Chinatown (Yaowarat)','สตรีทฟู้ดในตำนาน','Legendary street food'],
+  'where-to-stay-bangkok-siam-pratunam':[6,'🛍️','สยาม-ประตูน้ำ','Siam–Pratunam','ใจกลางช้อปปิ้ง · BTS','Shopping core · BTS hub'],
+  'where-to-stay-bangkok-thong-lo':[7,'☕','ทองหล่อ-เอกมัย','Thonglo–Ekkamai','คาเฟ่ฮิป · นั่งชิล','Hip cafés · trendy'],
+  'where-to-stay-bangkok-ari':[8,'🌿','อารีย์','Ari','คาเฟ่ · ชิล · โลคอลคูล','Cafés · chill · local cool'],
+  'where-to-stay-bangkok-mochit-chatuchak':[9,'🛒','หมอชิต-จตุจักร','Mo Chit–Chatuchak','ตลาดนัดสุดสัปดาห์','Weekend market'],
+  'where-to-stay-bangkok-ratchada':[10,'🌃','รัชดา-ห้วยขวาง','Ratchada','ตลาดกลางคืน · MRT','Night markets · MRT'],
+  'where-to-stay-bangkok-phrom-phong':[11,'🍱','พร้อมพงษ์','Phrom Phong','เอ็มดิสทริค · ญี่ปุ่น · หรู','EmDistrict · Japanese · upscale'],
+  'where-to-stay-bangkok-charoen-krung':[12,'🎨','เจริญกรุง-ตลาดน้อย','Charoen Krung','ครีเอทีฟ · ริมน้ำ','Creative · riverside'],
+  'where-to-stay-bangkok-on-nut':[13,'🏙️','อ่อนนุช-พระโขนง','On Nut–Phra Khanong','โลคอลคูล · คอนโด · BTS','Local cool · condos · BTS'],
+  'where-to-stay-bangkok-chidlom':[14,'💎','ชิดลม-ราชประสงค์','Chidlom–Ratchaprasong','ห้างหรู · ใจกลางเมือง','Luxury malls · central'],
+  'where-to-stay-bangkok-samyan':[15,'🎓','สามย่าน-จุฬา','Sam Yan–Chula','วัยเรียน · คุ้ม · MRT','Student · value · MRT'],
+  'where-to-stay-bangkok-victory-monument':[16,'🍜','อนุสาวรีย์ชัยฯ','Victory Monument','ก๋วยเตี๋ยวเรือ · ฮับรถ','Boat noodles · transit hub'],
+  'where-to-stay-bangkok-rama9':[17,'🏢','พระราม 9-รัชดา','Rama 9','CBD ใหม่ · ออฟฟิศ','New CBD · business'],
+  'where-to-stay-bangkok-ladprao':[18,'🍲','ลาดพร้าว','Lat Phrao','ของกินโลคอล · MRT','Local eats · MRT'],
+  'where-to-stay-bangkok-central-ladprao':[19,'🏬','เซ็นทรัลลาดพร้าว','Central Ladprao','ห้าแยกลาดพร้าว · ห้าง · BTS','Mall hub · BTS'],
+  'where-to-stay-bangkok-kaset':[20,'🎓','เกษตร-นวมินทร์','Kaset','ม.เกษตร · คุ้ม · โลคอล','University · value'],
+  'where-to-stay-bangkok-ramkhamhaeng':[21,'🏟️','รามคำแหง-หัวหมาก','Ramkhamhaeng','ม.รามฯ · สเตเดียม','Campus · stadium'],
+  'where-to-stay-bangkok-bangna':[22,'🌳','บางนา','Bang Na','BITEC · เอ็กซ์โป · ห้าง','BITEC · expo · malls'],
+  'where-to-stay-bangkok-pinklao':[23,'🛶','ปิ่นเกล้า-ฝั่งธน','Pinklao','ฝั่งธนฯ · ใกล้เมืองเก่า','Thonburi · near Old City'],
+  'where-to-stay-bangkok-chaeng-watthana':[24,'🏛️','แจ้งวัฒนะ-หลักสี่','Chaeng Watthana','ศูนย์ราชการ · MICE','Govt complex · MICE'],
+  'where-to-stay-bangkok-bang-khen':[25,'🚉','วัดพระศรีฯ-บางเขน','Bang Khen','ปลายสายสีเขียว · มหา\'ลัย','North Green-line · campuses'],
+  'where-to-stay-bangkok-ratchathewi':[26,'🚉','ราชเทวี-พญาไท','Ratchathewi–Phaya Thai','ติด ARL · ใกล้สยาม','Near Airport Link & Siam'],
+  'where-to-stay-bangkok-ploenchit':[27,'🌳','เพลินจิต-หลังสวน','Phloen Chit','สถานทูต · ใกล้สวนลุม','Embassies · near Lumpini'],
+  'where-to-stay-bangkok-bang-sue':[28,'🚄','บางซื่อ-ประดิพัทธ์','Bang Sue','สถานีกลาง · ฮับรถไฟ','Central Station · rail hub'],
+  'where-to-stay-bangkok-srinakarin':[29,'🦐','ศรีนครินทร์-สวนหลวง','Srinakarin','ซีคอน · ของกิน · ตะวันออก','Seacon · food · east'],
+  'where-to-stay-bangkok-bangkapi':[30,'🛍️','บางกะปิ','Bangkapi','เดอะมอลล์ · ฝั่งตะวันออก','The Mall · east BKK'],
+  'where-to-stay-bangkok-talat-phlu':[31,'🍢','ตลาดพลู-วงเวียนใหญ่','Talat Phlu','สตรีทฟู้ดฝั่งธน · BTS','Thonburi street food · BTS'],
+};
+// per-area "where to stay" guides → reference-style photo grid (emoji + name + descriptor overlaid on the photo),
+// ordered by HOOD_CARDS, first 12 visible + the rest behind a <details> "see all" toggle. Image = article heroImg (R2).
 function hoodGuides(cluster){
   const pre=`where-to-stay-${cluster}-`;
-  const list=(ARTS[cluster]||[]).filter(a=>a.slug.startsWith(pre)).sort((a,b)=>a.slug.localeCompare(b.slug));
+  let list=(ARTS[cluster]||[]).filter(a=>a.slug.startsWith(pre));
   if(!list.length) return '';
-  return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">${tx('ดูโรงแรมในย่าน →','See area hotels →')}</span></div></a>`).join('')+`</div>`;
+  const en=LOC==='en';
+  const meta=(a)=>{ const c=HOOD_CARDS[a.slug]; if(c) return {o:c[0],e:c[1],nm:en?c[3]:c[2],cap:en?c[5]:c[4]};
+    const t=stripTags(String(a.title).replace(/<br\s*\/?>/gi,' ')).replace(/^(พักย่าน|Where to Stay in)\s*/i,'').trim();
+    return {o:99,e:'📍',nm:t,cap:''}; };
+  const rows=list.map(a=>({a,m:meta(a)})).sort((x,y)=>x.m.o-y.m.o||x.a.slug.localeCompare(y.a.slug));
+  const card=({a,m})=>`<a class="hcc" href="${a.slug}.html">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(m.nm)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="hcc-cap"><span class="hcc-e">${m.e}</span><b>${esc(m.nm)}</b>${m.cap?`<i>${esc(m.cap)}</i>`:''}</span></a>`;
+  const N=12, head=rows.slice(0,N).map(card).join(''), rest=rows.slice(N);
+  let out=`<div class="hccg">${head}</div>`;
+  if(rest.length) out+=`<details class="hccmore"><summary>${tx(`ดูย่านทั้งหมด (${rows.length}) →`,`See all ${rows.length} areas →`)}</summary><div class="hccg">${rest.map(card).join('')}</div></details>`;
+  return out;
 }
 function hotelCards(slug){
   const list=(REVS[slug]||[]).slice().sort((a,b)=>b.score-a.score);
