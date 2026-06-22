@@ -65,7 +65,11 @@ const PFX = () => LOC === 'en' ? '/en/' : '/';    // home href for current local
 const ALT = slug => LOC === 'en' ? '/'+slug+'.html' : '/en/'+slug+'.html'; // other-locale URL of this page
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const imgUrl = s => !s ? '' : (/^(https?:|\/)/.test(s) ? s : '/'+s);
+// Hub content images (cm/ + hotels/) are served from R2 — same bucket the layouts use — because those dirs are
+// excluded from the Cloudflare static bundle (.assetsignore) to stay under the 20k-file limit. heroes/ + cities/
+// stay in the bundle, so heroSrc / neighbor cards keep plain /images/ paths. Override via PUBLIC_IMG_BASE env.
+const IMG_BASE = process.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
+const imgUrl = s => !s ? '' : (/^https?:/.test(s) ? s : IMG_BASE + (s.startsWith('/') ? s : '/'+s));
 const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 
 // ── content indexes ──

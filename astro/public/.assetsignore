@@ -1,19 +1,17 @@
 # Cloudflare Workers Static Assets — .assetsignore (gitignore syntax, relative to the assets dir = dist)
-# Purpose: keep the static-asset upload under Cloudflare's 20,000-file limit WITHOUT breaking visible images.
+# PERMANENT image architecture (no per-deploy file-count risk):
+#   • Bulk content images (cm/ + hotels/ + food/ + gallery/) are EXCLUDED from the static bundle and served
+#     from the R2 public bucket instead. Both the content layouts (Article/Roundup/ReviewLayout → asset())
+#     AND the hub generator (gen-hubs → imgUrl()) prepend IMG_BASE = PUBLIC_IMG_BASE env
+#     (default https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev), so every cm/hotels/food image URL points
+#     at R2. Verified: 0 plain /images/(cm|hotels|food|gallery)/ refs remain in any generated HTML.
+#   • heroes/ + cities/ STAY in the bundle (small, slow-growing): hub hero, neighbour cards and og:image use
+#     plain /images/heroes|cities/ paths served straight from the deploy.
 #
-# Strategy (no R2 yet): deploy every HERO image and exclude ONLY the hotel GALLERY extras (-2/-3/-4/-5).
-#   - Kept (served as static /images/): heroes/, cities/, images/cm/ (3,216 — hub Editor's Picks + per-area
-#     "where to stay" cards + attraction articles), images/food/, images/gallery/, AND images/hotels/*-1.jpg
-#     (1,650 hotel hero shots used by hub hotel cards + top10 roundups + each review's main photo) + ~472
-#     non-standard-named hotel files.
-#   - Excluded (only place they appear is the gallery strip on individual hotel-review pages, which all use
-#     onerror="this.style.opacity='0'" so they hide gracefully): images/hotels/*-2..-5.jpg (≈5,571 files).
-# File count: 22,627 total − 5,571 gallery extras ≈ 17,056 static files → under 20,000. ✓
-#
-# FULL FIX (serve gallery extras too): upload astro/public/images/hotels to an R2 bucket, set PUBLIC_IMG_BASE
-# to its public URL (ReviewLayout already routes hotel images through asset()/PUBLIC_IMG_BASE), then exclude
-# all of images/hotels/ here. See _internal/assetsignore.for-cutover for the full R2 cutover.
-images/hotels/*-2.jpg
-images/hotels/*-3.jpg
-images/hotels/*-4.jpg
-images/hotels/*-5.jpg
+# File count: 22,627 total − hotels(7,693) − cm(3,216) − food(102) − gallery(1) ≈ 11,615 static files → well
+# under Cloudflare's 20,000 limit, with ~8k headroom for growth. New content images just need to be in R2
+# (see _internal/upload-r2*.{mjs,sh}); they never count against the bundle limit again.
+images/hotels/
+images/cm/
+images/food/
+images/gallery/
