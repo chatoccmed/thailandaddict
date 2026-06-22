@@ -112,6 +112,22 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .hccmore>summary::-webkit-details-marker{display:none}
 .hccmore>summary:hover{background:#d6f7fd}
 .hccmore[open]>summary{margin-bottom:16px}
+/* per-area neighbourhood hub: quick-answer box + compact hotel list */
+.quickbox{background:#f1fbfd;border:1px solid #cdeef5;border-left:4px solid #06B6D4;border-radius:14px;padding:14px 18px;font-size:15px;line-height:1.6;color:#0f172a;margin-top:6px}
+.quickbox b{color:#0891b2}
+.hl-list{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.hl-row{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e6eef2;border-radius:16px;padding:16px 18px;box-shadow:0 4px 14px rgba(8,40,60,.05)}
+.hl-rank{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#0891b2,#22d3ee);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hl-main{flex:1;min-width:0}
+.hl-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hl-top h3{font-size:17px;font-weight:800;color:#0f172a}
+.hl-star{color:#f59e0b;font-size:13px;letter-spacing:1px}
+.hl-bf{font-size:12.5px;font-weight:700;color:#0891b2;margin-top:2px}
+.hl-main>p{font-size:14px;line-height:1.55;color:#475569;margin-top:5px}
+.hl-side{flex:none;text-align:right;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+.hl-price{font-weight:800;color:#0f172a;font-size:16px;white-space:nowrap}.hl-price small{display:block;font-size:11px;color:#94a3b8;font-weight:600}
+.hl-book{background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-weight:800;font-size:12.5px;padding:8px 13px;border-radius:10px;white-space:nowrap}
+@media(max-width:560px){.hl-row{flex-wrap:wrap}.hl-side{flex-direction:row;width:100%;justify-content:space-between;align-items:center;text-align:left;margin-top:4px}.hl-price small{display:inline}}
 .dbody{padding:15px 17px 17px}.dbody h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:17px;line-height:1.3}.dbody .go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:800;color:var(--bl);margin-top:10px;display:inline-block}.dcard:hover .dbody .go{color:var(--or-dk)}
 /* HIGHLIGHT / FOOD / INFO / NEIGHBOR */
 .hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}

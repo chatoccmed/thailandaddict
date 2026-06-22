@@ -196,6 +196,22 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .hccmore>summary::-webkit-details-marker{display:none}
 .hccmore>summary:hover{background:#d6f7fd}
 .hccmore[open]>summary{margin-bottom:16px}
+/* per-area neighbourhood hub: quick-answer box + compact hotel list */
+.quickbox{background:#f1fbfd;border:1px solid #cdeef5;border-left:4px solid #06B6D4;border-radius:14px;padding:14px 18px;font-size:15px;line-height:1.6;color:#0f172a;margin-top:6px}
+.quickbox b{color:#0891b2}
+.hl-list{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.hl-row{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e6eef2;border-radius:16px;padding:16px 18px;box-shadow:0 4px 14px rgba(8,40,60,.05)}
+.hl-rank{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#0891b2,#22d3ee);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hl-main{flex:1;min-width:0}
+.hl-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hl-top h3{font-size:17px;font-weight:800;color:#0f172a}
+.hl-star{color:#f59e0b;font-size:13px;letter-spacing:1px}
+.hl-bf{font-size:12.5px;font-weight:700;color:#0891b2;margin-top:2px}
+.hl-main>p{font-size:14px;line-height:1.55;color:#475569;margin-top:5px}
+.hl-side{flex:none;text-align:right;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+.hl-price{font-weight:800;color:#0f172a;font-size:16px;white-space:nowrap}.hl-price small{display:block;font-size:11px;color:#94a3b8;font-weight:600}
+.hl-book{background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-weight:800;font-size:12.5px;padding:8px 13px;border-radius:10px;white-space:nowrap}
+@media(max-width:560px){.hl-row{flex-wrap:wrap}.hl-side{flex-direction:row;width:100%;justify-content:space-between;align-items:center;text-align:left;margin-top:4px}.hl-price small{display:inline}}
 .dbody{padding:15px 17px 17px}.dbody h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:17px;line-height:1.3}.dbody .go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:800;color:var(--bl);margin-top:10px;display:inline-block}.dcard:hover .dbody .go{color:var(--or-dk)}
 /* HIGHLIGHT / FOOD / INFO / NEIGHBOR */
 .hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
@@ -410,7 +426,7 @@ function hoodGuides(cluster){
     const t=stripTags(String(a.title).replace(/<br\s*\/?>/gi,' ')).replace(/^(พักย่าน|Where to Stay in)\s*/i,'').trim();
     return {o:99,e:'📍',nm:t,cap:''}; };
   const rows=list.map(a=>({a,m:meta(a)})).sort((x,y)=>x.m.o-y.m.o||x.a.slug.localeCompare(y.a.slug));
-  const card=({a,m})=>`<a class="hcc" href="${a.slug}.html">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(m.nm)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="hcc-cap"><span class="hcc-e">${m.e}</span><b>${esc(m.nm)}</b>${m.cap?`<i>${esc(m.cap)}</i>`:''}</span></a>`;
+  const card=({a,m})=>{const href=cluster==='bangkok'?a.slug.replace(/^where-to-stay-/,'area-')+'.html':`${a.slug}.html`;return `<a class="hcc" href="${href}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(m.nm)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="hcc-cap"><span class="hcc-e">${m.e}</span><b>${esc(m.nm)}</b>${m.cap?`<i>${esc(m.cap)}</i>`:''}</span></a>`;};
   const N=12, head=rows.slice(0,N).map(card).join(''), rest=rows.slice(N);
   let out=`<div class="hccg">${head}</div>`;
   if(rest.length) out+=`<details class="hccmore"><summary>${tx(`ดูย่านทั้งหมด (${rows.length}) →`,`See all ${rows.length} areas →`)}</summary><div class="hccg">${rest.map(card).join('')}</div></details>`;
@@ -520,6 +536,60 @@ ${nbCards?`<div class="section"><div class="sh"><div class="slbl">${tx('📍 เ
   return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS,image:heroSrc});
 }
 
+// ── per-ย่าน standalone hub: a city-hub-style page scoped to one Bangkok neighbourhood ──
+// Stay tab = the researched hotels (Agoda search per hotel) + link to the full where-to-stay guide;
+// Eat/See tabs are placeholders ready to fill with per-area food/attraction content later.
+const HOODDATA = path.join(ROOT, '_internal/neighborhood-data');
+function bkkHoodList(){ try{ return fs.readdirSync(HOODDATA).filter(f=>/^bangkok__.+\.json$/.test(f)).map(f=>f.slice('bangkok__'.length,-5)); }catch{ return []; } }
+function hoodHub(hood){
+  const wts=`where-to-stay-bangkok-${hood}`;
+  let d; try{ d=JSON.parse(fs.readFileSync(path.join(HOODDATA,`bangkok__${hood}.json`),'utf8')); }catch{ return null; }
+  const en=LOC==='en';
+  const c=HOOD_CARDS[wts]||[99,'📍',d.hoodTh||hood,d.hoodEn||hood,'',''];
+  const nm=(en?c[3]:c[2])||d.hoodEn||d.hoodTh||hood, cap=(en?c[5]:c[4])||'', emoji=c[1]||'📍';
+  const art=(ARTS['bangkok']||[]).find(a=>a.slug===wts);
+  const heroSrc=(art&&art.heroImg)||imgUrl('/images/heroes/bangkok.jpg');
+  const intro=(en?d.introEn:d.introTh)||'', quick=(en?d.quickEn:d.quickTh)||'';
+  const hotels=Array.isArray(d.hotels)?d.hotels:[];
+  const agoda=(name)=>`https://www.agoda.com/search?cid=1965862&q=${encodeURIComponent(name+' Bangkok')}`;
+  const J=p=>`https://thailandaddict.com/${en?'en/':''}${p}`;
+  const _bc={"@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},
+    {"@type":"ListItem","position":2,"name":tx('ประเทศไทย','Thailand'),"item":J('country-thailand')},
+    {"@type":"ListItem","position":3,"name":tx('กรุงเทพมหานคร','Bangkok'),"item":J('city-bangkok')},
+    {"@type":"ListItem","position":4,"name":nm,"item":J(`area-bangkok-${hood}`)}]};
+  const _place={"@type":"Place","@id":J(`area-bangkok-${hood}`)+"#place","name":`${nm}, Bangkok`,"description":stripTags(intro||cap),
+    ...(heroSrc?{"image":/^https?:/.test(heroSrc)?heroSrc:'https://thailandaddict.com'+heroSrc}:{}),
+    "address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressCountry":"TH"},
+    "url":J(`area-bangkok-${hood}`),"isPartOf":{"@type":"Place","name":tx('กรุงเทพมหานคร','Bangkok')}};
+  const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
+  const stars=(n)=>'★'.repeat(Math.max(0,Math.min(5,Math.round(+n||0))));
+  const hotelList=hotels.map((h,i)=>{const bf=en?h.bestForEn:h.bestForTh, why=(en?h.whyEn:h.whyTh)||'';
+    return `<div class="hl-row"><div class="hl-rank">${i+1}</div><div class="hl-main"><div class="hl-top"><h3>${esc(h.name)}</h3><span class="hl-star">${stars(h.star)}</span></div>${bf?`<div class="hl-bf">${esc(bf)}</div>`:''}<p>${esc(why)}</p></div><div class="hl-side">${h.priceFromTHB?`<div class="hl-price"><small>${tx('เริ่มต้น','from')}</small>฿${esc(String(h.priceFromTHB))}</div>`:''}<a class="hl-book" href="${agoda(h.name)}" target="_blank" rel="sponsored nofollow noopener">${tx('เช็คราคา →','Check price →')}</a></div></div>`;}).join('');
+  const tab=(id,emo,label,count,active)=>`<div class="tab${active?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
+  const qa=quick?stripTags(quick).replace(/^[^:：]*[:：]\s*/,''):'';
+  const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('กรุงเทพฯ','Bangkok'),href:'city-bangkok.html'},{t:nm}])}
+<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(nm)}" loading="eager" onerror="this.style.opacity=0">`:''}
+  <div class="pherobody"><span class="pheye">${emoji} ${tx('ย่านในกรุงเทพฯ','A Bangkok neighbourhood')}</span><h1>${tx(`พักย่าน<em>${nm}</em>`,`Stay in <em>${nm}</em>`)}</h1><p class="phlead">${esc(cap||intro.slice(0,120))}</p>
+  <div class="phchips"><span class="phchip">🏨 ${hotels.length} ${tx('ที่พักแนะนำ','recommended stays')}</span><span class="phchip">📍 ${tx('กรุงเทพฯ','Bangkok')}</span></div></div>
+</div>
+${qa?`<div class="section" style="padding-bottom:0"><div class="quickbox"><b>${tx('สั้น ๆ','In short')}:</b> ${esc(qa)}</div></div>`:''}
+<div class="section" style="padding-bottom:0"><div class="sh"><div class="slbl">${tx('คู่มือย่าน','Area guide')}</div><h2>${tx(`พัก·กิน·เที่ยว<em>ย่าน${nm}</em>`,`<em>${nm}</em> — stay, eat &amp; explore`)}</h2><p>${tx('เลือกแท็บดูที่พัก ที่กิน และที่เที่ยวในย่านนี้','Pick a tab for stays, food and things to do in this area')}</p></div></div>
+<div class="tabwrap"><div class="tabbar">${tab('stay','🏨',tx('ที่พัก','Stays'),hotels.length,true)}${tab('eat','🍜',tx('ที่กิน','Eat'),0,false)}${tab('see','📍',tx('ที่เที่ยว','See'),0,false)}</div></div>
+<div class="cwrap">
+<section class="panel active" id="p-stay">
+  ${intro?`<p class="pintro">${esc(intro)}</p>`:''}
+  <div class="callout"><div><h3>${tx(`คู่มือที่พักย่าน${nm} ฉบับเต็ม`,`Full ${nm} hotel guide`)}</h3><p>${tx('รีวิวแยกรายโรงแรม เทียบราคา และ FAQ','Per-hotel detail, price comparison and FAQ')}</p></div><a href="${wts}.html">${tx('อ่านฉบับเต็ม →','Read the full guide →')}</a></div>
+  <div class="hl-list">${hotelList}</div>
+</section>
+<section class="panel" id="p-eat"><h2 class="pnhead">${tx(`ที่กินย่าน<em>${nm}</em>`,`Where to eat in <em>${nm}</em>`)}</h2><p class="pintro">${tx('ร้านเด็ดประจำย่านนี้ — กำลังคัดและเขียนเพิ่ม เร็ว ๆ นี้','Top local spots for this area — researching and adding them soon.')}</p><div class="callout"><div><h3>${tx('ระหว่างนี้','Meanwhile')}</h3><p>${tx('ดูของกินเด่นทั่วกรุงเทพ','Browse Bangkok food highlights')}</p></div><a href="city-bangkok.html#eat">${tx('ที่กินกรุงเทพ →','Bangkok food →')}</a></div></section>
+<section class="panel" id="p-see"><h2 class="pnhead">${tx(`ที่เที่ยวย่าน<em>${nm}</em>`,`Things to do in <em>${nm}</em>`)}</h2><p class="pintro">${tx('ที่เที่ยว คาเฟ่ และจุดเด่นในย่านนี้ — กำลังเพิ่ม เร็ว ๆ นี้','Sights, cafés and highlights here — coming soon.')}</p><div class="callout"><div><h3>${tx('ระหว่างนี้','Meanwhile')}</h3><p>${tx('ดูที่เที่ยวเด่นทั่วกรุงเทพ','Browse top things to do in Bangkok')}</p></div><a href="city-bangkok.html#see">${tx('ที่เที่ยวกรุงเทพ →','Bangkok sights →')}</a></div></section>
+</div>
+<div class="section"><div class="sh"><div class="slbl">🏘️ ${tx('ย่านอื่น','More areas')}</div><h2>${tx('เลือก<em>ย่านอื่นในกรุงเทพ</em>','Explore <em>other Bangkok areas</em>')}</h2><p>${tx('กรุงเทพมีให้เลือกพักหลายย่าน แต่ละย่านคนละสไตล์','Bangkok has many areas to stay — each a different vibe')}</p></div><a class="introbtn" href="city-bangkok.html">${tx('ดูย่านทั้งหมดในกรุงเทพ →','See all Bangkok areas →')}</a></div>
+<div class="cta-sec"><div class="ctaband"><h2>${tx(`จองที่พักย่าน${nm}`,`Book a stay in ${nm}`)}</h2><p>${tx('เทียบราคาที่พักในย่านนี้ก่อนจอง','Compare stays in this area before you book')}</p><a href="${wts}.html">${tx('ดูที่พักแนะนำ →','See recommended stays →')}</a></div></div>`;
+  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)})}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab);history.replaceState(null,'','#'+t.dataset.tab)})});var h=(location.hash||'').replace('#','');if(['stay','eat','see'].indexOf(h)>-1)act(h);})();</script>`;
+  return page({title:tx(`พักย่าน${nm} กรุงเทพฯ — โรงแรมแนะนำทุกงบ | ThailandAddict`,`Where to Stay in ${nm}, Bangkok — Hotels for Every Budget | ThailandAddict`),desc:tx(`พักย่าน${nm} กรุงเทพฯ โรงแรมไหนดี? คัด ${hotels.length} ที่พักทุกงบ พร้อมคู่มือที่กิน·ที่เที่ยวประจำย่าน`,`Where to stay in ${nm}, Bangkok — ${hotels.length} hotels for every budget, plus the area food and sights.`),slug:`area-bangkok-${hood}`,jsonld,body,extraJS,image:heroSrc});
+}
 function provCard(s,th,em,tg){
   const img=fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:(fs.existsSync(path.join(PUB,'images/cities',s+'.jpg'))?`/images/cities/${s}.jpg`:'');
   return `<a class="dcard" href="city-${s}.html"><div class="dphoto">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p style="font-size:13px;color:var(--sub);margin-top:3px">${esc(tg)}</p><span class="go">${tx('เที่ยว'+th+' →','Explore '+th+' →')}</span></div></a>`;
@@ -699,12 +769,13 @@ function genAll(loc, outDir){
   let nP=0,nMiss=[];
   for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
   let nD=0;for(const [slug,th,r] of DESTINATIONS){const d=readData(slug);if(!d){nMiss.push(slug);continue;}fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d));nD++;}
+  let nH=0;for(const hood of bkkHoodList()){const html=hoodHub(hood);if(html){fs.writeFileSync(path.join(outDir,`area-bangkok-${hood}.html`),html);nH++;}}
   let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(outDir,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
   fs.writeFileSync(path.join(outDir,'country-thailand.html'),countryHub());
   fs.writeFileSync(path.join(outDir,'destinations.html'),destinationsHub());
   fs.writeFileSync(path.join(outDir,'plan-your-trip.html'),planHub());
   fs.writeFileSync(path.join(outDir,'search.html'),searchPage());
-  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1 plan:1 search:1`);
+  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} area-hubs:${nH} regions:${nR} country:1 destinations-page:1 plan:1 search:1`);
   if(nMiss.length) console.log(`   [${loc}] missing data (fallback): ${nMiss.length} → ${nMiss.join(',')}`);
 }
 // which locales to build: args, default both
