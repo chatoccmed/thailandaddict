@@ -37,6 +37,20 @@ const HERO = {
   'bangkok-ari': '/images/cm/bangkok-cafe-guide.jpg',
   'bangkok-ratchada': '/images/cm/bangkok-night-market-food.jpg',
   'bangkok-on-nut': '/images/cm/bangkok-mookata-buffet.jpg',
+  'bangkok-phrom-phong': '/images/cm/bangkok-dessert-bakery.jpg',
+  'bangkok-chidlom': '/images/cm/bangkok-1-day-itinerary.jpg',
+  'bangkok-samyan': '/images/cm/bangkok-first-timer-guide.jpg',
+  'bangkok-victory-monument': '/images/cm/bangkok-boat-noodles.jpg',
+  'bangkok-rama9': '/images/cm/bangkok-photo-spots-plan.jpg',
+  'bangkok-ladprao': '/images/cm/bangkok-khao-gaeng.jpg',
+  'bangkok-mochit-chatuchak': '/images/cm/chatuchak-market-guide.jpg',
+  'bangkok-central-ladprao': '/images/cm/bangkok-family-plan.jpg',
+  'bangkok-kaset': '/images/cm/bangkok-local-breakfast.jpg',
+  'bangkok-ramkhamhaeng': '/images/cm/bangkok-getting-around.jpg',
+  'bangkok-bangna': '/images/cm/bangkok-nature-green-plan.jpg',
+  'bangkok-pinklao': '/images/cm/bangkok-floating-markets.jpg',
+  'bangkok-chaeng-watthana': '/images/cm/bangkok-travel-tips.jpg',
+  'bangkok-bang-khen': '/images/cm/bangkok-ayutthaya-day-trip.jpg',
 };
 const heroFor = (r) => {
   const m = HERO[`${r.city}-${r.hood}`];
