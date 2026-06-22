@@ -39,6 +39,37 @@ const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.leng
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
+// ── Quick-answer (AEO): promote a leading "Short answer / คำตอบสั้น" paragraph into the styled QA box.
+const QA_RE = /^\s*<strong>\s*(?:คำตอบสั้น|Short answer)/i;
+const _blocks = data.blocks ?? [];
+const _leadQA = !(data as any).quickAnswerHtml && !isResto && _blocks[0] && _blocks[0].kind === 'p' && QA_RE.test(_blocks[0].html || '');
+const quickAnswerHtml = (data as any).quickAnswerHtml || (_leadQA ? _blocks[0].html : '');
+const bodyBlocks = _leadQA ? _blocks.slice(1) : _blocks;
+// ── HowTo schema — only for genuinely procedural pages (transport routes, getting-around, visa/eSIM/safety
+// how-tos), built from the article's own h2 sections. Never where-to-stay / comparisons / listicles / attractions.
+const _isProcedural = !isResto && data.type !== 'attraction' && data.type !== 'itinerary' && (
+  /^getting-around/.test(data.slug) || /^how-/.test(data.slug) ||
+  /-visa-guide$/.test(data.slug) || /^thailand-(visa|esim|sim|packing|safety|money|travel-insurance)/.test(data.slug) ||
+  (/^[a-z]+(?:-[a-z]+)*-to-[a-z]+(?:-[a-z]+)*$/.test(data.slug) && !/-to-(?:do|see|eat|go|visit|stay|know|pack|bring|avoid|try|buy|wear)\b/.test(data.slug))
+);
+const howtoSteps = [];
+if (_isProcedural) {
+  for (let i = 0; i < bodyBlocks.length; i++) {
+    if (bodyBlocks[i].kind !== 'h2') continue;
+    const name = strip(bodyBlocks[i].text);
+    if (!name) continue;
+    let txt = '';
+    for (let j = i + 1; j < bodyBlocks.length && bodyBlocks[j].kind !== 'h2'; j++) {
+      if (bodyBlocks[j].kind === 'p') txt += ' ' + strip(bodyBlocks[j].html);
+      else if (bodyBlocks[j].kind === 'list') txt += ' ' + (bodyBlocks[j].items || []).map(strip).join('. ');
+      if (txt.length > 60) break;
+    }
+    howtoSteps.push({ '@type': 'HowToStep', position: howtoSteps.length + 1, name,
+      ...(txt.trim() ? { text: txt.trim().slice(0, 320) } : {}),
+      ...(bodyBlocks[i].id ? { url: `${canonical}#${bodyBlocks[i].id}` } : {}) });
+  }
+}
+const showHowTo = howtoSteps.length >= 2;
 // Map pins (only restaurants with real coordinates). Map renders only when ≥3 pins are available.
 const geoRestos = restos.filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number');
 const haversineKm = (a, b) => { const R = 6371, toR = (d) => d * Math.PI / 180, dLa = toR(b.lat - a.lat), dLo = toR(b.lng - a.lng); const x = Math.sin(dLa/2)**2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLo/2)**2; return 2 * R * Math.asin(Math.sqrt(x)); };
@@ -89,6 +120,9 @@ const jsonld = {
       ...(data.lat && data.lng ? { geo: { '@type': 'GeoCoordinates', latitude: data.lat, longitude: data.lng } } : {}), url: canonical }] : []),
     ...(data.type === 'itinerary' ? [{ '@type': 'TouristTrip', name: strip(data.h1 || data.title), description: data.metaDesc,
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}), url: canonical }] : []),
+    // HowTo for procedural articles (getting-around, transport routes, visa/eSIM how-tos) — steps from the h2 sections.
+    ...(showHowTo ? [{ '@type': 'HowTo', name: strip(data.h1 || data.title), description: data.metaDesc,
+      ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}), step: howtoSteps }] : []),
     ...(faq.length ? [{ '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ],
 };
@@ -529,13 +563,13 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       <span class="rfilter-count" id="rfilter-count" data-tpl={S.fCountTpl}></span>
     </div>
   )}
-  {(data as any).quickAnswerHtml && (
+  {quickAnswerHtml && (
     <aside class="quick-answer">
       <div class="qa-eyebrow">{S.quickAnswerEyebrow}</div>
-      <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
+      <div class="qa-body" set:html={quickAnswerHtml}></div>
     </aside>
   )}
-  {data.blocks.map((b) => (
+  {bodyBlocks.map((b) => (
     b.kind === 'h2' ? <h2 id={b.id} set:html={b.text} /> :
     b.kind === 'p' ? <p set:html={b.html} /> :
     b.kind === 'image' ? <figure class="figimg"><img src={asset(b.src)} alt={b.alt} loading="lazy" onerror="this.closest('figure')?.remove()" />{(b.caption || b.credit) && <figcaption>{b.caption && <span class="cap" set:html={b.caption} />}{b.credit && <span class="cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={b.credit} /> : <span set:html={b.credit} />}</span>}</figcaption>}</figure> :

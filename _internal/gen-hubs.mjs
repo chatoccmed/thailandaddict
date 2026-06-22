@@ -330,6 +330,7 @@ ${navHtml(slug)}
 ${body}
 ${footerHtml()}
 ${commonJs()}${extraJS||''}
+<script src="/js/currency.js" defer></script>
 </body></html>`;
 }
 
@@ -371,11 +372,17 @@ function provinceHub(slug, th, r, d){
   const nbrs=(d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${NAME(n)}${arrow}</a>`).join('');
   const tipsArt=arts.find(a=>/travel-tips$/.test(a.slug)), moveArt=arts.find(a=>/getting-around$/.test(a.slug));
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
-  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  const _bc={"@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},
     {"@type":"ListItem","position":2,"name":tx('ประเทศไทย','Thailand'),"item":J('country-thailand')},
     {"@type":"ListItem","position":3,"name":RNAME(r),"item":J(`region-${R.slug}`)},
     {"@type":"ListItem","position":4,"name":nm,"item":J(`city-${slug}`)}]};
+  // Place schema (entity for AI answer-engines + Google knowledge graph) — derived from existing data, nothing fabricated.
+  const _place={"@type":"Place","@id":J(`city-${slug}`)+"#place","name":nm,"description":stripTags(tagline),
+    ...(heroSrc?{"image":"https://thailandaddict.com"+heroSrc}:{}),
+    "address":{"@type":"PostalAddress","addressRegion":nm,"addressCountry":"TH"},
+    "url":J(`city-${slug}`),"isPartOf":{"@type":"Place","name":RNAME(r)}};
+  const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
   // stats
   const avg = (REVS[slug]||[]).length ? ((REVS[slug].reduce((s,h)=>s+(h.score||0),0))/(REVS[slug].length)).toFixed(1) : '–';
   const prices = (REVS[slug]||[]).map(h=>{const m=String(h.price).match(/[\d,]+/);return m?+m[0].replace(/,/g,''):0;}).filter(Boolean);

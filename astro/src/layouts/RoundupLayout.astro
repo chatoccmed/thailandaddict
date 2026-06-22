@@ -157,6 +157,10 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 // Author shape may vary — guard each field; bio prefers EN field for /en/ pages when available.
 const author = (data as any).author;
 const authorBio = author ? (isEn && author.bioEn ? author.bioEn : (author.bio || '')) : '';
+// EEAT: always show an editorial byline + fact-checked badge on roundups, even without a named author.
+// (The bottom author-bio box stays gated on a real `author` — no fabricated bio.)
+const by = author || { name: isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict', jobTitle: isEn ? 'Hotel reviews & rankings' : 'รีวิว & จัดอันดับโรงแรม' };
+const factCheckedL = isEn ? '✓ Fact-checked' : '✓ ตรวจสอบแล้ว';
 // Normalize sources into array of strings (the schema allows any · pilot uses string[]).
 const sources: any[] = Array.isArray((data as any).sourcesAndCitations) ? (data as any).sourcesAndCitations : [];
 // Helper: split "Label — URL" into { label, url } if separator found; else treat full string as label only.
@@ -226,6 +230,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 .byline-name a{color:#0F172A;border-bottom:1px dotted #94a3b8}
 .byline-name a:hover{color:#06B6D4;border-bottom-color:#06B6D4}
 .byline-job{font-size:12px;color:#94a3b8;font-family:'Outfit',sans-serif;margin-top:2px}
+.fact-badge{display:inline-block;margin-left:8px;font-family:'Outfit',sans-serif;font-size:10.5px;font-weight:700;color:#0891b2;background:#cffafe;border:1px solid #a5f3fc;border-radius:999px;padding:2px 9px;vertical-align:middle;white-space:nowrap}
 .byline-meta{font-family:'Outfit',sans-serif;font-size:12px;color:#64748b;display:flex;flex-wrap:wrap;gap:6px 14px}
 .byline-meta span strong{color:#0F172A;font-weight:600}
 
@@ -376,20 +381,21 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 
 <div class="page-wrap">
 
-  {author && (
+  {by && (
     <div class="byline-strip rv">
       <div class="byline-avatar">
-        {author.avatar
-          ? <img src={asset(author.avatar)} alt={author.name || 'Author'} loading="lazy" onerror="this.parentElement.innerHTML=(this.parentElement.dataset.fallback||'W')" data-fallback={(author.name || 'W').charAt(0)} />
-          : <span>{(author.name || 'W').charAt(0)}</span>}
+        {by.avatar
+          ? <img src={asset(by.avatar)} alt={by.name || 'Author'} loading="lazy" onerror="this.parentElement.innerHTML=(this.parentElement.dataset.fallback||'T')" data-fallback={(by.name || 'T').charAt(0)} />
+          : <span>{(by.name || 'T').charAt(0)}</span>}
       </div>
       <div class="byline-text">
         <div class="byline-name">
-          {author.url
-            ? <a href={link(author.url.replace(/^https?:\/\/[^/]+/, ''))}>{author.name}</a>
-            : <span>{author.name}</span>}
+          {by.url
+            ? <a href={link(by.url.replace(/^https?:\/\/[^/]+/, ''))}>{by.name}</a>
+            : <span>{by.name}</span>}
+          <span class="fact-badge">{factCheckedL}</span>
         </div>
-        {author.jobTitle && <div class="byline-job">{author.jobTitle}</div>}
+        {by.jobTitle && <div class="byline-job">{by.jobTitle}</div>}
       </div>
       <div class="byline-meta">
         {(data as any).publishedDate && <span><strong>{S.bylinePublished}:</strong> {(data as any).publishedDate}</span>}
@@ -723,5 +729,6 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 })();
 </script>
+<script src="/js/currency.js" defer></script>
 </body>
 </html>

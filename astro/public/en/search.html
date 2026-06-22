@@ -249,4 +249,5 @@ var t;inp.addEventListener('input',function(){q=inp.value.trim().toLowerCase();c
 chips.addEventListener('click',function(e){var b=e.target.closest('.schip');if(!b)return;cat=b.getAttribute('data-cat');chips.querySelectorAll('.schip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();});
 fetch(IDX).then(function(r){return r.json();}).then(function(j){data=j;render();}).catch(function(){cnt.textContent='';});})();
 </script>
+<script src="/js/currency.js" defer></script>
 </body></html>
