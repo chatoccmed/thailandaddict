@@ -33,6 +33,12 @@
 - **ค้างเฟส 1:** overlay "hotels-near-___" (medical/MICE/airport) — ยังไม่เริ่ม · ย่าน ○ ที่เหลือ (udom-suk·min-buri·sutthisan·national-stadium·phra-athit ฯลฯ) ส่วนใหญ่ทับซ้อน/inventory บาง = ทำเฉพาะที่ demand จริง
 - **NOTE รูปเมืองอื่น:** กริด By-neighborhood ใช้ได้ทุกเมืองแล้ว แต่ HERO map mapping รูปเฉพาะตอนนี้มีแค่กรุงเทพ — CM/Phuket/Krabi/Pattaya/Samui/HuaHin ยังใช้ city-hero (fallback) ในการ์ดย่าน · ขยาย HERO map ได้แบบเดียวกัน
 
+## ✅ STATUS UPDATE (2026-06-23) — การ์ดเหมือนต้นแบบ + หน้าย่าน standalone (เสร็จ)
+- **การ์ด By-neighborhood ทำใหม่ให้เหมือน wherebest:** รูปเต็มใบ + อิโมจิ+ชื่อ+คำโปรยทับบนรูป · 4 ใบ/แถว · โชว์ 12 + ปุ่ม `<details>` "ดูย่านทั้งหมด (31)" · `HOOD_CARDS` map (order/emoji/ชื่อ/คำโปรย TH+EN) ใน gen-hubs · รูป re-curate ไม่ซ้ำ/สื่อสถานที่ (เอายีราฟ+อยุธยาออก) 30/31 ต่างกัน
+- **หน้าย่าน standalone ครบ 31 ย่าน:** `area-bangkok-<slug>.html` (TH+EN = 62 หน้า) — `hoodHub()` ใน gen-hubs reuse chrome หน้าเมือง · hero+breadcrumb+quick-answer+แท็บ **ที่พัก/ที่กิน/ที่เที่ยว** · ที่พัก = โรงแรม research (`.hl-row` + Agoda search) + ลิงก์คู่มือเต็ม · **ที่กิน/ที่เที่ยว = placeholder รอ owner เติมเนื้อหาประจำย่านทีหลัง** · การ์ด By-neighborhood ลิงก์ไป area hub · search-index + sitemap รวมครบ 31
+- **Deploy เป็น auto แล้ว** (`.github/workflows/deploy.yml` + secret `CLOUDFLARE_API_TOKEN`) — push = ขึ้นเว็บเองใน ~3 นาที (เลิก deploy มือ)
+- **งานต่อของ owner:** เติม ที่กิน/ที่เที่ยว ประจำแต่ละย่าน (ตอนนี้เป็น placeholder) · (อนาคต) ภาพถ่ายเฉพาะย่าน upload R2 · ขยาย area hub ไปเมืองอื่น
+
 ---
 
 ## หลักการ (LOCKED)
