@@ -44,4 +44,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: '46cdce4b7061ce5424b187cf9353ba92'
+          wranglerVersion: '4.103.0'   # match the wrangler the working manual deploys use (action default 3.90.0 is too old for this config)
           command: deploy   # reads wrangler.jsonc at repo root → uploads astro/dist (respects .assetsignore)
