@@ -22,6 +22,13 @@ const slugSet = new Set(fs.readdirSync(A_TH).filter((f) => f.endsWith('.json')).
 const hubSet = new Set(fs.readdirSync(PUB).filter((f) => f.endsWith('.html')).map((f) => f.slice(0, -5)));
 const valid = (href) => { const b = String(href).replace(/\.html$/, ''); return slugSet.has(b) || hubSet.has(b); };
 
+// Distinct hero per activity page (avoid every card reusing the city skyline on the hub). Fallback = city hero.
+const HERO_ACT = {
+  'tours-activities-bangkok': '/images/cm/bangkok-attractions.jpg',
+  'cooking-classes-bangkok': '/images/cm/bangkok-food-guide.jpg',
+};
+const heroFor = (r) => { const m = HERO_ACT[r.slug]; return (m && fs.existsSync(path.join(PUB, m.replace(/^\//, '')))) ? m : `/images/heroes/${r.hero}.jpg`; };
+
 // city → its real attraction articles (internal-link density). Returns locale-correct display names
 // (reads the EN mirror too, so EN related-links never leak Thai). Uses the attraction name, not its tagline.
 const firstLine = (s) => strip(String(s || '').split(/<br\s*\/?>/i)[0]);
@@ -91,7 +98,7 @@ function buildArticle(r, loc) {
     slug: r.slug, type: r.type, cluster: r.city,
     title: en ? r.titleEn : r.titleTh, metaDesc: en ? r.metaDescEn : r.metaDescTh,
     ogTitle: (en ? r.titleEn : r.titleTh).split(' | ')[0], ogDesc: en ? r.introEn : r.introTh,
-    image: `/images/heroes/${r.hero}.jpg`, heroImg: `/images/heroes/${r.hero}.jpg`,
+    image: heroFor(r), heroImg: heroFor(r),
     crumbCity: cityName, crumbCityHref: `city-${r.city}.html`,
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
     eyebrow: en ? r.eyebrowEn : r.eyebrowTh,

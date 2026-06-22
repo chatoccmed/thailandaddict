@@ -24,6 +24,26 @@ const slugSet = new Set(fs.readdirSync(A_TH).filter((f) => f.endsWith('.json')).
 const hubSet = new Set(fs.readdirSync(PUB).filter((f) => f.endsWith('.html')).map((f) => f.slice(0, -5)));
 const valid = (href) => { const b = String(href).replace(/\.html$/, ''); return slugSet.has(b) || hubSet.has(b); };
 
+// Distinct per-area hero images (remap to existing library photos so the city hub's Prep tab
+// isn't 14 identical skylines). Key = `<city>-<hood>`; fallback = the city hero. All targets verified on disk.
+const HERO = {
+  'bangkok-sukhumvit': '/images/cm/bangkok-rooftop-bars.jpg',
+  'bangkok-thong-lo': '/images/cm/bangkok-cafe-hopping-plan.jpg',
+  'bangkok-silom-sathorn': '/images/cm/bangkok-michelin-fine-dining.jpg',
+  'bangkok-khao-san': '/images/cm/bangkok-old-town-temples-plan.jpg',
+  'bangkok-riverside': '/images/hotels/bangkok-peninsula-1.jpg',
+  'bangkok-chinatown': '/images/cm/bangkok-street-food-yaowarat.jpg',
+  'bangkok-siam-pratunam': '/images/cm/bangkok-shopping-plan.jpg',
+  'bangkok-ari': '/images/cm/bangkok-cafe-guide.jpg',
+  'bangkok-ratchada': '/images/cm/bangkok-night-market-food.jpg',
+  'bangkok-on-nut': '/images/cm/bangkok-mookata-buffet.jpg',
+};
+const heroFor = (r) => {
+  const m = HERO[`${r.city}-${r.hood}`];
+  if (m && fs.existsSync(path.join(PUB, m.replace(/^\//, '')))) return m;
+  return `/images/heroes/${r.hero}.jpg`;
+};
+
 function expCity(cityTh, cityEn, loc) {
   const en = loc === 'en';
   return { kind: 'experiences',
@@ -104,7 +124,7 @@ function buildArticle(r, loc) {
                  : `โรงแรมน่าพักย่าน${hoodTh} ${cityTh} คัดมาทุกงบตั้งแต่ประหยัดถึงหรู พร้อมจุดเด่น ทำเล ราคาเริ่มต้นโดยประมาณ และลิงก์จอง`,
     ogTitle: en ? `Where to Stay in ${hoodEn}, ${cityEn}` : `พักย่าน${hoodTh} ${cityTh}`,
     ogDesc: en ? `The best hotels in ${hoodEn} by budget.` : `โรงแรมน่าพักย่าน${hoodTh} เลือกตามงบ`,
-    image: `/images/heroes/${r.hero}.jpg`, heroImg: `/images/heroes/${r.hero}.jpg`,
+    image: heroFor(r), heroImg: heroFor(r),
     crumbCity: cityName, crumbCityHref: `city-${r.city}.html`,
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
     eyebrow: en ? `Hotels by area · ${cityEn}` : `โรงแรมรายย่าน · ${cityTh}`,
