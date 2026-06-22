@@ -51,6 +51,13 @@ const HERO = {
   'bangkok-pinklao': '/images/cm/bangkok-floating-markets.jpg',
   'bangkok-chaeng-watthana': '/images/cm/bangkok-travel-tips.jpg',
   'bangkok-bang-khen': '/images/cm/bangkok-ayutthaya-day-trip.jpg',
+  'bangkok-charoen-krung': '/images/cm/charoenkrung-talat-noi.jpg',
+  'bangkok-ratchathewi': '/images/hotels/bangkok-siamatsiam-1.jpg',
+  'bangkok-ploenchit': '/images/cm/bangkok-2d1n-itinerary.jpg',
+  'bangkok-bang-sue': '/images/cm/bangkok-3d2n-itinerary.jpg',
+  'bangkok-srinakarin': '/images/cm/bangkok-seafood.jpg',
+  'bangkok-bangkapi': '/images/cm/bangkok-family-plan.jpg',
+  'bangkok-talat-phlu': '/images/cm/bangkok-khao-gaeng.jpg',
 };
 const heroFor = (r) => {
   const m = HERO[`${r.city}-${r.hood}`];
