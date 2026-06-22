@@ -1,15 +1,19 @@
 # Cloudflare Workers Static Assets — .assetsignore (gitignore syntax, relative to the assets dir = dist)
-# Purpose: keep the static-asset upload under Cloudflare's 20,000-file limit by EXCLUDING the bulk
-# content images, which are served from R2 instead (the layouts prepend PUBLIC_IMG_BASE).
-# heroes/ + cities/ are NOT excluded — hub pages (gen-hubs) still reference them as static /images/.
+# Purpose: keep the static-asset upload under Cloudflare's 20,000-file limit WITHOUT breaking visible images.
 #
-# ACTIVATION (do ONLY after R2 is uploaded AND PUBLIC_IMG_BASE is set, else content images 404):
-#   cp _internal/assetsignore.for-cutover astro/public/.assetsignore
-#   git add astro/public/.assetsignore && commit && push   # next Cloudflare build deploys under the limit
+# Strategy (no R2 yet): deploy every HERO image and exclude ONLY the hotel GALLERY extras (-2/-3/-4/-5).
+#   - Kept (served as static /images/): heroes/, cities/, images/cm/ (3,216 — hub Editor's Picks + per-area
+#     "where to stay" cards + attraction articles), images/food/, images/gallery/, AND images/hotels/*-1.jpg
+#     (1,650 hotel hero shots used by hub hotel cards + top10 roundups + each review's main photo) + ~472
+#     non-standard-named hotel files.
+#   - Excluded (only place they appear is the gallery strip on individual hotel-review pages, which all use
+#     onerror="this.style.opacity='0'" so they hide gracefully): images/hotels/*-2..-5.jpg (≈5,571 files).
+# File count: 22,627 total − 5,571 gallery extras ≈ 17,056 static files → under 20,000. ✓
 #
-# File counts: total dist ≈ 22,400 (over limit). Excluding hotels(7,693)+cm(3,216)+food(80)+gallery(1)
-# leaves ≈ 11,400 static files (html + heroes/cities + non-image public) → under 20,000. ✓
-images/hotels/
-images/cm/
-images/food/
-images/gallery/
+# FULL FIX (serve gallery extras too): upload astro/public/images/hotels to an R2 bucket, set PUBLIC_IMG_BASE
+# to its public URL (ReviewLayout already routes hotel images through asset()/PUBLIC_IMG_BASE), then exclude
+# all of images/hotels/ here. See _internal/assetsignore.for-cutover for the full R2 cutover.
+images/hotels/*-2.jpg
+images/hotels/*-3.jpg
+images/hotels/*-4.jpg
+images/hotels/*-5.jpg
