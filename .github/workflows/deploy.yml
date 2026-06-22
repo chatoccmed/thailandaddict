@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare
+
+# Permanent auto-deploy: every push to main builds the Astro static site on a 16 GB GitHub runner
+# (more headroom than Cloudflare's build container) and deploys it to the `thailandaddict` Worker via
+# `wrangler deploy`. This is the SINGLE source of truth for production — stop any manual `wrangler deploy`
+# and disable Cloudflare's own git auto-build so nothing overwrites this with stale code.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}   # lets you trigger a deploy by hand from the Actions tab
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true   # a newer push cancels an older in-flight run → production always = latest main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      # surfaced so the deploy step can skip cleanly until the secret is added (no scary red X on first run)
+      CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        working-directory: astro
+        run: npm install
+
+      - name: Build static site
+        working-directory: astro
+        run: npm run build   # runs prebuild (feeds) + Astro build → astro/dist (heap set in package.json)
+
+      - name: Deploy to Cloudflare Workers
+        if: env.CF_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: '46cdce4b7061ce5424b187cf9353ba92'
+          command: deploy   # reads wrangler.jsonc at repo root → uploads astro/dist (respects .assetsignore)
