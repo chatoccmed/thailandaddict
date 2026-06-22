@@ -22,6 +22,19 @@
 
 ---
 
+## ✅ STATUS UPDATE (2026-06-22) — ชั้น A ย่าน + การรวมหน้าเมือง: เสร็จ
+- **ชั้น A ย่านกรุงเทพ = 31 หน้า** (จาก 10 → +14 🔥 → +7 ●) ครบทุกโซนหลัก รวม 3 ย่านที่ owner ระบุ (เกษตร·เซ็นทรัลลาดพร้าว·วัดพระศรีฯ):
+  - **เดิม 10:** sukhumvit·thong-lo·silom-sathorn·khao-san·riverside·chinatown·siam-pratunam·ari·ratchada·on-nut
+  - **🔥 +14:** phrom-phong·chidlom·samyan·victory-monument·rama9·ladprao·mochit-chatuchak·central-ladprao·kaset·ramkhamhaeng·bangna·pinklao·chaeng-watthana·bang-khen
+  - **● +7:** charoen-krung·ratchathewi·ploenchit·bang-sue·srinakarin·bangkapi·talat-phlu
+- **การรวม (owner เน้น "ย่านทั้งหมดไปรวม+เข้าได้จากหน้าเมือง"):** `gen-hubs.mjs` `hoodGuides()` → กริด **"พักย่านไหน / By neighborhood"** ในแท็บ Stay ของทุกหน้าเมือง (auto-list `where-to-stay-<city>-<area>` ทั้งหมด) · ดึงออกจาก Prep tab (de-dup) · กรุงเทพโชว์ครบ 31 ใบ
+- **รูป:** `HERO` map ใน `gen-neighborhood-hotels.mjs` (+ `gen-activities.mjs`) → 31 การ์ด / 29 รูปต่างกัน / 0 fallback skyline (เลิกปัญหา 14× รูปเดิม) · เหลือ family-plan & khao-gaeng ซ้ำอย่างละ 2×
+- commits: image-fix → aggregation grid → +14 🔥 → +7 ● (ทั้งหมด build OK · audit-jsonld 0 · freshness 0 · EN zero-Thai)
+- **ค้างเฟส 1:** overlay "hotels-near-___" (medical/MICE/airport) — ยังไม่เริ่ม · ย่าน ○ ที่เหลือ (udom-suk·min-buri·sutthisan·national-stadium·phra-athit ฯลฯ) ส่วนใหญ่ทับซ้อน/inventory บาง = ทำเฉพาะที่ demand จริง
+- **NOTE รูปเมืองอื่น:** กริด By-neighborhood ใช้ได้ทุกเมืองแล้ว แต่ HERO map mapping รูปเฉพาะตอนนี้มีแค่กรุงเทพ — CM/Phuket/Krabi/Pattaya/Samui/HuaHin ยังใช้ city-hero (fallback) ในการ์ดย่าน · ขยาย HERO map ได้แบบเดียวกัน
+
+---
+
 ## หลักการ (LOCKED)
 - โรงแรมจริงทุกแห่ง WebSearch-verified · ราคา ~฿ ระบุ "โดยประมาณ" · ไม่แต่งย่าน/โรงแรม/ราคา (anchor ไหนโรงแรมไม่พอ = ข้าม)
 - EN mirror TH เป๊ะ · ZERO Thai ใน EN (`/[ก-฾เ-๛]/`, ฿ ได้)
