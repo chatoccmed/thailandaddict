@@ -337,10 +337,18 @@ ${commonJs()}${extraJS||''}
 function crumb(parts){
   return `<div class="crumb">`+parts.map((p,i)=> i<parts.length-1 ? `<a href="${p.href}">${esc(p.t)}</a> › ` : `<span>${esc(p.t)}</span>`).join('')+`</div>`;
 }
-function artCards(cluster, types){
-  const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+function artCards(cluster, types, excludeRe){
+  let list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+  if(excludeRe) list=list.filter(a=>!excludeRe.test(a.slug));
   if(!list.length) return '';
   return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">${tx('อ่านบทความ →','Read article →')}</span></div></a>`).join('')+`</div>`;
+}
+// per-area "where to stay in <city>-<area>" hotel guides → neighborhood index grid (gathered on the city hub Stay tab)
+function hoodGuides(cluster){
+  const pre=`where-to-stay-${cluster}-`;
+  const list=(ARTS[cluster]||[]).filter(a=>a.slug.startsWith(pre)).sort((a,b)=>a.slug.localeCompare(b.slug));
+  if(!list.length) return '';
+  return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">${tx('ดูโรงแรมในย่าน →','See area hotels →')}</span></div></a>`).join('')+`</div>`;
 }
 function hotelCards(slug){
   const list=(REVS[slug]||[]).slice().sort((a,b)=>b.score-a.score);
@@ -426,6 +434,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks<
 <section class="panel active" id="p-stay">
   <div class="callout"><div><h3>${tx(`Top 10 โรงแรม${th}`,`Top 10 ${nm} Hotels`)}${hasRoundup(slug)?'':` <span style="font-size:12px;color:#c2410c">${tx('· กำลังจัดทำ','· coming soon')}</span>`}</h3><p>${tx('รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com','A ranked roundup plus per-hotel reviews, with prices compared across Agoda · Booking · Trip.com')}</p></div><a href="top10-hotels-${slug}.html">${tx('ดูอันดับที่พัก →','See the ranking →')}</a></div>
   ${wtsArt?`<div class="callout" style="background:linear-gradient(135deg,#fff5f7,#ecfeff)"><div><h3>${tx(`พักย่านไหนดีใน${th}?`,`Where to stay in ${nm}?`)}</h3><p>${tx('เทียบย่านที่พักยอดนิยม เลือกตามสไตล์ ก่อนจองโรงแรม','Compare the top neighborhoods and pick by your travel style before you book')}</p></div><a href="${wtsArt.slug}.html">${tx('ดูย่านที่พัก →','See the areas →')}</a></div>`:''}
+  ${hoodGuides(slug)?`<div class="sh" style="margin:26px 0 4px"><div class="slbl">${tx('🏘️ พักย่านไหน','🏘️ By neighborhood')}</div><h2>${tx(`เลือก<em>ย่านที่พัก</em>ใน${th}`,`Pick your <em>neighborhood</em> in ${nm}`)}</h2><p>${tx('แต่ละย่านมีหน้าโรงแรมแนะนำแยกเฉพาะ — เลือกย่านที่ใช่ แล้วดูที่พักจริงในย่านนั้น','Each area has its own hotel guide — choose your area, then see real stays there')}</p></div>${hoodGuides(slug)}`:''}
   <p class="pintro">${tx(`รีวิวที่พัก${th} คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง`,`${nm} stays picked from real reviews — honest about the good and the bad, with price ranges and booking links`)}</p>
   ${hotelCards(slug)}
 </section>
@@ -434,7 +443,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks<
 <section class="panel" id="p-plan"><h2 class="pnhead">${tx(`แผน<em>เที่ยว ${th}</em>`,`<em>${nm}</em> itineraries`)}</h2><p class="pintro">${tx('แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง','Ready-made plans — from a day trip to 2–3 days, plus routes to neighbouring provinces')}</p>${artCards(slug,['itinerary'])||`<p class="pintro">${tx('แผนเที่ยวกำลังจัดทำ','Itineraries coming soon')}</p>`}${nbrs?`<h2 class="pnhead">${tx('เที่ยวต่อ<em>จังหวัดข้างเคียง</em>','Continue to <em>nearby provinces</em>')}</h2><div class="ncards">${nbrs}</div>`:''}</section>
 <section class="panel" id="p-prep"><h2 class="pnhead">${tx(`เตรียมตัว<em>เที่ยว ${th}</em>`,`Planning <em>your ${nm} trip</em>`)}</h2><p class="pintro">${tx(`ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไป${th}`,`Best time to go, getting around, and what to know before visiting ${nm}`)}</p>
   <div class="eeat"><div class="ecard"><div class="ic">🗓️</div><h3>${tx('ช่วงเวลาแนะนำ','Best time')}</h3><p>${esc(best)}</p></div><div class="ecard"><div class="ic">🚗</div><h3>${tx('การเดินทาง','Getting around')}</h3><p>${moveArt?tx(`อ่านวิธีเดินทางใน${th}แบบละเอียด · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">เปิดคู่มือ →</a>`,`A detailed guide to getting around ${nm} · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">Open guide →</a>`):tx(`วิธีไป${th}และเดินทางในจังหวัด`,`How to reach ${nm} and get around`)}</p></div><div class="ecard"><div class="ic">📍</div><h3>${tx('ภาค','Region')}</h3><p>${RNAME(r)} · <a href="region-${R.slug}.html" style="color:var(--bl-dk);font-weight:700">${tx(`เที่ยว${R.th} →`,`Explore ${RNAME(r)} →`)}</a></p></div><div class="ecard"><div class="ic">🎒</div><h3>${tx('เตรียมตัว','Prep')}</h3><p>${tipsArt?tx(`เช็กลิสต์เตรียมตัว · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">อ่านทิป →</a>`,`A prep checklist · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">Read tips →</a>`):tx(`สิ่งที่ควรเตรียมไป${th}`,`What to pack for ${nm}`)}</p></div></div>
-  ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">${tx('คู่มือ<em>เตรียมตัว</em>','Prep <em>guides</em>')}</h2>${artCards(slug,['prep','guide'])}`:''}</section>
+  ${artCards(slug,['prep','guide'],/^where-to-stay-/)?`<h2 class="pnhead">${tx('คู่มือ<em>เตรียมตัว</em>','Prep <em>guides</em>')}</h2>${artCards(slug,['prep','guide'],/^where-to-stay-/)}`:''}</section>
 </div>
 ${hoods?`<div class="section"><div class="sh"><div class="slbl">${tx('ไฮไลต์ยอดนิยม','Top highlights')}</div><h2>${tx(`ที่ต้องไปให้ครบใน<em>${th}</em>`,`Don't-miss spots in <em>${nm}</em>`)}</h2></div><div class="hoodgrid">${hoods}</div></div>`:''}
 <div class="section"><div class="sh"><div class="slbl">${tx('🔎 ค้นหาเอง','🔎 Search yourself')}</div><h2>${tx('ไม่เห็นที่ใช่? <em>ค้นเองได้ทั้ง 3 เว็บ</em>','Nothing quite right? <em>Search all 3 sites</em>')}</h2><p>${tx(`เทียบราคาที่พัก${th}เองทั้ง Agoda · Booking · Trip.com`,`Compare ${nm} stays yourself across Agoda · Booking · Trip.com`)}</p></div>${aff}</div>
