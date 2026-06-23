@@ -37,7 +37,28 @@
 - **การ์ด By-neighborhood ทำใหม่ให้เหมือน wherebest:** รูปเต็มใบ + อิโมจิ+ชื่อ+คำโปรยทับบนรูป · 4 ใบ/แถว · โชว์ 12 + ปุ่ม `<details>` "ดูย่านทั้งหมด (31)" · `HOOD_CARDS` map (order/emoji/ชื่อ/คำโปรย TH+EN) ใน gen-hubs · รูป re-curate ไม่ซ้ำ/สื่อสถานที่ (เอายีราฟ+อยุธยาออก) 30/31 ต่างกัน
 - **หน้าย่าน standalone ครบ 31 ย่าน:** `area-bangkok-<slug>.html` (TH+EN = 62 หน้า) — `hoodHub()` ใน gen-hubs reuse chrome หน้าเมือง · hero+breadcrumb+quick-answer+แท็บ **ที่พัก/ที่กิน/ที่เที่ยว** · ที่พัก = โรงแรม research (`.hl-row` + Agoda search) + ลิงก์คู่มือเต็ม · **ที่กิน/ที่เที่ยว = placeholder รอ owner เติมเนื้อหาประจำย่านทีหลัง** · การ์ด By-neighborhood ลิงก์ไป area hub · search-index + sitemap รวมครบ 31
 - **Deploy เป็น auto แล้ว** (`.github/workflows/deploy.yml` + secret `CLOUDFLARE_API_TOKEN`) — push = ขึ้นเว็บเองใน ~3 นาที (เลิก deploy มือ)
-- **งานต่อของ owner:** เติม ที่กิน/ที่เที่ยว ประจำแต่ละย่าน (ตอนนี้เป็น placeholder) · (อนาคต) ภาพถ่ายเฉพาะย่าน upload R2 · ขยาย area hub ไปเมืองอื่น
+- ~~งานต่อ: เติม ที่กิน/ที่เที่ยว~~ → **เสร็จแล้ว (ดู STATUS #2 ด้านล่าง)** · (อนาคต) ภาพถ่ายเฉพาะย่าน upload R2 · ขยาย area hub ไปเมืองอื่น
+
+## ✅ STATUS (2026-06-23 #2) — ที่กิน/ที่เที่ยว เติมครบ + นับงานที่เหลือชัด ๆ
+- **ที่กิน/ที่เที่ยว ทุกย่าน = เสร็จ** (เลิก placeholder): research จริง → `_internal/hood-extra/bangkok__<hood>.json` `{highlights[],food[]}` · `hoodHub()` ทำใหม่เป็น SECTIONS (cstats · ⭐ไฮไลท์ห้ามพลาด `.hoodgrid` · 🍜ของกินเด่น `.foodgrid` · 🏨ที่พัก · 🔎เทียบ3เว็บ) · ขยายครบ POI = **348 ไฮไลท์ (~11/ย่าน) + 251 ของกิน (~8)** · verify+ตัดที่ปิด · EN zero-Thai 31/31 (commits bbe93277, 416c5896)
+
+### 📊 นับชัด — ทำแล้ว vs เหลือ
+- **Layer A ย่าน = ทำแล้ว 31** (live, เนื้อหาเต็ม). สเปครอบใหม่ส่วนใหญ่ทำแล้ว: บางซื่อ-สถานีกลาง=`bang-sue`✅ · EmDistrict=`phrom-phong`✅ · เอกมัย=`thong-lo`✅ · หมอชิต=`mochit-chatuchak`✅
+  - ❌ ขาดจริง **~1-2 ย่าน:** สายใต้ใหม่-ตลิ่งชัน (`sai-tai-taling-chan`) · สะพานตากสิน-สาทรพีร์ (ตอนนี้รวมใน riverside/silom)
+  - แผนเต็ม ~45 = ที่เหลือเป็นย่าน ○ บาง/ทับซ้อน (udom-suk·min-buri·sutthisan·national-stadium·phra-athit·saphan-khwai·wongwian-yai≈talat-phlu·punnawithi≈on-nut) → ทำตาม demand
+- **Layer B overlay `hotels-near-<anchor>` = ยังไม่ทำเลย 0 / ~40 หน้า** (งานก้อนใหญ่ที่เหลือ):
+  - 🏥 รพ.เอกชน **~19** (🌍 medical tourism ROI สูงสุด): bumrungrad·bangkok-hospital(BDMS)·medpark·samitivej-sukhumvit·bnh·vejthani·praram9·phyathai2·samitivej-srinakarin·yanhee + เฟส3(ปิยะเวท·วิภาวดี·เปาโล·พญาไท1·ศิครินทร์·กล้วยน้ำไท·เซนต์หลุยส์·กรุงเทพคริสเตียน·บางปะกอก9)
+  - 🏥 รพ.รัฐ **~8**: siriraj·chulalongkorn-hospital·ramathibodi·rajavithi·phramongkutklao·vajira·police-hospital (เลิดสิน=รวมสีลม·ตากสิน=รวมฝั่งธน)
+  - 🎵 MICE/สนามกีฬา **~4**: qsncc·impact·bitec·rajamangala
+  - ✈️🚉 สนามบิน/สถานี **~4**: suvarnabhumi·don-muang·bang-sue·sai-tai
+  - 🎓 มหา'ลัยที่ไม่ทับย่าน **~3** (ส่วนใหญ่ทับย่านแล้ว)
+- engine = `gen-neighborhood-hotels.mjs` เดิม + field `anchor` + กรอบ "ใกล้ ___ กี่นาที/เดิน-รถ" · overlay อยู่คู่ย่านได้ (search ต่าง ไม่ cannibalize)
+
+### เฟสตาม ROI
+- **เฟส 1 = 14 overlay (เงินสูงสุด):** bumrungrad·bangkok-hospital·medpark·samitivej-sukhumvit·siriraj·bnh·vejthani·chulalongkorn-hospital·ramathibodi·qsncc·impact·bitec·suvarnabhumi·don-muang
+- **เฟส 2:** ย่านใหม่ (`sai-tai-taling-chan`) + ย่าน ● ที่เหลือ
+- **เฟส 3:** รพ.เอกชน/รัฐ ที่เหลือ + ย่าน ○ ตาม demand
+- **รวม: ทำแล้ว 31 ย่าน · เหลือ ~2 ย่าน + ~40 overlay · ศักยภาพเต็ม ~80-90 หน้า**
 
 ---
 
