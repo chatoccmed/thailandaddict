@@ -65,9 +65,18 @@
 - **`hoodHub()` ทำใหม่ให้ mirror หน้าเมือง (provinceHub) เต็ม:** hero+chips · cstats · updatepill · intro + **4 icards** · **⭐ Editor's Picks (การ์ดเรียงเลข top-6, ช่องรูปพร้อม-รูปตามมา)** · **5 แท็บ** ที่พัก/ที่เที่ยว/ที่กิน/แผนเที่ยว/เดินทาง (เติมตามข้อมูล · ที่ยังไม่มีขึ้น "เร็ว ๆ นี้") · 🔎 เทียบ 3 เว็บ · ย่านอื่น · CTA. ข้อมูลย่าน = `neighborhood-data` (hotels) + `hood-extra` (highlights/food). EN zero-Thai 33/33.
 - บทเรียน: โรงแรมชื่อไทย → ต้อง romanize ใน field `name` (มันใช้ทั้ง TH+EN) ไม่งั้น gen บล็อก EN-leak. · **deploy: push auto-deploy ปิดแล้ว** (CI build ออกไม่ครบหน้า) → live ด้วย `npx wrangler deploy` จาก dist เต็มในเครื่องเท่านั้น (ดู memory deploy-pipeline)
 
+## ✅ STATUS (2026-06-23 #4) — เฟส 1 Layer B overlay = ทำครบ 14/14 แล้ว (push: commit 83a9b5c1)
+- **14 หน้า `hotels-near-<anchor>` (TH+EN = 28 บทความ) เสร็จ + push** ตาม BUILD SPEC ด้านล่างเป๊ะ: bumrungrad · bangkok-hospital · medpark · samitivej-sukhumvit · bnh · vejthani · siriraj · chulalongkorn-hospital · ramathibodi · qsncc · impact · bitec · suvarnabhumi · don-muang
+- **Research:** 1 general-purpose Agent/anchor (2 batch × 7) → โรงแรมจริง 6–8 แห่ง verify Google Maps + Agoda/Booking/Trip · **โชว์ระยะ/เวลาถึง anchor จริงทุกการ์ด** (distTh/En) · agent หลายตัวแก้ความถูกต้องเอง (สุวรรณภูมิ in-terminal = Hyatt Regency ไม่ใช่ Novotel แล้ว · IMPACT มี Pink Line spur เปิด 2025 · ตัด Grand Four Wings ที่จริงอยู่ลาดกระบัง 19 กม.)
+- **Engine ใหม่:** `_internal/gen-overlay.mjs` (ก๊อปจาก gen-neighborhood-hotels) + data `_internal/overlay-data/<slug>.json` (schema ตาม BUILD SPEC + `anchorShort`/`group`/`zoneSlug`) + `_internal/validate-overlay-data.mjs` (gate: JSON shape · zoneSlug→hub resolve · EN-zero-Thai · banned-words). ranked block: ระยะนำหน้าทุกการ์ด + Agoda search (cid=1965862, sponsored nofollow noopener) + staycta → area-bangkok-<zone> + where-to-stay-<zone> + top10-hotels-bangkok
+- **Surfacing:** gen-hubs `nearGuides()` → section "🏥 โรงแรมใกล้โรงพยาบาล/แลนด์มาร์ก" บน city-bangkok (การ์ด 14 ใบ group hospital→MICE→airport) + cross-link "ใกล้แลนด์มาร์กในย่านนี้" บน 12 area hub โซนที่ตรง (sukhumvit→bumrungrad/medpark/qsncc ฯลฯ) · hotels-near-* ตัดออกจาก Prep tab (de-dup) · search-index + sitemap รวมครบ 14 (TH+EN)
+- **zoneSlug→area hub mapping:** bumrungrad/medpark/qsncc→sukhumvit · bangkok-hospital→rama9 · samitivej-sukhumvit→phrom-phong · bnh→silom-sathorn · vejthani→bangkapi · siriraj→pinklao · chulalongkorn-hospital→samyan · ramathibodi→ratchathewi · impact→chaeng-watthana · bitec→bangna · suvarnabhumi→srinakarin · don-muang→bang-khen
+- **Gate ผ่านครบ:** build OK 11,257 หน้า · audit-jsonld 0/0 · audit-freshness 0 broken · EN zero-Thai 0 · ไม่แตะไฟล์ eat-ranking (city-krabi/phuket/chiang-rai hub re-sync additive ของ committed restaurant articles เท่านั้น)
+- **เหลือ:** เฟส 2 (ย่าน gap + sai-tai overlay) · เฟส 3 (รพ./venue ที่เหลือ ~26 + airport sai-tai). **ขยายโมเดลเดิม:** agent/anchor → overlay-data → gen-overlay → gen-hubs → gate
+
 ---
 
-## 🏥 เฟส 1 — BUILD SPEC (พร้อมสั่งงานเซสชั่นใหม่) — 14 overlay "hotels-near-___"
+## 🏥 เฟส 1 — BUILD SPEC ✅ (ทำเสร็จแล้ว — ดู STATUS #4) — 14 overlay "hotels-near-___"
 **เป้า:** 14 หน้า `hotels-near-<anchor>` (TH+EN) — โรงแรมจริงใกล้ "จุดหมาย" ที่ search intent = proximity (≠ ย่าน) · ROI สูงสุด medical tourism + MICE + airport
 
 **14 anchor (slug · ชื่อ · โซน · กลุ่ม):**
