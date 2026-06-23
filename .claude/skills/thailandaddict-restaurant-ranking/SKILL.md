@@ -53,7 +53,9 @@ Explicit: `/skill thailandaddict-restaurant-ranking [จังหวัด]`
 5. Verify: node _internal/wf/verify-resto.mjs <city>   → must be errors=0 (warns OK). Fixes:
              • BAN word (ระดับโลก/โดดเด่น/ตอบโจทย์/ครบครัน/สุดยอด/อันซีน + disclaimer ไม่ได้ไปกิน/ไม่ได้ไปนั่ง/ไม่เดาให้) → rewrite
              • desc <700 Thai chars → expand · link not a real roundup/review → fix stayMap/rail/stayCta
-6. Build+Deploy: cd astro && npm run build  (8GB heap, ~3 min) → from repo root:
+6. Build+Deploy: **CLEAN build (required — stale `.astro` content cache silently SKIPS the new article → its page 404s):**
+           `rm -rf astro/dist astro/.astro astro/node_modules/.astro astro/node_modules/.vite && cd astro && npm run build`
+           (8GB heap, ~4½ min). Confirm `ls dist/top10-popular-restaurants-<city>.html` exists. Then from repo root:
            export CLOUDFLARE_API_TOKEN=$(grep '^CLOUDFLARE_API_TOKEN=' ~/.r2-creds | cut -d= -f2- | tr -d '<>"'"'"' \r\n')
            → npx wrangler deploy   (MANUAL only — git auto-build OOMs. Never git push to deploy.)
 7. Confirm live: curl https://thailandaddict.com/top10-popular-restaurants-<city> → check IG/FB/map counts + content.
