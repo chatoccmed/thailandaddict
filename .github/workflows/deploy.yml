@@ -6,9 +6,12 @@ name: Deploy to Cloudflare
 # and disable Cloudflare's own git auto-build so nothing overwrites this with stale code.
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch: {}   # lets you trigger a deploy by hand from the Actions tab
+  # AUTO-DEPLOY ON PUSH DISABLED 2026-06-23: the CI build was deploying a PARTIAL dist —
+  # all Astro-generated pages (reviews/roundups/eat-ranking articles) came out 404 on production
+  # while only public/ static files survived (likely an OOM/partial build of the ~11k-page site).
+  # Until that's fixed, production is deployed by MANUAL `npx wrangler deploy` from a full local dist.
+  # Re-enable by restoring `push: { branches: [main] }` once the build reliably emits every page.
+  workflow_dispatch: {}   # manual-trigger only (Actions tab) — does NOT fire on push
 
 concurrency:
   group: deploy-production
