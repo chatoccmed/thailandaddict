@@ -25,7 +25,7 @@ Explicit: `/skill thailandaddict-restaurant-ranking [จังหวัด]`
 ## 🏗️ The engine (do NOT hand-write articles)
 `_internal/wf/restaurants-roundup.js` is a **Workflow** script. 4 phases:
 1. **Plan** — pick the 10 most-talked-about restaurants in the province (real, famous, review-backed).
-2. **Write** (10 parallel agents) — per restaurant: research + write `descHtml` ≥200 Thai words; research Google `rating`/`ratingCount`/`ratingSrc`; set `bestFor`/`zone`/`foodType`/`mustOrder`/`priceRange`; global-tourist fields `hours`/`priceUsd`/`spice`/`halal`/`veg`/`englishMenu`; `lat`/`lng`; **fetch 4 credited photos** (main + `gallery[3]`), each with `credit`/`creditHref`.
+2. **Write** (10 parallel agents) — per restaurant: research + write `descHtml` ≥200 Thai words; research Google `rating`/`ratingCount`/`ratingSrc`; set `bestFor`/`zone`/`foodType`/`mustOrder`/`priceRange`; global-tourist fields `hours`/`priceUsd`/`spice`/`halal`/`veg`/`englishMenu`; `lat`/`lng`; **research + WebFetch-verify `igPost` (Instagram post shortcode, priority 1) and `fbPage` (FB vanity-handle page, priority 2)** — leave blank if unverified (no scraping/downloading; CC fallback + hero added by `finalize-resto.mjs`).
 3. **Frame** (1 agent) — province prose: `title`/`h1`/`intro`/`chips`/`faq`/`tip`/`cta` + `staycta` text + `foodexp` text + **localtips** (4–6 know-before-you-go cards).
 4. **Assemble** (deterministic JS) — builds the full article object (restaurant + staycta + foodexp + localtips blocks + sticky `rail` from args + per-card `stayHref` via `stayMap`) and **returns it** for the main loop to write + verify.
 
@@ -43,20 +43,20 @@ Explicit: `/skill thailandaddict-restaurant-ranking [จังหวัด]`
            (ls astro/src/content/roundups/ | grep <city>). See references/format-spec.md §args.
 2. Run:    Workflow scriptPath=_internal/wf/restaurants-roundup.js  args=<the object>   (ONE workflow at a time)
            — ~20-25 min, ~750K subagent tokens. Wait for the completion notification; do NOT launch a 2nd.
-3. Extract: node -e 'r=JSON.parse(fs.readFileSync(TASKFILE)); res=JSON.parse(r.result);
-           fs.writeFileSync("astro/src/content/articles/top10-popular-restaurants-<city>.json",
-           JSON.stringify(res.article,null,2)+"\n")'
-4. Verify: node _internal/wf/verify-resto.mjs <city>   → must be errors=0 (warns OK). Fixes:
-             • BAN word (ระดับโลก/โดดเด่น/ตอบโจทย์/ครบครัน/สุดยอด/อันซีน) → replace
-             • image missing on disk → re-fetch (curl official/FB/Wongnai/blog/CC, sharp-decode, >15KB)
-             • desc <700 Thai chars → expand · link not a real roundup → fix stayMap/rail/stayCta
-6. Build:  node audit (errors=0) → bash _internal/build-test.sh → "BUILD OK"
-7. Preview: mkdir -p ~/ta-build-temp/dist/images/{food,hotels} && cp -r astro/public/images/food/. <dist>/images/food/
-           → node _internal/preview-server.mjs ~/ta-build-temp/dist 4400
-           → owner opens (must TYPE in browser): localhost:4400/top10-popular-restaurants-<city>.html
-8. Commit: git add (engine if changed, article json, public/images/food/<city>/) →
-           commit identity user.name=chatoccmed user.email=chatoccmed@users.noreply.github.com →
-           rebase origin/main → push
+3. Extract: read the FULL task output file → write the article object. The result may be `{...,article}`
+           directly OR nested under `.result` (string or object); handle both:
+           `let j=JSON.parse(fs.readFileSync(TASKFILE)); let res=j.result??j; if(typeof res==='string')res=JSON.parse(res);
+            fs.writeFileSync("astro/src/content/articles/top10-popular-restaurants-<city>.json", JSON.stringify(res.article,null,2)+"\n")`
+4. Finalize: node _internal/wf/finalize-resto.mjs <city>   ← REQUIRED post-process (engine can't import).
+           Adds CC `libImg` ONLY to restaurants with NO verified igPost/fbPage (tier-4); sets a CC hero+credit;
+           ban-word safety sweep; flags any leftover disclaimer phrases (fix those by hand).
+5. Verify: node _internal/wf/verify-resto.mjs <city>   → must be errors=0 (warns OK). Fixes:
+             • BAN word (ระดับโลก/โดดเด่น/ตอบโจทย์/ครบครัน/สุดยอด/อันซีน + disclaimer ไม่ได้ไปกิน/ไม่ได้ไปนั่ง/ไม่เดาให้) → rewrite
+             • desc <700 Thai chars → expand · link not a real roundup/review → fix stayMap/rail/stayCta
+6. Build+Deploy: cd astro && npm run build  (8GB heap, ~3 min) → from repo root:
+           export CLOUDFLARE_API_TOKEN=$(grep '^CLOUDFLARE_API_TOKEN=' ~/.r2-creds | cut -d= -f2- | tr -d '<>"'"'"' \r\n')
+           → npx wrangler deploy   (MANUAL only — git auto-build OOMs. Never git push to deploy.)
+7. Confirm live: curl https://thailandaddict.com/top10-popular-restaurants-<city> → check IG/FB/map counts + content.
 ```
 
 ### Preview screenshot gotcha
@@ -64,25 +64,25 @@ The Leaflet/OSM map keeps the network busy → the screenshot tool times out. Be
 
 ---
 
-## 🖼️ Image policy (v4 — embed-first, copyright-safe · CURRENT)
-> Supersedes the old "scrape any-source galleries + credit" policy (owner: copyright risk too high). Demo'd on Lampang.
+## 🖼️ Image policy (v4 — embed-first, copyright-safe · CURRENT · owner priority 2026-06-23)
+> Supersedes the old "scrape any-source galleries + credit" policy (owner: copyright risk too high).
 
-Restaurant card media = a **tabbed embed** (`📷 Instagram · 📘 Facebook · 🗺️ แผนที่`) — NOT scraped per-restaurant gallery photos.
-- **IG is the default tab** (most engaging), FB 2nd (iframe Page Plugin, `height=540` to fit the box), Map 3rd (Google Maps `?q=<name> <province>&output=embed`, lazy). Layout: `ArticleLayout.astro` embed-mode (triggers on `igPost||fbPage||libImg||!img`).
-- **Show only WebFetch-VERIFIED social URLs.** Auto-research returns wrong-location / hallucinated URLs OFTEN (e.g. a Krabi branch's FB for the Lampang shop, a stranger's reel). Verify EACH: `https://www.instagram.com/p/<code>/embed/` exists + names this restaurant; FB page og:title = right business + province. Drop anything unverified. Honesty over coverage.
-- **No verified IG/FB → reusable CC library.** `_internal/food-image-lib.json` (19 dishes, CC-licensed, on R2 at `/images/food/_lib/`) via `matchFoodImage(foodType,cuisine,signature,name)` in `_internal/wf/lib-match.mjs` → sets `libImg`/`libCredit`/`libCreditHref` (renders as a `🍜 รูป` tab). Rebuild/extend: `cd astro && node ../_internal/build-food-lib.mjs`.
-- **Hero** = one CC dish/landmark image (Wikimedia, sized 1600w, served from R2), credited via `heroCredit`/`heroCreditHref`.
-- Every image keeps `credit`+`creditHref`; takedown box still renders. **Never** scrape/store a restaurant's copyrighted photos or use Trip.com/wrong-restaurant images. `img` field is now optional (embed-mode cards have no hero photo).
+Restaurant card media = a **tabbed embed** — NOT scraped/stored photos. **Source priority: Instagram > Facebook > CC library; Map always.** Best tier per restaurant (CC is fallback-only — NOT shown when social exists):
+1. `igPost` + `fbPage` + Map   2. `igPost` + Map   3. `fbPage` + Map   4. `libImg` (CC) + Map
+- **`igPost` = Instagram post shortcode only** (the part between `/p/` and `/`); layout builds `instagram.com/p/<code>/embed/`. **`fbPage` = clean vanity-handle URL** (`facebook.com/<handle>/`) — numeric `profile.php?id=`/`/p/<name>-<id>/` pages do NOT render in the Page plugin → treat as not-found. Map auto from `name`+province (lazy). Layout: `ArticleLayout.astro` embed-mode (triggers on `igPost||fbPage||libImg||!img`); FB plugin is a plain iframe (no SDK).
+- **Show only WebFetch-VERIFIED social.** Engine Write-agents verify per restaurant (`/p/<code>/embed/` renders this restaurant; FB page = right business+province). A dedicated follow-up research agent can fill gaps (IG blocks bots — expect ~7/10). Drop anything unverified — honesty over coverage; a wrong/dead embed is worse than CC.
+- **CC fallback + hero are applied by `finalize-resto.mjs`** (the Workflow sandbox can't import). It sets `libImg` ONLY on no-social restaurants (tier-4) via `matchFoodImage(foodType,cuisine,signature,name)` → `_internal/food-image-lib.json` (19 dishes, CC, on R2 `/images/food/_lib/`; rebuild: `cd astro && node ../_internal/build-food-lib.mjs`), and sets a CC **hero**+credit. Restaurants WITH social get no generic CC tab.
+- **Never** scrape/store a restaurant's copyrighted photos or use Trip.com/wrong-restaurant images. `img` field is optional (embed-mode cards have no stored hero photo).
 
 ## ✅ Quality gates (honesty-first — brand LOCKED)
 - 10 restaurants, each `descHtml` ≥200 Thai words (verify checks ≥700 Thai chars), real & review-backed.
 - Tone = friend-to-friend (v2-clean). **Ban slang** อ่ะ/ปะ/แหละ/ล่ะ and **AI words** ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน.
-- **Honesty:** "คัดจากเสียงรีวิวจริง" — never claim we ate there. Ratings only with a real source; restaurants missing a real `ratingCount` show `⭐ x.x` without a count (do NOT invent a number).
+- **Honesty + voice (owner 2026-06-23):** the opening lead = **confident storytelling that invites the reader** (province food culture + the restaurants' legends/awards), NEVER a self-undermining disclaimer — banned: "ไม่ได้ไปกินเอง / รวบรวมจากรีวิว / ไม่เดาให้ / พูดกว้าง ๆ" (also caught by verify ban-list). Still truthful: never claim we ate there, never fabricate facts/awards/ratings. Ratings only with a real source; missing a real `ratingCount` → show `⭐ x.x` without a count (do NOT invent). (Memory: `no-self-undermining-prose`.)
 - AggregateRating JSON-LD emitted only for restaurants with a real count.
 
 ## 📈 Scaling (when owner says go)
 - **One workflow at a time** (avoids socket errors), commit + push each province, report per batch.
-- Start with provinces that already have hotel roundups (the rail/staycta need real targets): Bangkok ✓, Chonburi/Pattaya, Krabi, Hua Hin, Phuket, Samui, Chiang Rai… `ls astro/src/content/roundups/ | grep <city>`.
+- Start with provinces that already have hotel roundups (the rail/staycta need real targets). Live: Chiang Mai ✓, Bangkok ✓, Lampang ✓, **Phuket ✓** (first under full v4: 7 IG + FB + map). Next: Krabi (in progress) → Chiang Rai, Hat Yai/Songkhla, Chonburi/Pattaya, Hua Hin, Kanchanaburi, Ayutthaya, Samui… `ls astro/src/content/roundups/ | grep <city>`.
 - Owner's standing ROI lean: do the **~15-20 tourist provinces first** (high search + sellable hotels) before completing all 77.
 - 75 provinces ≈ 25-30 h workflow + heavy tokens → multi-session. Never silently cap; report what's done/skipped.
 
@@ -94,7 +94,7 @@ Restaurant card media = a **tabbed embed** (`📷 Instagram · 📘 Facebook · 
 - ❌ Skipping `git rebase origin/main` before push (parallel EN/other session is editing).
 
 ## Related files
-- Engine: `_internal/wf/restaurants-roundup.js` · Verify: `_internal/wf/verify-resto.mjs` · Args helper: `_internal/wf/build-resto-args.mjs` (draft — labels need rework for bulk)
+- Engine: `_internal/wf/restaurants-roundup.js` (Plan/Write[+verify IG/FB]/Frame/Assemble) · Verify: `_internal/wf/verify-resto.mjs` · Args helper: `_internal/wf/build-resto-args.mjs` (auto-builds `rail` from roundups+top reviews + `related` `{href,title}`) · **Finalize (required): `_internal/wf/finalize-resto.mjs`** (CC fallback on no-social cards + CC hero + ban sweep)
 - Image library (v4): `_internal/food-image-lib.json` (manifest, 19 dishes) · `_internal/wf/lib-match.mjs` (matcher) · `_internal/build-food-lib.mjs` (builder) · images on R2 `/images/food/_lib/`
 - Handoff/history: `_internal/RESTAURANT-REVIEW-HANDOFF.md` · Format spec: [`references/format-spec.md`](./references/format-spec.md)
 - Affiliate IDs (CLAUDE.md): Agoda cid=1965862 · Trip Allianceid=6861268&SID=312919111 · Klook aid=121442 · GetYourGuide via `getyourguide.com/s/?q=<city>`

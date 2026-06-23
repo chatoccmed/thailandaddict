@@ -5,6 +5,8 @@
 //   regionKey ∈ north|northeast|central|east|west|south  (default auto by lookup table)
 // Prints the args JSON (pipe to a file or paste into the Workflow call).
 import fs from 'fs';
+const IMG_BASE = 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
+const asset = p => !p ? '' : (/^https?:\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : '/' + p));
 
 const CITY = process.argv[2];
 if (!CITY) { console.error('need <city-slug>'); process.exit(1); }
@@ -56,7 +58,7 @@ if (!files.length) { console.error(`NO hotel roundups for "${CITY}" — pick a p
 const roundups = files.map(f => {
   const o = JSON.parse(fs.readFileSync(RDIR + f, 'utf8'));
   const title = (o.h1 || o.title || f).replace(/<[^>]+>/g, '').replace(/\s*\|.*$/, '').trim();
-  return { slug: f.replace('.json', ''), title, n: (o.entries || []).length };
+  return { slug: f.replace('.json', ''), title, n: (o.entries || []).length, img: asset(o.heroImg || o.image || '') };
 });
 // stayDefault: prefer the broad "all/popular hotels" roundup
 const pref = [`top10-hotels-${CITY}`, `top10-popular-hotels-${CITY}`, `top15-popular-hotels-${CITY}`, `top5-popular-hotels-${CITY}`];
@@ -70,12 +72,26 @@ const stayCta = {
   ctaHref: `https://www.agoda.com/th-th/city/${CITY}-th.html?cid=1965862`,
 };
 
+// rail (sticky hotel cards): the broad roundup + top single-hotel reviews (with R2 images) — aim 3-4 cards, every card with an img
+const VDIR = 'astro/src/content/reviews/';
+let reviews = [];
+try {
+  reviews = fs.readdirSync(VDIR).filter(f => f.endsWith('.json') && f.includes('-' + CITY + '.')).map(f => {
+    const o = JSON.parse(fs.readFileSync(VDIR + f, 'utf8'));
+    return { slug: f.replace('.json', ''), name: (o.name || '').replace(/<[^>]+>/g, '').trim(), score: +o.score || 0, img: asset(o.heroImg || o.image || ''), loc: (o.badgeLoc || o.addressLocality || '').replace(/^📍\s*/, '').trim(), price: o.priceRange || '' };
+  }).filter(r => r.img && r.name);
+} catch {}
+reviews.sort((a, b) => b.score - a.score);
+const rail = [{ title: def.title, href: `${def.slug}.html`, note: def.n ? `${def.n} โรงแรมคัดมาแล้ว` : 'รวมที่พักคัดแล้ว', img: def.img || (reviews[0] && reviews[0].img) || '' }];
+reviews.slice(0, 3).forEach(r => rail.push({ title: r.name, href: `${r.slug}.html`, note: [r.loc, r.price].filter(Boolean).join(' · '), img: r.img }));
+const related = [{ href: `city-${CITY}.html`, title: `🧭 เที่ยว${meta.display || provTh} — ที่พัก ที่กิน ที่เที่ยว` }, ...roundups.slice(0, 2).map(r => ({ href: `${r.slug}.html`, title: `🏨 ${r.title}` }))];
+
 const out = {
   prov: provTh, city: CITY, slug: `top10-popular-restaurants-${CITY}`, today: '2026-06-20',
   ...(meta.display ? { display: meta.display } : {}),
   ...(meta.hi ? { hi: meta.hi } : {}),
   region: { label: regionLabel, href: regionHref },
-  stayDefault, stayMap: [], stayCta,
+  stayDefault, stayMap: [], stayCta, rail, related,
 };
-console.error(`[build-resto-args] ${CITY}: ${roundups.length} roundups found · stayDefault=${def.slug} · stayCta links=${ctaPool.length}`);
+console.error(`[build-resto-args] ${CITY}: ${roundups.length} roundups · ${reviews.length} single reviews · rail=${rail.length} cards · stayCta links=${ctaPool.length}`);
 console.log(JSON.stringify(out, null, 2));

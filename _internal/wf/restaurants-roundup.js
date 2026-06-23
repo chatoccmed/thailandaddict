@@ -3,7 +3,7 @@ export const meta = {
   description: 'Build a "10 popular restaurants in <province>" article (eat-ranking, v3): per-restaurant deep review (≥200 Thai words) + Google rating/count + best-for + zone + foodType + dietary/geo info + 4 credited photos; province prose + local-tips; deterministic assemble of restaurant/staycta/foodexp/localtips blocks + sticky hotel rail + map. Returns the full article JSON for the main loop to write + verify.',
   phases: [
     { title: 'Plan', detail: 'research & pick the 10 most popular real restaurants' },
-    { title: 'Write', detail: 'per-restaurant: ≥200w review, rating/count, best-for, zone, foodType, info, 4 photos' },
+    { title: 'Write', detail: 'per-restaurant: ≥200w review, rating/count, best-for, zone, foodType, info, verify IG post + FB page' },
     { title: 'Frame', detail: 'province prose (intro/chips/faq/tip/cta/staycta/foodexp/localtips)' },
     { title: 'Assemble', detail: 'deterministically build the article object + return it' },
   ],
@@ -33,9 +33,9 @@ log(`cfg: city=${CITY} · prov=${PROV} · display=${DISPLAY} · rail=${RAIL ? RA
 
 const RULES = `กฎคุณภาพ (LOCKED):
 - โทน v2-clean "เพื่อนเล่าให้เพื่อนฟัง" จริงใจ · ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน
-- **ร้านต้องมีจริง เปิดจริงปัจจุบัน** — วิจัยจาก Google Maps/รีวิว, Wongnai, เพจ Facebook ร้าน, YouTube รีวิว · อ้าง "เสียงจากรีวิวจริง" ไม่อ้างไปกินเอง
+- **ร้านต้องมีจริง เปิดจริงปัจจุบัน** — วิจัยจาก Google Maps/รีวิว, Wongnai, เพจ Facebook ร้าน, YouTube รีวิว (ใช้หาข้อมูลเบื้องหลัง — ไม่ต้องพูดถึงแหล่งในเนื้อหา) · บรรยายร้านอย่าง "มั่นใจและชวนมาลอง" ไม่กุว่าไปกินเอง และ **ห้ามเขียน disclaimer ลดเครดิตตัวเอง**
 - **ห้ามแต่งตัวเลข/เมนู/ราคา/ที่อยู่/คะแนน/จำนวนรีวิว** — ใช้เท่าที่ยืนยันได้จริง ถ้าไม่ชัดให้พูดกว้าง ๆ ไม่ระบุเท็จ
-- **รูป:** รูปจริงของร้านนี้จาก เว็บทางการ/เพจ FB ร้าน/Wongnai/Google/รีวิว/บล็อกอาหาร (ของร้านนี้จริง) · ห้ามรูปผิดร้าน/stock/โลโก้เว็บอื่น/ลายน้ำเว็บอื่น/Trip.com · **ต้องให้เครดิตทุกรูป** (ชื่อแหล่ง+ลิงก์)`;
+- **รูป (embed-first, ลำดับความสำคัญ — owner 2026-06-23):** Instagram สำคัญสุด > Facebook > คลังภาพ CC · แผนที่มีเสมอ. ทำ tier ที่ดีที่สุดต่อร้าน: (1) igPost + fbPage + แผนที่ (2) igPost + แผนที่ (3) fbPage + แผนที่ (4) libImg(CC ผ่าน matchFoodImage) + แผนที่. ใส่เฉพาะ social ที่ **WebFetch-verify แล้ว** (ตรงร้าน เป็นสาธารณะ embed ขึ้นจริง — IG: instagram.com/p/<code>/embed/, igPost=shortcode ล้วน; FB: เพจ vanity-handle เท่านั้น เลขล้วน profile.php/p ไม่เรนเดอร์). ไม่มี social ที่ verify → libImg. ห้ามกุ/รูปผิดร้าน/ลายน้ำเว็บอื่น/Trip.com`;
 
 const PLAN_SCHEMA = { type:'object', additionalProperties:false, required:['restaurants'], properties:{ restaurants:{ type:'array', minItems:10, maxItems:10, items:{
   type:'object', additionalProperties:false, required:['name','slug','area','signature','cuisine','whyPopular'], properties:{
@@ -43,12 +43,11 @@ const PLAN_SCHEMA = { type:'object', additionalProperties:false, required:['rest
     signature:{type:'string',description:'เมนูเด่น สั้น'}, cuisine:{type:'string',description:'ประเภท เช่น ข้าวซอย/อาหารเหนือ, คาเฟ่, ซีฟู้ด'},
     whyPopular:{type:'string',description:'ทำไมดัง อ้างแหล่ง'}, sources:{type:'string',description:'แหล่งที่เจอ'} } } } } };
 
-const WRITE_SCHEMA = { type:'object', additionalProperties:false, required:['slug','descHtml','alt','imgOk'], properties:{
+const WRITE_SCHEMA = { type:'object', additionalProperties:false, required:['slug','descHtml'], properties:{
   slug:{type:'string'},
   descHtml:{type:'string',description:'คำบรรยายไทย ≥200 คำ (~700 ตัวอักษรไทย) HTML 3-4 ย่อหน้า <p> ครอบคลุม: ร้านคืออะไร+ใครเหมาะ/เมนูเด่น/รสชาติจากรีวิวจริง/บรรยากาศ/ราคา/ทำเล-เวลาเปิด/ทำไมยอดนิยม/ข้อควรรู้'},
-  imgOk:{type:'boolean',description:'โหลดรูปหลักสำเร็จไหม (JPEG จริง >15KB เป็นรูปร้านนี้)'},
-  alt:{type:'string',description:'alt รูปหลัก'}, credit:{type:'string',description:'เครดิตรูปหลัก เช่น "Wongnai" / "เพจเฟซบุ๊ก ร้าน X" / "เว็บไซต์ทางการ ร้าน X"'}, creditHref:{type:'string',description:'ลิงก์แหล่งรูปหลัก'},
-  gallery:{type:'array',maxItems:3,description:'รูปเสริม (ที่โหลดเป็น <slug>-2/-3/-4.jpg สำเร็จ) เรียงตามลำดับ',items:{type:'object',additionalProperties:false,required:['alt'],properties:{alt:{type:'string'},credit:{type:'string'},creditHref:{type:'string'}}}},
+  igPost:{type:'string',description:'shortcode โพสต์ Instagram สาธารณะของร้านนี้ (เฉพาะส่วนหลัง /p/ เช่น DBksr1fvKvx) ที่ WebFetch https://www.instagram.com/p/<code>/embed/ แล้วเห็นโพสต์จริงของร้านนี้ (caption/รูป ไม่ใช่ login wall) — verify แล้วเท่านั้น · ยืนยันไม่ได้ให้เว้นว่าง (ห้ามเดา)'},
+  fbPage:{type:'string',description:'URL เพจ Facebook ทางการแบบ vanity-handle https://www.facebook.com/<handle>/ ที่ยืนยันว่าตรงร้านนี้+เป็นสาธารณะ · ห้ามเพจเลขล้วน profile.php?id= หรือ /p/<name>-<id>/ (ไม่เรนเดอร์ใน plugin) · ยืนยันไม่ได้ให้เว้นว่าง (ห้ามเดา)'},
   priceRange:{type:'string',description:'ช่วงราคาสั้น เช่น "฿60–80/ชาม"'},
   rating:{type:'number',description:'คะแนน Google Maps ทศนิยม 1 ตำแหน่ง (เช่น 4.4) — ของจริงเท่านั้น'},
   ratingCount:{type:'number',description:'จำนวนรีวิว Google จริง (เช่น 3665) — หาเป๊ะไม่ได้ให้เว้น'},
@@ -67,7 +66,7 @@ const FRAME_SCHEMA = { type:'object', additionalProperties:false,
   required:['title','h1','eyebrow','intro','leadHtml','chips','metaDesc','keywords','ogTitle','ogDesc','tipTitle','tipHtml','ctaText','ctaLabel','faq','stayTitle','stayText','foodTitle','foodText','localtips'], properties:{
   title:{type:'string',description:'<title> เต็ม ลงท้าย " | ThailandAddict"'},
   h1:{type:'string',description:`h1 "10 ร้านอาหารยอดนิยม<br>ใน..." ครอบ "${HILITE}" ด้วย <span class="hi">${HILITE}</span>`},
-  eyebrow:{type:'string'}, intro:{type:'string',description:'อินโทรใต้ hero 2-3 ประโยค (HTML)'}, leadHtml:{type:'string',description:'ย่อหน้าเปิด ปูบริบทว่าคัดจากรีวิวจริง (HTML)'},
+  eyebrow:{type:'string',description:'eyebrow สั้น เช่น "กินตามคน'+HILITE+' · อัปเดต '+TODAY.slice(0,4)+'"'}, intro:{type:'string',description:'อินโทรใต้ hero 2-3 ประโยค เล่าเสน่ห์อาหาร+ชวนมาลอง (HTML) — ห้ามลิสต์แหล่งรีวิว (Google Maps/Wongnai/คลิป) หรือเขียน disclaimer'}, leadHtml:{type:'string',description:'ย่อหน้าเล่าเรื่อง 2 ย่อหน้า เชิญชวนให้มากิน (HTML ตามคำสั่งใน prompt) — ห้าม disclaimer/ห้ามลิสต์แหล่งรีวิว'},
   chips:{type:'array',items:{type:'string'},minItems:3,maxItems:5}, metaDesc:{type:'string'}, keywords:{type:'string'}, ogTitle:{type:'string'}, ogDesc:{type:'string'},
   tipTitle:{type:'string'}, tipHtml:{type:'string',description:'ทิปวางแผนกิน อ้างร้านจริง'}, ctaText:{type:'string'}, ctaLabel:{type:'string'},
   faq:{type:'array',minItems:5,maxItems:5,items:{type:'object',additionalProperties:false,required:['q','a'],properties:{q:{type:'string'},a:{type:'string'}}}},
@@ -105,24 +104,20 @@ const written = await parallel(rests.map((r, i) => () =>
 2) **คะแนนจริง:** rating (Google Maps ทศนิยม 1) + ratingCount (จำนวนรีวิวจริง) + ratingSrc="Google" — **ห้ามแต่งตัวเลข** หาเป๊ะไม่ได้ให้เว้น ratingCount
 3) **bestFor** (เหมาะสุดสำหรับใคร/ตอนไหน), **zone** (ย่านสั้นจัดกลุ่ม), **foodType** (หมวดอาหารสั้น), priceRange, mustOrder(2-4), tags(1-3), cuisine, area
 4) **ข้อมูลต่างชาติ (จริงเท่านั้น):** hours, priceUsd, spice, halal/veg/englishMenu (true เฉพาะจริง), **lat/lng พิกัด Google Maps** (สำคัญ-ปักหมุด)
-5) **รูป 4 รูป** (รูปจริงของร้านนี้ จากเว็บทางการ/FB/Wongnai/Google/บล็อก + เครดิตทุกใบ · ห้าม Trip.com/stock/ผิดร้าน/ลายน้ำเว็บอื่น):
-   mkdir -p astro/public/${IMGDIR}
-   รูปหลัก → curl -m 60 -L -A "Mozilla/5.0" "<url>" -o astro/public/${IMGDIR}/${r.slug}.jpg
-   รูปเสริม → <url2..4> -o astro/public/${IMGDIR}/${r.slug}-2.jpg (และ -3 -4 เท่าที่หาได้, รูปคนละมุม/จาน)
-   (Bash dangerouslyDisableSandbox:true · webp/png ใช้ sharp astro/node_modules แปลง jpg) · ยืนยัน JPEG >15KB ทุกไฟล์
-   ตั้ง imgOk=true + credit/creditHref(รูปหลัก) · gallery = array เครดิต/alt ของรูปเสริมที่โหลดสำเร็จ (เรียง -2,-3,-4) · หารูปหลักไม่ได้ imgOk=false
+5) **รูป embed (ลำดับความสำคัญ Instagram > Facebook · ไม่ต้องโหลด/curl รูปใด ๆ):**
+   - **igPost (สำคัญสุด):** ค้นโพสต์ Instagram สาธารณะของร้านนี้ (จาก WebSearch: "<ชื่อร้าน> ${PROV} instagram", site:instagram.com, บล็อก/เพจที่ฝังโพสต์ร้านนี้) แล้ว **WebFetch \`https://www.instagram.com/p/<code>/embed/\`** ต้องเห็นโพสต์จริงของร้านนี้ (caption/รูป/แท็กสถานที่ตรงร้าน ไม่ใช่ login wall/error) → ใส่ igPost = shortcode ล้วน (ส่วนระหว่าง /p/ กับ / เท่านั้น) · ยืนยันไม่ได้ให้เว้น
+   - **fbPage (รองลงมา):** ค้นเพจ Facebook ทางการของร้าน แบบ vanity-handle (facebook.com/<handle>/) ยืนยันว่าตรงร้านนี้+เป็นสาธารณะ → ใส่ fbPage = URL เต็ม · เพจเลขล้วน (profile.php?id=, /p/<name>-<id>/) เรนเดอร์ไม่ได้ ให้เว้น
+   - **ห้ามเดา/ใส่มั่ว — เว้นดีกว่าผิด** (ระบบจะใช้คลังรูป CC + แผนที่แทนอัตโนมัติ) · แผนที่ Google มีให้ทุกร้านอยู่แล้ว ไม่ต้องทำ
 ${RULES}
 คืนตาม schema (slug="${r.slug}")`,
     { label:`rest:${r.slug}`, phase:'Write', schema:WRITE_SCHEMA })
     .then(w => ({ ...w, slug: r.slug, _ok: true }))
     .catch(e => ({ slug: r.slug, _ok: false, e: String(e).slice(0, 120) }))
 ))
+const cleanIg = (s) => { const v = String(s || '').trim().replace(/^.*\/p\//, '').replace(/\/.*$/, ''); return /^[A-Za-z0-9_-]{5,}$/.test(v) ? v : null; };
+const cleanFb = (s) => { const v = String(s || '').trim().replace(/\?.*$/, ''); return (/^https:\/\/(www\.)?facebook\.com\/[A-Za-z0-9.]+\/?$/.test(v) && !/profile\.php/.test(v) && !/\/p\//.test(v)) ? v : null; };
 const cards = rests.map((r, i) => {
   const w = written.find(x => x && x.slug === r.slug) || {};
-  const gal = Array.isArray(w.gallery) ? w.gallery.slice(0, 3).map((g, gi) => ({
-    src: `/${IMGDIR}/${r.slug}-${gi + 2}.jpg`, alt: g.alt || `${r.name} ${PROV}`,
-    credit: g.credit || undefined, creditHref: g.creditHref || undefined,
-  })) : [];
   return {
     rank: i + 1, name: r.name, slug: r.slug,
     area: (w.area && w.area.trim()) || r.area,
@@ -134,9 +129,8 @@ const cards = rests.map((r, i) => {
     rating: (typeof w.rating === 'number' && isFinite(w.rating)) ? w.rating : null,
     ratingCount: (typeof w.ratingCount === 'number' && isFinite(w.ratingCount)) ? Math.round(w.ratingCount) : null,
     ratingSrc: (w.ratingSrc && w.ratingSrc.trim()) || 'Google',
-    descHtml: w.descHtml || '', imgOk: !!w.imgOk,
-    alt: w.alt || `${r.name} ${PROV}`, credit: w.credit || '', creditHref: w.creditHref || '',
-    gallery: gal,
+    descHtml: w.descHtml || '',
+    igPost: cleanIg(w.igPost), fbPage: cleanFb(w.fbPage),
     mustOrder: Array.isArray(w.mustOrder) ? w.mustOrder : [],
     tags: Array.isArray(w.tags) ? w.tags : [],
     hours: (w.hours || '').trim(), priceUsd: (w.priceUsd || '').trim(), spice: (w.spice || '').trim(),
@@ -146,7 +140,7 @@ const cards = rests.map((r, i) => {
   };
 });
 const okCards = cards.filter(c => c.descHtml && c.descHtml.length > 50);
-log(`Reviews: ${okCards.length}/${rests.length} · imgs ok: ${cards.filter(c=>c.imgOk).length} · ratings: ${cards.filter(c=>c.rating).length} · galleries: ${cards.reduce((s,c)=>s+c.gallery.length,0)}`)
+log(`Reviews: ${okCards.length}/${rests.length} · IG: ${cards.filter(c=>c.igPost).length} · FB: ${cards.filter(c=>c.fbPage).length} · ratings: ${cards.filter(c=>c.rating).length}`)
 
 // ───────────────────────── Frame (province prose) ─────────────────────────
 phase('Frame')
@@ -154,7 +148,8 @@ const frameInput = JSON.stringify(cards.map(c => ({ rank:c.rank, name:c.name, ar
 const frame = await agent(`เขียน "ส่วนกรอบบทความ" (ไม่ใช่เนื้อแต่ละร้าน) สำหรับ **"10 ร้านอาหารยอดนิยมใน${DISPLAY}"**
 ร้าน 10 ร้าน (อ้างให้ตรงจริง): ${frameInput}
 เขียนทุก field ตาม schema เป็นภาษาไทย โทน v2-clean เพื่อนเล่าให้เพื่อนฟัง:
-- title "10 ร้านอาหารยอดนิยมใน${DISPLAY} ${TODAY.slice(0,4)} — ..." ลงท้าย " | ThailandAddict" · h1 ครอบ "${HILITE}" ด้วย <span class="hi"> · eyebrow · intro 2-3 ประโยค · leadHtml (คัดจากรีวิวจริง ไม่ได้ไปกินเองทุกร้าน)
+- title "10 ร้านอาหารยอดนิยมใน${DISPLAY} ${TODAY.slice(0,4)} — ..." ลงท้าย " | ThailandAddict" · h1 ครอบ "${HILITE}" ด้วย <span class="hi"> · eyebrow · intro 2-3 ประโยค
+- leadHtml = ย่อหน้านำ "เล่าเรื่อง" 2 ย่อหน้า (<p>…</p><p>…</p>) สไตล์เพื่อนเล่าให้เพื่อน: ย่อหน้าแรกเล่าเสน่ห์/วัฒนธรรมอาหารของ${PROV} (ย่าน·บรรยากาศ·แนวอาหารเด่น) ชวนให้อยากมาลอง · ย่อหน้าสองเล่าตำนาน/จุดเด่นของร้านในลิสต์ (ประวัติ·รางวัล·ของขึ้นชื่อที่ยืนยันได้) แล้วชวนมากิน — **ห้ามเขียน disclaimer ลดเครดิตตัวเอง** (ห้ามวลี "ไม่ได้ไปกินเอง / รวบรวมจากรีวิว / ไม่เดาให้ / พูดกว้าง ๆ") และห้ามกุว่าไปกินเอง — บรรยายอย่างมั่นใจจากชื่อเสียงและข้อมูลที่ยืนยันได้
 - chips 3-5 (อีโมจินำ) · metaDesc/keywords/ogTitle/ogDesc · tipTitle+tipHtml (วางแผนกิน อ้างร้านจริง) · ctaText+ctaLabel (ชวนจองที่พัก)
 - faq 5 ข้อ (ร้านไหนดังสุด/ของขึ้นชื่อ${PROV}/ราคา/จองไหม/เปิดเย็น-ดึก) ตอบอ้างร้านจริง
 - stayTitle (🛏️)+stayText (โมดูลจองที่พัก) · foodTitle+foodText (ฟู้ดทัวร์/คลาสทำอาหารผ่าน Klook/GetYourGuide — ชิมหลายร้านมีไกด์/ลงมือทำเอง)
@@ -164,8 +159,7 @@ ${RULES}
 
 // ───────────────────────── Assemble (deterministic JS) ─────────────────────────
 phase('Assemble')
-const heroCard = cards.find(c => c.imgOk) || cards[0]
-const heroImg = `/${IMGDIR}/${heroCard.slug}.jpg`
+const heroImg = '/images/food/_lib/street-food.jpg'  // CC default (valid on R2); finalize-resto.mjs refines to a better-matched CC hero + credit
 
 const restoBlock = (c) => {
   const stay = resolveStay(c.zone, c.area)
@@ -173,9 +167,7 @@ const restoBlock = (c) => {
     kind: 'restaurant', rank: c.rank, name: c.name,
     area: c.area, cuisine: c.cuisine, signature: c.signature,
     priceRange: c.priceRange || undefined,
-    img: c.imgOk ? `/${IMGDIR}/${c.slug}.jpg` : undefined, alt: c.imgOk ? c.alt : undefined,
-    credit: c.imgOk ? (c.credit || undefined) : undefined, creditHref: c.imgOk ? (c.creditHref || undefined) : undefined,
-    gallery: (c.imgOk && c.gallery.length) ? c.gallery.map(g => { const o = { src:g.src, alt:g.alt, credit:g.credit, creditHref:g.creditHref }; Object.keys(o).forEach(k => o[k] === undefined && delete o[k]); return o; }) : undefined,
+    igPost: c.igPost || undefined, fbPage: c.fbPage || undefined,
     descHtml: c.descHtml,
     mustOrder: c.mustOrder.length ? c.mustOrder : undefined,
     tags: c.tags.length ? c.tags : undefined,
@@ -241,16 +233,17 @@ const article = {
 }
 Object.keys(article).forEach(k => article[k] === undefined && delete article[k])
 
-const missingImages = cards.filter(c => !c.imgOk).map(c => c.slug)
 const shortDesc = cards.filter(c => (c.descHtml.replace(/<[^>]+>/g,'').match(/[฀-๿]/g)||[]).length < 700).map(c => c.slug)
-log(`Assembled: ${blocks.filter(b=>b.kind==='restaurant').length} restos · missingImg:${missingImages.length} · noRating:${cards.filter(c=>!c.rating).length} · short:${shortDesc.length}`)
+const noSocial = cards.filter(c => !c.igPost && !c.fbPage).map(c => c.slug)
+log(`Assembled: ${blocks.filter(b=>b.kind==='restaurant').length} restos · IG:${cards.filter(c=>c.igPost).length} · FB:${cards.filter(c=>c.fbPage).length} · noSocial(→CC):${noSocial.length} · noRating:${cards.filter(c=>!c.rating).length} · short:${shortDesc.length}`)
 
 return {
   ok: true, slug: SLUG, city: CITY, prov: PROV,
   restaurantCount: blocks.filter(b => b.kind === 'restaurant').length,
-  missingImages, shortDesc,
+  shortDesc, noSocial,
   ratingsOk: cards.filter(c => c.rating && c.ratingCount).length,
-  galleriesTotal: cards.reduce((s, c) => s + c.gallery.length, 0),
-  imgReport: cards.map(c => ({ slug:c.slug, imgOk:c.imgOk, gallery:c.gallery.length, rating:c.rating, zone:c.zone, foodType:c.foodType })),
+  igCount: cards.filter(c => c.igPost).length, fbCount: cards.filter(c => c.fbPage).length,
+  mediaReport: cards.map(c => ({ slug:c.slug, igPost:c.igPost||null, fbPage:c.fbPage||null, tier: (c.igPost&&c.fbPage)?1:c.igPost?2:c.fbPage?3:4, rating:c.rating, zone:c.zone, foodType:c.foodType })),
+  needsFinalize: true,
   article,
 }

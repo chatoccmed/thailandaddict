@@ -25,13 +25,21 @@ Exact structure of `top10-popular-restaurants-<city>.json`. Source of truth = `a
 | `rail` | sticky right-rail hotel cards — see §3 |
 
 ## 2. Blocks (ordered)
-Canonical order: `p` (honesty disclaimer) → 5× `restaurant` → `staycta` → 5× `restaurant` → `foodexp` → `localtips` → `tip` → `cta`.
+Canonical order: `p` (storytelling lead) → 5× `restaurant` → `staycta` → 5× `restaurant` → `foodexp` → `localtips` → `tip` → `cta`.
 
 ### `restaurant` (the core card; ×10)
 Required: `kind:"restaurant"`, `rank` (1–10), `name`, `descHtml` (≥200 Thai words, multiple `<p>`).
 Strongly expected: `area`, `cuisine`, `signature`, `priceRange`, `img`, `alt`, `credit`, `creditHref`, `gallery` (exactly 3 × `{src,alt,credit,creditHref}` → 4 photos total with main), `mustOrder[]`, `tags[]`, `mapHref` (Google Maps search URL), `stayHref` (→ a real hotel roundup, resolved by zone via stayMap), `stayLabel`.
 v3 ranking/UX: `rating` (number), `ratingCount` (number — omit if no real count), `ratingSrc` ("Google"), `bestFor` (one short line), `zone` (neighbourhood — powers the zone filter + map grouping), `foodType` (powers the type filter).
 Global-tourist: `hours`, `priceUsd`, `spice`, `halal` (bool), `veg` (bool), `englishMenu` (bool), `lat`, `lng` (map pin).
+
+#### Image media — PRIORITY ORDER (v4, owner 2026-06-23)
+Card media = tabbed embed, NOT stored/scraped photos. **Instagram is the most important source, Facebook second, the CC library last.** Build the BEST available tier per restaurant — the Map tab is ALWAYS present (auto from `name`+province, shows Google's real photos/reviews):
+1. `igPost` **+** `fbPage` **+** Map  ← best
+2. `igPost` + Map
+3. `fbPage` + Map
+4. `libImg` (CC food-image library) + Map  ← fallback only, when no verified social
+Only attach **WebFetch-VERIFIED** social (correct restaurant, public, embeds clean): IG embed = `instagram.com/p/<code>/embed/` and `igPost` = the shortcode string ONLY (between `/p/` and `/`); FB = clean vanity-handle page URL only (numeric `profile.php?id=`/`/p/<name>-<id>/` pages do NOT render in the Page plugin → treat as not-found). No verified IG/FB → use `libImg` via `matchFoodImage()`. Conservative: a wrong/unverified embed is worse than the CC fallback. Hero = 1 CC dish/landmark (credited).
 
 ### `staycta` (mid-article hotel-booking module, after restaurant #5)
 `{kind:"staycta", title, text?, img?, links:[{href,label}], ctaLabel, ctaHref}` — `links[].href` MUST be real roundups; `ctaHref` = Agoda city link (`agoda.com/th-th/city/<city>-th.html?cid=1965862`).
@@ -43,7 +51,7 @@ Global-tourist: `hours`, `priceUsd`, `spice`, `halal` (bool), `veg` (bool), `eng
 `{kind:"localtips", title, items:[{icon,title,text}]}` — 4–6 cards (cash-only, queue/timing, spice, halal/veg availability, etc.).
 
 ### `p` / `tip` / `cta`
-`p` = `{kind:"p",html}` (opening honesty disclaimer). `tip` = `{kind:"tip",title?,html}`. `cta` = `{kind:"cta",text,href,label?}` (closing → hotels).
+`p` = `{kind:"p",html}` (opening **storytelling lead**, 2 `<p>`: para-1 = the province's food culture/neighbourhoods + invitation to come eat; para-2 = the legends/awards of the listed restaurants, confident + inviting, friend-to-friend. **NEVER a self-undermining disclaimer** — banned phrases: "ไม่ได้ไปกินเอง / รวบรวมจากรีวิว / ไม่เดาให้ / พูดกว้าง ๆ". Still honest: no fabricated facts, never falsely claim firsthand visits — describe from reputation + verifiable info. Owner decision 2026-06-23.). `tip` = `{kind:"tip",title?,html}`. `cta` = `{kind:"cta",text,href,label?}` (closing → hotels).
 
 ## 3. `rail` (sticky right column)
 `rail: [{title, href, note?, img?}]` — **3–4 cards minimum** (a 1-card rail looks empty — owner). Mix the city's hotel roundup(s) + single-hotel reviews (`review-*-<city>.html`) so every card has an `img` (hotel hero, served from R2). The layout pins the rail via `position:sticky;top:80px` on the grid item (`.rrail`) with `.rgrid{align-items:start}`. **CRITICAL: `overflow-x:clip` must be on `html`, NOT `body`** — `body{overflow-x:clip}` is a full-page-height ancestor that captures the sticky element so it never pins to the viewport (the rail "doesn't follow on scroll"). Verified fix: move clip to `html`. The `foodexp` module renders below the hotel cards in the same rail.
@@ -82,4 +90,4 @@ All `href`s must resolve to files in `astro/src/content/roundups/` (verify enfor
 - Every image credited; takedown box present. Per-card + mid-article + rail all route to hotel affiliate roundups (the monetization spine).
 
 ## 7. Verify checklist (`verify-resto.mjs <city>` — errors=0 to ship)
-10 restaurants · each desc ≥700 Thai chars · every `img` + `gallery` file on disk >15KB · `img` has `credit` · `stayHref`/`staycta`/`rail` resolve to real roundups · article has title/metaDesc/keywords/h1/intro/image/heroImg/crumb · `cluster===city` · `type==='eat-ranking'` · ban-word lint = 0. Warns (OK to ship): missing `ratingCount`/`zone`/`foodType`/`bestFor`, slang `แหละ`, faq<5, rail<3.
+10 restaurants · each desc ≥700 Thai chars · each restaurant has media in priority order (igPost > fbPage > libImg; Map always auto) — any `libImg` on disk >15KB · `stayHref`/`staycta`/`rail` resolve to real roundups (rail may also use single reviews) · article has title/metaDesc/keywords/h1/intro/image/heroImg/crumb · `cluster===city` · `type==='eat-ranking'` · ban-word lint = 0 (incl. self-undermining disclaimers ไม่ได้ไปกิน/ไม่ได้ไปนั่ง/ไม่เดาให้). Warns (OK to ship): missing `ratingCount`/`zone`/`foodType`/`bestFor`, slang `แหละ`, faq<5, rail<3, embed-mode card with no photo.

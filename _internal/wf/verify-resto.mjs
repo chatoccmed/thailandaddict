@@ -6,12 +6,13 @@ const CITY = process.argv[2];
 if (!CITY) { console.error('need <city-slug>'); process.exit(1); }
 const ART = `astro/src/content/articles/top10-popular-restaurants-${CITY}.json`;
 const RDIR = 'astro/src/content/roundups/';
-const BAN = ['ตอบโจทย์', 'โดดเด่น', 'ครบครัน', 'ระดับโลก', 'สุดยอด', 'อันซีน'];
+const BAN = ['ตอบโจทย์', 'โดดเด่น', 'ครบครัน', 'ระดับโลก', 'สุดยอด', 'อันซีน', 'ไม่ได้ไปกิน', 'ไม่ได้ไปนั่ง', 'ไม่เดาให้'];
 const errs = [], warns = [];
 const E = (m) => errs.push(m), W = (m) => warns.push(m);
 const thaiLen = (h) => (String(h).replace(/<[^>]+>/g, '').match(/[฀-๿]/g) || []).length;
 const imgOk = (webPath) => { try { return fs.statSync('astro/public' + webPath).size > 15000; } catch { return false; } };
 const roundupOk = (href) => fs.existsSync(RDIR + String(href).replace(/\.html$/, '') + '.json');
+const reviewOk = (href) => fs.existsSync('astro/src/content/reviews/' + String(href).replace(/\.html$/, '') + '.json');
 
 if (!fs.existsSync(ART)) { console.error('NO article:', ART); process.exit(1); }
 const a = JSON.parse(fs.readFileSync(ART, 'utf8'));
@@ -23,7 +24,7 @@ if (a.cluster !== CITY) E(`cluster=${a.cluster} ≠ ${CITY}`);
 if (a.type !== 'eat-ranking') E(`type=${a.type}`);
 if ((a.faq || []).length < 5) W(`faq=${(a.faq || []).length} (<5)`);
 if (!a.rail || a.rail.length < 3) W(`rail=${(a.rail || []).length} (<3)`);
-else a.rail.forEach((r, i) => { if (!roundupOk(r.href)) E(`rail[${i}] href not a real roundup: ${r.href}`); if (r.img && !imgOk(r.img)) W(`rail[${i}] img missing: ${r.img}`); });
+else a.rail.forEach((r, i) => { if (!roundupOk(r.href) && !reviewOk(r.href)) E(`rail[${i}] href not a real roundup/review: ${r.href}`); if (r.img && !imgOk(r.img)) W(`rail[${i}] img missing: ${r.img}`); });
 
 // restaurants
 if (restos.length !== 10) E(`restaurants=${restos.length} (need 10)`);
