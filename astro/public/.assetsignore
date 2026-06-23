@@ -1,14 +1,16 @@
 # Cloudflare Workers Static Assets — .assetsignore (gitignore syntax, relative to the assets dir = dist)
-# Purpose: keep the static-asset upload under Cloudflare's 20,000-file limit by EXCLUDING the bulk
-# content images, which are served from R2 instead (the layouts prepend PUBLIC_IMG_BASE).
-# heroes/ + cities/ are NOT excluded — hub pages (gen-hubs) still reference them as static /images/.
+# PERMANENT image architecture (no per-deploy file-count risk):
+#   • Bulk content images (cm/ + hotels/ + food/ + gallery/) are EXCLUDED from the static bundle and served
+#     from the R2 public bucket instead. Both the content layouts (Article/Roundup/ReviewLayout → asset())
+#     AND the hub generator (gen-hubs → imgUrl()) prepend IMG_BASE = PUBLIC_IMG_BASE env
+#     (default https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev), so every cm/hotels/food image URL points
+#     at R2. Verified: 0 plain /images/(cm|hotels|food|gallery)/ refs remain in any generated HTML.
+#   • heroes/ + cities/ STAY in the bundle (small, slow-growing): hub hero, neighbour cards and og:image use
+#     plain /images/heroes|cities/ paths served straight from the deploy.
 #
-# ACTIVATION (do ONLY after R2 is uploaded AND PUBLIC_IMG_BASE is set, else content images 404):
-#   cp _internal/assetsignore.for-cutover astro/public/.assetsignore
-#   git add astro/public/.assetsignore && commit && push   # next Cloudflare build deploys under the limit
-#
-# File counts: total dist ≈ 22,400 (over limit). Excluding hotels(7,693)+cm(3,216)+food(80)+gallery(1)
-# leaves ≈ 11,400 static files (html + heroes/cities + non-image public) → under 20,000. ✓
+# File count: 22,627 total − hotels(7,693) − cm(3,216) − food(102) − gallery(1) ≈ 11,615 static files → well
+# under Cloudflare's 20,000 limit, with ~8k headroom for growth. New content images just need to be in R2
+# (see _internal/upload-r2*.{mjs,sh}); they never count against the bundle limit again.
 images/hotels/
 images/cm/
 images/food/

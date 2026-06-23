@@ -65,7 +65,11 @@ const PFX = () => LOC === 'en' ? '/en/' : '/';    // home href for current local
 const ALT = slug => LOC === 'en' ? '/'+slug+'.html' : '/en/'+slug+'.html'; // other-locale URL of this page
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-const imgUrl = s => !s ? '' : (/^(https?:|\/)/.test(s) ? s : '/'+s);
+// Hub content images (cm/ + hotels/) are served from R2 — same bucket the layouts use — because those dirs are
+// excluded from the Cloudflare static bundle (.assetsignore) to stay under the 20k-file limit. heroes/ + cities/
+// stay in the bundle, so heroSrc / neighbor cards keep plain /images/ paths. Override via PUBLIC_IMG_BASE env.
+const IMG_BASE = process.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
+const imgUrl = s => !s ? '' : (/^https?:/.test(s) ? s : IMG_BASE + (s.startsWith('/') ? s : '/'+s));
 const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 
 // ── content indexes ──
@@ -175,6 +179,39 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .dcard{background:#fff;border:1px solid rgba(6,182,212,.08);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:block}
 .dcard:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(6,182,212,.28)}
 .dphoto{height:160px;position:relative;background:linear-gradient(150deg,#06B6D4,#22d3ee 55%,#FBBF24)}.dphoto>img{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s}.dcard:hover .dphoto>img{transform:scale(1.07)}
+/* neighbourhood photo-cards (reference-style: emoji + name + descriptor overlaid on the photo) */
+.hccg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media(max-width:880px){.hccg{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.hccg{grid-template-columns:1fr}}
+.hcc{position:relative;display:block;border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(150deg,#0891b2,#22d3ee 55%,#FB7185);box-shadow:0 6px 20px rgba(8,40,60,.10)}
+.hcc>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.hcc:hover>img{transform:scale(1.08)}
+.hcc::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,20,30,.82),rgba(4,20,30,.12) 54%,rgba(4,20,30,0))}
+.hcc-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:13px 14px;color:#fff}
+.hcc-e{font-size:18px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.45))}
+.hcc-cap b{display:block;margin-top:5px;font-size:16px;font-weight:800;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.hcc-cap i{display:block;margin-top:3px;font-size:12px;font-style:normal;font-weight:600;opacity:.93;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.hccmore{margin-top:16px}
+.hccmore>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#0891b2;background:#ecfeff;border:1.5px solid #a5f0fb;border-radius:999px;padding:10px 22px;transition:background .2s}
+.hccmore>summary::-webkit-details-marker{display:none}
+.hccmore>summary:hover{background:#d6f7fd}
+.hccmore[open]>summary{margin-bottom:16px}
+/* per-area neighbourhood hub: quick-answer box + compact hotel list */
+.quickbox{background:#f1fbfd;border:1px solid #cdeef5;border-left:4px solid #06B6D4;border-radius:14px;padding:14px 18px;font-size:15px;line-height:1.6;color:#0f172a;margin-top:6px}
+.quickbox b{color:#0891b2}
+.hl-list{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.hl-row{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid #e6eef2;border-radius:16px;padding:16px 18px;box-shadow:0 4px 14px rgba(8,40,60,.05)}
+.hl-rank{flex:none;width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#0891b2,#22d3ee);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hl-main{flex:1;min-width:0}
+.hl-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.hl-top h3{font-size:17px;font-weight:800;color:#0f172a}
+.hl-star{color:#f59e0b;font-size:13px;letter-spacing:1px}
+.hl-bf{font-size:12.5px;font-weight:700;color:#0891b2;margin-top:2px}
+.hl-main>p{font-size:14px;line-height:1.55;color:#475569;margin-top:5px}
+.hl-side{flex:none;text-align:right;display:flex;flex-direction:column;gap:7px;align-items:flex-end}
+.hl-price{font-weight:800;color:#0f172a;font-size:16px;white-space:nowrap}.hl-price small{display:block;font-size:11px;color:#94a3b8;font-weight:600}
+.hl-book{background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-weight:800;font-size:12.5px;padding:8px 13px;border-radius:10px;white-space:nowrap}
+@media(max-width:560px){.hl-row{flex-wrap:wrap}.hl-side{flex-direction:row;width:100%;justify-content:space-between;align-items:center;text-align:left;margin-top:4px}.hl-price small{display:inline}}
 .dbody{padding:15px 17px 17px}.dbody h3{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:17px;line-height:1.3}.dbody .go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:800;color:var(--bl);margin-top:10px;display:inline-block}.dcard:hover .dbody .go{color:var(--or-dk)}
 /* HIGHLIGHT / FOOD / INFO / NEIGHBOR */
 .hl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:8px}@media(max-width:760px){.hl{grid-template-columns:1fr}}
@@ -330,16 +367,70 @@ ${navHtml(slug)}
 ${body}
 ${footerHtml()}
 ${commonJs()}${extraJS||''}
+<script src="/js/currency.js" defer></script>
 </body></html>`;
 }
 
 function crumb(parts){
   return `<div class="crumb">`+parts.map((p,i)=> i<parts.length-1 ? `<a href="${p.href}">${esc(p.t)}</a> › ` : `<span>${esc(p.t)}</span>`).join('')+`</div>`;
 }
-function artCards(cluster, types){
-  const list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+function artCards(cluster, types, excludeRe){
+  let list=(ARTS[cluster]||[]).filter(a=>types.includes(a.type));
+  if(excludeRe) list=list.filter(a=>!excludeRe.test(a.slug));
   if(!list.length) return '';
   return `<div class="dgrid">`+list.map(a=>`<a class="dcard" href="${a.slug}.html"><div class="dphoto">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(stripTags(a.title))}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="dbody"><h3>${esc(stripTags(a.title))}</h3><span class="go">${tx('อ่านบทความ →','Read article →')}</span></div></a>`).join('')+`</div>`;
+}
+// Curated Bangkok neighbourhood cards: [order, emoji, nameTH, nameEN, captionTH, captionEN].
+// Order sets the display sequence; the first 12 show on the hub, the rest behind a "see all" toggle.
+const HOOD_CARDS = {
+  'where-to-stay-bangkok-sukhumvit':[1,'🍸','สุขุมวิท','Sukhumvit','อโศก-นานา · ไนต์ไลฟ์ · BTS-MRT','Asok–Nana · nightlife · BTS-MRT'],
+  'where-to-stay-bangkok-silom-sathorn':[2,'🌆','สีลม-สาทร','Silom–Sathorn','ย่านธุรกิจ · รูฟท็อปบาร์','CBD · rooftop bars'],
+  'where-to-stay-bangkok-khao-san':[3,'🎒','ข้าวสาร-เมืองเก่า','Khao San–Old City','สายแบกเป้ · วัด·วัง','Backpacker · temples & palace'],
+  'where-to-stay-bangkok-riverside':[4,'⛵','ริมเจ้าพระยา','Riverside','วิวแม่น้ำ · โรงแรมหรู','River views · grand hotels'],
+  'where-to-stay-bangkok-chinatown':[5,'🏮','เยาวราช','Chinatown (Yaowarat)','สตรีทฟู้ดในตำนาน','Legendary street food'],
+  'where-to-stay-bangkok-siam-pratunam':[6,'🛍️','สยาม-ประตูน้ำ','Siam–Pratunam','ใจกลางช้อปปิ้ง · BTS','Shopping core · BTS hub'],
+  'where-to-stay-bangkok-thong-lo':[7,'☕','ทองหล่อ-เอกมัย','Thonglo–Ekkamai','คาเฟ่ฮิป · นั่งชิล','Hip cafés · trendy'],
+  'where-to-stay-bangkok-ari':[8,'🌿','อารีย์','Ari','คาเฟ่ · ชิล · โลคอลคูล','Cafés · chill · local cool'],
+  'where-to-stay-bangkok-mochit-chatuchak':[9,'🛒','หมอชิต-จตุจักร','Mo Chit–Chatuchak','ตลาดนัดสุดสัปดาห์','Weekend market'],
+  'where-to-stay-bangkok-ratchada':[10,'🌃','รัชดา-ห้วยขวาง','Ratchada','ตลาดกลางคืน · MRT','Night markets · MRT'],
+  'where-to-stay-bangkok-phrom-phong':[11,'🍱','พร้อมพงษ์','Phrom Phong','เอ็มดิสทริค · ญี่ปุ่น · หรู','EmDistrict · Japanese · upscale'],
+  'where-to-stay-bangkok-charoen-krung':[12,'🎨','เจริญกรุง-ตลาดน้อย','Charoen Krung','ครีเอทีฟ · ริมน้ำ','Creative · riverside'],
+  'where-to-stay-bangkok-on-nut':[13,'🏙️','อ่อนนุช-พระโขนง','On Nut–Phra Khanong','โลคอลคูล · คอนโด · BTS','Local cool · condos · BTS'],
+  'where-to-stay-bangkok-chidlom':[14,'💎','ชิดลม-ราชประสงค์','Chidlom–Ratchaprasong','ห้างหรู · ใจกลางเมือง','Luxury malls · central'],
+  'where-to-stay-bangkok-samyan':[15,'🎓','สามย่าน-จุฬา','Sam Yan–Chula','วัยเรียน · คุ้ม · MRT','Student · value · MRT'],
+  'where-to-stay-bangkok-victory-monument':[16,'🍜','อนุสาวรีย์ชัยฯ','Victory Monument','ก๋วยเตี๋ยวเรือ · ฮับรถ','Boat noodles · transit hub'],
+  'where-to-stay-bangkok-rama9':[17,'🏢','พระราม 9-รัชดา','Rama 9','CBD ใหม่ · ออฟฟิศ','New CBD · business'],
+  'where-to-stay-bangkok-ladprao':[18,'🍲','ลาดพร้าว','Lat Phrao','ของกินโลคอล · MRT','Local eats · MRT'],
+  'where-to-stay-bangkok-central-ladprao':[19,'🏬','เซ็นทรัลลาดพร้าว','Central Ladprao','ห้าแยกลาดพร้าว · ห้าง · BTS','Mall hub · BTS'],
+  'where-to-stay-bangkok-kaset':[20,'🎓','เกษตร-นวมินทร์','Kaset','ม.เกษตร · คุ้ม · โลคอล','University · value'],
+  'where-to-stay-bangkok-ramkhamhaeng':[21,'🏟️','รามคำแหง-หัวหมาก','Ramkhamhaeng','ม.รามฯ · สเตเดียม','Campus · stadium'],
+  'where-to-stay-bangkok-bangna':[22,'🌳','บางนา','Bang Na','BITEC · เอ็กซ์โป · ห้าง','BITEC · expo · malls'],
+  'where-to-stay-bangkok-pinklao':[23,'🛶','ปิ่นเกล้า-ฝั่งธน','Pinklao','ฝั่งธนฯ · ใกล้เมืองเก่า','Thonburi · near Old City'],
+  'where-to-stay-bangkok-chaeng-watthana':[24,'🏛️','แจ้งวัฒนะ-หลักสี่','Chaeng Watthana','ศูนย์ราชการ · MICE','Govt complex · MICE'],
+  'where-to-stay-bangkok-bang-khen':[25,'🚉','วัดพระศรีฯ-บางเขน','Bang Khen','ปลายสายสีเขียว · มหา\'ลัย','North Green-line · campuses'],
+  'where-to-stay-bangkok-ratchathewi':[26,'🚉','ราชเทวี-พญาไท','Ratchathewi–Phaya Thai','ติด ARL · ใกล้สยาม','Near Airport Link & Siam'],
+  'where-to-stay-bangkok-ploenchit':[27,'🌳','เพลินจิต-หลังสวน','Phloen Chit','สถานทูต · ใกล้สวนลุม','Embassies · near Lumpini'],
+  'where-to-stay-bangkok-bang-sue':[28,'🚄','บางซื่อ-ประดิพัทธ์','Bang Sue','สถานีกลาง · ฮับรถไฟ','Central Station · rail hub'],
+  'where-to-stay-bangkok-srinakarin':[29,'🦐','ศรีนครินทร์-สวนหลวง','Srinakarin','ซีคอน · ของกิน · ตะวันออก','Seacon · food · east'],
+  'where-to-stay-bangkok-bangkapi':[30,'🛍️','บางกะปิ','Bangkapi','เดอะมอลล์ · ฝั่งตะวันออก','The Mall · east BKK'],
+  'where-to-stay-bangkok-talat-phlu':[31,'🍢','ตลาดพลู-วงเวียนใหญ่','Talat Phlu','สตรีทฟู้ดฝั่งธน · BTS','Thonburi street food · BTS'],
+};
+// per-area "where to stay" guides → reference-style photo grid (emoji + name + descriptor overlaid on the photo),
+// ordered by HOOD_CARDS, first 12 visible + the rest behind a <details> "see all" toggle. Image = article heroImg (R2).
+function hoodGuides(cluster){
+  const pre=`where-to-stay-${cluster}-`;
+  let list=(ARTS[cluster]||[]).filter(a=>a.slug.startsWith(pre));
+  if(!list.length) return '';
+  const en=LOC==='en';
+  const meta=(a)=>{ const c=HOOD_CARDS[a.slug]; if(c) return {o:c[0],e:c[1],nm:en?c[3]:c[2],cap:en?c[5]:c[4]};
+    const t=stripTags(String(a.title).replace(/<br\s*\/?>/gi,' ')).replace(/^(พักย่าน|Where to Stay in)\s*/i,'').trim();
+    return {o:99,e:'📍',nm:t,cap:''}; };
+  const rows=list.map(a=>({a,m:meta(a)})).sort((x,y)=>x.m.o-y.m.o||x.a.slug.localeCompare(y.a.slug));
+  const card=({a,m})=>{const href=cluster==='bangkok'?a.slug.replace(/^where-to-stay-/,'area-')+'.html':`${a.slug}.html`;return `<a class="hcc" href="${href}">${a.heroImg?`<img src="${a.heroImg}" alt="${esc(m.nm)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="hcc-cap"><span class="hcc-e">${m.e}</span><b>${esc(m.nm)}</b>${m.cap?`<i>${esc(m.cap)}</i>`:''}</span></a>`;};
+  const N=12, head=rows.slice(0,N).map(card).join(''), rest=rows.slice(N);
+  let out=`<div class="hccg">${head}</div>`;
+  if(rest.length) out+=`<details class="hccmore"><summary>${tx(`ดูย่านทั้งหมด (${rows.length}) →`,`See all ${rows.length} areas →`)}</summary><div class="hccg">${rest.map(card).join('')}</div></details>`;
+  return out;
 }
 function hotelCards(slug){
   const list=(REVS[slug]||[]).slice().sort((a,b)=>b.score-a.score);
@@ -371,11 +462,17 @@ function provinceHub(slug, th, r, d){
   const nbrs=(d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${NAME(n)}${arrow}</a>`).join('');
   const tipsArt=arts.find(a=>/travel-tips$/.test(a.slug)), moveArt=arts.find(a=>/getting-around$/.test(a.slug));
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
-  const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  const _bc={"@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},
     {"@type":"ListItem","position":2,"name":tx('ประเทศไทย','Thailand'),"item":J('country-thailand')},
     {"@type":"ListItem","position":3,"name":RNAME(r),"item":J(`region-${R.slug}`)},
     {"@type":"ListItem","position":4,"name":nm,"item":J(`city-${slug}`)}]};
+  // Place schema (entity for AI answer-engines + Google knowledge graph) — derived from existing data, nothing fabricated.
+  const _place={"@type":"Place","@id":J(`city-${slug}`)+"#place","name":nm,"description":stripTags(tagline),
+    ...(heroSrc?{"image":"https://thailandaddict.com"+heroSrc}:{}),
+    "address":{"@type":"PostalAddress","addressRegion":nm,"addressCountry":"TH"},
+    "url":J(`city-${slug}`),"isPartOf":{"@type":"Place","name":RNAME(r)}};
+  const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
   // stats
   const avg = (REVS[slug]||[]).length ? ((REVS[slug].reduce((s,h)=>s+(h.score||0),0))/(REVS[slug].length)).toFixed(1) : '–';
   const prices = (REVS[slug]||[]).map(h=>{const m=String(h.price).match(/[\d,]+/);return m?+m[0].replace(/,/g,''):0;}).filter(Boolean);
@@ -411,6 +508,7 @@ ${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเ�
 <div class="updatepill"><span>${tx(`📅 อัปเดต 2026 · เรียบเรียงโดยทีม ThailandAddict · ${cStay} รีวิวจริง · ไม่มีโฆษณาแฝง`,`📅 Updated 2026 · curated by the ThailandAddict team · ${cStay} real reviews · no hidden ads`)}</span></div>
 <div class="section"><div class="introgrid"><div><div class="slbl">${tx(`ทำไมต้องไป${th}`,`Why visit ${nm}`)}</div><h2>${tx(`เที่ยว${th} <em>ให้ครบในที่เดียว</em>`,`${nm} <em>— all in one place</em>`)}</h2><p class="ssub">${esc(intro.slice(0,280))}</p><a class="introbtn" href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div><div class="icards">${introCards}</div></div></div>
 ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks</div><h2>${tx('แนะนำที่เที่ยว<em>ที่น่าสนใจ</em>','Standout <em>things to do</em>')}</h2><p>${tx(`ประสบการณ์เด่นของ${th} — มาทริปแรกห้ามพลาด`,`The best of ${nm} — don't miss these on a first trip`)}</p></div><div class="ep-grid">${ep}</div></div>`:''}
+${hoodGuides(slug)?`<div class="section"><div class="sh"><div class="slbl">🏘️ ${tx('พักย่านไหน','Where to stay by area')}</div><h2>${tx(`ย่านน่าพักใน<em>${th}</em>`,`<em>${nm}</em> <em>by neighborhood</em>`)}</h2><p>${tx('แต่ละย่านมีหน้าโรงแรมแนะนำแยกเฉพาะ — เลือกย่านที่ใช่ แล้วดูที่พักจริงในย่านนั้น','Each area has its own hotel guide — pick the area that fits, then see real stays there')}</p></div>${hoodGuides(slug)}</div>`:''}
 <div class="section" style="padding-bottom:0"><div class="sh"><div class="slbl">${tx('บทความที่เราเขียน','Our articles')}</div><h2>${tx('เลือกอ่าน<em>สิ่งที่คุณสนใจ</em>','Read <em>what interests you</em>')}</h2><p>${tx('เลือกแท็บเพื่อดูที่พัก ที่เที่ยว ที่กิน แผนเที่ยว และการเตรียมตัว','Pick a tab for stays, sights, food, itineraries and prep')}</p></div></div>
 <div class="tabwrap"><div class="tabbar">
   ${tab('stay','🏨',tx('ที่พัก','Stays'),cStay)}${tab('see','📍',tx('ที่เที่ยว','See'),cSee)}${tab('eat','🍜',tx('ที่กิน','Eat'),cEat)}${tab('plan','🗺️',tx('แผนเที่ยว','Plan'),cPlan)}${tab('prep','🎒',tx('เตรียมตัว','Prep'),0)}
@@ -427,7 +525,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks<
 <section class="panel" id="p-plan"><h2 class="pnhead">${tx(`แผน<em>เที่ยว ${th}</em>`,`<em>${nm}</em> itineraries`)}</h2><p class="pintro">${tx('แผนเที่ยวคัดมาให้ ตั้งแต่ไปเช้าเย็นกลับ 2-3 วัน ถึงแผนข้ามจังหวัดข้างเคียง','Ready-made plans — from a day trip to 2–3 days, plus routes to neighbouring provinces')}</p>${artCards(slug,['itinerary'])||`<p class="pintro">${tx('แผนเที่ยวกำลังจัดทำ','Itineraries coming soon')}</p>`}${nbrs?`<h2 class="pnhead">${tx('เที่ยวต่อ<em>จังหวัดข้างเคียง</em>','Continue to <em>nearby provinces</em>')}</h2><div class="ncards">${nbrs}</div>`:''}</section>
 <section class="panel" id="p-prep"><h2 class="pnhead">${tx(`เตรียมตัว<em>เที่ยว ${th}</em>`,`Planning <em>your ${nm} trip</em>`)}</h2><p class="pintro">${tx(`ช่วงเวลาที่เหมาะ การเดินทาง และสิ่งที่ควรรู้ก่อนไป${th}`,`Best time to go, getting around, and what to know before visiting ${nm}`)}</p>
   <div class="eeat"><div class="ecard"><div class="ic">🗓️</div><h3>${tx('ช่วงเวลาแนะนำ','Best time')}</h3><p>${esc(best)}</p></div><div class="ecard"><div class="ic">🚗</div><h3>${tx('การเดินทาง','Getting around')}</h3><p>${moveArt?tx(`อ่านวิธีเดินทางใน${th}แบบละเอียด · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">เปิดคู่มือ →</a>`,`A detailed guide to getting around ${nm} · <a href="${moveArt.slug}.html" style="color:var(--bl-dk);font-weight:700">Open guide →</a>`):tx(`วิธีไป${th}และเดินทางในจังหวัด`,`How to reach ${nm} and get around`)}</p></div><div class="ecard"><div class="ic">📍</div><h3>${tx('ภาค','Region')}</h3><p>${RNAME(r)} · <a href="region-${R.slug}.html" style="color:var(--bl-dk);font-weight:700">${tx(`เที่ยว${R.th} →`,`Explore ${RNAME(r)} →`)}</a></p></div><div class="ecard"><div class="ic">🎒</div><h3>${tx('เตรียมตัว','Prep')}</h3><p>${tipsArt?tx(`เช็กลิสต์เตรียมตัว · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">อ่านทิป →</a>`,`A prep checklist · <a href="${tipsArt.slug}.html" style="color:var(--bl-dk);font-weight:700">Read tips →</a>`):tx(`สิ่งที่ควรเตรียมไป${th}`,`What to pack for ${nm}`)}</p></div></div>
-  ${artCards(slug,['prep','guide'])?`<h2 class="pnhead">${tx('คู่มือ<em>เตรียมตัว</em>','Prep <em>guides</em>')}</h2>${artCards(slug,['prep','guide'])}`:''}</section>
+  ${artCards(slug,['prep','guide'],/^where-to-stay-/)?`<h2 class="pnhead">${tx('คู่มือ<em>เตรียมตัว</em>','Prep <em>guides</em>')}</h2>${artCards(slug,['prep','guide'],/^where-to-stay-/)}`:''}</section>
 </div>
 ${hoods?`<div class="section"><div class="sh"><div class="slbl">${tx('ไฮไลต์ยอดนิยม','Top highlights')}</div><h2>${tx(`ที่ต้องไปให้ครบใน<em>${th}</em>`,`Don't-miss spots in <em>${nm}</em>`)}</h2></div><div class="hoodgrid">${hoods}</div></div>`:''}
 <div class="section"><div class="sh"><div class="slbl">${tx('🔎 ค้นหาเอง','🔎 Search yourself')}</div><h2>${tx('ไม่เห็นที่ใช่? <em>ค้นเองได้ทั้ง 3 เว็บ</em>','Nothing quite right? <em>Search all 3 sites</em>')}</h2><p>${tx(`เทียบราคาที่พัก${th}เองทั้ง Agoda · Booking · Trip.com`,`Compare ${nm} stays yourself across Agoda · Booking · Trip.com`)}</p></div>${aff}</div>
@@ -438,6 +536,61 @@ ${nbCards?`<div class="section"><div class="sh"><div class="slbl">${tx('📍 เ
   return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS,image:heroSrc});
 }
 
+// ── per-ย่าน standalone hub: a city-hub-style page scoped to one Bangkok neighbourhood ──
+// Stay tab = the researched hotels (Agoda search per hotel) + link to the full where-to-stay guide;
+// Eat/See tabs are placeholders ready to fill with per-area food/attraction content later.
+const HOODDATA = path.join(ROOT, '_internal/neighborhood-data');
+const HOODEXTRA = path.join(ROOT, '_internal/hood-extra');  // researched highlights[] + food[] per ย่าน
+function bkkHoodList(){ try{ return fs.readdirSync(HOODDATA).filter(f=>/^bangkok__.+\.json$/.test(f)).map(f=>f.slice('bangkok__'.length,-5)); }catch{ return []; } }
+function hoodHub(hood){
+  const wts=`where-to-stay-bangkok-${hood}`;
+  let d; try{ d=JSON.parse(fs.readFileSync(path.join(HOODDATA,`bangkok__${hood}.json`),'utf8')); }catch{ return null; }
+  const en=LOC==='en';
+  const c=HOOD_CARDS[wts]||[99,'📍',d.hoodTh||hood,d.hoodEn||hood,'',''];
+  const nm=(en?c[3]:c[2])||d.hoodEn||d.hoodTh||hood, cap=(en?c[5]:c[4])||'', emoji=c[1]||'📍';
+  const art=(ARTS['bangkok']||[]).find(a=>a.slug===wts);
+  const heroSrc=(art&&art.heroImg)||imgUrl('/images/heroes/bangkok.jpg');
+  const intro=(en?d.introEn:d.introTh)||'', quick=(en?d.quickEn:d.quickTh)||'';
+  const hotels=Array.isArray(d.hotels)?d.hotels:[];
+  let ex={}; try{ ex=JSON.parse(fs.readFileSync(path.join(HOODEXTRA,`bangkok__${hood}.json`),'utf8')); }catch{}
+  const highlights=Array.isArray(ex.highlights)?ex.highlights:[], foods=Array.isArray(ex.food)?ex.food:[];
+  const prices=hotels.map(h=>{const m=String(h.priceFromTHB||'').match(/[\d,]+/);return m?+m[0].replace(/,/g,''):0;}).filter(Boolean);
+  const minP=prices.length?'฿'+Math.min(...prices).toLocaleString():'–';
+  const agoda=(name)=>`https://www.agoda.com/search?cid=1965862&q=${encodeURIComponent(name+' Bangkok')}`;
+  const J=p=>`https://thailandaddict.com/${en?'en/':''}${p}`;
+  const _bc={"@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},
+    {"@type":"ListItem","position":2,"name":tx('ประเทศไทย','Thailand'),"item":J('country-thailand')},
+    {"@type":"ListItem","position":3,"name":tx('กรุงเทพมหานคร','Bangkok'),"item":J('city-bangkok')},
+    {"@type":"ListItem","position":4,"name":nm,"item":J(`area-bangkok-${hood}`)}]};
+  const _place={"@type":"Place","@id":J(`area-bangkok-${hood}`)+"#place","name":`${nm}, Bangkok`,"description":stripTags(intro||cap),
+    ...(heroSrc?{"image":/^https?:/.test(heroSrc)?heroSrc:'https://thailandaddict.com'+heroSrc}:{}),
+    "address":{"@type":"PostalAddress","addressLocality":"Bangkok","addressCountry":"TH"},
+    "url":J(`area-bangkok-${hood}`),"isPartOf":{"@type":"Place","name":tx('กรุงเทพมหานคร','Bangkok')}};
+  const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
+  const stars=(n)=>'★'.repeat(Math.max(0,Math.min(5,Math.round(+n||0))));
+  const hotelList=hotels.map((h,i)=>{const bf=en?h.bestForEn:h.bestForTh, why=(en?h.whyEn:h.whyTh)||'';
+    return `<div class="hl-row"><div class="hl-rank">${i+1}</div><div class="hl-main"><div class="hl-top"><h3>${esc(h.name)}</h3><span class="hl-star">${stars(h.star)}</span></div>${bf?`<div class="hl-bf">${esc(bf)}</div>`:''}<p>${esc(why)}</p></div><div class="hl-side">${h.priceFromTHB?`<div class="hl-price"><small>${tx('เริ่มต้น','from')}</small>฿${esc(String(h.priceFromTHB))}</div>`:''}<a class="hl-book" href="${agoda(h.name)}" target="_blank" rel="sponsored nofollow noopener">${tx('เช็คราคา →','Check price →')}</a></div></div>`;}).join('');
+  const tab=(id,emo,label,count,active)=>`<div class="tab${active?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
+  const qa=quick?stripTags(quick).replace(/^[^:：]*[:：]\s*/,''):'';
+  const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('กรุงเทพฯ','Bangkok'),href:'city-bangkok.html'},{t:nm}])}
+<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(nm)}" loading="eager" onerror="this.style.opacity=0">`:''}
+  <div class="pherobody"><span class="pheye">${emoji} ${tx('ย่านในกรุงเทพฯ','A Bangkok neighbourhood')}</span><h1>${tx(`พักย่าน<em>${nm}</em>`,`Stay in <em>${nm}</em>`)}</h1><p class="phlead">${esc(cap||intro.slice(0,120))}</p>
+  <div class="phchips"><span class="phchip">🏨 ${hotels.length} ${tx('ที่พัก','stays')}</span><span class="phchip">⭐ ${highlights.length} ${tx('ไฮไลท์','highlights')}</span><span class="phchip">🍜 ${foods.length} ${tx('ของกินเด่น','eats')}</span></div></div>
+</div>
+<div class="cstats"><div class="cstat"><div class="n">${hotels.length}</div><div class="l">${tx('ที่พักแนะนำ','stays')}</div></div><div class="cstat"><div class="n">${highlights.length}</div><div class="l">${tx('ไฮไลท์','highlights')}</div></div><div class="cstat"><div class="n">${foods.length}</div><div class="l">${tx('ของกินเด่น','signature eats')}</div></div><div class="cstat"><div class="n">${minP}</div><div class="l">${tx('เริ่มต้น/คืน','from /night')}</div></div></div>
+${qa?`<div class="section" style="padding-bottom:0"><div class="quickbox"><b>${tx('สั้น ๆ','In short')}:</b> ${esc(qa)}</div></div>`:''}
+${intro?`<div class="section" style="padding-bottom:6px"><p class="pintro" style="max-width:800px">${esc(intro)}</p></div>`:''}
+${highlights.length?`<div class="section"><div class="sh"><div class="slbl">⭐ ${tx('ไฮไลท์ห้ามพลาด','Must-see highlights')}</div><h2>${tx(`ห้ามพลาดใน<em>ย่าน${nm}</em>`,`Top spots in <em>${nm}</em>`)}</h2><p>${tx('ที่เที่ยว แลนด์มาร์ก และจุดเด่นที่ต้องไปให้ได้ในย่านนี้','The sights, landmarks and spots that define this area')}</p></div><div class="hoodgrid">${highlights.map((h,i)=>`<div class="hood hg${i%6}"><h4>${esc(en?h.nameEn:h.nameTh)}</h4><p>${esc(en?h.blurbEn:h.blurbTh)}</p></div>`).join('')}</div></div>`:''}
+${foods.length?`<div class="section" style="padding-top:0"><div class="sh"><div class="slbl">🍜 ${tx('ของกินเด่น','Signature food')}</div><h2>${tx(`กินอะไรดี<em>ย่าน${nm}</em>`,`What to eat in <em>${nm}</em>`)}</h2><p>${tx('ร้านเด็ดและของกินที่ย่านนี้ขึ้นชื่อ','The dishes and spots this area is known for')}</p></div><div class="foodgrid">${foods.map(f=>`<div class="fc"><h4>${esc(en?f.nameEn:f.nameTh)}</h4><p>${esc(en?f.noteEn:f.noteTh)}</p></div>`).join('')}</div></div>`:''}
+<div class="section" style="padding-top:0"><div class="sh"><div class="slbl">🏨 ${tx('ที่พัก','Where to stay')}</div><h2>${tx(`โรงแรมแนะนำ<em>ย่าน${nm}</em>`,`Recommended stays in <em>${nm}</em>`)}</h2><p>${tx('คัดที่พักจริงทุกงบ พร้อมเช็คราคา','Real stays for every budget, with live prices')}</p></div>
+<div class="callout"><div><h3>${tx(`คู่มือที่พักย่าน${nm} ฉบับเต็ม`,`Full ${nm} hotel guide`)}</h3><p>${tx('รีวิวแยกรายโรงแรม เทียบราคา และ FAQ','Per-hotel detail, price comparison and FAQ')}</p></div><a href="${wts}.html">${tx('อ่านฉบับเต็ม →','Read the full guide →')}</a></div>
+<div class="hl-list">${hotelList}</div></div>
+<div class="section" style="padding-top:0"><div class="sh"><div class="slbl">🔎 ${tx('ค้นเอง','Search yourself')}</div><h2>${tx(`เทียบราคาที่พัก<em>ย่าน${nm}</em>`,`Compare <em>${nm}</em> stays`)}</h2><p>${tx('เทียบ 3 เว็บจองดังก่อนตัดสินใจ','Compare the 3 big booking sites before you decide')}</p></div><div class="affgrid"><div class="affcard"><div class="an"><span class="adot" style="background:#ff5a1f"></span>Agoda</div><p>${tx('คนไทยใช้เยอะ · จ่ายเงินบาทได้','Popular in Thailand · pay in THB')}</p><a href="${agoda(nm)}" target="_blank" rel="sponsored nofollow noopener">${tx('ค้นบน Agoda →','Search Agoda →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#003580"></span>Booking.com</div><p>${tx('ห้องเยอะ · ยกเลิกได้บ่อย','Huge inventory · free cancel')}</p><a href="https://www.booking.com/searchresults.html?ss=${encodeURIComponent(nm+' Bangkok')}" target="_blank" rel="nofollow noopener">${tx('ค้นบน Booking →','Search Booking →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#2577e3"></span>Trip.com</div><p>${tx('ราคาดีในเอเชีย · ดีลบ่อย','Great Asia rates · frequent deals')}</p><a href="https://www.trip.com/?Allianceid=6861268&SID=312919111" target="_blank" rel="sponsored nofollow noopener">${tx('ค้นบน Trip →','Search Trip →')}</a></div></div></div>
+<div class="section"><div class="sh"><div class="slbl">🏘️ ${tx('ย่านอื่น','More areas')}</div><h2>${tx('เลือก<em>ย่านอื่นในกรุงเทพ</em>','Explore <em>other Bangkok areas</em>')}</h2><p>${tx('กรุงเทพมีให้เลือกพักหลายย่าน แต่ละย่านคนละสไตล์','Bangkok has many areas to stay — each a different vibe')}</p></div><a class="introbtn" href="city-bangkok.html">${tx('ดูย่านทั้งหมดในกรุงเทพ →','See all Bangkok areas →')}</a></div>
+<div class="cta-sec"><div class="ctaband"><h2>${tx(`จองที่พักย่าน${nm}`,`Book a stay in ${nm}`)}</h2><p>${tx('เทียบราคาที่พักในย่านนี้ก่อนจอง','Compare stays in this area before you book')}</p><a href="${wts}.html">${tx('ดูที่พักแนะนำ →','See recommended stays →')}</a></div></div>`;
+  return page({title:tx(`พักย่าน${nm} กรุงเทพฯ — ที่พัก·ของกินเด่น·ไฮไลท์ห้ามพลาด | ThailandAddict`,`${nm}, Bangkok — Where to Stay, Eat & Top Highlights | ThailandAddict`),desc:tx(`ย่าน${nm} กรุงเทพฯ: คัด ${hotels.length} ที่พักทุกงบ + ของกินเด่น ${foods.length} อย่าง + ไฮไลท์ห้ามพลาด ${highlights.length} จุด`,`${nm}, Bangkok — ${hotels.length} hotels for every budget, ${foods.length} signature eats and ${highlights.length} must-see highlights.`),slug:`area-bangkok-${hood}`,jsonld,body,image:heroSrc});
+}
 function provCard(s,th,em,tg){
   const img=fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:(fs.existsSync(path.join(PUB,'images/cities',s+'.jpg'))?`/images/cities/${s}.jpg`:'');
   return `<a class="dcard" href="city-${s}.html"><div class="dphoto">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p style="font-size:13px;color:var(--sub);margin-top:3px">${esc(tg)}</p><span class="go">${tx('เที่ยว'+th+' →','Explore '+th+' →')}</span></div></a>`;
@@ -617,12 +770,13 @@ function genAll(loc, outDir){
   let nP=0,nMiss=[];
   for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
   let nD=0;for(const [slug,th,r] of DESTINATIONS){const d=readData(slug);if(!d){nMiss.push(slug);continue;}fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d));nD++;}
+  let nH=0;for(const hood of bkkHoodList()){const html=hoodHub(hood);if(html){fs.writeFileSync(path.join(outDir,`area-bangkok-${hood}.html`),html);nH++;}}
   let nR=0;for(const r of Object.keys(REGION)){fs.writeFileSync(path.join(outDir,`region-${REGION[r].slug}.html`),regionPage(r));nR++;}
   fs.writeFileSync(path.join(outDir,'country-thailand.html'),countryHub());
   fs.writeFileSync(path.join(outDir,'destinations.html'),destinationsHub());
   fs.writeFileSync(path.join(outDir,'plan-your-trip.html'),planHub());
   fs.writeFileSync(path.join(outDir,'search.html'),searchPage());
-  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} regions:${nR} country:1 destinations-page:1 plan:1 search:1`);
+  console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · provinces:${nP} destinations:${nD}/${DESTINATIONS.length} area-hubs:${nH} regions:${nR} country:1 destinations-page:1 plan:1 search:1`);
   if(nMiss.length) console.log(`   [${loc}] missing data (fallback): ${nMiss.length} → ${nMiss.join(',')}`);
 }
 // which locales to build: args, default both

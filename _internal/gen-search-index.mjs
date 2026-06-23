@@ -63,6 +63,10 @@ function buildForLocale(loc) {
       entries.push([disp, f, 'city', loc === 'en' ? 'Province / city' : 'จังหวัด/เมือง']);
     } else if (name.startsWith('region-')) {
       const r = name.slice(7); const rn = REGION_NAME[r]; if (rn) entries.push([rn[loc], f, 'city', loc === 'en' ? 'Region' : 'ภาค']);
+    } else if (name.startsWith('area-')) {                        // per-ย่าน hub (area-<city>-<hood>)
+      const html = fs.readFileSync(path.join(htmlDir, f), 'utf8');
+      const t = detitle((html.match(/<title>([^<]+)<\/title>/) || [])[1] || name.replace(/-/g, ' '));
+      entries.push([t, f, 'stay', loc === 'en' ? 'Bangkok neighbourhood' : 'ย่านกรุงเทพ']);
     } else if (FIXED_HUB[name]) {
       entries.push([FIXED_HUB[name][loc], f, 'city', loc === 'en' ? 'Guide' : 'คู่มือ']);
     }
