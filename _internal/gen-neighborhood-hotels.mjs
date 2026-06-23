@@ -58,6 +58,8 @@ const HERO = {
   'bangkok-srinakarin': '/images/cm/bangkok-seafood.jpg',
   'bangkok-bangkapi': '/images/hotels/bangkok-abloom-1.jpg',
   'bangkok-talat-phlu': '/images/cm/bangkok-khao-gaeng.jpg',
+  'bangkok-sai-tai': '/images/cm/bangkok-floating-markets.jpg',
+  'bangkok-saphan-taksin': '/images/cm/chao-phraya-river-guide.jpg',
 };
 const heroFor = (r) => {
   const m = HERO[`${r.city}-${r.hood}`];
