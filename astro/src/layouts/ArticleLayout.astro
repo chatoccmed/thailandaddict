@@ -288,7 +288,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 /* sticky must be on the grid ITEM (.rrail), whose grid area spans the full article height,
    so it stays pinned while you scroll. (On an inner div it only sticks for its own height.) */
 /* no internal scrollbar — whole rail is sticky and follows the page (kept compact to fit the viewport) */
-.rrail{min-width:0;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}.rrail::-webkit-scrollbar{width:5px}.rrail::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:9px}
+.rrail{min-width:0;position:sticky;top:112px;align-self:start;max-height:calc(100vh - 128px);overflow-y:auto;scrollbar-width:thin}.rrail::-webkit-scrollbar{width:5px}.rrail::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:9px}
 .rrail-in{display:flex;flex-direction:column;gap:9px}
 .rrail-h{font-family:'Outfit';font-weight:800;font-size:13.5px;color:var(--ink);padding:2px 2px 8px;border-bottom:2px solid var(--bdr)}
 .rrail-card{display:flex;background:#fff;border:1px solid var(--bdr);border-radius:14px;overflow:hidden;transition:.15s}
@@ -554,7 +554,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="บันทึกร้านนี้เข้าทริป"><span class="rs-ico">♡</span> <span class="rs-label">เก็บไว้ในทริป</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เพิ่มร้านนี้ในแผนการเดินทาง"><span class="rs-ico">♡</span> <span class="rs-label">เพิ่มไว้ในแผนการเดินทาง</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
@@ -760,7 +760,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '♥' : '♡'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในทริปแล้ว' : 'เก็บไว้ในทริป'; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '♥' : '♡'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในแผนแล้ว' : 'เพิ่มไว้ในแผนการเดินทาง'; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
@@ -836,5 +836,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <script is:inline>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
 </script>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
+<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
 </body>
 </html>

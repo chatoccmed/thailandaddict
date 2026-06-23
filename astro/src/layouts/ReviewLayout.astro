@@ -51,7 +51,7 @@ const S = {
     bcHome: 'หน้าแรก', bcTaiwan: 'ไทย',
     heroMore: '+ ดูภาพทั้งหมด',
     qiType: 'ประเภท', qiScore: 'คะแนนรีวิว', qiPrice: 'ราคาเริ่มต้น', qiRooms: 'ห้องพัก',
-    qiBook: 'จองเลย →', qiWish: '♡ บันทึก',
+    qiBook: 'จองเลย →', qiWish: '♡ เพิ่มไว้ในแผนการเดินทาง', qiWishSaved: '♥ อยู่ในแผนแล้ว',
     secReview: 'Review · รีวิว',
     updateChip: '📅 อัปเดตล่าสุด พฤษภาคม 2026 · ตรวจสอบราคาและข้อมูลแล้ว',
     bylineName: 'รีวิวโดย ทีมบรรณาธิการ ThailandAddict', bylineBadge: '✓ ตรวจสอบข้อมูลแล้ว',
@@ -86,7 +86,7 @@ const S = {
     bcHome: 'Home', bcTaiwan: 'Thailand',
     heroMore: '+ View all photos',
     qiType: 'Type', qiScore: 'Review Score', qiPrice: 'From', qiRooms: 'Rooms',
-    qiBook: 'Book now →', qiWish: '♡ Save',
+    qiBook: 'Book now →', qiWish: '♡ Add to trip plan', qiWishSaved: '♥ In your trip',
     secReview: 'Review',
     updateChip: '📅 Last updated May 2026 · Prices &amp; info verified',
     bylineName: 'Reviewed by the ThailandAddict Editorial Team', bylineBadge: '✓ Fact-checked',
@@ -395,7 +395,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </div>
     <div class="qi">
       <a href="#book" class="btn-book">{S.qiBook}</a>
-      <button class="btn-wish" data-slug={data.slug} data-name={data.name} data-img={asset(data.heroImg)} data-url={url} data-word={S.qiWish.replace(/^\S+\s/, '')}>{S.qiWish}</button>
+      <button class="btn-wish" data-slug={data.slug} data-name={data.name} data-img={asset(data.heroImg)} data-url={url} data-type="stay" data-city={data.cluster} data-province={data.crumbCityName} data-word={S.qiWish.replace(/^\S+\s/, '')} data-saved={S.qiWishSaved}>{S.qiWish}</button>
     </div>
   </div>
 </div>
@@ -762,15 +762,18 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   if(!btn)return;
   function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
   function has(){return get().some(function(x){return x.slug===btn.dataset.slug})}
-  function render(){var s=has();btn.classList.toggle('saved',s);btn.innerHTML=(s?'♥ ':'♡ ')+btn.dataset.word}
+  function render(){var s=has();btn.classList.toggle('saved',s);btn.innerHTML=s?btn.dataset.saved:('♡ '+btn.dataset.word)}
   render();
   btn.addEventListener('click',function(){
     var l=get();
     if(has()){l=l.filter(function(x){return x.slug!==btn.dataset.slug})}
-    else{l.push({slug:btn.dataset.slug,name:btn.dataset.name,img:btn.dataset.img,url:btn.dataset.url})}
+    else{l.push({slug:btn.dataset.slug,name:btn.dataset.name,img:btn.dataset.img,url:btn.dataset.url,type:btn.dataset.type||'stay',city:btn.dataset.city||'',province:btn.dataset.province||''})}
     localStorage.setItem(KEY,JSON.stringify(l)); render();
   });
 })();
 </script>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
+<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
 </body>
 </html>

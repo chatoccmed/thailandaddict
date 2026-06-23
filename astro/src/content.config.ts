@@ -101,6 +101,11 @@ const reviewSchema = z.object({
   // When present, ReviewLayout renders a FAQ accordion + FAQPage JSON-LD for SEO.
   faqTitle: z.string().optional(),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+  // Place data-layer (additive · optional · back-compat) — controlled-vocab tags + geo for the AI Trip Planner
+  // (interest/audience/practical matching + logistics). Vocabulary: _internal/PLACE-TAGS-SPEC.md. Content team: add when known.
+  tags: z.array(z.string()).optional(),
+  lat: z.number().optional(),
+  lng: z.number().optional(),
 });
 
 // Shared schema for roundup ("Top N" list) JSON files.
@@ -309,6 +314,11 @@ const articleSchema = z.object({
   // AEO direct-answer box (40-60 words) rendered near the top — additive · back-compat.
   quickAnswerHtml: z.string().optional(),
   quickAnswerH2: z.string().optional(),
+  // Place data-layer (additive · optional · back-compat) — controlled-vocab tags + geo for the AI Trip Planner
+  // (interest/audience/practical matching + logistics). Vocabulary: _internal/PLACE-TAGS-SPEC.md. Content team: add when known.
+  tags: z.array(z.string()).optional(),
+  lat: z.number().optional(),
+  lng: z.number().optional(),
 });
 
 const articles = defineCollection({

@@ -723,5 +723,8 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 })();
 </script>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
+<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
 </body>
 </html>

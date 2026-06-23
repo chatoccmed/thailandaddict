@@ -1,9 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "thailandaddict",
+  "main": "worker.js",
   "compatibility_date": "2026-05-16",
   "assets": {
     "directory": "./astro/dist",
-    "not_found_handling": "404-page"
-  }
+    "not_found_handling": "404-page",
+    "binding": "ASSETS"
+  },
+  "ai": { "binding": "AI" },
+  "kv_namespaces": [{ "binding": "TRIPS", "id": "fc95757f7ce54294a1b9af14f8f69c2f" }]
 }
