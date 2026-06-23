@@ -38,6 +38,12 @@ $env:CLOUDFLARE_ACCOUNT_ID = $ACCOUNT_ID
 $env:WRANGLER_SEND_METRICS = 'false'
 
 if (-not $SkipBuild) {
+  # CRITICAL: clear the Astro content-layer cache + dist first. A stale .astro/data-store.json makes the
+  # glob() content loader silently SKIP newly-added reviews/roundups, so the build emits a PARTIAL dist and
+  # the new pages 404 on production (this — not OOM — is the real "partial dist" cause). build-test.sh never
+  # hit it because it builds in a fresh repo copy with no cache. Always nuke the cache before a prod build.
+  Write-Host "› Clearing stale Astro cache + dist (prevents partial-dist 404s)…" -ForegroundColor Cyan
+  Remove-Item -Recurse -Force "$repo\astro\.astro", "$repo\astro\node_modules\.astro", "$repo\astro\dist" -ErrorAction SilentlyContinue
   Write-Host "› Building full dist (astro)…" -ForegroundColor Cyan
   Set-Location "$repo\astro"
   & npm.cmd run build
