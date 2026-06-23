@@ -60,6 +60,59 @@
 - **เฟส 3:** รพ.เอกชน/รัฐ ที่เหลือ + ย่าน ○ ตาม demand
 - **รวม: ทำแล้ว 31 ย่าน · เหลือ ~2 ย่าน + ~40 overlay · ศักยภาพเต็ม ~80-90 หน้า**
 
+## ✅ STATUS (2026-06-23 #3) — Layer A ครบ 33 + หน้าย่านเป็น "หน้าเมืองย่อย" เต็มรูป
+- **Layer A = 33 ย่าน (ครบ)** — +2 ใหม่: `sai-tai` (สายใต้ใหม่-ตลิ่งชัน) · `saphan-taksin` (สะพานตากสิน-สาทร). commit 5989ba1b
+- **`hoodHub()` ทำใหม่ให้ mirror หน้าเมือง (provinceHub) เต็ม:** hero+chips · cstats · updatepill · intro + **4 icards** · **⭐ Editor's Picks (การ์ดเรียงเลข top-6, ช่องรูปพร้อม-รูปตามมา)** · **5 แท็บ** ที่พัก/ที่เที่ยว/ที่กิน/แผนเที่ยว/เดินทาง (เติมตามข้อมูล · ที่ยังไม่มีขึ้น "เร็ว ๆ นี้") · 🔎 เทียบ 3 เว็บ · ย่านอื่น · CTA. ข้อมูลย่าน = `neighborhood-data` (hotels) + `hood-extra` (highlights/food). EN zero-Thai 33/33.
+- บทเรียน: โรงแรมชื่อไทย → ต้อง romanize ใน field `name` (มันใช้ทั้ง TH+EN) ไม่งั้น gen บล็อก EN-leak. · **deploy: push auto-deploy ปิดแล้ว** (CI build ออกไม่ครบหน้า) → live ด้วย `npx wrangler deploy` จาก dist เต็มในเครื่องเท่านั้น (ดู memory deploy-pipeline)
+
+---
+
+## 🏥 เฟส 1 — BUILD SPEC (พร้อมสั่งงานเซสชั่นใหม่) — 14 overlay "hotels-near-___"
+**เป้า:** 14 หน้า `hotels-near-<anchor>` (TH+EN) — โรงแรมจริงใกล้ "จุดหมาย" ที่ search intent = proximity (≠ ย่าน) · ROI สูงสุด medical tourism + MICE + airport
+
+**14 anchor (slug · ชื่อ · โซน · กลุ่ม):**
+| # | slug | จุดหมาย | โซน | กลุ่ม |
+|---|---|---|---|---|
+| 1 | `hotels-near-bumrungrad` | รพ.บำรุงราษฎร์ / Bumrungrad International | นานา-อโศก | 🌍🔥 |
+| 2 | `hotels-near-bangkok-hospital` | รพ.กรุงเทพ (BDMS) / Bangkok Hospital | เพชรบุรีตัดใหม่-อโศก | 🌍🔥 |
+| 3 | `hotels-near-medpark` | รพ.เมดพาร์ค / MedPark Hospital | พระราม4-คลองเตย | 🌍🔥 |
+| 4 | `hotels-near-samitivej-sukhumvit` | รพ.สมิติเวช สุขุมวิท / Samitivej Sukhumvit | สุขุมวิท 49 (พร้อมพงษ์) | 🌍 |
+| 5 | `hotels-near-bnh` | รพ. BNH / BNH Hospital | สีลม-สาทร | 🌍 |
+| 6 | `hotels-near-vejthani` | รพ.เวชธานี / Vejthani Hospital | บางกะปิ-ลาดพร้าว | 🌍 |
+| 7 | `hotels-near-siriraj` | รพ.ศิริราช / Siriraj Hospital | วังหลัง ฝั่งธน | 🇹🇭🌍🔥 |
+| 8 | `hotels-near-chulalongkorn-hospital` | รพ.จุฬาฯ / King Chulalongkorn Memorial | ปทุมวัน-สามย่าน | 🇹🇭🔥 |
+| 9 | `hotels-near-ramathibodi` | รพ.รามาธิบดี / Ramathibodi Hospital | พญาไท-พระราม6 | 🇹🇭🔥 |
+| 10 | `hotels-near-qsncc` | ศูนย์ฯ สิริกิติ์ / Queen Sirikit NCC | คลองเตย (MRT) | 💼🎵🔥 |
+| 11 | `hotels-near-impact` | อิมแพ็ค เมืองทอง / IMPACT Muang Thong | ปากเกร็ด | 💼🎵🔥 |
+| 12 | `hotels-near-bitec` | ไบเทค บางนา / BITEC Bang Na | บางนา (BTS) | 💼🎵🔥 |
+| 13 | `hotels-near-suvarnabhumi` | สนามบินสุวรรณภูมิ / Suvarnabhumi (BKK) | ลาดกระบัง | ✈️🔥 |
+| 14 | `hotels-near-don-muang` | สนามบินดอนเมือง / Don Mueang (DMK) | ดอนเมือง | ✈️🔥 |
+
+**Data model** → `_internal/overlay-data/<slug>.json`:
+```
+{"slug":"hotels-near-bumrungrad","city":"bangkok","cityTh":"กรุงเทพ","cityEn":"Bangkok",
+ "anchorTh":"โรงพยาบาลบำรุงราษฎร์","anchorEn":"Bumrungrad International Hospital",
+ "zoneTh":"นานา-อโศก","zoneEn":"Nana–Asok","zoneSlug":"sukhumvit",   // ลิงก์ไป area-bangkok-<zoneSlug>
+ "quickTh":"<strong>คำตอบสั้น ๆ:</strong> …","quickEn":"<strong>Short answer:</strong> …",
+ "introTh":"…","introEn":"…",
+ "hotels":[{"name":"Real Hotel","star":4,"priceFromTHB":"2,500",
+   "distTh":"เดิน 5 นาที (400 ม.)","distEn":"5-min walk (400 m)",   // ระยะถึง anchor จริง
+   "bestForTh":"…","bestForEn":"…","whyTh":"…","whyEn":"…"}],   // 6-8 โรงแรมจริง ใกล้ anchor จริง
+ "faq":[{"qTh","aTh","qEn","aEn"}×3]}
+```
+
+**Engine:** ทำ `_internal/gen-overlay.mjs` (ก๊อป `gen-neighborhood-hotels.mjs` มาปรับ) → อ่าน `overlay-data/*.json` → เขียนบทความ slug `hotels-near-<anchor>` (`type:'prep'`, `cluster:'bangkok'`) ด้วย `ranked` block + per-hotel Agoda search (cid=1965862, sponsored nofollow) + **โชว์ระยะถึง anchor (distTh/En) ในแต่ละการ์ด** + staycta → area-bangkok-<zoneSlug> + where-to-stay-bangkok-<zoneSlug>. เก็บ guard EN-zero-Thai + TH/EN alignment เหมือนเดิม.
+
+**Research recipe:** 1 general-purpose Agent ต่อ 1 anchor → WebSearch หาโรงแรมจริง 6-8 แห่งที่อยู่ใกล้ anchor จริง (ระบุระยะ/เวลาเดิน-รถจริง) + quick/intro/faq → เขียน strict JSON ลง `overlay-data/<slug>.json` · **ห้ามแต่งโรงแรม/ระยะทาง** (verify Agoda/Booking + Google Maps proximity) · EN ห้ามมีไทย (฿ ได้) · ห้ามคำ AI.
+
+**Surfacing:** cluster=bangkok → ขึ้น Prep tab city-bangkok อัตโนมัติ (artCards) · เพิ่ม section "🏥 โรงแรมใกล้โรงพยาบาล/แลนด์มาร์ก" ใน gen-hubs (คล้าย hoodGuides — auto-list `hotels-near-*`) · cross-link จาก area hub โซนนั้น.
+
+**Gate ต่อ batch:** `bash _internal/build-test.sh` (BUILD OK) → `node _internal/audit-jsonld.mjs` 0 → `node _internal/audit-freshness.mjs --links` 0 → สแกน EN zero-Thai = 0 → `git fetch && git rebase origin/main` → push. **อย่าแตะไฟล์ parallel eat-ranking** (`top10-popular-restaurants-*`, `_internal/cc-food-*`).
+
+**⚠️ Deploy:** push **ไม่** auto-deploy แล้ว → หลัง push ให้เจ้าของรัน `cd astro && npm run build && cd .. && npx wrangler deploy` จากเครื่อง (dist เต็ม) ถึงจะขึ้นเว็บจริง.
+
+**อ่านก่อนเริ่ม:** ไฟล์นี้ + memory `deploy-pipeline` · `image-serving-r2-architecture` · `quality-phase-done` · ดู `gen-neighborhood-hotels.mjs` (engine ต้นแบบ) + `_internal/neighborhood-data/bangkok__sukhumvit.json` (รูปแบบ data).
+
 ---
 
 ## หลักการ (LOCKED)
