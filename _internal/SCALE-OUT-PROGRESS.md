@@ -27,8 +27,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-silom-sathorn — Mahanakhon SkyWalk, Lumpini, Asiatique, Sky Bar, Wat Khaek...
 - Notes: 6 new hotel reviews + 4 reuse. Cafes Workflow hung once at Plan phase → killed+relaunched (transient API stall). 3 real Wikimedia-CC attraction photos (Lumpini Park, M.R. Kukrit's home, Silom cityscape hero).
 
+### 3. Thong Lo–Ekkamai — 2026-06-25 (LIVE, TH+EN)
+- 🏨 https://thailandaddict.com/top10-hotels-thong-lo-bangkok — 10 hotels (Nikko/Grande Centre Point/MUU/137 Pillars/Wyndham42 + reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-thong-lo-bangkok — 5 value 2-3★ (La Petite Salil/THA City Loft/PlayHaus/63 Ekamai/S33)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-thong-lo — Wattana Panich, Sabai Jai, Supanniga, Thong Smith, After You...
+- ☕ https://thailandaddict.com/top10-popular-cafes-thong-lo — Roots, Roast, Phil, Kurasu, Bartels, PACAMARA...
+- 📸 https://thailandaddict.com/top10-attractions-thong-lo — theCOMMONS, Donki, Wat That Thong, Gateway Ekamai, Dog in Town...
+- Notes: 11 new hotel reviews + 3 reuse. Swapped CLOSED Ink&Lion→Bartels (cafes rank5). 2 Wikimedia-CC photos (Thong Lo cityscape hero, Sukhumvit street food). LESSON: `npx astro sync` now needs `NODE_OPTIONS=--max-old-space-size=8192` (collection grew past default heap).
+
 ## ⏳ In progress
-### 3. Thong Lo–Ekkamai — starting 2026-06-25
+### 4. Ari (อารีย์) — starting 2026-06-25
 
 ## 📋 Queue (30 more, popular-first)
 ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
