@@ -4,7 +4,7 @@
 import fs from 'fs';
 const CITY = process.argv[2];
 if (!CITY) { console.error('need <city-slug>'); process.exit(1); }
-const ART = `astro/src/content/articles/top10-popular-restaurants-${CITY}.json`;
+const ART = `astro/src/content/articles/${process.argv[3] || ('top10-popular-restaurants-' + CITY)}.json`;
 const RDIR = 'astro/src/content/roundups/';
 const BAN = ['ตอบโจทย์', 'โดดเด่น', 'ครบครัน', 'ระดับโลก', 'สุดยอด', 'อันซีน', 'ไม่ได้ไปกิน', 'ไม่ได้ไปนั่ง', 'ไม่เดาให้'];
 const errs = [], warns = [];

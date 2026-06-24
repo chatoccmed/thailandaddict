@@ -11,7 +11,7 @@ import { matchFoodImage } from './lib-match.mjs';
 
 const CITY = process.argv[2];
 if (!CITY) { console.error('need <city-slug>'); process.exit(1); }
-const P = `astro/src/content/articles/top10-popular-restaurants-${CITY}.json`;
+const P = `astro/src/content/articles/${process.argv[3] || ('top10-popular-restaurants-' + CITY)}.json`;
 if (!fs.existsSync(P)) { console.error('NO article:', P); process.exit(2); }
 const a = JSON.parse(fs.readFileSync(P, 'utf8'));
 
