@@ -19,12 +19,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-sukhumvit
 - Notes: passed 3 owner-feedback rounds (discreet name · real attraction images · value-hotel reframe). Established all reusable engines + the value-hotel standard.
 
+### 2. Silom–Sathorn — 2026-06-25 (LIVE, TH+EN)
+- 🏨 https://thailandaddict.com/top10-hotels-silom-sathorn-bangkok — 10 hotels (Sukhothai/COMO/Eastin Grand/Crowne Plaza/Pullman/W + reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-silom-sathorn-bangkok — 5 value 2-3★ (ibis Styles/ibis Sathorn/Lub d/Le Siam/The Inn)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-silom-sathorn — Eat Me, Le Du, Prachak duck, Somtum Der, Baan Phadthai...
+- ☕ https://thailandaddict.com/top10-popular-cafes-silom-sathorn — Rocket, Roots, La Cabra, Luka, Pacamara...
+- 📸 https://thailandaddict.com/top10-attractions-silom-sathorn — Mahanakhon SkyWalk, Lumpini, Asiatique, Sky Bar, Wat Khaek...
+- Notes: 6 new hotel reviews + 4 reuse. Cafes Workflow hung once at Plan phase → killed+relaunched (transient API stall). 3 real Wikimedia-CC attraction photos (Lumpini Park, M.R. Kukrit's home, Silom cityscape hero).
+
 ## ⏳ In progress
-### 2. Silom–Sathorn — started 2026-06-25
-- 🏨 hotels roundup BUILT (Sukhothai/COMO/Eastin Grand/W + 6 reuse) — not deployed
-- 💰 value roundup BUILT (ibis Styles/ibis Sathorn/Lub d/Le Siam/The Inn) — not deployed
-- 🍜 restaurants eat-ranking Workflow RUNNING
-- ☕ 📸 pending → then deploy whole ย่าน
+### 3. Thong Lo–Ekkamai — starting 2026-06-25
 
 ## 📋 Queue (30 more, popular-first)
 ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
