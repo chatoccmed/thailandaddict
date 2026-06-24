@@ -16,16 +16,39 @@
     "✅ <strong>รีวิวจริงทุกแห่ง</strong> คะแนนจาก Trip.com"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "กรุงเทพ", "href": "city-bangkok.html" },
-    { "name": "Top 10 โรงแรมสีลม-สาทร" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "กรุงเทพ",
+      "href": "city-bangkok.html"
+    },
+    {
+      "name": "Top 10 โรงแรมสีลม-สาทร"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "Bangkok", "item": "https://thailandaddict.com/city-bangkok" },
-    { "name": "Top 10 Hotels Silom Sathorn Bangkok", "item": "https://thailandaddict.com/top10-hotels-silom-sathorn-bangkok" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "Bangkok",
+      "item": "https://thailandaddict.com/city-bangkok"
+    },
+    {
+      "name": "Top 10 Hotels Silom Sathorn Bangkok",
+      "item": "https://thailandaddict.com/top10-hotels-silom-sathorn-bangkok"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-silom-sathorn-bangkok.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "ย่านสีลม–สาทรมีสถานีรถไฟหลายสถานีครอบคลุม — <strong>BTS ศาลาแดง</strong> (สาย Silom) ต่อสาย <strong>MRT สีลม</strong> ได้ที่สถานีเดียวกัน · <strong>BTS ชองนนศรี</strong> ติดสาทรเหนือ ใกล้ W Bangkok และ Pullman · <strong>BTS สุรศักดิ์</strong> ติด Eastin Grand ผ่านสกายบริดจ์ชั้น 3 ไม่ต้องเปียกฝน · <strong>MRT ลุมพินี</strong> ใกล้สุดสำหรับ The Sukhothai, COMO Metropolitan และ Crowne Plaza ที่อยู่ฝั่งสาทรใต้ติดสวนลุมพินี รถไฟฟ้า BTS เปิด 06:00–24:00 ค่าโดยสาร ฿16–44 ต่อเที่ยว MRT เปิดเวลาใกล้เคียงกัน",
   "secLabel": "ทั้ง 10 แห่ง — เรียงตามคะแนนรีวิว",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Eastin Grand Hotel Sathorn", "price": "฿3,200" },
-    { "n": "2", "color": "#06B6D4", "name": "W Bangkok", "price": "฿4,800" },
-    { "n": "3", "color": "#06B6D4", "name": "The Sukhothai Bangkok", "price": "฿8,500" },
-    { "n": "4", "color": "#06B6D4", "name": "COMO Metropolitan Bangkok", "price": "฿5,500" },
-    { "n": "5", "color": "#06B6D4", "name": "ibis Styles Bangkok Silom", "price": "฿1,500" },
-    { "n": "6", "color": "#06B6D4", "name": "Crowne Plaza Bangkok Lumpini Park", "price": "฿3,200" },
-    { "n": "7", "color": "#06B6D4", "name": "Triple Two Silom", "price": "฿2,500" },
-    { "n": "8", "color": "#06B6D4", "name": "Pullman Bangkok Hotel G", "price": "฿2,500" },
-    { "n": "9", "color": "#06B6D4", "name": "Urbana Sathorn Bangkok", "price": "฿1,800" },
-    { "n": "10", "color": "#06B6D4", "name": "Mirth Sathorn Hotel", "price": "฿900" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Eastin Grand Hotel Sathorn",
+      "price": "฿3,200"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "W Bangkok",
+      "price": "฿4,800"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Sukhothai Bangkok",
+      "price": "฿8,500"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "COMO Metropolitan Bangkok",
+      "price": "฿5,500"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "ibis Styles Bangkok Silom",
+      "price": "฿1,500"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Crowne Plaza Bangkok Lumpini Park",
+      "price": "฿3,200"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Triple Two Silom",
+      "price": "฿2,500"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "Pullman Bangkok Hotel G",
+      "price": "฿2,500"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Urbana Sathorn Bangkok",
+      "price": "฿1,800"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Mirth Sathorn Hotel",
+      "price": "฿900"
+    }
   ],
   "entries": [
     {
@@ -62,16 +135,33 @@
       "priceBig": "฿3,200",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Sky View", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Superior Sky Triple", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Mahanakhon View Room", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "Executive Lounge Access", "price": "เริ่ม ฿5,500/คืน" }
+        {
+          "type": "Superior Sky View",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Superior Sky Triple",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Mahanakhon View Room",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "Executive Lounge Access",
+          "price": "เริ่ม ฿5,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/eastin-grand-hotel-sathorn/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/eastin-grand-sathorn.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-996730/eastin-grand-hotel-sathorn/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-eastin-grand-sathorn-bangkok.html",
-      "tags": ["🌉 สกายบริดจ์ BTS สุรศักดิ์", "🏊 Infinity Pool ชั้น 14", "🏢 Executive Lounge ชั้น 32", "🌆 วิว MahaNakhon"],
+      "tags": [
+        "🌉 สกายบริดจ์ BTS สุรศักดิ์",
+        "🏊 Infinity Pool ชั้น 14",
+        "🏢 Executive Lounge ชั้น 32",
+        "🌆 วิว MahaNakhon"
+      ],
       "addr": "33/1 ถนนสาทรใต้, ยานนาวา, สาทร, กรุงเทพฯ",
       "storyHtml": "<strong>Eastin Grand Hotel Sathorn</strong> ได้อันดับ 1 ในรายการนี้ด้วยเหตุผลเดียวที่ฟังดูง่ายแต่หาได้ยาก — มี 7,993 รีวิวบน Trip.com ที่ได้คะแนน 9.3 ซึ่งไม่มีโรงแรมไหนในรายการนี้เทียบได้ทั้งคะแนนและปริมาณรีวิว จุดขายที่ทำให้รีวิวพูดถึงซ้ำๆ คือ <strong>สกายบริดจ์ชั้น 3 เชื่อมตรงถึง BTS สุรศักดิ์</strong> ไม่ต้องลงถนน ไม่เปียกฝน ไม่ต้องตากแดด — ระดับสะดวกที่ 5 ดาวในกรุงเทพฯ หลายแห่งยังไม่มี บวกกับ Infinity Pool ชั้น 14 และ Executive Lounge ชั้น 32 ที่ดูวิว MahaNakhon Tower ได้ชัดเจน ข้อจริงจากรีวิว: ห้อง Superior ขนาดประมาณ 34 ตร.ม. อาจรู้สึกไม่ใหญ่มากสำหรับ 5 ดาว และห้องบางห้องในฝั่งดั้งเดิมของอาคารยังตกแต่งเดิม — ถ้าต้องการห้องวิวชัดควรขอ Mahanakhon View หรือ Executive Lounge ตั้งแต่ตอนจอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สกายบริดจ์เปิดให้เดินได้ตลอด — เมื่อมาถึง BTS สุรศักดิ์ ให้ขึ้นมาชั้น 3 แล้วเดินตามป้ายเข้าโรงแรมได้เลย ไม่ต้องโทรเรียกรถหรือเดินบนทางเท้า",
@@ -103,16 +193,33 @@
       "priceBig": "฿4,800",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Wonderful Room King", "price": "เริ่ม ฿4,800/คืน" },
-        { "type": "Wonderful Twin", "price": "เริ่ม ฿5,200/คืน" },
-        { "type": "Studio Suite", "price": "เริ่ม ฿8,500/คืน" },
-        { "type": "Marvelous Suite", "price": "เริ่ม ฿14,000/คืน" }
+        {
+          "type": "Wonderful Room King",
+          "price": "เริ่ม ฿4,800/คืน"
+        },
+        {
+          "type": "Wonderful Twin",
+          "price": "เริ่ม ฿5,200/คืน"
+        },
+        {
+          "type": "Studio Suite",
+          "price": "เริ่ม ฿8,500/คืน"
+        },
+        {
+          "type": "Marvelous Suite",
+          "price": "เริ่ม ฿14,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/w-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/w-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-703149/w-bangkok-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-w-bangkok-sathorn-bangkok.html",
-      "tags": ["🎵 WooBar (DJ · พฤ–ส)", "🏊 WET Deck Pool 24 ชม.", "🏛️ The House on Sathorn", "🚆 3 นาที BTS ชองนนศรี"],
+      "tags": [
+        "🎵 WooBar (DJ · พฤ–ส)",
+        "🏊 WET Deck Pool 24 ชม.",
+        "🏛️ The House on Sathorn",
+        "🚆 3 นาที BTS ชองนนศรี"
+      ],
       "addr": "106 ถนนสาทรเหนือ, สีลม, บางรัก, กรุงเทพฯ",
       "storyHtml": "<strong>W Bangkok</strong> คือตัวแทนของ Silom–Sathorn ที่ดีที่สุดสำหรับคนมาเที่ยว — เดิน 3 นาทีถึง BTS ชองนนศรี คะแนน 9.3 จาก 1,549 รีวิว และมีของที่หาไม่ได้จากที่อื่นคือ <strong>WooBar บาร์ปาร์ตี้พร้อม DJ ทุกพฤหัส–เสาร์</strong> และ <strong>WET Deck สระว่ายน้ำเปิด 24 ชั่วโมง</strong> ด้านหลังโรงแรมเป็น The House on Sathorn คฤหาสน์อายุ 135 ปีที่ปรับเป็นพื้นที่อีเวนต์และร้านอาหาร ออกแบบภายในแบบ W signature กล้า มีสีสัน ไม่เหมือนโรงแรมทั่วไป ข้อจริงจากรีวิว: ช่วง WooBar เปิดจะมีเสียงดังในห้องที่หันหน้าไปทางบาร์ — ถ้าต้องการความเงียบควรขอห้องในฝั่งถนนหรือชั้นสูงๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> WET Deck เปิด 24 ชั่วโมง — ลงว่ายน้ำช่วงดึกหลัง WooBar ปิดยังได้ ถ้าวางแผนใช้สระช่วงเที่ยงวันให้ไปก่อน 11:00 น. จะได้ที่นอนริมสระก่อนเต็ม",
@@ -144,16 +251,33 @@
       "priceBig": "฿8,500",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿8,500/คืน" },
-        { "type": "Club Room", "price": "เริ่ม ฿12,000/คืน" },
-        { "type": "Club Balcony Room", "price": "เริ่ม ฿14,000/คืน" },
-        { "type": "Club Premier Suite", "price": "เริ่ม ฿22,000/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿8,500/คืน"
+        },
+        {
+          "type": "Club Room",
+          "price": "เริ่ม ฿12,000/คืน"
+        },
+        {
+          "type": "Club Balcony Room",
+          "price": "เริ่ม ฿14,000/คืน"
+        },
+        {
+          "type": "Club Premier Suite",
+          "price": "เริ่ม ฿22,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-sukhothai-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-sukhothai.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-996775/the-sukhothai-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-sukhothai-bangkok.html",
-      "tags": ["🌺 สวน 6 เอเคอร์ · บ่อดอกบัว", "🍽️ ร้าน Celadon (Fine Dining ไทย)", "🏊 สระว่ายน้ำ", "🎨 Thai-design Architecture"],
+      "tags": [
+        "🌺 สวน 6 เอเคอร์ · บ่อดอกบัว",
+        "🍽️ ร้าน Celadon (Fine Dining ไทย)",
+        "🏊 สระว่ายน้ำ",
+        "🎨 Thai-design Architecture"
+      ],
       "addr": "13/3 ถนนสาทรใต้, ทุ่งมหาเมฆ, สาทร, กรุงเทพฯ",
       "storyHtml": "<strong>The Sukhothai Bangkok</strong> ได้คะแนนสูงสุดในรายการนี้คือ 9.4 — แม้จะมีรีวิวน้อยกว่า Eastin Grand แต่ความเฉพาะตัวของที่นี่ทำให้อยู่อันดับ 3 ได้อย่างสมเหตุสมผล สิ่งที่หาไม่ได้จากโรงแรมอื่นในย่านนี้คือ <strong>สวนกว้าง 6 เอเคอร์พร้อมบ่อดอกบัวและสถาปัตยกรรมไทยจริงๆ</strong> ไม่ใช่ลวดลายไทยแบบผิวเผิน ร้าน Celadon เสิร์ฟอาหารไทยระดับ Fine Dining ที่รีวิวให้คะแนนอาหารสูงต่อเนื่อง ข้อจริง: ตั้งอยู่กลางสาทรใต้ซึ่งห่าง BTS/MRT เล็กน้อยกว่าที่อื่นในรายการ ควรใช้ Grab หรือรถของโรงแรมเมื่อต้องการเดินทาง และราคาเริ่ม ฿8,500 เป็นระดับลักชัวรีแท้จริง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Club Room ขึ้นไปมีสิทธิ์ใช้ Club Lounge — รวมอาหารเช้า ค็อกเทลเย็น และบริการเฉพาะส่วน คำนวณดูแล้วมักคุ้มกว่าซื้อมื้อเพิ่มแยกถ้าพักหลายคืน",
@@ -185,16 +309,33 @@
       "priceBig": "฿5,500",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Studio Room", "price": "เริ่ม ฿5,500/คืน" },
-        { "type": "Metropolitan Room", "price": "เริ่ม ฿7,500/คืน" },
-        { "type": "Metropolitan with Courtyard", "price": "เริ่ม ฿10,000/คืน" },
-        { "type": "Penthouse Duplex", "price": "เริ่ม ฿22,000/คืน" }
+        {
+          "type": "Studio Room",
+          "price": "เริ่ม ฿5,500/คืน"
+        },
+        {
+          "type": "Metropolitan Room",
+          "price": "เริ่ม ฿7,500/คืน"
+        },
+        {
+          "type": "Metropolitan with Courtyard",
+          "price": "เริ่ม ฿10,000/คืน"
+        },
+        {
+          "type": "Penthouse Duplex",
+          "price": "เริ่ม ฿22,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/como-metropolitan-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-metropolitan-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-996757/como-metropolitan-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-como-metropolitan-bangkok.html",
-      "tags": ["🌿 COMO Shambhala Spa", "🍽️ nahm (มิชลิน 8 ปี)", "🧘 Yoga ฟรีทุกเช้า", "🔄 รีโนเวต 2025"],
+      "tags": [
+        "🌿 COMO Shambhala Spa",
+        "🍽️ nahm (มิชลิน 8 ปี)",
+        "🧘 Yoga ฟรีทุกเช้า",
+        "🔄 รีโนเวต 2025"
+      ],
       "addr": "27 ถนนสาทรใต้, ทุ่งมหาเมฆ, สาทร, กรุงเทพฯ",
       "storyHtml": "<strong>COMO Metropolitan Bangkok</strong> คือตัวเลือกสำหรับคนที่มองหา Wellness Luxury กลาง CBD — คะแนน 9.4 เท่า Sukhothai แต่เพิ่งรีโนเวตใหม่ 2025 ทำให้ห้องพักดูสดใหม่กว่า จุดที่ทำให้ที่นี่พิเศษคือ <strong>COMO Shambhala Spa</strong> ที่ขึ้นชื่อระดับเอเชีย และ <strong>ร้าน nahm</strong> ที่เคยถือดาวมิชลินต่อเนื่อง 8 ปีก่อนปิดปรับปรุง นโยบาย <strong>Yoga ฟรีทุกเช้า</strong> สำหรับแขกทุกคนเป็นสิ่งที่ไม่ค่อยพบในโรงแรมระดับนี้ ข้อจริง: รีวิวน้อยกว่า Eastin Grand มาก (403 vs 7,993) ทำให้อยู่อันดับ 4 — และราคาเริ่มต้น ฿5,500 ควรตรวจสอบ nahm ว่าเปิดวันที่เข้าพักหรือเปล่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Yoga ฟรีเช้าทุกวัน ไม่ต้องจอง — แค่มาที่พื้นที่ Spa ก่อน 07:30 น. ถ้าสนใจ Spa Treatment ควรจองล่วงหน้าอย่างน้อย 1 วัน โดยเฉพาะช่วงวันหยุดและไฮซีซัน",
@@ -226,16 +367,33 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (18 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Premium Room (วิวดี/ระเบียง)", "price": "เริ่ม ฿2,300/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,900/คืน" }
+        {
+          "type": "Standard Room (18 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Premium Room (วิวดี/ระเบียง)",
+          "price": "เริ่ม ฿2,300/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ibis-styles-bangkok-silom/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ibis-styles-bangkok-silom.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-57352068/ibis-styles-bangkok-silom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ibis-styles-bangkok-silom-bangkok.html",
-      "tags": ["🏊 Rooftop Pool + Boho Bar", "🎨 Accor ibis Styles (เปิด 2020)", "💰 ราคาดี", "📍 ถนนสีลม"],
+      "tags": [
+        "🏊 Rooftop Pool + Boho Bar",
+        "🎨 Accor ibis Styles (เปิด 2020)",
+        "💰 ราคาดี",
+        "📍 ถนนสีลม"
+      ],
       "addr": "289 ถนนสีลม, สีลม, บางรัก, กรุงเทพฯ",
       "storyHtml": "<strong>ibis Styles Bangkok Silom</strong> อยู่อันดับ 5 แม้เป็น 3 ดาว เพราะ 2,387 รีวิวที่ได้ 9.2 คะแนนบน Trip.com พิสูจน์ว่าคนพักจริงๆ พอใจจริงๆ — ตามหลักการของบทความนี้ โรงแรม 3 ดาวที่มีรีวิวมากและคะแนนดีสามารถอยู่เหนือ 5 ดาวที่รีวิวน้อยกว่าได้ เปิดปี 2020 ห้องจึงยังใหม่สะอาด สไตล์ ibis Styles คือออกแบบสนุก มีสี ไม่ธรรมดา ไม่ใช่บล็อกกกเบื้องทั่วไป จุดเด่นสำคัญ: <strong>Boho Rooftop Bar + Pool ชั้นดาดฟ้า</strong> ที่เปิดให้แขกใช้ฟรี — หายากมากในราคา ฿1,500 ข้อจริง: Standard Room เล็ก ~18 ตร.ม. เหมาะพักคนเดียวหรือคู่รักที่ไม่ได้ต้องการห้องใหญ่ แต่ถ้าต้องการพื้นที่เพิ่มควรอัปเกรด Premium หรือ Family",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Premium Room มีวิวเมืองดีกว่าชัดเจนและบางห้องมีระเบียง — ราคาต่างจาก Standard ไม่มาก แนะนำอัปเกรดถ้างบเอื้ออำนวย Rooftop Bar วิวเมืองสวยที่สุดช่วง Golden Hour (17:00–18:30 น.)",
@@ -267,16 +425,33 @@
       "priceBig": "฿3,200",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Premium Lounge Room", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Junior Suite Lumpini View", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "Suite with Kitchenette", "price": "เริ่ม ฿7,500/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Premium Lounge Room",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Junior Suite Lumpini View",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "Suite with Kitchenette",
+          "price": "เริ่ม ฿7,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/crowne-plaza-bangkok-lumpini-park-an-ihg-hotel-h79021621/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/crowne-plaza-bangkok-lumpini-park.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1619469/crowne-plaza-bangkok-lumpini-park/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-crowne-plaza-lumpini-bangkok.html",
-      "tags": ["🌳 วิวสวนลุมพินี", "🏢 Club Lounge ชั้น 31", "🏨 IHG One Rewards", "🏠 243 ห้อง เริ่มชั้น 24"],
+      "tags": [
+        "🌳 วิวสวนลุมพินี",
+        "🏢 Club Lounge ชั้น 31",
+        "🏨 IHG One Rewards",
+        "🏠 243 ห้อง เริ่มชั้น 24"
+      ],
       "addr": "952 ถนนพระราม 4, สีลม, บางรัก, กรุงเทพฯ",
       "storyHtml": "<strong>Crowne Plaza Bangkok Lumpini Park</strong> คือตัวเลือก 5 ดาวสำหรับสาย IHG และคนที่ต้องการวิวสวนลุมพินีเป็นพิเศษ — ห้องพักเริ่มชั้น 24 ขึ้นไปทุกห้องได้วิวสูง บางห้องมองเห็นสวนลุมพินีเต็มๆ Club Lounge ชั้น 31 ให้วิวพาโนรามา IHG One Rewards สะสมคะแนนได้ทุกคืนพักสำหรับสมาชิก ที่ตั้งอยู่ถนนพระราม 4 ใกล้ทั้ง BTS ศาลาแดงและ MRT สีลม ข้อจริง: 497 รีวิวน้อยกว่า ibis Styles มาก (2,387) ในคะแนนเท่ากัน ทำให้ ibis Styles ได้อันดับ 5 ก่อน ส่วนราคาเริ่ม ฿3,200 ใกล้เคียง Eastin Grand แต่ปริมาณรีวิวน้อยกว่า 16 เท่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าเป็นสมาชิก IHG One Rewards ควรจองผ่าน ihg.com ตรงเพื่อรับคะแนน สมัครสมาชิกฟรีได้ก่อนจอง Junior Suite Lumpini View ราคาต่างจาก Standard ไม่มากแต่วิวต่างชัดเจน",
@@ -308,15 +483,29 @@
       "priceBig": "฿2,500",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room (45 ตร.ม.)", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Premier Room (45 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Junior Suite (60 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Deluxe Room (45 ตร.ม.)",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Premier Room (45 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Junior Suite (60 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/triple-two-silom-boutique-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/triple-two-silom.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-703127/triple-two-silom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-triple-two-silom-bangkok.html",
-      "tags": ["🛏️ ห้องใหญ่ 45–60 ตร.ม.", "🍳 อาหารเช้ารวม", "📍 ถนนสีลม กลางย่าน", "🏨 Narai Hospitality Boutique"],
+      "tags": [
+        "🛏️ ห้องใหญ่ 45–60 ตร.ม.",
+        "🍳 อาหารเช้ารวม",
+        "📍 ถนนสีลม กลางย่าน",
+        "🏨 Narai Hospitality Boutique"
+      ],
       "addr": "222 ถนนสีลม, สีลม, บางรัก, กรุงเทพฯ",
       "storyHtml": "<strong>Triple Two Silom</strong> คือ 4 ดาวบูติกที่อยู่บนถนนสีลมตรง ความพิเศษเฉพาะที่หาไม่ได้ในราคาเดียวกันในย่านนี้คือ <strong>ห้อง Deluxe เริ่มต้นกว้าง 45 ตร.ม.</strong> — ในขณะที่ 5 ดาวหลายแห่งเริ่มที่ 34 ตร.ม. ห้องที่นี่จึงรู้สึกกว้างขวางกว่ามากในราคา ฿2,500 อาหารเช้ารวมในราคา ทำให้ต้นทุนที่แท้จริงต่อคืนแข่งขันได้ดีกับ 5 ดาวบางแห่ง Narai Hospitality เป็นกลุ่มโรงแรมไทยที่มีประสบการณ์ยาว บริการสม่ำเสมอ ข้อจริง: 8.7 คะแนนต่ำกว่า ibis Styles ทำให้อยู่อันดับ 7 แม้ห้องจะใหญ่กว่า และ BTS/MRT เดินประมาณ 10 นาที ไม่ใกล้ที่สุด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อาหารเช้ารวมในราคาทุก rate — ตรวจสอบให้ชัดเจนว่า rate ที่เลือกรวมอาหารเช้าหรือเปล่าก่อนจอง ห้อง Junior Suite 60 ตร.ม. กว้างมากเหมาะพักแบบครอบครัวหรือคนที่ต้องการพื้นที่ทำงาน",
@@ -348,16 +537,33 @@
       "priceBig": "฿2,500",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "G Deluxe Room", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "G Club Room", "price": "เริ่ม ฿3,500/คืน" },
-        { "type": "Premium Deluxe Room", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "G Suite", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "G Deluxe Room",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "G Club Room",
+          "price": "เริ่ม ฿3,500/คืน"
+        },
+        {
+          "type": "Premium Deluxe Room",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "G Suite",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pullman-bangkok-hotel-g-h79060107/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pullman-bangkok-hotel-g.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1489251/pullman-bangkok-hotel-g/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pullman-hotel-g-bangkok.html",
-      "tags": ["🍸 Scarlett Bar ชั้น 37 (Michelin-listed)", "🏙️ 469 ห้อง 38 ชั้น", "🌃 เดินถึง Patpong", "📍 Accor Pullman"],
+      "tags": [
+        "🍸 Scarlett Bar ชั้น 37 (Michelin-listed)",
+        "🏙️ 469 ห้อง 38 ชั้น",
+        "🌃 เดินถึง Patpong",
+        "📍 Accor Pullman"
+      ],
       "addr": "188 ถนนสีลม, สีลม, บางรัก, กรุงเทพฯ",
       "storyHtml": "<strong>Pullman Bangkok Hotel G</strong> อยู่บนถนนสีลมตรง สำหรับคนที่ชอบ Patpong Bangkok ที่นี่เดินถึงได้ — โรงแรม 469 ห้อง 38 ชั้น ขนาดใหญ่ที่สุดในรายการนี้ จุดเด่นที่รีวิวพูดถึงบ่อยคือ <strong>Scarlett Bar ชั้น 37</strong> ที่เคยได้รับการ list ใน Michelin Guide — บาร์ชมวิวที่ดึงดูดทั้งแขกในโรงแรมและคนนอก คะแนน 8.2 ต่ำสุดในกลุ่ม 5 ดาวด้วยกัน ทำให้ได้อันดับ 8 ข้อจริงจากรีวิว: บางรีวิวกล่าวถึงเรื่องการบริการที่ไม่สม่ำเสมอเท่าช่วงเปิดใหม่ ห้องบางห้องอาจต้องการรีโนเวต และขนาดโรงแรมที่ใหญ่มากทำให้บรรยากาศน้อยกว่าบูติกในราคาใกล้เคียง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Scarlett Bar ชั้น 37 เปิดให้คนนอกเข้าได้ — ถ้าต้องการวิวสวยไม่ต้องพักที่นี่ก็ขึ้นบาร์ได้ แต่ถ้าพักแล้วสิทธิ์ก่อนนั่งดีกว่า G Club Room ขึ้นไปมีสิทธิ์ Club Lounge รวม Breakfast",
@@ -389,16 +595,33 @@
       "priceBig": "฿1,800",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "1BR Deluxe (72 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "1BR Executive", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "2BR Deluxe (142 ตร.ม.)", "price": "เริ่ม ฿3,500/คืน" },
-        { "type": "2BR Executive Pool View", "price": "เริ่ม ฿4,200/คืน" }
+        {
+          "type": "1BR Deluxe (72 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "1BR Executive",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "2BR Deluxe (142 ตร.ม.)",
+          "price": "เริ่ม ฿3,500/คืน"
+        },
+        {
+          "type": "2BR Executive Pool View",
+          "price": "เริ่ม ฿4,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/urbana-sathorn-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/urbana-sathorn.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-756545/urbana-sathorn-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-urbana-sathorn-bangkok.html",
-      "tags": ["🍳 ครัวเต็ม + เครื่องซักผ้า", "🏊 สระ 25 ม. + สนามสควอช", "🅿️ ที่จอดรถฟรี", "🏠 1–2 ห้องนอน"],
+      "tags": [
+        "🍳 ครัวเต็ม + เครื่องซักผ้า",
+        "🏊 สระ 25 ม. + สนามสควอช",
+        "🅿️ ที่จอดรถฟรี",
+        "🏠 1–2 ห้องนอน"
+      ],
       "addr": "55 ถนนสาทรใต้, ยานนาวา, สาทร, กรุงเทพฯ",
       "storyHtml": "<strong>Urbana Sathorn Bangkok</strong> ไม่ใช่โรงแรมทั่วไป — เป็นเซอร์วิสอพาร์ตเมนต์ที่มี <strong>ครัวเต็มพร้อมเครื่องซักผ้า สระ 25 เมตร สนามสควอช และที่จอดรถฟรี</strong> ห้อง 1 ห้องนอนเริ่มที่ 72 ตร.ม. คือพื้นที่ใหญ่กว่า Junior Suite ของหลาย 5 ดาวในราคา ฿1,800 เหมาะสำหรับครอบครัว คนพักระยะยาว หรือคนมาทำงาน ไม่ต้องการซักผ้าร้านนอก ข้อจริง: 8.3 คะแนนและ 473 รีวิวทำให้อยู่อันดับ 9 ทิ้งห่าง 5 ดาวหลายแห่ง และที่ตั้งสาทรใต้เดิน 10–12 นาทีถึงรถไฟ ควรใช้ Grab บ้างถ้าไม่มีรถ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> 2BR Deluxe 142 ตร.ม. แบ่งกัน 4 คน ค่าใช้จ่ายต่อหัวถูกมาก ที่จอดรถฟรีทำให้เหมาะสำหรับคนขับรถมาเองที่ไม่อยากจ่ายค่าจอดรายวันในสาทร",
@@ -430,16 +653,33 @@
       "priceBig": "฿900",
       "priceSub": "เริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Single", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Superior Double", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Double", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "Superior Single",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Superior Double",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Double",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mirth-sathorn-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mirth-sathorn.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-702193/mirth-sathorn-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mirth-sathorn-bangkok.html",
-      "tags": ["💸 เริ่ม ฿900", "🎨 ตกแต่งไทย (ไม้แกะสลัก, ผ้าไหม)", "🏥 2 นาที BNH Hospital", "🏨 20 ห้อง Boutique"],
+      "tags": [
+        "💸 เริ่ม ฿900",
+        "🎨 ตกแต่งไทย (ไม้แกะสลัก, ผ้าไหม)",
+        "🏥 2 นาที BNH Hospital",
+        "🏨 20 ห้อง Boutique"
+      ],
       "addr": "60/1-5 ซอยสาทร 4, ยานนาวา, สาทร, กรุงเทพฯ",
       "storyHtml": "<strong>Mirth Sathorn Hotel</strong> คือตัวเลือกประหยัดงบที่สุดในรายการนี้ — เริ่มเพียง ฿900 ต่อคืนในย่านสาทรที่โรงแรมส่วนใหญ่เริ่มที่ ฿1,500+ บูติกเล็กๆ 20 ห้อง ตกแต่งด้วยไม้แกะสลักและผ้าไหมไทย ให้บรรยากาศที่ต่างจาก ibis หรือ Accor โดยสิ้นเชิง จุดที่สำคัญสำหรับบางกลุ่มคืออยู่ใกล้ BNH Hospital เดิน 2 นาที — เหมาะสำหรับคนมารับการรักษาพยาบาลหรือผู้ดูแลที่ต้องพักใกล้ๆ ข้อจริง: 7.6 คะแนนต่ำที่สุดในรายการ และ 1,067 รีวิวสะท้อนการรับรู้ที่หลากหลาย — บางรีวิวพอใจในราคา บางรีวิวพบห้องเล็กและบริการธรรมดา ความคาดหวังต้องสอดคล้องกับราคา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เหมาะที่สุดสำหรับการพักสั้น 1–2 คืน งบจำกัด หรือต้องการอยู่ใกล้ BNH Hospital ถ้าวางแผนพักระยะยาวหรือต้องการห้องกว้าง ควรพิจารณา Urbana Sathorn แทน ราคาต่างกันไม่มากแต่พื้นที่ต่างกันมาก",
@@ -457,125 +697,123 @@
     }
   ],
   "compareTitle": "เปรียบทั้ง 10 โรงแรม — คะแนน ราคา ระยะ BTS/MRT",
-  "compareCols": ["อันดับ", "โรงแรม", "ดาว", "คะแนน", "จำนวนรีวิว", "ราคาเริ่ม", "ระยะ BTS/MRT", "จุดเด่น"],
+  "compareCols": [
+    "อันดับ",
+    "โรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคาเริ่ม",
+    "ระยะ BTS/MRT",
+    ""
+  ],
   "compareRows": [
     {
       "rank": "1",
+      "rankColor": "#06B6D4",
       "name": "Eastin Grand Hotel Sathorn",
-      "stars": "5★",
+      "type": "5★",
       "score": "9.3",
-      "reviews": "7,993",
       "price": "฿3,200",
-      "transit": "สกายบริดจ์ BTS สุรศักดิ์",
-      "highlight": "รีวิวมากที่สุด · สกายบริดจ์",
+      "access": "สกายบริดจ์ BTS สุรศักดิ์",
       "badge": "🏆 #1",
       "badgeStyle": "background:#06B6D4;color:#fff;padding:2px 8px;border-radius:999px;font-size:0.8em"
     },
     {
       "rank": "2",
+      "rankColor": "#06B6D4",
       "name": "W Bangkok",
-      "stars": "5★",
+      "type": "5★",
       "score": "9.3",
-      "reviews": "1,549",
       "price": "฿4,800",
-      "transit": "BTS ชองนนศรี ~3 นาที",
-      "highlight": "WooBar · WET Deck 24 ชม.",
+      "access": "BTS ชองนนศรี ~3 นาที",
       "badge": "",
       "badgeStyle": ""
     },
     {
       "rank": "3",
+      "rankColor": "#06B6D4",
       "name": "The Sukhothai Bangkok",
-      "stars": "5★",
+      "type": "5★",
       "score": "9.4",
-      "reviews": "562",
       "price": "฿8,500",
-      "transit": "MRT ลุมพินี ~12 นาที",
-      "highlight": "คะแนนสูงสุด · สวน 6 เอเคอร์",
+      "access": "MRT ลุมพินี ~12 นาที",
       "badge": "✨ คะแนนสูงสุด",
       "badgeStyle": "background:#FBBF24;color:#0F172A;padding:2px 8px;border-radius:999px;font-size:0.8em"
     },
     {
       "rank": "4",
+      "rankColor": "#06B6D4",
       "name": "COMO Metropolitan Bangkok",
-      "stars": "5★",
+      "type": "5★",
       "score": "9.4",
-      "reviews": "403",
       "price": "฿5,500",
-      "transit": "MRT ลุมพินี ~10 นาที",
-      "highlight": "COMO Shambhala Spa · nahm มิชลิน",
+      "access": "MRT ลุมพินี ~10 นาที",
       "badge": "",
       "badgeStyle": ""
     },
     {
       "rank": "5",
+      "rankColor": "#06B6D4",
       "name": "ibis Styles Bangkok Silom",
-      "stars": "3★",
+      "type": "3★",
       "score": "9.2",
-      "reviews": "2,387",
       "price": "฿1,500",
-      "transit": "BTS ศาลาแดง ~7 นาที",
-      "highlight": "คุ้มค่าสูงสุด · Rooftop Pool",
+      "access": "BTS ศาลาแดง ~7 นาที",
       "badge": "💰 คุ้มค่าสูงสุด",
       "badgeStyle": "background:#FB7185;color:#fff;padding:2px 8px;border-radius:999px;font-size:0.8em"
     },
     {
       "rank": "6",
+      "rankColor": "#06B6D4",
       "name": "Crowne Plaza Bangkok Lumpini Park",
-      "stars": "5★",
+      "type": "5★",
       "score": "9.2",
-      "reviews": "497",
       "price": "฿3,200",
-      "transit": "BTS ศาลาแดง ~5 นาที",
-      "highlight": "วิวสวนลุมพินี · IHG Rewards",
+      "access": "BTS ศาลาแดง ~5 นาที",
       "badge": "",
       "badgeStyle": ""
     },
     {
       "rank": "7",
+      "rankColor": "#06B6D4",
       "name": "Triple Two Silom",
-      "stars": "4★",
+      "type": "4★",
       "score": "8.7",
-      "reviews": "900",
       "price": "฿2,500",
-      "transit": "BTS ศาลาแดง ~10 นาที",
-      "highlight": "ห้องใหญ่ 45–60 ตร.ม. · อาหารเช้ารวม",
+      "access": "BTS ศาลาแดง ~10 นาที",
       "badge": "🛏️ ห้องใหญ่สุด",
       "badgeStyle": "background:#06B6D4;color:#fff;padding:2px 8px;border-radius:999px;font-size:0.8em"
     },
     {
       "rank": "8",
+      "rankColor": "#06B6D4",
       "name": "Pullman Bangkok Hotel G",
-      "stars": "5★",
+      "type": "5★",
       "score": "8.2",
-      "reviews": "824",
       "price": "฿2,500",
-      "transit": "BTS ชองนนศรี ~5 นาที",
-      "highlight": "Scarlett Bar ชั้น 37 · Patpong",
+      "access": "BTS ชองนนศรี ~5 นาที",
       "badge": "",
       "badgeStyle": ""
     },
     {
       "rank": "9",
+      "rankColor": "#06B6D4",
       "name": "Urbana Sathorn Bangkok",
-      "stars": "4★",
+      "type": "4★",
       "score": "8.3",
-      "reviews": "473",
       "price": "฿1,800",
-      "transit": "MRT ลุมพินี ~10 นาที",
-      "highlight": "ครัวเต็ม · เซอร์วิสอพาร์ตเมนต์ · Long Stay",
+      "access": "MRT ลุมพินี ~10 นาที",
       "badge": "🏠 Long Stay",
       "badgeStyle": "background:#06B6D4;color:#fff;padding:2px 8px;border-radius:999px;font-size:0.8em"
     },
     {
       "rank": "10",
+      "rankColor": "#06B6D4",
       "name": "Mirth Sathorn Hotel",
-      "stars": "3★",
+      "type": "3★",
       "score": "7.6",
-      "reviews": "1,067",
       "price": "฿900",
-      "transit": "BTS ศาลาแดง ~10 นาที",
-      "highlight": "ราคาถูกสุดในย่าน · ใกล้ BNH",
+      "access": "BTS ศาลาแดง ~10 นาที",
       "badge": "💸 ราคาถูกสุด",
       "badgeStyle": "background:#FB7185;color:#fff;padding:2px 8px;border-radius:999px;font-size:0.8em"
     }
@@ -583,40 +821,49 @@
   "adviceTitle": "เลือกโรงแรมตามความต้องการ",
   "advice": [
     {
-      "persona": "อยากได้ 5 ดาวคุ้มสุด เดินทางสะดวกสุด",
-      "pick": "Eastin Grand Hotel Sathorn — สกายบริดจ์ BTS สุรศักดิ์ + 7,993 รีวิว 9.3 คะแนน ราคาเริ่ม ฿3,200"
+      "icon": "🎯",
+      "head": "อยากได้ 5 ดาวคุ้มสุด เดินทางสะดวกสุด",
+      "bodyHtml": "Eastin Grand Hotel Sathorn — สกายบริดจ์ BTS สุรศักดิ์ + 7,993 รีวิว 9.3 คะแนน ราคาเริ่ม ฿3,200"
     },
     {
-      "persona": "มาเที่ยวกลางคืน Patpong/สาทร ชอบบรรยากาศปาร์ตี้",
-      "pick": "W Bangkok — WooBar DJ พฤ–ส + WET Deck 24 ชม. + 3 นาที BTS ชองนนศรี"
+      "icon": "🎯",
+      "head": "มาเที่ยวกลางคืน Patpong/สาทร ชอบบรรยากาศปาร์ตี้",
+      "bodyHtml": "W Bangkok — WooBar DJ พฤ–ส + WET Deck 24 ชม. + 3 นาที BTS ชองนนศรี"
     },
     {
-      "persona": "ต้องการประสบการณ์ Thai Luxury คลาสสิก งบไม่จำกัด",
-      "pick": "The Sukhothai Bangkok — 9.4 คะแนน สูงสุด สวน 6 เอเคอร์ บ่อดอกบัว ร้าน Celadon Fine Dining"
+      "icon": "🎯",
+      "head": "ต้องการประสบการณ์ Thai Luxury คลาสสิก งบไม่จำกัด",
+      "bodyHtml": "The Sukhothai Bangkok — 9.4 คะแนน สูงสุด สวน 6 เอเคอร์ บ่อดอกบัว ร้าน Celadon Fine Dining"
     },
     {
-      "persona": "ทริป Wellness / Spa คืนสงบ ไม่ต้องการปาร์ตี้",
-      "pick": "COMO Metropolitan Bangkok — COMO Shambhala Spa + Yoga ฟรีทุกเช้า + nahm มิชลิน รีโนเวต 2025"
+      "icon": "🎯",
+      "head": "ทริป Wellness / Spa คืนสงบ ไม่ต้องการปาร์ตี้",
+      "bodyHtml": "COMO Metropolitan Bangkok — COMO Shambhala Spa + Yoga ฟรีทุกเช้า + nahm มิชลิน รีโนเวต 2025"
     },
     {
-      "persona": "งบกลาง ฿1,500 ต้องการคะแนนดีและสระว่ายน้ำ",
-      "pick": "ibis Styles Bangkok Silom — 9.2 คะแนน 2,387 รีวิว Boho Rooftop Pool + บนถนนสีลม ราคา ฿1,500"
+      "icon": "🎯",
+      "head": "งบกลาง ฿1,500 ต้องการคะแนนดีและสระว่ายน้ำ",
+      "bodyHtml": "ibis Styles Bangkok Silom — 9.2 คะแนน 2,387 รีวิว Boho Rooftop Pool + บนถนนสีลม ราคา ฿1,500"
     },
     {
-      "persona": "สะสมแต้ม IHG / ต้องการวิวสวนลุมพินี",
-      "pick": "Crowne Plaza Bangkok Lumpini Park — IHG One Rewards + Club Lounge ชั้น 31 + วิวสวนลุมพินี"
+      "icon": "🎯",
+      "head": "สะสมแต้ม IHG / ต้องการวิวสวนลุมพินี",
+      "bodyHtml": "Crowne Plaza Bangkok Lumpini Park — IHG One Rewards + Club Lounge ชั้น 31 + วิวสวนลุมพินี"
     },
     {
-      "persona": "ต้องการห้องใหญ่ อาหารเช้ารวม งบ ฿2,500",
-      "pick": "Triple Two Silom — ห้อง Deluxe 45 ตร.ม. + อาหารเช้ารวม บนถนนสีลม"
+      "icon": "🎯",
+      "head": "ต้องการห้องใหญ่ อาหารเช้ารวม งบ ฿2,500",
+      "bodyHtml": "Triple Two Silom — ห้อง Deluxe 45 ตร.ม. + อาหารเช้ารวม บนถนนสีลม"
     },
     {
-      "persona": "พักยาว / ครอบครัว / ต้องการครัวและที่จอดรถ",
-      "pick": "Urbana Sathorn Bangkok — เซอร์วิสอพาร์ตเมนต์ ครัวเต็ม เครื่องซักผ้า ที่จอดรถฟรี ห้อง 72–142 ตร.ม."
+      "icon": "🎯",
+      "head": "พักยาว / ครอบครัว / ต้องการครัวและที่จอดรถ",
+      "bodyHtml": "Urbana Sathorn Bangkok — เซอร์วิสอพาร์ตเมนต์ ครัวเต็ม เครื่องซักผ้า ที่จอดรถฟรี ห้อง 72–142 ตร.ม."
     },
     {
-      "persona": "งบต่ำมาก หรือมารับการรักษาที่ BNH Hospital",
-      "pick": "Mirth Sathorn Hotel — เริ่ม ฿900 บูติกไทย 20 ห้อง เดิน 2 นาทีถึง BNH Hospital"
+      "icon": "🎯",
+      "head": "งบต่ำมาก หรือมารับการรักษาที่ BNH Hospital",
+      "bodyHtml": "Mirth Sathorn Hotel — เริ่ม ฿900 บูติกไทย 20 ห้อง เดิน 2 นาทีถึง BNH Hospital"
     }
   ],
   "noteHtml": "<strong>หมายเหตุ:</strong> ราคาในบทความนี้เป็นราคาเริ่มต้นโดยประมาณที่รวบรวมจากเว็บจองในช่วงเวลาที่เขียน ราคาจริงอาจเปลี่ยนแปลงตามวันที่ ฤดูกาล และความพร้อมของห้อง แนะนำตรวจสอบราคาปัจจุบันที่เว็บจองตรงก่อนตัดสินใจ คะแนนรีวิวจาก Trip.com ณ วันที่รีวิว",
