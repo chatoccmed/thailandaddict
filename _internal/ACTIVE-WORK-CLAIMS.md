@@ -11,7 +11,9 @@
 - งานถัดไป (ยังไม่เริ่ม): i18n Tier-1 อีก 7 ภาษา (zh·ru·ko·ja·he·ar·hi) ยัง 0 หน้า — ดู `_internal/I18N-AND-TOURISM-CITY-PLAN.md`
 
 ## 🟢 ACTIVE
-- **[2026-06-24 · เครื่อง Imac]** เริ่มชุดใหม่ **top10-attractions-<X>** (eat-ranking, ที่เที่ยวยอดนิยม/จังหวัด — เสริมจากหน้า `<X>-attractions` เดิมที่ "เก็บไว้ไม่แตะ") · pilot = **ayutthaya** (กำลังรัน engine) · แผน: ไล่ครบ 77 จังหวัด + เมืองท่องเที่ยว · **เครื่องนี้จับฝั่ง attractions**
+- **[2026-06-24 · เครื่อง Imac]** เริ่มชุดใหม่ **top10-attractions-<X>** (eat-ranking, ที่เที่ยวยอดนิยม/จังหวัด — เสริมจากหน้า `<X>-attractions` เดิมที่ "เก็บไว้ไม่แตะ") · **เครื่องนี้จับฝั่ง attractions** · แผน: ครบ 77 จังหวัด + เมืองท่องเที่ยว
+    - ✅ DONE+live: **ayutthaya** (`/top10-attractions-ayutthaya`)
+    - 🟡 กำลังทำ: **chiang-mai** (engine รันอยู่)
   - หมายเหตุ: อีกเครื่องทำ restaurants (ล่าสุด bueng-kan) + แก้รูป sukhumvit attractions — แยกหมวดชัด ไม่ชน · มาตรฐานรูป: ทุกการ์ดรูปจริง (IG/FB embed หรือ CC Wikimedia) + hero CC จริง
 
 ---
