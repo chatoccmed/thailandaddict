@@ -9,6 +9,13 @@ const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves whe
 const PUB = path.join(ROOT, 'astro/public');
 const DATA = path.join(ROOT, '_internal/province-data');
 
+// GA4 scaffold for the 77 city/region hubs (Wave-0). Set GA_ID to the real "G-XXXXXXXXXX"
+// (same value as astro/src/components/Analytics.astro) — emits nothing until configured.
+const GA_ID = 'G-XXXXXXXXXX';
+const GA_HEAD = (/^G-[A-Z0-9]{8,}$/.test(GA_ID) && !GA_ID.includes('XXXX'))
+  ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});</script>`
+  : '';
+
 const REGION = {
   n:  { slug:'north',   th:'ภาคเหนือ',      en:'Northern Thailand',  emoji:'⛰️', intro:'ดอย หมอก เมืองเก่า คาเฟ่ และอาหารเหนือ — เสน่ห์ช้า ๆ ที่ชวนให้อยู่ยาว', intro_en:'Mountains, mist, old towns, cafés and northern food — a slow charm that makes you want to linger.' },
   ne: { slug:'isan',    th:'ภาคอีสาน',      en:'Isan (Northeast)',   emoji:'🌾', intro:'ที่ราบสูง วัฒนธรรมสนุก อาหารรสจัด และธรรมชาติริมโขงที่คนยังไปไม่ทั่ว', intro_en:'A high plateau with lively culture, bold flavours and Mekong-side nature still off the beaten path.' },
@@ -357,7 +364,7 @@ function page({ title, desc, slug, jsonld, body, extraJS, image }) {
   const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
   return `<!doctype html>
 <html lang="${LOC}"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${GA_HEAD}
 <title>${title}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canon}">

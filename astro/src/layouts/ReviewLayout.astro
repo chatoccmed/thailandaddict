@@ -1,6 +1,7 @@
 ---
 import '../styles/review.css';
 import type { CollectionEntry } from 'astro:content';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
@@ -233,6 +234,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <html lang={lang}>
 <head>
 <meta charset="UTF-8" />
+<Analytics />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{tabTitle}</title>
 <meta name="description" content={data.metaDesc} />
