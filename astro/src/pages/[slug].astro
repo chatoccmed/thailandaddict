@@ -8,6 +8,8 @@ export async function getStaticPaths() {
   const reviews = await getCollection('reviews');
   const roundups = await getCollection('roundups');
   const articles = await getCollection('articles');
+  const articlesEn = await getCollection('articlesEn');
+  const enArt = new Set(articlesEn.map((r) => r.data.slug));
   return [
     ...reviews.map((r) => ({
       params: { slug: r.data.slug },
@@ -19,13 +21,13 @@ export async function getStaticPaths() {
     })),
     ...articles.map((r) => ({
       params: { slug: r.data.slug },
-      props: { kind: 'article' as const, data: r.data },
+      props: { kind: 'article' as const, data: r.data, hasEn: enArt.has(r.data.slug) },
     })),
   ];
 }
 
-const { kind, data } = Astro.props;
+const { kind, data, hasEn } = Astro.props;
 ---
 {kind === 'review' ? <ReviewLayout data={data} />
   : kind === 'roundup' ? <RoundupLayout data={data} />
-  : <ArticleLayout data={data} />}
+  : <ArticleLayout data={data} hasEn={hasEn} />}

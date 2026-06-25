@@ -11,7 +11,7 @@
     var SYM = { THB: '฿', USD: '$', EUR: '€', CNY: '¥' };
     var ORDER = ['THB', 'USD', 'EUR', 'CNY'];
     // Price containers across roundup pages + city/destination hubs.
-    var SEL = '.hc-price, .price-big, .price-sub, .room-price, .toc-p, .compare-top td, .compare-section td, .cv-price';
+    var SEL = '.hc-price, .price-big, .price-sub, .room-price, .toc-p, .compare-top td, .compare-section td, .cv-price, .pw-price, .pw-opt-pr, .pw-from, .resto-price';
     var isEn = (document.documentElement.getAttribute('lang') || 'th').toLowerCase().indexOf('en') === 0;
     var NOTE = isEn ? 'Indicative rates (mid-2026) · for guidance only' : 'อัตราโดยประมาณ (กลางปี 2026) · ใช้อ้างอิงเท่านั้น';
 
@@ -58,7 +58,9 @@
     function buildBar() {
       if (document.getElementById('cv-bar')) return;
       var liftMobile = !!document.querySelector('.mbar, .mbarx');   // roundup pages have a mobile booking bar
-      var css = '#cv-bar{position:fixed;right:14px;bottom:16px;z-index:120;display:inline-flex;align-items:center;gap:2px;'
+      var hasFab = !!document.querySelector('#taTripFab, .ta-tripfab'); // trip FAB sits bottom-right → put currency bottom-left to avoid overlap
+      var sidePos = hasFab ? 'left:14px' : 'right:14px';
+      var css = '#cv-bar{position:fixed;' + sidePos + ';bottom:16px;z-index:120;display:inline-flex;align-items:center;gap:2px;'
         + 'background:#fff;border:1.5px solid #06B6D4;border-radius:999px;padding:3px;box-shadow:0 8px 24px rgba(6,182,212,.22);'
         + "font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700}"
         + '#cv-bar .cv-ico{padding:0 5px 0 8px;color:#0891b2;font-size:13px}'

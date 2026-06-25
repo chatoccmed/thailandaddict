@@ -2,7 +2,7 @@
 // ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
-const { data, lang = 'th' } = Astro.props;
+const { data, lang = 'th', hasEn = true } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
@@ -148,7 +148,8 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 {(data.image || data.heroImg) && <meta property="og:image" content={asset(data.image || data.heroImg)} />}
 <meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
-<link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+{hasEn && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
+<link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -448,6 +449,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     <a href={link('country-thailand.html#hotels')}>{S.nav[1]}</a>
     <a href={link('country-thailand.html#see')}>{S.nav[2]}</a>
     <a href={link('country-thailand.html#eat')}>{S.nav[3]}</a>
+    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
     <a href={link('plan-your-trip.html')}>{isEn ? 'Plan Trip' : 'เตรียมตัว'}</a>
     <a href={link('about.html')}>{S.nav[4]}</a>
   </div>
@@ -461,6 +463,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <div class="mm" id="mm">
   <div class="mm-top"><a href={link('/')} class="logo">Thailand<em>Addict</em></a><button class="mm-x" id="mmx">✕</button></div>
   <a href={link('/')}>{S.home}</a>
+  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
   <a href={link('country-thailand.html')}>{S.nav[0]}</a>
   <a href={link(data.crumbCityHref)}>{data.crumbCity}</a>
   <a href={link('plan-your-trip.html')}>{isEn ? '🧭 Plan Your Trip' : '🧭 เตรียมตัวเที่ยว'}</a>
@@ -900,5 +903,6 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
   };
 })();</script>
+<script src="/js/currency.js" defer></script>
 </body>
 </html>
