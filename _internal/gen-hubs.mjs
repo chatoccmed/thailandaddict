@@ -741,6 +741,10 @@ function planHub(){
     ['thailand-packing-list','🎒','ลิสต์ของที่ต้องเอาไป','Packing list','เข้าวัด ปลั๊กไฟ หน้าฝน ยา','Temple wear, plugs, rain, meds'],
     ['thai-phrases-for-travelers','🗣️','ประโยคภาษาไทยน่ารู้','Thai phrases','ทักทาย ขอบคุณ ตัวเลข สั่งอาหาร','Greetings, thanks, numbers, food'],
     ['thailand-etiquette-culture','🙏','มารยาท & วัฒนธรรม','Etiquette & culture','ไหว้ เข้าวัด หัว-เท้า สถาบัน','The wai, temples, head/feet, respect'],
+    ['thailand-festival-calendar','🎉','เทศกาลไทยทั้งปี','Festival calendar','สงกรานต์ ลอยกระทง ยี่เป็ง กินเจ เดือนไหนมีงาน','Songkran, Loy Krathong, Yi Peng, vegetarian fest'],
+    ['lgbtq-thailand-guide','🏳️‍🌈','เที่ยวไทยสำหรับ LGBTQ+','LGBTQ+ Thailand','เมืองที่เป็นมิตร งานไพรด์ สมรสเท่าเทียม','Friendly cities, Pride, marriage equality'],
+    ['solo-female-travel-thailand','🎒','ผู้หญิงเที่ยวคนเดียว','Solo female travel','ปลอดภัยไหม เดินทาง ที่พัก สแกม','Safety, transport, stays, scams'],
+    ['accessible-travel-thailand','♿','เที่ยวแบบเข้าถึงได้','Accessible travel','รถเข็น ผู้สูงอายุ ลิฟต์ วัด','Wheelchair, seniors, lifts, temples'],
   ];
   const R = [
     ['bangkok-to-chiang-mai','🚆','กรุงเทพ → เชียงใหม่','Bangkok → Chiang Mai'],
