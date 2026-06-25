@@ -33,13 +33,14 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - ✅ **#12 hub Place geo** — `GeoCoordinates` on all 77 city hubs from `province-coords.json` (extracted from gen-home PV). ⚠️ gen-hubs is NOT in prebuild → its output hubs must be COMMITTED (a `git checkout -- .` silently dropped geo once).
 - ✅ **live-clock bug** — ReviewLayout static content-date stamp (removed the fake live "checked: <now>" clock + setInterval).
 - ✅ **#20a Org `@id`** — Organization entity (`#org`, logo; no sameAs — no real socials) in index.html + publisher `@id`-ref in 3 layouts.
-- ✅ **#15 persona cluster (TH + EN, bilingual)** — festival-calendar, lgbtq (2025 marriage-equality), solo-female, accessibility. quickAnswer + AEO table + 5 FAQ each; evergreen verified facts only; EN via verified translation; reciprocal hreflang.
-- 🔨 **#9 best-time heatmap** — new `heatmap` block kind (ArticleLayout) + month×region climate grid in best-time-to-visit-thailand (TH+EN) + `/trip` CTA. (building/deploying)
+- ✅ **#15 content cluster (9 topics × TH+EN = 18 bilingual guides, all LIVE)** — festival-calendar, lgbtq (2025 marriage-equality), solo-female, accessibility, family, vegan/vegetarian (jay vs mangsawirat + fish-sauce caveat), digital-nomad (DTV visa), health/medical, halal. Each: quickAnswer + AEO table + 5 FAQ; evergreen verified facts only; EN via verified subagent translation; reciprocal hreflang; surfaced as cards on plan-your-trip (TH+EN) + ItemList JSON-LD. (Comparison cluster #221 already existed — ~17 vs-guides.)
+- ✅ **#9 best-time heatmap** — new `heatmap` block kind (ArticleLayout) + month×region climate grid in best-time-to-visit-thailand (TH+EN) + `/trip` CTA. LIVE.
 
 ## Still TODO
 - **Owner-gated:** #1 GA4 ID · affiliate signups (GYG/12Go/Airalo/SafetyWing) · email endpoint (forms exist, wire to ESP)
 - **Flagged for owner review (visual/infra/accuracy risk unattended):** #19 sticky CTA (FAB/currency collision) · #11 `/en/trip` (translation-heavy) · #18b AVIF/WebP `<picture>` (R2 re-upload) · #21 wishlist→planner pin (needs planner testing) · `top10-attractions-*` emit Restaurant JSON-LD for temples (fixing = retype = rendering change)
-- **Doable next:** #20b de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · EN feeds (gen-feeds reads TH only) · surface persona guides from the plan-your-trip hub · #16 deep-link Klook/GYG (partly owner-gated)
+- **Doable next (lower priority):** broader de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · EN feeds (gen-feeds reads TH only) · #16 deep-link Klook/GYG (partly owner-gated) · more niche guides (seniors, cooking classes, diving)
+- **Note:** persona/national guides already surfaced as cards on plan-your-trip (TH+EN) via gen-hubs G.
 
 ---
 
