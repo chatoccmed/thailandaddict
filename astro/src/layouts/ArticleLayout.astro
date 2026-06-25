@@ -402,6 +402,21 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .atbl td{padding:11px 16px;border-bottom:1px solid var(--bdr);color:#1e293b;vertical-align:top}
 .atbl tbody tr:last-child td{border-bottom:none}
 .atbl tbody tr:nth-child(even){background:#fafdff}
+.hmap-wrap{margin:22px 0}
+.hmap-cap{font-family:'Outfit';font-weight:800;font-size:14px;color:var(--teal-dk);margin-bottom:10px}
+.hmap-scroll{overflow-x:auto;border:1px solid var(--bdr);border-radius:16px;-webkit-overflow-scrolling:touch}
+.hmap{border-collapse:collapse;font-size:13px;min-width:560px;width:100%}
+.hmap th{font-family:'Outfit';font-weight:700;background:var(--soft);padding:9px 8px;font-size:12px;color:var(--ink);text-align:center;white-space:nowrap}
+.hmap thead th{border-bottom:2px solid var(--bdr)}
+.hmap-m{text-align:left!important;position:sticky;left:0;background:var(--soft)!important;z-index:1;padding-left:14px!important}
+.hmap-corner{position:sticky;left:0;z-index:2;background:var(--soft)!important}
+.hmc{text-align:center;font-size:18px;padding:8px 6px;border-bottom:1px solid #eef4f8;border-left:1px solid #eef4f8}
+.hmc.good{background:#e1f7f1}
+.hmc.ok{background:#fff6e0}
+.hmc.bad{background:#fde7ec}
+.hmc.hot{background:#ffeede}
+.hmap-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12.5px;color:var(--sub)}
+.hmap-cta{display:inline-block;margin-top:14px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:800;font-size:14px;padding:11px 22px;border-radius:999px;text-decoration:none}
 .atbl td strong,.atbl td b{color:var(--ink);font-weight:700}
 .tip{background:var(--soft);border:2px solid #cffafe;border-radius:18px;padding:18px 20px;margin:18px 0}
 .tip h4{font-family:'Outfit';font-weight:800;font-size:15px;color:var(--teal-dk);margin-bottom:5px}.tip p{font-size:14.5px;color:#1e293b;margin:0}
@@ -717,6 +732,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     </section> :
     b.kind === 'list' ? <ul>{b.items.map((i) => <li set:html={i} />)}</ul> :
     b.kind === 'table' ? <div class="atbl-wrap"><table class="atbl">{b.caption && <caption set:html={b.caption} />}<thead><tr>{b.headers.map((h) => <th set:html={h} />)}</tr></thead><tbody>{b.rows.map((row) => <tr>{row.map((c) => <td set:html={c} />)}</tr>)}</tbody></table></div> :
+    b.kind === 'heatmap' ? <div class="hmap-wrap">{b.caption && <div class="hmap-cap" set:html={b.caption} />}<div class="hmap-scroll"><table class="hmap"><thead><tr><th class="hmap-corner"></th>{b.regions.map((r) => <th set:html={r} />)}</tr></thead><tbody>{b.rows.map((row) => <tr><th class="hmap-m" set:html={row.m} />{row.cells.map((c) => <td class={`hmc ${c.s ?? ''}`}><span set:html={c.e} /></td>)}</tr>)}</tbody></table></div>{b.legend && <div class="hmap-legend">{b.legend.map((l) => <span set:html={l} />)}</div>}{b.cta && <a class="hmap-cta" href={b.cta.href} set:html={b.cta.label} />}</div> :
     b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :
     b.kind === 'ranked' ? <div class="ranked">{b.items.map((it) => (
       <div class="rk"><div class="n">{it.rank}</div><div>
