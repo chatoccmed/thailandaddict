@@ -16,9 +16,23 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - **ReviewLayout misleading live-clock** ("last checked now") — replace with static "reference price, checked {modifiedDate}" honesty stamp. (cf. honesty/EEAT lock.)
 - **restaurants.json** has temple rows miscategorized as `foodType` — drop them.
 
-## Progress (this session)
-- ✅ **GA4 scaffold** — `astro/src/components/Analytics.astro` (gtag + auto affiliate-click events) wired into 3 layouts + `gen-hubs.mjs` (77 hubs) + `trip.html` (its `track()` events now flow once configured). Gated by `GA_ID`; placeholder emits nothing → ships safe. **TO ACTIVATE: set real `G-XXXXXXXXXX` in `Analytics.astro` + `gen-hubs.mjs` + `trip.html` (3 spots), rebuild.**
-- ✅ **Save-to-plan UX** — 🔖 + label + confirmation toast + live FAB on resto + hotel cards (see `save-to-plan-ux` memory).
+## Progress — SHIPPED + LIVE (2026-06-25, 6 deploys)
+- ✅ **GA4 scaffold** (`Analytics.astro` → 3 layouts + `gen-hubs.mjs` 77 hubs + `trip.html`). Gated by `GA_ID`; emits nothing until set → ships safe. **TO ACTIVATE: set real `G-XXXXXXXXXX` in those 3 spots, rebuild.**
+- ✅ **Save-to-plan UX** — 🔖 + label + toast + live FAB (see `save-to-plan-ux` memory).
+- ✅ **Wave-0 #3 surface /trip** — homepage nav + all 3 layouts (desktop+mobile) + noindex→canonical.
+- ✅ **Wave-0 #5 hreflang 404** — guarded (105 twin-less TH articles) + x-default.
+- ✅ **Wave-0 #6 currency** — on ReviewLayout + ArticleLayout (FAB-aware position).
+- ✅ **Wave-0 #7 dead related** — 30 `.json`→`.html` (all 11,698 related hrefs resolve).
+- ✅ **#2 Planner v2** — per-day full-route Maps link (`dayRouteLink`) + `.ics` export (`downloadICS`).
+- ✅ **Wave-1 #8 quick-answer** — all 4,690 reviews+roundups (TH+EN), 0%→100%, from metaDesc (`gen-quickanswer.mjs`).
+- ✅ **Wave-1 #14 Speakable** — 3 layouts (cssSelector `.qa-body`, gated on quickAnswerHtml). *(faqs.json feed part still TODO)*
+- ✅ **Wave-2 #18 ArticleLayout LCP preload** — hero `rel=preload fetchpriority=high` on ~7,170 pages. *(AVIF/WebP part still TODO)*
+
+## Still TODO (status as of 2026-06-25)
+- **Owner-gated:** #1 GA4 ID · #2 affiliate signups (GYG/12Go/Airalo/SafetyWing) · Wave-0 #4 email endpoint (forms exist, wire to ESP)
+- **Bugs left:** ReviewLayout misleading live-clock → static "checked {modifiedDate}" stamp · restaurants.json temple rows miscategorized as foodType
+- **Wave 1 left:** #9 best-time heatmap→/trip · #11 /en/trip · #12 77-hub Place schema (geo/sameAs/containsPlace) · #13 feeds in sitemap+robots+`updated` date+per-restaurant url · #14b faqs.json feed
+- **Wave 2 left:** #15 persona cluster (LGBTQ+/solo-female/festival/accessibility) · #16 deep-link Klook/GYG to real products · #17 flights affiliate · #18b AVIF/WebP `<picture>` · #19 sticky booking CTA on itinerary/attraction · #20 Org @id + de-orphan 67 hub-less articles · #21 wishlist→planner pin + per-day reshuffle
 
 ---
 
