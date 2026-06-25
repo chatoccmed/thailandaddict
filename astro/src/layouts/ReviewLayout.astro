@@ -51,7 +51,7 @@ const S = {
     bcHome: 'หน้าแรก', bcTaiwan: 'ไทย',
     heroMore: '+ ดูภาพทั้งหมด',
     qiType: 'ประเภท', qiScore: 'คะแนนรีวิว', qiPrice: 'ราคาเริ่มต้น', qiRooms: 'ห้องพัก',
-    qiBook: 'จองเลย →', qiWish: '♡ เพิ่มไว้ในแผนการเดินทาง', qiWishSaved: '♥ อยู่ในแผนแล้ว',
+    qiBook: 'จองเลย →', qiWish: '🔖 เก็บลงแผน', qiWishSaved: '✓ เก็บแล้ว',
     secReview: 'Review · รีวิว',
     updateChip: '📅 อัปเดตล่าสุด พฤษภาคม 2026 · ตรวจสอบราคาและข้อมูลแล้ว',
     bylineName: 'รีวิวโดย ทีมบรรณาธิการ ThailandAddict', bylineBadge: '✓ ตรวจสอบข้อมูลแล้ว',
@@ -86,7 +86,7 @@ const S = {
     bcHome: 'Home', bcTaiwan: 'Thailand',
     heroMore: '+ View all photos',
     qiType: 'Type', qiScore: 'Review Score', qiPrice: 'From', qiRooms: 'Rooms',
-    qiBook: 'Book now →', qiWish: '♡ Add to trip plan', qiWishSaved: '♥ In your trip',
+    qiBook: 'Book now →', qiWish: '🔖 Save to plan', qiWishSaved: '✓ Saved',
     secReview: 'Review',
     updateChip: '📅 Last updated May 2026 · Prices &amp; info verified',
     bylineName: 'Reviewed by the ThailandAddict Editorial Team', bylineBadge: '✓ Fact-checked',
@@ -762,18 +762,43 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   if(!btn)return;
   function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
   function has(){return get().some(function(x){return x.slug===btn.dataset.slug})}
-  function render(){var s=has();btn.classList.toggle('saved',s);btn.innerHTML=s?btn.dataset.saved:('♡ '+btn.dataset.word)}
+  function render(){var s=has();btn.classList.toggle('saved',s);btn.innerHTML=s?btn.dataset.saved:('🔖 '+btn.dataset.word)}
   render();
   btn.addEventListener('click',function(){
-    var l=get();
-    if(has()){l=l.filter(function(x){return x.slug!==btn.dataset.slug})}
+    var l=get(), added=!has();
+    if(!added){l=l.filter(function(x){return x.slug!==btn.dataset.slug})}
     else{l.push({slug:btn.dataset.slug,name:btn.dataset.name,img:btn.dataset.img,url:btn.dataset.url,type:btn.dataset.type||'stay',city:btn.dataset.city||'',province:btn.dataset.province||''})}
     localStorage.setItem(KEY,JSON.stringify(l)); render();
+    if(window.taSyncFab)window.taSyncFab();
+    if(window.taPlanToast)window.taPlanToast(added,btn.dataset.name,l.length);
   });
 })();
 </script>
 <a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
-<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
-<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link"></a></div>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
+.ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
+.ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.ta-plantoast .tpt-msg{flex:1;line-height:1.35;min-width:0}
+.ta-plantoast .tpt-link{flex-shrink:0;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;padding:7px 13px;border-radius:999px;white-space:nowrap}
+@media(max-width:560px){.ta-plantoast{bottom:82px;left:12px;right:12px;max-width:none;transform:translateY(18px)}.ta-plantoast.show{transform:translateY(0)}}</style>
+<script>(function(){
+  var KEY='ta_wishlist', EN=(document.documentElement.lang||'').slice(0,2).toLowerCase()==='en';
+  function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN'),tfl=fab&&fab.querySelector('.tf-l');
+  if(tfl)tfl.textContent=EN?'My plan':'แผนของฉัน';
+  window.taSyncFab=function(){var n=read().length;if(nEl)nEl.textContent=n;if(fab)fab.style.display=n?'flex':'none';};
+  taSyncFab();
+  var toast=document.getElementById('taPlanToast'),lk=toast&&toast.querySelector('.tpt-link'),tHide;
+  if(lk)lk.textContent=EN?'View plan →':'ดูแผนเที่ยว →';
+  window.taPlanToast=function(added,name,count){
+    if(!toast)return;
+    var nm=(name&&name.length>24)?name.slice(0,24)+'…':(name||(EN?'this place':'ที่นี่'));
+    toast.querySelector('.tpt-msg').textContent=added?(EN?('✓ Saved “'+nm+'” to your plan ('+count+')'):('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)')):(EN?('Removed “'+nm+'” from plan'):('เอา “'+nm+'” ออกจากแผนแล้ว'));
+    lk.style.display=read().length?'inline-block':'none';
+    toast.classList.add('show');clearTimeout(tHide);
+    tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
+  };
+})();</script>
 </body>
 </html>

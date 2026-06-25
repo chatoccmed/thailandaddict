@@ -224,7 +224,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-save:hover{background:#ffe4e6;transform:translateY(-1px);box-shadow:0 5px 14px rgba(244,63,94,.22)}
 .resto-save.saved{background:linear-gradient(135deg,#fb7185,#f43f5e);color:#fff;border-color:transparent;box-shadow:0 7px 16px rgba(244,63,94,.36)}
 .resto-save .rs-ico{font-size:15px;line-height:1}
-@media(max-width:760px){.resto-save .rs-label{display:none}.resto-save{padding:9px 11px}}
+.resto-save .rs-label-sm{display:none}
+@media(max-width:760px){.resto-save .rs-label{display:none}.resto-save .rs-label-sm{display:inline}.resto-save{padding:9px 13px;font-size:12px}}
 .resto-rank{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--teal),var(--coral));color:#fff;font-family:'Outfit';font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(244,63,94,.32)}
 .resto-head-info{flex:1;min-width:0}
 .resto-type{font-family:'Outfit';font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--sub);font-weight:700;margin-bottom:3px}
@@ -588,7 +589,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เพิ่มร้านนี้ในแผนการเดินทาง"><span class="rs-ico">♡</span> <span class="rs-label">เพิ่มไว้ในแผนการเดินทาง</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เก็บร้านนี้ลงแผนการเดินทาง"><span class="rs-ico">🔖</span> <span class="rs-label">เก็บลงแผน</span><span class="rs-label-sm">เก็บแผน</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
@@ -794,13 +795,16 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '♥' : '♡'; btn.querySelector('.rs-label').textContent = on ? 'อยู่ในแผนแล้ว' : 'เพิ่มไว้ในแผนการเดินทาง'; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? 'เก็บแล้ว' : 'เก็บลงแผน'; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? '✓ เก็บแล้ว' : 'เก็บแผน'; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
+        var added = i < 0;
         if (i >= 0) l.splice(i, 1); else l.push({ slug: slug, name: btn.getAttribute('data-name'), type: btn.getAttribute('data-type'), city: btn.getAttribute('data-city'), url: btn.getAttribute('data-url'), img: btn.getAttribute('data-img') });
         try { localStorage.setItem(KEY, JSON.stringify(l)); } catch (e) {}
         render();
+        if (window.taSyncFab) window.taSyncFab();
+        if (window.taPlanToast) window.taPlanToast(added, btn.getAttribute('data-name'), l.length);
       });
     });
     // multi-axis filters (type / zone / price single-select + veg / halal toggles, AND-combined)
@@ -871,7 +875,28 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
 </script>
 <a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
-<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
-<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">ดูแผนเที่ยว →</a></div>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
+.ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
+.ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.ta-plantoast .tpt-msg{flex:1;line-height:1.35;min-width:0}
+.ta-plantoast .tpt-link{flex-shrink:0;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;padding:7px 13px;border-radius:999px;white-space:nowrap}
+@media(max-width:560px){.ta-plantoast{bottom:82px;left:12px;right:12px;max-width:none;transform:translateY(18px)}.ta-plantoast.show{transform:translateY(0)}}</style>
+<script>(function(){
+  var KEY='ta_wishlist';
+  function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN');
+  window.taSyncFab=function(){var n=read().length;if(nEl)nEl.textContent=n;if(fab)fab.style.display=n?'flex':'none';};
+  taSyncFab();
+  var toast=document.getElementById('taPlanToast'),tHide;
+  window.taPlanToast=function(added,name,count){
+    if(!toast)return;
+    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||'ร้านนี้');
+    toast.querySelector('.tpt-msg').textContent=added?('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)'):('เอา “'+nm+'” ออกจากแผนแล้ว');
+    toast.querySelector('.tpt-link').style.display=read().length?'inline-block':'none';
+    toast.classList.add('show');clearTimeout(tHide);
+    tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
+  };
+})();</script>
 </body>
 </html>
