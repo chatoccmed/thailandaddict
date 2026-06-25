@@ -166,56 +166,86 @@
           "name": "Hat Yai Airport (HDY)",
           "blurb": "The city's international airport, to the west of town. Minibus, taxi, and Grab make getting in and out easy.",
           "meta": "About 9–12 km · ~20–30 min by car",
-          "tags": ["Airport", "In town"]
+          "tags": [
+            "Airport",
+            "In town"
+          ]
         },
         {
           "rank": 2,
           "name": "Hat Yai Municipal Park (Khao Kho Hong)",
           "blurb": "A large hilltop park with a cable car up to the Phra Phuttha Mongkhon Maharat Buddha and Guanyin, plus a viewpoint over Hat Yai. On the edge of town, a short drive away.",
           "meta": "About 6–8 km · ~15 min by car",
-          "tags": ["In town", "City view", "Temples"]
+          "tags": [
+            "In town",
+            "City view",
+            "Temples"
+          ]
         },
         {
           "rank": 3,
           "name": "Khlong Hae Floating Market",
           "blurb": "A floating market open Fri–Sat–Sun, with boats selling local food. On the northern outskirts, best visited in the evening.",
           "meta": "About 10 km · ~20 min by car",
-          "tags": ["Outskirts", "Market", "Food"]
+          "tags": [
+            "Outskirts",
+            "Market",
+            "Food"
+          ]
         },
         {
           "rank": 4,
           "name": "Songkhla (old town & Samila Beach)",
           "blurb": "The old town around Nang Ngam Road, with street art, plus Samila Beach and the mermaid statue. An easy there-and-back day trip from Hat Yai by red songthaew or van.",
           "meta": "About 25–30 km · ~40 min–1 hr by car",
-          "tags": ["Province", "Old town", "Beach"]
+          "tags": [
+            "Province",
+            "Old town",
+            "Beach"
+          ]
         },
         {
           "rank": 5,
           "name": "Ton Nga Chang Waterfall",
           "blurb": "A multi-tiered waterfall in a wildlife sanctuary, to the west of Hat Yai. Good for a half-day in nature; best with your own car or a chartered one.",
           "meta": "About 26 km · ~40 min by car",
-          "tags": ["Nature", "Waterfall"]
+          "tags": [
+            "Nature",
+            "Waterfall"
+          ]
         },
         {
           "rank": 6,
           "name": "Sadao / Dan Nok border (Malaysia)",
           "blurb": "The main southern land crossing opposite Bukit Kayu Hitam, with the Dan Nok duty-free market. Popular for shopping and connecting on into Malaysia.",
           "meta": "About 55–60 km · ~1–1.5 hr by car",
-          "tags": ["Border", "Shopping", "Malaysia"]
+          "tags": [
+            "Border",
+            "Shopping",
+            "Malaysia"
+          ]
         },
         {
           "rank": 7,
           "name": "Padang Besar border (train to Malaysia)",
           "blurb": "The crossing where you connect to the KTM train to Penang/KL within one station. Vans and Thai trains run from Hat Yai, ideal if you're continuing by rail.",
           "meta": "About 50–60 km · ~1 hr by car",
-          "tags": ["Border", "Train", "Malaysia"]
+          "tags": [
+            "Border",
+            "Train",
+            "Malaysia"
+          ]
         },
         {
           "rank": 8,
           "name": "Penang (Malaysia)",
           "blurb": "The most popular destination on the Malaysian side. Take a van or the KTM train from Padang Besar down to Butterworth–Penang, great for tacking onto a multi-day cross-border trip.",
           "meta": "About 150 km · ~3–4 hr by car/train",
-          "tags": ["Malaysia", "Cross-border", "Multi-day"]
+          "tags": [
+            "Malaysia",
+            "Cross-border",
+            "Multi-day"
+          ]
         }
       ]
     },
@@ -238,9 +268,21 @@
       "label": "Day 1",
       "title": "Arrive in Hat Yai + explore the city",
       "items": [
-        { "time": "Morning–late morning", "activity": "Fly into Hat Yai Airport, take the minibus or a Grab to your hotel in the Kim Yong area", "note": "Minibus around ฿60–100, dropping you right in the central area" },
-        { "time": "Afternoon", "activity": "Ride the cable car up at Hat Yai Municipal Park, pay your respects at the Buddha, and take in the city view", "note": "Easy to Grab there and back — only ~15 min from town" },
-        { "time": "Evening", "activity": "Stroll, eat, and shop around the ASEAN Night Bazaar and Kim Yong", "note": "This district is all walkable — no car needed" }
+        {
+          "time": "Morning–late morning",
+          "activity": "Fly into Hat Yai Airport, take the minibus or a Grab to your hotel in the Kim Yong area",
+          "note": "Minibus around ฿60–100, dropping you right in the central area"
+        },
+        {
+          "time": "Afternoon",
+          "activity": "Ride the cable car up at Hat Yai Municipal Park, pay your respects at the Buddha, and take in the city view",
+          "note": "Easy to Grab there and back — only ~15 min from town"
+        },
+        {
+          "time": "Evening",
+          "activity": "Stroll, eat, and shop around the ASEAN Night Bazaar and Kim Yong",
+          "note": "This district is all walkable — no car needed"
+        }
       ]
     },
     {
@@ -248,9 +290,21 @@
       "label": "Day 2",
       "title": "Songkhla old town & Samila Beach",
       "items": [
-        { "time": "Morning", "activity": "Take the red Pho Thong-line songthaew or a van to Songkhla", "note": "Songthaew ฿20–40 · van ฿35–50 · about 40 min–1 hr" },
-        { "time": "Late morning–afternoon", "activity": "Walk the Nang Ngam Road old town, see the street art, then head to Samila Beach for photos with the mermaid", "note": "The old town is walkable; for Samila Beach grab a Grab or another songthaew" },
-        { "time": "Evening", "activity": "Ride back to Hat Yai and have dinner in town", "note": "Allow time for the evening songthaew; if it's late, charter a Grab back" }
+        {
+          "time": "Morning",
+          "activity": "Take the red Pho Thong-line songthaew or a van to Songkhla",
+          "note": "Songthaew ฿20–40 · van ฿35–50 · about 40 min–1 hr"
+        },
+        {
+          "time": "Late morning–afternoon",
+          "activity": "Walk the Nang Ngam Road old town, see the street art, then head to Samila Beach for photos with the mermaid",
+          "note": "The old town is walkable; for Samila Beach grab a Grab or another songthaew"
+        },
+        {
+          "time": "Evening",
+          "activity": "Ride back to Hat Yai and have dinner in town",
+          "note": "Allow time for the evening songthaew; if it's late, charter a Grab back"
+        }
       ]
     },
     {
@@ -258,9 +312,21 @@
       "label": "Day 3",
       "title": "Cross-border shopping, then fly home",
       "items": [
-        { "time": "Morning", "activity": "Take a van from Hat Yai Bus Terminal to the Padang Besar or Dan Nok–Sadao border", "note": "Padang Besar van ฿50 · allow time for the immigration queue and crossing" },
-        { "time": "Late morning–afternoon", "activity": "Shop duty-free / souvenirs at the border, then ride back to Hat Yai", "note": "If you want a longer trip, save the KTM train into Penang for a separate journey" },
-        { "time": "Evening", "activity": "Pick up souvenirs in the Kim Yong area, then take the minibus/taxi out to the airport to fly home", "note": "Allow 1–1.5 hrs to get to the airport before your flight" }
+        {
+          "time": "Morning",
+          "activity": "Take a van from Hat Yai Bus Terminal to the Padang Besar or Dan Nok–Sadao border",
+          "note": "Padang Besar van ฿50 · allow time for the immigration queue and crossing"
+        },
+        {
+          "time": "Late morning–afternoon",
+          "activity": "Shop duty-free / souvenirs at the border, then ride back to Hat Yai",
+          "note": "If you want a longer trip, save the KTM train into Penang for a separate journey"
+        },
+        {
+          "time": "Evening",
+          "activity": "Pick up souvenirs in the Kim Yong area, then take the minibus/taxi out to the airport to fly home",
+          "note": "Allow 1–1.5 hrs to get to the airport before your flight"
+        }
       ]
     },
     {
@@ -330,5 +396,6 @@
       "href": "songkhla-old-town-trip.html",
       "title": "🎨 Songkhla old town day trip"
     }
-  ]
+  ],
+  "quickAnswerHtml": "A full guide to reaching Hat Yai in southern Thailand and getting around: airport to city, the Bangkok–Hat Yai southern railway, buses, vans, songthaews, taxis, Grab, crossing into Malaysia at Sadao and Padang Besar, and how to get to Songkhla — with real ballpark prices."
 }

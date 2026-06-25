@@ -24,7 +24,7 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - ✅ **Wave-0 #6 currency** — on ReviewLayout + ArticleLayout (FAB-aware position).
 - ✅ **Wave-0 #7 dead related** — 30 `.json`→`.html` (all 11,698 related hrefs resolve).
 - ✅ **#2 Planner v2** — per-day full-route Maps link (`dayRouteLink`) + `.ics` export (`downloadICS`).
-- ✅ **Wave-1 #8 quick-answer** — all 4,690 reviews+roundups (TH+EN), 0%→100%, from metaDesc (`gen-quickanswer.mjs`).
+- ✅ **Wave-1 #8 quick-answer — FULL CORPUS** — 4,690 reviews+roundups (`gen-quickanswer.mjs`) **+ 6,558 articles** (attraction/itinerary/eat-ranking/food/prep/guide, `gen-quickanswer-articles.mjs`), TH+EN, from metaDesc. Now ~100% of the ~11k-page corpus has an answer-first block (and Speakable, gated on it). The audit's #1 AEO lever, fully applied.
 - ✅ **Wave-1 #14 Speakable** — 3 layouts (cssSelector `.qa-body`, gated on quickAnswerHtml). *(faqs.json feed part still TODO)*
 - ✅ **Wave-2 #18 ArticleLayout LCP preload** — hero `rel=preload fetchpriority=high` on ~7,170 pages. *(AVIF/WebP part still TODO)*
 
