@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "เลย", "href": "city-loei.html" },
-    { "name": "Top 10 โรงแรมเลย" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "เลย",
+      "href": "city-loei.html"
+    },
+    {
+      "name": "Top 10 โรงแรมเลย"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "เลย", "item": "https://thailandaddict.com/city-loei" },
-    { "name": "Top 10 โรงแรมเลย", "item": "https://thailandaddict.com/top10-hotels-loei" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "เลย",
+      "item": "https://thailandaddict.com/city-loei"
+    },
+    {
+      "name": "Top 10 โรงแรมเลย",
+      "item": "https://thailandaddict.com/top10-hotels-loei"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-loei.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "เลยไม่มีรถไฟฟ้าและขนส่งสาธารณะในจังหวัดมีน้อย — <strong>เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกที่สุด</strong> โดยเฉพาะถ้าจะไปเชียงคาน ภูเรือ หรือด่านซ้ายที่อยู่คนละทิศกัน · ในตัวเมืองเลยมีรถสองแถวและมอเตอร์ไซค์รับจ้างบ้าง · จากสนามบินเลย (LOE) เข้าตัวเมืองราว 10 นาที และไปเชียงคานราว 1 ชั่วโมง · โซนหลักในบทความนี้: <strong>เชียงคาน</strong> — ริมโขง ถนนคนเดิน แก่งคุดคู้ ตักบาตรข้าวเหนียว · <strong>ภูเรือ</strong> — อากาศเย็น วิวเขา ไร่องุ่น อุทยานภูเรือ · <strong>ด่านซ้าย</strong> — พระธาตุศรีสองรัก งานผีตาโขน · <strong>เมืองเลย</strong> — ฐานกลาง ใกล้สนามบินและร้านค้า",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Chiangkhan River Mountain Resort", "price": "฿1,400" },
-    { "n": "2", "color": "#06B6D4", "name": "Baan Suan La Moon", "price": "฿750" },
-    { "n": "3", "color": "#06B6D4", "name": "Loei Palace Hotel", "price": "฿900" },
-    { "n": "4", "color": "#0891b2", "name": "Loei Village Hotel", "price": "฿900" },
-    { "n": "5", "color": "#0891b2", "name": "Riverside Chiangkhan Resort", "price": "฿1,200" },
-    { "n": "6", "color": "#0891b2", "name": "With A View Hotel @ Chiangkhan", "price": "฿1,200" },
-    { "n": "7", "color": "#0891b2", "name": "King Hotel Loei", "price": "฿550" },
-    { "n": "8", "color": "#FB7185", "name": "Phurua Sanctuary Resort and Spa", "price": "฿1,500" },
-    { "n": "9", "color": "#FB7185", "name": "Phu Pha Nam Resort", "price": "฿1,750" },
-    { "n": "10", "color": "#FB7185", "name": "Sugar Guesthouse", "price": "฿300" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Chiangkhan River Mountain Resort",
+      "price": "฿1,400"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Baan Suan La Moon",
+      "price": "฿750"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Loei Palace Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "4",
+      "color": "#0891b2",
+      "name": "Loei Village Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "5",
+      "color": "#0891b2",
+      "name": "Riverside Chiangkhan Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#0891b2",
+      "name": "With A View Hotel @ Chiangkhan",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "King Hotel Loei",
+      "price": "฿550"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Phurua Sanctuary Resort and Spa",
+      "price": "฿1,500"
+    },
+    {
+      "n": "9",
+      "color": "#FB7185",
+      "name": "Phu Pha Nam Resort",
+      "price": "฿1,750"
+    },
+    {
+      "n": "10",
+      "color": "#FB7185",
+      "name": "Sugar Guesthouse",
+      "price": "฿300"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin", "price": "฿1,400/คืน" },
-        { "type": "Deluxe River View", "price": "฿1,800/คืน" },
-        { "type": "Suite River View", "price": "฿2,600/คืน" }
+        {
+          "type": "Superior Twin",
+          "price": "฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "฿1,800/คืน"
+        },
+        {
+          "type": "Suite River View",
+          "price": "฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chiangkhan-river-mountain-resort/hotel/chiangkhan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chiangkhan-river-mountain-resort-ely.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-khan-hotel-detail-711307/chiangkhan-river-mountain-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chiangkhan-river-mountain-resort-loei.html",
-      "tags": ["🛶 ริมแม่น้ำโขง", "🏊 มีสระว่ายน้ำ", "🌅 วิวพระอาทิตย์ขึ้นริมโขง", "🚶 ใกล้ถนนคนเดิน"],
+      "tags": [
+        "🛶 ริมแม่น้ำโขง",
+        "🏊 มีสระว่ายน้ำ",
+        "🌅 วิวพระอาทิตย์ขึ้นริมโขง",
+        "🚶 ใกล้ถนนคนเดิน"
+      ],
       "addr": "451 หมู่ 1 อำเภอเชียงคาน จ.เลย",
       "storyHtml": "คะแนนสูงสุดในชุดนี้ที่ 9.1 จาก 156 รีวิว — Chiangkhan River Mountain คือ <strong>บูทีครีสอร์ตริมแม่น้ำโขงที่เชียงคาน</strong> ที่มีทั้งห้องวิวแม่น้ำและสระว่ายน้ำ ซึ่งหายากในย่านบ้านไม้เก่า · ห้อง Deluxe และ Suite ฝั่งริมน้ำเปิดออกไปเห็นแม่น้ำโขงและฝั่งลาว เหมาะดูพระอาทิตย์ขึ้นและหมอกเช้า · เสียงจากรีวิวจริงชมวิวริมโขง ความสะอาด และทำเลที่ขับไปถนนคนเดินได้ใกล้ เป็นที่พักที่เด่นเรื่องวิวและความสบายในเชียงคาน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง River View ถ้างบถึง วิวแม่น้ำโขงตอนเช้าคือไฮไลต์ และช่วงหน้าหนาวริมโขงเย็นมาก เตรียมเสื้อกันหนาวไว้",
@@ -102,15 +189,29 @@
       "priceBig": "฿750",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Queen Garden View", "price": "฿750/คืน" },
-        { "type": "Double Garden View", "price": "฿850/คืน" },
-        { "type": "Quadruple Garden View", "price": "฿1,300/คืน" }
+        {
+          "type": "Queen Garden View",
+          "price": "฿750/คืน"
+        },
+        {
+          "type": "Double Garden View",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Quadruple Garden View",
+          "price": "฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-suan-la-moon-h14874409/hotel/chiangkhan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-suan-la-moon-baanswnlamun.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-khan-hotel-detail-7622583/baan-suan-la-moon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-suan-la-moon-loei.html",
-      "tags": ["🌳 บ้านพักในสวน", "🚶 ใกล้ถนนคนเดิน", "🤝 เจ้าของดูแลเอง", "💰 ราคาคุ้ม"],
+      "tags": [
+        "🌳 บ้านพักในสวน",
+        "🚶 ใกล้ถนนคนเดิน",
+        "🤝 เจ้าของดูแลเอง",
+        "💰 ราคาคุ้ม"
+      ],
       "addr": "91/11 หมู่ 1 ซอย 5 บน ตำบลเชียงคาน อำเภอเชียงคาน",
       "storyHtml": "Baan Suan La Moon คือ <strong>บ้านพักในสวนใกล้ถนนคนเดินเชียงคานที่มีรีวิวเยอะถึง 344 รีวิว</strong> คะแนน 9.1 เท่าอันดับหนึ่งของชุดนี้ · จุดเด่นคือบรรยากาศบ้านสวนเงียบสงบ ทุกห้องมองออกไปเห็นสวน และเจ้าของดูแลเองอย่างเป็นกันเอง · ทำเลเดินถึงถนนคนเดินและริมโขงได้ ในราคาเริ่มแค่ ฿750 · เสียงจากรีวิวจริงชมความสะอาด ความเงียบ และการดูแลของเจ้าของ เหมาะคนที่อยากได้บรรยากาศบ้านสวนใกล้เมืองเก่าในงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ที่นี่ห้องไม่เยอะและช่วงถนนคนเดินคนจองเยอะ จองล่วงหน้าโดยเฉพาะคืนวันศุกร์-เสาร์ และมากันสี่คนห้อง Quadruple คุ้มกว่าจองสองห้อง",
@@ -142,15 +243,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe", "price": "฿900/คืน" },
-        { "type": "Grand Deluxe", "price": "฿1,200/คืน" },
-        { "type": "One Bedroom Suite", "price": "฿2,200/คืน" }
+        {
+          "type": "Deluxe",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Grand Deluxe",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/loei-palace-hotel/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/loei-palace.html",
       "tripUrl": "https://www.trip.com/hotels/loei-hotel-detail-711372/loei-palace-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-loei-palace-hotel-loei.html",
-      "tags": ["🏙️ กลางเมืองเลย", "🏊 มีสระว่ายน้ำ", "🅿️ ที่จอดรถ", "🛏️ ห้องกว้าง"],
+      "tags": [
+        "🏙️ กลางเมืองเลย",
+        "🏊 มีสระว่ายน้ำ",
+        "🅿️ ที่จอดรถ",
+        "🛏️ ห้องกว้าง"
+      ],
       "addr": "167/4 ถนนเจริญรัฐ ตำบลกุดป่อง อำเภอเมืองเลย",
       "storyHtml": "Loei Palace คือ <strong>โรงแรม 4 ดาวกลางเมืองเลยที่คะแนนสูงสุดในกลุ่มโรงแรมในเมือง</strong> คะแนน 9.0 จาก 106 รีวิว · เป็นโรงแรมใหญ่ห้องกว้าง มีสระว่ายน้ำและที่จอดรถ ทำเลใจกลางเมืองเลยใกล้ร้านค้าและสถานที่ราชการ ออกไปไหนสะดวก · เหมาะใช้เป็นฐานเที่ยวเลยแบบกระจายไปเชียงคาน ภูเรือ หรือด่านซ้ายในแต่ละวัน · เสียงจากรีวิวจริงชมขนาดห้อง ความสะอาด และทำเลกลางเมืองที่เดินทางสะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขยับขึ้นห้อง Grand Deluxe ที่กว้างและใหม่กว่าจะคุ้มกว่าห้อง Deluxe มาตรฐาน และที่นี่เหมาะถ้าใช้เมืองเลยเป็นฐานขับไปเที่ยวรอบจังหวัด",
@@ -182,15 +297,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "฿900/คืน" },
-        { "type": "Deluxe Room (City View)", "price": "฿1,300/คืน" },
-        { "type": "Deluxe Suite", "price": "฿1,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Deluxe Room (City View)",
+          "price": "฿1,300/คืน"
+        },
+        {
+          "type": "Deluxe Suite",
+          "price": "฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/loei-village/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/loei-village.html",
       "tripUrl": "https://www.trip.com/hotels/loei-hotel-detail-3728977/loei-village-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-loei-village-hotel-loei.html",
-      "tags": ["🏙️ บูทีคในเมือง", "🍳 อาหารเช้าเปลี่ยนเมนูทุกวัน", "🤫 ซอยเงียบ", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏙️ บูทีคในเมือง",
+        "🍳 อาหารเช้าเปลี่ยนเมนูทุกวัน",
+        "🤫 ซอยเงียบ",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "17/62 ถนนเนินแก้ว ตำบลกุดป่อง อำเภอเมืองเลย",
       "storyHtml": "Loei Village คือ <strong>โรงแรมซิตี้บูทีคในเมืองเลยสไตล์ท้องถิ่น</strong> คะแนน 9.0 จาก 80 รีวิว · จุดที่รีวิวพูดถึงตรงกันคืออาหารเช้าบุฟเฟ่ต์ที่เปลี่ยนเมนูทุกวัน ตั้งอยู่ในซอยเงียบจึงนอนสบาย แต่ยังอยู่ในเมืองออกไปหาของกินได้สะดวก · เป็นบูทีคขนาดกะทัดรัดที่ตกแต่งอบอุ่นกว่าโรงแรมในเมืองทั่วไป มีที่จอดรถ · เสียงจากรีวิวจริงชมความสะอาด อาหารเช้า และความเงียบสงบของทำเล เหมาะคนที่อยากได้บูทีคในเมืองราคาเข้าถึงได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาแล้วอย่าพลาดอาหารเช้าที่เปลี่ยนเมนูทุกวัน และห้อง Deluxe City View กว้างกว่าห้อง Superior พอควรถ้าอยากได้พื้นที่เพิ่ม",
@@ -222,15 +351,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "฿1,200/คืน" },
-        { "type": "Deluxe River View", "price": "฿1,500/คืน" },
-        { "type": "Premium River Deluxe", "price": "฿1,800/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Premium River Deluxe",
+          "price": "฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/riverside-chiangkhan-resort_2/hotel/chiangkhan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/riverside-chiangkhan.th.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-khan-hotel-detail-47263630/qing-kan-he-pan-du-jia-cun/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-riverside-chiangkhan-loei.html",
-      "tags": ["🛶 ริมแม่น้ำโขง", "🏞️ ใกล้แก่งคุดคู้", "🏡 เรือนพักไม้ริมน้ำ", "🌅 วิวพระอาทิตย์ขึ้น"],
+      "tags": [
+        "🛶 ริมแม่น้ำโขง",
+        "🏞️ ใกล้แก่งคุดคู้",
+        "🏡 เรือนพักไม้ริมน้ำ",
+        "🌅 วิวพระอาทิตย์ขึ้น"
+      ],
       "addr": "40/11 ถนนร่วมใจนฤมิตร แก่งคุดคู้ อำเภอเชียงคาน",
       "storyHtml": "Riverside Chiangkhan คือ <strong>รีสอร์ตริมแม่น้ำโขงที่แก่งคุดคู้ และมีรีวิวมากที่สุดในชุดนี้ถึง 379 รีวิว</strong> คะแนน 8.5 · จุดเด่นคือเรือนพักไม้ริมน้ำที่เปิดออกไปเห็นแม่น้ำโขงและแก่งคุดคู้ ซึ่งเป็นจุดชมวิวยอดนิยมของเชียงคาน · ทำเลห่างจากตัวถนนคนเดินนิดหน่อยแต่ได้บรรยากาศริมน้ำเต็มที่และเงียบกว่า · เสียงจากรีวิวจริงชมวิวแม่น้ำตอนเช้าและบรรยากาศริมโขง แม้บางเสียงบอกว่าห้องเรียบง่ายตามสไตล์รีสอร์ตริมน้ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง River View ที่เปิดออกเห็นแม่น้ำโดยตรง และตื่นเช้ามาดูหมอกริมโขงกับแก่งคุดคู้คือไฮไลต์ของที่นี่",
@@ -262,15 +405,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,200/คืน" },
-        { "type": "Superior Queen with Window", "price": "฿1,500/คืน" },
-        { "type": "River View Room", "price": "฿1,800/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Superior Queen with Window",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "River View Room",
+          "price": "฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/with-a-view-hotel-chiangkhan/hotel/chiangkhan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/with-a-view-chiangkhan.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-khan-hotel-detail-9894878/with-a-view-at-chiangkhan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-with-a-view-hotel-at-chiangkhan-loei.html",
-      "tags": ["🏚️ บ้านไม้เก่าริมโขง", "🚶 กลางถนนคนเดิน", "🌅 ห้องวิวแม่น้ำ", "📷 บรรยากาศเชียงคาน"],
+      "tags": [
+        "🏚️ บ้านไม้เก่าริมโขง",
+        "🚶 กลางถนนคนเดิน",
+        "🌅 ห้องวิวแม่น้ำ",
+        "📷 บรรยากาศเชียงคาน"
+      ],
       "addr": "185 หมู่ 2 ถนนชายโขง อำเภอเชียงคาน",
       "storyHtml": "With A View คือ <strong>บูทีคบ้านไม้ริมโขงที่อยู่กลางถนนคนเดินเชียงคานเลย</strong> คะแนน 8.7 จาก 120 รีวิว · จุดขายคือทำเลที่เดินออกประตูก็ถึงถนนคนเดิน บ้านไม้เก่าให้บรรยากาศเชียงคานแท้ๆ และมีห้อง River View ที่เปิดออกเห็นแม่น้ำโขง · เหมาะคนที่อยากซึมซับบรรยากาศเมืองเก่าเชียงคานแบบเดินเที่ยวและตักบาตรข้าวเหนียวเช้าได้สะดวก · เสียงจากรีวิวจริงชมทำเลและบรรยากาศ แม้ห้องจะกะทัดรัดตามแบบบ้านไม้เก่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวแม่น้ำเลือกห้อง River View และเผื่อใจว่าบ้านไม้เก่าเสียงลอดง่าย คืนวันหยุดถนนคนเดินคึกคักถึงดึก ชอบเงียบให้เลือกห้องชั้นในแทน",
@@ -302,15 +459,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿550/คืน" },
-        { "type": "Deluxe Double/Twin (มีหน้าต่าง)", "price": "฿650/คืน" },
-        { "type": "Family Room", "price": "฿1,000/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿550/คืน"
+        },
+        {
+          "type": "Deluxe Double/Twin (มีหน้าต่าง)",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/king-hotel_2/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-king-hotel.html",
       "tripUrl": "https://www.trip.com/hotels/loei-hotel-detail-22115563/king-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-king-hotel-loei.html",
-      "tags": ["💰 เริ่ม ฿550", "🛏️ ห้องกว้าง มีระเบียง", "🌿 สวนสไตล์ไทย-ญี่ปุ่น", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "💰 เริ่ม ฿550",
+        "🛏️ ห้องกว้าง มีระเบียง",
+        "🌿 สวนสไตล์ไทย-ญี่ปุ่น",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "11/8-12 ถนนชุมสาย ตำบลกุดป่อง อำเภอเมืองเลย",
       "storyHtml": "King Hotel คือ <strong>โรงแรมงบประหยัดใจกลางเมืองเลยที่คะแนนดีถึง 8.9</strong> เริ่มต้นแค่ ฿550 · จุดที่เกินคาดในราคานี้คือห้องค่อนข้างกว้าง บางห้องมีระเบียง และมีสวนสไตล์ไทย-ญี่ปุ่นกับที่จอดรถ · ทำเลกลางเมืองบนถนนชุมสาย ออกไปหาของกินและขับไปเที่ยวรอบจังหวัดสะดวก · เสียงจากรีวิวจริงชมความคุ้มราคา ความสะอาด และขนาดห้อง เหมาะคนงบประหยัดที่อยากได้ห้องกว้างกลางเมืองโดยไม่เน้นบริการโรงแรมใหญ่",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง Deluxe ที่มีหน้าต่างจะโปร่งกว่าห้อง Standard และมากันหลายคนห้อง Family ฿1,000 คุ้มมากสำหรับกลางเมือง",
@@ -342,15 +513,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,500/คืน" },
-        { "type": "Super Deluxe Room", "price": "฿2,400/คืน" },
-        { "type": "Villa (2 ห้องนอน)", "price": "฿4,500/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Super Deluxe Room",
+          "price": "฿2,400/คืน"
+        },
+        {
+          "type": "Villa (2 ห้องนอน)",
+          "price": "฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phurua-sanctuary-resort-spa/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phurua-sanctuary-resort-and-spa.html",
       "tripUrl": "https://th.trip.com/hotels/phu-ruea-hotel-detail-6274978/phurua-sanctuary-resort-and-spa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phurua-sanctuary-resort-and-spa-loei.html",
-      "tags": ["🏞️ พื้นที่กว้างเชิงเขา", "🏊 สระ สปา ห้องโยคะ", "🌳 ร้านใต้ต้นแมคคาเดเมีย", "🚲 จักรยานฟรี"],
+      "tags": [
+        "🏞️ พื้นที่กว้างเชิงเขา",
+        "🏊 สระ สปา ห้องโยคะ",
+        "🌳 ร้านใต้ต้นแมคคาเดเมีย",
+        "🚲 จักรยานฟรี"
+      ],
       "addr": "216 หมู่ 8 ตำบลหนองบัว อำเภอภูเรือ",
       "storyHtml": "Phurua Sanctuary คือ <strong>รีสอร์ต 4 ดาวบนพื้นที่กว้างราว 40 ไร่เชิงเขาภูเรือ</strong> คะแนน 8.6 · จุดเด่นคือพื้นที่กว้าง วิวภูเขา มีสวนให้เดินเล่น พร้อมสระว่ายน้ำ สปา และห้องโยคะ เหมาะคนที่มาภูเรือเพื่ออากาศเย็นและอยากใช้เวลาในรีสอร์ตเต็มวัน · ร้านอาหาร Phu Luang กลางแจ้งใต้ต้นแมคคาเดเมียเป็นมุมที่หลายคนชอบ · เสียงจากรีวิวจริงชมพื้นที่และบรรยากาศ แต่บอกตรงกันว่าที่นอนค่อนข้างแข็งและรายละเอียดบริการยังไม่เนียนทุกจุด รีวิวยังไม่เยอะจึงอยู่อันดับนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ชอบที่นอนนุ่มแจ้งขอท็อปเปอร์เสริมล่วงหน้า และเตรียมเสื้อกันหนาวเพราะภูเรือกลางคืนเย็นจัด โดยเฉพาะปลายปีถึงต้นปี",
@@ -382,15 +567,29 @@
       "priceBig": "฿1,750",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,750/คืน" },
-        { "type": "Junior Suite (Mountain View)", "price": "฿2,900/คืน" },
-        { "type": "Family / Connecting", "price": "฿3,500/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,750/คืน"
+        },
+        {
+          "type": "Junior Suite (Mountain View)",
+          "price": "฿2,900/คืน"
+        },
+        {
+          "type": "Family / Connecting",
+          "price": "฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phu-pha-nam-resort-spa/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phu-pha-nam-resort.html",
       "tripUrl": "https://th.trip.com/hotels/dan-sai-hotel-detail-2893217/phu-pha-nam-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phu-pha-nam-resort-loei.html",
-      "tags": ["🌿 กลางหุบเขาด่านซ้าย", "🪵 อาคารไม้สัก", "🛕 ใกล้พระธาตุศรีสองรัก", "🎭 ใกล้เมืองผีตาโขน"],
+      "tags": [
+        "🌿 กลางหุบเขาด่านซ้าย",
+        "🪵 อาคารไม้สัก",
+        "🛕 ใกล้พระธาตุศรีสองรัก",
+        "🎭 ใกล้เมืองผีตาโขน"
+      ],
       "addr": "252 หมู่ 1 ตำบลโคกงาม อำเภอด่านซ้าย",
       "storyHtml": "Phu Pha Nam คือ <strong>รีสอร์ต 4 ดาวอาคารไม้สักกลางหุบเขาด่านซ้าย และมีรีวิวเยอะที่สุดในชุดนี้ถึง 741 รีวิว</strong> คะแนน 8.3 · จุดเด่นคือทำเลกลางหุบเขาบนที่ดินกว้าง ล้อมด้วยภูเขา เป็นรีสอร์ตระดับนี้ไม่กี่แห่งในด่านซ้าย · เหมาะเป็นฐานไหว้พระธาตุศรีสองรัก เที่ยวภูเรือ หรือมาช่วงงานผีตาโขน · ร้านอาหารริมผาและอาหารเช้าได้คำชม · เสียงจากรีวิวจริงชมบรรยากาศและงานไม้ แต่บอกตรงกันว่าห้องเริ่มมีอายุและสระ/สปาบางครั้งปิดช่วงโลว์ซีซั่น จึงอยู่อันดับนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องฝั่งที่ติดภูเขาและห่างถนนจะเงียบและวิวดีที่สุด และถ้าตั้งใจใช้สระหรือสปา โทรเช็คกับรีสอร์ตก่อนว่าช่วงที่ไปเปิดให้บริการหรือไม่",
@@ -422,15 +621,29 @@
       "priceBig": "฿300",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "ห้องพัดลม (ห้องน้ำรวม)", "price": "฿300/คืน" },
-        { "type": "ห้องคู่ ห้องน้ำในตัว", "price": "฿500/คืน" },
-        { "type": "ห้องแอร์ ห้องน้ำในตัว", "price": "฿600/คืน" }
+        {
+          "type": "ห้องพัดลม (ห้องน้ำรวม)",
+          "price": "฿300/คืน"
+        },
+        {
+          "type": "ห้องคู่ ห้องน้ำในตัว",
+          "price": "฿500/คืน"
+        },
+        {
+          "type": "ห้องแอร์ ห้องน้ำในตัว",
+          "price": "฿600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sugar-guesthouse/hotel/loei-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sugar-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/loei-hotel-list/?city=Loei&keyword=Sugar%20Guesthouse&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sugar-guesthouse-loei.html",
-      "tags": ["💰 เริ่ม ฿300", "🤝 เจ้าของพูดอังกฤษคล่อง", "🌳 มีสวนและศาลานั่งเล่น", "🎒 เหมาะแบ็คแพ็คเกอร์"],
+      "tags": [
+        "💰 เริ่ม ฿300",
+        "🤝 เจ้าของพูดอังกฤษคล่อง",
+        "🌳 มีสวนและศาลานั่งเล่น",
+        "🎒 เหมาะแบ็คแพ็คเกอร์"
+      ],
       "addr": "4/1 ซอย 4 ถนนวิสุทธิเทพ ตำบลกุดป่อง อำเภอเมืองเลย",
       "storyHtml": "Sugar Guesthouse คือ <strong>เกสต์เฮาส์งบประหยัดในเมืองเลย เริ่มต้นแค่ ฿300</strong> คะแนน 8.8 จาก 17 รีวิว · จุดที่ถูกใจแบ็คแพ็คเกอร์คือเจ้าของเป็นกันเองและพูดภาษาอังกฤษคล่อง ช่วยแนะนำที่เที่ยวรอบเลยได้ มีสวนและศาลานั่งเล่นบรรยากาศสบายๆ · มีทั้งห้องพัดลมห้องน้ำรวมราคาถูกและห้องแอร์ห้องน้ำในตัว · เสียงจากรีวิวจริงชมความเป็นกันเองของเจ้าของและราคาประหยัด เหมาะคนเที่ยวคนเดียวหรือแบ็คแพ็คเกอร์ที่ใช้เมืองเลยเป็นฐานออกไปเที่ยว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้แอร์และห้องน้ำในตัวให้เลือกห้องแอร์ ฿600 ที่คุ้มกว่าห้องพัดลม และสอบถามเจ้าของเรื่องเส้นทางไปเชียงคาน/ภูเรือ ได้คำแนะนำดี",
@@ -448,36 +661,184 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม เลย 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Chiangkhan River Mountain Resort", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,400", "access": "📍 ริมโขง·เชียงคาน", "badge": "คะแนนสูงสุด", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Baan Suan La Moon", "type": "⭐⭐", "score": "9.1", "price": "฿750", "access": "📍 เชียงคาน·ใกล้ถนนคนเดิน", "badge": "รีวิวเยอะ·คุ้มสุด", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Loei Palace Hotel", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿900", "access": "📍 กลางเมืองเลย", "badge": "4 ดาวกลางเมือง", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#0891b2", "name": "Loei Village Hotel", "type": "⭐⭐⭐", "score": "9.0", "price": "฿900", "access": "📍 เมืองเลย·ซอยเงียบ", "badge": "บุฟเฟ่ต์เช้าเด็ด" },
-    { "rank": "5", "rankColor": "#0891b2", "name": "Riverside Chiangkhan Resort", "type": "⭐⭐⭐", "score": "8.5", "price": "฿1,200", "access": "📍 ริมโขง·แก่งคุดคู้", "badge": "รีวิวมากสุด", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#0891b2", "name": "With A View Hotel @ Chiangkhan", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,200", "access": "📍 ริมโขง·ถนนคนเดิน", "badge": "กลางถนนคนเดิน" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "King Hotel Loei", "type": "⭐⭐", "score": "8.9", "price": "฿550", "access": "📍 เมืองเลย·ถนนชุมสาย", "badge": "คุ้มสุดในเมือง", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Phurua Sanctuary Resort and Spa", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 ภูเรือ·เชิงเขา", "badge": "วิวเขาที่ภูเรือ", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FB7185", "name": "Phu Pha Nam Resort", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿1,750", "access": "📍 ด่านซ้าย·กลางหุบเขา", "badge": "ฐานเที่ยวด่านซ้าย" },
-    { "rank": "10", "rankColor": "#FB7185", "name": "Sugar Guesthouse", "type": "⭐", "score": "8.8", "price": "฿300", "access": "📍 เมืองเลย·ใกล้แม่น้ำ", "badge": "ถูกสุด", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Chiangkhan River Mountain Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,400",
+      "access": "📍 ริมโขง·เชียงคาน",
+      "badge": "คะแนนสูงสุด",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Baan Suan La Moon",
+      "type": "⭐⭐",
+      "score": "9.1",
+      "price": "฿750",
+      "access": "📍 เชียงคาน·ใกล้ถนนคนเดิน",
+      "badge": "รีวิวเยอะ·คุ้มสุด",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Loei Palace Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿900",
+      "access": "📍 กลางเมืองเลย",
+      "badge": "4 ดาวกลางเมือง",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#0891b2",
+      "name": "Loei Village Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿900",
+      "access": "📍 เมืองเลย·ซอยเงียบ",
+      "badge": "บุฟเฟ่ต์เช้าเด็ด"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#0891b2",
+      "name": "Riverside Chiangkhan Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,200",
+      "access": "📍 ริมโขง·แก่งคุดคู้",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#0891b2",
+      "name": "With A View Hotel @ Chiangkhan",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,200",
+      "access": "📍 ริมโขง·ถนนคนเดิน",
+      "badge": "กลางถนนคนเดิน"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "King Hotel Loei",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿550",
+      "access": "📍 เมืองเลย·ถนนชุมสาย",
+      "badge": "คุ้มสุดในเมือง",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Phurua Sanctuary Resort and Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 ภูเรือ·เชิงเขา",
+      "badge": "วิวเขาที่ภูเรือ",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FB7185",
+      "name": "Phu Pha Nam Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,750",
+      "access": "📍 ด่านซ้าย·กลางหุบเขา",
+      "badge": "ฐานเที่ยวด่านซ้าย"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FB7185",
+      "name": "Sugar Guesthouse",
+      "type": "⭐",
+      "score": "8.8",
+      "price": "฿300",
+      "access": "📍 เมืองเลย·ใกล้แม่น้ำ",
+      "badge": "ถูกสุด",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมเลยยังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้ถูกที่สุด", "bodyHtml": "→ <strong>Sugar Guesthouse</strong> ฿300 เกสต์เฮาส์ในเมืองเจ้าของพูดอังกฤษคล่อง · หรือ <strong>King Hotel Loei</strong> ฿550 โรงแรมประหยัดห้องกว้างคะแนน 8.9" },
-    { "icon": "🛶", "head": "อยากนอนริมโขง เที่ยวเชียงคาน", "bodyHtml": "→ <strong>Chiangkhan River Mountain Resort</strong> ฿1,400 ริมโขงมีสระคะแนน 9.1 · หรือ <strong>With A View @ Chiangkhan</strong> ฿1,200 บ้านไม้กลางถนนคนเดิน" },
-    { "icon": "🌳", "head": "อยากได้บ้านสวนใกล้เมืองเก่า ราคาคุ้ม", "bodyHtml": "→ <strong>Baan Suan La Moon</strong> ฿750 บ้านพักในสวนใกล้ถนนคนเดิน รีวิวเยอะคะแนน 9.1 เจ้าของดูแลเอง" },
-    { "icon": "🏞️", "head": "อยากสัมผัสอากาศเย็น วิวเขาที่ภูเรือ", "bodyHtml": "→ <strong>Phurua Sanctuary Resort and Spa</strong> ฿1,500 รีสอร์ตเชิงเขามีสระและสปา พื้นที่กว้างให้เดินเล่น" },
-    { "icon": "🛕", "head": "ไหว้พระธาตุศรีสองรัก เที่ยวด่านซ้าย", "bodyHtml": "→ <strong>Phu Pha Nam Resort</strong> ฿1,750 รีสอร์ตไม้สักกลางหุบเขา ใกล้พระธาตุและเมืองผีตาโขน รีวิวเยอะสุด" },
-    { "icon": "🏙️", "head": "อยากพักกลางเมืองเลย เป็นฐานออกเที่ยว", "bodyHtml": "→ <strong>Loei Palace Hotel</strong> ฿900 โรงแรม 4 ดาวมีสระกลางเมือง · หรือ <strong>Loei Village Hotel</strong> ฿900 บูทีคในซอยเงียบ อาหารเช้าเด็ด" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้ถูกที่สุด",
+      "bodyHtml": "→ <strong>Sugar Guesthouse</strong> ฿300 เกสต์เฮาส์ในเมืองเจ้าของพูดอังกฤษคล่อง · หรือ <strong>King Hotel Loei</strong> ฿550 โรงแรมประหยัดห้องกว้างคะแนน 8.9"
+    },
+    {
+      "icon": "🛶",
+      "head": "อยากนอนริมโขง เที่ยวเชียงคาน",
+      "bodyHtml": "→ <strong>Chiangkhan River Mountain Resort</strong> ฿1,400 ริมโขงมีสระคะแนน 9.1 · หรือ <strong>With A View @ Chiangkhan</strong> ฿1,200 บ้านไม้กลางถนนคนเดิน"
+    },
+    {
+      "icon": "🌳",
+      "head": "อยากได้บ้านสวนใกล้เมืองเก่า ราคาคุ้ม",
+      "bodyHtml": "→ <strong>Baan Suan La Moon</strong> ฿750 บ้านพักในสวนใกล้ถนนคนเดิน รีวิวเยอะคะแนน 9.1 เจ้าของดูแลเอง"
+    },
+    {
+      "icon": "🏞️",
+      "head": "อยากสัมผัสอากาศเย็น วิวเขาที่ภูเรือ",
+      "bodyHtml": "→ <strong>Phurua Sanctuary Resort and Spa</strong> ฿1,500 รีสอร์ตเชิงเขามีสระและสปา พื้นที่กว้างให้เดินเล่น"
+    },
+    {
+      "icon": "🛕",
+      "head": "ไหว้พระธาตุศรีสองรัก เที่ยวด่านซ้าย",
+      "bodyHtml": "→ <strong>Phu Pha Nam Resort</strong> ฿1,750 รีสอร์ตไม้สักกลางหุบเขา ใกล้พระธาตุและเมืองผีตาโขน รีวิวเยอะสุด"
+    },
+    {
+      "icon": "🏙️",
+      "head": "อยากพักกลางเมืองเลย เป็นฐานออกเที่ยว",
+      "bodyHtml": "→ <strong>Loei Palace Hotel</strong> ฿900 โรงแรม 4 ดาวมีสระกลางเมือง · หรือ <strong>Loei Village Hotel</strong> ฿900 บูทีคในซอยเงียบ อาหารเช้าเด็ด"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงหน้าหนาว (พ.ย.–ม.ค.) ที่พักเชียงคานและภูเรือเต็มเร็วมาก และช่วงงานผีตาโขนที่ด่านซ้าย (ราว มิ.ย.–ก.ค. วันเปลี่ยนทุกปี) ห้องเต็มล่วงหน้าหลายเดือน ควรจองล่วงหน้า 1–2 เดือน · เลยไม่มีรถไฟฟ้าและขนส่งสาธารณะน้อย เช่ารถหรือมอเตอร์ไซค์สะดวกที่สุด โดยเฉพาะถ้าจะไปเชียงคาน·ภูเรือ·ด่านซ้ายที่อยู่คนละทิศ · จากสนามบินเลยเข้าเมืองราว 10 นาที · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมเลย",
   "faq": [
-    { "q": "❓ ควรพักโซนไหนในเลย?", "a": "ขึ้นอยู่กับว่าจะเที่ยวโซนไหน · <strong>เชียงคาน</strong> เหมาะถ้าเน้นริมโขง ถนนคนเดิน ตักบาตรข้าวเหนียว แก่งคุดคู้ (Chiangkhan River Mountain, Riverside Chiangkhan, With A View, Baan Suan La Moon) · <strong>ภูเรือ</strong> เหมาะคนอยากได้อากาศเย็นและวิวเขา (Phurua Sanctuary) · <strong>ด่านซ้าย</strong> เหมาะคนไหว้พระธาตุศรีสองรักและงานผีตาโขน (Phu Pha Nam) · <strong>เมืองเลย</strong> เหมาะเป็นฐานกลางใกล้สนามบิน (Loei Palace, Loei Village, King Hotel, Sugar) · แต่ละโซนอยู่คนละทิศ ต้องมีรถ" },
-    { "q": "❓ โรงแรมเลยราคาเท่าไหร่?", "a": "ราคาหลากหลาย: เกสต์เฮาส์และโรงแรมประหยัดเริ่มราว ฿300–750 ต่อคืน · โรงแรมในเมืองและบูทีคราว ฿900–1,400 · รีสอร์ตริมโขงเชียงคานราว ฿1,200–1,800 · รีสอร์ตวิวเขาที่ภูเรือและด่านซ้ายเริ่มราว ฿1,500–1,750 · ช่วงหน้าหนาวและงานผีตาโขนราคาขยับขึ้นและห้องเต็มเร็ว" },
-    { "q": "❓ เที่ยวเลยต้องมีรถไหม จำเป็นแค่ไหน?", "a": "ค่อนข้างจำเป็น เพราะจุดเที่ยวหลักของเลยอยู่คนละทิศ — <strong>เชียงคาน</strong> ห่างเมืองราว 50 กม. <strong>ภูเรือ</strong> อีกราว 50 กม. และ <strong>ด่านซ้าย</strong> ไกลออกไปอีก · ขนส่งสาธารณะในจังหวัดมีน้อย เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกและยืดหยุ่นที่สุด · ถ้าพักในตัวถนนคนเดินเชียงคานเดินเที่ยวในย่านนั้นได้ แต่จะออกไปโซนอื่นต้องมีรถ" },
-    { "q": "❓ ควรจองโรงแรมเลยล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาทั่วไปจองล่วงหน้า 2–3 สัปดาห์พอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) ที่พักเชียงคานและภูเรือเต็มเร็วมาก และช่วงงานผีตาโขนที่ด่านซ้าย (ราว มิ.ย.–ก.ค.) ห้องเต็มล่วงหน้าหลายเดือน ควรจองล่วงหน้า 1–2 เดือนขึ้นไป" },
-    { "q": "❓ พักเชียงคานกับพักเมืองเลย เลือกอันไหนดี?", "a": "<strong>พักเชียงคาน</strong> เหมาะถ้าทริปเน้นริมโขง ถนนคนเดิน ตักบาตรข้าวเหนียวเช้า และบรรยากาศเมืองเก่า — เดินเที่ยวในย่านได้ · <strong>พักเมืองเลย</strong> เหมาะถ้าใช้เป็นฐานกลางขับไปหลายโซน (เชียงคาน ภูเรือ ด่านซ้าย) ใกล้สนามบินและร้านค้า · ถ้าเที่ยวหลายวันหลายคนเลือกนอนเชียงคาน 1–2 คืนแล้วค่อยขยับไปโซนอื่น" },
-    { "q": "❓ จองโรงแรมเลยเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน" }
-  ]
+    {
+      "q": "❓ ควรพักโซนไหนในเลย?",
+      "a": "ขึ้นอยู่กับว่าจะเที่ยวโซนไหน · <strong>เชียงคาน</strong> เหมาะถ้าเน้นริมโขง ถนนคนเดิน ตักบาตรข้าวเหนียว แก่งคุดคู้ (Chiangkhan River Mountain, Riverside Chiangkhan, With A View, Baan Suan La Moon) · <strong>ภูเรือ</strong> เหมาะคนอยากได้อากาศเย็นและวิวเขา (Phurua Sanctuary) · <strong>ด่านซ้าย</strong> เหมาะคนไหว้พระธาตุศรีสองรักและงานผีตาโขน (Phu Pha Nam) · <strong>เมืองเลย</strong> เหมาะเป็นฐานกลางใกล้สนามบิน (Loei Palace, Loei Village, King Hotel, Sugar) · แต่ละโซนอยู่คนละทิศ ต้องมีรถ"
+    },
+    {
+      "q": "❓ โรงแรมเลยราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: เกสต์เฮาส์และโรงแรมประหยัดเริ่มราว ฿300–750 ต่อคืน · โรงแรมในเมืองและบูทีคราว ฿900–1,400 · รีสอร์ตริมโขงเชียงคานราว ฿1,200–1,800 · รีสอร์ตวิวเขาที่ภูเรือและด่านซ้ายเริ่มราว ฿1,500–1,750 · ช่วงหน้าหนาวและงานผีตาโขนราคาขยับขึ้นและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ เที่ยวเลยต้องมีรถไหม จำเป็นแค่ไหน?",
+      "a": "ค่อนข้างจำเป็น เพราะจุดเที่ยวหลักของเลยอยู่คนละทิศ — <strong>เชียงคาน</strong> ห่างเมืองราว 50 กม. <strong>ภูเรือ</strong> อีกราว 50 กม. และ <strong>ด่านซ้าย</strong> ไกลออกไปอีก · ขนส่งสาธารณะในจังหวัดมีน้อย เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกและยืดหยุ่นที่สุด · ถ้าพักในตัวถนนคนเดินเชียงคานเดินเที่ยวในย่านนั้นได้ แต่จะออกไปโซนอื่นต้องมีรถ"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมเลยล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาทั่วไปจองล่วงหน้า 2–3 สัปดาห์พอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) ที่พักเชียงคานและภูเรือเต็มเร็วมาก และช่วงงานผีตาโขนที่ด่านซ้าย (ราว มิ.ย.–ก.ค.) ห้องเต็มล่วงหน้าหลายเดือน ควรจองล่วงหน้า 1–2 เดือนขึ้นไป"
+    },
+    {
+      "q": "❓ พักเชียงคานกับพักเมืองเลย เลือกอันไหนดี?",
+      "a": "<strong>พักเชียงคาน</strong> เหมาะถ้าทริปเน้นริมโขง ถนนคนเดิน ตักบาตรข้าวเหนียวเช้า และบรรยากาศเมืองเก่า — เดินเที่ยวในย่านได้ · <strong>พักเมืองเลย</strong> เหมาะถ้าใช้เป็นฐานกลางขับไปหลายโซน (เชียงคาน ภูเรือ ด่านซ้าย) ใกล้สนามบินและร้านค้า · ถ้าเที่ยวหลายวันหลายคนเลือกนอนเชียงคาน 1–2 คืนแล้วค่อยขยับไปโซนอื่น"
+    },
+    {
+      "q": "❓ จองโรงแรมเลยเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมเลยจากทุกระดับ — บูทีคริมโขงเชียงคาน รีสอร์ตเชิงเขาภูเรือ โรงแรมกลางเมืองเลย ไปจนถึงเกสต์เฮาส์เริ่ม ฿300 เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

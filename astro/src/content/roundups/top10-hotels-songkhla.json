@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "สงขลา", "href": "city-songkhla.html" },
-    { "name": "12 โรงแรมสงขลายอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "สงขลา",
+      "href": "city-songkhla.html"
+    },
+    {
+      "name": "12 โรงแรมสงขลายอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "สงขลา", "item": "https://thailandaddict.com/city-songkhla" },
-    { "name": "12 โรงแรมสงขลายอดนิยม", "item": "https://thailandaddict.com/top10-hotels-songkhla" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "สงขลา",
+      "item": "https://thailandaddict.com/city-songkhla"
+    },
+    {
+      "name": "12 โรงแรมสงขลายอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-songkhla"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-songkhla.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "สงขลาไม่มีรถไฟฟ้า การเดินทางใช้รถยนต์ มอเตอร์ไซค์ และสองแถวเป็นหลัก และจังหวัดกว้างจนทำเลที่พักกำหนดทริปได้เลย · ที่พักย่าน <strong>เมืองเก่าสงขลา-หาดสมิหลา (บ่อยาง)</strong> หลายแห่งเดินเที่ยวถนนนางงามและริมหาดได้ แต่ห่างหาดใหญ่ราว 30 กม. · ที่พัก <strong>ใจกลางหาดใหญ่</strong> เดินถึงตลาดกิมหยง เซ็นทรัลเฟสติวัล และย่าน Lee Garden ได้ ใกล้สนามบินหาดใหญ่ที่สุด · ส่วน <strong>เกาะยอ</strong> ต้องมีรถส่วนตัวหรือเช่ารถ เพราะอยู่กลางทะเลสาบ ข้ามสะพานติณสูลานนท์ · ทำเลในบทความนี้: <strong>เมืองเก่าสงขลา-หาดสมิหลา</strong> — เดินเที่ยวเมืองเก่า ชายทะเล คาเฟ่ · <strong>หาดใหญ่</strong> — ช้อปปิ้ง ของกิน สนามบิน ต่อเครื่อง · <strong>เกาะยอ</strong> — พักริมทะเลสาบ กินปลากะพง",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Casa de Si Boutique House", "price": "฿1,400" },
-    { "n": "2", "color": "#c8a951", "name": "Shi-ro-i Poshtel", "price": "฿700" },
-    { "n": "3", "color": "#c8a951", "name": "Laguna Grand Hotel & Spa", "price": "฿1,300" },
-    { "n": "4", "color": "#9e9e9e", "name": "Centara Hotel Hat Yai", "price": "฿1,800" },
-    { "n": "5", "color": "#9e9e9e", "name": "Crystal Hotel Hat Yai", "price": "฿900" },
-    { "n": "6", "color": "#9e9e9e", "name": "Buri Sriphu Hotel", "price": "฿1,500" },
-    { "n": "7", "color": "#9e9e9e", "name": "BP Samila Beach Hotel & Resort", "price": "฿1,400" },
-    { "n": "8", "color": "#bf8040", "name": "Baan Nai Nakhon Boutique Hotel", "price": "฿1,200" },
-    { "n": "9", "color": "#bf8040", "name": "Sri Koh You Resort", "price": "฿750" },
-    { "n": "10", "color": "#5d4037", "name": "The Bedrooms Boutique Hotel Hatyai", "price": "฿650" },
-    { "n": "11", "color": "#5d4037", "name": "BP Grand Tower Hotel", "price": "฿850" },
-    { "n": "12", "color": "#5d4037", "name": "WE Hostel Hatyai", "price": "฿315" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Casa de Si Boutique House",
+      "price": "฿1,400"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Shi-ro-i Poshtel",
+      "price": "฿700"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Laguna Grand Hotel & Spa",
+      "price": "฿1,300"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Centara Hotel Hat Yai",
+      "price": "฿1,800"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Crystal Hotel Hat Yai",
+      "price": "฿900"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Buri Sriphu Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "BP Samila Beach Hotel & Resort",
+      "price": "฿1,400"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Baan Nai Nakhon Boutique Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Sri Koh You Resort",
+      "price": "฿750"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "The Bedrooms Boutique Hotel Hatyai",
+      "price": "฿650"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "BP Grand Tower Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "WE Hostel Hatyai",
+      "price": "฿315"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room (เตียง Queen)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Superior Seaview Room", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Suite (Jacuzzi)", "price": "เริ่ม ฿2,400/คืน" }
+        {
+          "type": "Standard Double Room (เตียง Queen)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Superior Seaview Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Suite (Jacuzzi)",
+          "price": "เริ่ม ฿2,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/casa-der-see-boutique-house/hotel/songkhla-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/casa-der-see-boutique-house-ameph-emuue-ngsngkhlaa.html",
       "tripUrl": "https://www.trip.com/hotels/songkhla-hotel-detail-131867558/casa-der-see-boutique-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-casa-de-si-boutique-house-songkhla.html",
-      "tags": ["🏆 คะแนนสูงสุดในบทความ 9.3", "🏛️ บูทีควินเทจใจกลางเมืองเก่า", "🌊 ห้อง Seaview มองทะเลสาบสงขลา", "🚶 เดินเที่ยวถนนนางงาม-นครนอก"],
+      "tags": [
+        "🏆 คะแนนสูงสุดในบทความ 9.3",
+        "🏛️ บูทีควินเทจใจกลางเมืองเก่า",
+        "🌊 ห้อง Seaview มองทะเลสาบสงขลา",
+        "🚶 เดินเที่ยวถนนนางงาม-นครนอก"
+      ],
       "addr": "83 ถนนนครนอก ตำบลบ่อยาง อำเภอเมืองสงขลา",
       "storyHtml": "Casa de Si Boutique House คือ <strong>คะแนนสูงสุดในบทความนี้ที่ 9.3 — บูทีคเฮาส์วินเทจใจกลางย่านเมืองเก่าสงขลา บนถนนนครนอก</strong> เดินถึงถนนนางงาม คาเฟ่ และสตรีทอาร์ตได้สบาย · เสียงจากรีวิวจริงชมการตกแต่งสไตล์วินเทจที่มีเอกลักษณ์ ห้องสะอาด เจ้าของใส่ใจ และห้อง Superior Seaview ที่มองเห็นทะเลสาบสงขลา · แต่เป็นบูทีคเล็ก ห้องมีจำนวนจำกัด ไม่มีสระว่ายน้ำ และจำนวนรีวิวยังไม่มาก (19 รีวิว) · เหมาะคู่รักและคนชอบบรรยากาศเมืองเก่าที่ให้ค่าดีไซน์และทำเลเดินเที่ยวมากกว่าสิ่งอำนวยความสะดวกครบ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Superior Seaview ชั้นบนที่มองเห็นทะเลสาบ เป็นวิวเด่นของที่นี่ · ห้องมีน้อย วันหยุดยาวเต็มเร็ว จองล่วงหน้า · เดินเที่ยวถนนนางงามตอนเช้าหรือเย็นเลี่ยงแดด คาเฟ่และสตรีทอาร์ตอยู่ใกล้",
@@ -104,15 +201,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงในห้องดอร์มรวม", "price": "เริ่ม ฿360/คืน" },
-        { "type": "Deluxe Room (เตียง King ~36 ตร.ม.)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Family Quadruple Room (4 คน)", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "เตียงในห้องดอร์มรวม",
+          "price": "เริ่ม ฿360/คืน"
+        },
+        {
+          "type": "Deluxe Room (เตียง King ~36 ตร.ม.)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Family Quadruple Room (4 คน)",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/shi-ro-i-poshtel/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/shi-ro-i-poshtel.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-120263309/shi-ro-i-poshtel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-shi-ro-i-poshtel-songkhla.html",
-      "tags": ["🇯🇵 โพสเทลสไตล์ญี่ปุ่น สะอาดเด่น", "💬 336 รีวิว คะแนนสูง 9.2", "🛏️ ดอร์มมีม่านกั้น + ห้องส่วนตัวกว้าง", "🚶 ใจกลางหาดใหญ่ เดินถึงของกิน"],
+      "tags": [
+        "🇯🇵 โพสเทลสไตล์ญี่ปุ่น สะอาดเด่น",
+        "💬 336 รีวิว คะแนนสูง 9.2",
+        "🛏️ ดอร์มมีม่านกั้น + ห้องส่วนตัวกว้าง",
+        "🚶 ใจกลางหาดใหญ่ เดินถึงของกิน"
+      ],
       "addr": "228/42 ถนนศุภสารรังสรรค์ ตำบลหาดใหญ่ อำเภอหาดใหญ่",
       "storyHtml": "Shi-ro-i Poshtel คือ <strong>โพสเทลสไตล์ญี่ปุ่นใจกลางหาดใหญ่ที่ทำคะแนน 9.2 จาก 336 รีวิว — สูงและรีวิวเยอะที่สุดในกลุ่มที่พักประหยัดของบทความนี้</strong> · จุดขายคือความสะอาดสไตล์ญี่ปุ่น ดอร์มที่เตียงพอดมีม่านและผนังกั้นเป็นสัดส่วน และยังมีห้องส่วนตัว Deluxe กว้างราว 36 ตร.ม. ให้คนที่อยากได้ความเป็นส่วนตัว · เสียงจากรีวิวจริงชมสะอาด พนักงานเป็นมิตร และทำเลใจกลางเมืองเดินถึงของกิน · แต่เป็นที่พักสไตล์โฮสเทล ไม่มีสระ ไม่มีอาหารเช้าเต็มรูปแบบ และดอร์มมีห้องน้ำรวม · เหมาะนักเดินทางคนเดียว คู่หู และสายประหยัดที่เน้นสะอาดและทำเล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบน้อยจริงเลือกเตียงดอร์มเริ่ม ฿360 มีม่านกั้นความเป็นส่วนตัวพอควร · อยากได้ห้องส่วนตัวเลือก Deluxe Room ฿700 กว้างเกินราคา · ทำเลกลางเมือง เดินออกไปกินสตรีทฟู้ดหาดใหญ่ได้สะดวก",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,300",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Breeze Deluxe Room (35 ตร.ม.)", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Grand Deluxe Room (42 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Breeze Executive Suite (75 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Breeze Deluxe Room (35 ตร.ม.)",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Grand Deluxe Room (42 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Breeze Executive Suite (75 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/laguna-grand-hotel-spa-songkhla-h80202735/hotel/songkhla-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/laguna-grand-amp-spa.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-81056306/laguna-grand-hotel-spa-songkhla/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-laguna-grand-hotel-spa-songkhla.html",
-      "tags": ["🏊 สระว่ายน้ำใหญ่ + สปา", "🛏️ ห้องกว้าง 35–75 ตร.ม. สะอาดใหม่", "👨‍👩‍👧 เหมาะครอบครัว สิ่งอำนวยความสะดวกครบ", "🅿️ ที่จอดรถฟรี อยู่กึ่งกลางเมือง-หาดใหญ่"],
+      "tags": [
+        "🏊 สระว่ายน้ำใหญ่ + สปา",
+        "🛏️ ห้องกว้าง 35–75 ตร.ม. สะอาดใหม่",
+        "👨‍👩‍👧 เหมาะครอบครัว สิ่งอำนวยความสะดวกครบ",
+        "🅿️ ที่จอดรถฟรี อยู่กึ่งกลางเมือง-หาดใหญ่"
+      ],
       "addr": "481/1 หมู่ 2 ตำบลพะวง อำเภอเมืองสงขลา",
       "storyHtml": "Laguna Grand Hotel & Spa คือ <strong>โรงแรม 4 ดาวสิ่งอำนวยความสะดวกครบที่สุดในบทความนี้ คะแนน 9.1 จาก 508 รีวิว มีสระว่ายน้ำใหญ่และสปา</strong> · ตั้งอยู่ตำบลพะวง กึ่งกลางระหว่างเมืองสงขลากับหาดใหญ่ ขับไปได้ทั้งสองฝั่ง · เสียงจากรีวิวจริงชมห้องกว้างสะอาดใหม่ (เริ่ม 35 ตร.ม.) สระว่ายน้ำใหญ่ สปา และบริการมาตรฐาน · แต่ทำเลพะวงไม่ได้อยู่ใจกลางเมืองเก่าหรือหาดใหญ่ ต้องใช้รถออกไปเที่ยว และรอบโรงแรมร้านอาหารไม่หนาแน่น · เหมาะครอบครัวและคนที่อยากได้โรงแรมสระใหญ่ ห้องกว้าง ใช้เป็นฐานเที่ยวทั้งสองเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาเป็นครอบครัวจองห้อง Grand Deluxe 42 ตร.ม. ขึ้นไปให้นอนสบาย · ใช้สระและสปาให้คุ้มเพราะเป็นจุดเด่น · ทำเลกึ่งกลาง ขับ ~15–20 นาทีถึงทั้งเมืองเก่าและหาดใหญ่ เตรียมรถไว้",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room (25 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe Room (29 ตร.ม.)", "price": "เริ่ม ฿2,000/คืน" },
-        { "type": "Premium Deluxe (36 ตร.ม.)", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "Superior Room (25 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Room (29 ตร.ม.)",
+          "price": "เริ่ม ฿2,000/คืน"
+        },
+        {
+          "type": "Premium Deluxe (36 ตร.ม.)",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/centara-hotel-hat-yai/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/novotel-centara-hat-yai.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-709299/centara-hotel-hat-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-centara-hotel-hat-yai-songkhla.html",
-      "tags": ["🛍️ เชื่อมห้างเซ็นทรัลเดินถึงเลย", "💬 3,374 รีวิว มากสุดในบทความ", "🏙️ ใจกลางหาดใหญ่ ของกินรอบตัว", "🏊 สระว่ายน้ำ + ฟิตเนส ครบ"],
+      "tags": [
+        "🛍️ เชื่อมห้างเซ็นทรัลเดินถึงเลย",
+        "💬 3,374 รีวิว มากสุดในบทความ",
+        "🏙️ ใจกลางหาดใหญ่ ของกินรอบตัว",
+        "🏊 สระว่ายน้ำ + ฟิตเนส ครบ"
+      ],
       "addr": "3 ถนนเสน่หานุสรณ์ อำเภอหาดใหญ่",
       "storyHtml": "Centara Hotel Hat Yai คือ <strong>โรงแรมที่มีรีวิวมากที่สุดในบทความนี้ — 3,374 รีวิว — เชื่อมตรงกับห้างเซ็นทรัลใจกลางหาดใหญ่</strong> คะแนน 8.7 · เป็นตัวเลือกที่สายช้อปและสายต่อเครื่องเลือกบ่อย เพราะเดินจากห้องลงห้างได้เลย รอบตัวคือย่านของกินและตลาดหาดใหญ่ · เสียงจากรีวิวจริงชมทำเลที่สะดวกที่สุดในเมือง ห้องมาตรฐานเครือ Centara สระว่ายน้ำและฟิตเนสครบ · แต่เป็นโรงแรมเก่าแก่ของเมือง บางรีวิวบอกห้องและสิ่งอำนวยความสะดวกเริ่มมีอายุ และราคาสูงกว่าโรงแรมในเมืองหลายแห่ง · เหมาะสายช้อป สายกิน และคนต่อเครื่องที่ต้องการทำเลเชื่อมห้างที่สะดวกที่สุด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จุดเด่นคือเชื่อมห้างเซ็นทรัล ขอห้องชั้นสูงวิวเมืองจะคุ้มกว่า · มาช้อปของฝากหาดใหญ่หรือต่อเครื่องที่นี่ทำเลดีที่สุด · ราคาขึ้นแรงช่วงวันหยุดยาวที่นักท่องเที่ยวมาเลย์-สิงคโปร์มาช้อป จองล่วงหน้า",
@@ -224,15 +363,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Skyline Room (เตียง Queen)", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Smart Deluxe Twin Room", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe King Suite", "price": "เริ่ม ฿1,600/คืน" }
+        {
+          "type": "Skyline Room (เตียง Queen)",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Smart Deluxe Twin Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe King Suite",
+          "price": "เริ่ม ฿1,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/crystal-hotel-hat-yai-sha-extra-plus/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/crystal-hat-yai.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-5908499/crystal-hotel-hat-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-crystal-hotel-hat-yai-songkhla.html",
-      "tags": ["🛍️ ติดเซ็นทรัลเฟสติวัลหาดใหญ่", "💎 4 ดาวเริ่ม ฿900 คุ้มค่า", "🛏️ ห้องโทนสว่าง วิวเมือง", "💬 552 รีวิว คะแนน 8.9"],
+      "tags": [
+        "🛍️ ติดเซ็นทรัลเฟสติวัลหาดใหญ่",
+        "💎 4 ดาวเริ่ม ฿900 คุ้มค่า",
+        "🛏️ ห้องโทนสว่าง วิวเมือง",
+        "💬 552 รีวิว คะแนน 8.9"
+      ],
       "addr": "327 ถนนกาญจนวนิช อำเภอหาดใหญ่",
       "storyHtml": "Crystal Hotel Hat Yai คือ <strong>โรงแรม 4 ดาวที่คุ้มค่าที่สุดในหาดใหญ่ — เริ่มเพียง ฿900 ติดห้างเซ็นทรัลเฟสติวัล</strong> คะแนน 8.9 จาก 552 รีวิว · ต่างจากโรงแรม 4 ดาวหลายแห่งที่ราคาแพงกว่า ที่นี่ให้ห้องโทนสว่างทันสมัยในราคาจับต้องง่าย และอยู่ติดห้างเซ็นทรัลเฟสติวัลฝั่งกาญจนวนิช · เสียงจากรีวิวจริงชมห้องสะอาดดีไซน์ดี คุ้มราคา และทำเลเดินถึงห้าง · แต่อยู่ห่างย่านของกินกลางเมืองหาดใหญ่ (กิมหยง-นิพัทธ์อุทิศ) พอควร ต้องนั่งรถ และเป็นโรงแรมยอดนิยมที่ช่วงวันหยุดเต็มเร็ว · เหมาะสายช้อปและคนที่อยากได้ 4 ดาวในราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จุดเด่นคือติดเซ็นทรัลเฟสติวัล เดินช้อปได้เลย · ขอห้องชั้นสูง Skyline วิวเมืองสว่างกว่า · อยากกินสตรีทฟู้ดกลางเมืองเรียกรถ ~10 นาทีไปย่านกิมหยง",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (เตียง King หรือ Twin)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Deluxe Room (เตียง King)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Honeymoon Suite", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Standard Room (เตียง King หรือ Twin)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe Room (เตียง King)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Honeymoon Suite",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/buri-sriphu-boutique-hotel/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/buri-sriphu-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-709297/buri-sriphu-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-buri-sriphu-hotel-songkhla.html",
-      "tags": ["🏙️ ใจกลางหาดใหญ่ เดินถึงของกิน", "💬 420 รีวิว คะแนน 8.9", "🛏️ ห้องกว้างโทนอบอุ่น", "🍳 อาหารเช้า + บริการมาตรฐาน"],
+      "tags": [
+        "🏙️ ใจกลางหาดใหญ่ เดินถึงของกิน",
+        "💬 420 รีวิว คะแนน 8.9",
+        "🛏️ ห้องกว้างโทนอบอุ่น",
+        "🍳 อาหารเช้า + บริการมาตรฐาน"
+      ],
       "addr": "310 ถนนศรีภูวนารถ อำเภอหาดใหญ่",
       "storyHtml": "Buri Sriphu Hotel คือ <strong>โรงแรม 4 ดาวใจกลางหาดใหญ่ที่มีรีวิวเยอะและคะแนนดีต่อเนื่อง — 8.9 จาก 420 รีวิว</strong> · ตั้งอยู่บนถนนศรีภูวนารถ เดินถึงย่านของกินและตลาดหาดใหญ่ได้ · เสียงจากรีวิวจริงชมห้องกว้างโทนอบอุ่น สะอาด พนักงานบริการดี และอาหารเช้าที่ใช้ได้ · แต่เป็นโรงแรมที่เปิดมานาน บางส่วนเริ่มมีอายุ และราคาเริ่มต้นสูงกว่าคู่แข่งในเมืองบางแห่งที่ให้ห้องคล้ายกัน · เหมาะคนที่อยากได้โรงแรม 4 ดาวกลางเมืองหาดใหญ่ที่รีวิวนิ่ง เดินถึงของกิน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ทำเลกลางเมือง เดินออกไปกินสตรีทฟู้ดและตลาดได้สบาย · ขอห้อง Superior/Deluxe ที่กว้างขึ้นถ้าพักหลายคืน · เทียบราคา 3 เว็บก่อนจองเพราะราคาเริ่มต้นขยับตามช่วง",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Single Room (เตียง King)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Sea View", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Junior Suite Garden View", "price": "เริ่ม ฿2,400/คืน" }
+        {
+          "type": "Deluxe Single Room (เตียง King)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Sea View",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Junior Suite Garden View",
+          "price": "เริ่ม ฿2,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bp-samila-beach-hotel-resort/hotel/songkhla-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-bp-samila-beach-hotel-resort-songkhla.html",
       "tripUrl": "https://www.trip.com/hotels/songkhla-hotel-detail-710545/bp-samila-beach-hotel-and-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bp-samila-beach-hotel-resort-songkhla.html",
-      "tags": ["🌊 ริมหาดสมิหลา ห้องวิวทะเล", "🧜 ใกล้รูปปั้นนางเงือก-แหลมสมิหลา", "🏛️ เดินเที่ยวเมืองเก่าสงขลาได้", "🛏️ ห้องมีระเบียงส่วนตัว"],
+      "tags": [
+        "🌊 ริมหาดสมิหลา ห้องวิวทะเล",
+        "🧜 ใกล้รูปปั้นนางเงือก-แหลมสมิหลา",
+        "🏛️ เดินเที่ยวเมืองเก่าสงขลาได้",
+        "🛏️ ห้องมีระเบียงส่วนตัว"
+      ],
       "addr": "8 ถนนราชดำเนิน ตำบลบ่อยาง อำเภอเมืองสงขลา",
       "storyHtml": "BP Samila Beach Hotel & Resort คือ <strong>โรงแรม 4 ดาวริมหาดสมิหลาแห่งเดียวในบทความนี้ที่ตื่นมาเห็นวิวทะเลได้จากห้อง</strong> คะแนน 8.7 จาก 41 รีวิว · ตั้งอยู่บนถนนราชดำเนิน ติดหาดสมิหลา ใกล้รูปปั้นนางเงือกและแหลมสมิหลา เดินเข้าย่านเมืองเก่าได้ · เสียงจากรีวิวจริงชมทำเลริมหาดที่หาได้ยาก ห้อง Sea View ที่มองเห็นอ่าวสมิหลา และห้องมีระเบียงส่วนตัว · แต่เป็นโรงแรมเก่าแก่ของสงขลา บางรีวิวบอกห้องและสิ่งอำนวยความสะดวกเริ่มมีอายุ และจำนวนรีวิวยังไม่มาก · เหมาะคนที่มาเที่ยวหาดสมิหลาและเมืองเก่าโดยตรง อยากตื่นมาเห็นทะเล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จ่ายเพิ่มเลือกห้อง Deluxe Sea View ให้คุ้มกับทำเลริมหาด ตื่นมาเห็นอ่าวสมิหลา · เดินเล่นริมหาดสมิหลาและถ่ายรูปนางเงือกตอนเย็น · เข้าเมืองเก่าถนนนางงามได้ในระยะใกล้",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Classic Double Room (เตียง Queen)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Double Room (เตียง King)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Signature Double Room (มุมสวน)", "price": "เริ่ม ฿1,600/คืน" }
+        {
+          "type": "Classic Double Room (เตียง Queen)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Double Room (เตียง King)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Signature Double Room (มุมสวน)",
+          "price": "เริ่ม ฿1,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-nai-nakhon/hotel/songkhla-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-nai-nakhon.html",
       "tripUrl": "https://www.trip.com/hotels/songkhla-hotel-detail-7622099/baan-nai-nakhon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-nai-nakhon-boutique-hotel-songkhla.html",
-      "tags": ["🏛️ บ้านโบราณตกแต่งของสะสม", "🚶 อยู่บนถนนนางงามใจกลางเมืองเก่า", "📸 บรรยากาศชิโน-โปรตุกีสถ่ายรูปสวย", "☕ ใกล้คาเฟ่และสตรีทอาร์ต"],
+      "tags": [
+        "🏛️ บ้านโบราณตกแต่งของสะสม",
+        "🚶 อยู่บนถนนนางงามใจกลางเมืองเก่า",
+        "📸 บรรยากาศชิโน-โปรตุกีสถ่ายรูปสวย",
+        "☕ ใกล้คาเฟ่และสตรีทอาร์ต"
+      ],
       "addr": "166 ถนนนางงาม ตำบลบ่อยาง อำเภอเมืองสงขลา",
       "storyHtml": "Baan Nai Nakhon Boutique Hotel คือ <strong>บูทีคเฮอริเทจในบ้านโบราณบนถนนนางงาม หัวใจของย่านเมืองเก่าสงขลา</strong> คะแนน 8.6 จาก 18 รีวิว · จุดขายคือบรรยากาศบ้านโบราณตกแต่งด้วยของสะสม และทำเลที่อยู่กลางถนนนางงามเลย เดินถึงคาเฟ่ สตรีทอาร์ต และตึกชิโน-โปรตุกีสได้ทันที · เสียงจากรีวิวจริงชมเสน่ห์การตกแต่ง ความสะอาด และทำเลเดินเที่ยว · แต่เป็นบ้านเก่าดัดแปลง ห้องน้อย ไม่มีสระ ผนังและพื้นแบบบ้านเก่าอาจได้ยินเสียง และจำนวนรีวิวน้อย · เหมาะคู่รักและคนชอบบรรยากาศเมืองเก่าที่อยากนอนในบ้านโบราณกลางย่าน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง Signature ที่มีมุมสวนส่วนตัวบรรยากาศดีกว่า · อยู่บนถนนนางงามเลย เดินกินของและถ่ายรูปเมืองเก่าได้ทันทีตอนเช้า-เย็น · ห้องน้อยจองล่วงหน้าช่วงวันหยุดยาว",
@@ -384,15 +579,29 @@
       "priceBig": "฿750",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room (เตียง Queen)", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Family Room (3–4 คน)", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "Standard Double Room (เตียง Queen)",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Family Room (3–4 คน)",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=18344&cid=1965862&q=Sri%20Koh%20You%20Resort%20Songkhla",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Sri+Koh+You+Resort+Songkhla",
       "tripUrl": "https://th.trip.com/hotels/songkhla-hotel-detail-8981847/sri-koh-you-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sri-koh-you-resort-songkhla.html",
-      "tags": ["🛶 เกาะยอ ริมทะเลสาบสงขลา", "🐟 ใกล้ร้านปลากะพงเกาะยอชื่อดัง", "🌿 บรรยากาศเงียบสงบ ราคาเบา", "🅿️ ที่จอดรถฟรีหน้าห้อง"],
+      "tags": [
+        "🛶 เกาะยอ ริมทะเลสาบสงขลา",
+        "🐟 ใกล้ร้านปลากะพงเกาะยอชื่อดัง",
+        "🌿 บรรยากาศเงียบสงบ ราคาเบา",
+        "🅿️ ที่จอดรถฟรีหน้าห้อง"
+      ],
       "addr": "57 หมู่ 4 ตำบลเกาะยอ อำเภอเมืองสงขลา",
       "storyHtml": "Sri Koh You Resort คือ <strong>รีสอร์ทเล็กบนเกาะยอ กลางทะเลสาบสงขลา สำหรับคนอยากพักริมน้ำเงียบๆ ในราคาเบา</strong> คะแนน 8.4 จาก 12 รีวิว · เกาะยอเป็นเกาะกลางทะเลสาบที่ขึ้นชื่อเรื่องปลากะพงและวิวสะพานติณสูลานนท์ · เสียงจากรีวิวจริงชมบรรยากาศเงียบสงบ ห้องสะอาดคุ้มราคา และที่จอดรถหน้าห้อง · แต่เป็นรีสอร์ทเล็ก สิ่งอำนวยความสะดวกน้อย ไม่มีสระ จำนวนรีวิวน้อย และต้องมีรถส่วนตัวเพราะอยู่บนเกาะ ห่างทั้งเมืองและหาดใหญ่ · เหมาะคนขับรถมาเองที่อยากพักริมทะเลสาบ กินปลากะพงเกาะยอ ชมสะพานติณ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ต้องมีรถส่วนตัว เพราะอยู่บนเกาะยอ ข้ามสะพานติณสูลานนท์ · มาแล้วอย่าพลาดร้านปลากะพงเกาะยอที่อยู่ใกล้ · เลือก Family Room ถ้ามากันหลายคน คุ้มราคา",
@@ -424,15 +633,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Single Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Superior Room (เตียง Double)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Family Room (3 คน)", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Deluxe Single Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Superior Room (เตียง Double)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Family Room (3 คน)",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-bedroom-hat-yai/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-bedroom-hatyai.html",
       "tripUrl": "https://www.trip.com/hotels/hat-yai-hotel-detail-6649840/the-bedroom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-bedrooms-boutique-hotel-hatyai-songkhla.html",
-      "tags": ["🛏️ บูทีคห้องกว้างเพดานสูง", "💰 ราคาเบาเริ่ม ฿650 ในเมือง", "🤫 ย่านเงียบ พักผ่อนสบาย", "👨‍👩‍👧 มี Family Room สำหรับครอบครัว"],
+      "tags": [
+        "🛏️ บูทีคห้องกว้างเพดานสูง",
+        "💰 ราคาเบาเริ่ม ฿650 ในเมือง",
+        "🤫 ย่านเงียบ พักผ่อนสบาย",
+        "👨‍👩‍👧 มี Family Room สำหรับครอบครัว"
+      ],
       "addr": "22 ถนนสุวรรณวงศ์ อำเภอหาดใหญ่",
       "storyHtml": "The Bedrooms Boutique Hotel Hatyai คือ <strong>บูทีคโฮเทลเล็กราคาเบาในย่านเงียบของหาดใหญ่</strong> คะแนน 8.0 จาก 53 รีวิว · จุดขายคือห้องกว้างเพดานสูงในราคาเริ่มเพียง ฿650 อยู่บนถนนสุวรรณวงศ์ที่เงียบกว่าย่านกลางเมือง · เสียงจากรีวิวจริงชมห้องกว้างคุ้มราคา ความเงียบสงบ และมี Family Room ให้ครอบครัว · แต่ทำเลย่านเงียบแลกมาด้วยการห่างย่านของกินกลางเมืองพอควร ต้องนั่งรถ เป็นโรงแรมเล็กไม่มีสระและสิ่งอำนวยความสะดวกส่วนกลาง และคะแนนอยู่ระดับกลาง · เหมาะสายประหยัดที่อยากได้ห้องกว้างเงียบในเมืองหาดใหญ่",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบจำกัดแต่อยากได้ห้องกว้าง เลือก Superior ฿850 เพดานสูง · อยู่ย่านเงียบ เรียกรถ ~5–10 นาทีไปย่านของกินกิมหยง-นิพัทธ์อุทิศ · มากันครอบครัวเลือก Family Room คุ้มราคา",
@@ -464,15 +687,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room (เตียง Queen หรือ Twin)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Executive Room (วิวเมือง)", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Executive Twin (2 เตียง)", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Deluxe Room (เตียง Queen หรือ Twin)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Executive Room (วิวเมือง)",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Executive Twin (2 เตียง)",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bp-grand-tower-hotel/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bp-grand-tower.html",
       "tripUrl": "https://th.trip.com/hotels/hat-yai-hotel-detail-709296/bp-grand-tower-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bp-grand-tower-hotel-songkhla.html",
-      "tags": ["🏙️ ใจกลางหาดใหญ่ ใกล้ Lee Garden", "💰 ห้องกว้างราคาเริ่ม ฿850", "🛍️ เดินถึงย่านช้อปปิ้งและของกิน", "💬 200 รีวิว ราคาจับต้องง่าย"],
+      "tags": [
+        "🏙️ ใจกลางหาดใหญ่ ใกล้ Lee Garden",
+        "💰 ห้องกว้างราคาเริ่ม ฿850",
+        "🛍️ เดินถึงย่านช้อปปิ้งและของกิน",
+        "💬 200 รีวิว ราคาจับต้องง่าย"
+      ],
       "addr": "74 ถนนเสน่หานุสรณ์ อำเภอหาดใหญ่",
       "storyHtml": "BP Grand Tower Hotel คือ <strong>โรงแรมในเมืองหาดใหญ่ทำเลกลางเมืองใกล้ Lee Garden ในราคาจับต้องง่าย</strong> คะแนน 7.8 จาก 200 รีวิว · ตั้งอยู่บนถนนเสน่หานุสรณ์ เดินถึงย่านช้อปปิ้งและของกินกลางหาดใหญ่ · เสียงจากรีวิวจริงชมทำเลกลางเมือง ห้องกว้างราคาไม่แพง และวิวเมืองจากห้องชั้นสูง · แต่พูดให้ชัด เป็นโรงแรมเก่าที่หลายรีวิวติเรื่องความเก่าและความสะอาดที่ไม่สม่ำเสมอ คะแนนจึงอยู่ระดับกลาง · เหมาะสายประหยัดที่ให้น้ำหนักกับทำเลและราคามากกว่าความใหม่ และยอมขอดูห้องก่อนรับ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Executive ที่ปรับปรุงแล้ว วิวเมืองชั้นสูง และเช็คห้องก่อนเช็คอินเรื่องแอร์/ห้องน้ำ · ทำเลกลางเมือง เดินไป Lee Garden และย่านของกินได้ · เทียบราคา 3 เว็บก่อนจอง",
@@ -504,15 +741,29 @@
       "priceBig": "฿315",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงในดอร์มรวม", "price": "เริ่ม ฿315/คืน" },
-        { "type": "Standard Double Room (ห้องส่วนตัว)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Twin Bed Room (2 เตียง)", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "เตียงในดอร์มรวม",
+          "price": "เริ่ม ฿315/คืน"
+        },
+        {
+          "type": "Standard Double Room (ห้องส่วนตัว)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Twin Bed Room (2 เตียง)",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/we-hostel-hatyai/hotel/hat-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-we-hostel-hatyai-hat-yai.html",
       "tripUrl": "https://th.trip.com/hotels/hat-yai-hotel-detail-9643401/we-hostel-hatyai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-we-hostel-hatyai-songkhla.html",
-      "tags": ["💸 ถูกสุดในบทความ เริ่ม ฿315", "🚶 ย่านนิพัทธ์อุทิศ ใกล้ Lee Garden", "🛏️ ดอร์มมีม่านกั้น + ปลั๊กประจำเตียง", "🍜 เดินถึงสตรีทฟู้ดหาดใหญ่"],
+      "tags": [
+        "💸 ถูกสุดในบทความ เริ่ม ฿315",
+        "🚶 ย่านนิพัทธ์อุทิศ ใกล้ Lee Garden",
+        "🛏️ ดอร์มมีม่านกั้น + ปลั๊กประจำเตียง",
+        "🍜 เดินถึงสตรีทฟู้ดหาดใหญ่"
+      ],
       "addr": "ถนนนิพัทธ์อุทิศ 2 อำเภอหาดใหญ่",
       "storyHtml": "WE Hostel Hatyai คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ — เตียงดอร์มเริ่มเพียง ฿315 ใจกลางหาดใหญ่</strong> คะแนน 7.7 จาก 128 รีวิว · ตั้งอยู่ย่านนิพัทธ์อุทิศ 2 ใกล้ Lee Garden เดินถึงย่านของกินและตลาดหาดใหญ่ · เสียงจากรีวิวจริงชมราคาประหยัดสุดคุ้ม ดอร์มมีม่านกั้น ปลั๊กและไฟอ่านหนังสือประจำเตียง และทำเลกลางเมือง · แต่เป็นโฮสเทลราคาประหยัด ดอร์มใช้ห้องน้ำรวม สิ่งอำนวยความสะดวกพื้นฐาน บางรีวิวติเรื่องความเก่าและเสียง คะแนนจึงอยู่ระดับกลาง · เหมาะแบ็กแพ็กเกอร์และสายประหยัดสุดที่เน้นราคาและทำเล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบน้อยสุดเลือกเตียงดอร์ม ฿315 มีม่านกั้น · อยากได้ความเป็นส่วนตัวเลือก Standard Double ฿700 · ทำเลกลางเมือง เดินออกไปกินสตรีทฟู้ดหาดใหญ่และเดินไป Lee Garden ได้",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม สงขลา 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Casa de Si Boutique House", "type": "⭐⭐⭐", "score": "9.3", "price": "฿1,400", "access": "📍 เมืองเก่าสงขลา ถนนนครนอก", "badge": "คะแนนสูงสุด เมืองเก่า", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Shi-ro-i Poshtel", "type": "⭐⭐", "score": "9.2", "price": "฿700", "access": "📍 ใจกลางหาดใหญ่", "badge": "โพสเทลญี่ปุ่น รีวิวเยอะ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Laguna Grand Hotel & Spa", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,300", "access": "📍 พะวง กึ่งกลางเมือง-หาดใหญ่", "badge": "สระใหญ่ + สปา", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Centara Hotel Hat Yai", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,800", "access": "📍 กลางหาดใหญ่ เชื่อมเซ็นทรัล", "badge": "รีวิวมากสุด เชื่อมห้าง", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Crystal Hotel Hat Yai", "type": "⭐⭐⭐⭐", "score": "8.9", "price": "฿900", "access": "📍 ติดเซ็นทรัลเฟส หาดใหญ่", "badge": "4 ดาวคุ้มค่า ติดห้าง", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Buri Sriphu Hotel", "type": "⭐⭐⭐⭐", "score": "8.9", "price": "฿1,500", "access": "📍 ใจกลางหาดใหญ่", "badge": "กลางเมือง รีวิวเยอะ", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "BP Samila Beach Hotel & Resort", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,400", "access": "📍 ริมหาดสมิหลา เมืองสงขลา", "badge": "ริมหาด วิวทะเล", "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Baan Nai Nakhon Boutique Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,200", "access": "📍 ถนนนางงาม เมืองเก่า", "badge": "บ้านโบราณ เมืองเก่า", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Sri Koh You Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿750", "access": "📍 เกาะยอ ริมทะเลสาบ", "badge": "เกาะยอ ริมน้ำเงียบ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "The Bedrooms Boutique Hotel Hatyai", "type": "⭐⭐⭐", "score": "8.0", "price": "฿650", "access": "📍 ย่านเงียบ หาดใหญ่", "badge": "บูทีคเงียบ ราคาเบา", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "BP Grand Tower Hotel", "type": "⭐⭐⭐⭐", "score": "7.8", "price": "฿850", "access": "📍 กลางหาดใหญ่ ใกล้ Lee Garden", "badge": "กลางเมือง ราคาเบา", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "WE Hostel Hatyai", "type": "⭐⭐", "score": "7.7", "price": "฿315", "access": "📍 นิพัทธ์อุทิศ กลางหาดใหญ่", "badge": "ถูกสุด โฮสเทลกลางเมือง", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Casa de Si Boutique House",
+      "type": "⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,400",
+      "access": "📍 เมืองเก่าสงขลา ถนนนครนอก",
+      "badge": "คะแนนสูงสุด เมืองเก่า",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Shi-ro-i Poshtel",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿700",
+      "access": "📍 ใจกลางหาดใหญ่",
+      "badge": "โพสเทลญี่ปุ่น รีวิวเยอะ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Laguna Grand Hotel & Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,300",
+      "access": "📍 พะวง กึ่งกลางเมือง-หาดใหญ่",
+      "badge": "สระใหญ่ + สปา",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Centara Hotel Hat Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,800",
+      "access": "📍 กลางหาดใหญ่ เชื่อมเซ็นทรัล",
+      "badge": "รีวิวมากสุด เชื่อมห้าง",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Crystal Hotel Hat Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿900",
+      "access": "📍 ติดเซ็นทรัลเฟส หาดใหญ่",
+      "badge": "4 ดาวคุ้มค่า ติดห้าง",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Buri Sriphu Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿1,500",
+      "access": "📍 ใจกลางหาดใหญ่",
+      "badge": "กลางเมือง รีวิวเยอะ",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "BP Samila Beach Hotel & Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,400",
+      "access": "📍 ริมหาดสมิหลา เมืองสงขลา",
+      "badge": "ริมหาด วิวทะเล",
+      "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Baan Nai Nakhon Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,200",
+      "access": "📍 ถนนนางงาม เมืองเก่า",
+      "badge": "บ้านโบราณ เมืองเก่า",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Sri Koh You Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿750",
+      "access": "📍 เกาะยอ ริมทะเลสาบ",
+      "badge": "เกาะยอ ริมน้ำเงียบ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "The Bedrooms Boutique Hotel Hatyai",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿650",
+      "access": "📍 ย่านเงียบ หาดใหญ่",
+      "badge": "บูทีคเงียบ ราคาเบา",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "BP Grand Tower Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿850",
+      "access": "📍 กลางหาดใหญ่ ใกล้ Lee Garden",
+      "badge": "กลางเมือง ราคาเบา",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "WE Hostel Hatyai",
+      "type": "⭐⭐",
+      "score": "7.7",
+      "price": "฿315",
+      "access": "📍 นิพัทธ์อุทิศ กลางหาดใหญ่",
+      "badge": "ถูกสุด โฮสเทลกลางเมือง",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมสงขลายังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🏛️", "head": "เที่ยวเมืองเก่าสงขลา เดินถ่ายรูป", "bodyHtml": "→ <strong>Casa de Si Boutique House</strong> ฿1,400 บูทีควินเทจคะแนนสูงสุด 9.3 บนถนนนครนอก · หรือ <strong>Baan Nai Nakhon</strong> ฿1,200 บ้านโบราณบนถนนนางงามเลย เดินเที่ยวเมืองเก่าได้ทันที" },
-    { "icon": "🌊", "head": "อยากพักริมหาดสมิหลา ตื่นมาเห็นทะเล", "bodyHtml": "→ <strong>BP Samila Beach Hotel & Resort</strong> ฿1,400 ริมหาดสมิหลา ห้อง Sea View มองเห็นทะเล ใกล้รูปปั้นนางเงือกและเมืองเก่า" },
-    { "icon": "🛍️", "head": "มาช้อปปิ้ง กินของ ที่หาดใหญ่", "bodyHtml": "→ <strong>Centara Hotel Hat Yai</strong> ฿1,800 เชื่อมห้างเซ็นทรัลเดินถึงเลย · หรือ <strong>Crystal Hotel Hat Yai</strong> ฿900 ติดเซ็นทรัลเฟส 4 ดาวคุ้มค่า · หรือ <strong>Buri Sriphu</strong> ฿1,500 กลางเมืองรีวิวเยอะ" },
-    { "icon": "💰", "head": "งบประหยัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>WE Hostel Hatyai</strong> ฿315 ถูกสุดกลางหาดใหญ่ · หรือ <strong>Shi-ro-i Poshtel</strong> ฿700 โพสเทลญี่ปุ่นสะอาดคะแนน 9.2 · หรือ <strong>The Bedrooms</strong> ฿650 ห้องกว้างย่านเงียบ" },
-    { "icon": "🏊", "head": "มาเป็นครอบครัว อยากได้สระ", "bodyHtml": "→ <strong>Laguna Grand Hotel & Spa</strong> ฿1,300 สระว่ายน้ำใหญ่ + สปา ห้องกว้าง คะแนน 9.1 · หรือ <strong>Centara Hotel Hat Yai</strong> ฿1,800 สระ + ฟิตเนส เชื่อมห้าง" },
-    { "icon": "🛶", "head": "อยากพักริมทะเลสาบ หนีความวุ่นวาย", "bodyHtml": "→ <strong>Sri Koh You Resort</strong> ฿750 รีสอร์ทเกาะยอ ริมทะเลสาบสงขลา ใกล้ร้านปลากะพงและสะพานติณ เหมาะคนขับรถมาเอง" }
+    {
+      "icon": "🏛️",
+      "head": "เที่ยวเมืองเก่าสงขลา เดินถ่ายรูป",
+      "bodyHtml": "→ <strong>Casa de Si Boutique House</strong> ฿1,400 บูทีควินเทจคะแนนสูงสุด 9.3 บนถนนนครนอก · หรือ <strong>Baan Nai Nakhon</strong> ฿1,200 บ้านโบราณบนถนนนางงามเลย เดินเที่ยวเมืองเก่าได้ทันที"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมหาดสมิหลา ตื่นมาเห็นทะเล",
+      "bodyHtml": "→ <strong>BP Samila Beach Hotel & Resort</strong> ฿1,400 ริมหาดสมิหลา ห้อง Sea View มองเห็นทะเล ใกล้รูปปั้นนางเงือกและเมืองเก่า"
+    },
+    {
+      "icon": "🛍️",
+      "head": "มาช้อปปิ้ง กินของ ที่หาดใหญ่",
+      "bodyHtml": "→ <strong>Centara Hotel Hat Yai</strong> ฿1,800 เชื่อมห้างเซ็นทรัลเดินถึงเลย · หรือ <strong>Crystal Hotel Hat Yai</strong> ฿900 ติดเซ็นทรัลเฟส 4 ดาวคุ้มค่า · หรือ <strong>Buri Sriphu</strong> ฿1,500 กลางเมืองรีวิวเยอะ"
+    },
+    {
+      "icon": "💰",
+      "head": "งบประหยัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>WE Hostel Hatyai</strong> ฿315 ถูกสุดกลางหาดใหญ่ · หรือ <strong>Shi-ro-i Poshtel</strong> ฿700 โพสเทลญี่ปุ่นสะอาดคะแนน 9.2 · หรือ <strong>The Bedrooms</strong> ฿650 ห้องกว้างย่านเงียบ"
+    },
+    {
+      "icon": "🏊",
+      "head": "มาเป็นครอบครัว อยากได้สระ",
+      "bodyHtml": "→ <strong>Laguna Grand Hotel & Spa</strong> ฿1,300 สระว่ายน้ำใหญ่ + สปา ห้องกว้าง คะแนน 9.1 · หรือ <strong>Centara Hotel Hat Yai</strong> ฿1,800 สระ + ฟิตเนส เชื่อมห้าง"
+    },
+    {
+      "icon": "🛶",
+      "head": "อยากพักริมทะเลสาบ หนีความวุ่นวาย",
+      "bodyHtml": "→ <strong>Sri Koh You Resort</strong> ฿750 รีสอร์ทเกาะยอ ริมทะเลสาบสงขลา ใกล้ร้านปลากะพงและสะพานติณ เหมาะคนขับรถมาเอง"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวและเทศกาลที่นักท่องเที่ยวมาเลเซีย-สิงคโปร์มาช้อปหาดใหญ่ ราคาสูงขึ้นและห้องเต็มเร็ว ควรจองล่วงหน้า · เมืองเก่าสงขลา-หาดสมิหลาอยู่ห่างหาดใหญ่ราว 30 กม. เลือกทำเลให้ตรงกับจุดหมายหลักของทริป · ที่พักเกาะยอเกือบทุกแห่งสะดวกกว่าถ้ามีรถส่วนตัวหรือเช่ารถ · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมสงขลา",
   "faq": [
-    { "q": "❓ ควรพักทำเลไหนดีในสงขลา?", "a": "ขึ้นอยู่กับจุดหมายของทริป · <strong>เมืองเก่าสงขลา-หาดสมิหลา (บ่อยาง)</strong> เหมาะคนมาเดินเที่ยวถนนนางงาม ถ่ายรูปตึกชิโน-โปรตุกีส และเที่ยวหาดสมิหลา (Casa de Si, Baan Nai Nakhon, BP Samila) · <strong>ใจกลางหาดใหญ่</strong> เหมาะสายช้อป สายกิน และคนต่อเครื่อง มีห้าง ตลาดกิมหยง เซ็นทรัลเฟส และสนามบินใกล้ (Centara, Crystal, Buri Sriphu, Shi-ro-i, BP Grand Tower, WE Hostel) · <strong>เกาะยอ</strong> เหมาะคนอยากพักริมทะเลสาบเงียบๆ กินปลากะพง (Sri Koh You) · เมืองเก่ากับหาดใหญ่ห่างกันราว 30 กม." },
-    { "q": "❓ โรงแรมสงขลาราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿315–750 ต่อคืน (WE Hostel, The Bedrooms, Shi-ro-i Poshtel, Sri Koh You) · โรงแรมและบูทีคระดับกลางถึง 4 ดาวราว ฿850–1,800 (BP Grand Tower, Crystal, Baan Nai Nakhon, Laguna Grand, BP Samila, Casa de Si, Buri Sriphu, Centara) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงวันหยุดยาวและเทศกาลราคาในหาดใหญ่สูงกว่าปกติ" },
-    { "q": "❓ มาเที่ยวเมืองเก่าสงขลากับหาดสมิหลา พักที่ไหนดี?", "a": "ถ้าตั้งใจเที่ยวเมืองเก่าและหาดสมิหลาเป็นหลัก พักย่านบ่อยางจะเดินเที่ยวได้ — <strong>Casa de Si Boutique House</strong> ฿1,400 บูทีคคะแนนสูงสุดบนถนนนครนอก · <strong>Baan Nai Nakhon</strong> ฿1,200 บ้านโบราณบนถนนนางงามเลย · ส่วน <strong>BP Samila Beach</strong> ฿1,400 อยู่ริมหาดสมิหลา ตื่นมาเห็นทะเล · ทั้งย่านนี้ห่างหาดใหญ่ราว 30 กม. ถ้าจะไปหาดใหญ่ด้วยต้องเผื่อเวลาขับรถ" },
-    { "q": "❓ มาช้อปปิ้งและกินของที่หาดใหญ่ พักโรงแรมไหนดี?", "a": "ถ้าเน้นช้อปและกิน พักใจกลางหาดใหญ่จะสะดวกที่สุด · <strong>Centara Hotel Hat Yai</strong> ฿1,800 เชื่อมห้างเซ็นทรัลเดินถึงเลย รีวิวมากสุด · <strong>Crystal Hotel Hat Yai</strong> ฿900 ติดเซ็นทรัลเฟส 4 ดาวคุ้มค่า · <strong>Buri Sriphu</strong> ฿1,500 กลางเมืองเดินถึงของกิน · งบเบาเลือก <strong>Shi-ro-i Poshtel</strong> ฿700 หรือ <strong>WE Hostel</strong> ฿315 ที่อยู่ใกล้ย่านของกินและ Lee Garden" },
-    { "q": "❓ ไม่มีรถส่วนตัว เที่ยวสงขลาสะดวกไหม?", "a": "สงขลาไม่มีรถไฟฟ้า ถ้าไม่มีรถ <strong>พักใจกลางหาดใหญ่หรือย่านเมืองเก่าสงขลาจะสะดวกที่สุด</strong> — ในหาดใหญ่มีสองแถวและร้านอยู่หนาแน่น เดินถึงของกินได้ (Shi-ro-i, Crystal, Centara, WE Hostel) · ในเมืองเก่าเดินเที่ยวถนนนางงามและหาดสมิหลาได้ · ส่วนเกาะยอ (Sri Koh You) และพะวง (Laguna Grand) ควรมีรถหรือเตรียม Grab ไว้ · ระหว่างเมืองเก่ากับหาดใหญ่ห่างกันราว 30 กม. มีรถตู้/สองแถววิ่ง" },
-    { "q": "❓ จองโรงแรมสงขลาเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะโรงแรมในหาดใหญ่ช่วงวันหยุดยาวและเทศกาลที่นักท่องเที่ยวต่างชาติมาช้อป" }
-  ]
+    {
+      "q": "❓ ควรพักทำเลไหนดีในสงขลา?",
+      "a": "ขึ้นอยู่กับจุดหมายของทริป · <strong>เมืองเก่าสงขลา-หาดสมิหลา (บ่อยาง)</strong> เหมาะคนมาเดินเที่ยวถนนนางงาม ถ่ายรูปตึกชิโน-โปรตุกีส และเที่ยวหาดสมิหลา (Casa de Si, Baan Nai Nakhon, BP Samila) · <strong>ใจกลางหาดใหญ่</strong> เหมาะสายช้อป สายกิน และคนต่อเครื่อง มีห้าง ตลาดกิมหยง เซ็นทรัลเฟส และสนามบินใกล้ (Centara, Crystal, Buri Sriphu, Shi-ro-i, BP Grand Tower, WE Hostel) · <strong>เกาะยอ</strong> เหมาะคนอยากพักริมทะเลสาบเงียบๆ กินปลากะพง (Sri Koh You) · เมืองเก่ากับหาดใหญ่ห่างกันราว 30 กม."
+    },
+    {
+      "q": "❓ โรงแรมสงขลาราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿315–750 ต่อคืน (WE Hostel, The Bedrooms, Shi-ro-i Poshtel, Sri Koh You) · โรงแรมและบูทีคระดับกลางถึง 4 ดาวราว ฿850–1,800 (BP Grand Tower, Crystal, Baan Nai Nakhon, Laguna Grand, BP Samila, Casa de Si, Buri Sriphu, Centara) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงวันหยุดยาวและเทศกาลราคาในหาดใหญ่สูงกว่าปกติ"
+    },
+    {
+      "q": "❓ มาเที่ยวเมืองเก่าสงขลากับหาดสมิหลา พักที่ไหนดี?",
+      "a": "ถ้าตั้งใจเที่ยวเมืองเก่าและหาดสมิหลาเป็นหลัก พักย่านบ่อยางจะเดินเที่ยวได้ — <strong>Casa de Si Boutique House</strong> ฿1,400 บูทีคคะแนนสูงสุดบนถนนนครนอก · <strong>Baan Nai Nakhon</strong> ฿1,200 บ้านโบราณบนถนนนางงามเลย · ส่วน <strong>BP Samila Beach</strong> ฿1,400 อยู่ริมหาดสมิหลา ตื่นมาเห็นทะเล · ทั้งย่านนี้ห่างหาดใหญ่ราว 30 กม. ถ้าจะไปหาดใหญ่ด้วยต้องเผื่อเวลาขับรถ"
+    },
+    {
+      "q": "❓ มาช้อปปิ้งและกินของที่หาดใหญ่ พักโรงแรมไหนดี?",
+      "a": "ถ้าเน้นช้อปและกิน พักใจกลางหาดใหญ่จะสะดวกที่สุด · <strong>Centara Hotel Hat Yai</strong> ฿1,800 เชื่อมห้างเซ็นทรัลเดินถึงเลย รีวิวมากสุด · <strong>Crystal Hotel Hat Yai</strong> ฿900 ติดเซ็นทรัลเฟส 4 ดาวคุ้มค่า · <strong>Buri Sriphu</strong> ฿1,500 กลางเมืองเดินถึงของกิน · งบเบาเลือก <strong>Shi-ro-i Poshtel</strong> ฿700 หรือ <strong>WE Hostel</strong> ฿315 ที่อยู่ใกล้ย่านของกินและ Lee Garden"
+    },
+    {
+      "q": "❓ ไม่มีรถส่วนตัว เที่ยวสงขลาสะดวกไหม?",
+      "a": "สงขลาไม่มีรถไฟฟ้า ถ้าไม่มีรถ <strong>พักใจกลางหาดใหญ่หรือย่านเมืองเก่าสงขลาจะสะดวกที่สุด</strong> — ในหาดใหญ่มีสองแถวและร้านอยู่หนาแน่น เดินถึงของกินได้ (Shi-ro-i, Crystal, Centara, WE Hostel) · ในเมืองเก่าเดินเที่ยวถนนนางงามและหาดสมิหลาได้ · ส่วนเกาะยอ (Sri Koh You) และพะวง (Laguna Grand) ควรมีรถหรือเตรียม Grab ไว้ · ระหว่างเมืองเก่ากับหาดใหญ่ห่างกันราว 30 กม. มีรถตู้/สองแถววิ่ง"
+    },
+    {
+      "q": "❓ จองโรงแรมสงขลาเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะโรงแรมในหาดใหญ่ช่วงวันหยุดยาวและเทศกาลที่นักท่องเที่ยวต่างชาติมาช้อป"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมสงขลา-หาดใหญ่ที่เรารีวิวไว้ครบทุกระดับ — ตั้งแต่บูทีคเมืองเก่าถนนนางงาม ริมหาดสมิหลา ไปจนถึงโฮสเทลใจกลางหาดใหญ่เริ่ม ฿315 ฟังเสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบ 3 เว็บ ลิงก์จองตรง"
 }

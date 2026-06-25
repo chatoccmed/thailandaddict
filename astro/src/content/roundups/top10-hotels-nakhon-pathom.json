@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "นครปฐม", "href": "city-nakhon-pathom.html" },
-    { "name": "12 โรงแรมนครปฐมยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "นครปฐม",
+      "href": "city-nakhon-pathom.html"
+    },
+    {
+      "name": "12 โรงแรมนครปฐมยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "นครปฐม", "item": "https://thailandaddict.com/city-nakhon-pathom" },
-    { "name": "12 โรงแรมนครปฐมยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-nakhon-pathom" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "นครปฐม",
+      "item": "https://thailandaddict.com/city-nakhon-pathom"
+    },
+    {
+      "name": "12 โรงแรมนครปฐมยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-nakhon-pathom"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-nakhon-pathom.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "นครปฐมไม่มีรถไฟฟ้า การเดินทางใช้รถยนต์เป็นหลัก แต่ <strong>มีสถานีรถไฟสายใต้กลางเมือง</strong> ขบวนกรุงเทพฯ–ใต้จอด และจังหวัดกว้างจนทำเลที่พักกำหนดทริปได้เลย · ที่พัก <strong>กลางเมืองรอบองค์พระปฐมเจดีย์</strong> เดินทางสะดวกที่สุด มีตลาดโต้รุ่ง ร้านอาหาร และสถานีรถไฟเดินถึงหรือขับไม่กี่นาที บางแห่งเดินถึงองค์พระได้เลย (Xen, Whale) · ที่พัก <strong>ริมแม่น้ำท่าจีน โซนสามพราน-นครชัยศรี-ดอนตูม</strong> เกือบทุกแห่งต้องมีรถส่วนตัวหรือเช่ารถ เพราะรอบรีสอร์ตไม่ใช่ย่านเดินเที่ยว แต่ขับจากกรุงเทพฯ ราว 1 ชั่วโมงถึง · ส่วน <strong>ย่านศาลายา</strong> ใกล้มหิดล บางแห่งเดินถึงประตูมหาวิทยาลัยได้และมีรถรับส่ง · ทำเลในบทความนี้: <strong>กลางเมือง</strong> — ไหว้พระ กินของ สถานีรถไฟ · <strong>ริมน้ำท่าจีน</strong> — รีสอร์ตในสวนเงียบใกล้กรุงเทพฯ · <strong>ศาลายา</strong> — ใกล้มหิดล-พุทธมณฑล",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Mida Grande Hotel Dhavaravati", "price": "฿1,400" },
-    { "n": "2", "color": "#c8a951", "name": "Xen Hotel Nakhon Pathom", "price": "฿850" },
-    { "n": "3", "color": "#c8a951", "name": "RXV Wellness Village Sampran", "price": "฿7,500" },
-    { "n": "4", "color": "#c8a951", "name": "Salaya One Hotel & Service Apartment", "price": "฿1,900" },
-    { "n": "5", "color": "#9e9e9e", "name": "Hop Inn Nakhon Pathom", "price": "฿650" },
-    { "n": "6", "color": "#9e9e9e", "name": "RK Riverside Resort & Spa", "price": "฿1,500" },
-    { "n": "7", "color": "#9e9e9e", "name": "Chawalun Resort", "price": "฿800" },
-    { "n": "8", "color": "#9e9e9e", "name": "The Palm Hotel Salaya", "price": "฿600" },
-    { "n": "9", "color": "#bf8040", "name": "Sampran Riverside", "price": "฿1,400" },
-    { "n": "10", "color": "#bf8040", "name": "Rest Point Sampran", "price": "฿600" },
-    { "n": "11", "color": "#5d4037", "name": "Whale Hotel Nakhon Pathom", "price": "฿700" },
-    { "n": "12", "color": "#5d4037", "name": "24 Poshtel Salaya", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Mida Grande Hotel Dhavaravati",
+      "price": "฿1,400"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Xen Hotel Nakhon Pathom",
+      "price": "฿850"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "RXV Wellness Village Sampran",
+      "price": "฿7,500"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Salaya One Hotel & Service Apartment",
+      "price": "฿1,900"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Hop Inn Nakhon Pathom",
+      "price": "฿650"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "RK Riverside Resort & Spa",
+      "price": "฿1,500"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Chawalun Resort",
+      "price": "฿800"
+    },
+    {
+      "n": "8",
+      "color": "#9e9e9e",
+      "name": "The Palm Hotel Salaya",
+      "price": "฿600"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Sampran Riverside",
+      "price": "฿1,400"
+    },
+    {
+      "n": "10",
+      "color": "#bf8040",
+      "name": "Rest Point Sampran",
+      "price": "฿600"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Whale Hotel Nakhon Pathom",
+      "price": "฿700"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "24 Poshtel Salaya",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room (~30 ตร.ม.)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Room (Chedi View)", "price": "เริ่ม ฿1,650/คืน" },
-        { "type": "Executive Suite (~56 ตร.ม.)", "price": "เริ่ม ฿3,000/คืน" }
+        {
+          "type": "Deluxe Room (~30 ตร.ม.)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Room (Chedi View)",
+          "price": "เริ่ม ฿1,650/คืน"
+        },
+        {
+          "type": "Executive Suite (~56 ตร.ม.)",
+          "price": "เริ่ม ฿3,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mida-grande-hotel-dhavaravati-nakhon-pathom/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mida-dhavaravati-grande.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-3717068/mida-grande-hotel-dhavaravati-nakhon-pathom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mida-grande-hotel-dhavaravati-nakhon-pathom.html",
-      "tags": ["🏛️ ดีไซน์ทวารวดี ห้องวิวพระปฐมเจดีย์", "🍸 รูฟท็อป Thor Music Bar ทรงเจดีย์", "🏊 สระว่ายน้ำเกลือ + สปา + ซาวน่า", "🚗 ขับ 5 นาทีถึงองค์พระ + ตลาดโต้รุ่ง"],
+      "tags": [
+        "🏛️ ดีไซน์ทวารวดี ห้องวิวพระปฐมเจดีย์",
+        "🍸 รูฟท็อป Thor Music Bar ทรงเจดีย์",
+        "🏊 สระว่ายน้ำเกลือ + สปา + ซาวน่า",
+        "🚗 ขับ 5 นาทีถึงองค์พระ + ตลาดโต้รุ่ง"
+      ],
       "addr": "711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม",
       "storyHtml": "Mida Grande Hotel Dhavaravati คือ <strong>โรงแรมหรู 5 ดาวที่ดีที่สุดในตัวเมืองนครปฐม</strong> คะแนน 9.1 จาก 203 รีวิว และ TripAdvisor จัดอันดับต้นๆ ของเมือง · เป็นตึกสูงกลางเมืองย่านสนามจันทร์ ดีไซน์ทั้งหลังหยิบกลิ่นอายศิลปะทวารวดีรากของเมืองมาเล่า มี 195 ห้อง หลายห้องเปิดม่านเจอวิวองค์พระปฐมเจดีย์ · เสียงจากรีวิวจริงชมห้องกว้างสะอาด เตียงนอนสบายมาก รูฟท็อป Thor Music Bar ทรงเจดีย์ทวารวดี สระว่ายน้ำเกลือ สปา และอาหารเช้าดี ในราคาที่คุ้มมากสำหรับ 5 ดาว · แต่ต้องยอมรับว่าเป็นโรงแรมติดถนนใหญ่ ไม่ใช่รีสอร์ตริมน้ำเงียบ และบางมุมรอบโรงแรมยังเป็นพื้นที่ว่างรกๆ · เหมาะคนมาไหว้องค์พระ กินของอร่อย และอยากนอนโรงแรมดีๆ กลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุขอห้อง Chedi View ตอนจอง เพราะไม่ใช่ทุกห้องที่หันไปทางองค์พระ · ช่วงค่ำขึ้นรูฟท็อป Thor Music Bar ตอนองค์พระเปิดไฟ บรรยากาศสวยที่สุด · ช่วงงานนมัสการองค์พระปฐมเจดีย์ (ราว พ.ย.) และวันหยุดยาว ห้องเต็มเร็วและราคาขยับ จองล่วงหน้าและล็อกราคาไว้ก่อน",
@@ -104,15 +201,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿1,050/คืน" },
-        { "type": "Suite", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,050/คืน"
+        },
+        {
+          "type": "Suite",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/xen-hotel-nakhon-pathom/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/xen-nakhon-pathom.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-6405914/xen-hotel-nakhon-pathom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-xen-hotel-nakhon-pathom.html",
-      "tags": ["🛕 เดินถึงองค์พระปฐมเจดีย์ ~640 ม.", "🍺 รูฟท็อปบาร์/ลานเบียร์", "🛏️ ห้องกว้าง สะอาด 134 ห้อง", "🅿️ ที่จอดรถฟรี · ใกล้ศิลปากร"],
+      "tags": [
+        "🛕 เดินถึงองค์พระปฐมเจดีย์ ~640 ม.",
+        "🍺 รูฟท็อปบาร์/ลานเบียร์",
+        "🛏️ ห้องกว้าง สะอาด 134 ห้อง",
+        "🅿️ ที่จอดรถฟรี · ใกล้ศิลปากร"
+      ],
       "addr": "528/330 ถนนราชมรรคา ตำบลพระปฐมเจดีย์ อำเภอเมืองนครปฐม",
       "storyHtml": "Xen Hotel Nakhon Pathom (เซ็น โฮเทล) คือ <strong>โรงแรมกลางเมืองที่คุ้มที่สุดในบทความนี้ — คะแนน 9.0 จาก 467 รีวิว ซึ่งมากเป็นอันดับต้นๆ ของกลุ่มในเมือง</strong> และเดินไปไหว้องค์พระปฐมเจดีย์ได้ในระยะราว 640 เมตร · เป็นโรงแรม 3 ดาว 134 ห้องในเครือ Mida เปิดปี 2016 บนถนนราชมรรคา ย่านสนามจันทร์ · เสียงจากรีวิวจริงชมห้องกว้างสะอาด มีรูฟท็อปบาร์/ลานเบียร์ ที่จอดรถฟรี และทำเลที่เดินถึงทั้งองค์พระและของกินรอบเมือง · เป็นโรงแรมระดับ 3 ดาว สิ่งอำนวยความสะดวกจึงไม่ครบเท่าโรงแรมหรู และไม่มีสระว่ายน้ำ · เหมาะคนมาไหว้พระ เที่ยวเมือง หรือมาติดต่อมหาวิทยาลัยศิลปากรในราคาเบา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ทำเลเดินถึงองค์พระ ลงจากรถแล้วเดินไปไหว้พระตอนเช้าก่อนแดดแรงได้สบาย · ช่วงค่ำขึ้นรูฟท็อปบาร์/ลานเบียร์จิบเครื่องดื่ม · มีที่จอดรถฟรี เหมาะคนขับรถมาเอง วันหยุดยาวและช่วงงานองค์พระควรจองล่วงหน้า",
@@ -144,15 +255,29 @@
       "priceBig": "฿7,500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior (38 ตร.ม.)", "price": "เริ่ม ฿7,500/คืน" },
-        { "type": "Superior Panorama River View", "price": "เริ่ม ฿9,000/คืน" },
-        { "type": "Suite (104 ตร.ม.)", "price": "เริ่ม ฿18,000/คืน" }
+        {
+          "type": "Superior (38 ตร.ม.)",
+          "price": "เริ่ม ฿7,500/คืน"
+        },
+        {
+          "type": "Superior Panorama River View",
+          "price": "เริ่ม ฿9,000/คืน"
+        },
+        {
+          "type": "Suite (104 ตร.ม.)",
+          "price": "เริ่ม ฿18,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rxv-wellness-village-sampran/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-rxv-wellness-village-ban-bang-yai-chuai.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-25146369/rxv-wellness-village-sampran/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rxv-wellness-village-sampran-nakhon-pathom.html",
-      "tags": ["🌿 อาคารเวลเนส 4,000 ตร.ม. · ไฮโดรเทอราพี", "🛶 ในสวนสามพราน ริมแม่น้ำท่าจีน", "🥗 อาหารออร์แกนิก Rainbow Food", "🚗 ขับจากกรุงเทพฯ ชั่วโมงเดียว"],
+      "tags": [
+        "🌿 อาคารเวลเนส 4,000 ตร.ม. · ไฮโดรเทอราพี",
+        "🛶 ในสวนสามพราน ริมแม่น้ำท่าจีน",
+        "🥗 อาหารออร์แกนิก Rainbow Food",
+        "🚗 ขับจากกรุงเทพฯ ชั่วโมงเดียว"
+      ],
       "addr": "88 หมู่ 2 ตำบลยายชา อำเภอสามพราน",
       "storyHtml": "RXV Wellness Village Sampran คือ <strong>ที่พักคะแนนสูงสุดในบทความนี้ที่ 9.4 — รีสอร์ตเวลเนส 5 ดาวที่ออกแบบมาเพื่อสุขภาพตั้งแต่ต้น ไม่ใช่โรงแรมที่บังเอิญมีสปา</strong> · ตั้งในพื้นที่สวนสามพราน 50 ไร่ ริมแม่น้ำท่าจีน สร้างโดยทีมเดียวกับ RAKxa มี 83 ห้องวิวแม่น้ำหรือสวน อาคารเวลเนส 4,000 ตร.ม. รวมคลินิก ไฮโดรเทอราพี และฟิตเนส พร้อมอาหารออร์แกนิก Rainbow Food · เสียงจากรีวิวจริงชมห้องสะอาดดีไซน์ดี บริการใส่ใจรายบุคคล และอาหารสุขภาพที่อร่อยเกินคาด · แต่ราคาเริ่ม ฿7,500/คืนและขยับขึ้นเร็วถ้าลงโปรแกรมเต็ม ไม่คุ้มถ้าแค่แวะนอนคืนเดียวไหว้พระ · เหมาะคนตั้งใจมาดูแลร่างกายจริงจังในระยะขับรถจากกรุงเทพฯ ชั่วโมงเดียว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวสวยที่สุด ขอห้อง Superior Panorama River View ชั้นบนที่มองแม่น้ำท่าจีนเต็มตา · ถ้ามาเพื่อเวลเนสจริงควรนอนอย่างน้อย 2 คืน · โปรแกรมและทรีตเมนต์ต้องจองล่วงหน้าอย่างน้อย 72 ชั่วโมง วางแผนวันให้ชัดก่อนเดินทาง",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,900",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe สไตล์ญี่ปุ่น (32 ตร.ม.)", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Homey Deluxe มีครัว (35 ตร.ม.)", "price": "เริ่ม ฿2,300/คืน" },
-        { "type": "Homey Triple (44 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" }
+        {
+          "type": "Deluxe สไตล์ญี่ปุ่น (32 ตร.ม.)",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Homey Deluxe มีครัว (35 ตร.ม.)",
+          "price": "เริ่ม ฿2,300/คืน"
+        },
+        {
+          "type": "Homey Triple (44 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/salaya-one-hotel-service-apartment/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/salaya-one-amp-service-apartment.html",
       "tripUrl": "https://th.trip.com/hotels/phutthamonthon-hotel-detail-113067329/salaya-one-hotel-service-apartment/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-salaya-one-hotel-service-apartment-nakhon-pathom.html",
-      "tags": ["🍳 หลายห้องมีครัวและเครื่องซักผ้า", "🏊 สระว่ายน้ำกลางแจ้ง + ฟิตเนส", "🚐 รถรับส่งมหาวิทยาลัยมหิดล", "📶 Wi-Fi เร็ว · ที่จอดรถฟรี"],
+      "tags": [
+        "🍳 หลายห้องมีครัวและเครื่องซักผ้า",
+        "🏊 สระว่ายน้ำกลางแจ้ง + ฟิตเนส",
+        "🚐 รถรับส่งมหาวิทยาลัยมหิดล",
+        "📶 Wi-Fi เร็ว · ที่จอดรถฟรี"
+      ],
       "addr": "41 ซอยตั้งสิน (ซอยร่มเกล้า) ถนนศาลายา ตำบลศาลายา อำเภอพุทธมณฑล",
       "storyHtml": "Salaya One Hotel & Service Apartment (ศาลายา วัน) คือ <strong>ตัวเลือก 4 ดาวที่ดีที่สุดของย่านศาลายา — คะแนน 9.0 จาก 200 รีวิว ห้องสวยกว้างสะอาดและหลายห้องมีครัวครบ</strong> · เป็นโรงแรมผสมเซอร์วิสอพาร์ตเมนต์ในซอยตั้งสิน ใกล้มหาวิทยาลัยมหิดลราว 2 นาทีโดยรถ และมีรถรับส่งมหิดล · เสียงจากรีวิวจริงชมห้องตั้งแต่เดอลุกซ์สไตล์ญี่ปุ่น 32 ตร.ม. ถึงสวีท 70 ตร.ม. มีสระว่ายน้ำกลางแจ้ง ฟิตเนส อาหารเช้า ที่จอดรถฟรี และ Wi-Fi ที่หลายคนบอกว่าเร็วมาก · แต่ราคาสูงกว่าที่พักหลักร้อยในย่านเดียวกัน และมีบางรีวิวติเรื่องบริการบางจุด · เหมาะผู้ปกครอง คนพักยาว และครอบครัวที่อยากได้พื้นที่เหมือนอยู่บ้าน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาพักยาวหรือมากันครอบครัว เลือกห้อง Homey ที่มีครัวและเครื่องซักผ้า ประหยัดค่ากินไปได้เยอะ · เช็กตารางรถรับส่งมหิดลกับโรงแรมล่วงหน้า · ช่วงรับปริญญาและเปิดเทอมมหิดลห้องเต็มเร็วมาก ควรจองล่วงหน้าหลายสัปดาห์",
@@ -224,15 +363,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double (20 ตร.ม.)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin (20 ตร.ม.)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard (พักได้ 2 ท่าน)", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "Standard Double (20 ตร.ม.)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin (20 ตร.ม.)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard (พักได้ 2 ท่าน)",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-nakhon-pathom-h11023618/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-nakhon-pathom.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-54429637/hop-inn-nakhon-pathom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-nakhon-pathom.html",
-      "tags": ["🧼 ห้องสะอาด มาตรฐานเชนทั่วประเทศ", "💸 ราคาเบา เริ่ม ฿650", "🅿️ ที่จอดรถฟรี · Wi-Fi ฟรี · เคาน์เตอร์ 24 ชม.", "🎓 ใกล้ศิลปากร · พระราชวังสนามจันทร์"],
+      "tags": [
+        "🧼 ห้องสะอาด มาตรฐานเชนทั่วประเทศ",
+        "💸 ราคาเบา เริ่ม ฿650",
+        "🅿️ ที่จอดรถฟรี · Wi-Fi ฟรี · เคาน์เตอร์ 24 ชม.",
+        "🎓 ใกล้ศิลปากร · พระราชวังสนามจันทร์"
+      ],
       "addr": "554 ถนนราชมรรคา ตำบลสนามจันทร์ อำเภอเมืองนครปฐม",
       "storyHtml": "Hop Inn Nakhon Pathom (ฮ็อป อินน์) คือ <strong>โรงแรมบัดเจ็ตที่ทำคะแนนสูงผิดคาดที่ 9.2 จาก 82 รีวิว โดยเฉพาะความสะอาดและทำเลที่ได้ราว 9.5–9.6</strong> · เป็นเชน Hop Inn ของกลุ่มดิ เอราวัณ ที่วางมาตรฐานเดียวกันทั่วประเทศ — ห้องเรียบ สะอาด ฟังก์ชันครบเท่าที่จำเป็น ไม่มีของฟุ่มเฟือย · 79 ห้องมาตรฐาน 20 ตร.ม. บนถนนราชมรรคา ย่านสนามจันทร์ เปิดปี 2019 · เสียงจากรีวิวจริงชมห้องสะอาด เตียงนอนสบาย ที่จอดรถฟรี Wi-Fi ฟรี และเคาน์เตอร์ 24 ชั่วโมง · แต่เป็นโรงแรมประหยัด ไม่มีอาหารเช้า ไม่มีสระว่ายน้ำ และห้องไม่ได้กว้างมาก · เหมาะคนแวะทำธุระ มาติดต่อศิลปากร หรือใช้เป็นจุดพักก่อนไปไหว้องค์พระ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ไม่มีอาหารเช้าในโรงแรม แต่รอบย่านสนามจันทร์มีร้านกาแฟและของกินเยอะ เดินหรือขับไม่ไกล · มีที่จอดรถฟรี เหมาะคนขับรถมาเอง · ราคาเบาและห้องเต็มเร็วช่วงรับปริญญาศิลปากรและงานองค์พระ จองล่วงหน้าไว้ก่อน",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Junior Suite", "price": "เริ่ม ฿2,000/คืน" },
-        { "type": "Thai House (เรือนไทยหลายห้องนอน)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "เริ่ม ฿2,000/คืน"
+        },
+        {
+          "type": "Thai House (เรือนไทยหลายห้องนอน)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rk-riverside-resort-and-spa-reon-kruewal/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rk-riverside-resort-amp-spa.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-chai-si-district-hotel-detail-7620051/rk-riverside-resort-and-spa-reon-kruewal/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rk-riverside-resort-and-spa-nakhon-pathom.html",
-      "tags": ["🛶 เรือนไทยริมแม่น้ำท่าจีน", "🏊 สระว่ายน้ำ + ซาวน่า + สปา", "🍽️ ร้านอาหารริมน้ำ + ห้องคาราโอเกะ", "🚗 ใกล้กรุงเทพฯ ราว 1 ชั่วโมง"],
+      "tags": [
+        "🛶 เรือนไทยริมแม่น้ำท่าจีน",
+        "🏊 สระว่ายน้ำ + ซาวน่า + สปา",
+        "🍽️ ร้านอาหารริมน้ำ + ห้องคาราโอเกะ",
+        "🚗 ใกล้กรุงเทพฯ ราว 1 ชั่วโมง"
+      ],
       "addr": "99 หมู่ 4 ตำบลไทยาวาส อำเภอนครชัยศรี",
       "storyHtml": "RK Riverside Resort & Spa (ชื่อไทยคือเรือนเครือวัลย์ ริเวอร์ไซด์) คือ <strong>รีสอร์ตริมแม่น้ำท่าจีนที่เด่นเรื่องความสะอาดและบรรยากาศเงียบสงบ</strong> คะแนน 8.5 จาก 256 รีวิว โดยความสะอาดทำได้สูงราว 9.4 · ตั้งอยู่ที่ตำบลไทยาวาส นครชัยศรี มีห้องพักและเรือนไทยกระจายในสวนริมน้ำ หลายห้องมีระเบียงวิวแม่น้ำ · เสียงจากรีวิวจริงชมห้องกว้างสะอาด เตียงและผ้าปูที่นอนสบาย พนักงานเป็นกันเอง มีสระว่ายน้ำ ซาวน่า สปา และร้านอาหารริมน้ำ · แต่บางคนรู้สึกว่าบริการยังไม่สมราคา อาหารเช้าค่อนข้างเบา และร้านอาหารปิดค่อนข้างเร็วช่วงค่ำ · เหมาะครอบครัวและคู่รักที่อยากพักผ่อนริมน้ำใกล้กรุงเทพฯ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุขอห้องหรือเรือนไทยฝั่งวิวแม่น้ำท่าจีน เพราะเป็นมุมที่ได้บรรยากาศเต็มที่สุด · มากันกลุ่มใหญ่หรือครอบครัว เรือนไทย Thai House หลายห้องนอนคุ้มและเป็นส่วนตัว · เช็กเวลาเปิด-ปิดร้านอาหารริมน้ำก่อน เผื่อวางแผนมื้อค่ำ",
@@ -304,15 +471,29 @@
       "priceBig": "฿800",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "ห้องในอาคาร (Standard)", "price": "เริ่ม ฿800/คืน" },
-        { "type": "บังกะโล / บ้านริมน้ำ", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "บ้านกลางน้ำ", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "ห้องในอาคาร (Standard)",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "บังกะโล / บ้านริมน้ำ",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "บ้านกลางน้ำ",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chawalun-resort/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chawalun-resort.html",
       "tripUrl": "https://th.trip.com/hotels/list?keyword=Chawalun%20Resort&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chawalan-resort-nakhon-pathom.html",
-      "tags": ["🛝 สระว่ายน้ำมีสไลเดอร์ + สระน้ำตก", "🚣 เรือถีบ · สะพานไม้แขวน · ให้อาหารปลา", "🌳 สวนกว้างกว่า 50 ไร่ ริมทะเลสาบ", "👨‍👩‍👧 เหมาะครอบครัวและกรุ๊ป"],
+      "tags": [
+        "🛝 สระว่ายน้ำมีสไลเดอร์ + สระน้ำตก",
+        "🚣 เรือถีบ · สะพานไม้แขวน · ให้อาหารปลา",
+        "🌳 สวนกว้างกว่า 50 ไร่ ริมทะเลสาบ",
+        "👨‍👩‍👧 เหมาะครอบครัวและกรุ๊ป"
+      ],
       "addr": "99/1 หมู่ 9 ถนนเลียบคลองชลประทาน ตำบลลำเหย อำเภอดอนตูม",
       "storyHtml": "Chawalun Resort (ชวาลัน รีสอร์ท) คือ <strong>รีสอร์ตที่มีรีวิวมากที่สุดในบทความนี้ — 1,005 รีวิว — และเป็นรีสอร์ตครอบครัวที่หลายคนกลับมาพักซ้ำ</strong> คะแนน 8.3 · เป็นสวนกว้างกว่า 50 ไร่ ริมทะเลสาบในอำเภอดอนตูม มีห้องพักหลายแบบตั้งแต่ห้องในอาคาร บังกะโล ไปจนถึงบ้านริมน้ำและบ้านกลางน้ำ · เสียงจากรีวิวจริงชมสระว่ายน้ำที่มีสไลเดอร์ สระน้ำตก เรือถีบ สะพานไม้แขวนถ่ายรูป และพื้นที่กว้างให้เด็กวิ่งเล่น · แต่อยู่ห่างตัวเมืองและสถานที่เที่ยวหลัก ต้องมีรถส่วนตัว และเป็นรีสอร์ตเก่าที่บางจุดเริ่มมีอายุ · เหมาะครอบครัวและกลุ่มเพื่อนที่อยากพาเด็กมาเล่นน้ำในสวนกว้างใกล้กรุงเทพฯ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> พาเด็กมาเลือกช่วงเช้า-บ่ายเล่นสระสไลเดอร์และสระน้ำตกให้คุ้ม · มากันกลุ่มใหญ่หรือครอบครัว บ้านริมน้ำ/บ้านกลางน้ำคุ้มและได้บรรยากาศ · เป็นรีสอร์ตเก่า ขอดูรีวิวห้องล่าสุดหรือเลือกห้องที่ปรับปรุงแล้วก่อนจอง · ต้องมีรถส่วนตัวเพราะอยู่ห่างเมือง",
@@ -344,15 +525,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (มีระเบียง)", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿800/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "Standard Room (มีระเบียง)",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-palm-hotel/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-palm-tambon-salaya1.html",
       "tripUrl": "https://th.trip.com/hotels/phutthamonthon-hotel-detail-9688980/the-palm-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-palm-hotel-salaya-nakhon-pathom.html",
-      "tags": ["🎓 เดินถึงประตูมหาวิทยาลัยมหิดล ~4 นาที", "🛏️ ห้องกว้าง มีระเบียงทุกห้อง", "🏪 คาเฟ่ในตัว · มินิมาร์ท · จอดรถฟรี", "🍜 ใกล้ตลาดและของกินย่านศาลายา"],
+      "tags": [
+        "🎓 เดินถึงประตูมหาวิทยาลัยมหิดล ~4 นาที",
+        "🛏️ ห้องกว้าง มีระเบียงทุกห้อง",
+        "🏪 คาเฟ่ในตัว · มินิมาร์ท · จอดรถฟรี",
+        "🍜 ใกล้ตลาดและของกินย่านศาลายา"
+      ],
       "addr": "200/250 หมู่ 5 ศาลายา ซอย 1 ถนนพุทธมณฑลสาย 4 ตำบลศาลายา อำเภอพุทธมณฑล",
       "storyHtml": "The Palm Hotel Salaya (เดอะ ปาล์ม โฮเต็ล ศาลายา) คือ <strong>โรงแรมเล็กที่จุดขายคือเดินถึงประตูมหาวิทยาลัยมหิดลราว 4 นาที ในราคาเบา</strong> คะแนน 8.6 จาก 100 รีวิว · อยู่ในซอยศาลายา ซอย 1 ถนนพุทธมณฑลสาย 4 มีห้องพักราว 20 ห้อง · เสียงจากรีวิวจริงชมห้องกว้าง สะอาด มีระเบียงส่วนตัวทุกห้อง มีคาเฟ่ในตัว มินิมาร์ท และที่จอดรถฟรี ใกล้ตลาดและของกินย่านศาลายา · แต่เป็นอาคารราว 4 ชั้นที่ไม่มีลิฟต์ และบางห้องได้ยินเสียงปั๊มน้ำหรือเสียงจากซอยบ้าง · เหมาะผู้ปกครองที่มาส่งลูกเข้ามหิดล คนมาติดต่อธุระในศาลายา และนักท่องเที่ยวที่อยากพักย่านนี้แบบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ไม่มีลิฟต์ ถ้าไม่อยากแบกกระเป๋าขึ้นบันได ขอห้องชั้นล่าง · บางห้องได้ยินเสียงปั๊มน้ำหรือเสียงจากซอย ถ้านอนไม่ลึกขอห้องที่อยู่ลึกเข้าไป · ช่วงรับปริญญาและเปิดเทอมมหิดลห้องเต็มเร็ว ควรจองล่วงหน้า",
@@ -384,15 +579,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Garden View Room", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "River View Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,800/คืน" }
+        {
+          "type": "Garden View Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "River View Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sampran-riverside/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sampran-riverside.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-577476/sampran-riverside/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sampran-riverside-nakhon-pathom.html",
-      "tags": ["🌿 สวนเก่าแก่กว่า 70 ไร่ ริมแม่น้ำท่าจีน", "🥗 ฟาร์มออร์แกนิก + คาเฟ่ Patom", "🎭 หมู่บ้านวัฒนธรรมไทย + ตลาดสุขใจ", "🏊 สระโอโซน · สปา · จักรยานให้ยืม"],
+      "tags": [
+        "🌿 สวนเก่าแก่กว่า 70 ไร่ ริมแม่น้ำท่าจีน",
+        "🥗 ฟาร์มออร์แกนิก + คาเฟ่ Patom",
+        "🎭 หมู่บ้านวัฒนธรรมไทย + ตลาดสุขใจ",
+        "🏊 สระโอโซน · สปา · จักรยานให้ยืม"
+      ],
       "addr": "ก.ม. 32 ถนนเพชรเกษม ตำบลยายชา อำเภอสามพราน",
       "storyHtml": "Sampran Riverside คือ <strong>รีสอร์ตในสวนเก่าแก่ริมแม่น้ำท่าจีนที่เด่นเรื่องบรรยากาศ วิถีออร์แกนิก และวัฒนธรรมไทย</strong> คะแนน 8.4 จาก 162 รีวิว · ที่นี่คือสวนที่คนรุ่นพ่อแม่รู้จักในชื่อสวนสามพราน หรือ Rose Garden Riverside วันนี้ปรับเป็นรีสอร์ตบนพื้นที่กว่า 70 ไร่ ไม้ใหญ่ร่มรื่น ราว 60 ห้องในสวน หลายห้องมีระเบียงวิวสวนหรือแม่น้ำ · เสียงจากรีวิวจริงชมบรรยากาศสวนริมน้ำ อาหารเช้าจากฟาร์มออร์แกนิกที่สดอร่อย หมู่บ้านวัฒนธรรมไทย ตลาดสุขใจ สระโอโซน และจักรยานให้ยืมปั่นรอบสวน · แต่ไม่ใช่โรงแรมหรูใหม่เอี่ยม บางห้องเริ่มมีอายุ และอาหารในรีสอร์ตราคาค่อนข้างสูง · เหมาะครอบครัวและคู่รักที่อยากพักผ่อนในสวนริมน้ำใกล้กรุงเทพฯ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุขอห้องฝั่งวิวแม่น้ำท่าจีน เพราะเป็นมุมที่ได้บรรยากาศเต็มที่สุด · ตลาดสุขใจและการแสดงที่หมู่บ้านวัฒนธรรมไทยไม่ได้มีทุกวัน เช็กตารางก่อนเลือกวันมาพัก · ยืมจักรยานปั่นชมสวนไม้ใหญ่ตอนเช้าหรือเย็น · บางห้องเริ่มมีอายุ ดูรีวิวห้องล่าสุดก่อนจอง",
@@ -424,15 +633,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Standard (เตียงคู่)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Room with Balcony", "price": "เริ่ม ฿800/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Standard (เตียงคู่)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Room with Balcony",
+          "price": "เริ่ม ฿800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rest-point-sampran/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rest-point-sampran.html",
       "tripUrl": "https://th.trip.com/hotels/nakhon-chai-si-district-hotel-detail-25792987/rest-point-sampran/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rest-point-sampran-nakhon-pathom.html",
-      "tags": ["🛏️ ห้องสะอาด เงียบ มีตู้เย็น", "🚗 ริมถนนเพชรเกษม จุดแวะพัก", "🅿️ ที่จอดรถฟรีหน้าโรงแรม", "💸 ราคาเบา เริ่ม ฿600"],
+      "tags": [
+        "🛏️ ห้องสะอาด เงียบ มีตู้เย็น",
+        "🚗 ริมถนนเพชรเกษม จุดแวะพัก",
+        "🅿️ ที่จอดรถฟรีหน้าโรงแรม",
+        "💸 ราคาเบา เริ่ม ฿600"
+      ],
       "addr": "9/51-53 ถนนเพชรเกษม ตำบลขุนแก้ว อำเภอนครชัยศรี",
       "storyHtml": "Rest Point Sampran (เรสต์ พอยต์ สามพราน) คือ <strong>โรงแรมเล็กริมถนนเพชรเกษมที่เหมาะเป็นจุดแวะพักคืนเดียวสำหรับคนขับรถผ่าน</strong> คะแนน 8.2 จาก 15 รีวิว · อยู่ที่ตำบลขุนแก้ว นครชัยศรี มีห้องพักราว 17–18 ห้อง · เสียงจากรีวิวจริงชมห้องสะอาด เงียบ มีแอร์ ทีวี ตู้เย็น น้ำดื่ม และที่จอดรถฟรีหน้าโรงแรม คุ้มราคาสำหรับนอนคืนเดียวหรือแวะพักก่อนเข้ากรุงเทพฯ · แต่เป็นที่พักริมถนนเรียบง่าย ไม่มีสิ่งอำนวยความสะดวกแบบรีสอร์ต ไม่มีสระว่ายน้ำ และบางช่วงรับเฉพาะเงินสด · เหมาะคนขับรถสายเพชรเกษมที่อยากหาที่นอนสะอาดราคาเบา ไม่ได้เน้นกิจกรรม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เป็นโรงแรมเล็ก รับเฉพาะเงินสดบางช่วง เตรียมเงินสดและติดต่อยืนยันการจองก่อน · อยู่ริมถนนใหญ่ ขอห้องที่อยู่ลึกเข้าไปถ้าอยากเงียบที่สุด · เหมาะแวะนอนคืนเดียวระหว่างทาง ไม่เหมาะเป็นฐานเที่ยวเต็มวัน",
@@ -464,15 +687,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (ห้องใหญ่)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Standard Room (ห้องใหญ่)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/whale-hotel-nakhon-pathom/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/whale-nakhon-pathom.html",
       "tripUrl": "https://www.trip.com/hotels/nakorn-pathom-hotel-detail-81263376/whale-hotel-nakhon-pathom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-whale-hotel-nakhon-pathom.html",
-      "tags": ["💸 ห้องใหญ่กว่าราคา ราคาประหยัด", "🏊 สระว่ายน้ำในร่ม + ฟิตเนส", "🅿️ ที่จอดรถกว้าง · อาหารเช้ารวม", "🛕 กลางเมือง ใกล้องค์พระปฐมเจดีย์"],
+      "tags": [
+        "💸 ห้องใหญ่กว่าราคา ราคาประหยัด",
+        "🏊 สระว่ายน้ำในร่ม + ฟิตเนส",
+        "🅿️ ที่จอดรถกว้าง · อาหารเช้ารวม",
+        "🛕 กลางเมือง ใกล้องค์พระปฐมเจดีย์"
+      ],
       "addr": "151/79 ถนนราชวิถี ตำบลพระปฐมเจดีย์ อำเภอเมืองนครปฐม",
       "storyHtml": "Whale Hotel Nakhon Pathom (โรงแรมเวล) คือ <strong>โรงแรมเก่ากลางเมืองที่จุดขายคือห้องใหญ่และราคาเบามาก</strong> คะแนน 7.6 จาก 312 รีวิว · เป็นอาคารสูงทรงโค้งหลังใหญ่บนถนนราชวิถี ใกล้องค์พระปฐมเจดีย์ ห้องพักเยอะและกว้างกว่าราคา · เสียงจากรีวิวจริงชมห้องใหญ่ มีสระว่ายน้ำในร่ม ฟิตเนส ร้านอาหาร ที่จอดรถกว้าง และอาหารเช้ารวมในราคา · แต่พูดให้ชัด เป็นตึกเก่าที่ปรับปรุงแล้วบางส่วน บรรยากาศจึงเรียบๆ ไม่หวือหวา และบางจุดเริ่มมีอายุ คะแนนจึงไม่สูงเท่าโรงแรมใหม่ในเมือง · เหมาะนักเดินทางสายประหยัดที่ให้น้ำหนักกับห้องใหญ่ ราคาเบา และทำเลกลางเมืองมากกว่าความใหม่",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สภาพห้องต่างกันพอสมควร ขอห้องที่ปรับปรุงแล้วและขอดูห้องก่อนเช็คอินถ้าเป็น walk-in · มีสระในร่ม ลงว่ายคลายร้อนหลังเดินไหว้พระได้ · มีที่จอดรถกว้าง เหมาะคนขับรถมาเอง ใกล้องค์พระเดินทางสะดวก",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงเดี่ยว (ห้องน้ำรวม)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "ห้องสไตล์ญี่ปุ่น (ห้องน้ำในตัว)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Twin / Double", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "เตียงเดี่ยว (ห้องน้ำรวม)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "ห้องสไตล์ญี่ปุ่น (ห้องน้ำในตัว)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Twin / Double",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/24-poshtel-salaya-h13579827/hotel/nakhon-pathom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/24-poshtel-salaya.html",
       "tripUrl": "https://www.trip.com/hotels/salaya-hotel-detail-7610711/24-poshtel-salaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-24-poshtel-salaya-nakhon-pathom.html",
-      "tags": ["🎒 ถูกสุดในบทความ เริ่ม ฿450", "🎓 เดินถึงมหาวิทยาลัยมหิดล ~300 ม.", "🛏️ มีห้องสไตล์ญี่ปุ่นห้องน้ำในตัว", "🅿️ ที่จอดรถฟรี · Wi-Fi ฟรี"],
+      "tags": [
+        "🎒 ถูกสุดในบทความ เริ่ม ฿450",
+        "🎓 เดินถึงมหาวิทยาลัยมหิดล ~300 ม.",
+        "🛏️ มีห้องสไตล์ญี่ปุ่นห้องน้ำในตัว",
+        "🅿️ ที่จอดรถฟรี · Wi-Fi ฟรี"
+      ],
       "addr": "66/23-24 ถนนศาลายา-นครชัยศรี ตำบลศาลายา อำเภอพุทธมณฑล",
       "storyHtml": "24 Poshtel Salaya (24 โพชเทล ศาลายา) คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ เริ่มเพียง ฿450 และเดินถึงประตูมหาวิทยาลัยมหิดลได้ในระยะราว 300 เมตร</strong> · เป็นโฮสเทลเล็ก 13 ห้องในย่านศาลายา เปิดปี 2020 มีห้องหลายแบบตั้งแต่เตียงเดี่ยวห้องน้ำรวมไปจนถึงห้องสไตล์ญี่ปุ่นห้องน้ำในตัว · จุดขายคือทำเลและราคา เหมาะนักศึกษา ผู้ปกครองที่มาเยี่ยมลูก และคนงบจำกัด · แต่บอกตรงๆ คะแนนจากรีวิวจริงอยู่ที่ 7.5 จาก 17 รีวิว และมีเสียงบ่นเรื่องสภาพห้องและการดูแลอยู่พอสมควร — เราจึงจัดอันดับนี้แบบตรงไปตรงมา · เหมาะคนที่เน้นทำเลใกล้มหิดลและราคาเบาที่สุด และยอมรับว่าเป็นที่พักงบประหยัดที่ไม่ได้เนี้ยบทุกจุด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้ห้องน้ำในตัวและสภาพดีกว่า เลือกห้องสไตล์ญี่ปุ่นแทนเตียงเดี่ยวห้องน้ำรวม · อ่านรีวิวล่าสุดก่อนจองเพราะมีเสียงบ่นเรื่องการดูแล · เดินถึงมหิดล เหมาะคนมาเยี่ยมลูกหรือมางานรับปริญญาแบบประหยัดที่สุด · ที่จอดรถฟรีสำหรับคนขับรถมาเอง",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม นครปฐม 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Mida Grande Hotel Dhavaravati", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿1,400", "access": "📍 กลางเมือง ใกล้องค์พระ", "badge": "หรูที่สุด วิวพระปฐมเจดีย์", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Xen Hotel Nakhon Pathom", "type": "⭐⭐⭐", "score": "9.0", "price": "฿850", "access": "📍 เดินถึงองค์พระปฐมเจดีย์", "badge": "คุ้มสุดกลางเมือง รีวิวเยอะ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "RXV Wellness Village Sampran", "type": "⭐⭐⭐⭐⭐", "score": "9.4", "price": "฿7,500", "access": "📍 สามพราน ริมน้ำท่าจีน", "badge": "คะแนนสูงสุด เวลเนส", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Salaya One Hotel & Service Apartment", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿1,900", "access": "📍 ศาลายา ใกล้มหิดล", "badge": "ห้องมีครัว สระว่ายน้ำ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Hop Inn Nakhon Pathom", "type": "⭐⭐", "score": "9.2", "price": "฿650", "access": "📍 สนามจันทร์ ใกล้ศิลปากร", "badge": "สะอาดเด่น เชนคุ้มราคา", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "RK Riverside Resort & Spa", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿1,500", "access": "📍 นครชัยศรี ริมน้ำท่าจีน", "badge": "เรือนไทยริมน้ำ สะอาดเด่น", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Chawalun Resort", "type": "⭐⭐⭐", "score": "8.3", "price": "฿800", "access": "📍 ดอนตูม ริมทะเลสาบ", "badge": "รีวิวมากสุด สระสไลเดอร์", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "8", "rankColor": "#9e9e9e", "name": "The Palm Hotel Salaya", "type": "⭐⭐⭐", "score": "8.6", "price": "฿600", "access": "📍 ศาลายา เดินถึงมหิดล", "badge": "เดินถึงมหิดล 4 นาที", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Sampran Riverside", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿1,400", "access": "📍 สามพราน ริมน้ำท่าจีน", "badge": "สวนเก่าแก่ วัฒนธรรมไทย", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "10", "rankColor": "#bf8040", "name": "Rest Point Sampran", "type": "⭐⭐⭐", "score": "8.2", "price": "฿600", "access": "📍 นครชัยศรี ริมเพชรเกษม", "badge": "ห้องสะอาดเงียบ จุดแวะพัก", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Whale Hotel Nakhon Pathom", "type": "⭐⭐⭐", "score": "7.6", "price": "฿700", "access": "📍 กลางเมือง ใกล้องค์พระ", "badge": "ห้องใหญ่ราคาเบา สระในร่ม", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "24 Poshtel Salaya", "type": "⭐⭐", "score": "7.5", "price": "฿450", "access": "📍 ศาลายา ใกล้มหิดล", "badge": "ถูกสุด เดินถึงมหิดล", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Mida Grande Hotel Dhavaravati",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,400",
+      "access": "📍 กลางเมือง ใกล้องค์พระ",
+      "badge": "หรูที่สุด วิวพระปฐมเจดีย์",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Xen Hotel Nakhon Pathom",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿850",
+      "access": "📍 เดินถึงองค์พระปฐมเจดีย์",
+      "badge": "คุ้มสุดกลางเมือง รีวิวเยอะ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "RXV Wellness Village Sampran",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿7,500",
+      "access": "📍 สามพราน ริมน้ำท่าจีน",
+      "badge": "คะแนนสูงสุด เวลเนส",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Salaya One Hotel & Service Apartment",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,900",
+      "access": "📍 ศาลายา ใกล้มหิดล",
+      "badge": "ห้องมีครัว สระว่ายน้ำ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Hop Inn Nakhon Pathom",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿650",
+      "access": "📍 สนามจันทร์ ใกล้ศิลปากร",
+      "badge": "สะอาดเด่น เชนคุ้มราคา",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "RK Riverside Resort & Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,500",
+      "access": "📍 นครชัยศรี ริมน้ำท่าจีน",
+      "badge": "เรือนไทยริมน้ำ สะอาดเด่น",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Chawalun Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿800",
+      "access": "📍 ดอนตูม ริมทะเลสาบ",
+      "badge": "รีวิวมากสุด สระสไลเดอร์",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#9e9e9e",
+      "name": "The Palm Hotel Salaya",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿600",
+      "access": "📍 ศาลายา เดินถึงมหิดล",
+      "badge": "เดินถึงมหิดล 4 นาที",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Sampran Riverside",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,400",
+      "access": "📍 สามพราน ริมน้ำท่าจีน",
+      "badge": "สวนเก่าแก่ วัฒนธรรมไทย",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#bf8040",
+      "name": "Rest Point Sampran",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿600",
+      "access": "📍 นครชัยศรี ริมเพชรเกษม",
+      "badge": "ห้องสะอาดเงียบ จุดแวะพัก",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Whale Hotel Nakhon Pathom",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿700",
+      "access": "📍 กลางเมือง ใกล้องค์พระ",
+      "badge": "ห้องใหญ่ราคาเบา สระในร่ม",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "24 Poshtel Salaya",
+      "type": "⭐⭐",
+      "score": "7.5",
+      "price": "฿450",
+      "access": "📍 ศาลายา ใกล้มหิดล",
+      "badge": "ถูกสุด เดินถึงมหิดล",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมนครปฐมยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🛕", "head": "มาไหว้องค์พระปฐมเจดีย์ กินของอร่อยกลางเมือง", "bodyHtml": "→ <strong>Mida Grande Dhavaravati</strong> ฿1,400 หรู 5 ดาว วิวพระปฐมเจดีย์ รูฟท็อป · หรือ <strong>Xen Hotel</strong> ฿850 เดินถึงองค์พระ คุ้มสุดกลางเมือง · งบเบาเลือก <strong>Whale Hotel</strong> ฿700 ห้องใหญ่ใกล้องค์พระ" },
-    { "icon": "🛶", "head": "อยากพักริมแม่น้ำท่าจีนในสวนเงียบ", "bodyHtml": "→ <strong>RK Riverside Resort & Spa</strong> ฿1,500 เรือนไทยริมน้ำ ความสะอาดเด่น · หรือ <strong>Sampran Riverside</strong> ฿1,400 สวนเก่าแก่ ฟาร์มออร์แกนิก วัฒนธรรมไทย · ใกล้กรุงเทพฯ ทั้งคู่ราว 1 ชั่วโมง" },
-    { "icon": "🎓", "head": "มาติดต่อมหิดล/พักย่านศาลายา", "bodyHtml": "→ <strong>Salaya One</strong> ฿1,900 ห้องมีครัว สระว่ายน้ำ มีรถรับส่งมหิดล · หรือ <strong>The Palm Hotel Salaya</strong> ฿600 เดินถึงมหิดล 4 นาที · งบเบาสุด <strong>24 Poshtel Salaya</strong> ฿450 เดินถึงมหิดล ~300 ม." },
-    { "icon": "👨‍👩‍👧", "head": "พาครอบครัว อยากได้สระให้เด็กเล่น", "bodyHtml": "→ <strong>Chawalun Resort</strong> ฿800 สระสไลเดอร์ สระน้ำตก เรือถีบ สวนกว้างริมทะเลสาบ · หรือ <strong>RK Riverside</strong> ฿1,500 สระว่ายน้ำ เรือนไทยริมน้ำ · หรือ <strong>Salaya One</strong> ฿1,900 สระว่ายน้ำ ห้องมีครัว" },
-    { "icon": "💰", "head": "งบประหยัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>24 Poshtel Salaya</strong> ฿450 ถูกสุด เดินถึงมหิดล · หรือ <strong>The Palm Hotel Salaya</strong> ฿600 ห้องมีระเบียง · หรือ <strong>Hop Inn</strong> ฿650 สะอาดเชนคุ้มราคา · หรือ <strong>Rest Point Sampran</strong> ฿600 จุดแวะพักริมเพชรเกษม" },
-    { "icon": "🌿", "head": "อยากดูแลสุขภาพ พักผ่อนแบบเวลเนส", "bodyHtml": "→ <strong>RXV Wellness Village Sampran</strong> ฿7,500 รีสอร์ตเวลเนส คะแนนสูงสุด 9.4 คลินิก ไฮโดรเทอราพี อาหารออร์แกนิก ในสวนริมน้ำใกล้กรุงเทพฯ ชั่วโมงเดียว" }
+    {
+      "icon": "🛕",
+      "head": "มาไหว้องค์พระปฐมเจดีย์ กินของอร่อยกลางเมือง",
+      "bodyHtml": "→ <strong>Mida Grande Dhavaravati</strong> ฿1,400 หรู 5 ดาว วิวพระปฐมเจดีย์ รูฟท็อป · หรือ <strong>Xen Hotel</strong> ฿850 เดินถึงองค์พระ คุ้มสุดกลางเมือง · งบเบาเลือก <strong>Whale Hotel</strong> ฿700 ห้องใหญ่ใกล้องค์พระ"
+    },
+    {
+      "icon": "🛶",
+      "head": "อยากพักริมแม่น้ำท่าจีนในสวนเงียบ",
+      "bodyHtml": "→ <strong>RK Riverside Resort & Spa</strong> ฿1,500 เรือนไทยริมน้ำ ความสะอาดเด่น · หรือ <strong>Sampran Riverside</strong> ฿1,400 สวนเก่าแก่ ฟาร์มออร์แกนิก วัฒนธรรมไทย · ใกล้กรุงเทพฯ ทั้งคู่ราว 1 ชั่วโมง"
+    },
+    {
+      "icon": "🎓",
+      "head": "มาติดต่อมหิดล/พักย่านศาลายา",
+      "bodyHtml": "→ <strong>Salaya One</strong> ฿1,900 ห้องมีครัว สระว่ายน้ำ มีรถรับส่งมหิดล · หรือ <strong>The Palm Hotel Salaya</strong> ฿600 เดินถึงมหิดล 4 นาที · งบเบาสุด <strong>24 Poshtel Salaya</strong> ฿450 เดินถึงมหิดล ~300 ม."
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "พาครอบครัว อยากได้สระให้เด็กเล่น",
+      "bodyHtml": "→ <strong>Chawalun Resort</strong> ฿800 สระสไลเดอร์ สระน้ำตก เรือถีบ สวนกว้างริมทะเลสาบ · หรือ <strong>RK Riverside</strong> ฿1,500 สระว่ายน้ำ เรือนไทยริมน้ำ · หรือ <strong>Salaya One</strong> ฿1,900 สระว่ายน้ำ ห้องมีครัว"
+    },
+    {
+      "icon": "💰",
+      "head": "งบประหยัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>24 Poshtel Salaya</strong> ฿450 ถูกสุด เดินถึงมหิดล · หรือ <strong>The Palm Hotel Salaya</strong> ฿600 ห้องมีระเบียง · หรือ <strong>Hop Inn</strong> ฿650 สะอาดเชนคุ้มราคา · หรือ <strong>Rest Point Sampran</strong> ฿600 จุดแวะพักริมเพชรเกษม"
+    },
+    {
+      "icon": "🌿",
+      "head": "อยากดูแลสุขภาพ พักผ่อนแบบเวลเนส",
+      "bodyHtml": "→ <strong>RXV Wellness Village Sampran</strong> ฿7,500 รีสอร์ตเวลเนส คะแนนสูงสุด 9.4 คลินิก ไฮโดรเทอราพี อาหารออร์แกนิก ในสวนริมน้ำใกล้กรุงเทพฯ ชั่วโมงเดียว"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงงานนมัสการองค์พระปฐมเจดีย์ (ราวเดือนพฤศจิกายน) วันหยุดยาว และช่วงรับปริญญา/เปิดเทอมของมหาวิทยาลัยมหิดลและศิลปากร ราคาสูงขึ้นและห้องเต็มเร็ว ควรจองล่วงหน้า · ที่พักริมแม่น้ำท่าจีนโซนสามพราน-นครชัยศรี-ดอนตูม เกือบทุกแห่งสะดวกกว่าถ้ามีรถส่วนตัวหรือเช่ารถ · ที่พักกลางเมืองเดินทางสะดวกกว่า มีตลาดและของกินเดินถึง บางแห่งเดินถึงองค์พระได้ · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมนครปฐม",
   "faq": [
-    { "q": "❓ ควรพักทำเลไหนดีในนครปฐม?", "a": "ขึ้นอยู่กับจุดหมายของทริป · <strong>กลางเมืองรอบองค์พระปฐมเจดีย์</strong> เหมาะคนมาไหว้พระ กินของอร่อย และมาติดต่อศิลปากร-สนามจันทร์ บางแห่งเดินถึงองค์พระ (Mida Grande, Xen, Whale, Hop Inn) · <strong>ริมแม่น้ำท่าจีน โซนสามพราน-นครชัยศรี-ดอนตูม</strong> เหมาะคนอยากพักผ่อนในสวนริมน้ำใกล้กรุงเทพฯ (RXV, Sampran Riverside, RK Riverside, Chawalun) · <strong>ย่านศาลายา</strong> ใกล้มหิดลและพุทธมณฑล เหมาะผู้ปกครองและคนพักยาว (Salaya One, The Palm Salaya, 24 Poshtel)" },
-    { "q": "❓ โรงแรมนครปฐมราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿450–800 ต่อคืน (24 Poshtel, The Palm Salaya, Rest Point, Hop Inn, Whale, Chawalun) · โรงแรมและรีสอร์ตระดับกลางถึง 4 ดาวราว ฿1,400–1,900 (Mida Grande, Sampran Riverside, RK Riverside, Salaya One) · ส่วนรีสอร์ตเวลเนส RXV เริ่มราว ฿7,500 · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงงานองค์พระและช่วงรับปริญญามหิดล/ศิลปากรราคาสูงกว่าปกติ" },
-    { "q": "❓ มาไหว้องค์พระปฐมเจดีย์ พักโรงแรมไหนดี?", "a": "ถ้าอยากเดินถึงหรือขับไม่กี่นาทีถึงองค์พระ · <strong>Mida Grande Dhavaravati</strong> ฿1,400 หรู 5 ดาว วิวพระปฐมเจดีย์ ขับ 5 นาทีถึงองค์พระ · <strong>Xen Hotel</strong> ฿850 เดินถึงองค์พระ ~640 เมตร คะแนน 9.0 · งบเบาเลือก <strong>Whale Hotel</strong> ฿700 ห้องใหญ่ใกล้องค์พระ · ช่วงงานนมัสการองค์พระปฐมเจดีย์ (ราว พ.ย.) ห้องในเมืองเต็มเร็ว ควรจองล่วงหน้า" },
-    { "q": "❓ อยากพักริมน้ำใกล้กรุงเทพฯ พักที่ไหนดี?", "a": "นครปฐมมีรีสอร์ตริมแม่น้ำท่าจีนหลายแห่งที่ขับจากกรุงเทพฯ แค่ราว 1 ชั่วโมง · <strong>RK Riverside Resort & Spa</strong> ฿1,500 เรือนไทยริมน้ำ นครชัยศรี ความสะอาดเด่น · <strong>Sampran Riverside</strong> ฿1,400 สวนเก่าแก่ ฟาร์มออร์แกนิก วัฒนธรรมไทย · <strong>Chawalun Resort</strong> ฿800 รีสอร์ตครอบครัวริมทะเลสาบ มีสระสไลเดอร์ · ส่วนสายเวลเนสเลือก <strong>RXV Wellness Village</strong> ฿7,500 · ทุกแห่งควรมีรถส่วนตัวเพราะรอบรีสอร์ตไม่ใช่ย่านเดินเที่ยว" },
-    { "q": "❓ มาติดต่อมหาวิทยาลัยมหิดล ศาลายา พักที่ไหนดี?", "a": "ย่านศาลายามีที่พักหลายระดับใกล้มหิดล · <strong>Salaya One Hotel & Service Apartment</strong> ฿1,900 ระดับ 4 ดาว ห้องมีครัว สระว่ายน้ำ มีรถรับส่งมหิดล เหมาะพักยาว · <strong>The Palm Hotel Salaya</strong> ฿600 เดินถึงประตูมหิดล 4 นาที ห้องมีระเบียง · งบเบาสุด <strong>24 Poshtel Salaya</strong> ฿450 เดินถึงมหิดล ~300 ม. · ช่วงรับปริญญาและเปิดเทอมห้องเต็มเร็วมาก ควรจองล่วงหน้าหลายสัปดาห์" },
-    { "q": "❓ จองโรงแรมนครปฐมเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงงานองค์พระและช่วงรับปริญญาที่ราคาขยับขึ้น" }
-  ]
+    {
+      "q": "❓ ควรพักทำเลไหนดีในนครปฐม?",
+      "a": "ขึ้นอยู่กับจุดหมายของทริป · <strong>กลางเมืองรอบองค์พระปฐมเจดีย์</strong> เหมาะคนมาไหว้พระ กินของอร่อย และมาติดต่อศิลปากร-สนามจันทร์ บางแห่งเดินถึงองค์พระ (Mida Grande, Xen, Whale, Hop Inn) · <strong>ริมแม่น้ำท่าจีน โซนสามพราน-นครชัยศรี-ดอนตูม</strong> เหมาะคนอยากพักผ่อนในสวนริมน้ำใกล้กรุงเทพฯ (RXV, Sampran Riverside, RK Riverside, Chawalun) · <strong>ย่านศาลายา</strong> ใกล้มหิดลและพุทธมณฑล เหมาะผู้ปกครองและคนพักยาว (Salaya One, The Palm Salaya, 24 Poshtel)"
+    },
+    {
+      "q": "❓ โรงแรมนครปฐมราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿450–800 ต่อคืน (24 Poshtel, The Palm Salaya, Rest Point, Hop Inn, Whale, Chawalun) · โรงแรมและรีสอร์ตระดับกลางถึง 4 ดาวราว ฿1,400–1,900 (Mida Grande, Sampran Riverside, RK Riverside, Salaya One) · ส่วนรีสอร์ตเวลเนส RXV เริ่มราว ฿7,500 · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงงานองค์พระและช่วงรับปริญญามหิดล/ศิลปากรราคาสูงกว่าปกติ"
+    },
+    {
+      "q": "❓ มาไหว้องค์พระปฐมเจดีย์ พักโรงแรมไหนดี?",
+      "a": "ถ้าอยากเดินถึงหรือขับไม่กี่นาทีถึงองค์พระ · <strong>Mida Grande Dhavaravati</strong> ฿1,400 หรู 5 ดาว วิวพระปฐมเจดีย์ ขับ 5 นาทีถึงองค์พระ · <strong>Xen Hotel</strong> ฿850 เดินถึงองค์พระ ~640 เมตร คะแนน 9.0 · งบเบาเลือก <strong>Whale Hotel</strong> ฿700 ห้องใหญ่ใกล้องค์พระ · ช่วงงานนมัสการองค์พระปฐมเจดีย์ (ราว พ.ย.) ห้องในเมืองเต็มเร็ว ควรจองล่วงหน้า"
+    },
+    {
+      "q": "❓ อยากพักริมน้ำใกล้กรุงเทพฯ พักที่ไหนดี?",
+      "a": "นครปฐมมีรีสอร์ตริมแม่น้ำท่าจีนหลายแห่งที่ขับจากกรุงเทพฯ แค่ราว 1 ชั่วโมง · <strong>RK Riverside Resort & Spa</strong> ฿1,500 เรือนไทยริมน้ำ นครชัยศรี ความสะอาดเด่น · <strong>Sampran Riverside</strong> ฿1,400 สวนเก่าแก่ ฟาร์มออร์แกนิก วัฒนธรรมไทย · <strong>Chawalun Resort</strong> ฿800 รีสอร์ตครอบครัวริมทะเลสาบ มีสระสไลเดอร์ · ส่วนสายเวลเนสเลือก <strong>RXV Wellness Village</strong> ฿7,500 · ทุกแห่งควรมีรถส่วนตัวเพราะรอบรีสอร์ตไม่ใช่ย่านเดินเที่ยว"
+    },
+    {
+      "q": "❓ มาติดต่อมหาวิทยาลัยมหิดล ศาลายา พักที่ไหนดี?",
+      "a": "ย่านศาลายามีที่พักหลายระดับใกล้มหิดล · <strong>Salaya One Hotel & Service Apartment</strong> ฿1,900 ระดับ 4 ดาว ห้องมีครัว สระว่ายน้ำ มีรถรับส่งมหิดล เหมาะพักยาว · <strong>The Palm Hotel Salaya</strong> ฿600 เดินถึงประตูมหิดล 4 นาที ห้องมีระเบียง · งบเบาสุด <strong>24 Poshtel Salaya</strong> ฿450 เดินถึงมหิดล ~300 ม. · ช่วงรับปริญญาและเปิดเทอมห้องเต็มเร็วมาก ควรจองล่วงหน้าหลายสัปดาห์"
+    },
+    {
+      "q": "❓ จองโรงแรมนครปฐมเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงงานองค์พระและช่วงรับปริญญาที่ราคาขยับขึ้น"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมนครปฐมที่เรารีวิวไว้ครบทุกระดับ — ตั้งแต่ Mida Grande 5 ดาววิวพระปฐมเจดีย์ ไปถึงโฮสเทลศาลายาเริ่ม ฿450 ฟังเสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบ 3 เว็บ ลิงก์จองตรง"
 }

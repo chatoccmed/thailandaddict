@@ -16,16 +16,39 @@
     "✅ <strong>Real reviews</strong> at every property"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Khao Yai", "href": "city-khao-yai.html" },
-    { "name": "15 Nature Hotels Near Khao Yai" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Khao Yai",
+      "href": "city-khao-yai.html"
+    },
+    {
+      "name": "15 Nature Hotels Near Khao Yai"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Khao Yai", "item": "https://thailandaddict.com/en/city-khao-yai" },
-    { "name": "15 Nature Hotels Near Khao Yai", "item": "https://thailandaddict.com/en/top15-nature-hotels-khao-yai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Khao Yai",
+      "item": "https://thailandaddict.com/en/city-khao-yai"
+    },
+    {
+      "name": "15 Nature Hotels Near Khao Yai",
+      "item": "https://thailandaddict.com/en/top15-nature-hotels-khao-yai"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top15-nature-hotels-khao-yai.html",
@@ -34,21 +57,96 @@
   "mrtHtml": "Khao Yai has no train system, and hailing a ride out here isn't as easy as in town. <strong>Nearly every nature stay in this guide is best with your own car</strong> · From Bangkok it's about a 2.5–3 hour drive via the motorway and Mittraphap Road · The main stay zones in this guide: <strong>Thanarat Road · Mu Si</strong> — the main strip with cafés, vineyards, farms and attractions, easiest to get around · <strong>Khanong Phra</strong> — the vineyard-and-winery side, quiet among the hills · <strong>near the park gate</strong> — good if you plan to enter the park early · <strong>downtown Pak Chong</strong> — near the train station with public transport, good if you don't have a car · The late-rains-into-cool-season window (Nov–Jan) has the best weather and rooms fill fast, so book ahead.",
   "secLabel": "All 15 stays — let's go!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Muthi Maya Forest Pool Villa", "price": "฿7,500" },
-    { "n": "2", "color": "#06B6D4", "name": "Botanica Khao Yai by Scenical", "price": "฿3,800" },
-    { "n": "3", "color": "#06B6D4", "name": "U Khao Yai", "price": "฿2,900" },
-    { "n": "4", "color": "#06B6D4", "name": "Vino Neste Private Pool Villas", "price": "฿7,500" },
-    { "n": "5", "color": "#06B6D4", "name": "Lala Mukha Tented Resort", "price": "฿2,900" },
-    { "n": "6", "color": "#06B6D4", "name": "Hotel La Casetta by Toscana Valley", "price": "฿3,400" },
-    { "n": "7", "color": "#06B6D4", "name": "dusitD2 Khao Yai", "price": "฿4,200" },
-    { "n": "8", "color": "#06B6D4", "name": "Mont Blanc in Khao Yai", "price": "฿650" },
-    { "n": "9", "color": "#06B6D4", "name": "Nhapha Khaoyai Resort", "price": "฿3,900" },
-    { "n": "10", "color": "#06B6D4", "name": "The Pig House by The Gallery", "price": "฿3,000" },
-    { "n": "11", "color": "#06B6D4", "name": "The Stay Khao Yai", "price": "฿700" },
-    { "n": "12", "color": "#06B6D4", "name": "Khaoyai Luxury Penthouse at ATTA", "price": "฿13,000" },
-    { "n": "13", "color": "#06B6D4", "name": "Khaoyai Fantasy Resort", "price": "฿2,800" },
-    { "n": "14", "color": "#06B6D4", "name": "Arantarakiri Resort Khao Yai", "price": "฿2,128" },
-    { "n": "15", "color": "#06B6D4", "name": "Hello Hostel Pakchong", "price": "฿350" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Muthi Maya Forest Pool Villa",
+      "price": "฿7,500"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Botanica Khao Yai by Scenical",
+      "price": "฿3,800"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "U Khao Yai",
+      "price": "฿2,900"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Vino Neste Private Pool Villas",
+      "price": "฿7,500"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "Lala Mukha Tented Resort",
+      "price": "฿2,900"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Hotel La Casetta by Toscana Valley",
+      "price": "฿3,400"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "dusitD2 Khao Yai",
+      "price": "฿4,200"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "Mont Blanc in Khao Yai",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Nhapha Khaoyai Resort",
+      "price": "฿3,900"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "The Pig House by The Gallery",
+      "price": "฿3,000"
+    },
+    {
+      "n": "11",
+      "color": "#06B6D4",
+      "name": "The Stay Khao Yai",
+      "price": "฿700"
+    },
+    {
+      "n": "12",
+      "color": "#06B6D4",
+      "name": "Khaoyai Luxury Penthouse at ATTA",
+      "price": "฿13,000"
+    },
+    {
+      "n": "13",
+      "color": "#06B6D4",
+      "name": "Khaoyai Fantasy Resort",
+      "price": "฿2,800"
+    },
+    {
+      "n": "14",
+      "color": "#06B6D4",
+      "name": "Arantarakiri Resort Khao Yai",
+      "price": "฿2,128"
+    },
+    {
+      "n": "15",
+      "color": "#06B6D4",
+      "name": "Hello Hostel Pakchong",
+      "price": "฿350"
+    }
   ],
   "entries": [
     {
@@ -67,15 +165,29 @@
       "priceBig": "฿7,500",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Forest Pool Villa (private pool)", "price": "from ฿7,500/night" },
-        { "type": "Deluxe Pool Villa (mountain view)", "price": "from ฿9,500/night" },
-        { "type": "Pool Villa Suite (larger)", "price": "from ฿13,000/night" }
+        {
+          "type": "Forest Pool Villa (private pool)",
+          "price": "from ฿7,500/night"
+        },
+        {
+          "type": "Deluxe Pool Villa (mountain view)",
+          "price": "from ฿9,500/night"
+        },
+        {
+          "type": "Pool Villa Suite (larger)",
+          "price": "from ฿13,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/muthi-maya-forest-pool-villa-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/muthi-maya.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-710930/muthi-maya-forest-pool-villa-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-muthi-maya-forest-pool-villa-khao-yai.html",
-      "tags": ["🌲 Forest pool villas", "🏊 Private pool in every villa", "💆 Spa + 18-hole golf", "🏞️ Looks onto a World Heritage park"],
+      "tags": [
+        "🌲 Forest pool villas",
+        "🏊 Private pool in every villa",
+        "💆 Spa + 18-hole golf",
+        "🏞️ Looks onto a World Heritage park"
+      ],
       "addr": "Part of Kirimaya · Mu Si, Pak Chong district",
       "storyHtml": "If there's one stay that earns the label \"luxury nature retreat\" in Khao Yai, many reviews give it to <strong>Muthi Maya Forest Pool Villa</strong> — the upper-tier pool-villa wing of the Kirimaya Golf Resort &amp; Spa complex, set on the northern side of Khao Yai National Park in the Mu Si area · What people fall for is that each villa <strong>has a private pool and opens onto the forest line of a World Heritage park</strong>; real reviews use phrases like \"pull back the curtain to a wall of green forest\" and \"wake up to birdsong instead of traffic\" · The villas are spacious inside, with a large bathtub, a free minibar, and a sitting area designed to blend into the surroundings · Beyond the villas, the complex also has a spa, an 18-hole golf course, and a restaurant that reviews praise for its atmosphere · A score of around 9.3 on Trip.com is high for a stay at this level · The honest caveat from reviews: the villas themselves <strong>sit far from the central facilities and shops</strong>, so getting around means relying on the resort's scheduled shuttle or driving yourself — anyone without a car will feel stuck — and the price sits in the upper range of this guide · This isn't the best value per baht, but it offers the most privacy and the most luxurious closeness to nature in this set, ideal for couples, special-occasion trips, and people who plan to stay in the villa rather than head out for every meal.",
       "tipHtml": "💡 <strong>Tip:</strong> Check the in-complex shuttle schedule right at check-in, since the villas sit far from the center · If forest views matter to you, ask for a villa that faces the park directly, and bring food and supplies along because heading out to shop isn't convenient.",
@@ -108,15 +220,29 @@
       "priceBig": "฿3,800",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Botanica Studio", "price": "from ฿3,800/night" },
-        { "type": "Family Suite (2 bedrooms)", "price": "from ฿6,500/night" },
-        { "type": "Suite with Plunge Pool", "price": "from ฿10,500/night" }
+        {
+          "type": "Botanica Studio",
+          "price": "from ฿3,800/night"
+        },
+        {
+          "type": "Family Suite (2 bedrooms)",
+          "price": "from ฿6,500/night"
+        },
+        {
+          "type": "Suite with Plunge Pool",
+          "price": "from ฿10,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/botanica-khao-yai-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/botanica-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-2259678/botanica-khao-yai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-botanica-khao-yai.html",
-      "tags": ["🌿 Modern Tropical design", "🛏️ Several room types up to Plunge Pool", "🍳 Praised breakfast", "🏞️ Mountains as a backdrop"],
+      "tags": [
+        "🌿 Modern Tropical design",
+        "🛏️ Several room types up to Plunge Pool",
+        "🍳 Praised breakfast",
+        "🏞️ Mountains as a backdrop"
+      ],
       "addr": "666 Thanarat Road, Mu Si, Pak Chong district",
       "storyHtml": "If you've scrolled through photos of Khao Yai stays on Thanarat Road, you've probably come across <strong>Botanica Khao Yai by Scenical</strong> — white-and-timber buildings with Modern Tropical design that blends into the greenery, with mountains as a backdrop · What draws people in is the way it plays on \"pretty but accessible,\" and it <strong>has several room types to choose from, from studios and suites up to rooms with a private Plunge Pool</strong>, at prices more reachable than many of the luxury resorts in the same area · It sits in the Mu Si area, under the same group as the Scenical World water park, a few minutes' drive away — handy if you plan to bring kids to splash around — and there are cafés, vineyards and Palio within a short drive · Real reviews agree the design is pretty and photographs just like the pictures, the rooms are spacious and clean, the THANN bathroom amenities feel premium, and <strong>breakfast at the Tempo restaurant is better than you'd expect at this price</strong> · The One-Up Bar is also an evening drinks corner a lot of people like · The honest caveat: the project is condotel-style, with buildings set close together, so some say it feels more like staying in a condo than a sprawling resort, navigating inside is a little confusing, some spots are starting to show age with reviews finding unsteady water pressure, and the mountain view is blocked by trees in some rooms · On top of that, the park gate is about 20–30 minutes away, so a car is essentially required · Best for couples and small families who value pretty design, clean rooms and good breakfast without the budget running away.",
       "tipHtml": "💡 <strong>Tip:</strong> Coming as a group or after more privacy, pick a Plunge Pool room — better value than fighting for the shared pool · When booking, ask for a mountain-view room not blocked by trees, and request a recently renovated room if you're worried about room condition and the water system.",
@@ -149,15 +275,29 @@
       "priceBig": "฿2,900",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Deluxe Garden View (~37 sqm)", "price": "from ฿2,900/night" },
-        { "type": "Deluxe Mountain View (~47 sqm)", "price": "from ฿3,600/night" },
-        { "type": "Deluxe Family / Lake View", "price": "from ฿4,500/night" }
+        {
+          "type": "Deluxe Garden View (~37 sqm)",
+          "price": "from ฿2,900/night"
+        },
+        {
+          "type": "Deluxe Mountain View (~47 sqm)",
+          "price": "from ฿3,600/night"
+        },
+        {
+          "type": "Deluxe Family / Lake View",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/u-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/u-khao-yai-pak-chong.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-6055683/u-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-u-khao-yai.html",
-      "tags": ["🏡 French Country in a garden", "⏱️ Flexible 24-hr check-in", "🏊 Free-form pool", "🍳 Praised breakfast"],
+      "tags": [
+        "🏡 French Country in a garden",
+        "⏱️ Flexible 24-hr check-in",
+        "🏊 Free-form pool",
+        "🍳 Praised breakfast"
+      ],
       "addr": "99/22 Moo 1, Mu Si, Pak Chong district",
       "storyHtml": "Picture waking up, opening your door to a wide green garden, cool air off the hills, and pastel high-roofed houses in a French-countryside style arranged around the pool — <strong>U Khao Yai</strong> is a 4-star luxury hotel from U Hotels &amp; Resorts that brings a French Country feel to the middle of Mu Si, so the whole atmosphere feels more like a small village in rural Europe than a typical hotel · What guests mention most is the <strong>flexible check-in policy that gives you a full 24 hours</strong> — check in in the afternoon and check out the following afternoon — plus the U Choose service that lets you pick your pillow and in-room extras in advance · The Deluxe rooms are around 37–47 sqm with pool, garden, mountain and lake-view options · The highlight is the <strong>free-form pool in the garden</strong>, which reviews call quiet and photogenic, alongside a kids' pool, U Spa, a fitness room, a kids' club and a tie-dye workshop · Breakfast at the Papillon restaurant is praised for its variety and the daily rotation of local dishes · The honest caveat from reviews: the location is <strong>quiet, with no restaurants or convenience stores within walking distance</strong>, so you need your own car, the park gate is farther than many expect with a climb up the hill on top, you can sometimes hear neighbors between rooms, the kids' pool is small and crowded on busy days, and check-in can mean a wait when the resort is full · Best for couples and families who want a quiet rest in a pretty garden and use the resort as a base.",
       "tipHtml": "💡 <strong>Tip:</strong> Check in in the afternoon to make the most of the 24-hour stay, giving you full time in the garden and pool · Ask for a Pool View or Mountain View room — reviews call them the best value — and bring food along in the car since there are no shops within walking distance.",
@@ -190,15 +330,29 @@
       "priceBig": "฿7,500",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Neste Private Pool Villa (2 guests)", "price": "from ฿7,500/night" },
-        { "type": "Vino One Bedroom Duplex (2–3 guests)", "price": "from ฿10,500/night" },
-        { "type": "Chateau de Vino (5–6 guests)", "price": "from ฿20,000/night" }
+        {
+          "type": "Neste Private Pool Villa (2 guests)",
+          "price": "from ฿7,500/night"
+        },
+        {
+          "type": "Vino One Bedroom Duplex (2–3 guests)",
+          "price": "from ฿10,500/night"
+        },
+        {
+          "type": "Chateau de Vino (5–6 guests)",
+          "price": "from ฿20,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/vino-neste-private-pool-villas/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/vino-neste-private-pool-villas.html",
       "tripUrl": "https://th.trip.com/hotels/pak-chong-hotel-detail-12591607/vino-neste-private-pool-villas/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-vino-neste-private-pool-villas-khao-yai.html",
-      "tags": ["🏊 Private pool in every villa", "🍇 Wine concept", "🌿 14 villas on 20 rai", "🛏️ Modern bare-concrete loft"],
+      "tags": [
+        "🏊 Private pool in every villa",
+        "🍇 Wine concept",
+        "🌿 14 villas on 20 rai",
+        "🛏️ Modern bare-concrete loft"
+      ],
       "addr": "159 Moo 6, Khanong Phra, Pak Chong district",
       "storyHtml": "Picture waking up, opening the villa door to a private pool with a backdrop of green hills, no traffic, no neighbors right beside you, just birdsong and cool wind — <strong>Vino Neste Private Pool Villas</strong> is a private pool-villa retreat in a modern loft style tucked into a hillside in the Khanong Phra area; the concept grew out of a love for the taste of \"vino\" (wine), so the mood is set for slow rest and sipping a drink surrounded by nature · What many people mention is that <strong>every villa has a private pool, with high airy ceilings finished in bare concrete and bamboo</strong>, and there are only 14 villas across more than 20 rai, so it's genuinely quiet and private · It opened in 2023 with a 9.0 from 21 reviews on Trip.com · The minibar has free snacks and drinks, the restaurant has a bamboo ceiling and opens to mountain views, and it's in the Khao Yai wine area, a short drive from the PB Valley and GranMonte vineyards · Real reviews praise the quiet, the private pool that families and couples love, the spacious rooms, and the staff who look after you like you're staying at a friend's place · The honest caveat: the location is <strong>about 3–3.5 km deep down a lane and the Google Maps pin can be off</strong>, you need your own car and there's no convenience store within walking distance, the interior materials and design look plainer in some spots than on the website, some staff aren't fluent in English yet, and there aren't many staff on site at night · Best for couples, small families and groups of friends who want to cut off from the bustle and soak in their own pool.",
       "tipHtml": "💡 <strong>Tip:</strong> Save the resort's phone and LINE before you set off, since the map pin can lead you astray — watch for the signs as you get close · Coming as a larger group, pick Chateau de Vino: split per head it's better value and you get a bigger pool — and stock up on supplies from downtown Pak Chong on the way.",
@@ -231,15 +385,29 @@
       "priceBig": "฿2,900",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Eco Safari Tent (shared bathroom)", "price": "from ฿2,900/night" },
-        { "type": "Deluxe Savanna Tent (en-suite bathroom)", "price": "from ฿4,300/night" },
-        { "type": "Loft Tree House (family)", "price": "from ฿8,500/night" }
+        {
+          "type": "Eco Safari Tent (shared bathroom)",
+          "price": "from ฿2,900/night"
+        },
+        {
+          "type": "Deluxe Savanna Tent (en-suite bathroom)",
+          "price": "from ฿4,300/night"
+        },
+        {
+          "type": "Loft Tree House (family)",
+          "price": "from ฿8,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lala-mukha-tented-resort-khao-yai-sha-extra-plus/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lala-mukha-tented-resort-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/ban-mu-si-hotel-detail-3724595/lala-mukha-tented-resort-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lala-mukha-tented-resort-khao-yai.html",
-      "tags": ["⛺ African Safari-themed glamping", "🦌 Closest to the park gate", "🏊 Infinity pool", "🍳 Praised breakfast"],
+      "tags": [
+        "⛺ African Safari-themed glamping",
+        "🦌 Closest to the park gate",
+        "🏊 Infinity pool",
+        "🍳 Praised breakfast"
+      ],
       "addr": "515 Moo 5, Mu Si, Pak Chong district",
       "storyHtml": "If \"sleeping in a tent\" makes you picture heat and mosquitoes, this place flips that image — <strong>Lala Mukha Tented Resort Khao Yai</strong> is an African Safari-themed glamping resort that drops a Maasai Mara-style safari camp into the green forest of Mu Si; the tents are real canvas, but inside there's air-conditioning, soft beds and an en-suite bathroom (in some types) · In this set it's the property with <strong>the most reviews, over 3,900</strong>, scoring 8.6 · The real selling point is that <strong>it's only about a 5-minute drive from the Khao Yai National Park gate</strong>, closer than most resorts in the area — anyone here to hike or sit and watch for animals at dawn doesn't have to wake before first light and drive a long way · The tents come in several types, from the budget-friendly Eco Safari Tent up to the two-story Loft Tree House · The star of the common area is the outdoor infinity pool looking onto the tree line, and the Jabulani restaurant has a BBQ dinner and a breakfast reviews praise often · The honest caveat from reviews: the canvas walls mean <strong>you clearly hear insects and birds at night</strong>, which can disturb light sleepers, the cheapest <strong>Eco Safari Tent uses a shared bathroom</strong> so read the details carefully when booking, there's no poolside food service, the restaurant closes fairly early around 9pm, and housekeeping is uneven at times · Best for couples, groups of friends and families who want to try comfortable glamping and are mainly here to visit the park.",
       "tipHtml": "💡 <strong>Tip:</strong> If you don't want a shared bathroom, pick Deluxe Savanna or above from the start — don't book Eco Safari just because it's cheap · Bring earplugs or white noise if you're a light sleeper, and plan dinner ahead since the restaurant closes early.",
@@ -272,15 +440,29 @@
       "priceBig": "฿3,400",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Casetta Garden / Mountain (49 sqm)", "price": "from ฿3,400/night" },
-        { "type": "Casetta Loft (70 sqm · 4 guests)", "price": "from ฿5,500/night" },
-        { "type": "Acqua Pool Villa (private pool)", "price": "from ฿12,000/night" }
+        {
+          "type": "Casetta Garden / Mountain (49 sqm)",
+          "price": "from ฿3,400/night"
+        },
+        {
+          "type": "Casetta Loft (70 sqm · 4 guests)",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "Acqua Pool Villa (private pool)",
+          "price": "from ฿12,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-la-casetta-by-toscana-valley/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/la-casetta.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-25342817/hotel-la-casetta-at-toscana-valley/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-la-casetta-toscana-valley-khao-yai.html",
-      "tags": ["🏘️ Tuscan theme", "🛁 Bathtub in every room", "🌅 Valley / lagoon views", "🏊 Acqua rooms have a private pool"],
+      "tags": [
+        "🏘️ Tuscan theme",
+        "🛁 Bathtub in every room",
+        "🌅 Valley / lagoon views",
+        "🏊 Acqua rooms have a private pool"
+      ],
       "addr": "2 Moo 11, Mu Si, Pak Chong district (Toscana Valley project)",
       "storyHtml": "If you want a European feel in the middle of the Khao Yai hills without flying far, <strong>Hotel La Casetta by Toscana Valley</strong> is the answer many reviews mention — a Tuscan-style hotel set inside the Toscana Valley village, Mu Si's famous Italian-themed project, with terracotta-toned buildings, a bell tower and a fountain plaza to wander and photograph as if you'd dropped into the Italian countryside · It scores 9.0 from 163 reviews on Trip.com · What people like is the roughly 49 sqm rooms where <strong>every room has a bathtub and a balcony</strong>, with garden, mountain and lagoon views to choose from, plus a top-floor Pano room with panoramic views · There's a mezzanine Casetta Loft sleeping 4 for families, all the way up to the Acqua Pool Villa, a duplex with a private pool and lagoon view for groups who want to go all out · The advantage is staying in a project with its own cafés, restaurants and photo spots, so you can stroll around without having to drive out every time · Real reviews praise the pretty themed atmosphere that photographs well, the spacious rooms with bathtubs, and the in-valley location that feels like a destination in itself · The honest caveat: because it sits inside a large project, the hotel itself <strong>doesn't have the full set of facilities of a big resort</strong>, the park gate is fairly far so you need your own car, parts of the valley get crowded with day visitors taking photos, and the private-pool room prices climb high · Best for couples and families who like a European theme and want a room with a bathtub at a reasonable price.",
       "tipHtml": "💡 <strong>Tip:</strong> If views matter to you, pick a Lago room (lagoon view) or the top-floor Pano · Coming as a family, try the Casetta Loft that sleeps 4, and leave time to wander and photograph the valley in the evening, when the light is nice and there are fewer people than midday.",
@@ -313,15 +495,29 @@
       "priceBig": "฿4,200",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "D'Light / Deluxe (36 sqm)", "price": "from ฿4,200/night" },
-        { "type": "Family Deluxe / 2-Bedroom (72 sqm)", "price": "from ฿7,500/night" },
-        { "type": "D'Corner / Duplex Suite", "price": "from ฿9,500/night" }
+        {
+          "type": "D'Light / Deluxe (36 sqm)",
+          "price": "from ฿4,200/night"
+        },
+        {
+          "type": "Family Deluxe / 2-Bedroom (72 sqm)",
+          "price": "from ฿7,500/night"
+        },
+        {
+          "type": "D'Corner / Duplex Suite",
+          "price": "from ฿9,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dusitd2-khao-yai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/dusit-d2-khao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-5469927/dusitd2-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dusitd2-khao-yai.html",
-      "tags": ["🎨 Bright contemporary design", "🦙 On-site alpaca farm", "🏨 Dusit International group", "👨‍👩‍👧 Spacious family rooms"],
+      "tags": [
+        "🎨 Bright contemporary design",
+        "🦙 On-site alpaca farm",
+        "🏨 Dusit International group",
+        "👨‍👩‍👧 Spacious family rooms"
+      ],
       "addr": "678 Moo 18, Mu Si, Pak Chong district",
       "storyHtml": "If you want a nature-focused resort backed by a big Thai hotel brand with bright, fun-to-photograph design, many reviews give it to <strong>dusitD2 Khao Yai</strong> — a design resort under Dusit International that drops bright colors and contemporary decor into the nature of the Mu Si area, near Palio · It scores 9.1 from 367 reviews on Trip.com · What kids and families love most is that <strong>it has an alpaca farm on the resort grounds</strong> where you can go in to feed them and take close-up photos, an activity you won't find at a typical stay · The bright-design rooms are 36 sqm, some with a bathtub beside the bed, and there are family rooms up to 72 sqm, plus corner rooms and two-story suites for larger groups · Real reviews praise the fun design that photographs well, the clean and spacious rooms, the friendly service to Dusit-group standards, and the location near the Mu Si-side attractions · The honest caveat: the design tone is bold and very bright, so <strong>some feel it suits families and photo lovers more than people who want a calm, quiet, understated atmosphere</strong>, the food and drink prices on the resort run higher than outside, and the park gate is far so you need your own car like most Mu Si stays · Best for families with kids, photo-loving couples, and anyone who wants a reliable big-brand design resort.",
       "tipHtml": "💡 <strong>Tip:</strong> Coming with kids, don't miss checking the alpaca-farm activity times right at check-in · For larger groups, the 72 sqm Family Deluxe or the Duplex Suite is better value than booking several small rooms, and have a car ready since the park gate is far.",
@@ -354,15 +550,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Air-con tent / Superior Plus (~27 sqm)", "price": "from ฿650/night" },
-        { "type": "Glass Tent (clear glass tent)", "price": "from ฿1,200/night" },
-        { "type": "Two-Bedroom Suite (~80 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Air-con tent / Superior Plus (~27 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Glass Tent (clear glass tent)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Two-Bedroom Suite (~80 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/montblanc-basecamp-khaoyai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/montblanc-basecamp-khaoyai.html",
       "tripUrl": "https://th.trip.com/hotels/pak-chong-hotel-detail-70901385/mont-blanc-base-camp-khaoyai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mont-blanc-khao-yai.html",
-      "tags": ["⛺ Cheap air-con tents", "🔭 Glass Tent", "💰 Starts in the hundreds", "👨‍👩‍👧 Has family rooms"],
+      "tags": [
+        "⛺ Cheap air-con tents",
+        "🔭 Glass Tent",
+        "💰 Starts in the hundreds",
+        "👨‍👩‍👧 Has family rooms"
+      ],
       "addr": "154 Moo 16, Mu Si, Pak Chong district",
       "storyHtml": "If you want to try glamping in the nature of Khao Yai on a tight budget, <strong>Mont Blanc in Khao Yai</strong> is the option many reviews call \"the cheapest you'll find in the area\" — a glamping-and-base-camp stay in the Ban Mu Si area with air-con tents, concrete rooms, and the highlight, a <strong>Glass Tent that lets you see the nature all around</strong>, a photo corner people love · The aggregated score is around 8.0 from 281 reviews · The clear draw is that <strong>prices start in the low hundreds</strong>, the cheapest in this guide's tent-style group, which makes it a great fit for backpackers, students, budget groups of friends, or anyone who wants to try sleeping in a tent without paying a lot · There are rooms from air-con tents and Superior Plus with en-suite bathrooms up to a Deluxe House and a Two-Bedroom Suite around 80 sqm for families or large groups · Real reviews praise it as great value, with a shady natural setting and friendly staff · The honest caveat: because it's a budget stay, <strong>don't expect fancy decor or the full set of facilities of a big resort</strong>, the air-con tents are canvas so you hear some nature and surrounding noise, some spots are plain for the price, and you need your own car since the attractions are spread out like most Mu Si stays · Best for budget travelers who want a glamping experience and a hillside atmosphere at a genuinely reachable price.",
       "tipHtml": "💡 <strong>Tip:</strong> For the photo experience try booking the Glass Tent, but if you want quiet comfortable sleep pick the concrete Deluxe House, which is more enclosed · Coming as a larger group, the Two-Bedroom Suite split per head is very cheap, and bring your own car to get around Khao Yai.",
@@ -395,15 +605,29 @@
       "priceBig": "฿3,900",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Oriental Train Villa (antique train carriage)", "price": "from ฿3,900/night" },
-        { "type": "Pool Villa (private pool)", "price": "from ฿8,500/night" },
-        { "type": "Gallery Villa (split-level)", "price": "from ฿9,000/night" }
+        {
+          "type": "Oriental Train Villa (antique train carriage)",
+          "price": "from ฿3,900/night"
+        },
+        {
+          "type": "Pool Villa (private pool)",
+          "price": "from ฿8,500/night"
+        },
+        {
+          "type": "Gallery Villa (split-level)",
+          "price": "from ฿9,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/nhapha-khao-yai-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nhapha-khao-yai-resort.html",
       "tripUrl": "https://th.trip.com/hotels/pak-chong-hotel-detail-6070666/nhapha-khaoyai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nhapha-khaoyai-resort-khao-yai.html",
-      "tags": ["🎨 Art boutique design", "🚃 Antique train-carriage room", "🏞️ On a former quarry cliff", "🏊 Has Pool Villas"],
+      "tags": [
+        "🎨 Art boutique design",
+        "🚃 Antique train-carriage room",
+        "🏞️ On a former quarry cliff",
+        "🏊 Has Pool Villas"
+      ],
       "addr": "Moo 14, Phaya Yen (Khao Yai area), Pak Chong district",
       "storyHtml": "If you want a nature stay with a clear, one-of-a-kind design signature, <strong>Nhapha Khaoyai Resort</strong> is the name design-minded reviews mention often — a small art boutique resort of just 12 villas built on a former quarry, turning the rock cliffs and raw terrain into the backdrop of the stay · It scores 8.8 from 884 reviews on Trip.com · What excites people is the signature <strong>Oriental Train Villa, converted from a 19th-century antique train carriage</strong> into a guest room, an experience you won't find elsewhere · There are also cliffside villas with a romantic mood, Pool Villas with a private pool and sun deck, and a Gallery Villa with split-level design and high ceilings that once served as an art-display space · Real reviews praise the bold, unusual design, the pretty and quiet cliffside setting, and the privacy that comes from having few villas · The honest caveat: because it's an art-focused resort that plays with the original terrain, <strong>some villas have stairs or walkways to watch out for with small children and older guests</strong>, the common facilities aren't as full as a big resort's, the location is on the Phaya Yen side so you need your own car, and the signature rooms like the train carriage are limited and fill fast · Best for couples and design lovers who want a fresh, different stay amid cliffside nature.",
       "tipHtml": "💡 <strong>Tip:</strong> For the signature experience, book the Oriental Train Villa early since they're limited · Coming with small kids or older guests, ask for a villa with easy walkways and not too many stairs, and groups who want a pool should pick a Pool Villa.",
@@ -436,15 +660,29 @@
       "priceBig": "฿3,000",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Duplex Garden View (~80 sqm)", "price": "from ฿3,000/night" },
-        { "type": "Duplex Mountain View", "price": "from ฿3,400/night" },
-        { "type": "Duplex 1 King Bed", "price": "from ฿3,500/night" }
+        {
+          "type": "Duplex Garden View (~80 sqm)",
+          "price": "from ฿3,000/night"
+        },
+        {
+          "type": "Duplex Mountain View",
+          "price": "from ฿3,400/night"
+        },
+        {
+          "type": "Duplex 1 King Bed",
+          "price": "from ฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-pig-house-by-the-gallery-khaoyai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-pig-house-by-the-gallery-khaoyai.html",
       "tripUrl": "https://th.trip.com/hotels/pak-chong-hotel-detail-3803034/the-pig-house-by-the-gallery-khaoyai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-pig-house-khao-yai.html",
-      "tags": ["🏡 Two-story Duplex rooms", "🍳 Small kitchen downstairs", "🌄 Mountain-view balcony", "👨‍👩‍👧 Good for couples / small families"],
+      "tags": [
+        "🏡 Two-story Duplex rooms",
+        "🍳 Small kitchen downstairs",
+        "🌄 Mountain-view balcony",
+        "👨‍👩‍👧 Good for couples / small families"
+      ],
       "addr": "149-150 Moo 11, Mu Si, Pak Chong district",
       "storyHtml": "Among Khao Yai's small high-scoring stays, <strong>The Pig House by The Gallery Khaoyai</strong> is the name reviews call \"beyond expectations at this price\" — a small boutique villa in the forest of the Mu Si area focused on calm and privacy, scoring as high as 9.2 (from a still-small base of 14 reviews, but consistently positive) · What people like is that <strong>the rooms are two-story Duplexes around 80 sqm, with a sitting area and small kitchen downstairs and a bedroom with a balcony upstairs</strong>, feeling more like having your own little house than a hotel room · You can choose garden/pond or mountain views, suited to couples and small families who want more usable space than a normal room · Real reviews praise the calm, the forest setting where you wake to greenery, the spacious rooms with a small kitchen that make staying as comfortable as being at home, and the attentive, friendly owner · The honest caveat: it's a small stay, <strong>so there are no big-resort common facilities</strong> like a large shared pool or a full-service restaurant, the few rooms fill fast especially on weekends, the review base is still small compared with big resorts, and the Mu Si location needs your own car · Best for couples and small families who want a spacious, home-like room in a quiet forest setting at a reachable price.",
       "tipHtml": "💡 <strong>Tip:</strong> There are few rooms and the score is good, so book ahead, especially on weekends · Pick the Duplex Mountain View if you want a wide mountain-view balcony, and use the small downstairs kitchen for easy meals since the shops are far and need a drive.",
@@ -477,15 +715,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿700/night" },
-        { "type": "Signature Room", "price": "from ฿1,100/night" },
-        { "type": "One-Bedroom Junior Suite", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Signature Room",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "One-Bedroom Junior Suite",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-stay-in-khaoyai/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+Stay+Khao+Yai+Pak+Chong",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-11874249/the-stay/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-stay-khao-yai.html",
-      "tags": ["📍 Next to Palio Khao Yai", "🛣️ On the main Thanarat Road", "💰 Starts in the hundreds", "🆕 Newly opened 2024"],
+      "tags": [
+        "📍 Next to Palio Khao Yai",
+        "🛣️ On the main Thanarat Road",
+        "💰 Starts in the hundreds",
+        "🆕 Newly opened 2024"
+      ],
       "addr": "379/25 Thanarat Road, Mu Si, Pak Chong district",
       "storyHtml": "If you want a well-located stay on Khao Yai's main strip at a light price, <strong>The Stay Khao Yai</strong> is the option reviews call \"great value for the location\" — a small boutique stay that just opened in 2024, set on Thanarat Road and <strong>right next to Palio Khao Yai</strong>, the Italian-style village that's a landmark of the area, an easy walk to cafés and restaurants · It scores 7.5 from 25 reviews (a still-small base since it's new) · The clear draw is <strong>prices starting in the hundreds</strong> and a great spot on Thanarat Road, which gathers a lot of the Mu Si-side attractions, making it easy to drive anywhere around Khao Yai · There are rooms from a budget-focused Standard up to a roomier Signature and Junior Suite with a sitting area · Real reviews praise the location next to Palio within walking distance of restaurants, the reachable price, the clean simple rooms, and how it works as a base for people out all day · The honest caveat: it's a small budget stay, <strong>so there's no pool or resort-style facilities</strong>, the rooms focus on function more than a forest-villa nature atmosphere, it's on the main road so there may be some traffic noise, and the review base is still small since it just opened · Best for budget couples and groups of friends who want a great spot next to Palio and use the stay as a sleeping base rather than a destination in itself.",
       "tipHtml": "💡 <strong>Tip:</strong> This place stands out for location and price — use it as a sleeping base and head out, and it's best value · If you're sensitive to traffic noise, ask for a room not facing the main road, and larger groups should pick the roomier Junior Suite.",
@@ -518,14 +770,25 @@
       "priceBig": "฿13,000",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Two-Bedroom Pool Penthouse (3–4 guests)", "price": "from ฿13,000/night" },
-        { "type": "Two-Bedroom Penthouse (weekends / cool season)", "price": "from ฿15,500/night" }
+        {
+          "type": "Two-Bedroom Pool Penthouse (3–4 guests)",
+          "price": "from ฿13,000/night"
+        },
+        {
+          "type": "Two-Bedroom Penthouse (weekends / cool season)",
+          "price": "from ฿15,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/khaoyai-luxury-penthouse-at-atta-6501/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/khaoyai-luxury-penthouse-at-atta-6501.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-48811124/khaoyai-luxury-penthouse-at-atta-6501/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-khaoyai-luxury-penthouse-atta-khao-yai.html",
-      "tags": ["🏊 Private pool on the terrace", "🛁 Soaking tub", "🍳 Living room + small kitchen", "👨‍👩‍👧 Whole unit for 3–4 guests"],
+      "tags": [
+        "🏊 Private pool on the terrace",
+        "🛁 Soaking tub",
+        "🍳 Living room + small kitchen",
+        "👨‍👩‍👧 Whole unit for 3–4 guests"
+      ],
       "addr": "Unit 6501 · 1/3 Moo 6, Thanarat Road, Mu Si, Pak Chong district",
       "storyHtml": "If you want whole-unit privacy with a terrace pool in a well-known nature project, <strong>Khaoyai Luxury Penthouse at ATTA</strong> is the option premium-minded reviews mention — a luxury penthouse in the ATTA project on Thanarat Road, managed by Passionata Collection · It scores 8.4 from 12 reviews (a still-small base since it's a single unit) · What makes people pay is that <strong>it's a 2-bedroom, 2-bathroom penthouse with a private pool on the terrace and a soaking tub, plus a living room and small kitchen</strong>; you book the whole unit for 3–4 guests, so it feels like having your own luxury home with the nature views of the ATTA project · Real reviews praise the privacy of booking the whole unit, the terrace pool you can swim in privately, the spacious clean rooms, and the location in a leafy nature project · The honest caveat: because it's an owner-rented unit in a condo/villa project, <strong>the service standard isn't the same as a hotel with a 24-hour front desk</strong> — check-in and contact depend on the unit's caretaker — the price sits in the upper range of this guide and climbs again on weekends/in the cool season, the review base is still small, and you need your own car like most Mu Si stays · Best for small families or groups of friends who want to book a luxury unit with a private pool and value privacy more than full hotel-style service.",
       "tipHtml": "💡 <strong>Tip:</strong> Since it's a rented unit, confirm the check-in steps and how to reach the caretaker clearly before you travel · Coming as 3–4 people, split per head it's better value than booking several rooms, and compare prices across platforms since weekend/cool-season rates climb.",
@@ -558,15 +821,29 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Dome Junior (2 guests · includes water-park tickets)", "price": "from ฿2,800/night" },
-        { "type": "Family Deluxe (4 guests)", "price": "from ฿3,800/night" },
-        { "type": "Family Suite (6 guests)", "price": "from ฿5,500/night" }
+        {
+          "type": "Dome Junior (2 guests · includes water-park tickets)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Family Deluxe (4 guests)",
+          "price": "from ฿3,800/night"
+        },
+        {
+          "type": "Family Suite (6 guests)",
+          "price": "from ฿5,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/khaoyai-fantasy-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/khaoyai-fantasy-resort.html",
       "tripUrl": "https://th.trip.com/hotels/pak-chong-hotel-detail-710912/khao-yai-fantasy-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-khaoyai-fantasy-resort-khao-yai.html",
-      "tags": ["🏰 Dome-shaped houses", "🌊 On-site water park", "🎟️ Activity tickets included", "👨‍👩‍👧 Good for families with kids"],
+      "tags": [
+        "🏰 Dome-shaped houses",
+        "🌊 On-site water park",
+        "🎟️ Activity tickets included",
+        "👨‍👩‍👧 Good for families with kids"
+      ],
       "addr": "421 Moo 1, Thanarat Road, Nong Nam Daeng, Pak Chong district",
       "storyHtml": "If you're coming as a whole family and want the kids to have fun all day without driving anywhere, <strong>Khaoyai Fantasy Resort</strong> is the option family-minded reviews mention — a fantasy-themed resort on Thanarat Road whose selling point is <strong>cute dome-shaped houses and a water park on the resort grounds</strong>, scoring 7.4 from 256 reviews · What families like is that most room packages <strong>include breakfast, water-park tickets and activity tickets</strong>, so kids can splash and do activities right away without paying extra or driving out to find somewhere · There are rooms from Dome Junior for 2 guests up to Family Deluxe and Family Suite for 6, suited to big families or several families together · Real reviews say the kids have a great time, it's good value because activity tickets are included, the dome houses are cute to photograph, and the Thanarat Road location is easy to reach · The honest caveat: the overall score is mid-range, reflecting that it <strong>leans on activity fun and family value more than luxury or quiet</strong>, some dome houses are uneven on upkeep and cleanliness per reviews, weekends get crowded and the water park is packed, and it's not a stay for people who want a quiet nature atmosphere · Best for families with kids who want a stay with built-in fun at a good price.",
       "tipHtml": "💡 <strong>Tip:</strong> Check clearly which water-park and activity tickets your booked package includes, since that's the main value · Avoid long weekends if you don't want the water park packed, and larger groups should pick the 6-guest Family Suite for the best value per head.",
@@ -599,15 +876,29 @@
       "priceBig": "฿2,128",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Standard / Studio Villa (2 guests)", "price": "from ฿2,128/night" },
-        { "type": "2-bedroom villa", "price": "from ฿3,500/night" },
-        { "type": "4-bedroom villa / Family Villa", "price": "from ฿7,500/night" }
+        {
+          "type": "Standard / Studio Villa (2 guests)",
+          "price": "from ฿2,128/night"
+        },
+        {
+          "type": "2-bedroom villa",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "4-bedroom villa / Family Villa",
+          "price": "from ฿7,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/arantarakiri-resort-khaoyai/hotel/prachinburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/raythaaraakhiiriiriis-rth-ekhaaaihy.html",
       "tripUrl": "https://th.trip.com/hotels/ban-mu-si-hotel-detail-12492979/arantarakiri-resort-khao-yai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-arantarakiri-resort-khao-yai.html",
-      "tags": ["🏡 Big houses up to 4 bedrooms", "🌳 Garden-view balcony", "📺 Netflix TV", "👨‍👩‍👧‍👦 Good for groups / several families"],
+      "tags": [
+        "🏡 Big houses up to 4 bedrooms",
+        "🌳 Garden-view balcony",
+        "📺 Netflix TV",
+        "👨‍👩‍👧‍👦 Good for groups / several families"
+      ],
       "addr": "36/2 Soi Chuladit 2, Moo 4, Mu Si, Pak Chong district",
       "storyHtml": "If you're coming as a big group or several families and want a large house in a garden at a light price, <strong>Arantarakiri Resort Khao Yai</strong> is the option reviews call \"great value split between you\" — a small pool-villa resort in the Mu Si area focused on large garden houses for groups, scoring 8.5 from 38 reviews · The strength is that <strong>there are houses from a twin-bed room/villa for 2 guests up to 2-, 3- and 4-bedroom houses</strong> that hold a big group or several families under one roof, some with a kitchen so you can gather around to cook and socialize privately · Starting at around ฿2,128 it's easy to reach, and split among many people in a big house, the cost per head drops to nearly the same as a budget stay · The rooms have a garden-view balcony, air-con, and a TV with Netflix to chill in front of in the evening · The resort is tucked into Soi Chuladit in the Mu Si area, close enough to the Khao Yai park to drive up the next morning, and a short run out to the Mu Si-side cafés and restaurants · Real reviews praise the value, the shady quiet garden setting good for gathering around a BBQ or letting kids run around the enclosed grounds, and the friendly staff · The honest caveat: it's a small 3-star resort, <strong>so it doesn't have the full set of common facilities of a big resort</strong> like a large shared pool or a full-service restaurant, the decor and house condition are plain for the price and not luxurious, the review base is still small compared with big resorts, and the Mu Si location needs your own car since attractions are spread out and hailing a ride isn't easy · Best for groups of friends and big families who want a large house in a quiet garden to socialize on a budget, more than people after a luxury resort with full service.",
       "tipHtml": "💡 <strong>Tip:</strong> The best value is coming as a larger group and taking a whole 3–4 bedroom house, where the cost per head drops a lot · Pick a house with a kitchen if you want to cook and socialize, and bring your own car since the Mu Si location means driving to the attractions.",
@@ -640,15 +931,29 @@
       "priceBig": "฿350",
       "priceSub": "from approx/night",
       "rooms": [
-        { "type": "Bed in a 6-bed dorm", "price": "from ฿350/night" },
-        { "type": "Bed in a 4-bed dorm", "price": "from ฿420/night" },
-        { "type": "Double room (shared bathroom)", "price": "from ฿700/night" }
+        {
+          "type": "Bed in a 6-bed dorm",
+          "price": "from ฿350/night"
+        },
+        {
+          "type": "Bed in a 4-bed dorm",
+          "price": "from ฿420/night"
+        },
+        {
+          "type": "Double room (shared bathroom)",
+          "price": "from ฿700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hello-hostel-pakchong/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hello-hostel-pakchong.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-7215517/hello-hostel-pakchong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hello-hostel-pakchong-khao-yai.html",
-      "tags": ["🎒 Dorms from ฿350", "🚉 Near Pak Chong train station", "🛏️ Curtain + locker on every bed", "🚶 You can come without a car"],
+      "tags": [
+        "🎒 Dorms from ฿350",
+        "🚉 Near Pak Chong train station",
+        "🛏️ Curtain + locker on every bed",
+        "🚶 You can come without a car"
+      ],
       "addr": "49/5 Thetsaban 15 Road, Pak Chong, Pak Chong district",
       "storyHtml": "If nearly every other stay in this guide needs your own car, <strong>Hello Hostel Pakchong</strong> is the exception backpackers and car-free travelers have been waiting for — a small hostel in downtown Pak Chong that <strong>sits near the train station</strong>, so you can take the train or a coach, get off and walk there without driving · What's striking is that it's the stay with <strong>the highest score in this guide at 9.6</strong> (from 28 reviews), reflecting very positive feedback even for a budget stay · The clear draw is <strong>prices from just ฿350 per dorm bed</strong>, the cheapest in this guide, with 6-bed and 4-bed dorms where each bed has its own curtain, a locker and a power outlet, plus a double room for couples who want a private room at a light price · Real reviews praise the cleanliness, the friendly and helpful owner and staff, the in-town location within walking distance of restaurants and markets, and the friendly atmosphere that's good for meeting fellow travelers · The honest caveat: it's a hostel, <strong>so it leans on a clean bed and the location more than a forest-resort nature atmosphere</strong>, the dorms and some rooms use a shared bathroom with less private space than a hotel room, and to head up to the park or the Mu Si-side cafés you'll still need to connect a ride or rent a car · Best for solo travelers, backpackers and budget couples who arrive by train/coach and want a clean cheap stay in downtown Pak Chong.",
       "tipHtml": "💡 <strong>Tip:</strong> If you come by train or coach, this is the option you can reach without a car · For more privacy, pick the 4-bed dorm or the double room, and arrange a rental or connecting ride ahead if you'll head up to the park or tour the Mu Si side.",
@@ -667,42 +972,247 @@
     }
   ],
   "compareTitle": "Comparison table — 15 nature hotels near Khao Yai 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Muthi Maya Forest Pool Villa", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿7,500", "access": "📍 Mu Si · looks onto the park", "badge": "Most luxurious + most nature-immersed", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Botanica Khao Yai by Scenical", "type": "⭐⭐⭐⭐", "score": "8.0", "price": "฿3,800", "access": "📍 Mu Si · Thanarat", "badge": "Pretty design at an accessible price", "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#c5e1a5;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "U Khao Yai", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿2,900", "access": "📍 Mu Si · Pak Chong", "badge": "French garden house · 24-hr stay", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Vino Neste Private Pool Villas", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿7,500", "access": "📍 Khanong Phra · among the hills", "badge": "Private pool villas · quietest", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "Lala Mukha Tented Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿2,900", "access": "📍 Mu Si · near the park gate", "badge": "Most reviews · safari glamping", "badgeStyle": "background:#fff3e0;color:#e65100;border-color:#ffcc80;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Hotel La Casetta by Toscana Valley", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿3,400", "access": "📍 Toscana Valley · Mu Si", "badge": "Tuscan village theme", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "dusitD2 Khao Yai", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿4,200", "access": "📍 Mu Si · near Palio", "badge": "Design · has an alpaca farm", "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "Mont Blanc in Khao Yai", "type": "⭐⭐", "score": "8.0", "price": "฿650", "access": "📍 Ban Mu Si · Pak Chong", "badge": "Cheapest start in the glamping group", "badgeStyle": "background:#e0f7fa;color:#00838f;border-color:#80deea;" },
-    { "rank": "9", "rankColor": "#06B6D4", "name": "Nhapha Khaoyai Resort", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿3,900", "access": "📍 Pak Chong · Khao Yai", "badge": "Art boutique · antique train carriage", "badgeStyle": "background:#efebe9;color:#5d4037;border-color:#bcaaa4;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "The Pig House by The Gallery", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿3,000", "access": "📍 Mu Si · Pak Chong", "badge": "Small boutique, high score", "badgeStyle": "background:#fce4ec;color:#ad1457;border-color:#f48fb1;" },
-    { "rank": "11", "rankColor": "#06B6D4", "name": "The Stay Khao Yai", "type": "⭐⭐⭐", "score": "7.5", "price": "฿700", "access": "📍 Thanarat · next to Palio", "badge": "Great spot next to Palio, light price", "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;" },
-    { "rank": "12", "rankColor": "#06B6D4", "name": "Khaoyai Luxury Penthouse at ATTA", "type": "⭐⭐⭐⭐⭐", "score": "8.4", "price": "฿13,000", "access": "📍 ATTA project · Thanarat", "badge": "Private-pool penthouse, whole unit", "badgeStyle": "background:#ede7f6;color:#4527a0;border-color:#b39ddb;" },
-    { "rank": "13", "rankColor": "#06B6D4", "name": "Khaoyai Fantasy Resort", "type": "⭐⭐⭐", "score": "7.4", "price": "฿2,800", "access": "📍 Thanarat · Nong Nam Daeng", "badge": "Dome houses + water park, kid-friendly", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "14", "rankColor": "#06B6D4", "name": "Arantarakiri Resort Khao Yai", "type": "⭐⭐⭐", "score": "8.5", "price": "฿2,128", "access": "📍 Mu Si · near the park", "badge": "Big houses, great value split between you", "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;" },
-    { "rank": "15", "rankColor": "#06B6D4", "name": "Hello Hostel Pakchong", "type": "⭐⭐", "score": "9.6", "price": "฿350", "access": "📍 Downtown Pak Chong · near the train station", "badge": "Highest score · no car needed", "badgeStyle": "background:#fbe9e7;color:#d84315;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Muthi Maya Forest Pool Villa",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿7,500",
+      "access": "📍 Mu Si · looks onto the park",
+      "badge": "Most luxurious + most nature-immersed",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Botanica Khao Yai by Scenical",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿3,800",
+      "access": "📍 Mu Si · Thanarat",
+      "badge": "Pretty design at an accessible price",
+      "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#c5e1a5;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "U Khao Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿2,900",
+      "access": "📍 Mu Si · Pak Chong",
+      "badge": "French garden house · 24-hr stay",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Vino Neste Private Pool Villas",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿7,500",
+      "access": "📍 Khanong Phra · among the hills",
+      "badge": "Private pool villas · quietest",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "Lala Mukha Tented Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,900",
+      "access": "📍 Mu Si · near the park gate",
+      "badge": "Most reviews · safari glamping",
+      "badgeStyle": "background:#fff3e0;color:#e65100;border-color:#ffcc80;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Hotel La Casetta by Toscana Valley",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿3,400",
+      "access": "📍 Toscana Valley · Mu Si",
+      "badge": "Tuscan village theme",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "dusitD2 Khao Yai",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿4,200",
+      "access": "📍 Mu Si · near Palio",
+      "badge": "Design · has an alpaca farm",
+      "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "Mont Blanc in Khao Yai",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿650",
+      "access": "📍 Ban Mu Si · Pak Chong",
+      "badge": "Cheapest start in the glamping group",
+      "badgeStyle": "background:#e0f7fa;color:#00838f;border-color:#80deea;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#06B6D4",
+      "name": "Nhapha Khaoyai Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿3,900",
+      "access": "📍 Pak Chong · Khao Yai",
+      "badge": "Art boutique · antique train carriage",
+      "badgeStyle": "background:#efebe9;color:#5d4037;border-color:#bcaaa4;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "The Pig House by The Gallery",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿3,000",
+      "access": "📍 Mu Si · Pak Chong",
+      "badge": "Small boutique, high score",
+      "badgeStyle": "background:#fce4ec;color:#ad1457;border-color:#f48fb1;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#06B6D4",
+      "name": "The Stay Khao Yai",
+      "type": "⭐⭐⭐",
+      "score": "7.5",
+      "price": "฿700",
+      "access": "📍 Thanarat · next to Palio",
+      "badge": "Great spot next to Palio, light price",
+      "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#06B6D4",
+      "name": "Khaoyai Luxury Penthouse at ATTA",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿13,000",
+      "access": "📍 ATTA project · Thanarat",
+      "badge": "Private-pool penthouse, whole unit",
+      "badgeStyle": "background:#ede7f6;color:#4527a0;border-color:#b39ddb;"
+    },
+    {
+      "rank": "13",
+      "rankColor": "#06B6D4",
+      "name": "Khaoyai Fantasy Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿2,800",
+      "access": "📍 Thanarat · Nong Nam Daeng",
+      "badge": "Dome houses + water park, kid-friendly",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "14",
+      "rankColor": "#06B6D4",
+      "name": "Arantarakiri Resort Khao Yai",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿2,128",
+      "access": "📍 Mu Si · near the park",
+      "badge": "Big houses, great value split between you",
+      "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;"
+    },
+    {
+      "rank": "15",
+      "rankColor": "#06B6D4",
+      "name": "Hello Hostel Pakchong",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿350",
+      "access": "📍 Downtown Pak Chong · near the train station",
+      "badge": "Highest score · no car needed",
+      "badgeStyle": "background:#fbe9e7;color:#d84315;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "How do you pick a Khao Yai nature stay that fits your trip?",
   "advice": [
-    { "icon": "🌲", "head": "Want the most luxurious forest pool villa, a celebration trip", "bodyHtml": "→ <strong>Muthi Maya Forest Pool Villa</strong> ฿7,500, private pool opening onto the World Heritage park, score 9.3, the most luxurious + nature-immersed in this guide" },
-    { "icon": "🏊", "head": "Want a private pool attached to your room, quiet and private", "bodyHtml": "→ <strong>Vino Neste Private Pool Villas</strong> ฿7,500, every villa has a private pool, 14 villas on 20 rai · or <strong>Nhapha</strong> ฿3,900, cliffside Pool Villa" },
-    { "icon": "⛺", "head": "Want to try glamping, near the park gate", "bodyHtml": "→ <strong>Lala Mukha Tented Resort</strong> ฿2,900, safari-themed air-con tents, about 5 min from the park gate, the most reviews at over 3,900" },
-    { "icon": "🏡", "head": "Family trip, want a pretty garden and activities", "bodyHtml": "→ <strong>U Khao Yai</strong> ฿2,900, French garden house, 24-hr stay · <strong>dusitD2</strong> ฿4,200, design + alpaca farm · <strong>Khaoyai Fantasy</strong> ฿2,800, has a water park" },
-    { "icon": "👨‍👩‍👧‍👦", "head": "Coming as a big group, want to take a whole big house", "bodyHtml": "→ <strong>Arantarakiri Resort</strong> ฿2,128, houses up to 4 bedrooms, great value split between you · <strong>Khaoyai Penthouse at ATTA</strong> ฿13,000, private-pool penthouse, whole unit" },
-    { "icon": "🎨", "head": "Design lover, want a one-of-a-kind stay", "bodyHtml": "→ <strong>Nhapha Khaoyai</strong> ฿3,900, art boutique with an antique train-carriage room · <strong>Hotel La Casetta</strong> ฿3,400, Tuscan village theme · <strong>The Pig House</strong> ฿3,000, two-story Duplex" },
-    { "icon": "🎒", "head": "On a budget, or without your own car", "bodyHtml": "→ <strong>Hello Hostel Pakchong</strong> ฿350, near the train station, no car needed, score 9.6 · <strong>Mont Blanc</strong> ฿650, glamping in the hundreds · <strong>The Stay</strong> ฿700, next to Palio" }
+    {
+      "icon": "🌲",
+      "head": "Want the most luxurious forest pool villa, a celebration trip",
+      "bodyHtml": "→ <strong>Muthi Maya Forest Pool Villa</strong> ฿7,500, private pool opening onto the World Heritage park, score 9.3, the most luxurious + nature-immersed in this guide"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a private pool attached to your room, quiet and private",
+      "bodyHtml": "→ <strong>Vino Neste Private Pool Villas</strong> ฿7,500, every villa has a private pool, 14 villas on 20 rai · or <strong>Nhapha</strong> ฿3,900, cliffside Pool Villa"
+    },
+    {
+      "icon": "⛺",
+      "head": "Want to try glamping, near the park gate",
+      "bodyHtml": "→ <strong>Lala Mukha Tented Resort</strong> ฿2,900, safari-themed air-con tents, about 5 min from the park gate, the most reviews at over 3,900"
+    },
+    {
+      "icon": "🏡",
+      "head": "Family trip, want a pretty garden and activities",
+      "bodyHtml": "→ <strong>U Khao Yai</strong> ฿2,900, French garden house, 24-hr stay · <strong>dusitD2</strong> ฿4,200, design + alpaca farm · <strong>Khaoyai Fantasy</strong> ฿2,800, has a water park"
+    },
+    {
+      "icon": "👨‍👩‍👧‍👦",
+      "head": "Coming as a big group, want to take a whole big house",
+      "bodyHtml": "→ <strong>Arantarakiri Resort</strong> ฿2,128, houses up to 4 bedrooms, great value split between you · <strong>Khaoyai Penthouse at ATTA</strong> ฿13,000, private-pool penthouse, whole unit"
+    },
+    {
+      "icon": "🎨",
+      "head": "Design lover, want a one-of-a-kind stay",
+      "bodyHtml": "→ <strong>Nhapha Khaoyai</strong> ฿3,900, art boutique with an antique train-carriage room · <strong>Hotel La Casetta</strong> ฿3,400, Tuscan village theme · <strong>The Pig House</strong> ฿3,000, two-story Duplex"
+    },
+    {
+      "icon": "🎒",
+      "head": "On a budget, or without your own car",
+      "bodyHtml": "→ <strong>Hello Hostel Pakchong</strong> ฿350, near the train station, no car needed, score 9.6 · <strong>Mont Blanc</strong> ฿650, glamping in the hundreds · <strong>The Stay</strong> ฿700, next to Palio"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates from the standard-room range and can change by date and season — we recommend checking the live price and comparing 3 sites before every booking · The scores and highlights in this guide come from reading real guest reviews on the booking platforms, not from staying ourselves · Muthi Maya Forest Pool Villa is the upper-tier pool-villa wing of the Kirimaya Golf Resort &amp; Spa complex · Nearly every nature stay in this area is best with your own car, except Hello Hostel Pakchong in town, which you can reach by train/coach · The late-rains-into-cool-season window (November–January) and long weekends have the best weather, with higher prices and rooms selling out fast, so book several weeks ahead · From Bangkok it's about a 2.5–3 hour drive to Khao Yai–Pak Chong · Article by <strong>Thailandaddict.com</strong>",
   "faqTitle": "FAQ — questions travelers ask most about Khao Yai nature stays",
   "faq": [
-    { "q": "❓ Which is the best Khao Yai nature stay?", "a": "It depends on your trip style · For luxury and closeness to nature, <strong>Muthi Maya Forest Pool Villa</strong> scores 9.3, a forest pool villa looking onto the World Heritage park · For the number of reviews and popularity, <strong>Lala Mukha Tented Resort</strong> has the most reviews at over 3,900, glamping near the park gate · For the quietest private pool, <strong>Vino Neste</strong> · On a budget or without a car, <strong>Hello Hostel Pakchong</strong> scores 9.6, in town near the train station" },
-    { "q": "❓ How much do Khao Yai stays cost?", "a": "In this guide, prices start at about <strong>฿350–13,000 per night</strong> · The most budget-friendly are Hello Hostel Pakchong from ฿350 per bed, Mont Blanc ฿650 and The Stay ฿700 · The mid-range are U Khao Yai ฿2,900, Botanica ฿3,800 and dusitD2 ฿4,200 · The top tier is pool villas like Muthi Maya and Vino Neste from ฿7,500 and the penthouse at ATTA from ฿13,000 · All prices are approximate starting rates from standard rooms, and rates may run higher than usual in the late-rains-into-cool-season window and on long weekends" },
-    { "q": "❓ Do you need your own car to visit Khao Yai?", "a": "Nearly every nature stay in this guide is <strong>best with your own car</strong>, because the attractions, cafés, vineyards and stays are spread out and hailing a ride out here isn't as easy as in town · The exception is <strong>Hello Hostel Pakchong</strong>, which is in downtown Pak Chong near the train station — come by train or coach and walk there — though to head up to the park or tour the Mu Si side you'll still need to rent or connect a ride" },
-    { "q": "❓ Which area should you stay in for a Khao Yai nature stay?", "a": "<strong>Thanarat Road · Mu Si</strong> is the main strip that gathers the most cafés, vineyards and attractions, easy to get around (Botanica, dusitD2, La Casetta, The Stay) · <strong>Khanong Phra</strong> is the vineyard-and-winery side, quiet among the hills, good for those who want private rest (Vino Neste) · <strong>near the park gate</strong> suits people set on entering the park early (Lala Mukha) · <strong>downtown Pak Chong</strong> suits people without a car (Hello Hostel Pakchong)" },
-    { "q": "❓ Which Khao Yai stays suit families with kids?", "a": "Many in this guide suit families · <strong>Khaoyai Fantasy Resort</strong> has an on-site water park and activity tickets so kids can play all day · <strong>dusitD2</strong> has an alpaca farm kids love · <strong>U Khao Yai</strong> has a kids' pool, a kids' club and a tie-dye workshop · For big groups or several families who want to take a whole house, <strong>Arantarakiri Resort</strong> has houses up to 4 bedrooms, great value split between you" },
-    { "q": "❓ How far ahead should you book a Khao Yai stay?", "a": "Many nature stays in this guide are small (12–14 pool villas, a handful of boutique rooms), so they fill fast · In the <strong>late-rains-into-cool-season window (November–January) and on long weekends, the weather is best, so book several weeks to 1–2 months ahead</strong>, especially Muthi Maya, Vino Neste, Nhapha and The Pig House with their few rooms · Other times, 1–2 weeks is enough · Every platform usually has Free Cancellation — we recommend locking in that kind of rate first if your plans aren't firm, then comparing Agoda / Booking / Trip.com for the best price" }
-  ]
+    {
+      "q": "❓ Which is the best Khao Yai nature stay?",
+      "a": "It depends on your trip style · For luxury and closeness to nature, <strong>Muthi Maya Forest Pool Villa</strong> scores 9.3, a forest pool villa looking onto the World Heritage park · For the number of reviews and popularity, <strong>Lala Mukha Tented Resort</strong> has the most reviews at over 3,900, glamping near the park gate · For the quietest private pool, <strong>Vino Neste</strong> · On a budget or without a car, <strong>Hello Hostel Pakchong</strong> scores 9.6, in town near the train station"
+    },
+    {
+      "q": "❓ How much do Khao Yai stays cost?",
+      "a": "In this guide, prices start at about <strong>฿350–13,000 per night</strong> · The most budget-friendly are Hello Hostel Pakchong from ฿350 per bed, Mont Blanc ฿650 and The Stay ฿700 · The mid-range are U Khao Yai ฿2,900, Botanica ฿3,800 and dusitD2 ฿4,200 · The top tier is pool villas like Muthi Maya and Vino Neste from ฿7,500 and the penthouse at ATTA from ฿13,000 · All prices are approximate starting rates from standard rooms, and rates may run higher than usual in the late-rains-into-cool-season window and on long weekends"
+    },
+    {
+      "q": "❓ Do you need your own car to visit Khao Yai?",
+      "a": "Nearly every nature stay in this guide is <strong>best with your own car</strong>, because the attractions, cafés, vineyards and stays are spread out and hailing a ride out here isn't as easy as in town · The exception is <strong>Hello Hostel Pakchong</strong>, which is in downtown Pak Chong near the train station — come by train or coach and walk there — though to head up to the park or tour the Mu Si side you'll still need to rent or connect a ride"
+    },
+    {
+      "q": "❓ Which area should you stay in for a Khao Yai nature stay?",
+      "a": "<strong>Thanarat Road · Mu Si</strong> is the main strip that gathers the most cafés, vineyards and attractions, easy to get around (Botanica, dusitD2, La Casetta, The Stay) · <strong>Khanong Phra</strong> is the vineyard-and-winery side, quiet among the hills, good for those who want private rest (Vino Neste) · <strong>near the park gate</strong> suits people set on entering the park early (Lala Mukha) · <strong>downtown Pak Chong</strong> suits people without a car (Hello Hostel Pakchong)"
+    },
+    {
+      "q": "❓ Which Khao Yai stays suit families with kids?",
+      "a": "Many in this guide suit families · <strong>Khaoyai Fantasy Resort</strong> has an on-site water park and activity tickets so kids can play all day · <strong>dusitD2</strong> has an alpaca farm kids love · <strong>U Khao Yai</strong> has a kids' pool, a kids' club and a tie-dye workshop · For big groups or several families who want to take a whole house, <strong>Arantarakiri Resort</strong> has houses up to 4 bedrooms, great value split between you"
+    },
+    {
+      "q": "❓ How far ahead should you book a Khao Yai stay?",
+      "a": "Many nature stays in this guide are small (12–14 pool villas, a handful of boutique rooms), so they fill fast · In the <strong>late-rains-into-cool-season window (November–January) and on long weekends, the weather is best, so book several weeks to 1–2 months ahead</strong>, especially Muthi Maya, Vino Neste, Nhapha and The Pig House with their few rooms · Other times, 1–2 weeks is enough · Every platform usually has Free Cancellation — we recommend locking in that kind of rate first if your plans aren't firm, then comparing Agoda / Booking / Trip.com for the best price"
+    }
+  ],
+  "quickAnswerHtml": "15 nature-focused hotels and resorts near Khao Yai we've already reviewed — from Kirimaya's Muthi Maya forest pool villas and the French-country U Khao Yai to Lala Mukha's safari glamping and a hostel in downtown Pak Chong. Real guest reviews, real scores, from about ฿350–13,000/night, 3-site price compare, direct booking links."
 }

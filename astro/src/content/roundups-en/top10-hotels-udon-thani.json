@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Udon Thani", "href": "city-udon-thani.html" },
-    { "name": "Top 12 Udon Thani Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Udon Thani",
+      "href": "city-udon-thani.html"
+    },
+    {
+      "name": "Top 12 Udon Thani Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Udon Thani", "item": "https://thailandaddict.com/en/city-udon-thani" },
-    { "name": "Top 12 Udon Thani Hotels", "item": "https://thailandaddict.com/en/top10-hotels-udon-thani" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Udon Thani",
+      "item": "https://thailandaddict.com/en/city-udon-thani"
+    },
+    {
+      "name": "Top 12 Udon Thani Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-udon-thani"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-udon-thani.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Udon Thani has no metro; you get around the city by car, songthaew, motorbike taxi and Grab, but the centre isn't large and the main sights cluster in the Mak Khaeng district. Many <strong>city-centre</strong> stays are walkable to Central Plaza, UD Town, the night market and restaurants, ideal without a car. Stays <strong>near Udon Thani train station</strong> suit travellers arriving on the Isan rail line and continuing on to Nong Khai–Vientiane. Stays <strong>along Nong Prajak Lake</strong> get a lake view and a quieter feel, though they're a bit further from the malls. The areas in this guide: <strong>Mak Khaeng city centre</strong> — malls, food, the night market · <strong>By Central, UD Town and the station</strong> — walk to everything, a transit base · <strong>Nong Prajak Lake</strong> — lake views, quieter.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Hotel MOCO", "price": "฿1,200" },
-    { "n": "2", "color": "#c8a951", "name": "Civilize Hotel", "price": "฿1,500" },
-    { "n": "3", "color": "#c8a951", "name": "Banbua Grand Udon Hotel", "price": "฿1,000" },
-    { "n": "4", "color": "#9e9e9e", "name": "De Princess Hotel", "price": "฿1,300" },
-    { "n": "5", "color": "#9e9e9e", "name": "Centara Udon", "price": "฿1,200" },
-    { "n": "6", "color": "#9e9e9e", "name": "VELA Dhi Udon Thani", "price": "฿1,200" },
-    { "n": "7", "color": "#9e9e9e", "name": "The Pannarai Hotel", "price": "฿1,200" },
-    { "n": "8", "color": "#bf8040", "name": "Whereder Poshtel", "price": "฿480" },
-    { "n": "9", "color": "#bf8040", "name": "Kavinburi Green Hotel", "price": "฿1,000" },
-    { "n": "10", "color": "#5d4037", "name": "Prajaktra Design Hotel", "price": "฿1,100" },
-    { "n": "11", "color": "#5d4037", "name": "Napalai Hotel", "price": "฿790" },
-    { "n": "12", "color": "#5d4037", "name": "Top Mansion Udon Thani", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Hotel MOCO",
+      "price": "฿1,200"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Civilize Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Banbua Grand Udon Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "De Princess Hotel",
+      "price": "฿1,300"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Centara Udon",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "VELA Dhi Udon Thani",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "The Pannarai Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Whereder Poshtel",
+      "price": "฿480"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Kavinburi Green Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Prajaktra Design Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Napalai Hotel",
+      "price": "฿790"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Top Mansion Udon Thani",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (~32 sqm)", "price": "from ฿1,200/night" },
-        { "type": "Executive Room (~29 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Suite (~72 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Deluxe Room (~32 sqm)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Executive Room (~29 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Suite (~72 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-moco/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/moco.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-91391024/hotel-moco/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-moco-udon-thani.html",
-      "tags": ["🎨 Photogenic art-deco design", "🚉 Walk to UD Town · near the station", "🛏️ Soft beds, clean rooms, good service", "☕ JBL speaker + Nespresso (Executive)"],
+      "tags": [
+        "🎨 Photogenic art-deco design",
+        "🚉 Walk to UD Town · near the station",
+        "🛏️ Soft beds, clean rooms, good service",
+        "☕ JBL speaker + Nespresso (Executive)"
+      ],
       "addr": "56 Thong Yai Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Hotel MOCO takes <strong>the top score in this guide at 9.6 — a photogenic art-deco boutique that's a walk from UD Town and near Udon Thani train station</strong>, from 296 reviews. Real guest reviews praise the good-looking, spotless rooms, soft beds and warm service; Executive rooms and up add a JBL speaker and a Nespresso machine that many love. The trade-off: there's no pool or gym, and outside noise is something light sleepers should plan for, so choose an interior room carefully. Best for travellers who value design, cleanliness and a walkable food scene over full hotel facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're a light sleeper, ask for an interior room away from the road, as reviews mention some outside noise. Upgrade to an Executive room or above for the JBL speaker and Nespresso machine. Walk over to UD Town for dinner and the market.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King / Twin (32 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Grand Deluxe Room (48 sqm)", "price": "from ฿2,000/night" },
-        { "type": "Junior Suite (64 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Superior King / Twin (32 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Grand Deluxe Room (48 sqm)",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Junior Suite (64 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/civilize-hotel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/civilize.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-21859932/civilize-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-civilize-hotel-udon-thani.html",
-      "tags": ["🎨 Design hotel, big 32–64 sqm rooms", "🛍️ Walk to Central Plaza", "🍳 Good breakfast · free parking", "💁 Warm, often-praised service"],
+      "tags": [
+        "🎨 Design hotel, big 32–64 sqm rooms",
+        "🛍️ Walk to Central Plaza",
+        "🍳 Good breakfast · free parking",
+        "💁 Warm, often-praised service"
+      ],
       "addr": "396/28 Posri Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Civilize Hotel is <strong>the best design hotel for travellers who want big, clean rooms in central Udon at a fair price</strong>, scoring 9.4 from 358 reviews (the most of the boutiques in this guide). Real guest reviews praise the good-looking design, roomy 32 sqm-plus rooms, a walk to Central Plaza, a good breakfast, free parking and warm service. The catch: there's no pool or gym, and the soundproofing between rooms isn't thick. Best for those who value big rooms, design and a walk to the mall over shared facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> Superior rooms are already a roomy 32 sqm, but for a group or a longer stay the Grand Deluxe / Family 48 sqm is better value. Soundproofing isn't thick, so pack earplugs if you're a light sleeper. Walk to Central for a meal and a movie.",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Queen Room", "price": "from ฿1,000/night" },
-        { "type": "Deluxe King Room", "price": "from ฿1,400/night" },
-        { "type": "Pool View Room", "price": "from ฿1,700/night" }
+        {
+          "type": "Superior Queen Room",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Pool View Room",
+          "price": "from ฿1,700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/banbua-grand-udon/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermel-bawaekrnd-udr.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-51045798/le-bua-grand-udon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-banbua-grand-udon-hotel-udon-thani.html",
-      "tags": ["🏊 Swimming pool + pool bar", "🚶 Walk to UD Town · near Central", "✨ Clean rooms, contemporary design", "💁 Good service, approachable price"],
+      "tags": [
+        "🏊 Swimming pool + pool bar",
+        "🚶 Walk to UD Town · near Central",
+        "✨ Clean rooms, contemporary design",
+        "💁 Good service, approachable price"
+      ],
       "addr": "Samphanthamit Soi, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Banbua Grand Udon Hotel is <strong>the best fit for travellers who want clean rooms, a pool and a pool bar, a walk from UD Town and near Central, from the low thousands</strong>, scoring 9.4 from 170 reviews. Unlike the many city boutiques without a pool, this one has both a swimming pool and a pool bar at an approachable price. Real guest reviews praise the clean, contemporary rooms and good service. The catch: there's some nightlife nearby, so for total quiet ask for an interior room away from the bar zone. Best for travellers who want a boutique with a pool in a good-value central location.",
       "tipHtml": "💡 <strong>Tip:</strong> There's nightlife close by, so light sleepers should ask for an interior room away from the pool-bar zone. A Pool View room makes it easy to step straight to the water if you like a swim. Walk to UD Town for dinner.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King (32 sqm)", "price": "from ฿1,300/night" },
-        { "type": "Sapphire Suite (45 sqm)", "price": "from ฿2,200/night" },
-        { "type": "Executive Suite (54 sqm)", "price": "from ฿2,900/night" }
+        {
+          "type": "Superior King (32 sqm)",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Sapphire Suite (45 sqm)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Executive Suite (54 sqm)",
+          "price": "from ฿2,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/de-princess-hotel-udonthani/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/de-princess-udonthani.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-21854513/de-princess-hotel-udonthani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-de-princess-hotel-udon-thani.html",
-      "tags": ["😴 Great beds, quiet rooms, deep sleep", "🤍 Clean white-toned design", "🏊 Pool and gym (small)", "🛣️ Quieter side street in the centre"],
+      "tags": [
+        "😴 Great beds, quiet rooms, deep sleep",
+        "🤍 Clean white-toned design",
+        "🏊 Pool and gym (small)",
+        "🛣️ Quieter side street in the centre"
+      ],
       "addr": "135/135 Moo 14, Nittayo Rd, Nong Bua, Mueang Udon Thani",
       "storyHtml": "De Princess Hotel takes <strong>the top 3-star score in this guide — the selling points are a great bed, clean white-toned rooms and quiet on a side street in the city centre</strong>, scoring 9.3 from 168 reviews, opened in 2019. Real guest reviews talk about getting a deep, full night's sleep thanks to the good bed and quiet rooms, ideal if you're really here to rest. There's a pool and gym too, but both are small and simple, and the restaurant service can be inconsistent. Best for those who value comfortable sleep and quiet over fancy facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> The real strengths are the bed and the quiet, so this is a great pick if you're here to rest. The pool and gym are small, so look elsewhere in this list if a pool is a priority. It's a side street — a Grab to Central / UD Town takes only a few minutes.",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior (32 sqm)", "price": "from ฿1,200/night" },
-        { "type": "Deluxe (32 sqm)", "price": "from ฿1,600/night" },
-        { "type": "Junior Suite", "price": "from ฿2,800/night" }
+        {
+          "type": "Superior (32 sqm)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe (32 sqm)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/centara-hotel-convention-centre-udon-thani/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/centara-convention-centre-udon-thani.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-1434842/centara-hotel-and-convention-centre-udon-thani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-centara-udon-udon-thani.html",
-      "tags": ["🛍️ Next to Central Plaza Udon Thani", "🏢 Full-facility 4-star, pool & gym", "💬 Most reviews in this guide, 1,326", "🏛️ Convention centre on site, good for business"],
+      "tags": [
+        "🛍️ Next to Central Plaza Udon Thani",
+        "🏢 Full-facility 4-star, pool & gym",
+        "💬 Most reviews in this guide, 1,326",
+        "🏛️ Convention centre on site, good for business"
+      ],
       "addr": "277/1 Prajak Sillapakhom Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Centara Udon has <strong>the most reviews in this guide — 1,326 — and the selling points are a spot right next to Central Plaza, big rooms and the full facilities of a major chain</strong>, scoring 9.2, opened in 2009. Real guest reviews call it the most convenient base in the city for meetings, shopping or sightseeing, since you walk straight into the mall; rooms run 32 sqm and up, with a pool, gym and an on-site convention centre. The trade-off: Wi-Fi is weak in some rooms and the building shows its age in places. Best for business travellers, families and anyone who wants full facilities attached to a mall.",
       "tipHtml": "💡 <strong>Tip:</strong> The standout is walking straight into Central, great if you love mall shopping and dining. Wi-Fi is weak in some rooms, so keep mobile data as a backup if you work online. Ask for a higher-floor Deluxe or above for a city view and a fresher-feeling room.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King / Twin (28 sqm)", "price": "from ฿1,200/night" },
-        { "type": "Deluxe King / Twin (35 sqm)", "price": "from ฿1,600/night" },
-        { "type": "Corner Suite (48 sqm)", "price": "from ฿2,400/night" }
+        {
+          "type": "Superior King / Twin (28 sqm)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe King / Twin (35 sqm)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Corner Suite (48 sqm)",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/vela-dhi-udon-thani/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/vela-dhi-udon-thani-udon-thani.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-57202348/vela-dhi-udon-thani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-vela-dhi-udon-thani.html",
-      "tags": ["✈️ Aviation-themed, adults-only, quiet", "🏊 Saltwater pool · beautiful design", "😴 Clean rooms, comfortable beds", "🚶 Near Central and UD Town"],
+      "tags": [
+        "✈️ Aviation-themed, adults-only, quiet",
+        "🏊 Saltwater pool · beautiful design",
+        "😴 Clean rooms, comfortable beds",
+        "🚶 Near Central and UD Town"
+      ],
       "addr": "471 Adulyadej Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "VELA Dhi Udon Thani is <strong>an aviation-themed, adults-only lifestyle hotel that stands out for its good-looking design and quiet atmosphere, at an approachable price in central Udon</strong>, scoring 9.2 from 1,076 reviews (the second-highest count in this guide). Real guest reviews praise the clean rooms, comfortable beds, saltwater pool and a location near Central and UD Town. The catch: it's adults-only (no children) and isn't directly attached to the shopping, so it's a short walk or ride. Best for couples, solo travellers, or anyone who wants quiet, design-led rooms with no kids' noise.",
       "tipHtml": "💡 <strong>Tip:</strong> It's adults-only, so if you're travelling with children pick elsewhere in this list. As a couple or solo traveller who wants quiet and design, it's right on spec. The saltwater pool is great for a late-afternoon cool-down.",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double (King + balcony)", "price": "from ฿1,200/night" },
-        { "type": "King Premier Double", "price": "from ฿1,600/night" },
-        { "type": "Junior Suite", "price": "from ฿2,400/night" }
+        {
+          "type": "Deluxe Double (King + balcony)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "King Premier Double",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-pannarai-hotel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-pannarai.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-2197036/the-pannarai-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-pannarai-hotel-udon-thani.html",
-      "tags": ["🚶 Walk to Central and UD Town", "🛏️ Big rooms, many with a balcony", "🍳 Good breakfast, often praised", "💰 4-star at good value"],
+      "tags": [
+        "🚶 Walk to Central and UD Town",
+        "🛏️ Big rooms, many with a balcony",
+        "🍳 Good breakfast, often praised",
+        "💰 4-star at good value"
+      ],
       "addr": "19/8 Sampanthamit Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "The Pannarai Hotel's selling points are <strong>a location walkable to Central and UD Town, big rooms and a good breakfast at good value</strong>, scoring 8.8 from 163 reviews. Real guest reviews call it ideal for sightseeing, errands or a base for getting around Udon, since you can walk to both big malls and the rooms are spacious, many with a balcony. The trade-off: some nights carry noise from the nearby bar area and some of the decor is showing its age. Best for travellers who want a walk to the malls and a good breakfast in an affordable 4-star.",
       "tipHtml": "💡 <strong>Tip:</strong> Light sleepers should ask for a room not facing the bar area, as some nights carry late noise. Rooms with a balcony are nice to sit out on — request one at booking. Come down for the breakfast reviews consistently praise, then walk on to Central / UD Town.",
@@ -344,15 +525,29 @@
       "priceBig": "฿480",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Bed in 4-bed mixed dorm", "price": "from ฿480/night" },
-        { "type": "Bed in female dorm", "price": "from ฿520/night" },
-        { "type": "Standard Private Room", "price": "from ฿950/night" }
+        {
+          "type": "Bed in 4-bed mixed dorm",
+          "price": "from ฿480/night"
+        },
+        {
+          "type": "Bed in female dorm",
+          "price": "from ฿520/night"
+        },
+        {
+          "type": "Standard Private Room",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/whereder-poshtel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/whereder-poshtel.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-16058939/whereder-poshtel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-whereder-poshtel-udon-thani.html",
-      "tags": ["🎨 Isan-flavoured design poshtel with a story", "🛏️ Dorm beds with privacy curtains + lockers", "🍳 Made-to-order breakfast + ground-floor cafe", "💸 Low hundreds, in the centre"],
+      "tags": [
+        "🎨 Isan-flavoured design poshtel with a story",
+        "🛏️ Dorm beds with privacy curtains + lockers",
+        "🍳 Made-to-order breakfast + ground-floor cafe",
+        "💸 Low hundreds, in the centre"
+      ],
       "addr": "212-214 Prajak Sillapakhom Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Whereder Poshtel is <strong>the best pick for travellers who want well-designed, low-hundreds lodging in central Udon — an Isan-flavoured poshtel with a story, ideal for backpackers and tight budgets</strong>, scoring 9.2 from 18 reviews (high score but still few reviews, as it's a small place). Real guest reviews praise the dorm beds with privacy curtains, reading lights and lockers, the made-to-order breakfast, the ground-floor cafe and warm service. The catch: rooms are small in an older-building style, and dorms use shared bathrooms. Best for travellers who value design and a low price and aren't fussy about space or a private bathroom (private rooms are available if you want one).",
       "tipHtml": "💡 <strong>Tip:</strong> For more privacy, pick a Standard Private room — some have a private bathroom. The dorms have curtains and secure lockers, great for solo travellers. Try the made-to-order breakfast and the ground-floor cafe, which reviews single out.",
@@ -384,15 +579,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior (Double / Twin)", "price": "from ฿1,000/night" },
-        { "type": "Superior with Balcony", "price": "from ฿1,300/night" },
-        { "type": "Suite", "price": "from ฿1,800/night" }
+        {
+          "type": "Superior (Double / Twin)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Superior with Balcony",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Suite",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kavinburi-green-hotel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kavin-buri-green.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-3708397/kavin-buri-green-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kavinburi-green-hotel-udon-thani.html",
-      "tags": ["🍸 Rooftop pool + sky bar at a 3-star price", "🚉 Walk to the train station, UD Town and Central", "💰 Great value without a car", "🏙️ Base to continue to Nong Khai-Vientiane"],
+      "tags": [
+        "🍸 Rooftop pool + sky bar at a 3-star price",
+        "🚉 Walk to the train station, UD Town and Central",
+        "💰 Great value without a car",
+        "🏙️ Base to continue to Nong Khai-Vientiane"
+      ],
       "addr": "299/99 Prajak Sillapakhom Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Kavinburi Green Hotel is <strong>a 3-star pick whose selling points are a rooftop pool and sky bar plus a location walkable to the train station, UD Town and Central, at a low price</strong>, scoring 8.9 from 151 reviews. Real guest reviews call it ideal for anyone arriving in Udon without a car who wants value, since you walk to everything and can use it as a base to continue on to Nong Khai–Vientiane. The trade-off: rooms are small, the building shows its age and housekeeping isn't consistent across every room. Best for budget travellers focused on location who'd like a rooftop pool and sky bar.",
       "tipHtml": "💡 <strong>Tip:</strong> Head up to the rooftop pool and sky bar in the evening — a feature that's hard to find at this price. Rooms are small, so upgrade to a Suite for more space. It's a walk to the station, great if you arrive by train and continue on to Nong Khai.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (~30 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Deluxe Room (~40 sqm)", "price": "from ฿1,400/night" },
-        { "type": "Design Suite (~48 sqm)", "price": "from ฿1,700/night" }
+        {
+          "type": "Superior Room (~30 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe Room (~40 sqm)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Design Suite (~48 sqm)",
+          "price": "from ฿1,700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/prajaktra-design-hotel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/prajaktra-design.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-709929/prajaktra-design-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-prajaktra-design-hotel-udon-thani.html",
-      "tags": ["🌳 On Nong Prajak Lake, lake views", "🛏️ Big design rooms 30–64 sqm", "🏊 Pool + free airport shuttle", "💰 Approachable price"],
+      "tags": [
+        "🌳 On Nong Prajak Lake, lake views",
+        "🛏️ Big design rooms 30–64 sqm",
+        "🏊 Pool + free airport shuttle",
+        "💰 Approachable price"
+      ],
       "addr": "Supakitchanya Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Prajaktra Design Hotel is <strong>a great fit for travellers who want to stay on Nong Prajak Lake with big design rooms, a pool and a free airport shuttle at an approachable price</strong>, scoring 8.7 from 60 reviews. Real guest reviews praise the modern design rooms that start at 30 sqm, many with a lake view, and the leafy quiet of this central-park area. The catch: the hotel has been open a while, so some rooms are showing their age and housekeeping isn't consistent — pick your room and flag any issues early. Best for travellers who want a lake view, quiet and big rooms on Nong Prajak Lake.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a room facing Nong Prajak for the lake view, the highlight here. Some rooms are aging, so ask for a renovated one and view it first. Use the free airport shuttle to save, and take an early-morning walk around the lake.",
@@ -464,15 +687,29 @@
       "priceBig": "฿790",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿790/night" },
-        { "type": "Deluxe Room", "price": "from ฿1,000/night" },
-        { "type": "Family Suite (~96 sqm)", "price": "from ฿2,000/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿790/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Family Suite (~96 sqm)",
+          "price": "from ฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/napalai-hotel/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/napalai.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-709944/napalai-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-napalai-hotel-udon-thani.html",
-      "tags": ["💰 Low price, near Central and UD Town", "🛏️ Big rooms, many with a city view", "🏊 Pool + free airport shuttle", "🏨 Long-standing city hotel"],
+      "tags": [
+        "💰 Low price, near Central and UD Town",
+        "🛏️ Big rooms, many with a city view",
+        "🏊 Pool + free airport shuttle",
+        "🏨 Long-standing city hotel"
+      ],
       "addr": "572 Pracharaksa Rd, Ban Lueam, Mueang Udon Thani",
       "storyHtml": "Napalai Hotel is <strong>a good fit for travellers who want a low-priced stay in central Udon near Central and UD Town, with big rooms, a pool and a free airport shuttle</strong>, scoring 8.4 from 140 reviews. It's a long-standing city hotel; real guest reviews praise the big, good-value rooms and the full set of facilities for an end-of-hundreds-to-low-thousands price. The catch: the building and some rooms are showing their age and housekeeping isn't consistent, so pick a renovated room and flag issues early. Best for budget travellers who weight price and big rooms over newness.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies — ask for a renovated Deluxe / Executive and view it before checking in, and flag any issues early. Use the free airport shuttle to save. The Family Suite is very spacious, great for a group.",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (single/double)", "price": "from ฿450/night" },
-        { "type": "Superior Room (larger bed)", "price": "from ฿600/night" },
-        { "type": "Deluxe / Large Room", "price": "from ฿790/night" }
+        {
+          "type": "Standard Room (single/double)",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Superior Room (larger bed)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Deluxe / Large Room",
+          "price": "from ฿790/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/top-mansion-udon-thani/hotel/udon-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/top-mansion-udon-thani.html",
       "tripUrl": "https://www.trip.com/hotels/udonthani-hotel-detail-6535657/top-mansion-udon-thani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-top-mansion-udon-thani.html",
-      "tags": ["💸 Cheapest in this guide, from ฿450", "❄️ AC, fridge, TV, private balcony", "🏙️ Central location · free parking", "🧳 Good value for a short city stay"],
+      "tags": [
+        "💸 Cheapest in this guide, from ฿450",
+        "❄️ AC, fridge, TV, private balcony",
+        "🏙️ Central location · free parking",
+        "🧳 Good value for a short city stay"
+      ],
       "addr": "35/3 Samphanthamit Rd, Mak Khaeng, Mueang Udon Thani",
       "storyHtml": "Top Mansion Udon Thani is <strong>the cheapest stay in this guide, from just ฿450, and the best value in central Udon</strong> for travellers who want a clean AC room with a balcony, free parking and a central location, scoring 8.0 from 123 reviews. Real guest reviews praise the good-value rooms with AC, a fridge, a TV and a private balcony for a few hundred baht. The catch: there's some evening noise from the nearby drinking area and the building has no lift. Best for backpackers and tight budgets who weight price and a central location and aren't fussy about shared facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> The building has no lift, so ask for a lower floor if you have heavy bags or can't manage stairs. The drinking area is nearby, so light sleepers should take an interior room and pack earplugs. There's free parking, handy if you're driving.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Compare All 12 Udon Thani Hotels · 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Hotel MOCO", "type": "⭐⭐⭐⭐", "score": "9.6", "price": "฿1,200", "access": "📍 Walk to UD Town", "badge": "Top score, beautiful design", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Civilize Hotel", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,500", "access": "📍 Walk to Central", "badge": "Design, big rooms", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Banbua Grand Udon Hotel", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,000", "access": "📍 Walk to UD Town", "badge": "Pool & pool bar, good value", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "De Princess Hotel", "type": "⭐⭐⭐", "score": "9.3", "price": "฿1,300", "access": "📍 Nittayo Rd, city centre", "badge": "Great bed, quiet", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Centara Udon", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,200", "access": "📍 Next to Central Plaza", "badge": "Most reviews, full facilities", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "VELA Dhi Udon Thani", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,200", "access": "📍 Near Central-UD Town", "badge": "Adults-only, quiet, design", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "The Pannarai Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,200", "access": "📍 Walk to Central-UD Town", "badge": "Walk to malls, good breakfast", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Whereder Poshtel", "type": "⭐⭐", "score": "9.2", "price": "฿480", "access": "📍 Near the Clock Roundabout", "badge": "Design poshtel, low hundreds", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Kavinburi Green Hotel", "type": "⭐⭐⭐", "score": "8.9", "price": "฿1,000", "access": "📍 Walk to the station-UD Town", "badge": "Rooftop pool, sky bar", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Prajaktra Design Hotel", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,100", "access": "📍 On Nong Prajak Lake", "badge": "Lake views, big design rooms", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Napalai Hotel", "type": "⭐⭐⭐", "score": "8.4", "price": "฿790", "access": "📍 Near Central Plaza", "badge": "Low price, big rooms", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Top Mansion Udon Thani", "type": "⭐⭐", "score": "8.0", "price": "฿450", "access": "📍 Mak Khaeng city centre", "badge": "Cheapest, AC rooms with balcony", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Hotel MOCO",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.6",
+      "price": "฿1,200",
+      "access": "📍 Walk to UD Town",
+      "badge": "Top score, beautiful design",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Civilize Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,500",
+      "access": "📍 Walk to Central",
+      "badge": "Design, big rooms",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Banbua Grand Udon Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,000",
+      "access": "📍 Walk to UD Town",
+      "badge": "Pool & pool bar, good value",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "De Princess Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,300",
+      "access": "📍 Nittayo Rd, city centre",
+      "badge": "Great bed, quiet",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Centara Udon",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,200",
+      "access": "📍 Next to Central Plaza",
+      "badge": "Most reviews, full facilities",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "VELA Dhi Udon Thani",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,200",
+      "access": "📍 Near Central-UD Town",
+      "badge": "Adults-only, quiet, design",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "The Pannarai Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,200",
+      "access": "📍 Walk to Central-UD Town",
+      "badge": "Walk to malls, good breakfast",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Whereder Poshtel",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿480",
+      "access": "📍 Near the Clock Roundabout",
+      "badge": "Design poshtel, low hundreds",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Kavinburi Green Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿1,000",
+      "access": "📍 Walk to the station-UD Town",
+      "badge": "Rooftop pool, sky bar",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Prajaktra Design Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,100",
+      "access": "📍 On Nong Prajak Lake",
+      "badge": "Lake views, big design rooms",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Napalai Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿790",
+      "access": "📍 Near Central Plaza",
+      "badge": "Low price, big rooms",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Top Mansion Udon Thani",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿450",
+      "access": "📍 Mak Khaeng city centre",
+      "badge": "Cheapest, AC rooms with balcony",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    }
   ],
   "adviceTitle": "How to pick the right Udon Thani hotel for you",
   "advice": [
-    { "icon": "🎨", "head": "Want good-looking, high-scoring design rooms", "bodyHtml": "→ <strong>Hotel MOCO</strong> ฿1,200, art-deco boutique, top score 9.6, walk to UD Town · or <strong>Civilize Hotel</strong> ฿1,500, a design hotel with big 32–64 sqm rooms, walk to Central" },
-    { "icon": "🛍️", "head": "Exploring the city, shopping and food", "bodyHtml": "→ <strong>Centara Udon</strong> ฿1,200, next to Central Plaza, walk straight into the mall, most reviews · or <strong>The Pannarai Hotel</strong> ฿1,200, walk to Central and UD Town, good breakfast" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Top Mansion</strong> ฿450, cheapest, AC rooms with a balcony in the centre · or <strong>Whereder Poshtel</strong> ฿480, design poshtel with privacy-curtain dorms · or <strong>Napalai</strong> ฿790, big rooms with a pool" },
-    { "icon": "🚉", "head": "No car, arriving by train or bus", "bodyHtml": "→ <strong>Kavinburi Green</strong> ฿1,000, walk to the train station, UD Town and Central, with a rooftop pool · or <strong>Hotel MOCO</strong> ฿1,200, walk to UD Town and near the station · both work as a base to continue on to Nong Khai-Vientiane" },
-    { "icon": "🌳", "head": "Want a lake view and quiet", "bodyHtml": "→ <strong>Prajaktra Design Hotel</strong> ฿1,100, on Nong Prajak Lake, big design rooms with lake views · or <strong>De Princess Hotel</strong> ฿1,300, great bed, quiet rooms on a side street" },
-    { "icon": "✈️", "head": "Travelling as a couple, want design with no kids' noise", "bodyHtml": "→ <strong>VELA Dhi Udon Thani</strong> ฿1,200, an aviation-themed adults-only hotel with good design and a saltwater pool · or <strong>Banbua Grand Udon</strong> ฿1,000, a boutique with a pool and pool bar, walk to UD Town" }
+    {
+      "icon": "🎨",
+      "head": "Want good-looking, high-scoring design rooms",
+      "bodyHtml": "→ <strong>Hotel MOCO</strong> ฿1,200, art-deco boutique, top score 9.6, walk to UD Town · or <strong>Civilize Hotel</strong> ฿1,500, a design hotel with big 32–64 sqm rooms, walk to Central"
+    },
+    {
+      "icon": "🛍️",
+      "head": "Exploring the city, shopping and food",
+      "bodyHtml": "→ <strong>Centara Udon</strong> ฿1,200, next to Central Plaza, walk straight into the mall, most reviews · or <strong>The Pannarai Hotel</strong> ฿1,200, walk to Central and UD Town, good breakfast"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Top Mansion</strong> ฿450, cheapest, AC rooms with a balcony in the centre · or <strong>Whereder Poshtel</strong> ฿480, design poshtel with privacy-curtain dorms · or <strong>Napalai</strong> ฿790, big rooms with a pool"
+    },
+    {
+      "icon": "🚉",
+      "head": "No car, arriving by train or bus",
+      "bodyHtml": "→ <strong>Kavinburi Green</strong> ฿1,000, walk to the train station, UD Town and Central, with a rooftop pool · or <strong>Hotel MOCO</strong> ฿1,200, walk to UD Town and near the station · both work as a base to continue on to Nong Khai-Vientiane"
+    },
+    {
+      "icon": "🌳",
+      "head": "Want a lake view and quiet",
+      "bodyHtml": "→ <strong>Prajaktra Design Hotel</strong> ฿1,100, on Nong Prajak Lake, big design rooms with lake views · or <strong>De Princess Hotel</strong> ฿1,300, great bed, quiet rooms on a side street"
+    },
+    {
+      "icon": "✈️",
+      "head": "Travelling as a couple, want design with no kids' noise",
+      "bodyHtml": "→ <strong>VELA Dhi Udon Thani</strong> ฿1,200, an aviation-themed adults-only hotel with good design and a saltwater pool · or <strong>Banbua Grand Udon</strong> ฿1,000, a boutique with a pool and pool bar, walk to UD Town"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for standard rooms and can change by date and season; always check live prices and compare 3 sites before booking. During big Udon events like the Thung Si Mueang fair, New Year, and convention periods, rates rise and rooms sell out, so book ahead. City-centre stays in the Mak Khaeng district are easiest to get around, with Central Plaza, UD Town and restaurants within walking distance, ideal without a car. Stays along Nong Prajak Lake get a quieter feel and lake views, but they're a bit further from the malls. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Udon Thani hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Udon Thani?", "a": "Udon's main sights cluster in the Mak Khaeng city centre. <strong>The Mak Khaeng centre</strong> suits sightseeing, shopping and eating, with Central Plaza, UD Town and the night market within walking distance (Hotel MOCO, Civilize, Banbua Grand, Centara, The Pannarai, VELA Dhi, Top Mansion). <strong>The area by the station and UD Town</strong> suits travellers without a car — step off the train and walk, and continue on to Nong Khai–Vientiane (Kavinburi Green, Hotel MOCO, Whereder Poshtel). <strong>Nong Prajak Lake</strong> gets lake views and quiet right in the city (Prajaktra Design)." },
-    { "q": "❓ How much do Udon Thani hotels cost?", "a": "Prices vary: budget stays and poshtels start around ฿450–790/night (Top Mansion, Whereder Poshtel, Napalai); mid-range hotels and boutiques up to 4-star run about ฿1,000–1,500 (Banbua Grand, Kavinburi, Prajaktra, Centara, VELA Dhi, The Pannarai, Hotel MOCO, De Princess, Civilize). All are approximate from-rates for standard rooms. During the Thung Si Mueang fair or convention periods, rates run above normal." },
-    { "q": "❓ No car in Udon — which hotels are convenient?", "a": "Udon has no metro, so without a car, <strong>staying in the Mak Khaeng centre or near the train station is easiest</strong>, since you can walk to Central, UD Town and restaurants. <strong>Kavinburi Green</strong> ฿1,000 and <strong>Hotel MOCO</strong> ฿1,200 are a walk from the station and UD Town; <strong>Centara Udon</strong> ฿1,200 is right next to Central. In town you can also grab a Grab, a songthaew or a motorbike taxi easily." },
-    { "q": "❓ Using Udon as a base for Nong Khai-Vientiane — where to stay?", "a": "If you plan to continue on to Nong Khai or cross to Vientiane, staying near the train station and bus terminal is easiest — <strong>Kavinburi Green</strong> ฿1,000 and <strong>Hotel MOCO</strong> ฿1,200 are a walk from the station and UD Town and make a tidy transit base. Trains, vans and buses run frequently from Udon to Nong Khai, so picking a stay close to the station saves time on your travel morning." },
-    { "q": "❓ Coming to Udon as a family with kids — where to stay?", "a": "Pick a hotel with a pool and full facilities, and avoid adults-only stays. <strong>Centara Udon</strong> ฿1,200 is next to Central with a pool, gym and spacious Suites; <strong>Banbua Grand</strong> ฿1,000 has a pool and a pool bar; <strong>Napalai</strong> ฿790 has a spacious ~96 sqm Family Suite and a pool. Note that VELA Dhi is adults-only and doesn't accept children." },
-    { "q": "❓ Which site is cheapest for booking Udon hotels?", "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save hundreds of baht a night, especially during the Thung Si Mueang fair or major conventions in town." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Udon Thani?",
+      "a": "Udon's main sights cluster in the Mak Khaeng city centre. <strong>The Mak Khaeng centre</strong> suits sightseeing, shopping and eating, with Central Plaza, UD Town and the night market within walking distance (Hotel MOCO, Civilize, Banbua Grand, Centara, The Pannarai, VELA Dhi, Top Mansion). <strong>The area by the station and UD Town</strong> suits travellers without a car — step off the train and walk, and continue on to Nong Khai–Vientiane (Kavinburi Green, Hotel MOCO, Whereder Poshtel). <strong>Nong Prajak Lake</strong> gets lake views and quiet right in the city (Prajaktra Design)."
+    },
+    {
+      "q": "❓ How much do Udon Thani hotels cost?",
+      "a": "Prices vary: budget stays and poshtels start around ฿450–790/night (Top Mansion, Whereder Poshtel, Napalai); mid-range hotels and boutiques up to 4-star run about ฿1,000–1,500 (Banbua Grand, Kavinburi, Prajaktra, Centara, VELA Dhi, The Pannarai, Hotel MOCO, De Princess, Civilize). All are approximate from-rates for standard rooms. During the Thung Si Mueang fair or convention periods, rates run above normal."
+    },
+    {
+      "q": "❓ No car in Udon — which hotels are convenient?",
+      "a": "Udon has no metro, so without a car, <strong>staying in the Mak Khaeng centre or near the train station is easiest</strong>, since you can walk to Central, UD Town and restaurants. <strong>Kavinburi Green</strong> ฿1,000 and <strong>Hotel MOCO</strong> ฿1,200 are a walk from the station and UD Town; <strong>Centara Udon</strong> ฿1,200 is right next to Central. In town you can also grab a Grab, a songthaew or a motorbike taxi easily."
+    },
+    {
+      "q": "❓ Using Udon as a base for Nong Khai-Vientiane — where to stay?",
+      "a": "If you plan to continue on to Nong Khai or cross to Vientiane, staying near the train station and bus terminal is easiest — <strong>Kavinburi Green</strong> ฿1,000 and <strong>Hotel MOCO</strong> ฿1,200 are a walk from the station and UD Town and make a tidy transit base. Trains, vans and buses run frequently from Udon to Nong Khai, so picking a stay close to the station saves time on your travel morning."
+    },
+    {
+      "q": "❓ Coming to Udon as a family with kids — where to stay?",
+      "a": "Pick a hotel with a pool and full facilities, and avoid adults-only stays. <strong>Centara Udon</strong> ฿1,200 is next to Central with a pool, gym and spacious Suites; <strong>Banbua Grand</strong> ฿1,000 has a pool and a pool bar; <strong>Napalai</strong> ฿790 has a spacious ~96 sqm Family Suite and a pool. Note that VELA Dhi is adults-only and doesn't accept children."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Udon hotels?",
+      "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save hundreds of baht a night, especially during the Thung Si Mueang fair or major conventions in town."
+    }
+  ],
+  "quickAnswerHtml": "12 Udon Thani hotels we reviewed across every tier — from Hotel MOCO's art-deco boutique rooms near UD Town and the adults-only VELA Dhi down to a design poshtel in the centre from ฿480. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

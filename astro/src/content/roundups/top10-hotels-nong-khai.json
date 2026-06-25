@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "หนองคาย", "href": "city-nong-khai.html" },
-    { "name": "Top 10 โรงแรมหนองคาย" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "หนองคาย",
+      "href": "city-nong-khai.html"
+    },
+    {
+      "name": "Top 10 โรงแรมหนองคาย"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "หนองคาย", "item": "https://thailandaddict.com/city-nong-khai" },
-    { "name": "Top 10 โรงแรมหนองคาย", "item": "https://thailandaddict.com/top10-hotels-nong-khai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "หนองคาย",
+      "item": "https://thailandaddict.com/city-nong-khai"
+    },
+    {
+      "name": "Top 10 โรงแรมหนองคาย",
+      "item": "https://thailandaddict.com/top10-hotels-nong-khai"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-nong-khai.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "หนองคายไม่มีรถไฟฟ้า แต่ตัวเมืองกะทัดรัด เรียก Grab หรือนั่งรถรับจ้างสะดวกและราคาไม่แพง · จากสถานีรถไฟหนองคายและสถานีขนส่งเข้าตัวเมืองและริมโขงใช้เวลาไม่นาน · ย่านหลักที่พักในบทความนี้: <strong>ริมแม่น้ำโขง · ตลาดท่าเสด็จ</strong> — ตื่นมาเจอแม่น้ำ เดินตลาด ของฝากลาว ของกินริมน้ำ (Na Rim Khong, Mut Mee, Baan Sabai, Royal Mekong) · <strong>ใจกลางเมือง · ถนนมิตรภาพ</strong> — ห้าง ร้านอาหาร เดินทางสะดวก (Amanta, Asawann, Tanzeno) · <strong>ใกล้สะพานมิตรภาพ</strong> — ข้ามไปเวียงจันทน์และต่อรถไฟลาว-จีนง่าย (Park & Pool, PP Nongkhai) · <strong>เมืองเก่า</strong> — เดินถึงตลาดท่าเสด็จและถนนคนเดิน (Pantawee)",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Amanta Hotel Nongkhai", "price": "฿1,300" },
-    { "n": "2", "color": "#06B6D4", "name": "Park & Pool Resort", "price": "฿900" },
-    { "n": "3", "color": "#06B6D4", "name": "Asawann Hotel Nongkhai", "price": "฿900" },
-    { "n": "4", "color": "#0891b2", "name": "Tanzeno Hotel Nong Khai", "price": "฿1,150" },
-    { "n": "5", "color": "#0891b2", "name": "Na Rim Khong River View", "price": "฿2,500" },
-    { "n": "6", "color": "#0891b2", "name": "Mut Mee Garden Guest House", "price": "฿400" },
-    { "n": "7", "color": "#0891b2", "name": "PP Nongkhai Resort", "price": "฿550" },
-    { "n": "8", "color": "#FB7185", "name": "Baan Sabai Rim Khong", "price": "฿500" },
-    { "n": "9", "color": "#FB7185", "name": "Royal Mekong Nongkhai Hotel", "price": "฿1,200" },
-    { "n": "10", "color": "#FB7185", "name": "Pantawee Hotel", "price": "฿650" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Amanta Hotel Nongkhai",
+      "price": "฿1,300"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Park & Pool Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Asawann Hotel Nongkhai",
+      "price": "฿900"
+    },
+    {
+      "n": "4",
+      "color": "#0891b2",
+      "name": "Tanzeno Hotel Nong Khai",
+      "price": "฿1,150"
+    },
+    {
+      "n": "5",
+      "color": "#0891b2",
+      "name": "Na Rim Khong River View",
+      "price": "฿2,500"
+    },
+    {
+      "n": "6",
+      "color": "#0891b2",
+      "name": "Mut Mee Garden Guest House",
+      "price": "฿400"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "PP Nongkhai Resort",
+      "price": "฿550"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Baan Sabai Rim Khong",
+      "price": "฿500"
+    },
+    {
+      "n": "9",
+      "color": "#FB7185",
+      "name": "Royal Mekong Nongkhai Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "10",
+      "color": "#FB7185",
+      "name": "Pantawee Hotel",
+      "price": "฿650"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,300",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "฿1,300/คืน" },
-        { "type": "Deluxe King Room", "price": "฿1,500/คืน" },
-        { "type": "Suite", "price": "฿2,400/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "฿1,300/คืน"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Suite",
+          "price": "฿2,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/amanta-hotel-nongkhai/hotel/nong-khai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/amanta-nongkhai.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-5684503/amanta-hotel-nongkhai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-amanta-hotel-nongkhai-riverside-nong-khai.html",
-      "tags": ["🌅 สกายบาร์วิวแม่น้ำโขง", "🏊 สระว่ายน้ำ + บ่อปลาคาร์ป", "🛏️ เกือบทุกห้องมีระเบียง", "🚶 เดินถึงตลาดท่าเสด็จ"],
+      "tags": [
+        "🌅 สกายบาร์วิวแม่น้ำโขง",
+        "🏊 สระว่ายน้ำ + บ่อปลาคาร์ป",
+        "🛏️ เกือบทุกห้องมีระเบียง",
+        "🚶 เดินถึงตลาดท่าเสด็จ"
+      ],
       "addr": "999 หมู่ 1 ถนนแก้ววรวุฒิ ตำบลในเมือง เมืองหนองคาย",
       "storyHtml": "คะแนนสูงสุดในชุดนี้ที่ 9.3 จาก 209 รีวิว — Amanta Hotel Nongkhai คือ <strong>โรงแรม 4 ดาวใจกลางเมืองที่มีสกายบาร์รูฟท็อปมองข้ามแม่น้ำโขงไปฝั่งลาว</strong> เปิดปี 2016 บนถนนแก้ววรวุฒิ เดินถึงริมโขงและตลาดท่าเสด็จ · จุดที่คนพักชมมากที่สุดคือวิวพระอาทิตย์ตกจากสกายบาร์ มีสระว่ายน้ำและสวนบ่อปลาคาร์ปที่ร่มรื่นต่างจากโรงแรมตึกทั่วไป เกือบทุกห้องมีระเบียง · เสียงจากรีวิวจริงชมความสะอาด บริการน่ารัก และอาหารเช้าหลากหลาย เหมาะทั้งสายไหว้พระ เที่ยวริมโขง และคนแวะพักก่อนข้ามไปลาว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นบนที่หันออกสวนหรือบ่อปลาจะบรรยากาศดีกว่าและเลี่ยงกลิ่นอับที่บางห้องชั้นล่างเจอ และอย่าพลาดขึ้นสกายบาร์ช่วงพระอาทิตย์ตก เป็นช่วงที่วิวแม่น้ำโขงสวยที่สุด",
@@ -102,15 +189,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin Room", "price": "฿900/คืน" },
-        { "type": "Twin Bungalow", "price": "฿1,000/คืน" },
-        { "type": "VIP Room", "price": "฿1,500/คืน" }
+        {
+          "type": "Standard Twin Room",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Twin Bungalow",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "VIP Room",
+          "price": "฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/park-pool-resort/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/park-amp-pool-resort.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-2509894/park-and-pool-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-park-and-pool-resort-nong-khai.html",
-      "tags": ["🌿 สวนสไตล์ฝรั่งเศส", "🏊 สระว่ายน้ำ 16x8 เมตร", "🚆 เดิน 5 นาทีจากสถานีรถไฟ", "🌉 ใกล้ด่านไทย-ลาว"],
+      "tags": [
+        "🌿 สวนสไตล์ฝรั่งเศส",
+        "🏊 สระว่ายน้ำ 16x8 เมตร",
+        "🚆 เดิน 5 นาทีจากสถานีรถไฟ",
+        "🌉 ใกล้ด่านไทย-ลาว"
+      ],
       "addr": "163/1-3 หมู่ 3 ซอยดอนแดง 3 ถนนเสด็จ ตำบลมีชัย เมืองหนองคาย",
       "storyHtml": "Park & Pool Resort คือ <strong>รีสอร์ทสวนสไตล์ฝรั่งเศสที่หลายคนบอกว่าคุ้มและบรรยากาศดีที่สุดในหนองคาย</strong> คะแนน 9.2 จาก 90 รีวิว และเคยขึ้นอันดับ 1 ของหนองคายบน TripAdvisor · จุดเด่นคือสวนร่มรื่นปลูกเฟิร์นและกล้วยไม้ทั่วบริเวณ มีสระว่ายน้ำกลางแจ้งขนาด 16x8 เมตรเป็นใจกลาง พร้อมบังกะโลแยกหลังในสวน · เดินจากสถานีรถไฟแค่ 5 นาที อยู่ฝั่งใกล้สะพานมิตรภาพ มีรถรับ-ส่งสถานีฟรี · เสียงจากรีวิวจริงชมห้องกว้าง อาหารเช้าสด และความคุ้มราคา เหมาะครอบครัวและคนต่อรถข้ามไปเวียงจันทน์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากเงียบและเป็นส่วนตัวให้ขอห้องโซนบังกะโลในสวน เลี่ยงห้องวิวสระช่วงวันหยุดยาวที่คนเยอะ และมาช่วงหน้าหนาวซึ่งเป็นไฮซีซั่นควรจองล่วงหน้า 2–3 สัปดาห์",
@@ -142,15 +243,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Double", "price": "฿900/คืน" },
-        { "type": "Superior Twin", "price": "฿990/คืน" },
-        { "type": "Suite", "price": "฿1,200/คืน" }
+        {
+          "type": "Superior Double",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "฿990/คืน"
+        },
+        {
+          "type": "Suite",
+          "price": "฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/asawann-hotel/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/big-jieng.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-711273/asawann-hotel-nongkhai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-asawann-hotel-nongkhai-nong-khai.html",
-      "tags": ["🛍️ ติดศูนย์การค้าอัศวรรณ", "🙂 พนักงานเป็นกันเอง", "🍳 อาหารเช้าหลากหลาย", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🛍️ ติดศูนย์การค้าอัศวรรณ",
+        "🙂 พนักงานเป็นกันเอง",
+        "🍳 อาหารเช้าหลากหลาย",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "9 หมู่ 10 ถนนมิตรภาพ ตำบลโพธิ์ชัย เมืองหนองคาย",
       "storyHtml": "Asawann Hotel คือ <strong>โรงแรมในเมือง 3 ดาวที่คุ้มราคาและมีรีวิวเยอะถึง 161 รีวิว</strong> คะแนน 9.1 · จุดขายชัดเจนคือทำเลติดศูนย์การค้าอัศวรรณบนถนนมิตรภาพ เดินไม่กี่ก้าวก็เจอร้านอาหาร 7-Eleven และร้านรวงในเมือง เหมาะกับคนที่มาแบบไม่มีรถ · ห้องกว้าง สะอาดดีเมื่อเทียบกับราคา มีที่จอดรถฟรี · เสียงจากรีวิวจริงชมพนักงานสุภาพเป็นกันเองและอาหารเช้าที่มีให้เลือกหลากหลายและคุ้มค่า เหมาะคนเน้นทำเลและความสะดวกในการเดินกินเดินช้อป",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> คุณภาพห้องที่นี่ไม่เท่ากัน ตอนจองหรือเช็กอินให้ขอห้องที่รีโนเวตใหม่หรือชั้นสูงจะสบายกว่า และใช้ที่นี่เป็นฐานเดินกินเดินช้อปก่อนขับหรือนั่งรถ 10 นาทีไปริมโขงช่วงเย็น",
@@ -182,15 +297,29 @@
       "priceBig": "฿1,150",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "฿1,150/คืน" },
-        { "type": "Standard King", "price": "฿1,450/คืน" },
-        { "type": "Family Room", "price": "฿1,850/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "฿1,150/คืน"
+        },
+        {
+          "type": "Standard King",
+          "price": "฿1,450/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tanzeno-hotel/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tanzeno.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-5908232/tanzeno-hotel-nongkhai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tansino-hotel-city-center-nong-khai.html",
-      "tags": ["🛏️ ห้องกว้างกว่าค่าเฉลี่ย", "🚗 ที่จอดรถกว้าง จอดง่าย", "🚲 จักรยานให้ยืมฟรี", "🌉 ใกล้สะพานมิตรภาพ"],
+      "tags": [
+        "🛏️ ห้องกว้างกว่าค่าเฉลี่ย",
+        "🚗 ที่จอดรถกว้าง จอดง่าย",
+        "🚲 จักรยานให้ยืมฟรี",
+        "🌉 ใกล้สะพานมิตรภาพ"
+      ],
       "addr": "ถนนมิตรภาพ ตำบลมีชัย เมืองหนองคาย",
       "storyHtml": "Tanzeno Hotel (แทนซิโน) คือ <strong>บูทีกโฮเทลอาคารใหม่ปี 2019 ที่ขายห้องกว้างเกินราคา</strong> คะแนน 9.0 จาก 55 รีวิว · จุดที่คนรีวิวพูดถึงตรงกันมากที่สุดคือทั้งห้องนอนและห้องน้ำให้พื้นที่สบายตัว เตียงนอนสบาย แอร์เย็นแรง · เรื่องที่คนขับรถชอบคือที่จอดรถกว้างและจอดง่าย หาได้ไม่บ่อยในโรงแรมกลางเมือง พร้อมอาหารเช้ารวมและจักรยานให้ยืมฟรี · ทำเลในเมืองฝั่งถนนมิตรภาพ ใกล้สะพานมิตรภาพไทย-ลาว เหมาะคนขับรถมาเองหรือใช้เป็นฐานข้ามไปเวียงจันทน์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงจะเงียบและวิวเปิดโล่งกว่า มากันหลายคนเลือก Family Room คุ้มกว่าจองสองห้องแยก และยืมจักรยานของโรงแรมปั่นไปริมโขงช่วงเย็นได้บรรยากาศหนองคายที่สุด",
@@ -222,14 +351,25 @@
       "priceBig": "฿2,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "ห้องเตียงเดี่ยว (วิวแม่น้ำ)", "price": "฿2,500/คืน" },
-        { "type": "ห้องเตียงคู่ (วิวแม่น้ำ)", "price": "฿2,800/คืน" }
+        {
+          "type": "ห้องเตียงเดี่ยว (วิวแม่น้ำ)",
+          "price": "฿2,500/คืน"
+        },
+        {
+          "type": "ห้องเตียงคู่ (วิวแม่น้ำ)",
+          "price": "฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/na-rim-khong-river-view/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/na-rim-khong-river-view.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-8648267/na-rim-khong-river-view/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-na-rim-khong-river-view-nong-khai.html",
-      "tags": ["🌅 ทุกห้องระเบียงวิวแม่น้ำโขง", "🛍️ ติดตลาดท่าเสด็จ", "🍳 อาหารเช้าจัดเต็ม", "🛺 รถตุ๊กตุ๊กรับส่งลานจอด"],
+      "tags": [
+        "🌅 ทุกห้องระเบียงวิวแม่น้ำโขง",
+        "🛍️ ติดตลาดท่าเสด็จ",
+        "🍳 อาหารเช้าจัดเต็ม",
+        "🛺 รถตุ๊กตุ๊กรับส่งลานจอด"
+      ],
       "addr": "423 หมู่ 5 ถนนมีชัย ริมแม่น้ำโขง (ตลาดท่าเสด็จ) อำเภอเมือง หนองคาย",
       "storyHtml": "Na Rim Khong River View (ณ ริมโขง ริเวอร์วิว) คือ <strong>บูทีคที่ขายตำแหน่งริมแม่น้ำโขงแบบติดน้ำจริง ทุกห้องมีระเบียงส่วนตัว</strong> คะแนน 8.9 จาก 54 รีวิว · ตัวอาคารหันหน้าลงแม่น้ำโขงโดยตรง ห้องส่วนใหญ่เปิดระเบียงออกไปเห็นแม่น้ำและฝั่งลาว นั่งจิบกาแฟดูเรือแล่นผ่านได้จริง ไม่ใช่วิวมองผ่านกระจกไกลๆ · อยู่ติดตลาดท่าเสด็จ เดินถึงถนนคนเดิน · เสียงจากรีวิวจริงชมวิว ระเบียง และอาหารเช้าที่จัดมาเยอะจนหลายคนบอกว่าอิ่มถึงบ่าย เหมาะคนที่มาหนองคายเพื่อบรรยากาศริมโขงเป็นหลัก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จองแล้วระบุขอห้องที่หันหน้าออกแม่น้ำและมีระเบียงให้ชัดเจน เพราะวิวคือหัวใจของที่นี่ · รถเข้าหน้าที่พักไม่ได้ ต้องจอดที่ลานจอด โทรแจ้งเวลาถึงล่วงหน้าให้ทางที่พักจัดรถตุ๊กตุ๊กมารับ",
@@ -261,15 +401,29 @@
       "priceBig": "฿400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Basic Double / Twin (พัดลม)", "price": "฿400/คืน" },
-        { "type": "Standard Double / Twin", "price": "฿550/คืน" },
-        { "type": "Air-con River/Garden View", "price": "฿900/คืน" }
+        {
+          "type": "Basic Double / Twin (พัดลม)",
+          "price": "฿400/คืน"
+        },
+        {
+          "type": "Standard Double / Twin",
+          "price": "฿550/คืน"
+        },
+        {
+          "type": "Air-con River/Garden View",
+          "price": "฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mut-mee-garden-guest-house/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mut-mee-garden-guest-house.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-711289/mut-mee-garden-guest-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mut-mee-garden-guest-house-riverside-nong-khai.html",
-      "tags": ["🌿 สวนเขตร้อนริมแม่น้ำโขง", "🍽️ ร้านอาหารริมน้ำ + โยคะ + นวด", "🚲 เช่าจักรยาน/สกู๊ตเตอร์", "🚶 เดินถึงตลาดท่าเสด็จ 5 นาที"],
+      "tags": [
+        "🌿 สวนเขตร้อนริมแม่น้ำโขง",
+        "🍽️ ร้านอาหารริมน้ำ + โยคะ + นวด",
+        "🚲 เช่าจักรยาน/สกู๊ตเตอร์",
+        "🚶 เดินถึงตลาดท่าเสด็จ 5 นาที"
+      ],
       "addr": "1111/4 ถนนแก้ววรวุฒิ ตำบลในเมือง เมืองหนองคาย",
       "storyHtml": "Mut Mee Garden Guest House คือ <strong>เกสต์เฮาส์ในสวนริมโขงที่คนเที่ยวหนองคายพูดถึงมานานหลายสิบปี</strong> คะแนน 8.5 จาก 93 รีวิว และติดอันดับ 1 ของ B&B/เกสต์เฮาส์ในหนองคายบน TripAdvisor · จุดเด่นคือสวนเขตร้อนร่มรื่นติดตลิ่งแม่น้ำโขง มีศาลามุงจากนั่งมองพระอาทิตย์ตกข้ามไปฝั่งลาว พร้อมร้านอาหารริมน้ำ คลาสโยคะ นวด ร้านหนังสือ และเช่าจักรยาน — เหมือนชุมชนเล็กๆ มากกว่าแค่ที่นอน · มีห้องตั้งแต่พัดลมราคาประหยัดถึงห้องแอร์มีห้องน้ำในตัว เดินถึงตลาดท่าเสด็จ 5 นาที · เสียงจากรีวิวจริงชมบรรยากาศ ทำเล และความคุ้มราคา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากนอนสบายขึ้นให้เลือกห้องแอร์ที่มีห้องน้ำในตัวและขอห้องที่ลึกเข้าไปในสวนจะเงียบกว่าห้องริมทางเดิน · ข้ามอาหารเช้าของที่พักแล้วเดินไปกินที่ตลาดท่าเสด็จซึ่งอยู่ใกล้และถูกกว่า",
@@ -301,15 +455,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿550/คืน" },
-        { "type": "Deluxe Pool View", "price": "฿750/คืน" },
-        { "type": "Family Bungalow", "price": "฿950/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿550/คืน"
+        },
+        {
+          "type": "Deluxe Pool View",
+          "price": "฿750/คืน"
+        },
+        {
+          "type": "Family Bungalow",
+          "price": "฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pp-nongkhai-resort/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pp-nongkhai-resort.html",
       "tripUrl": "https://th.trip.com/hotels/list?city=36080&keyword=PP%20Nongkhai%20Resort&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pp-nongkhai-resort-near-bridge-nong-khai.html",
-      "tags": ["🏊 บังกะโลมีสระว่ายน้ำ", "🚗 ที่จอดรถฟรี ถึงหน้าห้อง", "💰 ราคาเบา เงียบสงบ", "🌉 ฝั่งทางออกสะพานมิตรภาพ"],
+      "tags": [
+        "🏊 บังกะโลมีสระว่ายน้ำ",
+        "🚗 ที่จอดรถฟรี ถึงหน้าห้อง",
+        "💰 ราคาเบา เงียบสงบ",
+        "🌉 ฝั่งทางออกสะพานมิตรภาพ"
+      ],
       "addr": "758/2 ซอยบ่อหิน 5 ตำบลโพธิ์ชัย อำเภอเมือง หนองคาย",
       "storyHtml": "PP Nongkhai Resort (พีพี หนองคาย รีสอร์ท) คือ <strong>รีสอร์ทบังกะโลที่คุ้มราคาและสะอาดเงียบสำหรับคนขับรถมาเอง</strong> คะแนนราว 8.3 บน Booking จาก 43 รีวิว · เป็นบังกะโลชั้นเดียวย่านโพธิ์ชัยนอกเขตเมืองชั้นใน บรรยากาศร่มรื่นไม่พลุกพล่าน · จุดที่ทำให้ได้คะแนนดีคือมีสระว่ายน้ำกลางแจ้งและที่จอดรถส่วนตัวฟรีถึงหน้าห้อง ซึ่งหายากในที่พักราคานี้ · อยู่ฝั่งถนนที่ออกไปสะพานมิตรภาพได้สะดวก ขับราว 10–15 นาทีถึงด่าน · เสียงจากรีวิวจริงชมความสะอาด ที่นอนสบาย พนักงานใจดี และความคุ้มราคา เหมาะครอบครัวและกลุ่มเพื่อนที่ขับรถมาเที่ยว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Deluxe Pool View ที่อยู่ใกล้สระ ลงเล่นน้ำสะดวก ราคาต่างจากห้องมาตรฐานไม่มาก · ทำเลนอกเมือง ถ้าไม่มีรถเตรียมเรียก Grab ไว้สำหรับเข้าเมืองและริมโขง และเช็กว่าราคารวมอาหารเช้าหรือไม่ก่อนจอง",
@@ -341,15 +509,29 @@
       "priceBig": "฿500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿500/คืน" },
-        { "type": "Deluxe River View with Balcony", "price": "฿800/คืน" },
-        { "type": "Grand Deluxe River View Triple", "price": "฿1,100/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿500/คืน"
+        },
+        {
+          "type": "Deluxe River View with Balcony",
+          "price": "฿800/คืน"
+        },
+        {
+          "type": "Grand Deluxe River View Triple",
+          "price": "฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baansabairimkhong/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-sabai-rimkhong.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-8514122/baan-sabai-rimkhong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-sabai-rim-khong-riverside-nong-khai.html",
-      "tags": ["🌅 ห้องวิวแม่น้ำมีระเบียง", "🚶 เดินถึงตลาดท่าเสด็จ", "💰 ราคาดีในทำเลริมโขง", "🌉 จุดต่อข้ามไปลาว"],
+      "tags": [
+        "🌅 ห้องวิวแม่น้ำมีระเบียง",
+        "🚶 เดินถึงตลาดท่าเสด็จ",
+        "💰 ราคาดีในทำเลริมโขง",
+        "🌉 จุดต่อข้ามไปลาว"
+      ],
       "addr": "168 หมู่ 3 ซอยประยูรเวศน์ ถนนแก้ววรวุฒิ ตำบลในเมือง อำเภอเมือง หนองคาย",
       "storyHtml": "Baan Sabai Rim Khong (บ้านสบายริมโขง) คือ <strong>เกสต์เฮาส์บูทีคริมแม่น้ำโขงที่คุ้มราคาในทำเลริมน้ำ</strong> คะแนน 8.0 จาก 110 รีวิว · เป็นเกสต์เฮาส์เล็กๆ ราว 15 ห้องที่วางตัวอยู่ริมตลิ่งแม่น้ำโขงกลางเมืองพอดี ห้อง Deluxe River View บางห้องมีระเบียงนั่งมองโขงได้ตรงๆ · เดินไปตลาดท่าเสด็จและร้านอาหารริมโขงได้สบาย ห่างสะพานมิตรภาพราว 3 กม. · เสียงจากรีวิวจริงชมทำเล วิวแม่น้ำ และบริการพนักงานที่เป็นกันเอง เหมาะคู่รักและนักเดินทางที่อยากตื่นมาเจอวิวแม่น้ำโขงในงบเบาๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จ่ายเพิ่มราว 200–300 บาทเลือกห้อง Deluxe River View ที่มีระเบียง — คุ้มค่าส่วนต่างที่สุดของที่นี่ · ขอห้องชั้นบนเพื่อเลี่ยงเสียงจากส่วนต้อนรับ และเดินไปกินเช้าที่ตลาดท่าเสด็จซึ่งอยู่ใกล้",
@@ -381,15 +563,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "฿1,200/คืน" },
-        { "type": "Deluxe River View", "price": "฿2,000/คืน" },
-        { "type": "Family Room", "price": "฿2,600/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "฿2,000/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/royal-mekong-nongkhai-hotel/hotel/nongkhai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/royal-mekong-nongkhai.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-5421035/royal-mekong-nongkhai-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-royal-mekong-nongkhai-hotel-nong-khai.html",
-      "tags": ["🌊 ตั้งติดริมแม่น้ำโขงโดยตรง", "🏊 สระว่ายน้ำติดแม่น้ำ", "🌉 ใกล้สะพานมิตรภาพ ~800 ม.", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌊 ตั้งติดริมแม่น้ำโขงโดยตรง",
+        "🏊 สระว่ายน้ำติดแม่น้ำ",
+        "🌉 ใกล้สะพานมิตรภาพ ~800 ม.",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "222 ถนนแก้ววรวุฒิ อำเภอเมืองหนองคาย",
       "storyHtml": "Royal Mekong Nongkhai Hotel คือ <strong>โรงแรมใหญ่ระดับ 4 ดาวกว่า 200 ห้องที่ตั้งอยู่ติดริมแม่น้ำโขงโดยตรงและมีรีวิวมากที่สุดในชุดนี้ถึง 320 รีวิว</strong> คะแนน 7.6 · จุดเด่นคือเป็นโรงแรมที่ตั้งติดริมแม่น้ำโขงจริง ไม่ใช่แค่ใกล้แม่น้ำ มีสระว่ายน้ำกลางแจ้งติดริมโขงให้ว่ายพร้อมมองแม่น้ำไหลผ่านและเห็นฝั่งลาว · ห่างสะพานมิตรภาพราว 800 เมตร มีที่จอดรถฟรี เหมาะคนข้ามแดน · เสียงจากรีวิวจริงชมห้องกว้าง วิวแม่น้ำ และสระติดน้ำ แต่บอกตรงว่าเป็นโรงแรมรุ่นเก่าที่บางส่วนรอการปรับปรุง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุห้องกลุ่ม River View หรือชั้นสูงที่หันออกแม่น้ำตั้งแต่ตอนจอง เพราะไม่ใช่ทุกห้องหันออกแม่น้ำและราคาต่างกันไม่มาก · ลงสระริมแม่น้ำช่วงเช้าตรู่หรือเย็นจะได้บรรยากาศและแสงสวยที่สุด",
@@ -421,15 +617,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Double Room", "price": "฿650/คืน" },
-        { "type": "Room with Balcony", "price": "฿900/คืน" },
-        { "type": "Family Room", "price": "฿1,100/คืน" }
+        {
+          "type": "Double Room",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Room with Balcony",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pantawee-hotel-branch-2/hotel/nong-khai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pantawee.html",
       "tripUrl": "https://www.trip.com/hotels/nong-khai-hotel-detail-8497531/pantawee-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pantawee-hotel-nong-khai.html",
-      "tags": ["🚶 เดินถึงตลาดท่าเสด็จ ~800 ม.", "🏊 มีสระว่ายน้ำ", "🗣️ พนักงานพูดอังกฤษได้ดี", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🚶 เดินถึงตลาดท่าเสด็จ ~800 ม.",
+        "🏊 มีสระว่ายน้ำ",
+        "🗣️ พนักงานพูดอังกฤษได้ดี",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "1049 ถนนไห่โศก (ย่านถนนมีชัย) อำเภอเมืองหนองคาย",
       "storyHtml": "Pantawee Hotel (โรงแรมพันทวี) คือ <strong>โรงแรมในเมืองเก่าที่นักเดินทางและคนข้ามไปเวียงจันทน์รู้จักกันดี และมีรีวิวเยอะถึง 266 รีวิว</strong> คะแนน 7.4 · จุดขายชัดเจนคือทำเลในย่านเมืองเก่า เดินไปตลาดท่าเสด็จ ถนนคนเดิน และริมแม่น้ำโขงได้ในราว 800 เมตร · มีสระว่ายน้ำ ร้านอาหารในตัว ที่จอดรถฟรี และพนักงานที่พูดอังกฤษได้ดีช่วยเรื่องทัวร์และข้ามด่าน · เสียงจากรีวิวจริงชมราคาคุ้มและบริการ แต่บอกตรงว่าเป็นโรงแรมเก่า ห้องและความสะอาดไม่สม่ำเสมอ เหมาะนักเดินทางสายประหยัดที่เน้นทำเลเดินเที่ยว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> คุณภาพห้องที่นี่ไม่เท่ากัน ตอนจองให้ขอห้องที่ปรับปรุงใหม่หรือชั้นที่เงียบกว่า และตรวจห้องน้ำกับที่นอนตอนเช็กอินก่อนรับห้อง · ใช้ที่นี่เป็นฐานเดินเที่ยวตลาดท่าเสด็จและริมโขงช่วงเย็นก่อนข้ามไปเวียงจันทน์วันรุ่งขึ้น",
@@ -447,37 +657,191 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม หนองคาย 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Amanta Hotel Nongkhai", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿1,300", "access": "📍 ในเมือง·ใกล้ริมโขง", "badge": "คะแนนสูงสุด·สกายบาร์", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Park & Pool Resort", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿900", "access": "📍 ใกล้สะพานมิตรภาพ", "badge": "สวนฝรั่งเศส·มีสระ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Asawann Hotel Nongkhai", "type": "⭐⭐⭐", "score": "9.1", "price": "฿900", "access": "📍 ใจกลางเมือง·ติดห้าง", "badge": "ติดห้าง·คุ้มราคา", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#0891b2", "name": "Tanzeno Hotel Nong Khai", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,150", "access": "📍 ในเมือง·ใกล้สะพานมิตรภาพ", "badge": "ห้องกว้างเกินราคา", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#0891b2", "name": "Na Rim Khong River View", "type": "⭐⭐⭐", "score": "8.9", "price": "฿2,500", "access": "📍 ริมโขง·ตลาดท่าเสด็จ", "badge": "ทุกห้องระเบียงวิวแม่น้ำ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "6", "rankColor": "#0891b2", "name": "Mut Mee Garden Guest House", "type": "⭐⭐", "score": "8.5", "price": "฿400", "access": "📍 ในสวนริมแม่น้ำโขง", "badge": "เกสต์เฮาส์ในตำนาน", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "PP Nongkhai Resort", "type": "⭐⭐", "score": "8.3", "price": "฿550", "access": "📍 ฝั่งทางออกสะพานมิตรภาพ", "badge": "บังกะโลมีสระคุ้มราคา", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Baan Sabai Rim Khong", "type": "⭐⭐⭐", "score": "8.0", "price": "฿500", "access": "📍 ริมโขง·เดินถึงตลาดท่าเสด็จ", "badge": "ริมโขงราคาดี", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FB7185", "name": "Royal Mekong Nongkhai Hotel", "type": "⭐⭐⭐⭐", "score": "7.6", "price": "฿1,200", "access": "📍 ติดริมแม่น้ำโขง·ใกล้สะพาน", "badge": "รีวิวมากสุด·ติดริมโขง", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "10", "rankColor": "#FB7185", "name": "Pantawee Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿650", "access": "📍 เมืองเก่า·เดินถึงริมโขง", "badge": "เดินถึงริมโขง·มีสระ" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Amanta Hotel Nongkhai",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,300",
+      "access": "📍 ในเมือง·ใกล้ริมโขง",
+      "badge": "คะแนนสูงสุด·สกายบาร์",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Park & Pool Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿900",
+      "access": "📍 ใกล้สะพานมิตรภาพ",
+      "badge": "สวนฝรั่งเศส·มีสระ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Asawann Hotel Nongkhai",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿900",
+      "access": "📍 ใจกลางเมือง·ติดห้าง",
+      "badge": "ติดห้าง·คุ้มราคา",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#0891b2",
+      "name": "Tanzeno Hotel Nong Khai",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,150",
+      "access": "📍 ในเมือง·ใกล้สะพานมิตรภาพ",
+      "badge": "ห้องกว้างเกินราคา",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#0891b2",
+      "name": "Na Rim Khong River View",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿2,500",
+      "access": "📍 ริมโขง·ตลาดท่าเสด็จ",
+      "badge": "ทุกห้องระเบียงวิวแม่น้ำ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#0891b2",
+      "name": "Mut Mee Garden Guest House",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿400",
+      "access": "📍 ในสวนริมแม่น้ำโขง",
+      "badge": "เกสต์เฮาส์ในตำนาน",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "PP Nongkhai Resort",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿550",
+      "access": "📍 ฝั่งทางออกสะพานมิตรภาพ",
+      "badge": "บังกะโลมีสระคุ้มราคา",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Baan Sabai Rim Khong",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿500",
+      "access": "📍 ริมโขง·เดินถึงตลาดท่าเสด็จ",
+      "badge": "ริมโขงราคาดี",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FB7185",
+      "name": "Royal Mekong Nongkhai Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿1,200",
+      "access": "📍 ติดริมแม่น้ำโขง·ใกล้สะพาน",
+      "badge": "รีวิวมากสุด·ติดริมโขง",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FB7185",
+      "name": "Pantawee Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿650",
+      "access": "📍 เมืองเก่า·เดินถึงริมโขง",
+      "badge": "เดินถึงริมโขง·มีสระ"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมหนองคายยังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "🌅", "head": "อยากนอนติดแม่น้ำโขง เห็นวิวจากห้อง", "bodyHtml": "→ <strong>Na Rim Khong River View</strong> ฿2,500 ทุกห้องมีระเบียงวิวแม่น้ำติดตลาดท่าเสด็จ · หรือ <strong>Royal Mekong</strong> ฿1,200 โรงแรมใหญ่ตั้งติดริมโขงมีสระติดแม่น้ำ" },
-    { "icon": "💰", "head": "งบจำกัด อยากได้ริมโขงราคาเบา", "bodyHtml": "→ <strong>Mut Mee Garden Guest House</strong> ฿400 เกสต์เฮาส์ในสวนริมโขงในตำนาน · หรือ <strong>Baan Sabai Rim Khong</strong> ฿500 ห้องวิวแม่น้ำมีระเบียง เดินถึงตลาดท่าเสด็จ" },
-    { "icon": "🌇", "head": "อยากได้โรงแรมในเมืองมีวิวแม่น้ำ", "bodyHtml": "→ <strong>Amanta Hotel Nongkhai</strong> ฿1,300 สกายบาร์รูฟท็อปวิวแม่น้ำโขง คะแนนสูงสุด 9.3 เดินถึงตลาดท่าเสด็จ" },
-    { "icon": "🏊", "head": "อยากได้สระว่ายน้ำในงบประหยัด", "bodyHtml": "→ <strong>Park & Pool Resort</strong> ฿900 สวนฝรั่งเศส สระ 16x8 เมตร · หรือ <strong>PP Nongkhai Resort</strong> ฿550 บังกะโลมีสระ ที่จอดรถฟรี" },
-    { "icon": "🛍️", "head": "มาแบบไม่มีรถ อยากเดินกินเดินช้อป", "bodyHtml": "→ <strong>Asawann Hotel</strong> ฿900 ติดศูนย์การค้าอัศวรรณ เดินถึง 7-Eleven และร้านอาหาร · หรือ <strong>Pantawee Hotel</strong> ฿650 เมืองเก่าเดินถึงตลาดท่าเสด็จ" },
-    { "icon": "🚗", "head": "ขับรถมาเอง อยากได้ห้องกว้าง จอดง่าย", "bodyHtml": "→ <strong>Tanzeno Hotel</strong> ฿1,150 ห้องกว้างเกินราคา ที่จอดรถกว้าง ใกล้สะพานมิตรภาพ · หรือ <strong>PP Nongkhai Resort</strong> ฿550 จอดรถถึงหน้าห้อง" },
-    { "icon": "🌉", "head": "จะข้ามไปเวียงจันทน์ ต่อรถไฟลาว-จีน", "bodyHtml": "→ <strong>Park & Pool Resort</strong> ฿900 เดิน 5 นาทีจากสถานีรถไฟ ใกล้ด่าน · หรือ <strong>Royal Mekong</strong> ฿1,200 ห่างสะพานมิตรภาพ ~800 ม." }
+    {
+      "icon": "🌅",
+      "head": "อยากนอนติดแม่น้ำโขง เห็นวิวจากห้อง",
+      "bodyHtml": "→ <strong>Na Rim Khong River View</strong> ฿2,500 ทุกห้องมีระเบียงวิวแม่น้ำติดตลาดท่าเสด็จ · หรือ <strong>Royal Mekong</strong> ฿1,200 โรงแรมใหญ่ตั้งติดริมโขงมีสระติดแม่น้ำ"
+    },
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้ริมโขงราคาเบา",
+      "bodyHtml": "→ <strong>Mut Mee Garden Guest House</strong> ฿400 เกสต์เฮาส์ในสวนริมโขงในตำนาน · หรือ <strong>Baan Sabai Rim Khong</strong> ฿500 ห้องวิวแม่น้ำมีระเบียง เดินถึงตลาดท่าเสด็จ"
+    },
+    {
+      "icon": "🌇",
+      "head": "อยากได้โรงแรมในเมืองมีวิวแม่น้ำ",
+      "bodyHtml": "→ <strong>Amanta Hotel Nongkhai</strong> ฿1,300 สกายบาร์รูฟท็อปวิวแม่น้ำโขง คะแนนสูงสุด 9.3 เดินถึงตลาดท่าเสด็จ"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้สระว่ายน้ำในงบประหยัด",
+      "bodyHtml": "→ <strong>Park & Pool Resort</strong> ฿900 สวนฝรั่งเศส สระ 16x8 เมตร · หรือ <strong>PP Nongkhai Resort</strong> ฿550 บังกะโลมีสระ ที่จอดรถฟรี"
+    },
+    {
+      "icon": "🛍️",
+      "head": "มาแบบไม่มีรถ อยากเดินกินเดินช้อป",
+      "bodyHtml": "→ <strong>Asawann Hotel</strong> ฿900 ติดศูนย์การค้าอัศวรรณ เดินถึง 7-Eleven และร้านอาหาร · หรือ <strong>Pantawee Hotel</strong> ฿650 เมืองเก่าเดินถึงตลาดท่าเสด็จ"
+    },
+    {
+      "icon": "🚗",
+      "head": "ขับรถมาเอง อยากได้ห้องกว้าง จอดง่าย",
+      "bodyHtml": "→ <strong>Tanzeno Hotel</strong> ฿1,150 ห้องกว้างเกินราคา ที่จอดรถกว้าง ใกล้สะพานมิตรภาพ · หรือ <strong>PP Nongkhai Resort</strong> ฿550 จอดรถถึงหน้าห้อง"
+    },
+    {
+      "icon": "🌉",
+      "head": "จะข้ามไปเวียงจันทน์ ต่อรถไฟลาว-จีน",
+      "bodyHtml": "→ <strong>Park & Pool Resort</strong> ฿900 เดิน 5 นาทีจากสถานีรถไฟ ใกล้ด่าน · หรือ <strong>Royal Mekong</strong> ฿1,200 ห่างสะพานมิตรภาพ ~800 ม."
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · หนองคายเป็นเมืองชายแดนที่คนแวะพักต่อไปเวียงจันทน์-ลาวบ่อย ช่วงเทศกาลออกพรรษาและบั้งไฟพญานาค (ตุลาคม) รวมถึงฤดูหนาว (พ.ย.–ม.ค.) ซึ่งเป็นไฮซีซั่น ห้องเต็มเร็วและราคาขยับขึ้น ควรจองล่วงหน้า 1–2 เดือน · หนองคายไม่มีรถไฟฟ้า ใช้ Grab หรือรถรับจ้างสะดวก · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมหนองคาย",
   "faq": [
-    { "q": "❓ ควรพักย่านไหนในหนองคาย?", "a": "ขึ้นกับสไตล์การเที่ยว · <strong>ริมแม่น้ำโขง · ตลาดท่าเสด็จ</strong> เหมาะคนที่อยากตื่นมาเจอแม่น้ำ เดินตลาดและของกินริมน้ำ (Na Rim Khong, Mut Mee, Baan Sabai, Royal Mekong) · <strong>ใจกลางเมือง · ถนนมิตรภาพ</strong> เหมาะคนเน้นห้าง ร้านอาหาร และเดินทางสะดวก (Amanta, Asawann, Tanzeno) · <strong>ใกล้สะพานมิตรภาพ</strong> เหมาะคนจะข้ามไปเวียงจันทน์หรือต่อรถไฟลาว-จีน (Park & Pool, PP Nongkhai) · ทุกย่านเรียก Grab หรือรถรับจ้างถึงกันสะดวก" },
-    { "q": "❓ โรงแรมหนองคายราคาเท่าไหร่?", "a": "ราคาหลากหลาย: เกสต์เฮาส์และที่พักริมโขงราคาประหยัดเริ่มราว ฿400–600 ต่อคืน · โรงแรมในเมือง 3 ดาวราว ฿650–1,150 · โรงแรมและรีสอร์ท 4 ดาวราว ฿900–1,300 · บูทีคริมโขงห้องระเบียงวิวแม่น้ำเริ่มราว ฿2,500 · ช่วงเทศกาลออกพรรษา บั้งไฟพญานาค และฤดูหนาวซึ่งเป็นไฮซีซั่น ราคาขยับขึ้นและห้องเต็มเร็ว" },
-    { "q": "❓ ที่พักไหนในหนองคายติดริมแม่น้ำโขงจริงๆ?", "a": "ที่พักที่ตั้งติดริมน้ำหรือมีห้องวิวแม่น้ำได้แก่ <strong>Na Rim Khong River View</strong> (ทุกห้องมีระเบียงวิวแม่น้ำ ติดตลาดท่าเสด็จ), <strong>Royal Mekong</strong> (โรงแรมใหญ่ตั้งติดริมโขงมีสระติดแม่น้ำ), <strong>Mut Mee</strong> และ <strong>Baan Sabai Rim Khong</strong> (เกสต์เฮาส์ริมโขงราคาประหยัด) · ส่วน Amanta อยู่ในเมืองแต่มีสกายบาร์รูฟท็อปมองเห็นแม่น้ำโขง · ถ้าเน้นวิวจากห้อง ควรระบุห้อง River View ตั้งแต่ตอนจอง" },
-    { "q": "❓ มาหนองคายเพื่อข้ามไปเวียงจันทน์ ควรพักที่ไหน?", "a": "เลือกที่พักฝั่งใกล้สะพานมิตรภาพไทย-ลาวจะออกเดินทางตอนเช้าสะดวก · <strong>Park & Pool Resort</strong> เดิน 5 นาทีจากสถานีรถไฟและใกล้ด่าน มีรถรับ-ส่งฟรี · <strong>PP Nongkhai Resort</strong> ฝั่งถนนออกไปสะพานมิตรภาพ ขับ 10–15 นาทีถึงด่าน · <strong>Royal Mekong</strong> ห่างสะพานราว 800 เมตร เหมาะคนต่อรถไฟลาว-จีน · ส่วนใหญ่มีที่จอดรถฟรีสำหรับคนขับมาเอง" },
-    { "q": "❓ ควรจองโรงแรมหนองคายล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาทั่วไปจองล่วงหน้า 1–2 สัปดาห์พอ · แต่ช่วง <strong>เทศกาลออกพรรษาและบั้งไฟพญานาค (ตุลาคม)</strong> รวมถึง <strong>ฤดูหนาว (พ.ย.–ม.ค.) ซึ่งเป็นไฮซีซั่น</strong> โรงแรมและที่พักริมโขงในเมืองเต็มเร็วมากและราคาขยับขึ้น ควรจองล่วงหน้า 1–2 เดือน โดยเฉพาะห้องวิวแม่น้ำที่มีจำนวนจำกัด" },
-    { "q": "❓ จองโรงแรมหนองคายเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน" }
-  ]
+    {
+      "q": "❓ ควรพักย่านไหนในหนองคาย?",
+      "a": "ขึ้นกับสไตล์การเที่ยว · <strong>ริมแม่น้ำโขง · ตลาดท่าเสด็จ</strong> เหมาะคนที่อยากตื่นมาเจอแม่น้ำ เดินตลาดและของกินริมน้ำ (Na Rim Khong, Mut Mee, Baan Sabai, Royal Mekong) · <strong>ใจกลางเมือง · ถนนมิตรภาพ</strong> เหมาะคนเน้นห้าง ร้านอาหาร และเดินทางสะดวก (Amanta, Asawann, Tanzeno) · <strong>ใกล้สะพานมิตรภาพ</strong> เหมาะคนจะข้ามไปเวียงจันทน์หรือต่อรถไฟลาว-จีน (Park & Pool, PP Nongkhai) · ทุกย่านเรียก Grab หรือรถรับจ้างถึงกันสะดวก"
+    },
+    {
+      "q": "❓ โรงแรมหนองคายราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: เกสต์เฮาส์และที่พักริมโขงราคาประหยัดเริ่มราว ฿400–600 ต่อคืน · โรงแรมในเมือง 3 ดาวราว ฿650–1,150 · โรงแรมและรีสอร์ท 4 ดาวราว ฿900–1,300 · บูทีคริมโขงห้องระเบียงวิวแม่น้ำเริ่มราว ฿2,500 · ช่วงเทศกาลออกพรรษา บั้งไฟพญานาค และฤดูหนาวซึ่งเป็นไฮซีซั่น ราคาขยับขึ้นและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ ที่พักไหนในหนองคายติดริมแม่น้ำโขงจริงๆ?",
+      "a": "ที่พักที่ตั้งติดริมน้ำหรือมีห้องวิวแม่น้ำได้แก่ <strong>Na Rim Khong River View</strong> (ทุกห้องมีระเบียงวิวแม่น้ำ ติดตลาดท่าเสด็จ), <strong>Royal Mekong</strong> (โรงแรมใหญ่ตั้งติดริมโขงมีสระติดแม่น้ำ), <strong>Mut Mee</strong> และ <strong>Baan Sabai Rim Khong</strong> (เกสต์เฮาส์ริมโขงราคาประหยัด) · ส่วน Amanta อยู่ในเมืองแต่มีสกายบาร์รูฟท็อปมองเห็นแม่น้ำโขง · ถ้าเน้นวิวจากห้อง ควรระบุห้อง River View ตั้งแต่ตอนจอง"
+    },
+    {
+      "q": "❓ มาหนองคายเพื่อข้ามไปเวียงจันทน์ ควรพักที่ไหน?",
+      "a": "เลือกที่พักฝั่งใกล้สะพานมิตรภาพไทย-ลาวจะออกเดินทางตอนเช้าสะดวก · <strong>Park & Pool Resort</strong> เดิน 5 นาทีจากสถานีรถไฟและใกล้ด่าน มีรถรับ-ส่งฟรี · <strong>PP Nongkhai Resort</strong> ฝั่งถนนออกไปสะพานมิตรภาพ ขับ 10–15 นาทีถึงด่าน · <strong>Royal Mekong</strong> ห่างสะพานราว 800 เมตร เหมาะคนต่อรถไฟลาว-จีน · ส่วนใหญ่มีที่จอดรถฟรีสำหรับคนขับมาเอง"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมหนองคายล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาทั่วไปจองล่วงหน้า 1–2 สัปดาห์พอ · แต่ช่วง <strong>เทศกาลออกพรรษาและบั้งไฟพญานาค (ตุลาคม)</strong> รวมถึง <strong>ฤดูหนาว (พ.ย.–ม.ค.) ซึ่งเป็นไฮซีซั่น</strong> โรงแรมและที่พักริมโขงในเมืองเต็มเร็วมากและราคาขยับขึ้น ควรจองล่วงหน้า 1–2 เดือน โดยเฉพาะห้องวิวแม่น้ำที่มีจำนวนจำกัด"
+    },
+    {
+      "q": "❓ จองโรงแรมหนองคายเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมหนองคายจากทุกระดับ — โรงแรมในเมืองมีสกายบาร์วิวแม่น้ำโขง รีสอร์ทสวนมีสระ บูทีคริมโขงทุกห้องมีระเบียง เกสต์เฮาส์ในสวนริมโขง ไปจนถึงที่พักริมน้ำเริ่ม ฿400 เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

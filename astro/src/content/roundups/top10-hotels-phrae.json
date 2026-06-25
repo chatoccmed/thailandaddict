@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "แพร่", "href": "city-phrae.html" },
-    { "name": "12 โรงแรมแพร่ยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "แพร่",
+      "href": "city-phrae.html"
+    },
+    {
+      "name": "12 โรงแรมแพร่ยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "แพร่", "item": "https://thailandaddict.com/city-phrae" },
-    { "name": "12 โรงแรมแพร่ยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-phrae" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "แพร่",
+      "item": "https://thailandaddict.com/city-phrae"
+    },
+    {
+      "name": "12 โรงแรมแพร่ยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-phrae"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-phrae.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "แพร่ไม่มีรถไฟฟ้า เมืองกะทัดรัดและที่พักหลายแห่งอยู่ในเวียงที่เดินถึงกันได้ · เดินทางมาแพร่ได้ทั้งรถทัวร์ลงสถานีขนส่ง รถไฟลงเด่นชัยแล้วต่อรถ หรือบินลงสนามบินแพร่แล้วเข้าเมืองราว 10 นาที · ในเมืองเรียกรถหรือเช่ามอเตอร์ไซค์/รถสะดวก · ทำเลหลักในบทความนี้: <strong>ในเวียง (เมืองเก่า)</strong> — คุ้มเจ้าหลวง กาดกองเก่า วัดหลวง ถนนคนเดิน เดินถึงกันได้ · <strong>ริมแม่น้ำยม</strong> — เงียบสงบ ใกล้ถนนคนเดิน · <strong>ทุ่งโฮ้ง</strong> — ย่านผ้าหม้อห้อม ทางขึ้นพระธาตุช่อแฮ · <strong>ชานเมือง (ป่าแมต·บ้านถิ่น·สวนเขื่อน)</strong> — บรรยากาศสงบ กลางทุ่งนา เหมาะขับรถมาเอง · เกือบทุกที่พักมีที่จอดรถ",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Huen Him Kong Hotel Phrae", "price": "฿850" },
-    { "n": "2", "color": "#06B6D4", "name": "Hug Inn Phrae", "price": "฿900" },
-    { "n": "3", "color": "#06B6D4", "name": "The Indigo House Phrae", "price": "฿790" },
-    { "n": "4", "color": "#06B6D4", "name": "PhoomThai Garden Hotel", "price": "฿900" },
-    { "n": "5", "color": "#FB7185", "name": "Come Moon Loft Hotel", "price": "฿650" },
-    { "n": "6", "color": "#FB7185", "name": "Need A Nap Hostel Phrae", "price": "฿650" },
-    { "n": "7", "color": "#FB7185", "name": "SuanGlangNa Homestay", "price": "฿657" },
-    { "n": "8", "color": "#FB7185", "name": "Hop Inn Phrae", "price": "฿730" },
-    { "n": "9", "color": "#FBBF24", "name": "B2 Phrae Boutique & Budget Hotel", "price": "฿590" },
-    { "n": "10", "color": "#FBBF24", "name": "Baanthep Antique Homestay", "price": "฿800" },
-    { "n": "11", "color": "#FBBF24", "name": "Taris Art Hotel Phrae", "price": "฿650" },
-    { "n": "12", "color": "#FBBF24", "name": "Huern Na Na Boutique Hotel", "price": "฿890" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Huen Him Kong Hotel Phrae",
+      "price": "฿850"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Hug Inn Phrae",
+      "price": "฿900"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Indigo House Phrae",
+      "price": "฿790"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "PhoomThai Garden Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Come Moon Loft Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Need A Nap Hostel Phrae",
+      "price": "฿650"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "SuanGlangNa Homestay",
+      "price": "฿657"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Hop Inn Phrae",
+      "price": "฿730"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "B2 Phrae Boutique & Budget Hotel",
+      "price": "฿590"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Baanthep Antique Homestay",
+      "price": "฿800"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "Taris Art Hotel Phrae",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "Huern Na Na Boutique Hotel",
+      "price": "฿890"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior King Room", "price": "฿850/คืน" },
-        { "type": "Double Room with Balcony", "price": "฿950/คืน" },
-        { "type": "Twin Room with Balcony", "price": "฿1,000/คืน" }
+        {
+          "type": "Superior King Room",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Double Room with Balcony",
+          "price": "฿950/คืน"
+        },
+        {
+          "type": "Twin Room with Balcony",
+          "price": "฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/h22355882/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermehuue-nhimk-ng.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-100658910/huen-him-kong-hotel-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-huen-him-kong-phrae.html",
-      "tags": ["🏛️ ใจกลางเมืองเก่า", "🛏️ บ้านพักอบอุ่น 9 ห้อง", "🌿 ห้องมีระเบียง", "🚶 เดินถึงคุ้มเจ้าหลวง"],
+      "tags": [
+        "🏛️ ใจกลางเมืองเก่า",
+        "🛏️ บ้านพักอบอุ่น 9 ห้อง",
+        "🌿 ห้องมีระเบียง",
+        "🚶 เดินถึงคุ้มเจ้าหลวง"
+      ],
       "addr": "16/1 ซอยชุมชนวัดหลวง ต.ทุ่งกวาว อ.เมืองแพร่",
       "storyHtml": "Huen Him Kong คือ <strong>บูทีกเล็กเพียง 9 ห้องใจกลางเมืองเก่าแพร่ที่เสียงรีวิวลงตัวที่สุดในบทความนี้</strong> คะแนน 8.8 จาก 327 รีวิว · จุดที่แขกชอบคือบรรยากาศบ้านพักอบอุ่นเหมือนมาพักบ้านญาติ พนักงานดูแลดี และทำเลในเวียงที่เดินถึงคุ้มเจ้าหลวง วัดหลวง และกาดกองเก่าได้ · ห้องที่มีระเบียงนั่งรับลมบรรยากาศเมืองเก่าคือไฮไลต์ ราคาเริ่ม ฿850 ถือว่าคุ้มกับทำเลและคะแนน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่มีระเบียง (Double/Twin with Balcony) จะได้บรรยากาศเมืองเก่าเต็มที่ · โรงแรมเล็กห้องน้อย คืนวันหยุดและช่วงเทศกาลเต็มเร็ว ควรจองล่วงหน้า",
@@ -104,16 +201,33 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Twin Room (รวมอาหารเช้า)", "price": "฿900/คืน" },
-        { "type": "Deluxe Double (รวมอาหารเช้า)", "price": "฿1,000/คืน" },
-        { "type": "King Room (รวมอาหารเช้า)", "price": "฿1,200/คืน" },
-        { "type": "Family Room (พัก 6)", "price": "฿2,200/คืน" }
+        {
+          "type": "Twin Room (รวมอาหารเช้า)",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Deluxe Double (รวมอาหารเช้า)",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "King Room (รวมอาหารเช้า)",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Family Room (พัก 6)",
+          "price": "฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hug-inn-phrae-hotel/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hug-inn-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-22123846/hug-inn-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hug-inn-phrae.html",
-      "tags": ["🏆 คะแนนสูง 9.2", "🧱 ลอฟต์อินดัสเทรียลโทนหม้อห้อม", "🍳 รวมอาหารเช้า", "👨‍👩‍👧 มี Family Room พัก 6"],
+      "tags": [
+        "🏆 คะแนนสูง 9.2",
+        "🧱 ลอฟต์อินดัสเทรียลโทนหม้อห้อม",
+        "🍳 รวมอาหารเช้า",
+        "👨‍👩‍👧 มี Family Room พัก 6"
+      ],
       "addr": "ถนนเทศบาล 2 ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Hug Inn คือ <strong>บูทีก B&B ที่ได้คะแนนสูงสุดในกลุ่ม 3 ดาวของบทความนี้ที่ 9.2</strong> · จุดเด่นคืองานตกแต่งสไตล์ลอฟต์อินดัสเทรียลผสมโทนสีหม้อห้อมแบบแพร่ ทุกห้องราคารวมอาหารเช้า และเจ้าของดูแลเป็นกันเองเหมือนมาพักบ้านเพื่อน · ทำเลในเวียงเดินเที่ยวเมืองเก่าได้ · มี Family Room ขนาด 80 ตร.ม. พักได้ถึง 6 คน 2 ห้องน้ำ เหมาะมากันหลายคน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> King Room เพดานสูงมีมุมนั่งเล่นคุ้มถ้าอยากได้ห้องโปร่ง · มากันครอบครัวหรือกลุ่มเพื่อนเลือก Family Room ที่นอนได้ 6 คนคุ้มกว่าจองหลายห้อง",
@@ -145,16 +259,33 @@
       "priceBig": "฿790",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (~22 ตร.ม.)", "price": "฿790/คืน" },
-        { "type": "Superior Room (~29 ตร.ม.)", "price": "฿890/คืน" },
-        { "type": "Deluxe Room (~38 ตร.ม.)", "price": "฿990/คืน" },
-        { "type": "Family Room (พัก 3)", "price": "฿1,190/คืน" }
+        {
+          "type": "Standard Room (~22 ตร.ม.)",
+          "price": "฿790/คืน"
+        },
+        {
+          "type": "Superior Room (~29 ตร.ม.)",
+          "price": "฿890/คืน"
+        },
+        {
+          "type": "Deluxe Room (~38 ตร.ม.)",
+          "price": "฿990/คืน"
+        },
+        {
+          "type": "Family Room (พัก 3)",
+          "price": "฿1,190/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-indigo-house-phrae/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-indigo-house-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-9943104/the-indigo-house-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-indigo-house-phrae.html",
-      "tags": ["🎨 ธีมผ้าหม้อห้อมทั้งโรงแรม", "🛏️ ห้องกว้างหลายขนาด", "🚗 ทางขึ้นพระธาตุช่อแฮ", "👨‍👩‍👧 มี Family Room"],
+      "tags": [
+        "🎨 ธีมผ้าหม้อห้อมทั้งโรงแรม",
+        "🛏️ ห้องกว้างหลายขนาด",
+        "🚗 ทางขึ้นพระธาตุช่อแฮ",
+        "👨‍👩‍👧 มี Family Room"
+      ],
       "addr": "39 หมู่ 5 ถ.ยันตรกิจโกศล ทุ่งโฮ้ง เมืองแพร่",
       "storyHtml": "The Indigo House คือ <strong>บูทีกธีมผ้าหม้อห้อมย่านทุ่งโฮ้งที่มีรีวิวเยอะถึง 275 รีวิว</strong> คะแนน 8.6 · จุดเด่นคือดีไซน์ที่หยิบเอกลักษณ์ผ้าหม้อห้อมของแพร่มาเล่าทั้งโรงแรม สวยถ่ายรูปได้ และห้องมีให้เลือกหลายขนาดตั้งแต่ Standard ถึง Family · ทำเลทุ่งโฮ้งเหมาะคนขับรถมาเองที่จะขึ้นพระธาตุช่อแฮหรือซื้อผ้าหม้อห้อม · ราคาเริ่ม ฿790 คุ้มสำหรับบูทีกที่มีดีไซน์ชัดเจน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Deluxe กว้างขึ้นและบางห้องมีระเบียง คุ้มถ้าอยากได้พื้นที่ · อยู่ย่านทุ่งโฮ้งซื้อผ้าหม้อห้อมสะดวก แต่ขับเข้าเมืองเก่าราว 5–10 นาที",
@@ -186,15 +317,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "฿900/คืน" },
-        { "type": "Superior Twin Room", "price": "฿1,000/คืน" },
-        { "type": "Grand Deluxe Room", "price": "฿1,300/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Superior Twin Room",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "Grand Deluxe Room",
+          "price": "฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phoomthai-garden-hotel/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-phoomthai-garden-hotel-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-1990840/phoom-thai-garden-hotel-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phoomthai-garden-phrae.html",
-      "tags": ["🌳 สวนล้านนาไม้สัก", "🏊 มีสระว่ายน้ำ + สปา", "🛏️ ห้องมีระเบียง", "🚗 ที่จอดรถกว้าง"],
+      "tags": [
+        "🌳 สวนล้านนาไม้สัก",
+        "🏊 มีสระว่ายน้ำ + สปา",
+        "🛏️ ห้องมีระเบียง",
+        "🚗 ที่จอดรถกว้าง"
+      ],
       "addr": "31 ถนนศศิบุตร ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "PhoomThai Garden คือ <strong>โรงแรมสวนล้านนากลางเมืองที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 1,109 รีวิว</strong> คะแนน 8.1 · จุดเด่นคือบรรยากาศสวนไม้สักร่มรื่น มีสระว่ายน้ำและสปาในตัว ซึ่งหาไม่ค่อยได้ในที่พักราคานี้ที่แพร่ · ทำเลในเวียงกลางเมือง ขับหรือเดินไปเที่ยวเมืองเก่าได้ · เป็นตัวเลือกที่ลงตัวสำหรับครอบครัวที่อยากได้ทั้งสระและทำเลกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Grand Deluxe กว้างมีโซฟาเบดคุ้มถ้ามากันหลายคน · เป็นโรงแรมเก่าที่ดูแลต่อเนื่อง บางอาคารดูเดิมไปบ้าง ขอห้องโซนที่รีโนเวตจะใหม่กว่า",
@@ -226,14 +371,25 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double (~20 ตร.ม.)", "price": "฿650/คืน" },
-        { "type": "Standard Twin (~20 ตร.ม.)", "price": "฿700/คืน" }
+        {
+          "type": "Standard Double (~20 ตร.ม.)",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Standard Twin (~20 ตร.ม.)",
+          "price": "฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/come-moon-loft-hotel/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/come-moon-loft.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-7040037/come-moon-loft-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-come-moon-loft-phrae.html",
-      "tags": ["🌊 ริมแม่น้ำยม", "🧱 ดีไซน์ลอฟต์", "🚶 ใกล้ถนนคนเดิน", "💰 ราคาเริ่มเบา"],
+      "tags": [
+        "🌊 ริมแม่น้ำยม",
+        "🧱 ดีไซน์ลอฟต์",
+        "🚶 ใกล้ถนนคนเดิน",
+        "💰 ราคาเริ่มเบา"
+      ],
       "addr": "7 ถนนเชตะวัน ซอย 1 ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Come Moon Loft คือ <strong>บูทีกสไตล์ลอฟต์ริมแม่น้ำยมในตัวเมืองที่ราคาเริ่มเบาแค่ ฿650</strong> คะแนน 8.7 · จุดเด่นคือดีไซน์ลอฟต์ปูนเปลือยที่ดูดิบเท่ และทำเลริมแม่น้ำยมใกล้ถนนคนเดิน เดินเที่ยวกลางคืนได้สะดวก · ห้องไม่ใหญ่แต่ตกแต่งสะอาดเรียบ เหมาะคู่รักหรือเพื่อนที่เน้นทำเลและดีไซน์ในราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันแบบอยากนอนแยกเตียงเลือก Standard Twin · ที่นี่เน้นทำเลและดีไซน์ ห้องไม่ใหญ่ ถ้าอยากได้พื้นที่กว้างต้องดูที่พักประเภทอื่น",
@@ -265,16 +421,33 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "฿650/คืน" },
-        { "type": "Standard Twin", "price": "฿700/คืน" },
-        { "type": "Triple (ห้องน้ำในตัว)", "price": "฿900/คืน" },
-        { "type": "Duplex Quadruple (พัก 4)", "price": "฿1,300/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "Triple (ห้องน้ำในตัว)",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Duplex Quadruple (พัก 4)",
+          "price": "฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/need-a-nap-hostel-phrae/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-need-a-nap-hostel-phrae-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-58626361/need-a-nap-hostel-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-need-a-nap-hostel-phrae.html",
-      "tags": ["🎒 โฮสเทล+คาเฟ่", "☕ คาเฟ่ในตัว", "🚪 ห้องส่วนตัวมีห้องน้ำในตัว", "🚶 กลางเมืองเก่า"],
+      "tags": [
+        "🎒 โฮสเทล+คาเฟ่",
+        "☕ คาเฟ่ในตัว",
+        "🚪 ห้องส่วนตัวมีห้องน้ำในตัว",
+        "🚶 กลางเมืองเก่า"
+      ],
       "addr": "118 ถนนเจริญเมือง ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Need A Nap คือ <strong>โฮสเทลพร้อมคาเฟ่ที่ได้คะแนนสูงสุดในกลุ่มที่พักราคานี้ที่ 9.3 จาก 100 รีวิว</strong> · จุดที่แขกชอบคือความสะอาด ตกแต่งสไตล์มินิมอล มีคาเฟ่ในตัวสำหรับนั่งชิล และห้องส่วนตัวที่มีห้องน้ำในตัวให้เลือก ไม่ต้องแชร์ · ทำเลในเวียงกลางเมืองเก่า เดินเที่ยวและหาของกินได้สะดวก · ราคาเริ่ม ฿650 เหมาะนักเดินทางคนเดียว คู่รัก หรือกลุ่มเพื่อนที่เน้นคุ้ม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากัน 3–4 คนเลือก Triple ที่มีห้องน้ำในตัว หรือ Duplex Quadruple คุ้มกว่าจองหลายห้อง · แวะคาเฟ่ในตัวตอนเช้าก่อนออกเที่ยวได้บรรยากาศดี",
@@ -306,16 +479,33 @@
       "priceBig": "฿657",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "ห้องเตียงแฝด วิวสวน", "price": "฿657/คืน" },
-        { "type": "ห้องเตียงควีน วิวภูเขา", "price": "฿790/คืน" },
-        { "type": "ห้องเตียงคิง วิวคอร์ตยาร์ด", "price": "฿900/คืน" },
-        { "type": "ห้องครอบครัว", "price": "฿1,100/คืน" }
+        {
+          "type": "ห้องเตียงแฝด วิวสวน",
+          "price": "฿657/คืน"
+        },
+        {
+          "type": "ห้องเตียงควีน วิวภูเขา",
+          "price": "฿790/คืน"
+        },
+        {
+          "type": "ห้องเตียงคิง วิวคอร์ตยาร์ด",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "ห้องครอบครัว",
+          "price": "฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/suanglangna-homestay/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/suanglangna-homestay.html",
       "tripUrl": "https://th.trip.com/hotels/phrae-hotel-detail-48595019/suan-glang-na-homestay/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-suanglangna-homestay-phrae.html",
-      "tags": ["🌾 บ้านพักกลางทุ่งนา", "⛰️ ห้องวิวภูเขา-ทุ่งนา", "🌿 ตกแต่งแนวธรรมชาติ", "🤫 เงียบสงบเป็นส่วนตัว"],
+      "tags": [
+        "🌾 บ้านพักกลางทุ่งนา",
+        "⛰️ ห้องวิวภูเขา-ทุ่งนา",
+        "🌿 ตกแต่งแนวธรรมชาติ",
+        "🤫 เงียบสงบเป็นส่วนตัว"
+      ],
       "addr": "9/2 หมู่ 9 ต.สวนเขื่อน อ.เมืองแพร่",
       "storyHtml": "SuanGlangNa คือ <strong>โฮมสเตย์บูทีกกลางทุ่งนาที่ได้คะแนนสูงสุดในบทความนี้ที่ 9.4</strong> · จุดขายคือบรรยากาศบ้านพักกลางทุ่งนาวิวภูเขาที่เงียบสงบและเป็นส่วนตัว ตกแต่งแนวธรรมชาติ เหมาะคนที่อยากหนีความวุ่นวายมาพักจริงๆ · มีห้องให้เลือกหลายวิวทั้งสวน ภูเขา และคอร์ตยาร์ด · อยู่ชานเมืองย่านสวนเขื่อน/บ้านถิ่น เหมาะคนขับรถมาเอง ราคาเริ่ม ฿657 ถือว่าคุ้มมากกับคะแนนระดับนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้วิวสวยเลือกห้องเตียงควีนวิวภูเขา · ที่นี่อยู่ชานเมืองกลางทุ่ง เตรียมรถมาเองและซื้อของกินมาเผื่อ เพราะร้านรอบๆ ไม่เยอะ",
@@ -347,16 +537,33 @@
       "priceBig": "฿730",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard King", "price": "฿730/คืน" },
-        { "type": "Standard Twin", "price": "฿790/คืน" },
-        { "type": "Standard King (วันหยุด)", "price": "฿890/คืน" },
-        { "type": "Standard Twin (วันหยุด)", "price": "฿950/คืน" }
+        {
+          "type": "Standard King",
+          "price": "฿730/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿790/คืน"
+        },
+        {
+          "type": "Standard King (วันหยุด)",
+          "price": "฿890/คืน"
+        },
+        {
+          "type": "Standard Twin (วันหยุด)",
+          "price": "฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-phrae/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-131298175/hop-inn-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-phrae.html",
-      "tags": ["🛏️ เชนมาตรฐานสะอาด", "🚗 ที่จอดรถฟรี", "📶 Wi-Fi ฟรี", "🚶 ในเวียงกลางเมือง"],
+      "tags": [
+        "🛏️ เชนมาตรฐานสะอาด",
+        "🚗 ที่จอดรถฟรี",
+        "📶 Wi-Fi ฟรี",
+        "🚶 ในเวียงกลางเมือง"
+      ],
       "addr": "38 ถนนราษฎร์ดำเนิน ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Hop Inn คือ <strong>โรงแรมเชนประหยัดที่ได้มาตรฐานคงเส้นคงวา คะแนนสูงถึง 9.2</strong> · จุดเด่นคือห้องสะอาด เตียงสบาย มาตรฐานเดียวกันทุกสาขา ไม่ต้องลุ้น เหมาะคนที่อยากได้ที่นอนสะอาดราคาประหยัดในทำเลกลางเมือง · มีที่จอดรถฟรีและ Wi-Fi ฟรี · ห้องไม่หวือหวาแต่เหมาะกับคนเน้นนอนพักคืนเดียวระหว่างทางหรือคนที่ไม่อยากเสี่ยงกับที่พักแปลกใหม่",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ราคาช่วงวันหยุดยาวและเทศกาลขยับขึ้น จองล่วงหน้าได้ราคาดีกว่า · เป็นที่พักเน้นนอนสะอาด ไม่มีสระหรืออาหารเช้าใหญ่ เตรียมหาของกินรอบๆ เมือง",
@@ -388,15 +595,29 @@
       "priceBig": "฿590",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room (~21 ตร.ม.)", "price": "฿590/คืน" },
-        { "type": "Deluxe Room (~21 ตร.ม.)", "price": "฿690/คืน" },
-        { "type": "Junior Suite (~30 ตร.ม.)", "price": "฿990/คืน" }
+        {
+          "type": "Superior Room (~21 ตร.ม.)",
+          "price": "฿590/คืน"
+        },
+        {
+          "type": "Deluxe Room (~21 ตร.ม.)",
+          "price": "฿690/คืน"
+        },
+        {
+          "type": "Junior Suite (~30 ตร.ม.)",
+          "price": "฿990/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/b2-phrae-boutique-budget-hotel/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/b2-phrae-boutique-budget.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-25207320/b2-phrae-boutique-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-phrae-boutique-budget-phrae.html",
-      "tags": ["💰 ถูกสุดในบทความ ฿590", "🛏️ เชนบัดเจ็ตมาตรฐาน", "🚗 ที่จอดรถฟรี", "👨‍👩‍👧 มี Junior Suite"],
+      "tags": [
+        "💰 ถูกสุดในบทความ ฿590",
+        "🛏️ เชนบัดเจ็ตมาตรฐาน",
+        "🚗 ที่จอดรถฟรี",
+        "👨‍👩‍👧 มี Junior Suite"
+      ],
       "addr": "224 หมู่ 7 ถนนพญาพล ต.ป่าแมต อ.เมืองแพร่",
       "storyHtml": "B2 Phrae คือ <strong>โรงแรมเชนบัดเจ็ตที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿590 และมีรีวิวเยอะถึง 596 รีวิว</strong> คะแนน 8.6 · จุดเด่นคือมาตรฐานเชน B2 ที่ห้องสะอาด เตียงสบาย ราคาเบามาก เหมาะคนเน้นประหยัดที่ขับรถมาเอง · ทำเลย่านป่าแมตชานเมือง ขับเข้าเมืองเก่าไม่ไกล · มี Junior Suite ขนาด 30 ตร.ม. สำหรับครอบครัวเล็ก ที่จอดรถฟรี",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือครอบครัวเล็กเลือก Junior Suite ที่กว้างกว่าคุ้มกว่า · อยู่ชานเมืองย่านป่าแมต เตรียมรถมาเองสะดวกที่สุด เพราะต้องขับเข้าเมืองเก่า",
@@ -428,15 +649,29 @@
       "priceBig": "฿800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard King", "price": "฿800/คืน" },
-        { "type": "Standard Twin", "price": "฿850/คืน" },
-        { "type": "Deluxe Family Suite", "price": "฿1,100/คืน" }
+        {
+          "type": "Standard King",
+          "price": "฿800/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Deluxe Family Suite",
+          "price": "฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/baanthep-antique-homestay/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-thep.html",
       "tripUrl": "https://th.trip.com/hotels/phrae-hotel-detail-7627793/baanthep-antique-homestay/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baanthep-antique-homestay-phrae.html",
-      "tags": ["🪵 บ้านไม้สักสะสมของเก่า", "🏛️ ในกำแพงเมืองเก่า", "🚗 ที่จอดรถฟรี", "🚶 ใกล้กาดกองเก่า"],
+      "tags": [
+        "🪵 บ้านไม้สักสะสมของเก่า",
+        "🏛️ ในกำแพงเมืองเก่า",
+        "🚗 ที่จอดรถฟรี",
+        "🚶 ใกล้กาดกองเก่า"
+      ],
       "addr": "8/1 ถนนเทศบาล 2 ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Baanthep คือ <strong>โฮมสเตย์ในเรือนไม้สักเก่าที่เต็มไปด้วยของสะสมโบราณ เหมือนพักในพิพิธภัณฑ์</strong> คะแนน 9.0 · จุดขายคือบรรยากาศบ้านไม้สักดั้งเดิมและของเก่าที่เจ้าของสะสม ให้ฟีลย้อนยุคแบบที่หาไม่ได้ในโรงแรมทั่วไป · ทำเลในกำแพงเมืองเก่า เดินถึงกาดกองเก่าและกำแพงเมืองได้ · มี Family Suite สำหรับครอบครัว ที่จอดรถฟรี เหมาะคนที่อยากได้ที่พักมีเรื่องเล่าในเมืองเก่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันครอบครัวเลือก Deluxe Family Suite ที่กว้างขึ้น · เป็นเรือนไม้เก่า บรรยากาศย้อนยุคแต่สิ่งอำนวยความสะดวกแบบโฮมสเตย์ ถ้าชอบของเก่าและบ้านไม้จะถูกใจมาก",
@@ -468,16 +703,33 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Twin", "price": "฿650/คืน" },
-        { "type": "Superior Double/Twin", "price": "฿720/คืน" },
-        { "type": "Deluxe (วันหยุด)", "price": "฿850/คืน" },
-        { "type": "Junior Suite", "price": "฿1,050/คืน" }
+        {
+          "type": "Deluxe Twin",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Superior Double/Twin",
+          "price": "฿720/คืน"
+        },
+        {
+          "type": "Deluxe (วันหยุด)",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "฿1,050/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/taris-art-hotel-phrae/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/taris-art-phrae-phrae.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-7306233/taris-art-hotel-phrae/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-taris-art-hotel-phrae.html",
-      "tags": ["🎨 ตกแต่งแนวอาร์ต", "🚶 ในเวียงกลางเมือง", "🚗 ที่จอดรถ", "💰 ราคาประหยัด"],
+      "tags": [
+        "🎨 ตกแต่งแนวอาร์ต",
+        "🚶 ในเวียงกลางเมือง",
+        "🚗 ที่จอดรถ",
+        "💰 ราคาประหยัด"
+      ],
       "addr": "69 ถนนราชดำเนิน ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Taris Art คือ <strong>โรงแรมประหยัดแนวอาร์ตในเวียงกลางเมืองที่เริ่มแค่ ฿650</strong> คะแนน 8.2 จาก 92 รีวิว · จุดเด่นคือการตกแต่งแนวอาร์ตที่ดูมีสีสันกว่าที่พักราคาเดียวกัน และทำเลในเวียงที่เดินเที่ยวเมืองได้ · ห้องไม่ใหญ่แต่สะอาดและมีให้เลือกหลายแบบตั้งแต่ Deluxe Twin ถึง Junior Suite · เหมาะคนงบประหยัดที่อยากได้ที่พักมีดีไซน์เล็กน้อยกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ราคาช่วงวันหยุดขยับขึ้น จองล่วงหน้าได้เปรียบ · มากันหลายคนเลือก Junior Suite ที่กว้างสุด · ห้องไม่ใหญ่ เน้นนอนพักและเดินเที่ยวเมือง",
@@ -509,16 +761,33 @@
       "priceBig": "฿890",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Queen", "price": "฿890/คืน" },
-        { "type": "Deluxe Twin", "price": "฿990/คืน" },
-        { "type": "Victoria Suite (~72 ตร.ม.)", "price": "฿1,800/คืน" },
-        { "type": "Empire Suite (~72 ตร.ม.)", "price": "฿2,000/คืน" }
+        {
+          "type": "Deluxe Queen",
+          "price": "฿890/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "฿990/คืน"
+        },
+        {
+          "type": "Victoria Suite (~72 ตร.ม.)",
+          "price": "฿1,800/คืน"
+        },
+        {
+          "type": "Empire Suite (~72 ตร.ม.)",
+          "price": "฿2,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/huern-na-na-boutique-hotel/hotel/phrae-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/huern-na-na-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/phrae-hotel-detail-712007/huernnana-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-huern-na-na-boutique-phrae.html",
-      "tags": ["🏊 สระว่ายน้ำเกลือ", "🛏️ มีห้องสวีทกว้าง", "🚶 ในเวียงกลางเมือง", "🚗 ที่จอดรถ"],
+      "tags": [
+        "🏊 สระว่ายน้ำเกลือ",
+        "🛏️ มีห้องสวีทกว้าง",
+        "🚶 ในเวียงกลางเมือง",
+        "🚗 ที่จอดรถ"
+      ],
       "addr": "7/9 ถนนศศิบุตร ต.ในเวียง อ.เมืองแพร่",
       "storyHtml": "Huern Na Na คือ <strong>โรงแรมบูทีกในเวียงที่มีสระว่ายน้ำเกลือ — หายากสำหรับที่พักในเมืองแพร่</strong> · จุดเด่นคือสระว่ายน้ำและห้องสวีทกว้างถึง 72 ตร.ม. สำหรับโอกาสพิเศษ · ทำเลในเวียงกลางเมือง เดินเที่ยวเมืองเก่าได้ · คะแนนเฉลี่ยอยู่ที่ 7.4 ซึ่งต่ำกว่าตัวอื่นในบทความ เพราะรีวิวบางส่วนพูดถึงการดูแลและบริการที่ไม่สม่ำเสมอ — แต่ถ้าจุดหลักคืออยากได้สระว่ายน้ำกลางเมืองในราคาเริ่ม ฿890 ที่นี่ยังเป็นตัวเลือกที่หายาก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เช็กรีวิวล่าสุดและสภาพห้องก่อนจอง เพราะมาตรฐานไม่สม่ำเสมอ · อยากได้พื้นที่กว้างเลือกห้องสวีท · จุดขายหลักคือสระว่ายน้ำ ถ้าไม่เน้นสระมีตัวเลือกคะแนนสูงกว่าในบทความ",
@@ -536,39 +805,214 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม แพร่ 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Huen Him Kong Hotel Phrae", "type": "⭐⭐⭐", "score": "8.8", "price": "฿850", "access": "📍 ในเวียงเมืองเก่า", "badge": "เมืองเก่า คะแนนเด่น", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Hug Inn Phrae", "type": "⭐⭐⭐", "score": "9.2", "price": "฿900", "access": "📍 ในเวียงเมืองเก่า", "badge": "คะแนนสูง·รวมอาหารเช้า", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Indigo House Phrae", "type": "⭐⭐⭐", "score": "8.6", "price": "฿790", "access": "📍 ทุ่งโฮ้ง·ช่อแฮ", "badge": "ธีมหม้อห้อม·รีวิวเยอะ", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "PhoomThai Garden Hotel", "type": "⭐⭐⭐", "score": "8.1", "price": "฿900", "access": "📍 ในเวียงกลางเมือง", "badge": "รีวิวมากสุด·มีสระ", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Come Moon Loft Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿650", "access": "📍 ริมแม่น้ำยม", "badge": "ริมน้ำ·สไตล์ลอฟต์", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Need A Nap Hostel Phrae", "type": "⭐⭐", "score": "9.3", "price": "฿650", "access": "📍 ในเวียงกลางเมือง", "badge": "โฮสเทล+คาเฟ่ คะแนนสูง", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "SuanGlangNa Homestay", "type": "⭐⭐", "score": "9.4", "price": "฿657", "access": "📍 สวนเขื่อน·ชานเมือง", "badge": "คะแนนสูงสุด·กลางทุ่งนา", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Hop Inn Phrae", "type": "⭐⭐", "score": "9.2", "price": "฿730", "access": "📍 ในเวียงกลางเมือง", "badge": "เชนมาตรฐาน คะแนนสูง", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "B2 Phrae Boutique & Budget Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿590", "access": "📍 ป่าแมต·ชานเมือง", "badge": "ถูกสุด·เชนบัดเจ็ต", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Baanthep Antique Homestay", "type": "⭐⭐", "score": "9.0", "price": "฿800", "access": "📍 ในกำแพงเมืองเก่า", "badge": "บ้านไม้สักของเก่า", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "Taris Art Hotel Phrae", "type": "⭐⭐", "score": "8.2", "price": "฿650", "access": "📍 ในเวียงกลางเมือง", "badge": "แนวอาร์ต·ประหยัด", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "Huern Na Na Boutique Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿890", "access": "📍 ในเวียงกลางเมือง", "badge": "มีสระว่ายน้ำเกลือ", "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Huen Him Kong Hotel Phrae",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿850",
+      "access": "📍 ในเวียงเมืองเก่า",
+      "badge": "เมืองเก่า คะแนนเด่น",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Hug Inn Phrae",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿900",
+      "access": "📍 ในเวียงเมืองเก่า",
+      "badge": "คะแนนสูง·รวมอาหารเช้า",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Indigo House Phrae",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿790",
+      "access": "📍 ทุ่งโฮ้ง·ช่อแฮ",
+      "badge": "ธีมหม้อห้อม·รีวิวเยอะ",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "PhoomThai Garden Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿900",
+      "access": "📍 ในเวียงกลางเมือง",
+      "badge": "รีวิวมากสุด·มีสระ",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Come Moon Loft Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿650",
+      "access": "📍 ริมแม่น้ำยม",
+      "badge": "ริมน้ำ·สไตล์ลอฟต์",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Need A Nap Hostel Phrae",
+      "type": "⭐⭐",
+      "score": "9.3",
+      "price": "฿650",
+      "access": "📍 ในเวียงกลางเมือง",
+      "badge": "โฮสเทล+คาเฟ่ คะแนนสูง",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "SuanGlangNa Homestay",
+      "type": "⭐⭐",
+      "score": "9.4",
+      "price": "฿657",
+      "access": "📍 สวนเขื่อน·ชานเมือง",
+      "badge": "คะแนนสูงสุด·กลางทุ่งนา",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Hop Inn Phrae",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿730",
+      "access": "📍 ในเวียงกลางเมือง",
+      "badge": "เชนมาตรฐาน คะแนนสูง",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "B2 Phrae Boutique & Budget Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿590",
+      "access": "📍 ป่าแมต·ชานเมือง",
+      "badge": "ถูกสุด·เชนบัดเจ็ต",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Baanthep Antique Homestay",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿800",
+      "access": "📍 ในกำแพงเมืองเก่า",
+      "badge": "บ้านไม้สักของเก่า",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "Taris Art Hotel Phrae",
+      "type": "⭐⭐",
+      "score": "8.2",
+      "price": "฿650",
+      "access": "📍 ในเวียงกลางเมือง",
+      "badge": "แนวอาร์ต·ประหยัด",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "Huern Na Na Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿890",
+      "access": "📍 ในเวียงกลางเมือง",
+      "badge": "มีสระว่ายน้ำเกลือ",
+      "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมแพร่ยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🏛️", "head": "อยากเดินเที่ยวเมืองเก่า ในเวียง", "bodyHtml": "→ <strong>Huen Him Kong Hotel</strong> ฿850 บูทีกใจกลางเมืองเก่า คะแนน 8.8 · <strong>Hug Inn Phrae</strong> ฿900 B&B รวมอาหารเช้า คะแนน 9.2 · หรือ <strong>Baanthep Antique Homestay</strong> ฿800 บ้านไม้สักในกำแพง" },
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>B2 Phrae</strong> ฿590 เชนบัดเจ็ตถูกสุด · <strong>Come Moon Loft</strong> ฿650 ลอฟต์ริมน้ำ · หรือ <strong>Taris Art Hotel</strong> ฿650 แนวอาร์ตในเมือง" },
-    { "icon": "🎒", "head": "นักเดินทางคนเดียว เน้นโฮสเทล", "bodyHtml": "→ <strong>Need A Nap Hostel</strong> ฿650 โฮสเทล+คาเฟ่ คะแนน 9.3 กลางเมืองเก่า · ห้องส่วนตัวมีห้องน้ำในตัวให้เลือก" },
-    { "icon": "🌾", "head": "อยากพักสงบ กลางทุ่งนา ธรรมชาติ", "bodyHtml": "→ <strong>SuanGlangNa Homestay</strong> ฿657 โฮมสเตย์กลางทุ่งนาวิวภูเขา คะแนนสูงสุด 9.4 · เงียบสงบเป็นส่วนตัว เหมาะขับรถมาเอง" },
-    { "icon": "🏊", "head": "อยากได้ที่พักมีสระว่ายน้ำ", "bodyHtml": "→ <strong>PhoomThai Garden Hotel</strong> ฿900 สวนล้านนามีสระและสปา กลางเมือง · หรือ <strong>Huern Na Na Boutique</strong> ฿890 มีสระเกลือในเวียง" },
-    { "icon": "🎨", "head": "อยากได้ดีไซน์ ถ่ายรูปสวย", "bodyHtml": "→ <strong>The Indigo House</strong> ฿790 ธีมผ้าหม้อห้อมทั้งโรงแรม ย่านทุ่งโฮ้ง · หรือ <strong>Come Moon Loft</strong> ฿650 ลอฟต์ปูนเปลือยริมแม่น้ำยม" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัวหรือกลุ่มเพื่อน", "bodyHtml": "→ <strong>Hug Inn Phrae</strong> ฿900 มี Family Room พัก 6 · <strong>PhoomThai Garden</strong> ฿900 Grand Deluxe มีสระ · หรือ <strong>Need A Nap</strong> ฿650 Duplex Quadruple พัก 4" }
+    {
+      "icon": "🏛️",
+      "head": "อยากเดินเที่ยวเมืองเก่า ในเวียง",
+      "bodyHtml": "→ <strong>Huen Him Kong Hotel</strong> ฿850 บูทีกใจกลางเมืองเก่า คะแนน 8.8 · <strong>Hug Inn Phrae</strong> ฿900 B&B รวมอาหารเช้า คะแนน 9.2 · หรือ <strong>Baanthep Antique Homestay</strong> ฿800 บ้านไม้สักในกำแพง"
+    },
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>B2 Phrae</strong> ฿590 เชนบัดเจ็ตถูกสุด · <strong>Come Moon Loft</strong> ฿650 ลอฟต์ริมน้ำ · หรือ <strong>Taris Art Hotel</strong> ฿650 แนวอาร์ตในเมือง"
+    },
+    {
+      "icon": "🎒",
+      "head": "นักเดินทางคนเดียว เน้นโฮสเทล",
+      "bodyHtml": "→ <strong>Need A Nap Hostel</strong> ฿650 โฮสเทล+คาเฟ่ คะแนน 9.3 กลางเมืองเก่า · ห้องส่วนตัวมีห้องน้ำในตัวให้เลือก"
+    },
+    {
+      "icon": "🌾",
+      "head": "อยากพักสงบ กลางทุ่งนา ธรรมชาติ",
+      "bodyHtml": "→ <strong>SuanGlangNa Homestay</strong> ฿657 โฮมสเตย์กลางทุ่งนาวิวภูเขา คะแนนสูงสุด 9.4 · เงียบสงบเป็นส่วนตัว เหมาะขับรถมาเอง"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้ที่พักมีสระว่ายน้ำ",
+      "bodyHtml": "→ <strong>PhoomThai Garden Hotel</strong> ฿900 สวนล้านนามีสระและสปา กลางเมือง · หรือ <strong>Huern Na Na Boutique</strong> ฿890 มีสระเกลือในเวียง"
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้ดีไซน์ ถ่ายรูปสวย",
+      "bodyHtml": "→ <strong>The Indigo House</strong> ฿790 ธีมผ้าหม้อห้อมทั้งโรงแรม ย่านทุ่งโฮ้ง · หรือ <strong>Come Moon Loft</strong> ฿650 ลอฟต์ปูนเปลือยริมแม่น้ำยม"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัวหรือกลุ่มเพื่อน",
+      "bodyHtml": "→ <strong>Hug Inn Phrae</strong> ฿900 มี Family Room พัก 6 · <strong>PhoomThai Garden</strong> ฿900 Grand Deluxe มีสระ · หรือ <strong>Need A Nap</strong> ฿650 Duplex Quadruple พัก 4"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณจากช่วงราคาห้องมาตรฐานจริง อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวและเทศกาล (ปีใหม่ สงกรานต์ และช่วงงานประเพณีของแพร่) ราคาสูงขึ้นและห้องเต็มเร็ว ควรจองล่วงหน้า · แพร่ไม่มีรถไฟฟ้า มาได้ทั้งรถทัวร์ รถไฟลงเด่นชัย หรือบินลงสนามบินแพร่ ที่พักหลายแห่งอยู่ในเวียงเดินถึงกันได้ ส่วนชานเมืองเหมาะขับรถมาเอง เกือบทุกที่พักมีที่จอดรถ · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมแพร่",
   "faq": [
-    { "q": "❓ พักทำเลไหนดีในแพร่สำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับแผนเที่ยว · อยากเดินเที่ยวเมืองเก่าเลือก <strong>ในเวียง</strong> (Huen Him Kong, Hug Inn, Need A Nap, Baanthep, Hop Inn, Taris Art) ที่เดินถึงคุ้มเจ้าหลวง กาดกองเก่า และถนนคนเดิน · อยากได้บรรยากาศริมน้ำเลือก <strong>ริมแม่น้ำยม</strong> (Come Moon Loft) · จะขึ้นพระธาตุช่อแฮหรือซื้อผ้าหม้อห้อมเลือก <strong>ทุ่งโฮ้ง</strong> (The Indigo House) · อยากพักสงบหรือกลางทุ่งนาเลือก <strong>ชานเมือง</strong> (SuanGlangNa, B2)" },
-    { "q": "❓ โรงแรมแพร่ราคาเท่าไหร่?", "a": "แพร่เป็นเมืองที่ที่พักราคาเบา: ที่พักประหยัด โฮสเทล และโฮมสเตย์เริ่มราว ฿590–800 ต่อคืน · บูทีกและโรงแรม 3 ดาวในเมืองราว ฿790–900 · ห้องสวีทหรือห้องครอบครัวราว ฿1,100–2,200 · ราคาสูงขึ้นช่วงวันหยุดยาวและเทศกาล ควรจองล่วงหน้า" },
-    { "q": "❓ ไปแพร่ไม่มีรถส่วนตัว เที่ยวได้ไหม?", "a": "ได้ ถ้าพัก <strong>ในเวียง</strong> เพราะที่พักและจุดเที่ยวเมืองเก่าอย่างคุ้มเจ้าหลวง กาดกองเก่า วัดหลวง เดินถึงกันได้ · แต่ถ้าอยากไปพระธาตุช่อแฮ ทุ่งโฮ้ง หรือที่พักชานเมืองกลางทุ่ง การมีรถจะสะดวกกว่ามาก · ในเมืองเรียกรถหรือเช่ามอเตอร์ไซค์ได้ และหลายที่พักมีที่จอดรถสำหรับคนขับรถมาเอง" },
-    { "q": "❓ จองโรงแรมแพร่เว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน" },
-    { "q": "❓ ไปแพร่ช่วงไหนดีที่สุด?", "a": "หน้าหนาว (พ.ย.–ก.พ.) อากาศดีที่สุด เหมาะเดินเที่ยวเมืองเก่าและขึ้นพระธาตุช่อแฮ · ช่วงเทศกาลและงานประเพณีของแพร่ บรรยากาศคึกคักแต่ห้องเต็มเร็ว ควรจองล่วงหน้า · หน้าฝนเมืองเขียวสดและที่พักกลางทุ่งนาบรรยากาศดี แต่ควรเตรียมรับฝน" },
-    { "q": "❓ ที่พักในเวียงกับชานเมืองแพร่ ต่างกันยังไง?", "a": "<strong>ในเวียง (เมืองเก่าในกำแพง)</strong> เหมาะถ้าเน้นเดินเที่ยวเมืองเก่า กินของอร่อย และอยากเดินถึงทุกที่โดยไม่ต้องขับรถ · <strong>ชานเมือง (ป่าแมต บ้านถิ่น สวนเขื่อน)</strong> เหมาะคนขับรถมาเองที่อยากได้บรรยากาศสงบ กลางทุ่งนา หรือราคาเบากว่า แต่ต้องขับเข้าเมืองเที่ยว · ถ้าไม่มีรถแนะนำพักในเวียงจะสะดวกที่สุด" }
-  ]
+    {
+      "q": "❓ พักทำเลไหนดีในแพร่สำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับแผนเที่ยว · อยากเดินเที่ยวเมืองเก่าเลือก <strong>ในเวียง</strong> (Huen Him Kong, Hug Inn, Need A Nap, Baanthep, Hop Inn, Taris Art) ที่เดินถึงคุ้มเจ้าหลวง กาดกองเก่า และถนนคนเดิน · อยากได้บรรยากาศริมน้ำเลือก <strong>ริมแม่น้ำยม</strong> (Come Moon Loft) · จะขึ้นพระธาตุช่อแฮหรือซื้อผ้าหม้อห้อมเลือก <strong>ทุ่งโฮ้ง</strong> (The Indigo House) · อยากพักสงบหรือกลางทุ่งนาเลือก <strong>ชานเมือง</strong> (SuanGlangNa, B2)"
+    },
+    {
+      "q": "❓ โรงแรมแพร่ราคาเท่าไหร่?",
+      "a": "แพร่เป็นเมืองที่ที่พักราคาเบา: ที่พักประหยัด โฮสเทล และโฮมสเตย์เริ่มราว ฿590–800 ต่อคืน · บูทีกและโรงแรม 3 ดาวในเมืองราว ฿790–900 · ห้องสวีทหรือห้องครอบครัวราว ฿1,100–2,200 · ราคาสูงขึ้นช่วงวันหยุดยาวและเทศกาล ควรจองล่วงหน้า"
+    },
+    {
+      "q": "❓ ไปแพร่ไม่มีรถส่วนตัว เที่ยวได้ไหม?",
+      "a": "ได้ ถ้าพัก <strong>ในเวียง</strong> เพราะที่พักและจุดเที่ยวเมืองเก่าอย่างคุ้มเจ้าหลวง กาดกองเก่า วัดหลวง เดินถึงกันได้ · แต่ถ้าอยากไปพระธาตุช่อแฮ ทุ่งโฮ้ง หรือที่พักชานเมืองกลางทุ่ง การมีรถจะสะดวกกว่ามาก · ในเมืองเรียกรถหรือเช่ามอเตอร์ไซค์ได้ และหลายที่พักมีที่จอดรถสำหรับคนขับรถมาเอง"
+    },
+    {
+      "q": "❓ จองโรงแรมแพร่เว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน"
+    },
+    {
+      "q": "❓ ไปแพร่ช่วงไหนดีที่สุด?",
+      "a": "หน้าหนาว (พ.ย.–ก.พ.) อากาศดีที่สุด เหมาะเดินเที่ยวเมืองเก่าและขึ้นพระธาตุช่อแฮ · ช่วงเทศกาลและงานประเพณีของแพร่ บรรยากาศคึกคักแต่ห้องเต็มเร็ว ควรจองล่วงหน้า · หน้าฝนเมืองเขียวสดและที่พักกลางทุ่งนาบรรยากาศดี แต่ควรเตรียมรับฝน"
+    },
+    {
+      "q": "❓ ที่พักในเวียงกับชานเมืองแพร่ ต่างกันยังไง?",
+      "a": "<strong>ในเวียง (เมืองเก่าในกำแพง)</strong> เหมาะถ้าเน้นเดินเที่ยวเมืองเก่า กินของอร่อย และอยากเดินถึงทุกที่โดยไม่ต้องขับรถ · <strong>ชานเมือง (ป่าแมต บ้านถิ่น สวนเขื่อน)</strong> เหมาะคนขับรถมาเองที่อยากได้บรรยากาศสงบ กลางทุ่งนา หรือราคาเบากว่า แต่ต้องขับเข้าเมืองเที่ยว · ถ้าไม่มีรถแนะนำพักในเวียงจะสะดวกที่สุด"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมแพร่คัดจากทุกระดับ — ตั้งแต่บูทีคในเมืองเก่า โฮมสเตย์บ้านไม้สัก ไปจนถึงโฮสเทลและที่พักประหยัดเริ่ม ฿590 เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

@@ -16,16 +16,39 @@
     "✅ Honest take from <strong>real reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Nakhon Phanom", "href": "city-nakhon-phanom.html" },
-    { "name": "Top 10 Nakhon Phanom Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Nakhon Phanom",
+      "href": "city-nakhon-phanom.html"
+    },
+    {
+      "name": "Top 10 Nakhon Phanom Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Nakhon Phanom", "item": "https://thailandaddict.com/en/city-nakhon-phanom" },
-    { "name": "Top 10 Nakhon Phanom Hotels", "item": "https://thailandaddict.com/en/top10-hotels-nakhon-phanom" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Nakhon Phanom",
+      "item": "https://thailandaddict.com/en/city-nakhon-phanom"
+    },
+    {
+      "name": "Top 10 Nakhon Phanom Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-nakhon-phanom"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-nakhon-phanom.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "Nakhon Phanom has no metro; the town is compact, and Grab, local taxis, or rented motorbikes/bicycles are the easiest way around. Nakhon Phanom Airport (KOP) is about 17–20 km from town (around 20 minutes by car). The main areas in this guide: <strong>Sunthon Wichit Riverside</strong> — the Mekong promenade, the Walking Street (Fri–Sun), and the Phaya Sri Sattanakarat naga statue · <strong>Town Centre</strong> — the city pillar shrine, the Vietnamese clock tower, the Indochina Market, all within walking distance of the river · <strong>That Phanom District</strong> — Wat Phra That Phanom and the That Phanom riverfront, around 50 minutes by car from the town.",
   "secLabel": "All 10 hotels — let's dive in",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Fortune River View Hotel", "price": "฿1,500" },
-    { "n": "2", "color": "#c8a951", "name": "Fortune View Khong Hotel", "price": "฿1,200" },
-    { "n": "3", "color": "#c8a951", "name": "Chewa Khong Nakhon Phanom", "price": "฿1,100" },
-    { "n": "4", "color": "#9e9e9e", "name": "NAKA-RAJ Escape Hotel", "price": "฿3,300" },
-    { "n": "5", "color": "#9e9e9e", "name": "Pawnprathan Baan Rim Khong", "price": "฿3,800" },
-    { "n": "6", "color": "#9e9e9e", "name": "Non Nakorn Hotel and Bistro", "price": "฿1,000" },
-    { "n": "7", "color": "#9e9e9e", "name": "Nonrada Boutique Hotel", "price": "฿650" },
-    { "n": "8", "color": "#bf8040", "name": "Porpiang Hotel", "price": "฿550" },
-    { "n": "9", "color": "#bf8040", "name": "Na That Phanom Place Hotel", "price": "฿850" },
-    { "n": "10", "color": "#5d4037", "name": "Aranya Hostel Spa and Cafe Riverside", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Fortune River View Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Fortune View Khong Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Chewa Khong Nakhon Phanom",
+      "price": "฿1,100"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "NAKA-RAJ Escape Hotel",
+      "price": "฿3,300"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Pawnprathan Baan Rim Khong",
+      "price": "฿3,800"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Non Nakorn Hotel and Bistro",
+      "price": "฿1,000"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Nonrada Boutique Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Porpiang Hotel",
+      "price": "฿550"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Na That Phanom Place Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Aranya Hostel Spa and Cafe Riverside",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,500",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Superior (City View)", "price": "฿1,500/night" },
-        { "type": "Deluxe River View (35 sqm)", "price": "฿1,800/night" },
-        { "type": "Junior Suite (52 sqm)", "price": "฿3,200/night" }
+        {
+          "type": "Superior (City View)",
+          "price": "฿1,500/night"
+        },
+        {
+          "type": "Deluxe River View (35 sqm)",
+          "price": "฿1,800/night"
+        },
+        {
+          "type": "Junior Suite (52 sqm)",
+          "price": "฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/fortune-river-view-hotel-nakhon-phanom/hotel/nakhonpanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/fortune-riverview-nakhonphanom.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-1525700/fortune-river-view-nakhon-phanom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-fortune-river-view-nakhon-phanom.html",
-      "tags": ["🌅 Every room faces the Mekong", "🏊 Outdoor pool", "🚲 Free bicycles", "📍 Walk to Walking Street"],
+      "tags": [
+        "🌅 Every room faces the Mekong",
+        "🏊 Outdoor pool",
+        "🚲 Free bicycles",
+        "📍 Walk to Walking Street"
+      ],
       "addr": "9 Nakhon Phanom-That Phanom Rd, Nai Mueang, Nakhon Phanom",
       "storyHtml": "The most reviewed hotel in this guide at 520 reviews, scoring 9.0 — Fortune River View is a <strong>4-star Mekong riverside hotel in the town centre where all 122 rooms face the river</strong>, none looking out on a wall. Open the curtains to the Mekong with the Lao mountains behind it; there's an outdoor pool, a riverside restaurant, and free bicycles for cycling the promenade. It's a few steps from the riverside walkway and the Walking Street.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a higher floor that doesn't face the riverside road — you'll get the full Mekong view and avoid the riverside bar noise in the evening.",
@@ -102,15 +189,29 @@
       "priceBig": "฿1,200",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Superior City View", "price": "฿1,200/night" },
-        { "type": "Deluxe River View (35 sqm)", "price": "฿1,500/night" },
-        { "type": "Suite River View (90 sqm)", "price": "฿2,600/night" }
+        {
+          "type": "Superior City View",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Deluxe River View (35 sqm)",
+          "price": "฿1,500/night"
+        },
+        {
+          "type": "Suite River View (90 sqm)",
+          "price": "฿2,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/fortune-viewkong-hotel/hotel/nakhonpanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/fortune-viewkong.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-7605477/fortune-viewkong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-fortune-view-khong-nakhon-phanom.html",
-      "tags": ["🌅 Balcony river-view rooms", "🍽️ Riverside restaurant", "📍 Sunthon Wichit Rd", "🅿️ Free parking"],
+      "tags": [
+        "🌅 Balcony river-view rooms",
+        "🍽️ Riverside restaurant",
+        "📍 Sunthon Wichit Rd",
+        "🅿️ Free parking"
+      ],
       "addr": "527 Soi Sunthon Wichit Rd, Nai Mueang, Nakhon Phanom",
       "storyHtml": "Fortune View Khong is a Mekong riverside boutique on Sunthon Wichit Road whose selling point is <strong>river-side rooms with a private balcony looking across the Mekong to Laos</strong>, scoring 9.1 from 250 reviews. Renovated in 2019, it has a riverside restaurant on the ground floor and a varied breakfast that guests praise. You can walk along the river to the Walking Street and the Phaya Sri Sattanakarat naga statue — all at an affordable price.",
       "tipHtml": "💡 <strong>Tip:</strong> Confirm a river-view room with a balcony at booking — the city-side rooms are cheaper but miss the view that's the whole point of staying here.",
@@ -142,15 +243,29 @@
       "priceBig": "฿1,100",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Standard City View", "price": "฿1,100/night" },
-        { "type": "Superior River View", "price": "฿1,400/night" },
-        { "type": "High-floor River View", "price": "฿1,700/night" }
+        {
+          "type": "Standard City View",
+          "price": "฿1,100/night"
+        },
+        {
+          "type": "Superior River View",
+          "price": "฿1,400/night"
+        },
+        {
+          "type": "High-floor River View",
+          "price": "฿1,700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chewa-khong-hotel-nakhon-phanom-sha-certified/hotel/nakhonpanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chewa-khong-nakhon-phanom.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-102300528/chewa-khong-hotel-nakhon-phanom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chewa-khong-nakhon-phanom.html",
-      "tags": ["🏊 Rooftop pool over the Mekong", "✨ New building, clean rooms", "🚲 Bikes/scooters for hire", "🌊 Balcony river-view rooms"],
+      "tags": [
+        "🏊 Rooftop pool over the Mekong",
+        "✨ New building, clean rooms",
+        "🚲 Bikes/scooters for hire",
+        "🌊 Balcony river-view rooms"
+      ],
       "addr": "5/121 Nakhon Phanom-Tha Uthen Rd, Acha Samat, Nakhon Phanom",
       "storyHtml": "Chewa Khong opened around 2023 on the Mekong north of town, scoring 9.1. Its standout is the <strong>rooftop infinity-style pool with a full view of the Mekong and the Lao side</strong>, best in the late afternoon as the light hits the water. The building is new and the bright rooms draw praise for cleanliness, and there are bicycles and electric scooters for hire to ride the riverside into town.",
       "tipHtml": "💡 <strong>Tip:</strong> Confirm a river-view room with a balcony, and use the rooftop pool in the evening to catch the sunset over the Mekong.",
@@ -182,15 +297,29 @@
       "priceBig": "฿3,300",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "฿3,300/night" },
-        { "type": "Junior Suite", "price": "฿4,200/night" },
-        { "type": "Penthouse Suite (~100 sqm)", "price": "฿7,500/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "฿3,300/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "฿4,200/night"
+        },
+        {
+          "type": "Penthouse Suite (~100 sqm)",
+          "price": "฿7,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nakarach-hotel-nakhon-phanom/hotel/nakhon-phanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nakarach-nakhon-phanom.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-114728361/naka-raj-escape-hotel-nakhon-phanom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-naka-raj-escape-nakhon-phanom.html",
-      "tags": ["🌊 Riverside infinity pool", "🛏️ New rooms with kitchenettes", "🤫 Small 17-room boutique", "🌄 Lao mountain views"],
+      "tags": [
+        "🌊 Riverside infinity pool",
+        "🛏️ New rooms with kitchenettes",
+        "🤫 Small 17-room boutique",
+        "🌄 Lao mountain views"
+      ],
       "addr": "171 Moo 2, Acha Samat, Mueang Nakhon Phanom",
       "storyHtml": "NAKA-RAJ Escape is a <strong>4-star boutique hotel that opened in 2024 on the Mekong with just 17 rooms</strong>, scoring 9.0 and 5.0/5 on TripAdvisor. The star is the riverside infinity pool, where you soak while looking across to the Lao mountains; rooms are new and clean and several have kitchenettes, making it a private riverside retreat. The trade-off is the location out in Acha Samat, about 15 minutes from town — you'll want a car.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a room facing the Mekong with a balcony, and for longer stays choose a suite with a kitchenette since dining options nearby are limited.",
@@ -222,15 +351,29 @@
       "priceBig": "฿3,800",
       "priceSub": "Starting price/night (whole house)",
       "rooms": [
-        { "type": "Whole house (2 guests)", "price": "฿3,800/night" },
-        { "type": "3-bedroom house (family)", "price": "฿5,500/night" },
-        { "type": "3-bedroom house (large group)", "price": "฿6,500/night" }
+        {
+          "type": "Whole house (2 guests)",
+          "price": "฿3,800/night"
+        },
+        {
+          "type": "3-bedroom house (family)",
+          "price": "฿5,500/night"
+        },
+        {
+          "type": "3-bedroom house (large group)",
+          "price": "฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/city/nakhon-phanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/city/th/nakhon-phanom.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotels-list-61497/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pawnprathan-baan-rim-khong-nakhon-phanom.html",
-      "tags": ["🏡 Rent the whole house", "🌊 Full Mekong view", "👨‍👩‍👧 Great for families/groups", "🐉 Near the naga statue"],
+      "tags": [
+        "🏡 Rent the whole house",
+        "🌊 Full Mekong view",
+        "👨‍👩‍👧 Great for families/groups",
+        "🐉 Near the naga statue"
+      ],
       "addr": "122 Sunthon Wichit Rd, Nai Mueang, Mueang Nakhon Phanom",
       "storyHtml": "Pawnprathan Baan Rim Khong breaks from the usual hotel — it's a <strong>3-bedroom Mekong-side house you rent whole on Sunthon Wichit Road</strong>, scoring 8.6. The balcony and lounge areas look right out over the Mekong and the Lao bank, making it ideal for a family or group who want a riverside house of their own. You can walk to the Walking Street and the Phaya Sri Sattanakarat naga statue.",
       "tipHtml": "💡 <strong>Tip:</strong> It's mostly booked directly via the property's page — state your group size and dates clearly, and plan your meals since there's no in-house restaurant.",
@@ -262,15 +405,29 @@
       "priceBig": "฿1,000",
       "priceSub": "Starting price/night (dorm cheaper)",
       "rooms": [
-        { "type": "Dorm Bed", "price": "฿400/bed" },
-        { "type": "Standard Private", "price": "฿1,000/night" },
-        { "type": "Private + balcony/special corner", "price": "฿1,500/night" }
+        {
+          "type": "Dorm Bed",
+          "price": "฿400/bed"
+        },
+        {
+          "type": "Standard Private",
+          "price": "฿1,000/night"
+        },
+        {
+          "type": "Private + balcony/special corner",
+          "price": "฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/en-nz/h59407786/hotel/nakhon-phanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Non+Nakhon+Hotel+Bistro+Nakhon+Phanom",
       "tripUrl": "https://us.trip.com/hotels/city/th/nakhonpanom.html?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-non-nakorn-hotel-bistro-nakhon-phanom.html",
-      "tags": ["☕ Ground-floor bistro/cafe", "🚶 On the riverside Walking Street", "✨ Clean minimal rooms", "🎒 Dorm beds available"],
+      "tags": [
+        "☕ Ground-floor bistro/cafe",
+        "🚶 On the riverside Walking Street",
+        "✨ Clean minimal rooms",
+        "🎒 Dorm beds available"
+      ],
       "addr": "522/3 Sunthon Wichit Rd, Nai Mueang, Mueang Nakhon Phanom",
       "storyHtml": "Non Nakorn is a <strong>small riverside stay on Sunthon Wichit Road with a bistro/cafe downstairs, right on the Walking Street</strong>, scoring 8.7. Rooms are minimal and clean with photogenic corners, and there are both private rooms and budget dorm beds — a hit with cafe lovers and solo travellers. Step out the door to the Walking Street and the evening market, with the naga statue a short walk away.",
       "tipHtml": "💡 <strong>Tip:</strong> Check the cafe's opening days first (roughly Tue–Sun), and if you're driving, plan ahead for parking since the on-street spots are limited.",
@@ -302,15 +459,29 @@
       "priceBig": "฿650",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Standard Room", "price": "฿650/night" },
-        { "type": "Deluxe Room", "price": "฿850/night" },
-        { "type": "Family Room", "price": "฿1,200/night" }
+        {
+          "type": "Standard Room",
+          "price": "฿650/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nonrada-boutique-hotel/hotel/nakhon-phanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nonrada-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-62264237/nonrada-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nonrada-boutique-nakhon-phanom.html",
-      "tags": ["✨ New rooms, opened 2024", "📍 Town centre, walk to the river", "💸 Sub-฿1,000", "🅿️ Free parking"],
+      "tags": [
+        "✨ New rooms, opened 2024",
+        "📍 Town centre, walk to the river",
+        "💸 Sub-฿1,000",
+        "🅿️ Free parking"
+      ],
       "addr": "22/4 Bamrungmuang Rd, Nai Mueang, Mueang Nakhon Phanom",
       "storyHtml": "Nonrada Boutique is a <strong>small boutique that opened in 2024 in the town centre, with 15 rooms at sub-฿1,000 rates</strong>, scoring 8.6. Guests like the brand-new, spotless rooms and a location about 400 metres from the Mekong viewpoint and city pillar shrine — walkable to the riverside Walking Street, without paying for a riverfront room. There's free parking and free internet.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a room with a balcony and tell them your check-in time in advance, as this small hotel's front desk may not be staffed 24 hours.",
@@ -342,15 +513,29 @@
       "priceBig": "฿550",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Superior Room", "price": "฿550/night" },
-        { "type": "Grand Deluxe (Queen)", "price": "฿850/night" },
-        { "type": "Porpiang Suite", "price": "฿1,185/night" }
+        {
+          "type": "Superior Room",
+          "price": "฿550/night"
+        },
+        {
+          "type": "Grand Deluxe (Queen)",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Porpiang Suite",
+          "price": "฿1,185/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/porpiang-hotel/hotel/nakhonpanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/porpiang-orngaermph-ephiiyng.html",
       "tripUrl": "https://www.trip.com/hotels/nakhonpanom-hotel-detail-21865501/porpiang-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pho-phiang-hotel-nakhon-phanom.html",
-      "tags": ["🧼 Clean rooms, soft beds", "🍳 Local-style breakfast", "🚲 Free bikes to borrow", "📍 Small 21-room boutique"],
+      "tags": [
+        "🧼 Clean rooms, soft beds",
+        "🍳 Local-style breakfast",
+        "🚲 Free bikes to borrow",
+        "📍 Small 21-room boutique"
+      ],
       "addr": "90/9 Soi Jerdja, Fueang Nakhon Rd, Nai Mueang, Nakhon Phanom",
       "storyHtml": "Porpiang Hotel is the <strong>cheapest stay in this guide, from just ฿550, yet cleaner than its price</strong>, scoring 8.6 from 95 reviews. It's a 21-room boutique with modern Thai-Isan design on a quiet lane in the town centre, and guests consistently praise the cleanliness, soft beds, and friendly staff. There's a local-style breakfast, free Wi-Fi, free bikes, and free parking, with the riverside Walking Street about 400 metres away.",
       "tipHtml": "💡 <strong>Tip:</strong> The entry-level Superior rooms are fairly compact — pick a Grand Deluxe with a Queen bed or the Porpiang Suite if you want more space.",
@@ -382,15 +567,29 @@
       "priceBig": "฿850",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Standard Double", "price": "฿850/night" },
-        { "type": "Superior", "price": "฿1,050/night" },
-        { "type": "Family / extra bed", "price": "฿1,300/night" }
+        {
+          "type": "Standard Double",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Superior",
+          "price": "฿1,050/night"
+        },
+        {
+          "type": "Family / extra bed",
+          "price": "฿1,300/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/na-that-panom-place-hotel/hotel/nakhonpanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Na+That+Phanom+Place+Hotel+That+Phanom",
       "tripUrl": "https://us.trip.com/hotels/that-phanom-district-hotels-list-696917/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-na-that-phanom-place-nakhon-phanom.html",
-      "tags": ["🙏 Walk to Phra That Phanom", "✨ Clean, quiet rooms", "🚲 Free bikes to borrow", "🤝 Friendly owner"],
+      "tags": [
+        "🙏 Walk to Phra That Phanom",
+        "✨ Clean, quiet rooms",
+        "🚲 Free bikes to borrow",
+        "🤝 Friendly owner"
+      ],
       "addr": "117 Moo 10, Chayangkul Rd, That Phanom, Nakhon Phanom",
       "storyHtml": "Na That Phanom Place is a <strong>clean, quiet stay in That Phanom town, about 650 metres from the Phra That Phanom stupa — roughly a 9-minute walk</strong>, scoring 8.5 from 90 reviews. It's a small 25-room hotel that guests praise for clean rooms, soft beds, cool air-con, and a friendly owner, with free bikes to ride to the temple. Great for pilgrims, couples, and older travellers.",
       "tipHtml": "💡 <strong>Tip:</strong> Borrow the free bikes to visit the stupa in the morning, and check at booking whether your rate includes breakfast.",
@@ -422,15 +621,29 @@
       "priceBig": "฿700",
       "priceSub": "Starting price/night",
       "rooms": [
-        { "type": "Family Room (River View)", "price": "฿700/night" },
-        { "type": "Family Room (Standard)", "price": "฿850/night" },
-        { "type": "Family Room (large group)", "price": "฿1,200/night" }
+        {
+          "type": "Family Room (River View)",
+          "price": "฿700/night"
+        },
+        {
+          "type": "Family Room (Standard)",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Family Room (large group)",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/aranhostel-2/hotel/nakhon-phanom-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/aranhostel-spa-amp-cafe-riversidehaadaeh-nkhrphnm-nkhrphnm.html",
       "tripUrl": "https://www.trip.com/hotels/that-phanom-district-hotel-detail-129166739/aran-hostel-spacafe-riverside-that-phanom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-aranya-hostel-riverside-nakhon-phanom.html",
-      "tags": ["🏞️ Riverside, lovely morning view", "🏊 Pool, spa & cafe", "🛕 Near Phra That Phanom", "🅿️ Free private parking"],
+      "tags": [
+        "🏞️ Riverside, lovely morning view",
+        "🏊 Pool, spa & cafe",
+        "🛕 Near Phra That Phanom",
+        "🅿️ Free private parking"
+      ],
       "addr": "Ban Hat Hae, Moo 1, Nam Kam, That Phanom, Nakhon Phanom",
       "storyHtml": "Aranya Hostel Spa and Cafe Riverside (listed on some platforms as Aran hostel) is a <strong>small Mekong-side stay at Ban Hat Hae with a pool, spa, and riverside cafe at a budget price</strong>, scoring 8.4. Wake to mist over the Mekong and the Lao bank; rooms are air-conditioned family rooms with balconies. It's about a 10-minute drive to Wat Phra That Phanom, ideal for pilgrims who want a quiet riverside base and have a car.",
       "tipHtml": "💡 <strong>Tip:</strong> The front desk isn't open 24 hours (check-in 14:00–19:00), so message ahead to confirm your check-in time; some platforms note card-only payment.",
@@ -448,37 +661,192 @@
     }
   ],
   "compareTitle": "Comparison Table — 10 Nakhon Phanom Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Fortune River View Hotel", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿1,500", "access": "📍 Riverside, town centre", "badge": "Most reviewed", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Fortune View Khong Hotel", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,200", "access": "📍 Riverside, Sunthon Wichit", "badge": "Balcony river views", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Chewa Khong Nakhon Phanom", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,100", "access": "📍 Riverside, north of town", "badge": "Rooftop river pool", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "NAKA-RAJ Escape Hotel", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿3,300", "access": "📍 Riverside, Acha Samat", "badge": "Infinity pool to Laos", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Pawnprathan Baan Rim Khong", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿3,800", "access": "📍 Riverside, Sunthon Wichit", "badge": "Whole riverside house", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Non Nakorn Hotel and Bistro", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,000", "access": "📍 Riverside, Walking Street", "badge": "Bistro/cafe", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Nonrada Boutique Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿650", "access": "📍 Town centre", "badge": "New, sub-฿1,000", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Porpiang Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿550", "access": "📍 Town centre, Fueang Nakhon", "badge": "Cheapest", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Na That Phanom Place Hotel", "type": "⭐⭐⭐", "score": "8.5", "price": "฿850", "access": "📍 That Phanom, walk to stupa", "badge": "Walk to the stupa", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Aranya Hostel Riverside", "type": "⭐⭐", "score": "8.4", "price": "฿700", "access": "📍 Riverside, That Phanom", "badge": "Riverside pool + cafe", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Fortune River View Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,500",
+      "access": "📍 Riverside, town centre",
+      "badge": "Most reviewed",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Fortune View Khong Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,200",
+      "access": "📍 Riverside, Sunthon Wichit",
+      "badge": "Balcony river views",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Chewa Khong Nakhon Phanom",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,100",
+      "access": "📍 Riverside, north of town",
+      "badge": "Rooftop river pool",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "NAKA-RAJ Escape Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿3,300",
+      "access": "📍 Riverside, Acha Samat",
+      "badge": "Infinity pool to Laos",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Pawnprathan Baan Rim Khong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿3,800",
+      "access": "📍 Riverside, Sunthon Wichit",
+      "badge": "Whole riverside house",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Non Nakorn Hotel and Bistro",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,000",
+      "access": "📍 Riverside, Walking Street",
+      "badge": "Bistro/cafe",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Nonrada Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿650",
+      "access": "📍 Town centre",
+      "badge": "New, sub-฿1,000",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Porpiang Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿550",
+      "access": "📍 Town centre, Fueang Nakhon",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Na That Phanom Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿850",
+      "access": "📍 That Phanom, walk to stupa",
+      "badge": "Walk to the stupa",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Aranya Hostel Riverside",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿700",
+      "access": "📍 Riverside, That Phanom",
+      "badge": "Riverside pool + cafe",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "How to pick the right Nakhon Phanom hotel for you?",
   "advice": [
-    { "icon": "🌅", "head": "Want a river-view room in town", "bodyHtml": "→ <strong>Fortune River View</strong> ฿1,500, every room faces the Mekong, most reviewed · or <strong>Fortune View Khong</strong> ฿1,200, balcony river-view rooms, best value" },
-    { "icon": "🏊", "head": "Want a pool over the Mekong", "bodyHtml": "→ <strong>Chewa Khong</strong> ฿1,100, rooftop pool over the river, new building · or <strong>NAKA-RAJ Escape</strong> ฿3,300, infinity pool at a new riverside boutique" },
-    { "icon": "💸", "head": "On a budget, want the best value in town", "bodyHtml": "→ <strong>Porpiang Hotel</strong> ฿550, cleaner than its price in the town centre · or <strong>Nonrada Boutique</strong> ฿650, new rooms opened 2024, walk to the river" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a group/family with space", "bodyHtml": "→ <strong>Pawnprathan Baan Rim Khong</strong> ฿3,800, a whole 3-bedroom Mekong-side house · or a 2-bedroom suite at <strong>NAKA-RAJ Escape</strong>" },
-    { "icon": "☕", "head": "Cafe lover, riverside strolls, solo travel", "bodyHtml": "→ <strong>Non Nakorn Hotel and Bistro</strong> ฿1,000, a small stay right on the Walking Street with a bistro downstairs and budget dorm beds" },
-    { "icon": "🙏", "head": "Here for Phra That Phanom, want to stay near the temple", "bodyHtml": "→ <strong>Na That Phanom Place</strong> ฿850, a 9-minute walk to the stupa · or <strong>Pornnareamitr Hotel</strong> ฿700 and <strong>Ing Oun Guesthouse</strong> ฿550 in a charming old building" },
-    { "icon": "🏞️", "head": "Want a quiet riverside stay near That Phanom", "bodyHtml": "→ <strong>Aranya Hostel Riverside</strong> ฿700, riverside with a pool, spa, and cafe, a 10-minute drive to the stupa — best with a car" }
+    {
+      "icon": "🌅",
+      "head": "Want a river-view room in town",
+      "bodyHtml": "→ <strong>Fortune River View</strong> ฿1,500, every room faces the Mekong, most reviewed · or <strong>Fortune View Khong</strong> ฿1,200, balcony river-view rooms, best value"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a pool over the Mekong",
+      "bodyHtml": "→ <strong>Chewa Khong</strong> ฿1,100, rooftop pool over the river, new building · or <strong>NAKA-RAJ Escape</strong> ฿3,300, infinity pool at a new riverside boutique"
+    },
+    {
+      "icon": "💸",
+      "head": "On a budget, want the best value in town",
+      "bodyHtml": "→ <strong>Porpiang Hotel</strong> ฿550, cleaner than its price in the town centre · or <strong>Nonrada Boutique</strong> ฿650, new rooms opened 2024, walk to the river"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a group/family with space",
+      "bodyHtml": "→ <strong>Pawnprathan Baan Rim Khong</strong> ฿3,800, a whole 3-bedroom Mekong-side house · or a 2-bedroom suite at <strong>NAKA-RAJ Escape</strong>"
+    },
+    {
+      "icon": "☕",
+      "head": "Cafe lover, riverside strolls, solo travel",
+      "bodyHtml": "→ <strong>Non Nakorn Hotel and Bistro</strong> ฿1,000, a small stay right on the Walking Street with a bistro downstairs and budget dorm beds"
+    },
+    {
+      "icon": "🙏",
+      "head": "Here for Phra That Phanom, want to stay near the temple",
+      "bodyHtml": "→ <strong>Na That Phanom Place</strong> ฿850, a 9-minute walk to the stupa · or <strong>Pornnareamitr Hotel</strong> ฿700 and <strong>Ing Oun Guesthouse</strong> ฿550 in a charming old building"
+    },
+    {
+      "icon": "🏞️",
+      "head": "Want a quiet riverside stay near That Phanom",
+      "bodyHtml": "→ <strong>Aranya Hostel Riverside</strong> ฿700, riverside with a pool, spa, and cafe, a 10-minute drive to the stupa — best with a car"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are indicative starting rates from standard-room ranges and can change by date and season — always check the live price and compare 3 sites before booking. During the Illuminated Boat Procession (end of Buddhist Lent, October) and the Phra That Phanom homage festival (around February), riverside and That Phanom stays fill fast and prices climb sharply, so book weeks to months ahead. Nakhon Phanom has no metro — use Grab, local taxis, or rent a motorbike/bike; the airport is about 20 minutes from town. Stays in That Phanom district are about 50 minutes' drive from the town. Compiled from real guest reviews by <strong>ThailandAddict</strong>.",
   "faqTitle": "FAQ — Common traveller questions about Nakhon Phanom hotels",
   "faq": [
-    { "q": "❓ Which area is best to stay in Nakhon Phanom?", "a": "It depends on your plans. The <strong>Sunthon Wichit riverside</strong> suits you if you want a river-view room within walking distance of the Walking Street (Fortune River View, Fortune View Khong, Pawnprathan, Non Nakorn). The <strong>town centre</strong> suits budget travellers who can walk to the river (Porpiang, Nonrada). <strong>That Phanom district</strong> suits pilgrims who want to be near the Phra That Phanom stupa (Na That Phanom Place, Aranya Hostel, Pornnareamitr, Ing Oun) — about 50 minutes' drive from town." },
-    { "q": "❓ How much do Nakhon Phanom hotels cost?", "a": "Prices vary widely: town-centre and budget stays start around ฿550–1,000 per night; boutique and 4-star Mekong riverside hotels run about ฿1,100–1,800; whole-house rentals and new riverside boutiques run from about ฿3,300–3,800 and up. During the Illuminated Boat Procession (October) and the Phra That Phanom festival (February), prices are much higher than usual." },
-    { "q": "❓ Which Nakhon Phanom hotels have Mekong river-view rooms?", "a": "Several on Sunthon Wichit Road and along the river. <strong>Fortune River View</strong> has every room facing the Mekong. <strong>Fortune View Khong</strong> and <strong>Chewa Khong</strong> have river-side rooms with balconies looking across the Mekong to Laos. <strong>NAKA-RAJ Escape</strong> and <strong>Chewa Khong</strong> also have pools with river views. When booking, confirm a River View room — the city-side rooms are usually cheaper but miss the view." },
-    { "q": "❓ Where should I stay to visit Phra That Phanom?", "a": "Phra That Phanom is in That Phanom district, about 50 minutes' drive from Nakhon Phanom town. To walk to the stupa, choose <strong>Na That Phanom Place</strong> (about a 9-minute walk), <strong>Pornnareamitr Hotel</strong>, or <strong>Ing Oun Guesthouse</strong> in a charming old building. If you want a riverside stay with a pool and cafe and have a car, pick <strong>Aranya Hostel Riverside</strong>, a 10-minute drive from the temple." },
-    { "q": "❓ How far in advance should I book a Nakhon Phanom hotel?", "a": "For ordinary weekdays, 1–2 weeks ahead is enough. But during the <strong>Illuminated Boat Procession at the end of Buddhist Lent (October)</strong> and the <strong>Phra That Phanom homage festival (around February–March)</strong>, riverside and That Phanom stays fill very fast and prices climb — book weeks to months ahead and lock in a free-cancellation rate." },
-    { "q": "❓ How do I get from Nakhon Phanom Airport into town?", "a": "Nakhon Phanom Airport (KOP) is about 17–20 km from town, roughly a <strong>20-minute drive</strong>. Use a local taxi, an airport van, or a hotel shuttle (several hotels offer one, such as Fortune River View). There's no metro in town — Grab, local taxis, or a rented motorbike/bike are the easiest way to get around." }
-  ]
+    {
+      "q": "❓ Which area is best to stay in Nakhon Phanom?",
+      "a": "It depends on your plans. The <strong>Sunthon Wichit riverside</strong> suits you if you want a river-view room within walking distance of the Walking Street (Fortune River View, Fortune View Khong, Pawnprathan, Non Nakorn). The <strong>town centre</strong> suits budget travellers who can walk to the river (Porpiang, Nonrada). <strong>That Phanom district</strong> suits pilgrims who want to be near the Phra That Phanom stupa (Na That Phanom Place, Aranya Hostel, Pornnareamitr, Ing Oun) — about 50 minutes' drive from town."
+    },
+    {
+      "q": "❓ How much do Nakhon Phanom hotels cost?",
+      "a": "Prices vary widely: town-centre and budget stays start around ฿550–1,000 per night; boutique and 4-star Mekong riverside hotels run about ฿1,100–1,800; whole-house rentals and new riverside boutiques run from about ฿3,300–3,800 and up. During the Illuminated Boat Procession (October) and the Phra That Phanom festival (February), prices are much higher than usual."
+    },
+    {
+      "q": "❓ Which Nakhon Phanom hotels have Mekong river-view rooms?",
+      "a": "Several on Sunthon Wichit Road and along the river. <strong>Fortune River View</strong> has every room facing the Mekong. <strong>Fortune View Khong</strong> and <strong>Chewa Khong</strong> have river-side rooms with balconies looking across the Mekong to Laos. <strong>NAKA-RAJ Escape</strong> and <strong>Chewa Khong</strong> also have pools with river views. When booking, confirm a River View room — the city-side rooms are usually cheaper but miss the view."
+    },
+    {
+      "q": "❓ Where should I stay to visit Phra That Phanom?",
+      "a": "Phra That Phanom is in That Phanom district, about 50 minutes' drive from Nakhon Phanom town. To walk to the stupa, choose <strong>Na That Phanom Place</strong> (about a 9-minute walk), <strong>Pornnareamitr Hotel</strong>, or <strong>Ing Oun Guesthouse</strong> in a charming old building. If you want a riverside stay with a pool and cafe and have a car, pick <strong>Aranya Hostel Riverside</strong>, a 10-minute drive from the temple."
+    },
+    {
+      "q": "❓ How far in advance should I book a Nakhon Phanom hotel?",
+      "a": "For ordinary weekdays, 1–2 weeks ahead is enough. But during the <strong>Illuminated Boat Procession at the end of Buddhist Lent (October)</strong> and the <strong>Phra That Phanom homage festival (around February–March)</strong>, riverside and That Phanom stays fill very fast and prices climb — book weeks to months ahead and lock in a free-cancellation rate."
+    },
+    {
+      "q": "❓ How do I get from Nakhon Phanom Airport into town?",
+      "a": "Nakhon Phanom Airport (KOP) is about 17–20 km from town, roughly a <strong>20-minute drive</strong>. Use a local taxi, an airport van, or a hotel shuttle (several hotels offer one, such as Fortune River View). There's no metro in town — Grab, local taxis, or a rented motorbike/bike are the easiest way to get around."
+    }
+  ],
+  "quickAnswerHtml": "10 Nakhon Phanom hotels across every budget — from Fortune River View, a 4-star riverside hotel where every room faces the Mekong, down to Porpiang from ฿550 in the town centre. Honest take from real guest reviews, real prices, direct booking on 3 sites."
 }

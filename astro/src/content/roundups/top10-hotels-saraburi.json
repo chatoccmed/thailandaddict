@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "สระบุรี", "href": "city-saraburi.html" },
-    { "name": "12 โรงแรมสระบุรียอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "สระบุรี",
+      "href": "city-saraburi.html"
+    },
+    {
+      "name": "12 โรงแรมสระบุรียอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "สระบุรี", "item": "https://thailandaddict.com/city-saraburi" },
-    { "name": "12 โรงแรมสระบุรียอดนิยม", "item": "https://thailandaddict.com/top10-hotels-saraburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "สระบุรี",
+      "item": "https://thailandaddict.com/city-saraburi"
+    },
+    {
+      "name": "12 โรงแรมสระบุรียอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-saraburi"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-saraburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "สระบุรีไม่มีรถไฟฟ้าและสนามบินพาณิชย์ — มีสถานีรถไฟกลางเมืองและรถทัวร์/รถตู้จากกรุงเทพฯ แต่ <strong>โซนที่พักเด่นอย่างมวกเหล็กและวังม่วงต้องมีรถถึงจะสะดวก</strong> เพราะอยู่ห่างตัวเมือง · เลือกโซนตามแพลนเที่ยวจะคุ้มที่สุด: <strong>มวกเหล็ก</strong> — ห่างตัวเมืองราว 35–40 กม. ใกล้น้ำตกมวกเหล็ก ฟาร์มโคนม ไร่องุ่น และทางขึ้นเขาใหญ่ปากช่อง อากาศเย็นกว่าในเมือง · <strong>แก่งคอย</strong> — ติดถนนมิตรภาพ มีรีสอร์ทริมแม่น้ำป่าสัก แวะพักง่ายระหว่างทาง · <strong>วังม่วง</strong> — ฝั่งเหนือติดเขื่อนป่าสักชลสิทธิ์ ห่างตัวเมืองราว 50–60 กม. เหมาะพักริมน้ำ · <strong>ตัวเมือง-พระพุทธบาท</strong> — ใกล้สถานีรถไฟ ห้าง และวัดพระพุทธบาท เหมาะคนพักผ่านทางและไม่มีรถ · เกือบทุกที่มีที่จอดรถฟรี เหมาะคนขับรถเที่ยว",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Sir James Resort", "price": "฿1,900" },
-    { "n": "2", "color": "#06B6D4", "name": "Supalai Pasak Resort & Spa", "price": "฿1,600" },
-    { "n": "3", "color": "#06B6D4", "name": "The Organery Retreat & Spa", "price": "฿2,200" },
-    { "n": "4", "color": "#06B6D4", "name": "Phufa Pasak Resort", "price": "฿1,200" },
-    { "n": "5", "color": "#FB7185", "name": "Baan Ingkhao Resort", "price": "฿1,200" },
-    { "n": "6", "color": "#FB7185", "name": "Saraburi Garden Resort", "price": "฿900" },
-    { "n": "7", "color": "#FB7185", "name": "Muak Lek Forest Resort", "price": "฿1,800" },
-    { "n": "8", "color": "#FB7185", "name": "The Bua Boutique Resort", "price": "฿650" },
-    { "n": "9", "color": "#FBBF24", "name": "Muaklek Paradise Resort", "price": "฿2,200" },
-    { "n": "10", "color": "#FBBF24", "name": "Sakura Resort Wang Muang", "price": "฿550" },
-    { "n": "11", "color": "#FBBF24", "name": "PS Hotel Saraburi", "price": "฿600" },
-    { "n": "12", "color": "#FBBF24", "name": "River Residence Saraburi", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Sir James Resort",
+      "price": "฿1,900"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Supalai Pasak Resort & Spa",
+      "price": "฿1,600"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Organery Retreat & Spa",
+      "price": "฿2,200"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Phufa Pasak Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Baan Ingkhao Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Saraburi Garden Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Muak Lek Forest Resort",
+      "price": "฿1,800"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "The Bua Boutique Resort",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Muaklek Paradise Resort",
+      "price": "฿2,200"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Sakura Resort Wang Muang",
+      "price": "฿550"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "PS Hotel Saraburi",
+      "price": "฿600"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "River Residence Saraburi",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Panorama Room", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "New Deluxe Room", "price": "เริ่ม ฿2,300/คืน" },
-        { "type": "Junior Suite", "price": "เริ่ม ฿3,000/คืน" }
+        {
+          "type": "Panorama Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "New Deluxe Room",
+          "price": "เริ่ม ฿2,300/คืน"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "เริ่ม ฿3,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sir-james-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sirjames-resort.html",
       "tripUrl": "https://www.trip.com/hotels/muak-lek-hotel-detail-5611502/sir-james-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sir-james-resort-saraburi.html",
-      "tags": ["⛳ มีสนามกอล์ฟในตัว", "⛰️ วิวภูเขาเชิงเขาใหญ่", "🏊 สระว่ายน้ำ", "🅿️ พื้นที่กว้าง ที่จอดรถ"],
+      "tags": [
+        "⛳ มีสนามกอล์ฟในตัว",
+        "⛰️ วิวภูเขาเชิงเขาใหญ่",
+        "🏊 สระว่ายน้ำ",
+        "🅿️ พื้นที่กว้าง ที่จอดรถ"
+      ],
       "addr": "195 หมู่ 3 ตำบลมิตรภาพ อำเภอมวกเหล็ก สระบุรี",
       "storyHtml": "Sir James คือ <strong>รีสอร์ตที่มีรีวิวมากที่สุดในบทความนี้ ถึง 2,750 รีวิว</strong> คะแนน 8.2 · เป็นรีสอร์ตกอล์ฟเชิงเขาใหญ่ฝั่งมวกเหล็ก พื้นที่กว้าง มีสนามกอล์ฟ สระว่ายน้ำ และวิวภูเขา · ห้องมีหลายแบบ ตั้งแต่ Panorama ที่มีระเบียงวิวสนามกอล์ฟ ไปจนถึง Suite สำหรับครอบครัว เริ่มราว ฿1,900 · เหมาะคนขับรถมาพักผ่อนเชิงเขาใหญ่ ตีกอล์ฟ หรือมากันเป็นกลุ่ม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับให้เลือก New Deluxe Room ที่ปรับปรุงใหม่กว่า ห้องสภาพดีและวิวภูเขาเปิดกว่า Panorama รุ่นเดิม",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,600",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Pasak Standard (รวมอาหารเช้า)", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "Pasak Superior Suite", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Pasak Deluxe Suite (อ่างอาบน้ำ)", "price": "เริ่ม ฿2,800/คืน" }
+        {
+          "type": "Pasak Standard (รวมอาหารเช้า)",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "Pasak Superior Suite",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Pasak Deluxe Suite (อ่างอาบน้ำ)",
+          "price": "เริ่ม ฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/supalai-pasak-resort-and-spa/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/supalai-pasak-resort-and-spa.html",
       "tripUrl": "https://th.trip.com/hotels/amphoe-kaeng-khoi-hotel-detail-710735/supalai-pasak-resort-hotel-and-spa-saraburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-supalai-pasak-resort-spa-saraburi.html",
-      "tags": ["🌊 บังกะโลริมแม่น้ำป่าสัก", "💆 มีสปา", "🍳 รวมอาหารเช้า", "🏊 สระว่ายน้ำ"],
+      "tags": [
+        "🌊 บังกะโลริมแม่น้ำป่าสัก",
+        "💆 มีสปา",
+        "🍳 รวมอาหารเช้า",
+        "🏊 สระว่ายน้ำ"
+      ],
       "addr": "79 หมู่ 1 ถนนอดิเรกสาร ตำบลท่าคล้อ อำเภอแก่งคอย สระบุรี",
       "storyHtml": "Supalai Pasak คือ <strong>รีสอร์ตริมแม่น้ำป่าสักที่คะแนนรีวิวสูงที่สุดในบทความนี้ ถึง 8.8</strong> (จาก 38 รีวิว) · เป็นบังกะโลในสวนริมน้ำฝั่งแก่งคอย มีสปา สระว่ายน้ำ และรวมอาหารเช้า · ห้องเริ่มที่ Pasak Standard ราว ฿1,600 ส่วน Suite ที่กว้างกว่ามีวิวแม่น้ำและอ่างอาบน้ำ · เหมาะคู่รักหรือครอบครัวที่อยากพักริมน้ำเงียบ ๆ ใกล้ถนนมิตรภาพ แวะง่ายระหว่างทางไปเขาใหญ่หรืออีสาน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้บรรยากาศริมน้ำเต็มที่ให้เลือก Suite ที่เป็นวิวแม่น้ำ นั่งเล่นริมระเบียงตอนเย็นได้สวย และจองสปาล่วงหน้า",
@@ -144,15 +255,29 @@
       "priceBig": "฿2,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard วิวภูเขา", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Standard ติดสระ", "price": "เริ่ม ฿2,600/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Standard วิวภูเขา",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Standard ติดสระ",
+          "price": "เริ่ม ฿2,600/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-organery-retreat-h15379939/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-organery-retreat.html",
       "tripUrl": "https://www.trip.com/hotels/muak-lek-hotel-detail-21856807/the-organery-retreat/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-organery-retreat-spa-saraburi.html",
-      "tags": ["🌿 บูทีกสไตล์ธรรมชาติ", "🏊 มีสระว่ายน้ำ ห้องติดสระ", "💆 มีสปา", "⛰️ วิวสวน-ภูเขา"],
+      "tags": [
+        "🌿 บูทีกสไตล์ธรรมชาติ",
+        "🏊 มีสระว่ายน้ำ ห้องติดสระ",
+        "💆 มีสปา",
+        "⛰️ วิวสวน-ภูเขา"
+      ],
       "addr": "12 หมู่ 4 ถนนมิตรภาพ ตำบลมิตรภาพ อำเภอมวกเหล็ก สระบุรี",
       "storyHtml": "The Organery คือ <strong>บูทีครีสอร์ตเชิงเขาใหญ่ฝั่งมวกเหล็กที่คะแนนรีวิวสูง 8.8</strong> (จาก 13 รีวิว) · จุดเด่นคือดีไซน์สไตล์ธรรมชาติเขียว ๆ มีสระว่ายน้ำที่บางห้องเดินถึงได้เลย และมีสปา · ห้องเริ่มที่ Standard วิวภูเขาราว ฿2,200 ส่วน Family Room และวิลล่าเหมาะมากันหลายคน · เหมาะคู่รักหรือกลุ่มเล็กที่อยากได้บรรยากาศบูทีกเงียบ ๆ ติดเขาใหญ่ ไม่ใช่รีสอร์ตใหญ่พลุกพล่าน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ชอบลงสระตอนเช้าให้เลือกห้อง Standard ติดสระที่เดินถึงสระได้เลย ส่วนต่างไม่กี่ร้อยแต่สะดวกขึ้นมาก",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "เต็นท์ขนาดใหญ่", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "บ้านไม้ไผ่ 2 คน", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "บ้านดินวิวเขื่อน", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "เต็นท์ขนาดใหญ่",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "บ้านไม้ไผ่ 2 คน",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "บ้านดินวิวเขื่อน",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/search?city=Wang+Muang&q=Phufa+Pasak+Resort&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Phufa+Pasak+Resort+Wang+Muang",
       "tripUrl": "https://th.trip.com/hotels/wang-muang-district-hotels-list-107411/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phufa-pasak-resort-saraburi.html",
-      "tags": ["🏕️ เต็นท์-บ้านดิน-บ้านไม้ไผ่", "🌅 วิวทะเลสาบเขื่อนป่าสัก", "🌿 ใกล้ชิดธรรมชาติ", "🌄 ชมพระอาทิตย์ตก"],
+      "tags": [
+        "🏕️ เต็นท์-บ้านดิน-บ้านไม้ไผ่",
+        "🌅 วิวทะเลสาบเขื่อนป่าสัก",
+        "🌿 ใกล้ชิดธรรมชาติ",
+        "🌄 ชมพระอาทิตย์ตก"
+      ],
       "addr": "30 หมู่ 6 ตำบลคำพาน อำเภอวังม่วง สระบุรี",
       "storyHtml": "Phufa Pasak คือ <strong>บูทีครีสอร์ตธรรมชาติริมเขื่อนป่าสักฝั่งวังม่วงที่คะแนนรีวิว 8.4</strong> (จาก 19 รีวิว) · จุดเด่นคือที่พักหลากหลายแบบที่หาไม่ค่อยได้ในโซนนี้ ตั้งแต่เต็นท์ขนาดใหญ่มีเตียงจริง บ้านไม้ไผ่ ไปจนบ้านดินที่มองเห็นวิวทะเลสาบเขื่อนป่าสัก · เหมาะคนอยากนอนใกล้ชิดธรรมชาติ ตื่นมาเจอวิวน้ำ และนั่งชมพระอาทิตย์ตกริมเขื่อน เริ่มราว ฿1,200",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้วิวเต็มตาให้เลือกบ้านดินวิวเขื่อน ระเบียงนั่งชมพระอาทิตย์ตกริมน้ำได้สวย · ลิงก์จองหลักเป็นเพจ/หน้าค้นหา ควรเช็กห้องว่างกับที่พักก่อน",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Thai Villa", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe Villa (ระเบียงวิวสวน)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿3,500/คืน" }
+        {
+          "type": "Thai Villa",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe Villa (ระเบียงวิวสวน)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-ingkhao-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-ing-khao.html",
       "tripUrl": "https://th.trip.com/hotels/muak-lek-hotel-detail-7062490/baan-ing-khao-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-ingkhao-resort-saraburi.html",
-      "tags": ["🏡 วิลล่าพื้นไม้ในสวน", "🌳 บรรยากาศเชิงเขาร่มรื่น", "👨‍👩‍👧 มี Family Room", "🅿️ ที่จอดรถหน้าห้อง"],
+      "tags": [
+        "🏡 วิลล่าพื้นไม้ในสวน",
+        "🌳 บรรยากาศเชิงเขาร่มรื่น",
+        "👨‍👩‍👧 มี Family Room",
+        "🅿️ ที่จอดรถหน้าห้อง"
+      ],
       "addr": "91 หมู่ 8 ทางหลวง 2089 ตำบลมวกเหล็ก อำเภอมวกเหล็ก สระบุรี",
       "storyHtml": "Baan Ingkhao คือ <strong>รีสอร์ตวิลล่าในสวนฝั่งมวกเหล็กที่รีวิวเยอะถึง 376 รีวิว</strong> คะแนน 7.8 · เป็นวิลล่าพื้นไม้กระจายในสวนเชิงเขา บรรยากาศร่มรื่น มีที่จอดรถหน้าห้อง · ห้องเริ่มที่ Thai Villa ราว ฿1,200 ส่วน Deluxe Villa มีระเบียงวิวสวน และ Family Room รับครอบครัวใหญ่ได้ · เหมาะคนขับรถมาพักผ่อนเชิงเขาใหญ่ในราคาเป็นกันเอง อยู่ใกล้น้ำตกมวกเหล็กและฟาร์มโคนม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือทั้งครอบครัวให้ดู Family Room ที่นอนได้หลายคน หารต่อหัวถูกลง · งบพอขยับเลือก Deluxe Villa ที่มีระเบียงวิวสวน",
@@ -264,15 +417,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Basic Twin Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Basic Triple Room (3 ท่าน)", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Basic Twin Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Basic Triple Room (3 ท่าน)",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/saraburi-garden-resort/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-saraburi-garden-resort-ban-kluai.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-saraburi-hotel-detail-6401959/saraburi-garden-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-saraburi-garden-resort-saraburi.html",
-      "tags": ["🌿 ห้องในสวนร่มรื่น", "🚗 ใกล้ตัวเมืองสระบุรี", "👨‍👩‍👧 มี Family Room", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🌿 ห้องในสวนร่มรื่น",
+        "🚗 ใกล้ตัวเมืองสระบุรี",
+        "👨‍👩‍👧 มี Family Room",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "58 หมู่ 5 ตำบลตะกุด อำเภอเมืองสระบุรี สระบุรี",
       "storyHtml": "Saraburi Garden คือ <strong>รีสอร์ตในสวนใกล้ตัวเมืองที่มีรีวิวเยอะที่สุดในโซนเมือง ถึง 398 รีวิว</strong> คะแนน 7.0 · เป็นห้องและบ้านพักกระจายในสวนร่มรื่น มีที่จอดรถ ใกล้ตัวเมืองสระบุรี เดินทางเข้าเมืองสะดวก · ห้องเริ่มที่ Basic Twin ราว ฿900 มี Triple และ Family Room สำหรับมากันหลายคน · เหมาะคนแวะพักผ่านทางหรือมาธุระในเมืองสระบุรีที่อยากได้บรรยากาศสวนแต่ไม่ไกลเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ที่นี่รีวิวเยอะแต่คะแนนกลาง ๆ เพราะเป็นที่พักผ่านทาง เลือกห้องที่ปรับปรุงใหม่กว่าและเช็กรูปห้องล่าสุดก่อนจอง",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe Room (วิวต้นไม้)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Room (วิวต้นไม้)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ml-forest-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ml-forest-resort.html",
       "tripUrl": "https://th.trip.com/hotels/muak-lek-hotel-detail-66810879/ml-forest-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-muak-lek-forest-resort-saraburi.html",
-      "tags": ["🌲 บรรยากาศกลางป่าร่มรื่น", "⛰️ เชิงเขาใหญ่ฝั่งมวกเหล็ก", "👨‍👩‍👧 มี Family Room / วิลล่า", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🌲 บรรยากาศกลางป่าร่มรื่น",
+        "⛰️ เชิงเขาใหญ่ฝั่งมวกเหล็ก",
+        "👨‍👩‍👧 มี Family Room / วิลล่า",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "213 หมู่ 1 ตำบลมวกเหล็ก อำเภอมวกเหล็ก สระบุรี",
       "storyHtml": "Muak Lek Forest คือ <strong>รีสอร์ตกลางป่าฝั่งมวกเหล็กที่เน้นบรรยากาศร่มรื่นใกล้ชิดต้นไม้</strong> คะแนน 7.6 จาก 40 รีวิว · ห้องมีตั้งแต่ Superior ไปจนถึง Family Room และวิลล่า 3 ห้องนอนสำหรับกลุ่มหรือครอบครัวใหญ่ · ห้อง Deluxe มองเห็นวิวต้นไม้ บรรยากาศเย็นสบาย · เหมาะคนขับรถมาพักผ่อนเชิงเขาใหญ่ที่อยากได้ฟีลกลางป่า ใกล้น้ำตกมวกเหล็กและทางขึ้นเขาใหญ่ปากช่อง เริ่มราว ฿1,800",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นกลุ่มหรือครอบครัวใหญ่ให้ดู Three-Bedroom Villa หารต่อหัวคุ้มกว่าจองห้องแยกหลายห้อง",
@@ -344,15 +525,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard เตียงคู่ (~24 ตร.ม.)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "ห้องสามเตียง (~32 ตร.ม.)", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Premium 4 คน", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "Standard เตียงคู่ (~24 ตร.ม.)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "ห้องสามเตียง (~32 ตร.ม.)",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Premium 4 คน",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-bua-boutique-resort-hotel/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-bua-boutique-resort.html",
       "tripUrl": "https://www.trip.com/hotels/amphoe-kaeng-khoi-hotel-detail-117570061/the-bua-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-bua-boutique-resort-saraburi.html",
-      "tags": ["🛏️ ห้องสะอาดสไตล์บูทีก", "💰 เริ่มเพียง ฿650", "👨‍👩‍👧 มีห้อง 3-4 คน", "🚗 ติดถนนมิตรภาพ"],
+      "tags": [
+        "🛏️ ห้องสะอาดสไตล์บูทีก",
+        "💰 เริ่มเพียง ฿650",
+        "👨‍👩‍👧 มีห้อง 3-4 คน",
+        "🚗 ติดถนนมิตรภาพ"
+      ],
       "addr": "224 ตำบลบ้านป่า ถนนมิตรภาพ อำเภอแก่งคอย สระบุรี",
       "storyHtml": "The Bua คือ <strong>บูทีกโฮเทลราคาเบาฝั่งแก่งคอยที่อยู่ติดถนนมิตรภาพ แวะพักง่าย</strong> คะแนน 7.5 จาก 28 รีวิว · ห้องสะอาดตกแต่งสไตล์บูทีก มีสมาร์ททีวี ราว 24 ตร.ม. เริ่มเพียง ฿650 และมีห้องสามเตียงกับ Premium 4 คนสำหรับกลุ่มหรือครอบครัวเล็ก · อยู่ติดมิตรภาพ เดินทางสะดวก เหมาะคนแวะพักผ่านทางไปเขาใหญ่หรืออีสานที่อยากได้ห้องมีสไตล์ในราคาเป็นกันเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนให้เลือกห้องสามเตียงหรือ Premium 4 คน หารต่อหัวถูกลงและกว้างกว่าห้อง Standard พอควร",
@@ -384,15 +579,29 @@
       "priceBig": "฿2,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (บังกะโล)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Superior Room (มีระเบียง)", "price": "เริ่ม ฿2,800/คืน" },
-        { "type": "Two-Bedroom Villa", "price": "เริ่ม ฿5,500/คืน" }
+        {
+          "type": "Standard Room (บังกะโล)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Superior Room (มีระเบียง)",
+          "price": "เริ่ม ฿2,800/คืน"
+        },
+        {
+          "type": "Two-Bedroom Villa",
+          "price": "เริ่ม ฿5,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/muaklek-paradise-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/muaklek-paradise-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-6463551/muaklek-paradise-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-muaklek-paradise-resort-saraburi.html",
-      "tags": ["🏡 ห้องบังกะโลในสวน", "⛰️ เชิงเขาใหญ่ฝั่งมวกเหล็ก", "👨‍👩‍👧 มีวิลล่า 2 ห้องนอน", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏡 ห้องบังกะโลในสวน",
+        "⛰️ เชิงเขาใหญ่ฝั่งมวกเหล็ก",
+        "👨‍👩‍👧 มีวิลล่า 2 ห้องนอน",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "330 หมู่ 7 ทางหลวง 2089 ตำบลมิตรภาพ อำเภอมวกเหล็ก สระบุรี",
       "storyHtml": "Muaklek Paradise คือ <strong>รีสอร์ตบังกะโลในสวนเชิงเขาใหญ่ฝั่งมวกเหล็ก</strong> คะแนน 7.0 จาก 45 รีวิว · เป็นห้องบังกะโลกระจายในสวน บางห้องมีระเบียงนั่งเล่น และมีวิลล่า 2 ห้องนอนสำหรับครอบครัวหรือกลุ่มเพื่อน · ห้องเริ่มที่ Standard ราว ฿2,200 · อยู่ริมทางหลวง 2089 ฝั่งมวกเหล็ก ใกล้น้ำตกและฟาร์มโคนม เหมาะคนขับรถมาพักผ่อนเชิงเขาในบรรยากาศสวนร่มรื่น",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นกลุ่มหรือครอบครัวให้ดู Two-Bedroom Villa จะคุ้มกว่าจองหลายห้อง · งบพอขยับเลือก Superior ที่มีระเบียงนั่งเล่น",
@@ -424,15 +633,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "บ้านแฝด", "price": "เริ่ม ฿550/คืน" },
-        { "type": "ห้องเตียงคู่ (K)", "price": "เริ่ม ฿750/คืน" },
-        { "type": "ห้องเตียงคู่ (S)", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "บ้านแฝด",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "ห้องเตียงคู่ (K)",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "ห้องเตียงคู่ (S)",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.facebook.com/Sakura313644/",
       "bookingUrl": "https://www.facebook.com/Sakuraresort3333/",
       "tripUrl": "https://www.facebook.com/Sakura313644/",
       "reviewUrl": "review-sakura-resort-wang-muang-saraburi.html",
-      "tags": ["💰 ราคาเริ่ม ฿550", "🏡 บ้านแฝดเรียบง่ายสะอาด", "🌊 ฝั่งวังม่วง ใกล้เขื่อนป่าสัก", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "💰 ราคาเริ่ม ฿550",
+        "🏡 บ้านแฝดเรียบง่ายสะอาด",
+        "🌊 ฝั่งวังม่วง ใกล้เขื่อนป่าสัก",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "222 หมู่ 2 บ้านมอดินแดง ตำบลวังม่วง อำเภอวังม่วง สระบุรี",
       "storyHtml": "Sakura Resort คือ <strong>ที่พักราคาประหยัดที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿550 แต่คะแนน 8.0</strong> (จาก 18 รีวิว) · เป็นบ้านแฝดและห้องเตียงคู่เรียบง่ายสะอาด มีแอร์ ทีวี ห้องน้ำในตัว ครบตามราคา · อยู่ฝั่งวังม่วง ใกล้เขื่อนป่าสักชลสิทธิ์ เหมาะคนคุมงบที่ตั้งใจมาเที่ยวเขื่อนหรือผ่านทางวังม่วง · ลิงก์จองหลักเป็นเพจเฟซบุ๊กของรีสอร์ต ควรทักจองและยืนยันห้องก่อน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ที่นี่จองผ่านเพจเฟซบุ๊กเป็นหลัก ทักไปถามห้องว่างและราคาช่วงที่จะไปก่อน · มีตัวเลือกพักรายชั่วโมงด้วย เช็กเงื่อนไขให้ชัด",
@@ -464,15 +687,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin Room", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Superior Double Room", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Deluxe Twin Room", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Superior Twin Room",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Superior Double Room",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ps-hotel-saraburi-h80201565/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pruksa-siri-view.th.html",
       "tripUrl": "https://th.trip.com/hotels/phra-phutthabat-district-hotel-detail-7599664/ps-hotel-saraburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ps-hotel-saraburi.html",
-      "tags": ["💰 ราคาเริ่ม ฿600", "🛏️ ห้องสะอาดสไตล์มินิมอล", "🛕 ใกล้วัดพระพุทธบาท", "📶 Wi-Fi ฟรี ที่จอดรถ"],
+      "tags": [
+        "💰 ราคาเริ่ม ฿600",
+        "🛏️ ห้องสะอาดสไตล์มินิมอล",
+        "🛕 ใกล้วัดพระพุทธบาท",
+        "📶 Wi-Fi ฟรี ที่จอดรถ"
+      ],
       "addr": "11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท สระบุรี",
       "storyHtml": "PS Hotel คือ <strong>โรงแรมราคาประหยัดย่านพระพุทธบาทที่คะแนนดี 7.9 ในราคาเริ่มแค่ ฿600</strong> (จาก 22 รีวิว) · ห้องสะอาดสไตล์มินิมอล มีแอร์ ทีวีจอแบน โต๊ะทำงาน และ Wi-Fi ฟรี · อยู่ริมถนนพหลโยธินย่านพระพุทธบาท ใกล้วัดพระพุทธบาทราชวรมหาวิหาร เหมาะคนมาไหว้พระ ทำธุระ หรือพักผ่านทางที่อยากได้ที่พักสะอาดราคาเบา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับให้เลือก Deluxe Twin ที่เป็นห้องประเภทสูงสุดของที่นี่ ห้องสภาพดีกว่า Superior รุ่นมาตรฐานพอควร",
@@ -504,15 +741,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Superior Room (มีระเบียง)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Family / Twin Room", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Superior Room (มีระเบียง)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Family / Twin Room",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/river-residence-saraburi-hotel/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-river-residence-saraburi-hotel-ban-kluai.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-saraburi-hotel-detail-25015087/river-residence-saraburi-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-residence-saraburi.html",
-      "tags": ["💰 ราคาเริ่ม ฿700", "🛏️ ห้องสะอาดเรียบง่าย", "🚗 ในตัวเมืองสระบุรี", "📶 Wi-Fi ฟรี ที่จอดรถ"],
+      "tags": [
+        "💰 ราคาเริ่ม ฿700",
+        "🛏️ ห้องสะอาดเรียบง่าย",
+        "🚗 ในตัวเมืองสระบุรี",
+        "📶 Wi-Fi ฟรี ที่จอดรถ"
+      ],
       "addr": "ตำบลตะกุด อำเภอเมืองสระบุรี สระบุรี",
       "storyHtml": "River Residence คือ <strong>โรงแรมราคาประหยัดในตัวเมืองสระบุรีย่านตะกุด</strong> คะแนน 7.0 จาก 24 รีวิว · ห้องสะอาดเรียบง่าย มีแอร์ ทีวี ห้องน้ำส่วนตัว และ Wi-Fi ฟรี บางห้อง Superior มีระเบียง และมี Family/Twin Room สำหรับกลุ่มหรือครอบครัวเล็ก · อยู่ในตัวเมืองสระบุรี เหมาะคนแวะพักผ่านทางหรือมาธุระในเมืองที่ต้องการแค่ที่พักสะอาดราคาเบา เริ่มราว ฿700",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับนิดให้เลือก Superior Room ที่มีระเบียง ห้องโปร่งกว่า Standard ส่วนต่างไม่กี่ร้อย",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรมสระบุรี 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Sir James Resort", "type": "⭐⭐⭐⭐", "score": "8.2", "price": "฿1,900", "access": "📍 มวกเหล็ก·เชิงเขาใหญ่", "badge": "รีวิวมากสุด 2,750", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Supalai Pasak Resort & Spa", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,600", "access": "📍 แก่งคอย·ริมแม่น้ำป่าสัก", "badge": "ริมน้ำ คะแนนสูง", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Organery Retreat & Spa", "type": "⭐⭐⭐", "score": "8.8", "price": "฿2,200", "access": "📍 มวกเหล็ก·เชิงเขาใหญ่", "badge": "บูทีก คะแนนสูง", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Phufa Pasak Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,200", "access": "📍 วังม่วง·ริมเขื่อนป่าสัก", "badge": "บ้านดินวิวเขื่อน", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Baan Ingkhao Resort", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,200", "access": "📍 มวกเหล็ก·เชิงเขาใหญ่", "badge": "วิลล่าในสวน รีวิวเยอะ", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Saraburi Garden Resort", "type": "⭐⭐⭐", "score": "7.0", "price": "฿900", "access": "📍 ตะกุด·ตัวเมือง", "badge": "รีวิวเยอะ 398", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Muak Lek Forest Resort", "type": "⭐⭐⭐", "score": "7.6", "price": "฿1,800", "access": "📍 มวกเหล็ก·กลางป่า", "badge": "รีสอร์ทกลางป่า", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "The Bua Boutique Resort", "type": "⭐⭐⭐", "score": "7.5", "price": "฿650", "access": "📍 แก่งคอย·ติดมิตรภาพ", "badge": "บูทีกราคาเบา", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Muaklek Paradise Resort", "type": "⭐⭐⭐", "score": "7.0", "price": "฿2,200", "access": "📍 มวกเหล็ก·เชิงเขาใหญ่", "badge": "บังกะโลในสวน", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Sakura Resort Wang Muang", "type": "⭐⭐", "score": "8.0", "price": "฿550", "access": "📍 วังม่วง·ใกล้เขื่อน", "badge": "ประหยัดสุด ฿550", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "PS Hotel Saraburi", "type": "⭐⭐", "score": "7.9", "price": "฿600", "access": "📍 พระพุทธบาท", "badge": "ประหยัด ใกล้วัด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "River Residence Saraburi", "type": "⭐⭐", "score": "7.0", "price": "฿700", "access": "📍 ตะกุด·ตัวเมือง", "badge": "ประหยัดในตัวเมือง", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Sir James Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿1,900",
+      "access": "📍 มวกเหล็ก·เชิงเขาใหญ่",
+      "badge": "รีวิวมากสุด 2,750",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Supalai Pasak Resort & Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,600",
+      "access": "📍 แก่งคอย·ริมแม่น้ำป่าสัก",
+      "badge": "ริมน้ำ คะแนนสูง",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Organery Retreat & Spa",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿2,200",
+      "access": "📍 มวกเหล็ก·เชิงเขาใหญ่",
+      "badge": "บูทีก คะแนนสูง",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Phufa Pasak Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,200",
+      "access": "📍 วังม่วง·ริมเขื่อนป่าสัก",
+      "badge": "บ้านดินวิวเขื่อน",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Baan Ingkhao Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,200",
+      "access": "📍 มวกเหล็ก·เชิงเขาใหญ่",
+      "badge": "วิลล่าในสวน รีวิวเยอะ",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Saraburi Garden Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿900",
+      "access": "📍 ตะกุด·ตัวเมือง",
+      "badge": "รีวิวเยอะ 398",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Muak Lek Forest Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿1,800",
+      "access": "📍 มวกเหล็ก·กลางป่า",
+      "badge": "รีสอร์ทกลางป่า",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "The Bua Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.5",
+      "price": "฿650",
+      "access": "📍 แก่งคอย·ติดมิตรภาพ",
+      "badge": "บูทีกราคาเบา",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Muaklek Paradise Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿2,200",
+      "access": "📍 มวกเหล็ก·เชิงเขาใหญ่",
+      "badge": "บังกะโลในสวน",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Sakura Resort Wang Muang",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿550",
+      "access": "📍 วังม่วง·ใกล้เขื่อน",
+      "badge": "ประหยัดสุด ฿550",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "PS Hotel Saraburi",
+      "type": "⭐⭐",
+      "score": "7.9",
+      "price": "฿600",
+      "access": "📍 พระพุทธบาท",
+      "badge": "ประหยัด ใกล้วัด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "River Residence Saraburi",
+      "type": "⭐⭐",
+      "score": "7.0",
+      "price": "฿700",
+      "access": "📍 ตะกุด·ตัวเมือง",
+      "badge": "ประหยัดในตัวเมือง",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมสระบุรียังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Sakura Resort Wang Muang</strong> เริ่ม ฿550 ฝั่งวังม่วงใกล้เขื่อน · หรือ <strong>PS Hotel Saraburi</strong> ฿600 ย่านพระพุทธบาท คะแนน 7.9 · หรือ <strong>The Bua Boutique</strong> ฿650 บูทีกติดมิตรภาพ" },
-    { "icon": "⛰️", "head": "อยากพักผ่อนเชิงเขาใหญ่ มวกเหล็ก", "bodyHtml": "→ <strong>Sir James Resort</strong> ฿1,900 รีสอร์ทกอล์ฟ รีวิวเยอะสุด · หรือ <strong>The Organery Retreat</strong> ฿2,200 บูทีกคะแนน 8.8 · หรือ <strong>Baan Ingkhao</strong> ฿1,200 วิลล่าในสวน" },
-    { "icon": "🌊", "head": "อยากพักริมแม่น้ำ-ริมเขื่อน", "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 ริมแม่น้ำป่าสักแก่งคอย คะแนน 8.8 · หรือ <strong>Phufa Pasak Resort</strong> ฿1,200 บ้านดินวิวเขื่อนป่าสักวังม่วง" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว มากันหลายคน", "bodyHtml": "→ <strong>Muak Lek Forest Resort</strong> ฿1,800 มีวิลล่า 3 ห้องนอน · หรือ <strong>Baan Ingkhao</strong> ฿1,200 มี Family Room · หรือ <strong>Muaklek Paradise</strong> ฿2,200 วิลล่า 2 ห้องนอน" },
-    { "icon": "🛕", "head": "มาไหว้พระ พักผ่านทาง ไม่มีรถ", "bodyHtml": "→ <strong>PS Hotel Saraburi</strong> ฿600 ใกล้วัดพระพุทธบาท · หรือ <strong>River Residence</strong> ฿700 ในตัวเมือง · หรือ <strong>Saraburi Garden Resort</strong> ฿900 ในสวนใกล้เมือง" },
-    { "icon": "💆", "head": "อยากได้รีสอร์ตมีสปา บรรยากาศดี", "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 ริมน้ำมีสปา คะแนน 8.8 · หรือ <strong>The Organery Retreat & Spa</strong> ฿2,200 บูทีกเชิงเขามีสระและสปา" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Sakura Resort Wang Muang</strong> เริ่ม ฿550 ฝั่งวังม่วงใกล้เขื่อน · หรือ <strong>PS Hotel Saraburi</strong> ฿600 ย่านพระพุทธบาท คะแนน 7.9 · หรือ <strong>The Bua Boutique</strong> ฿650 บูทีกติดมิตรภาพ"
+    },
+    {
+      "icon": "⛰️",
+      "head": "อยากพักผ่อนเชิงเขาใหญ่ มวกเหล็ก",
+      "bodyHtml": "→ <strong>Sir James Resort</strong> ฿1,900 รีสอร์ทกอล์ฟ รีวิวเยอะสุด · หรือ <strong>The Organery Retreat</strong> ฿2,200 บูทีกคะแนน 8.8 · หรือ <strong>Baan Ingkhao</strong> ฿1,200 วิลล่าในสวน"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมแม่น้ำ-ริมเขื่อน",
+      "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 ริมแม่น้ำป่าสักแก่งคอย คะแนน 8.8 · หรือ <strong>Phufa Pasak Resort</strong> ฿1,200 บ้านดินวิวเขื่อนป่าสักวังม่วง"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว มากันหลายคน",
+      "bodyHtml": "→ <strong>Muak Lek Forest Resort</strong> ฿1,800 มีวิลล่า 3 ห้องนอน · หรือ <strong>Baan Ingkhao</strong> ฿1,200 มี Family Room · หรือ <strong>Muaklek Paradise</strong> ฿2,200 วิลล่า 2 ห้องนอน"
+    },
+    {
+      "icon": "🛕",
+      "head": "มาไหว้พระ พักผ่านทาง ไม่มีรถ",
+      "bodyHtml": "→ <strong>PS Hotel Saraburi</strong> ฿600 ใกล้วัดพระพุทธบาท · หรือ <strong>River Residence</strong> ฿700 ในตัวเมือง · หรือ <strong>Saraburi Garden Resort</strong> ฿900 ในสวนใกล้เมือง"
+    },
+    {
+      "icon": "💆",
+      "head": "อยากได้รีสอร์ตมีสปา บรรยากาศดี",
+      "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 ริมน้ำมีสปา คะแนน 8.8 · หรือ <strong>The Organery Retreat & Spa</strong> ฿2,200 บูทีกเชิงเขามีสระและสปา"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงปลายฝนต้นหนาว (พ.ย.–ม.ค.) และวันหยุดยาว ที่พักโซนมวกเหล็ก-เชิงเขาใหญ่และริมเขื่อนป่าสักเต็มเร็วมาก ควรจองล่วงหน้า 2–4 สัปดาห์ · สระบุรีไม่มีรถไฟฟ้าและสนามบินพาณิชย์ โซนที่พักเด่นอย่างมวกเหล็กและวังม่วงควรมีรถ · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมสระบุรี",
   "faq": [
-    { "q": "❓ พักโซนไหนดีในสระบุรี?", "a": "ขึ้นอยู่กับแพลนเที่ยวและมีรถหรือไม่ · <strong>มวกเหล็ก-เชิงเขาใหญ่</strong> โซนรีสอร์ตเด่นสุด อากาศเย็น ใกล้น้ำตกและฟาร์มโคนม (Sir James, The Organery, Baan Ingkhao, Muak Lek Forest, Muaklek Paradise) · <strong>แก่งคอย</strong> ติดถนนมิตรภาพ มีรีสอร์ตริมแม่น้ำป่าสัก (Supalai Pasak, The Bua) · <strong>วังม่วง</strong> ริมเขื่อนป่าสัก เหมาะพักริมน้ำ (Phufa Pasak, Sakura) · <strong>ตัวเมือง-พระพุทธบาท</strong> เหมาะคนพักผ่านทางและไม่มีรถ (Saraburi Garden, PS Hotel, River Residence)" },
-    { "q": "❓ โรงแรมสระบุรีราคาเท่าไหร่?", "a": "สระบุรีมีให้เลือกหลายระดับ: ที่พักประหยัด 2 ดาวเริ่มราว ฿550–900 (Sakura, PS Hotel, River Residence, Saraburi Garden) · รีสอร์ตและบูทีก 3 ดาวเชิงเขาราว ฿1,200–2,200 (Baan Ingkhao, Phufa Pasak, Muak Lek Forest, The Organery, Muaklek Paradise) · รีสอร์ต 4 ดาวริมน้ำและกอล์ฟราว ฿1,600–1,900 (Supalai Pasak, Sir James)" },
-    { "q": "❓ พักมวกเหล็กเที่ยวเขาใหญ่ได้ไหม?", "a": "ได้ มวกเหล็กอยู่เชิงเขาใหญ่ฝั่งสระบุรี ขับรถถึงทางขึ้นอุทยานฯ ฝั่งปากช่องได้ และระหว่างทางมีน้ำตกมวกเหล็ก ฟาร์มโคนม ไร่องุ่นให้แวะ · ที่พักเด่นในโซนนี้คือ <strong>Sir James Resort</strong> (รีสอร์ทกอล์ฟ) <strong>The Organery Retreat</strong> (บูทีกคะแนน 8.8) และ <strong>Baan Ingkhao</strong> (วิลล่าในสวน) ทั้งหมดควรมีรถ" },
-    { "q": "❓ สระบุรีมีที่พักริมน้ำ-ริมเขื่อนไหม?", "a": "มี · <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 เป็นบังกะโลริมแม่น้ำป่าสักฝั่งแก่งคอย มีสปาและสระ คะแนน 8.8 · ส่วน <strong>Phufa Pasak Resort</strong> ฿1,200 เป็นบ้านดินและเต็นท์วิวทะเลสาบเขื่อนป่าสักชลสิทธิ์ฝั่งวังม่วง เหมาะคนชอบใกล้ชิดธรรมชาติและชมพระอาทิตย์ตกริมน้ำ" },
-    { "q": "❓ ไม่มีรถ มาไหว้พระพุทธบาท พักที่ไหนสะดวก?", "a": "ถ้าตั้งใจมาไหว้พระพุทธบาทหรือพักผ่านทางในตัวเมือง · <strong>PS Hotel Saraburi</strong> ฿600 อยู่ย่านพระพุทธบาทใกล้วัด · <strong>River Residence</strong> ฿700 และ <strong>Saraburi Garden Resort</strong> ฿900 อยู่ในตัวเมืองสระบุรี · ส่วนโซนรีสอร์ตอย่างมวกเหล็กและวังม่วงควรมีรถถึงจะสะดวก" },
-    { "q": "❓ ควรจองโรงแรมสระบุรีล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงปลายฝนต้นหนาว (พ.ย.–ม.ค.) และวันหยุดยาว ที่พักโซนมวกเหล็ก-เชิงเขาใหญ่และริมเขื่อนป่าสักเต็มเร็วมาก เพราะคนเที่ยวเขาใหญ่และรับลมหนาว ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป" }
-  ]
+    {
+      "q": "❓ พักโซนไหนดีในสระบุรี?",
+      "a": "ขึ้นอยู่กับแพลนเที่ยวและมีรถหรือไม่ · <strong>มวกเหล็ก-เชิงเขาใหญ่</strong> โซนรีสอร์ตเด่นสุด อากาศเย็น ใกล้น้ำตกและฟาร์มโคนม (Sir James, The Organery, Baan Ingkhao, Muak Lek Forest, Muaklek Paradise) · <strong>แก่งคอย</strong> ติดถนนมิตรภาพ มีรีสอร์ตริมแม่น้ำป่าสัก (Supalai Pasak, The Bua) · <strong>วังม่วง</strong> ริมเขื่อนป่าสัก เหมาะพักริมน้ำ (Phufa Pasak, Sakura) · <strong>ตัวเมือง-พระพุทธบาท</strong> เหมาะคนพักผ่านทางและไม่มีรถ (Saraburi Garden, PS Hotel, River Residence)"
+    },
+    {
+      "q": "❓ โรงแรมสระบุรีราคาเท่าไหร่?",
+      "a": "สระบุรีมีให้เลือกหลายระดับ: ที่พักประหยัด 2 ดาวเริ่มราว ฿550–900 (Sakura, PS Hotel, River Residence, Saraburi Garden) · รีสอร์ตและบูทีก 3 ดาวเชิงเขาราว ฿1,200–2,200 (Baan Ingkhao, Phufa Pasak, Muak Lek Forest, The Organery, Muaklek Paradise) · รีสอร์ต 4 ดาวริมน้ำและกอล์ฟราว ฿1,600–1,900 (Supalai Pasak, Sir James)"
+    },
+    {
+      "q": "❓ พักมวกเหล็กเที่ยวเขาใหญ่ได้ไหม?",
+      "a": "ได้ มวกเหล็กอยู่เชิงเขาใหญ่ฝั่งสระบุรี ขับรถถึงทางขึ้นอุทยานฯ ฝั่งปากช่องได้ และระหว่างทางมีน้ำตกมวกเหล็ก ฟาร์มโคนม ไร่องุ่นให้แวะ · ที่พักเด่นในโซนนี้คือ <strong>Sir James Resort</strong> (รีสอร์ทกอล์ฟ) <strong>The Organery Retreat</strong> (บูทีกคะแนน 8.8) และ <strong>Baan Ingkhao</strong> (วิลล่าในสวน) ทั้งหมดควรมีรถ"
+    },
+    {
+      "q": "❓ สระบุรีมีที่พักริมน้ำ-ริมเขื่อนไหม?",
+      "a": "มี · <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 เป็นบังกะโลริมแม่น้ำป่าสักฝั่งแก่งคอย มีสปาและสระ คะแนน 8.8 · ส่วน <strong>Phufa Pasak Resort</strong> ฿1,200 เป็นบ้านดินและเต็นท์วิวทะเลสาบเขื่อนป่าสักชลสิทธิ์ฝั่งวังม่วง เหมาะคนชอบใกล้ชิดธรรมชาติและชมพระอาทิตย์ตกริมน้ำ"
+    },
+    {
+      "q": "❓ ไม่มีรถ มาไหว้พระพุทธบาท พักที่ไหนสะดวก?",
+      "a": "ถ้าตั้งใจมาไหว้พระพุทธบาทหรือพักผ่านทางในตัวเมือง · <strong>PS Hotel Saraburi</strong> ฿600 อยู่ย่านพระพุทธบาทใกล้วัด · <strong>River Residence</strong> ฿700 และ <strong>Saraburi Garden Resort</strong> ฿900 อยู่ในตัวเมืองสระบุรี · ส่วนโซนรีสอร์ตอย่างมวกเหล็กและวังม่วงควรมีรถถึงจะสะดวก"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมสระบุรีล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงปลายฝนต้นหนาว (พ.ย.–ม.ค.) และวันหยุดยาว ที่พักโซนมวกเหล็ก-เชิงเขาใหญ่และริมเขื่อนป่าสักเต็มเร็วมาก เพราะคนเที่ยวเขาใหญ่และรับลมหนาว ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมสระบุรีคัดมาแล้วจากทุกระดับ — ตั้งแต่ Sir James รีสอร์ทกอล์ฟเชิงเขาใหญ่ ไปถึง Supalai Pasak ริมแม่น้ำป่าสัก บูทีกมวกเหล็ก และที่พักริมเขื่อนป่าสักวังม่วง เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

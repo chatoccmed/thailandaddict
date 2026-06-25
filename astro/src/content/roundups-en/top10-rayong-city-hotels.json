@@ -16,16 +16,39 @@
     "✅ Honest takes from <strong>real reviews</strong> for every stay"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Rayong", "href": "city-rayong.html" },
-    { "name": "Top 10 Rayong City Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Rayong",
+      "href": "city-rayong.html"
+    },
+    {
+      "name": "Top 10 Rayong City Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Rayong", "item": "https://thailandaddict.com/en/city-rayong" },
-    { "name": "Top 10 Rayong City Hotels", "item": "https://thailandaddict.com/en/top10-rayong-city-hotels" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Rayong",
+      "item": "https://thailandaddict.com/en/city-rayong"
+    },
+    {
+      "name": "Top 10 Rayong City Hotels",
+      "item": "https://thailandaddict.com/en/top10-rayong-city-hotels"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-rayong-city-hotels.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "Rayong has no rail transit; getting around the city is mainly by private car, Grab, or songthaew (shared pickup truck) · From Bangkok it's about a 2.5–3 hour drive via the motorway, and from U-Tapao Airport (UTP) it's roughly 30–50 min by car into the city, depending on the area · The stay areas in this article: <strong>Sukhumvit Road, the Noen Phra / Choeng Noen area</strong> — the city's main artery, where most hotels sit, near Passione mall, Star IT Center, and the markets, with easy walking to food · <strong>The old town center</strong> — near markets and local restaurants, good if you want to soak up city life · <strong>Mae Ramphueng Beach</strong> — east of the city, about 12–17 km out, for people who want to sleep near the sea but still get into town easily · If your main destination is Koh Samet, the Ban Phe pier is about 20 km from the city center (25–30 min by car).",
   "secLabel": "All 10 hotels — let's get into it",
   "toc": [
-    { "n": "1", "color": "#0891b2", "name": "Holiday Inn & Suites Rayong City Centre", "price": "฿1,800" },
-    { "n": "2", "color": "#0891b2", "name": "PLAAI Prime Hotel Rayong", "price": "฿1,100" },
-    { "n": "3", "color": "#0891b2", "name": "Kameo Grand Rayong", "price": "฿2,200" },
-    { "n": "4", "color": "#0891b2", "name": "Star Convention Hotel", "price": "฿1,200" },
-    { "n": "5", "color": "#0891b2", "name": "Classic Kameo Rayong", "price": "฿1,300" },
-    { "n": "6", "color": "#0891b2", "name": "Rayong City Hotel", "price": "฿1,000" },
-    { "n": "7", "color": "#0891b2", "name": "Kantary Bay Rayong", "price": "฿2,400" },
-    { "n": "8", "color": "#0891b2", "name": "Golden City Rayong Hotel", "price": "฿1,089" },
-    { "n": "9", "color": "#0891b2", "name": "Tamarind Garden Hotel", "price": "฿1,100" },
-    { "n": "10", "color": "#0891b2", "name": "Hop Inn Rayong", "price": "฿650" }
+    {
+      "n": "1",
+      "color": "#0891b2",
+      "name": "Holiday Inn & Suites Rayong City Centre",
+      "price": "฿1,800"
+    },
+    {
+      "n": "2",
+      "color": "#0891b2",
+      "name": "PLAAI Prime Hotel Rayong",
+      "price": "฿1,100"
+    },
+    {
+      "n": "3",
+      "color": "#0891b2",
+      "name": "Kameo Grand Rayong",
+      "price": "฿2,200"
+    },
+    {
+      "n": "4",
+      "color": "#0891b2",
+      "name": "Star Convention Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#0891b2",
+      "name": "Classic Kameo Rayong",
+      "price": "฿1,300"
+    },
+    {
+      "n": "6",
+      "color": "#0891b2",
+      "name": "Rayong City Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "Kantary Bay Rayong",
+      "price": "฿2,400"
+    },
+    {
+      "n": "8",
+      "color": "#0891b2",
+      "name": "Golden City Rayong Hotel",
+      "price": "฿1,089"
+    },
+    {
+      "n": "9",
+      "color": "#0891b2",
+      "name": "Tamarind Garden Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "10",
+      "color": "#0891b2",
+      "name": "Hop Inn Rayong",
+      "price": "฿650"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿1,800/night" },
-        { "type": "Deluxe Sea View Room", "price": "from ฿2,500/night" },
-        { "type": "One Bedroom Suite", "price": "from ฿4,500/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Deluxe Sea View Room",
+          "price": "from ฿2,500/night"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/holiday-inn-suites-rayong-city-centre/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/holiday-inn-suites-rayong-city-centre.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-10822148/holiday-inn-suites-rayong-city-centre/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-holiday-inn-suites-rayong-city-centre-rayong.html",
-      "tags": ["🏙️ 29th-floor infinity pool", "🛍️ Walk straight into Passione mall", "🛏️ 288 rooms and suites", "✦ IHG Group"],
+      "tags": [
+        "🏙️ 29th-floor infinity pool",
+        "🛍️ Walk straight into Passione mall",
+        "🛏️ 288 rooms and suites",
+        "✦ IHG Group"
+      ],
       "addr": "554/5 Sukhumvit Road, Noen Phra, Mueang Rayong",
       "storyHtml": "If there's one hotel in Rayong city that reviewers call the \"safest\" pick for people who don't want to take a chance, many point to this one — <strong>Holiday Inn &amp; Suites Rayong City Centre</strong> is a 4-star city hotel in the IHG group, a tall tower in the heart of the city that connects straight into the Passione Shopping Destination on Sukhumvit Road · It's the highest-scoring of these 10 at 9.5 from 476 reviews on Trip.com, and TripAdvisor ranks it #5 of 64 hotels in Rayong · The thing reviews mention most is the <strong>rooftop infinity pool on the 29th floor</strong>, looking out over the city skyline against the Gulf of Thailand — a lot of people say it's a spot you \"have to go up and try\" in the evening before sunset · There are 288 rooms and suites to choose from, from a Superior that's roomier than the typical city hotel up to a Deluxe Sea View that many reviews recommend for the Gulf view that's worth the price difference · The point guests agree on most is that the rooms are very clean, spacious, and modern, the Soft &amp; Firm beds and pillows are comfortable, water pressure is good, and the breakfast buffet has plenty of variety · Being attached to the mall helps a lot, because after a tiring day at work you just walk down to find restaurants, a food court, and a supermarket, all without going out into the sun or calling a car · The honest caveats from reviews: this is a city hotel, not a beachfront resort, so if you're set on falling asleep to the waves you'll need to drive on to Mae Ramphueng Beach about 12–15 km away. A few reviews ran into in-room items like the kettle or door lock not working properly now and then, the rooftop food quality being inconsistent on some servings, and the Wi-Fi signal sometimes not being strong enough for bandwidth-heavy work · Bottom line: if you want the most convenient, most predictable city base in Rayong — for a work trip, a conference, family, or a stopover before crossing to Samet — this is the most solid choice.",
       "tipHtml": "💡 <strong>Tip:</strong> Pick a Deluxe Sea View or a high-floor room and request a sea/city view at the time of booking, because the price difference is worth the view you get · And head up to the 29th-floor infinity pool in the evening before sunset to catch both the light and the view in one frame.",
@@ -103,15 +190,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (~30 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Studio Suite Pool View (~42 sqm)", "price": "from ฿1,800/night" },
-        { "type": "PLAAI Prime Suite One Bedroom (~69 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Deluxe Room (~30 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Studio Suite Pool View (~42 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "PLAAI Prime Suite One Bedroom (~69 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/d-varee-diva-central-rayong/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/d-varee-diva-central-rayong.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-5707678/plaai-prime-hotel-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-plaai-prime-rayong.html",
-      "tags": ["🛁 Semi-open bathroom with a bathtub", "🛍️ 3-min walk to Passione", "🏊 Outdoor pool", "🎨 Modern design"],
+      "tags": [
+        "🛁 Semi-open bathroom with a bathtub",
+        "🛍️ 3-min walk to Passione",
+        "🏊 Outdoor pool",
+        "🎨 Modern design"
+      ],
       "addr": "590 Sukhumvit Road, Noen Phra, Mueang Rayong",
       "storyHtml": "First thing to know before you search: <strong>PLAAI Prime Hotel Rayong</strong> originally opened as <strong>D Varee Diva Central Rayong</strong> and is now run under the PLAAI Hotels Group brand — so if you see the D Varee name on some platforms, no need to wonder, it's the same place, same building, same location · This is a 4-star city hotel on Sukhumvit Road positioned as a design hotel that looks more modern than its price, scoring 9.2 from 413 reviews on Trip.com · Reviews mention two things most often — one is the location, just about a <strong>3-minute walk to Passione mall</strong> and around 9 minutes to Mo Sa Roj Market, so you can head out for dinner or shopping without calling a car · The other is the <strong>semi-open bathroom with a freestanding bathtub and a rain shower</strong>, which many people say is the detail that makes it feel special for the price · Rooms start from a Deluxe of about 30 sqm that's nicely laid out, up to a Studio Suite with a pool view and a One Bedroom Suite of about 69 sqm · Plenty of reviews agree the beds are very comfortable, the rooms look great, the breakfast is varied and tasty, and the staff are friendly and bilingual · There's an outdoor pool that many say is clean and gets good sun, plus a gym for anyone who wants to work out · The honest caveats from reviews: the building is starting to show its age in places, with curtains, towels, and furniture in some rooms looking less than fresh, some rooms have a leaky bathtub, some gym equipment could use an upgrade, and rooms facing Sukhumvit Road get some traffic noise · Bottom line: among Rayong's city hotels, PLAAI Prime is one of the most balanced for looks, convenience, and value, well suited to couples and anyone who cares about the room's atmosphere and taking good photos.",
       "tipHtml": "💡 <strong>Tip:</strong> If the bathtub matters to you, ask ahead for a renovated room to avoid leak issues · And if you're a light sleeper, request an inner room not facing Sukhumvit Road at the time of booking, because that road has traffic all the time.",
@@ -144,15 +245,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Studio Suite", "price": "from ฿2,200/night" },
-        { "type": "One Bedroom Suite", "price": "from ฿2,900/night" },
-        { "type": "Two Bedroom Suite", "price": "from ฿4,500/night" }
+        {
+          "type": "Studio Suite",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "from ฿2,900/night"
+        },
+        {
+          "type": "Two Bedroom Suite",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kameo-grand-hotel-serviced-apartments-rayong/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kameo-house-rayong.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-711453/kameo-grand-hotel-and-serviced-apartment-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kameo-grand-rayong.html",
-      "tags": ["🍳 Built-in kitchen in every room", "🏊 Rooftop pool and steakhouse", "🚐 Free mall shuttle", "✦ Kasemkij group"],
+      "tags": [
+        "🍳 Built-in kitchen in every room",
+        "🏊 Rooftop pool and steakhouse",
+        "🚐 Free mall shuttle",
+        "✦ Kasemkij group"
+      ],
       "addr": "305/14 Sukhumvit Road, Noen Phra, Mueang Rayong",
       "storyHtml": "If you're coming to Rayong for a long stay, working for a week or a month, <strong>Kameo Grand Rayong</strong> is the place designed directly for that — a 4-star hotel and serviced apartment in the Kasemkij group (Kameo Collection) in central Rayong on Sukhumvit Road, scoring 8.8 from 64 reviews on Trip.com · What sets it apart from a typical city hotel is that <strong>every room is apartment-style with a built-in kitchen</strong>, from a Studio Suite that suits couples or solo travelers up to One Bedroom and Two Bedroom Suites with separate bedrooms and living rooms and a full kitchen, well suited to families or groups traveling together · Having a kitchen means you can cook for yourself, which is cheaper and more convenient for a long stay — a big reason people working in the industrial estates choose it · A highlight reviews mention is the <strong>rooftop pool and steakhouse</strong> with a nice atmosphere to relax in the evening, plus a free mall shuttle and free parking that help with getting around · Service is a point that earns praise in reviews, with staff who pay attention · The honest caveats: it's a building that's been open a while, so some rooms are starting to show their age and feel plainer than expected, the facilities score middling, and it's a city hotel away from the sea, with Mae Ramphueng Beach about 15–25 min by car · Bottom line: it's best for people who value a \"room with a kitchen you can genuinely live in long-term\" on an affordable budget, more than anyone after brand-new rooms or a resort feel.",
       "tipHtml": "💡 <strong>Tip:</strong> For a multi-day stay, choose a One Bedroom Suite or above for the full kitchen and a separate living area — better value per night · And use the hotel's free mall shuttle instead of calling a car yourself.",
@@ -185,15 +300,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Twin Room", "price": "from ฿1,200/night" },
-        { "type": "Grand Deluxe Corner Room (43 sqm)", "price": "from ฿1,900/night" },
-        { "type": "Family Suite (up to 124 sqm)", "price": "from ฿3,500/night" }
+        {
+          "type": "Superior Twin Room",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Grand Deluxe Corner Room (43 sqm)",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Family Suite (up to 124 sqm)",
+          "price": "from ฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/star-convention-hotel-star-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/star-convention-hotel.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-5799110/star-convention-hotel-star-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-star-convention-hotel-rayong.html",
-      "tags": ["🛍️ Attached to Star IT Center", "🛏️ Larger-than-standard rooms", "🏊 2 pools + gym + sauna", "🚌 Near the bus terminal"],
+      "tags": [
+        "🛍️ Attached to Star IT Center",
+        "🛏️ Larger-than-standard rooms",
+        "🏊 2 pools + gym + sauna",
+        "🚌 Near the bus terminal"
+      ],
       "addr": "115 Soi Rayong Trade Center 4, Sukhumvit Road, Choeng Noen, Mueang Rayong",
       "storyHtml": "<strong>Star Convention Hotel</strong> is a 4-star city hotel with two of the clearest selling points around — <strong>larger-than-standard rooms</strong> and being <strong>attached to the Star IT Center mall</strong>, which you can just walk down into · It sits on Sukhumvit Road in Choeng Noen, scoring 8.8 from 123 reviews on Trip.com · The rooms are what guests consistently emphasize, because here even the entry rooms run about 32 sqm, up to a Family Suite as large as 124 sqm — so large that many say you get more space than you pay for, ideal for bigger families or anyone wanting a roomy long stay · Grand Deluxe rooms and above have a microwave and fridge, and some have crockery, so you can reheat food yourself · The facilities highlight is having <strong>two pools plus a gym and sauna</strong>, more complete than many city hotels at the same price · Breakfast and service earn praise, with a service score around 9.0, and the location near the Rayong bus terminal is convenient for anyone arriving by coach · The honest caveats from reviews: the building is older, with plainer, more dated decor and furniture than newer design hotels, so the room and facilities scores land mid-range, and it's a city hotel away from the sea, with Mae Ramphueng Beach about 17 km away · Bottom line: it's best for people who value room space per baht and the convenience of being attached to a mall — for work trips, conferences, seminars, or long stays — more than anyone after a stylish, modern room.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're traveling as a group or staying long, the Family Suite and Grand Deluxe Corner give the best space per baht in this group · And use the Star IT Center right next door as your base for food and evening snacks.",
@@ -226,15 +355,29 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿1,300/night" },
-        { "type": "Studio", "price": "from ฿1,900/night" },
-        { "type": "Studio Suite", "price": "from ฿2,500/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Studio",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Studio Suite",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/classic-kameo-hotel-serviced-apartment-rayong/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/classic-kameo-amp-serviced-apartment.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-2486803/classic-kameo-hotel-and-serviced-apartment-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-classic-kameo-rayong.html",
-      "tags": ["🍳 Small in-room kitchen", "🏊 Indoor + outdoor pool", "🚶 Walk to Star Night market", "✦ Kameo group"],
+      "tags": [
+        "🍳 Small in-room kitchen",
+        "🏊 Indoor + outdoor pool",
+        "🚶 Walk to Star Night market",
+        "✦ Kameo group"
+      ],
       "addr": "11 Soi Ratsadabamrung 6, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Classic Kameo Rayong</strong> is another sibling in the Kameo family, set on Soi Ratsadabamrung 6 in the Noen Phra area, and it's the one reviewers say you \"can actually live in\" on an affordable budget — scoring 8.8 from 175 reviews on Trip.com, a notably larger review base than Kameo Grand · It's a 4-star hotel and serviced apartment where many room types have a <strong>small built-in kitchen, fridge, and microwave</strong>, especially the Studio and Studio Suite that suit long stays or families, while the Standard and Deluxe suit shorter stays · The point that earns the highest praise is the <strong>service</strong>, with a score touching 9.2, and cleanliness at 9.1 — reviews mention well-looking-after staff and consistently clean rooms · The facilities highlight is having <strong>both an indoor and an outdoor pool</strong> plus a sauna, with the indoor pool being a plus on rainy or harsh-sun days · It's within about 700–800 m walking distance of the Star Night Bazaar and Star IT Center, so food is easy to find, and Mo Saroch Market is about 5 min by car · The varied breakfast is another point reviews praise · The honest caveats: the rooms are plainer than the good-looking lobby, some spots are aging with the building, so the room score lands below the service score, and it's a city hotel away from the sea, with Saeng Chan Beach about 10–15 min by car and Mae Ramphueng Beach about 16 km · Bottom line: it suits people who want a room with a kitchen, good service, and both indoor and outdoor pools, on a budget in the low-thousands.",
       "tipHtml": "💡 <strong>Tip:</strong> For a long stay, choose a Studio or Studio Suite for the small kitchen so you can cook for yourself · And the indoor pool is a good fallback on rainy or harsh-sun days — make the most of it.",
@@ -267,15 +410,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Queen Superior", "price": "from ฿1,000/night" },
-        { "type": "Queen Deluxe", "price": "from ฿1,300/night" },
-        { "type": "One-Bedroom Queen Suite", "price": "from ฿1,800/night" }
+        {
+          "type": "Queen Superior",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Queen Deluxe",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "One-Bedroom Queen Suite",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rayong-city-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Rayong+City+Hotel+Rayong",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotels-list-36064/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rayong-city-hotel-rayong.html",
-      "tags": ["💰 From ฿1,000/night", "🏙️ Central Rayong", "🏊 Pool + breakfast + free parking", "🛏️ Spacious, ~250 rooms"],
+      "tags": [
+        "💰 From ฿1,000/night",
+        "🏙️ Central Rayong",
+        "🏊 Pool + breakfast + free parking",
+        "🛏️ Spacious, ~250 rooms"
+      ],
       "addr": "11 Ratsadabamrung Road, Soi 4, Choeng Noen, Mueang Rayong",
       "storyHtml": "If budget is the main concern and you just want a roomy bed in the city with the basic facilities all there, <strong>Rayong City Hotel</strong> is the one reviewers say is so good-value it's hard to find a rival — a 3.5-star city hotel on Ratsadabamrung Road in central Rayong, scoring 8.1 from 109 reviews on Trip.com · The clear selling point is the <strong>price starting in the low thousands</strong>, with a Queen Superior from about ฿1,000, moving up to a Queen Deluxe and a One-Bedroom Queen Suite with a separate living area · With around 250 rooms, this is a large hotel that can handle groups and tours · The highest-scoring category is value at 8.6, followed by location, reflecting that guests feel they get more than they pay for · It has a pool, breakfast, and free parking all included, and the central location lets you walk to restaurants and markets all around the hotel, near Star IT Center and Star Night Bazaar · Helpful staff are a point reviews praise · The honest caveats to know before booking: this is an older building that's seen plenty of use, with aging furniture and bathrooms in some rooms, the room category scores 7.6 — the lowest in this group — and the soundproofing between rooms isn't great · Bottom line: if you set your expectation at \"affordable, central, roomy, basics covered\" rather than newness or luxury, this delivers value that's hard to find in Rayong city.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated room on a higher floor or the quieter side at the time of booking, because the soundproofing between rooms isn't great · And compare prices with Golden City and Hop Inn, which sit at a similar budget level, before deciding.",
@@ -308,15 +465,29 @@
       "priceBig": "฿2,400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Studio Suite", "price": "from ฿2,400/night" },
-        { "type": "One Bedroom Premier Suite", "price": "from ฿3,400/night" },
-        { "type": "Two Bedroom Premier Suite", "price": "from ฿4,800/night" }
+        {
+          "type": "Studio Suite",
+          "price": "from ฿2,400/night"
+        },
+        {
+          "type": "One Bedroom Premier Suite",
+          "price": "from ฿3,400/night"
+        },
+        {
+          "type": "Two Bedroom Premier Suite",
+          "price": "from ฿4,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kantary-bay-hotel-rayong/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kantary-bay-and-serviced-apartment-rayong.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-711456/kantary-bay-hotel-and-serviced-apartment-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kantary-bay-rayong.html",
-      "tags": ["🌊 Cross the road to Mae Ramphueng Beach", "🍳 Apartment-style rooms with a kitchen", "🏊 2 pools + plenty of activities", "🛏️ 194 units"],
+      "tags": [
+        "🌊 Cross the road to Mae Ramphueng Beach",
+        "🍳 Apartment-style rooms with a kitchen",
+        "🏊 2 pools + plenty of activities",
+        "🛏️ 194 units"
+      ],
       "addr": "50, 50/2 Chai Hat Road, Noen Phra, Mueang Rayong",
       "storyHtml": "In this group, <strong>Kantary Bay Rayong</strong> is the exception on location — it's not in the city center but <strong>on Mae Ramphueng Beach, right across from the sand, just cross the road to reach it</strong>, about 15 min by car from Rayong city, so it suits people who want to sleep near the sea but still get into town easily · It's a 4-star hotel and serviced apartment in the Kantary group, scoring 9.0 from 157 reviews on Trip.com — among the higher scores in the group · What impresses guests is that <strong>the rooms are spacious apartment-style with a built-in kitchen</strong>, from a Studio Suite up to a Two Bedroom Premier Suite that suits big families, and some units get a sea view — reviews consistently give high marks for the room, value, and facilities categories · The highlight is having <strong>2 pools and plenty of activities</strong>, ideal for families with kids, plus a 7-Eleven and beachfront food trucks within a 1–2 minute walk · The Ban Phe pier to Koh Samet is only about 20 min by car · The honest caveats from reviews: Mae Ramphueng is a public beach you cross the road to reach, not a private beach in front of the hotel, some rooms are aging with the building, and some rooms get road noise · Bottom line: it's the best pick in this group for families or long-stay guests who want a spacious room with a kitchen and to be near the sea, while still getting back into town in not much time.",
       "tipHtml": "💡 <strong>Tip:</strong> If a sea view matters, request a One Bedroom Premier Suite or above and ask for a unit facing the beach at the time of booking · And if you're a light sleeper, ask for a room not facing Chai Hat Road to avoid traffic noise.",
@@ -349,15 +520,29 @@
       "priceBig": "฿1,089",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Twin (~29 sqm)", "price": "from ฿1,089/night" },
-        { "type": "One Bedroom Suite (Wing C, new building)", "price": "from ฿1,900/night" },
-        { "type": "Family Suite (~85 sqm)", "price": "from ฿2,800/night" }
+        {
+          "type": "Deluxe Twin (~29 sqm)",
+          "price": "from ฿1,089/night"
+        },
+        {
+          "type": "One Bedroom Suite (Wing C, new building)",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Family Suite (~85 sqm)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/golden-city-rayong-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/golden-city-rayong.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-1509136/golden-city-rayong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-golden-city-rayong-hotel-rayong.html",
-      "tags": ["🏢 3 buildings · Wing C is new", "🅿️ Large free parking", "💰 From ฿1,089/night", "🛏️ ~340 rooms"],
+      "tags": [
+        "🏢 3 buildings · Wing C is new",
+        "🅿️ Large free parking",
+        "💰 From ฿1,089/night",
+        "🛏️ ~340 rooms"
+      ],
       "addr": "530/1 Sukhumvit Road, Noen Phra, Mueang Rayong",
       "storyHtml": "<strong>Golden City Rayong Hotel</strong> is the 4-star city hotel with the largest review base in this group — 395 reviews on Trip.com, scoring 9.2, which tells you it's been proven by a lot of guests · It sits on Sukhumvit Road in the Noen Phra area in central Rayong · The thing to know before booking is that the hotel is split into <strong>3 buildings (Wing A/B/C)</strong>, with <strong>Wing C being the new, modern building</strong> where rooms are in better shape and reviews recommend you request it, while the older buildings are plainer and cheaper — matching the building to your expectations makes for a happier stay · There are several room tiers, starting at about ฿1,089 for a Deluxe Twin of around 29 sqm, moving up to a mountain-view Studio of about 37 sqm, a One Bedroom Suite in Wing C, and a Family Suite of about 85 sqm that suits big families or groups traveling together · The best-scoring categories are service and value, both at 9.2, reflecting that guests feel they get more than they pay for and that staff look after them well · A highlight drivers love is the <strong>large free parking</strong>, which is rare for a central-city hotel — no circling for a spot or paying extra to park — and the location is near Laemtong Plaza mall, about 500 m, with a 7-Eleven and restaurants across the road within walking distance · The honest caveats from reviews: rooms don't soundproof well between each other, the pool is small, room condition clearly varies by building (the older buildings are plainer and more dated than Wing C), and it's a city hotel away from the sea, with Mae Ramphueng Beach about 16 km, around 20–25 min by car · Bottom line: it's best for work trips, seminars, families driving in, and anyone who wants a central stopover with easy parking before crossing to Samet — just specify Wing C, the new building, when booking and you'll be happiest.",
       "tipHtml": "💡 <strong>Tip:</strong> Specify a room in Wing C, the new building, at the time of booking, because room condition is clearly better than the older buildings · And if you're a light sleeper, ask for a higher floor or the quieter side, since reviews say rooms don't soundproof well.",
@@ -390,15 +575,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (32 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Grand Deluxe Room (40 sqm)", "price": "from ฿1,900/night" },
-        { "type": "Family Room (32–64 sqm)", "price": "from ฿2,200/night" }
+        {
+          "type": "Superior Room (32 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Grand Deluxe Room (40 sqm)",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Family Room (32–64 sqm)",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tamarind-garden-hotel/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tamarind-garden.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-711504/tamarind-garden-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tamarind-garden-hotel-rayong.html",
-      "tags": ["🌳 Garden hotel in the city", "🚪 Balcony in every room", "🔌 Free parking + EV charger", "✨ Renovated in 2024"],
+      "tags": [
+        "🌳 Garden hotel in the city",
+        "🚪 Balcony in every room",
+        "🔌 Free parking + EV charger",
+        "✨ Renovated in 2024"
+      ],
       "addr": "30/1 Soi Ruean Khwan, Sukhumvit Road, Choeng Noen, Mueang Rayong",
       "storyHtml": "If you want peace and quiet without going out to stay outside the city, <strong>Tamarind Garden Hotel</strong> is the one that fits that best in this group — a 4-star city hotel <strong>set back in a garden</strong> on Soi Ruean Khwan in the Choeng Noen area, giving it a quieter feel than hotels right on Sukhumvit Road, where you wake to trees instead of traffic · What sends its scores up is that the hotel was <strong>just renovated in 2024</strong>, scoring 9.1 from 135 reviews on Trip.com, with cleanliness touching 9.4 and rooms at 9.2 — among the top of this group · The point reviews most agree on is the <strong>spacious rooms with a private balcony in every room</strong>, from a Superior at 32 sqm up to a Deluxe at 36 sqm, a Grand Deluxe at 40 sqm, and a Family Room with bunk beds for families with kids — rooms are clean like new, comfortably decorated, and the balcony lets you sip morning coffee outside · There's a garden pool, attentive service that scores 9.3, and <strong>free parking with an EV charger</strong>, a genuine plus for anyone driving an electric car · The honest caveat to understand before booking: this location suits people with a car, because there are few restaurants within walking distance and it isn't attached to a mall like others in the group, so the location category scores 8.6, clearly below the others, and it's away from the sea, with Saeng Chan Beach about 15 min by car and the Ban Phe pier for the boat to Koh Samet about 30–40 min · Bottom line: it's best for people with a car who value a clean new room, garden quiet, and a private balcony more than the convenience of walking to restaurants and a mall.",
       "tipHtml": "💡 <strong>Tip:</strong> This place suits people with a car most, because there are few restaurants within walking distance — plan for transport and use the free EV charger if you drive an electric car · Choose the Grand Deluxe if you want an extra-spacious room with a balcony.",
@@ -431,15 +630,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (~20 sqm)", "price": "from ฿650/night" },
-        { "type": "Standard Twin Room (~20 sqm)", "price": "from ฿650/night" },
-        { "type": "Standard (long-holiday period)", "price": "about ฿1,000/night" }
+        {
+          "type": "Standard Double Room (~20 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin Room (~20 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard (long-holiday period)",
+          "price": "about ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-rayong/hotel/rayong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-rayong.html",
       "tripUrl": "https://www.trip.com/hotels/rayong-hotel-detail-7247054/hop-inn-rayong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-rayong.html",
-      "tags": ["💰 From ฿650/night", "🧼 Clean rooms, Hop Inn standard", "🅿️ Free parking + 24h front desk", "🚶 Near markets and convenience stores"],
+      "tags": [
+        "💰 From ฿650/night",
+        "🧼 Clean rooms, Hop Inn standard",
+        "🅿️ Free parking + 24h front desk",
+        "🚶 Near markets and convenience stores"
+      ],
       "addr": "355/3 Sukhumvit Road, Noen Phra, Mueang Rayong",
       "storyHtml": "Closing out the group with the lightest budget — <strong>Hop Inn Rayong</strong>, a budget hotel in the Erawan Group (HOP INN) on Sukhumvit Road in the Noen Phra area, impressive in that it scores as high as 9.3 from 124 reviews on Trip.com despite a price starting at only about ฿650/night · The secret of Hop Inn is consistency — <strong>the room standard is the same at every branch nationwide</strong>: a room of about 20 sqm, clean, with a big comfortable bed, air-con, TV, fridge, and an en-suite bathroom with hot water, nothing flashy but everything you need for a night's sleep · The cleanliness category touches 9.4 and value 9.3, reflecting that guests get exactly what they expect every time · It has <strong>free parking and a 24-hour front desk</strong>, good for people arriving late or passing through · The location on Sukhumvit Road is easy to find since it's on a main road, near Strawberry Town about 700 m, with a night market and convenience stores within walking distance, and onward transport to Saeng Chan Beach, the Mid-Water Pagoda, and the Ban Phe pier to cross to Koh Samet, all reachable in about 25–30 min · The honest caveat to set your expectation straight before booking: this is pure budget — <strong>no pool, no restaurant, no breakfast, and no sea view</strong> — the room is small at about 20 sqm, the facilities category scores 8.3, the lowest on that front compared to others in the group, and the hotel is on a main road with some passing traffic noise, especially in road-facing rooms · But at a few hundred baht, that's the trade-off, and most guests understand it and give high scores because they got exactly what they expected · Bottom line: if you just want a clean, good-value room in a central, easy-to-find location with free parking — for passing through, arriving late, or a single workday and out — Hop Inn is the safest, most predictable answer at this budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Hop Inn has no breakfast, so plan to grab food at Strawberry Town or a nearby convenience store · And if you're a light sleeper, ask for a room not facing Sukhumvit Road to avoid traffic noise.",
@@ -458,37 +671,192 @@
     }
   ],
   "compareTitle": "Comparison Table: 10 Downtown Rayong Hotels 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#0891b2", "name": "Holiday Inn & Suites Rayong City Centre", "type": "⭐⭐⭐⭐", "score": "9.5", "price": "฿1,800", "access": "📍 City · next to Passione", "badge": "Highest score · 29th-floor pool", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#0891b2", "name": "PLAAI Prime Hotel Rayong", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,100", "access": "📍 City · 3-min walk to Passione", "badge": "Stylish rooms with a bathtub", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "3", "rankColor": "#0891b2", "name": "Kameo Grand Rayong", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿2,200", "access": "📍 Central · Sukhumvit", "badge": "Kitchen in every room · long stays", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#0891b2", "name": "Star Convention Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,200", "access": "📍 City · next to Star IT", "badge": "Mall-attached · spacious rooms", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "5", "rankColor": "#0891b2", "name": "Classic Kameo Rayong", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,300", "access": "📍 Noen Phra · near markets", "badge": "Has a kitchen · indoor pool", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "6", "rankColor": "#0891b2", "name": "Rayong City Hotel", "type": "⭐⭐⭐", "score": "8.1", "price": "฿1,000", "access": "📍 Old town center", "badge": "Low-thousands budget, best value", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "Kantary Bay Rayong", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿2,400", "access": "📍 On Mae Ramphueng Beach", "badge": "Cross the road to the beach · has a kitchen", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "8", "rankColor": "#0891b2", "name": "Golden City Rayong Hotel", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,089", "access": "📍 Central · Sukhumvit", "badge": "Easy parking · new-building rooms", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "9", "rankColor": "#0891b2", "name": "Tamarind Garden Hotel", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,100", "access": "📍 Choeng Noen · in a garden", "badge": "Garden hotel · newly renovated", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "10", "rankColor": "#0891b2", "name": "Hop Inn Rayong", "type": "⭐⭐", "score": "9.3", "price": "฿650", "access": "📍 Noen Phra · on Sukhumvit", "badge": "Budget, clean rooms", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#0891b2",
+      "name": "Holiday Inn & Suites Rayong City Centre",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿1,800",
+      "access": "📍 City · next to Passione",
+      "badge": "Highest score · 29th-floor pool",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#0891b2",
+      "name": "PLAAI Prime Hotel Rayong",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,100",
+      "access": "📍 City · 3-min walk to Passione",
+      "badge": "Stylish rooms with a bathtub",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#0891b2",
+      "name": "Kameo Grand Rayong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿2,200",
+      "access": "📍 Central · Sukhumvit",
+      "badge": "Kitchen in every room · long stays",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#0891b2",
+      "name": "Star Convention Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,200",
+      "access": "📍 City · next to Star IT",
+      "badge": "Mall-attached · spacious rooms",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#0891b2",
+      "name": "Classic Kameo Rayong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,300",
+      "access": "📍 Noen Phra · near markets",
+      "badge": "Has a kitchen · indoor pool",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#0891b2",
+      "name": "Rayong City Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿1,000",
+      "access": "📍 Old town center",
+      "badge": "Low-thousands budget, best value",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "Kantary Bay Rayong",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿2,400",
+      "access": "📍 On Mae Ramphueng Beach",
+      "badge": "Cross the road to the beach · has a kitchen",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#0891b2",
+      "name": "Golden City Rayong Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,089",
+      "access": "📍 Central · Sukhumvit",
+      "badge": "Easy parking · new-building rooms",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#0891b2",
+      "name": "Tamarind Garden Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,100",
+      "access": "📍 Choeng Noen · in a garden",
+      "badge": "Garden hotel · newly renovated",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#0891b2",
+      "name": "Hop Inn Rayong",
+      "type": "⭐⭐",
+      "score": "9.3",
+      "price": "฿650",
+      "access": "📍 Noen Phra · on Sukhumvit",
+      "badge": "Budget, clean rooms",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "How do you pick a Rayong city hotel that fits your trip?",
   "advice": [
-    { "icon": "🏆", "head": "Want an international brand, the safest standard", "bodyHtml": "→ <strong>Holiday Inn & Suites Rayong City Centre</strong> ฿1,800, IHG group, attached to Passione mall, 29th-floor infinity pool, score 9.5 — the highest in the group" },
-    { "icon": "🛁", "head": "Want a photogenic room with a bathtub", "bodyHtml": "→ <strong>PLAAI Prime Hotel Rayong</strong> ฿1,100, modern design, semi-open bathroom with a bathtub, 3-min walk to Passione (formerly D Varee Diva Central)" },
-    { "icon": "🍳", "head": "Coming for a long stay, want a room with a kitchen", "bodyHtml": "→ <strong>Kameo Grand</strong> ฿2,200 or <strong>Classic Kameo</strong> ฿1,300, apartment-style rooms with a built-in kitchen so you can cook — great for week-long stays" },
-    { "icon": "🛏️", "head": "Traveling as a group, want the most spacious room", "bodyHtml": "→ <strong>Star Convention Hotel</strong> ฿1,200, Family Suite up to 124 sqm, attached to Star IT Center, with 2 pools + a sauna" },
-    { "icon": "💰", "head": "Limited budget, want the best value", "bodyHtml": "→ <strong>Hop Inn Rayong</strong> ฿650, clean rooms to a consistent standard · <strong>Rayong City Hotel</strong> ฿1,000, spacious rooms with the basics covered · <strong>Golden City</strong> ฿1,089, free parking" },
-    { "icon": "🌳", "head": "Want a new room, quiet, and have a car", "bodyHtml": "→ <strong>Tamarind Garden Hotel</strong> ฿1,100, a garden hotel renovated in 2024, a balcony in every room, free parking + an EV charger" },
-    { "icon": "🌊", "head": "Want to sleep near the sea but still reach the city", "bodyHtml": "→ <strong>Kantary Bay Rayong</strong> ฿2,400, cross the road to Mae Ramphueng Beach, rooms with a kitchen, 2 pools, only 15 min by car from the city, near the pier to Samet" }
+    {
+      "icon": "🏆",
+      "head": "Want an international brand, the safest standard",
+      "bodyHtml": "→ <strong>Holiday Inn & Suites Rayong City Centre</strong> ฿1,800, IHG group, attached to Passione mall, 29th-floor infinity pool, score 9.5 — the highest in the group"
+    },
+    {
+      "icon": "🛁",
+      "head": "Want a photogenic room with a bathtub",
+      "bodyHtml": "→ <strong>PLAAI Prime Hotel Rayong</strong> ฿1,100, modern design, semi-open bathroom with a bathtub, 3-min walk to Passione (formerly D Varee Diva Central)"
+    },
+    {
+      "icon": "🍳",
+      "head": "Coming for a long stay, want a room with a kitchen",
+      "bodyHtml": "→ <strong>Kameo Grand</strong> ฿2,200 or <strong>Classic Kameo</strong> ฿1,300, apartment-style rooms with a built-in kitchen so you can cook — great for week-long stays"
+    },
+    {
+      "icon": "🛏️",
+      "head": "Traveling as a group, want the most spacious room",
+      "bodyHtml": "→ <strong>Star Convention Hotel</strong> ฿1,200, Family Suite up to 124 sqm, attached to Star IT Center, with 2 pools + a sauna"
+    },
+    {
+      "icon": "💰",
+      "head": "Limited budget, want the best value",
+      "bodyHtml": "→ <strong>Hop Inn Rayong</strong> ฿650, clean rooms to a consistent standard · <strong>Rayong City Hotel</strong> ฿1,000, spacious rooms with the basics covered · <strong>Golden City</strong> ฿1,089, free parking"
+    },
+    {
+      "icon": "🌳",
+      "head": "Want a new room, quiet, and have a car",
+      "bodyHtml": "→ <strong>Tamarind Garden Hotel</strong> ฿1,100, a garden hotel renovated in 2024, a balcony in every room, free parking + an EV charger"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want to sleep near the sea but still reach the city",
+      "bodyHtml": "→ <strong>Kantary Bay Rayong</strong> ฿2,400, cross the road to Mae Ramphueng Beach, rooms with a kitchen, 2 pools, only 15 min by car from the city, near the pier to Samet"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates from the standard-room range and may change by date and season; we recommend checking the real price and comparing 3 sites before every booking · The scores and highlights in this article come from reading real guest reviews on booking platforms, not from staying ourselves · PLAAI Prime Hotel Rayong was formerly named D Varee Diva Central Rayong — it's the same place, same building, same location · Golden City is split into 3 buildings; ask for Wing C, the new building, to get the best room condition · Kantary Bay is on Mae Ramphueng Beach outside the city, about 15 min out, not in the center, but is included for people who want to sleep near the sea · During long holidays and festivals when Bangkok crowds head to the Eastern beaches, Rayong city hotels fill up fast and prices rise, so book ahead · Rayong has no rail transit; getting around is by car, Grab, or songthaew, and it's about 2.5–3 hours from Bangkok · Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common questions travelers ask about Rayong city hotels",
   "faq": [
-    { "q": "❓ Which is the best hotel in Rayong city?", "a": "It depends on your travel style · If you go by score and international-brand standards, <strong>Holiday Inn & Suites Rayong City Centre</strong> has the highest score in the article at 9.5, is attached to Passione mall, and has a 29th-floor infinity pool · If you go by review count and value, <strong>Golden City Rayong Hotel</strong> has the largest review base at 395 reviews, a score of 9.2, and free parking · If you want a stylish room with a bathtub, <strong>PLAAI Prime</strong> · For a long stay with a kitchen, <strong>Kameo Grand</strong> or <strong>Classic Kameo</strong> · And for the lightest budget, <strong>Hop Inn</strong> from ฿650" },
-    { "q": "❓ How much do Rayong city hotels cost?", "a": "In this article, prices start at about <strong>฿650–2,400 per night</strong> · On the budget side is Hop Inn from ฿650, and Rayong City Hotel / Golden City / PLAAI Prime / Tamarind Garden from about ฿1,000–1,100 · Mid-range is Star Convention at ฿1,200 and Classic Kameo at ฿1,300 · Higher up is Holiday Inn at ฿1,800, Kameo Grand at ฿2,200, and Kantary Bay at ฿2,400 · All prices are approximate starting rates from standard rooms; during long holidays prices may be higher than usual" },
-    { "q": "❓ For a trip to Rayong, is it better to stay in the city or by the sea?", "a": "It depends on your purpose · If you're coming to <strong>work, attend conferences or seminars, deal with the industrial estates, or stop over passing through</strong>, staying in the city is most convenient, since it's near malls, markets, restaurants, and easy onward travel · If your main goal is to <strong>swim in the sea and fall asleep to the waves every day</strong>, you should stay on the Mae Ramphueng Beach side, Mae Phim Beach, or cross over to Koh Samet · The middle path is Kantary Bay, on Mae Ramphueng Beach but only about 15 min from the city — you get both the sea and the convenience" },
-    { "q": "❓ Which Rayong city hotels are attached to a mall?", "a": "Several · <strong>Holiday Inn & Suites</strong> connects straight into Passione mall · <strong>PLAAI Prime</strong> is about a 3-minute walk to Passione · <strong>Star Convention Hotel</strong> is attached to the Star IT Center mall · <strong>Golden City</strong> is near Laemtong Plaza mall, about 500 m · And <strong>Classic Kameo</strong> is within about 700–800 m walking distance of the Star IT Center and Star Night Bazaar — good for people who want to walk to find food and shop without calling a car" },
-    { "q": "❓ What kind of Rayong stay suits families or long stays?", "a": "For a long stay or a family, <strong>a room with a built-in kitchen</strong> is the best value · <strong>Kameo Grand</strong> and <strong>Classic Kameo</strong> are serviced apartments with in-room kitchens so you can cook for yourself · <strong>Kantary Bay</strong> also has spacious apartment rooms with a kitchen by the beach · And for the largest room per baht, there's <strong>Star Convention</strong>, with a Family Suite up to 124 sqm, and <strong>Golden City</strong>, with a Family Suite of about 85 sqm and free parking" },
-    { "q": "❓ How far in advance should you book a Rayong city hotel?", "a": "Normally 1–2 weeks is enough, since most city hotels have plenty of rooms (many have 200–340 rooms) · But during <strong>long holidays and festivals when Bangkok crowds head to the Eastern beaches (Songkran, New Year, long weekends), book 3–4 weeks ahead or more</strong>, because rooms fill up fast and prices climb, especially the popular Holiday Inn and Golden City · Every platform offers Free Cancellation, so it's worth locking in a price early if your plans aren't certain, then comparing Agoda / Booking / Trip.com to get the best rate" }
-  ]
+    {
+      "q": "❓ Which is the best hotel in Rayong city?",
+      "a": "It depends on your travel style · If you go by score and international-brand standards, <strong>Holiday Inn & Suites Rayong City Centre</strong> has the highest score in the article at 9.5, is attached to Passione mall, and has a 29th-floor infinity pool · If you go by review count and value, <strong>Golden City Rayong Hotel</strong> has the largest review base at 395 reviews, a score of 9.2, and free parking · If you want a stylish room with a bathtub, <strong>PLAAI Prime</strong> · For a long stay with a kitchen, <strong>Kameo Grand</strong> or <strong>Classic Kameo</strong> · And for the lightest budget, <strong>Hop Inn</strong> from ฿650"
+    },
+    {
+      "q": "❓ How much do Rayong city hotels cost?",
+      "a": "In this article, prices start at about <strong>฿650–2,400 per night</strong> · On the budget side is Hop Inn from ฿650, and Rayong City Hotel / Golden City / PLAAI Prime / Tamarind Garden from about ฿1,000–1,100 · Mid-range is Star Convention at ฿1,200 and Classic Kameo at ฿1,300 · Higher up is Holiday Inn at ฿1,800, Kameo Grand at ฿2,200, and Kantary Bay at ฿2,400 · All prices are approximate starting rates from standard rooms; during long holidays prices may be higher than usual"
+    },
+    {
+      "q": "❓ For a trip to Rayong, is it better to stay in the city or by the sea?",
+      "a": "It depends on your purpose · If you're coming to <strong>work, attend conferences or seminars, deal with the industrial estates, or stop over passing through</strong>, staying in the city is most convenient, since it's near malls, markets, restaurants, and easy onward travel · If your main goal is to <strong>swim in the sea and fall asleep to the waves every day</strong>, you should stay on the Mae Ramphueng Beach side, Mae Phim Beach, or cross over to Koh Samet · The middle path is Kantary Bay, on Mae Ramphueng Beach but only about 15 min from the city — you get both the sea and the convenience"
+    },
+    {
+      "q": "❓ Which Rayong city hotels are attached to a mall?",
+      "a": "Several · <strong>Holiday Inn & Suites</strong> connects straight into Passione mall · <strong>PLAAI Prime</strong> is about a 3-minute walk to Passione · <strong>Star Convention Hotel</strong> is attached to the Star IT Center mall · <strong>Golden City</strong> is near Laemtong Plaza mall, about 500 m · And <strong>Classic Kameo</strong> is within about 700–800 m walking distance of the Star IT Center and Star Night Bazaar — good for people who want to walk to find food and shop without calling a car"
+    },
+    {
+      "q": "❓ What kind of Rayong stay suits families or long stays?",
+      "a": "For a long stay or a family, <strong>a room with a built-in kitchen</strong> is the best value · <strong>Kameo Grand</strong> and <strong>Classic Kameo</strong> are serviced apartments with in-room kitchens so you can cook for yourself · <strong>Kantary Bay</strong> also has spacious apartment rooms with a kitchen by the beach · And for the largest room per baht, there's <strong>Star Convention</strong>, with a Family Suite up to 124 sqm, and <strong>Golden City</strong>, with a Family Suite of about 85 sqm and free parking"
+    },
+    {
+      "q": "❓ How far in advance should you book a Rayong city hotel?",
+      "a": "Normally 1–2 weeks is enough, since most city hotels have plenty of rooms (many have 200–340 rooms) · But during <strong>long holidays and festivals when Bangkok crowds head to the Eastern beaches (Songkran, New Year, long weekends), book 3–4 weeks ahead or more</strong>, because rooms fill up fast and prices climb, especially the popular Holiday Inn and Golden City · Every platform offers Free Cancellation, so it's worth locking in a price early if your plans aren't certain, then comparing Agoda / Booking / Trip.com to get the best rate"
+    }
+  ],
+  "quickAnswerHtml": "10 downtown Rayong hotels we've already reviewed — from Holiday Inn &amp; Suites next to Passione mall with a 29th-floor infinity pool to budget-friendly Hop Inn · honest takes from real reviews, real scores, prices from about ฿650–2,400/night, compared across 3 sites with direct booking links."
 }

@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "นครสวรรค์", "href": "city-nakhon-sawan.html" },
-    { "name": "12 โรงแรมนครสวรรค์ยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "นครสวรรค์",
+      "href": "city-nakhon-sawan.html"
+    },
+    {
+      "name": "12 โรงแรมนครสวรรค์ยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "นครสวรรค์", "item": "https://thailandaddict.com/city-nakhon-sawan" },
-    { "name": "12 โรงแรมนครสวรรค์ยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-nakhon-sawan" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "นครสวรรค์",
+      "item": "https://thailandaddict.com/city-nakhon-sawan"
+    },
+    {
+      "name": "12 โรงแรมนครสวรรค์ยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-nakhon-sawan"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-nakhon-sawan.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "นครสวรรค์ไม่มีรถไฟฟ้า การเดินทางใช้รถยนต์เป็นหลัก แต่ตัวเมืองปากน้ำโพไม่ใหญ่และเดินเที่ยวย่านการค้าได้ · ที่พัก <strong>ใจกลางเมืองปากน้ำโพ</strong> หลายแห่งเดินถึงห้าง V Square/Central ตลาด ถนนคนเดิน และอุทยานสวรรค์ เหมาะคนไม่มีรถ (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu) · ที่พัก <strong>ริมถนนสายเอเชีย/เลี่ยงเมือง</strong> เข้าออกทางหลวงสะดวก ใกล้ Big C เหมาะคนขับรถแวะพักกลางทาง แต่รอบโรงแรมร้านอาหารไม่หนาแน่น (Hop Inn, Beverly Hill Park) · ส่วน <strong>ชานเมือง/ฝั่งบึงบอระเพ็ด</strong> ต้องมีรถส่วนตัวหรือเช่ารถ เพราะอยู่นอกเมือง แต่ใกล้บึงบอระเพ็ดและมีสระ-สปา (Good Nakhonsawan, Grand Hill Resort) · ทำเลในบทความนี้: <strong>กลางเมืองปากน้ำโพ</strong> — ห้าง ตลาด ของกิน ถนนคนเดิน · <strong>ริมถนนสายเอเชีย</strong> — แวะพักกลางทาง ที่จอดฟรี · <strong>ชานเมือง-บึงบอระเพ็ด</strong> — สระว่ายน้ำ สปา ใกล้บึงบอระเพ็ด",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Good Nakhonsawan Hotel", "price": "฿1,200" },
-    { "n": "2", "color": "#c8a951", "name": "Hop Inn Nakhon Sawan", "price": "฿650" },
-    { "n": "3", "color": "#c8a951", "name": "The Paradiso JK Design Hotel", "price": "฿1,300" },
-    { "n": "4", "color": "#9e9e9e", "name": "Bonito Chinos Hotel", "price": "฿650" },
-    { "n": "5", "color": "#9e9e9e", "name": "P.A. Place Hotel", "price": "฿600" },
-    { "n": "6", "color": "#9e9e9e", "name": "GO Hotel Nakhon Sawan", "price": "฿550" },
-    { "n": "7", "color": "#9e9e9e", "name": "24rooms Nakhon Sawan", "price": "฿750" },
-    { "n": "8", "color": "#bf8040", "name": "Aramis Hotel", "price": "฿1,000" },
-    { "n": "9", "color": "#bf8040", "name": "B2 Nakhon Sawan Premier Hotel", "price": "฿550" },
-    { "n": "10", "color": "#5d4037", "name": "Grand Hill Resort and Spa", "price": "฿1,100" },
-    { "n": "11", "color": "#5d4037", "name": "Grand Visanu Hotel", "price": "฿450" },
-    { "n": "12", "color": "#5d4037", "name": "Beverly Hill Park Hotel", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Good Nakhonsawan Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hop Inn Nakhon Sawan",
+      "price": "฿650"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "The Paradiso JK Design Hotel",
+      "price": "฿1,300"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Bonito Chinos Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "P.A. Place Hotel",
+      "price": "฿600"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "GO Hotel Nakhon Sawan",
+      "price": "฿550"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "24rooms Nakhon Sawan",
+      "price": "฿750"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Aramis Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "B2 Nakhon Sawan Premier Hotel",
+      "price": "฿550"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Grand Hill Resort and Spa",
+      "price": "฿1,100"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Grand Visanu Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Beverly Hill Park Hotel",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Double / King (25 ตร.ม.)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Junior Suite (มีอ่างอาบน้ำ)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Family Room (รับ 3–4 คน)", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Deluxe Double / King (25 ตร.ม.)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Junior Suite (มีอ่างอาบน้ำ)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Family Room (รับ 3–4 คน)",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/good-nakhonsawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/good-nakhonsawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-115800542/good-nakhonsawan-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-good-nakhonsawan-hotel-nakhon-sawan.html",
-      "tags": ["✨ เปิดใหม่ปี 2024 ห้องใหม่เอี่ยม", "🏊 สระกลางแจ้ง + สระดาดฟ้า + พูลวิลล่า", "🦆 ใกล้บึงบอระเพ็ด ~800 ม.", "🅿️ ที่จอดรถฟรี + อาหารเช้าฟรี"],
+      "tags": [
+        "✨ เปิดใหม่ปี 2024 ห้องใหม่เอี่ยม",
+        "🏊 สระกลางแจ้ง + สระดาดฟ้า + พูลวิลล่า",
+        "🦆 ใกล้บึงบอระเพ็ด ~800 ม.",
+        "🅿️ ที่จอดรถฟรี + อาหารเช้าฟรี"
+      ],
       "addr": "150/1 หมู่ 4 ถนนทางหลวง 225 ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Good Nakhonsawan Hotel คือ <strong>คะแนนสูงสุดในบทความนี้ที่ 9.3 จาก 306 รีวิว — โรงแรมเปิดใหม่ปี 2024 ที่มีสระว่ายน้ำครบและอยู่ใกล้บึงบอระเพ็ด</strong> · ห่างจากแยกบึงบอระเพ็ดราว 800 เมตร เข้าตัวเมืองปากน้ำโพราว 10 นาที · เสียงจากรีวิวจริงชมห้องใหม่เอี่ยม เฟอร์นิเจอร์และห้องน้ำยังสด สะอาด มีสระกลางแจ้ง สระดาดฟ้า สระเด็ก และพูลวิลล่าพร้อมสระส่วนตัวที่หายากในราคาระดับนี้แถวนครสวรรค์ · แต่ต้องยอมรับว่าราคาสูงกว่าโรงแรมเก่าในเมือง อาหารเช้าแค่ใช้ได้ และรอบ ๆ ร้านอาหารไม่เยอะ · เหมาะที่สุดสำหรับครอบครัวและคนขับรถผ่านที่อยากได้ห้องใหม่มีสระ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาเป็นครอบครัวเลือก Family Room ให้เด็กได้ลงสระ หรือมากันหลายคนคุ้มกว่าด้วย Pool Villa ที่มีสระส่วนตัว · ตื่นเช้าขับ ~10 นาทีไปดูบึงบอระเพ็ดช่วงแดดอ่อน · รอบโรงแรมร้านน้อย เตรียมรถหรือสั่งเดลิเวอรีไว้",
@@ -104,15 +201,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard (วันหยุด)", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard (วันหยุด)",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-12517364/hop-inn-nakhon-sawan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-nakhon-sawan.html",
-      "tags": ["🧼 ห้องสะอาด คุ้มราคา (สะอาด 9.2)", "🛣️ ริมถนนสายเอเชีย ใกล้ Big C", "🅿️ ที่จอดรถฟรี + เคาน์เตอร์ 24 ชม.", "💰 ราคาเบาที่สุดในเมือง"],
+      "tags": [
+        "🧼 ห้องสะอาด คุ้มราคา (สะอาด 9.2)",
+        "🛣️ ริมถนนสายเอเชีย ใกล้ Big C",
+        "🅿️ ที่จอดรถฟรี + เคาน์เตอร์ 24 ชม.",
+        "💰 ราคาเบาที่สุดในเมือง"
+      ],
       "addr": "605/755 หมู่ 10 ตำบลนครสวรรค์ตก อำเภอเมืองนครสวรรค์",
       "storyHtml": "Hop Inn Nakhon Sawan คือ <strong>บัดเจ็ตโฮเทลคะแนน 9.2 ที่ลงตัวที่สุดสำหรับคนอยากได้ห้องสะอาด นอนสบาย ที่จอดรถฟรี เข้าออกทางหลวงง่าย ในราคาเบาที่สุดในเมือง</strong> จาก 88 รีวิว · ทำเลริมถนนสายเอเชียใกล้ Big C เหมาะคนใช้นครสวรรค์เป็นจุดแวะพักกลางทางขึ้นเหนือ · เสียงจากรีวิวจริงชมห้องมาตรฐานสะอาด เตียงนอนสบาย หลายคนเรียกว่าคุ้มค่าเงินที่สุดในเมือง (คะแนนความสะอาด 9.2) มีที่จอดรถส่วนตัวฟรี เคาน์เตอร์เปิด 24 ชั่วโมง และ CCTV · แต่ต้องยอมรับว่าห้องเรียบไม่มีลูกเล่น ไม่มีอาหารเช้า ไม่มีสระ และไม่ได้อยู่ใจกลางตลาดปากน้ำโพ · เหมาะคนขับรถแวะค้างคืนและคนงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขับรถมาคือคุ้มสุด ที่จอดฟรีและเข้าออกทางหลวงง่าย · ไม่มีอาหารเช้า เดินไป Big C หรือร้านใกล้ ๆ ได้ · จองล่วงหน้าช่วงวันหยุดยาวเพราะเป็นทำเลแวะพักที่คนใช้เยอะ ราคาขยับขึ้นนิดหน่อย",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,300",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior (26 ตร.ม.)", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Deluxe (32 ตร.ม. มีอ่างอาบน้ำ)", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "Executive Suite (35 ตร.ม.)", "price": "เริ่ม ฿1,950/คืน" }
+        {
+          "type": "Superior (26 ตร.ม.)",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Deluxe (32 ตร.ม. มีอ่างอาบน้ำ)",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "Executive Suite (35 ตร.ม.)",
+          "price": "เริ่ม ฿1,950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-paradiso-jk-design-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-paradiso-jk-design-nkhrswrrkh.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-2550509/the-paradiso-jk-design-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-paradiso-jk-design-hotel-nakhon-sawan.html",
-      "tags": ["🎨 ห้องบูทีคดีไซน์โมเดิร์น", "🛁 หลายห้องมีอ่างอาบน้ำ", "🍳 อาหารเช้าดี รวมในราคา", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🎨 ห้องบูทีคดีไซน์โมเดิร์น",
+        "🛁 หลายห้องมีอ่างอาบน้ำ",
+        "🍳 อาหารเช้าดี รวมในราคา",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "188/1 หมู่ 10 ถนนนครสวรรค์-พิษณุโลก ตำบลนครสวรรค์ตก อำเภอเมืองนครสวรรค์",
       "storyHtml": "The Paradiso JK Design Hotel คือ <strong>โรงแรมบูทีคดีไซน์ที่ลงตัวสำหรับคนอยากได้ห้องดูดี ห้องกว้างมีอ่างอาบน้ำ และอาหารเช้าดีในตัวเมืองนครสวรรค์</strong> คะแนน 8.8 จาก 49 รีวิว · ตกแต่งสไตล์โมเดิร์น ห้องดูทันสมัยกว่าโรงแรมทั่วไปในเมือง ขนาด 26–70 ตร.ม. · เสียงจากรีวิวจริงชมดีไซน์ที่คุ้มราคา หลายห้องมีอ่างอาบน้ำแยกจากฝักบัวที่หาได้ยากในนครสวรรค์ อาหารเช้ารวมในราคาที่หลากหลายและอิ่ม และที่จอดรถฟรี · แต่ต้องยอมรับว่ามีเสียงจากคลับในตัวช่วงสุดสัปดาห์ และความสะอาดบางห้องที่ยังไม่สม่ำเสมอ · เหมาะคู่รักและคนอยากได้ห้องสวยมีอ่างอาบน้ำในเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้อ่างอาบน้ำเลือกห้อง Deluxe ขึ้นไปและเช็กกับโรงแรมก่อนจอง · สุดสัปดาห์อาจมีเสียงจากคลับในตัว ขอห้องชั้นสูงหรือห่างจากโซนคลับ · ลงไปกินอาหารเช้าที่รีวิวชมเรื่องความหลากหลาย",
@@ -184,15 +309,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "New Superior Room", "price": "เริ่ม ฿800/คืน" },
-        { "type": "New Deluxe Room", "price": "เริ่ม ฿1,000/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "New Superior Room",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "New Deluxe Room",
+          "price": "เริ่ม ฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bonito-chinos-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-bonito-chinos-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711667/bonito-chinos-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bonito-chinos-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ กลางเมือง เดินถึงห้าง", "🌆 ร้านอาหารดาดฟ้าวิวเมือง", "🍳 อาหารเช้าฟรี + รถรับส่งฟรี", "🔌 ที่จอดฟรี + จุดชาร์จ EV"],
+      "tags": [
+        "🏙️ กลางเมือง เดินถึงห้าง",
+        "🌆 ร้านอาหารดาดฟ้าวิวเมือง",
+        "🍳 อาหารเช้าฟรี + รถรับส่งฟรี",
+        "🔌 ที่จอดฟรี + จุดชาร์จ EV"
+      ],
       "addr": "314/29 ถนนสวรรค์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Bonito Chinos Hotel คือ <strong>บูทีคโฮเทล 4 ดาวที่ลงตัวสำหรับคนอยากพักกลางเมืองปากน้ำโพ เดินถึงห้างและสวนสวรรค์</strong> คะแนน 8.7 จาก 177 รีวิว โดยคะแนนหมวดทำเลสูงราว 9.4 · อยู่บนถนนสวรรค์วิถี ห่าง V Square และ Big C ไม่กี่นาที เดินไปสวนสวรรค์ได้ · เสียงจากรีวิวจริงชมทำเลที่เดินถึงทุกอย่าง ร้านอาหารดาดฟ้าที่มองเห็นเมืองนครสวรรค์เป็นมุมนั่งชิลตอนเย็น มีที่จอดรถฟรีพร้อมจุดชาร์จรถไฟฟ้า อาหารเช้าฟรี และรถรับส่งฟรี · แต่ต้องยอมรับว่าความสะอาดยังไม่สม่ำเสมอทุกห้อง และตัวอาคารบางส่วนเริ่มเก่า · เหมาะคนเที่ยวเมืองที่อยากเดินถึงห้างและของกิน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง New Superior/New Deluxe ที่ปรับปรุงใหม่จะได้สภาพห้องดีกว่าห้อง Standard เดิม · ขึ้นไปนั่งร้านดาดฟ้าชมวิวเมืองช่วงเย็น · เดินไปกินของย่านปากน้ำโพได้สบาย",
@@ -224,15 +363,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Standard Queen", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Deluxe Queen", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Standard Queen",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Deluxe Queen",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/p-a-place-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/p-a-place.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-6275119/pa-place-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pa-place-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ กลางเมือง เดินถึงร้านอาหาร-ตลาด", "🧼 ห้องสะอาด แอร์เย็น", "🅿️ ที่จอดฟรี · เคาน์เตอร์ 24 ชม.", "☕ กาแฟ-โกโก้ฟรีช่วงเช้า"],
+      "tags": [
+        "🏙️ กลางเมือง เดินถึงร้านอาหาร-ตลาด",
+        "🧼 ห้องสะอาด แอร์เย็น",
+        "🅿️ ที่จอดฟรี · เคาน์เตอร์ 24 ชม.",
+        "☕ กาแฟ-โกโก้ฟรีช่วงเช้า"
+      ],
       "addr": "276/4 ถนนสวรรค์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "P.A. Place Hotel คือ <strong>โรงแรม 3 ดาวกลางเมืองที่เหมาะกับคนอยากพักปากน้ำโพแบบห้องสะอาดและราคาคุ้ม</strong> คะแนน 8.6 จาก 152 รีวิว · อยู่บนถนนสวรรค์วิถีใจกลางเมือง เดินเข้าย่านการค้าและตลาดปากน้ำโพได้ ใกล้แม่น้ำเจ้าพระยาและอุทยานสวรรค์ไม่กี่นาทีรถ · เสียงจากรีวิวจริงชมห้องที่สะอาด ไม่มีกลิ่นอับ แอร์เย็นฉ่ำ คุ้มเกินราคา 3 ดาว มีที่จอดรถฟรีในตัว เคาน์เตอร์เปิด 24 ชั่วโมง รับเช็คอินดึก และกาแฟ-โกโก้ฟรีช่วงเช้า · แต่สภาพห้องไม่สม่ำเสมอบ้าง อาคารเป็นแบบเก่าของเมือง และสิ่งอำนวยความสะดวกไม่ครบแบบรีสอร์ต · เหมาะคนเที่ยวเมืองงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Deluxe Queen ที่กว้างกว่าและมีมุมนั่งเล่นถ้าพักหลายคืน · เช็คอินดึกได้เพราะเคาน์เตอร์ 24 ชม. · เดินเข้าตลาดปากน้ำโพหาของกินได้สบาย",
@@ -264,15 +417,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "GO King (ราคาโปรเปิดตัว)", "price": "เริ่ม ฿550/คืน" },
-        { "type": "Twin Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "GO King (ช่วงปกติ)", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "GO King (ราคาโปรเปิดตัว)",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "Twin Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "GO King (ช่วงปกติ)",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/go-hotel-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/go-nakhon-sawan.html",
       "tripUrl": "https://th.trip.com/hotels/nakhon-sawan-hotel-detail-133855738/go-hotel-nakhonsawan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-go-hotel-nakhon-sawan.html",
-      "tags": ["🆕 เปิดใหม่ปี 2026 ห้องยังสด", "🛍️ เดินถึง Central นครสวรรค์", "🅿️ ที่จอดรถฟรี + Wi-Fi ฟรี", "💰 ราคาโปรเปิดตัวเริ่ม ฿550"],
+      "tags": [
+        "🆕 เปิดใหม่ปี 2026 ห้องยังสด",
+        "🛍️ เดินถึง Central นครสวรรค์",
+        "🅿️ ที่จอดรถฟรี + Wi-Fi ฟรี",
+        "💰 ราคาโปรเปิดตัวเริ่ม ฿550"
+      ],
       "addr": "699/8 หมู่ 10 ตำบลนครสวรรค์ตก อำเภอเมืองนครสวรรค์",
       "storyHtml": "GO Hotel Nakhon Sawan คือ <strong>บัดเจ็ตโฮเทลเปิดใหม่ที่น่าลองสำหรับคนอยากได้ห้องใหม่ เตียงนุ่ม ที่จอดรถฟรี และทำเลใจกลางเมืองที่เดินถึง Central</strong> ในราคาเริ่มต้นที่ยังเบา คะแนน 8.5 · อยู่กลางปากน้ำโพ เดินถึง Central นครสวรรค์ ใกล้สวนสวรรค์ ทำเลที่บัดเจ็ตในเมืองหาได้ยาก · เสียงจากรีวิวช่วงแรกชมห้องใหม่ สะอาด เตียงนุ่ม มีที่จอดรถฟรี Wi-Fi ฟรี ลิฟต์ และชั้นปลอดบุหรี่ · แต่เพราะเพิ่งเปิดปี 2026 ต้องเผื่อใจเรื่องกลิ่นสีในอาคารที่ยังไม่จาง เสียงงานก่อสร้างรอบข้างช่วงเช้าวันหยุด รีวิวที่ยังมีไม่มาก (3 รีวิว) และไม่มีอาหารเช้าหรือสระว่ายน้ำ · เหมาะคนงบประหยัดที่อยากได้ห้องใหม่กลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เป็นโรงแรมเปิดใหม่ รีวิวยังน้อย เช็กราคาและสภาพล่าสุดก่อนจอง · คว้าราคาโปรเปิดตัว ฿550 ช่วงวันธรรมดา · ไม่มีอาหารเช้า เดินไป Central หรือร้านในเมืองได้",
@@ -304,15 +471,29 @@
       "priceBig": "฿750",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (~36 ตร.ม.)", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Suite (มีอ่างอาบน้ำ)", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Standard Room (~36 ตร.ม.)",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Suite (มีอ่างอาบน้ำ)",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/24rooms-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/24rooms-nkhrswrrkh.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-120005436/24rooms/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-24rooms-nakhon-sawan.html",
-      "tags": ["🏡 ห้องกว้าง ~36 ตร.ม. ตกแต่งน่ารัก", "🏙️ ใจกลางปากน้ำโพ เดินเที่ยวได้", "🅿️ ที่จอดรถฟรี + มีอาหารเช้า", "🤝 พนักงานเป็นมิตร"],
+      "tags": [
+        "🏡 ห้องกว้าง ~36 ตร.ม. ตกแต่งน่ารัก",
+        "🏙️ ใจกลางปากน้ำโพ เดินเที่ยวได้",
+        "🅿️ ที่จอดรถฟรี + มีอาหารเช้า",
+        "🤝 พนักงานเป็นมิตร"
+      ],
       "addr": "60/89 ถนนสวรรค์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "24rooms Nakhon Sawan คือ <strong>ที่พักเล็กน่ารักที่ลงตัวสำหรับคนอยากได้ห้องกว้าง ตกแต่งน่ารัก สะอาด ที่จอดรถฟรี และอยู่กลางเมืองเดินเที่ยวได้</strong> ในราคาเบา คะแนน 8.4 จาก 24 รีวิว · อยู่บนถนนสวรรค์วิถีกลางเมือง เดินไปถนนคนเดินราว 1 กม. ใกล้ริมแม่น้ำเจ้าพระยาและร้านของกิน · เสียงจากรีวิวจริงชมห้องราว 36 ตร.ม. ที่กว้างเกินคาดสำหรับราคานี้ ตกแต่งน่ารักไม่ซ้ำกัน สะอาด เตียงนอนสบาย มีที่จอดรถส่วนตัวฟรี เคาน์เตอร์ 24 ชั่วโมง อาหารเช้าและคาเฟ่เล็ก พนักงานเป็นมิตร · แต่ต้องยอมรับว่าเป็นที่พักเล็กเพิ่งเปิด ไม่มีสระว่ายน้ำหรือสิ่งอำนวยความสะดวกแบบโรงแรมใหญ่ และยังมีรีวิวสะสมไม่มาก · เหมาะคนอยากพักในเมืองแบบห้องกว้างน่ารัก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากแช่อ่างผ่อนคลายเลือกห้อง Suite ที่มีอ่างอาบน้ำใหญ่ · จองล่วงหน้าช่วงวันหยุดยาวเพราะห้องน้อยและเต็มเร็ว · เดินไปถนนคนเดินและริมแม่น้ำหาของกินได้",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,000",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Twin (~28 ตร.ม.)", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "Deluxe King (~33 ตร.ม.)", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Deluxe Corner King (~33 ตร.ม.)", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Superior Twin (~28 ตร.ม.)",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe King (~33 ตร.ม.)",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Corner King (~33 ตร.ม.)",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/aramis-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-aramis-hotel-nakhon-sawan.html",
       "tripUrl": "https://th.trip.com/hotels/nakhon-sawan-hotel-detail-711656/aramis-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-aramis-hotel-nakhon-sawan.html",
-      "tags": ["🛏️ ห้องกว้างสะอาด ~28–33 ตร.ม.", "🏙️ กลางเมืองปากน้ำโพ ใกล้สวนสวรรค์", "🅿️ ที่จอดรถฟรีกว้างขวาง", "🍳 อาหารเช้าบุฟเฟต์ + ลิฟต์ 24 ชม."],
+      "tags": [
+        "🛏️ ห้องกว้างสะอาด ~28–33 ตร.ม.",
+        "🏙️ กลางเมืองปากน้ำโพ ใกล้สวนสวรรค์",
+        "🅿️ ที่จอดรถฟรีกว้างขวาง",
+        "🍳 อาหารเช้าบุฟเฟต์ + ลิฟต์ 24 ชม."
+      ],
       "addr": "288/20 ถนนสวรรค์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Aramis Hotel คือ <strong>โรงแรมกลางเมืองนครสวรรค์ที่เหมาะกับคนต้องการห้องกว้างสะอาด ที่จอดรถเยอะ มีอาหารเช้า และทำเลปากน้ำโพที่เดินเข้าตลาดและร้านอาหารได้ ในราคาเริ่มต้นไม่แพง</strong> คะแนน 8.3 จาก 210 รีวิว · อยู่กลางเมืองย่านปากน้ำโพ ใกล้สวนสวรรค์ (หนองสมบุญ) · เสียงจากรีวิวจริงชมห้องที่กว้างกว่าที่คาดในราคาเท่านี้ สะอาด ตกแต่งเรียบทันสมัย เตียงนอนสบาย ที่จอดรถกว้างหาที่จอดง่าย มีห้องอาหาร อาหารเช้าบุฟเฟต์ Wi-Fi ฟรี ลิฟต์ และเคาน์เตอร์ 24 ชม. · แต่ต้องยอมรับว่าห้องชั้นสูงบางห้องมีเสียงรบกวน ห้องน้ำบางห้องไม่มีฉากกั้น และบางรายการมีค่าใช้จ่ายเพิ่ม · เหมาะคนเที่ยวเมืองที่อยากได้ห้องกว้างและอาหารเช้า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้ห้องสว่างและกว้างกว่าเลือก Deluxe Corner King ที่เป็นห้องมุม · เผื่อเช็กว่าห้องน้ำมีฉากกั้นถ้าซีเรียส · ลงไปกินอาหารเช้าบุฟเฟต์ในตัวโรงแรม",
@@ -384,15 +579,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Triple Room (~19 ตร.ม.)", "price": "เริ่ม ฿550/คืน" },
-        { "type": "Junior Suite Room (~27 ตร.ม.)", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Suite Room (~38 ตร.ม.)", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Deluxe Triple Room (~19 ตร.ม.)",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "Junior Suite Room (~27 ตร.ม.)",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Suite Room (~38 ตร.ม.)",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-nakhonsawan-premier-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-b2-nakhonsawan-premier-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-28857165/b2-nakhon-sawan-premier-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-nakhon-sawan-premier-hotel-nakhon-sawan.html",
-      "tags": ["💬 รีวิวมากสุดในบทความ 805", "🏢 บัดเจ็ตมาตรฐานเครือ B2", "🅿️ ที่จอดรถฟรีกว้าง", "🛗 มีลิฟต์ · เคาน์เตอร์ 24 ชม."],
+      "tags": [
+        "💬 รีวิวมากสุดในบทความ 805",
+        "🏢 บัดเจ็ตมาตรฐานเครือ B2",
+        "🅿️ ที่จอดรถฟรีกว้าง",
+        "🛗 มีลิฟต์ · เคาน์เตอร์ 24 ชม."
+      ],
       "addr": "23/16 ถนนดาวดึงส์ ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "B2 Nakhon Sawan Premier คือ <strong>โรงแรมบัดเจ็ตมาตรฐานเครือที่มีรีวิวมากที่สุดในบทความนี้ — 805 รีวิว — ห้องสะอาด ที่จอดรถฟรี ราคาประหยัด อยู่ในตัวเมืองปากน้ำโพ</strong> คะแนน 8.2 · เป็น 79 ห้องในเครือ B2 บนถนนดาวดึงส์ · เสียงจากรีวิวจริงชมว่าเหมาะมากสำหรับนักเดินทางที่ขับรถมาเอง คนแวะพักระหว่างทาง และคนอยากได้ที่นอนคุ้มเงินกลางเมือง — ห้องแอร์สะอาด ดีไซน์เรียบใช้งานได้ครบ ที่จอดรถกว้าง มีลิฟต์ เคาน์เตอร์ 24 ชม. และ Wi-Fi ฟรี · แต่ต้องยอมรับว่าไม่มีอาหารเช้า ไม่มีสระว่ายน้ำ มีคอมเมนต์เรื่องความสะอาดบางจุดที่ไม่สม่ำเสมอ แอร์เย็นไม่พอในบางห้อง และเตียงค่อนข้างแข็งบ้าง · เหมาะคนงบประหยัดและคนแวะพักกลางทาง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้พื้นที่กว้างขึ้นเลือก Junior Suite/Suite ที่กว้างกว่าห้อง Deluxe Triple · เช็กแอร์ตอนเข้าห้อง ถ้าไม่เย็นพอแจ้งเคาน์เตอร์ 24 ชม.ได้ · ไม่มีอาหารเช้า เดินหาร้านในเมืองได้",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Queen", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Deluxe King", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Suite", "price": "เริ่ม ฿1,700/คืน" }
+        {
+          "type": "Superior Queen",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Suite",
+          "price": "เริ่ม ฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-hill-resort-and-spa/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grandhill-resort.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711674/grand-hill-resort-and-spa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-hill-resort-and-spa-nakhon-sawan.html",
-      "tags": ["🏊 สระว่ายน้ำกลางแจ้ง + สปานวดไทย", "🛏️ ห้องกว้าง ห้องน้ำใหญ่", "🌳 ชานเมือง เข้าเมือง ~5 นาที", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🏊 สระว่ายน้ำกลางแจ้ง + สปานวดไทย",
+        "🛏️ ห้องกว้าง ห้องน้ำใหญ่",
+        "🌳 ชานเมือง เข้าเมือง ~5 นาที",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "31/42 หมู่ 10 ถนนนครสวรรค์–พิษณุโลก ตำบลวัดไทรย์ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Grand Hill Resort and Spa คือ <strong>รีสอร์ทที่ลงตัวสำหรับคนขับรถมาเองและอยากได้รีสอร์ตมีสระว่ายน้ำกับสปา มากกว่าโรงแรมตึกในเมือง</strong> คะแนน 7.7 จาก 22 รีวิว · อยู่ชานเมืองห่างตัวเมืองราว 2 กม. ขับไปสวนสวรรค์/ปากน้ำโพราว 5 นาที · เสียงจากรีวิวจริงชมสระว่ายน้ำกลางแจ้งให้ลงคลายร้อน สปานวดไทยราคาดี (นวดไทยราว ฿500/2 ชม.) ห้องกว้างและห้องน้ำใหญ่กว่าที่คาดในราคานี้ บางห้องเป็นสวีทชั้นสูง และที่จอดรถฟรี · แต่ต้องยอมรับว่ามีเสียงจากสถานบันเทิงฝั่งตรงข้ามในบางคืน และตัวรีสอร์ทที่เริ่มมีอายุ · เหมาะคนขับรถมาเองที่อยากได้สระและสปา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ลองสปานวดไทยราคาดีที่รีวิวชมบ่อย · บางคืนมีเสียงจากสถานบันเทิงฝั่งตรงข้าม ขอห้องสวีทชั้นสูงที่เงียบกว่า · ขับรถมาเองสะดวกสุดเพราะอยู่ชานเมือง",
@@ -464,15 +687,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard (วิงเก่า)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Front Wing (วิงใหม่)", "price": "เริ่ม ฿720/คืน" },
-        { "type": "VIP Wing", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Standard (วิงเก่า)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Front Wing (วิงใหม่)",
+          "price": "เริ่ม ฿720/คืน"
+        },
+        {
+          "type": "VIP Wing",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-vissanu-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-grand-vissanu-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-3066530/grandvissanu-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-visanu-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ กลางเมือง เดินถึงถนนคนเดิน", "🏨 มีวิงใหม่ / วิงเก่าให้เลือก", "🅿️ ที่จอดรถฟรี + ร้านอาหารในตัว", "💰 ราคาเริ่มหลักร้อยต้น ๆ"],
+      "tags": [
+        "🏙️ กลางเมือง เดินถึงถนนคนเดิน",
+        "🏨 มีวิงใหม่ / วิงเก่าให้เลือก",
+        "🅿️ ที่จอดรถฟรี + ร้านอาหารในตัว",
+        "💰 ราคาเริ่มหลักร้อยต้น ๆ"
+      ],
       "addr": "26-28 ถนนอรรถกวี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Grand Visanu Hotel คือ <strong>ตัวเลือกที่เหมาะกับคนมาพักนครสวรรค์แบบงบประหยัดและให้ค่ากับทำเลกลางเมืองที่เดินถึงถนนคนเดินได้</strong> คะแนน 7.4 จาก 20 รีวิว · อยู่บนถนนอรรถกวีใจกลางปากน้ำโพ เดินไปถนนคนเดินริมเมยและตลาดได้ ไม่ต้องขับรถออกไปไกล · เสียงจากรีวิวจริงชมทำเลที่เดินถึงทุกอย่าง ที่จอดรถฟรี ร้านอาหารในตัว และพนักงานเป็นมิตร โดยมีวิงใหม่ห้องสภาพดีกว่าราว ฿700-800 และวิงเก่าราคาเริ่มราว ฿450 เลือกได้ตามงบ · แต่ต้องยอมรับว่าห้องวิงเก่าค่อนข้างมืดและอาคารเก่าไม่มีลิฟต์ ถ้าขอห้องวิงใหม่และตั้งความคาดหวังให้ตรงก็คุ้ม · เหมาะคนงบจำกัดที่อยากพักกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Front Wing (วิงใหม่) ที่สภาพดีและสว่างกว่าวิงเก่า คุ้มกว่าแม้แพงขึ้นเล็กน้อย · อาคารเก่าไม่มีลิฟต์ ขอห้องชั้นล่างถ้ามีกระเป๋าหนัก · เดินไปถนนคนเดินริมเมยหาของกินได้",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Premier Room (สไตล์ล้านนา)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "VIP Room", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Premier Room (สไตล์ล้านนา)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "VIP Room",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/beverly-hill-park-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-beverly-hill-park-hotel-ban-pak-nam-pho.th.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711663/beverly-hill-park-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-beverly-hill-park-hotel-nakhon-sawan.html",
-      "tags": ["🛣️ ริมถนนสายเอเชีย เข้าออกง่าย", "🌳 สวนร่มรื่น บรรยากาศเงียบ", "🅿️ ที่จอดฟรี 24 ชั่วโมง", "💰 ราคาเริ่มหลักร้อยต้น ๆ"],
+      "tags": [
+        "🛣️ ริมถนนสายเอเชีย เข้าออกง่าย",
+        "🌳 สวนร่มรื่น บรรยากาศเงียบ",
+        "🅿️ ที่จอดฟรี 24 ชั่วโมง",
+        "💰 ราคาเริ่มหลักร้อยต้น ๆ"
+      ],
       "addr": "156/4 หมู่ 13 ถนนอัมรินทร์วิถี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์",
       "storyHtml": "Beverly Hill Park Hotel คือ <strong>ตัวเลือกที่เหมาะกับคนขับรถผ่านนครสวรรค์ที่อยากแวะพักสะดวกริมถนนสายเอเชีย</strong> คะแนน 6.2 จาก 22 รีวิว ซึ่งต่ำสุดในบทความนี้ · อยู่บนถนนอัมรินทร์วิถีฝั่งเลี่ยงเมือง ขับเข้าออกถนนใหญ่สะดวก เหมาะแวะพักระหว่างทางกรุงเทพ-เหนือ · เสียงจากรีวิวจริงชมที่จอดรถฟรีเปิด 24 ชั่วโมง สวนรอบโรงแรมที่ร่มรื่น และบรรยากาศสงบเพราะอยู่นอกย่านคึกคัก · แต่พูดให้ชัด อาคารและห้องเริ่มมีอายุ ความสะอาดยังไม่สม่ำเสมอ และทำเลเลี่ยงเมืองที่รอบ ๆ ร้านน้อย · เหมาะเฉพาะคนขับรถที่ต้องการแค่แวะค้างคืนระหว่างทางและตั้งความคาดหวังให้ตรง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สภาพห้องต่างกันพอสมควร ขอห้อง Premier/VIP ที่ตกแต่งดีขึ้นและขอดูห้องก่อนเช็คอิน · ขับรถมาเองสะดวกสุดเพราะเข้าออกถนนใหญ่ง่ายและรอบโรงแรมร้านน้อย · เตรียมหาของกินในเมืองไว้ก่อนเข้าที่พัก",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม นครสวรรค์ 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Good Nakhonsawan Hotel", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿1,200", "access": "📍 ฝั่งบึงบอระเพ็ด", "badge": "คะแนนสูงสุด มีสระ", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hop Inn Nakhon Sawan", "type": "⭐⭐", "score": "9.2", "price": "฿650", "access": "📍 ริมถนนสายเอเชีย", "badge": "แวะพักกลางทาง คุ้มสุด", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "The Paradiso JK Design Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,300", "access": "📍 ตัวเมืองปากน้ำโพ", "badge": "บูทีคดีไซน์ มีอ่างอาบน้ำ", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Bonito Chinos Hotel", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿650", "access": "📍 กลางเมือง เดินถึงห้าง", "badge": "กลางเมือง ร้านดาดฟ้า", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "P.A. Place Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿600", "access": "📍 กลางเมืองปากน้ำโพ", "badge": "กลางเมือง ห้องสะอาดคุ้ม", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "GO Hotel Nakhon Sawan", "type": "⭐⭐", "score": "8.5", "price": "฿550", "access": "📍 กลางเมือง เดินถึง Central", "badge": "เปิดใหม่ เดินถึง Central", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "24rooms Nakhon Sawan", "type": "⭐⭐", "score": "8.4", "price": "฿750", "access": "📍 ใจกลางปากน้ำโพ", "badge": "ห้องกว้างน่ารัก กลางเมือง", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Aramis Hotel", "type": "⭐⭐⭐", "score": "8.3", "price": "฿1,000", "access": "📍 กลางเมือง ใกล้สวนสวรรค์", "badge": "ห้องกว้าง ที่จอดเยอะ", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "B2 Nakhon Sawan Premier Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿550", "access": "📍 ถนนดาวดึงส์ ในเมือง", "badge": "รีวิวมากสุด บัดเจ็ตเครือ", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Grand Hill Resort and Spa", "type": "⭐⭐⭐⭐", "score": "7.7", "price": "฿1,100", "access": "📍 ชานเมือง ~2 กม.", "badge": "รีสอร์ทมีสระ + สปา", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Grand Visanu Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿450", "access": "📍 กลางเมือง ถนนคนเดิน", "badge": "กลางเมืองงบประหยัด", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Beverly Hill Park Hotel", "type": "⭐⭐⭐", "score": "6.2", "price": "฿450", "access": "📍 ริมถนนสายเอเชีย เลี่ยงเมือง", "badge": "แวะพักริมทาง สวนเงียบ", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Good Nakhonsawan Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,200",
+      "access": "📍 ฝั่งบึงบอระเพ็ด",
+      "badge": "คะแนนสูงสุด มีสระ",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hop Inn Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿650",
+      "access": "📍 ริมถนนสายเอเชีย",
+      "badge": "แวะพักกลางทาง คุ้มสุด",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "The Paradiso JK Design Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,300",
+      "access": "📍 ตัวเมืองปากน้ำโพ",
+      "badge": "บูทีคดีไซน์ มีอ่างอาบน้ำ",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Bonito Chinos Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿650",
+      "access": "📍 กลางเมือง เดินถึงห้าง",
+      "badge": "กลางเมือง ร้านดาดฟ้า",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "P.A. Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿600",
+      "access": "📍 กลางเมืองปากน้ำโพ",
+      "badge": "กลางเมือง ห้องสะอาดคุ้ม",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "GO Hotel Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿550",
+      "access": "📍 กลางเมือง เดินถึง Central",
+      "badge": "เปิดใหม่ เดินถึง Central",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "24rooms Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿750",
+      "access": "📍 ใจกลางปากน้ำโพ",
+      "badge": "ห้องกว้างน่ารัก กลางเมือง",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Aramis Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,000",
+      "access": "📍 กลางเมือง ใกล้สวนสวรรค์",
+      "badge": "ห้องกว้าง ที่จอดเยอะ",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "B2 Nakhon Sawan Premier Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿550",
+      "access": "📍 ถนนดาวดึงส์ ในเมือง",
+      "badge": "รีวิวมากสุด บัดเจ็ตเครือ",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Grand Hill Resort and Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿1,100",
+      "access": "📍 ชานเมือง ~2 กม.",
+      "badge": "รีสอร์ทมีสระ + สปา",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Grand Visanu Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿450",
+      "access": "📍 กลางเมือง ถนนคนเดิน",
+      "badge": "กลางเมืองงบประหยัด",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Beverly Hill Park Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.2",
+      "price": "฿450",
+      "access": "📍 ริมถนนสายเอเชีย เลี่ยงเมือง",
+      "badge": "แวะพักริมทาง สวนเงียบ",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมนครสวรรค์ยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🛣️", "head": "ขับรถผ่าน แวะพักกลางทางขึ้นเหนือ", "bodyHtml": "→ <strong>Hop Inn Nakhon Sawan</strong> ฿650 ริมถนนสายเอเชีย ใกล้ Big C ห้องสะอาด คะแนน 9.2 · หรือ <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ รีวิวมากสุด ที่จอดฟรี · งบเบามากเลือก <strong>Beverly Hill Park</strong> ฿450 ที่จอดฟรี 24 ชม." },
-    { "icon": "🏙️", "head": "เที่ยวเมือง เดินห้าง เดินกินของ", "bodyHtml": "→ <strong>Bonito Chinos Hotel</strong> ฿650 กลางเมือง เดินถึงห้าง ร้านดาดฟ้าวิวเมือง · หรือ <strong>P.A. Place Hotel</strong> ฿600 กลางเมือง ห้องสะอาดคุ้ม · หรือ <strong>Aramis Hotel</strong> ฿1,000 ห้องกว้าง มีอาหารเช้า" },
-    { "icon": "💰", "head": "งบประหยัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ รีวิวมากสุด · หรือ <strong>GO Hotel</strong> ฿550 เปิดใหม่ เดินถึง Central · หรือ <strong>Grand Visanu</strong> ฿450 กลางเมือง เดินถึงถนนคนเดิน" },
-    { "icon": "🏊", "head": "อยากได้สระว่ายน้ำ / สปา", "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 เปิดใหม่ สระกลางแจ้ง สระดาดฟ้า พูลวิลล่า คะแนน 9.3 · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทมีสระ + สปานวดไทย" },
-    { "icon": "🎨", "head": "อยากได้ห้องสวยมีดีไซน์ / อ่างอาบน้ำ", "bodyHtml": "→ <strong>The Paradiso JK Design Hotel</strong> ฿1,300 บูทีคดีไซน์โมเดิร์น หลายห้องมีอ่างอาบน้ำ อาหารเช้าดี · หรือ <strong>24rooms Nakhon Sawan</strong> ฿750 ที่พักเล็กห้องกว้างน่ารัก กลางเมือง" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว อยากให้เด็กได้ลงสระ", "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 มีสระเด็ก Family Room และ Pool Villa สระส่วนตัว · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทมีสระว่ายน้ำกลางแจ้ง ห้องกว้าง" }
+    {
+      "icon": "🛣️",
+      "head": "ขับรถผ่าน แวะพักกลางทางขึ้นเหนือ",
+      "bodyHtml": "→ <strong>Hop Inn Nakhon Sawan</strong> ฿650 ริมถนนสายเอเชีย ใกล้ Big C ห้องสะอาด คะแนน 9.2 · หรือ <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ รีวิวมากสุด ที่จอดฟรี · งบเบามากเลือก <strong>Beverly Hill Park</strong> ฿450 ที่จอดฟรี 24 ชม."
+    },
+    {
+      "icon": "🏙️",
+      "head": "เที่ยวเมือง เดินห้าง เดินกินของ",
+      "bodyHtml": "→ <strong>Bonito Chinos Hotel</strong> ฿650 กลางเมือง เดินถึงห้าง ร้านดาดฟ้าวิวเมือง · หรือ <strong>P.A. Place Hotel</strong> ฿600 กลางเมือง ห้องสะอาดคุ้ม · หรือ <strong>Aramis Hotel</strong> ฿1,000 ห้องกว้าง มีอาหารเช้า"
+    },
+    {
+      "icon": "💰",
+      "head": "งบประหยัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ รีวิวมากสุด · หรือ <strong>GO Hotel</strong> ฿550 เปิดใหม่ เดินถึง Central · หรือ <strong>Grand Visanu</strong> ฿450 กลางเมือง เดินถึงถนนคนเดิน"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้สระว่ายน้ำ / สปา",
+      "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 เปิดใหม่ สระกลางแจ้ง สระดาดฟ้า พูลวิลล่า คะแนน 9.3 · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทมีสระ + สปานวดไทย"
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้ห้องสวยมีดีไซน์ / อ่างอาบน้ำ",
+      "bodyHtml": "→ <strong>The Paradiso JK Design Hotel</strong> ฿1,300 บูทีคดีไซน์โมเดิร์น หลายห้องมีอ่างอาบน้ำ อาหารเช้าดี · หรือ <strong>24rooms Nakhon Sawan</strong> ฿750 ที่พักเล็กห้องกว้างน่ารัก กลางเมือง"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว อยากให้เด็กได้ลงสระ",
+      "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 มีสระเด็ก Family Room และ Pool Villa สระส่วนตัว · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทมีสระว่ายน้ำกลางแจ้ง ห้องกว้าง"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวหรือเทศกาล โดยเฉพาะที่พักทำเลแวะพักริมถนนสายเอเชียและที่พักกลางเมืองปากน้ำโพ ห้องเต็มเร็วและราคาขยับขึ้น ควรจองล่วงหน้า · ที่พักริมถนนสายเอเชียและชานเมืองสะดวกกว่าถ้ามีรถส่วนตัวหรือเช่ารถ · ที่พักใจกลางปากน้ำโพเดินทางสะดวกกว่า มีห้าง ตลาด ถนนคนเดิน และอุทยานสวรรค์เดินถึง · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมนครสวรรค์",
   "faq": [
-    { "q": "❓ ควรพักทำเลไหนดีในนครสวรรค์?", "a": "ขึ้นอยู่กับจุดประสงค์ของทริป · <strong>ใจกลางเมืองปากน้ำโพ</strong> มีห้าง ตลาด ของกิน ถนนคนเดิน และอุทยานสวรรค์ เดินถึงสะดวก เหมาะคนเที่ยวเมือง (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu) · <strong>ริมถนนสายเอเชีย/เลี่ยงเมือง</strong> เข้าออกทางหลวงง่าย เหมาะคนขับรถแวะพักกลางทาง (Hop Inn, Beverly Hill Park) · <strong>ชานเมือง/ฝั่งบึงบอระเพ็ด</strong> ใกล้บึงบอระเพ็ดและมีสระ-สปา เหมาะคนขับรถมาเอง (Good Nakhonsawan, Grand Hill Resort)" },
-    { "q": "❓ โรงแรมนครสวรรค์ราคาเท่าไหร่?", "a": "ราคาหลากหลาย: บัดเจ็ตและที่พักประหยัดเริ่มราว ฿450–750 ต่อคืน (Beverly Hill Park, Grand Visanu, B2 Premier, GO Hotel, Hop Inn, P.A. Place, Bonito Chinos, 24rooms) · โรงแรมและบูทีคระดับกลางถึง 4 ดาวราว ฿1,000–1,300 (Aramis, Grand Hill Resort, Good Nakhonsawan, The Paradiso JK) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงวันหยุดยาวหรือเทศกาลราคาสูงกว่าปกติและห้องเต็มเร็ว" },
-    { "q": "❓ แวะพักนครสวรรค์ระหว่างทางขึ้นเหนือ พักโรงแรมไหนดี?", "a": "ถ้าขับรถผ่านและอยากแวะค้างคืนสะดวก · <strong>Hop Inn Nakhon Sawan</strong> ฿650 ริมถนนสายเอเชีย ใกล้ Big C ห้องสะอาด ที่จอดฟรี เข้าออกทางหลวงง่าย คะแนน 9.2 · <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ ที่จอดกว้าง รีวิวมากสุด · งบเบามากเลือก <strong>Beverly Hill Park</strong> ฿450 ที่จอดฟรี 24 ชม. ทุกแห่งขับเข้าออกถนนใหญ่สะดวก" },
-    { "q": "❓ อยากได้โรงแรมนครสวรรค์ที่มีสระว่ายน้ำ มีที่ไหนบ้าง?", "a": "ที่พักนครสวรรค์ส่วนใหญ่เป็นโรงแรมตึกในเมืองที่ไม่มีสระ · ถ้าอยากได้สระว่ายน้ำ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 เปิดใหม่ปี 2024 มีสระกลางแจ้ง สระดาดฟ้า สระเด็ก และพูลวิลล่า คะแนนสูงสุด 9.3 · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทชานเมืองมีสระว่ายน้ำกลางแจ้งและสปานวดไทย ทั้งคู่เหมาะคนขับรถมาเองและครอบครัว" },
-    { "q": "❓ ไม่มีรถส่วนตัว เที่ยวนครสวรรค์สะดวกไหม?", "a": "นครสวรรค์ไม่มีรถไฟฟ้า แต่ตัวเมืองปากน้ำโพไม่ใหญ่และเดินเที่ยวย่านการค้าได้ · ถ้าไม่มีรถ <strong>พักใจกลางปากน้ำโพจะสะดวกที่สุด</strong> — Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis และ Grand Visanu เดินถึงห้าง ตลาด ถนนคนเดิน และอุทยานสวรรค์ได้ · ส่วนที่พักริมถนนสายเอเชียและชานเมืองรอบโรงแรมร้านน้อย ควรมีรถหรือเตรียม Grab ไว้" },
-    { "q": "❓ จองโรงแรมนครสวรรค์เว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงวันหยุดยาวที่ที่พักทำเลแวะพักและกลางเมืองเต็มเร็ว" }
-  ]
+    {
+      "q": "❓ ควรพักทำเลไหนดีในนครสวรรค์?",
+      "a": "ขึ้นอยู่กับจุดประสงค์ของทริป · <strong>ใจกลางเมืองปากน้ำโพ</strong> มีห้าง ตลาด ของกิน ถนนคนเดิน และอุทยานสวรรค์ เดินถึงสะดวก เหมาะคนเที่ยวเมือง (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu) · <strong>ริมถนนสายเอเชีย/เลี่ยงเมือง</strong> เข้าออกทางหลวงง่าย เหมาะคนขับรถแวะพักกลางทาง (Hop Inn, Beverly Hill Park) · <strong>ชานเมือง/ฝั่งบึงบอระเพ็ด</strong> ใกล้บึงบอระเพ็ดและมีสระ-สปา เหมาะคนขับรถมาเอง (Good Nakhonsawan, Grand Hill Resort)"
+    },
+    {
+      "q": "❓ โรงแรมนครสวรรค์ราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: บัดเจ็ตและที่พักประหยัดเริ่มราว ฿450–750 ต่อคืน (Beverly Hill Park, Grand Visanu, B2 Premier, GO Hotel, Hop Inn, P.A. Place, Bonito Chinos, 24rooms) · โรงแรมและบูทีคระดับกลางถึง 4 ดาวราว ฿1,000–1,300 (Aramis, Grand Hill Resort, Good Nakhonsawan, The Paradiso JK) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงวันหยุดยาวหรือเทศกาลราคาสูงกว่าปกติและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ แวะพักนครสวรรค์ระหว่างทางขึ้นเหนือ พักโรงแรมไหนดี?",
+      "a": "ถ้าขับรถผ่านและอยากแวะค้างคืนสะดวก · <strong>Hop Inn Nakhon Sawan</strong> ฿650 ริมถนนสายเอเชีย ใกล้ Big C ห้องสะอาด ที่จอดฟรี เข้าออกทางหลวงง่าย คะแนน 9.2 · <strong>B2 Nakhon Sawan Premier</strong> ฿550 บัดเจ็ตเครือ ที่จอดกว้าง รีวิวมากสุด · งบเบามากเลือก <strong>Beverly Hill Park</strong> ฿450 ที่จอดฟรี 24 ชม. ทุกแห่งขับเข้าออกถนนใหญ่สะดวก"
+    },
+    {
+      "q": "❓ อยากได้โรงแรมนครสวรรค์ที่มีสระว่ายน้ำ มีที่ไหนบ้าง?",
+      "a": "ที่พักนครสวรรค์ส่วนใหญ่เป็นโรงแรมตึกในเมืองที่ไม่มีสระ · ถ้าอยากได้สระว่ายน้ำ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 เปิดใหม่ปี 2024 มีสระกลางแจ้ง สระดาดฟ้า สระเด็ก และพูลวิลล่า คะแนนสูงสุด 9.3 · หรือ <strong>Grand Hill Resort and Spa</strong> ฿1,100 รีสอร์ทชานเมืองมีสระว่ายน้ำกลางแจ้งและสปานวดไทย ทั้งคู่เหมาะคนขับรถมาเองและครอบครัว"
+    },
+    {
+      "q": "❓ ไม่มีรถส่วนตัว เที่ยวนครสวรรค์สะดวกไหม?",
+      "a": "นครสวรรค์ไม่มีรถไฟฟ้า แต่ตัวเมืองปากน้ำโพไม่ใหญ่และเดินเที่ยวย่านการค้าได้ · ถ้าไม่มีรถ <strong>พักใจกลางปากน้ำโพจะสะดวกที่สุด</strong> — Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis และ Grand Visanu เดินถึงห้าง ตลาด ถนนคนเดิน และอุทยานสวรรค์ได้ · ส่วนที่พักริมถนนสายเอเชียและชานเมืองรอบโรงแรมร้านน้อย ควรมีรถหรือเตรียม Grab ไว้"
+    },
+    {
+      "q": "❓ จองโรงแรมนครสวรรค์เว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงวันหยุดยาวที่ที่พักทำเลแวะพักและกลางเมืองเต็มเร็ว"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมนครสวรรค์ที่เรารีวิวไว้ครบทุกระดับ — ตั้งแต่ Good Nakhonsawan เปิดใหม่มีสระคะแนน 9.3 ไปถึงบัดเจ็ตริมถนนสายเอเชียเริ่ม ฿450 ฟังเสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบ 3 เว็บ ลิงก์จองตรง"
 }

@@ -225,6 +225,7 @@ const schema = {
       '@type': 'WebPage', '@id': url, url, name: data.title,
       description: data.metaDesc, inLanguage: lang, isPartOf: { '@id': SITE },
       datePublished: today, dateModified: today,
+      ...((data as any).quickAnswerHtml ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } } : {}),
     },
   ],
 };
@@ -414,6 +415,21 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <h1 class="sec-title" set:html={data.h1}></h1>
     <p class="review-intro" set:html={data.intro}></p>
   </div>
+
+  {(data as any).quickAnswerHtml && (
+    <aside class="quick-answer rv">
+      <span class="qa-eyebrow">{isEn ? 'Quick answer' : 'คำตอบสั้น ๆ'}</span>
+      {(data as any).quickAnswerH2 && <h2>{(data as any).quickAnswerH2}</h2>}
+      <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
+    </aside>
+  )}
+  <style>
+    .quick-answer{background:linear-gradient(180deg,#f1fbfd 0%,#ffffff 100%);border:1px solid #cbeef5;border-left:5px solid #06B6D4;border-radius:18px;padding:20px 24px;margin:0 0 30px;box-shadow:0 8px 24px rgba(6,182,212,.10)}
+    .qa-eyebrow{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0891b2;font-weight:700;background:#fff;padding:3px 11px;border-radius:999px;border:1px solid #cbeef5;margin-bottom:10px}
+    .quick-answer h2{font-family:'Outfit',sans-serif;font-size:21px;font-weight:800;color:#0F172A;line-height:1.25;margin-bottom:10px}
+    .qa-body{font-size:15.5px;line-height:1.8;color:#0F172A}
+    .qa-body strong{color:#0891b2;font-weight:700}
+  </style>
 
   <div class="fade-up byline">
     <div class="byline-av">T</div>

@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Kanchanaburi", "href": "city-kanchanaburi.html" },
-    { "name": "Top 12 Kanchanaburi Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Kanchanaburi",
+      "href": "city-kanchanaburi.html"
+    },
+    {
+      "name": "Top 12 Kanchanaburi Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Kanchanaburi", "item": "https://thailandaddict.com/en/city-kanchanaburi" },
-    { "name": "Top 12 Kanchanaburi Hotels", "item": "https://thailandaddict.com/en/top10-hotels-kanchanaburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Kanchanaburi",
+      "item": "https://thailandaddict.com/en/city-kanchanaburi"
+    },
+    {
+      "name": "Top 12 Kanchanaburi Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-kanchanaburi"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-kanchanaburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Kanchanaburi has no metro. Getting around means a private car, rental car, van, songthaew or boat (for some of the floating rafts and River Kwai Noi resorts). From Bangkok it's about 2–2.5 hours' drive to Kanchanaburi Town. From town to the Sai Yok-River Kwai Noi zone is about 1–1.5 hours; for some resorts (e.g. Jungle Rafts, Resotel) you park and continue by boat — check the boat meeting point with your hotel first. Sangkhlaburi is about 3 hours from town on winding mountain roads. The areas in this guide: <strong>Sai Yok</strong> — River Kwai Noi, floating rafts, glamping, riverside resorts, near Hellfire Pass · <strong>Town</strong> — on the River Kwai Yai, near the Bridge, easy to reach · <strong>Sangkhlaburi</strong> — lakeside, Mon Bridge views, far out.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "The Float House River Kwai", "price": "฿5,500" },
-    { "n": "2", "color": "#c8a951", "name": "U Inchantree Kanchanaburi", "price": "฿2,200" },
-    { "n": "3", "color": "#c8a951", "name": "River Kwai Jungle Rafts", "price": "฿3,500" },
-    { "n": "4", "color": "#c8a951", "name": "River Kwai Resotel", "price": "฿2,800" },
-    { "n": "5", "color": "#9e9e9e", "name": "Hintok River Camp @ Hellfire Pass", "price": "฿3,000" },
-    { "n": "6", "color": "#9e9e9e", "name": "Comsaed River Kwai Resort", "price": "฿1,500" },
-    { "n": "7", "color": "#9e9e9e", "name": "Royal River Kwai Resort & Spa", "price": "฿2,400" },
-    { "n": "8", "color": "#bf8040", "name": "Sam's House Guesthouse", "price": "฿600" },
-    { "n": "9", "color": "#bf8040", "name": "No.9 Hostel Kanchanaburi", "price": "฿350" },
-    { "n": "10", "color": "#5d4037", "name": "River Kwai Hotel", "price": "฿950" },
-    { "n": "11", "color": "#5d4037", "name": "Smiley Frog", "price": "฿500" },
-    { "n": "12", "color": "#5d4037", "name": "P Guesthouse and Country Resort", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "The Float House River Kwai",
+      "price": "฿5,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "U Inchantree Kanchanaburi",
+      "price": "฿2,200"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "River Kwai Jungle Rafts",
+      "price": "฿3,500"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "River Kwai Resotel",
+      "price": "฿2,800"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Hintok River Camp @ Hellfire Pass",
+      "price": "฿3,000"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Comsaed River Kwai Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Royal River Kwai Resort & Spa",
+      "price": "฿2,400"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Sam's House Guesthouse",
+      "price": "฿600"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "No.9 Hostel Kanchanaburi",
+      "price": "฿350"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "River Kwai Hotel",
+      "price": "฿950"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Smiley Frog",
+      "price": "฿500"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "P Guesthouse and Country Resort",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿5,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Villa (riverbank)", "price": "from ฿5,500/night" },
-        { "type": "Floating Villa", "price": "from ฿7,000/night" },
-        { "type": "Floating Villa (full river view)", "price": "from ฿8,500/night" }
+        {
+          "type": "Villa (riverbank)",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "Floating Villa",
+          "price": "from ฿7,000/night"
+        },
+        {
+          "type": "Floating Villa (full river view)",
+          "price": "from ฿8,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-float-house-river-kwai-resort/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-floathouse-river-kwai.html",
       "tripUrl": "https://www.trip.com/hotels/the-float-house-river-kwai-hotel-detail-706866/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-float-house-river-kwai-kanchanaburi.html",
-      "tags": ["🛶 90 sqm teak floating villas", "🌊 Private jetty, swim from your deck", "🏞️ River Kwai Noi, Sai Yok", "🏅 SHA Extra Plus"],
+      "tags": [
+        "🛶 90 sqm teak floating villas",
+        "🌊 Private jetty, swim from your deck",
+        "🏞️ River Kwai Noi, Sai Yok",
+        "🏅 SHA Extra Plus"
+      ],
       "addr": "19/4 Moo 5, Wang Krachae, Sai Yok, Kanchanaburi",
       "storyHtml": "The top luxury score in this guide at 9.2 — The Float House is a <strong>5-star resort where rooms are 90 sqm teak floating villas on the River Kwai Noi at Sai Yok</strong>. Each villa has its own private jetty you can swim from, and a deck cantilevered over the water with mountain views. Real guest reviews praise the privacy and the calm riverside setting, but note the high prices and that it's far from town with limited dining nearby.",
       "tipHtml": "💡 <strong>Tip:</strong> The riverbank Villa is already lovely and private; only upgrade to a Floating Villa if you want the over-water room with its own jetty. Check packages that include meals and a raft trip — they work out better value since eating out is awkward this far from town.",
@@ -104,15 +201,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Garden View", "price": "from ฿2,200/night" },
-        { "type": "Deluxe Garden View", "price": "from ฿2,600/night" },
-        { "type": "Deluxe River View", "price": "from ฿3,600/night" }
+        {
+          "type": "Superior Garden View",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Deluxe Garden View",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "from ฿3,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/u-inchantree-kanchanaburi-hotel/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/u-inchantree-kanchanaburi.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-706869/u-inchantree-kanchanaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-u-inchantree-kanchanaburi.html",
-      "tags": ["💬 Heavily reviewed 548", "📍 In town, near the Bridge over the River Kwai", "🏊 Riverside pool on the River Kwai Yai", "🏅 U Hotels & Resorts"],
+      "tags": [
+        "💬 Heavily reviewed 548",
+        "📍 In town, near the Bridge over the River Kwai",
+        "🏊 Riverside pool on the River Kwai Yai",
+        "🏅 U Hotels & Resorts"
+      ],
       "addr": "443 Mae Nam Kwai Road, Tha Ma Kham, Mueang Kanchanaburi",
       "storyHtml": "U Inchantree is a <strong>4-star boutique resort on the River Kwai Yai in town, part of U Hotels & Resorts, scoring 8.8 from a hefty 548 reviews</strong>. The draw is an in-town location within walking distance of the Bridge over the River Kwai, plus a riverside pool and reliable chain service. Real guest reviews praise the location and the value for a 4-star in town — ideal if you want a riverside resort without driving out to Sai Yok.",
       "tipHtml": "💡 <strong>Tip:</strong> The entry Superior Garden View is good value if location and the pool are your priority. If you want to wake up to the River Kwai Yai, step up to a Deluxe River View on the water side.",
@@ -144,15 +255,29 @@
       "priceBig": "฿3,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Floating Raft Room (~28 sqm)", "price": "from ฿3,500/night" },
-        { "type": "Floating Raft Triple", "price": "from ฿4,200/night" },
-        { "type": "Jungle Vibe (Double)", "price": "from ฿4,500/night" }
+        {
+          "type": "Floating Raft Room (~28 sqm)",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "Floating Raft Triple",
+          "price": "from ฿4,200/night"
+        },
+        {
+          "type": "Jungle Vibe (Double)",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/river-kwai-jungle-rafts-resort/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/river-kwai-jungle-rafts.html",
       "tripUrl": "https://www.trip.com/hotels/sai-yok-hotel-detail-2487811/river-kwai-jungle-rafts/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-kwai-jungle-rafts-kanchanaburi.html",
-      "tags": ["🛶 Bamboo floating raft rooms", "🔌 No electricity, lanterns only", "💬 Most reviewed in this guide · 1,467", "🚤 Boat access only"],
+      "tags": [
+        "🛶 Bamboo floating raft rooms",
+        "🔌 No electricity, lanterns only",
+        "💬 Most reviewed in this guide · 1,467",
+        "🚤 Boat access only"
+      ],
       "addr": "Wang Krachae, Sai Yok, Kanchanaburi",
       "storyHtml": "River Kwai Jungle Rafts is an <strong>electricity-free floating raft (eco-floatel) and the most-reviewed property in this guide — over 1,467 reviews, scoring 8.7</strong>. Rooms are bamboo rafts floating on the River Kwai Noi, with no electricity (lanterns and a riverside hammock), reachable only by boat, so it's a genuine back-to-nature experience. Real guest reviews love being unplugged and the river setting, but it's clearly stated there's no electricity and no air-con — not for anyone wanting hotel-style comfort.",
       "tipHtml": "💡 <strong>Tip:</strong> Charge your phone and camera fully before you come — there are no plugs in the room. Bring a torch and mosquito repellent; nights by the river are genuinely dark and quiet, perfect for cutting off from the noise.",
@@ -184,15 +309,29 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior", "price": "from ฿2,800/night" },
-        { "type": "Deluxe River View (~32 sqm)", "price": "from ฿3,500/night" },
-        { "type": "River View Grand Deluxe", "price": "from ฿4,500/night" }
+        {
+          "type": "Superior",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Deluxe River View (~32 sqm)",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "River View Grand Deluxe",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/river-kwai-resotel-resort/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/river-kwai-resotel.html",
       "tripUrl": "https://www.trip.com/hotels/sai-yok-hotel-detail-2486476/river-kwai-resotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-kwai-resotel-kanchanaburi.html",
-      "tags": ["🌊 Bungalows & river-view rooms on the River Kwai Noi", "💬 Heavily reviewed 1,187", "🚤 Park, then continue by boat", "💆 Plunge Pool Jacuzzi Villa available"],
+      "tags": [
+        "🌊 Bungalows & river-view rooms on the River Kwai Noi",
+        "💬 Heavily reviewed 1,187",
+        "🚤 Park, then continue by boat",
+        "💆 Plunge Pool Jacuzzi Villa available"
+      ],
       "addr": "55 Moo 5, Wang Krachae, Sai Yok, Kanchanaburi",
       "storyHtml": "River Kwai Resotel is a <strong>4-star boutique resort on the River Kwai Noi at Sai Yok, heavily reviewed at 1,187 reviews, scoring 8.6</strong>. Unlike Jungle Rafts it has full electricity and air-con while keeping the jungle-by-the-river feel; you park and continue by boat. Rooms range from garden bungalows to river-view rooms and a Plunge Pool Jacuzzi Villa. Real guest reviews praise the balance of nature and comfort — ideal if you want the Sai Yok atmosphere but still need air-con.",
       "tipHtml": "💡 <strong>Tip:</strong> Confirm the parking spot and boat schedule with the resort before you travel. The Deluxe River View costs only a little more but you wake up to the River Kwai Noi; the Plunge Pool Villa suits couples.",
@@ -224,15 +363,29 @@
       "priceBig": "฿3,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Tent", "price": "from ฿3,000/night" },
-        { "type": "Deluxe Tent", "price": "from ฿3,800/night" },
-        { "type": "Deluxe Tent (River View)", "price": "from ฿4,500/night" }
+        {
+          "type": "Superior Tent",
+          "price": "from ฿3,000/night"
+        },
+        {
+          "type": "Deluxe Tent",
+          "price": "from ฿3,800/night"
+        },
+        {
+          "type": "Deluxe Tent (River View)",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hintok-river-camp-hell-fire-pass-hotel/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hintok-river-camp-hell-fire-pass.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-1635294/hintok-river-camp-hellfire-pass/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hintok-river-camp-kanchanaburi.html",
-      "tags": ["⛺ Safari tents on wooden decks, AC + hot water", "🏞️ On the River Kwai Noi", "🪖 Near Hellfire Pass & the Death Railway", "🛏️ Family tents available"],
+      "tags": [
+        "⛺ Safari tents on wooden decks, AC + hot water",
+        "🏞️ On the River Kwai Noi",
+        "🪖 Near Hellfire Pass & the Death Railway",
+        "🛏️ Family tents available"
+      ],
       "addr": "109 Moo 9, Tha Sao, Sai Yok, Kanchanaburi",
       "storyHtml": "Hintok River Camp is a <strong>luxury tented camp (glamping) on the River Kwai Noi at Sai Yok, near Hellfire Pass</strong>, scoring 8.6 from 730 reviews. Rooms are safari tents on wooden decks with air-con and ensuite hot-water bathrooms, so you get the camping feel while staying comfortable. The standout is being able to walk to the Hellfire Pass Memorial and the Death Railway. Real guest reviews praise the glamping atmosphere and the historic location, but note that as tents you hear the nature — and the rain — clearly.",
       "tipHtml": "💡 <strong>Tip:</strong> For couples or river views, pick a Deluxe Tent River View in the waterside row. Leave time in the morning for the nearby Hellfire Pass Memorial — the setting and the history are well worth it.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden Superior (28 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Garden Deluxe (32 sqm)", "price": "from ฿1,800/night" },
-        { "type": "Riverside Deluxe (32 sqm)", "price": "from ฿2,300/night" }
+        {
+          "type": "Garden Superior (28 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Garden Deluxe (32 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Riverside Deluxe (32 sqm)",
+          "price": "from ฿2,300/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/comsaed-river-kwai-resort/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/comsaed-river-kwai-resort.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-3178314/comsaed-river-kwai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-comsaed-river-kwai-resort-kanchanaburi.html",
-      "tags": ["💰 From ฿1,500", "🏞️ On the River Kwai Yai, mountain views", "🌿 Calm, natural setting", "🚗 Drive straight in — no boat needed"],
+      "tags": [
+        "💰 From ฿1,500",
+        "🏞️ On the River Kwai Yai, mountain views",
+        "🌿 Calm, natural setting",
+        "🚗 Drive straight in — no boat needed"
+      ],
       "addr": "89 Moo 5, Lat Ya, Mueang Kanchanaburi",
       "storyHtml": "Comsaed is a <strong>3-star nature resort on the River Kwai Yai in the Lat Ya outskirts, the best nature-resort value at just ฿1,500</strong>, scoring 8.8. The draw is a calm setting with mountain views by the river — and you can drive straight in without the boat transfer the Sai Yok resorts need. Real guest reviews praise the value and the quiet; the review count is still modest (64) but the score is consistent. A good pick for a riverside resort on a budget that's easy to reach.",
       "tipHtml": "💡 <strong>Tip:</strong> To wake up to the river, pick a Riverside Deluxe on the water side. It's a quiet resort with no nightlife, so have a car to head out for dinner or sightseeing in town.",
@@ -304,15 +471,29 @@
       "priceBig": "฿2,400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Pool View (32 sqm)", "price": "from ฿2,400/night" },
-        { "type": "Deluxe River Wing (32 sqm)", "price": "from ฿2,900/night" },
-        { "type": "Junior Suite", "price": "from ฿3,800/night" }
+        {
+          "type": "Deluxe Pool View (32 sqm)",
+          "price": "from ฿2,400/night"
+        },
+        {
+          "type": "Deluxe River Wing (32 sqm)",
+          "price": "from ฿2,900/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿3,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/royal-river-kwai-resort-spa/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/royal-river-kwai-resort-and-spa.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-706855/royal-riverkwai-resort-and-spa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-royal-river-kwai-resort-spa-kanchanaburi.html",
-      "tags": ["💆 On-site spa", "🏊 Pool and large grounds", "🏞️ On the River Kwai Yai, Kaeng Sian", "🏅 SHA Extra Plus"],
+      "tags": [
+        "💆 On-site spa",
+        "🏊 Pool and large grounds",
+        "🏞️ On the River Kwai Yai, Kaeng Sian",
+        "🏅 SHA Extra Plus"
+      ],
       "addr": "88 Moo 2, Kaeng Sian, Nong Bua, Mueang Kanchanaburi",
       "storyHtml": "Royal River Kwai is a <strong>4-star spa resort on the River Kwai Yai in the Kaeng Sian outskirts</strong>, scoring 8.6 from 632 reviews. The draw is the spa, pool and spacious grounds, well suited to a relaxing family stay, from ฿2,400. It's a drive-straight-in location, not far from town. Real guest reviews praise the space and family-friendliness, but flag that some parts are showing their age — pick a renovated room.",
       "tipHtml": "💡 <strong>Tip:</strong> For a riverside feel, choose a Deluxe River Wing. Travelling as a family? Look at the Family Room with an extra bed, and book the spa ahead on weekends.",
@@ -344,15 +525,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Fan / Budget Room", "price": "from ฿600/night" },
-        { "type": "Standard Room (AC)", "price": "from ฿850/night" },
-        { "type": "Riverside bungalow / raft room", "price": "from ฿1,100/night" }
+        {
+          "type": "Fan / Budget Room",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Standard Room (AC)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Riverside bungalow / raft room",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sam-s-house-guesthouse/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sam-s-house-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-706860/sam-s-house-kanchanaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sams-house-guesthouse-kanchanaburi.html",
-      "tags": ["💰 From ฿600", "🛶 Riverside raft rooms on the River Kwai", "📍 Mae Nam Khwae Road, in town", "👨‍👩‍👧 Family rooms"],
+      "tags": [
+        "💰 From ฿600",
+        "🛶 Riverside raft rooms on the River Kwai",
+        "📍 Mae Nam Khwae Road, in town",
+        "👨‍👩‍👧 Family rooms"
+      ],
       "addr": "14/2 Maenamkwae Road, Tha Makham, Mueang Kanchanaburi",
       "storyHtml": "Sam's House is a <strong>riverside guesthouse in town with a high 9.1 score from just ฿600</strong>. It's on Mae Nam Khwae Road, lined with restaurants and sights, with everything from budget fan rooms and AC rooms to bungalows and raft rooms right on the River Kwai. Real guest reviews praise the value and location; the review count is still modest (33) but the score is consistently high. Great for budget travellers who want a riverside vibe in town without paying resort prices.",
       "tipHtml": "💡 <strong>Tip:</strong> For a riverside feel, choose a raft room or riverside bungalow — only a little more. Mae Nam Khwae Road has restaurants and bars, so you can wander out in the evening.",
@@ -384,15 +579,29 @@
       "priceBig": "฿350",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Bed in 6-bed mixed dorm", "price": "from ฿350/night" },
-        { "type": "Bed in 4-bed dorm", "price": "from ฿420/night" },
-        { "type": "Female dorm bed (if available)", "price": "from ฿420/night" }
+        {
+          "type": "Bed in 6-bed mixed dorm",
+          "price": "from ฿350/night"
+        },
+        {
+          "type": "Bed in 4-bed dorm",
+          "price": "from ฿420/night"
+        },
+        {
+          "type": "Female dorm bed (if available)",
+          "price": "from ฿420/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/no-9-hostel-kanchanaburi/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/no-9-hostel-kanchanaburi.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-114583254/no9-hostel-kanchanaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-no9-hostel-kanchanaburi.html",
-      "tags": ["🪙 Dorm beds from ฿350", "🛏️ Curtained beds with lockers", "📍 Near the Bridge over the River Kwai", "♀️ Female dorm available"],
+      "tags": [
+        "🪙 Dorm beds from ฿350",
+        "🛏️ Curtained beds with lockers",
+        "📍 Near the Bridge over the River Kwai",
+        "♀️ Female dorm available"
+      ],
       "addr": "9 Maenamkwae Road, Tha Makham, Mueang Kanchanaburi",
       "storyHtml": "No.9 Hostel is the <strong>cheapest in this guide, with dorm beds from just ฿350, scoring 8.8</strong>. It's on Mae Nam Khwae Road near the Bridge over the River Kwai, handy for sightseeing and cheap eats. Dorm beds have privacy curtains and lockers, and there's a female-only dorm. Real guest reviews praise the cleanliness and location; the review count is still low (13) but the score is high. Great for backpackers using town as a base.",
       "tipHtml": "💡 <strong>Tip:</strong> For more privacy, pick the 4-bed dorm or the female-only dorm. Travelling as a small group? Ask about booking out a whole dorm — the per-person rate drops.",
@@ -424,15 +633,29 @@
       "priceBig": "฿950",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard / Studio S", "price": "from ฿950/night" },
-        { "type": "Superior", "price": "from ฿1,150/night" },
-        { "type": "Deluxe Studio", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard / Studio S",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Superior",
+          "price": "from ฿1,150/night"
+        },
+        {
+          "type": "Deluxe Studio",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/river-kwai-hotel/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/river-kwai.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-706850/river-kwai-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-kwai-hotel-kanchanaburi.html",
-      "tags": ["🏙️ Central, on Saengchuto Road", "🏊 Has a pool", "🪙 From ฿950", "🚗 Easy to drive to and park"],
+      "tags": [
+        "🏙️ Central, on Saengchuto Road",
+        "🏊 Has a pool",
+        "🪙 From ฿950",
+        "🚗 Easy to drive to and park"
+      ],
       "addr": "284/15-16 Saengchuto Road, Ban Nuea, Mueang Kanchanaburi",
       "storyHtml": "River Kwai Hotel is a <strong>3-star city hotel in central Kanchanaburi on Saengchuto Road with a pool from just ฿950</strong>, scoring 8.0 from 86 reviews. The draw is a central location that's easy to reach and park at, plus a pool that's rare at this price. Rooms are clean and simple, city-hotel style. Real guest reviews praise the value and location, but note it's not on the river and some rooms are dated — best for those who want a town base and drive out to sightsee.",
       "tipHtml": "💡 <strong>Tip:</strong> It's not on the river — use it as a town base and drive out to Sai Yok or the Bridge over the River Kwai. Pick a Superior or above; they're roomier and newer than the entry Studio S.",
@@ -464,15 +687,29 @@
       "priceBig": "฿500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Double Fan", "price": "from ฿350/night" },
-        { "type": "Double Air-con", "price": "from ฿500/night" },
-        { "type": "Riverside Raft Room", "price": "from ฿600/night" }
+        {
+          "type": "Double Fan",
+          "price": "from ฿350/night"
+        },
+        {
+          "type": "Double Air-con",
+          "price": "from ฿500/night"
+        },
+        {
+          "type": "Riverside Raft Room",
+          "price": "from ฿600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/smiley-frog/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/smiley-frog.html",
       "tripUrl": "https://www.trip.com/hotels/kanchanaburi-hotel-detail-9363071/smiley-frog-guesthouse/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-jolly-frog-kanchanaburi.html",
-      "tags": ["💬 Heavily reviewed 237", "🛶 Riverside raft rooms", "🪙 Fan rooms from ฿350", "📍 Mae Nam Khwae Road, in town"],
+      "tags": [
+        "💬 Heavily reviewed 237",
+        "🛶 Riverside raft rooms",
+        "🪙 Fan rooms from ฿350",
+        "📍 Mae Nam Khwae Road, in town"
+      ],
       "addr": "28 Soi China, Mae Nam Khwae Road, Ban Nuea, Mueang Kanchanaburi",
       "storyHtml": "Smiley Frog (also known as Smiley Frog) is a <strong>long-running riverside guesthouse on the River Kwai Yai in town, heavily reviewed at 237 reviews, scoring 8.0</strong>. It's in Soi China off Mae Nam Khwae Road, with everything from fan rooms at ฿350 and AC rooms to riverside raft rooms. Real guest reviews praise the riverside setting, the budget prices and the traveller vibe, but it's clearly an old-school guesthouse — simple rooms, not about being new.",
       "tipHtml": "💡 <strong>Tip:</strong> For the riverside feel, pick the Riverside Raft Room. The fan rooms are cheapest for true budget travel, but in hot weather step up to an AC room.",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Fan Room", "price": "from ฿450/night" },
-        { "type": "Country Room (AC)", "price": "from ฿700/night" },
-        { "type": "Lake View Room (AC, lake view)", "price": "from ฿950/night" }
+        {
+          "type": "Fan Room",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Country Room (AC)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Lake View Room (AC, lake view)",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/p-house/hotel/kanchanaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/p-guest-house.html",
       "tripUrl": "https://www.trip.com/hotels/sangkhla-buri-hotel-detail-17503973/p-guest-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-p-guesthouse-country-resort-kanchanaburi.html",
-      "tags": ["🌉 Mon Bridge views", "🏞️ On Khao Laem Lake, Sangkhlaburi", "🪙 Fan rooms from ฿450", "⛺ Tent stays available"],
+      "tags": [
+        "🌉 Mon Bridge views",
+        "🏞️ On Khao Laem Lake, Sangkhlaburi",
+        "🪙 Fan rooms from ฿450",
+        "⛺ Tent stays available"
+      ],
       "addr": "81/2 Moo 1, Nong Lu, Sangkhla Buri, Kanchanaburi",
       "storyHtml": "P Guesthouse is a <strong>lakeside guesthouse on Khao Laem Lake in Sangkhlaburi, whose signature is the view of the Mon Bridge, from just ฿450</strong>, scoring 8.0 from 30 reviews. The draw is the lakeside location overlooking the Mon Bridge, with fan rooms, lake-view AC rooms and tent stays. Real guest reviews praise the view and the budget prices, but note that Sangkhlaburi is far — about a 3-hour drive from town — so it suits travellers heading specifically to Sangkhlaburi, not a general Kanchanaburi trip.",
       "tipHtml": "💡 <strong>Tip:</strong> For the view, pick the Lake View Room that sees the Mon Bridge from the balcony. Sangkhlaburi is far — plan several nights to make the trip worthwhile, and get up early for alms-giving on the Mon Bridge.",
@@ -530,39 +781,212 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Kanchanaburi Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "The Float House River Kwai", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿5,500", "access": "📍 Sai Yok · Kwai Noi", "badge": "Top luxury score", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "U Inchantree Kanchanaburi", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿2,200", "access": "📍 Town · Kwai Yai", "badge": "Best in-town spot", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "River Kwai Jungle Rafts", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿3,500", "access": "📍 Sai Yok · boat access", "badge": "Most reviewed", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "River Kwai Resotel", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿2,800", "access": "📍 Sai Yok · Kwai Noi", "badge": "Riverside resort", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Hintok River Camp @ Hellfire Pass", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿3,000", "access": "📍 Sai Yok · near Hellfire Pass", "badge": "Glamping", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Comsaed River Kwai Resort", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,500", "access": "📍 Lat Ya · Kwai Yai", "badge": "Best nature value", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Royal River Kwai Resort & Spa", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿2,400", "access": "📍 Kaeng Sian · Kwai Yai", "badge": "Spa resort", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Sam's House Guesthouse", "type": "⭐⭐", "score": "9.1", "price": "฿600", "access": "📍 Mae Nam Khwae Rd · town", "badge": "Best budget value", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "No.9 Hostel Kanchanaburi", "type": "⭐⭐", "score": "8.8", "price": "฿350", "access": "📍 Mae Nam Khwae Rd · town", "badge": "Cheapest", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "River Kwai Hotel", "type": "⭐⭐⭐", "score": "8.0", "price": "฿950", "access": "📍 Saengchuto Rd · town", "badge": "In town, has a pool", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Smiley Frog", "type": "⭐⭐", "score": "8.0", "price": "฿500", "access": "📍 Mae Nam Khwae Rd · town" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "P Guesthouse and Country Resort", "type": "⭐⭐", "score": "8.0", "price": "฿450", "access": "📍 Sangkhlaburi · lakeside", "badge": "Mon Bridge views", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "The Float House River Kwai",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿5,500",
+      "access": "📍 Sai Yok · Kwai Noi",
+      "badge": "Top luxury score",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "U Inchantree Kanchanaburi",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿2,200",
+      "access": "📍 Town · Kwai Yai",
+      "badge": "Best in-town spot",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "River Kwai Jungle Rafts",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿3,500",
+      "access": "📍 Sai Yok · boat access",
+      "badge": "Most reviewed",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "River Kwai Resotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,800",
+      "access": "📍 Sai Yok · Kwai Noi",
+      "badge": "Riverside resort",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Hintok River Camp @ Hellfire Pass",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿3,000",
+      "access": "📍 Sai Yok · near Hellfire Pass",
+      "badge": "Glamping",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Comsaed River Kwai Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,500",
+      "access": "📍 Lat Ya · Kwai Yai",
+      "badge": "Best nature value",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Royal River Kwai Resort & Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,400",
+      "access": "📍 Kaeng Sian · Kwai Yai",
+      "badge": "Spa resort",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Sam's House Guesthouse",
+      "type": "⭐⭐",
+      "score": "9.1",
+      "price": "฿600",
+      "access": "📍 Mae Nam Khwae Rd · town",
+      "badge": "Best budget value",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "No.9 Hostel Kanchanaburi",
+      "type": "⭐⭐",
+      "score": "8.8",
+      "price": "฿350",
+      "access": "📍 Mae Nam Khwae Rd · town",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "River Kwai Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿950",
+      "access": "📍 Saengchuto Rd · town",
+      "badge": "In town, has a pool",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Smiley Frog",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿500",
+      "access": "📍 Mae Nam Khwae Rd · town"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "P Guesthouse and Country Resort",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿450",
+      "access": "📍 Sangkhlaburi · lakeside",
+      "badge": "Mon Bridge views",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    }
   ],
   "adviceTitle": "How to pick the right Kanchanaburi hotel for you?",
   "advice": [
-    { "icon": "💰", "head": "Tight budget, best value", "bodyHtml": "→ <strong>No.9 Hostel Kanchanaburi</strong> ฿350, dorm beds in town · or <strong>Sam's House Guesthouse</strong> ฿600, a riverside guesthouse scoring 9.1" },
-    { "icon": "🛶", "head": "Want to sleep on a floating raft on the River Kwai", "bodyHtml": "→ <strong>The Float House River Kwai</strong> ฿5,500, luxury floating villas scoring 9.2 · or <strong>River Kwai Jungle Rafts</strong> ฿3,500, electricity-free bamboo rafts, the most reviewed" },
-    { "icon": "⛺", "head": "Want a camping / nature vibe", "bodyHtml": "→ <strong>Hintok River Camp @ Hellfire Pass</strong> ฿3,000, AC safari tents near Hellfire Pass · or <strong>Comsaed River Kwai Resort</strong> ฿1,500, a great-value nature resort by the river" },
-    { "icon": "🏙️", "head": "Stay in town for easy access", "bodyHtml": "→ <strong>U Inchantree Kanchanaburi</strong> ฿2,200, a heavily-reviewed riverside resort in town · or <strong>River Kwai Hotel</strong> ฿950, a city hotel with a pool" },
-    { "icon": "💆", "head": "Relaxing or family trip, with a spa", "bodyHtml": "→ <strong>Royal River Kwai Resort & Spa</strong> ฿2,400, a riverside spa resort with big grounds · or <strong>River Kwai Resotel</strong> ฿2,800, a riverside resort at Sai Yok" },
-    { "icon": "🌉", "head": "Go remote — Sangkhlaburi, Mon Bridge views", "bodyHtml": "→ <strong>P Guesthouse and Country Resort</strong> ฿450, lakeside with Mon Bridge views in Sangkhlaburi" },
-    { "icon": "🪖", "head": "History trip — the Death Railway", "bodyHtml": "→ <strong>Hintok River Camp @ Hellfire Pass</strong> ฿3,000, near Hellfire Pass · or <strong>U Inchantree Kanchanaburi</strong> ฿2,200, near the Bridge over the River Kwai" }
+    {
+      "icon": "💰",
+      "head": "Tight budget, best value",
+      "bodyHtml": "→ <strong>No.9 Hostel Kanchanaburi</strong> ฿350, dorm beds in town · or <strong>Sam's House Guesthouse</strong> ฿600, a riverside guesthouse scoring 9.1"
+    },
+    {
+      "icon": "🛶",
+      "head": "Want to sleep on a floating raft on the River Kwai",
+      "bodyHtml": "→ <strong>The Float House River Kwai</strong> ฿5,500, luxury floating villas scoring 9.2 · or <strong>River Kwai Jungle Rafts</strong> ฿3,500, electricity-free bamboo rafts, the most reviewed"
+    },
+    {
+      "icon": "⛺",
+      "head": "Want a camping / nature vibe",
+      "bodyHtml": "→ <strong>Hintok River Camp @ Hellfire Pass</strong> ฿3,000, AC safari tents near Hellfire Pass · or <strong>Comsaed River Kwai Resort</strong> ฿1,500, a great-value nature resort by the river"
+    },
+    {
+      "icon": "🏙️",
+      "head": "Stay in town for easy access",
+      "bodyHtml": "→ <strong>U Inchantree Kanchanaburi</strong> ฿2,200, a heavily-reviewed riverside resort in town · or <strong>River Kwai Hotel</strong> ฿950, a city hotel with a pool"
+    },
+    {
+      "icon": "💆",
+      "head": "Relaxing or family trip, with a spa",
+      "bodyHtml": "→ <strong>Royal River Kwai Resort & Spa</strong> ฿2,400, a riverside spa resort with big grounds · or <strong>River Kwai Resotel</strong> ฿2,800, a riverside resort at Sai Yok"
+    },
+    {
+      "icon": "🌉",
+      "head": "Go remote — Sangkhlaburi, Mon Bridge views",
+      "bodyHtml": "→ <strong>P Guesthouse and Country Resort</strong> ฿450, lakeside with Mon Bridge views in Sangkhlaburi"
+    },
+    {
+      "icon": "🪖",
+      "head": "History trip — the Death Railway",
+      "bodyHtml": "→ <strong>Hintok River Camp @ Hellfire Pass</strong> ฿3,000, near Hellfire Pass · or <strong>U Inchantree Kanchanaburi</strong> ฿2,200, near the Bridge over the River Kwai"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and change by date and season — always check live prices and compare the 3 sites before booking. Over long weekends, New Year and the cool season (Nov–Feb), prices rise and riverside rooms sell out fast, so book 1–2 months ahead. Some River Kwai Noi resorts (Jungle Rafts, Resotel) require parking and a boat transfer — check the boat meeting point with your hotel first. Kanchanaburi has no metro; a private car, rental car or van is the most convenient. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Kanchanaburi hotels",
   "faq": [
-    { "q": "❓ Which area is best to stay in Kanchanaburi for tourists?", "a": "It depends on your style. <strong>Sai Yok-River Kwai Noi</strong> suits floating rafts, riverside resorts and nature/history (The Float House, Jungle Rafts, Resotel, Hintok). <strong>Kanchanaburi Town</strong> is the easiest base — near the Bridge over the River Kwai, restaurants and accommodation at every tier (U Inchantree, Sam's House, No.9 Hostel, River Kwai Hotel, Smiley Frog). <strong>Sangkhlaburi</strong> suits those going remote — lakeside, with Mon Bridge views (P Guesthouse)." },
-    { "q": "❓ How much do Kanchanaburi hotels cost?", "a": "Prices vary widely: dorms and guesthouses from about ฿350–600/night; city hotels and 3-star resorts around ฿950–1,800; 4-star riverside resorts and glamping around ฿2,200–4,500; 5-star floating villas and luxury rafts from about ฿5,500–12,000+. All figures are approximate standard-room starting rates; long weekends and the cool season run higher." },
-    { "q": "❓ Is staying on a floating raft on the River Kwai worth it, and how do you prepare?", "a": "If your trip is about the natural riverside atmosphere, a floating-raft stay is very worth it — it's a uniquely Kanchanaburi experience. <strong>The Float House</strong> is a luxury floating villa with full electricity and air-con. <strong>River Kwai Jungle Rafts</strong> is an electricity-free bamboo raft using lanterns — charge your devices fully and bring a torch and mosquito repellent. Some River Kwai Noi resorts require parking and a boat transfer, so check the meeting point and boat schedule with your hotel before you travel." },
-    { "q": "❓ How far ahead should I book a Kanchanaburi hotel?", "a": "On ordinary weekdays, 2–4 weeks ahead is enough. But over long weekends, New Year and the cool season (Nov–Feb), when the weather is great, riverside rooms, floating rafts and glamping fill up fast — book 1–2 months ahead, especially in the Sai Yok zone." },
-    { "q": "❓ Do I need a car for Kanchanaburi, and how do you get around?", "a": "A private or rental car is the most convenient, since the sights are spread out and there's no metro. From Bangkok it's about 2–2.5 hours' drive to town. Without a car, there are vans and coaches from Bangkok, and songthaews and motorbike taxis in town — but it's harder to reach the Sai Yok zone or Sangkhlaburi, which are far out. Some River Kwai Noi resorts require a boat transfer from the parking point." },
-    { "q": "❓ Which site is cheapest for booking Kanchanaburi hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time, so open and compare all three before every booking — each review page in this guide has full price-comparison links, which can save hundreds of baht per night." }
-  ]
+    {
+      "q": "❓ Which area is best to stay in Kanchanaburi for tourists?",
+      "a": "It depends on your style. <strong>Sai Yok-River Kwai Noi</strong> suits floating rafts, riverside resorts and nature/history (The Float House, Jungle Rafts, Resotel, Hintok). <strong>Kanchanaburi Town</strong> is the easiest base — near the Bridge over the River Kwai, restaurants and accommodation at every tier (U Inchantree, Sam's House, No.9 Hostel, River Kwai Hotel, Smiley Frog). <strong>Sangkhlaburi</strong> suits those going remote — lakeside, with Mon Bridge views (P Guesthouse)."
+    },
+    {
+      "q": "❓ How much do Kanchanaburi hotels cost?",
+      "a": "Prices vary widely: dorms and guesthouses from about ฿350–600/night; city hotels and 3-star resorts around ฿950–1,800; 4-star riverside resorts and glamping around ฿2,200–4,500; 5-star floating villas and luxury rafts from about ฿5,500–12,000+. All figures are approximate standard-room starting rates; long weekends and the cool season run higher."
+    },
+    {
+      "q": "❓ Is staying on a floating raft on the River Kwai worth it, and how do you prepare?",
+      "a": "If your trip is about the natural riverside atmosphere, a floating-raft stay is very worth it — it's a uniquely Kanchanaburi experience. <strong>The Float House</strong> is a luxury floating villa with full electricity and air-con. <strong>River Kwai Jungle Rafts</strong> is an electricity-free bamboo raft using lanterns — charge your devices fully and bring a torch and mosquito repellent. Some River Kwai Noi resorts require parking and a boat transfer, so check the meeting point and boat schedule with your hotel before you travel."
+    },
+    {
+      "q": "❓ How far ahead should I book a Kanchanaburi hotel?",
+      "a": "On ordinary weekdays, 2–4 weeks ahead is enough. But over long weekends, New Year and the cool season (Nov–Feb), when the weather is great, riverside rooms, floating rafts and glamping fill up fast — book 1–2 months ahead, especially in the Sai Yok zone."
+    },
+    {
+      "q": "❓ Do I need a car for Kanchanaburi, and how do you get around?",
+      "a": "A private or rental car is the most convenient, since the sights are spread out and there's no metro. From Bangkok it's about 2–2.5 hours' drive to town. Without a car, there are vans and coaches from Bangkok, and songthaews and motorbike taxis in town — but it's harder to reach the Sai Yok zone or Sangkhlaburi, which are far out. Some River Kwai Noi resorts require a boat transfer from the parking point."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Kanchanaburi hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time, so open and compare all three before every booking — each review page in this guide has full price-comparison links, which can save hundreds of baht per night."
+    }
+  ],
+  "quickAnswerHtml": "12 Kanchanaburi hotels we reviewed across every tier — from The Float House luxury floating villas on the River Kwai down to No.9 Hostel dorms from ฿350. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

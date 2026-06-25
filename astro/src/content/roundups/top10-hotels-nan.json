@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "น่าน", "href": "city-nan.html" },
-    { "name": "Top 10 โรงแรมน่าน" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "น่าน",
+      "href": "city-nan.html"
+    },
+    {
+      "name": "Top 10 โรงแรมน่าน"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "น่าน", "item": "https://thailandaddict.com/city-nan" },
-    { "name": "Top 10 โรงแรมน่าน", "item": "https://thailandaddict.com/top10-hotels-nan" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "น่าน",
+      "item": "https://thailandaddict.com/city-nan"
+    },
+    {
+      "name": "Top 10 โรงแรมน่าน",
+      "item": "https://thailandaddict.com/top10-hotels-nan"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-nan.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "น่านไม่มีรถไฟฟ้าและขนส่งสาธารณะในเมืองมีน้อย — <strong>เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกที่สุด</strong> โดยเฉพาะถ้าจะขึ้นปัวหรือบ่อเกลือ · ในตัวเมืองเก่ามีรถสามล้อและสองแถวรับจ้างบ้าง แต่เรียกยากช่วงเย็น · จากสนามบินน่านนคร (NNT) เข้าเมืองแค่ราว 10 นาที · โซนหลักในบทความนี้: <strong>เมืองเก่า/ในเวียง</strong> — วัดภูมินทร์ พิพิธภัณฑ์น่าน ถนนคนเดิน · <strong>อำเภอปัว</strong> — วิวนาขั้นบันได ทางขึ้นดอยภูคา วัดภูเก็ต · <strong>บ่อเกลือ</strong> — บ่อเกลือโบราณ หุบเขา ทางขึ้นดอย",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Nan Nakara Boutique Hotel", "price": "฿1,500" },
-    { "n": "2", "color": "#06B6D4", "name": "Dhevaraj Hotel", "price": "฿1,100" },
-    { "n": "3", "color": "#06B6D4", "name": "PuaDeView Boutique Resort", "price": "฿1,000" },
-    { "n": "4", "color": "#0891b2", "name": "Phukananan Resort", "price": "฿1,200" },
-    { "n": "5", "color": "#0891b2", "name": "Hugpua Hotel", "price": "฿1,200" },
-    { "n": "6", "color": "#0891b2", "name": "Nan Boutique Resort", "price": "฿2,800" },
-    { "n": "7", "color": "#0891b2", "name": "Paknap Hostel", "price": "฿360" },
-    { "n": "8", "color": "#FB7185", "name": "Nan Boutique Hotel", "price": "฿1,200" },
-    { "n": "9", "color": "#FB7185", "name": "CuteinNan Hostel", "price": "฿99" },
-    { "n": "10", "color": "#FB7185", "name": "The Impress Nan Hotel", "price": "฿900" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Nan Nakara Boutique Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Dhevaraj Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "PuaDeView Boutique Resort",
+      "price": "฿1,000"
+    },
+    {
+      "n": "4",
+      "color": "#0891b2",
+      "name": "Phukananan Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#0891b2",
+      "name": "Hugpua Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#0891b2",
+      "name": "Nan Boutique Resort",
+      "price": "฿2,800"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "Paknap Hostel",
+      "price": "฿360"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Nan Boutique Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "9",
+      "color": "#FB7185",
+      "name": "CuteinNan Hostel",
+      "price": "฿99"
+    },
+    {
+      "n": "10",
+      "color": "#FB7185",
+      "name": "The Impress Nan Hotel",
+      "price": "฿900"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard", "price": "฿1,500/คืน" },
-        { "type": "Superior Twin", "price": "฿1,800/คืน" },
-        { "type": "Deluxe Queen", "price": "฿2,100/คืน" }
+        {
+          "type": "Standard",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Queen",
+          "price": "฿2,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nannakara-boutique-hotel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nan-nakara-boutique.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-7616134/nan-nakara-boutique/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nan-nakara-boutique-hotel-nan.html",
-      "tags": ["🎨 ดีไซน์มินิมอล", "🚶 เดินเที่ยวเมืองเก่า", "🛏️ แยกโซนนั่งเล่น/นอน", "🌧️ เรนชาวเวอร์"],
+      "tags": [
+        "🎨 ดีไซน์มินิมอล",
+        "🚶 เดินเที่ยวเมืองเก่า",
+        "🛏️ แยกโซนนั่งเล่น/นอน",
+        "🌧️ เรนชาวเวอร์"
+      ],
       "addr": "16/6 ซอย 1 ถนนผากอง ตำบลในเวียง อำเภอเมืองน่าน",
       "storyHtml": "คะแนนสูงสุดในชุดนี้ที่ 9.6 — Nan Nakara คือ <strong>บูทีคมินิมอลใจกลางเมืองเก่าน่าน</strong> ที่เดินถึงวัดภูมินทร์และถนนคนเดินวันศุกร์-เสาร์ได้สบาย · ห้องตกแต่งโทนเรียบ แยกโซนนั่งเล่นกับโซนนอนชัดเจน มีเรนชาวเวอร์ · เสียงจากรีวิวจริงชมเรื่องความสะอาดและทำเลที่เดินไปไหนก็ใกล้ เป็นที่พักที่เหมาะกับคนอยากซึมซับบรรยากาศเมืองเก่าแบบเดินเท้า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> โรงแรมห้องไม่เยอะและช่วงถนนคนเดินคนจองเยอะ จองล่วงหน้าโดยเฉพาะคืนวันศุกร์-เสาร์ และขอห้องชั้นบนจะเงียบกว่า",
@@ -102,15 +189,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "฿1,100/คืน" },
-        { "type": "Deluxe Twin (รีโนเวต)", "price": "฿1,400/คืน" },
-        { "type": "VIP Room", "price": "฿2,200/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Twin (รีโนเวต)",
+          "price": "฿1,400/คืน"
+        },
+        {
+          "type": "VIP Room",
+          "price": "฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dhevaraj-hotel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/dhevaraj.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-711743/dhevaraj-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dhevaraj-hotel-nan.html",
-      "tags": ["🏛️ โรงแรมเก่าแก่ของน่าน", "🛒 ติดตลาดในเมือง", "🛏️ มีห้องรีโนเวตใหม่", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏛️ โรงแรมเก่าแก่ของน่าน",
+        "🛒 ติดตลาดในเมือง",
+        "🛏️ มีห้องรีโนเวตใหม่",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "466 ถนนสุมนเทวราช ตำบลในเวียง อำเภอเมืองน่าน",
       "storyHtml": "Dhevaraj คือ <strong>โรงแรมเก่าแก่ที่คนน่านรู้จักดี และมีรีวิวมากที่สุดในชุดนี้ถึง 407 รีวิว</strong> คะแนน 9.0 · ทำเลกลางเมืองติดตลาดบนถนนสุมนเทวราช ออกไปไหนก็สะดวก มีที่จอดรถซึ่งสำคัญมากสำหรับคนขับรถมา · ตัวอาคารเก่าแต่มีห้องรีโนเวตใหม่ให้เลือก เสียงจากรีวิวจริงชมเรื่องทำเลกลางเมืองและราคาที่จับต้องได้ เหมาะใช้เป็นฐานเที่ยวเมืองน่านแบบไม่ต้องคิดมาก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง Deluxe ที่รีโนเวตใหม่จะคุ้มกว่าห้อง Standard อาคารเก่า และขอห้องไม่ติดถนนจะเงียบกว่าตอนเช้าตลาดเริ่มคึกคัก",
@@ -142,15 +243,29 @@
       "priceBig": "฿1,000",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Mountain View", "price": "฿1,000/คืน" },
-        { "type": "Suite Mountain View", "price": "฿1,400/คืน" },
-        { "type": "Suite Pool Access", "price": "฿1,700/คืน" }
+        {
+          "type": "Deluxe Mountain View",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "Suite Mountain View",
+          "price": "฿1,400/คืน"
+        },
+        {
+          "type": "Suite Pool Access",
+          "price": "฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/puadeview-boutique-resort/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pua-de-view-boutique-resort.html",
       "tripUrl": "https://th.trip.com/hotels/pua-district-hotel-detail-12322947/pua-de-view-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-puadeview-boutique-resort-nan.html",
-      "tags": ["🌾 ระเบียงวิวนา", "🏊 มีสระว่ายน้ำ", "⛰️ ใกล้ดอยภูคา", "🛕 ใกล้วัดพระธาตุเบ็งสกัด"],
+      "tags": [
+        "🌾 ระเบียงวิวนา",
+        "🏊 มีสระว่ายน้ำ",
+        "⛰️ ใกล้ดอยภูคา",
+        "🛕 ใกล้วัดพระธาตุเบ็งสกัด"
+      ],
       "addr": "222 หมู่ 5 บ้านแกม ตำบลวรนคร อำเภอปัว",
       "storyHtml": "PuaDeView คือ <strong>บูทีครีสอร์ตที่ขายวิวนาขั้นบันไดและวิวเขาของอำเภอปัว</strong> คะแนน 9.2 · ทุกห้องมีระเบียงมองออกไปเห็นทุ่งนาและภูเขา และยังมีสระว่ายน้ำซึ่งหายากในราคานี้ · ทำเลใกล้วัดพระธาตุเบ็งสกัดและเป็นจุดตั้งต้นที่ดีถ้าจะขึ้นดอยภูคาหรือเที่ยวปัว · เสียงจากรีวิวจริงชมวิวตอนเช้าที่มีหมอกลงและบรรยากาศเงียบสงบของรีสอร์ต",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ตื่นเช้ามาดูวิวนาช่วงหมอกลงคือไฮไลต์ และถ้างบถึงเลือกห้อง Suite Pool Access ที่เปิดประตูลงสระได้เลย",
@@ -182,15 +297,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Dome Mountain View", "price": "฿1,200/คืน" },
-        { "type": "Standard Riverside Villa", "price": "฿2,400/คืน" },
-        { "type": "Family Riverside Villa", "price": "฿3,200/คืน" }
+        {
+          "type": "Dome Mountain View",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Standard Riverside Villa",
+          "price": "฿2,400/คืน"
+        },
+        {
+          "type": "Family Riverside Villa",
+          "price": "฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phukananan/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phukananan.html",
       "tripUrl": "https://th.trip.com/hotels/bo-kluea-district-hotel-detail-117059252/phukananan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phukananan-resort-nan.html",
-      "tags": ["🏞️ วิลล่าริมลำธาร", "⛰️ วิวเขาบ่อเกลือ", "🛁 บางห้องมีอ่างอาบน้ำ", "🧂 ใกล้บ่อเกลือโบราณ"],
+      "tags": [
+        "🏞️ วิลล่าริมลำธาร",
+        "⛰️ วิวเขาบ่อเกลือ",
+        "🛁 บางห้องมีอ่างอาบน้ำ",
+        "🧂 ใกล้บ่อเกลือโบราณ"
+      ],
       "addr": "295 หมู่ 1 บ้านบ่อหลวง ตำบลบ่อเกลือใต้ อำเภอบ่อเกลือ",
       "storyHtml": "Phukananan คือ <strong>รีสอร์ตวิลล่าริมลำธารในหุบเขาอำเภอบ่อเกลือ</strong> คะแนน 9.1 · จุดเด่นคือห้องวิลล่าริมน้ำที่มีระเบียงและอ่างอาบน้ำ ฟังเสียงลำธารตอนกลางคืน · ทำเลใกล้บ่อเกลือโบราณซึ่งเป็นไฮไลต์ของอำเภอ และเป็นจุดพักที่ดีถ้าจะเที่ยวเส้นทางบ่อเกลือ-สะปัน · มีห้องโดมราคาประหยัดสำหรับคนงบน้อยด้วย เสียงจากรีวิวจริงชมบรรยากาศริมน้ำและความเป็นส่วนตัว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องโดมราคาถูกแต่เล็กและห้องน้ำอยู่ด้านนอก ถ้าอยากได้บรรยากาศริมน้ำเต็มที่ให้เลือก Riverside Villa และเตรียมเสื้อกันหนาวเพราะกลางคืนเย็น",
@@ -222,15 +351,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,200/คืน" },
-        { "type": "Deluxe King", "price": "฿1,600/คืน" },
-        { "type": "Deluxe Triple", "price": "฿1,900/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "฿1,600/คืน"
+        },
+        {
+          "type": "Deluxe Triple",
+          "price": "฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hugpua-hotel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hugpua.html",
       "tripUrl": "https://th.trip.com/hotels/pua-district-hotel-detail-21857744/hug-pua-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hugpua-hotel-nan.html",
-      "tags": ["🪵 ตกแต่งไม้สไตล์ไทลื้อ", "📍 ใจกลางปัว", "☕ ใกล้ร้านกาแฟวิวนา", "🛏️ ห้องอบอุ่น"],
+      "tags": [
+        "🪵 ตกแต่งไม้สไตล์ไทลื้อ",
+        "📍 ใจกลางปัว",
+        "☕ ใกล้ร้านกาแฟวิวนา",
+        "🛏️ ห้องอบอุ่น"
+      ],
       "addr": "316 หมู่ 2 ตำบลปัว อำเภอปัว",
       "storyHtml": "Hugpua คือ <strong>โรงแรมไม้สไตล์ไทลื้อใจกลางอำเภอปัว</strong> คะแนน 9.0 · ตัวอาคารตกแต่งด้วยไม้ให้ฟีลอบอุ่นแบบล้านนา-ไทลื้อ ห้องไม่ใหญ่แต่จัดสรรดี · ทำเลอยู่กลางปัว เดินหรือขับสั้นๆ ถึงร้านกาแฟวิวนาและจุดเที่ยวในอำเภอ ต่างจากรีสอร์ตวิวนาที่มักอยู่นอกตัวอำเภอ · เสียงจากรีวิวจริงชมงานไม้และความสะดวกที่อยู่ใจกลางปัว เหมาะคนอยากเที่ยวปัวแบบไม่ต้องขับไกล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยู่ใจกลางปัวจึงสะดวกเดินหาของกินเช้า แต่ถ้าอยากได้วิวนาตื่นมาเห็นทุ่งเลย ที่นี่อาจไม่ใช่ — เลือกตามว่าให้น้ำหนักทำเลหรือวิว",
@@ -262,15 +405,29 @@
       "priceBig": "฿2,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe (55 ตร.ม.)", "price": "฿2,800/คืน" },
-        { "type": "Deluxe Triple", "price": "฿3,300/คืน" },
-        { "type": "Villa", "price": "฿3,590/คืน" }
+        {
+          "type": "Deluxe (55 ตร.ม.)",
+          "price": "฿2,800/คืน"
+        },
+        {
+          "type": "Deluxe Triple",
+          "price": "฿3,300/คืน"
+        },
+        {
+          "type": "Villa",
+          "price": "฿3,590/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nan-boutique-resort_2/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-nan-boutique-resort-ban-hua-wiang-nua.html",
       "tripUrl": "https://th.trip.com/hotels/phu-phiang-district-hotel-detail-13717886/nan-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nan-boutique-resort-nan.html",
-      "tags": ["🌾 วิวสวน/วิวนา", "🛏️ ห้องกว้าง 55 ตร.ม.", "✈️ ใกล้สนามบิน", "🏡 มีห้องวิลล่า"],
+      "tags": [
+        "🌾 วิวสวน/วิวนา",
+        "🛏️ ห้องกว้าง 55 ตร.ม.",
+        "✈️ ใกล้สนามบิน",
+        "🏡 มีห้องวิลล่า"
+      ],
       "addr": "301 หมู่ 8 ตำบลฝายแก้ว อำเภอภูเพียง",
       "storyHtml": "Nan Boutique Resort คือ <strong>รีสอร์ตวิวนาฝั่งอำเภอภูเพียง ใกล้สนามบินน่าน</strong> คะแนน 8.9 · จุดเด่นคือห้องกว้างถึง 55 ตร.ม. ทุกห้อง บางห้องเป็นวิลล่าแยกหลังมีครัวเล็ก เหมาะกับครอบครัวที่อยากได้พื้นที่เยอะ · ทำเลออกนอกตัวเมืองนิดหน่อยแต่ใกล้สนามบิน สะดวกถ้ามาเครื่องบินหรือต้องบินกลับเช้า · เสียงจากรีวิวจริงชมขนาดห้องที่กว้างและบรรยากาศเงียบสงบรอบรีสอร์ต",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือมีเด็กลองดูห้องวิลล่าที่มีครัวเล็ก และถ้าบินกลับเช้าที่นี่ใกล้สนามบินช่วยให้ไม่ต้องตื่นเผื่อเวลามาก",
@@ -302,15 +459,29 @@
       "priceBig": "฿360",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Mix Dorm (เตียงรวม)", "price": "฿360/คืน" },
-        { "type": "Private 1 Queen", "price": "฿850/คืน" },
-        { "type": "Private 2 Queens", "price": "฿1,200/คืน" }
+        {
+          "type": "Mix Dorm (เตียงรวม)",
+          "price": "฿360/คืน"
+        },
+        {
+          "type": "Private 1 Queen",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Private 2 Queens",
+          "price": "฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/paknap-hostel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/paknap-hostel.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-113050734/paknap-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-paknap-hostel-nan.html",
-      "tags": ["🛏️ ม่านกั้นเตียง + ล็อกเกอร์", "♀️ มี Lady Dorm", "🚌 ใกล้ บขส.", "💰 เริ่ม ฿360"],
+      "tags": [
+        "🛏️ ม่านกั้นเตียง + ล็อกเกอร์",
+        "♀️ มี Lady Dorm",
+        "🚌 ใกล้ บขส.",
+        "💰 เริ่ม ฿360"
+      ],
       "addr": "7/94-95 ถนนเจ้าฟ้า ตำบลในเวียง อำเภอเมืองน่าน",
       "storyHtml": "Paknap คือ <strong>โฮสเทลในเวียงที่คะแนนดีถึง 9.0</strong> เริ่มต้นเตียงละ ฿360 · ดอร์มมีม่านกั้นเตียง ที่ชาร์จ และล็อกเกอร์ มี Lady Dorm สำหรับผู้หญิงโดยเฉพาะ และยังมีห้องส่วนตัวให้คนที่อยากได้ความเป็นส่วนตัวขึ้น · ทำเลใกล้สถานีขนส่ง บขส. น่าน สะดวกมากถ้ามารถทัวร์ · เสียงจากรีวิวจริงชมความสะอาดและพนักงานเป็นกันเอง เหมาะแบ็คแพ็คเกอร์และคนเที่ยวคนเดียว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ผู้หญิงเที่ยวคนเดียวเลือก Lady Dorm จะอุ่นใจกว่า และถ้ามากันสองคนลองเทียบราคา Private 1 Queen อาจคุ้มกว่าจองสองเตียงดอร์ม",
@@ -342,15 +513,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Boutique Room (32 ตร.ม.)", "price": "฿1,200/คืน" },
-        { "type": "Zen Superior", "price": "฿1,500/คืน" },
-        { "type": "Deluxe (50 ตร.ม.)", "price": "฿1,900/คืน" }
+        {
+          "type": "Boutique Room (32 ตร.ม.)",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Zen Superior",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe (50 ตร.ม.)",
+          "price": "฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nan-boutique-hotel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nan-boutique.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-711759/nan-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nan-boutique-hotel-nan.html",
-      "tags": ["🕰️ ตกแต่งวินเทจ", "📍 กลางเมืองในเวียง", "🛏️ ห้องกว้าง 32–50 ตร.ม.", "👨‍👩‍👧 มีห้องแฟมิลี่"],
+      "tags": [
+        "🕰️ ตกแต่งวินเทจ",
+        "📍 กลางเมืองในเวียง",
+        "🛏️ ห้องกว้าง 32–50 ตร.ม.",
+        "👨‍👩‍👧 มีห้องแฟมิลี่"
+      ],
       "addr": "1/11 ถนนข่วงหลวง ตำบลในเวียง อำเภอเมืองน่าน",
       "storyHtml": "Nan Boutique Hotel คือ <strong>บูทีคแต่งวินเทจกลางเมืองในเวียง</strong> คะแนน 8.6 จาก 86 รีวิว · ห้องเริ่มต้นที่ 32 ตร.ม. ซึ่งกว้างกว่าโรงแรมในเมืองหลายแห่ง ตกแต่งโทนวินเทจอบอุ่น มีห้อง Deluxe และ Family สำหรับครอบครัว · ทำเลบนถนนข่วงหลวงกลางเมือง เดินเที่ยวจุดสำคัญได้ · เสียงจากรีวิวจริงชมขนาดห้องและการตกแต่ง แต่บางเสียงบอกว่าบริการยังไม่สม่ำเสมอเท่าบูทีคอันดับต้นๆ ของชุดนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Boutique 32 ตร.ม. ก็กว้างพอแล้ว แต่ถ้ามากันสามคนหรือมีเด็กให้ขยับไปห้อง Deluxe/Family 50 ตร.ม. จะสบายกว่ามาก",
@@ -382,15 +567,29 @@
       "priceBig": "฿99",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "เตียงในดอร์มรวม", "price": "฿99/คืน" },
-        { "type": "เหมาห้อง 3–4 คน", "price": "฿700/คืน" },
-        { "type": "เหมาห้องกลุ่มใหญ่", "price": "฿1,500/คืน" }
+        {
+          "type": "เตียงในดอร์มรวม",
+          "price": "฿99/คืน"
+        },
+        {
+          "type": "เหมาห้อง 3–4 คน",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "เหมาห้องกลุ่มใหญ่",
+          "price": "฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/cuteinnan-hostel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/cuteinnan.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-61934676/cuteinnan-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-cuteinnan-hostel-nan.html",
-      "tags": ["💰 เริ่ม ฿99", "🚲 จักรยานฟรี", "🚶 ใกล้ถนนคนเดิน", "🛏️ ม่านกั้น + ล็อกเกอร์"],
+      "tags": [
+        "💰 เริ่ม ฿99",
+        "🚲 จักรยานฟรี",
+        "🚶 ใกล้ถนนคนเดิน",
+        "🛏️ ม่านกั้น + ล็อกเกอร์"
+      ],
       "addr": "13/6 ถนนมณเทียร ตำบลในเวียง อำเภอเมืองน่าน",
       "storyHtml": "CuteinNan คือ <strong>โฮสเทลดอร์มน่ารักใจกลางเมืองเก่าน่าน เริ่มต้นเตียงละ ฿99</strong> และมีรีวิวเยอะถึง 120 รีวิว คะแนน 8.7 · จุดที่ถูกใจแบ็คแพ็คเกอร์คือมีจักรยานให้ยืมฟรี ปั่นเที่ยววัดและถนนคนเดินได้สบายเพราะอยู่ใจกลางเมือง · เตียงในดอร์มมีม่านกั้น ปลั๊กไฟ และล็อกเกอร์ · เสียงจากรีวิวจริงชมราคาประหยัด ทำเลเดินเที่ยวง่าย และบรรยากาศเป็นกันเอง เหมาะคนเที่ยวคนเดียวงบน้อย",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ยืมจักรยานฟรีปั่นเที่ยวเมืองเก่าตอนเช้าก่อนแดดแรง และมากันเป็นกลุ่มลองเหมาทั้งห้องจะคุ้มและเป็นส่วนตัวกว่าจองแยกเตียง",
@@ -422,15 +621,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard", "price": "฿900/คืน" },
-        { "type": "Superior Double", "price": "฿1,100/คืน" },
-        { "type": "Deluxe Twin", "price": "฿1,500/คืน" }
+        {
+          "type": "Standard",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Superior Double",
+          "price": "฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-impress-nan-hotel/hotel/nan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-the-impress-nan-hotel.html",
       "tripUrl": "https://th.trip.com/hotels/nan-hotel-detail-6648731/the-impress-nan-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-impress-nan-hotel-nan.html",
-      "tags": ["🏨 โรงแรมใหญ่ห้องเยอะ", "🏛️ ล้านนาประยุกต์", "🅿️ ที่จอดรถสะดวก", "👨‍👩‍👧 รองรับคณะ/กลุ่ม"],
+      "tags": [
+        "🏨 โรงแรมใหญ่ห้องเยอะ",
+        "🏛️ ล้านนาประยุกต์",
+        "🅿️ ที่จอดรถสะดวก",
+        "👨‍👩‍👧 รองรับคณะ/กลุ่ม"
+      ],
       "addr": "4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน",
       "storyHtml": "The Impress คือ <strong>โรงแรมขนาดใหญ่สไตล์ล้านนาประยุกต์ในเมืองน่าน</strong> คะแนน 7.9 จาก 93 รีวิว เริ่มต้นแค่ ฿900 · จุดเด่นคือเป็นโรงแรมห้องเยอะ มีที่จอดรถสะดวก รองรับคณะหรือกลุ่มใหญ่ได้ดี เป็นตัวเลือกที่หาห้องว่างง่ายช่วงเทศกาลที่บูทีคเล็กๆ เต็มหมด · เสียงจากรีวิวจริงผสมกัน — ชมเรื่องราคาและที่จอดรถ แต่บางเสียงบอกว่าห้องและของตกแต่งเริ่มมีอายุ จึงอยู่ท้ายชุดนี้ เหมาะคนเน้นห้องว่างและที่จอดรถมากกว่าดีไซน์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขยับขึ้นห้อง Deluxe ที่ตกแต่งดีกว่าจะคุ้มกว่าห้อง Standard และที่นี่เหมาะถ้ามากันหลายคนหรือต้องการที่จอดรถแน่นอน",
@@ -448,36 +661,181 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม น่าน 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Nan Nakara Boutique Hotel", "type": "⭐⭐⭐⭐", "score": "9.6", "price": "฿1,500", "access": "📍 เมืองเก่าน่าน", "badge": "คะแนนสูงสุด", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Dhevaraj Hotel", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,100", "access": "📍 กลางเมือง·ติดตลาด", "badge": "รีวิวมากสุด", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "PuaDeView Boutique Resort", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,000", "access": "📍 อำเภอปัว·วิวนา", "badge": "วิวนาที่ปัว", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#0891b2", "name": "Phukananan Resort", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,200", "access": "📍 บ่อเกลือ·ริมลำธาร", "badge": "ริมลำธารบ่อเกลือ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#0891b2", "name": "Hugpua Hotel", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,200", "access": "📍 ใจกลางปัว", "badge": "ไม้ไทลื้อ" },
-    { "rank": "6", "rankColor": "#0891b2", "name": "Nan Boutique Resort", "type": "⭐⭐⭐", "score": "8.9", "price": "฿2,800", "access": "📍 ภูเพียง·ใกล้สนามบิน", "badge": "ห้องกว้าง·วิวนา" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "Paknap Hostel", "type": "⭐⭐", "score": "9.0", "price": "฿360", "access": "📍 ในเวียง·ใกล้ บขส.", "badge": "โฮสเทลคะแนนดี", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Nan Boutique Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,200", "access": "📍 ในเวียง·กลางเมือง" },
-    { "rank": "9", "rankColor": "#FB7185", "name": "CuteinNan Hostel", "type": "⭐⭐", "score": "8.7", "price": "฿99", "access": "📍 เมืองเก่า·ใกล้ถนนคนเดิน", "badge": "ถูกสุด·จักรยานฟรี", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "10", "rankColor": "#FB7185", "name": "The Impress Nan Hotel", "type": "⭐⭐⭐⭐", "score": "7.9", "price": "฿900", "access": "📍 เมืองน่าน·ใกล้ข่วงเมือง" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Nan Nakara Boutique Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.6",
+      "price": "฿1,500",
+      "access": "📍 เมืองเก่าน่าน",
+      "badge": "คะแนนสูงสุด",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Dhevaraj Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,100",
+      "access": "📍 กลางเมือง·ติดตลาด",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "PuaDeView Boutique Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,000",
+      "access": "📍 อำเภอปัว·วิวนา",
+      "badge": "วิวนาที่ปัว",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#0891b2",
+      "name": "Phukananan Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,200",
+      "access": "📍 บ่อเกลือ·ริมลำธาร",
+      "badge": "ริมลำธารบ่อเกลือ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#0891b2",
+      "name": "Hugpua Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,200",
+      "access": "📍 ใจกลางปัว",
+      "badge": "ไม้ไทลื้อ"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#0891b2",
+      "name": "Nan Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿2,800",
+      "access": "📍 ภูเพียง·ใกล้สนามบิน",
+      "badge": "ห้องกว้าง·วิวนา"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "Paknap Hostel",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿360",
+      "access": "📍 ในเวียง·ใกล้ บขส.",
+      "badge": "โฮสเทลคะแนนดี",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Nan Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,200",
+      "access": "📍 ในเวียง·กลางเมือง"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FB7185",
+      "name": "CuteinNan Hostel",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿99",
+      "access": "📍 เมืองเก่า·ใกล้ถนนคนเดิน",
+      "badge": "ถูกสุด·จักรยานฟรี",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FB7185",
+      "name": "The Impress Nan Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿900",
+      "access": "📍 เมืองน่าน·ใกล้ข่วงเมือง"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมน่านยังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้ถูกที่สุด", "bodyHtml": "→ <strong>CuteinNan Hostel</strong> ฿99 ดอร์มในเมืองเก่ามีจักรยานฟรี · หรือ <strong>Paknap Hostel</strong> ฿360 โฮสเทลคะแนน 9.0 ใกล้ บขส." },
-    { "icon": "🎨", "head": "อยากได้บูทีคในเมืองเก่า เดินเที่ยว", "bodyHtml": "→ <strong>Nan Nakara Boutique Hotel</strong> ฿1,500 มินิมอลคะแนน 9.6 เดินถึงวัดภูมินทร์ · หรือ <strong>Nan Boutique Hotel</strong> ฿1,200 วินเทจกลางเมือง" },
-    { "icon": "🌾", "head": "อยากนอนดูวิวนา เที่ยวปัว", "bodyHtml": "→ <strong>PuaDeView Boutique Resort</strong> ฿1,000 ระเบียงวิวนามีสระ · หรือ <strong>Hugpua Hotel</strong> ฿1,200 โรงแรมไม้ไทลื้อใจกลางปัว" },
-    { "icon": "🏞️", "head": "อยากเที่ยวบ่อเกลือ นอนริมน้ำ", "bodyHtml": "→ <strong>Phukananan Resort</strong> ฿1,200 วิลล่าริมลำธารในหุบเขาบ่อเกลือ ใกล้บ่อเกลือโบราณ" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว อยากได้ห้องกว้าง", "bodyHtml": "→ <strong>Nan Boutique Resort</strong> ฿2,800 ห้อง 55 ตร.ม. มีวิลล่า · หรือ <strong>Nan Boutique Hotel</strong> ฿1,900 ห้อง Deluxe/Family 50 ตร.ม." },
-    { "icon": "🛒", "head": "อยากพักกลางเมืองออกไปไหนสะดวก", "bodyHtml": "→ <strong>Dhevaraj Hotel</strong> ฿1,100 กลางเมืองติดตลาด มีที่จอดรถ รีวิวเยอะสุด · หรือ <strong>The Impress Nan</strong> ฿900 โรงแรมใหญ่ห้องเยอะ" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้ถูกที่สุด",
+      "bodyHtml": "→ <strong>CuteinNan Hostel</strong> ฿99 ดอร์มในเมืองเก่ามีจักรยานฟรี · หรือ <strong>Paknap Hostel</strong> ฿360 โฮสเทลคะแนน 9.0 ใกล้ บขส."
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้บูทีคในเมืองเก่า เดินเที่ยว",
+      "bodyHtml": "→ <strong>Nan Nakara Boutique Hotel</strong> ฿1,500 มินิมอลคะแนน 9.6 เดินถึงวัดภูมินทร์ · หรือ <strong>Nan Boutique Hotel</strong> ฿1,200 วินเทจกลางเมือง"
+    },
+    {
+      "icon": "🌾",
+      "head": "อยากนอนดูวิวนา เที่ยวปัว",
+      "bodyHtml": "→ <strong>PuaDeView Boutique Resort</strong> ฿1,000 ระเบียงวิวนามีสระ · หรือ <strong>Hugpua Hotel</strong> ฿1,200 โรงแรมไม้ไทลื้อใจกลางปัว"
+    },
+    {
+      "icon": "🏞️",
+      "head": "อยากเที่ยวบ่อเกลือ นอนริมน้ำ",
+      "bodyHtml": "→ <strong>Phukananan Resort</strong> ฿1,200 วิลล่าริมลำธารในหุบเขาบ่อเกลือ ใกล้บ่อเกลือโบราณ"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว อยากได้ห้องกว้าง",
+      "bodyHtml": "→ <strong>Nan Boutique Resort</strong> ฿2,800 ห้อง 55 ตร.ม. มีวิลล่า · หรือ <strong>Nan Boutique Hotel</strong> ฿1,900 ห้อง Deluxe/Family 50 ตร.ม."
+    },
+    {
+      "icon": "🛒",
+      "head": "อยากพักกลางเมืองออกไปไหนสะดวก",
+      "bodyHtml": "→ <strong>Dhevaraj Hotel</strong> ฿1,100 กลางเมืองติดตลาด มีที่จอดรถ รีวิวเยอะสุด · หรือ <strong>The Impress Nan</strong> ฿900 โรงแรมใหญ่ห้องเยอะ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงหน้าหนาว (พ.ย.–ม.ค.) และวันหยุดยาวที่พักน่านโดยเฉพาะปัวและบ่อเกลือเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือน · น่านไม่มีรถไฟฟ้าและขนส่งสาธารณะน้อย เช่ารถหรือมอเตอร์ไซค์สะดวกที่สุด โดยเฉพาะถ้าจะขึ้นปัว/บ่อเกลือ · จากสนามบินน่านเข้าเมืองราว 10 นาที · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมน่าน",
   "faq": [
-    { "q": "❓ ควรพักโซนไหนในน่าน?", "a": "ขึ้นอยู่กับว่าจะเที่ยวโซนไหน · <strong>เมืองเก่า/ในเวียง</strong> เหมาะถ้าเน้นวัด พิพิธภัณฑ์ ถนนคนเดิน เดินเที่ยวได้ (Nan Nakara, Dhevaraj, Nan Boutique, CuteinNan, Paknap) · <strong>อำเภอปัว</strong> เหมาะคนอยากดูวิวนาขั้นบันไดและขึ้นดอยภูคา (PuaDeView, Hugpua) · <strong>บ่อเกลือ</strong> เหมาะคนเที่ยวเส้นบ่อเกลือ-สะปัน (Phukananan) · ปัวและบ่อเกลืออยู่ไกลจากเมือง ต้องมีรถ" },
-    { "q": "❓ โรงแรมน่านราคาเท่าไหร่?", "a": "ราคาหลากหลาย: โฮสเทลและดอร์มเริ่มราว ฿99–360 ต่อเตียง · บูทีคและโรงแรมในเมืองราว ฿900–1,500 · รีสอร์ตวิวนาที่ปัวเริ่มราว ฿1,000 · รีสอร์ตห้องกว้าง/วิลล่าราว ฿2,400–3,800 · ช่วงหน้าหนาวและวันหยุดยาวราคาขยับขึ้นและห้องเต็มเร็ว โดยเฉพาะปัวและบ่อเกลือ" },
-    { "q": "❓ เที่ยวน่านต้องมีรถไหม จำเป็นแค่ไหน?", "a": "ถ้าเที่ยวแค่ในเมืองเก่า เดินหรือปั่นจักรยานได้ (บางที่พักมีจักรยานฟรี) · แต่ถ้าจะขึ้น <strong>ปัว</strong> (ห่างเมืองราว 60 กม.) หรือ <strong>บ่อเกลือ</strong> (ราว 80 กม. ทางคดเคี้ยว) แทบจำเป็นต้องมีรถ เพราะขนส่งสาธารณะน้อยมาก · เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกและยืดหยุ่นที่สุด" },
-    { "q": "❓ ควรจองโรงแรมน่านล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาทั่วไปจองล่วงหน้า 2–3 สัปดาห์พอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) และวันหยุดยาว ที่พักน่านโดยเฉพาะรีสอร์ตวิวนาที่ปัวและวิลล่าที่บ่อเกลือเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป" },
-    { "q": "❓ พักที่ปัวกับพักในเมืองน่าน เลือกอันไหนดี?", "a": "<strong>พักในเมืองน่าน</strong> เหมาะถ้าเที่ยววัด พิพิธภัณฑ์ ถนนคนเดิน และอยากออกไปไหนสะดวก · <strong>พักที่ปัว</strong> เหมาะถ้าให้น้ำหนักวิวนาขั้นบันได ดอยภูคา และร้านกาแฟวิวนา — แต่ปัวห่างจากเมืองราว 60 กม. ถ้าเที่ยวหลายวันหลายคนเลือกพักเมืองน่าน 1–2 คืนแล้วค่อยขยับไปนอนปัวอีกคืน" },
-    { "q": "❓ จองโรงแรมน่านเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน" }
-  ]
+    {
+      "q": "❓ ควรพักโซนไหนในน่าน?",
+      "a": "ขึ้นอยู่กับว่าจะเที่ยวโซนไหน · <strong>เมืองเก่า/ในเวียง</strong> เหมาะถ้าเน้นวัด พิพิธภัณฑ์ ถนนคนเดิน เดินเที่ยวได้ (Nan Nakara, Dhevaraj, Nan Boutique, CuteinNan, Paknap) · <strong>อำเภอปัว</strong> เหมาะคนอยากดูวิวนาขั้นบันไดและขึ้นดอยภูคา (PuaDeView, Hugpua) · <strong>บ่อเกลือ</strong> เหมาะคนเที่ยวเส้นบ่อเกลือ-สะปัน (Phukananan) · ปัวและบ่อเกลืออยู่ไกลจากเมือง ต้องมีรถ"
+    },
+    {
+      "q": "❓ โรงแรมน่านราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: โฮสเทลและดอร์มเริ่มราว ฿99–360 ต่อเตียง · บูทีคและโรงแรมในเมืองราว ฿900–1,500 · รีสอร์ตวิวนาที่ปัวเริ่มราว ฿1,000 · รีสอร์ตห้องกว้าง/วิลล่าราว ฿2,400–3,800 · ช่วงหน้าหนาวและวันหยุดยาวราคาขยับขึ้นและห้องเต็มเร็ว โดยเฉพาะปัวและบ่อเกลือ"
+    },
+    {
+      "q": "❓ เที่ยวน่านต้องมีรถไหม จำเป็นแค่ไหน?",
+      "a": "ถ้าเที่ยวแค่ในเมืองเก่า เดินหรือปั่นจักรยานได้ (บางที่พักมีจักรยานฟรี) · แต่ถ้าจะขึ้น <strong>ปัว</strong> (ห่างเมืองราว 60 กม.) หรือ <strong>บ่อเกลือ</strong> (ราว 80 กม. ทางคดเคี้ยว) แทบจำเป็นต้องมีรถ เพราะขนส่งสาธารณะน้อยมาก · เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกและยืดหยุ่นที่สุด"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมน่านล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาทั่วไปจองล่วงหน้า 2–3 สัปดาห์พอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) และวันหยุดยาว ที่พักน่านโดยเฉพาะรีสอร์ตวิวนาที่ปัวและวิลล่าที่บ่อเกลือเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป"
+    },
+    {
+      "q": "❓ พักที่ปัวกับพักในเมืองน่าน เลือกอันไหนดี?",
+      "a": "<strong>พักในเมืองน่าน</strong> เหมาะถ้าเที่ยววัด พิพิธภัณฑ์ ถนนคนเดิน และอยากออกไปไหนสะดวก · <strong>พักที่ปัว</strong> เหมาะถ้าให้น้ำหนักวิวนาขั้นบันได ดอยภูคา และร้านกาแฟวิวนา — แต่ปัวห่างจากเมืองราว 60 กม. ถ้าเที่ยวหลายวันหลายคนเลือกพักเมืองน่าน 1–2 คืนแล้วค่อยขยับไปนอนปัวอีกคืน"
+    },
+    {
+      "q": "❓ จองโรงแรมน่านเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมน่านจากทุกระดับ — บูทีคในเมืองเก่าน่าน รีสอร์ตวิวนาที่ปัว วิลล่าริมลำธารบ่อเกลือ ไปจนถึงโฮสเทลเริ่ม ฿99 เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

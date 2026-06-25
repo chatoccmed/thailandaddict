@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Maha Sarakham", "href": "city-maha-sarakham.html" },
-    { "name": "Top 12 Maha Sarakham Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Maha Sarakham",
+      "href": "city-maha-sarakham.html"
+    },
+    {
+      "name": "Top 12 Maha Sarakham Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Maha Sarakham", "item": "https://thailandaddict.com/en/city-maha-sarakham" },
-    { "name": "Top 12 Maha Sarakham Hotels", "item": "https://thailandaddict.com/en/top10-hotels-maha-sarakham" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Maha Sarakham",
+      "item": "https://thailandaddict.com/en/city-maha-sarakham"
+    },
+    {
+      "name": "Top 12 Maha Sarakham Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-maha-sarakham"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-maha-sarakham.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Maha Sarakham has no metro and no airport in the province — the nearest airports are <strong>Khon Kaen (KKC)</strong> and <strong>Roi Et (ROI)</strong>, both about an hour's drive away, and getting around town means a private car or a ride-hail. Pick by your errand: <strong>the town centre (market area)</strong> is within walking distance of the night market, restaurants and Wat Maha Chai, close to the hospital and Rajabhat, best for those in town on business; <strong>the suburbs (Waeng Nang, Kaeng Loeng Chan, Koeng)</strong> are quieter resorts and stays with parking at your door, great for self-drivers; and <strong>Khamriang–Tha Khon Yang</strong> is the area around MSU, best for university business. Almost every stay has free parking, so they suit self-drivers well. During the universities' graduation season, rooms fill up fast and prices rise — book several weeks ahead.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Boxotel", "price": "฿550" },
-    { "n": "2", "color": "#06B6D4", "name": "Taksila Hotel", "price": "฿900" },
-    { "n": "3", "color": "#06B6D4", "name": "Hop Inn Mahasarakham", "price": "฿670" },
-    { "n": "4", "color": "#06B6D4", "name": "Kanya Place", "price": "฿650" },
-    { "n": "5", "color": "#FB7185", "name": "New Siya Hotel", "price": "฿650" },
-    { "n": "6", "color": "#FB7185", "name": "The Orchid Resort & Relax", "price": "฿700" },
-    { "n": "7", "color": "#FB7185", "name": "DEBUA White House", "price": "฿850" },
-    { "n": "8", "color": "#FB7185", "name": "Top Inn Hotel", "price": "฿620" },
-    { "n": "9", "color": "#FBBF24", "name": "Varunyu House & Resort", "price": "฿450" },
-    { "n": "10", "color": "#FBBF24", "name": "SiRi Resort", "price": "฿700" },
-    { "n": "11", "color": "#FBBF24", "name": "Phakawan Hotel", "price": "฿490" },
-    { "n": "12", "color": "#FBBF24", "name": "P's Loft Hostel", "price": "฿680" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Boxotel",
+      "price": "฿550"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Taksila Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Hop Inn Mahasarakham",
+      "price": "฿670"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Kanya Place",
+      "price": "฿650"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "New Siya Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "The Orchid Resort & Relax",
+      "price": "฿700"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "DEBUA White House",
+      "price": "฿850"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Top Inn Hotel",
+      "price": "฿620"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Varunyu House & Resort",
+      "price": "฿450"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "SiRi Resort",
+      "price": "฿700"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "Phakawan Hotel",
+      "price": "฿490"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "P's Loft Hostel",
+      "price": "฿680"
+    }
   ],
   "entries": [
     {
@@ -64,14 +147,25 @@
       "priceBig": "฿550",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room (King)", "price": "from ฿550/night" },
-        { "type": "Deluxe Room (King)", "price": "from ฿650/night" }
+        {
+          "type": "Standard Room (King)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Deluxe Room (King)",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/boxotel/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-boxotel-ban-nong-chik.html",
       "tripUrl": "https://www.trip.com/hotels/maha-sarakham-province-hotel-detail-21890035/boxotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-boxotel-waeng-nang-maha-sarakham.html",
-      "tags": ["📦 Container/loft design", "✨ Cleanliness 9.8", "🤫 Quietest in town", "🚗 Park at your door"],
+      "tags": [
+        "📦 Container/loft design",
+        "✨ Cleanliness 9.8",
+        "🤫 Quietest in town",
+        "🚗 Park at your door"
+      ],
       "addr": "95-96 Moo 15, Waeng Nang, Mueang Maha Sarakham",
       "storyHtml": "Boxotel is <strong>the highest-scoring stay in this guide — 9.4 from 24 reviews, with a cleanliness score of 9.8</strong>. It's a boutique resort built from shipping containers mixed with loft-style rooms; the rooms are roomy, the beds comfortable, and you park motel-style right at your door. Reviewers call it the quietest place they've stayed in town — ideal if you just want a proper night's sleep. From only ฿550, in the Waeng Nang suburb with an easy drive to both MSU and the town centre, it suits parents dropping off students or anyone self-driving.",
       "tipHtml": "💡 <strong>Tip:</strong> for more space, choose the Deluxe, which is larger and some have a sofa. Some platforms list no breakfast, so check before booking and have a nearby spot in mind.",
@@ -103,15 +197,29 @@
       "priceBig": "฿900",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Grand Deluxe Twin", "price": "from ฿900/night" },
-        { "type": "Junior Suite", "price": "from ฿1,300/night" },
-        { "type": "Grand Suite", "price": "from ฿1,800/night" }
+        {
+          "type": "Grand Deluxe Twin",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Grand Suite",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/taksila-hotel/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/taksila.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-maha-sarakham-hotel-detail-9714022/taksila-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-taksila-hotel-maha-sarakham.html",
-      "tags": ["🏊 Pool + kids' pool", "🍳 Good-value breakfast", "🚗 Free covered parking", "📍 Walk to the market"],
+      "tags": [
+        "🏊 Pool + kids' pool",
+        "🍳 Good-value breakfast",
+        "🚗 Free covered parking",
+        "📍 Walk to the market"
+      ],
       "addr": "1227/68 Somthawilrad Rd, market area, Mueang Maha Sarakham",
       "storyHtml": "Taksila Hotel is <strong>the 4-star in the town centre that locals recommend most</strong>, scoring 8.5 from 26 reviews. Open since 2000 and given a major refurbishment in 2023, its strengths are a pool with a kids' pool, a gym, a spa, free covered parking, and a buffet breakfast guests call better than the price. The market-area location is within walking distance of restaurants and the night market. From ฿900, it suits families and anyone wanting an in-town hotel with a pool.",
       "tipHtml": "💡 <strong>Tip:</strong> the walls between rooms aren't thick, so if you're a light sleeper ask for a room away from the street and away from busier rooms. Families can step up to a suite for not much more.",
@@ -143,15 +251,29 @@
       "priceBig": "฿670",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿670/night" },
-        { "type": "Standard Twin", "price": "from ฿700/night" },
-        { "type": "Standard (weekend/peak)", "price": "from ฿890/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿670/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Standard (weekend/peak)",
+          "price": "from ฿890/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-mahasarakham/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-mahasarakham.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-maha-sarakham-hotel-detail-83647355/hop-inn-mahasarakham/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-mahasarakham-maha-sarakham.html",
-      "tags": ["🛏️ Beds better than the price", "🚗 Free parking", "☕ Free coffee + microwave", "📍 Near Rajabhat & mall"],
+      "tags": [
+        "🛏️ Beds better than the price",
+        "🚗 Free parking",
+        "☕ Free coffee + microwave",
+        "📍 Near Rajabhat & mall"
+      ],
       "addr": "27/8 Nakhon Sawan Rd, Koeng, Mueang Maha Sarakham",
       "storyHtml": "Hop Inn Mahasarakham sells <strong>certainty — clean rooms, good beds, free parking and a price you don't need to think twice about</strong>, scoring 8.7 from 49 reviews. It's a 61-room Hop Inn on Nakhon Sawan Road in the Koeng area; what reviews praise most is a bed better than the price, plus free coffee and a shared microwave. It's near Rajabhat University, the hospital and Serm Thai Complex mall. From ฿670, it suits self-drivers, parents dropping off students and people in on official business.",
       "tipHtml": "💡 <strong>Tip:</strong> the walls are thin, so if you're a light sleeper ask for a room away from the street and the lift, and pack earplugs. Use the free coffee and shared microwave to heat takeaway food and save a bit more.",
@@ -183,15 +305,29 @@
       "priceBig": "฿650",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿650/night" },
-        { "type": "Standard Twin", "price": "from ฿690/night" },
-        { "type": "Deluxe", "price": "from ฿850/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿690/night"
+        },
+        {
+          "type": "Deluxe",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kanya-place/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kayyaa-ephls-kanya.html",
       "tripUrl": "https://www.trip.com/hotels/list?keyword=Kanya+Place+Maha+Sarakham&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kanya-place-maha-sarakham.html",
-      "tags": ["🌿 Balcony in every room", "✨ Cleanliness stands out", "🅿️ Free parking", "📍 Walk to the market"],
+      "tags": [
+        "🌿 Balcony in every room",
+        "✨ Cleanliness stands out",
+        "🅿️ Free parking",
+        "📍 Walk to the market"
+      ],
       "addr": "128/1 Chaloem Phrakiat R.9 Rd, market area, Mueang Maha Sarakham",
       "storyHtml": "Kanya Place is <strong>the small in-town boutique with the most reviews in the market-area group — 78</strong>, scoring 8.3. What guests love is that every room has its own balcony, rare at this price; reviews praise the cleanliness most of all — fresh linens, housekeeping every day, warm service. It's about 880 metres from the centre, within walking distance of the market and a 7-Eleven, with free parking. From ฿650, it suits short business trips or visiting family who study here.",
       "tipHtml": "💡 <strong>Tip:</strong> ask for a balcony room facing into the lane rather than the street — quieter, and pleasant for a coffee in the morning. During graduation and exam season at MSU rooms fill fast since they're limited, so book weeks ahead.",
@@ -223,15 +359,29 @@
       "priceBig": "฿650",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double / Twin", "price": "from ฿650/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿750/night" },
-        { "type": "Suite Double Room", "price": "from ฿950/night" }
+        {
+          "type": "Standard Double / Twin",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Suite Double Room",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/new-siya-hotel-h80328191/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-new-siya.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-maha-sarakham-hotel-detail-131714739/new-siya-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-new-siya-hotel-maha-sarakham.html",
-      "tags": ["🏊 Pool + spa", "🏙️ Walk to market & temples", "💸 Clean rooms, light on the wallet", "🅿️ Free parking"],
+      "tags": [
+        "🏊 Pool + spa",
+        "🏙️ Walk to market & temples",
+        "💸 Clean rooms, light on the wallet",
+        "🅿️ Free parking"
+      ],
       "addr": "45/68 Somthawilrad Rd, market area, Mueang Maha Sarakham",
       "storyHtml": "New Siya Hotel is <strong>a newly opened, budget 3-star with a swimming pool right in the market heart of town</strong>, scoring 8.4. It stands out for clean rooms and friendly, easygoing staff, with an outdoor pool, a spa/massage room, a restaurant, free parking and a 24-hour front desk. It's within walking distance of the night market, Wat Nakhawichai and Wat Maha Chai. From ฿650, it suits travellers, people in on work and small families who want a central stay with a pool without paying much.",
       "tipHtml": "💡 <strong>Tip:</strong> walk-in rates at the desk are sometimes cheaper than the app, so message the hotel to compare first. Groups should ask about a Suite or Deluxe Twin that sleeps several.",
@@ -263,15 +413,29 @@
       "priceBig": "฿700",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Comfort Bungalow (poolside/field view)", "price": "from ฿700/night" },
-        { "type": "Bamboo Hut River View", "price": "from ฿800/night" },
-        { "type": "Comfort Double · Pool Access", "price": "from ฿1,100/night" }
+        {
+          "type": "Comfort Bungalow (poolside/field view)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Bamboo Hut River View",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Comfort Double · Pool Access",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-the-orchid-resort-relax/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-orchid-resort-relax.html",
       "tripUrl": "https://www.trip.com/hotels/kantharawichai-hotel-detail-21864364/the-orchid-resort-relax/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-orchid-resort-relax-maha-sarakham.html",
-      "tags": ["🏊 Pool + poolside rooms", "🌾 Field views, quiet setting", "🎓 Near MSU", "🅿️ Free parking"],
+      "tags": [
+        "🏊 Pool + poolside rooms",
+        "🌾 Field views, quiet setting",
+        "🎓 Near MSU",
+        "🅿️ Free parking"
+      ],
       "addr": "113 Moo 2, Khamriang, Kantharawichai",
       "storyHtml": "The Orchid Resort & Relax is <strong>a garden-and-field resort on the Khamriang side with plenty of reviews — 73</strong>, scoring 8.1. It's a low-rise resort of separate units arranged around a pool and ringed by rice fields, with a jacuzzi, a spa and poolside rooms you can step straight into the water from. It's about a 10-minute drive from MSU — ideal for university business or anyone who wants a quiet resort with a pool and garden. From ฿700, reviews single out its value.",
       "tipHtml": "💡 <strong>Tip:</strong> if you're there to swim, ask for a Comfort Pool Access room you can walk straight into the pool from. The resort takes mainly cash, so bring some; the nearest airport is Khon Kaen.",
@@ -303,15 +467,29 @@
       "priceBig": "฿850",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿850/night" },
-        { "type": "Deluxe (with balcony)", "price": "from ฿1,100/night" },
-        { "type": "Family Room", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Deluxe (with balcony)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/debua-white-house/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/debua-white-house.html",
       "tripUrl": "https://www.trip.com/hotels/mahasarakham-hotel-detail-220053273/debua-white-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-debua-white-house-maha-sarakham.html",
-      "tags": ["🤍 White minimalist theme", "📺 Big-screen Netflix free", "🍳 Homemade breakfast", "🚲 Free bikes + parking"],
+      "tags": [
+        "🤍 White minimalist theme",
+        "📺 Big-screen Netflix free",
+        "🍳 Homemade breakfast",
+        "🚲 Free bikes + parking"
+      ],
       "addr": "31 Soi Sisawatdamnoen 6, market area, Mueang Maha Sarakham",
       "storyHtml": "DEBUA White House is <strong>a newly opened white-themed boutique that looks fresh and photographs well at an affordable price</strong>, scoring 8.1 from 40 reviews. Guests point to the white minimalist rooms, a big-screen TV with free Netflix, a homemade breakfast cooked by the chef, free bikes and an EV charging point. It sits along the Somthawil canal in town. From ฿850, it suits couples, small families and anyone who wants a pretty room for the money — though it's newly opened and service isn't fully settled.",
       "tipHtml": "💡 <strong>Tip:</strong> there are two DEBUA branches in Maha Sarakham, so make sure you book the White House on Soi Sisawatdamnoen 6. It's a small new place — message their page to check promos and the room before booking.",
@@ -343,15 +521,29 @@
       "priceBig": "฿620",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Twin", "price": "from ฿620/night" },
-        { "type": "Standard King", "price": "from ฿700/night" },
-        { "type": "Family Room", "price": "from ฿1,000/night" }
+        {
+          "type": "Standard Twin",
+          "price": "from ฿620/night"
+        },
+        {
+          "type": "Standard King",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/h66757559/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/top-inn-orngaermth-p-inn.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-maha-sarakham-hotel-detail-81340971/top-inn-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-top-inn-hotel-maha-sarakham.html",
-      "tags": ["🏨 Rooms renovated 2024", "📍 Near hospital & bus station", "🚗 Spacious parking", "💰 Light on the wallet"],
+      "tags": [
+        "🏨 Rooms renovated 2024",
+        "📍 Near hospital & bus station",
+        "🚗 Spacious parking",
+        "💰 Light on the wallet"
+      ],
       "addr": "45/6 Somthawil canal Rd, market area, Mueang Maha Sarakham",
       "storyHtml": "Top Inn Hotel is <strong>a midrange hotel in the town centre that recently renovated its rooms in 2024</strong>, scoring 8.2 from 20 reviews. Its strengths are fresh, clean rooms, a market-area location by the Somthawil canal close to the hospital, bus station and restaurants, plus free, spacious parking. It's a 50-room hotel that works well for an overnight while you're in on errands. From ฿620, it suits people in on business, relatives staying near the hospital and self-drivers.",
       "tipHtml": "💡 <strong>Tip:</strong> most rooms are freshly renovated, but the walls are fairly thin — ask for a corner or upper-floor room to cut noise from next door. Especially handy if your errand is near the hospital and bus station.",
@@ -383,15 +575,29 @@
       "priceBig": "฿450",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿450/night" },
-        { "type": "Standard King", "price": "from ฿550/night" },
-        { "type": "Family / large room", "price": "from ฿750/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Standard King",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Family / large room",
+          "price": "from ฿750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/waranyoo-house-resort-h21791521/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Waranyoo+House+Resort+Maha+Sarakham",
       "tripUrl": "https://th.trip.com/hotels/mueang-maha-sarakham-hotel-detail-21890958/waranyoo-house-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-varunyu-house-resort-maha-sarakham.html",
-      "tags": ["💰 From ฿450", "🛏️ Roomy, cold A/C", "🚗 Roadside, park at your door", "🌳 Near Kaeng Loeng Chan"],
+      "tags": [
+        "💰 From ฿450",
+        "🛏️ Roomy, cold A/C",
+        "🚗 Roadside, park at your door",
+        "🌳 Near Kaeng Loeng Chan"
+      ],
       "addr": "163 Chaloem Phrakiat R.9 Rd, market area, Mueang Maha Sarakham",
       "storyHtml": "Varunyu House & Resort is <strong>a budget stay right on a main road that's easy to find, with roomy rooms and easy parking</strong>, scoring 8.3 from 23 reviews. It's a single-storey resort of around 28 rooms in a row-house layout where you park at your door. Reviews say the rooms are bigger than expected, the A/C cold and the rooms clean, with a fridge and TV. Location scores high thanks to the roadside spot on Chaloem Phrakiat, near Kaeng Loeng Chan (about 290 m) and the city museum. From ฿450, it suits self-drivers on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> it's a single-storey resort on a main road, so if you're noise-sensitive ask for an inner room away from the road and pack earplugs. There's no breakfast, so plan a nearby spot.",
@@ -423,15 +629,29 @@
       "priceBig": "฿700",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿700/night" },
-        { "type": "Deluxe Room", "price": "from ฿850/night" },
-        { "type": "Family Room", "price": "from ฿1,100/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/siri-resort/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/siri-resort.html",
       "tripUrl": "https://th.trip.com/hotels/maha-sarakham-hotel-list-50450/?keyword=SiRi%20Resort&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-siri-resort-kaeng-loeng-chan-maha-sarakham.html",
-      "tags": ["🚗 Park at your door", "🤫 Quiet and private", "🛏️ Roomy rooms with balconies", "🌅 Near Kaeng Loeng Chan"],
+      "tags": [
+        "🚗 Park at your door",
+        "🤫 Quiet and private",
+        "🛏️ Roomy rooms with balconies",
+        "🌅 Near Kaeng Loeng Chan"
+      ],
       "addr": "202 Moo 6, Chaeng Sanit Rd, Kaeng Loeng Chan, Mueang Maha Sarakham",
       "storyHtml": "SiRi Resort is <strong>a quiet villa-style resort where you park right at your door</strong>, scoring 7.9 from 19 reviews. Rooms are separate villas, each with private parking out front — handy for self-drivers with luggage. Service scores highest at 9.0, and the rooms are roomy with balconies. It's in the Kaeng Loeng Chan suburb, about a 10-minute drive into town. From ฿700, it suits anyone who values quiet and privacy over a central location.",
       "tipHtml": "💡 <strong>Tip:</strong> it's a small villa resort, so the desk may not be staffed at all times — call ahead to confirm your check-in time. Check the room's cleanliness when you get the key, as that's its lowest-scoring area.",
@@ -463,15 +683,29 @@
       "priceBig": "฿490",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿490/night" },
-        { "type": "Deluxe Double Room", "price": "from ฿590/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿650/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿490/night"
+        },
+        {
+          "type": "Deluxe Double Room",
+          "price": "from ฿590/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phakawan-hotel/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-phakawan-hotel-maha-sarakham.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-maha-sarakham-hotel-detail-2078512/phakawan-hotel-mahasarakham/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phakawan-hotel-maha-sarakham.html",
-      "tags": ["💬 Most reviews (340)", "🌳 Quiet, in a garden", "🅿️ Free parking", "💵 From ฿490"],
+      "tags": [
+        "💬 Most reviews (340)",
+        "🌳 Quiet, in a garden",
+        "🅿️ Free parking",
+        "💵 From ฿490"
+      ],
       "addr": "349 Moo 12, Waeng Nang, Mueang Maha Sarakham",
       "storyHtml": "Phakawan Hotel is <strong>the budget hotel with the most reviews in this guide — 340</strong>, scoring 7.0. It's a small 20-room hotel set in a leafy garden in the Waeng Nang area outside town, quiet, with free parking at your door. The rooms are bigger than you'd expect for the price, with a balcony, TV and fridge. From ฿490 — and to be straight, some rooms are ageing and the score isn't high, but it's still a quiet, easy-parking budget option for self-drivers.",
       "tipHtml": "💡 <strong>Tip:</strong> there have been cases of online bookings turning up to a full house, so call the hotel to confirm a day ahead for peace of mind. Rooms vary in condition — ask for a more recently updated one if available.",
@@ -503,15 +737,29 @@
       "priceBig": "฿680",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "A/C Standard (per night)", "price": "from ฿680/night" },
-        { "type": "A/C Standard (regular rate)", "price": "from ฿800/night" },
-        { "type": "Monthly rental", "price": "from ฿6,000/month" }
+        {
+          "type": "A/C Standard (per night)",
+          "price": "from ฿680/night"
+        },
+        {
+          "type": "A/C Standard (regular rate)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Monthly rental",
+          "price": "from ฿6,000/month"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/p-s-loft-hostel_2/hotel/mahasarakham-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/p-39-s-loft-hostel.html",
       "tripUrl": "https://th.trip.com/hotels/kantharawichai-hotel-detail-48554528/p-loft-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ps-loft-hostel-tha-khon-yang-maha-sarakham.html",
-      "tags": ["🎓 Near MSU", "❄️ Private A/C room ~28 sqm", "🚗 Free parking", "📅 Monthly rentals"],
+      "tags": [
+        "🎓 Near MSU",
+        "❄️ Private A/C room ~28 sqm",
+        "🚗 Free parking",
+        "📅 Monthly rentals"
+      ],
       "addr": "395 Moo 7, Khamriang, Kantharawichai",
       "storyHtml": "P's Loft Hostel is <strong>an affordable private A/C room near Mahasarakham University in the Khamriang–Tha Khon Yang area</strong>, scoring 7.0. These are private A/C rooms of about 28 sqm — not dorms — with a fridge, TV, an en-suite with hot water, free parking, and monthly rentals of around ฿6,000–8,000. From ฿680, it suits students and parents who prioritise being close to campus. To be straight, it has few online reviews and some complaints about booking confirmation, so confirm your room first.",
       "tipHtml": "💡 <strong>Tip:</strong> because of the booking complaints, call to confirm your room directly, get written confirmation and choose a cancellable rate. Compare the per-night price against Varunyu and New Siya in town too.",
@@ -529,39 +777,214 @@
     }
   ],
   "compareTitle": "Maha Sarakham hotel comparison — 12 hotels, 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Boxotel", "type": "⭐⭐⭐", "score": "9.4", "price": "฿550", "access": "📍 Waeng Nang·suburb", "badge": "Highest score 9.4", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Taksila Hotel", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿900", "access": "📍 Market·town centre", "badge": "4-star with a pool", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Hop Inn Mahasarakham", "type": "⭐⭐⭐", "score": "8.7", "price": "฿670", "access": "📍 Koeng·near Rajabhat", "badge": "Reliable chain", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Kanya Place", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿650", "access": "📍 Market·in town", "badge": "Balcony rooms, many reviews", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "New Siya Hotel", "type": "⭐⭐⭐", "score": "8.4", "price": "฿650", "access": "📍 Market·town centre", "badge": "Budget with a pool", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "The Orchid Resort & Relax", "type": "⭐⭐⭐", "score": "8.1", "price": "฿700", "access": "📍 Khamriang·near MSU", "badge": "Garden resort with a pool", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "DEBUA White House", "type": "⭐⭐⭐⭐", "score": "8.1", "price": "฿850", "access": "📍 Sisawatdamnoen·in town", "badge": "New white-theme boutique", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Top Inn Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿620", "access": "📍 Market·near hospital", "badge": "Renovated 2024", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Varunyu House & Resort", "type": "⭐⭐", "score": "8.3", "price": "฿450", "access": "📍 Market·on main road", "badge": "Cheapest, easy to find", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "SiRi Resort", "type": "⭐⭐⭐", "score": "7.9", "price": "฿700", "access": "📍 Kaeng Loeng Chan·suburb", "badge": "Villas, park at your door", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "Phakawan Hotel", "type": "⭐⭐⭐", "score": "7.0", "price": "฿490", "access": "📍 Waeng Nang·outside town", "badge": "Most reviewed (340)", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "P's Loft Hostel", "type": "⭐⭐", "score": "7.0", "price": "฿680", "access": "📍 Khamriang·near MSU", "badge": "Near the university", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Boxotel",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿550",
+      "access": "📍 Waeng Nang·suburb",
+      "badge": "Highest score 9.4",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Taksila Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿900",
+      "access": "📍 Market·town centre",
+      "badge": "4-star with a pool",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Hop Inn Mahasarakham",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿670",
+      "access": "📍 Koeng·near Rajabhat",
+      "badge": "Reliable chain",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Kanya Place",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿650",
+      "access": "📍 Market·in town",
+      "badge": "Balcony rooms, many reviews",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "New Siya Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿650",
+      "access": "📍 Market·town centre",
+      "badge": "Budget with a pool",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "The Orchid Resort & Relax",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿700",
+      "access": "📍 Khamriang·near MSU",
+      "badge": "Garden resort with a pool",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "DEBUA White House",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿850",
+      "access": "📍 Sisawatdamnoen·in town",
+      "badge": "New white-theme boutique",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Top Inn Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿620",
+      "access": "📍 Market·near hospital",
+      "badge": "Renovated 2024",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Varunyu House & Resort",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿450",
+      "access": "📍 Market·on main road",
+      "badge": "Cheapest, easy to find",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "SiRi Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿700",
+      "access": "📍 Kaeng Loeng Chan·suburb",
+      "badge": "Villas, park at your door",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "Phakawan Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿490",
+      "access": "📍 Waeng Nang·outside town",
+      "badge": "Most reviewed (340)",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "P's Loft Hostel",
+      "type": "⭐⭐",
+      "score": "7.0",
+      "price": "฿680",
+      "access": "📍 Khamriang·near MSU",
+      "badge": "Near the university",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "How to pick the right Maha Sarakham hotel for you",
   "advice": [
-    { "icon": "💰", "head": "On a tight budget, want the best value", "bodyHtml": "→ <strong>Varunyu House & Resort</strong> ฿450, roomy and easy to find on a main road · or <strong>Phakawan Hotel</strong> ฿490, a quiet garden hotel · or <strong>Boxotel</strong> ฿550, the container resort scoring 9.4" },
-    { "icon": "🏊", "head": "Want a hotel with a swimming pool", "bodyHtml": "→ <strong>Taksila Hotel</strong> ฿900, 4-star with a pool and kids' pool · or <strong>New Siya Hotel</strong> ฿650, a budget hotel with a pool in town · or <strong>The Orchid Resort</strong> ฿700, a garden resort with a pool" },
-    { "icon": "🏙️", "head": "Want to stay central, walk to the market", "bodyHtml": "→ <strong>Taksila Hotel</strong> ฿900, 4-star in the market area · or <strong>New Siya Hotel</strong> ฿650, walk to the market and temples · or <strong>Kanya Place</strong> ฿650, a boutique with balcony rooms" },
-    { "icon": "🎓", "head": "Business at Mahasarakham University (Khamriang)", "bodyHtml": "→ <strong>The Orchid Resort & Relax</strong> ฿700, a garden resort near campus · or <strong>P's Loft Hostel</strong> ฿680, private A/C rooms with monthly rentals · or <strong>Boxotel</strong> ฿550, a suburb with an easy drive to campus" },
-    { "icon": "🚗", "head": "Self-driving, want to park at your door", "bodyHtml": "→ <strong>SiRi Resort</strong> ฿700, villas with parking out front · or <strong>Boxotel</strong> ฿550, motel-style at-your-door parking · or <strong>Varunyu House</strong> ฿450, a single-storey resort with door parking" },
-    { "icon": "🤍", "head": "Want a stylish, photogenic room", "bodyHtml": "→ <strong>DEBUA White House</strong> ฿850, a new white-themed boutique with big-screen Netflix · or <strong>Boxotel</strong> ฿550, container/loft design" },
-    { "icon": "🤫", "head": "Want quiet and a restful feel", "bodyHtml": "→ <strong>Boxotel</strong> ฿550, the quietest in town per reviews · or <strong>SiRi Resort</strong> ฿700, quiet suburban villas · or <strong>The Orchid Resort</strong> ฿700, a garden-and-field resort" }
+    {
+      "icon": "💰",
+      "head": "On a tight budget, want the best value",
+      "bodyHtml": "→ <strong>Varunyu House & Resort</strong> ฿450, roomy and easy to find on a main road · or <strong>Phakawan Hotel</strong> ฿490, a quiet garden hotel · or <strong>Boxotel</strong> ฿550, the container resort scoring 9.4"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a hotel with a swimming pool",
+      "bodyHtml": "→ <strong>Taksila Hotel</strong> ฿900, 4-star with a pool and kids' pool · or <strong>New Siya Hotel</strong> ฿650, a budget hotel with a pool in town · or <strong>The Orchid Resort</strong> ฿700, a garden resort with a pool"
+    },
+    {
+      "icon": "🏙️",
+      "head": "Want to stay central, walk to the market",
+      "bodyHtml": "→ <strong>Taksila Hotel</strong> ฿900, 4-star in the market area · or <strong>New Siya Hotel</strong> ฿650, walk to the market and temples · or <strong>Kanya Place</strong> ฿650, a boutique with balcony rooms"
+    },
+    {
+      "icon": "🎓",
+      "head": "Business at Mahasarakham University (Khamriang)",
+      "bodyHtml": "→ <strong>The Orchid Resort & Relax</strong> ฿700, a garden resort near campus · or <strong>P's Loft Hostel</strong> ฿680, private A/C rooms with monthly rentals · or <strong>Boxotel</strong> ฿550, a suburb with an easy drive to campus"
+    },
+    {
+      "icon": "🚗",
+      "head": "Self-driving, want to park at your door",
+      "bodyHtml": "→ <strong>SiRi Resort</strong> ฿700, villas with parking out front · or <strong>Boxotel</strong> ฿550, motel-style at-your-door parking · or <strong>Varunyu House</strong> ฿450, a single-storey resort with door parking"
+    },
+    {
+      "icon": "🤍",
+      "head": "Want a stylish, photogenic room",
+      "bodyHtml": "→ <strong>DEBUA White House</strong> ฿850, a new white-themed boutique with big-screen Netflix · or <strong>Boxotel</strong> ฿550, container/loft design"
+    },
+    {
+      "icon": "🤫",
+      "head": "Want quiet and a restful feel",
+      "bodyHtml": "→ <strong>Boxotel</strong> ฿550, the quietest in town per reviews · or <strong>SiRi Resort</strong> ฿700, quiet suburban villas · or <strong>The Orchid Resort</strong> ฿700, a garden-and-field resort"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> all prices are approximate and can change by date and season — always check live prices and compare 3 sites before booking. During the universities' graduation season (MSU and Rajabhat), rooms fill very fast and prices rise, so book 3–4 weeks ahead or more. Maha Sarakham has no metro and no airport in the province; the nearest airports are Khon Kaen (KKC) and Roi Et (ROI), about an hour away, and getting around means a private car or ride-hail. Guide by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — common traveller questions about Maha Sarakham hotels",
   "faq": [
-    { "q": "❓ Which area is best to stay in Maha Sarakham?", "a": "It depends on your errand and whether you have a car. <strong>The town-centre market area</strong> is within walking distance of the night market, restaurants and temples, close to the hospital and Rajabhat — best for those in town on business (Taksila, New Siya, Kanya Place, Top Inn, Varunyu). <strong>The suburbs (Waeng Nang, Kaeng Loeng Chan, Koeng)</strong> have quieter resorts and stays with parking at your door, great for self-drivers (Boxotel, SiRi Resort, Phakawan, Hop Inn). <strong>Khamriang–Tha Khon Yang</strong> is the area around MSU, best for university business (The Orchid Resort, P's Loft Hostel)." },
-    { "q": "❓ How much do Maha Sarakham hotels cost?", "a": "Maha Sarakham is very affordable: budget 2-star stays start around ฿450–680 (Varunyu, Phakawan, P's Loft); 3-star hotels and resorts run about ฿550–700 (Boxotel, Hop Inn, New Siya, Top Inn, The Orchid, SiRi); boutiques and 4-star hotels start around ฿650–900 (Kanya Place, DEBUA White House, Taksila). During graduation season prices run higher than usual and rooms fill fast." },
-    { "q": "❓ Which Maha Sarakham hotels have a swimming pool?", "a": "In this guide the ones with a pool are <strong>Taksila Hotel</strong> (4-star, pool + kids' pool, ฿900), <strong>New Siya Hotel</strong> (a budget hotel with a pool in town, ฿650) and <strong>The Orchid Resort & Relax</strong> (a garden resort with a pool and poolside rooms, ฿700). Most other stays here focus on clean rooms and parking rather than a pool." },
-    { "q": "❓ Dropping a student at MSU — where should I stay?", "a": "The Khamriang side of MSU is about 15–20 minutes outside town. To be near campus, look at <strong>The Orchid Resort & Relax</strong> (a garden resort near campus, ฿700) or <strong>P's Loft Hostel</strong> (private A/C rooms with monthly rentals, ฿680). <strong>Boxotel</strong> (฿550) in the Waeng Nang area also has an easy drive to campus. During graduation season, book several weeks ahead." },
-    { "q": "❓ Self-driving and want to park at your door — where can I?", "a": "Stays where you park motel- or villa-style at your door are <strong>SiRi Resort</strong> (separate villas, ฿700), <strong>Boxotel</strong> (motel-style, ฿550) and <strong>Varunyu House & Resort</strong> (a single-storey resort, ฿450). Taksila, Hop Inn, Top Inn and New Siya in town also have free parking." },
-    { "q": "❓ How far ahead should I book a Maha Sarakham hotel?", "a": "On regular weekdays, 1–2 weeks ahead is enough since stays aren't crowded. But during <strong>graduation season at MSU and Rajabhat</strong> and exam periods, good rooms fill very fast and prices rise — especially small boutiques with few rooms like Kanya Place — so book 3–4 weeks ahead or more." }
-  ]
+    {
+      "q": "❓ Which area is best to stay in Maha Sarakham?",
+      "a": "It depends on your errand and whether you have a car. <strong>The town-centre market area</strong> is within walking distance of the night market, restaurants and temples, close to the hospital and Rajabhat — best for those in town on business (Taksila, New Siya, Kanya Place, Top Inn, Varunyu). <strong>The suburbs (Waeng Nang, Kaeng Loeng Chan, Koeng)</strong> have quieter resorts and stays with parking at your door, great for self-drivers (Boxotel, SiRi Resort, Phakawan, Hop Inn). <strong>Khamriang–Tha Khon Yang</strong> is the area around MSU, best for university business (The Orchid Resort, P's Loft Hostel)."
+    },
+    {
+      "q": "❓ How much do Maha Sarakham hotels cost?",
+      "a": "Maha Sarakham is very affordable: budget 2-star stays start around ฿450–680 (Varunyu, Phakawan, P's Loft); 3-star hotels and resorts run about ฿550–700 (Boxotel, Hop Inn, New Siya, Top Inn, The Orchid, SiRi); boutiques and 4-star hotels start around ฿650–900 (Kanya Place, DEBUA White House, Taksila). During graduation season prices run higher than usual and rooms fill fast."
+    },
+    {
+      "q": "❓ Which Maha Sarakham hotels have a swimming pool?",
+      "a": "In this guide the ones with a pool are <strong>Taksila Hotel</strong> (4-star, pool + kids' pool, ฿900), <strong>New Siya Hotel</strong> (a budget hotel with a pool in town, ฿650) and <strong>The Orchid Resort & Relax</strong> (a garden resort with a pool and poolside rooms, ฿700). Most other stays here focus on clean rooms and parking rather than a pool."
+    },
+    {
+      "q": "❓ Dropping a student at MSU — where should I stay?",
+      "a": "The Khamriang side of MSU is about 15–20 minutes outside town. To be near campus, look at <strong>The Orchid Resort & Relax</strong> (a garden resort near campus, ฿700) or <strong>P's Loft Hostel</strong> (private A/C rooms with monthly rentals, ฿680). <strong>Boxotel</strong> (฿550) in the Waeng Nang area also has an easy drive to campus. During graduation season, book several weeks ahead."
+    },
+    {
+      "q": "❓ Self-driving and want to park at your door — where can I?",
+      "a": "Stays where you park motel- or villa-style at your door are <strong>SiRi Resort</strong> (separate villas, ฿700), <strong>Boxotel</strong> (motel-style, ฿550) and <strong>Varunyu House & Resort</strong> (a single-storey resort, ฿450). Taksila, Hop Inn, Top Inn and New Siya in town also have free parking."
+    },
+    {
+      "q": "❓ How far ahead should I book a Maha Sarakham hotel?",
+      "a": "On regular weekdays, 1–2 weeks ahead is enough since stays aren't crowded. But during <strong>graduation season at MSU and Rajabhat</strong> and exam periods, good rooms fill very fast and prices rise — especially small boutiques with few rooms like Kanya Place — so book 3–4 weeks ahead or more."
+    }
+  ],
+  "quickAnswerHtml": "12 hand-picked Maha Sarakham hotels across every tier — from Boxotel, a container-and-loft resort scoring 9.4, to Taksila, a 4-star hotel with a pool in the town centre, down to budget stays near Mahasarakham University. Real guest reviews, prices compared across 3 sites, direct booking links."
 }

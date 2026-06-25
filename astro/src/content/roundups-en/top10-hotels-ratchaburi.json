@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Ratchaburi", "href": "city-ratchaburi.html" },
-    { "name": "Top 12 Ratchaburi Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Ratchaburi",
+      "href": "city-ratchaburi.html"
+    },
+    {
+      "name": "Top 12 Ratchaburi Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Ratchaburi", "item": "https://thailandaddict.com/en/city-ratchaburi" },
-    { "name": "Top 12 Ratchaburi Hotels", "item": "https://thailandaddict.com/en/top10-hotels-ratchaburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Ratchaburi",
+      "item": "https://thailandaddict.com/en/city-ratchaburi"
+    },
+    {
+      "name": "Top 12 Ratchaburi Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-ratchaburi"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-ratchaburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Ratchaburi has no metro and no commercial airport — most people drive in from Bangkok in about 1.5–2 hours, or take a van/coach to the town centre. Hotels here are quite spread out, so pick by your itinerary: <strong>Suan Phueng</strong> is the mountain valley 60 km from town — easiest with your own car, with cool air, waterfalls and farms; <strong>Damnoen Saduak</strong> is the floating-market district to the east, ideal for the floating market and the Maeklong railway market; <strong>the Mae Klong River</strong> in town offers river views near the food streets; and the <strong>town centre</strong> is near the market, the walking street and Khao Ngu. Almost every hotel has free parking, so they suit self-drivers well.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Villa Tuscany Country Resort", "price": "฿1,200" },
-    { "n": "2", "color": "#06B6D4", "name": "Khum Damnoen Resort", "price": "฿2,150" },
-    { "n": "3", "color": "#06B6D4", "name": "Rachabhura Hotel", "price": "฿1,890" },
-    { "n": "4", "color": "#06B6D4", "name": "Phu Pha Phung Resort", "price": "฿1,100" },
-    { "n": "5", "color": "#FB7185", "name": "The Scenery Vintage Farm & Resort", "price": "฿7,500" },
-    { "n": "6", "color": "#FB7185", "name": "Sleep by Me Ratchaburi", "price": "฿790" },
-    { "n": "7", "color": "#FB7185", "name": "Phu Ingthara Resort", "price": "฿950" },
-    { "n": "8", "color": "#FB7185", "name": "Kao Ngu Boutique Resort", "price": "฿590" },
-    { "n": "9", "color": "#FBBF24", "name": "The Bed Boutique House", "price": "฿450" },
-    { "n": "10", "color": "#FBBF24", "name": "Chang Puak Resort Damnoen Saduak", "price": "฿1,500" },
-    { "n": "11", "color": "#FBBF24", "name": "Tid-jai Homestay at Suan Phueng", "price": "฿800" },
-    { "n": "12", "color": "#FBBF24", "name": "Guest House Ratchaburi", "price": "฿550" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Villa Tuscany Country Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Khum Damnoen Resort",
+      "price": "฿2,150"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Rachabhura Hotel",
+      "price": "฿1,890"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Phu Pha Phung Resort",
+      "price": "฿1,100"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "The Scenery Vintage Farm & Resort",
+      "price": "฿7,500"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Sleep by Me Ratchaburi",
+      "price": "฿790"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Phu Ingthara Resort",
+      "price": "฿950"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Kao Ngu Boutique Resort",
+      "price": "฿590"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "The Bed Boutique House",
+      "price": "฿450"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Chang Puak Resort Damnoen Saduak",
+      "price": "฿1,500"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "Tid-jai Homestay at Suan Phueng",
+      "price": "฿800"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "Guest House Ratchaburi",
+      "price": "฿550"
+    }
   ],
   "entries": [
     {
@@ -64,16 +147,33 @@
       "priceBig": "฿1,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Classic Villa (King bed)", "price": "฿1,200/night" },
-        { "type": "Deluxe Villa", "price": "฿1,600/night" },
-        { "type": "Villa Mountain View (clawfoot tub)", "price": "฿2,200/night" },
-        { "type": "Family Suite (sleeps 4)", "price": "฿2,800/night" }
+        {
+          "type": "Classic Villa (King bed)",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Deluxe Villa",
+          "price": "฿1,600/night"
+        },
+        {
+          "type": "Villa Mountain View (clawfoot tub)",
+          "price": "฿2,200/night"
+        },
+        {
+          "type": "Family Suite (sleeps 4)",
+          "price": "฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/villa-tuscany-country-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-villa-tuscany-country-resort-suan-phung.html",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-6210584/villa-tuscany-country-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-villa-tuscany-country-resort-ratchaburi.html",
-      "tags": ["🇮🇹 Photogenic Tuscan design", "🏔️ Suan Phueng mountain views", "🛁 Villas with clawfoot tubs", "🚗 Free parking"],
+      "tags": [
+        "🇮🇹 Photogenic Tuscan design",
+        "🏔️ Suan Phueng mountain views",
+        "🛁 Villas with clawfoot tubs",
+        "🚗 Free parking"
+      ],
       "addr": "439 Moo 1, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "Villa Tuscany is the <strong>most-reviewed resort in this guide — 330 reviews and a 9.0 score</strong>, and it's a Tuscan-style villa property in the Suan Phueng valley. Guests love the Italian look and feel, which is photogenic from every angle, the standalone villas that give real privacy, and the mountain views all around. At ฿1,200 for a Classic Villa it's great value for a private villa at this score, and there's free parking, so it suits self-drivers.",
       "tipHtml": "💡 <strong>Tip:</strong> for a clawfoot tub and full mountain views, pick the Villa Mountain View. Book ahead over the cool season and long weekends — rooms fill fast and prices climb.",
@@ -105,16 +205,33 @@
       "priceBig": "฿2,150",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Lake Villa (canal view)", "price": "฿2,900/night" },
-        { "type": "Villa Room (in the garden)", "price": "฿3,800/night" },
-        { "type": "Lake Jacuzzi", "price": "฿3,900/night" },
-        { "type": "Villa Jacuzzi (couples)", "price": "฿4,800/night" }
+        {
+          "type": "Lake Villa (canal view)",
+          "price": "฿2,900/night"
+        },
+        {
+          "type": "Villa Room (in the garden)",
+          "price": "฿3,800/night"
+        },
+        {
+          "type": "Lake Jacuzzi",
+          "price": "฿3,900/night"
+        },
+        {
+          "type": "Villa Jacuzzi (couples)",
+          "price": "฿4,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/khum-damnoen-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/khumdamenin-riis-rth-khum-dam-noen-resort.html",
       "tripUrl": "https://www.trip.com/hotels/damnoen-saduak-hotel-detail-21855296/khum-damnoen-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-khum-damnoen-resort-ratchaburi.html",
-      "tags": ["🌴 Bali-style villas", "🏊 70 m salt-water pool", "🛶 Canalside near the floating market", "🛁 Villas with jacuzzis"],
+      "tags": [
+        "🌴 Bali-style villas",
+        "🏊 70 m salt-water pool",
+        "🛶 Canalside near the floating market",
+        "🛁 Villas with jacuzzis"
+      ],
       "addr": "50/1 Tha Nat, Damnoen Saduak District, Ratchaburi",
       "storyHtml": "Khum Damnoen is a <strong>Bali-style villa resort scoring a high 9.1</strong>. The standout is the 70-metre salt-water pool that guests rave about, Bali-styled villas — some with canal views — and a location near the Damnoen Saduak floating market, making market trips easy. The private-jacuzzi rooms suit couples celebrating a special occasion. At ฿2,150 to start, it's good value for a villa at this score in the floating-market area.",
       "tipHtml": "💡 <strong>Tip:</strong> for a waterside feel, pick a Lake Villa or Lake Jacuzzi with canal views. Celebrating an anniversary or honeymoon? Choose a private-jacuzzi room — and book ahead, as the villas fill fast.",
@@ -146,16 +263,33 @@
       "priceBig": "฿1,890",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Double / Twin", "price": "฿1,890/night" },
-        { "type": "Superior Partial River View", "price": "฿2,090/night" },
-        { "type": "Superior Pool Zone / Jacuzzi", "price": "฿2,490/night" },
-        { "type": "Villa Pool Access / Jacuzzi", "price": "฿3,590/night" }
+        {
+          "type": "Superior Double / Twin",
+          "price": "฿1,890/night"
+        },
+        {
+          "type": "Superior Partial River View",
+          "price": "฿2,090/night"
+        },
+        {
+          "type": "Superior Pool Zone / Jacuzzi",
+          "price": "฿2,490/night"
+        },
+        {
+          "type": "Villa Pool Access / Jacuzzi",
+          "price": "฿3,590/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rachabhura/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rachabhura.html",
       "tripUrl": "https://th.trip.com/hotels/ratchaburi-hotel-detail-47617259/rachabhura/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rachabura-hotel-ratchaburi.html",
-      "tags": ["🏺 Ratchaburi pottery-inspired design", "🌊 On the Mae Klong River", "🏊 Pool-zone & pool-access rooms", "🛏️ Earthy clay-and-wood tones"],
+      "tags": [
+        "🏺 Ratchaburi pottery-inspired design",
+        "🌊 On the Mae Klong River",
+        "🏊 Pool-zone & pool-access rooms",
+        "🛏️ Earthy clay-and-wood tones"
+      ],
       "addr": "259 Moo 2, Ban Rai, Mueang Ratchaburi District, Ratchaburi",
       "storyHtml": "Rachabhura is a <strong>4-star riverside boutique hotel on the Mae Klong River in town, scoring 8.8</strong>. The standout is a design that draws on Ratchaburi's famous pottery heritage, warm clay-and-wood-toned rooms, and a riverside location right in town. There are pool-zone rooms and pool-access villas where you can step straight out to the pool. From ฿1,890, it's good value for a riverside boutique in town that's easy to get around from.",
       "tipHtml": "💡 <strong>Tip:</strong> to see the river, pick Superior Partial River View or above. To step straight into the pool from your room, choose Villa Pool Access. Reviews are still few as it's newly opened, but feedback on the design and cleanliness is strong.",
@@ -187,16 +321,33 @@
       "priceBig": "฿1,100",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior / garden-view double", "price": "฿1,100/night" },
-        { "type": "Family Studio (~70 sqm)", "price": "฿1,900/night" },
-        { "type": "Villa Deluxe (multi-bedroom)", "price": "฿3,500/night" },
-        { "type": "Large group villa", "price": "฿6,500/night" }
+        {
+          "type": "Superior / garden-view double",
+          "price": "฿1,100/night"
+        },
+        {
+          "type": "Family Studio (~70 sqm)",
+          "price": "฿1,900/night"
+        },
+        {
+          "type": "Villa Deluxe (multi-bedroom)",
+          "price": "฿3,500/night"
+        },
+        {
+          "type": "Large group villa",
+          "price": "฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phu-pha-phung-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/a-a-1a-a-2a-a-pa1a-a-psa-ua-aa-a-psa1a.html",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-710560/phu-pha-phung-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phu-pha-phung-resort-ratchaburi.html",
-      "tags": ["🏊 Has a swimming pool", "🏡 Family / large-group villas", "🏔️ Suan Phueng mountain views", "🚗 Free parking"],
+      "tags": [
+        "🏊 Has a swimming pool",
+        "🏡 Family / large-group villas",
+        "🏔️ Suan Phueng mountain views",
+        "🚗 Free parking"
+      ],
       "addr": "112 Moo 2, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "Phu Pha Phung is a <strong>4-star Suan Phueng resort with a swimming pool and villas for larger groups</strong>, scoring 8.5. It suits families and groups of friends who want a resort with a pool at an accessible starting price. Guests like the spacious grounds, Suan Phueng mountain views, and the Family Studio and multi-bedroom villas that sleep several. At ฿1,100 for a garden-view double, it's good value for a resort with a pool.",
       "tipHtml": "💡 <strong>Tip:</strong> travelling as a group or larger family? Look at the multi-bedroom villas — split between you, they work out well. The Booking score sits a little below Agoda, so check recent photos and reviews before booking.",
@@ -228,16 +379,33 @@
       "priceBig": "฿7,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Jacuzzi Villa (Pangola/Setaria)", "price": "฿7,500/night" },
-        { "type": "Bath Tub Gardener Villa (Merino)", "price": "฿7,500/night" },
-        { "type": "Rapunzel Duplex Villa (sleeps 4)", "price": "฿9,250/night" },
-        { "type": "Katahdin / Barbados Duplex (sleeps 4)", "price": "฿11,500/night" }
+        {
+          "type": "Jacuzzi Villa (Pangola/Setaria)",
+          "price": "฿7,500/night"
+        },
+        {
+          "type": "Bath Tub Gardener Villa (Merino)",
+          "price": "฿7,500/night"
+        },
+        {
+          "type": "Rapunzel Duplex Villa (sleeps 4)",
+          "price": "฿9,250/night"
+        },
+        {
+          "type": "Katahdin / Barbados Duplex (sleeps 4)",
+          "price": "฿11,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=18351&q=The%20Scenery%20Vintage%20Farm%20Suan%20Phueng&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+Scenery+Vintage+Farm+Suan+Phueng+Ratchaburi",
       "tripUrl": "https://reservation.sceneryvintagefarm.com/",
       "reviewUrl": "review-the-scenery-vintage-farm-ratchaburi.html",
-      "tags": ["🐑 Photogenic sheep farm", "🏰 English-Mediterranean villas", "🛁 Villas with jacuzzis / bathtubs", "🌄 In the Suan Phueng valley"],
+      "tags": [
+        "🐑 Photogenic sheep farm",
+        "🏰 English-Mediterranean villas",
+        "🛁 Villas with jacuzzis / bathtubs",
+        "🌄 In the Suan Phueng valley"
+      ],
       "addr": "234 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "The Scenery Vintage Farm is a <strong>luxury farm villa resort in the Suan Phueng valley and a landmark of the area</strong>, scoring 8.4. The draw is the sheep farm and English-Mediterranean villa setting that's photogenic all day, plus large villas with private jacuzzis or bathtubs. It suits anyone celebrating a special occasion or wanting a luxe stay in nature. At ฿7,500 to start it's the priciest in this guide, and you can book direct via the resort's own site.",
       "tipHtml": "💡 <strong>Tip:</strong> travelling as a family? Pick a Duplex Villa that sleeps 4 — split between you, it's better value. Book direct via the resort site, and book well ahead, as villas are limited and fill fast in the cool season.",
@@ -269,16 +437,33 @@
       "priceBig": "฿790",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double / Single", "price": "฿790/night" },
-        { "type": "Standard Twin", "price": "฿890/night" },
-        { "type": "Triple Room (sleeps 3)", "price": "฿1,200/night" },
-        { "type": "Deluxe / Family Room (sleeps 4)", "price": "฿1,400/night" }
+        {
+          "type": "Standard Double / Single",
+          "price": "฿790/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿890/night"
+        },
+        {
+          "type": "Triple Room (sleeps 3)",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Deluxe / Family Room (sleeps 4)",
+          "price": "฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sleep-by-me-ratchaburi/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sleep-by-me-ratchaburi.html",
       "tripUrl": "https://www.trip.com/hotels/ratchaburi-hotel-detail/sleep-by-me-ratchaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sleep-by-me-ratchaburi.html",
-      "tags": ["🎀 Photogenic renovated pink building", "☕ On-site café", "🛏️ Clean rooms, budget price", "🚗 Free parking"],
+      "tags": [
+        "🎀 Photogenic renovated pink building",
+        "☕ On-site café",
+        "🛏️ Clean rooms, budget price",
+        "🚗 Free parking"
+      ],
       "addr": "99/9 Moo 8, Chedi Hak, Mueang Ratchaburi District, Ratchaburi",
       "storyHtml": "Sleep by Me is a <strong>boutique hotel in town scoring a high 8.6, from just ฿790</strong>. It's a renovated pink-toned building with an on-site café, photogenic and ideal for design lovers on a budget. Guests praise the clean rooms, comfy beds and friendly staff. It's in the Chedi Hak area near the town centre, easy to get around, with free parking — so it suits self-drivers.",
       "tipHtml": "💡 <strong>Tip:</strong> travelling as a family? Pick the Triple or Family Room for 3–4 guests. It's a town stay, not in Suan Phueng — allow driving time if you plan to explore the nature side.",
@@ -310,16 +495,33 @@
       "priceBig": "฿950",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Air-conditioned dome tent", "price": "฿950/night" },
-        { "type": "Sky dome (mountain view)", "price": "฿1,200/night" },
-        { "type": "Hobbit / stone house", "price": "฿2,500/night" },
-        { "type": "Art-style villa / house", "price": "฿3,500/night" }
+        {
+          "type": "Air-conditioned dome tent",
+          "price": "฿950/night"
+        },
+        {
+          "type": "Sky dome (mountain view)",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Hobbit / stone house",
+          "price": "฿2,500/night"
+        },
+        {
+          "type": "Art-style villa / house",
+          "price": "฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=17072&q=Phu%20Ingthara%20Resort%20Suan%20Phueng&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Phu+Ingthara+Resort+Suan+Phueng+Ratchaburi",
       "tripUrl": "https://th.trip.com/guide/stay/phu+ing+tarn.html?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phu-ingthara-resort-ratchaburi.html",
-      "tags": ["⛺ Dome tents and stone houses", "💧 By a stream / waterfall", "🎨 Photogenic art-style houses", "🏔️ In Suan Phueng nature"],
+      "tags": [
+        "⛺ Dome tents and stone houses",
+        "💧 By a stream / waterfall",
+        "🎨 Photogenic art-style houses",
+        "🏔️ In Suan Phueng nature"
+      ],
       "addr": "549 Moo Huai Phak, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "Phu Ingthara is a <strong>nature boutique resort in Suan Phueng with both dome tents and design-led stone houses</strong>, scoring 8.4 from 120 reviews. The standout is its setting by a stream and waterfall, the nature-camp vibe, and a range of stays from budget domes to photogenic art-style houses. From ฿950 for an air-conditioned dome tent, it suits campers who want to sleep in nature but still have air-con.",
       "tipHtml": "💡 <strong>Tip:</strong> on a budget and OK with shared bathrooms? Pick a dome tent. Want an en-suite and waterfall views? Choose a stone / Hobbit house. Check which room type is en-suite before booking.",
@@ -351,16 +553,33 @@
       "priceBig": "฿590",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "฿590/night" },
-        { "type": "Superior Room (mountain view)", "price": "฿790/night" },
-        { "type": "Deluxe Room", "price": "฿990/night" },
-        { "type": "Family Room", "price": "฿1,200/night" }
+        {
+          "type": "Standard Room",
+          "price": "฿590/night"
+        },
+        {
+          "type": "Superior Room (mountain view)",
+          "price": "฿790/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "฿990/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kao-ngu-boutique-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ekhaanguubuuthiikh-riis-rth-tambon-na-muang.html",
       "tripUrl": "https://www.trip.com/hotels/ratchaburi-khao-ngu/hotels-c61592m37974629/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kao-ngu-boutique-resort-ratchaburi.html",
-      "tags": ["🐾 Pet-friendly", "🏔️ Khao Ngu mountain views", "💰 Budget price near town", "🚗 Free parking"],
+      "tags": [
+        "🐾 Pet-friendly",
+        "🏔️ Khao Ngu mountain views",
+        "💰 Budget price near town",
+        "🚗 Free parking"
+      ],
       "addr": "292 Moo 1, Ko Phlapphla, Mueang Ratchaburi District, Ratchaburi",
       "storyHtml": "Kao Ngu is a <strong>boutique resort at the foot of Khao Ngu that welcomes pets, from just ฿590</strong>, scoring 8.0. The standout is that it's one of the few pet-friendly stays in the area, with mountain views and a spot near Ratchaburi town that's easy to get around from. Rooms range from Standard up to Family. The Agoda score is a high 9.1 while Booking is 7.6, so check recent reviews and room photos before you book.",
       "tipHtml": "💡 <strong>Tip:</strong> travelling with a pet? Let the resort know ahead. For mountain views, pick a Superior Room. Cheap and near town, it makes a handy base for Khao Ngu and the town centre.",
@@ -392,16 +611,33 @@
       "priceBig": "฿450",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Mini Room (single bed)", "price": "฿450/night" },
-        { "type": "Twin Room", "price": "฿600/night" },
-        { "type": "VIP Room", "price": "฿750/night" },
-        { "type": "Villa (couple / small family)", "price": "฿900/night" }
+        {
+          "type": "Mini Room (single bed)",
+          "price": "฿450/night"
+        },
+        {
+          "type": "Twin Room",
+          "price": "฿600/night"
+        },
+        {
+          "type": "VIP Room",
+          "price": "฿750/night"
+        },
+        {
+          "type": "Villa (couple / small family)",
+          "price": "฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-bed-boutique-house/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-bed-boutique-house.html",
       "tripUrl": "https://www.trip.com/hotels/ratchaburi-hotel-detail-50051975/the-bed-boutique-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-bed-boutique-house-ratchaburi.html",
-      "tags": ["💰 Budget price in town", "🛏️ Clean, non-smoking rooms", "🚗 Free parking", "🏘️ Chedi Hak area"],
+      "tags": [
+        "💰 Budget price in town",
+        "🛏️ Clean, non-smoking rooms",
+        "🚗 Free parking",
+        "🏘️ Chedi Hak area"
+      ],
       "addr": "168 Moo 1, Chedi Hak, Mueang Ratchaburi District, Ratchaburi",
       "storyHtml": "The Bed Boutique House is a <strong>budget in-town boutique hotel from just ฿450</strong>, scoring 7.9. It suits travellers on a budget who just want a clean room in town with free parking. Rooms range from a single-bed Mini Room to a Villa for a small family, with several non-smoking options. Reviews are still few (8), but feedback on cleanliness and value is good — a solid overnight stop.",
       "tipHtml": "💡 <strong>Tip:</strong> staying a few nights or as a couple? Pick the Twin or VIP Room, which is roomier than the Mini Room. It's a clean, budget sleep-stop rather than a resort with lots of facilities.",
@@ -433,14 +669,25 @@
       "priceBig": "฿1,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room (cottage, sleeps 2)", "price": "฿1,500/night" },
-        { "type": "Family Room (cottage, sleeps 3)", "price": "฿2,000/night" }
+        {
+          "type": "Standard Room (cottage, sleeps 2)",
+          "price": "฿1,500/night"
+        },
+        {
+          "type": "Family Room (cottage, sleeps 3)",
+          "price": "฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chang-puak-resort-damnoen-saduak/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-chang-puak-resort-damnoen-saduak-ban-khlong-khun-phithak.html",
       "tripUrl": "https://www.trip.com/hotels/damnoen-saduak-hotel-detail-61931205/chang-puak-resort-damnoen-saduak/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chong-puak-camp-ratchaburi.html",
-      "tags": ["🐘 Inside an elephant camp", "🏡 Private cottages", "👨‍👩‍👧 Family rooms", "🛶 Near the Damnoen Saduak floating market"],
+      "tags": [
+        "🐘 Inside an elephant camp",
+        "🏡 Private cottages",
+        "👨‍👩‍👧 Family rooms",
+        "🛶 Near the Damnoen Saduak floating market"
+      ],
       "addr": "76/2 Moo 2, Khun Phithak, Damnoen Saduak District, Ratchaburi",
       "storyHtml": "Chang Puak Resort is a <strong>cottage resort set inside an elephant camp in the Damnoen Saduak area</strong>, scoring 7.2. The draw is the experience of staying in an elephant camp that kids love, and a location near the Damnoen Saduak floating market. Rooms are single-storey cottages with air-con, hot water, TV and Wi-Fi, plus a Family Room that sleeps 3. It suits families who want their children near the elephants and a floating-market trip.",
       "tipHtml": "💡 <strong>Tip:</strong> travelling with kids? Pick the Family Room that sleeps 3. It's a stay inside an elephant camp — more about the experience than luxury, so expect a camp atmosphere and check the elephant-activity schedule before you go.",
@@ -472,15 +719,29 @@
       "priceBig": "฿800",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Small house (fan)", "price": "฿800/night" },
-        { "type": "Small house (air-con)", "price": "฿1,000/night" },
-        { "type": "Camping (per person)", "price": "฿150/night" }
+        {
+          "type": "Small house (fan)",
+          "price": "฿800/night"
+        },
+        {
+          "type": "Small house (air-con)",
+          "price": "฿1,000/night"
+        },
+        {
+          "type": "Camping (per person)",
+          "price": "฿150/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tid-jai-homestay-at-suan-phueng/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tid-jai-homestay-at-suan-phueng.html",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-125447508/tid-jai-homestay-at-suan-phueng/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tidjai-homestay-ratchaburi.html",
-      "tags": ["💧 Houses by a stream", "⛺ Camping allowed", "🌿 Friendly homestay vibe", "💰 Budget"],
+      "tags": [
+        "💧 Houses by a stream",
+        "⛺ Camping allowed",
+        "🌿 Friendly homestay vibe",
+        "💰 Budget"
+      ],
       "addr": "242 Moo 2, Tanao Si, Suan Phueng District, Ratchaburi",
       "storyHtml": "Tid-jai Homestay is a <strong>streamside homestay in Suan Phueng for budget nature lovers</strong>. It's a set of small houses by a stream with a friendly homestay vibe, plus a camping area at just ฿150 per person. It suits anyone who wants to fall asleep to the sound of water in nature without needing luxury. Reviews are still few (2), but it scores 8.0, with good feedback on the atmosphere and friendly hosts.",
       "tipHtml": "💡 <strong>Tip:</strong> want air-con? Pick the air-con small house; the fan version is cheaper but uses shared bathrooms. Campers can pitch by the stream. Contact the homestay ahead, as space is limited.",
@@ -512,14 +773,25 @@
       "priceBig": "฿550",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Cabin (sleeps 2)", "price": "฿550/night" },
-        { "type": "Standard Room (with balcony)", "price": "฿750/night" }
+        {
+          "type": "Standard Cabin (sleeps 2)",
+          "price": "฿550/night"
+        },
+        {
+          "type": "Standard Room (with balcony)",
+          "price": "฿750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/guest-house-ratchaburi/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/guest-house-ratchaburi.html",
       "tripUrl": "https://th.trip.com/hotels/ratchaburi-hotel-detail-10728515/guest-house-ratchaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-guest-house-ratchaburi.html",
-      "tags": ["🪙 Cheapest in this guide, ฿550", "🌳 Garden around the property", "🏡 Cabin-style rooms", "🚗 Free parking"],
+      "tags": [
+        "🪙 Cheapest in this guide, ฿550",
+        "🌳 Garden around the property",
+        "🏡 Cabin-style rooms",
+        "🚗 Free parking"
+      ],
       "addr": "8/1 Moo 9, Don Tako, Mueang Ratchaburi District, Ratchaburi",
       "storyHtml": "Guest House Ratchaburi is the <strong>cheapest stay in this guide, from just ฿550</strong>, scoring 6.5. It's a cabin-style guesthouse with a garden around the property, in the Don Tako area of Mueang district. It suits very budget-conscious travellers who just want an air-conditioned room at the lowest price; some rooms have a balcony looking onto the garden. Scores are middling and facilities basic, so check recent photos and reviews before booking.",
       "tipHtml": "💡 <strong>Tip:</strong> step up to a Standard Room with a balcony so you can sit and look onto the garden. It's a very budget stay — expect basic facilities, best for a single-night stop.",
@@ -537,39 +809,214 @@
     }
   ],
   "compareTitle": "Ratchaburi Hotels Compared — 12 Stays, 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Villa Tuscany Country Resort", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,200", "access": "📍 Suan Phueng", "badge": "Most reviewed (330)", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Khum Damnoen Resort", "type": "⭐⭐⭐", "score": "9.1", "price": "฿2,150", "access": "📍 Damnoen Saduak", "badge": "Bali villas · salt pool", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Rachabhura Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,890", "access": "📍 Mae Klong River", "badge": "Riverside boutique in town", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Phu Pha Phung Resort", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿1,100", "access": "📍 Suan Phueng", "badge": "Resort with a pool", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "The Scenery Vintage Farm & Resort", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿7,500", "access": "📍 Suan Phueng", "badge": "Sheep farm · luxe villas", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Sleep by Me Ratchaburi", "type": "⭐⭐⭐", "score": "8.6", "price": "฿790", "access": "📍 Town centre", "badge": "Boutique+café value", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Phu Ingthara Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿950", "access": "📍 Suan Phueng", "badge": "By a stream · domes", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Kao Ngu Boutique Resort", "type": "⭐⭐⭐", "score": "8.0", "price": "฿590", "access": "📍 Khao Ngu·near town", "badge": "Pet-friendly", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "The Bed Boutique House", "type": "⭐⭐⭐", "score": "7.9", "price": "฿450", "access": "📍 Town·Chedi Hak", "badge": "Budget·free parking", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Chang Puak Resort Damnoen Saduak", "type": "⭐⭐", "score": "7.2", "price": "฿1,500", "access": "📍 Damnoen Saduak", "badge": "In an elephant camp", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "Tid-jai Homestay at Suan Phueng", "type": "⭐⭐", "score": "8.0", "price": "฿800", "access": "📍 Suan Phueng", "badge": "Streamside·camping", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "Guest House Ratchaburi", "type": "⭐⭐", "score": "6.5", "price": "฿550", "access": "📍 Town·Don Tako", "badge": "Cheapest", "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Villa Tuscany Country Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,200",
+      "access": "📍 Suan Phueng",
+      "badge": "Most reviewed (330)",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Khum Damnoen Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿2,150",
+      "access": "📍 Damnoen Saduak",
+      "badge": "Bali villas · salt pool",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Rachabhura Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,890",
+      "access": "📍 Mae Klong River",
+      "badge": "Riverside boutique in town",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Phu Pha Phung Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,100",
+      "access": "📍 Suan Phueng",
+      "badge": "Resort with a pool",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "The Scenery Vintage Farm & Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿7,500",
+      "access": "📍 Suan Phueng",
+      "badge": "Sheep farm · luxe villas",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Sleep by Me Ratchaburi",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿790",
+      "access": "📍 Town centre",
+      "badge": "Boutique+café value",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Phu Ingthara Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿950",
+      "access": "📍 Suan Phueng",
+      "badge": "By a stream · domes",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Kao Ngu Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿590",
+      "access": "📍 Khao Ngu·near town",
+      "badge": "Pet-friendly",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "The Bed Boutique House",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿450",
+      "access": "📍 Town·Chedi Hak",
+      "badge": "Budget·free parking",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Chang Puak Resort Damnoen Saduak",
+      "type": "⭐⭐",
+      "score": "7.2",
+      "price": "฿1,500",
+      "access": "📍 Damnoen Saduak",
+      "badge": "In an elephant camp",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "Tid-jai Homestay at Suan Phueng",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿800",
+      "access": "📍 Suan Phueng",
+      "badge": "Streamside·camping",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "Guest House Ratchaburi",
+      "type": "⭐⭐",
+      "score": "6.5",
+      "price": "฿550",
+      "access": "📍 Town·Don Tako",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "How to pick the right Ratchaburi hotel for you",
   "advice": [
-    { "icon": "🏔️", "head": "Want a Suan Phueng nature stay with cool air", "bodyHtml": "→ <strong>Villa Tuscany Country Resort</strong> ฿1,200, a Tuscan-style villa scoring 9.0 · or <strong>Phu Pha Phung Resort</strong> ฿1,100, a resort with a pool · campers, pick <strong>Phu Ingthara</strong> ฿950 by a stream" },
-    { "icon": "🌴", "head": "Want a luxe villa for a special occasion", "bodyHtml": "→ <strong>The Scenery Vintage Farm</strong> ฿7,500, a sheep farm with luxe valley villas · or <strong>Khum Damnoen Resort</strong> ฿2,150, Bali villas with jacuzzis near the floating market" },
-    { "icon": "🛶", "head": "Want to visit the Damnoen Saduak floating market", "bodyHtml": "→ <strong>Khum Damnoen Resort</strong> ฿2,150, Bali villas near the floating market · or <strong>Chang Puak Resort</strong> ฿1,500, inside an elephant camp, good for families with kids" },
-    { "icon": "🌊", "head": "Want a riverside stay in town", "bodyHtml": "→ <strong>Rachabhura Hotel</strong> ฿1,890, a 4-star boutique on the Mae Klong River with pottery-inspired design, easy to get around from in town" },
-    { "icon": "🐾", "head": "Travelling with a pet", "bodyHtml": "→ <strong>Kao Ngu Boutique Resort</strong> ฿590, a boutique resort at the foot of Khao Ngu that welcomes pets, near town" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>The Bed Boutique House</strong> ฿450 in town with free parking · <strong>Guest House Ratchaburi</strong> ฿550 with a garden · or <strong>Sleep by Me</strong> ฿790, a boutique+café scoring 8.6" },
-    { "icon": "🎨", "head": "Want design-led, photogenic stays", "bodyHtml": "→ <strong>Villa Tuscany</strong> ฿1,200, Tuscan-style · <strong>Sleep by Me</strong> ฿790, a pink building with a café · or <strong>Rachabhura</strong> ฿1,890, pottery-inspired riverside design" }
+    {
+      "icon": "🏔️",
+      "head": "Want a Suan Phueng nature stay with cool air",
+      "bodyHtml": "→ <strong>Villa Tuscany Country Resort</strong> ฿1,200, a Tuscan-style villa scoring 9.0 · or <strong>Phu Pha Phung Resort</strong> ฿1,100, a resort with a pool · campers, pick <strong>Phu Ingthara</strong> ฿950 by a stream"
+    },
+    {
+      "icon": "🌴",
+      "head": "Want a luxe villa for a special occasion",
+      "bodyHtml": "→ <strong>The Scenery Vintage Farm</strong> ฿7,500, a sheep farm with luxe valley villas · or <strong>Khum Damnoen Resort</strong> ฿2,150, Bali villas with jacuzzis near the floating market"
+    },
+    {
+      "icon": "🛶",
+      "head": "Want to visit the Damnoen Saduak floating market",
+      "bodyHtml": "→ <strong>Khum Damnoen Resort</strong> ฿2,150, Bali villas near the floating market · or <strong>Chang Puak Resort</strong> ฿1,500, inside an elephant camp, good for families with kids"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want a riverside stay in town",
+      "bodyHtml": "→ <strong>Rachabhura Hotel</strong> ฿1,890, a 4-star boutique on the Mae Klong River with pottery-inspired design, easy to get around from in town"
+    },
+    {
+      "icon": "🐾",
+      "head": "Travelling with a pet",
+      "bodyHtml": "→ <strong>Kao Ngu Boutique Resort</strong> ฿590, a boutique resort at the foot of Khao Ngu that welcomes pets, near town"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>The Bed Boutique House</strong> ฿450 in town with free parking · <strong>Guest House Ratchaburi</strong> ฿550 with a garden · or <strong>Sleep by Me</strong> ฿790, a boutique+café scoring 8.6"
+    },
+    {
+      "icon": "🎨",
+      "head": "Want design-led, photogenic stays",
+      "bodyHtml": "→ <strong>Villa Tuscany</strong> ฿1,200, Tuscan-style · <strong>Sleep by Me</strong> ฿790, a pink building with a café · or <strong>Rachabhura</strong> ฿1,890, pottery-inspired riverside design"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate, based on real standard-room rate ranges, and can change by date and season — always check live prices and compare across the 3 sites before booking. Over long weekends and the cool season (Nov–Feb), Suan Phueng stays in particular see higher rates and fill fast, so book ahead. Ratchaburi has no metro and no commercial airport; most people drive in from Bangkok in about 1.5–2 hours, and the Suan Phueng hotels sit 60 km from town. Almost every hotel has free parking. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Ratchaburi hotels",
   "faq": [
-    { "q": "❓ Where should I stay in Ratchaburi — Suan Phueng or the town?", "a": "It depends on your plan. For nature, mountains, waterfalls and cool air, pick <strong>Suan Phueng</strong> (Villa Tuscany, Phu Pha Phung, The Scenery, Phu Ingthara, Tid-jai), about 60 km from town. For the floating market, choose <strong>Damnoen Saduak</strong> (Khum Damnoen, Chang Puak). To stay in town near the food streets and walking street, pick the <strong>Ratchaburi town centre</strong> (Rachabhura, Sleep by Me, Kao Ngu, The Bed, Guest House)." },
-    { "q": "❓ How much do Ratchaburi hotels cost?", "a": "There's a wide range: budget stays and guesthouses in town start around ฿450–800/night; 3-star boutique resorts run roughly ฿900–2,200; 4-star villas and resorts are about ฿1,100–4,800; and a luxe villa like The Scenery starts around ฿7,500 and up. Over the cool season and long weekends, Suan Phueng rates run higher than usual." },
-    { "q": "❓ Can I visit Ratchaburi without my own car?", "a": "Yes, if you stay in town. In Ratchaburi town you can grab a ride and walk to the market, the walking street and Khao Ngu easily. But to reach Suan Phueng, 60 km away, or the Damnoen Saduak floating market, your own car is much more convenient, as public transport is infrequent. The Suan Phueng and Damnoen Saduak stays in particular suit self-drivers." },
-    { "q": "❓ Which site is cheapest for booking Ratchaburi hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each platform's promotions, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night. Some Suan Phueng villas can be cheaper booked direct via the resort's own site." },
-    { "q": "❓ When is the best time to visit Suan Phueng, Ratchaburi?", "a": "The cool season (Nov–Feb) is the most popular — pleasant cool air, great for villa stays with a mountain breeze, and pretty flower fields and farms — but it's busy and rooms fill fast, so book ahead. In the rainy season the streams and waterfalls run beautifully, though some nature trails can get slippery. The hot season is quieter and cheaper." },
-    { "q": "❓ What is there to do in Ratchaburi?", "a": "Ratchaburi has plenty to do. <strong>Suan Phueng</strong> has mountains, waterfalls, the sheep farm at The Scenery and viewpoints. <strong>Damnoen Saduak</strong> has the Damnoen Saduak floating market and the Maeklong railway market. The <strong>town centre</strong> has Khao Ngu, cave temples, the dragon-jar pottery and the walking street. It makes a great weekend trip from Bangkok — just a 1.5–2 hour drive." }
-  ]
+    {
+      "q": "❓ Where should I stay in Ratchaburi — Suan Phueng or the town?",
+      "a": "It depends on your plan. For nature, mountains, waterfalls and cool air, pick <strong>Suan Phueng</strong> (Villa Tuscany, Phu Pha Phung, The Scenery, Phu Ingthara, Tid-jai), about 60 km from town. For the floating market, choose <strong>Damnoen Saduak</strong> (Khum Damnoen, Chang Puak). To stay in town near the food streets and walking street, pick the <strong>Ratchaburi town centre</strong> (Rachabhura, Sleep by Me, Kao Ngu, The Bed, Guest House)."
+    },
+    {
+      "q": "❓ How much do Ratchaburi hotels cost?",
+      "a": "There's a wide range: budget stays and guesthouses in town start around ฿450–800/night; 3-star boutique resorts run roughly ฿900–2,200; 4-star villas and resorts are about ฿1,100–4,800; and a luxe villa like The Scenery starts around ฿7,500 and up. Over the cool season and long weekends, Suan Phueng rates run higher than usual."
+    },
+    {
+      "q": "❓ Can I visit Ratchaburi without my own car?",
+      "a": "Yes, if you stay in town. In Ratchaburi town you can grab a ride and walk to the market, the walking street and Khao Ngu easily. But to reach Suan Phueng, 60 km away, or the Damnoen Saduak floating market, your own car is much more convenient, as public transport is infrequent. The Suan Phueng and Damnoen Saduak stays in particular suit self-drivers."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Ratchaburi hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each platform's promotions, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night. Some Suan Phueng villas can be cheaper booked direct via the resort's own site."
+    },
+    {
+      "q": "❓ When is the best time to visit Suan Phueng, Ratchaburi?",
+      "a": "The cool season (Nov–Feb) is the most popular — pleasant cool air, great for villa stays with a mountain breeze, and pretty flower fields and farms — but it's busy and rooms fill fast, so book ahead. In the rainy season the streams and waterfalls run beautifully, though some nature trails can get slippery. The hot season is quieter and cheaper."
+    },
+    {
+      "q": "❓ What is there to do in Ratchaburi?",
+      "a": "Ratchaburi has plenty to do. <strong>Suan Phueng</strong> has mountains, waterfalls, the sheep farm at The Scenery and viewpoints. <strong>Damnoen Saduak</strong> has the Damnoen Saduak floating market and the Maeklong railway market. The <strong>town centre</strong> has Khao Ngu, cave temples, the dragon-jar pottery and the walking street. It makes a great weekend trip from Bangkok — just a 1.5–2 hour drive."
+    }
+  ],
+  "quickAnswerHtml": "12 hand-picked Ratchaburi hotels across every tier — from Villa Tuscany in Suan Phueng to The Bed Boutique in town from ฿450. Real guest reviews, prices compared across 3 sites, direct booking links."
 }

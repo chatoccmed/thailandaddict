@@ -16,16 +16,39 @@
     "✅ Honest take from <strong>real reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Lampang", "href": "city-lampang.html" },
-    { "name": "Top 10 Lampang Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Lampang",
+      "href": "city-lampang.html"
+    },
+    {
+      "name": "Top 10 Lampang Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Lampang", "item": "https://thailandaddict.com/en/city-lampang" },
-    { "name": "Top 10 Lampang Hotels", "item": "https://thailandaddict.com/en/top10-hotels-lampang" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Lampang",
+      "item": "https://thailandaddict.com/en/city-lampang"
+    },
+    {
+      "name": "Top 10 Lampang Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-lampang"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-lampang.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Lampang has no metro, but the town is compact and getting around by car or app-ride is easy. The town's signature is its horse-drawn carriages, which still circle the old town for visitors. Lampang Airport (LPT) is about 10 minutes from the centre, and the northern railway stops at Lampang's classic old wooden station. The main bases in this guide: <strong>Kad Kong Ta old town</strong> — old-wood shophouses, the Wang River, the walking street, cafés · <strong>City centre (Bunyawat–Phahonyothin)</strong> — markets, malls, restaurants, easy to get around · <strong>Wang riverside & outskirts</strong> — quiet and restful.",
   "secLabel": "All 12 hotels — let's dive in",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "The Space Hotel Lampang", "price": "฿1,050" },
-    { "n": "2", "color": "#06B6D4", "name": "Tree Thara Hotel", "price": "฿1,190" },
-    { "n": "3", "color": "#06B6D4", "name": "Huglampang Boutique Hotel", "price": "฿650" },
-    { "n": "4", "color": "#0891b2", "name": "The Riverside Guest House", "price": "฿590" },
-    { "n": "5", "color": "#0891b2", "name": "Lampang Residence", "price": "฿700" },
-    { "n": "6", "color": "#0891b2", "name": "Lampang River Lodge", "price": "฿1,100" },
-    { "n": "7", "color": "#0891b2", "name": "At Home Boutique", "price": "฿700" },
-    { "n": "8", "color": "#FB7185", "name": "B2 Lampang", "price": "฿525" },
-    { "n": "9", "color": "#FB7185", "name": "Wienglakor Hotel", "price": "฿1,000" },
-    { "n": "10", "color": "#FB7185", "name": "Lampang Vintage", "price": "฿550" },
-    { "n": "11", "color": "#FB7185", "name": "Asia Lampang Hotel", "price": "฿650" },
-    { "n": "12", "color": "#FB7185", "name": "Old Town Boutique Hostel", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "The Space Hotel Lampang",
+      "price": "฿1,050"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Tree Thara Hotel",
+      "price": "฿1,190"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Huglampang Boutique Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "4",
+      "color": "#0891b2",
+      "name": "The Riverside Guest House",
+      "price": "฿590"
+    },
+    {
+      "n": "5",
+      "color": "#0891b2",
+      "name": "Lampang Residence",
+      "price": "฿700"
+    },
+    {
+      "n": "6",
+      "color": "#0891b2",
+      "name": "Lampang River Lodge",
+      "price": "฿1,100"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "At Home Boutique",
+      "price": "฿700"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "B2 Lampang",
+      "price": "฿525"
+    },
+    {
+      "n": "9",
+      "color": "#FB7185",
+      "name": "Wienglakor Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "10",
+      "color": "#FB7185",
+      "name": "Lampang Vintage",
+      "price": "฿550"
+    },
+    {
+      "n": "11",
+      "color": "#FB7185",
+      "name": "Asia Lampang Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#FB7185",
+      "name": "Old Town Boutique Hostel",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,050",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "฿1,050/night" },
-        { "type": "Deluxe Triple", "price": "฿1,200/night" },
-        { "type": "Family Club Suite (with jacuzzi)", "price": "฿2,800/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "฿1,050/night"
+        },
+        {
+          "type": "Deluxe Triple",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Family Club Suite (with jacuzzi)",
+          "price": "฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-space-hotel-lampang/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-space-lampang.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-102652863/the-space-hotel-lampang/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-space-hotel-lampang.html",
-      "tags": ["🏨 Modern hotel", "🍳 Breakfast included", "🛁 Suite with jacuzzi", "🚗 Easy to get around"],
+      "tags": [
+        "🏨 Modern hotel",
+        "🍳 Breakfast included",
+        "🛁 Suite with jacuzzi",
+        "🚗 Easy to get around"
+      ],
       "addr": "274/1 Chatchai Road, Sob Tui, Mueang Lampang",
       "storyHtml": "The highest score in this set at 9.1 from 283 reviews — The Space is <strong>a modern in-town hotel known for spacious, spotless rooms</strong>. The Deluxe rooms are contemporary and include breakfast, and there's a Family Club Suite with a jacuzzi for couples or families. Its Sob Tui location makes it easy to reach the centre and head out of town. Real reviews praise the room size, cleanliness and attentive staff — a comfortable, easy base in the city.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a couple or family, step up to the Family Club Suite with a jacuzzi — better value than two rooms. It works well as a base for driving to the old town and around Lampang.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,190",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Classic King", "price": "฿1,190/night" },
-        { "type": "Classic Family", "price": "฿1,700/night" },
-        { "type": "Honeymoon Suite (with soaking tub)", "price": "฿2,200/night" }
+        {
+          "type": "Classic King",
+          "price": "฿1,190/night"
+        },
+        {
+          "type": "Classic Family",
+          "price": "฿1,700/night"
+        },
+        {
+          "type": "Honeymoon Suite (with soaking tub)",
+          "price": "฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tree-tara-hotel/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tree-tara.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-67467530/tree-tara-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tree-thara-hotel-lampang.html",
-      "tags": ["🌿 Warm-toned boutique", "⛰️ Some rooms have mountain views", "🍳 Breakfast included", "💑 Honeymoon Suite"],
+      "tags": [
+        "🌿 Warm-toned boutique",
+        "⛰️ Some rooms have mountain views",
+        "🍳 Breakfast included",
+        "💑 Honeymoon Suite"
+      ],
       "addr": "1/1 Super Highway Road (Lampang-Ngao), Chomphu, Mueang Lampang",
       "storyHtml": "Tree Thara is <strong>a boutique hotel scoring 9.1, tied for first, from 173 reviews</strong>. Its draw is warm-toned rooms, some with mountain views; the 26-sqm Classic King includes breakfast for two, and there's a Honeymoon Suite with a soaking tub for couples. Sitting on the Super Highway, it's easy to drive into town and out again. Real reviews praise the clean, restful rooms, the breakfast and the quiet — a good pick for couples and families arriving by car.",
       "tipHtml": "💡 <strong>Tip:</strong> Couples should try the Honeymoon Suite with its soaking tub. Ask for a mountain-view room when you book, and note there's parking — handy if you're on a road trip.",
@@ -144,15 +255,29 @@
       "priceBig": "฿650",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double (with balcony)", "price": "฿650/night" },
-        { "type": "Deluxe Balcony", "price": "฿850/night" },
-        { "type": "Family Room", "price": "฿1,100/night" }
+        {
+          "type": "Standard Double (with balcony)",
+          "price": "฿650/night"
+        },
+        {
+          "type": "Deluxe Balcony",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/huglampang-boutique-hotel-h14873916/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/huglampang-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-47380382/huglampang-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-huglampang-boutique-hotel-lampang.html",
-      "tags": ["🏚️ Near Kad Kong Ta", "🚶 Walk to the walking street", "🛏️ Every room has a balcony", "💰 Good value"],
+      "tags": [
+        "🏚️ Near Kad Kong Ta",
+        "🚶 Walk to the walking street",
+        "🛏️ Every room has a balcony",
+        "💰 Good value"
+      ],
       "addr": "57, 59, 61 Thipchang Road, Hua Wiang, Mueang Lampang",
       "storyHtml": "Huglampang is <strong>a boutique hotel in the old town near Kad Kong Ta</strong>, scoring 8.8 from 142 reviews. Its draw is the location — you can walk to the Kad Kong Ta walking street and the heritage cafés — plus every room has a private balcony and a rain shower, all from just ฿650. Real reviews praise the walkable old-town setting, clean rooms and value. A good pick if you want to soak up old-town Lampang on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> The Kad Kong Ta walking street runs on Saturday and Sunday nights, right from your doorstep. Ask for a balcony room on the quiet side for the full old-town atmosphere.",
@@ -184,15 +309,29 @@
       "priceBig": "฿590",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double (fan)", "price": "฿590/night" },
-        { "type": "Superior Double (air-con)", "price": "฿850/night" },
-        { "type": "Colonial Suite", "price": "฿1,400/night" }
+        {
+          "type": "Standard Double (fan)",
+          "price": "฿590/night"
+        },
+        {
+          "type": "Superior Double (air-con)",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Colonial Suite",
+          "price": "฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-riverside-guest-house/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-riverside-guest-house.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-711726/the-riverside-guest-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-riverside-guest-house-lampang.html",
-      "tags": ["🌊 On the Wang River", "🏚️ Colonial teak building", "🚶 Near Kad Kong Ta", "💬 Heavily reviewed"],
+      "tags": [
+        "🌊 On the Wang River",
+        "🏚️ Colonial teak building",
+        "🚶 Near Kad Kong Ta",
+        "💬 Heavily reviewed"
+      ],
       "addr": "286 Talat Kao Road, Suan Dok, Mueang Lampang",
       "storyHtml": "The Riverside is <strong>a teak guesthouse on the Wang River with the most reviews in this set — 1,198</strong>, scoring 8.7. Its draw is the colonial old-wood atmosphere right on the river, near Kad Kong Ta and the walking street. Rooms range from simple fan rooms at the budget end to air-con rooms with old-wood decor, up to a Colonial Suite with a river-view balcony. Real reviews praise the riverside setting, the walkable old town and the riverside restaurant. A good pick if you want a genuine old-town-on-the-river feel.",
       "tipHtml": "💡 <strong>Tip:</strong> Rooms vary a lot — fan or air-con, private or shared bathroom — so check the room type carefully before booking. For a river view, pick a Superior or the Colonial Suite on the riverside.",
@@ -224,15 +363,29 @@
       "priceBig": "฿700",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard King Room", "price": "฿700/night" },
-        { "type": "King Room (mountain view)", "price": "฿900/night" },
-        { "type": "Family Room", "price": "฿1,200/night" }
+        {
+          "type": "Standard King Room",
+          "price": "฿700/night"
+        },
+        {
+          "type": "King Room (mountain view)",
+          "price": "฿900/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lampang-residence/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lampang-residence.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-53144333/lampang-rescidence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lampang-residence-lampang.html",
-      "tags": ["💰 Good value", "🛏️ Big rooms with balconies", "🚌 Near the bus terminal", "🍳 Breakfast included"],
+      "tags": [
+        "💰 Good value",
+        "🛏️ Big rooms with balconies",
+        "🚌 Near the bus terminal",
+        "🍳 Breakfast included"
+      ],
       "addr": "136/98 Phaholyothin Road, Sob Tui, Mueang Lampang",
       "storyHtml": "Lampang Residence is <strong>a value hotel with a huge 1,212 reviews</strong>, scoring 8.6. Its draw is large rooms — around 45 sqm — with balconies, breakfast included, and a Sob Tui location near Lampang's bus terminal for easy onward travel. There's a mountain-view King room and a Family Room too. Real reviews praise rooms that feel bigger than the price, the cleanliness and the value. A good pick for travellers who want a big, cheap room near the bus terminal.",
       "tipHtml": "💡 <strong>Tip:</strong> Rooms here are noticeably bigger than other hotels at the same price. Ask for the mountain-view King for a nicer balcony, and it's handy if you arrive by long-distance coach.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,100/night" },
-        { "type": "Lanna Superior With Balcony", "price": "฿1,700/night" },
-        { "type": "Lakeview Deluxe With Balcony", "price": "฿2,200/night" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,100/night"
+        },
+        {
+          "type": "Lanna Superior With Balcony",
+          "price": "฿1,700/night"
+        },
+        {
+          "type": "Lakeview Deluxe With Balcony",
+          "price": "฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lampang-river-lodge-hotel/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lampang-river-lodge.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-2258762/lampang-river-lodge/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lampang-river-lodge-lampang.html",
-      "tags": ["🌊 On the Wang River", "🏡 Lanna teak houses", "🌳 Quiet garden setting", "🛏️ Some rooms have a riverside balcony"],
+      "tags": [
+        "🌊 On the Wang River",
+        "🏡 Lanna teak houses",
+        "🌳 Quiet garden setting",
+        "🛏️ Some rooms have a riverside balcony"
+      ],
       "addr": "330 Moo 11, Chomphu, Mueang Lampang",
       "storyHtml": "Lampang River Lodge is <strong>a Lanna boutique resort on the Wang River, on the edge of town</strong>, scoring 8.6 from 62 reviews. Its draw is the teak-toned Lanna houses, a quiet riverside garden, and a Lakeview Deluxe with a balcony over the water. It suits travellers who want a quiet resort feel close to nature, away from the bustle in town. Real reviews praise the riverside setting, the calm and the Lanna styling. A good pick for couples and those arriving by car.",
       "tipHtml": "💡 <strong>Tip:</strong> For a river view, pick the Lakeview Deluxe With Balcony. It's on the outskirts, so having your own car helps, and the early-morning view over the Wang River is the highlight.",
@@ -304,15 +471,29 @@
       "priceBig": "฿700",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Deluxe Double (with balcony)", "price": "฿700/night" },
-        { "type": "Deluxe Balcony", "price": "฿850/night" },
-        { "type": "Family Room", "price": "฿1,200/night" }
+        {
+          "type": "Deluxe Double (with balcony)",
+          "price": "฿700/night"
+        },
+        {
+          "type": "Deluxe Balcony",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/at-home-boutique/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-at-home-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-8137229/at-home-boutique-lampang/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-at-home-boutique-lampang.html",
-      "tags": ["🏠 Rooms around 30 sqm", "🛏️ Every room has a balcony", "🏙️ In town", "💰 Good value"],
+      "tags": [
+        "🏠 Rooms around 30 sqm",
+        "🛏️ Every room has a balcony",
+        "🏙️ In town",
+        "💰 Good value"
+      ],
       "addr": "171/1 Thanon Sooksawat 1 Soi 9, Phrabat, Mueang Lampang",
       "storyHtml": "At Home Boutique is <strong>an in-town boutique known for big rooms and value</strong>, scoring 8.4 from 197 reviews. Its draw is spacious Deluxe rooms — around 30 sqm — with a balcony in every room, from just ฿700. The Sooksawat Road location keeps you central and easy to get around. Real reviews praise the room size, cleanliness and value. A good pick if you want a big room at a budget price in town.",
       "tipHtml": "💡 <strong>Tip:</strong> Rooms here are bigger than the price suggests. Ask for the Deluxe Balcony for a sitting nook by the balcony, and there's convenient parking for those driving.",
@@ -344,15 +525,29 @@
       "priceBig": "฿525",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Premier", "price": "฿525/night" },
-        { "type": "Deluxe Triple", "price": "฿750/night" },
-        { "type": "Luxury Triple (around 52 sqm)", "price": "฿950/night" }
+        {
+          "type": "Superior Premier",
+          "price": "฿525/night"
+        },
+        {
+          "type": "Deluxe Triple",
+          "price": "฿750/night"
+        },
+        {
+          "type": "Luxury Triple (around 52 sqm)",
+          "price": "฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-lampang-boutique-budget-hotel-h45081247/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-b2-lampang-boutique-budget-hotel.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-112207983/b2-lampang-boutique-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-lampang-lampang.html",
-      "tags": ["💰 Budget chain", "🛏️ Clean, standardised rooms", "🚗 Town entrance", "🅿️ Parking available"],
+      "tags": [
+        "💰 Budget chain",
+        "🛏️ Clean, standardised rooms",
+        "🚗 Town entrance",
+        "🅿️ Parking available"
+      ],
       "addr": "64 Ban Dong Phatthana Road, Bo Haeo, Mueang Lampang",
       "storyHtml": "B2 Lampang is <strong>a budget-chain hotel and the cheapest in this set, from just ฿525</strong>, scoring 8.4 from 511 reviews. Its draw is clean, reliably standardised B2 rooms at a budget price, with both doubles and Triples for groups of friends. The Bo Haeo location at the town entrance has parking, handy if you're driving. Real reviews praise the value, cleanliness and low price. A good pick for travellers who just want a clean bed at a budget price.",
       "tipHtml": "💡 <strong>Tip:</strong> Three of you? The Triple beats two rooms. It's at the town entrance, so having a car helps, and it makes a handy stopover heading north.",
@@ -384,15 +579,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Classic Room", "price": "฿1,000/night" },
-        { "type": "Connecting Room", "price": "฿1,500/night" },
-        { "type": "Executive Suite", "price": "฿2,000/night" }
+        {
+          "type": "Classic Room",
+          "price": "฿1,000/night"
+        },
+        {
+          "type": "Connecting Room",
+          "price": "฿1,500/night"
+        },
+        {
+          "type": "Executive Suite",
+          "price": "฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/wienglakor-hotel/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/wineglakor-lampang.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-5243661/wienglakor-hotel-lampang/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-wienglakor-hotel-lampang.html",
-      "tags": ["🏛️ Teak Lanna decor", "🏊 Has a pool", "🏙️ City centre", "👨‍👩‍👧 Connecting rooms for families"],
+      "tags": [
+        "🏛️ Teak Lanna decor",
+        "🏊 Has a pool",
+        "🏙️ City centre",
+        "👨‍👩‍👧 Connecting rooms for families"
+      ],
       "addr": "138/35 Phahonyothin Road, Suan Dok, Mueang Lampang",
       "storyHtml": "Wienglakor is <strong>a 4-star Lanna-style hotel in the centre of Lampang</strong>, scoring 8.3 from 45 reviews. Its draw is the teak-wood Lanna decor, a swimming pool, and Connecting Rooms for families. The Phahonyothin Road location is central, close to malls and restaurants and easy to get around. Real reviews praise the Lanna atmosphere, cleanliness and central setting. A good pick if you want an in-town hotel with a pool and a local feel.",
       "tipHtml": "💡 <strong>Tip:</strong> Families can take a Connecting Room linking two rooms. The pool is rare for a central Lampang hotel, so it's handy if you're bringing kids.",
@@ -424,15 +633,29 @@
       "priceBig": "฿550",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Double Room", "price": "฿550/night" },
-        { "type": "Double Room (paddy view)", "price": "฿650/night" },
-        { "type": "Family Room", "price": "฿850/night" }
+        {
+          "type": "Double Room",
+          "price": "฿550/night"
+        },
+        {
+          "type": "Double Room (paddy view)",
+          "price": "฿650/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lampang-vintage_2/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lampang-vintage-resort.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-11037183/lampang-vintage/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lampang-vintage-lampang.html",
-      "tags": ["🌾 Some rooms have paddy views", "✈️ Near the airport", "🍳 Breakfast included", "💰 Budget price"],
+      "tags": [
+        "🌾 Some rooms have paddy views",
+        "✈️ Near the airport",
+        "🍳 Breakfast included",
+        "💰 Budget price"
+      ],
       "addr": "590 Moo 3, Thanon Prabaht, Ban Tok Hua Chang, Phrabat, Mueang Lampang",
       "storyHtml": "Lampang Vintage is <strong>a budget hotel in Phrabat near Lampang Airport</strong>, scoring 8.2 from 65 reviews. Its draw is that some rooms have a balcony looking out over rice paddies and mountains, breakfast is included, and prices start at just ฿550. The location near the airport suits those flying in and out of Lampang or stopping over before moving on. Real reviews praise the value, cleanliness and the quiet paddy views. A good pick for budget travellers near the airport.",
       "tipHtml": "💡 <strong>Tip:</strong> Pay a little more for the paddy-view Double for a nicer balcony view. The airport-side location is handy for an early or late flight.",
@@ -464,15 +687,29 @@
       "priceBig": "฿650",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Double", "price": "฿650/night" },
-        { "type": "Deluxe Room", "price": "฿850/night" },
-        { "type": "Family Room", "price": "฿1,200/night" }
+        {
+          "type": "Superior Double",
+          "price": "฿650/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "฿850/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/asia-lampang-hotel-h15628805/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/asia-lampang.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-8991625/asia-lampang-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-asia-lampang-hotel-lampang.html",
-      "tags": ["🏙️ Heart of the old quarter", "🚶 Near markets and restaurants", "🛏️ Spacious rooms", "💰 Good value"],
+      "tags": [
+        "🏙️ Heart of the old quarter",
+        "🚶 Near markets and restaurants",
+        "🛏️ Spacious rooms",
+        "💰 Good value"
+      ],
       "addr": "229 Bunyawat Road, Suan Dok, Mueang Lampang",
       "storyHtml": "Asia Lampang is <strong>a long-standing hotel in the heart of town on Bunyawat Road</strong>, scoring 8.0 from 320 reviews. Its draw is the central location — you can walk to markets and local restaurants — with spacious rooms from just ฿650. It's a hotel that's been part of Lampang for years, with an old-quarter feel right in the centre. Real reviews praise the walkable central setting, the room size and the value. A good pick if you want to stay central and walk to the market on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> The central location puts markets and local restaurants within walking distance. Ask for a room on the quiet side away from the main road, and step up to a Deluxe (newer) if your budget allows.",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Dorm Bed", "price": "฿450/night" },
-        { "type": "Double Room (shared bathroom)", "price": "฿650/night" },
-        { "type": "Triple / Suite Room", "price": "฿950/night" }
+        {
+          "type": "Dorm Bed",
+          "price": "฿450/night"
+        },
+        {
+          "type": "Double Room (shared bathroom)",
+          "price": "฿650/night"
+        },
+        {
+          "type": "Triple / Suite Room",
+          "price": "฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/old-town-boutique-hostel/hotel/lampang-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/oyo-old-town-boutique-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/lampang-hotel-detail-8981156/old-town-boutique-hostel-lampang/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-old-town-boutique-hostel-lampang.html",
-      "tags": ["🎒 For backpackers", "🏚️ High-ceilinged old building", "🚶 By Kad Kong Ta", "💰 Cheapest in the set"],
+      "tags": [
+        "🎒 For backpackers",
+        "🏚️ High-ceilinged old building",
+        "🚶 By Kad Kong Ta",
+        "💰 Cheapest in the set"
+      ],
       "addr": "7 Talad Gao Road, Suan Dok, Mueang Lampang",
       "storyHtml": "Old Town Boutique Hostel is <strong>a hostel in an old wooden building by Kad Kong Ta, the cheapest in this set from just ฿450</strong>, scoring 8.0 from 188 reviews. Its draw is the high-ceilinged old-building atmosphere in the old quarter — step out the door and you're at Kad Kong Ta and the walking street. There are dorm beds for backpackers and private double rooms too. Real reviews praise the walkable old-town location, the old-building character and the low price. A good pick for budget travellers who want to stay right in the old town.",
       "tipHtml": "💡 <strong>Tip:</strong> Solo backpackers get the best deal with a dorm bed at ฿450. Want more privacy? Step up to a Double or Triple — some have a private bathroom.",
@@ -530,39 +781,208 @@
     }
   ],
   "compareTitle": "Comparison table — 12 Lampang hotels, 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "The Space Hotel Lampang", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,050", "access": "📍 City · Sob Tui", "badge": "Highest score", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Tree Thara Hotel", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,190", "access": "📍 Super Highway · Chomphu", "badge": "High-scoring boutique", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Huglampang Boutique Hotel", "type": "⭐⭐⭐", "score": "8.8", "price": "฿650", "access": "📍 Old town · Kad Kong Ta", "badge": "Value in the old town", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#0891b2", "name": "The Riverside Guest House", "type": "⭐⭐", "score": "8.7", "price": "฿590", "access": "📍 Wang River · old town", "badge": "Most reviewed", "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;" },
-    { "rank": "5", "rankColor": "#0891b2", "name": "Lampang Residence", "type": "⭐⭐", "score": "8.6", "price": "฿700", "access": "📍 Sob Tui · near bus terminal", "badge": "Value, heavily reviewed", "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;" },
-    { "rank": "6", "rankColor": "#0891b2", "name": "Lampang River Lodge", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,100", "access": "📍 Wang River · outskirts", "badge": "Riverside resort", "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "At Home Boutique", "type": "⭐⭐⭐", "score": "8.4", "price": "฿700", "access": "📍 In town · Sooksawat Rd" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "B2 Lampang", "type": "⭐⭐", "score": "8.4", "price": "฿525", "access": "📍 Bo Haeo · town entrance", "badge": "Cheapest", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FB7185", "name": "Wienglakor Hotel", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿1,000", "access": "📍 Phahonyothin · city centre", "badge": "Lanna style", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "10", "rankColor": "#FB7185", "name": "Lampang Vintage", "type": "⭐⭐⭐", "score": "8.2", "price": "฿550", "access": "📍 Phrabat · near airport" },
-    { "rank": "11", "rankColor": "#FB7185", "name": "Asia Lampang Hotel", "type": "⭐⭐⭐", "score": "8.0", "price": "฿650", "access": "📍 Bunyawat · heart of town" },
-    { "rank": "12", "rankColor": "#FB7185", "name": "Old Town Boutique Hostel", "type": "⭐⭐", "score": "8.0", "price": "฿450", "access": "📍 By Kad Kong Ta · old town", "badge": "Cheapest in the set", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "The Space Hotel Lampang",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,050",
+      "access": "📍 City · Sob Tui",
+      "badge": "Highest score",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Tree Thara Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,190",
+      "access": "📍 Super Highway · Chomphu",
+      "badge": "High-scoring boutique",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Huglampang Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿650",
+      "access": "📍 Old town · Kad Kong Ta",
+      "badge": "Value in the old town",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#0891b2",
+      "name": "The Riverside Guest House",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿590",
+      "access": "📍 Wang River · old town",
+      "badge": "Most reviewed",
+      "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#0891b2",
+      "name": "Lampang Residence",
+      "type": "⭐⭐",
+      "score": "8.6",
+      "price": "฿700",
+      "access": "📍 Sob Tui · near bus terminal",
+      "badge": "Value, heavily reviewed",
+      "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#0891b2",
+      "name": "Lampang River Lodge",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,100",
+      "access": "📍 Wang River · outskirts",
+      "badge": "Riverside resort",
+      "badgeStyle": "background:#e0f2fe;color:#0369a1;border-color:#bae6fd;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "At Home Boutique",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿700",
+      "access": "📍 In town · Sooksawat Rd"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "B2 Lampang",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿525",
+      "access": "📍 Bo Haeo · town entrance",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FB7185",
+      "name": "Wienglakor Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,000",
+      "access": "📍 Phahonyothin · city centre",
+      "badge": "Lanna style",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FB7185",
+      "name": "Lampang Vintage",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿550",
+      "access": "📍 Phrabat · near airport"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FB7185",
+      "name": "Asia Lampang Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿650",
+      "access": "📍 Bunyawat · heart of town"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FB7185",
+      "name": "Old Town Boutique Hostel",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿450",
+      "access": "📍 By Kad Kong Ta · old town",
+      "badge": "Cheapest in the set",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    }
   ],
   "adviceTitle": "How to choose the right Lampang hotel for you",
   "advice": [
-    { "icon": "💰", "head": "On a budget, want the cheapest", "bodyHtml": "→ <strong>Old Town Boutique Hostel</strong> ฿450 by Kad Kong Ta · or <strong>B2 Lampang</strong> ฿525 a clean budget chain · or <strong>Lampang Vintage</strong> ฿550 near the airport" },
-    { "icon": "🏚️", "head": "Want to soak up the Kad Kong Ta old town", "bodyHtml": "→ <strong>Huglampang Boutique Hotel</strong> ฿650 a boutique near Kad Kong Ta · or <strong>The Riverside Guest House</strong> ฿590 a teak guesthouse on the Wang River, most reviewed" },
-    { "icon": "🏨", "head": "Want a comfortable, high-scoring in-town hotel", "bodyHtml": "→ <strong>The Space Hotel</strong> ฿1,050 modern, scoring 9.1 · or <strong>Tree Thara Hotel</strong> ฿1,190 a boutique scoring 9.1, some rooms with mountain views" },
-    { "icon": "🌊", "head": "Want to stay by the river, somewhere quiet", "bodyHtml": "→ <strong>Lampang River Lodge</strong> ฿1,100 a Lanna resort on the Wang River · or <strong>The Riverside Guest House</strong> ฿590 a teak house on the river in the old town" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family with kids", "bodyHtml": "→ <strong>Wienglakor Hotel</strong> ฿1,000 with a pool and connecting rooms · or <strong>The Space Hotel</strong> ฿1,050 a Family Club Suite with a jacuzzi" },
-    { "icon": "💑", "head": "A couples' trip, want a special room", "bodyHtml": "→ <strong>Tree Thara Hotel</strong> ฿1,190 a Honeymoon Suite with a soaking tub · or <strong>The Riverside Guest House</strong> ฿590 a Colonial Suite with a riverside balcony" },
-    { "icon": "🚗", "head": "Driving yourself, want easy parking", "bodyHtml": "→ <strong>B2 Lampang</strong> ฿525 at the town entrance with parking · or <strong>At Home Boutique</strong> ฿700 big rooms in town · or <strong>Lampang River Lodge</strong> ฿1,100 a resort on the outskirts" }
+    {
+      "icon": "💰",
+      "head": "On a budget, want the cheapest",
+      "bodyHtml": "→ <strong>Old Town Boutique Hostel</strong> ฿450 by Kad Kong Ta · or <strong>B2 Lampang</strong> ฿525 a clean budget chain · or <strong>Lampang Vintage</strong> ฿550 near the airport"
+    },
+    {
+      "icon": "🏚️",
+      "head": "Want to soak up the Kad Kong Ta old town",
+      "bodyHtml": "→ <strong>Huglampang Boutique Hotel</strong> ฿650 a boutique near Kad Kong Ta · or <strong>The Riverside Guest House</strong> ฿590 a teak guesthouse on the Wang River, most reviewed"
+    },
+    {
+      "icon": "🏨",
+      "head": "Want a comfortable, high-scoring in-town hotel",
+      "bodyHtml": "→ <strong>The Space Hotel</strong> ฿1,050 modern, scoring 9.1 · or <strong>Tree Thara Hotel</strong> ฿1,190 a boutique scoring 9.1, some rooms with mountain views"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want to stay by the river, somewhere quiet",
+      "bodyHtml": "→ <strong>Lampang River Lodge</strong> ฿1,100 a Lanna resort on the Wang River · or <strong>The Riverside Guest House</strong> ฿590 a teak house on the river in the old town"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family with kids",
+      "bodyHtml": "→ <strong>Wienglakor Hotel</strong> ฿1,000 with a pool and connecting rooms · or <strong>The Space Hotel</strong> ฿1,050 a Family Club Suite with a jacuzzi"
+    },
+    {
+      "icon": "💑",
+      "head": "A couples' trip, want a special room",
+      "bodyHtml": "→ <strong>Tree Thara Hotel</strong> ฿1,190 a Honeymoon Suite with a soaking tub · or <strong>The Riverside Guest House</strong> ฿590 a Colonial Suite with a riverside balcony"
+    },
+    {
+      "icon": "🚗",
+      "head": "Driving yourself, want easy parking",
+      "bodyHtml": "→ <strong>B2 Lampang</strong> ฿525 at the town entrance with parking · or <strong>At Home Boutique</strong> ฿700 big rooms in town · or <strong>Lampang River Lodge</strong> ฿1,100 a resort on the outskirts"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate, based on the standard-room price range, and can change by date and season — always check the live price and compare the 3 sites before booking. Lampang is an easygoing town with no metro; its signature horse-drawn carriages circle the old town, but driving or an app-ride is easiest, and the airport is about 10 minutes from the centre. Rooms fill up fast in the cool season and on long weekends, so book ahead. Article by <strong>ThailandAddict</strong>.",
   "faqTitle": "FAQ — common traveller questions about Lampang hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Lampang?", "a": "It depends on your style. <strong>The Kad Kong Ta old town</strong> on the Wang River suits those who want to wander among old-wood shophouses, the walking street and cafés (Huglampang, The Riverside, Old Town Hostel). <strong>The city centre around Bunyawat and Phahonyothin</strong> suits those who want to be close to markets, malls and restaurants (The Space, Wienglakor, Asia Lampang). And the <strong>Wang riverside and outskirts</strong> suit a quiet, restful stay (Lampang River Lodge)." },
-    { "q": "❓ How much do Lampang hotels cost?", "a": "Lampang is great value: hostels and budget stays start around ฿450–650 a night; quality boutiques and 3-star hotels run about ฿650–1,200; a 4-star hotel with a pool starts around ฿1,000 and up. The prices in this guide are starting rates for standard rooms — they can run higher in the cool season and on long weekends." },
-    { "q": "❓ Do I need a car in Lampang, and how essential is it?", "a": "The centre and the Kad Kong Ta old town are easy to explore on foot, and Lampang's signature horse-drawn carriages circle the old town. But for sights around the province — like Wat Phra That Lampang Luang — or for stays on the outskirts, having your own car or an app-ride is much more convenient. The airport is just about 10 minutes from the centre." },
-    { "q": "❓ How far ahead should I book a Lampang hotel?", "a": "For ordinary weekdays, 1–2 weeks ahead is plenty, since Lampang has lots of good-value rooms. But in the cool season (Nov–Jan), on long weekends and during festivals, the good rooms — especially in the old town and by the river — fill up fast, so book 2–4 weeks ahead or more." },
-    { "q": "❓ Kad Kong Ta old town or the city centre — which is better?", "a": "<strong>The Kad Kong Ta old town</strong> is best if your trip is about wandering the old-wood shophouses, the weekend walking street, cafés and the Wang River — though parking is limited. <strong>The city centre</strong> suits those who want to be near markets, malls and restaurants and to drive out of town easily — but it has less old-town atmosphere. Lampang is small, so it's only a few minutes' drive between the two." },
-    { "q": "❓ Which site is cheapest for booking a Lampang hotel?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with their current promotions, so it's worth opening all three to compare before you book. Every review page in this guide has price-comparison links — it can save you a few hundred baht a night." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Lampang?",
+      "a": "It depends on your style. <strong>The Kad Kong Ta old town</strong> on the Wang River suits those who want to wander among old-wood shophouses, the walking street and cafés (Huglampang, The Riverside, Old Town Hostel). <strong>The city centre around Bunyawat and Phahonyothin</strong> suits those who want to be close to markets, malls and restaurants (The Space, Wienglakor, Asia Lampang). And the <strong>Wang riverside and outskirts</strong> suit a quiet, restful stay (Lampang River Lodge)."
+    },
+    {
+      "q": "❓ How much do Lampang hotels cost?",
+      "a": "Lampang is great value: hostels and budget stays start around ฿450–650 a night; quality boutiques and 3-star hotels run about ฿650–1,200; a 4-star hotel with a pool starts around ฿1,000 and up. The prices in this guide are starting rates for standard rooms — they can run higher in the cool season and on long weekends."
+    },
+    {
+      "q": "❓ Do I need a car in Lampang, and how essential is it?",
+      "a": "The centre and the Kad Kong Ta old town are easy to explore on foot, and Lampang's signature horse-drawn carriages circle the old town. But for sights around the province — like Wat Phra That Lampang Luang — or for stays on the outskirts, having your own car or an app-ride is much more convenient. The airport is just about 10 minutes from the centre."
+    },
+    {
+      "q": "❓ How far ahead should I book a Lampang hotel?",
+      "a": "For ordinary weekdays, 1–2 weeks ahead is plenty, since Lampang has lots of good-value rooms. But in the cool season (Nov–Jan), on long weekends and during festivals, the good rooms — especially in the old town and by the river — fill up fast, so book 2–4 weeks ahead or more."
+    },
+    {
+      "q": "❓ Kad Kong Ta old town or the city centre — which is better?",
+      "a": "<strong>The Kad Kong Ta old town</strong> is best if your trip is about wandering the old-wood shophouses, the weekend walking street, cafés and the Wang River — though parking is limited. <strong>The city centre</strong> suits those who want to be near markets, malls and restaurants and to drive out of town easily — but it has less old-town atmosphere. Lampang is small, so it's only a few minutes' drive between the two."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking a Lampang hotel?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with their current promotions, so it's worth opening all three to compare before you book. Every review page in this guide has price-comparison links — it can save you a few hundred baht a night."
+    }
+  ],
+  "quickAnswerHtml": "Twelve Lampang hotels across every tier — The Space and Tree Thara at 9.1, old-town boutiques by Kad Kong Ta, teak guesthouses on the Wang River, down to a hostel from ฿450. Honest take from real reviews, prices compared on 3 sites, direct booking links."
 }

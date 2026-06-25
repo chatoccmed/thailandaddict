@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Ubon Ratchathani", "href": "city-ubon-ratchathani.html" },
-    { "name": "Top 12 Ubon Ratchathani Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Ubon Ratchathani",
+      "href": "city-ubon-ratchathani.html"
+    },
+    {
+      "name": "Top 12 Ubon Ratchathani Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Ubon Ratchathani", "item": "https://thailandaddict.com/en/city-ubon-ratchathani" },
-    { "name": "Top 12 Ubon Ratchathani Hotels", "item": "https://thailandaddict.com/en/top10-hotels-ubon-ratchathani" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Ubon Ratchathani",
+      "item": "https://thailandaddict.com/en/city-ubon-ratchathani"
+    },
+    {
+      "name": "Top 12 Ubon Ratchathani Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-ubon-ratchathani"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-ubon-ratchathani.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Ubon Ratchathani has no metro; you get around by car, and the province is spread out enough that your choice of area sets up the whole trip. <strong>City-centre and Thung Si Muang</strong> stays are the easiest, with temples, the night market, food and malls within walking distance — some are connected straight to Sunee City Mall. <strong>Airport-area</strong> stays suit people flying in and out or connecting; many have an airport shuttle and free parking, though dining around the hotels is thinner than downtown. Almost everything in <strong>Khong Chiam district</strong> needs a private or rental car, as it's a separate district — about a 1.5-hour drive from the city. The areas in this guide: <strong>City Centre & Thung Si Muang</strong> — temples, markets, food, malls · <strong>Airport</strong> — easy fly-in/out, shuttle, free parking · <strong>Khong Chiam</strong> — base for the Two-Colour River, Kaeng Tana and Pha Taem.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Sunee Grand Hotel and Convention Center", "price": "฿900" },
-    { "n": "2", "color": "#c8a951", "name": "V Hotel Ubon Ratchathani", "price": "฿800" },
-    { "n": "3", "color": "#c8a951", "name": "Rapeepan Ville Hotel", "price": "฿800" },
-    { "n": "4", "color": "#9e9e9e", "name": "B2 Ubon Boutique & Budget Hotel", "price": "฿550" },
-    { "n": "5", "color": "#9e9e9e", "name": "Khong Chiam Orchid Riverside Resort", "price": "฿1,500" },
-    { "n": "6", "color": "#9e9e9e", "name": "Tohsang City Hotel", "price": "฿1,200" },
-    { "n": "7", "color": "#bf8040", "name": "The Outside Inn", "price": "฿650" },
-    { "n": "8", "color": "#bf8040", "name": "28 Rachabutr Hostel", "price": "฿350" },
-    { "n": "9", "color": "#bf8040", "name": "Eco Inn Lite Ubon Ratchathani", "price": "฿550" },
-    { "n": "10", "color": "#5d4037", "name": "Laithong Hotel", "price": "฿700" },
-    { "n": "11", "color": "#5d4037", "name": "Tokyo Hotel", "price": "฿360" },
-    { "n": "12", "color": "#5d4037", "name": "The Ratchathani Hotel", "price": "฿550" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Sunee Grand Hotel and Convention Center",
+      "price": "฿900"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "V Hotel Ubon Ratchathani",
+      "price": "฿800"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Rapeepan Ville Hotel",
+      "price": "฿800"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "B2 Ubon Boutique & Budget Hotel",
+      "price": "฿550"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Khong Chiam Orchid Riverside Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Tohsang City Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#bf8040",
+      "name": "The Outside Inn",
+      "price": "฿650"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "28 Rachabutr Hostel",
+      "price": "฿350"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Eco Inn Lite Ubon Ratchathani",
+      "price": "฿550"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Laithong Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Tokyo Hotel",
+      "price": "฿360"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "The Ratchathani Hotel",
+      "price": "฿550"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (King bed)", "price": "from ฿900/night" },
-        { "type": "Junior Suite (extra spacious)", "price": "from ฿1,600/night" },
-        { "type": "Royal Suite (1 living + 1 bedroom)", "price": "from ฿2,800/night" }
+        {
+          "type": "Standard Double Room (King bed)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Junior Suite (extra spacious)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Royal Suite (1 living + 1 bedroom)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sunee-grand-hotel-convention-center/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sunee-grand-amp-convention-center.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-2549550/sunee-grand-hotel-and-convention-center/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sunee-grand-hotel-ubon-ratchathani.html",
-      "tags": ["🛍️ Connected directly to Sunee City Mall", "🏊 Water park + pool + kids' pool", "🏢 Gym, spa, large convention centre", "🅿️ Free parking + airport shuttle"],
+      "tags": [
+        "🛍️ Connected directly to Sunee City Mall",
+        "🏊 Water park + pool + kids' pool",
+        "🏢 Gym, spa, large convention centre",
+        "🅿️ Free parking + airport shuttle"
+      ],
       "addr": "512/8 Chayangkun Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "Sunee Grand Hotel and Convention Center is <strong>the most-reviewed property in this guide — 471 reviews — a 222-room 5-star hotel connected directly to Sunee City Mall in the city centre</strong>, scoring 9.2 and ranking #4 in Ubon on TripAdvisor. Step out of the lobby and you're in the mall, cinema, supermarket and restaurants; reviews rate the location as high as 9.6. Real guest reviews praise the spacious rooms, the water park and kids' pool, plus the gym, Thai-massage spa and large convention centre. The trade-off: the hotel opened back in 2009, so cleanliness and room condition vary, and the breakfast leans Asian and can repeat over a longer stay. Best for families, business travellers and anyone who wants everything within easy reach.",
       "tipHtml": "💡 <strong>Tip:</strong> Request a renovated (2022) room when you book to avoid the dated furniture. Travelling with kids? Ask for a room near the pool for easy water-park access. During the Candle Festival (July) the city fills up and rooms sell out, so book several weeks ahead.",
@@ -104,15 +201,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (Double/Twin)", "price": "from ฿800/night" },
-        { "type": "Double Room with Balcony", "price": "from ฿1,050/night" },
-        { "type": "Premier Room (largest)", "price": "from ฿1,250/night" }
+        {
+          "type": "Standard Room (Double/Twin)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Double Room with Balcony",
+          "price": "from ฿1,050/night"
+        },
+        {
+          "type": "Premier Room (largest)",
+          "price": "from ฿1,250/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/v-hotel-ubon-ratchathani/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/v-hotel-ubonratchathani.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-3725771/v-hotel-ubon-ratchathani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-v-hotel-ubon-ratchathani.html",
-      "tags": ["✨ Clean rooms, great value", "🅿️ Free in-building parking", "🏙️ City centre near Funtastic World", "🛏️ Spacious rooms, some with balcony"],
+      "tags": [
+        "✨ Clean rooms, great value",
+        "🅿️ Free in-building parking",
+        "🏙️ City centre near Funtastic World",
+        "🛏️ Spacious rooms, some with balcony"
+      ],
       "addr": "Chaeng Sanit Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "V Hotel Ubon Ratchathani is <strong>the best balance of cleanliness, location and value among the city-centre hotels</strong>, scoring 9.2 from 117 reviews. Having opened in 2015, it feels newer than many of the older hotels in town. It sits on Chaeng Sanit Road in the city centre, near Funtastic World. Real guest reviews praise the roomy, clean rooms, good service, and free in-building parking — a rarity downtown. The catch: there's no swimming pool, breakfast choices are limited, and some rooms get noise. Best for both work trips and family city breaks where a good room at a few hundred to low-thousand baht is the priority.",
       "tipHtml": "💡 <strong>Tip:</strong> Driving has the edge here thanks to free in-building parking. Want some sitting space? Pick a Double Room with Balcony. If you're a light sleeper, ask for a room away from the road or lift, and plan to find breakfast outside since the in-house options are limited.",
@@ -144,15 +255,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double (Queen bed)", "price": "from ฿800/night" },
-        { "type": "Premier Room (larger)", "price": "from ฿1,100/night" },
-        { "type": "Grand Premier (largest)", "price": "from ฿1,800/night" }
+        {
+          "type": "Deluxe Double (Queen bed)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Premier Room (larger)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Grand Premier (largest)",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rapeepan-ville-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rapeepan-ville.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-1512790/rapeepan-ville-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rapeepan-ville-boutique-ubon-ratchathani.html",
-      "tags": ["💎 Score 9.4, top in this guide", "🌿 Small, quiet hotel", "✈️ Near Ubon airport", "🍳 Praised restaurant and breakfast"],
+      "tags": [
+        "💎 Score 9.4, top in this guide",
+        "🌿 Small, quiet hotel",
+        "✈️ Near Ubon airport",
+        "🍳 Praised restaurant and breakfast"
+      ],
       "addr": "Near Ubon Ratchathani Airport, Mueang Ubon Ratchathani",
       "storyHtml": "Rapeepan Ville Hotel is <strong>the highest-scoring property in this guide at 9.4</strong>, from 41 reviews — a roughly 28-room boutique that sells quiet, cleanliness and a location near Ubon airport. Real guest reviews praise the clean rooms with contemporary Thai styling, attentive staff, and a restaurant and breakfast that punch above expectations. It's ideal for flying in and out, short business stops, or driving in and wanting free parking somewhere peaceful. The trade-off: there's no swimming pool, facilities are limited, and the soundproofing between rooms isn't great. Best for couples and travellers who value quiet and room quality over big shared facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> It's a small hotel with few rooms and a strong score, so it books out fast — reserve ahead, especially around festivals. Soundproofing is weak, so light sleepers should pack earplugs. Try the in-house restaurant reviewers like instead of driving into town for every meal.",
@@ -184,15 +309,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (twin beds)", "price": "from ฿550/night" },
-        { "type": "Deluxe Triple (3 guests)", "price": "from ฿800/night" },
-        { "type": "Family Suite (up to 5 guests)", "price": "from ฿1,200/night" }
+        {
+          "type": "Superior Room (twin beds)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Deluxe Triple (3 guests)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Family Suite (up to 5 guests)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-ubon-boutique-budget-hotel-h67442439/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-b2-ubon-boutique-and-budget-ban-nong-bua.th.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-127020061/b2-ubon-boutique-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-ubon-boutique-budget-ubon-ratchathani.html",
-      "tags": ["✨ New rooms opened 2025, spotless", "💸 Low price from ฿550, great value", "✈️ Near Ubon airport", "🅿️ Free parking · modern design"],
+      "tags": [
+        "✨ New rooms opened 2025, spotless",
+        "💸 Low price from ฿550, great value",
+        "✈️ Near Ubon airport",
+        "🅿️ Free parking · modern design"
+      ],
       "addr": "Rai Noi area, near the airport, Mueang Ubon Ratchathani",
       "storyHtml": "B2 Ubon Boutique & Budget Hotel is <strong>a budget chain hotel whose selling point is brand-new rooms (opened 2025), spotless and cheap</strong>, scoring 9.0 from 223 reviews — high, with surprisingly many reviews for a budget stay. It's a roughly 92-room hotel in the Rai Noi area, near Ubon airport. Real guest reviews praise the just-opened feel, modern design, comfy beds and value. The catch: it's a budget brand — no lift, no breakfast included, and no pool. Best for flying in and out, short business stops, or driving in and wanting a new room with free parking, without caring about shared facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> Breakfast isn't included, so grab something at the 7-Eleven or nearby shops. There's no lift, so if you have heavy luggage or struggle with stairs, request a ground-floor room at booking. Travelling as a group? The Family Suite sleeps up to 5 and is far better value.",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (with balcony)", "price": "from ฿1,500/night" },
-        { "type": "Deluxe Room (River Side)", "price": "from ฿2,600/night" },
-        { "type": "Villa / Family", "price": "from ฿3,200/night" }
+        {
+          "type": "Standard Room (with balcony)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Deluxe Room (River Side)",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "Villa / Family",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/khong-chiam-orchid-riverside-resort/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/khong-chiam-orchid-riverside-resort.html",
       "tripUrl": "https://www.trip.com/hotels/khong-chiam-hotel-detail-7620762/khong-chiam-orchid-riverside-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-khong-chiam-orchid-riverside-resort-ubon-ratchathani.html",
-      "tags": ["🌅 On the Mekong, views to Laos", "🏊 Pool with river views", "🏯 Base for Two-Colour River–Kaeng Tana–Pha Taem", "🛏️ New, clean rooms · good food"],
+      "tags": [
+        "🌅 On the Mekong, views to Laos",
+        "🏊 Pool with river views",
+        "🏯 Base for Two-Colour River–Kaeng Tana–Pha Taem",
+        "🛏️ New, clean rooms · good food"
+      ],
       "addr": "Khong Chiam district, Ubon Ratchathani",
       "storyHtml": "Khong Chiam Orchid Riverside Resort is <strong>a boutique resort on the Mekong with a river-view pool that's hard to find in Ubon, and the most natural base for Khong Chiam</strong>, scoring 8.6 from 154 reviews. It sits in Khong Chiam district, about 75–80 km from the city, but far closer to the Two-Colour River, Kaeng Tana and Pha Taem National Park. Real guest reviews praise the new, clean rooms, attentive staff, good food, and river views across to the Laos side. The trade-off: the riverside spot means it's far from the city, you'll want a car, and the surroundings are quiet and rural. Best for travellers focused on the Mekong riverside and nature.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a River Side room with a balcony over the Mekong — it's the signature here. Get up early for sunrise at Pha Taem or a boat trip to the Two-Colour River. Drive or rent a car, as it's far from the city and there aren't many shops nearby.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (25 sqm)", "price": "from ฿1,200/night" },
-        { "type": "Grand Deluxe Room (28 sqm, balcony)", "price": "from ฿1,700/night" },
-        { "type": "King Suite (48 sqm)", "price": "from ฿2,800/night" }
+        {
+          "type": "Superior Room (25 sqm)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Grand Deluxe Room (28 sqm, balcony)",
+          "price": "from ฿1,700/night"
+        },
+        {
+          "type": "King Suite (48 sqm)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tohsang-ubon-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tohsang-city.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-2503844/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tohsang-city-hotel-ubon-ratchathani.html",
-      "tags": ["🍳 Praised, made-to-order breakfast", "🌿 Quiet area, clean rooms", "🏨 Tohsang brand, contemporary vintage", "✈️ 10 min from airport · free parking"],
+      "tags": [
+        "🍳 Praised, made-to-order breakfast",
+        "🌿 Quiet area, clean rooms",
+        "🏨 Tohsang brand, contemporary vintage",
+        "✈️ 10 min from airport · free parking"
+      ],
       "addr": "251 Palochai Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "Tohsang City Hotel (now branded Tohsang Heritage Ubon) is <strong>the Tohsang brand's in-town hotel, selling quiet, cleanliness and a good breakfast</strong>, scoring 8.6 from 112 reviews and ranking #6 in Ubon on TripAdvisor. It's a small, roughly 33-room hotel on Palochai Road in a quiet residential area, styled contemporary-vintage with natural materials. Real guest reviews praise the made-to-order breakfast and clean rooms. The trade-off: the decor reads classic, there's some aircraft noise as it's near the airport, some buildings have no lift, and walkable restaurants are few. Best for resting, business or connecting to Khong Chiam, when you want a comfy bed and a good breakfast.",
       "tipHtml": "💡 <strong>Tip:</strong> If aircraft noise bothers you, ask for an inner room not facing the airport. Pick a Grand Deluxe with a balcony for longer stays — it's larger for a small price bump. For dinner, drive into Thung Si Muang or the night market, which have far more to eat.",
@@ -304,15 +471,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Jasmine King (spacious, high ceilings)", "price": "from ฿650/night" },
-        { "type": "Premium Royal Lotus (superior)", "price": "from ฿950/night" },
-        { "type": "Family (connecting rooms)", "price": "from ฿1,500/night" }
+        {
+          "type": "Deluxe Jasmine King (spacious, high ceilings)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Premium Royal Lotus (superior)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Family (connecting rooms)",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-outside-inn/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-outside-inn.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-2559737/the-outside-inn/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-outside-inn-airport-ubon-ratchathani.html",
-      "tags": ["🌳 Garden guesthouse, owner-run", "🌮 Homemade Mexican food + free breakfast", "✈️ Near airport and the city", "🛏️ Spacious rooms, high ceilings"],
+      "tags": [
+        "🌳 Garden guesthouse, owner-run",
+        "🌮 Homemade Mexican food + free breakfast",
+        "✈️ Near airport and the city",
+        "🛏️ Spacious rooms, high ceilings"
+      ],
       "addr": "Near the airport, Mueang Ubon Ratchathani",
       "storyHtml": "The Outside Inn is <strong>an owner-run garden guesthouse with Thai-American hosts, selling a homey, welcoming vibe, spacious clean rooms, good food and a free breakfast</strong>, scoring 9.0 from 28 reviews. It's near Ubon airport and the city, with homemade Thai-Mexican food as a rare standout. Real guest reviews praise the spacious, high-ceilinged rooms, the leafy garden, and the owners' local travel tips. The catch: it's small, with no pool, the entrance is hard to find the first time, and some nights have a live band in the garden. Best for travellers who love a friendly, personal vibe and owner recommendations over big-hotel facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> The entrance is tricky the first time — set your GPS accurately and call ahead for directions. Try the praised homemade Mexican food and the free breakfast. If you're a light sleeper, check whether there's a band in the garden that night and ask for a room set further back.",
@@ -344,15 +525,29 @@
       "priceBig": "฿350",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Bed in Dormitory (shared bath)", "price": "from ฿350/night" },
-        { "type": "Standard Double (air-con)", "price": "from ฿550/night" },
-        { "type": "Superior Double (larger)", "price": "from ฿650/night" }
+        {
+          "type": "Bed in Dormitory (shared bath)",
+          "price": "from ฿350/night"
+        },
+        {
+          "type": "Standard Double (air-con)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Superior Double (larger)",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/28-rachabutr-hostel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/28-ratchabutr-home-stay.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-1338151/28-rachabutr-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-28-rachabutr-hostel-riverside-ubon-ratchathani.html",
-      "tags": ["🛶 60-year-old wooden house on the Mun River", "🚶 Walk to the market and Thung Si Muang", "💸 Cheapest in this guide, from ฿350", "🤝 Owner-run, warm and personal"],
+      "tags": [
+        "🛶 60-year-old wooden house on the Mun River",
+        "🚶 Walk to the market and Thung Si Muang",
+        "💸 Cheapest in this guide, from ฿350",
+        "🤝 Owner-run, warm and personal"
+      ],
       "addr": "Ratchabut Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "28 Rachabutr Hostel is <strong>the cheapest stay in this guide at just ฿350, an old 60-year-old wooden house on the Mun River with rare old-town charm</strong>, scoring 8.3 from 297 reviews — the most reviews in the budget group. It's centrally located on Ratchabut Road, within walking distance of the market and Thung Si Muang. Real guest reviews praise the riverside wooden-house atmosphere, the warm owner-run hospitality and the low price. The catch: there's some early-morning delivery-truck noise, the cheapest rooms are fan/dorm with shared bath, and it's <strong>cash only</strong>. Best for backpackers and travellers who want to soak up Ubon's old town on a few-hundred-baht budget.",
       "tipHtml": "💡 <strong>Tip:</strong> It's cash only, so bring enough cash. For privacy and air-con, choose a Standard/Superior Double instead of the dorm. There's early-morning delivery-truck noise, so light sleepers should ask for a room away from the road and pack earplugs.",
@@ -384,15 +579,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin (compact)", "price": "from ฿500/night" },
-        { "type": "Superior King (~25 sqm)", "price": "from ฿600/night" },
-        { "type": "Deluxe / Family (larger)", "price": "from ฿900/night" }
+        {
+          "type": "Standard Twin (compact)",
+          "price": "from ฿500/night"
+        },
+        {
+          "type": "Superior King (~25 sqm)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Deluxe / Family (larger)",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/eco-inn-ubon-ratchathani-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/eco-inn-ubon-ratchathani.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-7014071/eco-inn-ubon-ratchathani/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-eco-inn-lite-ubon-ratchathani.html",
-      "tags": ["🚶 Walk to Thung Si Muang", "🏪 7-Eleven attached", "🚲 Free bikes + free parking", "💰 Good value, spacious rooms"],
+      "tags": [
+        "🚶 Walk to Thung Si Muang",
+        "🏪 7-Eleven attached",
+        "🚲 Free bikes + free parking",
+        "💰 Good value, spacious rooms"
+      ],
       "addr": "Si Narong Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "Eco Inn Lite Ubon Ratchathani is <strong>a midrange hotel with great value and a strong central location in Ubon, in the Thung Si Muang area</strong>, scoring 8.3 from 122 reviews. It's a 132-room hotel on Si Narong Road, within walking distance of Thung Si Muang, the temples and the night market, with a 7-Eleven attached and free bikes for exploring the city. Real guest reviews praise the value, spacious rooms and central spot. The catch: the air-con is old and slow to cool, the building isn't new, and cleanliness can be inconsistent at times. Best for budget city travellers who plan to be out exploring all day and want a location within walking distance of the main sights.",
       "tipHtml": "💡 <strong>Tip:</strong> Borrow the free bikes to ride around Thung Si Muang and the city temples. Some rooms' air-con cools slowly, so switch it on before bed. If you're concerned about room condition, ask to see one or request a better-kept room at check-in.",
@@ -424,15 +633,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Twin (large windows)", "price": "from ฿700/night" },
-        { "type": "Deluxe Room (renovated 2024)", "price": "from ฿950/night" },
-        { "type": "Family / Suite (larger)", "price": "from ฿1,400/night" }
+        {
+          "type": "Superior Twin (large windows)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe Room (renovated 2024)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Family / Suite (larger)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/laithong-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/laithong.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-709860/laithong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-laithong-hotel-ubon-ratchathani.html",
-      "tags": ["🏊 Central swimming pool", "✈️ Free airport shuttle", "🛏️ Spacious rooms, large windows", "💰 Good value · family-friendly"],
+      "tags": [
+        "🏊 Central swimming pool",
+        "✈️ Free airport shuttle",
+        "🛏️ Spacious rooms, large windows",
+        "💰 Good value · family-friendly"
+      ],
       "addr": "Phichit Rangsan Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "Laithong Hotel is <strong>a value city hotel with a good location that still has a pool and a free airport shuttle</strong>, scoring 8.0 from 38 reviews. It's a roughly 124-room hotel on Phichit Rangsan Road in the Thung Si Muang area. Real guest reviews praise the spacious rooms with large windows, the rare central pool, and the free airport shuttle that's handy for fly-in guests. The catch: it's an older hotel only partly renovated, so room quality varies, and it's not a high-end luxury stay. Best for people flying into Ubon who want a convenient stay near the airport and city centre with a pool for the kids at a light price.",
       "tipHtml": "💡 <strong>Tip:</strong> Request a 2024-renovated room at booking to avoid the older ones. Use the free airport shuttle by booking ahead. Take the kids to the central pool in the afternoon. Check the room's condition at check-in, as quality is inconsistent.",
@@ -464,15 +687,29 @@
       "priceBig": "฿360",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Fan Room", "price": "from ฿360/night" },
-        { "type": "Standard Double (air-con)", "price": "from ฿500/night" },
-        { "type": "Larger air-con room", "price": "from ฿650/night" }
+        {
+          "type": "Fan Room",
+          "price": "from ฿360/night"
+        },
+        {
+          "type": "Standard Double (air-con)",
+          "price": "from ฿500/night"
+        },
+        {
+          "type": "Larger air-con room",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tokyo-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tokyo-ublraachthaanii.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-54490035/tokyo-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tokyo-hotel-thung-si-muang-ubon-ratchathani.html",
-      "tags": ["🚶 Walk to Thung Si Muang park", "✈️ Very close to Ubon airport", "💸 Few-hundred-baht price, from ฿360", "🧼 Clean rooms · free parking"],
+      "tags": [
+        "🚶 Walk to Thung Si Muang park",
+        "✈️ Very close to Ubon airport",
+        "💸 Few-hundred-baht price, from ฿360",
+        "🧼 Clean rooms · free parking"
+      ],
       "addr": "Uparat Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "Tokyo Hotel is <strong>a budget hotel that's clean and good value, central and near Ubon airport at a few-hundred-baht price</strong>, scoring 7.6 from 10 reviews. It's a 5-storey building on Uparat Road, within walking distance of Thung Si Muang park. Real guest reviews praise the cleanliness and value at this price, with both fan and air-con rooms available. The catch: it's an older building with basic facilities, no pool or breakfast, staff speak limited English, and there aren't many reviews yet. Best for budget travellers who plan to be out all day, or a one-night stopover before a flight, who value price and location over newness.",
       "tipHtml": "💡 <strong>Tip:</strong> For the cheapest option pick a fan room, but in hot season spending a couple hundred baht more for air-con is worth it. You can walk to Thung Si Muang park and the market, so use it as an all-day base. Staff speak limited English, so keep a translation app handy if needed.",
@@ -504,15 +741,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (Queen bed)", "price": "from ฿550/night" },
-        { "type": "Deluxe Room (larger)", "price": "from ฿750/night" },
-        { "type": "Deluxe / Family Room", "price": "from ฿950/night" }
+        {
+          "type": "Superior Room (Queen bed)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Deluxe Room (larger)",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Deluxe / Family Room",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-ratchathani-hotel/hotel/ubon-ratchathani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-the-ratchathani-hotel-ubon-ratchathani.html",
       "tripUrl": "https://www.trip.com/hotels/ubon-ratchathani-hotel-detail-709833/the-ratchathani-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-ratchathani-hotel-ubon-ratchathani.html",
-      "tags": ["🚶 Walk to Thung Si Muang", "💸 Low price from ฿550", "🍽️ Restaurant, massage, free parking", "🏙️ City centre near the night market"],
+      "tags": [
+        "🚶 Walk to Thung Si Muang",
+        "💸 Low price from ฿550",
+        "🍽️ Restaurant, massage, free parking",
+        "🏙️ City centre near the night market"
+      ],
       "addr": "Khuean Thani Rd, Nai Mueang, Mueang Ubon Ratchathani",
       "storyHtml": "The Ratchathani Hotel is <strong>a city hotel selling mainly a central location and a low price</strong>, scoring 6.5 from 100 reviews — the lowest score in this guide, so let's be clear about it. It's a roughly 76-room hotel on Khuean Thani Road, within walking distance of Thung Si Muang and the night market, with a restaurant, massage and free parking. Real guest reviews praise the location and low price. The catch: it's an older hotel that hasn't been renovated, so room condition and cleanliness are inconsistent, which keeps the review score in the so-so range. Best for budget travellers who want to sleep near Thung Si Muang cheaply and accept that the rooms aren't new — not for anyone expecting a spotless modern room.",
       "tipHtml": "💡 <strong>Tip:</strong> With a middling score, ask to see the room before check-in and request a better-kept one, checking the air-con and bathroom are OK. Make the most of the location — walk out to the night market and Thung Si Muang. If room quality matters more than price, try a higher-scoring budget option in this guide.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Ubon Ratchathani Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Sunee Grand Hotel and Convention Center", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿900", "access": "📍 Attached to Sunee City Mall, centre", "badge": "Most reviewed, mall, water park", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "V Hotel Ubon Ratchathani", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿800", "access": "📍 Chaeng Sanit Rd, city centre", "badge": "Clean, great value", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Rapeepan Ville Hotel", "type": "⭐⭐⭐", "score": "9.4", "price": "฿800", "access": "📍 Near airport, quiet area", "badge": "Top score, quiet", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "B2 Ubon Boutique & Budget Hotel", "type": "⭐⭐", "score": "9.0", "price": "฿550", "access": "📍 Rai Noi, near airport", "badge": "New rooms, low price", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Khong Chiam Orchid Riverside Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 Khong Chiam, on the Mekong", "badge": "Mekong, base for Khong Chiam", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Tohsang City Hotel", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,200", "access": "📍 Palochai Rd, city centre", "badge": "Standout breakfast, quiet", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "7", "rankColor": "#bf8040", "name": "The Outside Inn", "type": "⭐⭐⭐", "score": "9.0", "price": "฿650", "access": "📍 Near airport, in the city", "badge": "Garden guesthouse, free breakfast", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "28 Rachabutr Hostel", "type": "⭐⭐", "score": "8.3", "price": "฿350", "access": "📍 Ratchabut Rd, on the Mun River", "badge": "Wooden-house hostel, cheapest", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Eco Inn Lite Ubon Ratchathani", "type": "⭐⭐⭐", "score": "8.3", "price": "฿550", "access": "📍 Si Narong, walk to Thung Si Muang", "badge": "Central value, free bikes", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Laithong Hotel", "type": "⭐⭐⭐⭐", "score": "8.0", "price": "฿700", "access": "📍 Phichit Rangsan, Thung Si Muang", "badge": "Pool, free shuttle", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Tokyo Hotel", "type": "⭐⭐", "score": "7.6", "price": "฿360", "access": "📍 Uparat, walk to Thung Si Muang", "badge": "Few-hundred-baht, walk to park", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "The Ratchathani Hotel", "type": "⭐⭐⭐", "score": "6.5", "price": "฿550", "access": "📍 Khuean Thani, Thung Si Muang", "badge": "Low price, walk to Thung Si Muang", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Sunee Grand Hotel and Convention Center",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿900",
+      "access": "📍 Attached to Sunee City Mall, centre",
+      "badge": "Most reviewed, mall, water park",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "V Hotel Ubon Ratchathani",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿800",
+      "access": "📍 Chaeng Sanit Rd, city centre",
+      "badge": "Clean, great value",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Rapeepan Ville Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿800",
+      "access": "📍 Near airport, quiet area",
+      "badge": "Top score, quiet",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "B2 Ubon Boutique & Budget Hotel",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿550",
+      "access": "📍 Rai Noi, near airport",
+      "badge": "New rooms, low price",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Khong Chiam Orchid Riverside Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 Khong Chiam, on the Mekong",
+      "badge": "Mekong, base for Khong Chiam",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Tohsang City Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,200",
+      "access": "📍 Palochai Rd, city centre",
+      "badge": "Standout breakfast, quiet",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#bf8040",
+      "name": "The Outside Inn",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿650",
+      "access": "📍 Near airport, in the city",
+      "badge": "Garden guesthouse, free breakfast",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "28 Rachabutr Hostel",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿350",
+      "access": "📍 Ratchabut Rd, on the Mun River",
+      "badge": "Wooden-house hostel, cheapest",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Eco Inn Lite Ubon Ratchathani",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿550",
+      "access": "📍 Si Narong, walk to Thung Si Muang",
+      "badge": "Central value, free bikes",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Laithong Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿700",
+      "access": "📍 Phichit Rangsan, Thung Si Muang",
+      "badge": "Pool, free shuttle",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Tokyo Hotel",
+      "type": "⭐⭐",
+      "score": "7.6",
+      "price": "฿360",
+      "access": "📍 Uparat, walk to Thung Si Muang",
+      "badge": "Few-hundred-baht, walk to park",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "The Ratchathani Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.5",
+      "price": "฿550",
+      "access": "📍 Khuean Thani, Thung Si Muang",
+      "badge": "Low price, walk to Thung Si Muang",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Ubon Ratchathani hotel for you?",
   "advice": [
-    { "icon": "🛍️", "head": "Exploring the city, malls, temples and food", "bodyHtml": "→ <strong>Sunee Grand Hotel</strong> ฿900, attached to Sunee City Mall with a water park, score 9.2, most reviewed · or <strong>V Hotel</strong> ฿800, clean and great value with free in-building parking · or <strong>Eco Inn Lite</strong> ฿550, walk to Thung Si Muang with free bikes" },
-    { "icon": "✈️", "head": "Flying in and out, connecting, short business stops", "bodyHtml": "→ <strong>Rapeepan Ville</strong> ฿800, top score 9.4, quiet and near the airport · or <strong>B2 Ubon</strong> ฿550, new rooms from 2025 at a low price · or <strong>Laithong</strong> ฿700, with a free airport shuttle and a pool" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>28 Rachabutr Hostel</strong> ฿350, a wooden-house hostel on the Mun River, the cheapest · or <strong>Tokyo Hotel</strong> ฿360, a few-hundred-baht price, walk to Thung Si Muang · or <strong>B2 Ubon</strong> ฿550, new clean rooms" },
-    { "icon": "🌅", "head": "For the Mekong riverside, Khong Chiam, Pha Taem", "bodyHtml": "→ <strong>Khong Chiam Orchid Riverside Resort</strong> ฿1,500, a Mekong-side resort with a river-view pool, near the Two-Colour River and Kaeng Tana — far closer than the city" },
-    { "icon": "🌿", "head": "Quiet, clean rooms and a good breakfast", "bodyHtml": "→ <strong>Rapeepan Ville</strong> ฿800, score 9.4, quiet and clean · or <strong>Tohsang City Hotel</strong> ฿1,200, standout breakfast in a quiet area · or <strong>The Outside Inn</strong> ฿650, a garden guesthouse with free breakfast" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family, want a pool", "bodyHtml": "→ <strong>Sunee Grand Hotel</strong> ฿900, a water park, kids' pool and water toys · or <strong>Laithong</strong> ฿700, a central pool and family rooms · or <strong>Khong Chiam Orchid</strong> ฿1,500, a river-view pool with family villas" }
+    {
+      "icon": "🛍️",
+      "head": "Exploring the city, malls, temples and food",
+      "bodyHtml": "→ <strong>Sunee Grand Hotel</strong> ฿900, attached to Sunee City Mall with a water park, score 9.2, most reviewed · or <strong>V Hotel</strong> ฿800, clean and great value with free in-building parking · or <strong>Eco Inn Lite</strong> ฿550, walk to Thung Si Muang with free bikes"
+    },
+    {
+      "icon": "✈️",
+      "head": "Flying in and out, connecting, short business stops",
+      "bodyHtml": "→ <strong>Rapeepan Ville</strong> ฿800, top score 9.4, quiet and near the airport · or <strong>B2 Ubon</strong> ฿550, new rooms from 2025 at a low price · or <strong>Laithong</strong> ฿700, with a free airport shuttle and a pool"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>28 Rachabutr Hostel</strong> ฿350, a wooden-house hostel on the Mun River, the cheapest · or <strong>Tokyo Hotel</strong> ฿360, a few-hundred-baht price, walk to Thung Si Muang · or <strong>B2 Ubon</strong> ฿550, new clean rooms"
+    },
+    {
+      "icon": "🌅",
+      "head": "For the Mekong riverside, Khong Chiam, Pha Taem",
+      "bodyHtml": "→ <strong>Khong Chiam Orchid Riverside Resort</strong> ฿1,500, a Mekong-side resort with a river-view pool, near the Two-Colour River and Kaeng Tana — far closer than the city"
+    },
+    {
+      "icon": "🌿",
+      "head": "Quiet, clean rooms and a good breakfast",
+      "bodyHtml": "→ <strong>Rapeepan Ville</strong> ฿800, score 9.4, quiet and clean · or <strong>Tohsang City Hotel</strong> ฿1,200, standout breakfast in a quiet area · or <strong>The Outside Inn</strong> ฿650, a garden guesthouse with free breakfast"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family, want a pool",
+      "bodyHtml": "→ <strong>Sunee Grand Hotel</strong> ฿900, a water park, kids' pool and water toys · or <strong>Laithong</strong> ฿700, a central pool and family rooms · or <strong>Khong Chiam Orchid</strong> ฿1,500, a river-view pool with family villas"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and can change by date and season — always check live prices and compare 3 sites before booking. During the Candle Festival (July) the city fills up and rooms sell out, with rates much higher, so book several weeks to months ahead. Stays in Khong Chiam district and the airport area are almost all far easier with a private or rental car. City-centre and Thung Si Muang stays are easier to get around, with temples, markets, malls and food within walking distance. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common questions travellers ask about Ubon Ratchathani hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in within Ubon Ratchathani?", "a": "It depends on your trip's focus. <strong>The city centre and Thung Si Muang</strong> suits exploring the city, visiting temples and eating out, with malls, markets and sights within walking distance (Sunee Grand, V Hotel, Eco Inn Lite, Laithong, Tokyo, The Ratchathani, 28 Rachabutr). <strong>The airport area</strong> suits flying in and out or connecting, with many offering a shuttle and free parking (Rapeepan Ville, B2 Ubon, The Outside Inn, Tohsang City). <strong>Khong Chiam district</strong> is closer to the Two-Colour River, Kaeng Tana and Pha Taem than the city, ideal for the Mekong riverside and nature (Khong Chiam Orchid)." },
-    { "q": "❓ How much do Ubon Ratchathani hotels cost?", "a": "Prices vary widely: hostels and budget stays start around ฿350–650 a night (28 Rachabutr, Tokyo, B2 Ubon, The Outside Inn, The Ratchathani, Eco Inn Lite). Midrange to 4–5-star hotels and boutiques run roughly ฿700–1,500 (Laithong, V Hotel, Rapeepan Ville, Sunee Grand, Tohsang City, Khong Chiam Orchid). All prices are approximate starting rates for standard rooms; during the Candle Festival and long weekends rates run much higher than usual." },
-    { "q": "❓ First time in Ubon — which hotel should I book?", "a": "For a first city visit with a convenient location: <strong>Sunee Grand Hotel</strong> ฿900, attached to Sunee City Mall with everything within reach, score 9.2 and most reviewed · <strong>V Hotel</strong> ฿800, cleaner, newer rooms in the city centre · for a lighter budget, <strong>Eco Inn Lite</strong> ฿550, walk to Thung Si Muang with free bikes to explore. All three are easy to get around without a car." },
-    { "q": "❓ Using Ubon as a base for Khong Chiam–Pha Taem — where to stay?", "a": "The Two-Colour River, Kaeng Tana and Pha Taem National Park are in Khong Chiam district, about 75–80 km from Ubon city. If the Mekong riverside is your main goal, staying in Khong Chiam saves driving time — <strong>Khong Chiam Orchid Riverside Resort</strong> ฿1,500, a Mekong-side resort with a river-view pool, near the Two-Colour River and Kaeng Tana. If you'd rather stay in the city too, pick a central hotel with free parking and drive out and back (about a 1.5-hour drive)." },
-    { "q": "❓ No private car — is it easy to get around Ubon?", "a": "Ubon Ratchathani has no metro, so without a car, <strong>staying in the city centre and Thung Si Muang is easiest</strong> — Sunee Grand walks to the mall, Eco Inn Lite and Tokyo walk to Thung Si Muang, and 28 Rachabutr walks to the market. Stays in Khong Chiam district and some near the airport have few shops nearby, so have a car or Grab ready. Several airport-area hotels run a free airport shuttle, such as Laithong and Sunee Grand." },
-    { "q": "❓ Which site is cheapest to book an Ubon hotel?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each period's promotions, so always open all three and compare before booking — each review page in this guide has full price-comparison links, which can save several hundred baht a night, especially during the Candle Festival when rooms fill fast and prices are high." }
-  ]
+    {
+      "q": "❓ Which area should I stay in within Ubon Ratchathani?",
+      "a": "It depends on your trip's focus. <strong>The city centre and Thung Si Muang</strong> suits exploring the city, visiting temples and eating out, with malls, markets and sights within walking distance (Sunee Grand, V Hotel, Eco Inn Lite, Laithong, Tokyo, The Ratchathani, 28 Rachabutr). <strong>The airport area</strong> suits flying in and out or connecting, with many offering a shuttle and free parking (Rapeepan Ville, B2 Ubon, The Outside Inn, Tohsang City). <strong>Khong Chiam district</strong> is closer to the Two-Colour River, Kaeng Tana and Pha Taem than the city, ideal for the Mekong riverside and nature (Khong Chiam Orchid)."
+    },
+    {
+      "q": "❓ How much do Ubon Ratchathani hotels cost?",
+      "a": "Prices vary widely: hostels and budget stays start around ฿350–650 a night (28 Rachabutr, Tokyo, B2 Ubon, The Outside Inn, The Ratchathani, Eco Inn Lite). Midrange to 4–5-star hotels and boutiques run roughly ฿700–1,500 (Laithong, V Hotel, Rapeepan Ville, Sunee Grand, Tohsang City, Khong Chiam Orchid). All prices are approximate starting rates for standard rooms; during the Candle Festival and long weekends rates run much higher than usual."
+    },
+    {
+      "q": "❓ First time in Ubon — which hotel should I book?",
+      "a": "For a first city visit with a convenient location: <strong>Sunee Grand Hotel</strong> ฿900, attached to Sunee City Mall with everything within reach, score 9.2 and most reviewed · <strong>V Hotel</strong> ฿800, cleaner, newer rooms in the city centre · for a lighter budget, <strong>Eco Inn Lite</strong> ฿550, walk to Thung Si Muang with free bikes to explore. All three are easy to get around without a car."
+    },
+    {
+      "q": "❓ Using Ubon as a base for Khong Chiam–Pha Taem — where to stay?",
+      "a": "The Two-Colour River, Kaeng Tana and Pha Taem National Park are in Khong Chiam district, about 75–80 km from Ubon city. If the Mekong riverside is your main goal, staying in Khong Chiam saves driving time — <strong>Khong Chiam Orchid Riverside Resort</strong> ฿1,500, a Mekong-side resort with a river-view pool, near the Two-Colour River and Kaeng Tana. If you'd rather stay in the city too, pick a central hotel with free parking and drive out and back (about a 1.5-hour drive)."
+    },
+    {
+      "q": "❓ No private car — is it easy to get around Ubon?",
+      "a": "Ubon Ratchathani has no metro, so without a car, <strong>staying in the city centre and Thung Si Muang is easiest</strong> — Sunee Grand walks to the mall, Eco Inn Lite and Tokyo walk to Thung Si Muang, and 28 Rachabutr walks to the market. Stays in Khong Chiam district and some near the airport have few shops nearby, so have a car or Grab ready. Several airport-area hotels run a free airport shuttle, such as Laithong and Sunee Grand."
+    },
+    {
+      "q": "❓ Which site is cheapest to book an Ubon hotel?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each period's promotions, so always open all three and compare before booking — each review page in this guide has full price-comparison links, which can save several hundred baht a night, especially during the Candle Festival when rooms fill fast and prices are high."
+    }
+  ],
+  "quickAnswerHtml": "12 Ubon Ratchathani hotels we reviewed across every tier — from Sunee Grand's mall-connected rooms with a water park down to a riverside wooden-house hostel from ฿350. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

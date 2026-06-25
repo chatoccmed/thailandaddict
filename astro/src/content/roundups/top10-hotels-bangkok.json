@@ -16,16 +16,39 @@
     "✅ อ่านจาก <strong>รีวิวแขกจริง</strong> ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "กรุงเทพ", "href": "city-bangkok.html" },
-    { "name": "12 โรงแรมกรุงเทพยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "กรุงเทพ",
+      "href": "city-bangkok.html"
+    },
+    {
+      "name": "12 โรงแรมกรุงเทพยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "กรุงเทพ", "item": "https://thailandaddict.com/city-bangkok" },
-    { "name": "12 โรงแรมกรุงเทพยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-bangkok" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "กรุงเทพ",
+      "item": "https://thailandaddict.com/city-bangkok"
+    },
+    {
+      "name": "12 โรงแรมกรุงเทพยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-bangkok"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-bangkok.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "กรุงเทพมีรถไฟฟ้า BTS และ MRT ครอบคลุมย่านท่องเที่ยวหลัก ช่วยเลี่ยงรถติดได้มาก · จากสนามบินสุวรรณภูมิเข้าเมืองใช้ Airport Rail Link ต่อ BTS/MRT ได้ ส่วนดอนเมืองนั่งแท็กซี่หรือรถเมล์ · ย่านหลักที่พักในบทความนี้: <strong>ริมเจ้าพระยา</strong> — Mandarin Oriental, The Peninsula เดินทางด้วยเรือด่วนและเรือโรงแรม · <strong>สยาม</strong> — Siam@Siam, ibis Siam, Lub d ติด BTS สนามกีฬาแห่งชาติ ใจกลางช้อปปิ้ง · <strong>สุขุมวิท</strong> — INNSiDE ติด BTS อ่อนนุช, The Salil ใกล้ BTS ทองหล่อ · <strong>สีลม</strong> — ibis Styles Silom, Silom Space ติด BTS ศาลาแดง/MRT สีลม · <strong>เยาวราช</strong> — Shanghai Mansion, ASAI, Hotel Royal ใกล้ MRT วัดมังกร",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Mandarin Oriental, Bangkok", "price": "฿16,000" },
-    { "n": "2", "color": "#c8a951", "name": "The Peninsula Bangkok", "price": "฿11,000" },
-    { "n": "3", "color": "#c8a951", "name": "Siam@Siam Design Hotel", "price": "฿3,200" },
-    { "n": "4", "color": "#c8a951", "name": "Shanghai Mansion Bangkok", "price": "฿2,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "INNSiDE by Meliá Sukhumvit", "price": "฿2,800" },
-    { "n": "6", "color": "#9e9e9e", "name": "ibis Styles Bangkok Silom", "price": "฿1,500" },
-    { "n": "7", "color": "#9e9e9e", "name": "The Salil Hotel Thonglor", "price": "฿2,800" },
-    { "n": "8", "color": "#bf8040", "name": "ASAI Bangkok Chinatown", "price": "฿1,800" },
-    { "n": "9", "color": "#bf8040", "name": "Hotel Royal Bangkok @ Chinatown", "price": "฿1,400" },
-    { "n": "10", "color": "#bf8040", "name": "ibis Bangkok Siam", "price": "฿1,500" },
-    { "n": "11", "color": "#5d4037", "name": "Lub d Bangkok Siam", "price": "฿650" },
-    { "n": "12", "color": "#5d4037", "name": "Silom Space Hostel", "price": "฿300" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Mandarin Oriental, Bangkok",
+      "price": "฿16,000"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "The Peninsula Bangkok",
+      "price": "฿11,000"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Siam@Siam Design Hotel",
+      "price": "฿3,200"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Shanghai Mansion Bangkok",
+      "price": "฿2,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "INNSiDE by Meliá Sukhumvit",
+      "price": "฿2,800"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "ibis Styles Bangkok Silom",
+      "price": "฿1,500"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "The Salil Hotel Thonglor",
+      "price": "฿2,800"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "ASAI Bangkok Chinatown",
+      "price": "฿1,800"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Hotel Royal Bangkok @ Chinatown",
+      "price": "฿1,400"
+    },
+    {
+      "n": "10",
+      "color": "#bf8040",
+      "name": "ibis Bangkok Siam",
+      "price": "฿1,500"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Lub d Bangkok Siam",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Silom Space Hostel",
+      "price": "฿300"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿16,000",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room (~37 ตร.ม.)", "price": "เริ่ม ฿16,000/คืน" },
-        { "type": "Deluxe River View", "price": "เริ่ม ฿22,000/คืน" },
-        { "type": "Premier River View", "price": "เริ่ม ฿28,000/คืน" }
+        {
+          "type": "Superior Room (~37 ตร.ม.)",
+          "price": "เริ่ม ฿16,000/คืน"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "เริ่ม ฿22,000/คืน"
+        },
+        {
+          "type": "Premier River View",
+          "price": "เริ่ม ฿28,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mandarin-oriental-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-995162/mandarin-oriental-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mandarin-oriental-bangkok.html",
-      "tags": ["🏛️ เปิดตั้งแต่ปี 1876", "🌊 ริมแม่น้ำเจ้าพระยา", "🍽️ ร้านอาหารระดับตำนาน", "🛎️ บริการในตำนาน"],
+      "tags": [
+        "🏛️ เปิดตั้งแต่ปี 1876",
+        "🌊 ริมแม่น้ำเจ้าพระยา",
+        "🍽️ ร้านอาหารระดับตำนาน",
+        "🛎️ บริการในตำนาน"
+      ],
       "addr": "48 Oriental Avenue, Bang Rak, กรุงเทพ",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.5 — Mandarin Oriental คือ <strong>โรงแรมเก่าแก่ที่สุดของไทย เปิดตั้งแต่ปี 1876</strong> และเป็นชื่อที่คนทั่วโลกนึกถึงเมื่อพูดถึงโรงแรมหรูริมเจ้าพระยา · เสียงจากรีวิวจริงชื่นชมบริการที่ดูแลใกล้ชิดแบบจำชื่อแขกได้ ทำเลริมน้ำพร้อมเรือรับส่งข้ามไปสปาฝั่งตรงข้าม และบรรยากาศ Authors' Wing ที่เก็บกลิ่นอายประวัติศาสตร์ไว้ · เหมาะกับทริปฉลองโอกาสพิเศษที่อยากได้ที่สุดของกรุงเทพ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องเริ่มต้น Superior เป็นวิวเมือง/สวน ถ้าอยากได้วิวแม่น้ำต้องอัปเป็น River View · afternoon tea ที่ Authors' Lounge ดังมาก จองล่วงหน้าแม้ไม่ได้เข้าพัก",
@@ -104,15 +201,29 @@
       "priceBig": "฿11,000",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room (~46 ตร.ม.)", "price": "เริ่ม ฿11,000/คืน" },
-        { "type": "Grand Deluxe Balcony", "price": "เริ่ม ฿13,500/คืน" },
-        { "type": "Deluxe Suite", "price": "เริ่ม ฿22,000/คืน" }
+        {
+          "type": "Deluxe Room (~46 ตร.ม.)",
+          "price": "เริ่ม ฿11,000/คืน"
+        },
+        {
+          "type": "Grand Deluxe Balcony",
+          "price": "เริ่ม ฿13,500/คืน"
+        },
+        {
+          "type": "Deluxe Suite",
+          "price": "เริ่ม ฿22,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-peninsula-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-peninsula-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-909882/the-peninsula-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-peninsula-bangkok.html",
-      "tags": ["🌊 ทุกห้องวิวแม่น้ำ", "🛥️ เรือโรงแรมข้ามฟาก", "🏊 สระริมน้ำ", "💆 สปาขึ้นชื่อ"],
+      "tags": [
+        "🌊 ทุกห้องวิวแม่น้ำ",
+        "🛥️ เรือโรงแรมข้ามฟาก",
+        "🏊 สระริมน้ำ",
+        "💆 สปาขึ้นชื่อ"
+      ],
       "addr": "333 Charoen Nakhon Road, Khlong San, กรุงเทพ",
       "storyHtml": "The Peninsula คือ <strong>โรงแรมหรูริมเจ้าพระยาฝั่งคลองสานที่ทุกห้องหันหน้าออกแม่น้ำ</strong> คะแนน 9.3 จากกว่า 1,099 รีวิว · จุดเด่นที่เสียงรีวิวพูดถึงบ่อยคือวิวแม่น้ำเต็มบานจากทุกห้อง สระว่ายน้ำริมน้ำ และเรือโรงแรมที่ข้ามไปฝั่งสะพานตากสินเชื่อม BTS ได้สะดวก · อยู่ฝั่งธนฯ จึงเงียบกว่าฝั่งพระนคร แต่ยังเดินทางเข้าเมืองได้ง่าย เหมาะทริปพักผ่อนหรูที่อยากตื่นมาเจอวิวแม่น้ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ใช้เรือโรงแรมฟรีข้ามไปขึ้น BTS สะพานตากสินจะสะดวกกว่ารถมาก · ห้อง Deluxe เริ่มต้นก็ได้วิวแม่น้ำแล้ว ไม่จำเป็นต้องอัปสวีทถ้างบจำกัด",
@@ -144,15 +255,29 @@
       "priceBig": "฿3,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Leisure / Biz Room (~28 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Studio Room (~42–48 ตร.ม.)", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "Grand Deluxe Corner", "price": "เริ่ม ฿5,000/คืน" }
+        {
+          "type": "Leisure / Biz Room (~28 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Studio Room (~42–48 ตร.ม.)",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "Grand Deluxe Corner",
+          "price": "เริ่ม ฿5,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/siam-siam-design-hotel-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/siam-siam.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-702669/siamsiam-design-hotel-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-siam-at-siam-design-hotel-bangkok.html",
-      "tags": ["🎨 ดีไซน์ industrial-art", "📍 ติด BTS สนามกีฬาฯ", "🏊 สระดาดฟ้า + Sky Bar", "🛍️ ใกล้ MBK สยามสแควร์"],
+      "tags": [
+        "🎨 ดีไซน์ industrial-art",
+        "📍 ติด BTS สนามกีฬาฯ",
+        "🏊 สระดาดฟ้า + Sky Bar",
+        "🛍️ ใกล้ MBK สยามสแควร์"
+      ],
       "addr": "865 Rama 1 Road, Wang Mai, Pathum Wan, กรุงเทพ",
       "storyHtml": "Siam@Siam คือ <strong>โรงแรมดีไซน์ที่มีทำเลกลางสยามดีที่สุดในกลุ่มนี้ และมีรีวิวเยอะถึง 1,299 รีวิว</strong> คะแนน 9.2 · จุดเด่นคืองานออกแบบ industrial-art ที่เอาวัสดุเหลือใช้มาเป็นงานศิลป์ สระว่ายน้ำและ Sky Bar ชั้นสูงวิวเมือง · ทำเลตรงข้ามสนามศุภชลาศัย เดินถึง BTS สนามกีฬาแห่งชาติ MBK และสยามสแควร์ได้ เหมาะคนที่อยากช้อปปิ้งและขึ้น BTS ไปไหนก็สะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงจะได้วิวเมืองและเงียบกว่า · ขึ้นไปจิบเครื่องดื่มที่ Sky Bar ตอนพระอาทิตย์ตกเป็นไฮไลต์ที่หลายรีวิวแนะนำ",
@@ -184,15 +309,29 @@
       "priceBig": "฿2,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Mei Hua Superior (~24 ตร.ม.)", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Ying Hua Deluxe (~27 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Mu Dan Suite (~36 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Mei Hua Superior (~24 ตร.ม.)",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Ying Hua Deluxe (~27 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Mu Dan Suite (~36 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/shanghai-mansion/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/shanghai-inn.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-710926/shanghai-mansion-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-shanghai-mansion-bangkok.html",
-      "tags": ["🏮 ธีมเซี่ยงไฮ้ 1930s", "📍 กลางถนนเยาวราช", "🍜 สตรีทฟู้ดหน้าโรงแรม", "🚇 ใกล้ MRT วัดมังกร"],
+      "tags": [
+        "🏮 ธีมเซี่ยงไฮ้ 1930s",
+        "📍 กลางถนนเยาวราช",
+        "🍜 สตรีทฟู้ดหน้าโรงแรม",
+        "🚇 ใกล้ MRT วัดมังกร"
+      ],
       "addr": "479-481 Yaowarat Road, Samphanthawong, กรุงเทพ",
       "storyHtml": "Shanghai Mansion คือ <strong>บูทีคโฮเทลธีมเซี่ยงไฮ้ยุค 1930s ใจกลางถนนเยาวราช</strong> คะแนน 9.2 · จุดขายคือการตกแต่งย้อนยุคจีนที่จัดเต็มทั้งโรงแรม โคมไฟแดง ไม้แกะสลัก และห้องแต่ละแบบตั้งชื่อตามดอกไม้จีน · ทำเลอยู่กลางเยาวราชเลย ลงจากโรงแรมก็เจอสตรีทฟู้ดชื่อดัง และเดินถึง MRT วัดมังกรได้ เหมาะคนที่อยากอินกับบรรยากาศไชน่าทาวน์และกินของอร่อยทั้งคืน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องอยู่กลางเยาวราชที่คึกคักทั้งคืน ขอห้องชั้นในหรือชั้นสูงจะเงียบกว่า · ออกไปกินสตรีทฟู้ดตอนค่ำได้เลยไม่ต้องนั่งรถ",
@@ -224,15 +363,29 @@
       "priceBig": "฿2,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "INNSiDE Room Twin (20 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" },
-        { "type": "INNSiDE Corner (20 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "INNSiDE Connecting Room (40 ตร.ม.)", "price": "เริ่ม ฿4,800/คืน" }
+        {
+          "type": "INNSiDE Room Twin (20 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        },
+        {
+          "type": "INNSiDE Corner (20 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "INNSiDE Connecting Room (40 ตร.ม.)",
+          "price": "เริ่ม ฿4,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/innside-by-melia-bangkok-sukhumvit/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/innside-by-melia-bangkok-sukhumvit.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-105826915/innside-by-meli-bangkok-sukhumvit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-innside-by-melia-sukhumvit-bangkok.html",
-      "tags": ["🎨 ดีไซน์โฮเทลจากสเปน", "📍 ติด BTS อ่อนนุช", "🏊 สระดาดฟ้า + Rooftop Bar", "🍳 อาหารเช้าได้คะแนนดี"],
+      "tags": [
+        "🎨 ดีไซน์โฮเทลจากสเปน",
+        "📍 ติด BTS อ่อนนุช",
+        "🏊 สระดาดฟ้า + Rooftop Bar",
+        "🍳 อาหารเช้าได้คะแนนดี"
+      ],
       "addr": "1472 Sukhumvit Road, Phra Khanong, Khlong Toei, กรุงเทพ",
       "storyHtml": "INNSiDE by Meliá เป็น <strong>ดีไซน์โฮเทลเครือ Meliá จากสเปน ติด BTS อ่อนนุชแบบเดินออกมาก็ถึงสถานี</strong> คะแนน 9.1 จากกว่า 1,027 รีวิว · จุดเด่นที่เสียงรีวิวชมคือห้องกระจกบานใหญ่วิวเมือง สระว่ายน้ำและ Rooftop Bar ชั้นบน และอาหารเช้าที่ได้คะแนนดี · ย่านอ่อนนุชเต็มไปด้วยร้านอาหารและตลาดกลางคืน นั่ง BTS ไปสยาม-อโศกแค่ไม่กี่สถานี เหมาะคนที่อยากได้ดีไซน์ดีในราคากลางๆ ติดรถไฟฟ้า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องหัวมุม (Corner) วิวเปิดกว่าและสว่างกว่า · ขึ้น Rooftop Bar ตอนเย็นวิวเมืองสวย และเดินไปตลาดกลางคืนแถวอ่อนนุชได้",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (18 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Superior Room (~19 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Premium (ระเบียง/วิว)", "price": "เริ่ม ฿2,300/คืน" }
+        {
+          "type": "Standard Room (18 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Superior Room (~19 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Premium (ระเบียง/วิว)",
+          "price": "เริ่ม ฿2,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ibis-styles-bangkok-silom/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ibis-styles-bangkok-silom.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-57352068/ibis-styles-bangkok-silom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ibis-styles-bangkok-silom-bangkok.html",
-      "tags": ["💬 รีวิวมากสุด 2,387", "📍 บนถนนสีลม", "🚇 BTS ศาลาแดง/MRT สีลม", "💰 คุ้มราคากลางเมือง"],
+      "tags": [
+        "💬 รีวิวมากสุด 2,387",
+        "📍 บนถนนสีลม",
+        "🚇 BTS ศาลาแดง/MRT สีลม",
+        "💰 คุ้มราคากลางเมือง"
+      ],
       "addr": "289 Silom Road, Silom, Bang Rak, กรุงเทพ",
       "storyHtml": "ibis Styles Silom คือ <strong>โรงแรมที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 2,387 รีวิว และคะแนนยังสูงถึง 9.2</strong> ซึ่งเป็นเครื่องยืนยันความสม่ำเสมอที่หาได้ยากในราคาเริ่ม ฿1,500 · จุดเด่นคือทำเลบนถนนสีลมที่เดินถึงทั้ง BTS ศาลาแดงและ MRT สีลม เลือกขึ้นรถไฟฟ้าได้สองสาย · ดีไซน์สดใสสไตล์ ibis Styles ห้องสะอาดพร้อมอาหารเช้า เหมาะคนที่อยากได้ที่พักคุ้มราคากลางย่านธุรกิจที่ไปไหนก็สะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สีลมกลางวันเป็นย่านธุรกิจ กลางคืนใกล้พัฒน์พงษ์ที่คึกคัก · ขอห้อง Superior ขึ้นไปจะสว่างและสดใสกว่าห้อง Standard",
@@ -304,15 +471,29 @@
       "priceBig": "฿2,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Premier Room (~30 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" },
-        { "type": "Deluxe Suite (~35 ตร.ม.)", "price": "เริ่ม ฿3,600/คืน" },
-        { "type": "The Living Suite (~45 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Premier Room (~30 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        },
+        {
+          "type": "Deluxe Suite (~35 ตร.ม.)",
+          "price": "เริ่ม ฿3,600/คืน"
+        },
+        {
+          "type": "The Living Suite (~45 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-salil-hotel-sukhumvit-57-thonglor/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-salil-sukhumvit-57-thonglor.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-7703208/the-salil-hotel-sukhumvit-57-thonglor/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-salil-hotel-thonglor-bangkok.html",
-      "tags": ["🇬🇧 ตกแต่งสไตล์อังกฤษ", "📍 ย่านทองหล่อ-สุขุมวิท 57", "☕ คาเฟ่และร้านอาหารฮิป", "🛏️ ห้องกว้างมีมินิคิทเชน"],
+      "tags": [
+        "🇬🇧 ตกแต่งสไตล์อังกฤษ",
+        "📍 ย่านทองหล่อ-สุขุมวิท 57",
+        "☕ คาเฟ่และร้านอาหารฮิป",
+        "🛏️ ห้องกว้างมีมินิคิทเชน"
+      ],
       "addr": "24 Soi Sukhumvit 57, Khlong Tan Nuea, Watthana, กรุงเทพ",
       "storyHtml": "The Salil คือ <strong>บูทีคโฮเทลตกแต่งสไตล์อังกฤษกลางย่านทองหล่อที่มีรีวิวเยอะถึง 1,214 รีวิว</strong> คะแนน 8.9 · จุดเด่นคือดีไซน์อบอุ่นแบบบ้านอังกฤษ ห้องกว้างกว่าค่าเฉลี่ยพร้อมมุมมินิคิทเชน · ทำเลอยู่ซอยสุขุมวิท 57 ใกล้ BTS ทองหล่อ ย่านคาเฟ่ ร้านอาหาร และไนท์ไลฟ์ฮิปที่สุดของกรุงเทพ เหมาะคนที่อยากได้บรรยากาศบูทีคและอินกับไลฟ์สไตล์ทองหล่อ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จากโรงแรมเดินเข้าปากซอยทองหล่อแล้วต่อวินมอเตอร์ไซค์หรือเดินไป BTS ได้ · ห้องเริ่มต้น Premier ก็กว้างพอ ถ้าพักหลายคืนค่อยอัปเป็นสวีท",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Comfy King City (~19 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Comfy King Courtyard (~19 ตร.ม.)", "price": "เริ่ม ฿2,000/คืน" },
-        { "type": "Biggy King Bunk (~27 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" }
+        {
+          "type": "Comfy King City (~19 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Comfy King Courtyard (~19 ตร.ม.)",
+          "price": "เริ่ม ฿2,000/คืน"
+        },
+        {
+          "type": "Biggy King Bunk (~27 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/asai-bangkok-chinatown/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/asai-bangkok-chinatown-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-65824582/asai-bangkok-chinatown/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-asai-bangkok-chinatown-bangkok.html",
-      "tags": ["🎨 ดีไซน์ ASAI by Dusit", "📍 ใกล้ MRT วัดมังกร", "🍜 ติดไชน่าทาวน์", "💰 ดีไซน์ดีราคาคุ้ม"],
+      "tags": [
+        "🎨 ดีไซน์ ASAI by Dusit",
+        "📍 ใกล้ MRT วัดมังกร",
+        "🍜 ติดไชน่าทาวน์",
+        "💰 ดีไซน์ดีราคาคุ้ม"
+      ],
       "addr": "531 Charoen Krung Road, Pom Prap Sattru Phai, กรุงเทพ",
       "storyHtml": "ASAI Bangkok Chinatown คือ <strong>ดีไซน์โฮเทลแบรนด์ ASAI by Dusit ที่ให้งานออกแบบดีในราคาคุ้ม และมีรีวิวเยอะ 1,473 รีวิว</strong> คะแนน 9.0 · จุดเด่นคือห้องดีไซน์กะทัดรัดแต่จัดวางลงตัว มีคอร์ทยาร์ดและพื้นที่ส่วนกลางสไตล์โมเดิร์น · ทำเลอยู่เจริญกรุงใกล้ MRT วัดมังกร เดินเข้าเยาวราชและตรอกสตรีทฟู้ดได้ เหมาะคนที่อยากได้ห้องดีไซน์ดีติดไชน่าทาวน์โดยไม่ต้องจ่ายแพง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องเริ่มต้นกะทัดรัด ถ้าอยากเงียบขอห้องฝั่ง Courtyard · มาเป็นกลุ่มหรือครอบครัวเล็กเลือก Biggy King Bunk ที่มีเตียงสองชั้น",
@@ -384,15 +579,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior (ไม่มีหน้าต่าง)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Room (มีหน้าต่าง)", "price": "เริ่ม ฿1,700/คืน" },
-        { "type": "Premium Deluxe Triple", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Superior (ไม่มีหน้าต่าง)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Room (มีหน้าต่าง)",
+          "price": "เริ่ม ฿1,700/คืน"
+        },
+        {
+          "type": "Premium Deluxe Triple",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-royal-bangkok-china-town/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hotel-royal-bangkok-chinatown.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1761540/hotel-royal-bangkokchinatown/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-royal-bangkok-chinatown-bangkok.html",
-      "tags": ["🏊 สระว่ายน้ำดาดฟ้า", "🚇 ติด MRT วัดมังกร", "🍜 กลางถนนเยาวราช", "💰 290 ห้อง ราคาคุ้ม"],
+      "tags": [
+        "🏊 สระว่ายน้ำดาดฟ้า",
+        "🚇 ติด MRT วัดมังกร",
+        "🍜 กลางถนนเยาวราช",
+        "💰 290 ห้อง ราคาคุ้ม"
+      ],
       "addr": "409-421/4 Yaowarat Road, Samphanthawong, กรุงเทพ",
       "storyHtml": "Hotel Royal @ Chinatown คือ <strong>โรงแรมขนาดใหญ่ 290 ห้องกลางถนนเยาวราช ที่มีสระว่ายน้ำดาดฟ้าในราคาเริ่มแค่ ฿1,400</strong> รีวิวเยอะถึง 1,498 คะแนน 9.0 · จุดเด่นคือทำเลติด MRT วัดมังกร ลงมาก็เจอเยาวราชและสตรีทฟู้ดเลย พร้อมสระดาดฟ้าที่หาได้ยากในราคานี้ · เหมาะคนที่อยากพักกลางไชน่าทาวน์แบบประหยัดแต่ยังได้สิ่งอำนวยความสะดวกครบ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Superior เริ่มต้นไม่มีหน้าต่าง ถ้าอยากได้แสงธรรมชาติอัปเป็น Deluxe ที่มีหน้าต่าง · ขึ้นสระดาดฟ้าตอนเย็นวิวเยาวราชสวย",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double (17 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Standard Twin (17 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Standard วิวเมือง (ชั้นสูง)", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Standard Double (17 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Standard Twin (17 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Standard วิวเมือง (ชั้นสูง)",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ibis-bangkok-siam-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ibis-bangkok-siam.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1419991/ibis-bangkok-siam/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ibis-bangkok-siam-bangkok.html",
-      "tags": ["📍 ติด BTS สนามกีฬาฯ", "🛍️ เดินถึง MBK สยามสแควร์", "💰 เครือ ibis ราคาคุ้ม", "🛏️ ห้องสะอาดมาตรฐาน"],
+      "tags": [
+        "📍 ติด BTS สนามกีฬาฯ",
+        "🛍️ เดินถึง MBK สยามสแควร์",
+        "💰 เครือ ibis ราคาคุ้ม",
+        "🛏️ ห้องสะอาดมาตรฐาน"
+      ],
       "addr": "927 Rama I Road, Wang Mai, Pathum Wan, กรุงเทพ",
       "storyHtml": "ibis Bangkok Siam คือ <strong>โรงแรมเครือ ibis ที่อยู่ติด BTS สนามกีฬาแห่งชาติกลางย่านสยาม</strong> คะแนน 8.7 จากกว่า 1,113 รีวิว · จุดขายชัดเจนคือทำเลที่เดินถึง MBK สยามสแควร์ และขึ้น BTS ไปไหนก็สะดวก ในราคาเริ่ม ฿1,500 · ห้องสะอาดมาตรฐานเครือ ibis ที่รู้ว่าจะได้อะไร เหมาะคนที่เน้นทำเลช้อปปิ้งและรถไฟฟ้าในราคาประหยัดมากกว่าบรรยากาศห้อง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องมาตรฐาน 17 ตร.ม. กะทัดรัด ขอห้องชั้นสูงวิวเมืองจะสว่างและเงียบกว่า · เดินไป MBK และสยามสแควร์ช้อปปิ้งได้สบาย",
@@ -464,15 +687,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/เตียง",
       "rooms": [
-        { "type": "เตียงในดอร์มรวม 4 เตียง", "price": "เริ่ม ฿650/เตียง" },
-        { "type": "เตียงในดอร์มหญิงล้วน 4 เตียง", "price": "เริ่ม ฿700/เตียง" },
-        { "type": "The Compact (ห้องส่วนตัว)", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "เตียงในดอร์มรวม 4 เตียง",
+          "price": "เริ่ม ฿650/เตียง"
+        },
+        {
+          "type": "เตียงในดอร์มหญิงล้วน 4 เตียง",
+          "price": "เริ่ม ฿700/เตียง"
+        },
+        {
+          "type": "The Compact (ห้องส่วนตัว)",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lub-d-bangkok-siam-hostel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lub-d-bangkok-siam-square.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-702072/lub-d-bangkok-siam/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lub-d-bangkok-siam-bangkok.html",
-      "tags": ["🎒 โฮสเทลดีไซน์ดี", "📍 ติด BTS สนามกีฬาฯ", "🛏️ ดอร์มมีม่าน-ไฟ-ล็อกเกอร์", "👫 มีห้องส่วนตัวด้วย"],
+      "tags": [
+        "🎒 โฮสเทลดีไซน์ดี",
+        "📍 ติด BTS สนามกีฬาฯ",
+        "🛏️ ดอร์มมีม่าน-ไฟ-ล็อกเกอร์",
+        "👫 มีห้องส่วนตัวด้วย"
+      ],
       "addr": "925/9 Rama I Road, Wang Mai, Pathum Wan, กรุงเทพ",
       "storyHtml": "Lub d Bangkok Siam คือ <strong>โฮสเทลที่ได้คะแนนสูงสุดในกลุ่มที่พักราคาประหยัด — 9.2 จากเครือ Lub d ที่รีโนเวตใหม่</strong> · จุดเด่นคือดอร์มที่ออกแบบดีกว่าโฮสเทลทั่วไป มีม่านส่วนตัว ไฟอ่านหนังสือ ปลั๊กชาร์จ และล็อกเกอร์ในทุกเตียง พร้อมพื้นที่ส่วนกลางที่เจอเพื่อนร่วมทริปได้ · ทำเลติด BTS สนามกีฬาแห่งชาติกลางสยาม เริ่มแค่ ฿650 ต่อเตียง และมีห้องส่วนตัวให้เลือกสำหรับคนไม่อยากนอนรวม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ผู้หญิงเดินทางคนเดียวเลือกดอร์มหญิงล้วนจะอุ่นใจกว่า · ถ้าอยากความเป็นส่วนตัวแต่งบไม่สูง The Compact เป็นห้องส่วนตัวเริ่ม ฿1,500",
@@ -504,15 +741,29 @@
       "priceBig": "฿300",
       "priceSub": "ราคาเริ่มต้น/เตียง",
       "rooms": [
-        { "type": "เตียงดอร์มรวม 6 เตียง", "price": "เริ่ม ฿300/เตียง" },
-        { "type": "เตียงดอร์มหญิงล้วน", "price": "เริ่ม ฿330/เตียง" },
-        { "type": "ห้องส่วนตัว Double", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "เตียงดอร์มรวม 6 เตียง",
+          "price": "เริ่ม ฿300/เตียง"
+        },
+        {
+          "type": "เตียงดอร์มหญิงล้วน",
+          "price": "เริ่ม ฿330/เตียง"
+        },
+        {
+          "type": "ห้องส่วนตัว Double",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/silom-space-hostel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/silom-space-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-6634170/silom-space-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-silom-space-hostel-bangkok.html",
-      "tags": ["🪙 ถูกสุดในบทความ ฿300", "📍 บนถนนสีลม", "🚇 BTS ศาลาแดง/MRT สีลม", "🛏️ มีห้องส่วนตัวด้วย"],
+      "tags": [
+        "🪙 ถูกสุดในบทความ ฿300",
+        "📍 บนถนนสีลม",
+        "🚇 BTS ศาลาแดง/MRT สีลม",
+        "🛏️ มีห้องส่วนตัวด้วย"
+      ],
       "addr": "8 Silom Road, Suriya Wong, Bang Rak, กรุงเทพ",
       "storyHtml": "Silom Space Hostel คือ <strong>ตัวเลือกที่ถูกที่สุดในบทความนี้ — เริ่มแค่ ฿300 ต่อเตียง แต่อยู่บนถนนสีลม</strong> · เหมาะกับแบ็กแพ็กเกอร์และคนงบจำกัดที่เน้นทำเลและราคา · เสียงรีวิวจริงบอกว่าได้ทำเลติด BTS ศาลาแดงและใกล้ MRT สีลม ขึ้นรถไฟฟ้าได้สองสาย แต่คะแนน 7.5 สะท้อนว่าเป็นโฮสเทลพื้นฐานเน้นความคุ้ม ไม่ใช่ดีไซน์หรู · มีทั้งดอร์มและห้องส่วนตัวให้เลือกตามงบ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ราคาถูกแลกกับสิ่งอำนวยความสะดวกพื้นฐาน เช็กรีวิวล่าสุดและรูปห้องก่อนจอง · ถ้าอยากเป็นส่วนตัวเลือกห้อง Double เริ่ม ฿750",
@@ -530,39 +781,211 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม กรุงเทพ 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Mandarin Oriental, Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.5", "price": "฿16,000", "access": "📍 ริมเจ้าพระยา·บางรัก", "badge": "หรู+คะแนนสูงสุด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "The Peninsula Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿11,000", "access": "📍 ริมเจ้าพระยา·คลองสาน", "badge": "ริมน้ำวิวเต็ม", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Siam@Siam Design Hotel", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿3,200", "access": "📍 สยาม·BTS สนามกีฬาฯ", "badge": "ทำเลสยามดีสุด", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Shanghai Mansion Bangkok", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿2,500", "access": "📍 เยาวราช·MRT วัดมังกร", "badge": "บูทีคธีมเด่น", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "INNSiDE by Meliá Sukhumvit", "type": "⭐⭐⭐", "score": "9.1", "price": "฿2,800", "access": "📍 สุขุมวิท·BTS อ่อนนุช", "badge": "ดีไซน์ติด BTS", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "ibis Styles Bangkok Silom", "type": "⭐⭐⭐", "score": "9.2", "price": "฿1,500", "access": "📍 สีลม·BTS ศาลาแดง", "badge": "รีวิวมากสุด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "The Salil Hotel Thonglor", "type": "⭐⭐⭐⭐", "score": "8.9", "price": "฿2,800", "access": "📍 ทองหล่อ·BTS ทองหล่อ", "badge": "บูทีคทองหล่อ", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "ASAI Bangkok Chinatown", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,800", "access": "📍 ไชน่าทาวน์·MRT วัดมังกร", "badge": "ดีไซน์คุ้ม" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Hotel Royal Bangkok @ Chinatown", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,400", "access": "📍 เยาวราช·MRT วัดมังกร", "badge": "สระดาดฟ้าประหยัด", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#bf8040", "name": "ibis Bangkok Siam", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,500", "access": "📍 สยาม·BTS สนามกีฬาฯ" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Lub d Bangkok Siam", "type": "⭐⭐", "score": "9.2", "price": "฿650", "access": "📍 สยาม·BTS สนามกีฬาฯ", "badge": "โฮสเทลคะแนนสูงสุด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Silom Space Hostel", "type": "⭐⭐", "score": "7.5", "price": "฿300", "access": "📍 สีลม·BTS ศาลาแดง", "badge": "ถูกสุด", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Mandarin Oriental, Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿16,000",
+      "access": "📍 ริมเจ้าพระยา·บางรัก",
+      "badge": "หรู+คะแนนสูงสุด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "The Peninsula Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿11,000",
+      "access": "📍 ริมเจ้าพระยา·คลองสาน",
+      "badge": "ริมน้ำวิวเต็ม",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Siam@Siam Design Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿3,200",
+      "access": "📍 สยาม·BTS สนามกีฬาฯ",
+      "badge": "ทำเลสยามดีสุด",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Shanghai Mansion Bangkok",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿2,500",
+      "access": "📍 เยาวราช·MRT วัดมังกร",
+      "badge": "บูทีคธีมเด่น",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "INNSiDE by Meliá Sukhumvit",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿2,800",
+      "access": "📍 สุขุมวิท·BTS อ่อนนุช",
+      "badge": "ดีไซน์ติด BTS",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "ibis Styles Bangkok Silom",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,500",
+      "access": "📍 สีลม·BTS ศาลาแดง",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "The Salil Hotel Thonglor",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿2,800",
+      "access": "📍 ทองหล่อ·BTS ทองหล่อ",
+      "badge": "บูทีคทองหล่อ",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "ASAI Bangkok Chinatown",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,800",
+      "access": "📍 ไชน่าทาวน์·MRT วัดมังกร",
+      "badge": "ดีไซน์คุ้ม"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Hotel Royal Bangkok @ Chinatown",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,400",
+      "access": "📍 เยาวราช·MRT วัดมังกร",
+      "badge": "สระดาดฟ้าประหยัด",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#bf8040",
+      "name": "ibis Bangkok Siam",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,500",
+      "access": "📍 สยาม·BTS สนามกีฬาฯ"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Lub d Bangkok Siam",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿650",
+      "access": "📍 สยาม·BTS สนามกีฬาฯ",
+      "badge": "โฮสเทลคะแนนสูงสุด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Silom Space Hostel",
+      "type": "⭐⭐",
+      "score": "7.5",
+      "price": "฿300",
+      "access": "📍 สีลม·BTS ศาลาแดง",
+      "badge": "ถูกสุด",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมกรุงเทพยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Silom Space Hostel</strong> เริ่ม ฿300/เตียง ติด BTS ศาลาแดง · หรือ <strong>Lub d Bangkok Siam</strong> ฿650/เตียง โฮสเทลดีไซน์ดีคะแนน 9.2 กลางสยาม" },
-    { "icon": "🛍️", "head": "เน้นช้อปปิ้ง ติดรถไฟฟ้า", "bodyHtml": "→ <strong>Siam@Siam Design Hotel</strong> ฿3,200 ดีไซน์เด่นกลางสยาม · หรือ <strong>ibis Bangkok Siam</strong> ฿1,500 เดินถึง MBK สยามสแควร์" },
-    { "icon": "🍜", "head": "อยากอินกับไชน่าทาวน์ สตรีทฟู้ด", "bodyHtml": "→ <strong>Shanghai Mansion</strong> ฿2,500 ธีมเซี่ยงไฮ้กลางเยาวราช · หรือ <strong>Hotel Royal @ Chinatown</strong> ฿1,400 มีสระดาดฟ้า ติด MRT วัดมังกร" },
-    { "icon": "🎨", "head": "อยากได้ดีไซน์ดีราคากลาง", "bodyHtml": "→ <strong>INNSiDE by Meliá Sukhumvit</strong> ฿2,800 ติด BTS อ่อนนุช · หรือ <strong>ASAI Bangkok Chinatown</strong> ฿1,800 ดีไซน์ ASAI by Dusit คุ้มมาก" },
-    { "icon": "💎", "head": "ทริปพิเศษ Luxury ริมแม่น้ำ", "bodyHtml": "→ <strong>Mandarin Oriental</strong> ฿16,000 โรงแรมในตำนานริมเจ้าพระยา คะแนน 9.5 · หรือ <strong>The Peninsula</strong> ฿11,000 ทุกห้องวิวแม่น้ำ" },
-    { "icon": "☕", "head": "อยากอยู่ย่านคาเฟ่ ไลฟ์สไตล์ฮิป", "bodyHtml": "→ <strong>The Salil Hotel Thonglor</strong> ฿2,800 บูทีคย่านทองหล่อ คาเฟ่และร้านอาหารฮิปเดินถึง" },
-    { "icon": "🏢", "head": "ย่านธุรกิจ สีลม-สาทร", "bodyHtml": "→ <strong>ibis Styles Bangkok Silom</strong> ฿1,500 รีวิวมากสุด 2,387 ติด BTS ศาลาแดง/MRT สีลม คุ้มมากกลางย่านธุรกิจ" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Silom Space Hostel</strong> เริ่ม ฿300/เตียง ติด BTS ศาลาแดง · หรือ <strong>Lub d Bangkok Siam</strong> ฿650/เตียง โฮสเทลดีไซน์ดีคะแนน 9.2 กลางสยาม"
+    },
+    {
+      "icon": "🛍️",
+      "head": "เน้นช้อปปิ้ง ติดรถไฟฟ้า",
+      "bodyHtml": "→ <strong>Siam@Siam Design Hotel</strong> ฿3,200 ดีไซน์เด่นกลางสยาม · หรือ <strong>ibis Bangkok Siam</strong> ฿1,500 เดินถึง MBK สยามสแควร์"
+    },
+    {
+      "icon": "🍜",
+      "head": "อยากอินกับไชน่าทาวน์ สตรีทฟู้ด",
+      "bodyHtml": "→ <strong>Shanghai Mansion</strong> ฿2,500 ธีมเซี่ยงไฮ้กลางเยาวราช · หรือ <strong>Hotel Royal @ Chinatown</strong> ฿1,400 มีสระดาดฟ้า ติด MRT วัดมังกร"
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้ดีไซน์ดีราคากลาง",
+      "bodyHtml": "→ <strong>INNSiDE by Meliá Sukhumvit</strong> ฿2,800 ติด BTS อ่อนนุช · หรือ <strong>ASAI Bangkok Chinatown</strong> ฿1,800 ดีไซน์ ASAI by Dusit คุ้มมาก"
+    },
+    {
+      "icon": "💎",
+      "head": "ทริปพิเศษ Luxury ริมแม่น้ำ",
+      "bodyHtml": "→ <strong>Mandarin Oriental</strong> ฿16,000 โรงแรมในตำนานริมเจ้าพระยา คะแนน 9.5 · หรือ <strong>The Peninsula</strong> ฿11,000 ทุกห้องวิวแม่น้ำ"
+    },
+    {
+      "icon": "☕",
+      "head": "อยากอยู่ย่านคาเฟ่ ไลฟ์สไตล์ฮิป",
+      "bodyHtml": "→ <strong>The Salil Hotel Thonglor</strong> ฿2,800 บูทีคย่านทองหล่อ คาเฟ่และร้านอาหารฮิปเดินถึง"
+    },
+    {
+      "icon": "🏢",
+      "head": "ย่านธุรกิจ สีลม-สาทร",
+      "bodyHtml": "→ <strong>ibis Styles Bangkok Silom</strong> ฿1,500 รีวิวมากสุด 2,387 ติด BTS ศาลาแดง/MRT สีลม คุ้มมากกลางย่านธุรกิจ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงเทศกาล (สงกรานต์ 13–15 เม.ย., ปีใหม่, วันหยุดยาว) ราคาสูงขึ้นและห้องเต็มเร็ว จองล่วงหน้า · กรุงเทพรถติด เลือกโรงแรมติด BTS/MRT หรือริมน้ำที่มีเรือจะเดินทางสะดวกที่สุด · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมกรุงเทพ",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในกรุงเทพสำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>สยาม</strong> เหมาะคนชอบช้อปปิ้งและขึ้น BTS ไปไหนก็สะดวก (Siam@Siam, ibis Siam, Lub d) · <strong>สุขุมวิท/ทองหล่อ</strong> เหมาะคนชอบร้านอาหารและไนท์ไลฟ์ (INNSiDE, The Salil) · <strong>สีลม</strong> ย่านธุรกิจติดทั้ง BTS และ MRT (ibis Styles Silom, Silom Space) · <strong>เยาวราช</strong> เหมาะคนรักสตรีทฟู้ด (Shanghai Mansion, ASAI, Hotel Royal) · <strong>ริมเจ้าพระยา</strong> เหมาะพักผ่อนหรู (Mandarin Oriental, The Peninsula)" },
-    { "q": "❓ โรงแรมกรุงเทพราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลเริ่มราว ฿300–700 ต่อเตียง · โรงแรม 3 ดาวและบูทีคคุณภาพราว ฿1,400–3,200 ต่อคืน · ระดับ 4 ดาวราว ฿2,500–4,500 · Luxury 5 ดาวริมแม่น้ำเริ่ม ฿11,000–16,000+ · ช่วงเทศกาล (สงกรานต์ ปีใหม่ วันหยุดยาว) ราคาอาจสูงกว่าปกติ" },
-    { "q": "❓ โรงแรมกรุงเทพแบบไหนเดินทางสะดวกที่สุด?", "a": "เลือกโรงแรมที่ <strong>ติดหรือใกล้ BTS/MRT</strong> จะเลี่ยงรถติดได้มากที่สุด — เช่น Siam@Siam และ ibis Siam ติด BTS สนามกีฬาฯ, INNSiDE ติด BTS อ่อนนุช, ibis Styles Silom ใกล้ BTS ศาลาแดง/MRT สีลม, ASAI และ Hotel Royal ใกล้ MRT วัดมังกร · ส่วนโรงแรมริมเจ้าพระยาอย่าง Mandarin Oriental และ The Peninsula มีเรือโรงแรมเชื่อม BTS สะพานตากสิน" },
-    { "q": "❓ ควรจองโรงแรมกรุงเทพล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติ จองล่วงหน้า 1–3 สัปดาห์เพียงพอเพราะกรุงเทพมีห้องพักจำนวนมาก · แต่ช่วงสงกรานต์ (13–15 เมษายน), ปีใหม่, วันหยุดยาว และช่วงงานอีเวนต์ใหญ่ ห้องดีๆ ราคาดีเต็มเร็ว ควรจองล่วงหน้า 1 เดือนขึ้นไป โดยเฉพาะโรงแรมริมน้ำและบูทีคที่ห้องน้อย" },
-    { "q": "❓ จองโรงแรมกรุงเทพเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน" },
-    { "q": "❓ จากสนามบินเข้าเมืองกรุงเทพยังไง?", "a": "จาก <strong>สุวรรณภูมิ (BKK)</strong> นั่ง Airport Rail Link เข้าเมืองแล้วต่อ BTS/MRT สะดวกและเลี่ยงรถติด หรือเรียกแท็กซี่/Grab · จาก <strong>ดอนเมือง (DMK)</strong> นั่งแท็กซี่ Grab หรือรถเมล์/รถตู้เข้าเมือง · ถ้าโรงแรมอยู่ริมแม่น้ำเจ้าพระยา ลงรถไฟฟ้าแล้วต่อเรือโรงแรมหรือเรือด่วนได้" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในกรุงเทพสำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>สยาม</strong> เหมาะคนชอบช้อปปิ้งและขึ้น BTS ไปไหนก็สะดวก (Siam@Siam, ibis Siam, Lub d) · <strong>สุขุมวิท/ทองหล่อ</strong> เหมาะคนชอบร้านอาหารและไนท์ไลฟ์ (INNSiDE, The Salil) · <strong>สีลม</strong> ย่านธุรกิจติดทั้ง BTS และ MRT (ibis Styles Silom, Silom Space) · <strong>เยาวราช</strong> เหมาะคนรักสตรีทฟู้ด (Shanghai Mansion, ASAI, Hotel Royal) · <strong>ริมเจ้าพระยา</strong> เหมาะพักผ่อนหรู (Mandarin Oriental, The Peninsula)"
+    },
+    {
+      "q": "❓ โรงแรมกรุงเทพราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลเริ่มราว ฿300–700 ต่อเตียง · โรงแรม 3 ดาวและบูทีคคุณภาพราว ฿1,400–3,200 ต่อคืน · ระดับ 4 ดาวราว ฿2,500–4,500 · Luxury 5 ดาวริมแม่น้ำเริ่ม ฿11,000–16,000+ · ช่วงเทศกาล (สงกรานต์ ปีใหม่ วันหยุดยาว) ราคาอาจสูงกว่าปกติ"
+    },
+    {
+      "q": "❓ โรงแรมกรุงเทพแบบไหนเดินทางสะดวกที่สุด?",
+      "a": "เลือกโรงแรมที่ <strong>ติดหรือใกล้ BTS/MRT</strong> จะเลี่ยงรถติดได้มากที่สุด — เช่น Siam@Siam และ ibis Siam ติด BTS สนามกีฬาฯ, INNSiDE ติด BTS อ่อนนุช, ibis Styles Silom ใกล้ BTS ศาลาแดง/MRT สีลม, ASAI และ Hotel Royal ใกล้ MRT วัดมังกร · ส่วนโรงแรมริมเจ้าพระยาอย่าง Mandarin Oriental และ The Peninsula มีเรือโรงแรมเชื่อม BTS สะพานตากสิน"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมกรุงเทพล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติ จองล่วงหน้า 1–3 สัปดาห์เพียงพอเพราะกรุงเทพมีห้องพักจำนวนมาก · แต่ช่วงสงกรานต์ (13–15 เมษายน), ปีใหม่, วันหยุดยาว และช่วงงานอีเวนต์ใหญ่ ห้องดีๆ ราคาดีเต็มเร็ว ควรจองล่วงหน้า 1 เดือนขึ้นไป โดยเฉพาะโรงแรมริมน้ำและบูทีคที่ห้องน้อย"
+    },
+    {
+      "q": "❓ จองโรงแรมกรุงเทพเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน"
+    },
+    {
+      "q": "❓ จากสนามบินเข้าเมืองกรุงเทพยังไง?",
+      "a": "จาก <strong>สุวรรณภูมิ (BKK)</strong> นั่ง Airport Rail Link เข้าเมืองแล้วต่อ BTS/MRT สะดวกและเลี่ยงรถติด หรือเรียกแท็กซี่/Grab · จาก <strong>ดอนเมือง (DMK)</strong> นั่งแท็กซี่ Grab หรือรถเมล์/รถตู้เข้าเมือง · ถ้าโรงแรมอยู่ริมแม่น้ำเจ้าพระยา ลงรถไฟฟ้าแล้วต่อเรือโรงแรมหรือเรือด่วนได้"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมกรุงเทพคัดจากทุกระดับ — ตั้งแต่ Mandarin Oriental ริมเจ้าพระยา ไปถึง Silom Space Hostel เริ่ม ฿300 อ่านจากรีวิวแขกจริง คะแนนจริง ราคาเริ่มต้นจริง เทียบ 3 เว็บ ลิงก์จองตรง"
 }

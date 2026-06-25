@@ -16,16 +16,39 @@
     "✅ Honest takes from <strong>real reviews</strong> everywhere"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Ratchaburi", "href": "city-ratchaburi.html" },
-    { "name": "15 Romantic Suan Phueng Stays" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Ratchaburi",
+      "href": "city-ratchaburi.html"
+    },
+    {
+      "name": "15 Romantic Suan Phueng Stays"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Ratchaburi", "item": "https://thailandaddict.com/en/city-ratchaburi" },
-    { "name": "15 Romantic Suan Phueng Stays", "item": "https://thailandaddict.com/en/top15-suan-phung-hotels-ratchaburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Ratchaburi",
+      "item": "https://thailandaddict.com/en/city-ratchaburi"
+    },
+    {
+      "name": "15 Romantic Suan Phueng Stays",
+      "item": "https://thailandaddict.com/en/top15-suan-phung-hotels-ratchaburi"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top15-suan-phung-hotels-ratchaburi.html",
@@ -34,21 +57,96 @@
   "mrtHtml": "Suan Phueng has no train line and no convenient public transport, and the sights are spread far apart across the valley, so almost every stay in this article suits people who <strong>drive their own car</strong> best · Getting to Ratchaburi and Suan Phueng: from Bangkok it's about a 2.5–3 hour drive via the Ban Pong–Chom Bueng–Suan Phueng route, while from Ratchaburi town to Suan Phueng is about 60 kilometres, or roughly 1 hour · If you don't have your own car, the option is to take a van or coach to Ratchaburi town and then rent a car or catch a local ride into Suan Phueng, which isn't very convenient · The stays in this article are spread across several zones: <strong>mid-valley around The Scenery/Bo Khlueng</strong> — the densest cluster of resorts and sheep farms · <strong>along the Phachi stream</strong> — riverside stays where you can swim · <strong>Tanao Si/inner Huai Khlum</strong> — quiet, far from the sights, best as a base for relaxing and needing a fair bit of driving in and out.",
   "secLabel": "All 15 stays — let's get started",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Swiss Valley Hip Resort", "price": "฿3,990" },
-    { "n": "2", "color": "#06B6D4", "name": "Bibury Resort", "price": "฿2,800" },
-    { "n": "3", "color": "#06B6D4", "name": "The Loft Berry Resort", "price": "฿1,800" },
-    { "n": "4", "color": "#06B6D4", "name": "Villa Moreeda", "price": "฿3,200" },
-    { "n": "5", "color": "#06B6D4", "name": "Silver Garden Resort", "price": "฿1,500" },
-    { "n": "6", "color": "#06B6D4", "name": "Villa Tuscany Country Resort", "price": "฿1,200" },
-    { "n": "7", "color": "#06B6D4", "name": "Pribpandao Home & Camping", "price": "฿970" },
-    { "n": "8", "color": "#06B6D4", "name": "Hi-Scene Resort", "price": "฿2,169" },
-    { "n": "9", "color": "#06B6D4", "name": "Lom Rak Resort", "price": "฿800" },
-    { "n": "10", "color": "#06B6D4", "name": "Dandelion Resort", "price": "฿1,050" },
-    { "n": "11", "color": "#06B6D4", "name": "The Banyan Leaf Resort", "price": "฿2,000" },
-    { "n": "12", "color": "#06B6D4", "name": "Panalee Home & Camping", "price": "฿1,650" },
-    { "n": "13", "color": "#06B6D4", "name": "Ashcarya Boutique Resort", "price": "฿2,500" },
-    { "n": "14", "color": "#06B6D4", "name": "Stamp Hills Resort", "price": "฿1,100" },
-    { "n": "15", "color": "#06B6D4", "name": "La Provence Suan Phung Hotel", "price": "฿2,300" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Swiss Valley Hip Resort",
+      "price": "฿3,990"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Bibury Resort",
+      "price": "฿2,800"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Loft Berry Resort",
+      "price": "฿1,800"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Villa Moreeda",
+      "price": "฿3,200"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "Silver Garden Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Villa Tuscany Country Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Pribpandao Home & Camping",
+      "price": "฿970"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "Hi-Scene Resort",
+      "price": "฿2,169"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Lom Rak Resort",
+      "price": "฿800"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Dandelion Resort",
+      "price": "฿1,050"
+    },
+    {
+      "n": "11",
+      "color": "#06B6D4",
+      "name": "The Banyan Leaf Resort",
+      "price": "฿2,000"
+    },
+    {
+      "n": "12",
+      "color": "#06B6D4",
+      "name": "Panalee Home & Camping",
+      "price": "฿1,650"
+    },
+    {
+      "n": "13",
+      "color": "#06B6D4",
+      "name": "Ashcarya Boutique Resort",
+      "price": "฿2,500"
+    },
+    {
+      "n": "14",
+      "color": "#06B6D4",
+      "name": "Stamp Hills Resort",
+      "price": "฿1,100"
+    },
+    {
+      "n": "15",
+      "color": "#06B6D4",
+      "name": "La Provence Suan Phung Hotel",
+      "price": "฿2,300"
+    }
   ],
   "entries": [
     {
@@ -67,15 +165,29 @@
       "priceBig": "฿3,990",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Sweet Villa with Swimming Pool (~50 sq.m · private pool)", "price": "from ฿3,990/night" },
-        { "type": "Junior Suite Villa (~65 sq.m · King bed)", "price": "from ฿4,500/night" },
-        { "type": "Family Villa, 2 bedrooms (~80 sq.m)", "price": "from ฿6,500/night" }
+        {
+          "type": "Sweet Villa with Swimming Pool (~50 sq.m · private pool)",
+          "price": "from ฿3,990/night"
+        },
+        {
+          "type": "Junior Suite Villa (~65 sq.m · King bed)",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Family Villa, 2 bedrooms (~80 sq.m)",
+          "price": "from ฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/swiss-valley-hip-resort-ratchaburi/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/swiss-valley-hip-resort-swnphueng.html",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-10936956/swiss-valley-hip-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-swiss-valley-hip-resort-ratchaburi.html",
-      "tags": ["🏡 About 19 separate villas", "🐑 Free activities, horse riding & feeding sheep", "🏊 Mountain-view pool", "🛺 24-hr golf-cart shuttle"],
+      "tags": [
+        "🏡 About 19 separate villas",
+        "🐑 Free activities, horse riding & feeding sheep",
+        "🏊 Mountain-view pool",
+        "🛺 24-hr golf-cart shuttle"
+      ],
       "addr": "7/7 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If you want to start a Suan Phueng couples' trip with a stay that has \"something to do all day,\" many reviews put <strong>Swiss Valley Hip Resort</strong> among the first names — a European-style villa resort on more than 80 rai in the valley. The accommodation is around 19 separate villas, each named after a wine grape variety like Syrah, Grenache and Zinfandel, so it feels like staying on a little vineyard. Real review scores run about 9.2 from 13 reviews on Trip.com and 4.7 out of 5 on Wongnai · What couples love is that many villas have a separate bathtub in a large bathroom, plus a balcony looking out over the garden or mountains where you can sip coffee in the morning · What gets this place talked about most is the free activities included in the room rate with no extra charge — horse riding, feeding sheep, feeding fish, archery and putting golf, run in slots around 09:00–11:00 and 15:00–17:00, which many reviews suggest you plan your check-in time to catch · There's an outdoor mountain-view pool to cool off in during the late afternoon, and because the grounds stretch to 80 rai there's a 24-hour golf-cart shuttle that reviews praise as quick to arrive so you don't have to walk · Service draws consistent praise for attentive, smiling staff · Honest caveats from the reviews: prices sit in the mid-to-high range for Suan Phueng compared with typical stays, it's a genuine resort in nature so you'll meet some ants or insects depending on the season, and the mid-valley location means you have to drive yourself, with public transport not reaching it conveniently · This isn't the cheapest option, but if you're a couple or family planning to spend the whole day in the resort and want a European farm atmosphere with the privacy of a separate villa, the money you spend on the activities and atmosphere comes back to you in its own way.",
       "tipHtml": "💡 <strong>Tip:</strong> Plan your check-in time to catch the activity slots around 09:00–11:00 or 15:00–17:00 so you get the full set of horse riding, feeding sheep and archery · And specify your villa type clearly when booking, because some have a private pool, some have a bathtub or a rooftop level — they're not all the same.",
@@ -108,14 +220,25 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (King bed · bathtub with nature view)", "price": "from ฿2,800/night" },
-        { "type": "Superior Double Room (larger room · closer to the stream view)", "price": "from ฿3,200/night" }
+        {
+          "type": "Standard Double Room (King bed · bathtub with nature view)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Superior Double Room (larger room · closer to the stream view)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bibury-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Bibury+Resort+Suan+Phueng",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-6346372/bibury-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bibury-resort-ratchaburi.html",
-      "tags": ["🏡 Red-brick English Country houses", "🛁 Every room has a bathtub with nature view", "🛶 Free kayaking & wooden rafts", "🔥 Marshmallow roasting in the evening"],
+      "tags": [
+        "🏡 Red-brick English Country houses",
+        "🛁 Every room has a bathtub with nature view",
+        "🛶 Free kayaking & wooden rafts",
+        "🔥 Marshmallow roasting in the evening"
+      ],
       "addr": "298 Moo 2, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your partner loves the feel of an English countryside village, <strong>Bibury Resort</strong> is a name reviews bring up often for romance by the stream — a small boutique resort with only 8 houses, named and designed after Bibury, one of the prettiest villages in England. Red-brick houses line a clear stream that runs along the back. On TripAdvisor it scores 4.7 out of 5 and ranks #2 specialty lodging in Suan Phueng, while Trip.com sits around 7.4, which reflects how satisfaction depends on expectations · What makes Bibury's rooms special compared with similarly priced stays is that every room has a bathtub looking out at the nature behind. Many reviews say soaking in warm water while gazing at the trees and stream in the evening is the most relaxing moment of the trip · There's a clear stream at the back for swimming and free kayaking and wooden rafts, a morning duck-egg-collecting activity, and marshmallow roasting around the fire in the evening that suits the cool season · The service from the owner (Khun Na) draws the highest praise; many reviews say it's as warm as staying at a relative's house, and the location next to The Scenery Vintage Farm, about 1 minute by car, makes it a handy base for sightseeing · Honest caveats from the reviews: there's no restaurant at the resort and no pool, so you have to drive out for other meals, the entrance road is partly gravel so shoes can get sandy, life jackets for the water activities are limited so bring your own, and with only 8 houses it fills up very fast in the cool season and on long weekends · For couples or small families who value atmosphere, quiet and attentive care more than a long list of facilities, this place fits just right.",
       "tipHtml": "💡 <strong>Tip:</strong> Every room has a bathtub with a nature view, but if you want the clearest stream view, ask for a Superior room close to the water when you book · And check whether your booked package includes breakfast, because some rates charge extra per person.",
@@ -148,15 +271,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard, mountain view (private sitting balcony)", "price": "from ฿1,800/night" },
-        { "type": "King Studio (spacious · sofa + bathtub)", "price": "from ฿2,500/night" },
-        { "type": "Caravan (outdoor bathtub · photo spot)", "price": "from ฿3,200/night" }
+        {
+          "type": "Standard, mountain view (private sitting balcony)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "King Studio (spacious · sofa + bathtub)",
+          "price": "from ฿2,500/night"
+        },
+        {
+          "type": "Caravan (outdoor bathtub · photo spot)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/loft-berry-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+Loft+Berry+Resort+Suan+Phueng+Ratchaburi",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-10040434/loft-berry-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-loft-berry-resort-ratchaburi.html",
-      "tags": ["🏗️ Raw-concrete loft rooms by the stream", "🐇 Rabbit farm you can feed", "🏊 Pool among the trees", "🚲 Free bikes"],
+      "tags": [
+        "🏗️ Raw-concrete loft rooms by the stream",
+        "🐇 Rabbit farm you can feed",
+        "🏊 Pool among the trees",
+        "🚲 Free bikes"
+      ],
       "addr": "216 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "Across these 15 stays, if you measure by review score, <strong>The Loft Berry Resort</strong> is the highest-scoring at about 9.4 — a small 12-room resort on roughly 7 rai of hillside, beside a clear stream flowing down from the Kao Jone waterfall. It opened in 2017 and was renovated in 2022, so the rooms and common areas still look new · The standout is the raw-concrete loft design in grey tones set against woodwork and warm lighting, raw and cool yet cosy. There are several room types — Standard mountain view, King Studio, pool villa, and the one photographers seek out, the Caravan on a wooden terrace with an outdoor bathtub · Many couples praise the rooms as bigger than the price suggests and the in-room amenities as more complete than expected — free coffee, tea, water and instant noodles included, which reviews describe as \"thought of everything\" · There's a clear cool stream right by the resort where you can swim and dine by the water, a rabbit farm with dozens of rabbits to feed, a pool among the trees with mountain views, free bikes, and a free breakfast that reviews praise as tasty and generous · Honest caveats from the reviews: the entrance is fairly narrow and dark at night and hard to find the first time, so open your map and call to ask for directions before you arrive; upkeep of the pool and shared bathrooms is sometimes uneven; there are some mosquitoes since it's in nature; it doesn't take walk-ins, you must book ahead; and cooking your own food is forbidden with a fine · For couples who want a good-looking, quiet, private stay on a budget in the low thousands, this place is such good value that many call it Suan Phueng's secret stay.",
       "tipHtml": "💡 <strong>Tip:</strong> If you arrive in the evening, leave extra time to find the entrance and call the resort for directions first, because the final stretch is narrow and dark · Cooking your own food is forbidden and carries a fine, so book or scope out a place in Suan Phueng such as Krua Cho Makham or around the Oh Poi market area in advance.",
@@ -189,15 +326,29 @@
       "priceBig": "฿3,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Little Bird (Kiwi/Penguin · free minibar)", "price": "from ฿3,200/night" },
-        { "type": "Tiny Seabird/Tiny Garden (garden view/mountain view)", "price": "from ฿3,800/night" },
-        { "type": "Big Bird (large room, wide view · some with a bathtub)", "price": "from ฿4,800/night" }
+        {
+          "type": "Little Bird (Kiwi/Penguin · free minibar)",
+          "price": "from ฿3,200/night"
+        },
+        {
+          "type": "Tiny Seabird/Tiny Garden (garden view/mountain view)",
+          "price": "from ฿3,800/night"
+        },
+        {
+          "type": "Big Bird (large room, wide view · some with a bathtub)",
+          "price": "from ฿4,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/villa-moreeda/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Villa+Moreeda+Suan+Phueng",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-9569479/villa-moreeda/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-villa-moreeda-ratchaburi.html",
-      "tags": ["🪶 15 rooms named after birds", "🌊 Shallow Phachi stream you can swim in", "💆 Spa, jacuzzi, BBQ", "📍 Walk straight through to The Scenery"],
+      "tags": [
+        "🪶 15 rooms named after birds",
+        "🌊 Shallow Phachi stream you can swim in",
+        "💆 Spa, jacuzzi, BBQ",
+        "📍 Walk straight through to The Scenery"
+      ],
       "addr": "11/7 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If you want a small stay with more flair than the usual row-house resort, <strong>Villa Moreeda</strong> is a name reviewers bring up often for its riverside atmosphere and pretty rooms — a 4-star boutique villa on about 1 rai by the Phachi stream, next to The Scenery Vintage Farm. It has only 15 rooms, each named after a different bird, from Flamingo and Penguin to Peacock and Macaws. It opened around 2012, with real review scores around 8.7 · What couples and photographers love is the warm modern design, with large glass windows that take in natural light and look out at the trees and stream. Many rooms have a bathtub, and a lot of reviews praise the rooms as clean, photogenic, and feeling more like a private home than a hotel. Every room has a free minibar that guests like · There's no pool here, but the shallow Phachi stream runs in front where the water isn't deep, so kids can swim in natural water more safely than in a deep pool, plus a spa, a jacuzzi tub, and a riverside BBQ service in the evening · The location is an advantage because you can walk straight through to The Scenery, and it's near Bo Khlueng and the sights in the middle of the district · Honest caveats from the reviews: there's no pool; some rooms are upstairs with stairs to climb (including a spiral metal staircase) and no lift, so it's not ideal for older guests or anyone who has trouble walking; some floors have thin ceilings so you hear noise from above; breakfast service is sometimes slow because the kitchen is small; and high-season prices are fairly high for the size of the stay · For couples and small families who value beauty and riverside calm, many call this place a Suan Phueng hidden gem.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're traveling with older guests or anyone who has trouble walking, ask for a ground-floor room with no stairs when you book, because some rooms have a spiral staircase and there's no lift · There's no pool but there's a shallow stream for kids to play in, so bring water shoes and water toys, and check the terms for access to The Scenery, which may come included with your stay in some periods.",
@@ -230,15 +381,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (twin beds · 2 people · garden house)", "price": "from ฿1,500/night" },
-        { "type": "Superior Room (larger room · view balcony)", "price": "from ฿1,900/night" },
-        { "type": "Ton Nao Family house (semi-detached, 2 rooms · mountain view)", "price": "from ฿2,900/night" }
+        {
+          "type": "Standard Room (twin beds · 2 people · garden house)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Superior Room (larger room · view balcony)",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Ton Nao Family house (semi-detached, 2 rooms · mountain view)",
+          "price": "from ฿2,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/silver-garden-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Silver+Garden+Resort+Suan+Phueng",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-6069673/silver-garden-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-silver-garden-resort-ratchaburi.html",
-      "tags": ["🌳 Spacious houses with mountain views", "🚲 Free pedal boats, duck boats & bikes", "🥬 Hydroponic veggie farm, Silver kitchen", "☕ Breakfast with Doi Tung coffee"],
+      "tags": [
+        "🌳 Spacious houses with mountain views",
+        "🚲 Free pedal boats, duck boats & bikes",
+        "🥬 Hydroponic veggie farm, Silver kitchen",
+        "☕ Breakfast with Doi Tung coffee"
+      ],
       "addr": "92/10 Moo 8, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your couples' trip comes with parents or young kids, <strong>Silver Garden Resort</strong> is the garden resort many families choose for its spacious, walkable grounds and fresh air — a garden resort in the valley with several houses spread through a shady garden, each one spacious with a mountain-view balcony. Real review scores run about 8.8–9.0 on the booking platforms, and TripAdvisor 4.4 out of 5, #6 specialty lodging in Ratchaburi · What guests agree on is the calm atmosphere and the fresh air, especially in the morning when the mist comes down — many use the phrase \"coming to breathe in the ozone\" · In the middle of the resort there's a pond with free pedal boats and duck boats to ride, free bikes for cycling around the garden, and what sets it apart from similarly priced stays is a hydroponic veggie farm that grows fresh salad greens for the Silver kitchen. Guests can walk through the plots, and those vegetables are served at meals; breakfast has fresh garden veggies and Doi Tung coffee that many mention · Because the owner and family run it themselves, the service is warm and friendly like staying at a relative's house · Honest caveats from the reviews: there are some mosquitoes and insects since it's in a garden and they don't spray insecticide to keep it natural, so bring repellent just in case; you have to drive yourself since there's no convenient public transport; the houses vary in age and view so ask before booking; and as a local stay, information on international platforms is sometimes incomplete · For families and groups who value spacious grounds and garden atmosphere on an affordable budget, this place fits just right.",
       "tipHtml": "💡 <strong>Tip:</strong> The resort sits in a garden and doesn't spray insecticide, so bring mosquito repellent and anti-insect cream to be more comfortable · The houses vary in size and view, so if you want the clearest mountain view, ask and specify the house type when booking; and because it's a local stay, calling directly usually gets you clearer room and price information.",
@@ -271,15 +436,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Classic Villa (King bed · 2 people · Italian style)", "price": "from ฿1,200/night" },
-        { "type": "Deluxe Villa (King bed · larger room)", "price": "from ฿1,600/night" },
-        { "type": "Villa Mountain View (claw-foot bathtub · mountain view)", "price": "from ฿2,200/night" }
+        {
+          "type": "Classic Villa (King bed · 2 people · Italian style)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe Villa (King bed · larger room)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Villa Mountain View (claw-foot bathtub · mountain view)",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/villa-tuscany-country-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-villa-tuscany-country-resort-suan-phung.html",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-6210584/villa-tuscany-country-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-villa-tuscany-country-resort-ratchaburi.html",
-      "tags": ["🏛️ Photogenic Tuscan-style villas", "🛁 Gold claw-foot bathtub", "🍳 Made-to-order breakfast, choose your dish", "🍲 Mookata in the resort in the evening"],
+      "tags": [
+        "🏛️ Photogenic Tuscan-style villas",
+        "🛁 Gold claw-foot bathtub",
+        "🍳 Made-to-order breakfast, choose your dish",
+        "🍲 Mookata in the resort in the evening"
+      ],
       "addr": "439 Moo 1, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If you want a Suan Phueng stay that photographs like you've slipped into a small Italian village but the price is still affordable, <strong>Villa Tuscany Country Resort</strong> is one of the names Suan Phueng travelers mention most — a small boutique resort of about 13 rooms decorated in European-villa style amid a garden and the valley. On TripAdvisor it ranks #1 specialty lodging in Suan Phueng, with real review scores averaging about 9.0 · What keeps it popular is the care in the Tuscan-theme details, rooms bigger than expected, and beds so soft many call them the most comfortable they've slept in at Suan Phueng, while the Villa Mountain View room has a gold claw-foot bathtub that has become a signature and the room most photographed for social media · The food draws praise in nearly every review, because breakfast isn't a buffet but made to order from choices like pork steak, teriyaki salmon and a Western set, and in some periods is served in a basket to your room for a private-picnic feel; dinner offers a mookata set you can order within the resort without driving anywhere · The location is on the main road, easy to find and near the main sights like The Scenery and the Oh Poi market · Honest caveats from the reviews: there's no pool; some room types aren't very large; being on the main road means you don't get the deep-forest atmosphere some expect; some rooms show traces of damp or stains in the bathroom you should check at check-in; and with only about 13 rooms it fills up fast in the cool season · For couples who prize quiet, privacy and a photogenic atmosphere at a price in the low thousands, this place is good value in its own way.",
       "tipHtml": "💡 <strong>Tip:</strong> For the newest, prettiest room, ask for the Villa Mountain View with the claw-foot bathtub; if room size matters most, choose a Classic Villa or Family and check the photos for that exact type carefully · Try ordering the mookata set in the evening and breakfast served in the garden, and check the bathroom condition at check-in.",
@@ -312,15 +491,29 @@
       "priceBig": "฿970",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Riverside Room (2 guests · King bed · stream view)", "price": "from ฿970/night" },
-        { "type": "Deluxe Villa, standalone house (2 guests · extra privacy)", "price": "from ฿1,500/night" },
-        { "type": "Family Villa (3–4 guests · King bed + 2 single beds)", "price": "from ฿1,670/night" }
+        {
+          "type": "Standard Riverside Room (2 guests · King bed · stream view)",
+          "price": "from ฿970/night"
+        },
+        {
+          "type": "Deluxe Villa, standalone house (2 guests · extra privacy)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Family Villa (3–4 guests · King bed + 2 single beds)",
+          "price": "from ฿1,670/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/prib1000dow-home-and-camping/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Pribpandao+Home+Camping+Suan+Phueng+Ratchaburi",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-21832383/pribpandao-home-camping/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pribpandao-home-and-camping-ratchaburi.html",
-      "tags": ["🏞️ Phachi stream flows behind the resort", "☕ Rooftop coffee with your feet dangling", "🏡 Standalone loft-style houses", "💰 From about ฿970/night"],
+      "tags": [
+        "🏞️ Phachi stream flows behind the resort",
+        "☕ Rooftop coffee with your feet dangling",
+        "🏡 Standalone loft-style houses",
+        "💰 From about ฿970/night"
+      ],
       "addr": "19/5 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your couples' trip budget isn't big but you still want a full riverside atmosphere, <strong>Pribpandao Home &amp; Camping</strong> is a small resort reviewers call Suan Phueng's \"chill riverside stay\" — a small resort of about 9 rooms/houses on the Phachi stream on the lower road of Suan Phueng, scoring about 9.0 from 54 reviews · It isn't a fully decked-out luxury resort but standalone raw-concrete loft-style houses that focus on simplicity, quiet and genuine closeness to nature · The most talked-about highlight is the Phachi stream that flows behind the resort, with a riverside terrace set with wooden tables and benches under the shade of trees where you can sit, soak your feet, or let kids play in the shallow stream when the water isn't strong, plus the signature reviewers mention often, a rooftop where you can sit and sip coffee with your feet dangling over the stream, lovely in both morning and evening · Rooms are clean and comfortable and feel more private than the price, because the houses are spaced apart so they aren't cramped, and the owner's service is friendly like staying at a relative's house · Honest caveats from the reviews: there's no pool, the swimming spot is the natural stream whose level depends on the season — low in the dry season and possibly too strong to swim in during the rainy season; it's a small stay with limited facilities; the raw-concrete design may not suit those who like modern hotel rooms; and the rural location means you have to drive yourself · For couples and small families who want the stream and natural surroundings to be the star of the trip on a budget in the low thousands, this place has few rivals in its class.",
       "tipHtml": "💡 <strong>Tip:</strong> Head up to the rooftop early in the morning or in the cool of late afternoon for the best atmosphere and photo angle · Check the stream level with the stay before booking — to swim comfortably, avoid the strong water of the rainy season and the low water of the dry season — and confirm whether breakfast is included or charged separately.",
@@ -353,15 +546,29 @@
       "priceBig": "฿2,169",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room, large bed (2 guests · mountain-view balcony)", "price": "from ฿2,169/night" },
-        { "type": "Deluxe Room, large bed (2 guests · mountain-view balcony)", "price": "from ฿2,500/night" },
-        { "type": "Family Villa (large house, sleeps several)", "price": "from ฿3,900/night" }
+        {
+          "type": "Superior Room, large bed (2 guests · mountain-view balcony)",
+          "price": "from ฿2,169/night"
+        },
+        {
+          "type": "Deluxe Room, large bed (2 guests · mountain-view balcony)",
+          "price": "from ฿2,500/night"
+        },
+        {
+          "type": "Family Villa (large house, sleeps several)",
+          "price": "from ฿3,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hi-scene-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hi-scene-resort.html",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-710571/hi-scene-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hi-scene-resort-ratchaburi.html",
-      "tags": ["🏔️ Tiered houses, mountain views from nearly every one", "🏊 Saltwater mountain-view pool", "🍳 Breakfast served to your balcony", "🐶 Pet-friendly"],
+      "tags": [
+        "🏔️ Tiered houses, mountain views from nearly every one",
+        "🏊 Saltwater mountain-view pool",
+        "🍳 Breakfast served to your balcony",
+        "🐶 Pet-friendly"
+      ],
       "addr": "250 Moo 2, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your partner wants to wake up, open the curtains and see the mountains fill the view, <strong>Hi-Scene Resort</strong> is a hillside resort that deliberately built its houses in tiers down the slope so that one house doesn't block another's view and nearly every one opens onto a balcony with the mountains right there. Real review scores run about 8.1 on Trip.com and TripAdvisor 3.7 out of 5, #3 of 18 B&B/Inn-type stays in Suan Phueng · There are several room types from Superior and Deluxe large-bed rooms to a Family Villa, some with built-in karaoke, and every room has a private balcony or terrace · What gets talked about often is the outdoor saltwater pool that doesn't sting the eyes, is gentle on the skin and looks out at the mountains so kids can swim for ages, plus breakfast that can be served to your private balcony so you eat with a mountain view without walking to a shared dining room, and the location only about 500 metres from the Veneto floating market · What many pet-loving families like is that it's pet-friendly, which is rare in Suan Phueng · Honest caveats from the reviews: the bathroom comes up most — several guests say the hot water isn't enough for the large tub and water pressure in some rooms is weak; breakfast sometimes arrives cold and the menu isn't varied; Wi-Fi is unstable at times; there's no restaurant at the resort so you drive out for dinner; and the entrance up the hill is fairly steep so you have to drive yourself · If you set your expectations correctly that you're coming mainly for the view and atmosphere, this place delivers a worthwhile view in its own way.",
       "tipHtml": "💡 <strong>Tip:</strong> The houses are built in tiers but some have clearer views than others, so specify when booking that you want a room whose balcony faces the full mountain view · If you plan to use the tub, ask and flag the hot water in advance, and plan your dinner ahead — either drive to the Veneto floating market area or bring food to grill at the BBQ spot.",
@@ -394,15 +601,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Thai-style room (~21 sq.m · mountain view · balcony)", "price": "from ฿800/night" },
-        { "type": "Villa (~42 sq.m · mountain view · more space)", "price": "from ฿1,500/night" },
-        { "type": "Thai House (large teak house · family)", "price": "from ฿2,500/night" }
+        {
+          "type": "Thai-style room (~21 sq.m · mountain view · balcony)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Villa (~42 sq.m · mountain view · more space)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Thai House (large teak house · family)",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lom-rak-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-lom-rak-resort-suan-phung.html",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-710567/lomrak-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lom-rak-resort-ratchaburi.html",
-      "tags": ["🏡 Thai-style golden teak houses on a hill", "♨️ Hot spring + massage service", "🍚 Tasty morning rice porridge", "💰 From about ฿800/night"],
+      "tags": [
+        "🏡 Thai-style golden teak houses on a hill",
+        "♨️ Hot spring + massage service",
+        "🍚 Tasty morning rice porridge",
+        "💰 From about ฿800/night"
+      ],
       "addr": "199/1 Moo 6, Soi Huai Khlum 2, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your partner loves the scent of teak houses and wants the most budget-friendly mountain-view stay, <strong>Lom Rak Resort</strong> is a small Thai-style golden-teak house resort set on a hill in Ban Huai Khlum, surrounded by mountains big and small. The real reviews we could find give it about 7.7 and praise its friendliness and breakfast in particular · What gets talked about most is the buildings, made entirely of golden teak in Thai style, set on the slope with a high-angle mountain view, feeling as warm as staying in a family wooden house. It comprises 6 teak rooms and 3 standalone houses, about 12 rooms in total, with both a Villa of about 42 sq.m and a Thai-style room of about 21 sq.m with a mountain view and balcony · It also has a hot spring (a hot tub) and a massage service in the resort, good for soaking in warm water and relaxing after sightseeing or a long drive, plus a restaurant with a barbecue area, and the rice-porridge breakfast gets special mention — one foreign reviewer said it was one of the best meals they'd ever had · Service is so friendly many say they can hardly find a fault · Honest caveats from the reviews: it's a small resort with still few reviews on booking platforms; the location is up a hill deep in the village so you have to drive yourself and it isn't convenient on foot; the buildings lean toward Thai wooden style rather than modern newness; there's no large pool; and pets aren't allowed · For couples and families who want a quiet wooden-house atmosphere, mountain views and a soak in a hot spring at an easy price, this place does that job well.",
       "tipHtml": "💡 <strong>Tip:</strong> There are several room types; reviews suggest trying the Thai House for the full wooden-house atmosphere, and specify a mountain-view room when booking · If you intend to soak in the hot spring, get a massage, or arrange a barbecue, ask in advance about timing and booking, and because reviews are still few, contact the resort to confirm the price and availability first.",
@@ -435,15 +656,29 @@
       "priceBig": "฿1,050",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (King bed · 2 people · free Wi-Fi)", "price": "from ฿1,050/night" },
-        { "type": "One-Bedroom Room (2–3 people · many with a rooftop)", "price": "from ฿1,250/night" },
-        { "type": "Family Room (2 King beds · family)", "price": "from ฿1,600/night" }
+        {
+          "type": "Standard Room (King bed · 2 people · free Wi-Fi)",
+          "price": "from ฿1,050/night"
+        },
+        {
+          "type": "One-Bedroom Room (2–3 people · many with a rooftop)",
+          "price": "from ฿1,250/night"
+        },
+        {
+          "type": "Family Room (2 King beds · family)",
+          "price": "from ฿1,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dandelion-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Dandelion+Resort+Suan+Phueng",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-1547306/dandelion-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dandelion-resort-ratchaburi.html",
-      "tags": ["🌼 Small nature resort, about 16 rooms", "🐶 Pet-friendly + rooftops on many rooms", "🍢 Grilling & mookata in the evening", "💰 From about ฿1,050/night"],
+      "tags": [
+        "🌼 Small nature resort, about 16 rooms",
+        "🐶 Pet-friendly + rooftops on many rooms",
+        "🍢 Grilling & mookata in the evening",
+        "💰 From about ฿1,050/night"
+      ],
       "addr": "200/3 Moo 7, Ban Bo, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your couples' trip or group of friends wants a quiet stay on a light budget and to bring your dog or cat, <strong>Dandelion Resort</strong> is a small nature resort of about 16 rooms that sells quiet, friendliness and an affordable price. Trip.com scores it 7.7 and TripAdvisor 4.4 out of 5, ranked #7 of 35 specialty lodgings in Suan Phueng · Set in the valley amid gardens and trees, what guests agree on most is that it's genuinely quiet, not chaotic, and pet-friendly (for an extra charge), with a resident dog to welcome you · Many rooms have a rooftop or balcony to go up and take in the mountain and garden view, and the activity guests talk about most is setting up a grill and mookata in the evening (a mookata set is about 450 baht, equipment rental about 300 baht, bring your own fresh ingredients and charcoal), which suits groups of friends in the cool season · The location is near the Kao Jone waterfall, about 2.6 km, and the Bo Khlueng hot stream, about 1.5 km, usable as a base for nature sightseeing if you have a car, and if you come as a group the room cost splits to just a few hundred baht each · Honest caveats from the reviews: the location is deep and the sights are spread out, so you need your own car; some views aren't spectacular even in nature; breakfast and pool information doesn't match across platforms, so check clearly before booking; and there's a review warning about a fake page impersonating the resort, so book through official channels · For those who value quiet and an affordable budget, the money you spend is worth it.",
       "tipHtml": "💡 <strong>Tip:</strong> There's a review warning about a fake page, so book only through Agoda, Trip.com or the verified official page, and check whether breakfast is included · Bringing pets requires advance notice and asking about the extra charge, and if you want to set up a grill, ask about the mookata set and equipment rental first.",
@@ -476,15 +711,29 @@
       "priceBig": "฿2,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Capsule house (King bed · 2 people · photo spot)", "price": "from ฿2,000/night" },
-        { "type": "Kanom Chan house (King bed · colourful design)", "price": "from ฿2,500/night" },
-        { "type": "Robot house, large (sleeps several · family/group)", "price": "from ฿6,000/night" }
+        {
+          "type": "Capsule house (King bed · 2 people · photo spot)",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Kanom Chan house (King bed · colourful design)",
+          "price": "from ฿2,500/night"
+        },
+        {
+          "type": "Robot house, large (sleeps several · family/group)",
+          "price": "from ฿6,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-banyan-leaf-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+Banyan+Leaf+Resort+Suan+Phueng",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-3028682/the-banyan-leaf-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-banyan-leaf-resort-ratchaburi.html",
-      "tags": ["🐑 Sheep farm you can feed in the resort", "🏠 Robot, capsule & nest houses", "🏊 Large pool + kids' pool", "🌄 40-rai hillside, mountains all around"],
+      "tags": [
+        "🐑 Sheep farm you can feed in the resort",
+        "🏠 Robot, capsule & nest houses",
+        "🏊 Large pool + kids' pool",
+        "🌄 40-rai hillside, mountains all around"
+      ],
       "addr": "504 Moo 8, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If you're coming to Suan Phueng with kids and want a stay with \"things to do on-site,\" <strong>The Banyan Leaf Resort</strong> is a cute themed-house resort on more than 40 rai amid the mountains. On TripAdvisor it scores 4.0 out of 5 from 21 reviews, #8 of 35 specialty lodgings in Suan Phueng, while Trip.com sits around 6.0, which reflects how satisfaction depends on expectations · The selling point is rooms in many styles designed as different themed houses spread across the hillside — a robot house kids especially love, a capsule-shaped house with large windows, a Kanom Chan house, a candy house and a nest house — plus a sheep farm in the resort where you can buy grass and feed them up close, a popular activity · There's a large pool in the garden with a separate kids' pool, surrounded by mountains and trees, plus a fitness room, spa, massage service, and a restaurant serving Thai food in a treehouse setting with a mountain view · Honest caveats from the reviews: cleanliness and room upkeep aren't consistent across all houses, with some rooms having a smell or dust; some breakfasts don't reach the expected standard; outdoor dinners can attract insects or mosquitoes; the resort is large and hilly with some walking up and down; some staff have limited English; and prices are high in some periods, so choose the room type to fit · For families with kids and groups of friends who want a fun, photogenic stay with on-site activities, this place delivers well.",
       "tipHtml": "💡 <strong>Tip:</strong> The rooms come in many styles and prices vary a lot; for a big group, a large house like the robot house is better value per head, so specify the theme you want when booking · Check the room condition at check-in and tell the team immediately if you find dust or a smell, and bring mosquito spray and shoes good for walking on the slope.",
@@ -517,15 +766,29 @@
       "priceBig": "฿1,650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "House for 2, mountain view (rooftop/upper-level sitting area)", "price": "from ฿1,650/night" },
-        { "type": "Family house (sleeps several · private sitting area)", "price": "from ฿2,200/night" },
-        { "type": "Group house (large · near the grilling deck in the garden)", "price": "from ฿2,800/night" }
+        {
+          "type": "House for 2, mountain view (rooftop/upper-level sitting area)",
+          "price": "from ฿1,650/night"
+        },
+        {
+          "type": "Family house (sleeps several · private sitting area)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Group house (large · near the grilling deck in the garden)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/panalee-home-and-camping/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Panalee+Home+Camping+Suan+Phueng+Ratchaburi",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-7393888/panalee-home-and-camping/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-panalee-home-and-camping-ratchaburi.html",
-      "tags": ["🌄 Each house has a rooftop for the sea of mist & stars", "⛰️ Mountain-view houses in the garden", "🔥 Grilling deck + café at the stay", "🌿 Natural materials blending into the garden"],
+      "tags": [
+        "🌄 Each house has a rooftop for the sea of mist & stars",
+        "⛰️ Mountain-view houses in the garden",
+        "🔥 Grilling deck + café at the stay",
+        "🌿 Natural materials blending into the garden"
+      ],
       "addr": "182/2 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your partner loves sleeping in the cool breeze and watching the stars, <strong>Panalee Home &amp; Camping</strong> is a small house resort amid mountain views that reviewers call Suan Phueng's \"chill stargazing stay.\" It scores 8.2 on Trip.com and 4.1 out of 5 on TripAdvisor, #9 of 35 specialty stays in Suan Phueng · It isn't a fully decked-out luxury resort but houses using natural materials that blend into the garden and mountains, focusing on quiet and privacy · What sets Panalee apart from typical stays is that nearly every house has a rooftop or upper level for sitting, so you can go up and watch the sea of mist in the morning and the stars at night from your own house without competing for a spot — a romantic corner couples love · Fitting the camping concept, there's an outdoor grilling deck, and a café at the stay serving coffee and homemade snacks. Many reviews praise the houses as spacious, the bathrooms as large, and the privacy good because the houses are spaced apart · Honest caveats from the reviews: there's no pool, the relaxing spots are the garden and the rooftop; only breakfast is served, so other meals mean going out or grilling yourself; the houses and some decor are starting to show age from the long time open; service consistency isn't always the same; and the hilltop location means you have to drive yourself · The sea of mist depends on the day's weather and is at its best in the cool season · For couples and families who want the mountains, mist and stars to be the star of the trip on a budget in the low thousands, this place hits the mark.",
       "tipHtml": "💡 <strong>Tip:</strong> The sea of mist depends on the day's weather and is best in the cool season; get up early and head to your own rooftop to sip coffee, and go up in the evening to watch the stars · The stay serves breakfast only; for dinner you can buy food to grill at the barbecue deck in the garden, ask about equipment first, and bring warm clothes and mosquito repellent just in case.",
@@ -558,15 +821,29 @@
       "priceBig": "฿2,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden View Villa (2 guests · some with a bathtub)", "price": "from ฿2,500/night" },
-        { "type": "Deluxe Mountain Villa (mountain view · with a bathtub)", "price": "from ฿3,200/night" },
-        { "type": "Pool Villa (private pool in front of the house)", "price": "from ฿5,500/night" }
+        {
+          "type": "Garden View Villa (2 guests · some with a bathtub)",
+          "price": "from ฿2,500/night"
+        },
+        {
+          "type": "Deluxe Mountain Villa (mountain view · with a bathtub)",
+          "price": "from ฿3,200/night"
+        },
+        {
+          "type": "Pool Villa (private pool in front of the house)",
+          "price": "from ฿5,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ashcarya-boutique-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ashcarya-boutique-resort.html",
       "tripUrl": "https://th.trip.com/hotels/suan-phueng-hotel-detail-2894030/ashcarya-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ashcarya-boutique-resort-ratchaburi.html",
-      "tags": ["⛰️ Infinity pool with its edge meeting the mountains", "🛁 Private villas + bathtub", "🚙 Golf-cart shuttle + EV charger", "☕ Little Traveller café"],
+      "tags": [
+        "⛰️ Infinity pool with its edge meeting the mountains",
+        "🛁 Private villas + bathtub",
+        "🚙 Golf-cart shuttle + EV charger",
+        "☕ Little Traveller café"
+      ],
       "addr": "33/3 Moo 7, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If your partner wants a pool villa with a mountain-view pool on a boutique budget, <strong>Ashcarya Boutique Resort</strong> is a small boutique resort in the valley whose name comes from Nepali, meaning \"star.\" Real review scores run about 7.3–7.4 on the booking platforms and TripAdvisor about 3.6 out of 5 · The accommodation is separate villas spread across a wide area, surrounded by the Tenasserim range and green forest. It opened around 2013 and was refurbished in 2017 · The most talked-about highlight is the outdoor infinity pool whose edge meets the line of mountains, a popular photo spot in the misty morning and the soft light of evening, with a separate kids' pool and a poolside bar · There are several room types — Garden View, Deluxe Mountain Villa, rooms with a bathtub, up to a Pool Villa with a private pool in front of the house. Many reviews like the bathroom split into wet and dry zones with a bathtub to soak and relax in · There's the Little Traveller café with a cute bear theme at the entrance, a poolside dining room with mountain views, a golf-cart shuttle between the lobby and the villas, and an EV charging point · Honest caveats from the reviews: it's an older resort, some rooms are decorated in dark tones that look dim and have minor maintenance jobs like light bulbs, showerheads and door locks; some beds are fairly firm; water pressure/temperature is inconsistent; food choices are limited; Wi-Fi is weak in places; and being in the forest there are natural insects · For couples and families who want to escape the city for a quiet stay in a private villa with mountain views and a lovely pool, when you choose the right room and set boutique-resort expectations, this place gives worthwhile atmosphere in its own way.",
       "tipHtml": "💡 <strong>Tip:</strong> Each villa type looks and feels quite different in tone, so if you want a bright/new room, study the photos for each type carefully and specify it when booking · If a private pool matters, choose the Pool Villa specifically, and bring drinking water, snacks and mosquito repellent just in case, because shops are far away and it's in the forest.",
@@ -599,15 +876,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (entry level · A/C, hot water, mountain-view balcony)", "price": "from ฿1,100/night" },
-        { "type": "Superior Mountain View (large bed · mountain view from the room)", "price": "from ฿1,500/night" },
-        { "type": "Deluxe Villa (~60 sq.m · the largest villa)", "price": "from ฿3,500/night" }
+        {
+          "type": "Superior Room (entry level · A/C, hot water, mountain-view balcony)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Superior Mountain View (large bed · mountain view from the room)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Deluxe Villa (~60 sq.m · the largest villa)",
+          "price": "from ฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/stamp-hills-resort/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/stamp-hills-resort.html",
       "tripUrl": "https://th.trip.com/hotels/suan-phung-hotel-detail-6070440/stamp-hills-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-stamp-hills-resort-ratchaburi.html",
-      "tags": ["🏔️ Vintage country villas in the valley", "🏊 Mountain-view pool + kids' pool", "☕ Coffee Hill café + suspension bridge", "💰 From about ฿1,100/night"],
+      "tags": [
+        "🏔️ Vintage country villas in the valley",
+        "🏊 Mountain-view pool + kids' pool",
+        "☕ Coffee Hill café + suspension bridge",
+        "💰 From about ฿1,100/night"
+      ],
       "addr": "163/3 Moo 3, Ratchaburi-Pha Pok Rd, Suan Phueng, Suan Phueng District, Ratchaburi",
       "storyHtml": "If you want a small European-countryside atmosphere on a light budget with a pool for the kids, <strong>Stamp Hills Resort</strong> is a small vintage-country resort with a European flavour on about 5 rai in the valley by a stream. It scores 6.8 on Trip.com and 3.5 out of 5 on TripAdvisor from 11 reviews · What gets talked about is the small villas tiered up the slope decorated in a European-vintage mix that feels like a small village in the Italian countryside. There are about 15 houses in several types from Superior to a Deluxe Villa of about 60 sq.m; the positive reviews say the rooms are clean, the beds comfortable, the bathrooms spacious, and every room has a mountain-view balcony · There's an outdoor mountain-view pool with both an adult pool and a kids' pool, a small suspension bridge by the water that's a popular photo spot, the cute red-toned Coffee Hill café serving coffee and homemade baked goods, and the Stamp Hills restaurant serving Thai food and steak · Service is the strength that draws the most consistent praise — friendly, helpful staff, and a friendly dog that comes over to say hello · Honest caveats from the reviews: it's a resort that has been open for years and the rooms don't look new or modern, with some spots needing a paint touch-up; the Wi-Fi signal is unstable at times; breakfast choices aren't varied and the taste is ordinary; some steak is tough; the air conditioner in some rooms is noisy; and there's standing water in the shower of some rooms · For couples and small families who want a vintage atmosphere, a mountain-view pool and warm service at an affordable price, this place is impressive value in its own way.",
       "tipHtml": "💡 <strong>Tip:</strong> If tidiness and space matter to you, choose a Deluxe Room or Deluxe Villa of about 60 sq.m, which is more spacious and better kept, and check the room photos clearly before booking · Wi-Fi is unstable at times, especially in rooms set deep in, so if you need to work, bring a mobile-data backup, and booking usually requires a deposit of about 50%.",
@@ -640,15 +931,29 @@
       "priceBig": "฿2,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Villa (~50 sq.m · Queen bed · Provence style)", "price": "from ฿2,300/night" },
-        { "type": "Deluxe Villa (~50 sq.m · Queen bed · with a bathtub)", "price": "from ฿2,800/night" },
-        { "type": "Two-Bedroom Villa (2 King beds · family/group)", "price": "from ฿4,500/night" }
+        {
+          "type": "Superior Villa (~50 sq.m · Queen bed · Provence style)",
+          "price": "from ฿2,300/night"
+        },
+        {
+          "type": "Deluxe Villa (~50 sq.m · Queen bed · with a bathtub)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Two-Bedroom Villa (2 King beds · family/group)",
+          "price": "from ฿4,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/la-provence-suan-phung-hotel/hotel/ratchaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=La+Provence+Suan+Phung+Hotel+Ratchaburi",
       "tripUrl": "https://www.trip.com/hotels/suan-phueng-hotel-detail-10335220/la-provence-suan-phung-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-la-provence-suan-phung-hotel-ratchaburi.html",
-      "tags": ["💜 Provence-style villas named after flowers", "🌿 84-rai garden by the Phachi stream, Tanao Si mountain views", "🏊 Pool + kids' pool", "🍳 Homemade breakfast"],
+      "tags": [
+        "💜 Provence-style villas named after flowers",
+        "🌿 84-rai garden by the Phachi stream, Tanao Si mountain views",
+        "🏊 Pool + kids' pool",
+        "🍳 Homemade breakfast"
+      ],
       "addr": "33/3 Bo Wi-Huai Phak Rd, Moo 4, Tanao Si, Suan Phueng District, Ratchaburi",
       "storyHtml": "To close the set, a stay many reviews call one of the most polished French-style stays in Suan Phueng — <strong>La Provence Suan Phung Hotel</strong> is a boutique resort that brings the atmosphere of Provence in southern France to the middle of Suan Phueng. It's a small resort of about 16 villas spread across a wide area of about 84 rai by the Phachi stream. On TripAdvisor it ranks #1 specialty lodging in Ratchaburi (about 4.6 out of 5), Trip.com sits at 9 and above, and Agoda about 8.3 from several hundred real reviews · Each villa is named after a flower like Lavender, decorated in soft purple tones, and Sunflower Field, decorated in a warm Provence-style country house, playing with pastel tones and woodwork. Rooms are about 50 sq.m, the Deluxe Villa has a bathtub, and some houses have a rooftop balcony you can go up to for sunrise and stargazing. The cleanliness and service scores on Trip.com are especially high · There's an outdoor pool and a separate kids' pool, a large flower garden, a roughly 1.3 km garden running track, a golf-cart shuttle between the villas and the lobby, and a homemade breakfast that reviews compare to eating at a friend's house in the French countryside · Honest caveats from the reviews: the location is remote and you have to drive yourself, far from many sights and restaurants; the water heater in some rooms runs inconsistently hot and some power outlets don't work; breakfast choices aren't very varied; and there's an extra charge for children in some cases · For couples and families who want a quiet French-countryside atmosphere, photogenic gardens and valley views, and intend to use the resort as a place to relax, this place delivers very well and is the reason it holds #1 specialty lodging in Ratchaburi.",
       "tipHtml": "💡 <strong>Tip:</strong> For a bathtub, ask for the Deluxe Villa, and if you want a rooftop balcony for stargazing and sunrise, ask when booking which villa has one · The location is far from outside restaurants, so plan to eat dinner at the resort's restaurant and ask its opening hours in advance, and if you're coming with kids, clarify the terms of the extra charge for children.",
@@ -667,43 +972,252 @@
     }
   ],
   "compareTitle": "Comparison table of 15 romantic Suan Phueng stays, Ratchaburi 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Swiss Valley Hip Resort", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿3,990", "access": "📍 Mid-valley", "badge": "European villas · free activities", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Bibury Resort", "type": "⭐⭐⭐", "score": "8.6", "price": "฿2,800", "access": "📍 Next to The Scenery", "badge": "English style · by the stream", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Loft Berry Resort", "type": "⭐⭐⭐", "score": "9.4", "price": "฿1,800", "access": "📍 Hillside by the stream", "badge": "Highest score · loft", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Villa Moreeda", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿3,200", "access": "📍 By the Phachi stream, next to The Scenery", "badge": "15 bird-themed rooms", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "Silver Garden Resort", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,500", "access": "📍 Garden in the valley", "badge": "Own veggie farm", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Villa Tuscany Country Resort", "type": "⭐⭐⭐", "score": "9.0", "price": "฿1,200", "access": "📍 In the valley, on the main road", "badge": "#1 in Suan Phueng", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "Pribpandao Home & Camping", "type": "⭐⭐⭐", "score": "9.0", "price": "฿970", "access": "📍 By the Phachi stream", "badge": "Rooftop coffee · light on the wallet", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "Hi-Scene Resort", "type": "⭐⭐⭐", "score": "8.1", "price": "฿2,169", "access": "📍 Hillside, near the Veneto floating market", "badge": "Mountain view · saltwater pool", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "9", "rankColor": "#06B6D4", "name": "Lom Rak Resort", "type": "⭐⭐⭐", "score": "7.7", "price": "฿800", "access": "📍 Ban Huai Khlum, on a hill", "badge": "Teak houses · hot spring", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "Dandelion Resort", "type": "⭐⭐⭐", "score": "7.7", "price": "฿1,050", "access": "📍 In the valley, near the Kao Jone waterfall", "badge": "Quiet · pet-friendly", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "11", "rankColor": "#06B6D4", "name": "The Banyan Leaf Resort", "type": "⭐⭐⭐", "score": "7.8", "price": "฿2,000", "access": "📍 40-rai hillside", "badge": "Cute-house theme · sheep farm", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "12", "rankColor": "#06B6D4", "name": "Panalee Home & Camping", "type": "⭐⭐⭐", "score": "8.2", "price": "฿1,650", "access": "📍 Mountain view", "badge": "Rooftop for sea of mist & stars", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "13", "rankColor": "#06B6D4", "name": "Ashcarya Boutique Resort", "type": "⭐⭐⭐⭐", "score": "7.4", "price": "฿2,500", "access": "📍 Mid-valley", "badge": "Infinity pool · pool villas", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "14", "rankColor": "#06B6D4", "name": "Stamp Hills Resort", "type": "⭐⭐⭐", "score": "6.8", "price": "฿1,100", "access": "📍 By a stream in the valley", "badge": "Vintage country · mountain-view pool", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "15", "rankColor": "#06B6D4", "name": "La Provence Suan Phung Hotel", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿2,300", "access": "📍 Tanao Si, 84-rai garden", "badge": "#1 in Ratchaburi · French style", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Swiss Valley Hip Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿3,990",
+      "access": "📍 Mid-valley",
+      "badge": "European villas · free activities",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Bibury Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,800",
+      "access": "📍 Next to The Scenery",
+      "badge": "English style · by the stream",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Loft Berry Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,800",
+      "access": "📍 Hillside by the stream",
+      "badge": "Highest score · loft",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Villa Moreeda",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿3,200",
+      "access": "📍 By the Phachi stream, next to The Scenery",
+      "badge": "15 bird-themed rooms",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "Silver Garden Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,500",
+      "access": "📍 Garden in the valley",
+      "badge": "Own veggie farm",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Villa Tuscany Country Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,200",
+      "access": "📍 In the valley, on the main road",
+      "badge": "#1 in Suan Phueng",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "Pribpandao Home & Camping",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿970",
+      "access": "📍 By the Phachi stream",
+      "badge": "Rooftop coffee · light on the wallet",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "Hi-Scene Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿2,169",
+      "access": "📍 Hillside, near the Veneto floating market",
+      "badge": "Mountain view · saltwater pool",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#06B6D4",
+      "name": "Lom Rak Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿800",
+      "access": "📍 Ban Huai Khlum, on a hill",
+      "badge": "Teak houses · hot spring",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "Dandelion Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿1,050",
+      "access": "📍 In the valley, near the Kao Jone waterfall",
+      "badge": "Quiet · pet-friendly",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#06B6D4",
+      "name": "The Banyan Leaf Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿2,000",
+      "access": "📍 40-rai hillside",
+      "badge": "Cute-house theme · sheep farm",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#06B6D4",
+      "name": "Panalee Home & Camping",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿1,650",
+      "access": "📍 Mountain view",
+      "badge": "Rooftop for sea of mist & stars",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "13",
+      "rankColor": "#06B6D4",
+      "name": "Ashcarya Boutique Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿2,500",
+      "access": "📍 Mid-valley",
+      "badge": "Infinity pool · pool villas",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "14",
+      "rankColor": "#06B6D4",
+      "name": "Stamp Hills Resort",
+      "type": "⭐⭐⭐",
+      "score": "6.8",
+      "price": "฿1,100",
+      "access": "📍 By a stream in the valley",
+      "badge": "Vintage country · mountain-view pool",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "15",
+      "rankColor": "#06B6D4",
+      "name": "La Provence Suan Phung Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿2,300",
+      "access": "📍 Tanao Si, 84-rai garden",
+      "badge": "#1 in Ratchaburi · French style",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    }
   ],
   "adviceTitle": "How to pick a romantic Suan Phueng stay that fits your couples' trip?",
   "advice": [
-    { "icon": "💑", "head": "Couples who want to soak in a tub looking at nature", "bodyHtml": "→ <strong>Bibury Resort</strong> ฿2,800, every room has a bathtub with a nature view by the stream · or <strong>Villa Tuscany</strong> ฿1,200 with a gold claw-foot bathtub in the Mountain View room" },
-    { "icon": "🌄", "head": "Want to sleep where you can watch the sea of mist and the stars", "bodyHtml": "→ <strong>Panalee Home & Camping</strong> ฿1,650, nearly every house has a rooftop for the mist in the morning and the stars at night · best in the cool season" },
-    { "icon": "🏊", "head": "Want a mountain-view pool", "bodyHtml": "→ <strong>Ashcarya</strong> ฿2,500, an infinity pool with its edge meeting the mountains · <strong>Hi-Scene</strong> ฿2,169, a saltwater pool that doesn't sting the eyes · or <strong>Swiss Valley</strong> ฿3,990, a mountain-view pool" },
-    { "icon": "🌊", "head": "Want to stay by a stream where you can swim", "bodyHtml": "→ <strong>The Loft Berry</strong> ฿1,800, by the Kao Jone waterfall stream · <strong>Pribpandao</strong> ฿970, by the Phachi stream · or <strong>Villa Moreeda</strong> ฿3,200, a shallow Phachi stream for kids to play in" },
-    { "icon": "💰", "head": "On a budget, want the best value atmosphere", "bodyHtml": "→ <strong>Lom Rak Resort</strong> ฿800, teak houses with mountain views · <strong>Pribpandao</strong> ฿970, by the stream · <strong>Dandelion</strong> ฿1,050 · or <strong>Villa Tuscany</strong> ฿1,200, Italian style, #1 in the area" },
-    { "icon": "👨‍👩‍👧‍👦", "head": "Coming with kids, want on-site activities", "bodyHtml": "→ <strong>Swiss Valley</strong> ฿3,990, free activities, horse riding and feeding sheep · <strong>The Banyan Leaf</strong> ฿2,000, a sheep farm + kids' pool · or <strong>The Loft Berry</strong> ฿1,800, a rabbit farm" },
-    { "icon": "🐶", "head": "Want to bring your pet along", "bodyHtml": "→ <strong>Dandelion Resort</strong> ฿1,050, pet-friendly with a resident dog · or <strong>Hi-Scene</strong> ฿2,169, pet-friendly" },
-    { "icon": "💜", "head": "Want the prettiest stay, photos all day", "bodyHtml": "→ <strong>La Provence</strong> ฿2,300, French-style villas in an 84-rai garden, #1 in Ratchaburi · or <strong>Villa Tuscany</strong> ฿1,200, Italian style, #1 in Suan Phueng" }
+    {
+      "icon": "💑",
+      "head": "Couples who want to soak in a tub looking at nature",
+      "bodyHtml": "→ <strong>Bibury Resort</strong> ฿2,800, every room has a bathtub with a nature view by the stream · or <strong>Villa Tuscany</strong> ฿1,200 with a gold claw-foot bathtub in the Mountain View room"
+    },
+    {
+      "icon": "🌄",
+      "head": "Want to sleep where you can watch the sea of mist and the stars",
+      "bodyHtml": "→ <strong>Panalee Home & Camping</strong> ฿1,650, nearly every house has a rooftop for the mist in the morning and the stars at night · best in the cool season"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a mountain-view pool",
+      "bodyHtml": "→ <strong>Ashcarya</strong> ฿2,500, an infinity pool with its edge meeting the mountains · <strong>Hi-Scene</strong> ฿2,169, a saltwater pool that doesn't sting the eyes · or <strong>Swiss Valley</strong> ฿3,990, a mountain-view pool"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want to stay by a stream where you can swim",
+      "bodyHtml": "→ <strong>The Loft Berry</strong> ฿1,800, by the Kao Jone waterfall stream · <strong>Pribpandao</strong> ฿970, by the Phachi stream · or <strong>Villa Moreeda</strong> ฿3,200, a shallow Phachi stream for kids to play in"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value atmosphere",
+      "bodyHtml": "→ <strong>Lom Rak Resort</strong> ฿800, teak houses with mountain views · <strong>Pribpandao</strong> ฿970, by the stream · <strong>Dandelion</strong> ฿1,050 · or <strong>Villa Tuscany</strong> ฿1,200, Italian style, #1 in the area"
+    },
+    {
+      "icon": "👨‍👩‍👧‍👦",
+      "head": "Coming with kids, want on-site activities",
+      "bodyHtml": "→ <strong>Swiss Valley</strong> ฿3,990, free activities, horse riding and feeding sheep · <strong>The Banyan Leaf</strong> ฿2,000, a sheep farm + kids' pool · or <strong>The Loft Berry</strong> ฿1,800, a rabbit farm"
+    },
+    {
+      "icon": "🐶",
+      "head": "Want to bring your pet along",
+      "bodyHtml": "→ <strong>Dandelion Resort</strong> ฿1,050, pet-friendly with a resident dog · or <strong>Hi-Scene</strong> ฿2,169, pet-friendly"
+    },
+    {
+      "icon": "💜",
+      "head": "Want the prettiest stay, photos all day",
+      "bodyHtml": "→ <strong>La Provence</strong> ฿2,300, French-style villas in an 84-rai garden, #1 in Ratchaburi · or <strong>Villa Tuscany</strong> ฿1,200, Italian style, #1 in Suan Phueng"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting prices from the standard-room range and may change by date and season; we recommend checking the real price and comparing 3 sites before every booking · The scores and highlights in this article come from reading real guest reviews on booking platforms; we didn't stay ourselves · Suan Phueng's high season (late rainy to early cool, November–February, when the air is cool and visitors come the most) brings higher prices and rooms sell out fast; many stays in this set have few rooms (8–16 houses), so book several weeks ahead · Suan Phueng has no train line and public transport isn't convenient, and the sights are spread out, so we recommend driving yourself — about 2.5–3 hours from Bangkok, about 1 hour from Ratchaburi town · Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — questions travelers ask most about romantic Suan Phueng stays, Ratchaburi",
   "faq": [
-    { "q": "❓ What's the best romantic stay in Suan Phueng?", "a": "It depends on your trip style · If you measure by review score, <strong>The Loft Berry Resort</strong> has the highest in the set at about 9.4, a loft design by the stream · If you measure by ranking and looks, <strong>La Provence Suan Phung</strong> is #1 specialty lodging in Ratchaburi and <strong>Villa Tuscany</strong> is #1 in Suan Phueng on TripAdvisor · For full-day activities with the family, <strong>Swiss Valley Hip Resort</strong> · For soaking in a tub looking at nature by the stream, <strong>Bibury Resort</strong> · And for watching the sea of mist and stars, <strong>Panalee Home & Camping</strong>" },
-    { "q": "❓ How much do Suan Phueng stays cost?", "a": "In this article prices start at about <strong>฿800–3,990 per night</strong> · The most accessible are Lom Rak Resort from ฿800, Pribpandao from ฿970, Dandelion from ฿1,050 and Stamp Hills from ฿1,100 · Mid-range are Villa Tuscany ฿1,200, Silver Garden ฿1,500, The Loft Berry ฿1,800, The Banyan Leaf ฿2,000, Hi-Scene ฿2,169, La Provence ฿2,300, Ashcarya ฿2,500 · And the upper tier is Bibury ฿2,800, Villa Moreeda ฿3,200 and Swiss Valley ฿3,990 · All prices are approximate starting prices from standard rooms; during festivals and the cool season prices may be higher than usual" },
-    { "q": "❓ Can you go to Suan Phueng without your own car?", "a": "You can, but it isn't convenient · Suan Phueng has no train line and public transport is limited, and the sights and stays are spread far apart across the valley · The option is to take a van or coach to Ratchaburi town and then rent a car or catch a local ride into Suan Phueng · But almost every stay in this set suits people who <strong>drive their own car</strong> best, because you can use the resort as a base to get around the various spots in the district more freely; every one has free parking" },
-    { "q": "❓ Which Suan Phueng stays have a pool?", "a": "In this set, those with a pool are <strong>Ashcarya</strong> (infinity mountain-view pool + a pool villa with a private pool), <strong>Hi-Scene</strong> (saltwater mountain-view pool), <strong>Swiss Valley</strong> (outdoor mountain-view pool), <strong>The Banyan Leaf</strong> (large pool + kids' pool), <strong>Stamp Hills</strong> (mountain-view pool + kids' pool), <strong>The Loft Berry</strong> and <strong>La Provence</strong> (pool + kids' pool) · Meanwhile Bibury, Villa Moreeda, Pribpandao, Panalee and Lom Rak have no pool, but many have a stream or the Phachi stream to swim in naturally instead" },
-    { "q": "❓ Which Suan Phueng stay is best for couples and honeymoons?", "a": "The standout romantic ones in this set are <strong>Bibury Resort</strong>, red-brick English-style houses by the stream where every room has a bathtub with a nature view · <strong>La Provence</strong>, French-style villas in a quiet, private flower garden · <strong>Villa Tuscany</strong>, Italian style with a claw-foot bathtub · <strong>The Loft Berry</strong>, a loft design with a caravan and an outdoor bathtub · and <strong>Panalee</strong>, where the two of you can go up to the rooftop to watch the stars" },
-    { "q": "❓ How far in advance should you book a Suan Phueng stay?", "a": "Most stays in this set are small (many have only 8–16 houses), so they fill up fast · During <strong>the high season and cool season (November–February) and on long weekends, book 1–2 months or more ahead</strong>, especially Bibury, The Loft Berry, Villa Moreeda and La Provence, which have few rooms and are popular · On weekdays out of season, booking a short time ahead is enough · Many platforms offer Free Cancellation, so we recommend locking in that kind of rate first if your plans aren't firm, then comparing Agoda / Booking / Trip.com to get the best price" }
-  ]
+    {
+      "q": "❓ What's the best romantic stay in Suan Phueng?",
+      "a": "It depends on your trip style · If you measure by review score, <strong>The Loft Berry Resort</strong> has the highest in the set at about 9.4, a loft design by the stream · If you measure by ranking and looks, <strong>La Provence Suan Phung</strong> is #1 specialty lodging in Ratchaburi and <strong>Villa Tuscany</strong> is #1 in Suan Phueng on TripAdvisor · For full-day activities with the family, <strong>Swiss Valley Hip Resort</strong> · For soaking in a tub looking at nature by the stream, <strong>Bibury Resort</strong> · And for watching the sea of mist and stars, <strong>Panalee Home & Camping</strong>"
+    },
+    {
+      "q": "❓ How much do Suan Phueng stays cost?",
+      "a": "In this article prices start at about <strong>฿800–3,990 per night</strong> · The most accessible are Lom Rak Resort from ฿800, Pribpandao from ฿970, Dandelion from ฿1,050 and Stamp Hills from ฿1,100 · Mid-range are Villa Tuscany ฿1,200, Silver Garden ฿1,500, The Loft Berry ฿1,800, The Banyan Leaf ฿2,000, Hi-Scene ฿2,169, La Provence ฿2,300, Ashcarya ฿2,500 · And the upper tier is Bibury ฿2,800, Villa Moreeda ฿3,200 and Swiss Valley ฿3,990 · All prices are approximate starting prices from standard rooms; during festivals and the cool season prices may be higher than usual"
+    },
+    {
+      "q": "❓ Can you go to Suan Phueng without your own car?",
+      "a": "You can, but it isn't convenient · Suan Phueng has no train line and public transport is limited, and the sights and stays are spread far apart across the valley · The option is to take a van or coach to Ratchaburi town and then rent a car or catch a local ride into Suan Phueng · But almost every stay in this set suits people who <strong>drive their own car</strong> best, because you can use the resort as a base to get around the various spots in the district more freely; every one has free parking"
+    },
+    {
+      "q": "❓ Which Suan Phueng stays have a pool?",
+      "a": "In this set, those with a pool are <strong>Ashcarya</strong> (infinity mountain-view pool + a pool villa with a private pool), <strong>Hi-Scene</strong> (saltwater mountain-view pool), <strong>Swiss Valley</strong> (outdoor mountain-view pool), <strong>The Banyan Leaf</strong> (large pool + kids' pool), <strong>Stamp Hills</strong> (mountain-view pool + kids' pool), <strong>The Loft Berry</strong> and <strong>La Provence</strong> (pool + kids' pool) · Meanwhile Bibury, Villa Moreeda, Pribpandao, Panalee and Lom Rak have no pool, but many have a stream or the Phachi stream to swim in naturally instead"
+    },
+    {
+      "q": "❓ Which Suan Phueng stay is best for couples and honeymoons?",
+      "a": "The standout romantic ones in this set are <strong>Bibury Resort</strong>, red-brick English-style houses by the stream where every room has a bathtub with a nature view · <strong>La Provence</strong>, French-style villas in a quiet, private flower garden · <strong>Villa Tuscany</strong>, Italian style with a claw-foot bathtub · <strong>The Loft Berry</strong>, a loft design with a caravan and an outdoor bathtub · and <strong>Panalee</strong>, where the two of you can go up to the rooftop to watch the stars"
+    },
+    {
+      "q": "❓ How far in advance should you book a Suan Phueng stay?",
+      "a": "Most stays in this set are small (many have only 8–16 houses), so they fill up fast · During <strong>the high season and cool season (November–February) and on long weekends, book 1–2 months or more ahead</strong>, especially Bibury, The Loft Berry, Villa Moreeda and La Provence, which have few rooms and are popular · On weekdays out of season, booking a short time ahead is enough · Many platforms offer Free Cancellation, so we recommend locking in that kind of rate first if your plans aren't firm, then comparing Agoda / Booking / Trip.com to get the best price"
+    }
+  ],
+  "quickAnswerHtml": "15 romantic stays in Suan Phueng, Ratchaburi that we've already reviewed — European villas in the valley, riverside resorts, mountain-view stargazing cabins, and an 84-rai French-style garden. Honest takes from real reviews, real scores, from about ฿800–3,990/night. Compare 3 sites, direct booking links."
 }

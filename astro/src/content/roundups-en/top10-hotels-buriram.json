@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Buriram", "href": "city-buriram.html" },
-    { "name": "Top 12 Buriram Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Buriram",
+      "href": "city-buriram.html"
+    },
+    {
+      "name": "Top 12 Buriram Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Buriram", "item": "https://thailandaddict.com/en/city-buriram" },
-    { "name": "Top 12 Buriram Hotels", "item": "https://thailandaddict.com/en/top10-hotels-buriram" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Buriram",
+      "item": "https://thailandaddict.com/en/city-buriram"
+    },
+    {
+      "name": "Top 12 Buriram Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-buriram"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-buriram.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Buriram has no metro; you get around by car, and the province is spread out enough that your choice of area sets up the whole trip. Many stays <strong>around Chang Arena and the Chang Circuit (Isan/Samet sub-districts)</strong> are walkable to the stadium on match day, but dining around the hotels is thin, so come with a car or have Grab ready. <strong>City-centre</strong> stays are far easier, with Robinson mall, Saraka-Krao market and restaurants within walking distance, and the train station close by. Almost everything in <strong>Nang Rong district</strong> needs a private or rental car, as it's a separate district — it's about a 30-minute drive from Nang Rong to Phanom Rung. The areas in this guide: <strong>Around Chang Arena</strong> — walk to the stadium, football and motorsport · <strong>City Centre</strong> — malls, markets, food, the train station · <strong>Nang Rong</strong> — base for the Phanom Rung and Mueang Tam temples.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Amari Buriram United", "price": "฿1,800" },
-    { "n": "2", "color": "#c8a951", "name": "The Crystal Hotel Buriram", "price": "฿1,400" },
-    { "n": "3", "color": "#c8a951", "name": "Modena by Fraser Buriram", "price": "฿1,290" },
-    { "n": "4", "color": "#9e9e9e", "name": "Green@Buriram", "price": "฿1,100" },
-    { "n": "5", "color": "#9e9e9e", "name": "TREX Buriram Boutique Hotel", "price": "฿1,500" },
-    { "n": "6", "color": "#9e9e9e", "name": "Sky View Hotel Buriram", "price": "฿900" },
-    { "n": "7", "color": "#9e9e9e", "name": "Phanomrungpuri Hotel", "price": "฿850" },
-    { "n": "8", "color": "#bf8040", "name": "SNOW HOUSE Buriram", "price": "฿650" },
-    { "n": "9", "color": "#bf8040", "name": "P Hostel Buriram", "price": "฿320" },
-    { "n": "10", "color": "#5d4037", "name": "The Park Nangrong Resort", "price": "฿650" },
-    { "n": "11", "color": "#5d4037", "name": "The Sita Princess Hotel", "price": "฿1,000" },
-    { "n": "12", "color": "#5d4037", "name": "Thepnakorn Hotel", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Amari Buriram United",
+      "price": "฿1,800"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "The Crystal Hotel Buriram",
+      "price": "฿1,400"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Modena by Fraser Buriram",
+      "price": "฿1,290"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Green@Buriram",
+      "price": "฿1,100"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "TREX Buriram Boutique Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Sky View Hotel Buriram",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Phanomrungpuri Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "SNOW HOUSE Buriram",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "P Hostel Buriram",
+      "price": "฿320"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "The Park Nangrong Resort",
+      "price": "฿650"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "The Sita Princess Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Thepnakorn Hotel",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Grand Deluxe King (41 sqm)", "price": "from ฿1,800/night" },
-        { "type": "Grand Deluxe Twin (41 sqm)", "price": "from ฿2,000/night" },
-        { "type": "Deluxe Family Bunkbed", "price": "from ฿2,600/night" }
+        {
+          "type": "Grand Deluxe King (41 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Grand Deluxe Twin (41 sqm)",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Deluxe Family Bunkbed",
+          "price": "from ฿2,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/amari-buriram-united/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/amari-buriram-united.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-1549990/amari-buriram-united/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-amari-buriram-united-buriram.html",
-      "tags": ["⚽ Thailand's only Buriram United–themed hotel", "🏟️ 2-min walk to Chang Arena", "🍳 Most-praised breakfast buffet", "🏊 Pool + tennis court"],
+      "tags": [
+        "⚽ Thailand's only Buriram United–themed hotel",
+        "🏟️ 2-min walk to Chang Arena",
+        "🍳 Most-praised breakfast buffet",
+        "🏊 Pool + tennis court"
+      ],
       "addr": "444 Moo 15, Buriram–Prakhonchai Rd, Isan, Buriram",
       "storyHtml": "Amari Buriram United takes <strong>the top score in this guide at 9.7 and ranks #1 in Buriram on TripAdvisor — it's Thailand's only Buriram United–themed hotel, sitting right on the Chang Arena grounds</strong>, under a 2-minute walk from the lobby to the stadium gate and next to the Chang Circuit. Real guest reviews praise the spacious 41 sqm rooms (all with balconies), a breakfast buffet many call the best in Buriram, and Amari-standard service. The trade-off: it's about 10 minutes' drive from the city centre, so you'll need a car to head out for food or nightlife. Best for football fans, motorsport visitors and families.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a room with a balcony facing the fountain and stadium — it's the signature view here. On home-match or MotoGP weekends the 60 rooms sell out fast and rates jump, so book months ahead and confirm your reservation.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (double)", "price": "from ฿1,400/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿1,500/night" },
-        { "type": "Deluxe Pool Access", "price": "from ฿2,000/night" }
+        {
+          "type": "Deluxe Room (double)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Deluxe Pool Access",
+          "price": "from ฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-crystal-hotel-buriram/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/x2-vibe-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-5615262/x2-vibe-buriram-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-crystal-hotel-buriram.html",
-      "tags": ["🛍️ 550 m walk to Robinson mall", "🏊 Saltwater pool + kids' pool", "🍳 Made-to-order eggs at breakfast", "🔌 EV charger + free parking"],
+      "tags": [
+        "🛍️ 550 m walk to Robinson mall",
+        "🏊 Saltwater pool + kids' pool",
+        "🍳 Made-to-order eggs at breakfast",
+        "🔌 EV charger + free parking"
+      ],
       "addr": "405 Moo 10, Buriram–Nang Rong Rd, Isan, Buriram",
       "storyHtml": "The Crystal Hotel Buriram (formerly X2 Vibe / Cross Vibe) is <strong>the best-value city-centre boutique in town</strong>, scoring 9.4 from 176 reviews. Unlike the many stadium-area hotels, it sits on Buriram–Nang Rong Road, a 550-metre walk from Robinson mall. Real guest reviews praise the roomy, clean rooms, the saltwater pool with a separate kids' pool, and a made-to-order egg breakfast where the omelette gets frequent mentions. The catch: it's about 8 km from Chang Arena, so if you're mainly here for match day, a stadium-area hotel is handier. Best for exploring the city, mall trips, or using Buriram as a base for Phanom Rung.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling with kids? Pick a Pool Access room where you step straight into the saltwater pool. Get to breakfast early (06:30–10:30) and order the much-praised omelette. On Chang Arena race days, allow extra travel time.",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,290",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (28 sqm)", "price": "from ฿1,290/night" },
-        { "type": "Deluxe Terrace Room (36 sqm)", "price": "from ฿1,650/night" },
-        { "type": "Loft Studio (44 sqm)", "price": "from ฿2,100/night" }
+        {
+          "type": "Superior Room (28 sqm)",
+          "price": "from ฿1,290/night"
+        },
+        {
+          "type": "Deluxe Terrace Room (36 sqm)",
+          "price": "from ฿1,650/night"
+        },
+        {
+          "type": "Loft Studio (44 sqm)",
+          "price": "from ฿2,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/modena-by-fraser-buriram/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/modena-by-fraser-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-23729086/modena-by-fraser-buriram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-modena-by-fraser-buriram.html",
-      "tags": ["🏟️ 5-min walk to Chang Arena", "🏊 2 pools + 24-hour gym", "🍽️ Bistro@M breakfast", "🅿️ Free, generous parking"],
+      "tags": [
+        "🏟️ 5-min walk to Chang Arena",
+        "🏊 2 pools + 24-hour gym",
+        "🍽️ Bistro@M breakfast",
+        "🅿️ Free, generous parking"
+      ],
       "addr": "111 Moo 16, Buriram–Prakhonchai Rd, Samet, Buriram",
       "storyHtml": "Modena by Fraser Buriram is <strong>the most-reviewed hotel in this guide — 583 reviews — and the easiest walk to Chang Arena</strong>, scoring 9.2. Real guest reviews praise the roomy, clean rooms (with a JBL speaker), the two pools (outdoor and indoor), a 24-hour gym, and the Bistro@M breakfast with more choice than expected. Friendly staff come up again and again on the plus side. The stadium-side location does mean it's a fair way from the city and night markets, so without a car you'll lean on Grab. Best for football and motorsport visitors and families who want a pool.",
       "tipHtml": "💡 <strong>Tip:</strong> Once you know a Buriram United home-match or motorsport date, book immediately — rooms fill fast and rates climb. Staying several nights? Make the most of the two pools and 24-hour gym. Keep a car or Grab handy for trips into town.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden View Room (~20 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Twin Garden View Room", "price": "from ฿1,200/night" },
-        { "type": "Superior Garden Room", "price": "from ฿1,400/night" }
+        {
+          "type": "Garden View Room (~20 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Twin Garden View Room",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Superior Garden Room",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/green-burirum/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/green-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-9078696/greenburiram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-green-at-buriram.html",
-      "tags": ["🌿 Small, quiet garden hotel", "✨ Spotless — guests' favourite point", "🍳 À la carte cooked-to-order breakfast", "🅿️ Strong Wi-Fi + free parking"],
+      "tags": [
+        "🌿 Small, quiet garden hotel",
+        "✨ Spotless — guests' favourite point",
+        "🍳 À la carte cooked-to-order breakfast",
+        "🅿️ Strong Wi-Fi + free parking"
+      ],
       "addr": "689 Moo 1, Bypass Rd, Mueang Buriram",
       "storyHtml": "Green@Buriram is <strong>a small garden hotel scoring a surprising 9.6 for a value stay</strong>, from 59 reviews — higher than several bigger city hotels. Rather than a row of rooms on a busy road, it's around 20 rooms set around a quiet green garden. Real guest reviews repeatedly call it \"spotless\" — bedrooms and bathrooms alike — and praise the à la carte cooked-to-order breakfast at Cafe@Green, served in the garden, plus an attentive owner. It is small, though: no pool, no lift, few rooms, and not walkable to Chang Arena (about 3–4 km). Best for drivers who value cleanliness and quiet over walking distance to the stadium.",
       "tipHtml": "💡 <strong>Tip:</strong> Don't miss the à la carte breakfast cooked fresh in the garden — the nicest part of the day here. Some nights carry music from nearby venues, so if you're a light sleeper ask for a room deeper in the garden. With few rooms, book ahead on match weekends.",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Caravans Room (29 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Deluxe Twin Room (36 sqm)", "price": "from ฿1,700/night" },
-        { "type": "Premier Double Room (40 sqm)", "price": "from ฿1,900/night" }
+        {
+          "type": "Caravans Room (29 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Deluxe Twin Room (36 sqm)",
+          "price": "from ฿1,700/night"
+        },
+        {
+          "type": "Premier Double Room (40 sqm)",
+          "price": "from ฿1,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/t-rex-buriram-boutique-hotel-h78991862/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-senses-boutique-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-46044387/trex-buriram-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-trex-boutique-buriram.html",
-      "tags": ["🌿 Quiet garden boutique", "🛏️ Big rooms 29–45 sqm, above the price", "🏊 Pool + 24-hour gym", "🍳 Homemade home-style food"],
+      "tags": [
+        "🌿 Quiet garden boutique",
+        "🛏️ Big rooms 29–45 sqm, above the price",
+        "🏊 Pool + 24-hour gym",
+        "🍳 Homemade home-style food"
+      ],
       "addr": "83 Moo 13, Buriram–Prakhonchai Rd, Samet, Buriram",
       "storyHtml": "TREX Buriram Boutique Hotel is <strong>a quiet garden boutique that football and motorsport visitors love for its big, clean rooms</strong>, scoring 9.2 from 41 reviews — with cleanliness and service both at 9.5. It sits in Samet, about 5 km from Chang Arena and the Chang Circuit. Real guest reviews praise rooms that feel larger than the price (from 29 sqm up to a 45 sqm junior suite), spotless and quiet, plus a garden pool, 24-hour gym and homemade, home-style food. The quiet does come at a cost — it's away from the shops, so you'll need a car, and the breakfast menu is limited. Best for couples or small families wanting a big, quiet room for a few thousand baht.",
       "tipHtml": "💡 <strong>Tip:</strong> Driving yourself is easiest — there's free, generous parking; without a car, plan rides into town. Try the homemade food on site, but keep a city restaurant in mind for longer stays, since the menu isn't large.",
@@ -264,15 +417,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Californior Twin Room (28 sqm)", "price": "from ฿900/night" },
-        { "type": "Triple Room (28 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Thai House (32 sqm)", "price": "from ฿1,200/night" }
+        {
+          "type": "Californior Twin Room (28 sqm)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Triple Room (28 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Thai House (32 sqm)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sky-view-resort-buriram/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sky-view-resort-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-9078701/skyview-resort-buriram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sky-view-hotel-buriram.html",
-      "tags": ["⚽ ~300 m walk to Chang Arena", "💰 Big 28–32 sqm rooms, low price", "🏊 Outdoor saltwater pool", "🅿️ Free, generous parking"],
+      "tags": [
+        "⚽ ~300 m walk to Chang Arena",
+        "💰 Big 28–32 sqm rooms, low price",
+        "🏊 Outdoor saltwater pool",
+        "🅿️ Free, generous parking"
+      ],
       "addr": "58 Moo 16, Buriram–Prakhonchai Rd, Samet, Buriram",
       "storyHtml": "Sky View Hotel Buriram (officially Sky View Resort Buriram) is <strong>the budget pick that genuinely lets you walk to Chang Arena — just about 300 metres from the stadium</strong>, scoring 9.0 from 32 reviews. For football fans who'd rather not deal with match-day parking, walking back to the hotel after the final whistle is an edge that's rare at this price. Real guest reviews praise the big 28–32 sqm rooms, good value, a saltwater pool that's larger than expected, and free parking. It's an older property, though — some rooms and facilities show their age, Wi-Fi is patchy in places, and dining around the hotel is thin. Best for budget-minded football fans who prioritise location and value.",
       "tipHtml": "💡 <strong>Tip:</strong> Being walkable to the stadium, rooms here sell out fast on big-match days — lock in a free-cancellation rate early. Cool off in the saltwater pool after walking back from the match. Driving yourself is easiest, as there aren't many restaurants nearby.",
@@ -304,15 +471,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King (27 sqm)", "price": "from ฿850/night" },
-        { "type": "Superior Twin (27 sqm)", "price": "from ฿900/night" },
-        { "type": "Deluxe Room (32 sqm)", "price": "from ฿1,100/night" }
+        {
+          "type": "Superior King (27 sqm)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Superior Twin (27 sqm)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Room (32 sqm)",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phanomrungpuri-hotel/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phanomrungpuri.html",
       "tripUrl": "https://www.trip.com/hotels/nang-rong-hotel-detail-706890/phanomrungpuri-hotel-buriram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phanomrungpuri-nangrong-buriram.html",
-      "tags": ["🏯 Phanom Rung base ~30 km", "🛏️ Khmer–Isan rooms 27–50 sqm", "🌿 Leafy, quiet grounds", "🏊 Pool + Barai restaurant + massage"],
+      "tags": [
+        "🏯 Phanom Rung base ~30 km",
+        "🛏️ Khmer–Isan rooms 27–50 sqm",
+        "🌿 Leafy, quiet grounds",
+        "🏊 Pool + Barai restaurant + massage"
+      ],
       "addr": "212 Nang Rong–Lam Plai Mat Rd, Nang Rong, Buriram",
       "storyHtml": "Phanomrungpuri Hotel is <strong>a Khmer-style boutique that ranks #1 in Nang Rong on TripAdvisor and makes the most sensible Phanom Rung base</strong>, scoring 8.8 from 252 reviews. It sits about 30 km from the Phanom Rung and Mueang Tam temples — a half-hour drive — cutting the long haul from the city. Real guest reviews praise the spacious Khmer–Isan rooms (27–50 sqm), leafy grounds and friendly, English-speaking staff. Reviewers do note thin walls (you'll hear next door), a small pool, and the 50 km distance from the city and Chang Arena. Best for visitors set on the temples and history.",
       "tipHtml": "💡 <strong>Tip:</strong> Set off early for the ~30-minute drive to catch the sun through the Phanom Rung gateway before the heat and crowds. With thin walls, ask for a corner or upper-floor room and pack earplugs. In-room sockets are limited, so bring a power strip.",
@@ -344,15 +525,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (queen bed)", "price": "from ฿650/night" },
-        { "type": "Deluxe Queen Room", "price": "from ฿850/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿950/night" }
+        {
+          "type": "Standard Room (queen bed)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Queen Room",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/snow-house-buriram/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/snow-house-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-114584718/snow-house-buriram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-snow-house-buriram.html",
-      "tags": ["✨ New, spotless rooms", "📺 Netflix + free morning coffee", "🏙️ In town, walk to shops", "🅿️ Free Wi-Fi + parking"],
+      "tags": [
+        "✨ New, spotless rooms",
+        "📺 Netflix + free morning coffee",
+        "🏙️ In town, walk to shops",
+        "🅿️ Free Wi-Fi + parking"
+      ],
       "addr": "527/99 Jiranakhon Soi 4, Nai Mueang, Mueang Buriram",
       "storyHtml": "SNOW HOUSE Buriram is <strong>a small, newly opened in-town hotel whose selling point is new, spotless rooms at a low price</strong>, scoring 8.7 from 20 reviews. It sits in the Jiranakhon area, a walk from city shops and restaurants and about a 10-minute drive (~4 km) to Chang Arena. Real guest reviews agree the rooms look freshly opened, with comfy beds, clean bathrooms, Netflix on the TV and free morning coffee. It's small, though — around 10–17 rooms, no pool, no full restaurant, and review numbers are still low as it's new. Best for budget travellers who want a new, clean room in town and don't need shared facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> With only about 10–17 rooms, it fills fast on big-match or race weekends, so book ahead. The TVs support Netflix for an easy night in. Grab the free morning coffee, then head out to a city restaurant if you want a proper breakfast.",
@@ -384,15 +579,29 @@
       "priceBig": "฿320",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Single Room (Standard)", "price": "from ฿320/night" },
-        { "type": "Double Room", "price": "from ฿420/night" },
-        { "type": "Family Room", "price": "from ฿650/night" }
+        {
+          "type": "Single Room (Standard)",
+          "price": "from ฿320/night"
+        },
+        {
+          "type": "Double Room",
+          "price": "from ฿420/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/p-hostel-buriram/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/p-hostel-buriram.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-8782545/p-hostel-buriram/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-p-hostel-buriram.html",
-      "tags": ["🚉 1-min walk to the train station", "🧼 Cleaner than the price suggests, opened 2023", "💸 From just ฿320", "🅿️ Free Wi-Fi + parking"],
+      "tags": [
+        "🚉 1-min walk to the train station",
+        "🧼 Cleaner than the price suggests, opened 2023",
+        "💸 From just ฿320",
+        "🅿️ Free Wi-Fi + parking"
+      ],
       "addr": "188/78 Train Station Front Rd, Nai Mueang, Mueang Buriram",
       "storyHtml": "P Hostel Buriram is <strong>the cheapest stay in this guide from just ฿320, with a location right by Buriram train station that's hard to beat</strong>, scoring 8.6 from 70 reviews. Step off the train, walk about 300 metres or a minute, and you're at the door — ideal for anyone arriving by rail with no need for an onward ride. Opened around 2023, the rooms and bathrooms are still new, and real guest reviews praise the cleanliness, comfy beds, blackout curtains and free water, tea, coffee and snacks downstairs. The catch: reception is daytime–evening only (about 12:00–17:00), Wi-Fi is weak in some rooms, and it's about 5 km from Chang Arena. Best for backpackers and budget travellers arriving by train.",
       "tipHtml": "💡 <strong>Tip:</strong> Coming by train is the best value — step off at Buriram station and walk over, no onward fare. Reception is daytime–evening, so message or call ahead if you'll arrive outside those hours. Allow time to reach the stadium via Grab or motorbike taxi.",
@@ -424,15 +633,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double", "price": "from ฿650/night" },
-        { "type": "Deluxe Twin", "price": "from ฿700/night" },
-        { "type": "Villa Double", "price": "from ฿900/night" }
+        {
+          "type": "Deluxe Double",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Villa Double",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-park-nangrong-resort/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-the-park-nangrong-resort-nang-rong.html",
       "tripUrl": "https://www.trip.com/hotels/nang-rong-hotel-detail-6146527/the-park-nangrong-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-park-nangrong-resort-buriram.html",
-      "tags": ["🌿 Quiet family-run garden resort", "🏯 Phanom Rung base ~30 km", "💰 From ฿650, great value", "🐾 Free parking · pet-friendly"],
+      "tags": [
+        "🌿 Quiet family-run garden resort",
+        "🏯 Phanom Rung base ~30 km",
+        "💰 From ฿650, great value",
+        "🐾 Free parking · pet-friendly"
+      ],
       "addr": "445/10 Pradit Phana Rd, Nang Rong, Buriram",
       "storyHtml": "The Park Nangrong Resort is <strong>a small, quiet family-run garden resort in Nang Rong that works well as a Phanom Rung base at a very low price</strong>, scoring 8.5 from 22 reviews. Its 24 rooms sit by Nong Ta Mu lake, about 25–30 km — a half-hour drive — from the Phanom Rung and Mueang Tam temples. Real guest reviews praise the clean rooms, leafy quiet grounds, and an owner and staff so friendly it feels like staying with relatives, plus a Thai breakfast that's filling for the price. Reviewers warn the entrance is narrow and dark and hard to find first time, beds are firm, Wi-Fi isn't strong everywhere, and it's about 50 km from the city and Chang Arena. Best for budget-minded temple visitors.",
       "tipHtml": "💡 <strong>Tip:</strong> The entrance is narrow and dark — set GPS accurately and call the owner for directions, especially for night arrivals. Set off early for the ~30-minute drive to Phanom Rung before the heat. Try the resort's Thai breakfast.",
@@ -464,15 +687,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Economy / Superior (double)", "price": "from ฿1,000/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿1,200/night" },
-        { "type": "Connecting Family Room (60 sqm)", "price": "from ฿2,200/night" }
+        {
+          "type": "Economy / Superior (double)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Connecting Family Room (60 sqm)",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-sita-princess-hotel/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-sita-princess.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-3487711/the-sita-princess/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-sita-princess-buriram.html",
-      "tags": ["👨‍👩‍👧 Kids' pool with water slide", "💰 From ฿1,000 in the city centre", "🅿️ Free parking · 24-hour front desk", "💬 Most reviews 1,731"],
+      "tags": [
+        "👨‍👩‍👧 Kids' pool with water slide",
+        "💰 From ฿1,000 in the city centre",
+        "🅿️ Free parking · 24-hour front desk",
+        "💬 Most reviews 1,731"
+      ],
       "addr": "528/48 Jira Rd, Nai Mueang, Mueang Buriram",
       "storyHtml": "The Sita Princess Hotel is <strong>the most-reviewed property in this guide — 1,731 reviews — a city-centre 3-star with a kids' pool and water slide that families like</strong>, scoring 8.4. It sits on Jira Road in the Na Mueang area, central Buriram. Real guest reviews praise the value, rooms cleaner than the price suggests, friendly staff who'll carry your bags, the kids' slide pool, free parking, and a 24-hour front desk that's wheelchair-friendly. You'll need to accept the often-criticised Wi-Fi (weak/dropping), a plain breakfast, and some rooms where upkeep is showing its age. It's about 9–10 km from Chang Arena. Best for budget families and road-trippers.",
       "tipHtml": "💡 <strong>Tip:</strong> Wi-Fi gets frequent complaints — bring a mobile-data backup if you need to work online. Take the kids to the slide pool in the shaded afternoon. If walking in, ask to see the room or request a more recently renovated one.",
@@ -504,15 +741,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿700/night" },
-        { "type": "Superior Room", "price": "from ฿950/night" },
-        { "type": "Luxury Room", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Luxury Room",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/thepnakorn-hotel/hotel/buriram-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-thepnakorn-hotel-ban-khok-wat.html",
       "tripUrl": "https://www.trip.com/hotels/buri-ram-hotel-detail-706892/thepnakorn-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-thepnakorn-hotel-buriram.html",
-      "tags": ["💸 Budget price, big high-ceilinged rooms", "🏊 Pool + sauna + gym", "🍳 Generous breakfast + friendly staff", "🅿️ 175 rooms · free parking"],
+      "tags": [
+        "💸 Budget price, big high-ceilinged rooms",
+        "🏊 Pool + sauna + gym",
+        "🍳 Generous breakfast + friendly staff",
+        "🅿️ 175 rooms · free parking"
+      ],
       "addr": "139 Jira Rd, Nai Mueang, Mueang Buriram",
       "storyHtml": "Thepnakorn Hotel is <strong>an old-timer that's been part of Buriram since 1994, with budget rates and big rooms as its selling point</strong>, scoring 7.2 from 63 reviews. It's a large 175-room hotel on Jira Road in the city centre. Real guest reviews praise the big, high-ceilinged rooms, friendly and helpful staff, a generous breakfast buffet that's good for the price, and a large pool with a kids' pool, sauna and gym. To be clear, a fair number of reviews criticise the ageing building and inconsistent cleanliness — scores are scattered: Booking 7.2, Trip.com 5.9, TripAdvisor 2.7/5. About 6 km from Chang Arena. Best for budget travellers who value price and space over newness, and who'll ask for a renovated room before accepting it.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies, so request a renovated Superior/Luxury room and view it before check-in — check the AC and bathroom; staff are happy to swap. Head down for the generous breakfast reviewers agree on. Allow extra travel time on Chang Arena match days.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Compare All 12 Buriram Hotels · 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Amari Buriram United", "type": "⭐⭐⭐⭐", "score": "9.7", "price": "฿1,800", "access": "📍 On Chang Arena grounds", "badge": "Top score, by the stadium", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "The Crystal Hotel Buriram", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,400", "access": "📍 City centre, walk to mall", "badge": "Value boutique", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Modena by Fraser Buriram", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,290", "access": "📍 Walk to Chang Arena", "badge": "Most reviews, walk to stadium", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Green@Buriram", "type": "⭐⭐", "score": "9.6", "price": "฿1,100", "access": "📍 Bypass Rd, city", "badge": "Standout-clean garden hotel", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "TREX Buriram Boutique Hotel", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿1,500", "access": "📍 Samet, near Chang Arena", "badge": "Quiet garden boutique, big rooms", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Sky View Hotel Buriram", "type": "⭐⭐⭐", "score": "9.0", "price": "฿900", "access": "📍 Samet, walk to Chang Arena", "badge": "Walk to stadium, low price", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Phanomrungpuri Hotel", "type": "⭐⭐⭐", "score": "8.8", "price": "฿850", "access": "📍 Nang Rong, near Phanom Rung", "badge": "#1 in Nang Rong, Khmer style", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "SNOW HOUSE Buriram", "type": "⭐⭐", "score": "8.7", "price": "฿650", "access": "📍 Jiranakhon, in town", "badge": "New & small in town, Netflix", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "P Hostel Buriram", "type": "⭐⭐", "score": "8.6", "price": "฿320", "access": "📍 By train station, in town", "badge": "By the train station, cheapest", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "The Park Nangrong Resort", "type": "⭐⭐⭐", "score": "8.5", "price": "฿650", "access": "📍 Nang Rong, near Phanom Rung", "badge": "Quiet garden resort, low price", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "The Sita Princess Hotel", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,000", "access": "📍 Jira Rd, city centre", "badge": "Most reviews, kids' pool", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Thepnakorn Hotel", "type": "⭐⭐⭐", "score": "7.2", "price": "฿700", "access": "📍 Jira Rd, city centre", "badge": "Budget, big rooms", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Amari Buriram United",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.7",
+      "price": "฿1,800",
+      "access": "📍 On Chang Arena grounds",
+      "badge": "Top score, by the stadium",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "The Crystal Hotel Buriram",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,400",
+      "access": "📍 City centre, walk to mall",
+      "badge": "Value boutique",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Modena by Fraser Buriram",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,290",
+      "access": "📍 Walk to Chang Arena",
+      "badge": "Most reviews, walk to stadium",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Green@Buriram",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿1,100",
+      "access": "📍 Bypass Rd, city",
+      "badge": "Standout-clean garden hotel",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "TREX Buriram Boutique Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,500",
+      "access": "📍 Samet, near Chang Arena",
+      "badge": "Quiet garden boutique, big rooms",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Sky View Hotel Buriram",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿900",
+      "access": "📍 Samet, walk to Chang Arena",
+      "badge": "Walk to stadium, low price",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Phanomrungpuri Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿850",
+      "access": "📍 Nang Rong, near Phanom Rung",
+      "badge": "#1 in Nang Rong, Khmer style",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "SNOW HOUSE Buriram",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿650",
+      "access": "📍 Jiranakhon, in town",
+      "badge": "New & small in town, Netflix",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "P Hostel Buriram",
+      "type": "⭐⭐",
+      "score": "8.6",
+      "price": "฿320",
+      "access": "📍 By train station, in town",
+      "badge": "By the train station, cheapest",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "The Park Nangrong Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿650",
+      "access": "📍 Nang Rong, near Phanom Rung",
+      "badge": "Quiet garden resort, low price",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "The Sita Princess Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,000",
+      "access": "📍 Jira Rd, city centre",
+      "badge": "Most reviews, kids' pool",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Thepnakorn Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.2",
+      "price": "฿700",
+      "access": "📍 Jira Rd, city centre",
+      "badge": "Budget, big rooms",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Buriram hotel for you",
   "advice": [
-    { "icon": "⚽", "head": "Here for a Chang Arena match / motorsport", "bodyHtml": "→ <strong>Amari Buriram United</strong> ฿1,800, a 2-min walk to the stadium, score 9.7 · or <strong>Modena by Fraser</strong> ฿1,290, a 5-min walk, most reviews · on a budget, <strong>Sky View Hotel</strong> ฿900, ~300 m from the stadium" },
-    { "icon": "🛍️", "head": "Exploring the city, malls and food", "bodyHtml": "→ <strong>The Crystal Hotel Buriram</strong> ฿1,400, a 550 m walk to Robinson, saltwater pool · or <strong>The Sita Princess</strong> ฿1,000, central, kids' slide pool, most reviews" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>P Hostel Buriram</strong> ฿320, by the train station, cleaner than the price suggests · or <strong>SNOW HOUSE</strong> ฿650, new clean rooms in town with Netflix · or <strong>Thepnakorn</strong> ฿700, big rooms with a pool" },
-    { "icon": "✨", "head": "Want clean, quiet rooms for a few thousand baht", "bodyHtml": "→ <strong>Green@Buriram</strong> ฿1,100, garden hotel, score 9.6, standout-clean · or <strong>TREX Buriram Boutique</strong> ฿1,500, quiet garden boutique, big 29–45 sqm rooms" },
-    { "icon": "🏯", "head": "Visiting the Phanom Rung / Mueang Tam temples", "bodyHtml": "→ <strong>Phanomrungpuri Hotel</strong> ฿850, Khmer-style boutique, #1 in Nang Rong, ~30 km to Phanom Rung · or <strong>The Park Nangrong Resort</strong> ฿650, quiet family-run garden resort" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family, want a pool", "bodyHtml": "→ <strong>Modena by Fraser</strong> ฿1,290, 2 pools, walk to the stadium · or <strong>The Crystal Hotel</strong> ฿1,400, saltwater pool with kids' pool, Pool Access rooms · or <strong>The Sita Princess</strong> ฿1,000, kids' pool with slide" }
+    {
+      "icon": "⚽",
+      "head": "Here for a Chang Arena match / motorsport",
+      "bodyHtml": "→ <strong>Amari Buriram United</strong> ฿1,800, a 2-min walk to the stadium, score 9.7 · or <strong>Modena by Fraser</strong> ฿1,290, a 5-min walk, most reviews · on a budget, <strong>Sky View Hotel</strong> ฿900, ~300 m from the stadium"
+    },
+    {
+      "icon": "🛍️",
+      "head": "Exploring the city, malls and food",
+      "bodyHtml": "→ <strong>The Crystal Hotel Buriram</strong> ฿1,400, a 550 m walk to Robinson, saltwater pool · or <strong>The Sita Princess</strong> ฿1,000, central, kids' slide pool, most reviews"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>P Hostel Buriram</strong> ฿320, by the train station, cleaner than the price suggests · or <strong>SNOW HOUSE</strong> ฿650, new clean rooms in town with Netflix · or <strong>Thepnakorn</strong> ฿700, big rooms with a pool"
+    },
+    {
+      "icon": "✨",
+      "head": "Want clean, quiet rooms for a few thousand baht",
+      "bodyHtml": "→ <strong>Green@Buriram</strong> ฿1,100, garden hotel, score 9.6, standout-clean · or <strong>TREX Buriram Boutique</strong> ฿1,500, quiet garden boutique, big 29–45 sqm rooms"
+    },
+    {
+      "icon": "🏯",
+      "head": "Visiting the Phanom Rung / Mueang Tam temples",
+      "bodyHtml": "→ <strong>Phanomrungpuri Hotel</strong> ฿850, Khmer-style boutique, #1 in Nang Rong, ~30 km to Phanom Rung · or <strong>The Park Nangrong Resort</strong> ฿650, quiet family-run garden resort"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family, want a pool",
+      "bodyHtml": "→ <strong>Modena by Fraser</strong> ฿1,290, 2 pools, walk to the stadium · or <strong>The Crystal Hotel</strong> ฿1,400, saltwater pool with kids' pool, Pool Access rooms · or <strong>The Sita Princess</strong> ฿1,000, kids' pool with slide"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for standard rooms and can change by date and season; always check live prices and compare 3 sites before booking. During Buriram United home matches or MotoGP/Superbike events at the Chang Circuit, rates rise sharply and stadium-area rooms sell out, so book weeks to months ahead. Stays around Chang Arena and in Nang Rong are far easier with a private or rental car; city-centre stays are easier to get around, with malls and markets within walking distance and the train station nearby. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Buriram hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Buriram?", "a": "It depends on your trip. <strong>Around Chang Arena and the Chang Circuit</strong> suits football and motorsport visitors, with some hotels walkable to the stadium (Amari, Modena, Sky View, TREX) but away from city dining. <strong>The city centre</strong> has malls, markets, food and the train station, easy to get around (The Crystal, The Sita Princess, Thepnakorn, SNOW HOUSE, P Hostel). <strong>Nang Rong district</strong> sits closer to the Phanom Rung and Mueang Tam temples than the city, best for temple visitors (Phanomrungpuri, The Park Nangrong)." },
-    { "q": "❓ How much do Buriram hotels cost?", "a": "Prices vary widely: hostels and budget stays start around ฿320–900/night (P Hostel, SNOW HOUSE, The Park Nangrong, Thepnakorn); mid-range hotels and boutiques up to 4-star run about ฿1,000–1,800 (The Sita Princess, Green@Buriram, The Crystal, Modena, TREX, Amari). All are approximate from-rates for standard rooms. During big home matches or MotoGP, stadium-area rates run well above normal." },
-    { "q": "❓ Where should I stay to watch a Buriram United match?", "a": "To walk to the stadium on match day: <strong>Amari Buriram United</strong> ฿1,800 is on the Chang Arena grounds, a 2-minute walk, top score 9.7 · <strong>Modena by Fraser</strong> ฿1,290 is a 5-minute walk, most reviews · on a budget, <strong>Sky View Hotel</strong> ฿900 is just ~300 m from the stadium. On big-match or MotoGP weekends, stadium-area rooms sell out fast, so book weeks to months ahead." },
-    { "q": "❓ Using Buriram as a base for Phanom Rung — where to stay?", "a": "The Phanom Rung and Mueang Tam temples are over in Nang Rong district, about 50 km from Buriram city. If the temples are your main goal, staying in Nang Rong cuts the drive — <strong>Phanomrungpuri Hotel</strong> ฿850, a Khmer-style boutique, #1 in Nang Rong, or <strong>The Park Nangrong Resort</strong> ฿650, a quiet garden resort; both are about a 30-minute drive to Phanom Rung. If you'd rather stay in the city too, pick a central hotel with free parking and drive out and back." },
-    { "q": "❓ Is Buriram easy to get around without a car?", "a": "Buriram has no metro, so without a car, <strong>staying in the city centre or by the train station is easiest</strong> — P Hostel is a 1-minute walk from the station, and The Crystal is a walk from the mall. Stays around Chang Arena and in Nang Rong have few restaurants nearby, so a car or Grab helps. Traffic is heavy on big-match days at the stadium, so always allow extra travel time." },
-    { "q": "❓ Which site is cheapest for booking Buriram hotels?", "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save hundreds of baht a night, especially for stadium-area stays during big matches or races." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Buriram?",
+      "a": "It depends on your trip. <strong>Around Chang Arena and the Chang Circuit</strong> suits football and motorsport visitors, with some hotels walkable to the stadium (Amari, Modena, Sky View, TREX) but away from city dining. <strong>The city centre</strong> has malls, markets, food and the train station, easy to get around (The Crystal, The Sita Princess, Thepnakorn, SNOW HOUSE, P Hostel). <strong>Nang Rong district</strong> sits closer to the Phanom Rung and Mueang Tam temples than the city, best for temple visitors (Phanomrungpuri, The Park Nangrong)."
+    },
+    {
+      "q": "❓ How much do Buriram hotels cost?",
+      "a": "Prices vary widely: hostels and budget stays start around ฿320–900/night (P Hostel, SNOW HOUSE, The Park Nangrong, Thepnakorn); mid-range hotels and boutiques up to 4-star run about ฿1,000–1,800 (The Sita Princess, Green@Buriram, The Crystal, Modena, TREX, Amari). All are approximate from-rates for standard rooms. During big home matches or MotoGP, stadium-area rates run well above normal."
+    },
+    {
+      "q": "❓ Where should I stay to watch a Buriram United match?",
+      "a": "To walk to the stadium on match day: <strong>Amari Buriram United</strong> ฿1,800 is on the Chang Arena grounds, a 2-minute walk, top score 9.7 · <strong>Modena by Fraser</strong> ฿1,290 is a 5-minute walk, most reviews · on a budget, <strong>Sky View Hotel</strong> ฿900 is just ~300 m from the stadium. On big-match or MotoGP weekends, stadium-area rooms sell out fast, so book weeks to months ahead."
+    },
+    {
+      "q": "❓ Using Buriram as a base for Phanom Rung — where to stay?",
+      "a": "The Phanom Rung and Mueang Tam temples are over in Nang Rong district, about 50 km from Buriram city. If the temples are your main goal, staying in Nang Rong cuts the drive — <strong>Phanomrungpuri Hotel</strong> ฿850, a Khmer-style boutique, #1 in Nang Rong, or <strong>The Park Nangrong Resort</strong> ฿650, a quiet garden resort; both are about a 30-minute drive to Phanom Rung. If you'd rather stay in the city too, pick a central hotel with free parking and drive out and back."
+    },
+    {
+      "q": "❓ Is Buriram easy to get around without a car?",
+      "a": "Buriram has no metro, so without a car, <strong>staying in the city centre or by the train station is easiest</strong> — P Hostel is a 1-minute walk from the station, and The Crystal is a walk from the mall. Stays around Chang Arena and in Nang Rong have few restaurants nearby, so a car or Grab helps. Traffic is heavy on big-match days at the stadium, so always allow extra travel time."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Buriram hotels?",
+      "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save hundreds of baht a night, especially for stadium-area stays during big matches or races."
+    }
+  ],
+  "quickAnswerHtml": "12 Buriram hotels we reviewed across every tier — from Amari's football-themed rooms beside Chang Arena down to a hostel by the train station from ฿320. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

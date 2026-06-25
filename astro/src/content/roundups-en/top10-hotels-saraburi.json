@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Saraburi", "href": "city-saraburi.html" },
-    { "name": "Top 12 Saraburi Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Saraburi",
+      "href": "city-saraburi.html"
+    },
+    {
+      "name": "Top 12 Saraburi Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Saraburi", "item": "https://thailandaddict.com/en/city-saraburi" },
-    { "name": "Top 12 Saraburi Hotels", "item": "https://thailandaddict.com/en/top10-hotels-saraburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Saraburi",
+      "item": "https://thailandaddict.com/en/city-saraburi"
+    },
+    {
+      "name": "Top 12 Saraburi Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-saraburi"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-saraburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Saraburi has no metro and no commercial airport — there's a railway station in town plus buses and vans from Bangkok, but <strong>the standout resort zones of Muak Lek and Wang Muang really need a car</strong> as they sit well out of the town centre. Pick by your itinerary: <strong>Muak Lek</strong> is about 35–40 km from town, near Muak Lek Waterfall, dairy farms, vineyards and the Pak Chong approach to Khao Yai, with cooler air than in town; <strong>Kaeng Khoi</strong> sits on the Mittraphap Highway with riverside resorts on the Pa Sak, easy to stop at along the way; <strong>Wang Muang</strong> is north by the Pa Sak Jolasid Dam, about 50–60 km from town, ideal for a riverside stay; and <strong>the town centre–Phra Phutthabat</strong> is near the railway station, the mall and Wat Phra Phutthabat, best for overnight stops and travellers without a car. Almost every stay has free parking, so they suit self-drivers well.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Sir James Resort", "price": "฿1,900" },
-    { "n": "2", "color": "#06B6D4", "name": "Supalai Pasak Resort & Spa", "price": "฿1,600" },
-    { "n": "3", "color": "#06B6D4", "name": "The Organery Retreat & Spa", "price": "฿2,200" },
-    { "n": "4", "color": "#06B6D4", "name": "Phufa Pasak Resort", "price": "฿1,200" },
-    { "n": "5", "color": "#FB7185", "name": "Baan Ingkhao Resort", "price": "฿1,200" },
-    { "n": "6", "color": "#FB7185", "name": "Saraburi Garden Resort", "price": "฿900" },
-    { "n": "7", "color": "#FB7185", "name": "Muak Lek Forest Resort", "price": "฿1,800" },
-    { "n": "8", "color": "#FB7185", "name": "The Bua Boutique Resort", "price": "฿650" },
-    { "n": "9", "color": "#FBBF24", "name": "Muaklek Paradise Resort", "price": "฿2,200" },
-    { "n": "10", "color": "#FBBF24", "name": "Sakura Resort Wang Muang", "price": "฿550" },
-    { "n": "11", "color": "#FBBF24", "name": "PS Hotel Saraburi", "price": "฿600" },
-    { "n": "12", "color": "#FBBF24", "name": "River Residence Saraburi", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Sir James Resort",
+      "price": "฿1,900"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Supalai Pasak Resort & Spa",
+      "price": "฿1,600"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Organery Retreat & Spa",
+      "price": "฿2,200"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Phufa Pasak Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Baan Ingkhao Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Saraburi Garden Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Muak Lek Forest Resort",
+      "price": "฿1,800"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "The Bua Boutique Resort",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Muaklek Paradise Resort",
+      "price": "฿2,200"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Sakura Resort Wang Muang",
+      "price": "฿550"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "PS Hotel Saraburi",
+      "price": "฿600"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "River Residence Saraburi",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,900",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Panorama Room", "price": "from ฿1,900/night" },
-        { "type": "New Deluxe Room", "price": "from ฿2,300/night" },
-        { "type": "Junior Suite", "price": "from ฿3,000/night" }
+        {
+          "type": "Panorama Room",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "New Deluxe Room",
+          "price": "from ฿2,300/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿3,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sir-james-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sirjames-resort.html",
       "tripUrl": "https://www.trip.com/hotels/muak-lek-hotel-detail-5611502/sir-james-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sir-james-resort-saraburi.html",
-      "tags": ["⛳ On-site golf course", "⛰️ Mountain views by Khao Yai", "🏊 Swimming pool", "🅿️ Spacious grounds, parking"],
+      "tags": [
+        "⛳ On-site golf course",
+        "⛰️ Mountain views by Khao Yai",
+        "🏊 Swimming pool",
+        "🅿️ Spacious grounds, parking"
+      ],
       "addr": "195 Moo 3, Mittraphap, Muak Lek, Saraburi",
       "storyHtml": "Sir James is the <strong>most-reviewed resort in this guide, with 2,750 reviews</strong> and a score of 8.2. It's a golf resort at the foot of Khao Yai on the Muak Lek side — spacious grounds with a golf course, a pool and mountain views. Rooms range from Panorama rooms with golf-course-view balconies to suites for families, starting around ฿1,900. It suits self-drivers coming to unwind near Khao Yai, play a round of golf, or travel as a group.",
       "tipHtml": "💡 <strong>Tip:</strong> If your budget stretches, pick a New Deluxe Room — they're more recently renovated, in better shape and with more open mountain views than the original Panorama rooms.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,600",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Pasak Standard (breakfast included)", "price": "from ฿1,600/night" },
-        { "type": "Pasak Superior Suite", "price": "from ฿2,200/night" },
-        { "type": "Pasak Deluxe Suite (bathtub)", "price": "from ฿2,800/night" }
+        {
+          "type": "Pasak Standard (breakfast included)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Pasak Superior Suite",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Pasak Deluxe Suite (bathtub)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/supalai-pasak-resort-and-spa/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/supalai-pasak-resort-and-spa.html",
       "tripUrl": "https://th.trip.com/hotels/amphoe-kaeng-khoi-hotel-detail-710735/supalai-pasak-resort-hotel-and-spa-saraburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-supalai-pasak-resort-spa-saraburi.html",
-      "tags": ["🌊 Bungalows on the Pa Sak River", "💆 On-site spa", "🍳 Breakfast included", "🏊 Swimming pool"],
+      "tags": [
+        "🌊 Bungalows on the Pa Sak River",
+        "💆 On-site spa",
+        "🍳 Breakfast included",
+        "🏊 Swimming pool"
+      ],
       "addr": "79 Moo 1, Adirek San Rd, Tha Khlo, Kaeng Khoi, Saraburi",
       "storyHtml": "Supalai Pasak is the <strong>highest-scoring resort in this guide, at 8.8</strong> (from 38 reviews). It's a garden bungalow resort on the Pa Sak River on the Kaeng Khoi side, with a spa, a pool and breakfast included. Rooms start with the Pasak Standard around ฿1,600, while the larger suites add river views and a bathtub. It suits couples or families after a quiet riverside stay near the Mittraphap Highway, easy to drop into on the way to Khao Yai or Isan.",
       "tipHtml": "💡 <strong>Tip:</strong> For the full riverside feel, pick a suite with a river view — the evenings on the balcony by the water are lovely — and book the spa ahead.",
@@ -144,15 +255,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Mountain View", "price": "from ฿2,200/night" },
-        { "type": "Standard with Pool Access", "price": "from ฿2,600/night" },
-        { "type": "Family Room", "price": "from ฿3,200/night" }
+        {
+          "type": "Standard Mountain View",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Standard with Pool Access",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-organery-retreat-h15379939/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-organery-retreat.html",
       "tripUrl": "https://www.trip.com/hotels/muak-lek-hotel-detail-21856807/the-organery-retreat/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-organery-retreat-spa-saraburi.html",
-      "tags": ["🌿 Nature-style boutique", "🏊 Pool, pool-access rooms", "💆 On-site spa", "⛰️ Garden–mountain views"],
+      "tags": [
+        "🌿 Nature-style boutique",
+        "🏊 Pool, pool-access rooms",
+        "💆 On-site spa",
+        "⛰️ Garden–mountain views"
+      ],
       "addr": "12 Moo 4, Mittraphap Rd, Mittraphap, Muak Lek, Saraburi",
       "storyHtml": "The Organery is a <strong>boutique resort at the foot of Khao Yai on the Muak Lek side with a high score of 8.8</strong> (from 13 reviews). The draw is its green, nature-led design, with a pool some rooms walk straight onto, plus a spa. Rooms start with the mountain-view Standard around ฿2,200, while Family Rooms and a villa suit larger groups. It suits couples or small groups after a quiet boutique feel near Khao Yai, rather than a big, busy resort.",
       "tipHtml": "💡 <strong>Tip:</strong> If you like a morning dip, choose a Standard with Pool Access that opens straight onto the pool — only a few hundred baht more but far more convenient.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Large tent", "price": "from ฿1,200/night" },
-        { "type": "Bamboo house (2 pax)", "price": "from ฿1,500/night" },
-        { "type": "Earth house with dam view", "price": "from ฿1,800/night" }
+        {
+          "type": "Large tent",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Bamboo house (2 pax)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Earth house with dam view",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/search?city=Wang+Muang&q=Phufa+Pasak+Resort&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Phufa+Pasak+Resort+Wang+Muang",
       "tripUrl": "https://th.trip.com/hotels/wang-muang-district-hotels-list-107411/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phufa-pasak-resort-saraburi.html",
-      "tags": ["🏕️ Tents · earth houses · bamboo houses", "🌅 Pa Sak reservoir views", "🌿 Close to nature", "🌄 Sunset watching"],
+      "tags": [
+        "🏕️ Tents · earth houses · bamboo houses",
+        "🌅 Pa Sak reservoir views",
+        "🌿 Close to nature",
+        "🌄 Sunset watching"
+      ],
       "addr": "30 Moo 6, Kham Phan, Wang Muang, Saraburi",
       "storyHtml": "Phufa Pasak is a <strong>nature boutique resort by the Pa Sak Dam on the Wang Muang side, scoring 8.4</strong> (from 19 reviews). Its draw is a range of stays you don't often find in this zone — from large tents with real beds and bamboo houses to earth houses that look out over the Pa Sak reservoir. It suits anyone wanting to sleep close to nature, wake to a water view, and watch the sunset by the dam, from around ฿1,200.",
       "tipHtml": "💡 <strong>Tip:</strong> For the full view, choose an earth house with a dam view — the balcony is lovely for watching the sunset over the water. The main booking links are a page/search list, so check availability with the resort first.",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Thai Villa", "price": "from ฿1,200/night" },
-        { "type": "Deluxe Villa (garden-view balcony)", "price": "from ฿1,800/night" },
-        { "type": "Family Room", "price": "from ฿3,500/night" }
+        {
+          "type": "Thai Villa",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe Villa (garden-view balcony)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-ingkhao-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-ing-khao.html",
       "tripUrl": "https://th.trip.com/hotels/muak-lek-hotel-detail-7062490/baan-ing-khao-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-ingkhao-resort-saraburi.html",
-      "tags": ["🏡 Timber-floor garden villas", "🌳 Leafy hillside atmosphere", "👨‍👩‍👧 Family Room available", "🅿️ Parking at your door"],
+      "tags": [
+        "🏡 Timber-floor garden villas",
+        "🌳 Leafy hillside atmosphere",
+        "👨‍👩‍👧 Family Room available",
+        "🅿️ Parking at your door"
+      ],
       "addr": "91 Moo 8, Highway 2089, Muak Lek, Saraburi",
       "storyHtml": "Baan Ingkhao is a <strong>garden villa resort on the Muak Lek side with plenty of reviews — 376</strong> and a score of 7.8. It's timber-floor villas spread through a hillside garden, with a leafy feel and parking at your door. Rooms start with the Thai Villa around ฿1,200, with Deluxe Villas adding a garden-view balcony and a Family Room for bigger families. It suits self-drivers coming to unwind near Khao Yai on a budget, close to Muak Lek Waterfall and the dairy farms.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're travelling as a group or full family, look at the Family Room that sleeps several — cheaper per head — and if your budget stretches, pick a Deluxe Villa with a garden-view balcony.",
@@ -264,15 +417,29 @@
       "priceBig": "฿900",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Basic Twin Room", "price": "from ฿900/night" },
-        { "type": "Basic Triple Room (3 pax)", "price": "from ฿1,100/night" },
-        { "type": "Family Room", "price": "from ฿1,400/night" }
+        {
+          "type": "Basic Twin Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Basic Triple Room (3 pax)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/saraburi-garden-resort/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-saraburi-garden-resort-ban-kluai.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-saraburi-hotel-detail-6401959/saraburi-garden-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-saraburi-garden-resort-saraburi.html",
-      "tags": ["🌿 Rooms in a leafy garden", "🚗 Near Saraburi town", "👨‍👩‍👧 Family Room available", "🅿️ Parking"],
+      "tags": [
+        "🌿 Rooms in a leafy garden",
+        "🚗 Near Saraburi town",
+        "👨‍👩‍👧 Family Room available",
+        "🅿️ Parking"
+      ],
       "addr": "58 Moo 5, Ta Kut, Mueang Saraburi, Saraburi",
       "storyHtml": "Saraburi Garden is a <strong>garden resort near town with the most reviews in the town zone — 398</strong> and a score of 7.0. It's rooms and bungalows spread through a leafy garden, with parking, near the Saraburi town centre and easy to reach. Rooms start with the Basic Twin around ฿900, with Triple and Family Rooms for larger groups. It suits anyone stopping over or in town on business who wants a garden feel without going far from the centre.",
       "tipHtml": "💡 <strong>Tip:</strong> Lots of reviews here but a middling score, as it's mainly an en-route stay — pick a more recently renovated room and check the latest room photos before booking.",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿1,800/night" },
-        { "type": "Deluxe Room (tree views)", "price": "from ฿2,200/night" },
-        { "type": "Family Room", "price": "from ฿2,600/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Deluxe Room (tree views)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿2,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ml-forest-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ml-forest-resort.html",
       "tripUrl": "https://th.trip.com/hotels/muak-lek-hotel-detail-66810879/ml-forest-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-muak-lek-forest-resort-saraburi.html",
-      "tags": ["🌲 Leafy forest setting", "⛰️ Foot of Khao Yai, Muak Lek side", "👨‍👩‍👧 Family Room / villa", "🅿️ Parking"],
+      "tags": [
+        "🌲 Leafy forest setting",
+        "⛰️ Foot of Khao Yai, Muak Lek side",
+        "👨‍👩‍👧 Family Room / villa",
+        "🅿️ Parking"
+      ],
       "addr": "213 Moo 1, Muak Lek, Saraburi",
       "storyHtml": "Muak Lek Forest is a <strong>forest resort on the Muak Lek side built around a leafy, tree-lined setting</strong>, scoring 7.6 from 40 reviews. Rooms run from Superior up to Family Rooms and a three-bedroom villa for groups or larger families. Deluxe rooms look out over the trees, with a cool, easy feel. It suits self-drivers coming to unwind near Khao Yai who want a forest vibe, close to Muak Lek Waterfall and the Pak Chong approach to Khao Yai, from around ฿1,800.",
       "tipHtml": "💡 <strong>Tip:</strong> Coming as a group or a larger family, look at the Three-Bedroom Villa — cheaper per head than booking several separate rooms.",
@@ -344,15 +525,29 @@
       "priceBig": "฿650",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard twin (~24 sqm)", "price": "from ฿650/night" },
-        { "type": "Triple room (~32 sqm)", "price": "from ฿950/night" },
-        { "type": "Premium for 4", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard twin (~24 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Triple room (~32 sqm)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Premium for 4",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-bua-boutique-resort-hotel/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-bua-boutique-resort.html",
       "tripUrl": "https://www.trip.com/hotels/amphoe-kaeng-khoi-hotel-detail-117570061/the-bua-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-bua-boutique-resort-saraburi.html",
-      "tags": ["🛏️ Clean boutique-style rooms", "💰 From just ฿650", "👨‍👩‍👧 Rooms for 3–4", "🚗 On the Mittraphap Highway"],
+      "tags": [
+        "🛏️ Clean boutique-style rooms",
+        "💰 From just ฿650",
+        "👨‍👩‍👧 Rooms for 3–4",
+        "🚗 On the Mittraphap Highway"
+      ],
       "addr": "224 Ban Pa, Mittraphap Rd, Kaeng Khoi, Saraburi",
       "storyHtml": "The Bua is a <strong>budget boutique hotel on the Kaeng Khoi side right on the Mittraphap Highway, easy to stop at</strong>, scoring 7.5 from 28 reviews. Rooms are clean and boutique-styled with a smart TV, around 24 sqm, starting at just ฿650, plus triple rooms and a Premium for four for groups or small families. On the Mittraphap Highway, it's easy to reach and suits travellers stopping over en route to Khao Yai or Isan who want a room with some style at a friendly price.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling with several people, choose the triple room or Premium for four — cheaper per head and noticeably roomier than the Standard.",
@@ -384,15 +579,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room (bungalow)", "price": "from ฿2,200/night" },
-        { "type": "Superior Room (with balcony)", "price": "from ฿2,800/night" },
-        { "type": "Two-Bedroom Villa", "price": "from ฿5,500/night" }
+        {
+          "type": "Standard Room (bungalow)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Superior Room (with balcony)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Two-Bedroom Villa",
+          "price": "from ฿5,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/muaklek-paradise-resort/hotel/khao-yai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/muaklek-paradise-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pak-chong-hotel-detail-6463551/muaklek-paradise-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-muaklek-paradise-resort-saraburi.html",
-      "tags": ["🏡 Garden bungalow rooms", "⛰️ Foot of Khao Yai, Muak Lek side", "👨‍👩‍👧 Two-bedroom villa", "🅿️ Parking"],
+      "tags": [
+        "🏡 Garden bungalow rooms",
+        "⛰️ Foot of Khao Yai, Muak Lek side",
+        "👨‍👩‍👧 Two-bedroom villa",
+        "🅿️ Parking"
+      ],
       "addr": "330 Moo 7, Highway 2089, Mittraphap, Muak Lek, Saraburi",
       "storyHtml": "Muaklek Paradise is a <strong>garden bungalow resort at the foot of Khao Yai on the Muak Lek side</strong>, scoring 7.0 from 45 reviews. It's bungalow rooms spread through a garden, some with a sitting balcony, plus a two-bedroom villa for families or groups of friends. Rooms start with the Standard around ฿2,200. On Highway 2089 on the Muak Lek side, near the waterfall and dairy farms, it suits self-drivers wanting a leafy garden setting near the hills.",
       "tipHtml": "💡 <strong>Tip:</strong> As a group or family, look at the Two-Bedroom Villa — better value than several rooms. If your budget stretches, the Superior adds a sitting balcony.",
@@ -424,15 +633,29 @@
       "priceBig": "฿550",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Semi-detached cabin", "price": "from ฿550/night" },
-        { "type": "Twin room (K)", "price": "from ฿750/night" },
-        { "type": "Twin room (S)", "price": "from ฿850/night" }
+        {
+          "type": "Semi-detached cabin",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Twin room (K)",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Twin room (S)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.facebook.com/Sakura313644/",
       "bookingUrl": "https://www.facebook.com/Sakuraresort3333/",
       "tripUrl": "https://www.facebook.com/Sakura313644/",
       "reviewUrl": "review-sakura-resort-wang-muang-saraburi.html",
-      "tags": ["💰 From ฿550", "🏡 Simple, clean semi-detached cabins", "🌊 Wang Muang side, near the Pa Sak Dam", "🅿️ Parking"],
+      "tags": [
+        "💰 From ฿550",
+        "🏡 Simple, clean semi-detached cabins",
+        "🌊 Wang Muang side, near the Pa Sak Dam",
+        "🅿️ Parking"
+      ],
       "addr": "222 Moo 2, Ban Mo Din Daeng, Wang Muang, Saraburi",
       "storyHtml": "Sakura Resort is the <strong>cheapest stay in this guide, from just ฿550, yet scoring 8.0</strong> (from 18 reviews). It's simple, clean semi-detached cabins and twin rooms with air-con, a TV and an en-suite bathroom — everything you need for the price. On the Wang Muang side near the Pa Sak Jolasid Dam, it suits budget travellers heading for the dam or passing through Wang Muang. The main booking links are the resort's Facebook page, so message to book and confirm a room first.",
       "tipHtml": "💡 <strong>Tip:</strong> Booking here is mainly via the Facebook page — message ahead for availability and the rate for your dates. There's also an hourly-stay option, so check the terms.",
@@ -464,15 +687,29 @@
       "priceBig": "฿600",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Twin Room", "price": "from ฿600/night" },
-        { "type": "Superior Double Room", "price": "from ฿750/night" },
-        { "type": "Deluxe Twin Room", "price": "from ฿900/night" }
+        {
+          "type": "Superior Twin Room",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Superior Double Room",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ps-hotel-saraburi-h80201565/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pruksa-siri-view.th.html",
       "tripUrl": "https://th.trip.com/hotels/phra-phutthabat-district-hotel-detail-7599664/ps-hotel-saraburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ps-hotel-saraburi.html",
-      "tags": ["💰 From ฿600", "🛏️ Clean minimalist rooms", "🛕 Near Wat Phra Phutthabat", "📶 Free Wi-Fi, parking"],
+      "tags": [
+        "💰 From ฿600",
+        "🛏️ Clean minimalist rooms",
+        "🛕 Near Wat Phra Phutthabat",
+        "📶 Free Wi-Fi, parking"
+      ],
       "addr": "11/4 Phahonyothin Rd, Phra Phutthabat, Phra Phutthabat, Saraburi",
       "storyHtml": "PS Hotel is a <strong>budget hotel in the Phra Phutthabat area with a good score of 7.9 from just ฿600</strong> (from 22 reviews). Rooms are clean and minimalist, with air-con, a flat-screen TV, a work desk and free Wi-Fi. On Phahonyothin Road in the Phra Phutthabat area, near Wat Phra Phutthabat Ratchaworamahawihan, it suits people coming to pay respects at the temple, on business, or stopping over who want a clean room at a low price.",
       "tipHtml": "💡 <strong>Tip:</strong> If your budget stretches, choose the Deluxe Twin — the top room type here, in noticeably better shape than the standard Superior.",
@@ -504,15 +741,29 @@
       "priceBig": "฿700",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿700/night" },
-        { "type": "Superior Room (with balcony)", "price": "from ฿850/night" },
-        { "type": "Family / Twin Room", "price": "from ฿950/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Superior Room (with balcony)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Family / Twin Room",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/river-residence-saraburi-hotel/hotel/saraburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-river-residence-saraburi-hotel-ban-kluai.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-saraburi-hotel-detail-25015087/river-residence-saraburi-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-residence-saraburi.html",
-      "tags": ["💰 From ฿700", "🛏️ Clean, simple rooms", "🚗 In Saraburi town", "📶 Free Wi-Fi, parking"],
+      "tags": [
+        "💰 From ฿700",
+        "🛏️ Clean, simple rooms",
+        "🚗 In Saraburi town",
+        "📶 Free Wi-Fi, parking"
+      ],
       "addr": "Ta Kut, Mueang Saraburi, Saraburi",
       "storyHtml": "River Residence is a <strong>budget hotel in the Saraburi town centre in the Ta Kut area</strong>, scoring 7.0 from 24 reviews. Rooms are clean and simple, with air-con, a TV, an en-suite bathroom and free Wi-Fi; some Superior rooms add a balcony, and there are Family/Twin Rooms for groups or small families. In the Saraburi town centre, it suits people stopping over or in town on business who just want a clean room at a low price, from around ฿700.",
       "tipHtml": "💡 <strong>Tip:</strong> If your budget stretches a little, choose a Superior Room with a balcony — roomier than the Standard for only a few hundred baht more.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Saraburi hotel comparison — 12 hotels, 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Sir James Resort", "type": "⭐⭐⭐⭐", "score": "8.2", "price": "฿1,900", "access": "📍 Muak Lek·foot of Khao Yai", "badge": "Most reviewed 2,750", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Supalai Pasak Resort & Spa", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,600", "access": "📍 Kaeng Khoi·Pa Sak River", "badge": "Riverside, top score", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Organery Retreat & Spa", "type": "⭐⭐⭐", "score": "8.8", "price": "฿2,200", "access": "📍 Muak Lek·foot of Khao Yai", "badge": "Boutique, top score", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Phufa Pasak Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,200", "access": "📍 Wang Muang·Pa Sak Dam", "badge": "Earth houses, dam views", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Baan Ingkhao Resort", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,200", "access": "📍 Muak Lek·foot of Khao Yai", "badge": "Garden villas, lots of reviews", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Saraburi Garden Resort", "type": "⭐⭐⭐", "score": "7.0", "price": "฿900", "access": "📍 Ta Kut·town", "badge": "Most reviews 398", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Muak Lek Forest Resort", "type": "⭐⭐⭐", "score": "7.6", "price": "฿1,800", "access": "📍 Muak Lek·forest", "badge": "Forest resort", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "The Bua Boutique Resort", "type": "⭐⭐⭐", "score": "7.5", "price": "฿650", "access": "📍 Kaeng Khoi·Mittraphap Hwy", "badge": "Budget boutique", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Muaklek Paradise Resort", "type": "⭐⭐⭐", "score": "7.0", "price": "฿2,200", "access": "📍 Muak Lek·foot of Khao Yai", "badge": "Garden bungalows", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Sakura Resort Wang Muang", "type": "⭐⭐", "score": "8.0", "price": "฿550", "access": "📍 Wang Muang·near dam", "badge": "Cheapest ฿550", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "PS Hotel Saraburi", "type": "⭐⭐", "score": "7.9", "price": "฿600", "access": "📍 Phra Phutthabat", "badge": "Budget, near temple", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "River Residence Saraburi", "type": "⭐⭐", "score": "7.0", "price": "฿700", "access": "📍 Ta Kut·town", "badge": "Budget in town", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Sir James Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿1,900",
+      "access": "📍 Muak Lek·foot of Khao Yai",
+      "badge": "Most reviewed 2,750",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Supalai Pasak Resort & Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,600",
+      "access": "📍 Kaeng Khoi·Pa Sak River",
+      "badge": "Riverside, top score",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Organery Retreat & Spa",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿2,200",
+      "access": "📍 Muak Lek·foot of Khao Yai",
+      "badge": "Boutique, top score",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Phufa Pasak Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,200",
+      "access": "📍 Wang Muang·Pa Sak Dam",
+      "badge": "Earth houses, dam views",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Baan Ingkhao Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,200",
+      "access": "📍 Muak Lek·foot of Khao Yai",
+      "badge": "Garden villas, lots of reviews",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Saraburi Garden Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿900",
+      "access": "📍 Ta Kut·town",
+      "badge": "Most reviews 398",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Muak Lek Forest Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿1,800",
+      "access": "📍 Muak Lek·forest",
+      "badge": "Forest resort",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "The Bua Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.5",
+      "price": "฿650",
+      "access": "📍 Kaeng Khoi·Mittraphap Hwy",
+      "badge": "Budget boutique",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Muaklek Paradise Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿2,200",
+      "access": "📍 Muak Lek·foot of Khao Yai",
+      "badge": "Garden bungalows",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Sakura Resort Wang Muang",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿550",
+      "access": "📍 Wang Muang·near dam",
+      "badge": "Cheapest ฿550",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "PS Hotel Saraburi",
+      "type": "⭐⭐",
+      "score": "7.9",
+      "price": "฿600",
+      "access": "📍 Phra Phutthabat",
+      "badge": "Budget, near temple",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "River Residence Saraburi",
+      "type": "⭐⭐",
+      "score": "7.0",
+      "price": "฿700",
+      "access": "📍 Ta Kut·town",
+      "badge": "Budget in town",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "How to pick the right Saraburi hotel for you",
   "advice": [
-    { "icon": "💰", "head": "On a budget, after the best value", "bodyHtml": "→ <strong>Sakura Resort Wang Muang</strong> from ฿550 on the Wang Muang side near the dam · or <strong>PS Hotel Saraburi</strong> ฿600 in the Phra Phutthabat area, score 7.9 · or <strong>The Bua Boutique</strong> ฿650, a boutique on the Mittraphap Highway" },
-    { "icon": "⛰️", "head": "Want to unwind at the foot of Khao Yai, Muak Lek", "bodyHtml": "→ <strong>Sir James Resort</strong> ฿1,900, a golf resort, the most reviewed · or <strong>The Organery Retreat</strong> ฿2,200, a boutique scoring 8.8 · or <strong>Baan Ingkhao</strong> ฿1,200, garden villas" },
-    { "icon": "🌊", "head": "Want a riverside or dam-side stay", "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 on the Pa Sak River in Kaeng Khoi, score 8.8 · or <strong>Phufa Pasak Resort</strong> ฿1,200, earth houses with Pa Sak Dam views in Wang Muang" },
-    { "icon": "👨‍👩‍👧", "head": "Coming as a family or a group", "bodyHtml": "→ <strong>Muak Lek Forest Resort</strong> ฿1,800 with a three-bedroom villa · or <strong>Baan Ingkhao</strong> ฿1,200 with a Family Room · or <strong>Muaklek Paradise</strong> ฿2,200 with a two-bedroom villa" },
-    { "icon": "🛕", "head": "Temple visit, en-route stay, no car", "bodyHtml": "→ <strong>PS Hotel Saraburi</strong> ฿600 near Wat Phra Phutthabat · or <strong>River Residence</strong> ฿700 in town · or <strong>Saraburi Garden Resort</strong> ฿900, in a garden near town" },
-    { "icon": "💆", "head": "Want a resort with a spa and a nice setting", "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600, riverside with a spa, score 8.8 · or <strong>The Organery Retreat & Spa</strong> ฿2,200, a hillside boutique with a pool and spa" }
+    {
+      "icon": "💰",
+      "head": "On a budget, after the best value",
+      "bodyHtml": "→ <strong>Sakura Resort Wang Muang</strong> from ฿550 on the Wang Muang side near the dam · or <strong>PS Hotel Saraburi</strong> ฿600 in the Phra Phutthabat area, score 7.9 · or <strong>The Bua Boutique</strong> ฿650, a boutique on the Mittraphap Highway"
+    },
+    {
+      "icon": "⛰️",
+      "head": "Want to unwind at the foot of Khao Yai, Muak Lek",
+      "bodyHtml": "→ <strong>Sir James Resort</strong> ฿1,900, a golf resort, the most reviewed · or <strong>The Organery Retreat</strong> ฿2,200, a boutique scoring 8.8 · or <strong>Baan Ingkhao</strong> ฿1,200, garden villas"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want a riverside or dam-side stay",
+      "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600 on the Pa Sak River in Kaeng Khoi, score 8.8 · or <strong>Phufa Pasak Resort</strong> ฿1,200, earth houses with Pa Sak Dam views in Wang Muang"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Coming as a family or a group",
+      "bodyHtml": "→ <strong>Muak Lek Forest Resort</strong> ฿1,800 with a three-bedroom villa · or <strong>Baan Ingkhao</strong> ฿1,200 with a Family Room · or <strong>Muaklek Paradise</strong> ฿2,200 with a two-bedroom villa"
+    },
+    {
+      "icon": "🛕",
+      "head": "Temple visit, en-route stay, no car",
+      "bodyHtml": "→ <strong>PS Hotel Saraburi</strong> ฿600 near Wat Phra Phutthabat · or <strong>River Residence</strong> ฿700 in town · or <strong>Saraburi Garden Resort</strong> ฿900, in a garden near town"
+    },
+    {
+      "icon": "💆",
+      "head": "Want a resort with a spa and a nice setting",
+      "bodyHtml": "→ <strong>Supalai Pasak Resort & Spa</strong> ฿1,600, riverside with a spa, score 8.8 · or <strong>The Organery Retreat & Spa</strong> ฿2,200, a hillside boutique with a pool and spa"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate and may change by date and season — always check live prices and compare 3 sites before booking. In the cool-season run-up (Nov–Jan) and on long weekends, stays in the Muak Lek–Khao Yai zone and by the Pa Sak Dam fill up fast, so book 2–4 weeks ahead. Saraburi has no metro and no commercial airport, and the standout resort zones of Muak Lek and Wang Muang really need a car. Article by <strong>ThailandAddict.com</strong>.",
   "faqTitle": "FAQ — common traveller questions about Saraburi hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Saraburi?", "a": "It depends on your itinerary and whether you have a car. <strong>Muak Lek, at the foot of Khao Yai</strong>, is the standout resort zone, with cooler air, near the waterfall and dairy farms (Sir James, The Organery, Baan Ingkhao, Muak Lek Forest, Muaklek Paradise). <strong>Kaeng Khoi</strong> sits on the Mittraphap Highway with riverside resorts on the Pa Sak (Supalai Pasak, The Bua). <strong>Wang Muang</strong> is by the Pa Sak Dam, ideal for a riverside stay (Phufa Pasak, Sakura). And <strong>the town centre–Phra Phutthabat</strong> suits en-route stops and travellers without a car (Saraburi Garden, PS Hotel, River Residence)." },
-    { "q": "❓ How much do Saraburi hotels cost?", "a": "Saraburi has a wide range: budget 2-star stays from around ฿550–900 (Sakura, PS Hotel, River Residence, Saraburi Garden); 3-star resorts and boutiques by the hills around ฿1,200–2,200 (Baan Ingkhao, Phufa Pasak, Muak Lek Forest, The Organery, Muaklek Paradise); and 4-star riverside and golf resorts around ฿1,600–1,900 (Supalai Pasak, Sir James)." },
-    { "q": "❓ Can I stay in Muak Lek and visit Khao Yai?", "a": "Yes. Muak Lek sits at the foot of Khao Yai on the Saraburi side, with a drive to the park's Pak Chong approach, and Muak Lek Waterfall, dairy farms and vineyards to stop at along the way. The standout stays here are <strong>Sir James Resort</strong> (a golf resort), <strong>The Organery Retreat</strong> (a boutique scoring 8.8) and <strong>Baan Ingkhao</strong> (garden villas) — all best with a car." },
-    { "q": "❓ Does Saraburi have riverside or dam-side stays?", "a": "Yes. <strong>Supalai Pasak Resort & Spa</strong> from ฿1,600 is a bungalow resort on the Pa Sak River on the Kaeng Khoi side, with a spa and a pool, scoring 8.8. <strong>Phufa Pasak Resort</strong> from ฿1,200 has earth houses and tents with views over the Pa Sak Jolasid reservoir on the Wang Muang side — ideal for those who like being close to nature and watching the sunset over the water." },
-    { "q": "❓ No car, coming to Wat Phra Phutthabat — where's handy?", "a": "If you're coming to pay respects at Wat Phra Phutthabat or stopping over in town, <strong>PS Hotel Saraburi</strong> from ฿600 is in the Phra Phutthabat area near the temple, while <strong>River Residence</strong> from ฿700 and <strong>Saraburi Garden Resort</strong> from ฿900 are in the Saraburi town centre. The resort zones of Muak Lek and Wang Muang really need a car." },
-    { "q": "❓ How far ahead should I book a Saraburi hotel?", "a": "On regular weekdays, 1–2 weeks ahead is enough. But in the cool-season run-up (Nov–Jan) and on long weekends, stays in the Muak Lek–Khao Yai zone and by the Pa Sak Dam fill up fast — with people heading to Khao Yai and chasing the cool weather — so book 2–4 weeks ahead or more." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Saraburi?",
+      "a": "It depends on your itinerary and whether you have a car. <strong>Muak Lek, at the foot of Khao Yai</strong>, is the standout resort zone, with cooler air, near the waterfall and dairy farms (Sir James, The Organery, Baan Ingkhao, Muak Lek Forest, Muaklek Paradise). <strong>Kaeng Khoi</strong> sits on the Mittraphap Highway with riverside resorts on the Pa Sak (Supalai Pasak, The Bua). <strong>Wang Muang</strong> is by the Pa Sak Dam, ideal for a riverside stay (Phufa Pasak, Sakura). And <strong>the town centre–Phra Phutthabat</strong> suits en-route stops and travellers without a car (Saraburi Garden, PS Hotel, River Residence)."
+    },
+    {
+      "q": "❓ How much do Saraburi hotels cost?",
+      "a": "Saraburi has a wide range: budget 2-star stays from around ฿550–900 (Sakura, PS Hotel, River Residence, Saraburi Garden); 3-star resorts and boutiques by the hills around ฿1,200–2,200 (Baan Ingkhao, Phufa Pasak, Muak Lek Forest, The Organery, Muaklek Paradise); and 4-star riverside and golf resorts around ฿1,600–1,900 (Supalai Pasak, Sir James)."
+    },
+    {
+      "q": "❓ Can I stay in Muak Lek and visit Khao Yai?",
+      "a": "Yes. Muak Lek sits at the foot of Khao Yai on the Saraburi side, with a drive to the park's Pak Chong approach, and Muak Lek Waterfall, dairy farms and vineyards to stop at along the way. The standout stays here are <strong>Sir James Resort</strong> (a golf resort), <strong>The Organery Retreat</strong> (a boutique scoring 8.8) and <strong>Baan Ingkhao</strong> (garden villas) — all best with a car."
+    },
+    {
+      "q": "❓ Does Saraburi have riverside or dam-side stays?",
+      "a": "Yes. <strong>Supalai Pasak Resort & Spa</strong> from ฿1,600 is a bungalow resort on the Pa Sak River on the Kaeng Khoi side, with a spa and a pool, scoring 8.8. <strong>Phufa Pasak Resort</strong> from ฿1,200 has earth houses and tents with views over the Pa Sak Jolasid reservoir on the Wang Muang side — ideal for those who like being close to nature and watching the sunset over the water."
+    },
+    {
+      "q": "❓ No car, coming to Wat Phra Phutthabat — where's handy?",
+      "a": "If you're coming to pay respects at Wat Phra Phutthabat or stopping over in town, <strong>PS Hotel Saraburi</strong> from ฿600 is in the Phra Phutthabat area near the temple, while <strong>River Residence</strong> from ฿700 and <strong>Saraburi Garden Resort</strong> from ฿900 are in the Saraburi town centre. The resort zones of Muak Lek and Wang Muang really need a car."
+    },
+    {
+      "q": "❓ How far ahead should I book a Saraburi hotel?",
+      "a": "On regular weekdays, 1–2 weeks ahead is enough. But in the cool-season run-up (Nov–Jan) and on long weekends, stays in the Muak Lek–Khao Yai zone and by the Pa Sak Dam fill up fast — with people heading to Khao Yai and chasing the cool weather — so book 2–4 weeks ahead or more."
+    }
+  ],
+  "quickAnswerHtml": "12 hand-picked Saraburi hotels across every tier — from Sir James, a golf resort at the foot of Khao Yai, to Supalai Pasak on the Pa Sak River, Muak Lek boutiques and a dam-side stay at Wang Muang. Real guest reviews, prices compared across 3 sites, direct booking links."
 }

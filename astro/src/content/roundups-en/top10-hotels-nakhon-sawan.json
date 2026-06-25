@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Nakhon Sawan", "href": "city-nakhon-sawan.html" },
-    { "name": "Top 12 Nakhon Sawan Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Nakhon Sawan",
+      "href": "city-nakhon-sawan.html"
+    },
+    {
+      "name": "Top 12 Nakhon Sawan Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Nakhon Sawan", "item": "https://thailandaddict.com/en/city-nakhon-sawan" },
-    { "name": "Top 12 Nakhon Sawan Hotels", "item": "https://thailandaddict.com/en/top10-hotels-nakhon-sawan" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Nakhon Sawan",
+      "item": "https://thailandaddict.com/en/city-nakhon-sawan"
+    },
+    {
+      "name": "Top 12 Nakhon Sawan Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-nakhon-sawan"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-nakhon-sawan.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Nakhon Sawan has no metro; you get around by car, but central Pak Nam Pho is compact and the shopping district is walkable. Many <strong>central Pak Nam Pho</strong> stays are within walking distance of V Square/Central malls, the market, the walking street and Sawan Park, so they work without a car (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu). Stays <strong>on the Asia Highway / bypass</strong> have easy highway access and are close to Big C, ideal for a road-trip stopover, but dining around the hotels is thin (Hop Inn, Beverly Hill Park). The <strong>outskirts / Bueng Boraphet side</strong> needs a private or rental car as it's out of town, but it's close to the lake and has pools and a spa (Good Nakhonsawan, Grand Hill Resort). The areas in this guide: <strong>Central Pak Nam Pho</strong> — malls, markets, food, the walking street · <strong>Asia Highway</strong> — road-trip stopover, free parking · <strong>Outskirts–Bueng Boraphet</strong> — pools, spa, near the lake.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Good Nakhonsawan Hotel", "price": "฿1,200" },
-    { "n": "2", "color": "#c8a951", "name": "Hop Inn Nakhon Sawan", "price": "฿650" },
-    { "n": "3", "color": "#c8a951", "name": "The Paradiso JK Design Hotel", "price": "฿1,300" },
-    { "n": "4", "color": "#9e9e9e", "name": "Bonito Chinos Hotel", "price": "฿650" },
-    { "n": "5", "color": "#9e9e9e", "name": "P.A. Place Hotel", "price": "฿600" },
-    { "n": "6", "color": "#9e9e9e", "name": "GO Hotel Nakhon Sawan", "price": "฿550" },
-    { "n": "7", "color": "#9e9e9e", "name": "24rooms Nakhon Sawan", "price": "฿750" },
-    { "n": "8", "color": "#bf8040", "name": "Aramis Hotel", "price": "฿1,000" },
-    { "n": "9", "color": "#bf8040", "name": "B2 Nakhon Sawan Premier Hotel", "price": "฿550" },
-    { "n": "10", "color": "#5d4037", "name": "Grand Hill Resort and Spa", "price": "฿1,100" },
-    { "n": "11", "color": "#5d4037", "name": "Grand Visanu Hotel", "price": "฿450" },
-    { "n": "12", "color": "#5d4037", "name": "Beverly Hill Park Hotel", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Good Nakhonsawan Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hop Inn Nakhon Sawan",
+      "price": "฿650"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "The Paradiso JK Design Hotel",
+      "price": "฿1,300"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Bonito Chinos Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "P.A. Place Hotel",
+      "price": "฿600"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "GO Hotel Nakhon Sawan",
+      "price": "฿550"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "24rooms Nakhon Sawan",
+      "price": "฿750"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Aramis Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "B2 Nakhon Sawan Premier Hotel",
+      "price": "฿550"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Grand Hill Resort and Spa",
+      "price": "฿1,100"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Grand Visanu Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Beverly Hill Park Hotel",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double / King (25 sqm)", "price": "from ฿1,200/night" },
-        { "type": "Junior Suite (with bathtub)", "price": "from ฿1,500/night" },
-        { "type": "Family Room (sleeps 3–4)", "price": "from ฿1,900/night" }
+        {
+          "type": "Deluxe Double / King (25 sqm)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Junior Suite (with bathtub)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Family Room (sleeps 3–4)",
+          "price": "from ฿1,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/good-nakhonsawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/good-nakhonsawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-115800542/good-nakhonsawan-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-good-nakhonsawan-hotel-nakhon-sawan.html",
-      "tags": ["✨ Opened 2024, rooms still brand-new", "🏊 Outdoor + rooftop pool + pool villa", "🦆 Near Bueng Boraphet ~800 m", "🅿️ Free parking + free breakfast"],
+      "tags": [
+        "✨ Opened 2024, rooms still brand-new",
+        "🏊 Outdoor + rooftop pool + pool villa",
+        "🦆 Near Bueng Boraphet ~800 m",
+        "🅿️ Free parking + free breakfast"
+      ],
       "addr": "150/1 Moo 4, Highway 225, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "Good Nakhonsawan Hotel is <strong>the top score in this guide at 9.3 from 306 reviews — a 2024 new-build with a full set of pools, sitting near Bueng Boraphet lake</strong>. It's about 800 m from the lake junction and a 10-minute drive into central Pak Nam Pho. Real guest reviews praise the brand-new rooms — furniture and bathrooms still fresh and clean — plus an outdoor pool, a rooftop pool, a kids' pool and even a pool villa with a private pool, which is rare at this price around Nakhon Sawan. The honest trade-offs: it's pricier than the older hotels in town, breakfast is just okay, and there isn't much dining nearby. Best for families and self-drivers passing through who want new rooms and a pool.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a family, take the Family Room so the kids can use the pool — or with a bigger group the Pool Villa with its private pool works out better value. Drive ~10 minutes to Bueng Boraphet early for the soft morning light. Dining is thin nearby, so come with a car or plan on delivery.",
@@ -104,15 +201,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿650/night" },
-        { "type": "Standard Twin", "price": "from ฿700/night" },
-        { "type": "Standard (weekend)", "price": "from ฿850/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Standard (weekend)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-12517364/hop-inn-nakhon-sawan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-nakhon-sawan.html",
-      "tags": ["🧼 Clean rooms, great value (cleanliness 9.2)", "🛣️ On the Asia Highway, near Big C", "🅿️ Free parking + 24h reception", "💰 Lightest price in town"],
+      "tags": [
+        "🧼 Clean rooms, great value (cleanliness 9.2)",
+        "🛣️ On the Asia Highway, near Big C",
+        "🅿️ Free parking + 24h reception",
+        "💰 Lightest price in town"
+      ],
       "addr": "605/755 Moo 10, Nakhon Sawan Tok, Mueang Nakhon Sawan",
       "storyHtml": "Hop Inn Nakhon Sawan is <strong>a 9.2-scoring budget hotel that's the sweet spot for anyone who just wants a clean room, a comfy bed, free parking and easy highway access at the lightest price in town</strong>, from 88 reviews. Out on the Asia Highway near Big C, it suits travellers using Nakhon Sawan as an overnight stopover on the drive north. Real guest reviews praise the clean standard rooms and comfortable beds — many call it the best value in town (cleanliness scores 9.2) — plus free private parking, 24-hour reception and CCTV. The honest trade-offs: rooms are plain and no-frills, there's no breakfast, no pool, and it's not in the heart of the Pak Nam Pho market. Best for self-drivers stopping overnight and budget travellers.",
       "tipHtml": "💡 <strong>Tip:</strong> Driving is the way to make the most of it — free parking and easy highway access. There's no breakfast, but you can walk to Big C or nearby shops. Book ahead on long weekends, as it's a popular stopover spot and prices nudge up a little.",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior (26 sqm)", "price": "from ฿1,300/night" },
-        { "type": "Deluxe (32 sqm, with bathtub)", "price": "from ฿1,600/night" },
-        { "type": "Executive Suite (35 sqm)", "price": "from ฿1,950/night" }
+        {
+          "type": "Superior (26 sqm)",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Deluxe (32 sqm, with bathtub)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Executive Suite (35 sqm)",
+          "price": "from ฿1,950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-paradiso-jk-design-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-paradiso-jk-design-nkhrswrrkh.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-2550509/the-paradiso-jk-design-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-paradiso-jk-design-hotel-nakhon-sawan.html",
-      "tags": ["🎨 Modern design boutique rooms", "🛁 Many rooms have a bathtub", "🍳 Good breakfast included", "🅿️ Free parking"],
+      "tags": [
+        "🎨 Modern design boutique rooms",
+        "🛁 Many rooms have a bathtub",
+        "🍳 Good breakfast included",
+        "🅿️ Free parking"
+      ],
       "addr": "188/1 Moo 10, Nakhon Sawan–Phitsanulok Rd, Nakhon Sawan Tok, Mueang Nakhon Sawan",
       "storyHtml": "The Paradiso JK Design Hotel is <strong>a strong pick for anyone who wants a good-looking room, a spacious one with a bathtub, and a good breakfast in central Nakhon Sawan</strong>, scoring 8.8 from 49 reviews. The modern styling makes the rooms feel more current than most hotels in town, at 26–70 sqm. Real guest reviews praise the design for the money, the fact that many rooms have a separate bathtub (rare in Nakhon Sawan), an included breakfast that's varied and filling, and free parking. The honest trade-offs: there's noise from the in-house club at weekends, and cleanliness in some rooms is a little inconsistent. Best for couples and anyone wanting a stylish room with a bathtub in town.",
       "tipHtml": "💡 <strong>Tip:</strong> For a bathtub, book Deluxe or above and confirm with the hotel first. Weekends can be noisy from the in-house club, so ask for a higher floor or a room away from the club zone. Don't skip the breakfast — reviews praise the variety.",
@@ -184,15 +309,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿650/night" },
-        { "type": "New Superior Room", "price": "from ฿800/night" },
-        { "type": "New Deluxe Room", "price": "from ฿1,000/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "New Superior Room",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "New Deluxe Room",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bonito-chinos-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-bonito-chinos-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711667/bonito-chinos-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bonito-chinos-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ City centre, walk to the malls", "🌆 Rooftop restaurant with city views", "🍳 Free breakfast + free shuttle", "🔌 Free parking + EV charging"],
+      "tags": [
+        "🏙️ City centre, walk to the malls",
+        "🌆 Rooftop restaurant with city views",
+        "🍳 Free breakfast + free shuttle",
+        "🔌 Free parking + EV charging"
+      ],
       "addr": "314/29 Sawanwithi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "Bonito Chinos Hotel is <strong>a good fit for anyone who wants to stay in central Pak Nam Pho and walk to the malls and Sawan Park</strong>, scoring 8.7 from 177 reviews, with the location category rated around 9.4. On Sawanwithi Road, it's a few minutes from V Square and Big C, and walkable to Sawan Park. Real guest reviews praise the walk-everywhere location, the rooftop restaurant with views over Nakhon Sawan as a relaxed evening spot, free parking with EV charging, free breakfast and a free shuttle. The honest trade-offs: cleanliness isn't consistent across every room, and parts of the building are getting old. Best for town explorers who want to walk to the malls and food.",
       "tipHtml": "💡 <strong>Tip:</strong> Pick a New Superior/New Deluxe room — the renovated ones are in better shape than the older Standard rooms. Head up to the rooftop bar for the city view in the evening. The Pak Nam Pho food scene is an easy walk away.",
@@ -224,15 +363,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin", "price": "from ฿600/night" },
-        { "type": "Standard Queen", "price": "from ฿650/night" },
-        { "type": "Deluxe Queen", "price": "from ฿850/night" }
+        {
+          "type": "Standard Twin",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Standard Queen",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Queen",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/p-a-place-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/p-a-place.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-6275119/pa-place-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pa-place-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ City centre, walk to restaurants & market", "🧼 Clean rooms, cold aircon", "🅿️ Free parking · 24h reception", "☕ Free morning coffee & cocoa"],
+      "tags": [
+        "🏙️ City centre, walk to restaurants & market",
+        "🧼 Clean rooms, cold aircon",
+        "🅿️ Free parking · 24h reception",
+        "☕ Free morning coffee & cocoa"
+      ],
       "addr": "276/4 Sawanwithi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "P.A. Place Hotel is <strong>a 3-star city-centre hotel that suits anyone who wants to stay in Pak Nam Pho with a clean room at good value</strong>, scoring 8.6 from 152 reviews. On Sawanwithi Road in the heart of town, you can walk into the Pak Nam Pho commercial area and market, and it's a few minutes' drive from the Chao Phraya River and Sawan Park. Real guest reviews most often praise rooms that are clean with no musty smell and properly cold aircon — great value for a 3-star — plus free on-site parking, 24-hour reception that handles late check-ins, and free morning coffee and cocoa. The honest trade-offs: room condition is a little inconsistent, the building is an older town one, and facilities aren't resort-complete. Best for budget-minded town explorers.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for the Deluxe Queen — it's roomier with a sitting area if you're staying a few nights. Late check-in is fine thanks to 24h reception. The Pak Nam Pho market is an easy walk for food.",
@@ -264,15 +417,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "GO King (launch promo price)", "price": "from ฿550/night" },
-        { "type": "Twin Room", "price": "from ฿650/night" },
-        { "type": "GO King (regular)", "price": "from ฿700/night" }
+        {
+          "type": "GO King (launch promo price)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Twin Room",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "GO King (regular)",
+          "price": "from ฿700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/go-hotel-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/go-nakhon-sawan.html",
       "tripUrl": "https://th.trip.com/hotels/nakhon-sawan-hotel-detail-133855738/go-hotel-nakhonsawan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-go-hotel-nakhon-sawan.html",
-      "tags": ["🆕 Opened 2026, rooms still fresh", "🛍️ Walk to Central Nakhon Sawan", "🅿️ Free parking + free Wi-Fi", "💰 Launch promo from ฿550"],
+      "tags": [
+        "🆕 Opened 2026, rooms still fresh",
+        "🛍️ Walk to Central Nakhon Sawan",
+        "🅿️ Free parking + free Wi-Fi",
+        "💰 Launch promo from ฿550"
+      ],
       "addr": "699/8 Moo 10, Nakhon Sawan Tok, Mueang Nakhon Sawan",
       "storyHtml": "GO Hotel Nakhon Sawan is <strong>a newly opened budget hotel worth a look for anyone who wants a new room, a soft bed, free parking and a city-centre location within walking distance of Central</strong>, all at a still-light starting price, scoring 8.5. In central Pak Nam Pho, it's walkable to Central Nakhon Sawan and near Sawan Park — a location budget stays in town rarely get. Early reviews praise the new, clean rooms and soft beds, plus free parking, free Wi-Fi, a lift and a non-smoking floor. But because it only opened in 2026, expect lingering paint smell, some construction noise nearby on weekend mornings, very few reviews so far (3), and no breakfast or pool. Best for budget travellers who want a new room in the city centre.",
       "tipHtml": "💡 <strong>Tip:</strong> It's a brand-new hotel with few reviews, so check the latest price and condition before booking. Grab the ฿550 launch promo on weekdays. There's no breakfast, but you can walk to Central or in-town restaurants.",
@@ -304,15 +471,29 @@
       "priceBig": "฿750",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (~36 sqm)", "price": "from ฿750/night" },
-        { "type": "Deluxe Room", "price": "from ฿950/night" },
-        { "type": "Suite (with bathtub)", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Room (~36 sqm)",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Suite (with bathtub)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/24rooms-nakhon-sawan/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/24rooms-nkhrswrrkh.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-120005436/24rooms/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-24rooms-nakhon-sawan.html",
-      "tags": ["🏡 Big ~36 sqm rooms, cute decor", "🏙️ Central Pak Nam Pho, walkable", "🅿️ Free parking + breakfast", "🤝 Friendly staff"],
+      "tags": [
+        "🏡 Big ~36 sqm rooms, cute decor",
+        "🏙️ Central Pak Nam Pho, walkable",
+        "🅿️ Free parking + breakfast",
+        "🤝 Friendly staff"
+      ],
       "addr": "60/89 Sawanwithi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "24rooms Nakhon Sawan is <strong>a charming small stay, a good fit for anyone who wants a spacious, cutely decorated, clean room with free parking, central enough to explore on foot</strong>, at a light price, scoring 8.4 from 24 reviews. On Sawanwithi Road in the city centre, it's about 1 km to the walking street and close to the Chao Phraya riverside and food. Real guest reviews praise the roughly 36 sqm rooms — surprisingly big for the price — with unique, cute decor, clean and comfy beds, plus free private parking, 24-hour reception, breakfast and a small café, and friendly staff. The honest trade-offs: it's a small, recently opened stay with no pool or big-hotel facilities, and it hasn't built up many reviews yet. Best for anyone who wants a spacious, charming in-town room.",
       "tipHtml": "💡 <strong>Tip:</strong> For a relaxing soak, take the Suite with its large bathtub. Book ahead on long weekends, as rooms are few and fill fast. The walking street and riverside are an easy walk for food.",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Twin (~28 sqm)", "price": "from ฿1,000/night" },
-        { "type": "Deluxe King (~33 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Deluxe Corner King (~33 sqm)", "price": "from ฿1,400/night" }
+        {
+          "type": "Superior Twin (~28 sqm)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe King (~33 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe Corner King (~33 sqm)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/aramis-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-aramis-hotel-nakhon-sawan.html",
       "tripUrl": "https://th.trip.com/hotels/nakhon-sawan-hotel-detail-711656/aramis-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-aramis-hotel-nakhon-sawan.html",
-      "tags": ["🛏️ Spacious clean rooms ~28–33 sqm", "🏙️ Central Pak Nam Pho, near Sawan Park", "🅿️ Free, generous parking", "🍳 Buffet breakfast + 24h lift"],
+      "tags": [
+        "🛏️ Spacious clean rooms ~28–33 sqm",
+        "🏙️ Central Pak Nam Pho, near Sawan Park",
+        "🅿️ Free, generous parking",
+        "🍳 Buffet breakfast + 24h lift"
+      ],
       "addr": "288/20 Sawanwithi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "Aramis Hotel is <strong>a central Nakhon Sawan hotel for anyone who wants spacious, clean rooms, plenty of parking, breakfast, and a Pak Nam Pho location within walking distance of the market and restaurants, at an affordable starting price</strong>, scoring 8.3 from 210 reviews. It's in the heart of town in the Pak Nam Pho area, near Sawan Park (Nong Somboon). Real guest reviews praise rooms that are bigger than expected for the price, clean, simply and modernly styled with comfy beds, plus generous easy parking, a restaurant, buffet breakfast, free Wi-Fi, a lift and 24-hour reception. The honest trade-offs: some higher-floor rooms get noise, some bathrooms lack a screen, and a few items carry an extra charge. Best for town explorers who want a spacious room and breakfast.",
       "tipHtml": "💡 <strong>Tip:</strong> For a brighter, bigger room take the Deluxe Corner King. If it matters to you, check whether the bathroom has a screen. Don't skip the in-house buffet breakfast.",
@@ -384,15 +579,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Triple Room (~19 sqm)", "price": "from ฿550/night" },
-        { "type": "Junior Suite Room (~27 sqm)", "price": "from ฿750/night" },
-        { "type": "Suite Room (~38 sqm)", "price": "from ฿950/night" }
+        {
+          "type": "Deluxe Triple Room (~19 sqm)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Junior Suite Room (~27 sqm)",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Suite Room (~38 sqm)",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-nakhonsawan-premier-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-b2-nakhonsawan-premier-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-28857165/b2-nakhon-sawan-premier-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-nakhon-sawan-premier-hotel-nakhon-sawan.html",
-      "tags": ["💬 Most reviewed in this guide, 805", "🏢 Reliable B2-chain budget standard", "🅿️ Free, generous parking", "🛗 Lift · 24h reception"],
+      "tags": [
+        "💬 Most reviewed in this guide, 805",
+        "🏢 Reliable B2-chain budget standard",
+        "🅿️ Free, generous parking",
+        "🛗 Lift · 24h reception"
+      ],
       "addr": "23/16 Dao Dueng Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "B2 Nakhon Sawan Premier is <strong>a reliable chain budget hotel — the most-reviewed property in this guide at 805 — with clean rooms, free parking, an affordable price and a central Pak Nam Pho location</strong>, scoring 8.2. It's 79 rooms in the B2 chain on Dao Dueng Road. Real guest reviews say it works very well for self-drivers, road-trip stopovers and anyone who just wants good-value sleep in the city centre — clean aircon rooms, simple but complete design, generous parking, a lift, 24-hour reception and free Wi-Fi. The honest trade-offs: no breakfast, no pool, some comments about inconsistent cleanliness, aircon that isn't cold enough in some rooms, and fairly firm beds. Best for budget travellers and overnight stopovers.",
       "tipHtml": "💡 <strong>Tip:</strong> For more space take the Junior Suite/Suite over the Deluxe Triple. Check the aircon when you arrive — if it's not cold enough, the 24h reception can help. No breakfast, but you can walk to in-town restaurants.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Queen", "price": "from ฿1,100/night" },
-        { "type": "Deluxe King", "price": "from ฿1,300/night" },
-        { "type": "Suite", "price": "from ฿1,700/night" }
+        {
+          "type": "Superior Queen",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Suite",
+          "price": "from ฿1,700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-hill-resort-and-spa/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grandhill-resort.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711674/grand-hill-resort-and-spa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-hill-resort-and-spa-nakhon-sawan.html",
-      "tags": ["🏊 Outdoor pool + Thai-massage spa", "🛏️ Spacious rooms, big bathrooms", "🌳 Outskirts, ~5 min to town", "🅿️ Free parking"],
+      "tags": [
+        "🏊 Outdoor pool + Thai-massage spa",
+        "🛏️ Spacious rooms, big bathrooms",
+        "🌳 Outskirts, ~5 min to town",
+        "🅿️ Free parking"
+      ],
       "addr": "31/42 Moo 10, Nakhon Sawan–Phitsanulok Rd, Wat Sai, Mueang Nakhon Sawan",
       "storyHtml": "Grand Hill Resort and Spa is <strong>a good fit for self-drivers who'd rather have a resort with a pool and spa than a hotel tower in town</strong>, scoring 7.7 from 22 reviews. It's on the outskirts, about 2 km out, a 5-minute drive to Sawan Park / Pak Nam Pho. Real guest reviews praise the outdoor pool for cooling off, a good-value Thai-massage spa (Thai massage around ฿500/2 hrs, often mentioned), rooms and bathrooms bigger than expected for the price, some higher-floor suites, and free parking. The honest trade-offs: there's noise from an entertainment venue across the road on some nights, and the resort is starting to show its age. Best for self-drivers who want a pool and spa.",
       "tipHtml": "💡 <strong>Tip:</strong> Try the good-value Thai-massage spa that reviews praise. Some nights get noise from the venue across the road, so ask for a higher-floor suite that's quieter. Driving yourself is easiest since it's on the outskirts.",
@@ -464,15 +687,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard (old wing)", "price": "from ฿450/night" },
-        { "type": "Front Wing (new wing)", "price": "from ฿720/night" },
-        { "type": "VIP Wing", "price": "from ฿850/night" }
+        {
+          "type": "Standard (old wing)",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Front Wing (new wing)",
+          "price": "from ฿720/night"
+        },
+        {
+          "type": "VIP Wing",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-vissanu-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-grand-vissanu-hotel-nakhon-sawan.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-3066530/grandvissanu-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-visanu-hotel-nakhon-sawan.html",
-      "tags": ["🏙️ Central, walk to the walking street", "🏨 New wing / old wing to choose from", "🅿️ Free parking + in-house restaurant", "💰 From the low hundreds of baht"],
+      "tags": [
+        "🏙️ Central, walk to the walking street",
+        "🏨 New wing / old wing to choose from",
+        "🅿️ Free parking + in-house restaurant",
+        "💰 From the low hundreds of baht"
+      ],
       "addr": "26-28 Atthakawi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "Grand Visanu Hotel is <strong>a pick for anyone staying in Nakhon Sawan on a budget who values a central location within walking distance of the walking street</strong>, scoring 7.4 from 20 reviews. On Atthakawi Road in the heart of Pak Nam Pho, you can walk to the Rim Moei walking street and the market without driving out. Real guest reviews praise the walk-everywhere location, free parking, an in-house restaurant and friendly staff — with a newer wing in better shape around ฿700-800 and an old wing from about ฿450, so you can choose by budget. The honest trade-offs: old-wing rooms are fairly dark and the older building has no lift; ask for the new wing and set expectations right and it's good value. Best for budget travellers who want to stay in the city centre.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for the Front Wing (new wing) — it's in better shape and brighter than the old wing, worth the small premium. The old building has no lift, so ask for a low floor if you have heavy bags. The Rim Moei walking street is an easy walk for food.",
@@ -504,15 +741,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "from ฿450/night" },
-        { "type": "Premier Room (Lanna style)", "price": "from ฿650/night" },
-        { "type": "VIP Room", "price": "from ฿850/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Premier Room (Lanna style)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "VIP Room",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/beverly-hill-park-hotel/hotel/nakhon-sawan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-beverly-hill-park-hotel-ban-pak-nam-pho.th.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-sawan-hotel-detail-711663/beverly-hill-park-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-beverly-hill-park-hotel-nakhon-sawan.html",
-      "tags": ["🛣️ On the Asia Highway, easy access", "🌳 Leafy garden, quiet setting", "🅿️ Free 24-hour parking", "💰 From the low hundreds of baht"],
+      "tags": [
+        "🛣️ On the Asia Highway, easy access",
+        "🌳 Leafy garden, quiet setting",
+        "🅿️ Free 24-hour parking",
+        "💰 From the low hundreds of baht"
+      ],
       "addr": "156/4 Moo 13, Amarinwithi Rd, Pak Nam Pho, Mueang Nakhon Sawan",
       "storyHtml": "Beverly Hill Park Hotel is <strong>a pick for drivers passing through Nakhon Sawan who want a convenient roadside stopover on the Asia Highway</strong>, scoring 6.2 from 22 reviews, the lowest in this guide. On Amarinwithi Road on the bypass side, it has easy access on and off the main road, good for an overnight between Bangkok and the north. Real guest reviews praise the free 24-hour parking, the leafy garden around the hotel, and the quiet setting away from the busy zone. But to be clear, the building and rooms are getting old, cleanliness isn't consistent, and the bypass location has little dining nearby. Best only for drivers who just need an overnight on the road and set expectations accordingly.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies quite a bit, so ask for a Premier/VIP room that's better decorated and ask to see it before checking in. Driving yourself is easiest given the easy highway access and thin dining nearby. Pick up food in town before heading to the hotel.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Nakhon Sawan Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Good Nakhonsawan Hotel", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿1,200", "access": "📍 Bueng Boraphet side", "badge": "Top score, has a pool", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hop Inn Nakhon Sawan", "type": "⭐⭐", "score": "9.2", "price": "฿650", "access": "📍 On the Asia Highway", "badge": "Stopover, best value", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "The Paradiso JK Design Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,300", "access": "📍 Central Pak Nam Pho", "badge": "Design boutique, bathtubs", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Bonito Chinos Hotel", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿650", "access": "📍 City centre, walk to malls", "badge": "Central, rooftop bar", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "P.A. Place Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿600", "access": "📍 Central Pak Nam Pho", "badge": "Central, clean & good value", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "GO Hotel Nakhon Sawan", "type": "⭐⭐", "score": "8.5", "price": "฿550", "access": "📍 City centre, walk to Central", "badge": "Newly opened, walk to Central", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "24rooms Nakhon Sawan", "type": "⭐⭐", "score": "8.4", "price": "฿750", "access": "📍 Central Pak Nam Pho", "badge": "Big cute rooms, central", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Aramis Hotel", "type": "⭐⭐⭐", "score": "8.3", "price": "฿1,000", "access": "📍 Central, near Sawan Park", "badge": "Spacious rooms, lots of parking", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "B2 Nakhon Sawan Premier Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿550", "access": "📍 Dao Dueng Rd, in town", "badge": "Most reviewed, chain budget", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Grand Hill Resort and Spa", "type": "⭐⭐⭐⭐", "score": "7.7", "price": "฿1,100", "access": "📍 Outskirts ~2 km", "badge": "Resort with pool + spa", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Grand Visanu Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿450", "access": "📍 Central, walking street", "badge": "Central budget", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Beverly Hill Park Hotel", "type": "⭐⭐⭐", "score": "6.2", "price": "฿450", "access": "📍 On the Asia Highway, bypass", "badge": "Roadside stopover, quiet garden", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Good Nakhonsawan Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,200",
+      "access": "📍 Bueng Boraphet side",
+      "badge": "Top score, has a pool",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hop Inn Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿650",
+      "access": "📍 On the Asia Highway",
+      "badge": "Stopover, best value",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "The Paradiso JK Design Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,300",
+      "access": "📍 Central Pak Nam Pho",
+      "badge": "Design boutique, bathtubs",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Bonito Chinos Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿650",
+      "access": "📍 City centre, walk to malls",
+      "badge": "Central, rooftop bar",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "P.A. Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿600",
+      "access": "📍 Central Pak Nam Pho",
+      "badge": "Central, clean & good value",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "GO Hotel Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿550",
+      "access": "📍 City centre, walk to Central",
+      "badge": "Newly opened, walk to Central",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "24rooms Nakhon Sawan",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿750",
+      "access": "📍 Central Pak Nam Pho",
+      "badge": "Big cute rooms, central",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Aramis Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,000",
+      "access": "📍 Central, near Sawan Park",
+      "badge": "Spacious rooms, lots of parking",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "B2 Nakhon Sawan Premier Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿550",
+      "access": "📍 Dao Dueng Rd, in town",
+      "badge": "Most reviewed, chain budget",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Grand Hill Resort and Spa",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿1,100",
+      "access": "📍 Outskirts ~2 km",
+      "badge": "Resort with pool + spa",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Grand Visanu Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿450",
+      "access": "📍 Central, walking street",
+      "badge": "Central budget",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Beverly Hill Park Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.2",
+      "price": "฿450",
+      "access": "📍 On the Asia Highway, bypass",
+      "badge": "Roadside stopover, quiet garden",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Nakhon Sawan hotel for you?",
   "advice": [
-    { "icon": "🛣️", "head": "Driving through, an overnight stopover north", "bodyHtml": "→ <strong>Hop Inn Nakhon Sawan</strong> ฿650 on the Asia Highway, near Big C, clean rooms, score 9.2 · or <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, most reviewed, free parking · on a very light budget, <strong>Beverly Hill Park</strong> ฿450 free 24h parking." },
-    { "icon": "🏙️", "head": "Exploring the town, malls and food", "bodyHtml": "→ <strong>Bonito Chinos Hotel</strong> ฿650 city centre, walk to the malls, rooftop city views · or <strong>P.A. Place Hotel</strong> ฿600 central, clean and good value · or <strong>Aramis Hotel</strong> ฿1,000 spacious rooms, breakfast." },
-    { "icon": "💰", "head": "Budget, want the best value", "bodyHtml": "→ <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, most reviewed · or <strong>GO Hotel</strong> ฿550 newly opened, walk to Central · or <strong>Grand Visanu</strong> ฿450 central, walk to the walking street." },
-    { "icon": "🏊", "head": "Want a pool / spa", "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 new-build, outdoor pool, rooftop pool, pool villa, score 9.3 · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 resort with a pool + Thai-massage spa." },
-    { "icon": "🎨", "head": "Want a stylish room / a bathtub", "bodyHtml": "→ <strong>The Paradiso JK Design Hotel</strong> ฿1,300 modern design boutique, many rooms with a bathtub, good breakfast · or <strong>24rooms Nakhon Sawan</strong> ฿750 small stay with big, cute rooms, central." },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family, kids want a pool", "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 kids' pool, Family Room and a Pool Villa with a private pool · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 resort with an outdoor pool, spacious rooms." }
+    {
+      "icon": "🛣️",
+      "head": "Driving through, an overnight stopover north",
+      "bodyHtml": "→ <strong>Hop Inn Nakhon Sawan</strong> ฿650 on the Asia Highway, near Big C, clean rooms, score 9.2 · or <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, most reviewed, free parking · on a very light budget, <strong>Beverly Hill Park</strong> ฿450 free 24h parking."
+    },
+    {
+      "icon": "🏙️",
+      "head": "Exploring the town, malls and food",
+      "bodyHtml": "→ <strong>Bonito Chinos Hotel</strong> ฿650 city centre, walk to the malls, rooftop city views · or <strong>P.A. Place Hotel</strong> ฿600 central, clean and good value · or <strong>Aramis Hotel</strong> ฿1,000 spacious rooms, breakfast."
+    },
+    {
+      "icon": "💰",
+      "head": "Budget, want the best value",
+      "bodyHtml": "→ <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, most reviewed · or <strong>GO Hotel</strong> ฿550 newly opened, walk to Central · or <strong>Grand Visanu</strong> ฿450 central, walk to the walking street."
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a pool / spa",
+      "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 new-build, outdoor pool, rooftop pool, pool villa, score 9.3 · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 resort with a pool + Thai-massage spa."
+    },
+    {
+      "icon": "🎨",
+      "head": "Want a stylish room / a bathtub",
+      "bodyHtml": "→ <strong>The Paradiso JK Design Hotel</strong> ฿1,300 modern design boutique, many rooms with a bathtub, good breakfast · or <strong>24rooms Nakhon Sawan</strong> ฿750 small stay with big, cute rooms, central."
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family, kids want a pool",
+      "bodyHtml": "→ <strong>Good Nakhonsawan Hotel</strong> ฿1,200 kids' pool, Family Room and a Pool Villa with a private pool · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 resort with an outdoor pool, spacious rooms."
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and can change by date and season — always check live prices and compare the 3 sites before booking. On long weekends and holidays, especially the highway stopover stays and central Pak Nam Pho hotels, rooms fill fast and prices climb, so book ahead. Stays on the Asia Highway and the outskirts are easier with a private or rental car. Central Pak Nam Pho stays are easier to get around, with malls, markets, the walking street and Sawan Park within walking distance. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Nakhon Sawan hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in in Nakhon Sawan?", "a": "It depends on your trip. <strong>Central Pak Nam Pho</strong> has malls, markets, food, the walking street and Sawan Park within easy walking distance — best for town explorers (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu). <strong>The Asia Highway / bypass</strong> has easy highway access, best for a road-trip stopover (Hop Inn, Beverly Hill Park). The <strong>outskirts / Bueng Boraphet side</strong> is closer to the lake and has pools and a spa, best for self-drivers (Good Nakhonsawan, Grand Hill Resort)." },
-    { "q": "❓ How much do Nakhon Sawan hotels cost?", "a": "There's a wide range: budget and value stays start around ฿450–750 per night (Beverly Hill Park, Grand Visanu, B2 Premier, GO Hotel, Hop Inn, P.A. Place, Bonito Chinos, 24rooms); mid-range and 4-star hotels and boutiques run around ฿1,000–1,300 (Aramis, Grand Hill Resort, Good Nakhonsawan, The Paradiso JK). All prices are approximate starting rates for standard rooms; on long weekends and holidays rates are higher than usual and rooms fill fast." },
-    { "q": "❓ Best hotel for an overnight stopover through Nakhon Sawan heading north?", "a": "If you're driving through and want a convenient overnight: <strong>Hop Inn Nakhon Sawan</strong> ฿650 on the Asia Highway, near Big C, clean rooms, free parking, easy highway access, score 9.2 · <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, generous parking, most reviewed · on a very light budget, <strong>Beverly Hill Park</strong> ฿450 free 24h parking. All three are easy on and off the main road." },
-    { "q": "❓ Which Nakhon Sawan hotels have a pool?", "a": "Most Nakhon Sawan stays are in-town hotel towers without a pool. If you want one, <strong>Good Nakhonsawan Hotel</strong> ฿1,200 (opened 2024) has an outdoor pool, a rooftop pool, a kids' pool and a pool villa, with the top score of 9.3 · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 is an outskirts resort with an outdoor pool and a Thai-massage spa. Both suit self-drivers and families." },
-    { "q": "❓ Is Nakhon Sawan easy to get around without a car?", "a": "Nakhon Sawan has no metro, but central Pak Nam Pho is compact and the shopping district is walkable. Without a car, <strong>staying in central Pak Nam Pho is easiest</strong> — Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis and Grand Visanu are within walking distance of the malls, market, walking street and Sawan Park. Stays on the Asia Highway and the outskirts have little dining nearby, so have a car or Grab ready." },
-    { "q": "❓ Which site is cheapest for booking Nakhon Sawan hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at any given time, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night, especially on long weekends when stopover and central stays fill fast." }
-  ]
+    {
+      "q": "❓ Which area should I stay in in Nakhon Sawan?",
+      "a": "It depends on your trip. <strong>Central Pak Nam Pho</strong> has malls, markets, food, the walking street and Sawan Park within easy walking distance — best for town explorers (Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis, Grand Visanu). <strong>The Asia Highway / bypass</strong> has easy highway access, best for a road-trip stopover (Hop Inn, Beverly Hill Park). The <strong>outskirts / Bueng Boraphet side</strong> is closer to the lake and has pools and a spa, best for self-drivers (Good Nakhonsawan, Grand Hill Resort)."
+    },
+    {
+      "q": "❓ How much do Nakhon Sawan hotels cost?",
+      "a": "There's a wide range: budget and value stays start around ฿450–750 per night (Beverly Hill Park, Grand Visanu, B2 Premier, GO Hotel, Hop Inn, P.A. Place, Bonito Chinos, 24rooms); mid-range and 4-star hotels and boutiques run around ฿1,000–1,300 (Aramis, Grand Hill Resort, Good Nakhonsawan, The Paradiso JK). All prices are approximate starting rates for standard rooms; on long weekends and holidays rates are higher than usual and rooms fill fast."
+    },
+    {
+      "q": "❓ Best hotel for an overnight stopover through Nakhon Sawan heading north?",
+      "a": "If you're driving through and want a convenient overnight: <strong>Hop Inn Nakhon Sawan</strong> ฿650 on the Asia Highway, near Big C, clean rooms, free parking, easy highway access, score 9.2 · <strong>B2 Nakhon Sawan Premier</strong> ฿550 chain budget, generous parking, most reviewed · on a very light budget, <strong>Beverly Hill Park</strong> ฿450 free 24h parking. All three are easy on and off the main road."
+    },
+    {
+      "q": "❓ Which Nakhon Sawan hotels have a pool?",
+      "a": "Most Nakhon Sawan stays are in-town hotel towers without a pool. If you want one, <strong>Good Nakhonsawan Hotel</strong> ฿1,200 (opened 2024) has an outdoor pool, a rooftop pool, a kids' pool and a pool villa, with the top score of 9.3 · or <strong>Grand Hill Resort and Spa</strong> ฿1,100 is an outskirts resort with an outdoor pool and a Thai-massage spa. Both suit self-drivers and families."
+    },
+    {
+      "q": "❓ Is Nakhon Sawan easy to get around without a car?",
+      "a": "Nakhon Sawan has no metro, but central Pak Nam Pho is compact and the shopping district is walkable. Without a car, <strong>staying in central Pak Nam Pho is easiest</strong> — Bonito Chinos, P.A. Place, 24rooms, GO Hotel, Aramis and Grand Visanu are within walking distance of the malls, market, walking street and Sawan Park. Stays on the Asia Highway and the outskirts have little dining nearby, so have a car or Grab ready."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Nakhon Sawan hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at any given time, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night, especially on long weekends when stopover and central stays fill fast."
+    }
+  ],
+  "quickAnswerHtml": "12 Nakhon Sawan hotels we reviewed across every tier — from Good Nakhonsawan, a new build with pools scoring 9.3, down to budget stays on the Asia Highway from ฿450. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "ลพบุรี", "href": "city-lopburi.html" },
-    { "name": "12 โรงแรมลพบุรียอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "ลพบุรี",
+      "href": "city-lopburi.html"
+    },
+    {
+      "name": "12 โรงแรมลพบุรียอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "ลพบุรี", "item": "https://thailandaddict.com/city-lopburi" },
-    { "name": "12 โรงแรมลพบุรียอดนิยม", "item": "https://thailandaddict.com/top10-hotels-lopburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "ลพบุรี",
+      "item": "https://thailandaddict.com/city-lopburi"
+    },
+    {
+      "name": "12 โรงแรมลพบุรียอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-lopburi"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-lopburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "ลพบุรีไม่มีรถไฟฟ้า การเดินทางใช้รถยนต์เป็นหลัก ยกเว้นย่านเมืองเก่าที่เดินเที่ยวได้ · ที่พักย่าน <strong>เมืองเก่า (ท่าหิน–ป่าตาล)</strong> หลายแห่งเดินถึงสถานีรถไฟ พระปรางค์สามยอด และฝูงลิงได้ เหมาะคนนั่งรถไฟมาเที่ยวแบบไม่มีรถ แต่ที่จอดรถมีจำกัด · ที่พัก <strong>เมืองใหม่ (ท่าศาลา–เขาสามยอด)</strong> เน้นห้องกว้าง ที่จอดรถฟรี ใกล้บิ๊กซีและร้านอาหาร เหมาะคนขับรถมาเอง แต่ต้องขับ ~10 นาทีเข้าไปดูลิงในเมืองเก่า · ส่วน <strong>ฝั่งเขื่อนป่าสัก (พัฒนานิคม–ชัยบาดาล)</strong> เกือบทุกแห่งต้องมีรถส่วนตัว เพราะอยู่ต่างอำเภอห่างตัวเมืองราว 50 กม. · ทำเลในบทความนี้: <strong>เมืองเก่า</strong> — เดินถึงลิง วัด สถานีรถไฟ · <strong>เมืองใหม่</strong> — ห้าง ร้านอาหาร ที่จอดรถฟรี · <strong>เขื่อนป่าสัก</strong> — ฐานเที่ยวธรรมชาติและทุ่งทานตะวัน",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "HOP INN Lopburi", "price": "฿650" },
-    { "n": "2", "color": "#c8a951", "name": "Windsor Resort Lopburi", "price": "฿580" },
-    { "n": "3", "color": "#c8a951", "name": "The Charlotte Smart Hotel Lopburi", "price": "฿700" },
-    { "n": "4", "color": "#9e9e9e", "name": "JRD Grand Place Hotel", "price": "฿660" },
-    { "n": "5", "color": "#9e9e9e", "name": "Lopburi Inn Resort", "price": "฿900" },
-    { "n": "6", "color": "#9e9e9e", "name": "Noom Guesthouse", "price": "฿350" },
-    { "n": "7", "color": "#9e9e9e", "name": "Benjatara Boutique Place Resort", "price": "฿520" },
-    { "n": "8", "color": "#bf8040", "name": "Grand Lopburi", "price": "฿650" },
-    { "n": "9", "color": "#bf8040", "name": "Phetlada Pavilion & Resort", "price": "฿450" },
-    { "n": "10", "color": "#5d4037", "name": "Pasak Hillside Resort", "price": "฿900" },
-    { "n": "11", "color": "#5d4037", "name": "Mourakot Resort", "price": "฿700" },
-    { "n": "12", "color": "#5d4037", "name": "Lopburi Inn Hotel", "price": "฿650" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "HOP INN Lopburi",
+      "price": "฿650"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Windsor Resort Lopburi",
+      "price": "฿580"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "The Charlotte Smart Hotel Lopburi",
+      "price": "฿700"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "JRD Grand Place Hotel",
+      "price": "฿660"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Lopburi Inn Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Noom Guesthouse",
+      "price": "฿350"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Benjatara Boutique Place Resort",
+      "price": "฿520"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Grand Lopburi",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Phetlada Pavilion & Resort",
+      "price": "฿450"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Pasak Hillside Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Mourakot Resort",
+      "price": "฿700"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Lopburi Inn Hotel",
+      "price": "฿650"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Queen Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Queen (มีระเบียง)", "price": "เริ่ม ฿720/คืน" }
+        {
+          "type": "Standard Queen Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Queen (มีระเบียง)",
+          "price": "เริ่ม ฿720/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-lopburi/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-lopburi.html",
       "tripUrl": "https://th.trip.com/hotels/lop-buri-hotel-detail-13673907/hop-inn-lopburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-lopburi.html",
-      "tags": ["🧼 ห้องสะอาดได้มาตรฐานเชน", "💳 ราคาเดียว จองง่าย", "🅿️ ที่จอดรถฟรีเยอะ", "🛣️ ริมสายเอเชีย เข้าออกสะดวก"],
+      "tags": [
+        "🧼 ห้องสะอาดได้มาตรฐานเชน",
+        "💳 ราคาเดียว จองง่าย",
+        "🅿️ ที่จอดรถฟรีเยอะ",
+        "🛣️ ริมสายเอเชีย เข้าออกสะดวก"
+      ],
       "addr": "228 หมู่ 2 ตำบลท่าศาลา อำเภอเมืองลพบุรี",
       "storyHtml": "HOP INN Lopburi คือ <strong>คะแนนสูงสุดในบทความนี้ที่ 8.6 จาก 300 รีวิว — โรงแรมบัดเจ็ตเชนที่จุดขายคือห้องสะอาดได้มาตรฐานในราคาเดียวที่จองง่ายไม่ต้องลุ้น</strong> · ตั้งอยู่ริมถนนสายเอเชีย (พหลโยธิน) ย่านท่าศาลา ใกล้บิ๊กซี เข้าออกเมืองสะดวกมากสำหรับคนขับรถ · เสียงจากรีวิวจริงชมห้องสะอาดเรียบใหม่ เตียงนอนสบาย ที่จอดรถฟรีเยอะ และความแน่นอนเรื่องราคาที่ไม่ต้องต่อรอง · แต่ต้องยอมรับว่าไม่มีสระว่ายน้ำ ไม่มีร้านอาหาร ไม่รวมอาหารเช้า และห้องริมถนนได้ยินเสียงรถบ้าง · เหมาะที่สุดสำหรับคนที่ขับรถผ่านลพบุรีแล้วอยากได้ห้องสะอาดนอนสบายราคาแน่นอน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่ไม่ติดถนนใหญ่หรือชั้นบนจะเงียบกว่า ลดเสียงรถบนสายเอเชีย · ไม่รวมอาหารเช้า แต่มีบิ๊กซีและร้านอาหารใกล้ๆ ออกไปหากินตอนเช้าได้สบาย · ขับ ~10 นาทีเข้าไปดูลิงและวัดเก่าในย่านเมืองเก่า",
@@ -104,15 +201,29 @@
       "priceBig": "฿580",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin (Hotel Zone)", "price": "เริ่ม ฿580/คืน" },
-        { "type": "Standard King (Resort Zone)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "King Room with Balcony", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "Standard Twin (Hotel Zone)",
+          "price": "เริ่ม ฿580/คืน"
+        },
+        {
+          "type": "Standard King (Resort Zone)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "King Room with Balcony",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/windsor-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/windsor-resort.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-3709519/windsor-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-windsor-resort-lopburi.html",
-      "tags": ["🏰 อาคารธีมยุโรป/ดัตช์ แปลกตา", "🚉 เดินถึงสถานีรถไฟ ใกล้วังนารายณ์", "🚲 จักรยานฟรี · ที่จอดรถฟรี", "💬 รีวิวมากสุด 870"],
+      "tags": [
+        "🏰 อาคารธีมยุโรป/ดัตช์ แปลกตา",
+        "🚉 เดินถึงสถานีรถไฟ ใกล้วังนารายณ์",
+        "🚲 จักรยานฟรี · ที่จอดรถฟรี",
+        "💬 รีวิวมากสุด 870"
+      ],
       "addr": "321 หมู่ 8 ตำบลป่าตาล อำเภอเมืองลพบุรี",
       "storyHtml": "Windsor Resort Lopburi คือ <strong>รีสอร์ตในเมืองที่มีรีวิวมากที่สุดในบทความนี้ — 870 รีวิว — และเป็นตัวเลือกย่านเมืองเก่าที่เดินถึงสถานีรถไฟได้</strong> คะแนน 8.0 · อาคารธีมยุโรป/ดัตช์แปลกตาที่หลายคนถ่ายรูปเก็บ ตั้งอยู่ย่านป่าตาล เดินถึงสถานีรถไฟลพบุรีและใกล้พระนารายณ์ราชนิเวศน์ · เสียงจากรีวิวจริงชมห้องกว้างสะอาด มีจักรยานฟรีปั่นเที่ยวเมืองเก่า ที่จอดรถฟรี และราคาคุ้ม · แต่ต้องยอมรับว่าไม่ใช่รีสอร์ตใหญ่มีสระว่ายน้ำหรือห้องดีไซน์ทันสมัย บางห้องได้ยินเสียงรถไฟ และอาหารเช้าค่อนข้างธรรมดา · เหมาะคนนั่งรถไฟมาเที่ยวเมืองลิงแบบไม่มีรถ ที่อยากได้ฐานเที่ยวเมืองเก่าราคาถูก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องโซน Resort ที่อยู่ลึกเข้าไปจะเงียบกว่าและลดเสียงรถไฟ · ยืมจักรยานฟรีปั่นเที่ยวพระปรางค์สามยอดและดูลิงในย่านเมืองเก่า · นั่งรถไฟมาคือคุ้มสุด ลงสถานีลพบุรีเดินถึงได้",
@@ -144,15 +255,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Twin Room", "price": "เริ่ม ฿700/คืน" },
-        { "type": "King Room", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Deluxe Room with Balcony", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Deluxe Twin Room",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "King Room",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Deluxe Room with Balcony",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-charlotte-smart-hotel-lopburi/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-charlotte-smart-lopburi.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-100630103/the-charlotte-smart-hotel-lopburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-charlotte-smart-hotel-lopburi.html",
-      "tags": ["🏢 ตึกใหม่ เปิดราวปี 2021", "🏞️ หลายห้องมีระเบียงวิวเขา", "🍳 อาหารเช้าฟรี", "🅿️ ที่จอดรถฟรี · ใกล้บิ๊กซี"],
+      "tags": [
+        "🏢 ตึกใหม่ เปิดราวปี 2021",
+        "🏞️ หลายห้องมีระเบียงวิวเขา",
+        "🍳 อาหารเช้าฟรี",
+        "🅿️ ที่จอดรถฟรี · ใกล้บิ๊กซี"
+      ],
       "addr": "ซอยท่าศาลา 3 ตำบลท่าศาลา อำเภอเมืองลพบุรี",
       "storyHtml": "The Charlotte Smart Hotel Lopburi คือ <strong>โรงแรมตึกใหม่ที่สดที่สุดในบทความนี้ — เปิดราวปี 2021 — จุดขายคือห้องสะอาดกว้างในราคาคุ้ม</strong> คะแนน 8.4 จาก 120 รีวิว · ตั้งอยู่เมืองใหม่ย่านท่าศาลา–เขาสามยอด ใกล้บิ๊กซีและวงเวียนพระนารายณ์ · เสียงจากรีวิวจริงชมห้องสะอาดใหม่ หลายห้องมีระเบียงวิวเขา มีอาหารเช้าฟรี และที่จอดรถส่วนตัวฟรี · แต่ต้องยอมรับว่าไม่มีสระว่ายน้ำ อาหารเช้าเป็นแบบพื้นฐาน และทำเลค่อนข้างไกลจากเมืองเก่าต้องมีรถ · เหมาะคนที่ขับรถมาเที่ยวลพบุรีและอยากได้ห้องใหม่สะอาดนอนสบายในเมืองราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Deluxe with Balcony ที่มีระเบียงวิวเขา เป็นจุดเด่นของตึกใหม่นี้ · ลงไปกินอาหารเช้าฟรีก่อนออกเที่ยว · ขับ ~10 นาทีเข้าไปดูลิงและวัดเก่า ไม่มีรถเตรียมแอปเรียกรถไว้",
@@ -184,15 +309,29 @@
       "priceBig": "฿660",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room", "price": "เริ่ม ฿660/คืน" },
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿690/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Double Room",
+          "price": "เริ่ม ฿660/คืน"
+        },
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿690/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/jrd-grand-place-h74825281/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/jrd-grand-place.html",
       "tripUrl": "https://th.trip.com/hotels/lop-buri-hotel-detail-117186434/jrd-grand-place-lopburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-jrd-grand-place-lopburi.html",
-      "tags": ["🛏️ ห้องกว้างมีระเบียง", "🅿️ ที่จอดรถส่วนตัวฟรี", "🍽️ มีร้านอาหารในตัว", "🏙️ ใกล้ใจกลางเมืองใหม่"],
+      "tags": [
+        "🛏️ ห้องกว้างมีระเบียง",
+        "🅿️ ที่จอดรถส่วนตัวฟรี",
+        "🍽️ มีร้านอาหารในตัว",
+        "🏙️ ใกล้ใจกลางเมืองใหม่"
+      ],
       "addr": "109/3 หมู่ 3 ตำบลป่าตาล อำเภอเมืองลพบุรี",
       "storyHtml": "JRD Grand Place Hotel คือ <strong>โรงแรมในเมืองสายคุ้มที่จุดขายคือห้องกว้างมีระเบียงในราคาประหยัด</strong> คะแนน 8.3 จาก 40 รีวิว · ตั้งอยู่เมืองใหม่ลพบุรีย่านป่าตาล ใกล้ใจกลางเมือง เดินทางสะดวกกว่าหลายแห่งฝั่งท่าศาลา · เสียงจากรีวิวจริงชมห้องกว้าง มีระเบียงในหลายห้อง พนักงานบริการดี มีร้านอาหารในตัว และที่จอดรถส่วนตัวฟรี · แต่ต้องยอมรับว่าไม่มีสระว่ายน้ำ อาหารเช้ามีรายการน้อย และของตกแต่งบางส่วนเริ่มมีอายุ · เหมาะคนที่ขับรถมาเที่ยวลพบุรีหรือมาทำธุระและอยากได้ห้องนอนสบายในเมืองราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่มีระเบียงตอนจองจะกว้างและโปร่งกว่า · มีร้านอาหารในตัวแต่อาหารเช้ารายการน้อย ถ้าอยากเปลี่ยนบรรยากาศมีร้านในเมืองใกล้ๆ · จำนวนรีวิวยังไม่มาก อ่านประกอบหลายช่องทางก่อนจอง",
@@ -224,15 +363,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿1,050/คืน" },
-        { "type": "Suite", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿1,050/คืน"
+        },
+        {
+          "type": "Suite",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lopburi-inn-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lopburi-inn-resort.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-4388893/lopburi-inn-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lopburi-inn-resort-lopburi.html",
-      "tags": ["🏊 สระว่ายน้ำกลางแจ้ง (4★ เดียวในบทความ)", "🛏️ ห้องกว้างมีระเบียง", "🎉 ห้องจัดเลี้ยง เหมาะกรุ๊ป", "🅿️ ที่จอดรถกว้าง"],
+      "tags": [
+        "🏊 สระว่ายน้ำกลางแจ้ง (4★ เดียวในบทความ)",
+        "🛏️ ห้องกว้างมีระเบียง",
+        "🎉 ห้องจัดเลี้ยง เหมาะกรุ๊ป",
+        "🅿️ ที่จอดรถกว้าง"
+      ],
       "addr": "144 หมู่ 3 ตำบลท่าศาลา อำเภอเมืองลพบุรี",
       "storyHtml": "Lopburi Inn Resort คือ <strong>โรงแรม 4 ดาวเดียวในบทความนี้และเป็นตัวเลือกที่มีสระว่ายน้ำ — รีสอร์ตในเมืองที่ใหญ่และสะดวกที่สุดแห่งหนึ่งของลพบุรี</strong> คะแนน 7.8 จาก 320 รีวิว · ตั้งอยู่เมืองใหม่ย่านท่าศาลา ใกล้ถนนสายเอเชียที่เข้าออกง่าย · เสียงจากรีวิวจริงชมห้องกว้างมีระเบียง สระว่ายน้ำกลางแจ้ง สวน ห้องจัดเลี้ยง และที่จอดรถกว้าง · แต่ต้องยอมรับว่าไม่ใช่โรงแรมใหม่เอี่ยมดีไซน์จัด ตัวอาคารเป็นรีสอร์ตรุ่นเก๋า และทำเลอยู่นอกย่านเมืองเก่า · เหมาะครอบครัวหรือกลุ่มที่ขับรถมาเองและอยากได้ห้องกว้างมีสระในราคาคุ้ม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เป็นที่พักไม่กี่แห่งในลพบุรีที่มีสระว่ายน้ำ พาเด็กมาเลือกที่นี่แล้วใช้สระให้คุ้ม · ห้องจัดเลี้ยงรองรับกรุ๊ปและงานเลี้ยงได้ · ขับ ~10 นาทีเข้าเมืองเก่าไปดูลิงและวัด",
@@ -264,15 +417,29 @@
       "priceBig": "฿350",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Dormitory (ห้องรวม)", "price": "เริ่ม ฿250/คืน" },
-        { "type": "Single / Double (พัดลม)", "price": "เริ่ม ฿350/คืน" },
-        { "type": "Double / Twin (แอร์ ห้องน้ำในตัว)", "price": "เริ่ม ฿500/คืน" }
+        {
+          "type": "Dormitory (ห้องรวม)",
+          "price": "เริ่ม ฿250/คืน"
+        },
+        {
+          "type": "Single / Double (พัดลม)",
+          "price": "เริ่ม ฿350/คืน"
+        },
+        {
+          "type": "Double / Twin (แอร์ ห้องน้ำในตัว)",
+          "price": "เริ่ม ฿500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/noom-guesthouse/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/noom-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-6069786/noom-guesthouse/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-noom-guesthouse-lopburi.html",
-      "tags": ["🎒 บ้านไม้สองชั้น สายแบ็กแพ็ก", "🚉 เดินถึงสถานีรถไฟและพระปรางค์สามยอด", "🍜 ร้านอาหารอร่อยราคาถูก", "🏍️ เช่ามอเตอร์ไซค์/จักรยานได้"],
+      "tags": [
+        "🎒 บ้านไม้สองชั้น สายแบ็กแพ็ก",
+        "🚉 เดินถึงสถานีรถไฟและพระปรางค์สามยอด",
+        "🍜 ร้านอาหารอร่อยราคาถูก",
+        "🏍️ เช่ามอเตอร์ไซค์/จักรยานได้"
+      ],
       "addr": "15-17 ถนนพระยากำจัด ตำบลท่าหิน อำเภอเมืองลพบุรี",
       "storyHtml": "Noom Guesthouse คือ <strong>เกสต์เฮาส์ที่ถูกที่สุดในบทความนี้ เริ่มเพียง ฿350 และเป็นตัวเลือกสายแบ็กแพ็กที่เดินถึงทุกจุดเที่ยวเมืองเก่าได้</strong> คะแนน 8.2 จาก 270 รีวิว · บ้านไม้สองชั้นใจกลางเมืองเก่า ย่านท่าหิน เดินถึงสถานีรถไฟ พระปรางค์สามยอด และฝูงลิงได้สบาย · เสียงจากรีวิวจริงชมร้านอาหารในตัวที่อร่อยราคาถูก เจ้าของเป็นกันเอง และมีบริการเช่ามอเตอร์ไซค์/จักรยาน · แต่ต้องยอมรับว่าห้องราคาถูกเล็กและเรียบง่าย ผนังบางได้ยินเสียงบ้าง บางห้องเป็นพัดลม และไม่มีสระว่ายน้ำหรือที่จอดรถใหญ่ · เหมาะคนที่มาด้วยรถไฟ เที่ยวเมืองเก่าด้วยการเดิน และอยากได้ที่พักราคาเบาที่มีบรรยากาศ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> นั่งรถไฟมาคือคุ้มสุด ลงสถานีลพบุรีเดินถึงเลยไม่ต้องเสียค่ารถต่อ · อยากได้แอร์และห้องน้ำในตัวขอห้อง Double/Twin แอร์ ห้องพัดลมราคาถูกกว่าแต่เรียบง่าย · ลองอาหารในร้านที่หลายรีวิวชม · เช่ามอเตอร์ไซค์ปั่นเที่ยวเมืองเก่าได้",
@@ -304,15 +471,29 @@
       "priceBig": "฿520",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin Room (24 ตร.ม.)", "price": "เริ่ม ฿520/คืน" },
-        { "type": "Triple Room (28 ตร.ม.)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Family Room (2 King Beds, 32 ตร.ม.)", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard Twin Room (24 ตร.ม.)",
+          "price": "เริ่ม ฿520/คืน"
+        },
+        {
+          "type": "Triple Room (28 ตร.ม.)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Family Room (2 King Beds, 32 ตร.ม.)",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/benjatara-boutique-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/benjatara-boutique-place-resort.html",
       "tripUrl": "https://th.trip.com/hotels/lop-buri-hotel-detail-1509192/benjatara-boutique-place-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-benjatara-boutique-place-resort-lopburi.html",
-      "tags": ["🍳 ห้องกว้าง รวมอาหารเช้า", "👨‍👩‍👧 ห้องครอบครัวเตียงคิงคู่ 32 ตร.ม.", "🅿️ ที่จอดรถฟรี · ใกล้บิ๊กซี", "🌿 เงียบสงบ มีสวน"],
+      "tags": [
+        "🍳 ห้องกว้าง รวมอาหารเช้า",
+        "👨‍👩‍👧 ห้องครอบครัวเตียงคิงคู่ 32 ตร.ม.",
+        "🅿️ ที่จอดรถฟรี · ใกล้บิ๊กซี",
+        "🌿 เงียบสงบ มีสวน"
+      ],
       "addr": "123/33 ซอยท่าศาลา 1 ตำบลเขาสามยอด อำเภอเมืองลพบุรี",
       "storyHtml": "Benjatara Boutique Place Resort คือ <strong>รีสอร์ทในเมืองสายคุ้มที่จุดขายคือห้องกว้าง รวมอาหารเช้า และที่จอดรถฟรีในราคาหลักร้อย</strong> คะแนน 7.9 จาก 201 รีวิว · ตั้งอยู่เมืองใหม่ลพบุรีย่านเขาสามยอด ซอยท่าศาลา ใกล้บิ๊กซี ห่างพระปรางค์สามยอดราว 10 นาทีรถ · เสียงจากรีวิวจริงชมห้องกว้าง สะอาด แอร์เย็น เงียบสงบ มีห้องครอบครัวเตียงคิงคู่ และที่จอดรถสะดวก · แต่ต้องยอมรับว่าไม่มีสระว่ายน้ำ ห้องและของตกแต่งเรียบง่ายตามราคา อาหารเช้าตัวเลือกไม่มาก และ Wi-Fi บางช่วงไม่ค่อยนิ่ง · เหมาะคนที่ขับรถมาเที่ยวลพบุรีและอยากได้ห้องนอนสบายในเมืองราคาหลักร้อยที่มีอาหารเช้า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือเป็นครอบครัวขอห้อง Family เตียงคิงคู่ราว 32 ตร.ม. กว้างและคุ้มกว่า · เปิดแผนที่นำทางก่อนถึงเพราะต้องเลี้ยวเข้าซอยจากถนนใหญ่ · ต้องใช้เน็ตทำงานเตรียมเน็ตมือถือสำรองไว้",
@@ -344,15 +525,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room (30 ตร.ม.)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Studio with Balcony", "price": "เริ่ม ฿800/คืน" },
-        { "type": "VIP Room (34 ตร.ม.)", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard Double Room (30 ตร.ม.)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Studio with Balcony",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "VIP Room (34 ตร.ม.)",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-lopburi/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grand-lopburi.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-7902936/grand-lopburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-lopburi-lopburi.html",
-      "tags": ["🛏️ ห้องกว้างราว 30 ตร.ม. มีระเบียง", "🌿 ห้อง VIP/Studio มีมุมครัวเล็ก", "🅿️ ที่จอดรถส่วนตัวฟรี", "🌿 เงียบสงบ ใกล้บิ๊กซี"],
+      "tags": [
+        "🛏️ ห้องกว้างราว 30 ตร.ม. มีระเบียง",
+        "🌿 ห้อง VIP/Studio มีมุมครัวเล็ก",
+        "🅿️ ที่จอดรถส่วนตัวฟรี",
+        "🌿 เงียบสงบ ใกล้บิ๊กซี"
+      ],
       "addr": "136/2 หมู่ 2 ตำบลท่าศาลา อำเภอเมืองลพบุรี",
       "storyHtml": "Grand Lopburi คือ <strong>โรงแรมในเมืองสายคุ้มที่จุดขายคือห้องกว้างมีระเบียง เงียบสงบ และที่จอดรถฟรี</strong> คะแนน 7.9 จาก 180 รีวิว · ตั้งอยู่เมืองใหม่ลพบุรีย่านท่าศาลา ห่างใจกลางเมืองราว 1.6 กม. ใกล้บิ๊กซีและวงเวียนพระนารายณ์ · เสียงจากรีวิวจริงชมห้องกว้างราว 30 ตร.ม. เตียงนุ่ม แอร์เย็น เงียบสงบเพราะอยู่ลึกจากถนนใหญ่ และห้อง VIP/Studio มีระเบียงและมุมครัวเล็ก · แต่ต้องยอมรับว่าไม่มีสระว่ายน้ำ ไม่รวมอาหารเช้า ทางเข้าต้องเลี้ยวเข้าซอยหายากนิดหน่อย และของตกแต่งบางส่วนเรียบง่ายตามราคา · เหมาะคนที่ขับรถมาเที่ยวลพบุรีและอยากได้ห้องนอนสบายในเมืองราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้ห้องมีระเบียงให้ขอห้อง VIP/Studio ตอนจอง จะกว้างและมีพื้นที่นั่งเล่น · เปิดแผนที่นำทางก่อนถึงเพราะต้องเลี้ยวเข้าซอยจากถนนใหญ่ราว 200 เมตร · ไม่รวมอาหารเช้า ออกไปหากินที่บิ๊กซีและร้านในเมืองใหม่ได้",
@@ -384,15 +579,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "VIP Double Room", "price": "เริ่ม ฿450/คืน" },
-        { "type": "VIP Twin Room", "price": "เริ่ม ฿500/คืน" },
-        { "type": "King Room Suite", "price": "เริ่ม ฿650/คืน" }
+        {
+          "type": "VIP Double Room",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "VIP Twin Room",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "King Room Suite",
+          "price": "เริ่ม ฿650/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phetlada-pavilion-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phetlada-pavilion-resort.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-9851450/phectlada-pavilion-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phetlada-pavilion-resort-lopburi.html",
-      "tags": ["🛣️ ริมสายเอเชีย หาง่าย ขับรถสะดวก", "💰 ห้องกว้าง ราคาเริ่มหลักร้อย", "🅿️ ที่จอดรถฟรี · ใกล้ 7-11 ปั๊มน้ำมัน", "🚗 เข้าออกเมืองง่าย"],
+      "tags": [
+        "🛣️ ริมสายเอเชีย หาง่าย ขับรถสะดวก",
+        "💰 ห้องกว้าง ราคาเริ่มหลักร้อย",
+        "🅿️ ที่จอดรถฟรี · ใกล้ 7-11 ปั๊มน้ำมัน",
+        "🚗 เข้าออกเมืองง่าย"
+      ],
       "addr": "142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี",
       "storyHtml": "Phetlada Pavilion & Resort คือ <strong>บูทีครีสอร์ทริมสายเอเชียที่จุดขายคือทำเลหาง่าย ขับรถสะดวก และห้องกว้างราคาเริ่มหลักร้อย</strong> คะแนน 7.9 จาก 207 รีวิว · ตั้งอยู่ริมถนนพหลโยธินย่านเขาสามยอด ใกล้ 7-11 และปั๊มน้ำมัน เข้าออกเมืองง่ายมากสำหรับคนขับรถ · เสียงจากรีวิวจริงชมห้องกว้าง ที่จอดฟรี และความสะดวกของทำเลริมถนน · แต่ต้องยอมรับว่าตัวอาคารเริ่มมีอายุ ความสะอาดยังไม่สม่ำเสมอทุกห้อง และข้อมูลอาหารเช้า/สระว่ายน้ำควรสอบถามก่อนจอง · เหมาะคนที่ขับรถผ่านลพบุรีหรืออยากนอนสะดวกริมสายเอเชียในราคาเบา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เป็นรีสอร์ทริมถนนหาง่าย เหมาะแวะนอนระหว่างขับทางไกล · ความสะอาดต่างกันบ้างในแต่ละห้อง ถ้า walk-in ลองขอดูห้องก่อน · เรื่องอาหารเช้าและสระสอบถามตอนจองให้ชัดเจน",
@@ -424,15 +633,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "ห้องวิวภูเขา (Mountain View)", "price": "เริ่ม ฿900/คืน" },
-        { "type": "บังกะโลไม้ (Bungalow)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "วิลล่าริมทะเลสาบ (Lake View Villa)", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "ห้องวิวภูเขา (Mountain View)",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "บังกะโลไม้ (Bungalow)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "วิลล่าริมทะเลสาบ (Lake View Villa)",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pasak-hillside-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pasak-hillside-resort.html",
       "tripUrl": "https://www.trip.com/hotels/chai-badan-hotel-detail-1517989/pasak-hillside-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pasak-hillside-resort-lopburi.html",
-      "tags": ["🌳 ริมทะเลสาบ พื้นที่กว้าง", "🚣 ปั่นจักรยาน พายเรือ ฟรี", "🏞️ ใกล้เขื่อนป่าสักชลสิทธิ์", "👨‍👩‍👧 เหมาะครอบครัวพักผ่อนธรรมชาติ"],
+      "tags": [
+        "🌳 ริมทะเลสาบ พื้นที่กว้าง",
+        "🚣 ปั่นจักรยาน พายเรือ ฟรี",
+        "🏞️ ใกล้เขื่อนป่าสักชลสิทธิ์",
+        "👨‍👩‍👧 เหมาะครอบครัวพักผ่อนธรรมชาติ"
+      ],
       "addr": "11 หมู่ 1 ตำบลนิคมลำนารายณ์ อำเภอชัยบาดาล",
       "storyHtml": "Pasak Hillside Resort คือ <strong>รีสอร์ทริมทะเลสาบฝั่งชัยบาดาลที่ลงตัวสำหรับครอบครัวหรือคนที่อยากพักผ่อนกลางธรรมชาติใกล้เขื่อนป่าสักชลสิทธิ์</strong> คะแนน 7.8 จาก 164 รีวิว · พื้นที่กว้าง บรรยากาศเงียบ มีทั้งห้องวิวภูเขา บังกะโลไม้ และวิลล่าริมทะเลสาบ · เสียงจากรีวิวจริงชมพื้นที่กว้าง บรรยากาศริมน้ำ และจักรยานกับเรือให้เล่นฟรี · แต่ต้องยอมรับว่าทำเลห่างจากเมืองเก่าลพบุรีมาก (อยู่ต่างอำเภอ ~50 กม.) สิ่งอำนวยความสะดวกบางส่วนเริ่มมีอายุ และจุดเที่ยวรอบๆ มีจำกัด · เหมาะคนที่ตั้งใจมาเที่ยวเขื่อนป่าสักและทุ่งทานตะวันโดยตรง ไม่ใช่คนที่จะเข้าเมืองดูลิง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ต้องมีรถส่วนตัว เพราะอยู่ต่างอำเภอห่างตัวเมืองราว 50 กม. · เลือกวิลล่าหรือบังกะโลริมทะเลสาบเพื่อบรรยากาศริมน้ำที่เป็นจุดเด่น · ลองปั่นจักรยานและพายเรือฟรีในพื้นที่รีสอร์ท · มาช่วงทุ่งทานตะวันบานยิ่งคุ้ม",
@@ -464,15 +687,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Bungalow", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Superior Bungalow", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Deluxe Bungalow", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Double Bungalow",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Superior Bungalow",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Deluxe Bungalow",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mourakot-resort/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mourakot-resort.html",
       "tripUrl": "https://th.trip.com/hotels/phatthana-nikhom-hotel-detail-21866034/mourakot-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mourakot-resort-lopburi.html",
-      "tags": ["🌿 บังกะโลในสวน 25 ห้อง ระเบียงทุกห้อง", "🤫 เงียบสงบ บรรยากาศชนบท", "🏞️ ใกล้เขื่อนป่าสักชลสิทธิ์", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌿 บังกะโลในสวน 25 ห้อง ระเบียงทุกห้อง",
+        "🤫 เงียบสงบ บรรยากาศชนบท",
+        "🏞️ ใกล้เขื่อนป่าสักชลสิทธิ์",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "273/1 หมู่ 9 ซอย 23 ตำบลพัฒนานิคม อำเภอพัฒนานิคม",
       "storyHtml": "Mourakot Resort คือ <strong>บูทีครีสอร์ทบังกะโลในสวนฝั่งพัฒนานิคมที่ลงตัวสำหรับคนตั้งใจมาเที่ยวเขื่อนป่าสักชลสิทธิ์และอยากนอนใกล้ๆ ในบรรยากาศเงียบสงบ</strong> คะแนน 8.3 จาก 7 รีวิว · 25 ห้องบังกะโลมีระเบียงทุกห้อง ที่จอดฟรี ราคาเริ่มราว ฿700 · เสียงจากรีวิวจริงชมบรรยากาศสวนเงียบสงบและระเบียงทุกห้อง · แต่ต้องพูดให้ชัดว่าไม่มีสระว่ายน้ำ ไม่มีร้านอาหารและอาหารเช้า อยู่โซนชนบทร้านค้ารอบๆ มีน้อย และ <strong>ฐานรีวิวจริงยังบางมากเพียง 7 รีวิว</strong> · เหมาะคนมาเที่ยวเขื่อนป่าสักที่อยากได้บังกะโลเงียบ ควรอ่านรีวิวประกอบหลายช่องทางก่อนจอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ต้องมีรถส่วนตัว เพราะอยู่โซนชนบทร้านค้ารอบๆ มีน้อย · ไม่มีร้านอาหารและอาหารเช้า เตรียมของกินหรือวางแผนหาร้านในอำเภอไว้ · ฐานรีวิวยังบาง อ่านประกอบหลายช่องทางและสอบถามที่พักก่อนจอง",
@@ -504,15 +741,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿780/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿780/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lopburi-inn-hotel/hotel/lopburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lopburi-inn.html",
       "tripUrl": "https://www.trip.com/hotels/lop-buri-hotel-detail-1509189/lopburi-inn/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lopburi-inn-hotel-lopburi.html",
-      "tags": ["💸 ราคาประหยัด · โรงแรมรุ่นเก๋า 100 ห้อง", "🏙️ ใจกลางเมืองใหม่ ย่านท่าหิน", "🅿️ ที่จอดรถฟรี · ร้านอาหารในตัว", "🐒 จำง่ายด้วยรูปปั้นลิงทองหน้าโรงแรม"],
+      "tags": [
+        "💸 ราคาประหยัด · โรงแรมรุ่นเก๋า 100 ห้อง",
+        "🏙️ ใจกลางเมืองใหม่ ย่านท่าหิน",
+        "🅿️ ที่จอดรถฟรี · ร้านอาหารในตัว",
+        "🐒 จำง่ายด้วยรูปปั้นลิงทองหน้าโรงแรม"
+      ],
       "addr": "28/9 ถนนนารายณ์มหาราช ตำบลท่าหิน อำเภอเมืองลพบุรี",
       "storyHtml": "Lopburi Inn Hotel คือ <strong>โรงแรมในเมืองรุ่นเก๋าราคาประหยัดของลพบุรี — ทำเลใจกลางเมืองย่านท่าหิน มีที่จอดรถฟรี ร้านอาหารในตัว และจำง่ายด้วยรูปปั้นลิงทองหน้าโรงแรม</strong> คะแนน 6.8 จาก 210 รีวิว · เป็นโรงแรมใหญ่ราว 100 ห้องบนถนนนารายณ์มหาราช · เสียงจากรีวิวจริงชมทำเลกลางเมือง ที่จอดรถฟรี และราคาที่จ่ายไหว · แต่พูดให้ชัด รีวิวจำนวนไม่น้อยติเรื่องตัวอาคารและห้องที่เก่าตามอายุ บางห้องมีกลิ่นอับ และไม่มีสระว่ายน้ำ — คะแนนจึงต่ำสุดในบทความนี้ · เหมาะนักเดินทางสายประหยัดที่ขับรถมาเองและต้องการแค่ที่นอนสะอาดไว้แวะระหว่างเที่ยวเมืองลิง ในราคาที่จ่ายไหว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สภาพห้องต่างกันพอสมควร ขอห้อง Superior ที่ดีกว่าและขอดูห้องก่อนเช็คอิน เช็คแอร์/ห้องน้ำและกลิ่นให้โอเค · ทำเลกลางเมืองสะดวกหาของกิน · ถ้าให้น้ำหนักเรื่องความใหม่และคะแนนสูง ลองดูตัวเลือกอันดับต้นๆ ในบทความแทน",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม ลพบุรี 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "HOP INN Lopburi", "type": "⭐⭐", "score": "8.6", "price": "฿650", "access": "📍 ริมสายเอเชีย เมืองใหม่", "badge": "คะแนนสูงสุด ห้องสะอาด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Windsor Resort Lopburi", "type": "⭐⭐⭐", "score": "8.0", "price": "฿580", "access": "📍 เมืองเก่า เดินถึงสถานีรถไฟ", "badge": "รีวิวมากสุด ธีมยุโรป", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "The Charlotte Smart Hotel Lopburi", "type": "⭐⭐⭐", "score": "8.4", "price": "฿700", "access": "📍 เมืองใหม่ ใกล้บิ๊กซี", "badge": "ตึกใหม่ปี 2021", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "JRD Grand Place Hotel", "type": "⭐⭐⭐", "score": "8.3", "price": "฿660", "access": "📍 เมืองใหม่ ใกล้ใจกลางเมือง", "badge": "ห้องกว้างมีระเบียง", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Lopburi Inn Resort", "type": "⭐⭐⭐⭐", "score": "7.8", "price": "฿900", "access": "📍 เมืองใหม่ ใกล้สายเอเชีย", "badge": "4★ มีสระว่ายน้ำ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Noom Guesthouse", "type": "⭐⭐", "score": "8.2", "price": "฿350", "access": "📍 เมืองเก่า เดินถึงลิง", "badge": "โฮสเทลถูกสุด เดินเที่ยว", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Benjatara Boutique Place Resort", "type": "⭐⭐", "score": "7.9", "price": "฿520", "access": "📍 เมืองใหม่ เขาสามยอด", "badge": "ห้องกว้าง รวมอาหารเช้า", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Grand Lopburi", "type": "⭐⭐⭐", "score": "7.9", "price": "฿650", "access": "📍 เมืองใหม่ ใกล้บิ๊กซี", "badge": "ห้องกว้างมีระเบียง", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Phetlada Pavilion & Resort", "type": "⭐⭐⭐", "score": "7.9", "price": "฿450", "access": "📍 ริมสายเอเชีย เขาสามยอด", "badge": "ริมถนน ขับรถสะดวก", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Pasak Hillside Resort", "type": "⭐⭐⭐", "score": "7.8", "price": "฿900", "access": "📍 ชัยบาดาล ใกล้เขื่อนป่าสัก", "badge": "รีสอร์ทริมทะเลสาบ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Mourakot Resort", "type": "⭐⭐⭐", "score": "8.3", "price": "฿700", "access": "📍 พัฒนานิคม ใกล้เขื่อนป่าสัก", "badge": "บังกะโลในสวน เงียบสงบ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Lopburi Inn Hotel", "type": "⭐⭐⭐", "score": "6.8", "price": "฿650", "access": "📍 เมืองใหม่ ย่านท่าหิน", "badge": "ประหยัด รุ่นเก๋า", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "HOP INN Lopburi",
+      "type": "⭐⭐",
+      "score": "8.6",
+      "price": "฿650",
+      "access": "📍 ริมสายเอเชีย เมืองใหม่",
+      "badge": "คะแนนสูงสุด ห้องสะอาด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Windsor Resort Lopburi",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿580",
+      "access": "📍 เมืองเก่า เดินถึงสถานีรถไฟ",
+      "badge": "รีวิวมากสุด ธีมยุโรป",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "The Charlotte Smart Hotel Lopburi",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿700",
+      "access": "📍 เมืองใหม่ ใกล้บิ๊กซี",
+      "badge": "ตึกใหม่ปี 2021",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "JRD Grand Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿660",
+      "access": "📍 เมืองใหม่ ใกล้ใจกลางเมือง",
+      "badge": "ห้องกว้างมีระเบียง",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Lopburi Inn Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿900",
+      "access": "📍 เมืองใหม่ ใกล้สายเอเชีย",
+      "badge": "4★ มีสระว่ายน้ำ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Noom Guesthouse",
+      "type": "⭐⭐",
+      "score": "8.2",
+      "price": "฿350",
+      "access": "📍 เมืองเก่า เดินถึงลิง",
+      "badge": "โฮสเทลถูกสุด เดินเที่ยว",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Benjatara Boutique Place Resort",
+      "type": "⭐⭐",
+      "score": "7.9",
+      "price": "฿520",
+      "access": "📍 เมืองใหม่ เขาสามยอด",
+      "badge": "ห้องกว้าง รวมอาหารเช้า",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Grand Lopburi",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿650",
+      "access": "📍 เมืองใหม่ ใกล้บิ๊กซี",
+      "badge": "ห้องกว้างมีระเบียง",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Phetlada Pavilion & Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿450",
+      "access": "📍 ริมสายเอเชีย เขาสามยอด",
+      "badge": "ริมถนน ขับรถสะดวก",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Pasak Hillside Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿900",
+      "access": "📍 ชัยบาดาล ใกล้เขื่อนป่าสัก",
+      "badge": "รีสอร์ทริมทะเลสาบ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Mourakot Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿700",
+      "access": "📍 พัฒนานิคม ใกล้เขื่อนป่าสัก",
+      "badge": "บังกะโลในสวน เงียบสงบ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Lopburi Inn Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.8",
+      "price": "฿650",
+      "access": "📍 เมืองใหม่ ย่านท่าหิน",
+      "badge": "ประหยัด รุ่นเก๋า",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมลพบุรียังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🐒", "head": "มาเดินดูลิง เที่ยวเมืองเก่า แบบไม่มีรถ", "bodyHtml": "→ <strong>Noom Guesthouse</strong> ฿350 บ้านไม้เดินถึงสถานีรถไฟและพระปรางค์สามยอด ถูกสุด · หรือ <strong>Windsor Resort</strong> ฿580 รีสอร์ตธีมยุโรปเดินถึงสถานีรถไฟ จักรยานฟรี รีวิวมากสุด" },
-    { "icon": "🚗", "head": "ขับรถมาเอง อยากได้ห้องกว้างที่จอดรถฟรี", "bodyHtml": "→ <strong>The Charlotte Smart Hotel</strong> ฿700 ตึกใหม่ปี 2021 ห้องสะอาด อาหารเช้าฟรี · หรือ <strong>JRD Grand Place</strong> ฿660 ห้องกว้างมีระเบียง · หรือ <strong>Grand Lopburi</strong> ฿650 ห้องกว้างเงียบสงบ" },
-    { "icon": "💰", "head": "งบประหยัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Noom Guesthouse</strong> ฿350 ถูกสุดเดินเที่ยวเมืองเก่า · หรือ <strong>Phetlada Pavilion</strong> ฿450 ห้องกว้างริมสายเอเชีย · หรือ <strong>Benjatara</strong> ฿520 ห้องกว้างรวมอาหารเช้า" },
-    { "icon": "🍳", "head": "อยากได้ที่พักรวมอาหารเช้า", "bodyHtml": "→ <strong>Benjatara Boutique Place Resort</strong> ฿520 ห้องกว้างรวมอาหารเช้า ที่จอดรถฟรี · หรือ <strong>The Charlotte Smart Hotel</strong> ฿700 ตึกใหม่ อาหารเช้าฟรี ห้องมีระเบียงวิวเขา" },
-    { "icon": "🏊", "head": "อยากได้ที่พักมีสระว่ายน้ำ มาเป็นครอบครัว", "bodyHtml": "→ <strong>Lopburi Inn Resort</strong> ฿900 รีสอร์ต 4★ เดียวในบทความที่มีสระว่ายน้ำ ห้องกว้าง ห้องจัดเลี้ยง · หรือ <strong>Pasak Hillside</strong> ฿900 ริมทะเลสาบ จักรยานและเรือฟรี" },
-    { "icon": "🏞️", "head": "มาเที่ยวเขื่อนป่าสัก-ทุ่งทานตะวัน", "bodyHtml": "→ <strong>Pasak Hillside Resort</strong> ฿900 รีสอร์ทริมทะเลสาบ ฝั่งชัยบาดาล · หรือ <strong>Mourakot Resort</strong> ฿700 บังกะโลในสวนเงียบสงบ ฝั่งพัฒนานิคม ทั้งคู่ต้องมีรถส่วนตัว" }
+    {
+      "icon": "🐒",
+      "head": "มาเดินดูลิง เที่ยวเมืองเก่า แบบไม่มีรถ",
+      "bodyHtml": "→ <strong>Noom Guesthouse</strong> ฿350 บ้านไม้เดินถึงสถานีรถไฟและพระปรางค์สามยอด ถูกสุด · หรือ <strong>Windsor Resort</strong> ฿580 รีสอร์ตธีมยุโรปเดินถึงสถานีรถไฟ จักรยานฟรี รีวิวมากสุด"
+    },
+    {
+      "icon": "🚗",
+      "head": "ขับรถมาเอง อยากได้ห้องกว้างที่จอดรถฟรี",
+      "bodyHtml": "→ <strong>The Charlotte Smart Hotel</strong> ฿700 ตึกใหม่ปี 2021 ห้องสะอาด อาหารเช้าฟรี · หรือ <strong>JRD Grand Place</strong> ฿660 ห้องกว้างมีระเบียง · หรือ <strong>Grand Lopburi</strong> ฿650 ห้องกว้างเงียบสงบ"
+    },
+    {
+      "icon": "💰",
+      "head": "งบประหยัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Noom Guesthouse</strong> ฿350 ถูกสุดเดินเที่ยวเมืองเก่า · หรือ <strong>Phetlada Pavilion</strong> ฿450 ห้องกว้างริมสายเอเชีย · หรือ <strong>Benjatara</strong> ฿520 ห้องกว้างรวมอาหารเช้า"
+    },
+    {
+      "icon": "🍳",
+      "head": "อยากได้ที่พักรวมอาหารเช้า",
+      "bodyHtml": "→ <strong>Benjatara Boutique Place Resort</strong> ฿520 ห้องกว้างรวมอาหารเช้า ที่จอดรถฟรี · หรือ <strong>The Charlotte Smart Hotel</strong> ฿700 ตึกใหม่ อาหารเช้าฟรี ห้องมีระเบียงวิวเขา"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้ที่พักมีสระว่ายน้ำ มาเป็นครอบครัว",
+      "bodyHtml": "→ <strong>Lopburi Inn Resort</strong> ฿900 รีสอร์ต 4★ เดียวในบทความที่มีสระว่ายน้ำ ห้องกว้าง ห้องจัดเลี้ยง · หรือ <strong>Pasak Hillside</strong> ฿900 ริมทะเลสาบ จักรยานและเรือฟรี"
+    },
+    {
+      "icon": "🏞️",
+      "head": "มาเที่ยวเขื่อนป่าสัก-ทุ่งทานตะวัน",
+      "bodyHtml": "→ <strong>Pasak Hillside Resort</strong> ฿900 รีสอร์ทริมทะเลสาบ ฝั่งชัยบาดาล · หรือ <strong>Mourakot Resort</strong> ฿700 บังกะโลในสวนเงียบสงบ ฝั่งพัฒนานิคม ทั้งคู่ต้องมีรถส่วนตัว"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงเทศกาลทุ่งทานตะวันบาน (ราวพฤศจิกายน–มกราคม) และงานแผ่นดินสมเด็จพระนารายณ์ ที่พักในเมืองและฝั่งเขื่อนป่าสักเต็มเร็วและราคาสูงขึ้น ควรจองล่วงหน้า · ที่พักย่านเมืองเก่า (Noom, Windsor) เดินถึงลิงและสถานีรถไฟ เหมาะคนไม่มีรถ · ที่พักเมืองใหม่เน้นห้องกว้างและที่จอดรถฟรี เหมาะคนขับรถมาเอง · ที่พักฝั่งเขื่อนป่าสัก (Pasak Hillside, Mourakot) อยู่ต่างอำเภอ ต้องมีรถส่วนตัว · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมลพบุรี",
   "faq": [
-    { "q": "❓ ควรพักทำเลไหนดีในลพบุรี?", "a": "ขึ้นอยู่กับสไตล์ทริป · <strong>ย่านเมืองเก่า (ท่าหิน–ป่าตาล)</strong> เหมาะคนมาเดินดูลิง ดูวัดเก่า และมาด้วยรถไฟ บางแห่งเดินถึงสถานีรถไฟและพระปรางค์สามยอด (Noom Guesthouse, Windsor Resort) แต่ที่จอดรถจำกัด · <strong>ย่านเมืองใหม่ (ท่าศาลา–เขาสามยอด)</strong> มีห้าง ร้านอาหาร ที่จอดรถฟรี ห้องกว้าง เหมาะคนขับรถมาเอง (HOP INN, The Charlotte, JRD, Grand Lopburi, Benjatara, Lopburi Inn Resort) · <strong>ฝั่งเขื่อนป่าสัก (พัฒนานิคม–ชัยบาดาล)</strong> ใกล้เขื่อนและทุ่งทานตะวันมากกว่าตัวเมือง เหมาะสายธรรมชาติ (Pasak Hillside, Mourakot)" },
-    { "q": "❓ โรงแรมลพบุรีราคาเท่าไหร่?", "a": "ราคาหลากหลาย: เกสต์เฮาส์และที่พักประหยัดเริ่มราว ฿350–650 ต่อคืน (Noom Guesthouse, Phetlada, Benjatara, Windsor) · โรงแรมและรีสอร์ตระดับกลางถึง 4 ดาวราว ฿650–900 (The Charlotte, JRD, Grand Lopburi, Lopburi Inn Resort, Pasak Hillside, Mourakot) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงเทศกาลทุ่งทานตะวันและงานแผ่นดินสมเด็จพระนารายณ์ราคาสูงกว่าปกติและห้องเต็มเร็ว" },
-    { "q": "❓ มาเที่ยวลพบุรีแบบไม่มีรถ ดูลิงด้วยการเดิน พักที่ไหนดี?", "a": "ถ้านั่งรถไฟมาและอยากเดินเที่ยวเมืองเก่า · <strong>Noom Guesthouse</strong> ฿350 บ้านไม้เดินถึงสถานีรถไฟ พระปรางค์สามยอด และฝูงลิง ถูกสุดในบทความ · <strong>Windsor Resort</strong> ฿580 รีสอร์ตธีมยุโรปเดินถึงสถานีรถไฟ ใกล้วังนารายณ์ มีจักรยานฟรี รีวิวมากสุด 870 · ทั้งสองอยู่ย่านเมืองเก่าที่เดินเที่ยวจุดสำคัญได้โดยไม่ต้องมีรถ" },
-    { "q": "❓ โรงแรมลพบุรีที่ไหนมีสระว่ายน้ำบ้าง?", "a": "ที่พักลพบุรีในบทความนี้ส่วนใหญ่ไม่มีสระว่ายน้ำ เพราะเป็นเมืองที่ที่พักเน้นนอนสบายราคาประหยัด · ตัวเลือกที่มีสระคือ <strong>Lopburi Inn Resort</strong> ฿900 ซึ่งเป็นโรงแรม 4★ เดียวในบทความที่มีสระว่ายน้ำกลางแจ้ง ห้องกว้าง และห้องจัดเลี้ยง เหมาะครอบครัวและกรุ๊ป · ฝั่งเขื่อนป่าสักอย่าง Pasak Hillside เน้นกิจกรรมริมทะเลสาบ จักรยานและเรือฟรีแทนสระ" },
-    { "q": "❓ ใช้ลพบุรีเป็นฐานไปเที่ยวเขื่อนป่าสักชลสิทธิ์ พักที่ไหนดี?", "a": "เขื่อนป่าสักชลสิทธิ์และทุ่งทานตะวันอยู่ทางอำเภอพัฒนานิคม–ชัยบาดาล ห่างตัวเมืองลพบุรีราว 50 กม. · ถ้าตั้งใจเที่ยวเขื่อนเป็นหลัก พักฝั่งนั้นเลยจะตัดเวลาขับรถ — <strong>Pasak Hillside Resort</strong> ฿900 รีสอร์ทริมทะเลสาบ ชัยบาดาล หรือ <strong>Mourakot Resort</strong> ฿700 บังกะโลในสวน พัฒนานิคม · ทั้งคู่ต้องมีรถส่วนตัวเพราะอยู่ต่างอำเภอ · ถ้าอยากพักในเมืองด้วยให้เลือกโรงแรมเมืองใหม่ที่มีที่จอดรถฟรีแล้วขับไปเช้าเย็น" },
-    { "q": "❓ จองโรงแรมลพบุรีเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงเทศกาลทุ่งทานตะวันบานและงานแผ่นดินสมเด็จพระนารายณ์ที่ห้องเต็มเร็ว" }
-  ]
+    {
+      "q": "❓ ควรพักทำเลไหนดีในลพบุรี?",
+      "a": "ขึ้นอยู่กับสไตล์ทริป · <strong>ย่านเมืองเก่า (ท่าหิน–ป่าตาล)</strong> เหมาะคนมาเดินดูลิง ดูวัดเก่า และมาด้วยรถไฟ บางแห่งเดินถึงสถานีรถไฟและพระปรางค์สามยอด (Noom Guesthouse, Windsor Resort) แต่ที่จอดรถจำกัด · <strong>ย่านเมืองใหม่ (ท่าศาลา–เขาสามยอด)</strong> มีห้าง ร้านอาหาร ที่จอดรถฟรี ห้องกว้าง เหมาะคนขับรถมาเอง (HOP INN, The Charlotte, JRD, Grand Lopburi, Benjatara, Lopburi Inn Resort) · <strong>ฝั่งเขื่อนป่าสัก (พัฒนานิคม–ชัยบาดาล)</strong> ใกล้เขื่อนและทุ่งทานตะวันมากกว่าตัวเมือง เหมาะสายธรรมชาติ (Pasak Hillside, Mourakot)"
+    },
+    {
+      "q": "❓ โรงแรมลพบุรีราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: เกสต์เฮาส์และที่พักประหยัดเริ่มราว ฿350–650 ต่อคืน (Noom Guesthouse, Phetlada, Benjatara, Windsor) · โรงแรมและรีสอร์ตระดับกลางถึง 4 ดาวราว ฿650–900 (The Charlotte, JRD, Grand Lopburi, Lopburi Inn Resort, Pasak Hillside, Mourakot) · ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน ช่วงเทศกาลทุ่งทานตะวันและงานแผ่นดินสมเด็จพระนารายณ์ราคาสูงกว่าปกติและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ มาเที่ยวลพบุรีแบบไม่มีรถ ดูลิงด้วยการเดิน พักที่ไหนดี?",
+      "a": "ถ้านั่งรถไฟมาและอยากเดินเที่ยวเมืองเก่า · <strong>Noom Guesthouse</strong> ฿350 บ้านไม้เดินถึงสถานีรถไฟ พระปรางค์สามยอด และฝูงลิง ถูกสุดในบทความ · <strong>Windsor Resort</strong> ฿580 รีสอร์ตธีมยุโรปเดินถึงสถานีรถไฟ ใกล้วังนารายณ์ มีจักรยานฟรี รีวิวมากสุด 870 · ทั้งสองอยู่ย่านเมืองเก่าที่เดินเที่ยวจุดสำคัญได้โดยไม่ต้องมีรถ"
+    },
+    {
+      "q": "❓ โรงแรมลพบุรีที่ไหนมีสระว่ายน้ำบ้าง?",
+      "a": "ที่พักลพบุรีในบทความนี้ส่วนใหญ่ไม่มีสระว่ายน้ำ เพราะเป็นเมืองที่ที่พักเน้นนอนสบายราคาประหยัด · ตัวเลือกที่มีสระคือ <strong>Lopburi Inn Resort</strong> ฿900 ซึ่งเป็นโรงแรม 4★ เดียวในบทความที่มีสระว่ายน้ำกลางแจ้ง ห้องกว้าง และห้องจัดเลี้ยง เหมาะครอบครัวและกรุ๊ป · ฝั่งเขื่อนป่าสักอย่าง Pasak Hillside เน้นกิจกรรมริมทะเลสาบ จักรยานและเรือฟรีแทนสระ"
+    },
+    {
+      "q": "❓ ใช้ลพบุรีเป็นฐานไปเที่ยวเขื่อนป่าสักชลสิทธิ์ พักที่ไหนดี?",
+      "a": "เขื่อนป่าสักชลสิทธิ์และทุ่งทานตะวันอยู่ทางอำเภอพัฒนานิคม–ชัยบาดาล ห่างตัวเมืองลพบุรีราว 50 กม. · ถ้าตั้งใจเที่ยวเขื่อนเป็นหลัก พักฝั่งนั้นเลยจะตัดเวลาขับรถ — <strong>Pasak Hillside Resort</strong> ฿900 รีสอร์ทริมทะเลสาบ ชัยบาดาล หรือ <strong>Mourakot Resort</strong> ฿700 บังกะโลในสวน พัฒนานิคม · ทั้งคู่ต้องมีรถส่วนตัวเพราะอยู่ต่างอำเภอ · ถ้าอยากพักในเมืองด้วยให้เลือกโรงแรมเมืองใหม่ที่มีที่จอดรถฟรีแล้วขับไปเช้าเย็น"
+    },
+    {
+      "q": "❓ จองโรงแรมลพบุรีเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงเทศกาลทุ่งทานตะวันบานและงานแผ่นดินสมเด็จพระนารายณ์ที่ห้องเต็มเร็ว"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมลพบุรีที่เรารีวิวไว้ครบทุกระดับ — ตั้งแต่ HOP INN ริมสายเอเชียห้องสะอาด ไปถึงเกสต์เฮาส์เมืองเก่าเดินถึงสถานีรถไฟเริ่ม ฿350 ฟังเสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบ 3 เว็บ ลิงก์จองตรง"
 }

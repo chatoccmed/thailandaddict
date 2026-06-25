@@ -16,16 +16,39 @@
     "✅ เสียงจากรีวิวจริง <strong>หลายพันคน</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "พัทยา", "href": "city-pattaya.html" },
-    { "name": "10 โรงแรมพัทยายอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "พัทยา",
+      "href": "city-pattaya.html"
+    },
+    {
+      "name": "10 โรงแรมพัทยายอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "พัทยา", "item": "https://thailandaddict.com/city-pattaya" },
-    { "name": "10 โรงแรมพัทยายอดนิยม", "item": "https://thailandaddict.com/top10-hotels-pattaya" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "พัทยา",
+      "item": "https://thailandaddict.com/city-pattaya"
+    },
+    {
+      "name": "10 โรงแรมพัทยายอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-pattaya"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-pattaya.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "พัทยาไม่มีรถไฟฟ้า วิธีเดินทางหลักในเมืองคือรถสองแถว (รถแดง) ที่วิ่งวนตามถนนเลียบหาดและพัทยาสาย 2 ราคาเริ่ม 10 บาท เรียก Grab หรือเช่ามอเตอร์ไซค์ก็สะดวก · จากกรุงเทพฯ ขับรถหรือนั่งรถตู้/บัสราว 2 ชั่วโมง จากสนามบินอู่ตะเภา (UTP) ราว 40 นาที สุวรรณภูมิราว 1.5–2 ชั่วโมง · ย่านหลักที่พักในบทความนี้: <strong>หาดพัทยากลาง</strong> — ติดห้าง CentralFestival หาดทราย วอล์กกิ้งสตรีท ไนต์ไลฟ์ (Hilton, Somerset, Wave, Vista) · <strong>เขาพระตำหนัก</strong> — แหลมเงียบทางใต้ รีสอร์ตและบูทีคบนเนิน (InterContinental, Cross) · <strong>นาเกลือ / หาดวงศ์อมาตย์</strong> — ฝั่งเหนือเงียบ รีสอร์ตติดหาด (Centara Grand Mirage, Cape Dara) · <strong>นาจอมเทียน</strong> — หาดยาวเงียบทางใต้ (Veranda MGallery)",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Centara Grand Mirage Beach Resort", "price": "฿4,800" },
-    { "n": "2", "color": "#c8a951", "name": "Hilton Pattaya", "price": "฿4,500" },
-    { "n": "3", "color": "#c8a951", "name": "Somerset Pattaya", "price": "฿2,400" },
-    { "n": "4", "color": "#9e9e9e", "name": "Cross Pattaya Pratamnak", "price": "฿2,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "InterContinental Pattaya Resort", "price": "฿6,500" },
-    { "n": "6", "color": "#9e9e9e", "name": "Cape Dara Resort", "price": "฿3,500" },
-    { "n": "7", "color": "#9e9e9e", "name": "Veranda Resort Pattaya Na Jomtien MGallery", "price": "฿4,200" },
-    { "n": "8", "color": "#bf8040", "name": "Wave Hotel Pattaya", "price": "฿2,800" },
-    { "n": "9", "color": "#bf8040", "name": "Nonze Hostel", "price": "฿700" },
-    { "n": "10", "color": "#5d4037", "name": "Hotel Vista Pattaya", "price": "฿1,200" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Centara Grand Mirage Beach Resort",
+      "price": "฿4,800"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hilton Pattaya",
+      "price": "฿4,500"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Somerset Pattaya",
+      "price": "฿2,400"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Cross Pattaya Pratamnak",
+      "price": "฿2,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "InterContinental Pattaya Resort",
+      "price": "฿6,500"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Cape Dara Resort",
+      "price": "฿3,500"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Veranda Resort Pattaya Na Jomtien MGallery",
+      "price": "฿4,200"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Wave Hotel Pattaya",
+      "price": "฿2,800"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Nonze Hostel",
+      "price": "฿700"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Hotel Vista Pattaya",
+      "price": "฿1,200"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿4,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Ocean Facing (~40 ตร.ม.)", "price": "฿4,800/คืน" },
-        { "type": "Mirage Family Suite (Bunk Bed)", "price": "฿8,500/คืน" },
-        { "type": "Deluxe Family Residence (Lost World)", "price": "฿11,000/คืน" }
+        {
+          "type": "Deluxe Ocean Facing (~40 ตร.ม.)",
+          "price": "฿4,800/คืน"
+        },
+        {
+          "type": "Mirage Family Suite (Bunk Bed)",
+          "price": "฿8,500/คืน"
+        },
+        {
+          "type": "Deluxe Family Residence (Lost World)",
+          "price": "฿11,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/centara-grand-mirage-beach-resort/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/centara-grand-mirage-beach-resort-pattaya.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-685705/centara-grand-mirage-beach-resort-pattaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-centara-grand-mirage-pattaya.html",
-      "tags": ["🌊 ธีม Lost World + สวนน้ำในตัว", "🏖️ ติดหาดวงศ์อมาตย์ 230 ม.", "👨‍👩‍👧 ห้องครอบครัวรับเด็กหลายคน", "🛏️ 555 ห้องวิวทะเล"],
+      "tags": [
+        "🌊 ธีม Lost World + สวนน้ำในตัว",
+        "🏖️ ติดหาดวงศ์อมาตย์ 230 ม.",
+        "👨‍👩‍👧 ห้องครอบครัวรับเด็กหลายคน",
+        "🛏️ 555 ห้องวิวทะเล"
+      ],
       "addr": "277 Moo 5, Naklua, หาดวงศ์อมาตย์ พัทยา",
       "storyHtml": "Centara Grand Mirage คือ <strong>รีสอร์ตธีมครอบครัวที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 2,137 รีวิว</strong> คะแนน 9.1 · จุดที่รีวิวพูดถึงบ่อยคือสวนน้ำธีม Lost World ในตัวที่เด็กเล่นได้ทั้งวัน หาดส่วนตัววงศ์อมาตย์ที่เงียบกว่าพัทยากลาง และห้องครอบครัวที่รองรับเด็กได้หลายคน · เป็นรีสอร์ตใหญ่ที่ลงตัวสำหรับครอบครัวที่มีลูกเล็ก · แต่รีวิวก็บอกตรงว่าช่วงไฮซีซั่นคนเยอะและคึกคัก ไม่เหมาะถ้าต้องการความเงียบล้วน ๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นครอบครัวเลือกห้อง Family Suite หรือ Family Residence ที่รองรับเด็กได้หลายคน และไปเล่นสวนน้ำแต่เช้าก่อนคนเยอะช่วงสาย",
@@ -102,15 +189,29 @@
       "priceBig": "฿4,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Ocean View (~40 ตร.ม.)", "price": "฿4,500/คืน" },
-        { "type": "Executive King Oceanfront", "price": "฿7,500/คืน" },
-        { "type": "Family Ocean Suite (78 ตร.ม.)", "price": "฿12,000/คืน" }
+        {
+          "type": "Deluxe Ocean View (~40 ตร.ม.)",
+          "price": "฿4,500/คืน"
+        },
+        {
+          "type": "Executive King Oceanfront",
+          "price": "฿7,500/คืน"
+        },
+        {
+          "type": "Family Ocean Suite (78 ตร.ม.)",
+          "price": "฿12,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hilton-pattaya/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hilton-pattaya.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-928353/hilton-pattaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hilton-pattaya.html",
-      "tags": ["🌊 304 ห้องวิวทะเลทุกห้อง", "🏊 สระอินฟินิตี้ลอยฟ้าชั้น 16", "🍸 Horizon Rooftop ชั้น 34", "🛍️ ลงลิฟต์ถึงห้างและหาด"],
+      "tags": [
+        "🌊 304 ห้องวิวทะเลทุกห้อง",
+        "🏊 สระอินฟินิตี้ลอยฟ้าชั้น 16",
+        "🍸 Horizon Rooftop ชั้น 34",
+        "🛍️ ลงลิฟต์ถึงห้างและหาด"
+      ],
       "addr": "333/101 Moo 9, Nong Prue, บน CentralFestival Pattaya Beach",
       "storyHtml": "Hilton Pattaya คือ <strong>Luxury บีชฟรอนต์ใจกลางเมืองที่ห้องเริ่มที่ชั้น 19 ขึ้นไปทุกห้อง</strong> คะแนน 9.2 จาก 1,270 รีวิว · จุดที่รีวิวพูดถึงมากที่สุดคือทุกห้องหันออกทะเลพร้อมระเบียง ลงลิฟต์ในตึกถึงห้าง CentralFestival และข้ามถนนถึงหาด · มีสระอินฟินิตี้ลอยฟ้าและ Horizon Rooftop Bar ชั้น 34 วิวอ่าวพัทยา 270 องศา · เหมาะคนอยากได้ทั้งวิวทะเลและความสะดวกในที่เดียว · แต่รีวิวก็เตือนว่าราคาไม่ถูกและย่านนี้คึกคักมีเสียงตอนกลางคืน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ทุกห้องวิวทะเลก็จริง แต่ขอชั้น 25 ขึ้นไปจะเห็นอ่าวพัทยาโค้งทั้งอ่าว และขึ้น Horizon ช่วงพระอาทิตย์ตกคือเวลาที่วิวสวยที่สุด",
@@ -142,15 +243,29 @@
       "priceBig": "฿2,400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (~35 ตร.ม.)", "price": "฿2,400/คืน" },
-        { "type": "Deluxe Sea View (~35 ตร.ม.)", "price": "฿2,900/คืน" },
-        { "type": "Two-Bedroom Premier (~80 ตร.ม.)", "price": "฿6,500/คืน" }
+        {
+          "type": "Standard Room (~35 ตร.ม.)",
+          "price": "฿2,400/คืน"
+        },
+        {
+          "type": "Deluxe Sea View (~35 ตร.ม.)",
+          "price": "฿2,900/คืน"
+        },
+        {
+          "type": "Two-Bedroom Premier (~80 ตร.ม.)",
+          "price": "฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/somerset-pattaya/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/somerset-pattaya.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-102012688/somerset-pattaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-somerset-pattaya.html",
-      "tags": ["🏊 สระอินฟินิตี้ชั้น 23 + สวนน้ำ", "🍳 ห้องมีครัว เหมาะพักยาว", "👨‍👩‍👧 ห้อง 2 ห้องนอนสำหรับครอบครัว", "🛍️ ตรงข้าม CentralFestival เดินถึงหาด"],
+      "tags": [
+        "🏊 สระอินฟินิตี้ชั้น 23 + สวนน้ำ",
+        "🍳 ห้องมีครัว เหมาะพักยาว",
+        "👨‍👩‍👧 ห้อง 2 ห้องนอนสำหรับครอบครัว",
+        "🛍️ ตรงข้าม CentralFestival เดินถึงหาด"
+      ],
       "addr": "528 Moo 10, Pattaya 2 Road, Nongprue, พัทยากลาง",
       "storyHtml": "Somerset Pattaya คือ <strong>เซอร์วิสอพาร์ตเมนต์ที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 2,642 รีวิว</strong> คะแนน 9.3 · จุดที่รีวิวพูดถึงบ่อยคือห้องกว้างมีครัวที่เหมาะกับครอบครัวและการพักยาว สระอินฟินิตี้ชั้น 23 วิวทะเล และสวนน้ำธีมโจรสลัดให้เด็กเล่น · ทำเลตรงข้าม CentralFestival เดินถึงห้างและหาดได้ · เหมาะครอบครัวและคนพักหลายคืนที่อยากมีพื้นที่และครัว · แต่รีวิวบอกว่าราคาสูงกว่าโรงแรมเชนทั่วไปในย่าน และอาหารเช้ายังพัฒนาได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือพักยาวเลือก Studio Executive หรือ Two-Bedroom ที่มีครัวและเครื่องซักผ้า คุ้มกว่าจองหลายห้อง",
@@ -182,15 +297,29 @@
       "priceBig": "฿2,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Urban Room (~27 ตร.ม.)", "price": "฿2,500/คืน" },
-        { "type": "Luxury Ocean View", "price": "฿3,200/คืน" },
-        { "type": "Elite Executive Ocean Suite", "price": "฿6,000/คืน" }
+        {
+          "type": "Urban Room (~27 ตร.ม.)",
+          "price": "฿2,500/คืน"
+        },
+        {
+          "type": "Luxury Ocean View",
+          "price": "฿3,200/คืน"
+        },
+        {
+          "type": "Elite Executive Ocean Suite",
+          "price": "฿6,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/cross-pattaya-pratamnak/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/cross-pattaya-pratamnak.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-81136824/cross-pattaya-pratamnak/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-cross-pratamnak-pattaya.html",
-      "tags": ["🎨 ดีไซน์โคโลเนียลโมเดิร์น", "🌊 ห้องวิวทะเลมีระเบียง", "🏊 สระน้ำเกลือ + สปา", "🤫 เขาพระตำหนักเงียบ"],
+      "tags": [
+        "🎨 ดีไซน์โคโลเนียลโมเดิร์น",
+        "🌊 ห้องวิวทะเลมีระเบียง",
+        "🏊 สระน้ำเกลือ + สปา",
+        "🤫 เขาพระตำหนักเงียบ"
+      ],
       "addr": "286/4 หมู่ 12 ถนนเกษตรสิน เขาพระตำหนัก พัทยา",
       "storyHtml": "Cross Pattaya Pratamnak คือ <strong>บูทีคดีไซน์ที่ได้คะแนนสูงสุดในกลุ่มบนเขาพระตำหนัก — 9.4 จาก 352 รีวิว</strong> · จุดที่รีวิวพูดถึงคือดีไซน์โคโลเนียลโมเดิร์นที่สวยถ่ายรูปได้ทั้งโรงแรม ห้องวิวทะเลมีระเบียง สระน้ำเกลือและสปาในบรรยากาศเงียบของเขาพระตำหนัก · ราคาเริ่มจับต้องได้กว่ารีสอร์ตบีชฟรอนต์ เปิดใหม่ปี 2022 · เหมาะคู่รักและคนอยากได้โรงแรมสวยในที่เงียบ · แต่รีวิวบอกตรงว่าเดินไปหาดและไนต์ไลฟ์ไม่ถึง ต้องพึ่งรถ และการเก็บเสียงห้องยังไม่ดีเท่าที่ควร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เพิ่มเป็น Luxury Ocean View ได้วิวอ่าวพัทยาจากระเบียงคุ้มกว่า และเรียก Grab ลงไปหาดพระตำหนักหรือเข้าเมืองสะดวก",
@@ -222,15 +351,29 @@
       "priceBig": "฿6,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Classic Garden View (~51 ตร.ม.)", "price": "฿6,500/คืน" },
-        { "type": "Classic Ocean View (~51 ตร.ม.)", "price": "฿7,800/คืน" },
-        { "type": "Junior Suite Club Access", "price": "฿11,500/คืน" }
+        {
+          "type": "Classic Garden View (~51 ตร.ม.)",
+          "price": "฿6,500/คืน"
+        },
+        {
+          "type": "Classic Ocean View (~51 ตร.ม.)",
+          "price": "฿7,800/คืน"
+        },
+        {
+          "type": "Junior Suite Club Access",
+          "price": "฿11,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/intercontinental-pattaya-resort/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/inter-continental-pattaya-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-928372/intercontinental-pattaya-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-intercontinental-resort-pattaya.html",
-      "tags": ["🏖️ หาดส่วนตัวบนแหลมเงียบ", "🏊 3 สระว่ายน้ำในสวน", "🌳 สวนเขตร้อน 14 ไร่", "👨‍👩‍👧 Kids' Club เหมาะครอบครัว"],
+      "tags": [
+        "🏖️ หาดส่วนตัวบนแหลมเงียบ",
+        "🏊 3 สระว่ายน้ำในสวน",
+        "🌳 สวนเขตร้อน 14 ไร่",
+        "👨‍👩‍👧 Kids' Club เหมาะครอบครัว"
+      ],
       "addr": "437 Phra Tamnak Road, Bang Lamung, เขาพระตำหนัก พัทยา",
       "storyHtml": "InterContinental Pattaya Resort คือ <strong>รีสอร์ตหรูบีชฟรอนต์บนเนินเขาพระตำหนักที่เน้นความเงียบและหาดส่วนตัว</strong> คะแนน 8.9 จาก 567 รีวิว · จุดที่รีวิวพูดถึงคือสวนเขตร้อน 14 ไร่ที่ลาดลงสู่ทะเล หาดส่วนตัวเล็ก ๆ และ 3 สระว่ายน้ำในสวนพร้อม Kids' Club · ห่างจากวอล์กกิ้งสตรีทแค่นั่งรถ 10–15 นาที แต่ในรีสอร์ตเงียบเหมือนหลบออกจากเมือง · เหมาะคู่รักและครอบครัวที่มาพักผ่อน · แต่รีวิวบอกตรงว่าหาดเล็กกว่าในรูปและต้องพึ่งรถเมื่ออยากเข้าเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้างบถึงเลือก Classic Ocean View — รีวิวบอกว่าวิวอ่าวไทยจากระเบียงคุ้มส่วนต่าง และไปร้าน Infiniti ริมทะเลช่วงพระอาทิตย์ตก",
@@ -262,15 +405,29 @@
       "priceBig": "฿3,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Sea View (41–52 ตร.ม.)", "price": "฿3,500/คืน" },
-        { "type": "Cape Premium Sea View (ชั้นสูง)", "price": "฿4,500/คืน" },
-        { "type": "Duplex Terrace Suite (สองชั้น)", "price": "฿8,500/คืน" }
+        {
+          "type": "Deluxe Sea View (41–52 ตร.ม.)",
+          "price": "฿3,500/คืน"
+        },
+        {
+          "type": "Cape Premium Sea View (ชั้นสูง)",
+          "price": "฿4,500/คืน"
+        },
+        {
+          "type": "Duplex Terrace Suite (สองชั้น)",
+          "price": "฿8,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/cape-dara-resort/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/cape-dara-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-685997/cape-dara-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-cape-dara-resort-pattaya.html",
-      "tags": ["🌊 ทุกห้องวิวทะเลมีระเบียง", "🏊 สระอินฟินิตี้ลอยฟ้า", "🏖️ หาดส่วนตัวบนแหลมนาเกลือ", "🤫 เงียบกว่าพัทยากลาง"],
+      "tags": [
+        "🌊 ทุกห้องวิวทะเลมีระเบียง",
+        "🏊 สระอินฟินิตี้ลอยฟ้า",
+        "🏖️ หาดส่วนตัวบนแหลมนาเกลือ",
+        "🤫 เงียบกว่าพัทยากลาง"
+      ],
       "addr": "256 Dara Beach, Soi 20, Pattaya-Naklua Road, นาเกลือ พัทยา",
       "storyHtml": "Cape Dara Resort คือ <strong>รีสอร์ตบีชฟรอนต์บนแหลมนาเกลือที่ทุกห้องหันออกทะเล</strong> คะแนน 8.7 จาก 1,256 รีวิว · จุดที่รีวิวพูดถึงคือวิวอ่าวพัทยาเต็มตาจากห้องและสระอินฟินิตี้ลอยฟ้า รวมถึงหาดส่วนตัวในย่านนาเกลือที่เงียบกว่าพัทยากลาง · ราคามักจับต้องได้กว่าเชนหรูใหญ่ในระดับเดียวกัน · เหมาะคนอยากได้วิวทะเลและความเงียบในงบที่เบาลง · แต่รีวิวบอกตรงว่าชายหาดมีโขดหิน บางส่วนของอาคารเริ่มเก่า และต้องพึ่งรถเมื่ออยากเข้าเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูง Cape Premium Sea View จะได้วิวอ่าวพัทยากว้างที่สุด และลงสระลอยฟ้าช่วงเย็นชมพระอาทิตย์ตก",
@@ -302,15 +459,29 @@
       "priceBig": "฿4,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Sea Breeze Room (~45 ตร.ม.)", "price": "฿4,200/คืน" },
-        { "type": "Ocean Front Room (~40 ตร.ม.)", "price": "฿5,500/คืน" },
-        { "type": "Pool Suite (~79 ตร.ม.)", "price": "฿9,000/คืน" }
+        {
+          "type": "Sea Breeze Room (~45 ตร.ม.)",
+          "price": "฿4,200/คืน"
+        },
+        {
+          "type": "Ocean Front Room (~40 ตร.ม.)",
+          "price": "฿5,500/คืน"
+        },
+        {
+          "type": "Pool Suite (~79 ตร.ม.)",
+          "price": "฿9,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/veranda-resort-pattaya-mgallery-by-sofitel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/veranda-resort-pattaya-mgallery-by-sofitel.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-4394583/veranda-resort-pattaya-na-jomtien-mgallery-collection/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-veranda-na-jomtien-pattaya.html",
-      "tags": ["🏊 สระอินฟินิตี้ต่อทะเล", "🏖️ หาดส่วนตัวนาจอมเทียน", "🎨 สถาปัตยกรรมดีไซน์เด่น", "🤫 เงียบเป็นส่วนตัว"],
+      "tags": [
+        "🏊 สระอินฟินิตี้ต่อทะเล",
+        "🏖️ หาดส่วนตัวนาจอมเทียน",
+        "🎨 สถาปัตยกรรมดีไซน์เด่น",
+        "🤫 เงียบเป็นส่วนตัว"
+      ],
       "addr": "211 หมู่ 1 นาจอมเทียน Bang Lamung, พัทยา",
       "storyHtml": "Veranda Resort Pattaya MGallery คือ <strong>รีสอร์ตดีไซน์ติดหาดนาจอมเทียนในเครือ MGallery</strong> คะแนน 8.7 จาก 524 รีวิว · จุดที่รีวิวพูดถึงคือสระอินฟินิตี้ที่ขอบสระต่อกับทะเล หาดส่วนตัวนาจอมเทียนที่เงียบ และสถาปัตยกรรมดีไซน์ที่สวยถ่ายรูปได้ · เหมาะคู่รักและครอบครัวที่อยากได้ทะเลส่วนตัวในบรรยากาศเงียบสงบ · แต่รีวิวบอกตรงว่าทำเลนาจอมเทียนไกลตัวเมือง เดินไปไนต์ไลฟ์ไม่ถึง และเพราะเปิดมาหลายปีห้องบางห้องเริ่มมีอายุ บริการบางช่วงยังไม่สม่ำเสมอ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Ocean Front Room ถ้าอยากได้วิวทะเลตรง และเตรียมรถหรือ Grab ไว้ถ้าจะออกไปกินข้าวนอกรีสอร์ตเพราะทำเลค่อนข้างไกลเมือง",
@@ -342,15 +513,29 @@
       "priceBig": "฿2,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Twilight Room (~45 ตร.ม.)", "price": "฿2,800/คืน" },
-        { "type": "Sunset Room (วิวอ่าวพัทยา)", "price": "฿3,400/คืน" },
-        { "type": "Ocean View Suite", "price": "฿4,700/คืน" }
+        {
+          "type": "Twilight Room (~45 ตร.ม.)",
+          "price": "฿2,800/คืน"
+        },
+        {
+          "type": "Sunset Room (วิวอ่าวพัทยา)",
+          "price": "฿3,400/คืน"
+        },
+        {
+          "type": "Ocean View Suite",
+          "price": "฿4,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/wave-hotel-pattaya/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/wave.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-686468/wave-hotel-pattaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-wave-hotel-pattaya.html",
-      "tags": ["🎨 ดีไซน์ Art Deco 18 ห้อง", "🌊 ทุกห้องวิวทะเล", "🛏️ บริการใกล้ชิดแบบบูทีค", "🛍️ เดินถึงห้างและวอล์กกิ้งสตรีท"],
+      "tags": [
+        "🎨 ดีไซน์ Art Deco 18 ห้อง",
+        "🌊 ทุกห้องวิวทะเล",
+        "🛏️ บริการใกล้ชิดแบบบูทีค",
+        "🛍️ เดินถึงห้างและวอล์กกิ้งสตรีท"
+      ],
       "addr": "310/3 Beach Road, Nong Prue, ถนนเลียบหาดพัทยากลาง",
       "storyHtml": "Wave Hotel Pattaya คือ <strong>บูทีค Art Deco เล็ก ๆ เพียง 18 ห้องบน Beach Road ที่ได้คะแนนสูงสุดในบทความนี้ — 9.5</strong> · จุดที่รีวิวพูดถึงคือดีไซน์ Art Deco ที่มีเอกลักษณ์ ทุกห้องวิวทะเล และบริการใกล้ชิดแบบโรงแรมเล็ก ในเครือ Sukosol · ทำเลกลางหาดพัทยากลาง เดินถึงห้างและวอล์กกิ้งสตรีท · เหมาะคนอยากได้โรงแรมสวยมีสไตล์และบริการส่วนตัว · แต่รีวิวบอกตรงว่าเป็นโรงแรม 18 ห้อง สระเล็กและสิ่งอำนวยความสะดวกไม่ครบแบบรีสอร์ตใหญ่ และย่านนี้มีเสียงตอนกลางคืน · รีวิวยังไม่มาก (92) แต่คะแนนสูงสม่ำเสมอ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Sunset Room หรือ Ocean View Suite ที่ระเบียงหันออกอ่าวพัทยาตรง วิวพระอาทิตย์ตกคือไฮไลต์ที่รีวิวพูดถึง",
@@ -382,15 +567,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "แคปซูลในดอร์มรวม (Mixed Dorm)", "price": "฿700/คืน" },
-        { "type": "Twin Capsule Suite (2 แคปซูล)", "price": "฿1,200/คืน" },
-        { "type": "Capsule Suite (4 ยูนิต ~16 ตร.ม.)", "price": "฿2,200/คืน" }
+        {
+          "type": "แคปซูลในดอร์มรวม (Mixed Dorm)",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "Twin Capsule Suite (2 แคปซูล)",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Capsule Suite (4 ยูนิต ~16 ตร.ม.)",
+          "price": "฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nonze-hostel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nonze-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-6422933/nonze-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nonze-hostel-pattaya.html",
-      "tags": ["🛏️ แคปซูลแอร์ประตูเลื่อนส่วนตัว", "🏖️ บน Beach Road ริมหาด", "🌇 ดาดฟ้าวิวอ่าวพัทยา", "🎒 เหมาะนักเดินทางงบจำกัด"],
+      "tags": [
+        "🛏️ แคปซูลแอร์ประตูเลื่อนส่วนตัว",
+        "🏖️ บน Beach Road ริมหาด",
+        "🌇 ดาดฟ้าวิวอ่าวพัทยา",
+        "🎒 เหมาะนักเดินทางงบจำกัด"
+      ],
       "addr": "183/6 Beach Road, Moo 10, Nongprue, พัทยาใต้ · Beach Road",
       "storyHtml": "Nonze Hostel คือ <strong>โฮสเทลแคปซูลที่มีรีวิวมากที่สุดในบทความนี้ถึง 4,074 รีวิว และคะแนนสูงถึง 9.2</strong> ซึ่งสูงมากสำหรับโฮสเทล · จุดที่รีวิวพูดถึงคือแคปซูลแอร์ที่มีประตูเลื่อนส่วนตัว ไฟอ่านหนังสือ ปลั๊กและล็อกเกอร์ สะอาดและเป็นส่วนตัวกว่าโฮสเทลทั่วไป มีดาดฟ้าวิวอ่าวพัทยา · ทำเลบน Beach Road เดินถึงวอล์กกิ้งสตรีทและหาด ราคาเริ่มแค่ ฿700 · เหมาะนักเดินทางงบจำกัดที่รับเรื่องเสียงย่านบันเทิงและห้องน้ำรวมได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นคู่หรือกลุ่มเลือก Twin หรือ Capsule Suite จะเป็นส่วนตัวขึ้นในราคายังคุ้ม และขึ้นดาดฟ้าช่วงเย็นชมวิวอ่าวพัทยา",
@@ -422,15 +621,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "฿1,200/คืน" },
-        { "type": "Deluxe Pool View", "price": "฿1,500/คืน" },
-        { "type": "Vista Suite (2 ห้องนอน)", "price": "฿3,500/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe Pool View",
+          "price": "฿1,500/คืน"
+        },
+        {
+          "type": "Vista Suite (2 ห้องนอน)",
+          "price": "฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-vista/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/vista.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-756481/hotel-vista/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-vista-pattaya.html",
-      "tags": ["🏊 สระน้ำเกลือ 30 เมตร", "🛏️ ห้องดีไซน์โมเดิร์น", "🏖️ เดิน 2 นาทีถึงหาดพัทยา", "💰 ราคาเบากลางเมือง"],
+      "tags": [
+        "🏊 สระน้ำเกลือ 30 เมตร",
+        "🛏️ ห้องดีไซน์โมเดิร์น",
+        "🏖️ เดิน 2 นาทีถึงหาดพัทยา",
+        "💰 ราคาเบากลางเมือง"
+      ],
       "addr": "196 Pattaya Road, Soi 4, Nong Prue, พัทยากลาง",
       "storyHtml": "Hotel Vista Pattaya คือ <strong>โรงแรมโมเดิร์นราคาประหยัดที่คุ้มที่สุดตัวหนึ่งของพัทยากลาง</strong> คะแนน 8.5 จาก 1,865 รีวิว · จุดที่รีวิวพูดถึงคือสระน้ำเกลือยาว 30 เมตรที่สวยเกินราคา ห้องดีไซน์โมเดิร์น และทำเลเดินแค่ 2 นาทีถึงหาดพัทยา ใกล้ไนต์ไลฟ์ · ราคาเริ่มแค่ ฿1,200 แต่ได้บรรยากาศและสิ่งอำนวยความสะดวกที่หาไม่ค่อยได้ในกลุ่มราคานี้ · เหมาะสายเที่ยวงบประหยัดที่อยากได้ห้องดีและสระสวยกลางเมือง · ไม่ใช่รีสอร์ตติดหาดส่วนตัว แต่ให้ความคุ้มในย่านพัทยากลาง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เพิ่มเป็น Club Luxx จะได้สิทธิ์ Lounge ของว่างและเครื่องดื่มช่วงบ่าย คุ้มกว่าออกไปหาของกินนอกโรงแรม",
@@ -448,37 +661,190 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม พัทยา 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Centara Grand Mirage Beach Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿4,800", "access": "📍 หาดวงศ์อมาตย์ · นาเกลือ", "badge": "ครอบครัว+รีวิวมากสุด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hilton Pattaya", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿4,500", "access": "📍 พัทยากลาง · CentralFestival", "badge": "ทุกห้องวิวทะเล กลางเมือง", "badgeStyle": "background:#e1f5fe;color:#01579b;border-color:#81d4fa;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Somerset Pattaya", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿2,400", "access": "📍 พัทยากลาง · ตรงข้ามห้าง", "badge": "รีวิวมากสุด 2,600+", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Cross Pattaya Pratamnak", "type": "⭐⭐⭐⭐⭐", "score": "9.4", "price": "฿2,500", "access": "📍 เขาพระตำหนัก", "badge": "คะแนนสูงสุด ดีไซน์เด่น", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "InterContinental Pattaya Resort", "type": "⭐⭐⭐⭐⭐", "score": "8.9", "price": "฿6,500", "access": "📍 เขาพระตำหนัก · หาดส่วนตัว", "badge": "หาดส่วนตัวเงียบสงบ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Cape Dara Resort", "type": "⭐⭐⭐⭐⭐", "score": "8.7", "price": "฿3,500", "access": "📍 นาเกลือ · พัทยาเหนือ", "badge": "วิวทะเลทุกห้อง คุ้มกว่า", "badgeStyle": "background:#e1f5fe;color:#01579b;border-color:#81d4fa;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Veranda Resort Pattaya Na Jomtien MGallery", "type": "⭐⭐⭐⭐⭐", "score": "8.7", "price": "฿4,200", "access": "📍 หาดนาจอมเทียน" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Wave Hotel Pattaya", "type": "⭐⭐⭐⭐", "score": "9.5", "price": "฿2,800", "access": "📍 พัทยากลาง · Beach Road", "badge": "บูทีค Art Deco วิวทะเล", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Nonze Hostel", "type": "⭐⭐", "score": "9.2", "price": "฿700", "access": "📍 Beach Road · โฮสเทล", "badge": "ถูกสุด · รีวิวสูง", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Hotel Vista Pattaya", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿1,200", "access": "📍 พัทยากลาง · ใกล้หาด", "badge": "คุ้มสุดพัทยากลาง", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Centara Grand Mirage Beach Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿4,800",
+      "access": "📍 หาดวงศ์อมาตย์ · นาเกลือ",
+      "badge": "ครอบครัว+รีวิวมากสุด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hilton Pattaya",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿4,500",
+      "access": "📍 พัทยากลาง · CentralFestival",
+      "badge": "ทุกห้องวิวทะเล กลางเมือง",
+      "badgeStyle": "background:#e1f5fe;color:#01579b;border-color:#81d4fa;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Somerset Pattaya",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿2,400",
+      "access": "📍 พัทยากลาง · ตรงข้ามห้าง",
+      "badge": "รีวิวมากสุด 2,600+",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Cross Pattaya Pratamnak",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿2,500",
+      "access": "📍 เขาพระตำหนัก",
+      "badge": "คะแนนสูงสุด ดีไซน์เด่น",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "InterContinental Pattaya Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿6,500",
+      "access": "📍 เขาพระตำหนัก · หาดส่วนตัว",
+      "badge": "หาดส่วนตัวเงียบสงบ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Cape Dara Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿3,500",
+      "access": "📍 นาเกลือ · พัทยาเหนือ",
+      "badge": "วิวทะเลทุกห้อง คุ้มกว่า",
+      "badgeStyle": "background:#e1f5fe;color:#01579b;border-color:#81d4fa;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Veranda Resort Pattaya Na Jomtien MGallery",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿4,200",
+      "access": "📍 หาดนาจอมเทียน"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Wave Hotel Pattaya",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿2,800",
+      "access": "📍 พัทยากลาง · Beach Road",
+      "badge": "บูทีค Art Deco วิวทะเล",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Nonze Hostel",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿700",
+      "access": "📍 Beach Road · โฮสเทล",
+      "badge": "ถูกสุด · รีวิวสูง",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Hotel Vista Pattaya",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,200",
+      "access": "📍 พัทยากลาง · ใกล้หาด",
+      "badge": "คุ้มสุดพัทยากลาง",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมพัทยายังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Nonze Hostel</strong> ฿700 โฮสเทลแคปซูลบน Beach Road · หรือ <strong>Hotel Vista Pattaya</strong> ฿1,200 โรงแรมโมเดิร์นสระน้ำเกลือกลางพัทยากลาง" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว มีเด็ก", "bodyHtml": "→ <strong>Centara Grand Mirage</strong> ฿4,800 สวนน้ำธีม Lost World ในตัว · หรือ <strong>Somerset Pattaya</strong> ฿2,400 ห้องมีครัวและสวนน้ำ ตรงข้ามห้าง" },
-    { "icon": "💎", "head": "ทริปพิเศษ Luxury วิวทะเล", "bodyHtml": "→ <strong>Hilton Pattaya</strong> ฿4,500 ทุกห้องวิวทะเลกลางเมือง คะแนน 9.2 · หรือ <strong>InterContinental Pattaya Resort</strong> ฿6,500 หาดส่วนตัวบนเขาพระตำหนัก" },
-    { "icon": "🤫", "head": "อยากพักเงียบ ๆ หนีความวุ่นวาย", "bodyHtml": "→ <strong>InterContinental Pattaya Resort</strong> ฿6,500 หาดส่วนตัวเขาพระตำหนัก · หรือ <strong>Veranda MGallery</strong> ฿4,200 รีสอร์ตดีไซน์หาดนาจอมเทียน" },
-    { "icon": "🎨", "head": "อยากได้โรงแรมดีไซน์ มีสไตล์", "bodyHtml": "→ <strong>Cross Pattaya Pratamnak</strong> ฿2,500 บูทีคโคโลเนียลโมเดิร์น คะแนน 9.4 · หรือ <strong>Wave Hotel Pattaya</strong> ฿2,800 บูทีค Art Deco ทุกห้องวิวทะเล" },
-    { "icon": "🌊", "head": "อยากพักรีสอร์ตติดหาด วิวทะเล", "bodyHtml": "→ <strong>Cape Dara Resort</strong> ฿3,500 บีชฟรอนต์นาเกลือทุกห้องวิวทะเล · หรือ <strong>Veranda MGallery</strong> ฿4,200 สระอินฟินิตี้ต่อทะเลนาจอมเทียน" },
-    { "icon": "🌃", "head": "อยากอยู่ใกล้หาด ห้าง ไนต์ไลฟ์", "bodyHtml": "→ <strong>Hilton Pattaya</strong> ฿4,500 บนห้าง CentralFestival ติดหาด · หรือ <strong>Wave Hotel Pattaya</strong> ฿2,800 บน Beach Road เดินถึงวอล์กกิ้งสตรีท" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Nonze Hostel</strong> ฿700 โฮสเทลแคปซูลบน Beach Road · หรือ <strong>Hotel Vista Pattaya</strong> ฿1,200 โรงแรมโมเดิร์นสระน้ำเกลือกลางพัทยากลาง"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว มีเด็ก",
+      "bodyHtml": "→ <strong>Centara Grand Mirage</strong> ฿4,800 สวนน้ำธีม Lost World ในตัว · หรือ <strong>Somerset Pattaya</strong> ฿2,400 ห้องมีครัวและสวนน้ำ ตรงข้ามห้าง"
+    },
+    {
+      "icon": "💎",
+      "head": "ทริปพิเศษ Luxury วิวทะเล",
+      "bodyHtml": "→ <strong>Hilton Pattaya</strong> ฿4,500 ทุกห้องวิวทะเลกลางเมือง คะแนน 9.2 · หรือ <strong>InterContinental Pattaya Resort</strong> ฿6,500 หาดส่วนตัวบนเขาพระตำหนัก"
+    },
+    {
+      "icon": "🤫",
+      "head": "อยากพักเงียบ ๆ หนีความวุ่นวาย",
+      "bodyHtml": "→ <strong>InterContinental Pattaya Resort</strong> ฿6,500 หาดส่วนตัวเขาพระตำหนัก · หรือ <strong>Veranda MGallery</strong> ฿4,200 รีสอร์ตดีไซน์หาดนาจอมเทียน"
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้โรงแรมดีไซน์ มีสไตล์",
+      "bodyHtml": "→ <strong>Cross Pattaya Pratamnak</strong> ฿2,500 บูทีคโคโลเนียลโมเดิร์น คะแนน 9.4 · หรือ <strong>Wave Hotel Pattaya</strong> ฿2,800 บูทีค Art Deco ทุกห้องวิวทะเล"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักรีสอร์ตติดหาด วิวทะเล",
+      "bodyHtml": "→ <strong>Cape Dara Resort</strong> ฿3,500 บีชฟรอนต์นาเกลือทุกห้องวิวทะเล · หรือ <strong>Veranda MGallery</strong> ฿4,200 สระอินฟินิตี้ต่อทะเลนาจอมเทียน"
+    },
+    {
+      "icon": "🌃",
+      "head": "อยากอยู่ใกล้หาด ห้าง ไนต์ไลฟ์",
+      "bodyHtml": "→ <strong>Hilton Pattaya</strong> ฿4,500 บนห้าง CentralFestival ติดหาด · หรือ <strong>Wave Hotel Pattaya</strong> ฿2,800 บน Beach Road เดินถึงวอล์กกิ้งสตรีท"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณ อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ราคาห้องในพัทยาสวิงตามฤดูและวันธรรมดา-เสาร์อาทิตย์ค่อนข้างมาก ช่วงไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) วันหยุดยาว ปีใหม่ และสงกรานต์ ราคาสูงขึ้นและห้องหมดเร็ว จองล่วงหน้า 2–4 สัปดาห์ขึ้นไป · พัทยาไม่มีรถไฟฟ้า เดินทางในเมืองด้วยรถสองแถว (รถแดง) Grab หรือเช่ามอเตอร์ไซค์ จากสนามบินอู่ตะเภาเข้าเมืองราว 40 นาที · ข้อมูลคะแนนและจุดเด่นมาจากการอ่านรีวิวจริงของแขก ไม่ได้เข้าพักเอง · บทความโดย <strong>ThailandAddict</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมพัทยา",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในพัทยาสำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>หาดพัทยากลาง</strong> เหมาะคนชอบความคึกคัก ติดห้าง CentralFestival หาด ร้านอาหาร และไนต์ไลฟ์ในระยะเดิน (Hilton, Somerset, Wave, Vista, Nonze) · <strong>เขาพระตำหนัก</strong> เป็นแหลมเงียบทางใต้ รีสอร์ตและบูทีคบนเนิน (InterContinental, Cross) · <strong>นาเกลือ / หาดวงศ์อมาตย์</strong> ฝั่งเหนือเงียบ รีสอร์ตติดหาด (Centara Grand Mirage, Cape Dara) · <strong>นาจอมเทียน</strong> หาดยาวเงียบทางใต้ เหมาะพักผ่อนเป็นส่วนตัว (Veranda MGallery)" },
-    { "q": "❓ โรงแรมพัทยาราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลแคปซูลเริ่มราว ฿700 ต่อคืน · โรงแรมโมเดิร์นและเชนระดับ 3–4 ดาวราว ฿1,200–2,900 · บูทีคและเซอร์วิสอพาร์ตเมนต์ราว ฿2,400–4,500 · รีสอร์ตและ Luxury 5 ดาวบีชฟรอนต์เริ่ม ฿3,500–6,500+ · ราคาในพัทยาสวิงตามฤดูและวันธรรมดา-เสาร์อาทิตย์ค่อนข้างมาก ช่วงไฮซีซั่นและวันหยุดยาวอาจสูงกว่าปกติมาก" },
-    { "q": "❓ ควรจองโรงแรมพัทยาล่วงหน้านานแค่ไหน?", "a": "สำหรับวันธรรมดานอกฤดู จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงเสาร์อาทิตย์ ไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) วันหยุดยาว ปีใหม่ และสงกรานต์ ห้องดี ๆ โดยเฉพาะรีสอร์ตติดหาดและห้องวิวทะเลเต็มเร็วและราคาขยับขึ้นมาก ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป" },
-    { "q": "❓ จองโรงแรมพัทยาเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยถึงหลักพันบาทต่อคืนในห้องราคาสูง" },
-    { "q": "❓ เดินทางในพัทยายังไง ไม่มีรถไฟฟ้า?", "a": "พัทยาไม่มีรถไฟฟ้า วิธีหลักในเมืองคือ <strong>รถสองแถว (รถแดง)</strong> ที่วิ่งวนตามถนนเลียบหาดและพัทยาสาย 2 ค่าโดยสารเริ่ม 10 บาท · เรียก Grab หรือเช่ามอเตอร์ไซค์ก็สะดวก · จากกรุงเทพฯ ขับรถหรือนั่งรถตู้/บัสราว 2 ชั่วโมง จากสนามบินอู่ตะเภา (UTP) ราว 40 นาที สุวรรณภูมิราว 1.5–2 ชั่วโมง" },
-    { "q": "❓ มาพัทยากับครอบครัวที่มีเด็ก พักที่ไหนดี?", "a": "เลือกรีสอร์ตที่มีสวนน้ำหรือสระให้เด็กเล่นและห้องครอบครัว · <strong>Centara Grand Mirage</strong> มีสวนน้ำธีม Lost World ในตัวและห้องรับเด็กหลายคน ติดหาดวงศ์อมาตย์ · <strong>Somerset Pattaya</strong> มีห้องครัวขนาดใหญ่และสวนน้ำธีมโจรสลัด ตรงข้ามห้าง · <strong>InterContinental Pattaya Resort</strong> มี 3 สระและ Kids' Club บนหาดส่วนตัวเงียบ" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในพัทยาสำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>หาดพัทยากลาง</strong> เหมาะคนชอบความคึกคัก ติดห้าง CentralFestival หาด ร้านอาหาร และไนต์ไลฟ์ในระยะเดิน (Hilton, Somerset, Wave, Vista, Nonze) · <strong>เขาพระตำหนัก</strong> เป็นแหลมเงียบทางใต้ รีสอร์ตและบูทีคบนเนิน (InterContinental, Cross) · <strong>นาเกลือ / หาดวงศ์อมาตย์</strong> ฝั่งเหนือเงียบ รีสอร์ตติดหาด (Centara Grand Mirage, Cape Dara) · <strong>นาจอมเทียน</strong> หาดยาวเงียบทางใต้ เหมาะพักผ่อนเป็นส่วนตัว (Veranda MGallery)"
+    },
+    {
+      "q": "❓ โรงแรมพัทยาราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลแคปซูลเริ่มราว ฿700 ต่อคืน · โรงแรมโมเดิร์นและเชนระดับ 3–4 ดาวราว ฿1,200–2,900 · บูทีคและเซอร์วิสอพาร์ตเมนต์ราว ฿2,400–4,500 · รีสอร์ตและ Luxury 5 ดาวบีชฟรอนต์เริ่ม ฿3,500–6,500+ · ราคาในพัทยาสวิงตามฤดูและวันธรรมดา-เสาร์อาทิตย์ค่อนข้างมาก ช่วงไฮซีซั่นและวันหยุดยาวอาจสูงกว่าปกติมาก"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมพัทยาล่วงหน้านานแค่ไหน?",
+      "a": "สำหรับวันธรรมดานอกฤดู จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงเสาร์อาทิตย์ ไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) วันหยุดยาว ปีใหม่ และสงกรานต์ ห้องดี ๆ โดยเฉพาะรีสอร์ตติดหาดและห้องวิวทะเลเต็มเร็วและราคาขยับขึ้นมาก ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป"
+    },
+    {
+      "q": "❓ จองโรงแรมพัทยาเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยถึงหลักพันบาทต่อคืนในห้องราคาสูง"
+    },
+    {
+      "q": "❓ เดินทางในพัทยายังไง ไม่มีรถไฟฟ้า?",
+      "a": "พัทยาไม่มีรถไฟฟ้า วิธีหลักในเมืองคือ <strong>รถสองแถว (รถแดง)</strong> ที่วิ่งวนตามถนนเลียบหาดและพัทยาสาย 2 ค่าโดยสารเริ่ม 10 บาท · เรียก Grab หรือเช่ามอเตอร์ไซค์ก็สะดวก · จากกรุงเทพฯ ขับรถหรือนั่งรถตู้/บัสราว 2 ชั่วโมง จากสนามบินอู่ตะเภา (UTP) ราว 40 นาที สุวรรณภูมิราว 1.5–2 ชั่วโมง"
+    },
+    {
+      "q": "❓ มาพัทยากับครอบครัวที่มีเด็ก พักที่ไหนดี?",
+      "a": "เลือกรีสอร์ตที่มีสวนน้ำหรือสระให้เด็กเล่นและห้องครอบครัว · <strong>Centara Grand Mirage</strong> มีสวนน้ำธีม Lost World ในตัวและห้องรับเด็กหลายคน ติดหาดวงศ์อมาตย์ · <strong>Somerset Pattaya</strong> มีห้องครัวขนาดใหญ่และสวนน้ำธีมโจรสลัด ตรงข้ามห้าง · <strong>InterContinental Pattaya Resort</strong> มี 3 สระและ Kids' Club บนหาดส่วนตัวเงียบ"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมพัทยาจากทุกระดับ — ตั้งแต่รีสอร์ตครอบครัว Centara Grand Mirage หาดวงศ์อมาตย์ ถึงโฮสเทลแคปซูล Nonze เริ่ม ฿700 เสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มต้นจริง เทียบ 3 เว็บ ลิงก์จองตรง"
 }

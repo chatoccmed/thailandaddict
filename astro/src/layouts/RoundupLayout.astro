@@ -145,7 +145,8 @@ const article = {
   publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
   datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
 };
-const schema = { '@context': 'https://schema.org', '@graph': [itemList, breadcrumb, article] };
+const speakable = (data as any).quickAnswerHtml ? [{ '@type': 'WebPage', '@id': `${url}#webpage`, url, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } }] : [];
+const schema = { '@context': 'https://schema.org', '@graph': [itemList, breadcrumb, article, ...speakable] };
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: data.faq.map((f) => ({
