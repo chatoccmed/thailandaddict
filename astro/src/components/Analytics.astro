@@ -1,0 +1,21 @@
+---
+/**
+ * GA4 + Search Console scaffold (Wave-0). Shared across all Astro layouts.
+ *
+ * 👉 TO GO LIVE: set GA_ID to your real GA4 Measurement ID (looks like "G-ABCD1234XY").
+ *    While it stays the placeholder, NOTHING is emitted — safe to ship un-configured.
+ *    Also mirrored in _internal/gen-hubs.mjs (city hubs) — update GA_ID there too.
+ */
+const GA_ID = 'G-XXXXXXXXXX'; // ← replace with real ID, then rebuild
+const SC_VERIFY = '';          // ← optional: Search Console <meta> verification token
+const enabled = /^G-[A-Z0-9]{8,}$/.test(GA_ID) && !GA_ID.includes('XXXX');
+---
+{SC_VERIFY && <meta name="google-site-verification" content={SC_VERIFY} />}
+{enabled && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});
+// affiliate-click tracking: any <a>/<button> to Agoda/Trip/Klook/12Go fires an outbound event
+document.addEventListener('click',function(e){var a=e.target.closest('a[href],button[onclick]');if(!a)return;var u=(a.getAttribute('href')||a.getAttribute('onclick')||'');var m=u.match(/agoda|trip\\.com|klook|12go|getyourguide/i);if(m)gtag('event','affiliate_click',{partner:m[0].toLowerCase(),page_path:location.pathname});},true);`}></script>
+  </>
+)}

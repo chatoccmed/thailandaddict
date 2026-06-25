@@ -2,10 +2,12 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8" />
+<!-- GA4 (Wave-0): set ID to real G-XXXXXXXXXX to activate; this file's track() events (plan_generated, booking_click, share_trip, email_capture) then flow to GA4. Placeholder => gtag stays undefined => track() no-ops safely. Keep in sync with astro/src/components/Analytics.astro -->
+<script>(function(){var ID='G-XXXXXXXXXX';if(!/^G-[A-Z0-9]{8,}$/.test(ID)||ID.indexOf('XXXX')>-1)return;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',ID,{anonymize_ip:true});})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover" />
 <title>วางแผนทริป · แผนการเดินทางของฉัน | ThailandAddict</title>
 <meta name="description" content="บันทึกที่พัก ที่กิน ที่เที่ยวที่ชอบ แล้วให้ Thailandaddict จัดทริปรายวันให้ พร้อมลิงก์จองและภาพสรุปทริปแชร์ได้" />
-<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://thailandaddict.com/trip" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='sans-serif' font-size='62' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -515,6 +517,50 @@ function showErr(m){ const e=$('#err'); e.textContent='⚠️ '+m; e.classList.a
 const EMO={stay:'🏨',eat:'🍽',see:'📍'};
 function mapsLink(name,prov){ return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent((name+' '+(prov||'')).trim()); }
 function dirLink(o,dt,prov){ return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent((o+' '+(prov||'')).trim())+'&destination='+encodeURIComponent((dt+' '+(prov||'')).trim()); }
+// Planner v2 — full-day route: origin→waypoints→destination (Google geocodes the names; items have no lat/lng guaranteed)
+function dayRouteLink(d){
+  var pts=(d.items||[]).filter(function(i){return i&&i.name;}).map(function(i){return (i.name+' '+(d.province||'')).trim();});
+  if(d.hotel&&d.hotel.name) pts.push((d.hotel.name+' '+(d.province||'')).trim());
+  if(pts.length<2) return '';
+  pts=pts.slice(0,10);
+  var o=encodeURIComponent(pts[0]), dst=encodeURIComponent(pts[pts.length-1]);
+  var way=pts.slice(1,-1).map(encodeURIComponent).join('%7C');
+  return 'https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+dst+(way?'&waypoints='+way:'')+'&travelmode=driving';
+}
+// Planner v2 — .ics calendar export (plan uses day numbers → prompt for a start date; 9am + 2h slots)
+function _icsPad(n){return (n<10?'0':'')+n;}
+function _icsDT(dt){return dt.getFullYear()+_icsPad(dt.getMonth()+1)+_icsPad(dt.getDate())+'T'+_icsPad(dt.getHours())+_icsPad(dt.getMinutes())+'00';}
+function _icsEsc(s){return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');}
+function _icsDefDate(){var d=new Date();var add=((6-d.getDay()+7)%7)||7;d.setDate(d.getDate()+add);return d.getFullYear()+'-'+_icsPad(d.getMonth()+1)+'-'+_icsPad(d.getDate());}
+function downloadICS(t,prefs){
+  if(!t||!t.days||!t.days.length){toast('ยังไม่มีแผน');return;}
+  var def=''; try{def=localStorage.getItem('ta_trip_start')||'';}catch(e){} if(!def)def=_icsDefDate();
+  var s=prompt('วันเริ่มทริป (ปี-เดือน-วัน เช่น '+def+'):',def); if(!s)return; s=s.trim();
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(s)){toast('รูปแบบวันที่ไม่ถูกต้อง (YYYY-MM-DD)');return;}
+  try{localStorage.setItem('ta_trip_start',s);}catch(e){}
+  var p=s.split('-'),base=new Date(+p[0],+p[1]-1,+p[2]); if(isNaN(base.getTime())){toast('วันที่ไม่ถูกต้อง');return;}
+  var stamp=_icsDT(new Date()),L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ThailandAddict//Trip Planner//TH','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  t.days.forEach(function(d,di){
+    var day=new Date(base); day.setDate(base.getDate()+di);
+    (d.items||[]).forEach(function(it,ii){
+      var st=new Date(day); st.setHours(9+ii*2,0,0,0); var en=new Date(st); en.setMinutes(en.getMinutes()+90);
+      var url=it.url?(location.origin+(it.url.charAt(0)==='/'?'':'/')+it.url):'';
+      L.push('BEGIN:VEVENT','UID:'+((it._uid||('d'+di+'i'+ii))+'-'+s)+'@thailandaddict.com','DTSTAMP:'+stamp,'DTSTART:'+_icsDT(st),'DTEND:'+_icsDT(en),
+        'SUMMARY:'+_icsEsc((EMO[it.type]||'•')+' '+it.name),'LOCATION:'+_icsEsc((it.name+' '+(d.province||'')).trim()),
+        'DESCRIPTION:'+_icsEsc([it.note||'',url?('ข้อมูล: '+url):''].filter(Boolean).join(' — ')),'END:VEVENT');
+    });
+    if(d.hotel&&d.hotel.name){var hs=new Date(day);hs.setHours(20,0,0,0);var he=new Date(hs);he.setMinutes(he.getMinutes()+30);
+      L.push('BEGIN:VEVENT','UID:hotel'+di+'-'+s+'@thailandaddict.com','DTSTAMP:'+stamp,'DTSTART:'+_icsDT(hs),'DTEND:'+_icsDT(he),
+        'SUMMARY:'+_icsEsc('🏨 ที่พัก: '+d.hotel.name),'LOCATION:'+_icsEsc((d.hotel.name+' '+(d.province||'')).trim()),'END:VEVENT');}
+  });
+  L.push('END:VCALENDAR');
+  try{
+    var blob=new Blob([L.join('\r\n')],{type:'text/calendar;charset=utf-8'});
+    var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='thailandaddict-trip.ics';document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(u);a.remove();},600);
+    track('export_ics',{days:t.days.length}); toast('ดาวน์โหลดไฟล์ปฏิทินแล้ว 📅 เปิดในปฏิทินได้เลย');
+  }catch(e){toast('ดาวน์โหลดไม่สำเร็จ');}
+}
 function haversine(a,b,c,d){ const R=6371,r=x=>x*Math.PI/180,dLa=r(c-a),dLo=r(d-b),s=Math.sin(dLa/2)**2+Math.cos(r(a))*Math.cos(r(c))*Math.sin(dLo/2)**2; return 2*R*Math.asin(Math.sqrt(s)); }
 function klookLink(prov){ return 'https://www.klook.com/th/search/?query='+encodeURIComponent(prov)+'&aid='+KLOOK; }
 function klookSearch(q,en){ return 'https://www.klook.com/'+(en?'en-US':'th')+'/search/?query='+encodeURIComponent(q)+'&aid='+KLOOK; }
@@ -633,6 +679,8 @@ function renderItin(t,prefs,picks){
       tl.appendChild(ti); prevName=it.name; prevLat=(typeof it.lat==='number'?it.lat:null); prevLng=(typeof it.lng==='number'?it.lng:null);
     });
     day.appendChild(tl);
+    const _route=dayRouteLink(d);
+    if(_route) day.insertAdjacentHTML('beforeend',`<div style="margin:9px 0 0"><a href="${_route}" target="_blank" rel="noopener" onclick="track('day_route',{day:${d.day}})" style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:#0891b2;text-decoration:none;border:1px solid #06B6D4;border-radius:999px;padding:6px 13px">🧭 นำทางทั้งวันบน Maps</a></div>`);
     day.insertAdjacentHTML('beforeend',`<div class="day-add"><button data-act="addown" data-di="${di}">+ เพิ่มที่เที่ยว/ร้านของคุณเอง</button></div>`);
     if(d.hotel){
       const ht=d.hotel, h=ce('div','hotel');
@@ -664,10 +712,11 @@ function renderItin(t,prefs,picks){
 
   const ab=ce('div','sec'); ab.innerHTML='<div class="sec-h">📤 บันทึก & แชร์</div>';
   const bar=ce('div','actbar');
-  bar.innerHTML=`<button class="primary" id="shareBtn">🔗 แชร์ทริป</button><button id="igBtn">🖼️ ภาพสรุป</button><button id="pdfBtn">📄 บันทึก PDF</button><button id="againBtn">🔄 จัดใหม่</button>`;
+  bar.innerHTML=`<button class="primary" id="shareBtn">🔗 แชร์ทริป</button><button id="igBtn">🖼️ ภาพสรุป</button><button id="icsBtn">📅 ปฏิทิน (.ics)</button><button id="pdfBtn">📄 บันทึก PDF</button><button id="againBtn">🔄 จัดใหม่</button>`;
   ab.appendChild(bar); out.appendChild(ab);
   $('#shareBtn').onclick=shareTrip;
   $('#igBtn').onclick=()=>makeInfographic(t,prefs);
+  $('#icsBtn').onclick=()=>downloadICS(t,prefs);
   $('#pdfBtn').onclick=openPdfModal;
   $('#againBtn').onclick=()=>{ out.classList.remove('on'); window.scrollTo({top:0,behavior:'smooth'}); };
 
