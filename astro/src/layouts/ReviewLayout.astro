@@ -225,6 +225,7 @@ const schema = {
       '@type': 'WebPage', '@id': url, url, name: data.title,
       description: data.metaDesc, inLanguage: lang, isPartOf: { '@id': SITE },
       datePublished: today, dateModified: today,
+      ...((data as any).quickAnswerHtml ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } } : {}),
     },
   ],
 };
