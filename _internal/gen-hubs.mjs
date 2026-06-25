@@ -750,6 +750,7 @@ function planHub(){
     ['digital-nomad-thailand','💻','Digital Nomad','Digital nomad','วีซ่า DTV เมือง เน็ต ค่าครองชีพ','DTV visa, cities, wifi, cost'],
     ['health-medical-thailand','🏥','สุขภาพ & การแพทย์','Health & medical','โรงพยาบาล น้ำดื่ม ยุง ร้านยา วัคซีน','Hospitals, water, mosquitoes, pharmacies'],
     ['halal-travel-thailand','🕌','เที่ยวสายฮาลาล','Halal travel','อาหารฮาลาล มัสยิด ห้องละหมาด','Halal food, mosques, prayer rooms'],
+    ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
   ];
   const R = [
     ['bangkok-to-chiang-mai','🚆','กรุงเทพ → เชียงใหม่','Bangkok → Chiang Mai'],
