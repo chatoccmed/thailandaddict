@@ -745,6 +745,9 @@ function planHub(){
     ['lgbtq-thailand-guide','🏳️‍🌈','เที่ยวไทยสำหรับ LGBTQ+','LGBTQ+ Thailand','เมืองที่เป็นมิตร งานไพรด์ สมรสเท่าเทียม','Friendly cities, Pride, marriage equality'],
     ['solo-female-travel-thailand','🎒','ผู้หญิงเที่ยวคนเดียว','Solo female travel','ปลอดภัยไหม เดินทาง ที่พัก สแกม','Safety, transport, stays, scams'],
     ['accessible-travel-thailand','♿','เที่ยวแบบเข้าถึงได้','Accessible travel','รถเข็น ผู้สูงอายุ ลิฟต์ วัด','Wheelchair, seniors, lifts, temples'],
+    ['family-travel-thailand','👨‍👩‍👧‍👦','เที่ยวกับเด็ก & ครอบครัว','Family travel','ชายหาดปลอดภัย กิจกรรมเด็ก ที่พัก','Safe beaches, kids activities, stays'],
+    ['vegan-vegetarian-thailand','🥬','วีแกน & มังสวิรัติ','Vegan & vegetarian','เจ vs มังสวิรัติ ประโยคสั่งอาหาร','Jay vs vegetarian, ordering phrases'],
+    ['digital-nomad-thailand','💻','Digital Nomad','Digital nomad','วีซ่า DTV เมือง เน็ต ค่าครองชีพ','DTV visa, cities, wifi, cost'],
   ];
   const R = [
     ['bangkok-to-chiang-mai','🚆','กรุงเทพ → เชียงใหม่','Bangkok → Chiang Mai'],
