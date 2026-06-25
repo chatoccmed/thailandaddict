@@ -8,6 +8,7 @@ import path from 'node:path';
 const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 const PUB = path.join(ROOT, 'astro/public');
 const DATA = path.join(ROOT, '_internal/province-data');
+const PVCOORDS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/province-coords.json'), 'utf8')); } catch { return {}; } })();
 
 // GA4 scaffold for the 77 city/region hubs (Wave-0). Set GA_ID to the real "G-XXXXXXXXXX"
 // (same value as astro/src/components/Analytics.astro) — emits nothing until configured.
@@ -499,8 +500,10 @@ function provinceHub(slug, th, r, d){
     {"@type":"ListItem","position":3,"name":RNAME(r),"item":J(`region-${R.slug}`)},
     {"@type":"ListItem","position":4,"name":nm,"item":J(`city-${slug}`)}]};
   // Place schema (entity for AI answer-engines + Google knowledge graph) — derived from existing data, nothing fabricated.
+  const _co=PVCOORDS[slug];
   const _place={"@type":"Place","@id":J(`city-${slug}`)+"#place","name":nm,"description":stripTags(tagline),
     ...(heroSrc?{"image":"https://thailandaddict.com"+heroSrc}:{}),
+    ...(_co?{"geo":{"@type":"GeoCoordinates","latitude":_co.lat,"longitude":_co.lng}}:{}),
     "address":{"@type":"PostalAddress","addressRegion":nm,"addressCountry":"TH"},
     "url":J(`city-${slug}`),"isPartOf":{"@type":"Place","name":RNAME(r)}};
   const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};

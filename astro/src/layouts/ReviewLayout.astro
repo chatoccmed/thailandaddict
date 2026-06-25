@@ -16,6 +16,11 @@ const base = isEn ? `${SITE}/en` : SITE;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 const today = '2026-05-17';
+// Honest static "last checked" stamp from the content date (was a live new Date() clock that falsely implied a real-time price check).
+const _tdParts = today.split('-');
+const TS_MON_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+const TS_MON_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const priceTs = (lang === 'en' ? TS_MON_EN : TS_MON_TH)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
 
 // Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
 // and the .html suffix stripped (clean URL).
@@ -588,7 +593,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
       <button class="pw-btn booking" data-href={data.bookingBooking}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
       <button class="pw-btn trip" data-href={data.bookingTrip}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
     </div>
-    <div class="pw-ts" id="price-ts"></div>
+    <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
   </div>
 
   <!-- Tips -->
@@ -758,14 +763,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   document.querySelectorAll('.pw-btn').forEach(function(el){
     el.addEventListener('click',function(){window.open(el.dataset.href,'_blank');});
   });
-  function updateTs(){
-    var now=new Date();
-    var d=now.toLocaleDateString(tsLocale,{day:'numeric',month:'short',year:'numeric'});
-    var t=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-    var el=document.getElementById('price-ts');
-    if(el)el.textContent=tsLabel+d+' '+t;
-  }
-  updateTs();setInterval(updateTs,60000);
+  /* price-ts is now rendered statically server-side (honest content-date stamp, not a live clock) */
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){if(e.isIntersecting){e.target.style.animation='fadeUp .65s ease forwards';io.unobserve(e.target);}});
   },{threshold:0.08});
