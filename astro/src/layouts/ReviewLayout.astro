@@ -214,7 +214,7 @@ const schema = {
       itemReviewed: { '@id': `${url}#hotel` },
       reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
       author: { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE },
-      publisher: { '@type': 'Organization', name: 'ThailandAddict', logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
+      publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: today, dateModified: today,
     }] : []),
     {

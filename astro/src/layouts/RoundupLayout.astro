@@ -142,7 +142,7 @@ const breadcrumb = {
 const article = {
   '@type': 'Article', headline: data.ogTitle, description: data.metaDesc, image: imgAbs,
   author: { '@type': 'Organization', name: 'ThailandAddict Editorial' },
-  publisher: { '@type': 'Organization', name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
+  publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
   datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
 };
 const speakable = (data as any).quickAnswerHtml ? [{ '@type': 'WebPage', '@id': `${url}#webpage`, url, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } }] : [];
