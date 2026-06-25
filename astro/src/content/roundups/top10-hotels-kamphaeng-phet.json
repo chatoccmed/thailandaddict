@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "กำแพงเพชร", "href": "city-kamphaeng-phet.html" },
-    { "name": "10 โรงแรมกำแพงเพชรยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "กำแพงเพชร",
+      "href": "city-kamphaeng-phet.html"
+    },
+    {
+      "name": "10 โรงแรมกำแพงเพชรยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "กำแพงเพชร", "item": "https://thailandaddict.com/city-kamphaeng-phet" },
-    { "name": "10 โรงแรมกำแพงเพชรยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-kamphaeng-phet" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "กำแพงเพชร",
+      "item": "https://thailandaddict.com/city-kamphaeng-phet"
+    },
+    {
+      "name": "10 โรงแรมกำแพงเพชรยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-kamphaeng-phet"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-kamphaeng-phet.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "กำแพงเพชรไม่มีรถไฟฟ้าและไม่มีสนามบินพาณิชย์ การเดินทางหลักคือขับรถเองหรือนั่งรถทัวร์มาลงที่ตัวเมือง โรงแรมเกือบทุกแห่งมีที่จอดรถฟรี จึงเหมาะกับคนขับรถมาก · เลือกตามทริปได้เลย: <strong>ริมแม่น้ำปิง–นครชุม</strong> เงียบสงบ วิวน้ำ เหมาะพักผ่อน (White Wall, La Kana, J2, Chakungrao) · <strong>ในเมือง–ใกล้อุทยานประวัติศาสตร์</strong> เดินเที่ยวโบราณสถานและถนนคนเดินได้ (Navarat, Three J, Scenic, FIG) · <strong>ฝั่งถนนสายเอเชีย</strong> เข้า-ออกเมืองสะดวก เหมาะแวะพักระหว่างทาง (Hop Inn, Bunraksa) · ส่วน <strong>คลองลาน</strong> อยู่ห่างเมืองราว 1 ชั่วโมง เหมาะกับคนเที่ยวน้ำตก (Wanalee)",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "White Wall Riverfront Hotel", "price": "฿1,600" },
-    { "n": "2", "color": "#06B6D4", "name": "La Kana Boutique Villa", "price": "฿1,500" },
-    { "n": "3", "color": "#06B6D4", "name": "J2 Hotel Kpp", "price": "฿850" },
-    { "n": "4", "color": "#FB7185", "name": "Hop Inn Kamphaeng Phet", "price": "฿700" },
-    { "n": "5", "color": "#FB7185", "name": "Bunraksa Resort", "price": "฿650" },
-    { "n": "6", "color": "#FB7185", "name": "Three J Guesthouse", "price": "฿550" },
-    { "n": "7", "color": "#FBBF24", "name": "Chakungrao Riverview Hotel", "price": "฿850" },
-    { "n": "8", "color": "#FBBF24", "name": "Navarat Heritage Hotel", "price": "฿1,000" },
-    { "n": "9", "color": "#FBBF24", "name": "Scenic Riverside Resort", "price": "฿1,200" },
-    { "n": "10", "color": "#FBBF24", "name": "Wanalee Resort", "price": "฿1,200" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "White Wall Riverfront Hotel",
+      "price": "฿1,600"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "La Kana Boutique Villa",
+      "price": "฿1,500"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "J2 Hotel Kpp",
+      "price": "฿850"
+    },
+    {
+      "n": "4",
+      "color": "#FB7185",
+      "name": "Hop Inn Kamphaeng Phet",
+      "price": "฿700"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Bunraksa Resort",
+      "price": "฿650"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Three J Guesthouse",
+      "price": "฿550"
+    },
+    {
+      "n": "7",
+      "color": "#FBBF24",
+      "name": "Chakungrao Riverview Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "8",
+      "color": "#FBBF24",
+      "name": "Navarat Heritage Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Scenic Riverside Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Wanalee Resort",
+      "price": "฿1,200"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,600",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe River View", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "Suite with Balcony", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Family Residence Suite", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "Deluxe River View",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "Suite with Balcony",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Family Residence Suite",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/white-wall-riverfront-hotel/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/white-wall-riverfront.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotel-detail-35090183/white-wall-riverfront-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-white-wall-riverfront-hotel-kamphaeng-phet.html",
-      "tags": ["🌊 ทุกห้องวิวแม่น้ำปิง", "🛏️ ห้องบูทีคดีไซน์สวย", "🏡 ฝั่งนครชุมเงียบสงบ", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "🌊 ทุกห้องวิวแม่น้ำปิง",
+        "🛏️ ห้องบูทีคดีไซน์สวย",
+        "🏡 ฝั่งนครชุมเงียบสงบ",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "13/9 Moo 1, Nakhon Chum, Mueang Kamphaeng Phet",
       "storyHtml": "White Wall คือ <strong>โรงแรม 4 ดาวเดียวในชุดนี้ และเป็นบูทีคริมแม่น้ำปิงที่จัดห้องวิวน้ำได้ลงตัว</strong> คะแนน 8.4 จาก 117 รีวิว · อยู่ฝั่งนครชุมที่เงียบสงบ ทุกห้องหันออกแม่น้ำปิง ดีไซน์เรียบสะอาดสไตล์บูทีค · ห้อง Suite และ Family Residence เหมาะกับคนที่อยากได้ระเบียงส่วนตัวริมน้ำหรือมากันหลายคน เป็นตัวเลือกที่ดีถ้าอยากได้ที่พักดีขึ้นมาอีกระดับในกำแพงเพชร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้างบถึง เลือก Suite with Balcony ระเบียงส่วนตัวริมแม่น้ำปิงตอนเย็นคือไฮไลต์ของที่นี่",
@@ -102,15 +189,29 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "One-Bedroom Villa วิวสระ", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "One-Bedroom Villa วิวสระ",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/la-kana-boutique-villa-h30848744/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/la-kana-boutique-villa.html",
       "tripUrl": "https://www.trip.com/hotels/nakhon-chum-hotel-detail-103097303/la-kana-boutique-villa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-la-kana-boutique-villa-kamphaeng-phet.html",
-      "tags": ["🏊 มีสระว่ายน้ำ", "🎨 ห้องบูทีคดีไซน์สวย", "🏡 ย่านนครชุมเงียบ", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "🏊 มีสระว่ายน้ำ",
+        "🎨 ห้องบูทีคดีไซน์สวย",
+        "🏡 ย่านนครชุมเงียบ",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "111/11 หมู่ 2 ตำบลนครชุม อำเภอเมืองกำแพงเพชร",
       "storyHtml": "La Kana คือ <strong>บูทีควิลล่าที่ได้คะแนนสูงสุดในกลุ่ม 3 ดาว — 8.9 จาก 70 รีวิว</strong> · จุดเด่นคือมีสระว่ายน้ำ ซึ่งหายากในที่พักราคานี้ในกำแพงเพชร ห้องตกแต่งสไตล์บูทีคสะอาดดีไซน์สวย · อยู่ย่านนครชุมที่เงียบสงบ ห้อง One-Bedroom Villa วิวสระเหมาะกับคนที่อยากได้พื้นที่ส่วนตัวกว่า เป็นตัวเลือกที่ลงตัวสำหรับคู่รักหรือคนที่อยากได้บรรยากาศดี",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้พื้นที่ส่วนตัวและวิวสวย เลือก One-Bedroom Villa วิวสระ กว้างกว่าและเป็นส่วนตัวกว่าห้อง Standard",
@@ -142,15 +243,29 @@
       "priceBig": "฿850",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Grand Deluxe Twin (River View)", "price": "เริ่ม ฿1,150/คืน" },
-        { "type": "Family Suite", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Grand Deluxe Twin (River View)",
+          "price": "เริ่ม ฿1,150/คืน"
+        },
+        {
+          "type": "Family Suite",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/j2-hotel/hotel/kamphaeng-phet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/j2-a-a-3a-sa-y-a-tma-a-psa-sa-a.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotel-detail-119357035/j2-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-j2-hotel-kpp-kamphaeng-phet.html",
-      "tags": ["✨ โรงแรมเปิดใหม่ ห้องใหม่", "🌊 บางห้องวิวแม่น้ำปิง", "💰 ราคาเริ่มเบา", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "✨ โรงแรมเปิดใหม่ ห้องใหม่",
+        "🌊 บางห้องวิวแม่น้ำปิง",
+        "💰 ราคาเริ่มเบา",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "5/5 หมู่ 2 ตำบลนครชุม อำเภอเมืองกำแพงเพชร",
       "storyHtml": "J2 Hotel คือ <strong>โรงแรมเปิดใหม่ริมแม่น้ำปิงที่จับคู่คะแนนดีกับราคาเบาได้ลงตัว — 8.7 จาก 96 รีวิว เริ่มแค่ ฿850</strong> · ห้องยังใหม่ สะอาด อุปกรณ์ครบทั้งแอร์ ทีวีจอแบน ตู้เย็น กาต้มน้ำ · ห้อง Grand Deluxe บางห้องมีระเบียงวิวแม่น้ำปิง และมี Family Suite พร้อมเตียงสองชั้นสำหรับครอบครัว เป็นตัวเลือกคุ้มค่าที่สุดในชุดนี้สำหรับคนที่อยากได้ห้องใหม่ราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้บรรยากาศริมน้ำ ขอ Grand Deluxe Twin (River View) ระเบียงมองแม่น้ำปิงเพิ่มเงินไม่มาก",
@@ -182,14 +297,25 @@
       "priceBig": "฿700",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard Double", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-kamphaeng-phet/hotel/kamphaeng-phet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-kamphaeng-phet.html",
       "tripUrl": "https://www.trip.com/hotels/Kamphaeng%20Phet-hotel-detail-131313320/HOP-INN-Kamphaeng-Phet?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-kamphaeng-phet.html",
-      "tags": ["✅ เชนบัดเจ็ตมาตรฐานนิ่ง", "🛏️ ห้องสะอาด เตียงนอนสบาย", "🚗 เข้า-ออกเมืองสะดวก", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "✅ เชนบัดเจ็ตมาตรฐานนิ่ง",
+        "🛏️ ห้องสะอาด เตียงนอนสบาย",
+        "🚗 เข้า-ออกเมืองสะดวก",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "88 ถนนราชวิถี ซอย 1 ตำบลในเมือง อำเภอเมืองกำแพงเพชร",
       "storyHtml": "Hop Inn คือ <strong>โรงแรมที่ได้คะแนนสูงสุดในชุดนี้ — 9.4 จาก 47 รีวิว</strong> · เป็นเชนบัดเจ็ตที่มาตรฐานนิ่ง รู้ว่าได้อะไรแน่นอน ห้องสะอาด เตียงนอนสบาย น้ำอุ่นไหลแรง · อยู่ฝั่งถนนสายเอเชีย เข้า-ออกเมืองสะดวก เหมาะกับคนขับรถมาแวะพักหรือเน้นนอนสบายราคาประหยัด เริ่มแค่ ฿700 ไม่มีอะไรหรูหราแต่ไม่มีอะไรให้ผิดหวัง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Hop Inn ทุกสาขามาตรฐานเหมือนกัน จองล่วงหน้าผ่านเว็บมักได้ราคาดีกว่า walk-in และขอห้องชั้นสูงจะเงียบกว่า",
@@ -221,15 +347,29 @@
       "priceBig": "฿650",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "ห้องสามเตียง (Triple)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "บังกะโล 1 ห้องนอน เตียงควีน", "price": "เริ่ม ฿700/คืน" },
-        { "type": "บังกะโล 1 ห้องนอน เตียงเดี่ยวคู่", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "ห้องสามเตียง (Triple)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "บังกะโล 1 ห้องนอน เตียงควีน",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "บังกะโล 1 ห้องนอน เตียงเดี่ยวคู่",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bunraksa-resort-hotel/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bunraksa-resort.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotel-detail-103198251/bunraksa-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bunraksa-resort-kamphaeng-phet.html",
-      "tags": ["🏡 บังกะโลแยกหลังส่วนตัว", "🍳 มีครัวเล็กในห้อง", "🌳 บรรยากาศในสวนเงียบ", "🅿️ จอดรถหน้าห้อง"],
+      "tags": [
+        "🏡 บังกะโลแยกหลังส่วนตัว",
+        "🍳 มีครัวเล็กในห้อง",
+        "🌳 บรรยากาศในสวนเงียบ",
+        "🅿️ จอดรถหน้าห้อง"
+      ],
       "addr": "11/15 ตำบลนครชุม อำเภอเมืองกำแพงเพชร",
       "storyHtml": "Bunraksa คือ <strong>รีสอร์ตบังกะโลในสวนที่ได้คะแนนสูงถึง 9.1 จาก 86 รีวิว</strong> · จุดเด่นคือเป็นบังกะโลแยกหลังส่วนตัว มีครัวเล็กและตู้เย็นในห้อง เหมาะกับคนที่อยากได้ความเป็นส่วนตัวและอยู่ยาว · บรรยากาศในสวนเงียบสงบ จอดรถหน้าห้องได้เลย · อยู่ย่านนครชุมใกล้ถนนสายเอเชีย เข้า-ออกเมืองสะดวก เป็นตัวเลือกคุ้มค่าสำหรับคนขับรถที่อยากได้บ้านพักส่วนตัว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มีครัวเล็กในห้อง ถ้าอยู่หลายคืนซื้อของมาทำกินเองได้ ประหยัดและสบายกว่าออกไปหาร้านทุกมื้อ",
@@ -261,15 +401,29 @@
       "priceBig": "฿550",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Double Room (แอร์)", "price": "เริ่ม ฿550/คืน" },
-        { "type": "Bungalow", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Triple Room", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "Double Room (แอร์)",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "Bungalow",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Triple Room",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/three-j-guesthouse/hotel/kamphaeng-phet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/three-j-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/kamphaeng-phet-hotel-detail-9434206/three-j-guesthouse?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-three-j-guesthouse-kamphaeng-phet.html",
-      "tags": ["💬 รีวิวมากสุดในชุด 200", "🌳 เกสต์เฮาส์ในสวนอบอุ่น", "🚶 ใกล้อุทยานประวัติศาสตร์", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "💬 รีวิวมากสุดในชุด 200",
+        "🌳 เกสต์เฮาส์ในสวนอบอุ่น",
+        "🚶 ใกล้อุทยานประวัติศาสตร์",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "79 ถนนราชวิถี ซอย 1 ตำบลในเมือง อำเภอเมืองกำแพงเพชร",
       "storyHtml": "Three J คือ <strong>เกสต์เฮาส์ที่มีรีวิวมากที่สุดในชุดนี้ถึง 200 รีวิว คะแนน 8.7</strong> · เป็นเกสต์เฮาส์ในสวนแบบครอบครัว บรรยากาศอบอุ่น เจ้าของดูแลเป็นกันเอง ราคาเริ่มแค่ ฿550 · ทำเลในเมืองถนนราชวิถี ซอย 1 ใกล้อุทยานประวัติศาสตร์ เดินและขับรถไปเที่ยวโบราณสถานได้สะดวก · มีทั้งห้องในตัวอาคารและบังกะโลแยกหลังในสวน เป็นตัวเลือกที่นักเดินทางไว้ใจมานานสำหรับงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ชอบความเป็นส่วนตัวเลือก Bungalow แยกหลังในสวน เงียบกว่าและได้บรรยากาศต้นไม้ร่มรื่น",
@@ -301,15 +455,29 @@
       "priceBig": "฿850",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior (City View)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Superior (River View)", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "Deluxe (River View)", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Superior (City View)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Superior (River View)",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe (River View)",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/chakungrao-riverview-hotel/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chakungrao-riverview.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotel-detail-709130/chakungrao-riverview-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chakungrao-riverview-hotel-kamphaeng-phet.html",
-      "tags": ["🌊 มีห้องวิวแม่น้ำปิง", "🏙️ ทำเลกลางเมือง", "🛗 โรงแรมแลนด์มาร์กของเมือง", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "🌊 มีห้องวิวแม่น้ำปิง",
+        "🏙️ ทำเลกลางเมือง",
+        "🛗 โรงแรมแลนด์มาร์กของเมือง",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "149 ถนนเทศา 1 ตำบลในเมือง อำเภอเมืองกำแพงเพชร",
       "storyHtml": "Chakungrao คือ <strong>โรงแรมแลนด์มาร์กริมแม่น้ำปิงกลางเมืองที่มีรีวิวมากที่สุดโดยรวม — 320 รีวิว</strong> · เป็นโรงแรมเก่าแก่ของเมืองที่คนรู้จักดี ทำเลกลางเมืองริมแม่น้ำปิง เดินเที่ยวและหาของกินสะดวก · มีห้อง River View ที่ระเบียงมองแม่น้ำปิง · คะแนนรวมอยู่ที่ 7.4 เพราะตึกและห้องบางส่วนเริ่มมีอายุ แต่ถ้าเลือกห้องที่ปรับปรุงใหม่ก็ยังเป็นตัวเลือกทำเลดีราคาคุ้ม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Deluxe River View หรือห้องที่ปรับปรุงใหม่ จะได้สภาพห้องที่ดีกว่าห้องเก่าและได้วิวแม่น้ำปิงด้วย",
@@ -341,15 +509,29 @@
       "priceBig": "฿1,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Twin", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "Deluxe King", "price": "เริ่ม ฿1,150/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,600/คืน" }
+        {
+          "type": "Superior Twin",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "เริ่ม ฿1,150/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/navarat-heritage-hotel/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/navarat-heritage.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotel-detail-709132/navarat-heritage-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-navarat-heritage-hotel-kamphaeng-phet.html",
-      "tags": ["🚶 ติดถนนคนเดินกำแพงเพชร", "🌊 บางห้องวิวแม่น้ำปิง", "🏙️ ใจกลางเมือง เดินเที่ยวได้", "🅿️ จอดรถฟรี"],
+      "tags": [
+        "🚶 ติดถนนคนเดินกำแพงเพชร",
+        "🌊 บางห้องวิวแม่น้ำปิง",
+        "🏙️ ใจกลางเมือง เดินเที่ยวได้",
+        "🅿️ จอดรถฟรี"
+      ],
       "addr": "2 Soi 21, Thesa 1 Rd, Nai Mueang, Mueang Kamphaeng Phet",
       "storyHtml": "Navarat คือ <strong>โรงแรมใจกลางเมืองที่ติดถนนคนเดินกำแพงเพชร</strong> คะแนน 8.2 จาก 96 รีวิว · ทำเลเดินถึงถนนคนเดินเสาร์-อาทิตย์ ริมแม่น้ำปิง และโบราณสถานในเขตเมืองเก่าได้สบาย · มีทั้งห้อง Superior, Deluxe และ Family Room รองรับครอบครัว บางห้องมองเห็นแม่น้ำปิง · เป็นตัวเลือกที่ลงตัวสำหรับคนที่อยากพักกลางเมือง เดินเที่ยวได้โดยไม่ต้องขับรถ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาช่วงเสาร์-อาทิตย์ที่นี่เดินถึงถนนคนเดินได้เลย ขอห้อง Deluxe King ที่มองเห็นแม่น้ำปิงจะได้บรรยากาศดีกว่า",
@@ -381,15 +563,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Bungalow", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe Themed Bungalow", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "Riverside Bungalow", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Standard Bungalow",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe Themed Bungalow",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "Riverside Bungalow",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/scenic-riverside-resort/hotel/kamphaengphet-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/scenic-riverside-resort.html",
       "tripUrl": "https://th.trip.com/hotels/kamphaeng-phet-hotels/?keyword=Scenic%20Riverside%20Resort&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-scenic-riverside-resort-kamphaeng-phet.html",
-      "tags": ["🏰 บังกะโลธีมเมืองยุโรป", "🌊 ใกล้แม่น้ำปิง", "🍖 ดาดฟ้าปิ้งย่างวิวน้ำ", "🅿️ จอดรถหน้าห้อง"],
+      "tags": [
+        "🏰 บังกะโลธีมเมืองยุโรป",
+        "🌊 ใกล้แม่น้ำปิง",
+        "🍖 ดาดฟ้าปิ้งย่างวิวน้ำ",
+        "🅿️ จอดรถหน้าห้อง"
+      ],
       "addr": "325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet",
       "storyHtml": "Scenic Riverside คือ <strong>บูทีครีสอร์ตบังกะโลแต่งธีมเมืองยุโรปริมแม่น้ำปิง</strong> คะแนน 7.8 จาก 23 รีวิว · จุดเด่นคืองานตกแต่งธีมยุโรปที่ถ่ายรูปสวย แต่ละหลังมีดาดฟ้าส่วนตัว ห้อง Riverside Bungalow มีมุมปิ้งย่างมองแม่น้ำปิง · อยู่เขตเมืองใต้แนวอุทยานประวัติศาสตร์ ขับรถไปเที่ยวโบราณสถานได้สะดวก เหมาะกับคนที่อยากได้ที่พักมีดีไซน์และมุมถ่ายรูป",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้บรรยากาศริมน้ำและปิ้งย่าง เลือก Riverside Bungalow ดาดฟ้ามองแม่น้ำปิงเหมาะนั่งเล่นตอนเย็น",
@@ -421,15 +617,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "บ้านสวน (2 ท่าน)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "บ้านริมน้ำ (4 ท่าน)", "price": "เริ่ม ฿1,700/คืน" },
-        { "type": "บ้านพักกลาง (6 ท่าน)", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "บ้านสวน (2 ท่าน)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "บ้านริมน้ำ (4 ท่าน)",
+          "price": "เริ่ม ฿1,700/คืน"
+        },
+        {
+          "type": "บ้านพักกลาง (6 ท่าน)",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.banwanalee.com/",
       "bookingUrl": "https://www.facebook.com/wanaleeresort/",
       "tripUrl": "https://www.banwanalee.com/",
       "reviewUrl": "review-wanalee-resort-kamphaeng-phet.html",
-      "tags": ["🌊 บ้านพักริมลำธาร", "🏞️ ใกล้น้ำตกคลองลาน", "🌳 กลางสวนผลไม้เงียบสงบ", "👨‍👩‍👧 รองรับกลุ่มและครอบครัว"],
+      "tags": [
+        "🌊 บ้านพักริมลำธาร",
+        "🏞️ ใกล้น้ำตกคลองลาน",
+        "🌳 กลางสวนผลไม้เงียบสงบ",
+        "👨‍👩‍👧 รองรับกลุ่มและครอบครัว"
+      ],
       "addr": "99/9 หมู่ 18 ตำบลคลองลานพัฒนา อำเภอคลองลาน",
       "storyHtml": "Wanalee คือ <strong>บ้านพักรีสอร์ตริมลำธารกลางสวนใกล้น้ำตกคลองลาน</strong> · ต่างจากทุกโรงแรมในชุดนี้ตรงที่อยู่ไกลตัวเมืองราว 1 ชั่วโมง เหมาะกับคนที่ตั้งใจมาเที่ยวน้ำตกคลองลานและพักท่ามกลางธรรมชาติ · มีบ้านพักหลายขนาดตั้งแต่ 2 ถึง 8 ท่าน บางหลังติดลำธารนอนฟังเสียงน้ำไหล · เป็นตัวเลือกสำหรับกลุ่มเพื่อนหรือครอบครัวที่อยากเปลี่ยนบรรยากาศไปอยู่กับธรรมชาติ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนเลือกบ้านริมน้ำหรือบ้านหลังใหญ่จะคุ้มกว่า และจองตรงกับรีสอร์ตทางเพจ/เว็บได้ เพราะที่นี่ไม่ได้ขายผ่าน OTA หลัก",
@@ -447,37 +657,189 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรมกำแพงเพชร 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "White Wall Riverfront Hotel", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿1,600", "access": "📍 นครชุม · ริมแม่น้ำปิง", "badge": "บูทีคริมน้ำ ดาวสูงสุด", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "La Kana Boutique Villa", "type": "⭐⭐⭐", "score": "8.9", "price": "฿1,500", "access": "📍 นครชุม · ตัวเมือง", "badge": "คะแนน 3 ดาวสูงสุด", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "J2 Hotel Kpp", "type": "⭐⭐⭐", "score": "8.7", "price": "฿850", "access": "📍 นครชุม · ริมปิง", "badge": "คุ้มสุด เปิดใหม่", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "4", "rankColor": "#FB7185", "name": "Hop Inn Kamphaeng Phet", "type": "⭐⭐", "score": "9.4", "price": "฿700", "access": "📍 ถนนราชวิถี · ฝั่งสายเอเชีย", "badge": "คะแนนสูงสุด", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Bunraksa Resort", "type": "⭐⭐", "score": "9.1", "price": "฿650", "access": "📍 นครชุม · ชานเมือง", "badge": "บังกะโลในสวน", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Three J Guesthouse", "type": "⭐⭐", "score": "8.7", "price": "฿550", "access": "📍 ในเมือง · ใกล้อุทยานฯ", "badge": "รีวิวมากสุด 200", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FBBF24", "name": "Chakungrao Riverview Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿850", "access": "📍 ถนนเทศา 1 · ริมปิง", "badge": "แลนด์มาร์กริมปิง" },
-    { "rank": "8", "rankColor": "#FBBF24", "name": "Navarat Heritage Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿1,000", "access": "📍 ในเมือง · ติดถนนคนเดิน", "badge": "ติดถนนคนเดิน" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Scenic Riverside Resort", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,200", "access": "📍 ริมปิง · ใกล้อุทยานฯ", "badge": "บังกะโลธีมยุโรป" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Wanalee Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,200", "access": "📍 คลองลาน · ใกล้น้ำตก", "badge": "ริมธารน้ำตกคลองลาน", "badgeStyle": "background:#efebe9;color:#5d4037;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "White Wall Riverfront Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,600",
+      "access": "📍 นครชุม · ริมแม่น้ำปิง",
+      "badge": "บูทีคริมน้ำ ดาวสูงสุด",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "La Kana Boutique Villa",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿1,500",
+      "access": "📍 นครชุม · ตัวเมือง",
+      "badge": "คะแนน 3 ดาวสูงสุด",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "J2 Hotel Kpp",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿850",
+      "access": "📍 นครชุม · ริมปิง",
+      "badge": "คุ้มสุด เปิดใหม่",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#FB7185",
+      "name": "Hop Inn Kamphaeng Phet",
+      "type": "⭐⭐",
+      "score": "9.4",
+      "price": "฿700",
+      "access": "📍 ถนนราชวิถี · ฝั่งสายเอเชีย",
+      "badge": "คะแนนสูงสุด",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Bunraksa Resort",
+      "type": "⭐⭐",
+      "score": "9.1",
+      "price": "฿650",
+      "access": "📍 นครชุม · ชานเมือง",
+      "badge": "บังกะโลในสวน",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Three J Guesthouse",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿550",
+      "access": "📍 ในเมือง · ใกล้อุทยานฯ",
+      "badge": "รีวิวมากสุด 200",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FBBF24",
+      "name": "Chakungrao Riverview Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿850",
+      "access": "📍 ถนนเทศา 1 · ริมปิง",
+      "badge": "แลนด์มาร์กริมปิง"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FBBF24",
+      "name": "Navarat Heritage Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿1,000",
+      "access": "📍 ในเมือง · ติดถนนคนเดิน",
+      "badge": "ติดถนนคนเดิน"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Scenic Riverside Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,200",
+      "access": "📍 ริมปิง · ใกล้อุทยานฯ",
+      "badge": "บังกะโลธีมยุโรป"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Wanalee Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,200",
+      "access": "📍 คลองลาน · ใกล้น้ำตก",
+      "badge": "ริมธารน้ำตกคลองลาน",
+      "badgeStyle": "background:#efebe9;color:#5d4037;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมกำแพงเพชรยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Three J Guesthouse</strong> เริ่ม ฿550 ในเมืองใกล้อุทยานฯ · หรือ <strong>Bunraksa Resort</strong> ฿650 บังกะโลในสวน · หรือ <strong>Hop Inn</strong> ฿700 บัดเจ็ตคะแนนสูงสุด 9.4" },
-    { "icon": "🌊", "head": "อยากพักริมแม่น้ำปิง วิวน้ำ", "bodyHtml": "→ <strong>White Wall Riverfront</strong> ฿1,600 บูทีค 4 ดาวทุกห้องวิวน้ำ · หรือ <strong>J2 Hotel</strong> ฿850 เปิดใหม่ บางห้องริมปิง · หรือ <strong>Chakungrao Riverview</strong> ฿850 แลนด์มาร์กริมปิง" },
-    { "icon": "🚶", "head": "อยากพักกลางเมือง เดินเที่ยวได้", "bodyHtml": "→ <strong>Navarat Heritage</strong> ฿1,000 ติดถนนคนเดิน · หรือ <strong>Three J Guesthouse</strong> ฿550 ในเมืองใกล้อุทยานประวัติศาสตร์" },
-    { "icon": "🏯", "head": "มาเที่ยวอุทยานประวัติศาสตร์มรดกโลก", "bodyHtml": "→ <strong>Scenic Riverside Resort</strong> ฿1,200 ใกล้อุทยานฯ · หรือ <strong>FIG Boutique</strong> และ <strong>Three J</strong> ในเมืองใกล้โบราณสถาน ขับรถไม่กี่นาที" },
-    { "icon": "🎨", "head": "อยากได้ที่พักดีไซน์ มีสระ", "bodyHtml": "→ <strong>La Kana Boutique Villa</strong> ฿1,500 บูทีควิลล่ามีสระว่ายน้ำ · หรือ <strong>Scenic Riverside Resort</strong> ฿1,200 บังกะโลธีมเมืองยุโรปถ่ายรูปสวย" },
-    { "icon": "🌿", "head": "อยากไปเที่ยวน้ำตก อยู่กับธรรมชาติ", "bodyHtml": "→ <strong>Wanalee Resort</strong> ฿1,200 บ้านพักริมลำธารใกล้น้ำตกคลองลาน เหมาะกลุ่มเพื่อนและครอบครัว (ห่างเมืองราว 1 ชม.)" },
-    { "icon": "🚗", "head": "ขับรถมาแวะพักระหว่างทาง", "bodyHtml": "→ <strong>Hop Inn</strong> ฿700 ฝั่งถนนสายเอเชีย เข้า-ออกเมืองสะดวก คะแนน 9.4 · หรือ <strong>Bunraksa Resort</strong> ฿650 บังกะโลในสวน จอดรถหน้าห้อง" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Three J Guesthouse</strong> เริ่ม ฿550 ในเมืองใกล้อุทยานฯ · หรือ <strong>Bunraksa Resort</strong> ฿650 บังกะโลในสวน · หรือ <strong>Hop Inn</strong> ฿700 บัดเจ็ตคะแนนสูงสุด 9.4"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมแม่น้ำปิง วิวน้ำ",
+      "bodyHtml": "→ <strong>White Wall Riverfront</strong> ฿1,600 บูทีค 4 ดาวทุกห้องวิวน้ำ · หรือ <strong>J2 Hotel</strong> ฿850 เปิดใหม่ บางห้องริมปิง · หรือ <strong>Chakungrao Riverview</strong> ฿850 แลนด์มาร์กริมปิง"
+    },
+    {
+      "icon": "🚶",
+      "head": "อยากพักกลางเมือง เดินเที่ยวได้",
+      "bodyHtml": "→ <strong>Navarat Heritage</strong> ฿1,000 ติดถนนคนเดิน · หรือ <strong>Three J Guesthouse</strong> ฿550 ในเมืองใกล้อุทยานประวัติศาสตร์"
+    },
+    {
+      "icon": "🏯",
+      "head": "มาเที่ยวอุทยานประวัติศาสตร์มรดกโลก",
+      "bodyHtml": "→ <strong>Scenic Riverside Resort</strong> ฿1,200 ใกล้อุทยานฯ · หรือ <strong>FIG Boutique</strong> และ <strong>Three J</strong> ในเมืองใกล้โบราณสถาน ขับรถไม่กี่นาที"
+    },
+    {
+      "icon": "🎨",
+      "head": "อยากได้ที่พักดีไซน์ มีสระ",
+      "bodyHtml": "→ <strong>La Kana Boutique Villa</strong> ฿1,500 บูทีควิลล่ามีสระว่ายน้ำ · หรือ <strong>Scenic Riverside Resort</strong> ฿1,200 บังกะโลธีมเมืองยุโรปถ่ายรูปสวย"
+    },
+    {
+      "icon": "🌿",
+      "head": "อยากไปเที่ยวน้ำตก อยู่กับธรรมชาติ",
+      "bodyHtml": "→ <strong>Wanalee Resort</strong> ฿1,200 บ้านพักริมลำธารใกล้น้ำตกคลองลาน เหมาะกลุ่มเพื่อนและครอบครัว (ห่างเมืองราว 1 ชม.)"
+    },
+    {
+      "icon": "🚗",
+      "head": "ขับรถมาแวะพักระหว่างทาง",
+      "bodyHtml": "→ <strong>Hop Inn</strong> ฿700 ฝั่งถนนสายเอเชีย เข้า-ออกเมืองสะดวก คะแนน 9.4 · หรือ <strong>Bunraksa Resort</strong> ฿650 บังกะโลในสวน จอดรถหน้าห้อง"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณ อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวและเทศกาลห้องเต็มเร็ว โดยเฉพาะที่พักริมแม่น้ำปิงและรีสอร์ตคลองลาน ควรจองล่วงหน้า 2–4 สัปดาห์ · กำแพงเพชรไม่มีรถไฟฟ้าและสนามบินพาณิชย์ การเดินทางหลักคือขับรถเองหรือนั่งรถทัวร์ โรงแรมเกือบทุกแห่งมีที่จอดรถฟรี · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมกำแพงเพชร",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในกำแพงเพชร?", "a": "ขึ้นอยู่กับทริปและการเดินทาง · <strong>ริมแม่น้ำปิง–นครชุม</strong> เงียบสงบ วิวน้ำ เหมาะพักผ่อน (White Wall, La Kana, J2, Chakungrao) · <strong>ในเมือง–ใกล้อุทยานประวัติศาสตร์</strong> เดินเที่ยวโบราณสถานและถนนคนเดินได้ (Navarat, Three J, Scenic) · <strong>ฝั่งถนนสายเอเชีย</strong> เข้า-ออกเมืองสะดวก เหมาะแวะพัก (Hop Inn, Bunraksa) · ส่วน <strong>คลองลาน</strong> ห่างเมืองราว 1 ชั่วโมง เหมาะมาเที่ยวน้ำตก (Wanalee)" },
-    { "q": "❓ โรงแรมกำแพงเพชรราคาเท่าไหร่?", "a": "ราคาเบากว่าเมืองท่องเที่ยวใหญ่: เกสต์เฮาส์และบัดเจ็ตเริ่มราว ฿550–700 ต่อคืน · โรงแรม 3 ดาวและบูทีคราว ฿850–1,500 · ที่พักริมน้ำหรือดีไซน์พิเศษราว ฿1,500–1,600 ขึ้นไป · ช่วงวันหยุดยาวและเทศกาลราคาอาจสูงขึ้นและห้องเต็มเร็ว" },
-    { "q": "❓ ควรจองโรงแรมกำแพงเพชรล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว เทศกาล และช่วงเที่ยวน้ำตกคลองลาน (ฤดูฝน–ต้นหนาว) ห้องดีๆ โดยเฉพาะที่พักริมแม่น้ำปิงและรีสอร์ตคลองลานเต็มเร็ว ควรจองล่วงหน้า 2–4 สัปดาห์" },
-    { "q": "❓ จองโรงแรมกำแพงเพชรเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ · ส่วน Wanalee Resort ที่คลองลานจองตรงกับรีสอร์ตทางเพจ/เว็บของที่พักเอง" },
-    { "q": "❓ มากำแพงเพชรไม่มีรถ เที่ยวได้ไหม?", "a": "ได้ แต่สะดวกน้อยกว่ามีรถ · ถ้าไม่มีรถแนะนำพักในเมืองอย่าง <strong>Navarat Heritage</strong> หรือ <strong>Three J Guesthouse</strong> ที่เดินถึงถนนคนเดินและใกล้อุทยานประวัติศาสตร์ แล้วเรียกรถรับจ้างหรือเช่ามอเตอร์ไซค์ไปเที่ยวโบราณสถาน · ส่วนน้ำตกคลองลานและที่พักนอกเมืองควรมีรถจะสะดวกกว่ามาก" },
-    { "q": "❓ อยากเที่ยวอุทยานประวัติศาสตร์กำแพงเพชร พักที่ไหนใกล้สุด?", "a": "อุทยานประวัติศาสตร์กำแพงเพชร (มรดกโลก) อยู่ในเขตเมืองเก่า · ที่พักใกล้และขับรถถึงสะดวก เช่น <strong>Scenic Riverside Resort</strong>, <strong>Three J Guesthouse</strong> และ <strong>FIG Boutique</strong> ที่อยู่ในเมืองใกล้โบราณสถาน · หรือพักริมแม่น้ำปิงในเมืองอย่าง Navarat และ Chakungrao แล้วขับรถไปไม่กี่นาที" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในกำแพงเพชร?",
+      "a": "ขึ้นอยู่กับทริปและการเดินทาง · <strong>ริมแม่น้ำปิง–นครชุม</strong> เงียบสงบ วิวน้ำ เหมาะพักผ่อน (White Wall, La Kana, J2, Chakungrao) · <strong>ในเมือง–ใกล้อุทยานประวัติศาสตร์</strong> เดินเที่ยวโบราณสถานและถนนคนเดินได้ (Navarat, Three J, Scenic) · <strong>ฝั่งถนนสายเอเชีย</strong> เข้า-ออกเมืองสะดวก เหมาะแวะพัก (Hop Inn, Bunraksa) · ส่วน <strong>คลองลาน</strong> ห่างเมืองราว 1 ชั่วโมง เหมาะมาเที่ยวน้ำตก (Wanalee)"
+    },
+    {
+      "q": "❓ โรงแรมกำแพงเพชรราคาเท่าไหร่?",
+      "a": "ราคาเบากว่าเมืองท่องเที่ยวใหญ่: เกสต์เฮาส์และบัดเจ็ตเริ่มราว ฿550–700 ต่อคืน · โรงแรม 3 ดาวและบูทีคราว ฿850–1,500 · ที่พักริมน้ำหรือดีไซน์พิเศษราว ฿1,500–1,600 ขึ้นไป · ช่วงวันหยุดยาวและเทศกาลราคาอาจสูงขึ้นและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมกำแพงเพชรล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว เทศกาล และช่วงเที่ยวน้ำตกคลองลาน (ฤดูฝน–ต้นหนาว) ห้องดีๆ โดยเฉพาะที่พักริมแม่น้ำปิงและรีสอร์ตคลองลานเต็มเร็ว ควรจองล่วงหน้า 2–4 สัปดาห์"
+    },
+    {
+      "q": "❓ จองโรงแรมกำแพงเพชรเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ · ส่วน Wanalee Resort ที่คลองลานจองตรงกับรีสอร์ตทางเพจ/เว็บของที่พักเอง"
+    },
+    {
+      "q": "❓ มากำแพงเพชรไม่มีรถ เที่ยวได้ไหม?",
+      "a": "ได้ แต่สะดวกน้อยกว่ามีรถ · ถ้าไม่มีรถแนะนำพักในเมืองอย่าง <strong>Navarat Heritage</strong> หรือ <strong>Three J Guesthouse</strong> ที่เดินถึงถนนคนเดินและใกล้อุทยานประวัติศาสตร์ แล้วเรียกรถรับจ้างหรือเช่ามอเตอร์ไซค์ไปเที่ยวโบราณสถาน · ส่วนน้ำตกคลองลานและที่พักนอกเมืองควรมีรถจะสะดวกกว่ามาก"
+    },
+    {
+      "q": "❓ อยากเที่ยวอุทยานประวัติศาสตร์กำแพงเพชร พักที่ไหนใกล้สุด?",
+      "a": "อุทยานประวัติศาสตร์กำแพงเพชร (มรดกโลก) อยู่ในเขตเมืองเก่า · ที่พักใกล้และขับรถถึงสะดวก เช่น <strong>Scenic Riverside Resort</strong>, <strong>Three J Guesthouse</strong> และ <strong>FIG Boutique</strong> ที่อยู่ในเมืองใกล้โบราณสถาน · หรือพักริมแม่น้ำปิงในเมืองอย่าง Navarat และ Chakungrao แล้วขับรถไปไม่กี่นาที"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมกำแพงเพชรที่คัดมาแล้วจากทุกระดับ — ตั้งแต่ White Wall บูทีคริมแม่น้ำปิง ถึง Hop Inn บัดเจ็ตคะแนนสูง และ Wanalee รีสอร์ตริมธารน้ำตกคลองลาน เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

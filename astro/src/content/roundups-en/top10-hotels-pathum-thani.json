@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Pathum Thani", "href": "city-pathum-thani.html" },
-    { "name": "Top 12 Pathum Thani Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Pathum Thani",
+      "href": "city-pathum-thani.html"
+    },
+    {
+      "name": "Top 12 Pathum Thani Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Pathum Thani", "item": "https://thailandaddict.com/en/city-pathum-thani" },
-    { "name": "Top 12 Pathum Thani Hotels", "item": "https://thailandaddict.com/en/top10-hotels-pathum-thani" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Pathum Thani",
+      "item": "https://thailandaddict.com/en/city-pathum-thani"
+    },
+    {
+      "name": "Top 12 Pathum Thani Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-pathum-thani"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-pathum-thani.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Pathum Thani has the BTS Green Line touching the province edge at <strong>Khu Khot station</strong> (the northern terminus), which is close to the Lamlukka–Khlong 2 area; everything else still relies mainly on cars. Stays around <strong>Rangsit–Future Park</strong> are the easiest to get around, attached to Future Park & Zpell with buses, vans and expressway access into Bangkok (Novotel links straight into the mall, HOP INN is a walk to Future Park). <strong>Khlong Luang–Thammasat</strong> stays sit on Phahonyothin Road near the university, with rush-hour traffic, so a car or Grab helps. <strong>Lamlukka–Khlong 2</strong> is near BTS Khu Khot for a short onward ride. And almost everything in <strong>Sam Khok by the river</strong> needs a private car. The areas in this guide: <strong>Rangsit–Future Park</strong> — malls, markets, expressway · <strong>Khlong Luang–Thammasat</strong> — university, events · <strong>Lamlukka</strong> — residential, near BTS Khu Khot · <strong>Sam Khok</strong> — quiet riverside.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Novotel Bangkok Future Park Rangsit", "price": "฿1,900" },
-    { "n": "2", "color": "#c8a951", "name": "The Idle Hotel and Residence", "price": "฿1,800" },
-    { "n": "3", "color": "#c8a951", "name": "HOP INN Rangsit", "price": "฿650" },
-    { "n": "4", "color": "#9e9e9e", "name": "B2 Rangsit Boutique & Budget Hotel", "price": "฿550" },
-    { "n": "5", "color": "#9e9e9e", "name": "Tinidee Hotel Bangkok Golf Club", "price": "฿1,100" },
-    { "n": "6", "color": "#9e9e9e", "name": "Sena House Lamlukka Klong2", "price": "฿530" },
-    { "n": "7", "color": "#9e9e9e", "name": "Ingnatee Resort", "price": "฿2,200" },
-    { "n": "8", "color": "#bf8040", "name": "The Seasons", "price": "฿790" },
-    { "n": "9", "color": "#bf8040", "name": "Pathum Thani Place Hotel", "price": "฿800" },
-    { "n": "10", "color": "#5d4037", "name": "Dluxx Thammasat", "price": "฿850" },
-    { "n": "11", "color": "#5d4037", "name": "Thana Residence Lamlukka", "price": "฿850" },
-    { "n": "12", "color": "#5d4037", "name": "Natcha Place Thammasat Rangsit", "price": "฿499" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Novotel Bangkok Future Park Rangsit",
+      "price": "฿1,900"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "The Idle Hotel and Residence",
+      "price": "฿1,800"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "HOP INN Rangsit",
+      "price": "฿650"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "B2 Rangsit Boutique & Budget Hotel",
+      "price": "฿550"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Tinidee Hotel Bangkok Golf Club",
+      "price": "฿1,100"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Sena House Lamlukka Klong2",
+      "price": "฿530"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Ingnatee Resort",
+      "price": "฿2,200"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "The Seasons",
+      "price": "฿790"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Pathum Thani Place Hotel",
+      "price": "฿800"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Dluxx Thammasat",
+      "price": "฿850"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Thana Residence Lamlukka",
+      "price": "฿850"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Natcha Place Thammasat Rangsit",
+      "price": "฿499"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King Room", "price": "from ฿1,900/night" },
-        { "type": "Superior Twin Room", "price": "from ฿1,950/night" },
-        { "type": "Executive Twin Room", "price": "from ฿2,500/night" }
+        {
+          "type": "Superior King Room",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Superior Twin Room",
+          "price": "from ฿1,950/night"
+        },
+        {
+          "type": "Executive Twin Room",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/novotel-bangkok-future-park-rangsit/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/novotel-bangkok-future-park-rangsit.html",
       "tripUrl": "https://www.trip.com/hotels/rangsit-hotel-detail-76394801/novotel-bangkok-future-park-rangsit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-novotel-bangkok-future-park-rangsit-pathum-thani.html",
-      "tags": ["🛍️ Linked to Future Park & Zpell, walkable", "🏊 Saltwater pool + gym", "🏨 Accor 4-star standard", "🅿️ Parking + on-site restaurant"],
+      "tags": [
+        "🛍️ Linked to Future Park & Zpell, walkable",
+        "🏊 Saltwater pool + gym",
+        "🏨 Accor 4-star standard",
+        "🅿️ Parking + on-site restaurant"
+      ],
       "addr": "114 Phahonyothin Rd, Prachathipat, Thanyaburi, Pathum Thani",
       "storyHtml": "Novotel Bangkok Future Park Rangsit takes <strong>the top score among the 4-star hotels in this guide at 8.8 and the most reviews — 582 — an Accor-group hotel linked straight into Future Park & Zpell Rangsit</strong>. Unlike many hotels in the province, here you step out of the lift and into the mall, cinema, food court and Rangsit market within minutes. Real guest reviews praise the clean, modern rooms, comfy Novotel-standard beds, the saltwater pool and gym, and the most convenient location in the Rangsit area. The trade-off: it's the highest price in the guide, and traffic around the hotel builds when the mall is busy. Best for shoppers, business travellers, families and anyone using Rangsit as a base into northern Bangkok.",
       "tipHtml": "💡 <strong>Tip:</strong> Take the lift link straight into Future Park — no stepping out into the heat or traffic. Hit the saltwater pool in the evening after the mall. On Thammasat event days or big mall sales, rooms fill fast and rates climb, so book ahead.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (28 sqm)", "price": "from ฿1,800/night" },
-        { "type": "Deluxe Room (38 sqm, kitchenette)", "price": "from ฿2,400/night" },
-        { "type": "Junior Suite (48 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Superior Room (28 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Deluxe Room (38 sqm, kitchenette)",
+          "price": "from ฿2,400/night"
+        },
+        {
+          "type": "Junior Suite (48 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-idle-hotel-and-residence-sha-plus/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-idle-serviced-residence.html",
       "tripUrl": "https://www.trip.com/hotels/khlong-luang-hotel-detail-3152896/the-idle-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-idle-hotel-and-residence-pathum-thani.html",
-      "tags": ["🏊 Pool + pool-view rooms", "🍳 Rooms with kitchenettes, good for long stays", "🎓 Near Thammasat Rangsit campus", "🅿️ Parking · serviced-apartment service"],
+      "tags": [
+        "🏊 Pool + pool-view rooms",
+        "🍳 Rooms with kitchenettes, good for long stays",
+        "🎓 Near Thammasat Rangsit campus",
+        "🅿️ Parking · serviced-apartment service"
+      ],
       "addr": "58/851 Moo 13, Khlong Nueng, Khlong Luang, Pathum Thani",
       "storyHtml": "The Idle Hotel and Residence is <strong>a 4-star in Khlong Luang that blends hotel rooms with serviced apartments — good for a single night or a long stay</strong>, scoring 8.7 from 354 reviews. It sits near Thammasat University's Rangsit campus, handy for parents dropping off students, graduation visitors, and people working around the industrial estate and university. Real guest reviews praise the spacious rooms (some with kitchenette, fridge and microwave), the pool with pool-view rooms, and good value for a 4-star outside the city. The catch: it's down a soi in Khlong Luang, with fewer restaurants nearby than Rangsit, and you'll need a car. Best for long stays, families and anyone with business around Thammasat.",
       "tipHtml": "💡 <strong>Tip:</strong> For a long stay or work trip, pick Deluxe or above with a kitchenette, fridge and microwave so you can cook. Ask for a pool-view room for a nicer outlook. Graduation and event weekends at Thammasat sell out fast — book weeks ahead.",
@@ -144,14 +255,25 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (~19.6 sqm)", "price": "from ฿650/night" },
-        { "type": "Standard Twin Room (~19.6 sqm)", "price": "from ฿700/night" }
+        {
+          "type": "Standard Double Room (~19.6 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin Room (~19.6 sqm)",
+          "price": "from ฿700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-rangsit/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-rangsit.html",
       "tripUrl": "https://www.trip.com/hotels/rangsit-hotel-detail-47416900/hop-inn-rangsit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-rangsit-pathum-thani.html",
-      "tags": ["💸 Low price, clean, 79 rooms", "🛍️ Walk to Future Park in Rangsit", "🅿️ Free parking · free Wi-Fi", "🚫 No pool, no breakfast"],
+      "tags": [
+        "💸 Low price, clean, 79 rooms",
+        "🛍️ Walk to Future Park in Rangsit",
+        "🅿️ Free parking · free Wi-Fi",
+        "🚫 No pool, no breakfast"
+      ],
       "addr": "92 Phahonyothin Rd, Prachathipat, Thanyaburi, Pathum Thani",
       "storyHtml": "HOP INN Rangsit is <strong>the best-value budget hotel in the Rangsit area — scoring 8.7 from 467 reviews, as high as some 4-stars, from just ฿650</strong>. It's a budget chain whose whole pitch is clean rooms, comfy beds and a straightforward location, a walk from Future Park in Rangsit. Real guest reviews praise the cleanliness, value and good service, ideal if you want a comfortable room without paying a lot. To be clear, it's a true budget hotel: no pool, no breakfast, rooms aren't large (~19.6 sqm) and there are no shared facilities. Best for solo travellers, couples and budget-minded guests who just want a clean room in a good spot.",
       "tipHtml": "💡 <strong>Tip:</strong> There's no breakfast on site, but Future Park is an easy walk for food. Ask for a higher floor to dodge Phahonyothin Road noise. Compare all 3 sites — prices often differ by tens to hundreds of baht.",
@@ -183,15 +305,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (2 single beds)", "price": "from ฿550/night" },
-        { "type": "Superior Premier (large bed)", "price": "from ฿650/night" },
-        { "type": "Deluxe Triple (sleeps 3)", "price": "from ฿850/night" }
+        {
+          "type": "Superior Room (2 single beds)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Superior Premier (large bed)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Triple (sleeps 3)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-rangsit-boutique-budget-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/b2-rangsit-boutique-and-budget.html",
       "tripUrl": "https://th.trip.com/hotels/khlong-luang-hotel-detail-119624849/b2-rangsit-boutique-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-rangsit-boutique-budget-hotel-pathum-thani.html",
-      "tags": ["💸 Cheap from ฿550 · new rooms", "🛣️ Phahonyothin Rd, Khlong Luang–Rangsit", "👨‍👩‍👧 Triple rooms for 3", "🅿️ Free Wi-Fi · parking"],
+      "tags": [
+        "💸 Cheap from ฿550 · new rooms",
+        "🛣️ Phahonyothin Rd, Khlong Luang–Rangsit",
+        "👨‍👩‍👧 Triple rooms for 3",
+        "🅿️ Free Wi-Fi · parking"
+      ],
       "addr": "48/121 Moo 1, Phahonyothin Rd, Khlong Nueng, Khlong Luang, Pathum Thani",
       "storyHtml": "B2 Rangsit Boutique & Budget Hotel is <strong>a B2-chain budget hotel whose pitch is rooms from just ฿550, and it's well-reviewed at 445 reviews</strong>, scoring 8.6. It sits on Phahonyothin Road in the Khlong Luang–Rangsit area, close to both the Rangsit malls and Thammasat University. Real guest reviews praise the new-looking, clean rooms, the value, and the Triple rooms for families or three travellers. It's a plain budget-chain hotel, though — no pool, breakfast not always included, and it's on a busy main road with rush-hour traffic. Best for budget travellers wanting a clean, newish room in a spot that links Rangsit and Thammasat.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a family or three? The Deluxe Triple beats booking two rooms. Ask for a room off the main road to cut traffic noise. Compare all 3 sites — B2 chain often runs different deals per platform.",
@@ -223,15 +359,29 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿1,100/night" },
-        { "type": "Deluxe Room (some golf views)", "price": "from ฿1,400/night" },
-        { "type": "Premium Deluxe Balcony", "price": "from ฿1,800/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe Room (some golf views)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Premium Deluxe Balcony",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tinidee-hotel-bangkok-golf-club/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bangkok-golf-spa-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pathum-thani-hotel-detail-2506152/tinidee-hotel-bangkok-golf-club/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tinidee-hotel-bangkok-golf-club-pathum-thani.html",
-      "tags": ["⛳ Beside Bangkok Golf Club", "🏊 Saltwater pool + spa", "🛏️ Spacious rooms, some golf views", "🅿️ 4-star with balconies · parking"],
+      "tags": [
+        "⛳ Beside Bangkok Golf Club",
+        "🏊 Saltwater pool + spa",
+        "🛏️ Spacious rooms, some golf views",
+        "🅿️ 4-star with balconies · parking"
+      ],
       "addr": "99/3 Moo 2, Tiwanon Rd, Bang Kadi, Mueang Pathum Thani, Pathum Thani",
       "storyHtml": "Tinidee Hotel Bangkok Golf Club is <strong>a 4-star beside the Bangkok Golf Club in Bang Kadi that gives you a resort feel from just ฿1,100</strong>, scoring 8.5 from 273 reviews. It sits on Tiwanon Road on the Mueang Pathum Thani side, near the Bang Kadi industrial estate with easy access into Nonthaburi and Bangkok. Real guest reviews praise the spacious rooms (some overlooking the course), the saltwater pool, the spa, and the value for what you get. Best for golfers, people working at Bang Kadi, and anyone wanting a 4-star with a pool at a fair price. The catch: it's a fair way from the Rangsit–Thammasat zone, so business over there means a longer drive.",
       "tipHtml": "💡 <strong>Tip:</strong> For a view, pick Deluxe or above, or the Premium Deluxe Balcony overlooking the course. Golfers, a stay-and-play package usually works out better value. Unwind in the saltwater pool and spa in the evening.",
@@ -263,14 +413,25 @@
       "priceBig": "฿530",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Studio (queen bed)", "price": "from ฿530/night" },
-        { "type": "Studio with Balcony (queen bed)", "price": "from ฿612/night" }
+        {
+          "type": "Studio (queen bed)",
+          "price": "from ฿530/night"
+        },
+        {
+          "type": "Studio with Balcony (queen bed)",
+          "price": "from ฿612/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sena-house-lamlukka-klong2/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sena-house-lamlukka-klong2.html",
       "tripUrl": "https://th.trip.com/hotels/lam-luk-ka-hotel-detail-76040898/sena-house-lamlukka-klong2/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sena-house-lamlukka-klong2-pathum-thani.html",
-      "tags": ["✨ Top score 8.9 · clean rooms", "🛏️ Queen studios, some with balcony", "🚆 Khu Khot area, near BTS Khu Khot", "💸 Low price from ฿530"],
+      "tags": [
+        "✨ Top score 8.9 · clean rooms",
+        "🛏️ Queen studios, some with balcony",
+        "🚆 Khu Khot area, near BTS Khu Khot",
+        "💸 Low price from ฿530"
+      ],
       "addr": "39/9 Soi Lamlukka 11, Khu Khot, Lamlukka, Pathum Thani",
       "storyHtml": "Sena House Lamlukka Klong2 takes <strong>the top score in this guide at 8.9 — a small studio guesthouse in Lamlukka–Khlong 2 (Khu Khot) that punches above its price</strong>, from 33 reviews. It's a small place of just a few rooms, but real guest reviews repeatedly praise the cleanliness and care — queen-bed studios, some with a city-view balcony. The Khu Khot location is near the edge of the BTS Green Line at Khu Khot station, a short onward ride into Bangkok. It's a small guesthouse, though: no pool, no breakfast, limited parking, and review numbers are still low. Best for couples or solo travellers who value cleanliness and price over facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> For a few baht more, the Studio with Balcony gives you a city-view balcony. Parking is limited, so ask ahead if you're driving. Use BTS Khu Khot to skip the traffic into Bangkok.",
@@ -302,15 +463,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Villa (Thai-style 62 sqm)", "price": "from ฿2,200/night" },
-        { "type": "Deluxe Lagoon Villa (pond view)", "price": "from ฿2,600/night" },
-        { "type": "Riverview Villa (river view)", "price": "from ฿3,500/night" }
+        {
+          "type": "Deluxe Villa (Thai-style 62 sqm)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Deluxe Lagoon Villa (pond view)",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "Riverview Villa (river view)",
+          "price": "from ฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ingnatee-resort/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ingnatee-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pathum-thani-hotels-list-35978/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ingnatee-resort-pathum-thani.html",
-      "tags": ["🏡 11 private Thai-style villas", "🌊 Pool with Chao Phraya river views", "🌿 Tropical garden, mushroom farm, bikes", "🍃 Quiet city-escape vibe"],
+      "tags": [
+        "🏡 11 private Thai-style villas",
+        "🌊 Pool with Chao Phraya river views",
+        "🌿 Tropical garden, mushroom farm, bikes",
+        "🍃 Quiet city-escape vibe"
+      ],
       "addr": "62 Moo 7, Chiang Rak Yai, Sam Khok, Pathum Thani",
       "storyHtml": "Ingnatee Resort is <strong>a boutique resort of Thai-style villas on the Chao Phraya River in Sam Khok, for anyone wanting a quiet, riverside escape</strong>, scoring 8.3 from 33 reviews. Unlike the Rangsit–Thammasat hotels, this is 11 Thai-style villas spread through a tropical garden, with a pool overlooking the river, a mushroom farm and bikes to ride. Real guest reviews praise the privacy, the leafy quiet, and the beautifully styled villas — great for couples and families wanting somewhere different. The catch: it's at the higher price end of the guide, review numbers are still low, and it's far from the malls and university, so you'll need a car. Best for a relaxing break, a special occasion, or a photo trip.",
       "tipHtml": "💡 <strong>Tip:</strong> For full water views, pick the Riverview Villa or the pond-view Deluxe Lagoon Villa. It's set in a riverside garden, so pack mosquito repellent and bring your own car. Try the resort bikes and walk the mushroom farm in the morning.",
@@ -342,15 +517,29 @@
       "priceBig": "฿790",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (2 single beds)", "price": "from ฿790/night" },
-        { "type": "Standard Double (King)", "price": "from ฿850/night" },
-        { "type": "Superior Deluxe Room (larger)", "price": "from ฿1,050/night" }
+        {
+          "type": "Standard Double Room (2 single beds)",
+          "price": "from ฿790/night"
+        },
+        {
+          "type": "Standard Double (King)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Superior Deluxe Room (larger)",
+          "price": "from ฿1,050/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-seasons-h13622992/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-seasons-pthumthaanii.html",
       "tripUrl": "https://www.trip.com/hotels/lam-luk-ka-hotel-detail-46828462/the-seasons/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-seasons-pathum-thani.html",
-      "tags": ["🍳 Apartment-style rooms with kitchenette", "🧊 Fridge + balcony in every room", "🏠 Good for long stays in Lamlukka", "💰 Low price from ฿790"],
+      "tags": [
+        "🍳 Apartment-style rooms with kitchenette",
+        "🧊 Fridge + balcony in every room",
+        "🏠 Good for long stays in Lamlukka",
+        "💰 Low price from ฿790"
+      ],
       "addr": "39/9 Moo 18, Bueng Kham Phroi, Lamlukka, Pathum Thani",
       "storyHtml": "The Seasons is <strong>an apart-hotel in the Bueng Kham Phroi area of Lamlukka, with apartment-style rooms that have a kitchenette, fridge and balcony — good for a single night or a long stay</strong>, scoring 8.2 from 42 reviews. The difference from a regular hotel is you can cook in the room, saving on food over several days. Real guest reviews praise the spacious, clean, good-value rooms and the quiet for a residential area. It's a small apart-hotel, though: no pool, no full breakfast, and it's in Lamlukka where you'll need a car, with few restaurants right around it. Best for people working around Lamlukka–Rangsit, long stays, or families who want a kitchen in the room.",
       "tipHtml": "💡 <strong>Tip:</strong> On a long stay, use the in-room kitchenette to cook and save a lot. Ask for the Superior Deluxe if you want more space. Driving yourself is easiest — restaurants are thin nearby, so keep Grab handy.",
@@ -382,15 +571,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (spacious)", "price": "from ฿800/night" },
-        { "type": "Standard King / Twin", "price": "from ฿900/night" },
-        { "type": "Superior Room (work nook)", "price": "from ฿1,100/night" }
+        {
+          "type": "Standard Room (spacious)",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Standard King / Twin",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Superior Room (work nook)",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pathum-thani-place-hotel/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pathum-thani-place.html",
       "tripUrl": "https://th.trip.com/hotels/pathum-thani-hotel-detail-2485539/pathum-thani-place-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pathum-thani-place-hotel-pathum-thani.html",
-      "tags": ["🏙️ Pathum Thani city, Tiwanon Rd", "🛏️ Spacious rooms, big beds, work nook", "🏢 Near Bang Kadi estate, city hall", "💰 Low price from ฿800"],
+      "tags": [
+        "🏙️ Pathum Thani city, Tiwanon Rd",
+        "🛏️ Spacious rooms, big beds, work nook",
+        "🏢 Near Bang Kadi estate, city hall",
+        "💰 Low price from ฿800"
+      ],
       "addr": "123 Moo 1, Tiwanon Rd, Bang Kadi, Mueang Pathum Thani, Pathum Thani",
       "storyHtml": "Pathum Thani Place Hotel is <strong>a city hotel on Tiwanon Road in Mueang Pathum Thani, focused on spacious rooms at a low price — good for work or city business</strong>, scoring 7.7 from 168 reviews. It sits in the Bang Kadi area near the industrial estate and provincial city hall, with links into Nonthaburi and Bangkok. Real guest reviews praise the spacious rooms, big beds, value, and a location handy for government errands or in-city work. You'll need to accept that it's an older property — some rooms and fittings are aging, cleanliness is inconsistent, and it's a way from the Rangsit–Thammasat zone. Best for people working in Mueang Pathum Thani–Bang Kadi who value price and space.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies — ask for a Superior or a renovated room and view it before check-in. For government errands or the Bang Kadi estate, this location is handy. Compare all 3 sites; prices usually differ a little.",
@@ -422,15 +625,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (balcony)", "price": "from ฿850/night" },
-        { "type": "Superior Room (larger)", "price": "from ฿1,000/night" },
-        { "type": "Deluxe Room (kitchenette)", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Room (balcony)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Superior Room (larger)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe Room (kitchenette)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dluxx-thammasat/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-dluxx-thammasat.html",
       "tripUrl": "https://www.trip.com/hotels/khlong-luang-hotel-detail-109076696/dluxx-thammasat/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dluxx-thammasat-pathum-thani.html",
-      "tags": ["🎓 Next to Thammasat Rangsit campus", "🍳 Apartment-style rooms with balcony", "🏠 Some kitchenette rooms, good for long stays", "💰 Low price from ฿850"],
+      "tags": [
+        "🎓 Next to Thammasat Rangsit campus",
+        "🍳 Apartment-style rooms with balcony",
+        "🏠 Some kitchenette rooms, good for long stays",
+        "💰 Low price from ฿850"
+      ],
       "addr": "99 Moo 18, Phirap Khao Rd, Khlong Nueng, Khlong Luang, Pathum Thani",
       "storyHtml": "Dluxx Thammasat is <strong>an apartment-style stay right next to Thammasat University's Rangsit campus — handy for parents dropping off students, exam and seminar visitors, and students on long stays</strong>, scoring 7.6 from 207 reviews. Its selling point is the location, a few minutes' walk or drive to the university, plus apartment-style rooms with balconies, some with a kitchenette. Real guest reviews praise the convenient location, reasonably spacious rooms, and value for the zone. Some reviews do flag inconsistent housekeeping and cleanliness, and it's down a soi in Khlong Luang where you'll need a car. Best for anyone with business at Thammasat itself, and for long stays.",
       "tipHtml": "💡 <strong>Tip:</strong> With business at Thammasat, this location cuts a lot of travel time. For a long stay, pick the Deluxe with a kitchenette. Ask to see the room before check-in and pick a more recently renovated one — check the AC and bathroom.",
@@ -462,14 +679,25 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Studio (large bed ~24 sqm)", "price": "from ฿850/night" },
-        { "type": "One-Bedroom Apartment (separate bedroom)", "price": "from ฿1,050/night" }
+        {
+          "type": "Deluxe Studio (large bed ~24 sqm)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "One-Bedroom Apartment (separate bedroom)",
+          "price": "from ฿1,050/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/thana-residence/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/thana-residence-lam-luk-ka.html",
       "tripUrl": "https://www.trip.com/hotels/lam-luk-ka-hotel-detail-21858422/thana-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-thana-residence-lamlukka-pathum-thani.html",
-      "tags": ["🏠 Small, quiet apartment-style residence", "🛏️ Spacious ~24 sqm rooms, balcony, fridge", "🏄 Near Thai Wake Park", "🅿️ Free parking, free Wi-Fi"],
+      "tags": [
+        "🏠 Small, quiet apartment-style residence",
+        "🛏️ Spacious ~24 sqm rooms, balcony, fridge",
+        "🏄 Near Thai Wake Park",
+        "🅿️ Free parking, free Wi-Fi"
+      ],
       "addr": "83 Thetsaban Lamlukka 3 Rd, Lamlukka, Pathum Thani",
       "storyHtml": "Thana Residence Lamlukka is <strong>a small, quiet apartment-style residence in Lamlukka, near Thai Wake Park — good for long stays and anyone wanting more space</strong>, scoring 7.7 from 90 reviews. Rooms are roughly 24 sqm with a balcony and fridge, fine for a single night or a long stay. Real guest reviews praise the spacious rooms, the quiet, free parking and value for the room size. It's a small residence, though: no pool, no breakfast, in a Lamlukka area that needs a car, and some reviews flag inconsistent upkeep. Best for people working or wakeboarding around Lamlukka, and long-stay guests wanting a big, quiet room.",
       "tipHtml": "💡 <strong>Tip:</strong> For a long stay or more space, pick the One-Bedroom with a separate bedroom. Here for wakeboarding at Thai Wake Park? This location is close. Driving yourself is easiest — there's free parking.",
@@ -501,15 +729,29 @@
       "priceBig": "฿499",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Single-bed studio (~22 sqm)", "price": "from ฿499/night" },
-        { "type": "Bunk-bed studio (~22 sqm)", "price": "from ฿550/night" },
-        { "type": "Double-bed studio (~28 sqm)", "price": "from ฿650/night" }
+        {
+          "type": "Single-bed studio (~22 sqm)",
+          "price": "from ฿499/night"
+        },
+        {
+          "type": "Bunk-bed studio (~22 sqm)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Double-bed studio (~28 sqm)",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/natcha-place-thammasat-rangsit-h18618022/hotel/pathum-thani-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/natcha-place-thammasat-rangsit.html",
       "tripUrl": "https://www.trip.com/hotels/khlong-luang-hotel-detail-25666465/natcha-place-tu-rangsit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-natcha-place-thammasat-rangsit-pathum-thani.html",
-      "tags": ["💸 Cheapest in the guide from ฿499", "🎓 Near Thammasat Rangsit campus", "📅 Monthly rentals from ฿2,500", "🛏️ Air-conditioned studio rooms"],
+      "tags": [
+        "💸 Cheapest in the guide from ฿499",
+        "🎓 Near Thammasat Rangsit campus",
+        "📅 Monthly rentals from ฿2,500",
+        "🛏️ Air-conditioned studio rooms"
+      ],
       "addr": "Soi Khlong Luang 35, Phahonyothin Rd, Khlong Nueng, Khlong Luang, Pathum Thani",
       "storyHtml": "Natcha Place Thammasat Rangsit is <strong>the cheapest stay in this guide from just ฿499 — air-conditioned daily–monthly studios near Thammasat University's Rangsit campus</strong>, scoring 7.6 from 90 reviews. Its pitch is the lowest price and the flexibility to book by the night or rent monthly from ฿2,500 — handy for students, parents and short- or long-term workers around Thammasat. Real guest reviews praise the value and the location near the university, with single-bed, bunk-bed and double-bed rooms. It's a budget apartment-style stay, though — plain rooms and facilities, no pool, no breakfast, and some reviews flag the upkeep. Best for budget travellers who care most about price and being near Thammasat.",
       "tipHtml": "💡 <strong>Tip:</strong> Staying a while? Ask about the monthly rate from ฿2,500 — far better value than nightly. Travelling as a group, pick the bunk-bed or double-bed room. Ask to see the room first and check the AC and bathroom, as it's a budget stay.",
@@ -527,38 +769,209 @@
     }
   ],
   "compareTitle": "Compare All 12 Pathum Thani Hotels · 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Novotel Bangkok Future Park Rangsit", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,900", "access": "📍 Rangsit, linked to Future Park", "badge": "Top score, by the mall", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "The Idle Hotel and Residence", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,800", "access": "📍 Khlong Luang, near Thammasat", "badge": "4-star with pool, long stays", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "HOP INN Rangsit", "type": "⭐⭐", "score": "8.7", "price": "฿650", "access": "📍 Rangsit, walk to Future Park", "badge": "Best-value budget", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "B2 Rangsit Boutique & Budget Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿550", "access": "📍 Khlong Luang–Rangsit, Phahonyothin", "badge": "Cheap, new rooms", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Tinidee Hotel Bangkok Golf Club", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿1,100", "access": "📍 Bang Kadi, Tiwanon Rd", "badge": "Golf-side, pool + spa", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Sena House Lamlukka Klong2", "type": "⭐⭐", "score": "8.9", "price": "฿530", "access": "📍 Lamlukka–Khlong 2, near BTS Khu Khot", "badge": "Top score, studio", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Ingnatee Resort", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿2,200", "access": "📍 Sam Khok, Chao Phraya riverside", "badge": "Riverside villas, city escape", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "The Seasons", "type": "⭐⭐⭐", "score": "8.2", "price": "฿790", "access": "📍 Bueng Kham Phroi, Lamlukka", "badge": "Rooms with kitchens, long stays", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Pathum Thani Place Hotel", "type": "⭐⭐⭐", "score": "7.7", "price": "฿800", "access": "📍 Bang Kadi, Pathum Thani city", "badge": "In the city, spacious rooms", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Dluxx Thammasat", "type": "⭐⭐⭐", "score": "7.6", "price": "฿850", "access": "📍 Khlong Luang, next to Thammasat", "badge": "Next to Thammasat, apartment-style", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Thana Residence Lamlukka", "type": "⭐⭐", "score": "7.7", "price": "฿850", "access": "📍 Lamlukka, near Thai Wake Park", "badge": "Quiet residence, long stays", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Natcha Place Thammasat Rangsit", "type": "⭐⭐", "score": "7.6", "price": "฿499", "access": "📍 Khlong Luang, near Thammasat", "badge": "Cheapest, daily–monthly", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Novotel Bangkok Future Park Rangsit",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,900",
+      "access": "📍 Rangsit, linked to Future Park",
+      "badge": "Top score, by the mall",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "The Idle Hotel and Residence",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,800",
+      "access": "📍 Khlong Luang, near Thammasat",
+      "badge": "4-star with pool, long stays",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "HOP INN Rangsit",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿650",
+      "access": "📍 Rangsit, walk to Future Park",
+      "badge": "Best-value budget",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "B2 Rangsit Boutique & Budget Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿550",
+      "access": "📍 Khlong Luang–Rangsit, Phahonyothin",
+      "badge": "Cheap, new rooms",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Tinidee Hotel Bangkok Golf Club",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,100",
+      "access": "📍 Bang Kadi, Tiwanon Rd",
+      "badge": "Golf-side, pool + spa",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Sena House Lamlukka Klong2",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿530",
+      "access": "📍 Lamlukka–Khlong 2, near BTS Khu Khot",
+      "badge": "Top score, studio",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Ingnatee Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿2,200",
+      "access": "📍 Sam Khok, Chao Phraya riverside",
+      "badge": "Riverside villas, city escape",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "The Seasons",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿790",
+      "access": "📍 Bueng Kham Phroi, Lamlukka",
+      "badge": "Rooms with kitchens, long stays",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Pathum Thani Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿800",
+      "access": "📍 Bang Kadi, Pathum Thani city",
+      "badge": "In the city, spacious rooms",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Dluxx Thammasat",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿850",
+      "access": "📍 Khlong Luang, next to Thammasat",
+      "badge": "Next to Thammasat, apartment-style",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Thana Residence Lamlukka",
+      "type": "⭐⭐",
+      "score": "7.7",
+      "price": "฿850",
+      "access": "📍 Lamlukka, near Thai Wake Park",
+      "badge": "Quiet residence, long stays",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Natcha Place Thammasat Rangsit",
+      "type": "⭐⭐",
+      "score": "7.6",
+      "price": "฿499",
+      "access": "📍 Khlong Luang, near Thammasat",
+      "badge": "Cheapest, daily–monthly",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    }
   ],
   "adviceTitle": "How to pick the right Pathum Thani hotel for you",
   "advice": [
-    { "icon": "🛍️", "head": "Shopping, work, or basing yourself in Rangsit", "bodyHtml": "→ <strong>Novotel Bangkok Future Park Rangsit</strong> ฿1,900, linked to Future Park, top score 8.8 · on a budget, <strong>HOP INN Rangsit</strong> ฿650, a walk to the mall, best value · or <strong>B2 Rangsit</strong> ฿550, new rooms, cheap" },
-    { "icon": "🎓", "head": "Business at Thammasat Rangsit / graduation", "bodyHtml": "→ <strong>The Idle Hotel and Residence</strong> ฿1,800, a 4-star with a pool, long-stay friendly · or <strong>Dluxx Thammasat</strong> ฿850, next to the university, apartment-style · on a budget, <strong>Natcha Place</strong> ฿499, cheapest, monthly rentals" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Natcha Place Thammasat Rangsit</strong> ฿499, cheapest in the guide · or <strong>Sena House Lamlukka</strong> ฿530, top score 8.9, clean · or <strong>HOP INN Rangsit</strong> ฿650, score 8.7, a walk to the mall" },
-    { "icon": "⛳", "head": "Want a 4-star with a pool, resort vibe", "bodyHtml": "→ <strong>Tinidee Hotel Bangkok Golf Club</strong> ฿1,100, golf-side, saltwater pool + spa · or <strong>The Idle Hotel and Residence</strong> ฿1,800, pool with pool-view rooms · or <strong>Novotel</strong> ฿1,900, saltwater pool, linked to the mall" },
-    { "icon": "🌿", "head": "Want a quiet riverside escape", "bodyHtml": "→ <strong>Ingnatee Resort</strong> ฿2,200, Thai-style villas on the Chao Phraya in Sam Khok, pool with river views, private — great for couples and special occasions" },
-    { "icon": "🏠", "head": "Long stay, want a room with a kitchen", "bodyHtml": "→ <strong>The Seasons</strong> ฿790, kitchenette rooms in Lamlukka · or <strong>Thana Residence Lamlukka</strong> ฿850, quiet residence, spacious rooms · or <strong>The Idle Residence</strong> ฿1,800, kitchenette rooms in a 4-star" }
+    {
+      "icon": "🛍️",
+      "head": "Shopping, work, or basing yourself in Rangsit",
+      "bodyHtml": "→ <strong>Novotel Bangkok Future Park Rangsit</strong> ฿1,900, linked to Future Park, top score 8.8 · on a budget, <strong>HOP INN Rangsit</strong> ฿650, a walk to the mall, best value · or <strong>B2 Rangsit</strong> ฿550, new rooms, cheap"
+    },
+    {
+      "icon": "🎓",
+      "head": "Business at Thammasat Rangsit / graduation",
+      "bodyHtml": "→ <strong>The Idle Hotel and Residence</strong> ฿1,800, a 4-star with a pool, long-stay friendly · or <strong>Dluxx Thammasat</strong> ฿850, next to the university, apartment-style · on a budget, <strong>Natcha Place</strong> ฿499, cheapest, monthly rentals"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Natcha Place Thammasat Rangsit</strong> ฿499, cheapest in the guide · or <strong>Sena House Lamlukka</strong> ฿530, top score 8.9, clean · or <strong>HOP INN Rangsit</strong> ฿650, score 8.7, a walk to the mall"
+    },
+    {
+      "icon": "⛳",
+      "head": "Want a 4-star with a pool, resort vibe",
+      "bodyHtml": "→ <strong>Tinidee Hotel Bangkok Golf Club</strong> ฿1,100, golf-side, saltwater pool + spa · or <strong>The Idle Hotel and Residence</strong> ฿1,800, pool with pool-view rooms · or <strong>Novotel</strong> ฿1,900, saltwater pool, linked to the mall"
+    },
+    {
+      "icon": "🌿",
+      "head": "Want a quiet riverside escape",
+      "bodyHtml": "→ <strong>Ingnatee Resort</strong> ฿2,200, Thai-style villas on the Chao Phraya in Sam Khok, pool with river views, private — great for couples and special occasions"
+    },
+    {
+      "icon": "🏠",
+      "head": "Long stay, want a room with a kitchen",
+      "bodyHtml": "→ <strong>The Seasons</strong> ฿790, kitchenette rooms in Lamlukka · or <strong>Thana Residence Lamlukka</strong> ฿850, quiet residence, spacious rooms · or <strong>The Idle Residence</strong> ฿1,800, kitchenette rooms in a 4-star"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for standard rooms and can change by date and season; always check live prices and compare 3 sites before booking. During graduation, seminars or big concerts and events at the halls around Thammasat's Rangsit campus, rates in the Khlong Luang–Rangsit zone rise and rooms sell out, so book weeks ahead. Stays in Lamlukka, Sam Khok and Mueang Pathum Thani are far easier with a private or rental car; Rangsit–Future Park stays are easier to get around, with malls and markets within walking distance and the expressway nearby. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Pathum Thani hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Pathum Thani?", "a": "It depends on your trip. <strong>Rangsit–Future Park (Thanyaburi)</strong> suits shopping, work and basing yourself for northern Bangkok, with malls and the expressway (Novotel, HOP INN, B2). <strong>Khlong Luang–Thammasat</strong> suits anyone with business at Thammasat Rangsit, graduation or seminars (The Idle, Dluxx Thammasat, Natcha Place). <strong>Lamlukka</strong> is a residential area near BTS Khu Khot, good for long stays (Sena House, The Seasons, Thana Residence). <strong>Sam Khok by the river</strong> suits a quiet riverside escape (Ingnatee Resort)." },
-    { "q": "❓ How much do Pathum Thani hotels cost?", "a": "Prices vary widely: guesthouses and budget stays start around ฿499–800/night (Natcha Place, Sena House, B2 Rangsit, HOP INN, The Seasons); mid-range hotels and boutiques up to 4-star run about ฿1,100–2,200 (Tinidee, The Idle, Novotel, Ingnatee). All are approximate from-rates for standard rooms. During graduation or big events at Thammasat, rates in the Khlong Luang–Rangsit zone run above normal." },
-    { "q": "❓ Shopping or basing yourself in Rangsit — where to stay?", "a": "To walk to the mall and have it easiest: <strong>Novotel Bangkok Future Park Rangsit</strong> ฿1,900 links straight into Future Park & Zpell, top score 8.8 · on a budget, <strong>HOP INN Rangsit</strong> ฿650 is a walk to Future Park, score 8.7 · or <strong>B2 Rangsit</strong> ฿550, new rooms, cheap, in Khlong Luang–Rangsit. This whole area is near the expressway into northern Bangkok." },
-    { "q": "❓ Dropping off a student or attending graduation at Thammasat Rangsit — where to stay?", "a": "The zone near Thammasat's Rangsit campus is Khlong Luang. For a hotel with a pool that's long-stay friendly, <strong>The Idle Hotel and Residence</strong> ฿1,800 is a 4-star with a pool. Mid-budget, <strong>Dluxx Thammasat</strong> ฿850 is next to the university, apartment-style. On a tight budget, <strong>Natcha Place Thammasat Rangsit</strong> ฿499 is the cheapest with monthly rentals. Graduation weekends sell out fast — book weeks ahead." },
-    { "q": "❓ Is Pathum Thani easy to get around without a car?", "a": "Pathum Thani has the BTS Green Line touching the province edge at Khu Khot station (near Lamlukka–Khlong 2, e.g. Sena House); the rest relies mainly on cars. Without a car, <strong>staying around Rangsit–Future Park is easiest</strong>, attached to the mall with buses, vans and expressway access (Novotel links into the mall, HOP INN is a walk). Khlong Luang–Thammasat, Lamlukka and Sam Khok need a car or Grab. Phahonyothin Road is heavy at rush hour, so always allow extra time." },
-    { "q": "❓ Which site is cheapest for booking Pathum Thani hotels?", "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save tens to hundreds of baht a night, especially during graduation or big events at Thammasat." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Pathum Thani?",
+      "a": "It depends on your trip. <strong>Rangsit–Future Park (Thanyaburi)</strong> suits shopping, work and basing yourself for northern Bangkok, with malls and the expressway (Novotel, HOP INN, B2). <strong>Khlong Luang–Thammasat</strong> suits anyone with business at Thammasat Rangsit, graduation or seminars (The Idle, Dluxx Thammasat, Natcha Place). <strong>Lamlukka</strong> is a residential area near BTS Khu Khot, good for long stays (Sena House, The Seasons, Thana Residence). <strong>Sam Khok by the river</strong> suits a quiet riverside escape (Ingnatee Resort)."
+    },
+    {
+      "q": "❓ How much do Pathum Thani hotels cost?",
+      "a": "Prices vary widely: guesthouses and budget stays start around ฿499–800/night (Natcha Place, Sena House, B2 Rangsit, HOP INN, The Seasons); mid-range hotels and boutiques up to 4-star run about ฿1,100–2,200 (Tinidee, The Idle, Novotel, Ingnatee). All are approximate from-rates for standard rooms. During graduation or big events at Thammasat, rates in the Khlong Luang–Rangsit zone run above normal."
+    },
+    {
+      "q": "❓ Shopping or basing yourself in Rangsit — where to stay?",
+      "a": "To walk to the mall and have it easiest: <strong>Novotel Bangkok Future Park Rangsit</strong> ฿1,900 links straight into Future Park & Zpell, top score 8.8 · on a budget, <strong>HOP INN Rangsit</strong> ฿650 is a walk to Future Park, score 8.7 · or <strong>B2 Rangsit</strong> ฿550, new rooms, cheap, in Khlong Luang–Rangsit. This whole area is near the expressway into northern Bangkok."
+    },
+    {
+      "q": "❓ Dropping off a student or attending graduation at Thammasat Rangsit — where to stay?",
+      "a": "The zone near Thammasat's Rangsit campus is Khlong Luang. For a hotel with a pool that's long-stay friendly, <strong>The Idle Hotel and Residence</strong> ฿1,800 is a 4-star with a pool. Mid-budget, <strong>Dluxx Thammasat</strong> ฿850 is next to the university, apartment-style. On a tight budget, <strong>Natcha Place Thammasat Rangsit</strong> ฿499 is the cheapest with monthly rentals. Graduation weekends sell out fast — book weeks ahead."
+    },
+    {
+      "q": "❓ Is Pathum Thani easy to get around without a car?",
+      "a": "Pathum Thani has the BTS Green Line touching the province edge at Khu Khot station (near Lamlukka–Khlong 2, e.g. Sena House); the rest relies mainly on cars. Without a car, <strong>staying around Rangsit–Future Park is easiest</strong>, attached to the mall with buses, vans and expressway access (Novotel links into the mall, HOP INN is a walk). Khlong Luang–Thammasat, Lamlukka and Sam Khok need a car or Grab. Phahonyothin Road is heavy at rush hour, so always allow extra time."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Pathum Thani hotels?",
+      "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. It can save tens to hundreds of baht a night, especially during graduation or big events at Thammasat."
+    }
+  ],
+  "quickAnswerHtml": "12 Pathum Thani hotels we reviewed across every tier — from Novotel linked straight into Future Park Rangsit down to a guesthouse near Thammasat from ฿499. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

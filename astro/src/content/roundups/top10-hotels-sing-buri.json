@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "สิงห์บุรี", "href": "city-sing-buri.html" },
-    { "name": "12 โรงแรมสิงห์บุรียอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "สิงห์บุรี",
+      "href": "city-sing-buri.html"
+    },
+    {
+      "name": "12 โรงแรมสิงห์บุรียอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "สิงห์บุรี", "item": "https://thailandaddict.com/city-sing-buri" },
-    { "name": "12 โรงแรมสิงห์บุรียอดนิยม", "item": "https://thailandaddict.com/top10-hotels-sing-buri" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "สิงห์บุรี",
+      "item": "https://thailandaddict.com/city-sing-buri"
+    },
+    {
+      "name": "12 โรงแรมสิงห์บุรียอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-sing-buri"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-sing-buri.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "สิงห์บุรีไม่มีรถไฟฟ้า ไม่มีสนามบิน และไม่มีสถานีรถไฟในตัวเมือง — ส่วนใหญ่เดินทางด้วยรถยนต์หรือรถตู้/รถทัวร์มาลงที่ขนส่ง การมีรถส่วนตัวสะดวกที่สุด · เลือกโซนตามแพลนเที่ยวจะคุ้มที่สุด: <strong>ตัวเมือง (บางมัญ·ต้นโพธิ์·จักรสีห์)</strong> — ใกล้ริมแม่น้ำเจ้าพระยา วัดพระนอนจักรสีห์ FN Outlet และตลาด เหมาะคนอยากอยู่ใจกลาง · <strong>พรหมบุรี</strong> — ติดถนนสายเอเชียทางใต้ เหมาะแวะพักระหว่างทางและคนอยากได้ที่เงียบ · <strong>บางระจัน (แม่ลา·โพชนไก่)</strong> — เที่ยวค่ายบางระจัน วัดโพธิ์เก้าต้น และพักบรรยากาศทุ่งนาชนบทได้ · เกือบทุกโรงแรมมีที่จอดรถฟรี เหมาะคนขับรถเที่ยว",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Chaisaeng Palace Hotel", "price": "฿850" },
-    { "n": "2", "color": "#06B6D4", "name": "Sing Buri Homestay", "price": "฿900" },
-    { "n": "3", "color": "#06B6D4", "name": "Chaisaeng Villa Hotel", "price": "฿900" },
-    { "n": "4", "color": "#06B6D4", "name": "Golden Dragon Resort", "price": "฿580" },
-    { "n": "5", "color": "#FB7185", "name": "Central Park Hotel", "price": "฿700" },
-    { "n": "6", "color": "#FB7185", "name": "Sumali Villa", "price": "฿1,200" },
-    { "n": "7", "color": "#FB7185", "name": "Rim Thung Mae La Resort", "price": "฿700" },
-    { "n": "8", "color": "#FB7185", "name": "Je t'aime Cafe & Villa", "price": "฿1,079" },
-    { "n": "9", "color": "#FBBF24", "name": "Zen Garden Resort", "price": "฿820" },
-    { "n": "10", "color": "#FBBF24", "name": "Baanbudsarin Apartment", "price": "฿400" },
-    { "n": "11", "color": "#FBBF24", "name": "Parida Resort", "price": "฿590" },
-    { "n": "12", "color": "#FBBF24", "name": "Grand Leo Hotel", "price": "฿500" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Chaisaeng Palace Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Sing Buri Homestay",
+      "price": "฿900"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Chaisaeng Villa Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Golden Dragon Resort",
+      "price": "฿580"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Central Park Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Sumali Villa",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Rim Thung Mae La Resort",
+      "price": "฿700"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Je t'aime Cafe & Villa",
+      "price": "฿1,079"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Zen Garden Resort",
+      "price": "฿820"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Baanbudsarin Apartment",
+      "price": "฿400"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "Parida Resort",
+      "price": "฿590"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "Grand Leo Hotel",
+      "price": "฿500"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Double (วิวแม่น้ำ)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Executive Room", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "Deluxe Double (วิวแม่น้ำ)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Executive Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chaisaeng-palace-hotel/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermaichyaesngphaaels.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-sing-buri-hotel-detail-709160/chaiseang-palace/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chaisaeng-palace-sing-buri.html",
-      "tags": ["🌊 ห้องส่วนใหญ่วิวแม่น้ำ", "🚶 กลางเมือง ใกล้ FN Outlet", "🅿️ ที่จอดรถฟรี", "🚐 มีรับส่ง"],
+      "tags": [
+        "🌊 ห้องส่วนใหญ่วิวแม่น้ำ",
+        "🚶 กลางเมือง ใกล้ FN Outlet",
+        "🅿️ ที่จอดรถฟรี",
+        "🚐 มีรับส่ง"
+      ],
       "addr": "982/9 ถนนวิไลจิตร บางมัญ เมืองสิงห์บุรี",
       "storyHtml": "Chaisaeng Palace คือ <strong>โรงแรมที่มีรีวิวมากที่สุดในบทความนี้ ถึง 214 รีวิว และเป็น 4 ดาวที่ผสมคะแนนดีกับฐานรีวิวแน่นได้ลงตัวที่สุด</strong> คะแนน 8.6 · จุดเด่นที่แขกชมตรงกันคือห้องส่วนใหญ่หันหน้าเข้าแม่น้ำเจ้าพระยา วิวสวยจากในห้อง · อยู่กลางเมืองย่านบางมัญ ใกล้ FN Outlet และศาลากลางจังหวัด มีที่จอดรถฟรีและบริการรับส่ง เหมาะทั้งแวะพักและเที่ยวในจังหวัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุตอนจองว่าขอห้องฝั่งวิวแม่น้ำ และถ้าไวต่อเสียงให้เลือกห้องชั้นสูง เพราะร้านอาหารด้านล่างบางคืนมีเสียงเพลงถึงราวห้าทุ่ม",
@@ -104,15 +201,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Standard Triple", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "ห้องพักยาว (Long-stay)", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Standard Triple",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "ห้องพักยาว (Long-stay)",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/homestay-singburi-thailand/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Homestay+Singburi+Thailand+Bang+Rachan",
       "tripUrl": "https://www.trip.com/hotels/bang-rachan-district-hotel-detail-9502891/singburi-homestay/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sing-buri-homestay-sing-buri.html",
-      "tags": ["🍲 อาหารบ้านฝีมือเจ้าของ", "🏡 บรรยากาศชนบทเงียบสงบ", "🚲 มีจักรยานให้เช่า", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🍲 อาหารบ้านฝีมือเจ้าของ",
+        "🏡 บรรยากาศชนบทเงียบสงบ",
+        "🚲 มีจักรยานให้เช่า",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "68 ซอยสุขาภิบาลสิงห์บุรี 14 โพชนไก่ บางระจัน",
       "storyHtml": "Sing Buri Homestay คือ <strong>ที่พักคะแนนสูงสุดในบทความนี้ 9.4 จาก 31 รีวิว</strong> และเป็นโฮมสเตย์ครอบครัวที่แขกหลายคนบอกว่าเหมือนไปเยี่ยมบ้านเพื่อน · จุดเด่นคือเจ้าบ้านต้อนรับอบอุ่นและอาหารไทยฝีมือเจ้าของที่ปรุงสดทุกมื้อ · อยู่ย่านโพชนไก่ บางระจัน บรรยากาศชนบทเงียบสงบ มีจักรยานให้ปั่นชมหมู่บ้าน เหมาะคนอยากพักผ่อนจริงและสัมผัสวิถีชนบท แต่ต้องมีรถส่วนตัว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องมีน้อยมาก ควรจองล่วงหน้าและแจ้งเจ้าบ้านถ้าต้องการอาหารเช้าตามสั่ง จะได้เตรียมวัตถุดิบสด",
@@ -144,15 +255,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Twin Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "VIP Room", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Twin Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "VIP Room",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chaisaeng-villa/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chaisaeng-villa.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-sing-buri-hotel-detail-9130792/chaisaeng-villa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chaisaeng-villa-sing-buri.html",
-      "tags": ["✨ โรงแรมดูใหม่ สะอาด", "🛏️ ห้องกว้าง เตียงสบาย", "🍺 มีสวนเบียร์บรรยากาศดี", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "✨ โรงแรมดูใหม่ สะอาด",
+        "🛏️ ห้องกว้าง เตียงสบาย",
+        "🍺 มีสวนเบียร์บรรยากาศดี",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "11 หมู่ 1 ต้นโพธิ์ เมืองสิงห์บุรี",
       "storyHtml": "Chaisaeng Villa เป็น <strong>บูทีกโฮเทล 4 ดาวที่ดูใหม่และได้คะแนน Agoda สูงถึง 9.1</strong> · จุดเด่นที่แขกชมตรงกันคือห้องกว้าง สะอาด เตียงนอนสบาย และคุ้มราคาในระดับ 4 ดาว · อยู่ย่านต้นโพธิ์กลางเมือง ใกล้แม่น้ำเจ้าพระยาและศาลากลางจังหวัด มีล็อบบี้และสวนเบียร์บรรยากาศดี ที่จอดรถฟรี เหมาะทั้งเที่ยวและเดินทางธุรกิจ ฐานรีวิวยังไม่ใหญ่แต่เสียงตอบรับนิ่งในทางบวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับให้เลือก VIP Room ที่กว้างขึ้นและบางห้องมีระเบียง ถ้าไวต่อเสียงให้เช็กว่าคืนนั้นมีกิจกรรมที่สวนเบียร์ไหม",
@@ -184,15 +309,29 @@
       "priceBig": "฿580",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Single", "price": "เริ่ม ฿580/คืน" },
-        { "type": "Superior Double", "price": "เริ่ม ฿665/คืน" },
-        { "type": "Superior Twin", "price": "เริ่ม ฿720/คืน" }
+        {
+          "type": "Superior Single",
+          "price": "เริ่ม ฿580/คืน"
+        },
+        {
+          "type": "Superior Double",
+          "price": "เริ่ม ฿665/คืน"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "เริ่ม ฿720/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/golden-dragon-resort/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/golden-dragon-resort.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-sing-buri-hotel-detail-709158/golden-dragon-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-golden-dragon-resort-sing-buri.html",
-      "tags": ["🍳 อาหารเช้าหลากหลายดีเกินราคา", "🛏️ ห้องกว้าง ~28 ตร.ม.", "🌊 ใกล้แม่น้ำเจ้าพระยา", "🅿️ ที่จอดรถสะดวก"],
+      "tags": [
+        "🍳 อาหารเช้าหลากหลายดีเกินราคา",
+        "🛏️ ห้องกว้าง ~28 ตร.ม.",
+        "🌊 ใกล้แม่น้ำเจ้าพระยา",
+        "🅿️ ที่จอดรถสะดวก"
+      ],
       "addr": "71 หมู่ 11 ถนนบางระจันตัดใหม่ ต้นโพธิ์ เมืองสิงห์บุรี",
       "storyHtml": "Golden Dragon Resort คือ <strong>รีสอร์ตในเมืองที่ได้คะแนนสูงถึง 9.1 จาก 43 รีวิว ในราคาเริ่มเพียง ฿580</strong> · จุดที่แขกชมมากคืออาหารเช้าหลากหลายที่หลายคนบอกว่าดีเกินราคาห้อง และห้องกว้างราว 28 ตร.ม. เตียงนุ่ม น้ำแรง · อยู่ย่านต้นโพธิ์ใกล้แม่น้ำเจ้าพระยาและตัวเมือง ที่จอดรถสะดวก เหมาะคนอยากได้ห้องกว้างอาหารเช้าดีในงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงหรือฝั่งไกลร้านอาหารชั้นล่าง จะเงียบกว่าในคืนที่มีงานเลี้ยง และลงไปกินอาหารเช้าแต่เช้าตอนของยังครบ",
@@ -224,15 +363,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Family / Deluxe Room", "price": "เริ่ม ฿1,000/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Family / Deluxe Room",
+          "price": "เริ่ม ฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/central-park-hotel/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/central-park.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-sing-buri-hotel-detail-3462165/central-park-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-central-park-hotel-sing-buri.html",
-      "tags": ["💰 คุ้มเกินระดับ 3 ดาว", "🛁 ห้องน้ำแยกเปียกแห้ง", "🌿 มีสวนหย่อมและเทอร์เรซ", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "💰 คุ้มเกินระดับ 3 ดาว",
+        "🛁 ห้องน้ำแยกเปียกแห้ง",
+        "🌿 มีสวนหย่อมและเทอร์เรซ",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "172/2 หมู่ 1 บางมัญ เมืองสิงห์บุรี",
       "storyHtml": "Central Park Hotel คือ <strong>โรงแรมประหยัดในเมืองที่ฐานรีวิวใหญ่ถึง 150 รีวิว และแขกหลายคนบอกว่าคุ้มเกินระดับ 3 ดาว</strong> คะแนน 8.5 · จุดเด่นคือห้องกว้างกว่าที่คาด แอร์เย็น ห้องน้ำแยกส่วนเปียกแห้ง และหลายห้องมีระเบียง · อยู่ย่านบางมัญกลางเมือง ใกล้ตลาด ศาลากลาง และ FN Outlet มีที่จอดรถฟรีและ Wi-Fi ฟรี เหมาะคนอยากได้ห้องคุ้มราคาใจกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ปักหมุดแผนที่ก่อนไป เพราะทางเข้าหายากและป้ายไม่ชัด หลายคนขับเลย และที่นี่ไม่มีอาหารเช้า เผื่อร้านไว้แถวตลาด",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Lys Room", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Rose Room", "price": "เริ่ม ฿1,350/คืน" },
-        { "type": "Lupin Room (ครอบครัว)", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "Lys Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Rose Room",
+          "price": "เริ่ม ฿1,350/คืน"
+        },
+        {
+          "type": "Lupin Room (ครอบครัว)",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sumali-villa/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sumali-villa-guest-house.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-sing-buri-hotel-detail-1316269/sumali-villa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sumali-villa-sing-buri.html",
-      "tags": ["🏊 สระว่ายน้ำกลางสวน", "🍳 อาหารเช้าทำสด", "🏡 บ้านสถาปนิกเจ้าของไทย-ฝรั่งเศส", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🏊 สระว่ายน้ำกลางสวน",
+        "🍳 อาหารเช้าทำสด",
+        "🏡 บ้านสถาปนิกเจ้าของไทย-ฝรั่งเศส",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "29 หมู่ 1 จักรสีห์ เมืองสิงห์บุรี",
       "storyHtml": "Sumali Villa คือ <strong>บูทีกวิลล่า 4 ดาวเพียง 4 ห้องที่ขายความเป็นบ้านสถาปนิกของเจ้าของไทย-ฝรั่งเศส พร้อมสระว่ายน้ำกลางสวน</strong> คะแนน 8.4 · จุดที่แขกชมมากคืออาหารเช้าทำสดที่หลายคนบอกว่าอร่อยที่สุดในทริป และบรรยากาศเงียบสงบเป็นส่วนตัว · อยู่ย่านจักรสีห์ใกล้วัดพระนอนจักรสีห์ เหมาะคนอยากได้ที่พักมีคาแรกเตอร์ไว้พักผ่อน แต่ต้องมีรถเพราะรอบ ๆ ไม่มีร้านเดินถึง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ปักหมุดแผนที่ให้ดี เพราะป้ายหน้าทางเข้าไม่ชัด หาครั้งแรกงง และเป็นบ้านเจ้าของจริง แขกแชร์สระและสวนส่วนกลางร่วมกัน",
@@ -304,14 +471,25 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,000/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/rim-thung-mae-la-resort/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rim-thung-mae-la-resort.html",
       "tripUrl": "https://th.trip.com/hotels/bang-rachan-district-hotel-detail-55198490/rim-thung-mae-la-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rim-thung-mae-la-resort-sing-buri.html",
-      "tags": ["🌾 ระเบียงวิวทุ่งนา/สวน", "✨ อาคารใหม่ สะอาดมาก", "🤫 เงียบสงบกลางทุ่ง", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌾 ระเบียงวิวทุ่งนา/สวน",
+        "✨ อาคารใหม่ สะอาดมาก",
+        "🤫 เงียบสงบกลางทุ่ง",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "37/4 หมู่ 1 แม่ลา อำเภอบางระจัน",
       "storyHtml": "Rim Thung Mae La เป็น <strong>รีสอร์ตเล็กอาคารใหม่กลางทุ่งนาบางระจันที่ได้คะแนน 8.6 และฝั่ง Agoda สูงถึง 9.0</strong> · จุดเด่นคืออาคารใหม่สะอาดมาก ห้องมีระเบียงวิวทุ่งนา/สวน และความเงียบสงบแบบตัดขาดจากความวุ่นวาย · เหมาะคนอยากพักผ่อนกลางธรรมชาติและถ่ายรูปวิวนา แต่มีห้องน้อยราว 4 ห้อง ต้องจองล่วงหน้า และอยู่กลางหมู่บ้านชนบทที่ต้องขับรถออกไปหาร้านอาหาร · ฐานรีวิวยังเล็ก เราจึงจัดอันดับนี้แบบระวัง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จองล่วงหน้าหลายวันเพราะห้องน้อยมาก และเตรียมของกินติดรถไว้บ้าง เพราะรอบ ๆ ไม่มีร้านเดินถึง",
@@ -343,15 +521,29 @@
       "priceBig": "฿1,079",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin (รวมอาหารเช้า)", "price": "เริ่ม ฿1,079/คืน" },
-        { "type": "King Superior", "price": "เริ่ม ฿1,201/คืน" },
-        { "type": "King Deluxe", "price": "เริ่ม ฿1,301/คืน" }
+        {
+          "type": "Superior Twin (รวมอาหารเช้า)",
+          "price": "เริ่ม ฿1,079/คืน"
+        },
+        {
+          "type": "King Superior",
+          "price": "เริ่ม ฿1,201/คืน"
+        },
+        {
+          "type": "King Deluxe",
+          "price": "เริ่ม ฿1,301/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/je-t-aime-cafe-villa-h14875139/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/je-t-aime-cafe-villa.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-sing-buri-hotel-detail-47105158/je-t-aime-cafe-villa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-je-taime-cafe-villa-sing-buri.html",
-      "tags": ["📸 คาเฟ่ยุโรปถ่ายรูปสวย", "🏊 สระว่ายน้ำกลางแจ้ง + บาร์", "💑 ห้องตกแต่งตามธีม เหมาะคู่รัก", "🍳 ราคารวมอาหารเช้า"],
+      "tags": [
+        "📸 คาเฟ่ยุโรปถ่ายรูปสวย",
+        "🏊 สระว่ายน้ำกลางแจ้ง + บาร์",
+        "💑 ห้องตกแต่งตามธีม เหมาะคู่รัก",
+        "🍳 ราคารวมอาหารเช้า"
+      ],
       "addr": "249/14 โพกรวม เมืองสิงห์บุรี",
       "storyHtml": "Je t'aime Cafe & Villa คือ <strong>วิลล่า/คาเฟ่บูทีคขนาดเล็กที่มีรีวิวเยอะถึง 101 รีวิว แม้จะเป็นที่พัก 2 ดาว</strong> คะแนน 8.1 · จุดขายคือบรรยากาศคาเฟ่ยุโรปตกแต่งสวยถ่ายรูปได้หลายมุม มีสระว่ายน้ำกลางแจ้งและบาร์ริมสระในที่พักเล็ก ๆ ห้องตกแต่งตามธีมเหมาะคู่รัก · อยู่ย่านโพกรวมใกล้ในเมืองและศาลหลักเมือง ราคารวมอาหารเช้า เหมาะคู่รักที่อยากได้ที่พักมีคาแรกเตอร์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มีห้องน้อยราว 6 ห้อง จองเต็มง่ายช่วงวันหยุด ควรจองล่วงหน้า และมองที่นี่เป็นวิลล่าคาเฟ่เล็ก ไม่ใช่โรงแรมเต็มรูปแบบ",
@@ -383,15 +575,29 @@
       "priceBig": "฿820",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Twin Room (ปลอดบุหรี่)", "price": "เริ่ม ฿820/คืน" },
-        { "type": "Standard Double", "price": "เริ่ม ฿850/คืน" },
-        { "type": "One-Bedroom Suite", "price": "เริ่ม ฿1,050/คืน" }
+        {
+          "type": "Twin Room (ปลอดบุหรี่)",
+          "price": "เริ่ม ฿820/คืน"
+        },
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "One-Bedroom Suite",
+          "price": "เริ่ม ฿1,050/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/zen-garden-resort/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Zen+Garden+Resort+Sing+Buri",
       "tripUrl": "https://th.trip.com/hotels/mueang-sing-buri-hotel-detail-11265489/zen-garden-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-zen-garden-resort-sing-buri.html",
-      "tags": ["🛣️ ติดสายเอเชีย หาง่าย", "🛏️ เตียงใหญ่ 6 ฟุต", "📺 สมาร์ททีวีดูสตรีมมิงได้", "🅿️ ลานจอดรถกว้าง"],
+      "tags": [
+        "🛣️ ติดสายเอเชีย หาง่าย",
+        "🛏️ เตียงใหญ่ 6 ฟุต",
+        "📺 สมาร์ททีวีดูสตรีมมิงได้",
+        "🅿️ ลานจอดรถกว้าง"
+      ],
       "addr": "142 หมู่ 1 ถนนสายเอเชีย บางมัญ เมืองสิงห์บุรี",
       "storyHtml": "Zen Garden Resort เป็น <strong>รีสอร์ตค่อนข้างใหม่ริมถนนสายเอเชียที่เหมาะแวะพักระหว่างทางที่สุด</strong> คะแนน 8.2 · จุดเด่นคือห้องกว้าง สะอาด เตียงใหญ่ 6 ฟุตนอนสบาย และทำเลติดถนนใหญ่หาง่าย ลานจอดรถปูนกว้างจอดง่าย · มีสมาร์ททีวีดูแอปสตรีมมิงได้และ Wi-Fi ฟรี เหมาะคนขับรถผ่านที่อยากได้ห้องคุ้มและจอดรถสะดวก แต่ฐานรีวิวยังเล็ก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อาคารไม่มีลิฟต์ ถ้ามีกระเป๋าหนักให้ขอห้องชั้นล่าง และแรงดันน้ำค่อนข้างเบา เตรียมใจไว้",
@@ -423,15 +629,29 @@
       "priceBig": "฿400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room (รายวัน)", "price": "เริ่ม ฿400/คืน" },
-        { "type": "Standard Room (มีระเบียง)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿650/คืน" }
+        {
+          "type": "Standard Room (รายวัน)",
+          "price": "เริ่ม ฿400/คืน"
+        },
+        {
+          "type": "Standard Room (มีระเบียง)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿650/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baanbudsarin-apartment/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baanbudsarin-apartment.html",
       "tripUrl": "https://www.trip.com/hotels/sing-buri-hotel-detail-678761/baanbudsarin-apartment/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baanbudsarin-apartment-sing-buri.html",
-      "tags": ["🪙 ถูกที่สุดในบทความ ฿400", "🏠 หลายห้องมีระเบียง", "🛒 ใกล้โลตัสและร้านในเมือง", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🪙 ถูกที่สุดในบทความ ฿400",
+        "🏠 หลายห้องมีระเบียง",
+        "🛒 ใกล้โลตัสและร้านในเมือง",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "190/39 หมู่ 7 บางมัญ เมืองสิงห์บุรี",
       "storyHtml": "Baanbudsarin Apartment คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ เริ่มเพียง ฿400 และมีฐานรีวิวใหญ่ถึง 90 รีวิว</strong> คะแนน 8.1 · จุดเด่นคือราคาเบามากสำหรับนักเดินทางงบประหยัด หลายห้องมีระเบียงและมุมนั่งเล่น มีแอร์ ตู้เย็น และเคาน์เตอร์ 24 ชั่วโมง · อยู่ย่านบางมัญในเมือง ใกล้โลตัสและร้านอาหาร หาของกินง่าย มีที่จอดรถฟรี เหมาะแบ็กแพ็กเกอร์และคนแวะค้างคืน แต่ตัวอาคารเก่าตามอายุ ควรดูรูปล่าสุดก่อนจอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> สภาพห้องไม่เท่ากันทุกห้อง ควรดูรูปล่าสุดและรีวิวก่อนจอง และเลือกห้องที่มีระเบียงจะได้พื้นที่ส่วนตัวเพิ่มแค่ ฿50",
@@ -463,15 +683,29 @@
       "priceBig": "฿590",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe King Room", "price": "เริ่ม ฿590/คืน" },
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Queen Family Room", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "Deluxe King Room",
+          "price": "เริ่ม ฿590/คืน"
+        },
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Queen Family Room",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/parida-resort-h10198839/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/paaridaariis-rth.html",
       "tripUrl": "https://www.trip.com/hotels/sing-buri-hotel-detail/parida-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-parida-resort-sing-buri.html",
-      "tags": ["👨‍👩‍👧 ห้องครอบครัวกว้าง ~50 ตร.ม.", "💦 มีเครื่องเล่นน้ำสำหรับเด็ก", "🌳 สวนร่มรื่น เงียบสงบ", "🅿️ ที่จอดรถส่วนตัวฟรี"],
+      "tags": [
+        "👨‍👩‍👧 ห้องครอบครัวกว้าง ~50 ตร.ม.",
+        "💦 มีเครื่องเล่นน้ำสำหรับเด็ก",
+        "🌳 สวนร่มรื่น เงียบสงบ",
+        "🅿️ ที่จอดรถส่วนตัวฟรี"
+      ],
       "addr": "142 หมู่ 4 บ้านหม้อ อำเภอพรหมบุรี",
       "storyHtml": "Parida Resort เป็น <strong>รีสอร์ตเล็กเงียบสงบในพรหมบุรีที่เหมาะมาเป็นครอบครัวและแวะพักระหว่างทาง</strong> คะแนน 7.2 · จุดเด่นคือห้องครอบครัวกว้างมากราว 50 ตร.ม. ได้พื้นที่เยอะในราคาไม่สูง บรรยากาศสวนร่มรื่น และมีเครื่องเล่นน้ำเล็ก ๆ ที่เด็กชอบ · อยู่ย่านบ้านหม้อติดสายเอเชีย แต่ห่างตัวเมืองสิงห์บุรีราว 20 กม. ต้องขับรถ และรอบ ๆ ไม่มีร้านเดินถึง · ฐานรีวิวยังน้อย เราจึงจัดอันดับนี้แบบระวัง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นครอบครัวให้เลือก Queen Family Room ที่กว้างมาก และเตรียมของกินติดรถ เพราะรอบ ๆ ไม่มีร้านและไม่มีห้องอาหารในตัว",
@@ -503,15 +737,29 @@
       "priceBig": "฿500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿500/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Deluxe Single Room", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Deluxe Single Room",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-leo-hotel-h40502336/hotel/sing-buri-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grand-leo.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-sing-buri-hotel-detail-3687132/grand-leo-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-leo-hotel-sing-buri.html",
-      "tags": ["🏷️ ราคาเริ่มถูก ฿500", "📍 ใจกลางเมือง เดินไหว้พระได้", "🛏️ ห้องมีระเบียงและตู้เย็น", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🏷️ ราคาเริ่มถูก ฿500",
+        "📍 ใจกลางเมือง เดินไหว้พระได้",
+        "🛏️ ห้องมีระเบียงและตู้เย็น",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "198 หมู่ 7 บางมัญ เมืองสิงห์บุรี",
       "storyHtml": "Grand Leo Hotel ปิดท้ายบทความในฐานะ <strong>ตัวเลือกราคาถูกใจกลางเมืองสำหรับคนที่แค่อยากแวะค้างหนึ่งคืน</strong> · จุดดีคือทำเลกลางเมือง เดินถึงศาลหลักเมืองและวัดโพธิ์เงิน ห้องค่อนข้างกว้างมีระเบียงและตู้เย็น มีที่จอดรถฟรี · แต่ต้องบอกตรง ๆ ว่าคะแนนรวมอยู่ที่ 5.6 จาก 10 รีวิว — บางรีวิวรายงานเรื่องความสะอาดและการบำรุงรักษาที่ไม่สม่ำเสมอ เราจึงใส่ไว้อันดับท้ายเพื่อความตรงไปตรงมา เหมาะเฉพาะคนเน้นราคาและทำเลจริง ๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ยืนยันราคาและประเภทห้องล่วงหน้าก่อนถึง เพราะมีรีวิวว่าราคาหน้าเคาน์เตอร์บางครั้งไม่ตรงกับที่จอง และขอดูห้องก่อนถ้าทำได้",
@@ -529,39 +777,206 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรมสิงห์บุรี 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Chaisaeng Palace Hotel", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿850", "access": "📍 บางมัญ · ริมเจ้าพระยา", "badge": "รีวิวมากสุด 214", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Sing Buri Homestay", "type": "⭐⭐⭐", "score": "9.4", "price": "฿900", "access": "📍 บางระจัน · ชนบท", "badge": "คะแนนสูงสุด", "badgeStyle": "background:#fff7ed;color:#c2410c;border-color:#fed7aa;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Chaisaeng Villa Hotel", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿900", "access": "📍 ต้นโพธิ์ · กลางเมือง", "badge": "บูทีกใหม่", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Golden Dragon Resort", "type": "⭐⭐⭐", "score": "9.1", "price": "฿580", "access": "📍 ต้นโพธิ์ · ในเมือง", "badge": "อาหารเช้าดี", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Central Park Hotel", "type": "⭐⭐⭐", "score": "8.5", "price": "฿700", "access": "📍 บางมัญ · กลางเมือง", "badge": "คุ้มราคา", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Sumali Villa", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿1,200", "access": "📍 จักรสีห์ · มีสระ", "badge": "บูทีกมีสระ", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Rim Thung Mae La Resort", "type": "⭐⭐⭐", "score": "8.6", "price": "฿700", "access": "📍 บางระจัน · ทุ่งนา" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Je t'aime Cafe & Villa", "type": "⭐⭐", "score": "8.1", "price": "฿1,079", "access": "📍 โพกรวม · ใกล้ในเมือง", "badge": "คาเฟ่+สระ", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Zen Garden Resort", "type": "⭐⭐⭐", "score": "8.2", "price": "฿820", "access": "📍 บางมัญ · ริมสายเอเชีย" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Baanbudsarin Apartment", "type": "⭐⭐⭐", "score": "8.1", "price": "฿400", "access": "📍 บางมัญ · ใกล้โลตัส", "badge": "ถูกที่สุด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "Parida Resort", "type": "⭐⭐⭐", "score": "7.2", "price": "฿590", "access": "📍 พรหมบุรี · บ้านหม้อ" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "Grand Leo Hotel", "type": "⭐⭐⭐", "score": "5.6", "price": "฿500", "access": "📍 บางมัญ · ใจกลางเมือง" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Chaisaeng Palace Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿850",
+      "access": "📍 บางมัญ · ริมเจ้าพระยา",
+      "badge": "รีวิวมากสุด 214",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Sing Buri Homestay",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿900",
+      "access": "📍 บางระจัน · ชนบท",
+      "badge": "คะแนนสูงสุด",
+      "badgeStyle": "background:#fff7ed;color:#c2410c;border-color:#fed7aa;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Chaisaeng Villa Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿900",
+      "access": "📍 ต้นโพธิ์ · กลางเมือง",
+      "badge": "บูทีกใหม่",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Golden Dragon Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿580",
+      "access": "📍 ต้นโพธิ์ · ในเมือง",
+      "badge": "อาหารเช้าดี",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Central Park Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿700",
+      "access": "📍 บางมัญ · กลางเมือง",
+      "badge": "คุ้มราคา",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Sumali Villa",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,200",
+      "access": "📍 จักรสีห์ · มีสระ",
+      "badge": "บูทีกมีสระ",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Rim Thung Mae La Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿700",
+      "access": "📍 บางระจัน · ทุ่งนา"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Je t'aime Cafe & Villa",
+      "type": "⭐⭐",
+      "score": "8.1",
+      "price": "฿1,079",
+      "access": "📍 โพกรวม · ใกล้ในเมือง",
+      "badge": "คาเฟ่+สระ",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Zen Garden Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿820",
+      "access": "📍 บางมัญ · ริมสายเอเชีย"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Baanbudsarin Apartment",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿400",
+      "access": "📍 บางมัญ · ใกล้โลตัส",
+      "badge": "ถูกที่สุด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "Parida Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.2",
+      "price": "฿590",
+      "access": "📍 พรหมบุรี · บ้านหม้อ"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "Grand Leo Hotel",
+      "type": "⭐⭐⭐",
+      "score": "5.6",
+      "price": "฿500",
+      "access": "📍 บางมัญ · ใจกลางเมือง"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมสิงห์บุรียังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🌊", "head": "อยากพักริมแม่น้ำเจ้าพระยา", "bodyHtml": "→ <strong>Chaisaeng Palace Hotel</strong> ฿850 ห้องส่วนใหญ่วิวแม่น้ำกลางเมือง รีวิวมากสุด 214 · หรือ <strong>Golden Dragon Resort</strong> ฿580 ใกล้แม่น้ำ อาหารเช้าดี" },
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Baanbudsarin Apartment</strong> ฿400 ถูกที่สุดในเมือง ใกล้โลตัส · หรือ <strong>Golden Dragon Resort</strong> ฿580 คะแนน 9.1 อาหารเช้าเกินราคา" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว มีเด็ก", "bodyHtml": "→ <strong>Parida Resort</strong> ฿590 ห้องครอบครัวกว้าง ~50 ตร.ม. มีเครื่องเล่นน้ำ · หรือ <strong>Central Park Hotel</strong> ฿700 มี Family Room ในเมือง" },
-    { "icon": "🏊", "head": "อยากได้ที่พักมีสระว่ายน้ำ", "bodyHtml": "→ <strong>Sumali Villa</strong> ฿1,200 บูทีกวิลล่าสระกลางสวน อาหารเช้าทำสด · หรือ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 สระกลางแจ้ง บรรยากาศคาเฟ่" },
-    { "icon": "🤫", "head": "อยากพักเงียบ ๆ ชนบทธรรมชาติ", "bodyHtml": "→ <strong>Sing Buri Homestay</strong> ฿900 โฮมสเตย์บางระจันคะแนน 9.4 อาหารบ้านอร่อย · หรือ <strong>Rim Thung Mae La Resort</strong> ฿700 รีสอร์ตใหม่วิวทุ่งนา" },
-    { "icon": "🛣️", "head": "แวะพักระหว่างทางขึ้นเหนือ", "bodyHtml": "→ <strong>Zen Garden Resort</strong> ฿820 ติดสายเอเชีย หาง่าย จอดรถสะดวก · หรือ <strong>Parida Resort</strong> ฿590 พรหมบุรีติดสายเอเชีย เงียบสงบ" },
-    { "icon": "💑", "head": "ทริปคู่รัก อยากได้ที่มีคาแรกเตอร์", "bodyHtml": "→ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 คาเฟ่ยุโรปถ่ายรูปสวย มีสระ · หรือ <strong>Sumali Villa</strong> ฿1,200 บ้านสถาปนิกบรรยากาศเงียบ" }
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมแม่น้ำเจ้าพระยา",
+      "bodyHtml": "→ <strong>Chaisaeng Palace Hotel</strong> ฿850 ห้องส่วนใหญ่วิวแม่น้ำกลางเมือง รีวิวมากสุด 214 · หรือ <strong>Golden Dragon Resort</strong> ฿580 ใกล้แม่น้ำ อาหารเช้าดี"
+    },
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Baanbudsarin Apartment</strong> ฿400 ถูกที่สุดในเมือง ใกล้โลตัส · หรือ <strong>Golden Dragon Resort</strong> ฿580 คะแนน 9.1 อาหารเช้าเกินราคา"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว มีเด็ก",
+      "bodyHtml": "→ <strong>Parida Resort</strong> ฿590 ห้องครอบครัวกว้าง ~50 ตร.ม. มีเครื่องเล่นน้ำ · หรือ <strong>Central Park Hotel</strong> ฿700 มี Family Room ในเมือง"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้ที่พักมีสระว่ายน้ำ",
+      "bodyHtml": "→ <strong>Sumali Villa</strong> ฿1,200 บูทีกวิลล่าสระกลางสวน อาหารเช้าทำสด · หรือ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 สระกลางแจ้ง บรรยากาศคาเฟ่"
+    },
+    {
+      "icon": "🤫",
+      "head": "อยากพักเงียบ ๆ ชนบทธรรมชาติ",
+      "bodyHtml": "→ <strong>Sing Buri Homestay</strong> ฿900 โฮมสเตย์บางระจันคะแนน 9.4 อาหารบ้านอร่อย · หรือ <strong>Rim Thung Mae La Resort</strong> ฿700 รีสอร์ตใหม่วิวทุ่งนา"
+    },
+    {
+      "icon": "🛣️",
+      "head": "แวะพักระหว่างทางขึ้นเหนือ",
+      "bodyHtml": "→ <strong>Zen Garden Resort</strong> ฿820 ติดสายเอเชีย หาง่าย จอดรถสะดวก · หรือ <strong>Parida Resort</strong> ฿590 พรหมบุรีติดสายเอเชีย เงียบสงบ"
+    },
+    {
+      "icon": "💑",
+      "head": "ทริปคู่รัก อยากได้ที่มีคาแรกเตอร์",
+      "bodyHtml": "→ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 คาเฟ่ยุโรปถ่ายรูปสวย มีสระ · หรือ <strong>Sumali Villa</strong> ฿1,200 บ้านสถาปนิกบรรยากาศเงียบ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวและเทศกาลห้องเต็มเร็ว โดยเฉพาะโฮมสเตย์และวิลล่าเล็กที่มีห้องน้อย ควรจองล่วงหน้า · สิงห์บุรีไม่มีรถไฟฟ้าและสนามบิน การมีรถส่วนตัวสะดวกที่สุด เกือบทุกที่พักมีที่จอดรถฟรี · บทความโดย <strong>ThailandAddict</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมสิงห์บุรี",
   "faq": [
-    { "q": "❓ พักโซนไหนดีในสิงห์บุรี?", "a": "ขึ้นอยู่กับแพลนเที่ยว · <strong>ตัวเมือง (บางมัญ·ต้นโพธิ์·จักรสีห์)</strong> เหมาะคนอยากอยู่ใกล้ริมแม่น้ำเจ้าพระยา วัดพระนอนจักรสีห์ FN Outlet และตลาด (Chaisaeng Palace, Chaisaeng Villa, Golden Dragon, Central Park) · <strong>พรหมบุรี</strong> ติดสายเอเชียทางใต้ เหมาะแวะพักระหว่างทาง (Parida Resort) · <strong>บางระจัน</strong> เหมาะเที่ยวค่ายบางระจันและพักบรรยากาศทุ่งนาชนบท (Sing Buri Homestay, Rim Thung Mae La)" },
-    { "q": "❓ โรงแรมสิงห์บุรีราคาเท่าไหร่?", "a": "ราคาเบากว่าหลายจังหวัด: อพาร์ตเมนต์และโรงแรมประหยัดเริ่มราว ฿400–700 ต่อคืน · รีสอร์ตและโรงแรมระดับกลาง-4 ดาวราว ฿700–1,000 · บูทีกวิลล่ามีสระและที่พักรวมอาหารเช้าราว ฿1,079–1,200 · เกือบทุกที่มีที่จอดรถฟรี" },
-    { "q": "❓ ที่พักสิงห์บุรีที่ไหนคะแนนรีวิวดีที่สุด?", "a": "จากที่เรารวบรวม <strong>Sing Buri Homestay</strong> ได้คะแนนสูงสุดที่ 9.4 (โฮมสเตย์บางระจัน อาหารบ้านอร่อย) รองลงมา <strong>Chaisaeng Villa</strong> และ <strong>Golden Dragon Resort</strong> ที่ 9.1 · ส่วนตัวที่มีฐานรีวิวใหญ่ที่สุดคือ <strong>Chaisaeng Palace</strong> 214 รีวิว คะแนน 8.6 ห้องวิวแม่น้ำเจ้าพระยา" },
-    { "q": "❓ มีโรงแรมสิงห์บุรีที่มีสระว่ายน้ำไหม?", "a": "มี แต่ไม่เยอะ — <strong>Sumali Villa</strong> ฿1,200 เป็นบูทีกวิลล่ามีสระว่ายน้ำกลางสวน และ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 มีสระกลางแจ้งพร้อมบาร์ริมสระ · โรงแรมในเมืองส่วนใหญ่ไม่มีสระ ถ้าสระเป็นสิ่งสำคัญแนะนำสองที่นี้" },
-    { "q": "❓ ไม่มีรถส่วนตัวเที่ยวสิงห์บุรีได้ไหม?", "a": "สิงห์บุรีไม่มีรถไฟฟ้า ไม่มีสนามบิน และไม่มีสถานีรถไฟในตัวเมือง ส่วนใหญ่มากับรถตู้/รถทัวร์มาลงขนส่ง · ถ้าไม่มีรถ แนะนำเลือกที่พักในตัวเมือง (เช่น Chaisaeng Palace, Central Park) ที่ใกล้ตลาดและร้านอาหาร แล้วใช้รถรับจ้างในจังหวัด · ส่วนโฮมสเตย์บางระจันและรีสอร์ตนอกเมืองควรมีรถ" },
-    { "q": "❓ ควรจองโรงแรมสิงห์บุรีล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ที่พักห้องน้อยอย่างโฮมสเตย์ บูทีกวิลล่า และรีสอร์ตวิวทุ่งนา (Sing Buri Homestay, Sumali Villa, Rim Thung Mae La, Je t'aime) เต็มเร็วช่วงวันหยุดยาวและเทศกาล ควรจองล่วงหน้าหลายวันถึง 1 เดือน" }
-  ]
+    {
+      "q": "❓ พักโซนไหนดีในสิงห์บุรี?",
+      "a": "ขึ้นอยู่กับแพลนเที่ยว · <strong>ตัวเมือง (บางมัญ·ต้นโพธิ์·จักรสีห์)</strong> เหมาะคนอยากอยู่ใกล้ริมแม่น้ำเจ้าพระยา วัดพระนอนจักรสีห์ FN Outlet และตลาด (Chaisaeng Palace, Chaisaeng Villa, Golden Dragon, Central Park) · <strong>พรหมบุรี</strong> ติดสายเอเชียทางใต้ เหมาะแวะพักระหว่างทาง (Parida Resort) · <strong>บางระจัน</strong> เหมาะเที่ยวค่ายบางระจันและพักบรรยากาศทุ่งนาชนบท (Sing Buri Homestay, Rim Thung Mae La)"
+    },
+    {
+      "q": "❓ โรงแรมสิงห์บุรีราคาเท่าไหร่?",
+      "a": "ราคาเบากว่าหลายจังหวัด: อพาร์ตเมนต์และโรงแรมประหยัดเริ่มราว ฿400–700 ต่อคืน · รีสอร์ตและโรงแรมระดับกลาง-4 ดาวราว ฿700–1,000 · บูทีกวิลล่ามีสระและที่พักรวมอาหารเช้าราว ฿1,079–1,200 · เกือบทุกที่มีที่จอดรถฟรี"
+    },
+    {
+      "q": "❓ ที่พักสิงห์บุรีที่ไหนคะแนนรีวิวดีที่สุด?",
+      "a": "จากที่เรารวบรวม <strong>Sing Buri Homestay</strong> ได้คะแนนสูงสุดที่ 9.4 (โฮมสเตย์บางระจัน อาหารบ้านอร่อย) รองลงมา <strong>Chaisaeng Villa</strong> และ <strong>Golden Dragon Resort</strong> ที่ 9.1 · ส่วนตัวที่มีฐานรีวิวใหญ่ที่สุดคือ <strong>Chaisaeng Palace</strong> 214 รีวิว คะแนน 8.6 ห้องวิวแม่น้ำเจ้าพระยา"
+    },
+    {
+      "q": "❓ มีโรงแรมสิงห์บุรีที่มีสระว่ายน้ำไหม?",
+      "a": "มี แต่ไม่เยอะ — <strong>Sumali Villa</strong> ฿1,200 เป็นบูทีกวิลล่ามีสระว่ายน้ำกลางสวน และ <strong>Je t'aime Cafe & Villa</strong> ฿1,079 มีสระกลางแจ้งพร้อมบาร์ริมสระ · โรงแรมในเมืองส่วนใหญ่ไม่มีสระ ถ้าสระเป็นสิ่งสำคัญแนะนำสองที่นี้"
+    },
+    {
+      "q": "❓ ไม่มีรถส่วนตัวเที่ยวสิงห์บุรีได้ไหม?",
+      "a": "สิงห์บุรีไม่มีรถไฟฟ้า ไม่มีสนามบิน และไม่มีสถานีรถไฟในตัวเมือง ส่วนใหญ่มากับรถตู้/รถทัวร์มาลงขนส่ง · ถ้าไม่มีรถ แนะนำเลือกที่พักในตัวเมือง (เช่น Chaisaeng Palace, Central Park) ที่ใกล้ตลาดและร้านอาหาร แล้วใช้รถรับจ้างในจังหวัด · ส่วนโฮมสเตย์บางระจันและรีสอร์ตนอกเมืองควรมีรถ"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมสิงห์บุรีล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ที่พักห้องน้อยอย่างโฮมสเตย์ บูทีกวิลล่า และรีสอร์ตวิวทุ่งนา (Sing Buri Homestay, Sumali Villa, Rim Thung Mae La, Je t'aime) เต็มเร็วช่วงวันหยุดยาวและเทศกาล ควรจองล่วงหน้าหลายวันถึง 1 เดือน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมสิงห์บุรีคัดมาแล้วจากทุกระดับ — ตั้งแต่ Chaisaeng Palace ริมเจ้าพระยากลางเมือง ไปถึงโฮมสเตย์บางระจันคะแนน 9.4 และรีสอร์ตวิวทุ่งนา เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

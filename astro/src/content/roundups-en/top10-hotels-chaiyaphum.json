@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Chaiyaphum", "href": "city-chaiyaphum.html" },
-    { "name": "Top 12 Chaiyaphum Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Chaiyaphum",
+      "href": "city-chaiyaphum.html"
+    },
+    {
+      "name": "Top 12 Chaiyaphum Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Chaiyaphum", "item": "https://thailandaddict.com/en/city-chaiyaphum" },
-    { "name": "Top 12 Chaiyaphum Hotels", "item": "https://thailandaddict.com/en/top10-hotels-chaiyaphum" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Chaiyaphum",
+      "item": "https://thailandaddict.com/en/city-chaiyaphum"
+    },
+    {
+      "name": "Top 12 Chaiyaphum Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-chaiyaphum"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-chaiyaphum.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Chaiyaphum has no metro and no commercial airport; you get around by car, and the province is spread out enough that your choice of area sets up the whole trip. <strong>Central Chaiyaphum</strong> stays are by far the easiest, with restaurants, the night market, malls and the bus station within walking distance or a short drive — best if you don't have a car or are just passing through. Almost everything in the <strong>Thep Sathit</strong> zone (Ban Rai sub-district, near Pa Hin Ngam and the tulip fields) needs a private or rental car, as it's about 100 km from the city and dining around the stays is thin. <strong>Khon San district</strong> (Chulabhorn Dam) is to the north, roughly a 2-hour drive from the city — a car is essential. The areas in this guide: <strong>City Centre</strong> — hotels, restaurants, markets, easy access · <strong>Thep Sathit</strong> — base for Pa Hin Ngam and the tulip fields · <strong>Khon San</strong> — lakeside houses at Chulabhorn Dam.",
   "secLabel": "All 12 stays — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Hop Inn Chaiyaphum", "price": "฿720" },
-    { "n": "2", "color": "#c8a951", "name": "Na Care Hotel", "price": "฿850" },
-    { "n": "3", "color": "#c8a951", "name": "Salate Chalet", "price": "฿1,200" },
-    { "n": "4", "color": "#9e9e9e", "name": "Khun Saichon Villa", "price": "฿1,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "Pa Din Hin Ngam Resort", "price": "฿790" },
-    { "n": "6", "color": "#9e9e9e", "name": "Baan Rai Phu Pailin Resort", "price": "฿700" },
-    { "n": "7", "color": "#9e9e9e", "name": "Ratanasiri Hotel", "price": "฿560" },
-    { "n": "8", "color": "#bf8040", "name": "Tonkhoon Hotel", "price": "฿650" },
-    { "n": "9", "color": "#bf8040", "name": "Park Villa Chaiyaphume", "price": "฿900" },
-    { "n": "10", "color": "#5d4037", "name": "Siam River Resort", "price": "฿900" },
-    { "n": "11", "color": "#5d4037", "name": "Lertnimit Hotel", "price": "฿650" },
-    { "n": "12", "color": "#5d4037", "name": "Grand Pruksasiri Hotel", "price": "฿690" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Hop Inn Chaiyaphum",
+      "price": "฿720"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Na Care Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Salate Chalet",
+      "price": "฿1,200"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Khun Saichon Villa",
+      "price": "฿1,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Pa Din Hin Ngam Resort",
+      "price": "฿790"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Baan Rai Phu Pailin Resort",
+      "price": "฿700"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Ratanasiri Hotel",
+      "price": "฿560"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Tonkhoon Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Park Villa Chaiyaphume",
+      "price": "฿900"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Siam River Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Lertnimit Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Grand Pruksasiri Hotel",
+      "price": "฿690"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿720",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double (~19.6 sqm)", "price": "from ฿720/night" },
-        { "type": "Standard Twin (~19.6 sqm)", "price": "from ฿760/night" },
-        { "type": "Standard (holiday rate)", "price": "from ฿920/night" }
+        {
+          "type": "Standard Double (~19.6 sqm)",
+          "price": "from ฿720/night"
+        },
+        {
+          "type": "Standard Twin (~19.6 sqm)",
+          "price": "from ฿760/night"
+        },
+        {
+          "type": "Standard (holiday rate)",
+          "price": "from ฿920/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-chaiyaphum/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-chaiyaphum.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-chaiyaphum-hotel-detail-83246804/hop-inn-chaiyaphum/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-chaiyaphum-chaiyaphum.html",
-      "tags": ["🧼 Hop Inn chain-standard cleanliness", "🏙️ In town, walk to restaurants", "💰 Consistent, good value", "🅿️ Free Wi-Fi + parking"],
+      "tags": [
+        "🧼 Hop Inn chain-standard cleanliness",
+        "🏙️ In town, walk to restaurants",
+        "💰 Consistent, good value",
+        "🅿️ Free Wi-Fi + parking"
+      ],
       "addr": "337/10 Non Bua Road, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Hop Inn Chaiyaphum is <strong>the top score in this guide at 9.4 from 80 reviews — a budget city hotel that sells cleanliness and the reliable consistency of the Hop Inn chain</strong>. It sits on Non Bua Road in central Chaiyaphum, within walking distance of restaurants and convenience stores, and makes an easy base for driving out around the province. Real guest reviews praise the spotless rooms, comfortable beds, strong hot water, quiet nights and friendly service — it's the kind of stay where you know exactly what you'll get. The trade-off: it's a budget hotel, so there's no pool, no breakfast included in the rate, and the rooms are standard rather than plush. Best for travellers passing through, here on business, or anyone who just wants a clean, affordable in-town room.",
       "tipHtml": "💡 <strong>Tip:</strong> As a popular chain, it fills fast on long weekends and holidays — booking ahead helps with both availability and price. Breakfast isn't included, but you're in town and can walk out to a morning eatery easily. Driving is convenient with free parking.",
@@ -104,15 +201,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard King", "price": "from ฿850/night" },
-        { "type": "Superior King", "price": "from ฿900/night" },
-        { "type": "Superior Twin", "price": "from ฿950/night" }
+        {
+          "type": "Standard King",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Superior King",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "from ฿950/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/na-care-hotel/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/na-care.html",
       "tripUrl": "https://th.trip.com/hotels/mueang-chaiyaphum-hotel-detail-123510656/na-care-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-na-care-hotel-chaiyaphum.html",
-      "tags": ["✨ Opened 2024, rooms still new", "🏊 Has a pool (rare in town)", "📺 Android TV in every room", "🏙️ In central Chaiyaphum"],
+      "tags": [
+        "✨ Opened 2024, rooms still new",
+        "🏊 Has a pool (rare in town)",
+        "📺 Android TV in every room",
+        "🏙️ In central Chaiyaphum"
+      ],
       "addr": "207 Moo 13, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Na Care Hotel is <strong>a 3-star hotel that opened in 2024, and its selling points are brand-new rooms and a swimming pool — a facility that's genuinely hard to find at an in-town Chaiyaphum hotel</strong>. Scoring 8.7 from 21 reviews, it has 49 rooms in the city, a few minutes' drive from restaurants and markets. Real guest reviews praise the clean, modern rooms, the Android TV in every room, and the pool you can dip into to beat the heat. Because it's new, review volume is still modest and some service touches are still settling in. Best for travellers who want a fresh, clean room with a pool in town for under ฿1,000.",
       "tipHtml": "💡 <strong>Tip:</strong> As a new opening, the rooms are still fresh and prices haven't climbed — a good time to book. The pool is a rarity in town, so bring the kids for a cool-off. Driving is easy.",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Small House (Standard)", "price": "from ฿1,200/night" },
-        { "type": "Medium House (with balcony)", "price": "from ฿1,800/night" },
-        { "type": "Large House (earth-tone)", "price": "from ฿2,900/night" }
+        {
+          "type": "Small House (Standard)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Medium House (with balcony)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Large House (earth-tone)",
+          "price": "from ฿2,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/zalete-chalet/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/saelet-chaaelt.html",
       "tripUrl": "https://www.trip.com/hotels/thep-sathit-district-hotel-detail-10146213/zalete-chalet/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-salate-chalet-chaiyaphum.html",
-      "tags": ["🌼 Base for Pa Hin Ngam & the tulip fields", "🏡 Private standalone houses in a garden", "🎨 Photogenic earth-tone styling", "🌿 Quiet, peaceful setting"],
+      "tags": [
+        "🌼 Base for Pa Hin Ngam & the tulip fields",
+        "🏡 Private standalone houses in a garden",
+        "🎨 Photogenic earth-tone styling",
+        "🌿 Quiet, peaceful setting"
+      ],
       "addr": "68 Moo 9, Ban Rai, Thep Sathit, Chaiyaphum",
       "storyHtml": "Salate Chalet is <strong>a boutique garden chalet in the Thep Sathit zone — the most natural base in this guide for visiting Pa Hin Ngam and the Siam tulip fields</strong>. It scores 8.8 (from just 4 reviews — high, but a small sample). It's roughly 3 standalone houses set in a garden, finished in photogenic earth tones. Real guest reviews praise the privacy, the clean rooms, the quiet setting and the closeness to Thep Sathit's nature spots. As a small property with few reviews, information is limited, there are no big-hotel facilities, and you'll need your own car. Best for couples or small groups coming specifically for the nature, especially during the tulip bloom.",
       "tipHtml": "💡 <strong>Tip:</strong> During the tulip bloom (June–August), Thep Sathit stays fill very fast — book several weeks ahead. There are only a few houses, so confirm your booking. A car is essential; use GPS and allow time to find the lane.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Dahla House", "price": "from ฿1,500/night" },
-        { "type": "Fa Sang House", "price": "from ฿2,000/night" },
-        { "type": "Rim Phrom House (sleeps ~10)", "price": "from ฿2,500/night" }
+        {
+          "type": "Dahla House",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Fa Sang House",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Rim Phrom House (sleeps ~10)",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://khunsaicholvilla.egat.co.th/clbdam/",
       "bookingUrl": "https://khunsaicholvilla.egat.co.th/clbdam/index.php/accommodation",
       "tripUrl": "https://khunsaicholvilla.egat.co.th/clbdam/index.php/contact",
       "reviewUrl": "review-khun-saichon-villa-chaiyaphum.html",
-      "tags": ["💧 Houses by the Chulabhorn Dam reservoir", "👨‍👩‍👧 Large houses sleep a whole group", "🏔️ Mountain views, cool air", "✅ SHA Plus+ · EGAT guesthouse"],
+      "tags": [
+        "💧 Houses by the Chulabhorn Dam reservoir",
+        "👨‍👩‍👧 Large houses sleep a whole group",
+        "🏔️ Mountain views, cool air",
+        "✅ SHA Plus+ · EGAT guesthouse"
+      ],
       "addr": "3539 Moo 1, Thung Luilai, Khon San, Chaiyaphum",
       "storyHtml": "Khun Saichon Villa is <strong>EGAT's guesthouse by Chulabhorn Dam — the most-reviewed stay in this guide at 180 reviews — and a destination in its own right</strong>. It scores 8.6. Set in Khon San district to the north of the province, it's a cluster of houses by the reservoir with mountain views and cool, comfortable air. Real guest reviews praise the lovely dam views, the peaceful natural setting, the large houses that sleep whole groups or families at a good per-head price, and the SHA Plus+ standard. The catch: it's a long way from the city (about a 2-hour drive), you book through EGAT's own system rather than an OTA, and the facilities are guesthouse-style rather than luxury. Best for families and nature lovers coming specifically for the dam.",
       "tipHtml": "💡 <strong>Tip:</strong> Book directly via EGAT's website/phone — it isn't sold on the usual OTAs, so contact them ahead, especially for long weekends. Coming as a group? Pick a large house for a better per-head rate. Evenings are cool, so pack a light jacket.",
@@ -224,15 +363,29 @@
       "priceBig": "฿790",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Double (Teak / Earthen House)", "price": "from ฿790/night" },
-        { "type": "Sai Thong House (small family)", "price": "from ฿1,290/night" },
-        { "type": "Phu Hin Ngam 3 (large, ~6 people)", "price": "from ฿2,390/night" }
+        {
+          "type": "Double (Teak / Earthen House)",
+          "price": "from ฿790/night"
+        },
+        {
+          "type": "Sai Thong House (small family)",
+          "price": "from ฿1,290/night"
+        },
+        {
+          "type": "Phu Hin Ngam 3 (large, ~6 people)",
+          "price": "from ฿2,390/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/hotels-near-pa-hin-ngam-national-park/attractions/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.facebook.com/padinhinngamresort/",
       "tripUrl": "https://www.trip.com/hotels/thep-sathit-district-hotels-list-108568/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pa-din-hin-ngam-resort-chaiyaphum.html",
-      "tags": ["🏞️ Base for Pa Hin Ngam & the tulip fields", "🏕️ Camping area for campers", "🏡 Bungalows in a leafy garden", "👨‍👩‍👧 Large houses good for groups"],
+      "tags": [
+        "🏞️ Base for Pa Hin Ngam & the tulip fields",
+        "🏕️ Camping area for campers",
+        "🏡 Bungalows in a leafy garden",
+        "👨‍👩‍👧 Large houses good for groups"
+      ],
       "addr": "220 Moo 9, Ban Rai, Thep Sathit, Chaiyaphum",
       "storyHtml": "Pa Din Hin Ngam Resort is <strong>a garden bungalow resort in the Thep Sathit zone, close to Pa Hin Ngam and the tulip fields, with both houses and a camping ground</strong>. It scores 8.6 from 40 reviews. It has a homely feel, with several house types from doubles up to a large house sleeping around 6, plus a camping area for campers. Real guest reviews praise the leafy, peaceful setting, the value and the location near the nature spots. As a budget property, facilities aren't full-hotel, you mainly book via Facebook/phone, and a car is essential. Best for families and groups of friends doing nature on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Coming as a group? A large house is far better value per head. Campers should ask the resort directly about the camping area and gear. It fills fast during the tulip bloom, so call ahead.",
@@ -264,15 +417,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Wooden Cabin (weekday)", "price": "from ฿700/night" },
-        { "type": "Wooden Cabin (weekend)", "price": "from ฿1,000/night" },
-        { "type": "Packages / discounts", "price": "ask the resort" }
+        {
+          "type": "Wooden Cabin (weekday)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Wooden Cabin (weekend)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Packages / discounts",
+          "price": "ask the resort"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/city/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.facebook.com/p/%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%84%E0%B8%A3%E0%B9%88%E0%B8%A0%E0%B8%B9%E0%B9%84%E0%B8%9E%E0%B8%A5%E0%B8%B4%E0%B8%99-%E0%B8%81%E0%B8%B2%E0%B9%81%E0%B8%9F%E0%B8%AA%E0%B8%94%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%9E%E0%B8%B1%E0%B8%81%E0%B8%A1%E0%B8%AD%E0%B8%AB%E0%B8%B4%E0%B8%99%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B8%8A%E0%B8%B1%E0%B8%A2%E0%B8%A0%E0%B8%B9%E0%B8%A1%E0%B8%B4-100049464079552/",
       "tripUrl": "https://www.trip.com/hotels/chaiyaphum-hotel-list-723/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-rai-phu-pailin-resort-chaiyaphum.html",
-      "tags": ["🪨 Base for Mo Hin Khao", "🏡 Private standalone wooden cabins", "☕ On-site cafe, free coffee + snacks", "🌿 Leafy garden setting"],
+      "tags": [
+        "🪨 Base for Mo Hin Khao",
+        "🏡 Private standalone wooden cabins",
+        "☕ On-site cafe, free coffee + snacks",
+        "🌿 Leafy garden setting"
+      ],
       "addr": "Tha Hin Ngom, Mueang Chaiyaphum, Chaiyaphum",
       "storyHtml": "Baan Rai Phu Pailin Resort is <strong>a wooden-cabin resort with a cafe in Tha Hin Ngom — the closest base for visiting Mo Hin Khao, Thailand's \"Stonehenge\"</strong>. It scores 8.5 from 30 reviews. It's roughly 5–6 standalone wooden cabins set in a garden, each private with its own porch. Real guest reviews praise the leafy, peaceful setting, the cute wooden cabins, the on-site cafe with free coffee and snacks, and the closeness to Mo Hin Khao. As a small resort with limited cabins, you mainly book via Facebook/phone, weekend rates are higher, and a car is essential. Best for couples and small groups visiting the Mo Hin Ngom–Mo Hin Khao rock formations.",
       "tipHtml": "💡 <strong>Tip:</strong> There are only a few cabins — call ahead (081-790-1692), especially at weekends, when rates run higher than weekdays. Drive up to Mo Hin Khao early for sunrise before the heat. Stop by the on-site cafe for free coffee and snacks.",
@@ -304,15 +471,29 @@
       "priceBig": "฿560",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿560/night" },
-        { "type": "Superior Double/Twin", "price": "from ฿650/night" },
-        { "type": "Deluxe Double/Twin", "price": "from ฿790/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿560/night"
+        },
+        {
+          "type": "Superior Double/Twin",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Double/Twin",
+          "price": "from ฿790/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ratanasiri-hotel/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ratanasiri.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-chaiyaphum-hotel-detail-122805059/ratanasiri-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ratanasiri-hotel-chaiyaphum.html",
-      "tags": ["💸 Cheapest in town, from ฿560", "🧼 Clean rooms, great value", "🏙️ Central, easy to get around", "🅿️ Free Wi-Fi + parking"],
+      "tags": [
+        "💸 Cheapest in town, from ฿560",
+        "🧼 Clean rooms, great value",
+        "🏙️ Central, easy to get around",
+        "🅿️ Free Wi-Fi + parking"
+      ],
       "addr": "677/11 Non Mueang Road, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Ratanasiri Hotel is <strong>the cheapest in-town hotel in this guide, from just ฿560, and it still scores well</strong> — 8.5 from 74 reviews. It's a 26-room hotel on Non Mueang Road in central Chaiyaphum, easy to get around from. Real guest reviews praise the clean rooms that punch above the price, the comfortable beds, the friendly staff and the strong value at this rate. It's a budget hotel, so rooms and fittings are simple, there's no pool and no fancy breakfast. Best for budget travellers who want a clean, cheap room in town.",
       "tipHtml": "💡 <strong>Tip:</strong> As the cheapest in town, it fills fast on holidays — booking ahead pays off. Step up to Superior/Deluxe if you want a bigger room while keeping the price light. Driving is easy with free parking.",
@@ -344,15 +525,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿650/night" },
-        { "type": "Standard Twin", "price": "from ฿700/night" },
-        { "type": "Superior", "price": "from ฿900/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Superior",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tonkhoon-hotel/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tonkhoon.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-chaiyaphum-hotel-detail-9569775/tonkoon-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tonkhoon-hotel-chaiyaphum.html",
-      "tags": ["🛏️ Clean, quiet, comfy", "🏠 Serviced-apartment style", "🏙️ Central, easy to get around", "💼 Some rooms have a work desk"],
+      "tags": [
+        "🛏️ Clean, quiet, comfy",
+        "🏠 Serviced-apartment style",
+        "🏙️ Central, easy to get around",
+        "💼 Some rooms have a work desk"
+      ],
       "addr": "379 Bannakan Road, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Tonkhoon Hotel is <strong>a 3-star, serviced-apartment-style hotel in the city centre that sells cleanliness and quiet for longer stays</strong>. It scores 8.3 from 80 reviews. It sits on Bannakan Road in central Chaiyaphum, easy to get around from. Real guest reviews praise the clean, quiet, comfortable rooms, some with a balcony and a work desk — handy if you're working or staying several nights. It's a simple hotel: no pool, limited common facilities, and rooms that prioritise function over design. Best for business travellers, longer stays, and anyone wanting a quiet, clean in-town room.",
       "tipHtml": "💡 <strong>Tip:</strong> Great for multi-night stays — pick a room with a work desk or balcony if you'll be working. You're central, so you can walk out to restaurants. Driving is easy.",
@@ -384,15 +579,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Room Suite (King)", "price": "from ฿900/night" },
-        { "type": "Villa (King · garden house)", "price": "from ฿1,000/night" },
-        { "type": "Family Suite (2 bedrooms · kitchen)", "price": "from ฿1,300/night" }
+        {
+          "type": "Room Suite (King)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Villa (King · garden house)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Family Suite (2 bedrooms · kitchen)",
+          "price": "from ฿1,300/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/park-villa-chaiyaphume-h17249820/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/park-villa-chaiyaphume.html",
       "tripUrl": "https://www.trip.com/hotels/chaiyaphum-hotel-detail-100657893/park-villa-chaiyaphume/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-park-villa-chaiyaphume-chaiyaphum.html",
-      "tags": ["🏡 Private standalone garden villas", "🍳 Kitchen in some units, good for long stays", "👨‍👩‍👧 2-bedroom Family Suite", "❄️ Spacious, clean, cool A/C"],
+      "tags": [
+        "🏡 Private standalone garden villas",
+        "🍳 Kitchen in some units, good for long stays",
+        "👨‍👩‍👧 2-bedroom Family Suite",
+        "❄️ Spacious, clean, cool A/C"
+      ],
       "addr": "299 Moo 13, Nong Na Saeng, Mueang Chaiyaphum, Chaiyaphum",
       "storyHtml": "Park Villa Chaiyaphume is <strong>a garden villa/guesthouse on the city's outskirts, selling standalone-house privacy with a small kitchen in some units</strong>. It scores 8.2 from 28 reviews. It's roughly 5 houses in Nong Na Saeng. Real guest reviews praise the spacious, clean rooms, the cool A/C, the private home-like feel, and the 2-bedroom Family Suite with a small kitchen that suits families or longer stays. It's on the outskirts, so you'll drive into town for restaurants, there are only a few units, and there are no big-hotel facilities. Best for families and groups who want a private house at a reasonable price.",
       "tipHtml": "💡 <strong>Tip:</strong> Families should pick the 2-bedroom Family Suite with its small kitchen — cooking your own meals saves money and hassle. You're on the outskirts, so keep a car for trips into town. Few units, so book ahead.",
@@ -424,15 +633,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double (balcony)", "price": "from ฿900/night" },
-        { "type": "Deluxe Garden Twin", "price": "from ฿1,050/night" },
-        { "type": "Suite (King + sofa bed)", "price": "from ฿1,400/night" }
+        {
+          "type": "Deluxe Double (balcony)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Garden Twin",
+          "price": "from ฿1,050/night"
+        },
+        {
+          "type": "Suite (King + sofa bed)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/siam-river-resort/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-siam-river-resort-chaiyaphum.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-chaiyaphum-hotel-detail-706896/siam-river-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-siam-river-resort-chaiyaphum.html",
-      "tags": ["🏊 Has a pool (rare in town)", "🏨 Large hotel, 108 rooms", "🌿 Rooms with balcony/garden view", "🏙️ In central Chaiyaphum"],
+      "tags": [
+        "🏊 Has a pool (rare in town)",
+        "🏨 Large hotel, 108 rooms",
+        "🌿 Rooms with balcony/garden view",
+        "🏙️ In central Chaiyaphum"
+      ],
       "addr": "55 Bannakan Road, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Siam River Resort is <strong>a large 108-room, 3-star resort in central Chaiyaphum with a swimming pool</strong>. It scores 7.9 (from 7 reviews — a small sample). Unlike the budget city hotels, it has a pool to swim in and rooms with a balcony or garden view. Real guest reviews praise the spacious rooms, the balconies and the pool, which is hard to find in town. It's an older property, so parts are showing their age, recent reviews are still thin, and although it's in town you'll drive to the restaurant area. Best for families who want a spacious in-town room with a pool at a reasonable price.",
       "tipHtml": "💡 <strong>Tip:</strong> It's one of the few in-town stays with a pool, so bring the kids for a swim. Pick a Deluxe room with a balcony/garden view for a nicer setting. Driving is easy.",
@@ -464,15 +687,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (18 sqm)", "price": "from ฿650/night" },
-        { "type": "Junior Suite (27 sqm)", "price": "from ฿850/night" },
-        { "type": "Suite (renovated)", "price": "from ฿1,000/night" }
+        {
+          "type": "Standard Room (18 sqm)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Junior Suite (27 sqm)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Suite (renovated)",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lertnimitra-hotel/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lertnimit.html",
       "tripUrl": "https://www.trip.com/hotels/mueang-chaiyaphum-hotel-detail-8362699/lertnimit-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lertnimit-hotel-chaiyaphum.html",
-      "tags": ["💼 Long-running, 76 rooms, central", "💰 Budget rate, from ฿650", "🛏️ Renovated rooms available", "🏙️ Central, easy to get around"],
+      "tags": [
+        "💼 Long-running, 76 rooms, central",
+        "💰 Budget rate, from ฿650",
+        "🛏️ Renovated rooms available",
+        "🏙️ Central, easy to get around"
+      ],
       "addr": "169 Niwetrat Road, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Lertnimit Hotel is <strong>a long-running hotel in central Chaiyaphum whose selling points are a budget rate and a central location</strong>. It scores 7.9 from 130 reviews. It's a 76-room hotel on Niwetrat Road with several room tiers from Standard up to a renovated Suite. Real guest reviews praise the central, easy location, the value, and the helpful staff. To be clear, it's an older hotel — the building and rooms show their age and cleanliness is inconsistent, so ask for a renovated room. Best for budget travellers who weigh price and location over newness.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies a fair bit — ask for a renovated Junior Suite/Suite and ask to see the room before check-in. You're central, so you can walk out to restaurants. Driving is easy.",
@@ -504,15 +741,29 @@
       "priceBig": "฿690",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿690/night" },
-        { "type": "Superior Room", "price": "from ฿790/night" },
-        { "type": "VIP Room", "price": "from ฿990/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿690/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿790/night"
+        },
+        {
+          "type": "VIP Room",
+          "price": "from ฿990/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grandpruksasiri-chaiyaphum/hotel/chaiyaphum-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaerm-aekrndphrksaasiri-chayphuumi-grandpruksasiri-chaiyaphum.html",
       "tripUrl": "https://www.trip.com/hotels/chaiyaphum-hotel-detail/grand-pruksasiri-chaiyaphum/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-pruksasiri-hotel-chaiyaphum.html",
-      "tags": ["🏨 Midrange hotel, around 50 rooms", "💰 Budget rate, from ฿690", "🛏️ VIP Room for more space", "🏙️ In central Chaiyaphum"],
+      "tags": [
+        "🏨 Midrange hotel, around 50 rooms",
+        "💰 Budget rate, from ฿690",
+        "🛏️ VIP Room for more space",
+        "🏙️ In central Chaiyaphum"
+      ],
       "addr": "171/8 Moo 9, Nai Mueang, Mueang Chaiyaphum",
       "storyHtml": "Grand Pruksasiri Hotel is <strong>a midrange hotel in central Chaiyaphum whose selling points are a budget rate and a choice of room tiers</strong>. It scores 7.8 from 90 reviews. It's a roughly 50-room hotel in the city, with everything from Standard up to a roomier VIP Room. Real guest reviews praise the convenient in-town location, the value and the decent-sized rooms. That said, upkeep and cleanliness are inconsistent, scores hover in the 7s, and the facilities are basic. Best for budget travellers who want an affordable in-town room and are happy to view the room before taking it.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies — ask for a Superior/VIP room and view it before check-in, checking the A/C and bathroom. You're in town, so you can walk out to restaurants. Driving is easy.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Chaiyaphum Stays 2026",
-  "compareCols": ["#", "Stay", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Stay",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Hop Inn Chaiyaphum", "type": "⭐⭐", "score": "9.4", "price": "฿720", "access": "📍 In town", "badge": "Top score, clean", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Na Care Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿850", "access": "📍 In town", "badge": "Newly opened, pool", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Salate Chalet", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,200", "access": "📍 Thep Sathit, near Pa Hin Ngam", "badge": "Garden boutique, Pa Hin Ngam", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Khun Saichon Villa", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 Khon San, Chulabhorn Dam", "badge": "Lakeside, most-reviewed", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Pa Din Hin Ngam Resort", "type": "⭐⭐", "score": "8.6", "price": "฿790", "access": "📍 Thep Sathit, near Pa Hin Ngam", "badge": "Near Pa Hin Ngam, camping", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Baan Rai Phu Pailin Resort", "type": "⭐⭐", "score": "8.5", "price": "฿700", "access": "📍 Tha Hin Ngom, near Mo Hin Khao", "badge": "Near Mo Hin Khao, cabins+cafe", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Ratanasiri Hotel", "type": "⭐⭐", "score": "8.5", "price": "฿560", "access": "📍 In town", "badge": "Cheapest in town, great value", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Tonkhoon Hotel", "type": "⭐⭐⭐", "score": "8.3", "price": "฿650", "access": "📍 In town", "badge": "Clean & quiet, long stays", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Park Villa Chaiyaphume", "type": "⭐⭐⭐⭐", "score": "8.2", "price": "฿900", "access": "📍 Outskirts, Nong Na Saeng", "badge": "Garden villas, family", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Siam River Resort", "type": "⭐⭐⭐", "score": "7.9", "price": "฿900", "access": "📍 In town", "badge": "Pool, large hotel", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Lertnimit Hotel", "type": "⭐⭐⭐", "score": "7.9", "price": "฿650", "access": "📍 In town", "badge": "Long-running, many rooms, budget", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Grand Pruksasiri Hotel", "type": "⭐⭐⭐", "score": "7.8", "price": "฿690", "access": "📍 In town", "badge": "Midrange, budget", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Hop Inn Chaiyaphum",
+      "type": "⭐⭐",
+      "score": "9.4",
+      "price": "฿720",
+      "access": "📍 In town",
+      "badge": "Top score, clean",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Na Care Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿850",
+      "access": "📍 In town",
+      "badge": "Newly opened, pool",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Salate Chalet",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,200",
+      "access": "📍 Thep Sathit, near Pa Hin Ngam",
+      "badge": "Garden boutique, Pa Hin Ngam",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Khun Saichon Villa",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 Khon San, Chulabhorn Dam",
+      "badge": "Lakeside, most-reviewed",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Pa Din Hin Ngam Resort",
+      "type": "⭐⭐",
+      "score": "8.6",
+      "price": "฿790",
+      "access": "📍 Thep Sathit, near Pa Hin Ngam",
+      "badge": "Near Pa Hin Ngam, camping",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Baan Rai Phu Pailin Resort",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿700",
+      "access": "📍 Tha Hin Ngom, near Mo Hin Khao",
+      "badge": "Near Mo Hin Khao, cabins+cafe",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Ratanasiri Hotel",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿560",
+      "access": "📍 In town",
+      "badge": "Cheapest in town, great value",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Tonkhoon Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿650",
+      "access": "📍 In town",
+      "badge": "Clean & quiet, long stays",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Park Villa Chaiyaphume",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿900",
+      "access": "📍 Outskirts, Nong Na Saeng",
+      "badge": "Garden villas, family",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Siam River Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿900",
+      "access": "📍 In town",
+      "badge": "Pool, large hotel",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Lertnimit Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.9",
+      "price": "฿650",
+      "access": "📍 In town",
+      "badge": "Long-running, many rooms, budget",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Grand Pruksasiri Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿690",
+      "access": "📍 In town",
+      "badge": "Midrange, budget",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Chaiyaphum stay for you?",
   "advice": [
-    { "icon": "🏙️", "head": "Stay in town, easy access, light on price", "bodyHtml": "→ <strong>Hop Inn Chaiyaphum</strong> ฿720, clean with the top score 9.4 · or <strong>Ratanasiri Hotel</strong> ฿560, cheapest in town · or <strong>Tonkhoon Hotel</strong> ฿650, clean and quiet for longer stays" },
-    { "icon": "🌼", "head": "Visiting Pa Hin Ngam & the tulip fields", "bodyHtml": "→ <strong>Salate Chalet</strong> ฿1,200, a garden boutique chalet scoring 8.8 · or <strong>Pa Din Hin Ngam Resort</strong> ฿790, bungalows + camping ground at good value — both in the Thep Sathit zone" },
-    { "icon": "💧", "head": "Nature lovers, lakeside & mountains", "bodyHtml": "→ <strong>Khun Saichon Villa</strong> ฿1,500, lakeside houses at Chulabhorn Dam with mountain views, most-reviewed · or <strong>Baan Rai Phu Pailin Resort</strong> ฿700, wooden cabins + cafe near Mo Hin Khao" },
-    { "icon": "🏊", "head": "Want a room with a pool in town", "bodyHtml": "→ <strong>Na Care Hotel</strong> ฿850, opened 2024 with a pool · or <strong>Siam River Resort</strong> ฿900, a large 108-room resort with a pool — both in central Chaiyaphum" },
-    { "icon": "👨‍👩‍👧", "head": "Family/group wanting a private house", "bodyHtml": "→ <strong>Park Villa Chaiyaphume</strong> ฿900, garden villas with a Family Suite and kitchen · or <strong>Khun Saichon Villa</strong> ฿1,500, large houses that sleep a whole group · or <strong>Pa Din Hin Ngam</strong> ฿790, large houses at a light price" },
-    { "icon": "💸", "head": "Tight budget, want the best value", "bodyHtml": "→ <strong>Ratanasiri Hotel</strong> ฿560, cheapest in town and clean · or <strong>Lertnimit Hotel</strong> ฿650, long-running and central · or <strong>Grand Pruksasiri</strong> ฿690, midrange in town" }
+    {
+      "icon": "🏙️",
+      "head": "Stay in town, easy access, light on price",
+      "bodyHtml": "→ <strong>Hop Inn Chaiyaphum</strong> ฿720, clean with the top score 9.4 · or <strong>Ratanasiri Hotel</strong> ฿560, cheapest in town · or <strong>Tonkhoon Hotel</strong> ฿650, clean and quiet for longer stays"
+    },
+    {
+      "icon": "🌼",
+      "head": "Visiting Pa Hin Ngam & the tulip fields",
+      "bodyHtml": "→ <strong>Salate Chalet</strong> ฿1,200, a garden boutique chalet scoring 8.8 · or <strong>Pa Din Hin Ngam Resort</strong> ฿790, bungalows + camping ground at good value — both in the Thep Sathit zone"
+    },
+    {
+      "icon": "💧",
+      "head": "Nature lovers, lakeside & mountains",
+      "bodyHtml": "→ <strong>Khun Saichon Villa</strong> ฿1,500, lakeside houses at Chulabhorn Dam with mountain views, most-reviewed · or <strong>Baan Rai Phu Pailin Resort</strong> ฿700, wooden cabins + cafe near Mo Hin Khao"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a room with a pool in town",
+      "bodyHtml": "→ <strong>Na Care Hotel</strong> ฿850, opened 2024 with a pool · or <strong>Siam River Resort</strong> ฿900, a large 108-room resort with a pool — both in central Chaiyaphum"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Family/group wanting a private house",
+      "bodyHtml": "→ <strong>Park Villa Chaiyaphume</strong> ฿900, garden villas with a Family Suite and kitchen · or <strong>Khun Saichon Villa</strong> ฿1,500, large houses that sleep a whole group · or <strong>Pa Din Hin Ngam</strong> ฿790, large houses at a light price"
+    },
+    {
+      "icon": "💸",
+      "head": "Tight budget, want the best value",
+      "bodyHtml": "→ <strong>Ratanasiri Hotel</strong> ฿560, cheapest in town and clean · or <strong>Lertnimit Hotel</strong> ฿650, long-running and central · or <strong>Grand Pruksasiri</strong> ฿690, midrange in town"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and can change by date and season — always check live prices and compare the 3 sites before booking. During the <strong>tulip bloom (June–August)</strong>, Thep Sathit stays near Pa Hin Ngam fill fast and prices climb sharply, so book several weeks ahead. The Thep Sathit zone, Khon San district (Chulabhorn Dam) and almost all nature spots need a private or rental car, as they're a long way from the city. In-town stays are the easiest, with restaurants and markets within walking distance or a short drive. A few stays (Khun Saichon Villa, Baan Rai Phu Pailin, Pa Din Hin Ngam) are mainly booked through their own channels (EGAT website/Facebook/phone) rather than the usual OTAs. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — common traveller questions about Chaiyaphum stays",
   "faq": [
-    { "q": "❓ Which area should I stay in Chaiyaphum?", "a": "It depends on your trip · <strong>Central Chaiyaphum</strong> is the easiest, with restaurants, markets and hotels across every tier — best for passing through or business (Hop Inn, Na Care, Ratanasiri, Tonkhoon, Siam River, Lertnimit, Grand Pruksasiri) · <strong>Thep Sathit district</strong> is near Pa Hin Ngam and the tulip fields, best for nature lovers (Salate Chalet, Pa Din Hin Ngam) · <strong>Khon San district</strong> is lakeside at Chulabhorn Dam with mountain views (Khun Saichon Villa) · and <strong>Tha Hin Ngom</strong> is near Mo Hin Khao (Baan Rai Phu Pailin)" },
-    { "q": "❓ How much do Chaiyaphum stays cost?", "a": "Most of the province is affordable: budget in-town hotels start around ฿560–900 a night (Ratanasiri, Lertnimit, Grand Pruksasiri, Tonkhoon, Hop Inn, Na Care) · bungalows and chalets in the Thep Sathit zone and lakeside houses run around ฿700–1,500 (Baan Rai Phu Pailin, Pa Din Hin Ngam, Salate Chalet, Khun Saichon Villa) · all prices are approximate starting rates for standard rooms; during the tulip bloom and long weekends prices climb and rooms fill fast" },
-    { "q": "❓ Visiting the tulip fields & Pa Hin Ngam — where to stay?", "a": "Pa Hin Ngam and the Siam tulip fields are in Thep Sathit district, about 100 km from the city. If nature is your main goal during the bloom (June–August), staying in the Thep Sathit zone cuts the driving — <strong>Salate Chalet</strong> ฿1,200, a garden boutique chalet scoring 8.8, or <strong>Pa Din Hin Ngam Resort</strong> ฿790, bungalows with a camping ground at good value. Both need a car, and they fill very fast during the bloom, so book several weeks ahead" },
-    { "q": "❓ Visiting Chulabhorn Dam — where to stay?", "a": "Chulabhorn Dam is in Khon San district to the north, about a 2-hour drive from the city · <strong>Khun Saichon Villa</strong> ฿1,500 is EGAT's guesthouse by the reservoir with mountain views, the most-reviewed stay in this guide (180 reviews), with large houses that sleep a whole group — great for families and nature lovers. It's booked through EGAT's own system rather than an OTA, so contact them ahead, especially for long weekends" },
-    { "q": "❓ Is Chaiyaphum easy to visit without a car?", "a": "Chaiyaphum has no metro and no commercial airport, so without a car, <strong>staying in town is by far the easiest</strong> — Hop Inn, Ratanasiri, Tonkhoon and the other in-town hotels are within walking distance of restaurants and markets. But the main nature spots (Pa Hin Ngam and the tulip fields in Thep Sathit, about 100 km, and Chulabhorn Dam in Khon San, about 2 hours) are far away and almost all need a private or rental car — renting or chartering a car is recommended if you'll head out to other districts" },
-    { "q": "❓ Which site is cheapest to book a Chaiyaphum stay?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by current promotion, so open and compare all 3 before every booking — each review page in this guide has price-comparison links. Note: a few nature-zone stays (Khun Saichon Villa at Chulabhorn Dam, Baan Rai Phu Pailin, Pa Din Hin Ngam) are mainly booked through their own channels — the EGAT website, Facebook or by phone — rather than the usual OTAs, so contact them ahead" }
-  ]
+    {
+      "q": "❓ Which area should I stay in Chaiyaphum?",
+      "a": "It depends on your trip · <strong>Central Chaiyaphum</strong> is the easiest, with restaurants, markets and hotels across every tier — best for passing through or business (Hop Inn, Na Care, Ratanasiri, Tonkhoon, Siam River, Lertnimit, Grand Pruksasiri) · <strong>Thep Sathit district</strong> is near Pa Hin Ngam and the tulip fields, best for nature lovers (Salate Chalet, Pa Din Hin Ngam) · <strong>Khon San district</strong> is lakeside at Chulabhorn Dam with mountain views (Khun Saichon Villa) · and <strong>Tha Hin Ngom</strong> is near Mo Hin Khao (Baan Rai Phu Pailin)"
+    },
+    {
+      "q": "❓ How much do Chaiyaphum stays cost?",
+      "a": "Most of the province is affordable: budget in-town hotels start around ฿560–900 a night (Ratanasiri, Lertnimit, Grand Pruksasiri, Tonkhoon, Hop Inn, Na Care) · bungalows and chalets in the Thep Sathit zone and lakeside houses run around ฿700–1,500 (Baan Rai Phu Pailin, Pa Din Hin Ngam, Salate Chalet, Khun Saichon Villa) · all prices are approximate starting rates for standard rooms; during the tulip bloom and long weekends prices climb and rooms fill fast"
+    },
+    {
+      "q": "❓ Visiting the tulip fields & Pa Hin Ngam — where to stay?",
+      "a": "Pa Hin Ngam and the Siam tulip fields are in Thep Sathit district, about 100 km from the city. If nature is your main goal during the bloom (June–August), staying in the Thep Sathit zone cuts the driving — <strong>Salate Chalet</strong> ฿1,200, a garden boutique chalet scoring 8.8, or <strong>Pa Din Hin Ngam Resort</strong> ฿790, bungalows with a camping ground at good value. Both need a car, and they fill very fast during the bloom, so book several weeks ahead"
+    },
+    {
+      "q": "❓ Visiting Chulabhorn Dam — where to stay?",
+      "a": "Chulabhorn Dam is in Khon San district to the north, about a 2-hour drive from the city · <strong>Khun Saichon Villa</strong> ฿1,500 is EGAT's guesthouse by the reservoir with mountain views, the most-reviewed stay in this guide (180 reviews), with large houses that sleep a whole group — great for families and nature lovers. It's booked through EGAT's own system rather than an OTA, so contact them ahead, especially for long weekends"
+    },
+    {
+      "q": "❓ Is Chaiyaphum easy to visit without a car?",
+      "a": "Chaiyaphum has no metro and no commercial airport, so without a car, <strong>staying in town is by far the easiest</strong> — Hop Inn, Ratanasiri, Tonkhoon and the other in-town hotels are within walking distance of restaurants and markets. But the main nature spots (Pa Hin Ngam and the tulip fields in Thep Sathit, about 100 km, and Chulabhorn Dam in Khon San, about 2 hours) are far away and almost all need a private or rental car — renting or chartering a car is recommended if you'll head out to other districts"
+    },
+    {
+      "q": "❓ Which site is cheapest to book a Chaiyaphum stay?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by current promotion, so open and compare all 3 before every booking — each review page in this guide has price-comparison links. Note: a few nature-zone stays (Khun Saichon Villa at Chulabhorn Dam, Baan Rai Phu Pailin, Pa Din Hin Ngam) are mainly booked through their own channels — the EGAT website, Facebook or by phone — rather than the usual OTAs, so contact them ahead"
+    }
+  ],
+  "quickAnswerHtml": "12 Chaiyaphum stays we reviewed across every tier — from spotless in-town Hop Inn from ฿720 to garden chalets and bungalows near Pa Hin Ngam and the Siam tulip fields, plus lakeside houses at Chulabhorn Dam. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

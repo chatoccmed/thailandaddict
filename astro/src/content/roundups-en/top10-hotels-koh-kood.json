@@ -16,16 +16,39 @@
     "✅ <strong>Real reviews</strong> from thousands of guests"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Koh Kood", "href": "city-koh-kood.html" },
-    { "name": "Top 12 Koh Kood Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Koh Kood",
+      "href": "city-koh-kood.html"
+    },
+    {
+      "name": "Top 12 Koh Kood Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Koh Kood", "item": "https://thailandaddict.com/en/city-koh-kood" },
-    { "name": "Top 12 Koh Kood Hotels", "item": "https://thailandaddict.com/en/top10-hotels-koh-kood" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Koh Kood",
+      "item": "https://thailandaddict.com/en/city-koh-kood"
+    },
+    {
+      "name": "Top 12 Koh Kood Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-koh-kood"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-koh-kood.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Koh Kood has no public transport. Getting around the island means renting a scooter, chartering a songthaew, or using your resort's shuttle — some stretches of road climb steep hills. To reach the island, take a speedboat from Laem Sok / Laem Ngop pier in Trat, about 1–1.5 hours (some resorts run their own boat). Main bays in this guide: <strong>Klong Chao</strong> — popular long white-sand beach, kayak canal, lots of stays (Tinkerbell, Tolani, Peter Pan, Little White Bird) · <strong>Bang Bao</strong> — clear-water curved bay in the south (The Beach Natural) · <strong>Ao Tapao</strong> — calm hilltop with sea views (Shantaa) · <strong>Klong Mad</strong> — private beach on a hill (Koh Kood Beach Resort, Koh Kood Garden) · <strong>Ao Phrao</strong> — shallow-water beach at the south tip (Rest Sea, Ao Phrao Beach Resort) · <strong>Ao Ngamkho</strong> and <strong>Klong Rahan (Secret Beach)</strong> — mid-island / hidden beaches (Dusita, Captain Hook).",
   "secLabel": "All 12 hotels — let's go!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Shantaa Koh Kood", "price": "฿4,500" },
-    { "n": "2", "color": "#c8a951", "name": "Tinkerbell Privacy Resort", "price": "฿6,500" },
-    { "n": "3", "color": "#c8a951", "name": "Koh Kood Beach Resort", "price": "฿2,400" },
-    { "n": "4", "color": "#c8a951", "name": "Dusita Resort Kohkood", "price": "฿4,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "Peter Pan Resort", "price": "฿4,000" },
-    { "n": "6", "color": "#9e9e9e", "name": "The Beach Natural Resort", "price": "฿7,000" },
-    { "n": "7", "color": "#9e9e9e", "name": "Captain Hook Resort", "price": "฿4,500" },
-    { "n": "8", "color": "#bf8040", "name": "Tolani Resort Koh Kood", "price": "฿4,500" },
-    { "n": "9", "color": "#bf8040", "name": "The Little White Bird Hostel", "price": "฿2,300" },
-    { "n": "10", "color": "#5d4037", "name": "Koh Kood Garden", "price": "฿1,200" },
-    { "n": "11", "color": "#5d4037", "name": "Rest Sea Resort Koh Kood", "price": "฿2,600" },
-    { "n": "12", "color": "#5d4037", "name": "Ko Kut Ao Phrao Beach Resort", "price": "฿1,800" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Shantaa Koh Kood",
+      "price": "฿4,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Tinkerbell Privacy Resort",
+      "price": "฿6,500"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Koh Kood Beach Resort",
+      "price": "฿2,400"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Dusita Resort Kohkood",
+      "price": "฿4,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Peter Pan Resort",
+      "price": "฿4,000"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "The Beach Natural Resort",
+      "price": "฿7,000"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Captain Hook Resort",
+      "price": "฿4,500"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Tolani Resort Koh Kood",
+      "price": "฿4,500"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "The Little White Bird Hostel",
+      "price": "฿2,300"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Koh Kood Garden",
+      "price": "฿1,200"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Rest Sea Resort Koh Kood",
+      "price": "฿2,600"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Ko Kut Ao Phrao Beach Resort",
+      "price": "฿1,800"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Shantaa Sweet (king bed, 2 guests)", "price": "฿4,500/night" },
-        { "type": "Shantaa Villa (up to 3 guests)", "price": "฿5,500/night" },
-        { "type": "Shantaa Extra Sweet PLUS (up to 4 guests)", "price": "฿7,900/night" }
+        {
+          "type": "Shantaa Sweet (king bed, 2 guests)",
+          "price": "฿4,500/night"
+        },
+        {
+          "type": "Shantaa Villa (up to 3 guests)",
+          "price": "฿5,500/night"
+        },
+        {
+          "type": "Shantaa Extra Sweet PLUS (up to 4 guests)",
+          "price": "฿7,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/shantaa-koh-kood/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/shantaa-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-21851220/shantaa-resort-kohkood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-shantaa-koh-kood.html",
-      "tags": ["🌄 Hilltop sea-view villas", "🤫 Quiet, good for couples", "🍳 Breakfast reviewers praise", "🛶 Free kayaks & surfboards"],
+      "tags": [
+        "🌄 Hilltop sea-view villas",
+        "🤫 Quiet, good for couples",
+        "🍳 Breakfast reviewers praise",
+        "🛶 Free kayaks & surfboards"
+      ],
       "addr": "Ao Tapao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Shantaa is <strong>the most-reviewed hotel on Koh Kood — 385 reviews at 9.4</strong>. Villas are spread across a hillside above Ao Tapao, each one private, looking out over the sea and the sunset. Reviews most often praise the calm couples-friendly feel, the semi-open bathrooms, and a breakfast many say is made fresh and tasty. There are free kayaks and surfboards to borrow — a fit for anyone who wants a quiet rest rather than being right on the sand.",
       "tipHtml": "💡 <strong>Tip:</strong> The villas are on a hill with steps; if walking up is hard, ask for a lower-level unit. Many Koh Kood places close in low season (May–Oct), so check the open dates before you book.",
@@ -104,15 +201,29 @@
       "priceBig": "฿6,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Room (garden/sea view)", "price": "฿6,500/night" },
-        { "type": "Beach Front Villa (step out to the sand)", "price": "฿8,500/night" },
-        { "type": "Pool Villa Ocean View (~48 sqm)", "price": "฿11,500/night" }
+        {
+          "type": "Standard Room (garden/sea view)",
+          "price": "฿6,500/night"
+        },
+        {
+          "type": "Beach Front Villa (step out to the sand)",
+          "price": "฿8,500/night"
+        },
+        {
+          "type": "Pool Villa Ocean View (~48 sqm)",
+          "price": "฿11,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tinkerbell-privacy-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tinkerbell-privacy-resort-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-3709267/tinkerbell-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tinkerbell-privacy-resort-koh-kood.html",
-      "tags": ["🏖️ Step out to the sand", "🤍 Only 15 villas", "🌅 Lovely sunsets", "🛶 Free kayaks"],
+      "tags": [
+        "🏖️ Step out to the sand",
+        "🤍 Only 15 villas",
+        "🌅 Lovely sunsets",
+        "🛶 Free kayaks"
+      ],
       "addr": "116 Moo 2, Baan Klong Chao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Tinkerbell is <strong>a beachfront villa resort on Klong Chao and the island's second-most reviewed — 181 reviews at 9.1</strong>. With just 15 villas it feels private, and the beachfront villas open their folding doors straight onto the sand. It sits on Klong Chao, the island's most popular beach with white sand, clear water and a kayak-able canal nearby — a premium pick for anyone who wants to sleep right by the sea in an area with restaurants and activities close by.",
       "tipHtml": "💡 <strong>Tip:</strong> For true beachfront pick a Beach Front Villa — there are only 8 and they sell out fast, so book ahead. The Standard rooms are cheaper but not in the front row by the sand.",
@@ -144,15 +255,29 @@
       "priceBig": "฿2,400",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Bali House garden view (~46 sqm)", "price": "฿2,400/night" },
-        { "type": "Bali House sea view", "price": "฿4,200/night" },
-        { "type": "Sunset House (large, sea view)", "price": "฿6,000/night" }
+        {
+          "type": "Bali House garden view (~46 sqm)",
+          "price": "฿2,400/night"
+        },
+        {
+          "type": "Bali House sea view",
+          "price": "฿4,200/night"
+        },
+        {
+          "type": "Sunset House (large, sea view)",
+          "price": "฿6,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/koh-kood-beach-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/koh-kood-beach-resort.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-709151/koh-kood-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-koh-kood-beach-resort-koh-kood.html",
-      "tags": ["🛖 Bali bungalows on a hill", "🏊 Infinity pool, sea view", "🏝️ Private beach", "🚲 Free kayaks & bikes"],
+      "tags": [
+        "🛖 Bali bungalows on a hill",
+        "🏊 Infinity pool, sea view",
+        "🏝️ Private beach",
+        "🚲 Free kayaks & bikes"
+      ],
       "addr": "121 Moo 1, Klong Mad, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Koh Kood Beach Resort is <strong>the highest-scoring resort in this 3-star group at 9.5</strong> — thatched Bali-style bungalows spread across a hill above a private bay in the Klong Mad area. The standouts are the sea-view infinity pool and the quiet private beach. Each bungalow is around 46 sqm with an open-air bathroom. There are free kayaks and bikes, and from just ฿2,400 it's great value for a private-beach resort on Koh Kood.",
       "tipHtml": "💡 <strong>Tip:</strong> Pay a little more for a Bali House sea view — the sunset view from the terrace is well worth it. The bungalows are on a hill with some up-and-down, so pack comfortable shoes.",
@@ -184,15 +309,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double, fan (~24 sqm)", "price": "฿4,500/night" },
-        { "type": "Triple Room (~40 sqm)", "price": "฿5,800/night" },
-        { "type": "Family Bungalow (air-con)", "price": "฿6,800/night" }
+        {
+          "type": "Standard Double, fan (~24 sqm)",
+          "price": "฿4,500/night"
+        },
+        {
+          "type": "Triple Room (~40 sqm)",
+          "price": "฿5,800/night"
+        },
+        {
+          "type": "Family Bungalow (air-con)",
+          "price": "฿6,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dusita-resort-kohkood/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/dusita-resort-kohkood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-9824832/dusita-koh-kood-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dusita-resort-koh-kood.html",
-      "tags": ["💚 Hands-on, friendly owner", "🍳 Fresh breakfast", "🏝️ On Ao Ngamkho beach", "📍 Mid-island location"],
+      "tags": [
+        "💚 Hands-on, friendly owner",
+        "🍳 Fresh breakfast",
+        "🏝️ On Ao Ngamkho beach",
+        "📍 Mid-island location"
+      ],
       "addr": "Ao Ngamkho Beach, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Dusita is <strong>the highest-scoring stay on Koh Kood — 9.7 from 150 reviews</strong> — even though it's a simple 2-star garden bungalow place. The reason the score is this high is the owner and staff, whom reviews mention again and again for their warmth and care, plus a fresh, tasty breakfast. It sits on Ao Ngamkho beach mid-island, so it's easy to reach the other bays, with both budget fan rooms and air-con family bungalows — a fit for anyone who values warm service over polish.",
       "tipHtml": "💡 <strong>Tip:</strong> The fan rooms are the cheapest, and Koh Kood nights are pleasantly cool anyway. If you're a group, the Triple or Family Bungalow is better value — and book direct with the resort to ask about boat transfers.",
@@ -224,15 +363,29 @@
       "priceBig": "฿4,000",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Mermaid (Deluxe garden view)", "price": "฿4,000/night" },
-        { "type": "Sea Fan (canal-view villa)", "price": "฿5,000/night" },
-        { "type": "Sea Horse (Pool Side, sea view)", "price": "฿7,000/night" }
+        {
+          "type": "Mermaid (Deluxe garden view)",
+          "price": "฿4,000/night"
+        },
+        {
+          "type": "Sea Fan (canal-view villa)",
+          "price": "฿5,000/night"
+        },
+        {
+          "type": "Sea Horse (Pool Side, sea view)",
+          "price": "฿7,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/peter-pan-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/peter-pan-resort-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-3709180/peter-pan-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-peter-pan-resort-koh-kood.html",
-      "tags": ["🏖️ Beachfront bungalows", "🍦 Free ice cream", "🔥 Fire show", "🛶 Free kayaks"],
+      "tags": [
+        "🏖️ Beachfront bungalows",
+        "🍦 Free ice cream",
+        "🔥 Fire show",
+        "🛶 Free kayaks"
+      ],
       "addr": "102 Moo 2, Baan Klong Chao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Peter Pan Resort sits <strong>right where Klong Chao canal flows out to meet the sea on Klong Chao beach</strong>, scoring 9.1 from 75 reviews. The beachfront bungalows are an easy step from the sand, and reviews love the friendly vibe, free ice cream, an evening fire show and a great sunset spot. It's on Klong Chao with restaurants and the kayak launch close by — a fit for anyone who wants to sleep on a popular beach for less than a 4-star villa.",
       "tipHtml": "💡 <strong>Tip:</strong> The Mermaid garden-view room is the cheapest but not on the beach; for a sea view pick the Sea Horse. Kayaking up the canal in the morning, when the water is calmest, is a must-do.",
@@ -264,15 +417,29 @@
       "priceBig": "฿7,000",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Natural Cottage (garden, 50–80 m from beach)", "price": "฿7,000/night" },
-        { "type": "Beach Villa (by the sea, 5–10 m from beach)", "price": "฿15,000/night" },
-        { "type": "Tropical Ocean Pool Villa (2 bedrooms)", "price": "฿23,800/night" }
+        {
+          "type": "Natural Cottage (garden, 50–80 m from beach)",
+          "price": "฿7,000/night"
+        },
+        {
+          "type": "Beach Villa (by the sea, 5–10 m from beach)",
+          "price": "฿15,000/night"
+        },
+        {
+          "type": "Tropical Ocean Pool Villa (2 bedrooms)",
+          "price": "฿23,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-beach-natural-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-beach-natural-resort-kohkood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-709156/the-beach-natural-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-beach-natural-resort-koh-kood.html",
-      "tags": ["🌴 Bali-style cottages", "🌊 Clear-water Bang Bao", "🛥️ Private wooden jetty", "🛶 Free kayaks"],
+      "tags": [
+        "🌴 Bali-style cottages",
+        "🌊 Clear-water Bang Bao",
+        "🛥️ Private wooden jetty",
+        "🛶 Free kayaks"
+      ],
       "addr": "Bang Bao Bay, Ko Kut · Koh Kood, Trat",
       "storyHtml": "The Beach Natural Resort sits on <strong>Bang Bao, a clear-water curved bay in the south of the island that's both pretty and quiet</strong>, scoring 8.9 from 37 reviews. It has Bali-style garden cottages, beach villas by the sea, and even two-bedroom pool villas for families. The standout is the private wooden jetty reaching out into the bay and a back-to-nature feel, with free kayaks — a fit for a quiet beachfront rest away from the bustle of Klong Chao.",
       "tipHtml": "💡 <strong>Tip:</strong> The starting Natural Cottage is in the garden, 50–80 m from the beach; for true beachfront you'll need a Beach Villa. Bang Bao is in the south, far from Klong Chao, so allow travel time on the island.",
@@ -304,15 +471,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Deluxe Villa (garden/sea view)", "price": "฿4,500/night" },
-        { "type": "Mini Pool Villa (small private pool)", "price": "฿6,500/night" },
-        { "type": "Pool Suite (private pool, sea view)", "price": "฿9,500/night" }
+        {
+          "type": "Deluxe Villa (garden/sea view)",
+          "price": "฿4,500/night"
+        },
+        {
+          "type": "Mini Pool Villa (small private pool)",
+          "price": "฿6,500/night"
+        },
+        {
+          "type": "Pool Suite (private pool, sea view)",
+          "price": "฿9,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/captain-hook-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/captain-hook-resort-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-2192533/captain-hook-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-captain-hook-resort-koh-kood.html",
-      "tags": ["🪨 Pool villas on a rocky cape", "🏖️ Private cape with 2 beaches", "🛶 Free kayaks-SUP-snorkel gear", "🚤 Reached by longtail boat"],
+      "tags": [
+        "🪨 Pool villas on a rocky cape",
+        "🏖️ Private cape with 2 beaches",
+        "🛶 Free kayaks-SUP-snorkel gear",
+        "🚤 Reached by longtail boat"
+      ],
       "addr": "15/9 Moo 4, Ao Yai Ki, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Captain Hook Resort is <strong>a pool-villa resort on a private rocky cape with two small beaches of its own</strong>, near Klong Rahan (Secret Beach), scoring 8.8 from 59 reviews. What reviews love is the extreme privacy — you arrive by longtail boat, so it feels like having your own island — with a canal to kayak and free kayaks, SUP and snorkel gear. A fit for couples or anyone wanting to cut off from the crowds, as long as you're fine with a more adventurous trip in and out.",
       "tipHtml": "💡 <strong>Tip:</strong> You come and go by boat, so check the boat times with the resort before planning trips to other bays. The Mini Pool Villa is only a little more and gives you a small private pool — worth it for couples.",
@@ -344,15 +525,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Superior Seaview Villa (hillside sea view)", "price": "฿4,500/night" },
-        { "type": "Beachfront Villa (on the beach)", "price": "฿8,500/night" },
-        { "type": "Beachfront Pool Villa (private pool)", "price": "฿13,500/night" }
+        {
+          "type": "Superior Seaview Villa (hillside sea view)",
+          "price": "฿4,500/night"
+        },
+        {
+          "type": "Beachfront Villa (on the beach)",
+          "price": "฿8,500/night"
+        },
+        {
+          "type": "Beachfront Pool Villa (private pool)",
+          "price": "฿13,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tolani-resort-koh-kood/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tolani-resorts-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-1409078/tolani-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tolani-resort-koh-kood.html",
-      "tags": ["🌿 Boho-natural design", "🌄 Hillside sea-view villas", "🏖️ On Klong Chao beach", "🛶 Free kayaks"],
+      "tags": [
+        "🌿 Boho-natural design",
+        "🌄 Hillside sea-view villas",
+        "🏖️ On Klong Chao beach",
+        "🛶 Free kayaks"
+      ],
       "addr": "43/8 Moo 2, Baan Klong Chao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Tolani Resort is <strong>a boutique boho-natural villa resort on Klong Chao beach</strong>, scoring 8.4 from 46 reviews. The selling point is the natural-toned timber design that photographs beautifully, with everything from hillside sea-view villas to beachfront pool villas. It's on Klong Chao with white sand, clear water and restaurants nearby, plus free kayaks — a fit for anyone who loves a boutique look and design over a full set of facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> The Superior Seaview Villa is on a hill so you walk up, but it's well priced with a lovely view. If your budget stretches and you want true beachfront, pick a Beachfront Villa.",
@@ -384,15 +579,29 @@
       "priceBig": "฿2,300",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Double (white minimal tone)", "price": "฿2,300/night" },
-        { "type": "River View (Klong Chao canal view)", "price": "฿3,200/night" },
-        { "type": "Family Triple garden view (3 guests)", "price": "฿3,500/night" }
+        {
+          "type": "Standard Double (white minimal tone)",
+          "price": "฿2,300/night"
+        },
+        {
+          "type": "River View (Klong Chao canal view)",
+          "price": "฿3,200/night"
+        },
+        {
+          "type": "Family Triple garden view (3 guests)",
+          "price": "฿3,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-little-white-bird-traveller-hostel-koh-kood/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-little-white-bird-traveller-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-106526013/the-little-white-bird-traveller-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-little-white-bird-hostel-koh-kood.html",
-      "tags": ["🤍 White minimal rooms", "🍳 Free breakfast", "🍴 24h shared kitchen", "🛶 Free kayaks · share Peter Pan's beach"],
+      "tags": [
+        "🤍 White minimal rooms",
+        "🍳 Free breakfast",
+        "🍴 24h shared kitchen",
+        "🛶 Free kayaks · share Peter Pan's beach"
+      ],
       "addr": "43/16 Moo 2, Baan Klong Chao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Little White Bird is <strong>a white-toned minimal hostel from the Captain Hook Group scoring a high 9.6</strong>. Although it's a 1-star stay, the rooms are private with air-con and en-suite bathrooms — not shared dorm beds like a typical hostel. Reviews love the lovely staff, free breakfast, a 24-hour shared kitchen and free kayaks, and guests can use the beach at sister property Peter Pan. It's the cheapest pick in the Klong Chao area for travellers who want good vibes on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> The River View room overlooking the Klong Chao canal has the best vibe for only a little more. The hostel isn't right on the beach, but you can walk to sister property Peter Pan's beach — just allow a little walking time.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Standard Bungalow (air-con, small)", "price": "฿1,200/night" },
-        { "type": "Deluxe Bungalow (air-con, larger)", "price": "฿1,600/night" },
-        { "type": "Family Bungalow (sleeps several)", "price": "฿2,200/night" }
+        {
+          "type": "Standard Bungalow (air-con, small)",
+          "price": "฿1,200/night"
+        },
+        {
+          "type": "Deluxe Bungalow (air-con, larger)",
+          "price": "฿1,600/night"
+        },
+        {
+          "type": "Family Bungalow (sleeps several)",
+          "price": "฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/koh-kood-garden/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Koh+Kood+Garden+Ko+Kut",
       "tripUrl": "https://www.trip.com/hotels/list?city=koh-kood&keyword=Koh%20Kood%20Garden&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-koh-kood-garden-koh-kood.html",
-      "tags": ["🪙 Cheapest of all", "🌳 Air-con garden bungalows", "💚 Hands-on owner", "🏞️ Near Ao Tapao"],
+      "tags": [
+        "🪙 Cheapest of all",
+        "🌳 Air-con garden bungalows",
+        "💚 Hands-on owner",
+        "🏞️ Near Ao Tapao"
+      ],
       "addr": "Klong Mad, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Koh Kood Garden is <strong>the cheapest stay in this guide — from just ฿1,200</strong> — scoring 8.4 from 40 reviews. It's a set of small air-con bungalows in a garden amid the forest in the Klong Mad area, run hands-on by the owner, with a simple, quiet back-to-nature feel. It's not on the beach but it's near Ao Tapao — a fit for budget travellers who'll rent a scooter and explore the island themselves. Rooms range from doubles to family bungalows and whole-house rental for groups.",
       "tipHtml": "💡 <strong>Tip:</strong> It's not on the beach, so renting a scooter to get around the island is the most convenient way to stay here. Booking direct with the property can sometimes get a better rate, since the listings on the major booking sites aren't always stable.",
@@ -464,15 +687,29 @@
       "priceBig": "฿2,600",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Deluxe Villa (minimal, garden, ~25 sqm)", "price": "฿2,600/night" },
-        { "type": "Deluxe Pool Villa (tiny private pool)", "price": "฿4,500/night" },
-        { "type": "Beachfront Pool Villa (on the beach)", "price": "฿7,500/night" }
+        {
+          "type": "Deluxe Villa (minimal, garden, ~25 sqm)",
+          "price": "฿2,600/night"
+        },
+        {
+          "type": "Deluxe Pool Villa (tiny private pool)",
+          "price": "฿4,500/night"
+        },
+        {
+          "type": "Beachfront Pool Villa (on the beach)",
+          "price": "฿7,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rest-sea-resort-koh-kood/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rest-sea-resort-koh-kood.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-13665051/rest-sea-resort-koh-kood/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rest-sea-resort-koh-kood.html",
-      "tags": ["🤍 Minimal villas", "🏖️ South tip, Ao Phrao", "🏊 Has tiny-pool villas", "🛶 Free kayaks & SUP"],
+      "tags": [
+        "🤍 Minimal villas",
+        "🏖️ South tip, Ao Phrao",
+        "🏊 Has tiny-pool villas",
+        "🛶 Free kayaks & SUP"
+      ],
       "addr": "134 Moo 2, Ao Phrao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Rest Sea Resort is <strong>a minimal boutique villa resort on Ao Phrao beach at the south tip of the island</strong>, scoring 8.1 from 26 reviews. The villas are minimal-design, around 25 sqm, ranging from garden villas to tiny-pool villas and beachfront villas. The starting price is friendly at ฿2,600, with free kayaks and SUP. It's down at the south tip — fairly far and quiet — a fit for anyone wanting to cut off from the bustle, as long as you allow travel time to the other bays.",
       "tipHtml": "💡 <strong>Tip:</strong> Ao Phrao is at the south tip and the final stretch of road climbs hills — allow time and check the route with the resort. Step up to a Deluxe Pool Villa for an affordable tiny private pool.",
@@ -504,15 +741,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from / night",
       "rooms": [
-        { "type": "Deluxe Room (garden, 2 guests)", "price": "฿1,800/night" },
-        { "type": "Sea Breeze Hut (by the sea, sunset view)", "price": "฿2,600/night" },
-        { "type": "Family Hut (4 guests · 2 bathrooms)", "price": "฿3,800/night" }
+        {
+          "type": "Deluxe Room (garden, 2 guests)",
+          "price": "฿1,800/night"
+        },
+        {
+          "type": "Sea Breeze Hut (by the sea, sunset view)",
+          "price": "฿2,600/night"
+        },
+        {
+          "type": "Family Hut (4 guests · 2 bathrooms)",
+          "price": "฿3,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ko-kut-ao-phrao-beach-resort/hotel/koh-kood-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-ko-kut-ao-phrao-beach-resort-ban-ao-yai.html",
       "tripUrl": "https://www.trip.com/hotels/koh-kood-hotel-detail-9569876/ko-kut-ao-phrao-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ko-kut-ao-phrao-beach-resort-koh-kood.html",
-      "tags": ["👨‍👩‍👧 Shallow beach, family-friendly", "🌅 Jetty for sunsets", "🪙 Budget price", "🛶 Free kayaks"],
+      "tags": [
+        "👨‍👩‍👧 Shallow beach, family-friendly",
+        "🌅 Jetty for sunsets",
+        "🪙 Budget price",
+        "🛶 Free kayaks"
+      ],
       "addr": "62 Moo 5, Ao Phrao, Ko Kut · Koh Kood, Trat",
       "storyHtml": "Ko Kut Ao Phrao Beach Resort is <strong>a budget beachfront resort on Ao Phrao, where the shallow water is great for families with kids</strong>, scoring 8.0 from 36 reviews. It has garden rooms, seaside bungalows, and a Family Hut for 4. The highlights are the safe shallow beach for kids, a wooden jetty for the sunset and free kayaks. From ฿1,800 it's a budget pick for families who want to be on the beach, though it's at the south tip, so allow travel time.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a family, the Family Hut is better value. Ao Phrao's shallow water is great for kids to wade in, but at very low tide it can be too shallow to swim — check the tide times.",
@@ -530,39 +781,212 @@
     }
   ],
   "compareTitle": "Comparison table — 12 Koh Kood hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Shantaa Koh Kood", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿4,500", "access": "📍 Ao Tapao", "badge": "Most reviewed · high score", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Tinkerbell Privacy Resort", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿6,500", "access": "📍 Klong Chao beach", "badge": "Beachfront villas", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Koh Kood Beach Resort", "type": "⭐⭐⭐", "score": "9.5", "price": "฿2,400", "access": "📍 Klong Mad", "badge": "Sea-view infinity pool", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Dusita Resort Kohkood", "type": "⭐⭐", "score": "9.7", "price": "฿4,500", "access": "📍 Ao Ngamkho", "badge": "Highest score on the island", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Peter Pan Resort", "type": "⭐⭐⭐", "score": "9.1", "price": "฿4,000", "access": "📍 Klong Chao (canal mouth)", "badge": "Where the canal meets the sea", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "The Beach Natural Resort", "type": "⭐⭐⭐⭐", "score": "8.9", "price": "฿7,000", "access": "📍 Bang Bao", "badge": "Clear-water Bang Bao", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Captain Hook Resort", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿4,500", "access": "📍 Ao Yai Ki · Secret Beach", "badge": "Private rocky cape, 2 beaches", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Tolani Resort Koh Kood", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿4,500", "access": "📍 Klong Chao beach", "badge": "Boho-style villas", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "The Little White Bird Hostel", "type": "⭐", "score": "9.6", "price": "฿2,300", "access": "📍 Klong Chao area", "badge": "High-scoring hostel", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Koh Kood Garden", "type": "⭐⭐", "score": "8.4", "price": "฿1,200", "access": "📍 Klong Mad", "badge": "Cheapest", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Rest Sea Resort Koh Kood", "type": "⭐⭐⭐", "score": "8.1", "price": "฿2,600", "access": "📍 Ao Phrao beach" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Ko Kut Ao Phrao Beach Resort", "type": "⭐⭐", "score": "8.0", "price": "฿1,800", "access": "📍 Ao Phrao beach", "badge": "Family-friendly", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Shantaa Koh Kood",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿4,500",
+      "access": "📍 Ao Tapao",
+      "badge": "Most reviewed · high score",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Tinkerbell Privacy Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿6,500",
+      "access": "📍 Klong Chao beach",
+      "badge": "Beachfront villas",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Koh Kood Beach Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿2,400",
+      "access": "📍 Klong Mad",
+      "badge": "Sea-view infinity pool",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Dusita Resort Kohkood",
+      "type": "⭐⭐",
+      "score": "9.7",
+      "price": "฿4,500",
+      "access": "📍 Ao Ngamkho",
+      "badge": "Highest score on the island",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Peter Pan Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿4,000",
+      "access": "📍 Klong Chao (canal mouth)",
+      "badge": "Where the canal meets the sea",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "The Beach Natural Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿7,000",
+      "access": "📍 Bang Bao",
+      "badge": "Clear-water Bang Bao",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Captain Hook Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿4,500",
+      "access": "📍 Ao Yai Ki · Secret Beach",
+      "badge": "Private rocky cape, 2 beaches",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Tolani Resort Koh Kood",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿4,500",
+      "access": "📍 Klong Chao beach",
+      "badge": "Boho-style villas",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "The Little White Bird Hostel",
+      "type": "⭐",
+      "score": "9.6",
+      "price": "฿2,300",
+      "access": "📍 Klong Chao area",
+      "badge": "High-scoring hostel",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Koh Kood Garden",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿1,200",
+      "access": "📍 Klong Mad",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Rest Sea Resort Koh Kood",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿2,600",
+      "access": "📍 Ao Phrao beach"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Ko Kut Ao Phrao Beach Resort",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿1,800",
+      "access": "📍 Ao Phrao beach",
+      "badge": "Family-friendly",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    }
   ],
   "adviceTitle": "How to pick the right Koh Kood hotel for you?",
   "advice": [
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Koh Kood Garden</strong> ฿1,200 air-con garden bungalows · or <strong>Ko Kut Ao Phrao Beach Resort</strong> ฿1,800 budget beachfront resort" },
-    { "icon": "💑", "head": "Couples wanting quiet & privacy", "bodyHtml": "→ <strong>Shantaa Koh Kood</strong> ฿4,500 hilltop sea-view villas, most reviewed · or <strong>Captain Hook Resort</strong> ฿4,500 pool villas on a private rocky cape" },
-    { "icon": "🌊", "head": "Want to sleep right on the beach", "bodyHtml": "→ <strong>Tinkerbell Privacy Resort</strong> ฿6,500 Klong Chao beachfront villas that step to the sand · or <strong>Peter Pan Resort</strong> ฿4,000 beachfront bungalows" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family with kids", "bodyHtml": "→ <strong>Ko Kut Ao Phrao Beach Resort</strong> ฿1,800 shallow beach, has a Family Hut · or <strong>Koh Kood Beach Resort</strong> ฿2,400 with a pool and a private beach" },
-    { "icon": "🤍", "head": "Want a pretty boutique design", "bodyHtml": "→ <strong>Tolani Resort Koh Kood</strong> ฿4,500 boho-natural villas · or <strong>Koh Kood Beach Resort</strong> ฿2,400 Bali bungalows with an infinity pool" },
-    { "icon": "🛶", "head": "Budget traveller, want good vibes", "bodyHtml": "→ <strong>The Little White Bird Hostel</strong> ฿2,300 private AC rooms, free breakfast · or <strong>Dusita Resort</strong> ฿4,500 warm service, the island's highest score" },
-    { "icon": "🏝️", "head": "Want a quiet bay, away from the bustle", "bodyHtml": "→ <strong>The Beach Natural Resort</strong> ฿7,000 clear-water Bang Bao · or <strong>Rest Sea Resort</strong> ฿2,600 minimal villas at the south tip on Ao Phrao" }
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Koh Kood Garden</strong> ฿1,200 air-con garden bungalows · or <strong>Ko Kut Ao Phrao Beach Resort</strong> ฿1,800 budget beachfront resort"
+    },
+    {
+      "icon": "💑",
+      "head": "Couples wanting quiet & privacy",
+      "bodyHtml": "→ <strong>Shantaa Koh Kood</strong> ฿4,500 hilltop sea-view villas, most reviewed · or <strong>Captain Hook Resort</strong> ฿4,500 pool villas on a private rocky cape"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want to sleep right on the beach",
+      "bodyHtml": "→ <strong>Tinkerbell Privacy Resort</strong> ฿6,500 Klong Chao beachfront villas that step to the sand · or <strong>Peter Pan Resort</strong> ฿4,000 beachfront bungalows"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family with kids",
+      "bodyHtml": "→ <strong>Ko Kut Ao Phrao Beach Resort</strong> ฿1,800 shallow beach, has a Family Hut · or <strong>Koh Kood Beach Resort</strong> ฿2,400 with a pool and a private beach"
+    },
+    {
+      "icon": "🤍",
+      "head": "Want a pretty boutique design",
+      "bodyHtml": "→ <strong>Tolani Resort Koh Kood</strong> ฿4,500 boho-natural villas · or <strong>Koh Kood Beach Resort</strong> ฿2,400 Bali bungalows with an infinity pool"
+    },
+    {
+      "icon": "🛶",
+      "head": "Budget traveller, want good vibes",
+      "bodyHtml": "→ <strong>The Little White Bird Hostel</strong> ฿2,300 private AC rooms, free breakfast · or <strong>Dusita Resort</strong> ฿4,500 warm service, the island's highest score"
+    },
+    {
+      "icon": "🏝️",
+      "head": "Want a quiet bay, away from the bustle",
+      "bodyHtml": "→ <strong>The Beach Natural Resort</strong> ฿7,000 clear-water Bang Bao · or <strong>Rest Sea Resort</strong> ฿2,600 minimal villas at the south tip on Ao Phrao"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates and may change by date and season — always check the live price and compare 3 sites before booking. <strong>Koh Kood room rates swing a lot by season:</strong> in high season (November–April · especially New Year, Songkran and long weekends) prices rise and rooms sell out fast, so book 1–2 months ahead. In <strong>low season (May–October) the sea is rough and many resorts close</strong> — confirm the open/close dates before booking. Koh Kood has no public transport; get around the island by rented scooter, songthaew or your resort's shuttle. Reach the island by speedboat from Laem Sok / Laem Ngop pier in Trat, about 1–1.5 hours. Scores and highlights come from reading real guest reviews; we did not stay ourselves. Article by <strong>ThailandAddict</strong>",
   "faqTitle": "FAQ — common traveller questions about Koh Kood hotels",
   "faq": [
-    { "q": "❓ Which bay is best to stay on Koh Kood?", "a": "It depends on your style. <strong>Klong Chao</strong> suits anyone wanting lots of stays and restaurants — a long white-sand beach with a kayak canal (Tinkerbell, Tolani, Peter Pan, Little White Bird). <strong>Bang Bao</strong> is a clear-water curved bay in the south, quiet and pretty (The Beach Natural). <strong>Ao Tapao</strong> is a calm hilltop with sea views, good for couples (Shantaa). <strong>Ao Phrao / Klong Mad / Ao Ngamkho</strong> are quiet private beaches and mid-island locations (Koh Kood Beach Resort, Dusita, Rest Sea, Ao Phrao Beach Resort)." },
-    { "q": "❓ How much do Koh Kood hotels cost?", "a": "Quite a range: garden bungalows and hostels start around ฿1,200–2,600 per night; mid-range and 3-star beachfront resorts around ฿2,400–4,500; 4-star villas and beachfront resorts from ฿4,500–7,000+, and front-row beachfront pool villas can run into five figures. Rates swing a lot by season — high season (New Year, Songkran, long weekends) can be much higher than usual." },
-    { "q": "❓ How do you get to Koh Kood — which pier?", "a": "Koh Kood is at the far end of the Trat sea, so you take a speedboat from <strong>Laem Sok or Laem Ngop pier in Trat</strong>, about <strong>1–1.5 hours</strong>. Most people buy a van-from-Bangkok plus boat package, or drive themselves and park at the pier. Many resorts run their own boat and shuttle service — just ask when booking. Check the boat times ahead, as there are limited departures per day." },
-    { "q": "❓ How do you get around Koh Kood?", "a": "Koh Kood is a large island with no public transport, and the bays are far apart. The popular options are <strong>renting a scooter</strong> to explore yourself (some stretches climb steep hills, so ride carefully) or <strong>chartering a songthaew</strong>. Many resorts have airport/boat transfers and can take you to sights. If you stay in a far bay like Ao Phrao or Bang Bao, having a private vehicle or rented scooter is more convenient." },
-    { "q": "❓ When should you visit Koh Kood — does low season close?", "a": "The best time is <strong>November–April</strong>, with clear water, good weather and sunshine — that's high season. <strong>May–October is low season, with lots of rain, rough seas and many resorts closed</strong>, so always check the property's open/close dates before booking. Over New Year, Songkran and long weekends rooms sell out fast and prices are high, so book 1–2 months ahead." },
-    { "q": "❓ Which site is cheapest to book a Koh Kood hotel?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time, so open all three to compare before booking — every review page in this guide has price-compare links. Some small island resorts give a better rate when you book direct, and you can ask about boat transfers at the same time." }
-  ]
+    {
+      "q": "❓ Which bay is best to stay on Koh Kood?",
+      "a": "It depends on your style. <strong>Klong Chao</strong> suits anyone wanting lots of stays and restaurants — a long white-sand beach with a kayak canal (Tinkerbell, Tolani, Peter Pan, Little White Bird). <strong>Bang Bao</strong> is a clear-water curved bay in the south, quiet and pretty (The Beach Natural). <strong>Ao Tapao</strong> is a calm hilltop with sea views, good for couples (Shantaa). <strong>Ao Phrao / Klong Mad / Ao Ngamkho</strong> are quiet private beaches and mid-island locations (Koh Kood Beach Resort, Dusita, Rest Sea, Ao Phrao Beach Resort)."
+    },
+    {
+      "q": "❓ How much do Koh Kood hotels cost?",
+      "a": "Quite a range: garden bungalows and hostels start around ฿1,200–2,600 per night; mid-range and 3-star beachfront resorts around ฿2,400–4,500; 4-star villas and beachfront resorts from ฿4,500–7,000+, and front-row beachfront pool villas can run into five figures. Rates swing a lot by season — high season (New Year, Songkran, long weekends) can be much higher than usual."
+    },
+    {
+      "q": "❓ How do you get to Koh Kood — which pier?",
+      "a": "Koh Kood is at the far end of the Trat sea, so you take a speedboat from <strong>Laem Sok or Laem Ngop pier in Trat</strong>, about <strong>1–1.5 hours</strong>. Most people buy a van-from-Bangkok plus boat package, or drive themselves and park at the pier. Many resorts run their own boat and shuttle service — just ask when booking. Check the boat times ahead, as there are limited departures per day."
+    },
+    {
+      "q": "❓ How do you get around Koh Kood?",
+      "a": "Koh Kood is a large island with no public transport, and the bays are far apart. The popular options are <strong>renting a scooter</strong> to explore yourself (some stretches climb steep hills, so ride carefully) or <strong>chartering a songthaew</strong>. Many resorts have airport/boat transfers and can take you to sights. If you stay in a far bay like Ao Phrao or Bang Bao, having a private vehicle or rented scooter is more convenient."
+    },
+    {
+      "q": "❓ When should you visit Koh Kood — does low season close?",
+      "a": "The best time is <strong>November–April</strong>, with clear water, good weather and sunshine — that's high season. <strong>May–October is low season, with lots of rain, rough seas and many resorts closed</strong>, so always check the property's open/close dates before booking. Over New Year, Songkran and long weekends rooms sell out fast and prices are high, so book 1–2 months ahead."
+    },
+    {
+      "q": "❓ Which site is cheapest to book a Koh Kood hotel?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) differ by promotion at any given time, so open all three to compare before booking — every review page in this guide has price-compare links. Some small island resorts give a better rate when you book direct, and you can ask about boat transfers at the same time."
+    }
+  ],
+  "quickAnswerHtml": "12 Koh Kood hotels across every level — from The Beach Natural pool villas on Bang Bao to Koh Kood Garden bungalows from ฿1,200. Real guest reviews, real scores, real starting prices, 3-site compare and direct booking links."
 }

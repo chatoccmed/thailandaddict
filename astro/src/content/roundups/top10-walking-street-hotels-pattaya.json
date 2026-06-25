@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "พัทยา", "href": "city-pattaya.html" },
-    { "name": "10 ที่พักใกล้ Walking Street พัทยา" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "พัทยา",
+      "href": "city-pattaya.html"
+    },
+    {
+      "name": "10 ที่พักใกล้ Walking Street พัทยา"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "พัทยา", "item": "https://thailandaddict.com/city-pattaya" },
-    { "name": "10 ที่พักใกล้ Walking Street พัทยา", "item": "https://thailandaddict.com/top10-walking-street-hotels-pattaya" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "พัทยา",
+      "item": "https://thailandaddict.com/city-pattaya"
+    },
+    {
+      "name": "10 ที่พักใกล้ Walking Street พัทยา",
+      "item": "https://thailandaddict.com/top10-walking-street-hotels-pattaya"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-walking-street-hotels-pattaya.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "พัทยาไม่มีรถไฟฟ้า แต่เดินทางในเมืองง่ายด้วยรถสองแถว (บาทบัส) ที่วิ่งวนรอบเมืองตลอดในราคาเริ่มหลักสิบบาท หรือเรียก Grab และมอเตอร์ไซค์รับจ้างก็สะดวก · จากกรุงเทพฯ ขับรถผ่านมอเตอร์เวย์ราว 1.5–2 ชั่วโมง · จากสนามบินอู่ตะเภา (UTP) เข้าเมืองราว 35–45 นาที · ย่านที่พักในบทความนี้: <strong>พัทยาใต้ (Walking Street/ซอยไดมอนด์/ซอย 14)</strong> — ติดถนนคนเดินจริง ๆ เดินถึงทุกอย่าง คึกคักและมีเสียงกลางคืน เหมาะสายเที่ยวกลางคืน · <strong>พัทยากลาง</strong> — ติดห้าง Royal Garden/Mike เดินถึงหาดและถนนคนเดินราว 5–10 นาที เงียบกว่านิดหน่อย · ทุกแห่งในบทความนี้เดินถึงหาดพัทยาและท่าเรือแหลมบาลีฮายที่ออกเรือไปเกาะล้านได้ในไม่กี่นาที",
   "secLabel": "ทั้ง 10 ที่พัก — เริ่มกันเลย",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "AVANI Pattaya Resort", "price": "฿4,000" },
-    { "n": "2", "color": "#06B6D4", "name": "W14 Pattaya", "price": "฿1,400" },
-    { "n": "3", "color": "#06B6D4", "name": "Galaxy Suites Pattaya", "price": "฿900" },
-    { "n": "4", "color": "#06B6D4", "name": "Royal Twins Palace Hotel", "price": "฿1,200" },
-    { "n": "5", "color": "#06B6D4", "name": "The Classroom Hotel", "price": "฿1,075" },
-    { "n": "6", "color": "#06B6D4", "name": "The Ambiance Hotel Pattaya", "price": "฿800" },
-    { "n": "7", "color": "#06B6D4", "name": "Mike Hotel Pattaya", "price": "฿1,500" },
-    { "n": "8", "color": "#06B6D4", "name": "Ambrosial Suites Pattaya", "price": "฿1,400" },
-    { "n": "9", "color": "#06B6D4", "name": "Grand Hotel Pattaya", "price": "฿1,200" },
-    { "n": "10", "color": "#06B6D4", "name": "Swiss Food Restaurant and Hotel", "price": "฿750" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "AVANI Pattaya Resort",
+      "price": "฿4,000"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "W14 Pattaya",
+      "price": "฿1,400"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Galaxy Suites Pattaya",
+      "price": "฿900"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Royal Twins Palace Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "The Classroom Hotel",
+      "price": "฿1,075"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "The Ambiance Hotel Pattaya",
+      "price": "฿800"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Mike Hotel Pattaya",
+      "price": "฿1,500"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "Ambrosial Suites Pattaya",
+      "price": "฿1,400"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Grand Hotel Pattaya",
+      "price": "฿1,200"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Swiss Food Restaurant and Hotel",
+      "price": "฿750"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿4,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Garden Plus / Sea View (~38 ตร.ม.)", "price": "เริ่ม ฿4,000/คืน" },
-        { "type": "Garden View Corner Suite (~45 ตร.ม.)", "price": "เริ่ม ฿5,500/คืน" },
-        { "type": "Terrace Junior Suite (~52 ตร.ม.)", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "Deluxe Garden Plus / Sea View (~38 ตร.ม.)",
+          "price": "เริ่ม ฿4,000/คืน"
+        },
+        {
+          "type": "Garden View Corner Suite (~45 ตร.ม.)",
+          "price": "เริ่ม ฿5,500/คืน"
+        },
+        {
+          "type": "Terrace Junior Suite (~52 ตร.ม.)",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/avani-pattaya-resort/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/avani-pattaya-resort-and-spa.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-1517941/avani-pattaya-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-avani-pattaya-resort.html",
-      "tags": ["🌳 สวนเขียวกลางเมือง", "🏊 สระสไลเดอร์ + swim-up bar", "🛏️ ระเบียงทุกห้อง ~38 ตร.ม.", "🛍️ ติด Royal Garden Plaza"],
+      "tags": [
+        "🌳 สวนเขียวกลางเมือง",
+        "🏊 สระสไลเดอร์ + swim-up bar",
+        "🛏️ ระเบียงทุกห้อง ~38 ตร.ม.",
+        "🛍️ ติด Royal Garden Plaza"
+      ],
       "addr": "218/2-3 Moo 10, Nong Prue, Bang Lamung · ติด Royal Garden Plaza พัทยากลาง",
       "storyHtml": "ในชุด 10 ที่พักรอบ Walking Street ชุดนี้ ถ้าวัดกันที่ระดับและคะแนน <strong>AVANI Pattaya Resort</strong> คือเจ้าที่ยืนหนึ่ง — รีสอร์ตระดับ 5 ดาวในเครือ Avani / Minor Hotels คะแนน 9.2 จาก 303 รีวิวบน Trip.com และเป็นแห่งเดียวในชุดนี้ที่ให้บรรยากาศ \"รีสอร์ต\" จริง ๆ ทั้งที่ตั้งอยู่กลางพัทยากลาง · จุดที่ทำให้คนตกหลุมรักคือ <strong>สวนเขียวร่มรื่นกลางเมืองที่ล้อมสระว่ายน้ำไว้ให้รู้สึกเงียบสงบ</strong> ทั้งที่ก้าวออกประตูไปก็เจอความวุ่นวายของเมืองทันที · มีสระสไลเดอร์และสระเด็กแยกที่เสียงรีวิวจากครอบครัวพาเด็กมาเล่นชมตรงกัน รวมถึง swim-up bar ที่นั่งจิบเครื่องดื่มในสระได้ · ทำเลคือข้อได้เปรียบอีกชั้น — ติดกับ Royal Garden Plaza เดินข้ามถนนไปหาดพัทยาราว 2–3 นาที และเดินถึง Walking Street ราว 8 นาที จึงได้ทั้งความเป็นรีสอร์ตและความสะดวกของย่านกลางเมือง · ห้องพักเริ่มที่ราว 38 ตร.ม. มีระเบียงส่วนตัวทุกห้อง วิวสวนหรือทะเล และอาหารเช้าหลากหลายที่หลายคนชอบนั่งกินกลางสวน · ข้อสังเกตตามจริงจากเสียงรีวิว: ย่านพัทยากลางคึกคัก ห้องที่หันออกถนนได้ยินเสียงบาร์และดนตรีถึงดึก ตัวอาคารและงานตกแต่งบางจุดเริ่มเก่าตามอายุแม้รีโนเวตปี 2016 และอาหารบางมื้อในรีสอร์ตราคาสูงเมื่อเทียบปริมาณ · เหมาะที่สุดสำหรับครอบครัวและคู่รักที่อยากได้ความเป็นรีสอร์ตและสระให้เด็กเล่น แต่ยังต้องการทำเลเดินถึงหาด ห้าง และ Walking Street ในที่เดียว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าไวต่อเสียงให้ขอห้องฝั่งที่หันเข้าสวนแทนที่จะหันออกถนน จะเงียบกว่ามากในคืนวันศุกร์-เสาร์ · และถ้ามากับเด็กเล็กให้เช็กว่าสระสไลเดอร์เปิดให้บริการช่วงที่ไปพัก",
@@ -103,15 +190,29 @@
       "priceBig": "฿1,400",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Queen", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Superior King", "price": "เริ่ม ฿1,550/คืน" },
-        { "type": "Deluxe King", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Superior Queen",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Superior King",
+          "price": "เริ่ม ฿1,550/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/w-14-hotel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/w14-pattaya.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-5904055/w14-pattaya/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-w14-pattaya.html",
-      "tags": ["🌃 ติด Walking Street ซอย 14", "🏊 สระลอยฟ้ารูฟท็อป", "🤫 อยู่ลึกในซอย นอนเงียบกว่า", "🛏️ ห้องสะอาด เตียงนุ่ม"],
+      "tags": [
+        "🌃 ติด Walking Street ซอย 14",
+        "🏊 สระลอยฟ้ารูฟท็อป",
+        "🤫 อยู่ลึกในซอย นอนเงียบกว่า",
+        "🛏️ ห้องสะอาด เตียงนุ่ม"
+      ],
       "addr": "109/50 Moo 10, Walking Street Soi 14, Nongprue, Bang Lamung · พัทยาใต้",
       "storyHtml": "<strong>W14 Pattaya</strong> คือคำตอบของคนที่อยากนอนติด Walking Street แต่ไม่อยากแลกด้วยการนอนไม่หลับ — บูทีคโฮเทลเล็กเพียง 12 ห้องในซอย 14 ที่เสียงรีวิวยกให้เป็นเจ้าที่คะแนนสูงสุดในกลุ่มบูทีคของชุดนี้ที่ 8.8 จาก 49 รีวิวบน Trip.com · จุดที่ทำให้ที่นี่ต่างจากโรงแรมหน้าถนนคือ <strong>มันอยู่ลึกเข้าไปในซอย จึงเดินถึงถนนคนเดินได้ในไม่กี่ก้าว แต่กลับนอนเงียบกว่าโรงแรมที่ตั้งอยู่บนตัวถนนคนเดินจริง ๆ</strong> ซึ่งเป็นจุดที่หลายรีวิวพูดถึงตรงกันว่าเป็นข้อได้เปรียบที่หายาก · ของแถมที่หลายคนไม่คาดคิดในโรงแรมเล็กขนาดนี้คือ <strong>สระว่ายน้ำลอยฟ้าบนรูฟท็อป</strong> ที่ขึ้นไปแช่และมองวิวเมืองได้ · ห้องพักได้คำชมเรื่องความสะอาดและกว้างกว่าที่คาดในราคานี้ เตียงและที่นอนนุ่มสบาย ตกแต่งโมเดิร์น มีทั้ง Superior Queen, Superior King และ Deluxe King ให้เลือก · เพราะเป็นที่พักขนาดเล็กจึงให้ความรู้สึกเป็นส่วนตัวและบริการแบบใกล้ชิด · ข้อสังเกตตามจริงจากเสียงรีวิว: ตัวตึกไม่มีลิฟต์ ต้องแบกกระเป๋าขึ้นบันได ฟาซิลิตี้จำกัดตามขนาดที่พักเล็ก บางคืนยังได้ยินเสียงมอเตอร์ไซค์และดนตรีจากบาร์ใกล้เคียงลอยมาบ้าง Wi-Fi บางครั้งสัญญาณไม่เสถียร และเป็นอาคารที่เปิดมาตั้งแต่ปี 2015 จึงมีรายละเอียดบางจุดตามอายุ · เหมาะที่สุดสำหรับคู่รักและสายเที่ยวกลางคืนที่อยากเดินถึง Walking Street ในไม่กี่ก้าว แต่ยังต้องการห้องสะอาดและการนอนที่เงียบกว่าโรงแรมหน้าถนน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เพราะไม่มีลิฟต์ให้ขอห้องชั้นล่างถ้ามีกระเป๋าหนัก · และเพราะมีแค่ 12 ห้องเต็มเร็วช่วงวันหยุดยาว ควรจองล่วงหน้าและเทียบราคา 3 เว็บก่อน",
@@ -144,15 +245,29 @@
       "priceBig": "฿900",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Suite", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Superior Suite (ไฮซีซั่น)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Jacuzzi Suite (อ่างน้ำวนในห้อง)", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "Superior Suite",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Superior Suite (ไฮซีซั่น)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Jacuzzi Suite (อ่างน้ำวนในห้อง)",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/galaxy-suites-pattaya-hotel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Galaxy+Suites+Pattaya",
       "tripUrl": "https://www.trip.com/hotels/list?city=2&keyword=Galaxy%20Suites%20Pattaya&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-galaxy-suites-pattaya.html",
-      "tags": ["🌃 ซอยไดมอนด์ กลาง Walking Street", "🛁 Jacuzzi Suite อ่างน้ำวนในห้อง", "🚶 เดิน ~300 ม.ถึงหาด", "🛎️ ฟรอนต์ 24 ชั่วโมง"],
+      "tags": [
+        "🌃 ซอยไดมอนด์ กลาง Walking Street",
+        "🛁 Jacuzzi Suite อ่างน้ำวนในห้อง",
+        "🚶 เดิน ~300 ม.ถึงหาด",
+        "🛎️ ฟรอนต์ 24 ชั่วโมง"
+      ],
       "addr": "496/17-20 Moo 10, Soi Diamond (off Walking Street), Nong Prue, Bang Lamung · พัทยาใต้",
       "storyHtml": "ถ้าจะมีที่พักเดียวในชุดนี้ที่ขายคำว่า \"นอนกลาง Walking Street จริง ๆ\" ได้เต็มปาก ก็คือ <strong>Galaxy Suites Pattaya</strong> — บูทีคเล็ก 13 ห้องในซอยไดมอนด์ที่แตกออกจากถนนคนเดินโดยตรง คะแนน 7.2 จาก 286 รีวิวบน Trip.com · จุดขายชัดเจนคือ <strong>ทำเลที่อยู่กลางย่านบันเทิงพอดี เดินถึงทุกอย่าง กลับห้องดึกแค่ไหนก็ไม่ต้องเรียกรถ</strong> และเดินราว 300 เมตรถึงหาดพัทยา · ห้องที่หลายคู่พูดถึงคือ <strong>Jacuzzi Suite ที่มีอ่างน้ำวนในห้อง</strong> ห้องสวีทกว้างขึ้น เตียงใหญ่ และเป็นจุดที่รีวิวจากคู่รักชอบ ส่วนห้อง Superior Suite ราคาเริ่มเบาที่สุดในย่านนี้ · เสียงรีวิวชมเรื่องห้องสะอาด เตียงใหญ่นอนสบาย ห้องน้ำสะอาด และพนักงานเป็นมิตรช่วยเหลือดี มีฟรอนต์เปิด 24 ชั่วโมงซึ่งสำคัญมากสำหรับคนกลับดึก · แต่ต้องพูดตามตรงว่าจุดขายเรื่องทำเลกลางถนนคนเดินก็เป็นดาบสองคม — <strong>เสียงดนตรีจากคลับและบาร์ดังถึงห้องบางครั้งจนเกือบเช้า</strong> เป็นข้อสังเกตที่ถูกพูดถึงมากที่สุด · นอกจากนี้เป็นโรงแรมเล็ก ห้องบางห้องค่อนข้างเล็กและบางจุดเริ่มเก่า และบรรยากาศย่านบันเทิงผู้ใหญ่ทำให้ไม่เหมาะกับครอบครัวที่พาเด็กมา · เหมาะที่สุดสำหรับคนที่มาพัทยาเพื่อเที่ยวกลางคืนเต็มที่ ตั้งใจอยู่กลางความคึกคัก และรับได้กับเสียงแลกกับทำเลที่ใกล้ที่สุด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าจองช่วงวันหยุดยาวราคาขยับขึ้นและเต็มไว ควรจองล่วงหน้า · และถ้าอยากได้ประสบการณ์เต็มของห้องนี้ให้เลือก Jacuzzi Suite ที่มีอ่างน้ำวน แต่ทำใจเรื่องเสียงกลางคืนไว้ก่อน",
@@ -185,15 +300,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room (ระเบียงส่วนตัว)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe Room (ระเบียงวิวทะเล)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Suite 1 Bedroom", "price": "เริ่ม ฿2,400/คืน" }
+        {
+          "type": "Superior Room (ระเบียงส่วนตัว)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe Room (ระเบียงวิวทะเล)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Suite 1 Bedroom",
+          "price": "เริ่ม ฿2,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/royal-twins-palace-hotel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/royal-twins-palace.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail/royal-twins-palace-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-royal-twins-palace-pattaya.html",
-      "tags": ["🌊 ระเบียงวิวทะเลทุกห้อง", "🏊 สระว่ายน้ำ + สระเด็ก", "🍳 อาหารเช้าบุฟเฟ่ต์", "🅿️ ที่จอดรถฟรีใจกลางเมือง"],
+      "tags": [
+        "🌊 ระเบียงวิวทะเลทุกห้อง",
+        "🏊 สระว่ายน้ำ + สระเด็ก",
+        "🍳 อาหารเช้าบุฟเฟ่ต์",
+        "🅿️ ที่จอดรถฟรีใจกลางเมือง"
+      ],
       "addr": "223 Moo 10, Pattaya 2nd Road, Nongprue, Bang Lamung · พัทยาใต้",
       "storyHtml": "<strong>Royal Twins Palace Hotel</strong> คือโรงแรมขนาดใหญ่ที่เป็นตัวเลือกของคนอยากได้ห้องกว้างมีระเบียงวิวทะเลในงบไม่สูง โดยไม่ต้องไปนอนรีสอร์ตนอกเมือง — โรงแรม 4 ดาวราว 350 ห้องในพัทยาใต้ คะแนน 7.4 จาก 358 รีวิวบน Trip.com · จุดแข็งที่สุดคือ <strong>ทำเลที่ได้คะแนนหมวดทำเลสูงถึง 8.8 — เดิน 5 นาทีถึงหาดและ Walking Street</strong> จึงได้ทั้งความสะดวกของย่านกลางเมืองและไม่ไกลถนนคนเดิน · เสียงรีวิวชมเรื่องห้องกว้างและมีระเบียงวิวทะเล โดยเฉพาะห้องชั้นสูงที่มองออกไปเห็นอ่าวพัทยา ซึ่งเป็นจุดที่หาได้ยากในราคาเริ่มหลักพันต้น ๆ · นอกจากนี้ยังมี <strong>สระว่ายน้ำ สระเด็ก และอาหารเช้าบุฟเฟ่ต์ที่หลายคนบอกว่าจัดมาดีในระดับราคา</strong> รวมถึงที่จอดรถฟรีใจกลางเมืองและ Wi-Fi ฟรี ทำให้เหมาะกับครอบครัวหรือคนที่ขับรถมาเอง · แต่ต้องบอกตามตรงตามเสียงรีวิวว่าที่นี่คือ <strong>ตึกเก่าที่เคยหรูในอดีต</strong> — ตัวอาคารและเฟอร์นิเจอร์ดูเป็นยุคเก่า บางห้องไฟสลัว ลิฟต์อาจรอนานในช่วงคนเยอะเพราะเป็นตึกสูง 15 ชั้น และพนักงานบางคนสื่อสารภาษาอังกฤษได้จำกัด · เหมาะที่สุดสำหรับคนที่ให้น้ำหนักกับห้องกว้าง ระเบียงวิวทะเล สระว่ายน้ำ และทำเลเดินถึง Walking Street มากกว่าความใหม่ของอาคาร และอยากได้ที่พักที่รองรับครอบครัวในงบที่จับต้องได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวทะเลเต็มให้ขอห้องชั้นสูงตรง ๆ ตอนจอง เพราะวิวต่างกันชัดตามชั้น · และเผื่อเวลารอลิฟต์ช่วงเช้าที่คนลงไปกินอาหารเช้าพร้อมกัน",
@@ -226,15 +355,29 @@
       "priceBig": "฿1,075",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (~20 ตร.ม. · มีครัวเล็ก)", "price": "เริ่ม ฿1,075/คืน" },
-        { "type": "Deluxe Room SRO Balcony (~28 ตร.ม.)", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Deluxe Apartment (~35–38 ตร.ม.)", "price": "เริ่ม ฿1,600/คืน" }
+        {
+          "type": "Standard Room (~20 ตร.ม. · มีครัวเล็ก)",
+          "price": "เริ่ม ฿1,075/คืน"
+        },
+        {
+          "type": "Deluxe Room SRO Balcony (~28 ตร.ม.)",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Deluxe Apartment (~35–38 ตร.ม.)",
+          "price": "เริ่ม ฿1,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-classroom-hotel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-class-rooms.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-5234722/the-classroom-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-classroom-hotel-pattaya.html",
-      "tags": ["🍳 ห้องอพาร์ตเมนต์มีครัวในตัว", "🏖️ ใกล้หาด 150 เมตร", "🎶 Sports Bar + Music Lounge", "🛎️ ฟรอนต์ 24 ชั่วโมง"],
+      "tags": [
+        "🍳 ห้องอพาร์ตเมนต์มีครัวในตัว",
+        "🏖️ ใกล้หาด 150 เมตร",
+        "🎶 Sports Bar + Music Lounge",
+        "🛎️ ฟรอนต์ 24 ชั่วโมง"
+      ],
       "addr": "325/81 Soi 13/4, Central Pattaya, Bang Lamung · พัทยากลาง",
       "storyHtml": "<strong>The Classroom Hotel</strong> คืออพาร์ตเมนต์โฮเทลกลางพัทยาที่เหมาะกับคนพักยาวหรือคนที่อยากมีครัวในห้อง — คะแนน 8.8 จาก 113 รีวิวบน Trip.com และมี <strong>หมวดทำเลสูงถึง 9.7 ซึ่งเป็นหนึ่งในคะแนนทำเลที่สูงที่สุดในชุดนี้</strong> · จุดที่ทำให้ที่นี่ต่างจากโรงแรมทั่วไปคือ <strong>ห้องเป็นแบบอพาร์ตเมนต์ที่มีครัวเล็ก ตู้เย็น ไมโครเวฟ และระเบียงในตัว</strong> ทำให้เหมาะกับคนที่อยากทำอาหารเองหรือพักหลายคืน ห้องกว้างกว่าราคาตั้งแต่ Standard 20 ตร.ม. ไปจนถึง Premium Suite 60 ตร.ม. หลายห้องมีโต๊ะเก้าอี้บนระเบียงให้นั่งเล่นได้จริง · ทำเลอยู่ใน Soi 13/4 พัทยากลาง ใกล้หาดเพียง 150 เมตรเดิน 2 นาที เดินถึง Royal Garden Plaza ราว 5 นาที และเดินถึง Walking Street ราว 6–7 นาที จึงเดินถึงทั้งหาด ห้าง และถนนคนเดินได้สบายโดยไม่ต้องเรียกรถ · ในตัวที่พักยังมี <strong>Sports Bar และ Music Lounge บรรยากาศเป็นกันเอง</strong> ที่ลงไปนั่งดื่มและดูกีฬาได้โดยไม่ต้องออกไปไหน และพนักงานที่เสียงรีวิวชมว่าเป็นมิตรและให้เกียรติแขก มีฟรอนต์เปิด 24 ชั่วโมงรับคนกลับดึก · ข้อสังเกตตามจริงจากเสียงรีวิว: ที่นี่ <strong>ไม่มีสระว่ายน้ำในตัว</strong> ต้องพึ่งหาดพัทยาที่อยู่ใกล้ อยู่กลางย่านบันเทิงจึงได้ยินเสียงจากซอยและบาร์ในห้องชั้นล่าง และมีปัญหาบำรุงรักษาเล็กน้อยในบางห้อง เช่น ล็อกประตูหรือแอร์ที่ควรแจ้งฟรอนต์ตั้งแต่เช็กอิน · เหมาะที่สุดสำหรับนักเดินทางที่อยากได้ห้องกว้างแบบมีครัวในตัว ทำเลเดินถึงหาดและ Walking Street และยอมแลกการไม่มีสระกับราคาที่จับต้องได้ · ถ้าให้น้ำหนักกับพื้นที่ห้องและความยืดหยุ่นของการมีครัวมากกว่าสิ่งอำนวยความสะดวกแบบโรงแรมใหญ่ ที่นี่คือตัวเลือกที่คุ้มในย่านนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้ระเบียงนั่งเล่นให้เลือก Deluxe SRO Balcony ขึ้นไป เพราะ Standard ไม่มีระเบียง · และถ้าไวต่อเสียงให้ขอห้องชั้นสูงที่ไม่หันออกซอย",
@@ -267,15 +410,29 @@
       "priceBig": "฿800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Queen Room (~14 ตร.ม. · มีระเบียง)", "price": "เริ่ม ฿800/คืน" },
-        { "type": "Superior Queen Room (~17 ตร.ม.)", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Standard King Room (~19 ตร.ม.)", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "Standard Queen Room (~14 ตร.ม. · มีระเบียง)",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "Superior Queen Room (~17 ตร.ม.)",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Standard King Room (~19 ตร.ม.)",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-ambiance/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-ambiance.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-2398772/the-ambiance-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-ambiance-hotel-pattaya.html",
-      "tags": ["🏖️ เดิน 2 นาทีถึงหาด", "🛏️ ห้องรีโนเวตมีระเบียง", "💰 ราคาประหยัดใจกลางเมือง", "🚤 ใกล้ท่าเรือบาลีฮาย"],
+      "tags": [
+        "🏖️ เดิน 2 นาทีถึงหาด",
+        "🛏️ ห้องรีโนเวตมีระเบียง",
+        "💰 ราคาประหยัดใจกลางเมือง",
+        "🚤 ใกล้ท่าเรือบาลีฮาย"
+      ],
       "addr": "325/89 Pattayaland Soi 3, Pattaya 3rd Road, Nongprue, Bang Lamung · พัทยาใต้",
       "storyHtml": "<strong>The Ambiance Hotel Pattaya</strong> คือบูทีคเล็ก 40 ห้องที่เป็นตัวเลือกราคาเบาสำหรับคนที่อยากอยู่ใจกลางพัทยาใต้โดยไม่ต้องจ่ายแพง — คะแนน 8.5 จาก 73 รีวิวบน Trip.com ราคาเริ่มเพียงราว 800 บาท · จุดขายหลักคือ <strong>ทำเลที่เดิน 2 นาทีถึงหาด และ 5 นาทีถึง Walking Street</strong> รวมถึงเดินถึงท่าเรือบาลีฮายที่ออกเรือไปเกาะล้านได้ จึงเหมาะกับคนที่อยากเดินถึงทุกอย่างในย่านพัทยาใต้ · เสียงรีวิวชมเรื่อง <strong>ห้องสะอาดและดูแลรักษาดีหลังรีโนเวตปี 2018</strong> หลายห้องมีระเบียงส่วนตัว และพนักงานเป็นมิตรช่วยเหลือดี ซึ่งเป็นจุดที่ทำให้ราคานี้รู้สึกคุ้มสำหรับทำเลใจกลางเมือง · เพราะเป็นที่พักขนาดเล็กจึงให้บรรยากาศเป็นกันเองและเงียบกว่าโรงแรมใหญ่ · ข้อสังเกตตามจริงจากเสียงรีวิว: ที่นี่ <strong>อยู่กลางย่านบันเทิงกลางคืน ห้องที่หันออกซอยได้ยินเสียงบาร์</strong> ไม่มีสระว่ายน้ำและไม่มีฟิตเนส และห้องระดับเริ่มต้นค่อนข้างเล็กที่ราว 14 ตร.ม. จึงต้องเลือกระดับห้องให้ตรงความต้องการ · เหมาะที่สุดสำหรับนักเดินทางที่อยากอยู่ใจกลางพัทยาใต้ในงบประหยัด ใช้ที่พักเป็นฐานออกไปเดินเที่ยวหาดและ Walking Street และไม่ได้คาดหวังสิ่งอำนวยความสะดวกแบบรีสอร์ต · ถ้าให้ความสำคัญกับทำเลและความสะอาดในราคาเบามากกว่าสระและฟิตเนส ที่นี่คือตัวเลือกที่ลงตัว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Standard Queen เริ่มต้นค่อนข้างเล็ก ถ้าอยากได้พื้นที่มากขึ้นให้ขยับเป็น Standard King หรือ Junior Suite · และขอห้องที่ไม่หันออกซอยถ้าหลับยาก",
@@ -308,15 +465,29 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room (เตียง Double/Twin)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Deluxe Room (มุมนั่งเล่น)", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Deluxe Sea View (ชั้นสูง)", "price": "เริ่ม ฿2,400/คืน" }
+        {
+          "type": "Superior Room (เตียง Double/Twin)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe Room (มุมนั่งเล่น)",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Deluxe Sea View (ชั้นสูง)",
+          "price": "เริ่ม ฿2,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mike-hotel-sha-certified/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-mike-hotel-the-best-rated-area-in-pattaya-south.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-685802/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mike-hotel-pattaya.html",
-      "tags": ["🏊 สระดาดฟ้าวิวอ่าว", "🏬 เหนือ Mike Shopping Mall", "🛏️ ห้องกว้างเตียงใหญ่", "💰 ราคาคุ้มใจกลางเมือง"],
+      "tags": [
+        "🏊 สระดาดฟ้าวิวอ่าว",
+        "🏬 เหนือ Mike Shopping Mall",
+        "🛏️ ห้องกว้างเตียงใหญ่",
+        "💰 ราคาคุ้มใจกลางเมือง"
+      ],
       "addr": "564/2 Moo 10, Pattaya 2nd Road, Nongprue, Bang Lamung · เหนือ Mike Shopping Mall พัทยากลาง",
       "storyHtml": "<strong>Mike Hotel Pattaya</strong> คือโรงแรมราคาประหยัดที่เด่นด้วยจุดเดียวที่หาได้ยากในราคานี้ — <strong>สระว่ายน้ำดาดฟ้าวิวอ่าวพัทยา</strong> · คะแนน 7.8 จาก 90 รีวิวบน Trip.com ตั้งอยู่เหนือห้าง Mike Shopping Mall กลางพัทยา · จุดที่ทำให้คนเลือกที่นี่คือ <strong>มีห้างอยู่ใต้โรงแรมเลย</strong> ลงไปซื้อของกินของใช้ได้สะดวกโดยไม่ต้องออกไปไหน และทำเลเดิน 5 นาทีถึงหาดและ Walking Street จึงเดินถึงทั้งย่านบันเทิงและหาดได้ในเวลาใกล้เคียงกัน · เสียงรีวิวชมเรื่อง <strong>ห้องกว้างเตียงใหญ่กว่าที่คาดและราคาคุ้มค่า</strong> และสระดาดฟ้าที่ขึ้นไปแช่มองวิวอ่าวพัทยาได้ ซึ่งเป็นไฮไลต์ที่ดึงดูดคนในกลุ่มราคาเดียวกัน · แต่ต้องพูดตามตรงตามเสียงรีวิวว่าที่นี่คือ <strong>อาคารเก่าสไตล์ยุค 90s</strong> — เฟอร์นิเจอร์และการตกแต่งดูเก่า ห้องน้ำเก่า สุขภัณฑ์และระบบระบายน้ำบางจุดเริ่มมีอายุ และอยู่กลางย่านบันเทิงที่มีเสียงตลอดคืน · ห้องที่หลายคนเลือกคือ Deluxe Sea View ชั้นสูงที่มองเห็นเมืองหรืออ่าวบางส่วน และมีห้องระดับ Suite สำหรับกลุ่มหรือคนพักยาว · เหมาะที่สุดสำหรับคนที่อยากได้สระว่ายน้ำและทำเลใจกลางเมืองในราคาประหยัด ให้น้ำหนักกับห้องกว้างและความสะดวกของห้างใต้โรงแรมมากกว่าความใหม่ของอาคาร · ถ้ารับได้กับสไตล์ยุค 90s และต้องการสระในงบเบา Mike Hotel คือตัวเลือกที่ลงตัวในย่านนี้ และเป็นตัวเลือกที่หาสระว่ายน้ำในราคาเริ่มหลักพันต้น ๆ ได้ยากในพัทยากลาง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวให้เลือก Deluxe Sea View ชั้นสูง · และเพราะเป็นอาคารเก่า แนะนำอ่านรูปห้องล่าสุดบนแพลตฟอร์มจองและเลือกห้องที่เพิ่งปรับปรุงก่อนกดจอง",
@@ -349,15 +520,29 @@
       "priceBig": "฿1,400",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Suite (มุมครัวเล็ก)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Suite (ไฮซีซั่น)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Premium Suite (มีระเบียง)", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Deluxe Suite (มุมครัวเล็ก)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Suite (ไฮซีซั่น)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Premium Suite (มีระเบียง)",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ambrosial-suites/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ambrosial-suites.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-15905804/ambrosial-suites-premium-boutique/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ambrosial-suites-pattaya.html",
-      "tags": ["🍳 มุมครัวในห้อง", "📺 ทีวีดู Netflix", "🤫 เงียบกว่าโรงแรมในตัวถนน", "💆 มีบริการนวดในที่พัก"],
+      "tags": [
+        "🍳 มุมครัวในห้อง",
+        "📺 ทีวีดู Netflix",
+        "🤫 เงียบกว่าโรงแรมในตัวถนน",
+        "💆 มีบริการนวดในที่พัก"
+      ],
       "addr": "59/24-25 Pattaya Sai 2 Road, South Pattaya, Nong Prue, Bang Lamung · พัทยาใต้",
       "storyHtml": "<strong>Ambrosial Suites Pattaya</strong> (ปัจจุบันบางแพลตฟอร์มใช้ชื่อ Walking Street Residence — เป็นที่เดียวกัน) คือบูทีคสวีทเล็ก 11 ห้องสำหรับคนอยากได้ห้องกว้างมีครัวในทำเลเดินถึง Walking Street แต่ยังนอนเงียบกว่าโรงแรมในตัวถนนคนเดิน — คะแนน 7.4 จาก 60 รีวิวบน Trip.com · จุดเด่นคือ <strong>ห้องสวีทกว้างที่มีมุมครัวเล็กและตู้เย็นในห้อง ทีวีดู Netflix ได้</strong> ให้ความรู้สึกเหมือนบ้านมากกว่าโรงแรม ห้องระดับ Premium ยังมีระเบียงหรือเทอร์เรซส่วนตัวพร้อมโซฟาและโต๊ะให้นั่งเล่น และตั้งอยู่บนถนนพัทยาสาย 2 ที่เดินราว 290 เมตรถึง Walking Street และราว 6 นาทีถึงหาด จึงได้ทำเลใกล้แต่ยังหลบเสียงจากตัวถนนคนเดินได้ · เสียงรีวิวชมเรื่อง <strong>พนักงานเป็นมิตร ช่วยเหลือดี และพูดภาษาอังกฤษได้ดี</strong> มีดาดฟ้ารูฟท็อปให้ขึ้นไปนั่งเล่นและบริการนวดในที่พัก ทำให้บรรยากาศอบอุ่นแบบที่พักเล็กที่ดูแลกันเอง · ข้อสังเกตตามจริงจากเสียงรีวิวที่ควรรู้ก่อนจอง: <strong>อาคารไม่มีลิฟต์ ต้องขึ้นบันไดหลายชั้น</strong> ลากกระเป๋าหนักลำบาก บางห้องเจอยุงหรือแมลงและแอร์เย็นไม่แรงพอในวันที่ร้อนจัด และ <strong>มีค่าธรรมเนียมบัตรเครดิตราว 7%</strong> กับ Wi-Fi บางช่วงไม่เสถียร ซึ่งเป็นเรื่องที่ควรถามยืนยันกับที่พักก่อนกดจอง · เหมาะที่สุดสำหรับคู่รักหรือคนพักยาวที่อยากได้ห้องสวีทกว้างมีครัว เดินถึง Walking Street แต่ยังต้องการความเงียบและบรรยากาศเหมือนบ้าน และรับได้กับการไม่มีลิฟต์ · ถ้าให้น้ำหนักกับพื้นที่ห้องและความเป็นส่วนตัวมากกว่าฟาซิลิตี้แบบโรงแรมใหญ่ ที่นี่คือตัวเลือกที่ลงตัวในทำเลนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เพราะไม่มีลิฟต์ให้ขอห้องชั้นล่างถ้ามีกระเป๋าหนัก · และเตรียมเงินสดไว้จ่ายเพื่อเลี่ยงค่าธรรมเนียมบัตรเครดิตราว 7% ที่ควรถามยืนยันกับที่พักก่อน",
@@ -390,15 +575,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Double Room (~24 ตร.ม.)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Superior Twin Room (~24 ตร.ม.)", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Suite (~48 ตร.ม. · ชั้นสูงวิวดี)", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Superior Double Room (~24 ตร.ม.)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Superior Twin Room (~24 ตร.ม.)",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Suite (~48 ตร.ม. · ชั้นสูงวิวดี)",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-hotel-pattaya/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grand-hotel.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-685953/grand-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-hotel-walking-street-pattaya.html",
-      "tags": ["🌃 กลาง Walking Street", "🌊 ห้องชั้นสูงวิวทะเลมีระเบียง", "🍹 รูฟท็อปวิวอ่าวพัทยา", "🏖️ เดินถึงหาด 3 นาที"],
+      "tags": [
+        "🌃 กลาง Walking Street",
+        "🌊 ห้องชั้นสูงวิวทะเลมีระเบียง",
+        "🍹 รูฟท็อปวิวอ่าวพัทยา",
+        "🏖️ เดินถึงหาด 3 นาที"
+      ],
       "addr": "103 Moo 10, Soi 14 Walking Street, South Pattaya, Nongprue, Bang Lamung · พัทยาใต้",
       "storyHtml": "<strong>Grand Hotel Pattaya</strong> คือโรงแรมที่ตั้งอยู่บนถนน Walking Street จริง ๆ สำหรับคนที่มาพัทยาเพื่อเที่ยวกลางคืนเป็นหลัก — โรงแรม 3 ดาว 80 ห้อง สูง 9 ชั้น คะแนน 8.1 จาก 144 รีวิวบน Trip.com · จุดขายชัดเจนคือ <strong>ทำเลกลางความคึกคักของถนนคนเดิน เดินถึงทุกอย่างและกลับห้องได้เร็วหลังเที่ยวดึก</strong> และเดินถึงหาดพัทยาราว 3 นาที รวมถึงท่าเรือแหลมบาลีฮายที่ออกเรือไปเกาะล้านได้ · เสียงรีวิวชมเรื่อง <strong>ห้องชั้นสูงที่มีวิวทะเลและวิว Walking Street พร้อมระเบียง</strong> และไฮไลต์อย่างรูฟท็อปเทอเรซที่ขึ้นไปมองวิวอ่าวพัทยาได้ ซึ่งเป็นมุมที่หลายคนชอบ · รอบตัวเต็มไปด้วยร้านอาหารและบาร์ จึงไม่ต้องเดินไกลเพื่อหาที่กินที่เที่ยว · แต่ต้องพูดตามตรงตามเสียงรีวิวว่าจุดขายเรื่องทำเลก็มาพร้อมข้อแลก — <strong>เสียงเพลงจาก Walking Street ดังถึงดึก ห้องที่หันออกถนนได้ยินชัด</strong> ตัวอาคารและการตกแต่งดูเก่าตามอายุ และที่นี่ไม่มีสระว่ายน้ำ · ห้องมีให้เลือกตั้งแต่ Superior เตียงใหญ่หรือเตียงแฝดสำหรับเพื่อนสองคน ไปจนถึง Suite ราว 48 ตร.ม. และ Family Room ราว 72 ตร.ม. ที่รองรับกลุ่มหรือครอบครัวได้ · เหมาะที่สุดสำหรับคนที่ตั้งใจมาเที่ยวกลางคืนเต็มที่ อยากนอนกลางความคึกคักของ Walking Street และให้น้ำหนักกับทำเลและวิวมากกว่าความเงียบหรือสิ่งอำนวยความสะดวกแบบสระว่ายน้ำ · ถ้าอยากเดินถึงทุกอย่างและรับได้กับเสียงกลางคืน Grand Hotel คือตัวเลือกที่ตรงโจทย์ในย่านนี้ และเป็นหนึ่งในไม่กี่ที่ที่นอนอยู่บนตัวถนนคนเดินได้จริงพร้อมรูฟท็อปไว้นั่งชมวิวอ่าว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวให้เลือกห้องชั้นสูงและระบุวิวทะเลตอนจอง · แต่ถ้าหลับยากให้ขอห้องที่ไม่หันออกถนนคนเดิน เพราะเสียงเพลงดังถึงดึกในคืนวันหยุด",
@@ -431,15 +630,29 @@
       "priceBig": "฿750",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Deluxe Double Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Deluxe Double · ระเบียงวิวทะเล", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Standard Double Room",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Deluxe Double Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Deluxe Double · ระเบียงวิวทะเล",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/swiss-food-restaurant-and-hotel/hotel/pattaya-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/swiss-food-restaurant-and.html",
       "tripUrl": "https://www.trip.com/hotels/pattaya-hotel-detail-9440337/swiss-food-restaurant-and-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-swiss-food-restaurant-hotel-pattaya.html",
-      "tags": ["🇨🇭 เจ้าของชาวสวิส + อาหารสวิสแท้", "🪟 กระจกกันเสียงสามชั้น", "🧹 ห้องสะอาด ทำความสะอาดทุกวัน", "💰 ราคาเบาสุดในชุด"],
+      "tags": [
+        "🇨🇭 เจ้าของชาวสวิส + อาหารสวิสแท้",
+        "🪟 กระจกกันเสียงสามชั้น",
+        "🧹 ห้องสะอาด ทำความสะอาดทุกวัน",
+        "💰 ราคาเบาสุดในชุด"
+      ],
       "addr": "175/29-31 Soi Diamond, Walking Street, South Pattaya, Nongprue, Bang Lamung · ซอยไดมอนด์ พัทยาใต้",
       "storyHtml": "<strong>Swiss Food Restaurant and Hotel</strong> คือเกสต์เฮาส์ราคาเบาที่สุดในชุดนี้ ที่มีจุดเด่นไม่เหมือนใคร — <strong>เป็นที่พักเหนือร้านอาหารสวิสแท้ที่เจ้าของชาวสวิสดูแลเอง</strong> · คะแนน 7.9 จาก 34 รีวิวบน Trip.com ตั้งอยู่ในซอยไดมอนด์ ห่าง Walking Street เพียงราว 50–100 เมตร เดินถึงในไม่ถึง 2 นาที · จุดที่หลายคนเลือกที่นี่คือ <strong>นอนสะอาดราคาเบาติด Walking Street และได้กินอาหารยุโรปแท้ในตึกเดียวกัน</strong> · เสียงรีวิวชมเรื่องห้องสะอาดมีแม่บ้านทำความสะอาดทุกวัน และจุดที่เซอร์ไพรส์หลายคนคือ <strong>กระจกกันเสียงสามชั้นที่ทำให้ห้องเงียบกว่าที่คาด</strong> ทั้งที่อยู่ใกล้ย่านบันเทิงขนาดนี้ รวมถึงเจ้าของชาวสวิสและพนักงานที่เป็นมิตรดูแลใส่ใจ · ข้อสังเกตตามจริงจากเสียงรีวิว: ที่นี่เป็น <strong>เกสต์เฮาส์เล็กที่ไม่มีลิฟต์</strong> ต้องเดินขึ้นบันไดไปห้องชั้นบน ไม่มีสระว่ายน้ำ ของใช้เป็นแบบพื้นฐาน เสียงเพลงจากบาร์รอบข้างยังดังถึงดึกในคืนวันหยุดแม้กระจกจะช่วยได้มาก และห้อง Standard บางห้องเล็กและไม่มีตู้เสื้อผ้า · เหมาะที่สุดสำหรับนักเดินทางงบเบาที่อยากนอนสะอาดติด Walking Street ชอบอาหารยุโรป และไม่ได้คาดหวังสิ่งอำนวยความสะดวกแบบโรงแรมใหญ่ · ถ้าให้น้ำหนักกับราคาประหยัด ความสะอาด และทำเลใกล้ถนนคนเดินมากกว่าฟาซิลิตี้ ที่นี่คือตัวปิดท้ายที่คุ้มในชุดนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้วิวและห้องที่เปิดโล่งหน่อยให้เลือก Deluxe Double แบบมีระเบียงวิวทะเล · และเพราะไม่มีลิฟต์ ขอห้องชั้นล่างถ้าไม่อยากแบกกระเป๋าขึ้นบันได",
@@ -458,37 +671,192 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 ที่พักใกล้ Walking Street พัทยา 2026",
-  "compareCols": ["#", "ชื่อที่พัก", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อที่พัก",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "AVANI Pattaya Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿4,000", "access": "📍 พัทยากลาง · ติด Royal Garden", "badge": "รีสอร์ตสวน · คะแนนสูงสุด", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "W14 Pattaya", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,400", "access": "📍 พัทยาใต้ · Walking St ซอย 14", "badge": "บูทีคในซอย · นอนเงียบ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Galaxy Suites Pattaya", "type": "⭐⭐⭐", "score": "7.2", "price": "฿900", "access": "📍 พัทยาใต้ · ซอยไดมอนด์", "badge": "นอนกลาง Walking Street", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Royal Twins Palace Hotel", "type": "⭐⭐⭐⭐", "score": "7.4", "price": "฿1,200", "access": "📍 พัทยาใต้ · 2nd Road", "badge": "ระเบียงวิวทะเล · มีสระ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "The Classroom Hotel", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,075", "access": "📍 พัทยากลาง · Soi 13/4", "badge": "ห้องมีครัว · ทำเล 9.7", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "The Ambiance Hotel Pattaya", "type": "⭐⭐⭐", "score": "8.5", "price": "฿800", "access": "📍 พัทยาใต้ · Pattayaland 3", "badge": "เดิน 2 นาทีถึงหาด · ราคาเบา", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "Mike Hotel Pattaya", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,500", "access": "📍 พัทยากลาง · เหนือห้าง Mike", "badge": "สระดาดฟ้าวิวอ่าว", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "Ambrosial Suites Pattaya", "type": "⭐⭐⭐", "score": "7.4", "price": "฿1,400", "access": "📍 พัทยาใต้ · Pattaya Sai 2", "badge": "สวีทมีครัว · เงียบกว่าตัวถนน", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "9", "rankColor": "#06B6D4", "name": "Grand Hotel Pattaya", "type": "⭐⭐⭐", "score": "8.1", "price": "฿1,200", "access": "📍 พัทยาใต้ · Soi 14 Walking St", "badge": "นอนกลางถนนคนเดิน · รูฟท็อป", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "Swiss Food Restaurant and Hotel", "type": "⭐⭐", "score": "7.9", "price": "฿750", "access": "📍 พัทยาใต้ · ซอยไดมอนด์", "badge": "เจ้าของชาวสวิส · ราคาเบาสุด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "AVANI Pattaya Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿4,000",
+      "access": "📍 พัทยากลาง · ติด Royal Garden",
+      "badge": "รีสอร์ตสวน · คะแนนสูงสุด",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "W14 Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,400",
+      "access": "📍 พัทยาใต้ · Walking St ซอย 14",
+      "badge": "บูทีคในซอย · นอนเงียบ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Galaxy Suites Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "7.2",
+      "price": "฿900",
+      "access": "📍 พัทยาใต้ · ซอยไดมอนด์",
+      "badge": "นอนกลาง Walking Street",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Royal Twins Palace Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿1,200",
+      "access": "📍 พัทยาใต้ · 2nd Road",
+      "badge": "ระเบียงวิวทะเล · มีสระ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "The Classroom Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,075",
+      "access": "📍 พัทยากลาง · Soi 13/4",
+      "badge": "ห้องมีครัว · ทำเล 9.7",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "The Ambiance Hotel Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿800",
+      "access": "📍 พัทยาใต้ · Pattayaland 3",
+      "badge": "เดิน 2 นาทีถึงหาด · ราคาเบา",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "Mike Hotel Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,500",
+      "access": "📍 พัทยากลาง · เหนือห้าง Mike",
+      "badge": "สระดาดฟ้าวิวอ่าว",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "Ambrosial Suites Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿1,400",
+      "access": "📍 พัทยาใต้ · Pattaya Sai 2",
+      "badge": "สวีทมีครัว · เงียบกว่าตัวถนน",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#06B6D4",
+      "name": "Grand Hotel Pattaya",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿1,200",
+      "access": "📍 พัทยาใต้ · Soi 14 Walking St",
+      "badge": "นอนกลางถนนคนเดิน · รูฟท็อป",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "Swiss Food Restaurant and Hotel",
+      "type": "⭐⭐",
+      "score": "7.9",
+      "price": "฿750",
+      "access": "📍 พัทยาใต้ · ซอยไดมอนด์",
+      "badge": "เจ้าของชาวสวิส · ราคาเบาสุด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "เลือกที่พักใกล้ Walking Street พัทยายังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "🌴", "head": "มากับครอบครัว อยากได้รีสอร์ตมีสระ", "bodyHtml": "→ <strong>AVANI Pattaya Resort</strong> ฿4,000 รีสอร์ต 5 ดาวสวนเขียวกลางเมือง สระสไลเดอร์และสระเด็ก เดินถึงหาดและ Walking Street · หรือ <strong>Royal Twins Palace</strong> ฿1,200 ห้องกว้างมีสระในงบเบากว่า" },
-    { "icon": "🌙", "head": "อยากเดินถึง Walking Street แต่นอนเงียบ", "bodyHtml": "→ <strong>W14 Pattaya</strong> ฿1,400 บูทีคในซอย 14 นอนเงียบกว่าหน้าถนน คะแนน 8.8 · หรือ <strong>Ambrosial Suites</strong> ฿1,400 สวีทมีครัวบนสาย 2 เงียบกว่าตัวถนนคนเดิน" },
-    { "icon": "🌃", "head": "มาเที่ยวกลางคืนเต็มที่ อยากนอนกลางถนนคนเดิน", "bodyHtml": "→ <strong>Galaxy Suites</strong> ฿900 ในซอยไดมอนด์กลาง Walking Street · หรือ <strong>Grand Hotel Pattaya</strong> ฿1,200 บนถนนคนเดินจริง รูฟท็อปวิวอ่าว (ทำใจเรื่องเสียงกลางคืน)" },
-    { "icon": "🍳", "head": "พักยาว อยากได้ห้องมีครัวในตัว", "bodyHtml": "→ <strong>The Classroom Hotel</strong> ฿1,075 อพาร์ตเมนต์มีครัว ทำเลคะแนน 9.7 · หรือ <strong>Ambrosial Suites</strong> ฿1,400 สวีทกว้างมีมุมครัวและตู้เย็น" },
-    { "icon": "🏊", "head": "งบประหยัดแต่อยากได้สระว่ายน้ำ", "bodyHtml": "→ <strong>Mike Hotel Pattaya</strong> ฿1,500 สระดาดฟ้าวิวอ่าวพัทยาเหนือห้าง Mike · หรือ <strong>Royal Twins Palace</strong> ฿1,200 มีสระว่ายน้ำและสระเด็ก" },
-    { "icon": "💰", "head": "งบเบาที่สุด ขอแค่สะอาดและใกล้ถนนคนเดิน", "bodyHtml": "→ <strong>Swiss Food Restaurant and Hotel</strong> ฿750 เกสต์เฮาส์เจ้าของชาวสวิส กระจกกันเสียง · หรือ <strong>The Ambiance</strong> ฿800 เดิน 2 นาทีถึงหาด" },
-    { "icon": "🚤", "head": "อยากเดินถึงท่าเรือไปเกาะล้านด้วย", "bodyHtml": "→ ที่พักฝั่งพัทยาใต้เดินถึงท่าเรือแหลมบาลีฮายได้ — <strong>Grand Hotel Pattaya</strong>, <strong>The Ambiance</strong>, <strong>Galaxy Suites</strong> และ <strong>Swiss Food</strong> อยู่ในระยะเดินถึงปลาย Walking Street ที่ออกเรือไปเกาะล้าน" }
+    {
+      "icon": "🌴",
+      "head": "มากับครอบครัว อยากได้รีสอร์ตมีสระ",
+      "bodyHtml": "→ <strong>AVANI Pattaya Resort</strong> ฿4,000 รีสอร์ต 5 ดาวสวนเขียวกลางเมือง สระสไลเดอร์และสระเด็ก เดินถึงหาดและ Walking Street · หรือ <strong>Royal Twins Palace</strong> ฿1,200 ห้องกว้างมีสระในงบเบากว่า"
+    },
+    {
+      "icon": "🌙",
+      "head": "อยากเดินถึง Walking Street แต่นอนเงียบ",
+      "bodyHtml": "→ <strong>W14 Pattaya</strong> ฿1,400 บูทีคในซอย 14 นอนเงียบกว่าหน้าถนน คะแนน 8.8 · หรือ <strong>Ambrosial Suites</strong> ฿1,400 สวีทมีครัวบนสาย 2 เงียบกว่าตัวถนนคนเดิน"
+    },
+    {
+      "icon": "🌃",
+      "head": "มาเที่ยวกลางคืนเต็มที่ อยากนอนกลางถนนคนเดิน",
+      "bodyHtml": "→ <strong>Galaxy Suites</strong> ฿900 ในซอยไดมอนด์กลาง Walking Street · หรือ <strong>Grand Hotel Pattaya</strong> ฿1,200 บนถนนคนเดินจริง รูฟท็อปวิวอ่าว (ทำใจเรื่องเสียงกลางคืน)"
+    },
+    {
+      "icon": "🍳",
+      "head": "พักยาว อยากได้ห้องมีครัวในตัว",
+      "bodyHtml": "→ <strong>The Classroom Hotel</strong> ฿1,075 อพาร์ตเมนต์มีครัว ทำเลคะแนน 9.7 · หรือ <strong>Ambrosial Suites</strong> ฿1,400 สวีทกว้างมีมุมครัวและตู้เย็น"
+    },
+    {
+      "icon": "🏊",
+      "head": "งบประหยัดแต่อยากได้สระว่ายน้ำ",
+      "bodyHtml": "→ <strong>Mike Hotel Pattaya</strong> ฿1,500 สระดาดฟ้าวิวอ่าวพัทยาเหนือห้าง Mike · หรือ <strong>Royal Twins Palace</strong> ฿1,200 มีสระว่ายน้ำและสระเด็ก"
+    },
+    {
+      "icon": "💰",
+      "head": "งบเบาที่สุด ขอแค่สะอาดและใกล้ถนนคนเดิน",
+      "bodyHtml": "→ <strong>Swiss Food Restaurant and Hotel</strong> ฿750 เกสต์เฮาส์เจ้าของชาวสวิส กระจกกันเสียง · หรือ <strong>The Ambiance</strong> ฿800 เดิน 2 นาทีถึงหาด"
+    },
+    {
+      "icon": "🚤",
+      "head": "อยากเดินถึงท่าเรือไปเกาะล้านด้วย",
+      "bodyHtml": "→ ที่พักฝั่งพัทยาใต้เดินถึงท่าเรือแหลมบาลีฮายได้ — <strong>Grand Hotel Pattaya</strong>, <strong>The Ambiance</strong>, <strong>Galaxy Suites</strong> และ <strong>Swiss Food</strong> อยู่ในระยะเดินถึงปลาย Walking Street ที่ออกเรือไปเกาะล้าน"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · คะแนนและจุดเด่นในบทความนี้มาจากการอ่านเสียงรีวิวจริงของแขกบนแพลตฟอร์มจอง ไม่ได้เข้าพักเอง · Ambrosial Suites Pattaya บางแพลตฟอร์มใช้ชื่อ Walking Street Residence — เป็นที่เดียวกัน · ที่พักรอบ Walking Street อยู่กลางย่านบันเทิงกลางคืน ห้องที่หันออกถนนหรือชั้นต่ำมักได้ยินเสียงเพลงถึงดึก ถ้าหลับยากแนะนำขอห้องชั้นสูงหรือฝั่งด้านในไว้ตั้งแต่จอง · ช่วงวันหยุดยาวและไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) ราคาสูงขึ้นและห้องหมดเร็ว ควรจองล่วงหน้า · พัทยาไม่มีรถไฟฟ้า ใช้รถสองแถว (บาทบัส) หรือ Grab สะดวก จากสนามบินอู่ตะเภาเข้าเมืองราว 35–45 นาที · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องที่พักใกล้ Walking Street พัทยา",
   "faq": [
-    { "q": "❓ ที่พักใกล้ Walking Street พัทยาที่ดีที่สุดคือที่ไหน?", "a": "ขึ้นอยู่กับสไตล์ทริป · ถ้าวัดที่ระดับและคะแนน <strong>AVANI Pattaya Resort</strong> คะแนน 9.2 เป็นรีสอร์ต 5 ดาวสวนเขียวกลางเมืองที่หรูสุดในชุด · ถ้าอยากเดินถึงถนนคนเดินแต่นอนเงียบ <strong>W14 Pattaya</strong> คะแนน 8.8 ในซอย 14 · ถ้าอยากนอนกลาง Walking Street จริง ๆ <strong>Galaxy Suites</strong> หรือ <strong>Grand Hotel Pattaya</strong> · ถ้าพักยาวอยากได้ห้องมีครัว <strong>The Classroom Hotel</strong> · และถ้างบเบาที่สุด <strong>Swiss Food Restaurant and Hotel</strong> เริ่ม ฿750" },
-    { "q": "❓ ที่พักใกล้ Walking Street พัทยาราคาเท่าไหร่?", "a": "ในบทความนี้ราคาเริ่มประมาณ <strong>฿750–4,000 ต่อคืน</strong> · ฝั่งงบเบาคือ Swiss Food เริ่ม ฿750, The Ambiance ฿800 และ Galaxy Suites ฿900 · ระดับกลางคือ The Classroom ฿1,075, Royal Twins / Grand Hotel ฿1,200 และ W14 / Ambrosial ฿1,400 · ระดับท็อปคือ Mike Hotel ฿1,500 และ AVANI Pattaya Resort ฿4,000 · ราคาทั้งหมดเป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงวันหยุดและไฮซีซั่นราคาอาจสูงกว่าปกติ" },
-    { "q": "❓ นอนใกล้ Walking Street จะเสียงดังไหม ควรเลือกห้องแบบไหน?", "a": "เสียงดังเป็นเรื่องจริงที่หลายรีวิวพูดตรงกัน · ที่พักบนตัวถนนคนเดินอย่าง <strong>Galaxy Suites</strong> และ <strong>Grand Hotel</strong> ได้ยินเสียงเพลงถึงดึกชัดที่สุด · ถ้าอยากเดินถึงแต่ยังนอนเงียบกว่าให้เลือกที่พักในซอยลึกหรือบนสาย 2 อย่าง <strong>W14 Pattaya</strong> หรือ <strong>Ambrosial Suites</strong> · ไม่ว่าที่ไหนแนะนำ <strong>ขอห้องชั้นสูงหรือฝั่งด้านในที่ไม่หันออกถนน</strong> ตั้งแต่ตอนจอง · บางแห่งอย่าง Swiss Food มีกระจกกันเสียงสามชั้นช่วยได้มาก" },
-    { "q": "❓ ที่พักย่าน Walking Street เหมาะกับครอบครัวพาเด็กไหม?", "a": "ขึ้นอยู่กับที่ · ที่พักบนตัวถนนคนเดินกลางย่านบันเทิงผู้ใหญ่อย่าง Galaxy Suites หรือ Grand Hotel <strong>ไม่เหมาะกับเด็ก</strong> · ถ้ามากับครอบครัวแนะนำ <strong>AVANI Pattaya Resort</strong> ที่มีสระสไลเดอร์ สระเด็ก และสวนเขียว หรือ <strong>Royal Twins Palace</strong> ที่มีสระว่ายน้ำ สระเด็ก และห้องสวีทสองห้องนอน — ทั้งสองอยู่ห่างจากตัวถนนคนเดินพอให้เงียบขึ้นแต่ยังเดินถึงได้" },
-    { "q": "❓ ที่พักใกล้ Walking Street ที่มีห้องครัวหรือเหมาะพักยาวมีไหม?", "a": "มี · <strong>The Classroom Hotel</strong> เป็นอพาร์ตเมนต์โฮเทลที่ห้องมีครัวเล็ก ตู้เย็น ไมโครเวฟ และระเบียง เหมาะพักยาวมาก ทำเลคะแนน 9.7 · และ <strong>Ambrosial Suites Pattaya</strong> เป็นบูทีคสวีทที่มีมุมครัวและตู้เย็นในห้อง ทีวีดู Netflix ได้ บรรยากาศเหมือนบ้าน · ทั้งสองเดินถึง Walking Street และหาดได้ในไม่กี่นาที" },
-    { "q": "❓ ควรจองที่พักย่าน Walking Street ล่วงหน้านานแค่ไหน?", "a": "ที่พักหลายแห่งในย่านนี้เป็นบูทีคขนาดเล็ก (11–13 ห้อง บางแห่งแค่ 12 ห้อง) จึงเต็มเร็ว · ช่วง <strong>วันหยุดยาวและไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป</strong> โดยเฉพาะ W14, Galaxy Suites และ Ambrosial ที่ห้องน้อย · ช่วงปกติจองก่อน 1–2 สัปดาห์พอ · ทุกแพลตฟอร์มมี Free Cancellation แนะนำล็อกราคาแบบนั้นไว้ก่อนถ้าแผนยังไม่แน่นอน แล้วเทียบ Agoda / Booking / Trip.com ให้ได้ราคาดีที่สุด" }
-  ]
+    {
+      "q": "❓ ที่พักใกล้ Walking Street พัทยาที่ดีที่สุดคือที่ไหน?",
+      "a": "ขึ้นอยู่กับสไตล์ทริป · ถ้าวัดที่ระดับและคะแนน <strong>AVANI Pattaya Resort</strong> คะแนน 9.2 เป็นรีสอร์ต 5 ดาวสวนเขียวกลางเมืองที่หรูสุดในชุด · ถ้าอยากเดินถึงถนนคนเดินแต่นอนเงียบ <strong>W14 Pattaya</strong> คะแนน 8.8 ในซอย 14 · ถ้าอยากนอนกลาง Walking Street จริง ๆ <strong>Galaxy Suites</strong> หรือ <strong>Grand Hotel Pattaya</strong> · ถ้าพักยาวอยากได้ห้องมีครัว <strong>The Classroom Hotel</strong> · และถ้างบเบาที่สุด <strong>Swiss Food Restaurant and Hotel</strong> เริ่ม ฿750"
+    },
+    {
+      "q": "❓ ที่พักใกล้ Walking Street พัทยาราคาเท่าไหร่?",
+      "a": "ในบทความนี้ราคาเริ่มประมาณ <strong>฿750–4,000 ต่อคืน</strong> · ฝั่งงบเบาคือ Swiss Food เริ่ม ฿750, The Ambiance ฿800 และ Galaxy Suites ฿900 · ระดับกลางคือ The Classroom ฿1,075, Royal Twins / Grand Hotel ฿1,200 และ W14 / Ambrosial ฿1,400 · ระดับท็อปคือ Mike Hotel ฿1,500 และ AVANI Pattaya Resort ฿4,000 · ราคาทั้งหมดเป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงวันหยุดและไฮซีซั่นราคาอาจสูงกว่าปกติ"
+    },
+    {
+      "q": "❓ นอนใกล้ Walking Street จะเสียงดังไหม ควรเลือกห้องแบบไหน?",
+      "a": "เสียงดังเป็นเรื่องจริงที่หลายรีวิวพูดตรงกัน · ที่พักบนตัวถนนคนเดินอย่าง <strong>Galaxy Suites</strong> และ <strong>Grand Hotel</strong> ได้ยินเสียงเพลงถึงดึกชัดที่สุด · ถ้าอยากเดินถึงแต่ยังนอนเงียบกว่าให้เลือกที่พักในซอยลึกหรือบนสาย 2 อย่าง <strong>W14 Pattaya</strong> หรือ <strong>Ambrosial Suites</strong> · ไม่ว่าที่ไหนแนะนำ <strong>ขอห้องชั้นสูงหรือฝั่งด้านในที่ไม่หันออกถนน</strong> ตั้งแต่ตอนจอง · บางแห่งอย่าง Swiss Food มีกระจกกันเสียงสามชั้นช่วยได้มาก"
+    },
+    {
+      "q": "❓ ที่พักย่าน Walking Street เหมาะกับครอบครัวพาเด็กไหม?",
+      "a": "ขึ้นอยู่กับที่ · ที่พักบนตัวถนนคนเดินกลางย่านบันเทิงผู้ใหญ่อย่าง Galaxy Suites หรือ Grand Hotel <strong>ไม่เหมาะกับเด็ก</strong> · ถ้ามากับครอบครัวแนะนำ <strong>AVANI Pattaya Resort</strong> ที่มีสระสไลเดอร์ สระเด็ก และสวนเขียว หรือ <strong>Royal Twins Palace</strong> ที่มีสระว่ายน้ำ สระเด็ก และห้องสวีทสองห้องนอน — ทั้งสองอยู่ห่างจากตัวถนนคนเดินพอให้เงียบขึ้นแต่ยังเดินถึงได้"
+    },
+    {
+      "q": "❓ ที่พักใกล้ Walking Street ที่มีห้องครัวหรือเหมาะพักยาวมีไหม?",
+      "a": "มี · <strong>The Classroom Hotel</strong> เป็นอพาร์ตเมนต์โฮเทลที่ห้องมีครัวเล็ก ตู้เย็น ไมโครเวฟ และระเบียง เหมาะพักยาวมาก ทำเลคะแนน 9.7 · และ <strong>Ambrosial Suites Pattaya</strong> เป็นบูทีคสวีทที่มีมุมครัวและตู้เย็นในห้อง ทีวีดู Netflix ได้ บรรยากาศเหมือนบ้าน · ทั้งสองเดินถึง Walking Street และหาดได้ในไม่กี่นาที"
+    },
+    {
+      "q": "❓ ควรจองที่พักย่าน Walking Street ล่วงหน้านานแค่ไหน?",
+      "a": "ที่พักหลายแห่งในย่านนี้เป็นบูทีคขนาดเล็ก (11–13 ห้อง บางแห่งแค่ 12 ห้อง) จึงเต็มเร็ว · ช่วง <strong>วันหยุดยาวและไฮซีซั่น (พฤศจิกายน–กุมภาพันธ์) ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป</strong> โดยเฉพาะ W14, Galaxy Suites และ Ambrosial ที่ห้องน้อย · ช่วงปกติจองก่อน 1–2 สัปดาห์พอ · ทุกแพลตฟอร์มมี Free Cancellation แนะนำล็อกราคาแบบนั้นไว้ก่อนถ้าแผนยังไม่แน่นอน แล้วเทียบ Agoda / Booking / Trip.com ให้ได้ราคาดีที่สุด"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 ที่พักใกล้ Walking Street พัทยาที่เรารีวิวไว้แล้ว — ตั้งแต่รีสอร์ตสวนกลางเมือง AVANI ถึงเกสต์เฮาส์ราคาเบาเหนือร้านอาหารสวิส · เสียงจากรีวิวจริง คะแนนจริง เดินถึงถนนคนเดินในไม่กี่นาที ราคาเริ่มประมาณ ฿750–4,000/คืน เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

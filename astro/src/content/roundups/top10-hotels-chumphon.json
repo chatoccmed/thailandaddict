@@ -16,16 +16,39 @@
     "✅ อ่านจาก <strong>รีวิวแขกจริง</strong> ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "ชุมพร", "href": "city-chumphon.html" },
-    { "name": "12 โรงแรมชุมพรยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "ชุมพร",
+      "href": "city-chumphon.html"
+    },
+    {
+      "name": "12 โรงแรมชุมพรยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "ชุมพร", "item": "https://thailandaddict.com/city-chumphon" },
-    { "name": "12 โรงแรมชุมพรยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-chumphon" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "ชุมพร",
+      "item": "https://thailandaddict.com/city-chumphon"
+    },
+    {
+      "name": "12 โรงแรมชุมพรยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-chumphon"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-chumphon.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "ชุมพรไม่มีรถไฟฟ้า การเดินทางหลักคือรถไฟ รถ และเรือ · ตัวเมืองชุมพรมีสถานีรถไฟที่นักเดินทางขึ้นลงเพื่อต่อเรือไปเกาะเต่า–เกาะพะงันจากท่าเรือปากน้ำ · หาดและรีสอร์ตส่วนใหญ่อยู่นอกเมือง ขับรถหรือเช่ารถสะดวกที่สุด · จุดหมายหลักในบทความนี้: <strong>หาดทรายรี</strong> — The Nest Private Beach Resort, Had Sai Resort (หาดเงียบติดอุทยานหมู่เกาะชุมพร) · <strong>หาดทุ่งวัวแล่น–ปะทิว</strong> — Chumphon Cabana, Armonia Village (หาดทรายขาว ศูนย์ดำน้ำ) · <strong>ปากน้ำชุมพร</strong> — The Nouveau Chumphon Beach Resort (ติดทะเล สนามกอล์ฟ) · <strong>ตัวเมือง</strong> — A-Te, Chumphon Palace, Nana Buri, Chumphon Gardens, Morakot, Loft Mania, Salsa Hostel จุดพักก่อนขึ้นรถไฟหรือต่อเรือ",
   "secLabel": "ทั้ง 12 ที่พัก — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "The Nest Private Beach Resort", "price": "฿4,500" },
-    { "n": "2", "color": "#c8a951", "name": "Chumphon Cabana Resort", "price": "฿1,900" },
-    { "n": "3", "color": "#c8a951", "name": "The Nouveau Chumphon Beach Resort & Golf", "price": "฿2,590" },
-    { "n": "4", "color": "#9e9e9e", "name": "A-Te Chumphon Hotel", "price": "฿1,300" },
-    { "n": "5", "color": "#9e9e9e", "name": "Chumphon Palace Hotel", "price": "฿450" },
-    { "n": "6", "color": "#9e9e9e", "name": "Nana Buri Hotel", "price": "฿900" },
-    { "n": "7", "color": "#9e9e9e", "name": "Chumphon Gardens Hotel", "price": "฿700" },
-    { "n": "8", "color": "#bf8040", "name": "Armonia Village Resort and Spa", "price": "฿1,800" },
-    { "n": "9", "color": "#bf8040", "name": "Morakot Hotel", "price": "฿650" },
-    { "n": "10", "color": "#bf8040", "name": "Loft Mania Boutique Hotel", "price": "฿1,100" },
-    { "n": "11", "color": "#5d4037", "name": "Salsa Hostel", "price": "฿350" },
-    { "n": "12", "color": "#5d4037", "name": "Had Sai Resort Chumphon", "price": "฿1,200" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "The Nest Private Beach Resort",
+      "price": "฿4,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Chumphon Cabana Resort",
+      "price": "฿1,900"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "The Nouveau Chumphon Beach Resort & Golf",
+      "price": "฿2,590"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "A-Te Chumphon Hotel",
+      "price": "฿1,300"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Chumphon Palace Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Nana Buri Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Chumphon Gardens Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Armonia Village Resort and Spa",
+      "price": "฿1,800"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Morakot Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "10",
+      "color": "#bf8040",
+      "name": "Loft Mania Boutique Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Salsa Hostel",
+      "price": "฿350"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Had Sai Resort Chumphon",
+      "price": "฿1,200"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿4,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room Sea View (30 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Villa Deluxe (35 ตร.ม.)", "price": "เริ่ม ฿5,200/คืน" },
-        { "type": "Beachfront Villa (45 ตร.ม.)", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "Deluxe Room Sea View (30 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Villa Deluxe (35 ตร.ม.)",
+          "price": "เริ่ม ฿5,200/คืน"
+        },
+        {
+          "type": "Beachfront Villa (45 ตร.ม.)",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-nest-private-beach-resort/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-nest-private-beach-resort.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-89976645/the-nest-private-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-nest-private-beach-resort-chumphon.html",
-      "tags": ["🏖️ หาดส่วนตัวในอ่าวเงียบ", "🏊 สระอินฟินิตี้วิวทะเล", "🤿 ออกเกาะ-ดำน้ำในเขตอุทยาน", "🆕 สร้างใหม่ปี 2021"],
+      "tags": [
+        "🏖️ หาดส่วนตัวในอ่าวเงียบ",
+        "🏊 สระอินฟินิตี้วิวทะเล",
+        "🤿 ออกเกาะ-ดำน้ำในเขตอุทยาน",
+        "🆕 สร้างใหม่ปี 2021"
+      ],
       "addr": "100 หมู่ 7 ตำบลหาดทรายรี อำเภอเมืองชุมพร",
       "storyHtml": "The Nest คือ <strong>รีสอร์ตบูทีคริมหาดทรายรีที่ขายหาดส่วนตัวจริง ๆ ในอ่าวเล็กติดอุทยานแห่งชาติหมู่เกาะชุมพร</strong> สร้างใหม่ปี 2021 มีแค่ 21 ห้องและวิลล่า · เสียงจากรีวิวจริงชมว่าตื่นเช้ามาเดินจากห้องลงหาดได้เลยโดยแทบไม่มีคนนอก สระอินฟินิตี้ที่ขอบสระไหลต่อกับเส้นทะเลคือมุมที่คนพักพูดถึงมากที่สุด และพนักงานดูแลใส่ใจช่วยจัดทริปดำน้ำออกเกาะได้ · เหมาะกับคู่รักและคนที่อยากใช้รีสอร์ตเป็นฐานออกทะเลมากกว่าเข้าเมืองทุกวัน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Beachfront Villa ที่เดินจากเทอร์เรซลงหาดได้ตรงคุ้มกว่าห้อง Deluxe ที่อยู่ลึกเข้าไป · ที่จอดรถจำกัด มาถึงแต่หัววันจะสบายกว่า และเตรียมของกินเล่นติดรถมาเพราะร้านนอกรีสอร์ตอยู่ไกล",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Classic Bungalow (วิวสวน)", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Seabreeze Villa", "price": "เริ่ม ฿2,400/คืน" },
-        { "type": "Sea View Villa with Bathtub", "price": "เริ่ม ฿2,900/คืน" }
+        {
+          "type": "Classic Bungalow (วิวสวน)",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Seabreeze Villa",
+          "price": "เริ่ม ฿2,400/คืน"
+        },
+        {
+          "type": "Sea View Villa with Bathtub",
+          "price": "เริ่ม ฿2,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chumphon-cabana-h24423617/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chumphon-cabana-resort-chumphon-thailand.html",
       "tripUrl": "https://www.trip.com/hotels/pathio-district-hotel-detail-2885057/chumphon-cabana/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chumphon-cabana-resort-chumphon.html",
-      "tags": ["🏖️ ติดหาดทุ่งวัวแล่นจริง", "🤿 ศูนย์ดำน้ำในรีสอร์ต", "🌱 เรื่องราวเกษตรพอเพียง", "🤝 พนักงานเป็นกันเอง"],
+      "tags": [
+        "🏖️ ติดหาดทุ่งวัวแล่นจริง",
+        "🤿 ศูนย์ดำน้ำในรีสอร์ต",
+        "🌱 เรื่องราวเกษตรพอเพียง",
+        "🤝 พนักงานเป็นกันเอง"
+      ],
       "addr": "69 หมู่ 8 หาดทุ่งวัวแล่น ตำบลสะพลี อำเภอปะทิว",
       "storyHtml": "Chumphon Cabana คือ <strong>รีสอร์ตที่ติดหาดทุ่งวัวแล่นจริง ๆ เดินไม่กี่ก้าวถึงทะเล พร้อมศูนย์ดำน้ำและเรื่องราวเกษตรพอเพียงในพื้นที่</strong> คะแนน 8.6 · เสียงจากรีวิวจริงชมว่าห้องสะอาด เตียงนอนสบาย แอร์เย็น และบรรยากาศเงียบสงบเหมาะกับครอบครัวและคนอยากพักผ่อน · เด่นที่ทำเลติดทะเลและความเป็นกันเองที่หาได้ยาก · ข้อควรรู้คือที่นี่ไม่มีสระว่ายน้ำ เน้นเล่นทะเลหน้าหาด และอยู่ห่างตัวเมือง ถ้าไม่มีรถส่วนตัวต้องวางแผน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้วิวทะเลเต็มตาเลือก Sea View Villa with Bathtub · อาหารทะเลสดแต่ราคาค่อนข้างสูง วางแผนออกไปกินร้านในย่านทุ่งวัวแล่นบ้าง · มีรถส่วนตัวจะเที่ยวสะดวกกว่ามาก",
@@ -144,15 +255,29 @@
       "priceBig": "฿2,590",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Garden", "price": "เริ่ม ฿2,590/คืน" },
-        { "type": "Superior Pool Side", "price": "เริ่ม ฿3,178/คืน" },
-        { "type": "Superior Sea View", "price": "เริ่ม ฿3,900/คืน" }
+        {
+          "type": "Superior Garden",
+          "price": "เริ่ม ฿2,590/คืน"
+        },
+        {
+          "type": "Superior Pool Side",
+          "price": "เริ่ม ฿3,178/คืน"
+        },
+        {
+          "type": "Superior Sea View",
+          "price": "เริ่ม ฿3,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/novotel-chumphon-beach-resort-and-golf/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/novotel-chumphon-beach-resort-and-golf.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-1518178/novotel-chumphon-beach-resort-and-golf/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-nouveau-chumphon-beach-resort-and-golf-chumphon.html",
-      "tags": ["🏖️ ติดทะเลปากน้ำชุมพร", "⛳ สนามกอล์ฟ 9 หลุม", "🏊 สระว่ายน้ำใหญ่ + สระเด็ก", "🛏️ ห้องกว้าง อ่างอาบน้ำใหญ่"],
+      "tags": [
+        "🏖️ ติดทะเลปากน้ำชุมพร",
+        "⛳ สนามกอล์ฟ 9 หลุม",
+        "🏊 สระว่ายน้ำใหญ่ + สระเด็ก",
+        "🛏️ ห้องกว้าง อ่างอาบน้ำใหญ่"
+      ],
       "addr": "112/3 หมู่ 1 ถนนชุมพร-ปากน้ำ ตำบลวังไผ่ อำเภอเมืองชุมพร",
       "storyHtml": "The Nouveau คือ <strong>รีสอร์ตติดทะเลที่ชนะด้วยพื้นที่กว้าง ห้องใหญ่ และความเงียบสงบ ในราคา 4 ดาวที่จับต้องได้</strong> คะแนน 8.3 จาก 71 รีวิว · เป็นอดีต Novotel ที่เด่นเรื่องสระว่ายน้ำใหญ่มีสระเด็ก ห้องกว้างเตียงนุ่มและอ่างอาบน้ำใหญ่ พร้อมสนามกอล์ฟ 9 หลุมในพื้นที่ · เสียงจากรีวิวจริงชมว่าคุ้มราคาและพนักงานเป็นมิตร · ข้อควรรู้คือห้องบางส่วนเก่ารอการปรับปรุง และหาดด้านหน้าบางช่วงมีขยะพัดมาเกย เหมาะคนขับรถผ่านหรืออยากพักผ่อนริมทะเลแบบสบาย ๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากเห็นทะเลเลือก Superior Sea View · ราคาห้อง Suite ขยับสูงช่วงพีค เลือก Superior คุ้มกว่า · อยู่นอกเมืองควรมีรถส่วนตัว และเช็กสภาพห้องตอนเช็กอินเพราะห้องเก่าใหม่ต่างกัน",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,300",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Double Room (28 ตร.ม.)", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Twin Room with Terrace", "price": "เริ่ม ฿1,450/คืน" },
-        { "type": "Deluxe Twin Pool Terrace (35 ตร.ม.)", "price": "เริ่ม ฿1,700/คืน" }
+        {
+          "type": "Superior Double Room (28 ตร.ม.)",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Twin Room with Terrace",
+          "price": "เริ่ม ฿1,450/คืน"
+        },
+        {
+          "type": "Deluxe Twin Pool Terrace (35 ตร.ม.)",
+          "price": "เริ่ม ฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/a-te-hotel-chumphon/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/a-te-chumphon.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-706899/a-te-chumphon-hotel-chumphon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-a-te-chumphon-hotel-chumphon.html",
-      "tags": ["🍳 อาหารเช้าบุฟเฟ่ต์ได้คำชม", "🏊 สระว่ายน้ำในเมือง", "🛏️ ห้องกว้าง น้ำแรง", "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน"],
+      "tags": [
+        "🍳 อาหารเช้าบุฟเฟ่ต์ได้คำชม",
+        "🏊 สระว่ายน้ำในเมือง",
+        "🛏️ ห้องกว้าง น้ำแรง",
+        "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน"
+      ],
       "addr": "36 ซอยท่าตะเภา ถนนท่าตะเภา ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "A-Te คือ <strong>โรงแรมในเมืองชุมพรที่มีสระว่ายน้ำ อาหารเช้าดี และห้องกว้างสะอาด ในราคาที่ยังคุ้ม</strong> คะแนน 8.7 จาก 184 รีวิว — มากที่สุดในกลุ่มโรงแรมในเมือง · เสียงจากรีวิวจริงหลายคนชมว่าอาหารเช้าบุฟเฟ่ต์ดีที่สุดที่เคยเจอ ห้องกว้างหน้าต่างใหญ่ น้ำในห้องน้ำแรง และมีสระว่ายน้ำกลางเมืองที่หายาก · เป็นจุดพักที่ลงตัวก่อนต่อเรือไปเกาะ · ข้อควรรู้คือบางห้องมีกลิ่นอับและไม่มีร้านมื้อเย็นในตัว ตอนค่ำต้องเดินออกไปหา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากลงสระจากห้องเลือก Deluxe Twin Pool Terrace หรือ Pool Access Room · บางห้องมีกลิ่นอับ เปิดแอร์ระบายหรือขอเปลี่ยนห้องได้ · มื้อเย็นเดินออกไปตลาดกลางคืนใกล้ ๆ",
@@ -224,15 +363,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin Room (20–22 ตร.ม.)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Standard Double Room (20–22 ตร.ม.)", "price": "เริ่ม ฿500/คืน" },
-        { "type": "Superior Room (ปรับปรุงใหม่)", "price": "เริ่ม ฿650/คืน" }
+        {
+          "type": "Standard Twin Room (20–22 ตร.ม.)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Standard Double Room (20–22 ตร.ม.)",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "Superior Room (ปรับปรุงใหม่)",
+          "price": "เริ่ม ฿650/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chumphon-palace-hotel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chumphon-palace.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-1509329/chumphon-palace-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chumphon-palace-hotel-chumphon.html",
-      "tags": ["🚆 เดิน 300 ม. จากสถานีรถไฟ", "💰 ราคาประหยัดเริ่ม ฿450", "🧹 ห้องสะอาด เตียงสบาย", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🚆 เดิน 300 ม. จากสถานีรถไฟ",
+        "💰 ราคาประหยัดเริ่ม ฿450",
+        "🧹 ห้องสะอาด เตียงสบาย",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "328/15 ถนนประชาอุทิศ ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Chumphon Palace คือ <strong>โรงแรมในเมืองที่ได้คะแนนสูงสุดในกลุ่มโรงแรมในเมือง — 8.9 ในราคาเริ่มแค่ ฿450</strong> · จุดเด่นคือทำเลที่เดินจากสถานีรถไฟแค่ 300 เมตร เป็นจุดพักหนึ่งคืนที่ลงตัวก่อนต่อเรือไปเกาะเต่า–เกาะพะงัน · เสียงจากรีวิวจริงชมว่าห้องสะอาด เตียงนอนสบาย พนักงานเป็นกันเองช่วยเรื่องตั๋วเรือและรถ และมีที่จอดรถฟรี · ข้อควรรู้คือตัวอาคารเก่า งานตกแต่งเรียบ ๆ และแอร์บางห้องเป็นรุ่นเก่าเย็นไม่พอในวันร้อนจัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้ห้องสภาพดีขึ้นเลือก Superior Room ที่ปรับปรุงใหม่ · ถ้ามาวันร้อนจัดลองขอห้องที่แอร์ใหม่ · ให้พนักงานช่วยจองตั๋วเรือข้ามเกาะสะดวกกว่าหาเอง",
@@ -264,15 +417,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double Room (25 ตร.ม.)", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Standard Twin Room (25 ตร.ม.)", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿1,150/คืน" }
+        {
+          "type": "Standard Double Room (25 ตร.ม.)",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Standard Twin Room (25 ตร.ม.)",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,150/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nana-buri-hotel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nana-buri.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-706908/nana-buri-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nana-buri-hotel-chumphon.html",
-      "tags": ["💬 รีวิวมากที่สุด 198", "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน", "🛏️ ห้องกว้าง คุ้มราคา", "🅿️ อาหารเช้า + ที่จอดรถฟรี"],
+      "tags": [
+        "💬 รีวิวมากที่สุด 198",
+        "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน",
+        "🛏️ ห้องกว้าง คุ้มราคา",
+        "🅿️ อาหารเช้า + ที่จอดรถฟรี"
+      ],
       "addr": "335/9 ถนนประชาอุทิศ ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Nana Buri คือ <strong>โรงแรมกลางเมืองที่มีรีวิวมากที่สุดในบทความนี้ — 198 รีวิว ในราคาเริ่ม ฿900</strong> ซึ่งสะท้อนว่าเป็นที่พักที่นักเดินทางเลือกใช้จริง · เสียงจากรีวิวจริงชมว่าห้องกว้าง สะอาด คุ้มราคา ทำเลเดินถึงสถานีรถไฟและตลาดกลางคืน พนักงานเป็นกันเองช่วยเรื่องตั๋วเรือตั๋วรถ มีอาหารเช้าและที่จอดรถฟรี · ข้อควรรู้คือผนังค่อนข้างบางได้ยินเสียงห้องข้างบ้าง เตียงค่อนข้างแข็ง และไม่มีสระว่ายน้ำ เป็นโรงแรมในเมืองล้วน ๆ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้ห้องกว้างขึ้นเลือก Superior หรือ Suite · ผนังบาง ขอห้องชั้นบนหรือห้องในจะเงียบกว่า · เตียงค่อนข้างแข็ง ถ้านอนเตียงนุ่มไม่ได้ลองเทียบที่อื่น",
@@ -304,15 +471,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin Room (25 ตร.ม.)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Superior Double Room (25 ตร.ม.)", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Superior with Breakfast", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Superior Twin Room (25 ตร.ม.)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Superior Double Room (25 ตร.ม.)",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Superior with Breakfast",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chumphon-gardens-hotel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chumphon-gardens.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-706903/chumphon-gardens-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chumphon-gardens-hotel-chumphon.html",
-      "tags": ["🍳 อาหารเช้าบุฟเฟ่ต์คนชมเยอะ", "🛏️ ห้องกว้าง เตียงนุ่ม", "🅿️ ที่จอดรถกว้าง", "🚆 ใกล้ตลาดและสถานีรถไฟ"],
+      "tags": [
+        "🍳 อาหารเช้าบุฟเฟ่ต์คนชมเยอะ",
+        "🛏️ ห้องกว้าง เตียงนุ่ม",
+        "🅿️ ที่จอดรถกว้าง",
+        "🚆 ใกล้ตลาดและสถานีรถไฟ"
+      ],
       "addr": "66/1 ถนนท่าตะเภา ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Chumphon Gardens คือ <strong>โรงแรมในเมืองที่เด่นเรื่องห้องกว้าง ราคาประหยัด ที่จอดรถสบาย และอาหารเช้าที่คนชมเยอะ</strong> คะแนน 8.6 จาก 114 รีวิว · เสียงจากรีวิวจริงชมว่าอาหารเช้าบุฟเฟ่ต์หลากหลายและอร่อย ห้องกว้างเตียงนุ่มนอนสบาย และมีที่จอดรถพื้นที่กว้างจอดสบาย ทำเลใกล้ตลาดและสถานีรถไฟ · เป็นจุดพักที่ลงตัวระหว่างเดินทางหรือก่อนต่อเรือไปเกาะ · ข้อควรรู้คือตัวอาคารเก่าตามอายุ ที่นอนบางห้องเริ่มยวบ และไม่มีสระว่ายน้ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จองห้อง Superior with Breakfast คุ้มกว่าเพราะอาหารเช้าที่นี่ได้คำชม · ที่นอนบางห้องเริ่มยวบ ขอลองเทียบห้องตอนเช็กอินได้ · ขับรถมาที่จอดกว้างสบาย",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Cottage Pool View", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Family Double Room", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "2 Bedrooms Villa", "price": "เริ่ม ฿3,500/คืน" }
+        {
+          "type": "Cottage Pool View",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Family Double Room",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "2 Bedrooms Villa",
+          "price": "เริ่ม ฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/armonia-village-resort-and-spa/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/armonia-village-resort-and-spa.html",
       "tripUrl": "https://www.trip.com/hotels/pathio-district-hotel-detail-706898/armonia-village-resort-and-spa/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-armonia-village-resort-and-spa-chumphon.html",
-      "tags": ["🏡 บ้านวิลล่าแยกหลังในสวน", "🐶 พาสัตว์เลี้ยงได้ไม่คิดเพิ่ม", "🍳 อาหารเช้าทำสดคนชม", "🌳 เงียบสงบเป็นส่วนตัว"],
+      "tags": [
+        "🏡 บ้านวิลล่าแยกหลังในสวน",
+        "🐶 พาสัตว์เลี้ยงได้ไม่คิดเพิ่ม",
+        "🍳 อาหารเช้าทำสดคนชม",
+        "🌳 เงียบสงบเป็นส่วนตัว"
+      ],
       "addr": "85 หมู่ 5 ตำบลสะพลี อำเภอปะทิว",
       "storyHtml": "Armonia Village คือ <strong>รีสอร์ตบ้านวิลล่าในสวนเงียบใกล้หาดทุ่งวัวแล่น ที่พาสัตว์เลี้ยงมาได้โดยไม่คิดค่าใช้จ่ายเพิ่ม</strong> คะแนน 8.1 · เสียงจากรีวิวจริงชมว่าบ้านวิลล่าแยกหลังเป็นส่วนตัวและสงบ พนักงานเป็นกันเองช่วยเหลือดี และอาหารเช้าทำสดหลากหลายได้คำชมมาก · เด่นที่ความเป็นส่วนตัวและการพาสัตว์เลี้ยงได้ · ข้อควรรู้คือไม่ได้ติดหาด (ห่างราว 1 กม.) Wi-Fi อ่อนในบางหลังที่อยู่ไกลตัวอาคารหลัก และทำเลเงียบห่างเมือง เหมาะคนมีรถและมาพักแบบสโลว์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรือมีสัตว์เลี้ยงเลือก 2 Bedrooms Villa คุ้มกว่า · ขอวิลล่าใกล้ตัวอาคารหลักจะ Wi-Fi แรงและเดินไปสระ–ร้านอาหารใกล้กว่า · ตกกลางคืนไม่มีร้านให้เดิน เตรียมของกินมาเผื่อ",
@@ -384,15 +579,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Deluxe Room (30 ตร.ม.)", "price": "เริ่ม ฿800/คืน" },
-        { "type": "Superior Room (45 ตร.ม.)", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Deluxe Room (30 ตร.ม.)",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "Superior Room (45 ตร.ม.)",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/morakot-hotel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/morakot-twin.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-706906/morakot-twin-chumphon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-morakot-hotel-chumphon.html",
-      "tags": ["🛁 ห้องกว้างหลายห้องมีอ่างอาบน้ำ", "🏊 มีสระว่ายน้ำในเมือง", "🍳 อาหารเช้าบุฟเฟ่ต์ + ที่จอดรถฟรี", "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน"],
+      "tags": [
+        "🛁 ห้องกว้างหลายห้องมีอ่างอาบน้ำ",
+        "🏊 มีสระว่ายน้ำในเมือง",
+        "🍳 อาหารเช้าบุฟเฟ่ต์ + ที่จอดรถฟรี",
+        "🚆 เดินถึงสถานีรถไฟและตลาดกลางคืน"
+      ],
       "addr": "118 ซอยทวีสินค้า ถนนทวีสินค้า ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Morakot คือ <strong>โรงแรมกลางเมืองที่เด่นจริงเรื่องห้องกว้างเกินราคาและอ่างอาบน้ำที่หายากในงบนี้</strong> คะแนน 8.4 ในราคาเริ่ม ฿650 · เสียงจากรีวิวจริงชมว่าห้องกว้างมาก หลายห้องมีอ่างอาบน้ำคุ้มราคา มีสระว่ายน้ำ อาหารเช้าบุฟเฟ่ต์ และที่จอดรถฟรี ทำเลเดินถึงสถานีรถไฟและตลาดกลางคืน · ข้อควรรู้คือตัวอาคารเริ่มมีอายุ คุณภาพห้องต่างกันชัดเจนระหว่างตึกเก่ากับตึกใหม่ ผนังค่อนข้างบาง เหมาะคนเน้นความคุ้มและทำเล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องตึกใหม่จะได้สภาพห้องและเฟอร์นิเจอร์ดีกว่าตึกเก่าชัดเจน · อยากได้ห้องกว้างมีอ่างอาบน้ำเลือก Superior · ผนังบาง ขอห้องไม่ติดทางเดินจะเงียบกว่า",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Double", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Loft Suite (มีครัวเล็ก)", "price": "เริ่ม ฿1,700/คืน" }
+        {
+          "type": "Deluxe Double",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Loft Suite (มีครัวเล็ก)",
+          "price": "เริ่ม ฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/loft-mania-boutique-hotel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/loft-mania-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-6177063/loft-mania-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-loft-mania-boutique-hotel-chumphon.html",
-      "tags": ["🏙️ ดีไซน์สไตล์ลอฟต์", "🏊 สระอินฟินิตี้พร้อมจากุซซี่", "🛏️ ห้องกว้าง หลายห้องมีครัวเล็ก", "🚢 ช่วยจัดรถและตั๋วเรือไปเกาะ"],
+      "tags": [
+        "🏙️ ดีไซน์สไตล์ลอฟต์",
+        "🏊 สระอินฟินิตี้พร้อมจากุซซี่",
+        "🛏️ ห้องกว้าง หลายห้องมีครัวเล็ก",
+        "🚢 ช่วยจัดรถและตั๋วเรือไปเกาะ"
+      ],
       "addr": "89/9 ถนนพิศิษฐ์พยาบาล ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Loft Mania คือ <strong>โรงแรมบูทีคสไตล์ลอฟต์กลางเมืองชุมพร ที่มีสระว่ายน้ำพร้อมจากุซซี่และห้องกว้างในราคาไม่แพง</strong> คะแนน 8.3 · เด่นสำหรับนักเดินทางที่ใช้ชุมพรเป็นจุดแวะก่อนต่อเรือไปเกาะ — เสียงจากรีวิวจริงชมว่าทำเลเดินถึงสถานีรถไฟราว 10 นาที หาของกินง่าย สระสไตล์อินฟินิตี้พร้อมจากุซซี่ ห้องกว้างสะอาดหลายห้องมีครัวเล็ก และพนักงานช่วยจัดรถและตั๋วเรือได้ · ข้อควรรู้คืออาหารเช้ายังไม่ใช่จุดเด่น บางห้องมีเสียงรบกวน และแรงดันน้ำในฝักบัวเบาไปสำหรับบางคน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้พื้นที่กว้างและครัวเล็กเลือก Loft Suite หรือ Family Suite · อาหารเช้าตัวเลือกน้อย ออกไปหาของกินในเมืองใกล้ ๆ ได้ · บางห้องมีเสียงแอร์หรือระบบ ขอเปลี่ยนห้องได้ถ้ารบกวน",
@@ -464,15 +687,29 @@
       "priceBig": "฿350",
       "priceSub": "ราคาเริ่มต้น/เตียง",
       "rooms": [
-        { "type": "เตียงในดอร์มรวม (Mixed Dorm)", "price": "เริ่ม ฿350/เตียง" },
-        { "type": "เตียงในดอร์มหญิงล้วน (Female Dorm)", "price": "เริ่ม ฿380/เตียง" },
-        { "type": "ห้องส่วนตัวเตียงคู่ (Standard Room)", "price": "เริ่ม ฿800/คืน" }
+        {
+          "type": "เตียงในดอร์มรวม (Mixed Dorm)",
+          "price": "เริ่ม ฿350/เตียง"
+        },
+        {
+          "type": "เตียงในดอร์มหญิงล้วน (Female Dorm)",
+          "price": "เริ่ม ฿380/เตียง"
+        },
+        {
+          "type": "ห้องส่วนตัวเตียงคู่ (Standard Room)",
+          "price": "เริ่ม ฿800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/salsa-hostel/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/salsa-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-706914/salsa-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-salsa-hostel-chumphon.html",
-      "tags": ["🎒 คะแนนสูงสุดในบทความ 9.2", "🚢 ช่วยจองตั๋วเรือไปเกาะเต่าฟรีค่าธรรมเนียม", "🧹 สะอาดมากทั้งห้องและส่วนกลาง", "🗣️ เจ้าของพูดอังกฤษคล่อง"],
+      "tags": [
+        "🎒 คะแนนสูงสุดในบทความ 9.2",
+        "🚢 ช่วยจองตั๋วเรือไปเกาะเต่าฟรีค่าธรรมเนียม",
+        "🧹 สะอาดมากทั้งห้องและส่วนกลาง",
+        "🗣️ เจ้าของพูดอังกฤษคล่อง"
+      ],
       "addr": "25/42 ถนนกรมหลวงชุมพร ตำบลท่าตะเภา อำเภอเมืองชุมพร",
       "storyHtml": "Salsa Hostel คือ <strong>โฮสเทลที่ได้คะแนนสูงสุดในบทความนี้ — 9.2 ในราคาเริ่มแค่ ฿350 ต่อเตียง</strong> เหมาะกับนักเดินทางสายแบกเป้ที่ค้างคืนก่อนต่อเรือไปเกาะ · เสียงจากรีวิวจริงชมตรงกันเรื่องเจ้าของและพนักงานที่ช่วยเหลือดีมาก พูดอังกฤษคล่อง ช่วยจองตั๋วเรือไปเกาะเต่า–เกาะพะงันโดยไม่บวกค่าธรรมเนียม และความสะอาดทั้งห้องพักและพื้นที่ส่วนกลาง · ทำเลกลางเมืองเดินถึงสถานีรถไฟและตลาดกลางคืน · ข้อควรรู้คือเป็นโฮสเทลเล็ก ดอร์มรวมมีเสียงรบกวนบ้าง และไม่มีสระว่ายน้ำหรือวิวทะเล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้ความเป็นส่วนตัวเลือกห้อง Standard Room เตียงคู่ หรือดอร์ม 4 เตียงคนน้อยกว่า · ให้เจ้าของช่วยจองตั๋วเรือไปเกาะเต่าตั้งแต่เช็กอิน สะดวกและไม่บวกค่าธรรมเนียม · เตรียมที่อุดหูถ้านอนดอร์มรวม",
@@ -504,15 +741,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Guest Room Sea View", "price": "เริ่ม ฿1,600/คืน" },
-        { "type": "Bungalow", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Guest Room Sea View",
+          "price": "เริ่ม ฿1,600/คืน"
+        },
+        {
+          "type": "Bungalow",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/had-sai-resort-chumphon/hotel/chumphon-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/had-sai-resort-chumphon.html",
       "tripUrl": "https://www.trip.com/hotels/chumphon-hotel-detail-9024118/had-sai-resort-chumphon/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-had-sai-resort-chumphon.html",
-      "tags": ["🏖️ ริมหาดทรายรี เดินถึงทะเล", "💰 ราคาประหยัดติดหาด", "🚲 มีจักรยานให้เช่า", "🐶 พาสัตว์เลี้ยงได้ + ที่จอดรถฟรี"],
+      "tags": [
+        "🏖️ ริมหาดทรายรี เดินถึงทะเล",
+        "💰 ราคาประหยัดติดหาด",
+        "🚲 มีจักรยานให้เช่า",
+        "🐶 พาสัตว์เลี้ยงได้ + ที่จอดรถฟรี"
+      ],
       "addr": "99/6-7 หมู่ 7 ตำบลหาดทรายรี อำเภอเมืองชุมพร",
       "storyHtml": "Had Sai Resort คือ <strong>รีสอร์ตเรียบง่ายที่ขายเรื่องทำเลริมหาดทรายรีและราคาประหยัดเป็นหลัก</strong> เหมาะกับคนที่อยากนอนติดทะเลในงบไม่สูงและไม่ซีเรียสกับความใหม่ของห้อง · เสียงจากรีวิวจริงชมว่าเดินถึงทะเลได้จริง มีร้านอาหารและจักรยานให้เช่าในรีสอร์ต พาสัตว์เลี้ยงได้และมีที่จอดรถฟรี · พูดกันตรง ๆ คะแนนอยู่ที่ 6.4 ซึ่งก้ำกึ่ง สภาพห้องเรียบง่าย บางห้องวิวไม่เห็นทะเลเต็มตา และความคุ้มค่าช่วงพีคควรเช็กให้ดีก่อนจอง — เราใส่ไว้เพราะเป็นตัวเลือกติดหาดราคาประหยัดที่สุดในหาดทรายรี",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากเห็นทะเลเลือก Guest Room Sea View อย่าจองห้องที่วิวไม่เห็นทะเล · เช็กราคาช่วงพีคเทียบ 3 เว็บก่อนจองเพราะความคุ้มค่าต่างกันมาก · ย่านเงียบ ตกกลางคืนหาร้านอาหารยาก เตรียมของกินมาเผื่อ",
@@ -530,39 +781,214 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 ที่พัก ชุมพร 2026",
-  "compareCols": ["#", "ชื่อที่พัก", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อที่พัก",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "The Nest Private Beach Resort", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿4,500", "access": "📍 หาดทรายรี·ติดอุทยาน", "badge": "หาดส่วนตัว+สระอินฟินิตี้", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Chumphon Cabana Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,900", "access": "📍 หาดทุ่งวัวแล่น·ปะทิว", "badge": "ติดหาด+ศูนย์ดำน้ำ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "The Nouveau Chumphon Beach Resort & Golf", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿2,590", "access": "📍 ปากน้ำชุมพร·ติดทะเล", "badge": "ติดทะเล+สนามกอล์ฟ", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "A-Te Chumphon Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,300", "access": "📍 ตัวเมือง·มีสระว่ายน้ำ", "badge": "ในเมือง+สระ+อาหารเช้าเด็ด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Chumphon Palace Hotel", "type": "⭐⭐⭐", "score": "8.9", "price": "฿450", "access": "📍 ตัวเมือง·300 ม. จากสถานีรถไฟ", "badge": "คะแนนสูงสุดในเมือง", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Nana Buri Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿900", "access": "📍 ตัวเมือง·ใกล้ตลาดกลางคืน", "badge": "รีวิวมากสุด 198", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Chumphon Gardens Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿700", "access": "📍 ตัวเมือง·ใกล้ตลาดสด", "badge": "คุ้ม+อาหารเช้าคนชมเยอะ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Armonia Village Resort and Spa", "type": "⭐⭐⭐", "score": "8.1", "price": "฿1,800", "access": "📍 ทุ่งวัวแล่น·ปะทิว", "badge": "วิลล่าในสวน พาสัตว์เลี้ยงได้", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Morakot Hotel", "type": "⭐⭐⭐", "score": "8.4", "price": "฿650", "access": "📍 ตัวเมือง·มีสระว่ายน้ำ", "badge": "ห้องกว้าง มีอ่างอาบน้ำ", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#bf8040", "name": "Loft Mania Boutique Hotel", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿1,100", "access": "📍 ตัวเมือง·สระพร้อมจากุซซี่", "badge": "ลอฟต์กลางเมือง+สระ", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Salsa Hostel", "type": "⭐⭐", "score": "9.2", "price": "฿350", "access": "📍 ตัวเมือง·เดินถึงสถานีรถไฟ", "badge": "โฮสเทลคะแนนสูงสุด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Had Sai Resort Chumphon", "type": "⭐⭐⭐", "score": "6.4", "price": "฿1,200", "access": "📍 หาดทรายรี·ริมหาด", "badge": "ติดหาดราคาประหยัด", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "The Nest Private Beach Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿4,500",
+      "access": "📍 หาดทรายรี·ติดอุทยาน",
+      "badge": "หาดส่วนตัว+สระอินฟินิตี้",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Chumphon Cabana Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,900",
+      "access": "📍 หาดทุ่งวัวแล่น·ปะทิว",
+      "badge": "ติดหาด+ศูนย์ดำน้ำ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "The Nouveau Chumphon Beach Resort & Golf",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿2,590",
+      "access": "📍 ปากน้ำชุมพร·ติดทะเล",
+      "badge": "ติดทะเล+สนามกอล์ฟ",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "A-Te Chumphon Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,300",
+      "access": "📍 ตัวเมือง·มีสระว่ายน้ำ",
+      "badge": "ในเมือง+สระ+อาหารเช้าเด็ด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Chumphon Palace Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿450",
+      "access": "📍 ตัวเมือง·300 ม. จากสถานีรถไฟ",
+      "badge": "คะแนนสูงสุดในเมือง",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Nana Buri Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿900",
+      "access": "📍 ตัวเมือง·ใกล้ตลาดกลางคืน",
+      "badge": "รีวิวมากสุด 198",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Chumphon Gardens Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿700",
+      "access": "📍 ตัวเมือง·ใกล้ตลาดสด",
+      "badge": "คุ้ม+อาหารเช้าคนชมเยอะ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Armonia Village Resort and Spa",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿1,800",
+      "access": "📍 ทุ่งวัวแล่น·ปะทิว",
+      "badge": "วิลล่าในสวน พาสัตว์เลี้ยงได้",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Morakot Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿650",
+      "access": "📍 ตัวเมือง·มีสระว่ายน้ำ",
+      "badge": "ห้องกว้าง มีอ่างอาบน้ำ",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#bf8040",
+      "name": "Loft Mania Boutique Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,100",
+      "access": "📍 ตัวเมือง·สระพร้อมจากุซซี่",
+      "badge": "ลอฟต์กลางเมือง+สระ",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Salsa Hostel",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿350",
+      "access": "📍 ตัวเมือง·เดินถึงสถานีรถไฟ",
+      "badge": "โฮสเทลคะแนนสูงสุด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Had Sai Resort Chumphon",
+      "type": "⭐⭐⭐",
+      "score": "6.4",
+      "price": "฿1,200",
+      "access": "📍 หาดทรายรี·ริมหาด",
+      "badge": "ติดหาดราคาประหยัด",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "เลือกที่พักชุมพรยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Salsa Hostel</strong> เริ่ม ฿350/เตียง คะแนน 9.2 ในเมือง · หรือ <strong>Chumphon Palace</strong> ฿450 โรงแรมในเมืองเดิน 300 ม. จากสถานีรถไฟ" },
-    { "icon": "🏖️", "head": "อยากนอนติดหาด ฟังเสียงคลื่น", "bodyHtml": "→ <strong>The Nest Private Beach Resort</strong> ฿4,500 หาดส่วนตัวสระอินฟินิตี้หาดทรายรี · หรือ <strong>Chumphon Cabana</strong> ฿1,900 ติดหาดทุ่งวัวแล่น มีศูนย์ดำน้ำ" },
-    { "icon": "🏊", "head": "อยากพักในเมืองแต่มีสระว่ายน้ำ", "bodyHtml": "→ <strong>A-Te Chumphon Hotel</strong> ฿1,300 มีสระและอาหารเช้าได้คำชม · หรือ <strong>Morakot Hotel</strong> ฿650 ห้องกว้างมีอ่างอาบน้ำและสระว่ายน้ำ" },
-    { "icon": "🚢", "head": "แค่ค้างคืนก่อนต่อเรือไปเกาะ", "bodyHtml": "→ <strong>Salsa Hostel</strong> ฿350 ช่วยจองตั๋วเรือไปเกาะเต่าฟรีค่าธรรมเนียม · หรือ <strong>Chumphon Palace</strong> ฿450 / <strong>Nana Buri</strong> ฿900 ใกล้สถานีรถไฟ" },
-    { "icon": "🐶", "head": "พาสัตว์เลี้ยงมาด้วย", "bodyHtml": "→ <strong>Armonia Village Resort and Spa</strong> ฿1,800 บ้านวิลล่าในสวน พาสัตว์เลี้ยงได้ไม่คิดเพิ่ม · หรือ <strong>Had Sai Resort</strong> ฿1,200 ริมหาดทรายรี พาสัตว์เลี้ยงได้" },
-    { "icon": "⛳", "head": "อยากได้รีสอร์ตติดทะเลพื้นที่กว้าง", "bodyHtml": "→ <strong>The Nouveau Chumphon Beach Resort & Golf</strong> ฿2,590 ติดทะเลปากน้ำ มีสนามกอล์ฟ 9 หลุมและสระใหญ่" },
-    { "icon": "🏙️", "head": "อยากได้บูทีคดีไซน์ในเมือง", "bodyHtml": "→ <strong>Loft Mania Boutique Hotel</strong> ฿1,100 สไตล์ลอฟต์ มีสระพร้อมจากุซซี่ · หรือ <strong>Chumphon Gardens</strong> ฿700 ห้องกว้าง อาหารเช้าคนชมเยอะ" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Salsa Hostel</strong> เริ่ม ฿350/เตียง คะแนน 9.2 ในเมือง · หรือ <strong>Chumphon Palace</strong> ฿450 โรงแรมในเมืองเดิน 300 ม. จากสถานีรถไฟ"
+    },
+    {
+      "icon": "🏖️",
+      "head": "อยากนอนติดหาด ฟังเสียงคลื่น",
+      "bodyHtml": "→ <strong>The Nest Private Beach Resort</strong> ฿4,500 หาดส่วนตัวสระอินฟินิตี้หาดทรายรี · หรือ <strong>Chumphon Cabana</strong> ฿1,900 ติดหาดทุ่งวัวแล่น มีศูนย์ดำน้ำ"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากพักในเมืองแต่มีสระว่ายน้ำ",
+      "bodyHtml": "→ <strong>A-Te Chumphon Hotel</strong> ฿1,300 มีสระและอาหารเช้าได้คำชม · หรือ <strong>Morakot Hotel</strong> ฿650 ห้องกว้างมีอ่างอาบน้ำและสระว่ายน้ำ"
+    },
+    {
+      "icon": "🚢",
+      "head": "แค่ค้างคืนก่อนต่อเรือไปเกาะ",
+      "bodyHtml": "→ <strong>Salsa Hostel</strong> ฿350 ช่วยจองตั๋วเรือไปเกาะเต่าฟรีค่าธรรมเนียม · หรือ <strong>Chumphon Palace</strong> ฿450 / <strong>Nana Buri</strong> ฿900 ใกล้สถานีรถไฟ"
+    },
+    {
+      "icon": "🐶",
+      "head": "พาสัตว์เลี้ยงมาด้วย",
+      "bodyHtml": "→ <strong>Armonia Village Resort and Spa</strong> ฿1,800 บ้านวิลล่าในสวน พาสัตว์เลี้ยงได้ไม่คิดเพิ่ม · หรือ <strong>Had Sai Resort</strong> ฿1,200 ริมหาดทรายรี พาสัตว์เลี้ยงได้"
+    },
+    {
+      "icon": "⛳",
+      "head": "อยากได้รีสอร์ตติดทะเลพื้นที่กว้าง",
+      "bodyHtml": "→ <strong>The Nouveau Chumphon Beach Resort & Golf</strong> ฿2,590 ติดทะเลปากน้ำ มีสนามกอล์ฟ 9 หลุมและสระใหญ่"
+    },
+    {
+      "icon": "🏙️",
+      "head": "อยากได้บูทีคดีไซน์ในเมือง",
+      "bodyHtml": "→ <strong>Loft Mania Boutique Hotel</strong> ฿1,100 สไตล์ลอฟต์ มีสระพร้อมจากุซซี่ · หรือ <strong>Chumphon Gardens</strong> ฿700 ห้องกว้าง อาหารเช้าคนชมเยอะ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาวและไฮซีซั่นที่คนเดินทางลงใต้เยอะ ราคาขยับขึ้นและห้องเต็มเร็ว จองล่วงหน้า · ชุมพรไม่มีรถไฟฟ้า เดินทางด้วยรถไฟ รถ และเรือ รีสอร์ตริมหาดส่วนใหญ่อยู่นอกเมืองควรมีรถส่วนตัว · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องที่พักชุมพร",
   "faq": [
-    { "q": "❓ พักที่ไหนดีในชุมพรสำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับสิ่งที่อยากทำ · <strong>หาดทรายรี</strong> เหมาะคนอยากนอนติดทะเลเงียบ ติดอุทยานหมู่เกาะชุมพร (The Nest, Had Sai Resort) · <strong>หาดทุ่งวัวแล่น–ปะทิว</strong> เหมาะคนชอบหาดทรายขาวและดำน้ำ (Chumphon Cabana, Armonia Village) · <strong>ปากน้ำชุมพร</strong> เหมาะคนอยากได้รีสอร์ตติดทะเลพื้นที่กว้าง (The Nouveau) · <strong>ตัวเมือง</strong> เหมาะพักก่อนต่อเรือไปเกาะ มีของกินและตลาดกลางคืน (A-Te, Chumphon Palace, Nana Buri, Chumphon Gardens, Morakot, Loft Mania, Salsa Hostel)" },
-    { "q": "❓ ที่พักชุมพรราคาเท่าไหร่?", "a": "ราคาหลากหลาย: โฮสเทลและโรงแรมในเมืองงบประหยัดเริ่มราว ฿350–900 ต่อคืน · โรงแรมในเมืองที่มีสระและบูทีคราว ฿1,100–1,300 · รีสอร์ตติดหาด 4 ดาวราว ฿1,900–2,590 · และรีสอร์ตหาดส่วนตัวอย่าง The Nest เริ่มราว ฿4,500 · ช่วงวันหยุดยาวและไฮซีซั่นราคาบนหาดอาจสูงกว่าปกติ ควรจองล่วงหน้า" },
-    { "q": "❓ ชุมพรเหมาะกับการต่อเรือไปเกาะเต่า–เกาะพะงันไหม?", "a": "เหมาะมาก · ชุมพรเป็นจุดต่อเรือยอดนิยมไปเกาะเต่าและเกาะพะงันจากท่าเรือปากน้ำชุมพร นักเดินทางจำนวนมากนั่งรถไฟลงมาค้างคืนในเมืองหนึ่งคืนก่อนลงเรือ · ที่พักในเมืองอย่าง <strong>Salsa Hostel, Chumphon Palace และ Nana Buri</strong> ช่วยจองตั๋วเรือและจัดรถรับส่งไปท่าเรือได้ สะดวกกว่าหาเอง" },
-    { "q": "❓ เที่ยวชุมพรควรมีรถส่วนตัวไหม?", "a": "ถ้าจะพักริมหาด <strong>ควรมีรถส่วนตัวหรือเช่ารถ</strong> เพราะรีสอร์ตริมหาดทรายรี ทุ่งวัวแล่น และปะทิว อยู่นอกเมือง ขับรถหลายสิบนาทีและตกกลางคืนหาร้านอาหารยาก · แต่ถ้าพักในตัวเมืองเพื่อต่อเรือหรือขึ้นรถไฟ เดินถึงสถานีรถไฟ ตลาด และร้านอาหารได้สบาย ไม่จำเป็นต้องมีรถ" },
-    { "q": "❓ ควรจองที่พักชุมพรล่วงหน้านานแค่ไหน?", "a": "วันธรรมดานอกฤดูท่องเที่ยว จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว ไฮซีซั่น และเทศกาลที่คนเดินทางลงใต้หรือต่อเรือไปเกาะเยอะ ที่พักริมหาดและห้องดี ๆ ในเมืองเต็มเร็ว ควรจองล่วงหน้า 3–4 สัปดาห์ขึ้นไป โดยเฉพาะรีสอร์ตเล็กที่ห้องน้อยอย่าง The Nest" },
-    { "q": "❓ จองที่พักชุมพรเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน" }
-  ]
+    {
+      "q": "❓ พักที่ไหนดีในชุมพรสำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับสิ่งที่อยากทำ · <strong>หาดทรายรี</strong> เหมาะคนอยากนอนติดทะเลเงียบ ติดอุทยานหมู่เกาะชุมพร (The Nest, Had Sai Resort) · <strong>หาดทุ่งวัวแล่น–ปะทิว</strong> เหมาะคนชอบหาดทรายขาวและดำน้ำ (Chumphon Cabana, Armonia Village) · <strong>ปากน้ำชุมพร</strong> เหมาะคนอยากได้รีสอร์ตติดทะเลพื้นที่กว้าง (The Nouveau) · <strong>ตัวเมือง</strong> เหมาะพักก่อนต่อเรือไปเกาะ มีของกินและตลาดกลางคืน (A-Te, Chumphon Palace, Nana Buri, Chumphon Gardens, Morakot, Loft Mania, Salsa Hostel)"
+    },
+    {
+      "q": "❓ ที่พักชุมพรราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: โฮสเทลและโรงแรมในเมืองงบประหยัดเริ่มราว ฿350–900 ต่อคืน · โรงแรมในเมืองที่มีสระและบูทีคราว ฿1,100–1,300 · รีสอร์ตติดหาด 4 ดาวราว ฿1,900–2,590 · และรีสอร์ตหาดส่วนตัวอย่าง The Nest เริ่มราว ฿4,500 · ช่วงวันหยุดยาวและไฮซีซั่นราคาบนหาดอาจสูงกว่าปกติ ควรจองล่วงหน้า"
+    },
+    {
+      "q": "❓ ชุมพรเหมาะกับการต่อเรือไปเกาะเต่า–เกาะพะงันไหม?",
+      "a": "เหมาะมาก · ชุมพรเป็นจุดต่อเรือยอดนิยมไปเกาะเต่าและเกาะพะงันจากท่าเรือปากน้ำชุมพร นักเดินทางจำนวนมากนั่งรถไฟลงมาค้างคืนในเมืองหนึ่งคืนก่อนลงเรือ · ที่พักในเมืองอย่าง <strong>Salsa Hostel, Chumphon Palace และ Nana Buri</strong> ช่วยจองตั๋วเรือและจัดรถรับส่งไปท่าเรือได้ สะดวกกว่าหาเอง"
+    },
+    {
+      "q": "❓ เที่ยวชุมพรควรมีรถส่วนตัวไหม?",
+      "a": "ถ้าจะพักริมหาด <strong>ควรมีรถส่วนตัวหรือเช่ารถ</strong> เพราะรีสอร์ตริมหาดทรายรี ทุ่งวัวแล่น และปะทิว อยู่นอกเมือง ขับรถหลายสิบนาทีและตกกลางคืนหาร้านอาหารยาก · แต่ถ้าพักในตัวเมืองเพื่อต่อเรือหรือขึ้นรถไฟ เดินถึงสถานีรถไฟ ตลาด และร้านอาหารได้สบาย ไม่จำเป็นต้องมีรถ"
+    },
+    {
+      "q": "❓ ควรจองที่พักชุมพรล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดานอกฤดูท่องเที่ยว จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว ไฮซีซั่น และเทศกาลที่คนเดินทางลงใต้หรือต่อเรือไปเกาะเยอะ ที่พักริมหาดและห้องดี ๆ ในเมืองเต็มเร็ว ควรจองล่วงหน้า 3–4 สัปดาห์ขึ้นไป โดยเฉพาะรีสอร์ตเล็กที่ห้องน้อยอย่าง The Nest"
+    },
+    {
+      "q": "❓ จองที่พักชุมพรเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมชุมพรคัดจากทุกระดับ — ตั้งแต่ The Nest หาดส่วนตัวสระอินฟินิตี้หาดทรายรี ไปถึง Salsa Hostel เริ่ม ฿350 ในเมือง ครอบคลุมหาดทรายรี หาดทุ่งวัวแล่น ปะทิว และตัวเมือง อ่านจากรีวิวแขกจริง ราคาจริง เทียบ 3 เว็บ"
 }

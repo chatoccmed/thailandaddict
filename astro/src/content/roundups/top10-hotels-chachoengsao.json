@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "ฉะเชิงเทรา", "href": "city-chachoengsao.html" },
-    { "name": "12 โรงแรมฉะเชิงเทรายอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "ฉะเชิงเทรา",
+      "href": "city-chachoengsao.html"
+    },
+    {
+      "name": "12 โรงแรมฉะเชิงเทรายอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "ฉะเชิงเทรา", "item": "https://thailandaddict.com/city-chachoengsao" },
-    { "name": "12 โรงแรมฉะเชิงเทรายอดนิยม", "item": "https://thailandaddict.com/top10-hotels-chachoengsao" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "ฉะเชิงเทรา",
+      "item": "https://thailandaddict.com/city-chachoengsao"
+    },
+    {
+      "name": "12 โรงแรมฉะเชิงเทรายอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-chachoengsao"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-chachoengsao.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "ฉะเชิงเทราไม่มีรถไฟฟ้า แต่อยู่ใกล้กรุงเทพฯ มาก ขับรถจากกรุงเทพฯ ราว 1–1.5 ชั่วโมง และ <strong>มีสถานีรถไฟสายตะวันออกกลางเมือง</strong> นั่งรถไฟจากหัวลำโพง/มักกะสันมาลงได้สบาย หลายคนจึงนั่งรถไฟมาไหว้วัดโสธรแบบไม่ต้องขับรถ · เลือกโซนตามแพลนเที่ยวจะคุ้มที่สุด: <strong>ตัวเมือง (หน้าเมือง-บางตีนเป็ด)</strong> — ใกล้วัดโสธร สถานีรถไฟ ตลาด และตลาดบ้านใหม่ 100 ปี เหมาะคนไม่มีรถ · <strong>ริมแม่น้ำบางปะกง (คลองนา-บางแก้ว-คลองเขื่อน)</strong> — รีสอร์ทและที่พักวิวน้ำ เหมาะคนอยากพักผ่อน · <strong>บางปะกง-ท่าข้าม</strong> — ใกล้ปากแม่น้ำ ป่าชายเลน และนิคมเวลโกรว์ เหมาะแวะพักหรือคนทำงาน · เกือบทุกที่พักมีที่จอดรถฟรี เหมาะคนขับรถเที่ยว",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Heaven Hotel Chachoengsao", "price": "฿790" },
-    { "n": "2", "color": "#06B6D4", "name": "Suanmaithara Resort", "price": "฿800" },
-    { "n": "3", "color": "#06B6D4", "name": "JK Living Hotel", "price": "฿806" },
-    { "n": "4", "color": "#06B6D4", "name": "Dheva Resort", "price": "฿1,500" },
-    { "n": "5", "color": "#FB7185", "name": "The Wish Hotel", "price": "฿850" },
-    { "n": "6", "color": "#FB7185", "name": "Suntara Wellness Resort", "price": "฿1,400" },
-    { "n": "7", "color": "#FB7185", "name": "Kesorn Boutique", "price": "฿550" },
-    { "n": "8", "color": "#FB7185", "name": "Wellgrow Service House", "price": "฿700" },
-    { "n": "9", "color": "#FBBF24", "name": "BB House Chachoengsao", "price": "฿650" },
-    { "n": "10", "color": "#FBBF24", "name": "The Brown House Hotel", "price": "฿1,500" },
-    { "n": "11", "color": "#FBBF24", "name": "River Breeze", "price": "฿900" },
-    { "n": "12", "color": "#FBBF24", "name": "Ratathara Resort", "price": "฿1,000" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Heaven Hotel Chachoengsao",
+      "price": "฿790"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Suanmaithara Resort",
+      "price": "฿800"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "JK Living Hotel",
+      "price": "฿806"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Dheva Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "The Wish Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Suntara Wellness Resort",
+      "price": "฿1,400"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Kesorn Boutique",
+      "price": "฿550"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Wellgrow Service House",
+      "price": "฿700"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "BB House Chachoengsao",
+      "price": "฿650"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "The Brown House Hotel",
+      "price": "฿1,500"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "River Breeze",
+      "price": "฿900"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "Ratathara Resort",
+      "price": "฿1,000"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿790",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿790/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,250/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿790/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,250/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/heaven-hotel-chachoengsao/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/heaven-chachoengsao.html",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-59017978/heaven-hotel-chachoengsao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-heaven-hotel-chachoengsao.html",
-      "tags": ["🛕 ใกล้วัดโสธร", "🏙️ ตัวเมือง เดินถึงตลาด", "🆕 เปิดปี 2020 ห้องใหม่", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🛕 ใกล้วัดโสธร",
+        "🏙️ ตัวเมือง เดินถึงตลาด",
+        "🆕 เปิดปี 2020 ห้องใหม่",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "ถนนฉะเชิงเทรา-บางปะกง หน้าเมือง อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "Heaven Hotel คือ <strong>โรงแรมในเมืองที่ผสมคะแนนสูงกับรีวิวเยอะได้ลงตัวที่สุด — 9.2 จาก 129 รีวิว</strong> · เปิดปี 2020 ห้องยังใหม่และสะอาด อยู่บนถนนฉะเชิงเทรา-บางปะกงในตัวเมือง ขับรถถึงวัดโสธรไม่กี่นาที เดินถึงตลาดและร้านอาหารได้ · มีห้องตั้งแต่ Superior ไปถึง Suite และ Family Room เหมาะทั้งคู่รัก ครอบครัว และคนมาไหว้พระค้างคืน เป็นตัวเลือกในเมืองที่ลงตัวสุดของแปดริ้ว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาไหว้วัดโสธรให้ตื่นเช้าไปก่อนคนเยอะ ที่นี่ขับรถถึงวัดไม่กี่นาที งบพอขยับเลือก Deluxe ที่กว้างและใหม่กว่า Superior",
@@ -104,15 +201,29 @@
       "priceBig": "฿800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿800/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "VIP Room", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "VIP Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/suanmaithara-resort/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/suanmaithara-resort.html",
       "tripUrl": "https://th.trip.com/hotels/chachoengsao-hotel-detail-21832697/suanmaithara-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-suanmaithara-resort-chachoengsao.html",
-      "tags": ["🌳 บ้านพักในสวนเงียบ", "🛕 ใกล้วัดโสธร ~8 นาทีรถ", "🅿️ จอดรถหน้าห้อง", "👨‍👩‍👧 มีห้องครอบครัว"],
+      "tags": [
+        "🌳 บ้านพักในสวนเงียบ",
+        "🛕 ใกล้วัดโสธร ~8 นาทีรถ",
+        "🅿️ จอดรถหน้าห้อง",
+        "👨‍👩‍👧 มีห้องครอบครัว"
+      ],
       "addr": "ตำบลบางตีนเป็ด อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "Suanmaithara Resort คือ <strong>รีสอร์ตในสวนเงียบสงบที่อยู่ใกล้วัดโสธรราว 8 นาทีรถ</strong> คะแนน 8.8 จาก 64 รีวิว · เป็นบ้านพักราว 20 ห้องกระจายในสวน จอดรถได้หน้าห้อง บรรยากาศร่มรื่นตัดขาดจากเสียงถนน · มีห้องตั้งแต่ Standard ไปถึง VIP และห้องครอบครัว ราคาเริ่มเพียง ฿800 เหมาะคนมีรถที่อยากได้ความเงียบแต่ยังขับเข้าเมืองและไปไหว้วัดโสธรได้สะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นคู่อยากได้ห้องโปร่งให้เลือก VIP Room ที่ใหญ่สุด ส่วนครอบครัวเลือกห้องครอบครัวที่มีเตียงเสริม",
@@ -144,15 +255,29 @@
       "priceBig": "฿806",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "เริ่ม ฿806/คืน" },
-        { "type": "Standard King", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Deluxe King", "price": "เริ่ม ฿1,050/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿806/คืน"
+        },
+        {
+          "type": "Standard King",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "เริ่ม ฿1,050/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/jk-living-hotel-and-service-apartment/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/jk-living-apartment.html",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-22831607/jk-living-hotel-and-service-apartment/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-jk-living-hotel-chachoengsao.html",
-      "tags": ["🏢 เซอร์วิสอพาร์ตเมนต์ พักได้ยาว", "🛏️ ห้องสะอาดมีโต๊ะทำงาน", "🏭 ใกล้นิคม", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏢 เซอร์วิสอพาร์ตเมนต์ พักได้ยาว",
+        "🛏️ ห้องสะอาดมีโต๊ะทำงาน",
+        "🏭 ใกล้นิคม",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "ถนนประชาสวรรค์ หน้าเมือง อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "JK Living คือ <strong>โรงแรม/เซอร์วิสอพาร์ตเมนต์ในเมืองที่คะแนนสูงถึง 9.2</strong> (จาก 42 รีวิว) · อยู่บนถนนประชาสวรรค์ในตัวเมือง ใกล้วัดโสธรและนิคมอุตสาหกรรม ห้องสะอาดมีโต๊ะทำงาน เหมาะทั้งนักท่องเที่ยวค้างคืนและคนทำงานในนิคมที่อยากพักระยะยาว · มีห้องตั้งแต่ Standard Twin ถึง Deluxe King และรับพักรายเดือน เริ่มเพียง ฿806 เหมาะคนที่อยากได้ห้องคุณภาพในราคาเป็นกันเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าทำงานในนิคมหรือต้องพักหลายคืน สอบถามอัตรารายเดือนกับที่พักโดยตรง คุ้มกว่าจองรายวัน",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Room (พักล้วน)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Grand Deluxe (พักล้วน)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe + อาหาร 3 มื้อ", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Deluxe Room (พักล้วน)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Grand Deluxe (พักล้วน)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe + อาหาร 3 มื้อ",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dheva-resort/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/dheva-resort.html",
       "tripUrl": "https://www.trip.com/hotels/khlong-khuean-hotel-detail-8376006/dheva-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dheva-resort-chachoengsao.html",
-      "tags": ["🌊 ริมแม่น้ำบางปะกง", "🌾 วิวทุ่งนา สไตล์บ้านไร่", "🍳 มีแพ็กเกจรวมอาหาร", "🤫 รีสอร์ตเล็ก 16 ห้อง"],
+      "tags": [
+        "🌊 ริมแม่น้ำบางปะกง",
+        "🌾 วิวทุ่งนา สไตล์บ้านไร่",
+        "🍳 มีแพ็กเกจรวมอาหาร",
+        "🤫 รีสอร์ตเล็ก 16 ห้อง"
+      ],
       "addr": "ตำบลคลองเขื่อน อำเภอคลองเขื่อน",
       "storyHtml": "Dheva Resort คือ <strong>บูทีครีสอร์ทริมแม่น้ำบางปะกงสไตล์บ้านไร่ชายทุ่ง</strong> คะแนน 9.0 จาก 38 รีวิว · เป็นรีสอร์ตเล็กราว 16 ห้องในอำเภอคลองเขื่อน บรรยากาศเงียบสงบ ห้องมีระเบียงมองแม่น้ำและทุ่งนา เหมาะคู่รักหรือคนอยากหนีความวุ่นวายมาพักริมน้ำ · มีทั้งราคาห้องพักล้วนเริ่ม ฿1,500 และแพ็กเกจรวมอาหาร 3 มื้อ เหมาะคนที่อยากมาพักครบจบในที่เดียวไม่ต้องออกไปไหน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> รีสอร์ตเล็กห้องน้อย วันหยุดเต็มเร็ว ควรจองล่วงหน้า · อยากได้บรรยากาศเต็มที่เลือกแพ็กเกจรวมอาหารจะไม่ต้องขับออกไปหาร้าน",
@@ -224,15 +363,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Double Room", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Deluxe King Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "King Room", "price": "เริ่ม ฿1,200/คืน" }
+        {
+          "type": "Deluxe Double Room",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "King Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-wish-hotel/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-wish.html",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-111797598/the-wish-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-wish-hotel-chachoengsao.html",
-      "tags": ["💬 รีวิวมากสุด 146", "🆕 โรงแรมเปิดใหม่", "🏠 ทุกห้องมีระเบียง", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "💬 รีวิวมากสุด 146",
+        "🆕 โรงแรมเปิดใหม่",
+        "🏠 ทุกห้องมีระเบียง",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "ตำบลบางพระ อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "The Wish Hotel คือ <strong>โรงแรมเปิดใหม่ที่มีรีวิวมากที่สุดในบทความนี้ ถึง 146 รีวิว</strong> คะแนน 8.1 · เป็นโรงแรม 64 ห้องในตำบลบางพระ จุดเด่นคือทุกห้องมีระเบียงส่วนตัว ห้องยังใหม่สะอาด ราคาเริ่มเพียง ฿850 · อยู่ฝั่งบางพระ อ.เมืองฉะเชิงเทรา ขับรถเข้าเมืองและไปวัดโสธรได้ เหมาะคนมีรถที่อยากได้โรงแรมใหม่รีวิวเยอะในราคาเป็นกันเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ทุกห้องมีระเบียง ขอห้องชั้นสูงจะได้วิวเปิดและเงียบกว่า · งบพอขยับเลือก King Room ที่กว้างกว่า Deluxe พอควร",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Double Room", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Garden View", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "River View Room", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Double Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Garden View",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "River View Room",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/suntara-wellness-resort-hotel/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/suntara-wellness-resort-amp.html",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-706870/suntara-wellness-resort-and-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-suntara-wellness-resort-chachoengsao.html",
-      "tags": ["🏊 มีสระว่ายน้ำ", "💆 มีสปา", "🌊 ริมแม่น้ำบางปะกง", "🛏️ ห้องวิวแม่น้ำ"],
+      "tags": [
+        "🏊 มีสระว่ายน้ำ",
+        "💆 มีสปา",
+        "🌊 ริมแม่น้ำบางปะกง",
+        "🛏️ ห้องวิวแม่น้ำ"
+      ],
       "addr": "ตำบลคลองนา อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "Suntara Wellness คือ <strong>รีสอร์ตเวลเนสริมแม่น้ำบางปะกงแห่งเดียวในบทความนี้ที่มีทั้งสระว่ายน้ำและสปา</strong> คะแนน 7.7 จาก 23 รีวิว · อยู่ตำบลคลองนาฝั่งริมน้ำ อ.เมืองฉะเชิงเทรา มีห้องตั้งแต่ Double ไปถึง River View ที่หันหน้าออกแม่น้ำ · เหมาะคนที่อยากได้ที่พักมีสิ่งอำนวยความสะดวกแบบรีสอร์ต ทั้งสระ สปา และวิวแม่น้ำ ในจุดที่ขับเข้าเมืองและไปวัดโสธรได้ไม่ไกล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาพักผ่อนเต็มที่เลือก River View Room ที่มองแม่น้ำบางปะกง และจองคิวสปาล่วงหน้าโดยเฉพาะวันหยุด",
@@ -304,15 +471,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Knockdown House Double", "price": "เริ่ม ฿550/คืน" },
-        { "type": "Standard Double Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿700/คืน" }
+        {
+          "type": "Knockdown House Double",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "Standard Double Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kesorn-boutique-residence-at-8-riew-h14874975/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kesorn-boutique-residence-at-8-riew.html",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-9458409/kesorn-boutique-residence-at-8-riew/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kesorn-boutique-chachoengsao.html",
-      "tags": ["💰 ถูกสุดในบทความ ฿550", "🛏️ ที่พักเล็กบูทีก", "🛕 ใกล้วัดโสธร", "🚶 ตัวเมือง เดินถึงตลาด"],
+      "tags": [
+        "💰 ถูกสุดในบทความ ฿550",
+        "🛏️ ที่พักเล็กบูทีก",
+        "🛕 ใกล้วัดโสธร",
+        "🚶 ตัวเมือง เดินถึงตลาด"
+      ],
       "addr": "ถนนสุขประยูร หน้าเมือง อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "Kesorn Boutique คือ <strong>ที่พักเล็กบูทีกที่ราคาถูกที่สุดในบทความนี้ เริ่มเพียง ฿550 แต่คะแนนสูงถึง 8.7</strong> (จาก 60 รีวิว) · อยู่บนถนนสุขประยูรในตัวเมือง ใกล้วัดโสธร เดินถึงตลาดและร้านอาหารได้ · ห้องราว 20 ตร.ม. มีหน้าต่าง แอร์ ทีวี น้ำอุ่นครบ มีทั้งห้องคู่และห้องเตียงเดี่ยว เหมาะคนคุมงบที่ต้องการแค่ที่พักสะอาดทำเลดีในเมืองสำหรับมาไหว้พระค้างคืน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Knockdown ราคาถูกสุดบางห้องไม่มีหน้าต่าง อยากได้ห้องโปร่งให้เลือก Standard Double/Twin ที่มีหน้าต่าง ส่วนต่างแค่ร้อยกว่าบาท",
@@ -344,15 +525,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard King (วิวสวน)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Signature Room", "price": "เริ่ม ฿820/คืน" },
-        { "type": "Deluxe Single Premium", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard King (วิวสวน)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Signature Room",
+          "price": "เริ่ม ฿820/คืน"
+        },
+        {
+          "type": "Deluxe Single Premium",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/wellgrow-service-house-h78332574/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Wellgrow+Service+House+Chachoengsao",
       "tripUrl": "https://www.trip.com/hotels/chachoengsao-hotel-detail-133139846/wellgrow-service-house-wellgrow-hotel-chachoengsao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-wellgrow-service-house-chachoengsao.html",
-      "tags": ["🏭 ใกล้นิคมเวลโกรว์", "🛏️ ห้อง ~24 ตร.ม. มีโต๊ะทำงาน", "🚿 ฝักบัวเรนชาวเวอร์", "🅿️ ที่จอดรถ ริมถนนสายหลัก"],
+      "tags": [
+        "🏭 ใกล้นิคมเวลโกรว์",
+        "🛏️ ห้อง ~24 ตร.ม. มีโต๊ะทำงาน",
+        "🚿 ฝักบัวเรนชาวเวอร์",
+        "🅿️ ที่จอดรถ ริมถนนสายหลัก"
+      ],
       "addr": "ตำบลพิมพา อำเภอบางปะกง",
       "storyHtml": "Wellgrow Service House คือ <strong>โรงแรมประหยัดใกล้นิคมอุตสาหกรรมเวลโกรว์ที่คะแนนสูงถึง 9.1</strong> (จาก 27 รีวิว) · อยู่ตำบลพิมพา อ.บางปะกง ริมถนนสายหลัก ห้องราว 24 ตร.ม. มีโต๊ะทำงานและฝักบัวเรนชาวเวอร์ เหมาะทั้งคนทำงานในนิคมและคนแวะพักระหว่างทางกรุงเทพฯ-ภาคตะวันออก · ราคาเริ่มเพียง ฿700 ได้ห้องกว้างสะอาดในราคาเป็นกันเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยู่ริมถนนสายหลัก ขอห้องวิวสวนฝั่งในจะเงียบกว่าฝั่งถนน · เหมาะแวะพักหรือทำงานในนิคมมากกว่ามาเที่ยวในเมือง",
@@ -384,15 +579,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double Room", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Double Room", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Twin Room with Balcony", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard Double Room",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Double Room",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Twin Room with Balcony",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bb-house-paedriw/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bb-house-paedriw.html",
       "tripUrl": "https://th.trip.com/hotels/chachoengsao-hotel-detail-100938721/bb-house-chachoengsao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bb-house-chachoengsao.html",
-      "tags": ["💰 ราคาเริ่ม ฿650", "🛏️ ห้องสะอาดน้ำอุ่น", "🛕 ใกล้วัดโสธร", "🏙️ ตัวเมือง เดินถึงตลาด"],
+      "tags": [
+        "💰 ราคาเริ่ม ฿650",
+        "🛏️ ห้องสะอาดน้ำอุ่น",
+        "🛕 ใกล้วัดโสธร",
+        "🏙️ ตัวเมือง เดินถึงตลาด"
+      ],
       "addr": "ถนนฉะเชิงเทรา-บางปะกง หน้าเมือง อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "BB House คือ <strong>ที่พักงบประหยัดในตัวเมืองที่คะแนนสูงถึง 9.1</strong> (จาก 21 รีวิว) · อยู่บนถนนฉะเชิงเทรา-บางปะกง ใกล้วัดโสธร เดินถึงตลาดและร้านอาหารได้ · ห้องสะอาด มีแอร์ ทีวี น้ำอุ่น บางห้องมีตู้เย็น และห้อง Twin มีระเบียง ราคาเริ่มเพียง ฿650 เหมาะคนคุมงบที่ต้องการที่พักสะอาดทำเลดีในเมืองสำหรับมาไหว้พระและเดินตลาด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับเลือก Twin Room with Balcony ที่มีระเบียงและกว้างกว่า ส่วนต่างไม่กี่ร้อยแต่นั่งเล่นได้",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Double Room", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Riverview Room", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,300/คืน" }
+        {
+          "type": "Deluxe Double Room",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Riverview Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/the-brown-house-hotel-h14874353/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-brown-house.html",
       "tripUrl": "https://th.trip.com/hotels/chachoengsao-hotel-detail-7616000/the-brown-house-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-brown-house-hotel-chachoengsao.html",
-      "tags": ["☕ มีคาเฟ่ สไตล์อิงลิชคอตเทจ", "🏯 ติดตลาดบ้านใหม่ 100 ปี", "🌊 บางห้องวิวแม่น้ำบางปะกง", "🤫 บูทีกเล็ก ~12 ห้อง"],
+      "tags": [
+        "☕ มีคาเฟ่ สไตล์อิงลิชคอตเทจ",
+        "🏯 ติดตลาดบ้านใหม่ 100 ปี",
+        "🌊 บางห้องวิวแม่น้ำบางปะกง",
+        "🤫 บูทีกเล็ก ~12 ห้อง"
+      ],
       "addr": "ถนนศุภกิจ หน้าเมือง อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "The Brown House คือ <strong>บูทีกโฮเทลพร้อมคาเฟ่สไตล์อิงลิชคอตเทจที่อยู่ติดตลาดบ้านใหม่ 100 ปี</strong> คะแนน 8.6 จาก 9 รีวิว · เป็นที่พักเล็กราว 12 ห้องริมแม่น้ำบางปะกง บางห้องเป็น Riverview มองแม่น้ำ จุดเหมาะคือเดินออกจากที่พักก็ถึงตลาดบ้านใหม่ 100 ปีที่เป็นตลาดเก่าริมน้ำขึ้นชื่อของแปดริ้ว · เหมาะคนที่อยากได้ที่พักมีดีไซน์และเดินเที่ยวตลาดเก่าได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ตลาดบ้านใหม่ 100 ปีคึกคักช่วงเสาร์-อาทิตย์ · อยากได้บรรยากาศริมน้ำเลือก Riverview Room ที่มองแม่น้ำบางปะกง",
@@ -464,15 +687,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Baan Rimnam (ห้องริมน้ำ)", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Riverside Balcony Room", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Baan Rimnam (ห้องริมน้ำ)",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Riverside Balcony Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/river-breeze/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/river-breeze-chachoengsao.html",
       "tripUrl": "https://th.trip.com/hotels/chachoengsao-hotel-detail-7624565/river-breeze/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-river-breeze-chachoengsao.html",
-      "tags": ["🌊 ริมแม่น้ำบางปะกง", "🏠 ที่พักหลังเล็ก เป็นส่วนตัว", "🌅 ห้องริมน้ำมีระเบียง", "👨‍👩‍👧 มีบ้านฮอลิเดย์ 3 ห้องนอน"],
+      "tags": [
+        "🌊 ริมแม่น้ำบางปะกง",
+        "🏠 ที่พักหลังเล็ก เป็นส่วนตัว",
+        "🌅 ห้องริมน้ำมีระเบียง",
+        "👨‍👩‍👧 มีบ้านฮอลิเดย์ 3 ห้องนอน"
+      ],
       "addr": "ตำบลบางแก้ว อำเภอเมืองฉะเชิงเทรา",
       "storyHtml": "River Breeze คือ <strong>ที่พักริมแม่น้ำบางปะกงสไตล์โฮมสเตย์หลังเล็กในตำบลบางแก้ว</strong> คะแนน 8.4 จาก 4 รีวิว · เป็นที่พักราว 5 ห้อง บรรยากาศเป็นส่วนตัวเงียบสงบ มีห้องริมน้ำ Baan Rimnam ที่ระเบียงไม้ยื่นลงแม่น้ำ และบ้านฮอลิเดย์ 3 ห้องนอนสำหรับครอบครัวหรือกลุ่มเพื่อน · เหมาะคนที่อยากพักริมน้ำเงียบ ๆ ในจุดที่ขับเข้าตัวเมืองฉะเชิงเทราได้ไม่ไกล",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้บรรยากาศริมน้ำเต็มที่เลือกห้อง Baan Rimnam หรือ Riverside Balcony ที่ยื่นออกแม่น้ำ นั่งเล่นตอนเย็นได้สวย",
@@ -504,15 +741,29 @@
       "priceBig": "฿1,000",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "บ้านพักมาตรฐาน (ไม่ติดริมน้ำ)", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "บ้านวิวป่าชายเลน", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "บ้านริมน้ำ / บ้านทรงเรือ", "price": "เริ่ม ฿2,000/คืน" }
+        {
+          "type": "บ้านพักมาตรฐาน (ไม่ติดริมน้ำ)",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "บ้านวิวป่าชายเลน",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "บ้านริมน้ำ / บ้านทรงเรือ",
+          "price": "เริ่ม ฿2,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/ratathara-resort/hotel/chachoengsao-th.html?cid=1965862",
       "bookingUrl": "https://www.hotels.com/ho779172768/ratathara-resort-bang-pakong-thailand/",
       "tripUrl": "https://th.trip.com/hotels/bang-pakong-district-hotel-detail-9290869/ratathara-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ratathara-resort-chachoengsao.html",
-      "tags": ["🌿 ริมป่าชายเลน ปากแม่น้ำ", "⛵ มีบ้านทรงเรือ ถ่ายรูปสวย", "🌅 บ้านริมน้ำดูพระอาทิตย์ตก", "🏠 บ้านพักแยกหลัง ~19 หลัง"],
+      "tags": [
+        "🌿 ริมป่าชายเลน ปากแม่น้ำ",
+        "⛵ มีบ้านทรงเรือ ถ่ายรูปสวย",
+        "🌅 บ้านริมน้ำดูพระอาทิตย์ตก",
+        "🏠 บ้านพักแยกหลัง ~19 หลัง"
+      ],
       "addr": "ตำบลท่าข้าม อำเภอบางปะกง",
       "storyHtml": "Ratathara Resort คือ <strong>บูทีครีสอร์ทบ้านพักแยกหลังริมปากแม่น้ำบางปะกงและป่าชายเลน</strong> คะแนน 7.6 จาก 27 รีวิว · อยู่ตำบลท่าข้าม อ.บางปะกง มีบ้านพักราว 19 หลังหลายแบบ ตั้งแต่บ้านวิวป่าชายเลนไปจนถึงบ้านริมน้ำและบ้านทรงเรือที่เป็นไฮไลต์ถ่ายรูป · เหมาะคนที่อยากได้บรรยากาศพักริมน้ำแบบธรรมชาติป่าชายเลนใกล้ปากแม่น้ำ ในจุดที่ขับจากกรุงเทพฯ มาได้สะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อยากได้บรรยากาศและรูปสวยเลือกบ้านริมน้ำหรือบ้านทรงเรือที่มองแม่น้ำ ดูพระอาทิตย์ตกได้ · บ้านมาตรฐานไม่ติดน้ำราคาเบากว่า",
@@ -530,39 +781,214 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรมฉะเชิงเทรา 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Heaven Hotel Chachoengsao", "type": "⭐⭐⭐", "score": "9.2", "price": "฿790", "access": "📍 หน้าเมือง·ใกล้วัดโสธร", "badge": "ในเมืองคะแนนดี", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Suanmaithara Resort", "type": "⭐⭐⭐", "score": "8.8", "price": "฿800", "access": "📍 บางตีนเป็ด·ใกล้วัดโสธร", "badge": "รีสอร์ทในสวนเงียบ", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "JK Living Hotel", "type": "⭐⭐⭐", "score": "9.2", "price": "฿806", "access": "📍 หน้าเมือง·ใกล้นิคม", "badge": "เซอร์วิสอพาร์ตเมนต์", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Dheva Resort", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿1,500", "access": "📍 คลองเขื่อน·ริมบางปะกง", "badge": "บูทีกริมน้ำ วิวทุ่งนา", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "The Wish Hotel", "type": "⭐⭐⭐", "score": "8.1", "price": "฿850", "access": "📍 บางพระ·อ.เมือง", "badge": "รีวิวมากสุด 146", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Suntara Wellness Resort", "type": "⭐⭐⭐⭐", "score": "7.7", "price": "฿1,400", "access": "📍 คลองนา·ริมบางปะกง", "badge": "มีสระ+สปา ริมน้ำ", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Kesorn Boutique", "type": "⭐⭐", "score": "8.7", "price": "฿550", "access": "📍 สุขประยูร·ในเมือง", "badge": "ถูกสุด ฿550", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Wellgrow Service House", "type": "⭐⭐", "score": "9.1", "price": "฿700", "access": "📍 พิมพา·ใกล้นิคมเวลโกรว์", "badge": "ใกล้นิคม คะแนนดี", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "BB House Chachoengsao", "type": "⭐⭐", "score": "9.1", "price": "฿650", "access": "📍 หน้าเมือง·ใกล้วัดโสธร", "badge": "ประหยัดในเมือง", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "The Brown House Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 ติดตลาดบ้านใหม่ 100 ปี", "badge": "บูทีก+คาเฟ่ ริมน้ำ", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "River Breeze", "type": "⭐⭐⭐", "score": "8.4", "price": "฿900", "access": "📍 บางแก้ว·ริมบางปะกง", "badge": "ที่พักริมน้ำหลังเล็ก", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "Ratathara Resort", "type": "⭐⭐⭐", "score": "7.6", "price": "฿1,000", "access": "📍 ท่าข้าม·ริมปากแม่น้ำ", "badge": "บ้านริมน้ำ ป่าชายเลน", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Heaven Hotel Chachoengsao",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿790",
+      "access": "📍 หน้าเมือง·ใกล้วัดโสธร",
+      "badge": "ในเมืองคะแนนดี",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Suanmaithara Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿800",
+      "access": "📍 บางตีนเป็ด·ใกล้วัดโสธร",
+      "badge": "รีสอร์ทในสวนเงียบ",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "JK Living Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿806",
+      "access": "📍 หน้าเมือง·ใกล้นิคม",
+      "badge": "เซอร์วิสอพาร์ตเมนต์",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Dheva Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,500",
+      "access": "📍 คลองเขื่อน·ริมบางปะกง",
+      "badge": "บูทีกริมน้ำ วิวทุ่งนา",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "The Wish Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿850",
+      "access": "📍 บางพระ·อ.เมือง",
+      "badge": "รีวิวมากสุด 146",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Suntara Wellness Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿1,400",
+      "access": "📍 คลองนา·ริมบางปะกง",
+      "badge": "มีสระ+สปา ริมน้ำ",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Kesorn Boutique",
+      "type": "⭐⭐",
+      "score": "8.7",
+      "price": "฿550",
+      "access": "📍 สุขประยูร·ในเมือง",
+      "badge": "ถูกสุด ฿550",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Wellgrow Service House",
+      "type": "⭐⭐",
+      "score": "9.1",
+      "price": "฿700",
+      "access": "📍 พิมพา·ใกล้นิคมเวลโกรว์",
+      "badge": "ใกล้นิคม คะแนนดี",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "BB House Chachoengsao",
+      "type": "⭐⭐",
+      "score": "9.1",
+      "price": "฿650",
+      "access": "📍 หน้าเมือง·ใกล้วัดโสธร",
+      "badge": "ประหยัดในเมือง",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "The Brown House Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 ติดตลาดบ้านใหม่ 100 ปี",
+      "badge": "บูทีก+คาเฟ่ ริมน้ำ",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "River Breeze",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿900",
+      "access": "📍 บางแก้ว·ริมบางปะกง",
+      "badge": "ที่พักริมน้ำหลังเล็ก",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "Ratathara Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿1,000",
+      "access": "📍 ท่าข้าม·ริมปากแม่น้ำ",
+      "badge": "บ้านริมน้ำ ป่าชายเลน",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมฉะเชิงเทรายังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Kesorn Boutique</strong> เริ่ม ฿550 ถูกสุดในเมืองคะแนน 8.7 · หรือ <strong>BB House</strong> ฿650 ในเมืองคะแนน 9.1 · หรือ <strong>Wellgrow Service House</strong> ฿700 ห้องกว้างคะแนน 9.1" },
-    { "icon": "🛕", "head": "มาไหว้วัดโสธร อยากพักในเมือง", "bodyHtml": "→ <strong>Heaven Hotel</strong> ฿790 ในเมืองคะแนน 9.2 ขับถึงวัดไม่กี่นาที · หรือ <strong>BB House</strong> ฿650 และ <strong>Kesorn Boutique</strong> ฿550 ที่เดินถึงตลาดและใกล้วัดโสธร" },
-    { "icon": "🌊", "head": "อยากพักริมแม่น้ำบางปะกง เงียบสงบ", "bodyHtml": "→ <strong>Dheva Resort</strong> ฿1,500 บูทีกริมน้ำวิวทุ่งนา · หรือ <strong>River Breeze</strong> ฿900 ที่พักริมน้ำหลังเล็ก · หรือ <strong>Ratathara Resort</strong> ฿1,000 บ้านริมน้ำป่าชายเลน" },
-    { "icon": "🏊", "head": "อยากได้รีสอร์ตมีสระว่ายน้ำ+สปา", "bodyHtml": "→ <strong>Suntara Wellness Resort</strong> ฿1,400 รีสอร์ตเวลเนสริมน้ำที่มีทั้งสระและสปา หนึ่งเดียวในบทความ" },
-    { "icon": "☕", "head": "อยากได้ที่พักมีดีไซน์ เดินตลาดเก่า", "bodyHtml": "→ <strong>The Brown House Hotel</strong> ฿1,500 บูทีก+คาเฟ่ติดตลาดบ้านใหม่ 100 ปี ริมแม่น้ำบางปะกง" },
-    { "icon": "🏭", "head": "ทำงานในนิคม หรือแวะพักระหว่างทาง", "bodyHtml": "→ <strong>Wellgrow Service House</strong> ฿700 ใกล้นิคมเวลโกรว์ ห้องกว้าง · หรือ <strong>JK Living</strong> ฿806 เซอร์วิสอพาร์ตเมนต์ในเมือง พักรายเดือนได้" },
-    { "icon": "🌳", "head": "อยากได้รีสอร์ตในสวนเงียบ ใกล้เมือง", "bodyHtml": "→ <strong>Suanmaithara Resort</strong> ฿800 รีสอร์ตในสวนเงียบ ใกล้วัดโสธรราว 8 นาทีรถ · หรือ <strong>The Wish Hotel</strong> ฿850 โรงแรมใหม่ทุกห้องมีระเบียง รีวิวมากสุด" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Kesorn Boutique</strong> เริ่ม ฿550 ถูกสุดในเมืองคะแนน 8.7 · หรือ <strong>BB House</strong> ฿650 ในเมืองคะแนน 9.1 · หรือ <strong>Wellgrow Service House</strong> ฿700 ห้องกว้างคะแนน 9.1"
+    },
+    {
+      "icon": "🛕",
+      "head": "มาไหว้วัดโสธร อยากพักในเมือง",
+      "bodyHtml": "→ <strong>Heaven Hotel</strong> ฿790 ในเมืองคะแนน 9.2 ขับถึงวัดไม่กี่นาที · หรือ <strong>BB House</strong> ฿650 และ <strong>Kesorn Boutique</strong> ฿550 ที่เดินถึงตลาดและใกล้วัดโสธร"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมแม่น้ำบางปะกง เงียบสงบ",
+      "bodyHtml": "→ <strong>Dheva Resort</strong> ฿1,500 บูทีกริมน้ำวิวทุ่งนา · หรือ <strong>River Breeze</strong> ฿900 ที่พักริมน้ำหลังเล็ก · หรือ <strong>Ratathara Resort</strong> ฿1,000 บ้านริมน้ำป่าชายเลน"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้รีสอร์ตมีสระว่ายน้ำ+สปา",
+      "bodyHtml": "→ <strong>Suntara Wellness Resort</strong> ฿1,400 รีสอร์ตเวลเนสริมน้ำที่มีทั้งสระและสปา หนึ่งเดียวในบทความ"
+    },
+    {
+      "icon": "☕",
+      "head": "อยากได้ที่พักมีดีไซน์ เดินตลาดเก่า",
+      "bodyHtml": "→ <strong>The Brown House Hotel</strong> ฿1,500 บูทีก+คาเฟ่ติดตลาดบ้านใหม่ 100 ปี ริมแม่น้ำบางปะกง"
+    },
+    {
+      "icon": "🏭",
+      "head": "ทำงานในนิคม หรือแวะพักระหว่างทาง",
+      "bodyHtml": "→ <strong>Wellgrow Service House</strong> ฿700 ใกล้นิคมเวลโกรว์ ห้องกว้าง · หรือ <strong>JK Living</strong> ฿806 เซอร์วิสอพาร์ตเมนต์ในเมือง พักรายเดือนได้"
+    },
+    {
+      "icon": "🌳",
+      "head": "อยากได้รีสอร์ตในสวนเงียบ ใกล้เมือง",
+      "bodyHtml": "→ <strong>Suanmaithara Resort</strong> ฿800 รีสอร์ตในสวนเงียบ ใกล้วัดโสธรราว 8 นาทีรถ · หรือ <strong>The Wish Hotel</strong> ฿850 โรงแรมใหม่ทุกห้องมีระเบียง รีวิวมากสุด"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงเทศกาลและวันหยุดยาว โดยเฉพาะงานนมัสการหลวงพ่อโสธร ที่พักในเมืองเต็มเร็วมาก ควรจองล่วงหน้า 2–4 สัปดาห์ · รีสอร์ตริมน้ำห้องน้อยอย่าง Dheva และ River Breeze ก็เต็มเร็วช่วงวันหยุด · ฉะเชิงเทราไม่มีรถไฟฟ้าแต่อยู่ใกล้กรุงเทพฯ ขับรถราว 1–1.5 ชั่วโมง และมีสถานีรถไฟสายตะวันออกกลางเมือง · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมฉะเชิงเทรา",
   "faq": [
-    { "q": "❓ พักโซนไหนดีในฉะเชิงเทรา?", "a": "ขึ้นอยู่กับแพลนเที่ยว · <strong>ตัวเมือง อ.เมืองฉะเชิงเทรา</strong> ใกล้วัดโสธร สถานีรถไฟ ตลาด และตลาดบ้านใหม่ 100 ปี เหมาะคนมาไหว้พระและไม่มีรถ (Heaven, JK Living, Kesorn, BB House, The Brown House) · <strong>ริมแม่น้ำบางปะกง</strong> เหมาะพักผ่อนเงียบ ๆ (Dheva, Suntara, River Breeze) · <strong>บางปะกง</strong> ใกล้นิคมและปากแม่น้ำ เหมาะคนทำงานหรือแวะพัก (Wellgrow, Ratathara)" },
-    { "q": "❓ โรงแรมฉะเชิงเทราราคาเท่าไหร่?", "a": "ฉะเชิงเทราราคาเป็นกันเอง: ที่พักประหยัด 2 ดาวเริ่มราว ฿550–700 (Kesorn, BB House, Wellgrow) · โรงแรมในเมือง 3 ดาวราว ฿790–850 (Heaven, JK Living, Suanmaithara, The Wish) · รีสอร์ตและบูทีกริมน้ำ 3–4 ดาวเริ่มราว ฿1,000–1,500 (Ratathara, Dheva, Suntara, The Brown House)" },
-    { "q": "❓ มาไหว้วัดโสธร พักโรงแรมไหนใกล้สะดวก?", "a": "ที่พักในตัวเมืองที่ขับถึงวัดโสธรไม่กี่นาทีและเดินถึงตลาดได้คือ <strong>Heaven Hotel</strong> (฿790 คะแนน 9.2), <strong>BB House</strong> (฿650) และ <strong>Kesorn Boutique</strong> (฿550 ถูกสุด) · ส่วน <strong>Suanmaithara Resort</strong> (฿800) เป็นรีสอร์ตในสวนเงียบ ใกล้วัดโสธรราว 8 นาทีรถ" },
-    { "q": "❓ โรงแรมฉะเชิงเทราที่ไหนมีสระว่ายน้ำ?", "a": "ในบทความนี้ที่มีสระว่ายน้ำคือ <strong>Suntara Wellness Resort & Hotel</strong> ซึ่งเป็นรีสอร์ตเวลเนสริมแม่น้ำบางปะกงที่มีทั้งสระและสปา ราคาเริ่ม ฿1,400 เหมาะคนที่อยากมาพักผ่อนแบบรีสอร์ตจริงจัง" },
-    { "q": "❓ อยากพักริมแม่น้ำบางปะกง ควรเลือกที่ไหน?", "a": "ถ้าอยากพักริมน้ำเงียบ ๆ · <strong>Dheva Resort</strong> ฿1,500 บูทีกริมน้ำวิวทุ่งนาที่คลองเขื่อน คะแนน 9.0 · <strong>River Breeze</strong> ฿900 ที่พักหลังเล็กริมน้ำที่บางแก้ว · <strong>Ratathara Resort</strong> ฿1,000 บ้านพักริมป่าชายเลนปากแม่น้ำที่บางปะกง · ทุกแห่งควรมีรถจะสะดวกที่สุด" },
-    { "q": "❓ ควรจองโรงแรมฉะเชิงเทราล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ เพราะฉะเชิงเทราอยู่ใกล้กรุงเทพฯ ที่พักไม่หนาแน่น · แต่ช่วงงานนมัสการหลวงพ่อโสธรและวันหยุดยาว ที่พักในเมืองและรีสอร์ตริมน้ำห้องน้อยอย่าง Dheva เต็มเร็วมาก ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป" }
-  ]
+    {
+      "q": "❓ พักโซนไหนดีในฉะเชิงเทรา?",
+      "a": "ขึ้นอยู่กับแพลนเที่ยว · <strong>ตัวเมือง อ.เมืองฉะเชิงเทรา</strong> ใกล้วัดโสธร สถานีรถไฟ ตลาด และตลาดบ้านใหม่ 100 ปี เหมาะคนมาไหว้พระและไม่มีรถ (Heaven, JK Living, Kesorn, BB House, The Brown House) · <strong>ริมแม่น้ำบางปะกง</strong> เหมาะพักผ่อนเงียบ ๆ (Dheva, Suntara, River Breeze) · <strong>บางปะกง</strong> ใกล้นิคมและปากแม่น้ำ เหมาะคนทำงานหรือแวะพัก (Wellgrow, Ratathara)"
+    },
+    {
+      "q": "❓ โรงแรมฉะเชิงเทราราคาเท่าไหร่?",
+      "a": "ฉะเชิงเทราราคาเป็นกันเอง: ที่พักประหยัด 2 ดาวเริ่มราว ฿550–700 (Kesorn, BB House, Wellgrow) · โรงแรมในเมือง 3 ดาวราว ฿790–850 (Heaven, JK Living, Suanmaithara, The Wish) · รีสอร์ตและบูทีกริมน้ำ 3–4 ดาวเริ่มราว ฿1,000–1,500 (Ratathara, Dheva, Suntara, The Brown House)"
+    },
+    {
+      "q": "❓ มาไหว้วัดโสธร พักโรงแรมไหนใกล้สะดวก?",
+      "a": "ที่พักในตัวเมืองที่ขับถึงวัดโสธรไม่กี่นาทีและเดินถึงตลาดได้คือ <strong>Heaven Hotel</strong> (฿790 คะแนน 9.2), <strong>BB House</strong> (฿650) และ <strong>Kesorn Boutique</strong> (฿550 ถูกสุด) · ส่วน <strong>Suanmaithara Resort</strong> (฿800) เป็นรีสอร์ตในสวนเงียบ ใกล้วัดโสธรราว 8 นาทีรถ"
+    },
+    {
+      "q": "❓ โรงแรมฉะเชิงเทราที่ไหนมีสระว่ายน้ำ?",
+      "a": "ในบทความนี้ที่มีสระว่ายน้ำคือ <strong>Suntara Wellness Resort & Hotel</strong> ซึ่งเป็นรีสอร์ตเวลเนสริมแม่น้ำบางปะกงที่มีทั้งสระและสปา ราคาเริ่ม ฿1,400 เหมาะคนที่อยากมาพักผ่อนแบบรีสอร์ตจริงจัง"
+    },
+    {
+      "q": "❓ อยากพักริมแม่น้ำบางปะกง ควรเลือกที่ไหน?",
+      "a": "ถ้าอยากพักริมน้ำเงียบ ๆ · <strong>Dheva Resort</strong> ฿1,500 บูทีกริมน้ำวิวทุ่งนาที่คลองเขื่อน คะแนน 9.0 · <strong>River Breeze</strong> ฿900 ที่พักหลังเล็กริมน้ำที่บางแก้ว · <strong>Ratathara Resort</strong> ฿1,000 บ้านพักริมป่าชายเลนปากแม่น้ำที่บางปะกง · ทุกแห่งควรมีรถจะสะดวกที่สุด"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมฉะเชิงเทราล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ เพราะฉะเชิงเทราอยู่ใกล้กรุงเทพฯ ที่พักไม่หนาแน่น · แต่ช่วงงานนมัสการหลวงพ่อโสธรและวันหยุดยาว ที่พักในเมืองและรีสอร์ตริมน้ำห้องน้อยอย่าง Dheva เต็มเร็วมาก ควรจองล่วงหน้า 2–4 สัปดาห์ขึ้นไป"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมฉะเชิงเทราคัดมาจากทุกระดับ — ตั้งแต่ Heaven Hotel ในเมืองใกล้วัดโสธร ไปถึง Dheva รีสอร์ทริมน้ำบางปะกง และ Kesorn บูทีกราคาเบา เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

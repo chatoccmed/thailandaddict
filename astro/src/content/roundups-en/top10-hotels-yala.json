@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Yala", "href": "city-yala.html" },
-    { "name": "Top 12 Yala & Betong Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Yala",
+      "href": "city-yala.html"
+    },
+    {
+      "name": "Top 12 Yala & Betong Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Yala", "item": "https://thailandaddict.com/en/city-yala" },
-    { "name": "Top 12 Yala & Betong Hotels", "item": "https://thailandaddict.com/en/top10-hotels-yala" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Yala",
+      "item": "https://thailandaddict.com/en/city-yala"
+    },
+    {
+      "name": "Top 12 Yala & Betong Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-yala"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-yala.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Yala has a train station in the city, but Betong has no rail; you get around Yala & Betong mainly by car. Many stays <strong>in central Betong</strong> are within walking distance of the clock tower, the Mongkol Rit Tunnel, the giant mailbox and restaurants, ideal for visitors who'd rather not drive in and out often. The Aiyerweng sea of mist and skywalk are about 30–40 km outside Betong town — you set off before dawn, and a private car is most convenient. Stays <strong>in Yala city</strong> suit rail travellers and anyone on business: step off the train, transfer to your room, and use it as a stopover before driving up to Betong. Betong is about 140 km from Yala town, a 2.5–3-hour mountain drive — if you're prone to motion sickness, allow extra time and bring something for it. The areas in this guide: <strong>Central Betong</strong> — clock tower, tunnel, food · <strong>Around the Mongkol Rit Tunnel / gardens</strong> — quieter, easy parking · <strong>Yala City</strong> — arrive by rail, markets, malls, halal food.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Grandview Landmark Betong Hotel", "price": "฿850" },
-    { "n": "2", "color": "#c8a951", "name": "Grand Mandarin Betong Hotel", "price": "฿1,300" },
-    { "n": "3", "color": "#c8a951", "name": "Butterfly Hotel Betong", "price": "฿900" },
-    { "n": "4", "color": "#9e9e9e", "name": "Ban Chahomm Guesthouse Betong", "price": "฿850" },
-    { "n": "5", "color": "#9e9e9e", "name": "Betong Hill Hotel", "price": "฿800" },
-    { "n": "6", "color": "#9e9e9e", "name": "Garden View Betong Hotel", "price": "฿700" },
-    { "n": "7", "color": "#9e9e9e", "name": "Happy Garden Resort Betong", "price": "฿1,200" },
-    { "n": "8", "color": "#bf8040", "name": "Boonrapee Residence Hotel Yala", "price": "฿600" },
-    { "n": "9", "color": "#bf8040", "name": "The One Place Yala", "price": "฿690" },
-    { "n": "10", "color": "#5d4037", "name": "Betong Merlin Hotel", "price": "฿1,000" },
-    { "n": "11", "color": "#5d4037", "name": "Yala Grand Palace Hotel", "price": "฿650" },
-    { "n": "12", "color": "#5d4037", "name": "The Face Hotel Yala", "price": "฿700" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Grandview Landmark Betong Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Grand Mandarin Betong Hotel",
+      "price": "฿1,300"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Butterfly Hotel Betong",
+      "price": "฿900"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Ban Chahomm Guesthouse Betong",
+      "price": "฿850"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Betong Hill Hotel",
+      "price": "฿800"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Garden View Betong Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Happy Garden Resort Betong",
+      "price": "฿1,200"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Boonrapee Residence Hotel Yala",
+      "price": "฿600"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "The One Place Yala",
+      "price": "฿690"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Betong Merlin Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Yala Grand Palace Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "The Face Hotel Yala",
+      "price": "฿700"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Twin Room (32 sqm)", "price": "from ฿850/night" },
-        { "type": "Deluxe King Room", "price": "from ฿950/night" },
-        { "type": "Triple Room", "price": "from ฿1,200/night" }
+        {
+          "type": "Deluxe Twin Room (32 sqm)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Triple Room",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grandview-landmark-hotel/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermaekrndwiw-aelndmaarkh-ebtng-grandview-landmark.html",
       "tripUrl": "https://www.trip.com/hotels/betong-hotel-detail-71382801/grandview-landmark-betong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grandview-landmark-betong-yala.html",
-      "tags": ["🏙️ Landmark tower in central Betong", "🛏️ Spacious 32 sqm rooms, city views", "🚶 Walk to the clock tower and food", "🅿️ Parking"],
+      "tags": [
+        "🏙️ Landmark tower in central Betong",
+        "🛏️ Spacious 32 sqm rooms, city views",
+        "🚶 Walk to the clock tower and food",
+        "🅿️ Parking"
+      ],
       "addr": "30 Grand Villa Rd 2, Betong, Mueang Betong",
       "storyHtml": "Grandview Landmark is <strong>the top-scoring hotel in the premium tier — 8.5 from 206 reviews, and a landmark tower in central Betong</strong>. Guests consistently praise the spacious 32 sqm rooms across the board, clean and comfortable, with higher floors getting nice views over Betong town. It's central, a walk from the clock tower, the giant mailbox and the Chinese-Muslim restaurants, ideal if you don't want to drive in and out often. The trade-off: it's a high-rise that fills fast in high season and on weekends, and service isn't quite as polished as a big chain. Best for travellers who want a spacious room in a central Betong location at an affordable price.",
       "tipHtml": "💡 <strong>Tip:</strong> Request a higher floor at booking for city views and more quiet than the lower floors. It's central, so finding dinner on foot is easy. If you're heading up to the Aiyerweng sea of mist, the hotel is in town and the skywalk is about 40 minutes' drive — set off around 4 a.m.",
@@ -104,15 +201,29 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin / Double", "price": "from ฿1,300/night" },
-        { "type": "Deluxe Mountain View", "price": "from ฿1,600/night" },
-        { "type": "Family / Suite", "price": "from ฿2,400/night" }
+        {
+          "type": "Standard Twin / Double",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Deluxe Mountain View",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Family / Suite",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/grand-mandarin-betong-hotel/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/grand-mandarin-betong.html",
       "tripUrl": "https://us.trip.com/hotels/betong-district-hotel-detail-9278433/mandarin-betong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-grand-mandarin-betong-yala.html",
-      "tags": ["🏊 Has a pool, rare in Betong", "🏔️ Deluxe rooms with mountain views", "📊 Lots of reviews (227) in the premium tier", "🅿️ Parking · central Betong"],
+      "tags": [
+        "🏊 Has a pool, rare in Betong",
+        "🏔️ Deluxe rooms with mountain views",
+        "📊 Lots of reviews (227) in the premium tier",
+        "🅿️ Parking · central Betong"
+      ],
       "addr": "888 Phakdi Damrong Rd, Betong, Mueang Betong",
       "storyHtml": "Grand Mandarin is <strong>a 4-star hotel in central Betong whose main selling point is a swimming pool, and it has the most reviews in the premium tier — 8.4 from 227 reviews</strong>. Pools are rare among Betong stays, which makes this a standout pick for families who want the kids in the water. Deluxe rooms face the mountains for a nice view, the rooms are clean, and the central location makes driving to sights easy. The trade-off, per real reviews: it's an ageing hotel with room condition uneven across the building, and from-prices run higher than the town's typical stays. Best for families and anyone who wants a pool in central Betong.",
       "tipHtml": "💡 <strong>Tip:</strong> For a mountain view, request a Deluxe Mountain View room at booking. With kids, swim in the morning or evening when the pool's at its best. Pick a renovated room, as condition varies across the building.",
@@ -144,15 +255,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room", "price": "from ฿900/night" },
-        { "type": "Superior Room (with bathtub)", "price": "from ฿1,190/night" },
-        { "type": "Family Room", "price": "from ฿1,500/night" }
+        {
+          "type": "Standard Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Superior Room (with bathtub)",
+          "price": "from ฿1,190/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/butterfly-hotel-betong/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-butterfly-hotel-betong-ban-komo-sip-paet.html",
       "tripUrl": "https://www.trip.com/hotels/betong-district-hotel-detail-10931082/butterfly-princess-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-butterfly-hotel-betong-yala.html",
-      "tags": ["🦋 Modern design boutique", "🛁 Superior rooms with a bathtub", "🚶 Prachathipat Rd, central Betong", "🛏️ Clean, freshly decorated rooms"],
+      "tags": [
+        "🦋 Modern design boutique",
+        "🛁 Superior rooms with a bathtub",
+        "🚶 Prachathipat Rd, central Betong",
+        "🛏️ Clean, freshly decorated rooms"
+      ],
       "addr": "188 Prachathipat Rd, Betong, Mueang Betong",
       "storyHtml": "Butterfly Hotel is <strong>a 4-star modern-design boutique on Prachathipat Road in central Betong — 8.3 from 109 reviews</strong>. The draw is its fresh decor that stands out from the usual in-town hotels, clean rooms, comfy beds, and Superior rooms with a bathtub that couples like. It's central, a walk from restaurants and photo spots around Betong. The trade-off: it's a small hotel, popular rooms fill fast, and some rooms are compact. Best for couples and anyone who wants a design stay in central Betong.",
       "tipHtml": "💡 <strong>Tip:</strong> For a bathtub, request a Superior room or above, as the Standard doesn't have one. It's a small hotel that fills fast on weekends, so book ahead. The central location is great for walking around Betong and taking photos.",
@@ -184,15 +309,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double / Twin (with balcony)", "price": "from ฿850/night" },
-        { "type": "Garden View Room", "price": "from ฿950/night" },
-        { "type": "Family Room", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Double / Twin (with balcony)",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Garden View Room",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/banchahomm-guesthouse/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/banchahomm-baanchaah-m-eksehaas.html",
       "tripUrl": "https://th.trip.com/hotels/betong-district-hotel-list/?keyword=Banchahomm%20Guesthouse&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ban-chahomm-guesthouse-betong-yala.html",
-      "tags": ["💚 Top score in the guide 8.9", "🌿 Rooms with a garden-mountain-view balcony", "🚶 Walk to the Betong clock tower", "☕ Warm, friendly atmosphere"],
+      "tags": [
+        "💚 Top score in the guide 8.9",
+        "🌿 Rooms with a garden-mountain-view balcony",
+        "🚶 Walk to the Betong clock tower",
+        "☕ Warm, friendly atmosphere"
+      ],
       "addr": "9/1 Atthawethi Rd, Betong, Mueang Betong",
       "storyHtml": "Ban Chahomm Guesthouse is <strong>the top-scoring stay in this guide — 8.9, though reviews are still few (11)</strong>. What impresses guests is the private balcony looking out over the garden and mountains, the warm, friendly feel of a small owner-run guesthouse, and clean rooms. It's a walk from the Betong clock tower and in-town restaurants. The trade-off: it's a small place with few reviews, limited rooms that fill fast, and guesthouse-level facilities — no pool or hotel-style breakfast. Best for couples and travellers who want atmosphere and a mountain view on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Request a Garden View room with a balcony overlooking the garden and mountains — guests' favourite. It's a small place with few rooms that fill fast, so book ahead. It's a walk to the clock tower and food in Betong town.",
@@ -224,15 +363,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿800/night" },
-        { "type": "Standard Twin", "price": "from ฿900/night" },
-        { "type": "Deluxe / city-view room", "price": "from ฿1,000/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe / city-view room",
+          "price": "from ฿1,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/betong-hill-residence-h8791041/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/betong-hill-residence-ebtng-hill.html",
       "tripUrl": "https://th.trip.com/hotels/betong-district-hotel-detail-47361894/betong-hill-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-betong-hill-hotel-yala.html",
-      "tags": ["🏙️ Central Betong, near the Mongkol Rit Tunnel", "🛏️ Clean rooms, air-con, fridge, free Wi-Fi", "🅿️ Free parking", "🚶 Walk to in-town food"],
+      "tags": [
+        "🏙️ Central Betong, near the Mongkol Rit Tunnel",
+        "🛏️ Clean rooms, air-con, fridge, free Wi-Fi",
+        "🅿️ Free parking",
+        "🚶 Walk to in-town food"
+      ],
       "addr": "56 Mongkol Prajak Rd, Betong, Mueang Betong",
       "storyHtml": "Betong Hill Hotel is <strong>a small hotel in central Betong with a good score in the budget tier — 8.1 from 51 reviews</strong>. The draw is its central location near the Mongkol Rit Tunnel, a walk from restaurants and photo spots around Betong, with clean rooms that have air-con, a fridge and free Wi-Fi. There's free parking, handy for drivers. The trade-off: it's a 2-star stay with basic amenities, no pool or big-hotel breakfast, and it's a small place where rooms fill fast on weekends. Best for budget travellers who want a central Betong location.",
       "tipHtml": "💡 <strong>Tip:</strong> The central location makes finding dinner in Betong easy. There's free parking, handy for drivers. For a larger room — some with a city-view balcony — request a Deluxe at booking.",
@@ -264,15 +417,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior King / Twin", "price": "from ฿700/night" },
-        { "type": "Deluxe Room", "price": "from ฿900/night" },
-        { "type": "Studio King", "price": "from ฿1,100/night" }
+        {
+          "type": "Superior King / Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Studio King",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/garden-view-betong-hotel_2/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/garden-view-betong.html",
       "tripUrl": "https://th.trip.com/hotels/betong-district-hotel-detail-28772966/garden-view-betong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-garden-view-betong-yala.html",
-      "tags": ["📊 Most reviews in the guide (586)", "💸 From ฿700, great value", "🚶 Near the Mongkol Rit Tunnel", "🛏️ Spacious rooms, air-con, free Wi-Fi"],
+      "tags": [
+        "📊 Most reviews in the guide (586)",
+        "💸 From ฿700, great value",
+        "🚶 Near the Mongkol Rit Tunnel",
+        "🛏️ Spacious rooms, air-con, free Wi-Fi"
+      ],
       "addr": "2 Soi 2 Aiyerberjung Rd, Betong, Mueang Betong",
       "storyHtml": "Garden View Betong is <strong>the hotel with the most reviews in this guide — 586 reviews, scoring 7.8, from just ฿700</strong>. That huge review volume makes it clear what you're getting: spacious, clean-enough rooms for the price, near the Mongkol Rit Tunnel with easy driving into Betong town. It's a frequent pick for Betong visitors thanks to its value and the number of rooms it can take. The trade-off, per reviews: room condition and upkeep are uneven, which keeps the score mid-range. Best for budget travellers and families who want a spacious, value room in Betong.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated room or Deluxe and up, as condition varies across rooms. With so many reviews, read the most recent ones before booking for a clear picture. The location near the Mongkol Rit Tunnel makes driving into town and to sights easy.",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Chalet", "price": "from ฿1,200/night" },
-        { "type": "Premier Deluxe King", "price": "from ฿1,500/night" },
-        { "type": "Family Room", "price": "from ฿2,400/night" }
+        {
+          "type": "Superior Chalet",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Premier Deluxe King",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Family Room",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/happy-garden-resort-betong-thailand/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/happy-garden-resort-betong.html",
       "tripUrl": "https://www.trip.com/hotels/betong-district-hotel-detail-113570292/happy-garden-resort-betong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-happy-garden-resort-betong-yala.html",
-      "tags": ["🌳 Leafy garden resort", "🏊 Rooftop pool", "🐾 Pet-friendly", "🅿️ Parking · quieter than the centre"],
+      "tags": [
+        "🌳 Leafy garden resort",
+        "🏊 Rooftop pool",
+        "🐾 Pet-friendly",
+        "🅿️ Parking · quieter than the centre"
+      ],
       "addr": "72 Soi 12, Betong, Mueang Betong",
       "storyHtml": "Happy Garden Resort is <strong>a garden resort with a rooftop pool that's also pet-friendly — 7.8 from 58 reviews</strong>. What sets it apart from in-town hotels is its leafy garden atmosphere, a resort feel that's quieter than central Betong, a rooftop pool, and being one of the few Betong stays that accept pets. It's a good fit for couples and travellers bringing a dog or cat. The trade-off: it's down a soi rather than central, so you'll drive in and out, room condition is uneven, and from-prices run higher than the town's budget stays. Best for those who want a resort feel and are bringing a pet.",
       "tipHtml": "💡 <strong>Tip:</strong> If bringing a pet, tell the hotel at booking to check the terms. The rooftop pool is at its best in the early evening. It's down a soi, so a private car is more convenient, since you'll drive into town for food.",
@@ -344,15 +525,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Twin / Double", "price": "from ฿600/night" },
-        { "type": "Grand Deluxe", "price": "from ฿850/night" },
-        { "type": "Family / President Suite", "price": "from ฿1,500/night" }
+        {
+          "type": "Superior Twin / Double",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Grand Deluxe",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Family / President Suite",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=17184&q=Boonrapee+Residence+Hotel+Yala&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Boonrapee+Residence+Hotel+Yala",
       "tripUrl": "https://th.trip.com/hotels/mueang-yala-district-hotel-detail-90423651/boonrapee-residence-yala/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-boonrapee-residence-yala.html",
-      "tags": ["💸 Cheapest in the guide ฿600", "🏙️ Yala city, 60 rooms", "🅿️ Free parking · free Wi-Fi", "🏥 Near Yala Hospital"],
+      "tags": [
+        "💸 Cheapest in the guide ฿600",
+        "🏙️ Yala city, 60 rooms",
+        "🅿️ Free parking · free Wi-Fi",
+        "🏥 Near Yala Hospital"
+      ],
       "addr": "195/9 Siroros Rd, Sateng, Mueang Yala",
       "storyHtml": "Boonrapee Residence is <strong>the cheapest stay in this guide, from just ฿600, and the best pick in Yala city</strong> — 8.2 from 60 reviews. It's a 60-room hotel-residence on Siroros Road near Yala Hospital; the draw is clean rooms for the price, all with air-con, a fridge, a flat-screen TV, free Wi-Fi and free parking, good for anyone on business in Yala, arriving by train, or using it as a stopover before driving up to Betong. The trade-off: it's in Yala city, not Betong, so if Betong is the goal you'll drive on another 2.5–3 hours, and it's a rooms-only residence with no pool. Best for those on business in Yala and budget travellers.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're on business in Yala or arriving by train, it's central and easy to reach. For a larger room, the Grand Deluxe is only a few hundred baht more. If Betong is your goal, stay in Betong itself, as it's another 2.5–3-hour drive from here.",
@@ -384,15 +579,29 @@
       "priceBig": "฿690",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Budget Double", "price": "from ฿690/night" },
-        { "type": "Double Room (hot water, work desk)", "price": "from ฿750/night" },
-        { "type": "Deluxe Twin", "price": "from ฿850/night" }
+        {
+          "type": "Budget Double",
+          "price": "from ฿690/night"
+        },
+        {
+          "type": "Double Room (hot water, work desk)",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-one-place/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+One+Place+Yala",
       "tripUrl": "https://th.trip.com/hotels/list?city=&keyword=The+One+Place+Yala&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-one-place-yala.html",
-      "tags": ["🌿 Small resort-style boutique", "🛏️ Clean, comfortably furnished rooms", "🅿️ Free parking", "🏙️ Yala city"],
+      "tags": [
+        "🌿 Small resort-style boutique",
+        "🛏️ Clean, comfortably furnished rooms",
+        "🅿️ Free parking",
+        "🏙️ Yala city"
+      ],
       "addr": "271 Soi Mali, Phang Mueang 4 Rd, Sateng, Mueang Yala",
       "storyHtml": "The One Place is <strong>a small resort-style boutique hotel in Yala city — 7.8 from 36 reviews</strong>. The draw is its clean, comfortably furnished rooms with a small-resort feel in town, a quiet soi setting, and free parking, good for anyone on business or relaxing in Yala who'd rather not stay in a big block. From-prices are in the low hundreds — good value for an in-town boutique. The trade-off: it's a small place with few reviews, basic amenities and no pool, and it's in Yala city, not Betong. Best for couples and travellers staying in Yala who want a comfortable room on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> It's a small place down a soi, so use map navigation to find it easily. There's free parking, handy for drivers. For a room with a work desk and confirmed hot water, choose a Double Room or above rather than the Budget.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double / Twin (30 sqm)", "price": "from ฿1,000/night" },
-        { "type": "Superior (renovated)", "price": "from ฿1,300/night" },
-        { "type": "Deluxe", "price": "from ฿1,500/night" }
+        {
+          "type": "Standard Double / Twin (30 sqm)",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Superior (renovated)",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Deluxe",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/betong-merlin-hotel/hotel/betong-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/betong-merlin-betong.html",
       "tripUrl": "https://th.trip.com/hotels/betong-district-hotel-detail-7621523/betong-merlin-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-betong-merlin-yala.html",
-      "tags": ["🏊 Indoor pool, rare in Betong", "🏔️ Mountain-garden views", "📊 Lots of reviews (161) · a known name", "🅿️ Parking · spacious 30 sqm rooms"],
+      "tags": [
+        "🏊 Indoor pool, rare in Betong",
+        "🏔️ Mountain-garden views",
+        "📊 Lots of reviews (161) · a known name",
+        "🅿️ Parking · spacious 30 sqm rooms"
+      ],
       "addr": "333 Chaiya Chawalit Rd, Betong, Mueang Betong",
       "storyHtml": "Betong Merlin is <strong>a long-established, well-known Betong hotel whose selling points are an indoor pool and mountain-garden views — 7.4 from 161 reviews</strong>. It's one of the more reviewed hotels in Betong, with spacious 30 sqm Standard rooms, an indoor pool (rare in Betong) and mountain-garden surroundings. The trade-off, per real reviews: it's an older-generation hotel with uneven room condition, so choose a renovated room, and it sits on the edge of town rather than the centre, which keeps the score mid-range. Best for families and anyone who wants a pool and mountain views in Betong.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated Superior room, as condition varies across the building. If you're set on swimming, call ahead to confirm the pool is open as normal. It's on the edge of town, so a private car is handy for getting in for food.",
@@ -464,15 +687,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin", "price": "from ฿650/night" },
-        { "type": "Standard Double", "price": "from ฿800/night" },
-        { "type": "VIP / Family Room", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Twin",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Double",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "VIP / Family Room",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=17184&q=Yala+Grand+Palace+Hotel&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Yala+Grand+Palace+Hotel+Yala",
       "tripUrl": "https://th.trip.com/hotels/list?keyword=Yala+Grand+Palace+Hotel&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-yala-grand-palace-yala.html",
-      "tags": ["🕌 Central Yala city, near malls & markets", "🍽️ Halal food available", "🅿️ Free parking", "🛏️ Rooms from Standard to VIP"],
+      "tags": [
+        "🕌 Central Yala city, near malls & markets",
+        "🍽️ Halal food available",
+        "🅿️ Free parking",
+        "🛏️ Rooms from Standard to VIP"
+      ],
       "addr": "82-84 Chalermchai Rd, Sateng, Mueang Yala",
       "storyHtml": "Yala Grand Palace is <strong>a central Yala-city hotel close to malls and markets, with halal food — 7.6 from 48 reviews</strong>. The draw is its central Yala location, a walk from malls, markets and restaurants, with halal food for Muslim travellers and free parking, good for anyone on business or staying in Yala city. It has rooms across tiers, from budget Standards up to VIP family rooms. The trade-off, per real reviews: it's an ageing hotel with uneven room condition, so pick a more recently renovated room, and it's in Yala city, not Betong. Best for those staying in Yala who want halal food in the centre.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a Deluxe or a recently renovated room, as condition varies across rooms. The central Yala location is a walk from malls and markets. If Betong is your goal, stay in Betong itself, as it's another 2.5–3-hour drive from here.",
@@ -504,15 +741,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Double Room", "price": "from ฿700/night" },
-        { "type": "Twin Room", "price": "from ฿800/night" },
-        { "type": "Double (weekend rate)", "price": "from ฿850/night" }
+        {
+          "type": "Double Room",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Twin Room",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Double (weekend rate)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=17184&q=The+Face+Hotel+Yala&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=The+Face+Hotel+Yala",
       "tripUrl": "https://th.trip.com/hotels/list?keyword=The+Face+Hotel+Yala&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-face-hotel-yala.html",
-      "tags": ["🏢 5-storey building, 12 rooms", "🛏️ Clean rooms, air-con, fridge, free Wi-Fi", "🅿️ Free parking", "🏙️ Yala city"],
+      "tags": [
+        "🏢 5-storey building, 12 rooms",
+        "🛏️ Clean rooms, air-con, fridge, free Wi-Fi",
+        "🅿️ Free parking",
+        "🏙️ Yala city"
+      ],
       "addr": "31/49 Soi Inthrachit 6, Sateng, Mueang Yala",
       "storyHtml": "The Face Hotel is <strong>a small hotel in Yala city, a 5-storey building with 12 rooms — 7.7 from 24 reviews</strong>. The draw is that it's a small hotel with clean rooms that have air-con, a fridge, a flat-screen TV, free Wi-Fi and free parking, in a Yala-city location good for anyone on business or wanting a quiet, low-key stay in town. From-prices are in the low hundreds, good value for an in-town room. The trade-off: it's a very small place with few rooms that fill fast, still few reviews, basic amenities, no pool, and weekend rates rise. Best for travellers staying in Yala who want a small, quiet room on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> With only 12 rooms it fills fast, so book ahead, especially on weekends. Booking ahead gets a better rate than the festival-period rates. There's free parking, handy for drivers. It's in Yala city, so reaching Betong is another 2.5–3-hour drive.",
@@ -530,39 +781,214 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Yala & Betong Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Grandview Landmark Betong", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿850", "access": "📍 Central Betong · tower", "badge": "Top 4-star score", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Grand Mandarin Betong", "type": "⭐⭐⭐⭐", "score": "8.4", "price": "฿1,300", "access": "📍 Central Betong · has a pool", "badge": "Has a pool, lots of reviews", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Butterfly Hotel Betong", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿900", "access": "📍 Prachathipat Rd, Betong", "badge": "Modern design boutique", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Ban Chahomm Guesthouse", "type": "⭐⭐", "score": "8.9", "price": "฿850", "access": "📍 Betong · walk to clock tower", "badge": "Top score, garden-mountain views", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Betong Hill Hotel", "type": "⭐⭐", "score": "8.1", "price": "฿800", "access": "📍 Central Betong · near tunnel", "badge": "Central Betong, great value", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Garden View Betong", "type": "⭐⭐⭐", "score": "7.8", "price": "฿700", "access": "📍 Betong · near Mongkol Rit Tunnel", "badge": "Most reviews (586)", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Happy Garden Resort Betong", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,200", "access": "📍 Betong · Soi 12, in a garden", "badge": "Garden resort, pet-friendly", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Boonrapee Residence Yala", "type": "⭐⭐", "score": "8.2", "price": "฿600", "access": "📍 Yala city · Siroros Rd", "badge": "Cheapest, Yala city", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "The One Place Yala", "type": "⭐⭐⭐", "score": "7.8", "price": "฿690", "access": "📍 Yala city · Soi Mali", "badge": "Small city boutique", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Betong Merlin Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿1,000", "access": "📍 Betong · Chaiya Chawalit Rd", "badge": "Indoor pool, mountain views", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Yala Grand Palace Hotel", "type": "⭐⭐⭐", "score": "7.6", "price": "฿650", "access": "📍 Central Yala city · near malls", "badge": "Halal food, near markets", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "The Face Hotel Yala", "type": "⭐⭐⭐", "score": "7.7", "price": "฿700", "access": "📍 Yala city · 5-storey building", "badge": "Small city hotel", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Grandview Landmark Betong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿850",
+      "access": "📍 Central Betong · tower",
+      "badge": "Top 4-star score",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Grand Mandarin Betong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,300",
+      "access": "📍 Central Betong · has a pool",
+      "badge": "Has a pool, lots of reviews",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Butterfly Hotel Betong",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿900",
+      "access": "📍 Prachathipat Rd, Betong",
+      "badge": "Modern design boutique",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Ban Chahomm Guesthouse",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿850",
+      "access": "📍 Betong · walk to clock tower",
+      "badge": "Top score, garden-mountain views",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Betong Hill Hotel",
+      "type": "⭐⭐",
+      "score": "8.1",
+      "price": "฿800",
+      "access": "📍 Central Betong · near tunnel",
+      "badge": "Central Betong, great value",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Garden View Betong",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿700",
+      "access": "📍 Betong · near Mongkol Rit Tunnel",
+      "badge": "Most reviews (586)",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Happy Garden Resort Betong",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,200",
+      "access": "📍 Betong · Soi 12, in a garden",
+      "badge": "Garden resort, pet-friendly",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Boonrapee Residence Yala",
+      "type": "⭐⭐",
+      "score": "8.2",
+      "price": "฿600",
+      "access": "📍 Yala city · Siroros Rd",
+      "badge": "Cheapest, Yala city",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "The One Place Yala",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿690",
+      "access": "📍 Yala city · Soi Mali",
+      "badge": "Small city boutique",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Betong Merlin Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿1,000",
+      "access": "📍 Betong · Chaiya Chawalit Rd",
+      "badge": "Indoor pool, mountain views",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Yala Grand Palace Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿650",
+      "access": "📍 Central Yala city · near malls",
+      "badge": "Halal food, near markets",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "The Face Hotel Yala",
+      "type": "⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿700",
+      "access": "📍 Yala city · 5-storey building",
+      "badge": "Small city hotel",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "How to pick the right Yala or Betong hotel for you",
   "advice": [
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Boonrapee Residence Yala</strong> ฿600, Yala city · or <strong>Yala Grand Palace</strong> ฿650, central Yala city · or in Betong, <strong>Garden View Betong</strong> ฿700, the most reviews (586)" },
-    { "icon": "🏔️", "head": "Coming for Betong, stay in Betong town", "bodyHtml": "→ <strong>Grandview Landmark</strong> ฿850, top-scoring tower · or <strong>Betong Hill Hotel</strong> ฿800, central Betong value · or <strong>Ban Chahomm Guesthouse</strong> ฿850, top score with mountain views" },
-    { "icon": "🏊", "head": "Want a swimming pool", "bodyHtml": "→ <strong>Grand Mandarin Betong</strong> ฿1,300, pool and mountain views · or <strong>Happy Garden Resort</strong> ฿1,200, rooftop pool in a garden · or <strong>Betong Merlin</strong> ฿1,000, indoor pool" },
-    { "icon": "🦋", "head": "Want a design boutique", "bodyHtml": "→ <strong>Butterfly Hotel Betong</strong> ฿900, modern design boutique · or <strong>The One Place Yala</strong> ฿690, a small resort-style boutique in Yala city" },
-    { "icon": "💑", "head": "A couples' trip, want atmosphere and a view", "bodyHtml": "→ <strong>Ban Chahomm Guesthouse</strong> ฿850, a garden-mountain-view balcony, score 8.9 · or <strong>Happy Garden Resort</strong> ฿1,200, a quiet garden resort" },
-    { "icon": "🐾", "head": "Bringing a pet", "bodyHtml": "→ <strong>Happy Garden Resort Betong</strong> ฿1,200, pet-friendly, a garden resort, rare in Betong" },
-    { "icon": "🚆", "head": "Arriving by train, or on business in Yala city", "bodyHtml": "→ <strong>Boonrapee Residence Yala</strong> ฿600, near the hospital · or <strong>Yala Grand Palace</strong> ฿650, near malls and markets · or <strong>The Face Hotel Yala</strong> ฿700, a small, quiet city hotel" }
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Boonrapee Residence Yala</strong> ฿600, Yala city · or <strong>Yala Grand Palace</strong> ฿650, central Yala city · or in Betong, <strong>Garden View Betong</strong> ฿700, the most reviews (586)"
+    },
+    {
+      "icon": "🏔️",
+      "head": "Coming for Betong, stay in Betong town",
+      "bodyHtml": "→ <strong>Grandview Landmark</strong> ฿850, top-scoring tower · or <strong>Betong Hill Hotel</strong> ฿800, central Betong value · or <strong>Ban Chahomm Guesthouse</strong> ฿850, top score with mountain views"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a swimming pool",
+      "bodyHtml": "→ <strong>Grand Mandarin Betong</strong> ฿1,300, pool and mountain views · or <strong>Happy Garden Resort</strong> ฿1,200, rooftop pool in a garden · or <strong>Betong Merlin</strong> ฿1,000, indoor pool"
+    },
+    {
+      "icon": "🦋",
+      "head": "Want a design boutique",
+      "bodyHtml": "→ <strong>Butterfly Hotel Betong</strong> ฿900, modern design boutique · or <strong>The One Place Yala</strong> ฿690, a small resort-style boutique in Yala city"
+    },
+    {
+      "icon": "💑",
+      "head": "A couples' trip, want atmosphere and a view",
+      "bodyHtml": "→ <strong>Ban Chahomm Guesthouse</strong> ฿850, a garden-mountain-view balcony, score 8.9 · or <strong>Happy Garden Resort</strong> ฿1,200, a quiet garden resort"
+    },
+    {
+      "icon": "🐾",
+      "head": "Bringing a pet",
+      "bodyHtml": "→ <strong>Happy Garden Resort Betong</strong> ฿1,200, pet-friendly, a garden resort, rare in Betong"
+    },
+    {
+      "icon": "🚆",
+      "head": "Arriving by train, or on business in Yala city",
+      "bodyHtml": "→ <strong>Boonrapee Residence Yala</strong> ฿600, near the hospital · or <strong>Yala Grand Palace</strong> ฿650, near malls and markets · or <strong>The Face Hotel Yala</strong> ฿700, a small, quiet city hotel"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for a standard room and may change by date and season. We recommend checking live prices and comparing all 3 sites before every booking. Betong is about 140 km from Yala town, a 2.5–3-hour mountain drive — if Betong is your goal, stay in Betong itself, while Yala city suits rail arrivals and business. During long weekends and the sea-of-mist season (Nov–Feb), Betong stays fill fast and rates rise, so book ahead. The Aiyerweng sea of mist and skywalk are outside Betong town, requiring a pre-dawn drive. Guide by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Yala & Betong hotels",
   "faq": [
-    { "q": "❓ Should I stay in Yala city or Betong?", "a": "It depends on what you've come for. If you're here for <strong>the Aiyerweng sea of mist, the Mongkol Rit Tunnel and the Betong clock tower</strong>, stay in Betong town itself (Grandview Landmark, Grand Mandarin, Butterfly, Betong Hill, Garden View), because Betong is about 140 km from Yala town, a 2.5–3-hour drive. <strong>Yala city</strong>, meanwhile, suits rail arrivals, business trips or passing through (Boonrapee, Yala Grand Palace, The One Place, The Face)." },
-    { "q": "❓ How much do Yala & Betong hotels cost?", "a": "Prices vary: budget stays and residences in Yala city start around ฿600–700/night (Boonrapee, Yala Grand Palace, The One Place, The Face); in Betong, midrange to 4-star runs about ฿700–1,300 (Garden View, Betong Hill, Grandview Landmark, Butterfly, Grand Mandarin). All are approximate from-prices for a standard room. Rates rise and rooms fill fast during long weekends and the sea-of-mist season." },
-    { "q": "❓ How far is Betong from Yala town?", "a": "Betong is about <strong>140 km from Yala town, a 2.5–3-hour drive</strong> on winding mountain roads. Betong has no train station (the railway station is in Yala town), so arriving by rail means a further minibus or coach transfer up to Betong. If you're prone to motion sickness, allow extra time and bring something for it. If Betong is your main goal, staying in Betong town saves a lot of road time." },
-    { "q": "❓ Which Yala & Betong hotels have a swimming pool?", "a": "Pools aren't common in Yala & Betong. <strong>Grand Mandarin Betong</strong> ฿1,300 has a pool and mountain views; <strong>Happy Garden Resort Betong</strong> ฿1,200 has a rooftop pool in a garden; <strong>Betong Merlin</strong> ฿1,000 has an indoor pool. All three are in Betong, good for families who want the kids in the water." },
-    { "q": "❓ Coming for Betong, which hotel should I pick?", "a": "If you're visiting Betong and want a central location within walking distance of food and photo spots: <strong>Grandview Landmark</strong> ฿850, a top-scoring tower with spacious rooms; <strong>Betong Hill Hotel</strong> ฿800, central Betong value; <strong>Ban Chahomm Guesthouse</strong> ฿850, the top score 8.9 with a mountain-view balcony. For a pool, pick <strong>Grand Mandarin</strong> ฿1,300. The Aiyerweng sea of mist is about 30–40 km outside town, so staying in Betong and driving up before dawn is most convenient." },
-    { "q": "❓ Which site is cheapest for booking Yala & Betong hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion period, so compare all 3 before every booking — each review page in this guide has price-comparison links, which can save several hundred baht a night, especially during the sea-of-mist season and long weekends when rates move more." }
-  ]
+    {
+      "q": "❓ Should I stay in Yala city or Betong?",
+      "a": "It depends on what you've come for. If you're here for <strong>the Aiyerweng sea of mist, the Mongkol Rit Tunnel and the Betong clock tower</strong>, stay in Betong town itself (Grandview Landmark, Grand Mandarin, Butterfly, Betong Hill, Garden View), because Betong is about 140 km from Yala town, a 2.5–3-hour drive. <strong>Yala city</strong>, meanwhile, suits rail arrivals, business trips or passing through (Boonrapee, Yala Grand Palace, The One Place, The Face)."
+    },
+    {
+      "q": "❓ How much do Yala & Betong hotels cost?",
+      "a": "Prices vary: budget stays and residences in Yala city start around ฿600–700/night (Boonrapee, Yala Grand Palace, The One Place, The Face); in Betong, midrange to 4-star runs about ฿700–1,300 (Garden View, Betong Hill, Grandview Landmark, Butterfly, Grand Mandarin). All are approximate from-prices for a standard room. Rates rise and rooms fill fast during long weekends and the sea-of-mist season."
+    },
+    {
+      "q": "❓ How far is Betong from Yala town?",
+      "a": "Betong is about <strong>140 km from Yala town, a 2.5–3-hour drive</strong> on winding mountain roads. Betong has no train station (the railway station is in Yala town), so arriving by rail means a further minibus or coach transfer up to Betong. If you're prone to motion sickness, allow extra time and bring something for it. If Betong is your main goal, staying in Betong town saves a lot of road time."
+    },
+    {
+      "q": "❓ Which Yala & Betong hotels have a swimming pool?",
+      "a": "Pools aren't common in Yala & Betong. <strong>Grand Mandarin Betong</strong> ฿1,300 has a pool and mountain views; <strong>Happy Garden Resort Betong</strong> ฿1,200 has a rooftop pool in a garden; <strong>Betong Merlin</strong> ฿1,000 has an indoor pool. All three are in Betong, good for families who want the kids in the water."
+    },
+    {
+      "q": "❓ Coming for Betong, which hotel should I pick?",
+      "a": "If you're visiting Betong and want a central location within walking distance of food and photo spots: <strong>Grandview Landmark</strong> ฿850, a top-scoring tower with spacious rooms; <strong>Betong Hill Hotel</strong> ฿800, central Betong value; <strong>Ban Chahomm Guesthouse</strong> ฿850, the top score 8.9 with a mountain-view balcony. For a pool, pick <strong>Grand Mandarin</strong> ฿1,300. The Aiyerweng sea of mist is about 30–40 km outside town, so staying in Betong and driving up before dawn is most convenient."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Yala & Betong hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion period, so compare all 3 before every booking — each review page in this guide has price-comparison links, which can save several hundred baht a night, especially during the sea-of-mist season and long weekends when rates move more."
+    }
+  ],
+  "quickAnswerHtml": "12 Yala &amp; Betong hotels we reviewed across every tier — from a 4-star landmark tower in central Betong down to a Yala-city residence from ฿600. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

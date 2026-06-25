@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Satun", "href": "city-satun.html" },
-    { "name": "Top 12 Satun Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Satun",
+      "href": "city-satun.html"
+    },
+    {
+      "name": "Top 12 Satun Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Satun", "item": "https://thailandaddict.com/en/city-satun" },
-    { "name": "Top 12 Satun Hotels", "item": "https://thailandaddict.com/en/top10-hotels-satun" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Satun",
+      "item": "https://thailandaddict.com/en/city-satun"
+    },
+    {
+      "name": "Top 12 Satun Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-satun"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-satun.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Satun has no metro and no commercial airport in the province — most people fly into Hat Yai (HDY) and drive about 2 hours, or take a bus/van into town. The key thing is that Koh Lipe stays need a boat — ferries and speedboats run mainly from Pak Bara pier (La-ngu district), about a 1.5-hour trip; in high season (Nov–Apr) boats run frequently. Koh Lipe has no deep-water pier, so boats anchor offshore and longtails ferry you to the beach; many resorts offer a transfer from the landing point. On the island you walk or take a tuk-tuk over short distances. The areas in this guide: <strong>Koh Lipe — Pattaya Beach</strong>, the lively main beach near the boat landing and Walking Street · <strong>Koh Lipe — Sunrise Beach</strong>, clearer water and quieter · <strong>Pak Bara (La-ngu)</strong>, the port town before the boat with budget and seafront stays · <strong>Satun Town</strong>, easy access, cheap food, good for a stopover.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Sita Beach Resort Koh Lipe", "price": "฿2,800" },
-    { "n": "2", "color": "#c8a951", "name": "Idyllic Concept Resort", "price": "฿3,500" },
-    { "n": "3", "color": "#c8a951", "name": "Bundhaya Resort Koh Lipe", "price": "฿1,600" },
-    { "n": "4", "color": "#9e9e9e", "name": "Bara Bara Budget Satun", "price": "฿1,200" },
-    { "n": "5", "color": "#9e9e9e", "name": "Byte Hostel Satun", "price": "฿550" },
-    { "n": "6", "color": "#9e9e9e", "name": "SeeSea Resort", "price": "฿1,300" },
-    { "n": "7", "color": "#9e9e9e", "name": "Pakarang Resort", "price": "฿800" },
-    { "n": "8", "color": "#bf8040", "name": "Mountain Resort Koh Lipe", "price": "฿2,700" },
-    { "n": "9", "color": "#bf8040", "name": "Sinkiat Thani Hotel", "price": "฿700" },
-    { "n": "10", "color": "#5d4037", "name": "Sinkiat Buri Hotel", "price": "฿1,400" },
-    { "n": "11", "color": "#5d4037", "name": "Serene Resort Koh Lipe", "price": "฿1,000" },
-    { "n": "12", "color": "#5d4037", "name": "Pinnacle Satun Wangmai Hotel", "price": "฿600" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Sita Beach Resort Koh Lipe",
+      "price": "฿2,800"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Idyllic Concept Resort",
+      "price": "฿3,500"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Bundhaya Resort Koh Lipe",
+      "price": "฿1,600"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Bara Bara Budget Satun",
+      "price": "฿1,200"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Byte Hostel Satun",
+      "price": "฿550"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "SeeSea Resort",
+      "price": "฿1,300"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Pakarang Resort",
+      "price": "฿800"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Mountain Resort Koh Lipe",
+      "price": "฿2,700"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Sinkiat Thani Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Sinkiat Buri Hotel",
+      "price": "฿1,400"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Serene Resort Koh Lipe",
+      "price": "฿1,000"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Pinnacle Satun Wangmai Hotel",
+      "price": "฿600"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Garden View", "price": "from ฿2,800/night" },
-        { "type": "Superior Pool View (40–50 sqm)", "price": "from ฿3,600/night" },
-        { "type": "Superior Honeymoon Suite", "price": "from ฿4,800/night" }
+        {
+          "type": "Superior Garden View",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Superior Pool View (40–50 sqm)",
+          "price": "from ฿3,600/night"
+        },
+        {
+          "type": "Superior Honeymoon Suite",
+          "price": "from ฿4,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sita-beach-resort_2/hotel/koh-lipe-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sita-beach-resort-spa.html",
       "tripUrl": "https://www.trip.com/hotels/ko-lipe-hotel-detail-711425/sita-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sita-beach-resort-koh-lipe-satun.html",
-      "tags": ["🏊 Sea-view infinity pool", "🏖️ On the quiet end of Pattaya Beach", "🍳 Praised breakfast buffet", "🚶 10–15 min walk to Walking Street"],
+      "tags": [
+        "🏊 Sea-view infinity pool",
+        "🏖️ On the quiet end of Pattaya Beach",
+        "🍳 Praised breakfast buffet",
+        "🚶 10–15 min walk to Walking Street"
+      ],
       "addr": "149 Moo 7, Pattaya Beach, Koh Lipe, Mueang Satun, Satun",
       "storyHtml": "The top score among the beachfront resorts here at 9.0 — Sita Beach Resort is a <strong>4-star resort on roughly 12 rai of seafront land that chose the quiet end of Pattaya Beach</strong>, Koh Lipe's main beach. You still get the same white sand and clear water, but you're not falling asleep to bar noise all night. Real guest reviews single out the sea-view infinity pool and the breakfast buffet most, but warn the resort steps up a hillside — upper garden-view rooms mean a fair few stairs — and parts of the building are starting to show their age. Best for couples and families who want to be on the beach while avoiding the late-night buzz.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a lower-zone room near the pool and beachfront to cut down the stairs. The infinity pool looks best early before anyone's in it. Boats to the island run mainly from Pak Bara — check the schedule ahead and book it with your room.",
@@ -104,15 +201,29 @@
       "priceBig": "฿3,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Cabana Garden View", "price": "from ฿3,500/night" },
-        { "type": "Sunrise Cabana Seaview (37 sqm)", "price": "from ฿4,500/night" },
-        { "type": "Junior Suite Seaview (42 sqm)", "price": "from ฿6,500/night" }
+        {
+          "type": "Deluxe Cabana Garden View",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "Sunrise Cabana Seaview (37 sqm)",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Junior Suite Seaview (42 sqm)",
+          "price": "from ฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/idyllic-concept-resort/hotel/koh-lipe-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/idyllic-concept-resort.html",
       "tripUrl": "https://www.trip.com/hotels/ko-lipe-hotel-detail-711411/idyllic-concept-resort-koh-lipe/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-idyllic-concept-resort-satun.html",
-      "tags": ["💬 Most-reviewed here: 4,380", "🏊 Beachfront infinity pool + 3-floor gym", "🛶 Free kayak/SUP", "🏝️ On clear-water Sunrise Beach"],
+      "tags": [
+        "💬 Most-reviewed here: 4,380",
+        "🏊 Beachfront infinity pool + 3-floor gym",
+        "🛶 Free kayak/SUP",
+        "🏝️ On clear-water Sunrise Beach"
+      ],
       "addr": "279 Moo 7, Sunrise Beach, Koh Lipe, Mueang Satun, Satun",
       "storyHtml": "Idyllic Concept Resort is the <strong>most-reviewed property in this guide — over 4,380 reviews at a score of 8.7</strong> — and ranks near the top of the island on TripAdvisor. It sits at the quieter north end of Sunrise Beach, where the water is clear and you can wade straight off the front into snorkelling. Real guest reviews praise the staff and the breakfast at The Cove Bistro most, plus the beachfront infinity pool and the three-floor gym. Honestly though, the resort is on a slope with lots of stairs, and room rates and in-resort food sit in the island's premium bracket, so the value score lags the others. Best for travellers happy to pay more for the location and facilities.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a newer room near the lobby to cut the stairs and get the best condition. Use the free kayak/SUP early when the water is flattest. In high season the good rooms fill fast — check the island's opening dates for monsoon season before you plan.",
@@ -144,15 +255,29 @@
       "priceBig": "฿1,600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Bungalow (~16 sqm)", "price": "from ฿1,600/night" },
-        { "type": "Garden Deluxe Bungalow (23–36 sqm)", "price": "from ฿2,400/night" },
-        { "type": "Family Bungalow (29 sqm)", "price": "from ฿3,200/night" }
+        {
+          "type": "Superior Bungalow (~16 sqm)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Garden Deluxe Bungalow (23–36 sqm)",
+          "price": "from ฿2,400/night"
+        },
+        {
+          "type": "Family Bungalow (29 sqm)",
+          "price": "from ฿3,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bundhaya-resort/hotel/koh-lipe-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bundhaya-resort.html",
       "tripUrl": "https://www.trip.com/hotels/ko-lipe-hotel-detail-2564001/bundhaya-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bundhaya-resort-koh-lipe-satun.html",
-      "tags": ["📍 On Pattaya Beach, 2-min walk to the pier", "🏊 Large beachfront pool", "🍳 Generous breakfast", "🛖 Garden bungalows by the sea"],
+      "tags": [
+        "📍 On Pattaya Beach, 2-min walk to the pier",
+        "🏊 Large beachfront pool",
+        "🍳 Generous breakfast",
+        "🛖 Garden bungalows by the sea"
+      ],
       "addr": "188 Moo 7, Pattaya Beach, Koh Lipe, Satun",
       "storyHtml": "Bundhaya Resort is a <strong>large resort sitting right on Pattaya Beach, central to everything on Koh Lipe</strong>, with a score of 8.9 from 345 reviews. The selling point is the location — a few steps from your room to the sand, and a two-minute walk to the pier, immigration and Walking Street, all clustered together. Real guest reviews praise the location, the big beachfront pool and the breakfast buffet, but are honest that this is a long-established resort: some rooms are ageing with thin towels, there are mosquitoes, and the Wi-Fi is slow. Best for first-time Lipe visitors who don't want any hassle getting around the island.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated room or pick Garden Deluxe and up for better condition. Bring mosquito repellent and a power bank — the garden bungalows have mosquitoes and island power is limited in places.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Single Room (Non-Smoking)", "price": "from ฿1,200/night" },
-        { "type": "Single Pool Level (King)", "price": "from ฿1,400/night" },
-        { "type": "Deluxe Triple (sleeps 3)", "price": "from ฿1,700/night" }
+        {
+          "type": "Single Room (Non-Smoking)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Single Pool Level (King)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe Triple (sleeps 3)",
+          "price": "from ฿1,700/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bara-bara-budget-satun/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/barabara-budget-satun.html",
       "tripUrl": "https://www.trip.com/hotels/la-ngu-hotel-detail-58066896/barabara-budget-satun/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bara-bara-budget-satun-satun.html",
-      "tags": ["⭐ Highest score here: 9.6", "🏊 A pool at a budget price", "⛵ Few-min walk to Pak Bara pier", "☕ Free coffee/snacks"],
+      "tags": [
+        "⭐ Highest score here: 9.6",
+        "🏊 A pool at a budget price",
+        "⛵ Few-min walk to Pak Bara pier",
+        "☕ Free coffee/snacks"
+      ],
       "addr": "Pak Bara, Pak Nam, La-ngu, Satun",
       "storyHtml": "Bara Bara Budget is the <strong>highest-scoring stay in this guide — 9.6 from 77 reviews</strong>. The standout is that it's a transit stay in the Pak Bara port area that throws in a pool, which is rare at this price. Real guest reviews praise the clean rooms, staff who help coordinate boats, and free coffee and snacks. To be straight: the review count is still small (77), it's a transit stay with no breakfast, and it's not a beachfront resort for a long relaxing holiday. Best for an overnight near the pier, on a tight budget, before or after Koh Lipe.",
       "tipHtml": "💡 <strong>Tip:</strong> Use it for the night before an early boat to Lipe to save time. Groups can split a Deluxe Triple to bring the per-head cost down. Tell staff ahead so they can help coordinate the boat schedule and pier transfer.",
@@ -224,15 +363,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Dorm bed", "price": "from ฿550/night" },
-        { "type": "Private room, double bed", "price": "from ฿850/night" },
-        { "type": "Larger private room (Family)", "price": "from ฿1,200/night" }
+        {
+          "type": "Dorm bed",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Private room, double bed",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Larger private room (Family)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/byte-hostel/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/byte-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/satun-hotels/?keyword=BYTE%20hostel%20pakbara&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-byte-hostel-satun.html",
-      "tags": ["🪙 Dorm from ฿550 — cheapest here", "⛵ Walk to Pak Bara pier for Koh Lipe", "🍳 Shared kitchen and lounge", "🎫 Boat-ticket booking service"],
+      "tags": [
+        "🪙 Dorm from ฿550 — cheapest here",
+        "⛵ Walk to Pak Bara pier for Koh Lipe",
+        "🍳 Shared kitchen and lounge",
+        "🎫 Boat-ticket booking service"
+      ],
       "addr": "Pak Bara, Pak Nam, La-ngu, Satun",
       "storyHtml": "BYTE Hostel @ Pak Bara is the <strong>cheapest stay in this guide — a dorm bed from just ฿550, yet a score of 9.0 from 95 reviews</strong>. The draw is a clean bed at a light price, within walking distance of Pak Bara pier for the crossing to Koh Lipe. Real guest reviews praise the kind owner, the shared kitchen and lounge, and the boat-ticket booking service. To be straight: it's a budget hostel with shared bathrooms and no pool, and Pak Bara is a small port town that's more a stopover than a destination. Best for backpackers and solo travellers heading over to the island.",
       "tipHtml": "💡 <strong>Tip:</strong> Want privacy but still good value? Take the private double. Use the hostel's boat-ticket service rather than sorting it yourself. An overnight before an early boat to Lipe fits best.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (24 sqm)", "price": "from ฿1,300/night" },
-        { "type": "Deluxe Room (32 sqm)", "price": "from ฿1,500/night" },
-        { "type": "Family Room (50 sqm · sleeps 4)", "price": "from ฿2,500/night" }
+        {
+          "type": "Superior Room (24 sqm)",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Deluxe Room (32 sqm)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Family Room (50 sqm · sleeps 4)",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/seesea-resort/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-seesea-resort-ban-pak-ba-ra.html",
       "tripUrl": "https://www.trip.com/hotels/la-ngu-hotel-detail-21891152/seesea-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-seesea-resort-satun.html",
-      "tags": ["🏖️ Pak Bara beach, ~300 m from the pier", "🏊 Sea-view pool", "🕌 Halal breakfast", "🛏️ Clean rooms, newer resort"],
+      "tags": [
+        "🏖️ Pak Bara beach, ~300 m from the pier",
+        "🏊 Sea-view pool",
+        "🕌 Halal breakfast",
+        "🛏️ Clean rooms, newer resort"
+      ],
       "addr": "Pak Bara beach, Pak Nam, La-ngu, Satun",
       "storyHtml": "SeeSea Resort is a <strong>newer seafront resort on Pak Bara beach, standing out for being just ~300 metres from the pier</strong>, with a score of 8.7 from 89 reviews. The draws are clean rooms, a sea-view pool and a halal breakfast, making it a handy base before crossing to Koh Lipe. Real guest reviews praise how new and clean it is, plus the location, but are honest that Pak Bara is a mainland beach that isn't as clear as the island's, the room walls are fairly thin, and the breakfast menu repeats. Best for those wanting a clean seafront resort on the mainland near the pier.",
       "tipHtml": "💡 <strong>Tip:</strong> Use it for the night before an early boat to Lipe — the pier is an easy walk. Groups can take the Family Room for good value. Walls are thin, so ask for a room away from the corridor if you want quiet.",
@@ -304,15 +471,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double", "price": "from ฿800/night" },
-        { "type": "Design Double Room", "price": "from ฿900/night" },
-        { "type": "Family Room (sleeps 3–4)", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Double",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Design Double Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Family Room (sleeps 3–4)",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pakarang-resort-h13809299/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pakaarangriis-rth.html",
       "tripUrl": "https://www.trip.com/hotels/la-ngu-hotel-detail-56744043/pakarang-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pakarang-resort-satun.html",
-      "tags": ["💬 700 reviews in the budget tier", "⛵ Walk to Pak Bara pier for the islands", "🅿️ Gated parking", "💰 From ฿800"],
+      "tags": [
+        "💬 700 reviews in the budget tier",
+        "⛵ Walk to Pak Bara pier for the islands",
+        "🅿️ Gated parking",
+        "💰 From ฿800"
+      ],
       "addr": "Pak Bara, Pak Nam, La-ngu, Satun",
       "storyHtml": "Pakarang Resort is a <strong>small budget resort with a high 700 reviews among the value stays here, scoring 8.3</strong>. The draws are a location within walking distance of Pak Bara pier for boats to Koh Lipe or Tarutao, plus gated parking — handy for an overnight before an early boat. Real guest reviews praise how clean it is and the helpful owner, but are honest that it's a small budget resort: no fridge or morning coffee, thin glass that lets sound through, and cash only. Best for self-drivers and anyone using Pak Bara as a base before the islands.",
       "tipHtml": "💡 <strong>Tip:</strong> Self-drivers can use the safer gated parking. Bring cash, as it's cash only. Groups can take the Family Room for value, and check the boat schedule with the owner ahead.",
@@ -344,15 +525,29 @@
       "priceBig": "฿2,700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Garden", "price": "from ฿2,700/night" },
-        { "type": "Deluxe Sea View", "price": "from ฿4,100/night" },
-        { "type": "Villa Family Bungalow", "price": "from ฿5,100/night" }
+        {
+          "type": "Deluxe Garden",
+          "price": "from ฿2,700/night"
+        },
+        {
+          "type": "Deluxe Sea View",
+          "price": "from ฿4,100/night"
+        },
+        {
+          "type": "Villa Family Bungalow",
+          "price": "from ฿5,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mountain-resort/hotel/koh-lipe-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mountain-resort-koh-lipe.html",
       "tripUrl": "https://www.trip.com/hotels/ko-lipe-hotel-detail-1730339/mountain-resort-koh-lipe/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mountain-resort-koh-lipe-satun.html",
-      "tags": ["🌅 Quiet private beach, sea views", "🏊 Has a pool", "🚐 Free shuttle up and down the hill", "🍳 Good breakfast"],
+      "tags": [
+        "🌅 Quiet private beach, sea views",
+        "🏊 Has a pool",
+        "🚐 Free shuttle up and down the hill",
+        "🍳 Good breakfast"
+      ],
       "addr": "Sunrise Beach, Koh Lipe, Mueang Satun, Satun",
       "storyHtml": "Mountain Resort is a <strong>hillside resort above Sunrise Beach that stands out for a quiet private beach, sea views, a pool and a good breakfast at a mid-range price</strong>, scoring 8.0 from 376 reviews. A big help is the free shuttle up and down the hill, easing the steep climb. Real guest reviews praise the sea views and the quiet private beach, but are honest that the older bungalows look worn, there are plenty of mosquitoes, the restaurant closes early, and cleanliness is inconsistent — so it lands mid-to-late in the guide. Best for those wanting a quiet stretch of Sunrise Beach who aren't fussed about newness.",
       "tipHtml": "💡 <strong>Tip:</strong> Want to wake up to the sea? Pick a Deluxe Sea View. Use the free shuttle up and down the hill rather than walking. Bring mosquito repellent and check the restaurant hours, as it closes fairly early.",
@@ -384,15 +579,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (~25 sqm)", "price": "from ฿700/night" },
-        { "type": "Deluxe Room", "price": "from ฿900/night" },
-        { "type": "Suite", "price": "from ฿1,400/night" }
+        {
+          "type": "Standard Room (~25 sqm)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Suite",
+          "price": "from ฿1,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sinkiat-thani-hotel/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sinkiat-thani.html",
       "tripUrl": "https://www.trip.com/hotels/satun-hotel-detail-17180625/sinkiat-thani-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sinkiat-thani-hotel-satun.html",
-      "tags": ["🏙️ Central Satun Town, walk to the market", "💰 From ฿700", "🅿️ Free parking + on-site restaurant", "🛏️ Spacious rooms"],
+      "tags": [
+        "🏙️ Central Satun Town, walk to the market",
+        "💰 From ฿700",
+        "🅿️ Free parking + on-site restaurant",
+        "🛏️ Spacious rooms"
+      ],
       "addr": "Buriwanit Road, Phiman, Mueang Satun, Satun",
       "storyHtml": "Sinkiat Thani Hotel is the <strong>best value among the Satun Town stays here, from just ฿700 with a score of 8.2 from 95 reviews</strong>. The draw is a central location on Buriwanit Road, walkable to the market and restaurants, with spacious rooms, free parking and an on-site restaurant. Real guest reviews praise the location and price, but are honest that it's an older hotel only partly renovated — some rooms still look dated — and there's no pool. Best for travellers who put a central location and a light price first.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated, higher-floor room at booking for better condition and quiet. Self-drivers can use the free parking. Walk out to the Satun town market in the evening for local food.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (~26 sqm)", "price": "from ฿1,400/night" },
-        { "type": "Deluxe Corner Room", "price": "from ฿1,600/night" },
-        { "type": "Family Room (sleeps 3–4)", "price": "from ฿1,900/night" }
+        {
+          "type": "Deluxe Room (~26 sqm)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe Corner Room",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Family Room (sleeps 3–4)",
+          "price": "from ฿1,900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sinkiat-buri-hotel/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sinkiat-buri.html",
       "tripUrl": "https://www.trip.com/hotels/satun-hotel-detail-710703/sinkiat-buri-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sinkiat-buri-hotel-satun.html",
-      "tags": ["💬 481 reviews among city hotels", "🛏️ Spacious rooms", "🅿️ Free parking + on-site restaurant", "🏛️ Walk to Kuden Mansion"],
+      "tags": [
+        "💬 481 reviews among city hotels",
+        "🛏️ Spacious rooms",
+        "🅿️ Free parking + on-site restaurant",
+        "🏛️ Walk to Kuden Mansion"
+      ],
       "addr": "Phiman, Mueang Satun, Satun",
       "storyHtml": "Sinkiat Buri Hotel has a <strong>high 481 reviews among the Satun Town stays here, scoring 7.8</strong>. The draws are spacious rooms, a light price, and a central location walkable to the market, food and the Kuden Mansion museum, with an on-site restaurant and free parking. Real guest reviews praise the room sizes and the friendly staff, but are honest that it's a 2012 building starting to show its age — some rooms have bathroom, hot-water and mattress issues — and certain services may not run all day. Best for travellers wanting a spacious, light-priced room in the town centre.",
       "tipHtml": "💡 <strong>Tip:</strong> Check with the hotel which services, like the restaurant, are open when — some don't run all day. Ask for a renovated room to avoid the bathroom and mattress issues. Walk over to Kuden Mansion and the town market.",
@@ -464,15 +687,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Fan Room", "price": "from ฿1,000/night" },
-        { "type": "Deluxe double (air-con)", "price": "from ฿1,500/night" },
-        { "type": "Wooden Cottage", "price": "from ฿1,800/night" }
+        {
+          "type": "Standard Fan Room",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Deluxe double (air-con)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Wooden Cottage",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/serene-resort-lipe/hotel/koh-lipe-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/serene-resort-koh-lipe.html",
       "tripUrl": "https://www.trip.com/hotels/ko-lipe-hotel-detail-711424/serene-resort-lipe/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-serene-resort-koh-lipe-satun.html",
-      "tags": ["🚶 On Walking Street, walk to restaurants", "🏝️ Near Sunrise Beach and the pier", "🛖 Island-feel wooden cottages", "💰 Budget fan rooms available"],
+      "tags": [
+        "🚶 On Walking Street, walk to restaurants",
+        "🏝️ Near Sunrise Beach and the pier",
+        "🛖 Island-feel wooden cottages",
+        "💰 Budget fan rooms available"
+      ],
       "addr": "Walking Street, Koh Lipe, Mueang Satun, Satun",
       "storyHtml": "Serene Resort is a <strong>small 15-room resort on Koh Lipe's Walking Street, standing out for its location, convenience and friendly service</strong>, scoring 7.0 from 42 reviews. It has both deluxe rooms and wooden cottages from around a thousand baht, walkable to Sunrise Beach, restaurants and the pier. Real guest reviews praise the location and service, but are honest that night noise (it's on Walking Street), inconsistent cleanliness, and the lack of a pool or sea view from the room are things to accept — so it lands late in the guide. Best for those who want to walk to everything in the middle of the island on a light budget.",
       "tipHtml": "💡 <strong>Tip:</strong> Pick a fan room to save the most, or step up to air-con for a more comfortable night. Being on Walking Street brings night noise — ask for a room set back inside and pack earplugs.",
@@ -504,15 +741,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (single/double)", "price": "from ฿600/night" },
-        { "type": "Superior Room", "price": "from ฿750/night" },
-        { "type": "Twin Room", "price": "from ฿800/night" }
+        {
+          "type": "Standard Room (single/double)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Twin Room",
+          "price": "from ฿800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pinnacle-wangmai-satun-hotel/hotel/satun-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pinnacle-satun-wangmai.html",
       "tripUrl": "https://www.trip.com/hotels/satun-hotels/?keyword=Pinnacle%20Satun%20Wangmai&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pinnacle-satun-wangmai-hotel-satun.html",
-      "tags": ["💰 From ฿600 in the town centre", "🚌 Near the bus terminal, 7-Eleven and night market", "🅿️ On-site restaurant and parking", "🛏️ 108 rooms"],
+      "tags": [
+        "💰 From ฿600 in the town centre",
+        "🚌 Near the bus terminal, 7-Eleven and night market",
+        "🅿️ On-site restaurant and parking",
+        "🛏️ 108 rooms"
+      ],
       "addr": "Central Satun Town, Mueang Satun, Satun",
       "storyHtml": "Pinnacle Satun Wangmai Hotel is a <strong>light-priced 108-room hotel in central Satun Town for an overnight while travelling</strong>, scoring 6.7 from 24 reviews. The draws are an easy walk to the bus terminal, 7-Eleven and night market, an on-site restaurant and parking, and rates from just ฿600. Real guest reviews praise the location and price, but are honest that the building and rooms are fairly old, with reviews reflecting wear and inconsistent upkeep — the lowest overall score in the guide, so it lands last. Best for travellers prioritising price and a central location over newness.",
       "tipHtml": "💡 <strong>Tip:</strong> Use it for an overnight in transit or before catching transport to the pier — that's where it fits best. View the room first if you can, and pick a better-kept one. Walk to the night market in the evening for local food.",
@@ -530,40 +781,215 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Satun Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Sita Beach Resort Koh Lipe", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿2,800", "access": "📍 Pattaya Beach, Lipe", "badge": "Top beachfront score", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Idyllic Concept Resort", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿3,500", "access": "📍 Sunrise Beach, Lipe", "badge": "Most reviews 4,380", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Bundhaya Resort Koh Lipe", "type": "⭐⭐⭐", "score": "8.9", "price": "฿1,600", "access": "📍 Pattaya Beach, Lipe", "badge": "Central island spot", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Bara Bara Budget Satun", "type": "⭐⭐", "score": "9.6", "price": "฿1,200", "access": "📍 Pak Bara, La-ngu", "badge": "Highest score 9.6", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Byte Hostel Satun", "type": "⭐⭐", "score": "9.0", "price": "฿550", "access": "📍 Pak Bara, La-ngu", "badge": "Cheapest, high score", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "SeeSea Resort", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,300", "access": "📍 Pak Bara beach, La-ngu", "badge": "Seafront near pier", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Pakarang Resort", "type": "⭐⭐", "score": "8.3", "price": "฿800", "access": "📍 Pak Bara, La-ngu", "badge": "700 reviews", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Mountain Resort Koh Lipe", "type": "⭐⭐⭐", "score": "8.0", "price": "฿2,700", "access": "📍 Sunrise Beach, Lipe", "badge": "Quiet private beach", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Sinkiat Thani Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿700", "access": "📍 Central Satun Town", "badge": "Best city value" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Sinkiat Buri Hotel", "type": "⭐⭐⭐", "score": "7.8", "price": "฿1,400", "access": "📍 Central Satun Town", "badge": "481 reviews", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Serene Resort Koh Lipe", "type": "⭐⭐⭐", "score": "7.0", "price": "฿1,000", "access": "📍 Walking Street, Lipe" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Pinnacle Satun Wangmai Hotel", "type": "⭐⭐⭐", "score": "6.7", "price": "฿600", "access": "📍 Central Satun Town", "badge": "Light city price", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Sita Beach Resort Koh Lipe",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿2,800",
+      "access": "📍 Pattaya Beach, Lipe",
+      "badge": "Top beachfront score",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Idyllic Concept Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿3,500",
+      "access": "📍 Sunrise Beach, Lipe",
+      "badge": "Most reviews 4,380",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Bundhaya Resort Koh Lipe",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿1,600",
+      "access": "📍 Pattaya Beach, Lipe",
+      "badge": "Central island spot",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Bara Bara Budget Satun",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿1,200",
+      "access": "📍 Pak Bara, La-ngu",
+      "badge": "Highest score 9.6",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Byte Hostel Satun",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿550",
+      "access": "📍 Pak Bara, La-ngu",
+      "badge": "Cheapest, high score",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "SeeSea Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,300",
+      "access": "📍 Pak Bara beach, La-ngu",
+      "badge": "Seafront near pier",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Pakarang Resort",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿800",
+      "access": "📍 Pak Bara, La-ngu",
+      "badge": "700 reviews",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Mountain Resort Koh Lipe",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿2,700",
+      "access": "📍 Sunrise Beach, Lipe",
+      "badge": "Quiet private beach",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Sinkiat Thani Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿700",
+      "access": "📍 Central Satun Town",
+      "badge": "Best city value"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Sinkiat Buri Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿1,400",
+      "access": "📍 Central Satun Town",
+      "badge": "481 reviews",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Serene Resort Koh Lipe",
+      "type": "⭐⭐⭐",
+      "score": "7.0",
+      "price": "฿1,000",
+      "access": "📍 Walking Street, Lipe"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Pinnacle Satun Wangmai Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.7",
+      "price": "฿600",
+      "access": "📍 Central Satun Town",
+      "badge": "Light city price",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "How to pick the right Satun hotel for you",
   "advice": [
-    { "icon": "💰", "head": "Tight budget, best value", "bodyHtml": "→ <strong>Byte Hostel Satun</strong> ฿550, a dorm near Pak Bara pier, score 9.0 · or <strong>Pinnacle Satun Wangmai</strong> ฿600, central Satun Town, good for a stopover" },
-    { "icon": "🏖️", "head": "Sleep on the beach on Koh Lipe", "bodyHtml": "→ <strong>Sita Beach Resort Koh Lipe</strong> ฿2,800, on the quiet end of Pattaya Beach with a sea-view infinity pool · or <strong>Idyllic Concept Resort</strong> ฿3,500, on clear-water Sunrise Beach, most reviews at 4,380" },
-    { "icon": "📍", "head": "First time on Lipe, want to be central", "bodyHtml": "→ <strong>Bundhaya Resort Koh Lipe</strong> ฿1,600, on Pattaya Beach, 2-min walk to the pier, immigration and Walking Street, with a big beachfront pool" },
-    { "icon": "⛵", "head": "Overnight before the boat to the islands", "bodyHtml": "→ <strong>Bara Bara Budget Satun</strong> ฿1,200 with a pool, score 9.6 · <strong>SeeSea Resort</strong> ฿1,300 seafront near the pier · or <strong>Pakarang Resort</strong> ฿800 with parking, 700 reviews" },
-    { "icon": "🌅", "head": "Want a quiet stretch of Sunrise Beach", "bodyHtml": "→ <strong>Idyllic Concept Resort</strong> ฿3,500 at the north end of Sunrise Beach, clear water · or <strong>Mountain Resort Koh Lipe</strong> ฿2,700 hillside above Sunrise Beach, quiet private beach, free shuttle" },
-    { "icon": "🏙️", "head": "Stay in Satun Town, cheap food", "bodyHtml": "→ <strong>Sinkiat Thani Hotel</strong> ฿700, central, walk to the market, best value among city hotels · or <strong>Sinkiat Buri Hotel</strong> ฿1,400, spacious rooms, 481 reviews" },
-    { "icon": "🚶", "head": "Want to walk to mid-island restaurants", "bodyHtml": "→ <strong>Serene Resort Koh Lipe</strong> ฿1,000 on Walking Street, walk to restaurants, the pier and Sunrise Beach, with budget fan rooms" }
+    {
+      "icon": "💰",
+      "head": "Tight budget, best value",
+      "bodyHtml": "→ <strong>Byte Hostel Satun</strong> ฿550, a dorm near Pak Bara pier, score 9.0 · or <strong>Pinnacle Satun Wangmai</strong> ฿600, central Satun Town, good for a stopover"
+    },
+    {
+      "icon": "🏖️",
+      "head": "Sleep on the beach on Koh Lipe",
+      "bodyHtml": "→ <strong>Sita Beach Resort Koh Lipe</strong> ฿2,800, on the quiet end of Pattaya Beach with a sea-view infinity pool · or <strong>Idyllic Concept Resort</strong> ฿3,500, on clear-water Sunrise Beach, most reviews at 4,380"
+    },
+    {
+      "icon": "📍",
+      "head": "First time on Lipe, want to be central",
+      "bodyHtml": "→ <strong>Bundhaya Resort Koh Lipe</strong> ฿1,600, on Pattaya Beach, 2-min walk to the pier, immigration and Walking Street, with a big beachfront pool"
+    },
+    {
+      "icon": "⛵",
+      "head": "Overnight before the boat to the islands",
+      "bodyHtml": "→ <strong>Bara Bara Budget Satun</strong> ฿1,200 with a pool, score 9.6 · <strong>SeeSea Resort</strong> ฿1,300 seafront near the pier · or <strong>Pakarang Resort</strong> ฿800 with parking, 700 reviews"
+    },
+    {
+      "icon": "🌅",
+      "head": "Want a quiet stretch of Sunrise Beach",
+      "bodyHtml": "→ <strong>Idyllic Concept Resort</strong> ฿3,500 at the north end of Sunrise Beach, clear water · or <strong>Mountain Resort Koh Lipe</strong> ฿2,700 hillside above Sunrise Beach, quiet private beach, free shuttle"
+    },
+    {
+      "icon": "🏙️",
+      "head": "Stay in Satun Town, cheap food",
+      "bodyHtml": "→ <strong>Sinkiat Thani Hotel</strong> ฿700, central, walk to the market, best value among city hotels · or <strong>Sinkiat Buri Hotel</strong> ฿1,400, spacious rooms, 481 reviews"
+    },
+    {
+      "icon": "🚶",
+      "head": "Want to walk to mid-island restaurants",
+      "bodyHtml": "→ <strong>Serene Resort Koh Lipe</strong> ฿1,000 on Walking Street, walk to restaurants, the pier and Sunrise Beach, with budget fan rooms"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and may change by date and season. We recommend checking live prices and comparing 3 sites before every booking. In high season (Nov–Apr) the sea is calm and clear, prices rise and Koh Lipe rooms sell out fast, so book ahead. In monsoon season (May–Oct) the sea is rough, boats to Lipe may not run some days, and some island stays close seasonally — check opening dates before booking. Getting to Lipe is mainly a ~1.5-hour boat from Pak Bara pier. Satun has no commercial airport; most people fly into Hat Yai and drive. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Satun hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Satun?", "a": "It depends on your travel style. <strong>Koh Lipe — Pattaya Beach</strong> is the lively main beach near the boat landing and Walking Street (Sita Beach, Bundhaya). <strong>Koh Lipe — Sunrise Beach</strong> has clearer water and is quieter (Idyllic Concept, Mountain, Serene). <strong>Pak Bara (La-ngu)</strong> is the port town before the boat, with budget and seafront stays, ideal for a night before the island (Bara Bara, Byte Hostel, SeeSea, Pakarang). And <strong>Satun Town</strong> is easy to get around with cheap food, good for a stopover (Sinkiat Thani, Sinkiat Buri, Pinnacle Wangmai)." },
-    { "q": "❓ How much do Satun hotels cost?", "a": "Prices vary widely: hostels and budget stays start around ฿550–800 a night · city hotels and Pak Bara seafront stays run roughly ฿700–1,600 · beachfront resorts on Koh Lipe start around ฿1,600–3,500+. All are approximate starting rates for standard rooms. In high season (Nov–Apr) prices are higher than usual and island rooms sell out fast." },
-    { "q": "❓ How do I get to Koh Lipe?", "a": "The beachfront stays in this guide are on Koh Lipe and need a boat. Ferries and speedboats run mainly from <strong>Pak Bara pier, La-ngu district, Satun province</strong>, about a 1.5-hour trip. Koh Lipe has no deep-water pier, so boats anchor offshore and longtails ferry you to the beach; many resorts offer a transfer from the landing point. Satun has no commercial airport — most people fly into Hat Yai (HDY) and drive about 2 hours to Pak Bara. In monsoon season (May–Oct) boats may not run some days, so check the weather first." },
-    { "q": "❓ How far ahead should I book a Satun hotel?", "a": "On weekdays outside peak season, 2–3 weeks ahead is enough. But in high season (Nov–Apr), especially over New Year, Songkran and long weekends, beachfront resorts on Koh Lipe sell out fast and prices rise — book 1–2 months ahead or more. In monsoon season (May–Oct) prices are lower, but some island stays close seasonally, so check opening dates before booking." },
-    { "q": "❓ When should I visit Satun, and is Koh Lipe open all year?", "a": "The best time is <strong>November to April</strong> — calm, clear seas and good weather, ideal for Koh Lipe and snorkelling. In monsoon season (May–Oct) the sea is rough and rainy, boats to Lipe may not run some days, and some island stays close seasonally. Stays in Satun Town and Pak Bara are open year-round; if you go in monsoon season, focusing on the mainland and local food is easier." },
-    { "q": "❓ Which site is cheapest for booking Satun hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each period's promotions, so we recommend opening all 3 to compare before every booking — each review page in this guide has full price-comparison links, which can save several hundred baht a night, especially for Koh Lipe beachfront resorts at peak times." },
-    { "q": "❓ Pak Bara or Koh Lipe — which is better to stay?", "a": "<strong>Pak Bara</strong> suits an overnight before or after the boat — cheap, easy onward travel — but the mainland beach isn't as clear as the island's (Bara Bara, Byte Hostel, SeeSea, Pakarang). <strong>Koh Lipe</strong> is the real highlight, white sand and clear water, ideal for sleeping by the beach and snorkelling, but pricier and reached only by boat (Sita Beach, Idyllic, Bundhaya, Mountain, Serene). If time is short and you're here for the sea, sleep on the island; if you're self-driving or catching an early boat, a night at Pak Bara is handier." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Satun?",
+      "a": "It depends on your travel style. <strong>Koh Lipe — Pattaya Beach</strong> is the lively main beach near the boat landing and Walking Street (Sita Beach, Bundhaya). <strong>Koh Lipe — Sunrise Beach</strong> has clearer water and is quieter (Idyllic Concept, Mountain, Serene). <strong>Pak Bara (La-ngu)</strong> is the port town before the boat, with budget and seafront stays, ideal for a night before the island (Bara Bara, Byte Hostel, SeeSea, Pakarang). And <strong>Satun Town</strong> is easy to get around with cheap food, good for a stopover (Sinkiat Thani, Sinkiat Buri, Pinnacle Wangmai)."
+    },
+    {
+      "q": "❓ How much do Satun hotels cost?",
+      "a": "Prices vary widely: hostels and budget stays start around ฿550–800 a night · city hotels and Pak Bara seafront stays run roughly ฿700–1,600 · beachfront resorts on Koh Lipe start around ฿1,600–3,500+. All are approximate starting rates for standard rooms. In high season (Nov–Apr) prices are higher than usual and island rooms sell out fast."
+    },
+    {
+      "q": "❓ How do I get to Koh Lipe?",
+      "a": "The beachfront stays in this guide are on Koh Lipe and need a boat. Ferries and speedboats run mainly from <strong>Pak Bara pier, La-ngu district, Satun province</strong>, about a 1.5-hour trip. Koh Lipe has no deep-water pier, so boats anchor offshore and longtails ferry you to the beach; many resorts offer a transfer from the landing point. Satun has no commercial airport — most people fly into Hat Yai (HDY) and drive about 2 hours to Pak Bara. In monsoon season (May–Oct) boats may not run some days, so check the weather first."
+    },
+    {
+      "q": "❓ How far ahead should I book a Satun hotel?",
+      "a": "On weekdays outside peak season, 2–3 weeks ahead is enough. But in high season (Nov–Apr), especially over New Year, Songkran and long weekends, beachfront resorts on Koh Lipe sell out fast and prices rise — book 1–2 months ahead or more. In monsoon season (May–Oct) prices are lower, but some island stays close seasonally, so check opening dates before booking."
+    },
+    {
+      "q": "❓ When should I visit Satun, and is Koh Lipe open all year?",
+      "a": "The best time is <strong>November to April</strong> — calm, clear seas and good weather, ideal for Koh Lipe and snorkelling. In monsoon season (May–Oct) the sea is rough and rainy, boats to Lipe may not run some days, and some island stays close seasonally. Stays in Satun Town and Pak Bara are open year-round; if you go in monsoon season, focusing on the mainland and local food is easier."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Satun hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each period's promotions, so we recommend opening all 3 to compare before every booking — each review page in this guide has full price-comparison links, which can save several hundred baht a night, especially for Koh Lipe beachfront resorts at peak times."
+    },
+    {
+      "q": "❓ Pak Bara or Koh Lipe — which is better to stay?",
+      "a": "<strong>Pak Bara</strong> suits an overnight before or after the boat — cheap, easy onward travel — but the mainland beach isn't as clear as the island's (Bara Bara, Byte Hostel, SeeSea, Pakarang). <strong>Koh Lipe</strong> is the real highlight, white sand and clear water, ideal for sleeping by the beach and snorkelling, but pricier and reached only by boat (Sita Beach, Idyllic, Bundhaya, Mountain, Serene). If time is short and you're here for the sea, sleep on the island; if you're self-driving or catching an early boat, a night at Pak Bara is handier."
+    }
+  ],
+  "quickAnswerHtml": "12 Satun hotels we reviewed across every tier — from beachfront resorts on Koh Lipe down to a hostel near Pak Bara pier from ฿550. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

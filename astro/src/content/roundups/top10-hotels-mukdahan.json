@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "ไทย", "href": "country-thailand.html" },
-    { "name": "มุกดาหาร", "href": "city-mukdahan.html" },
-    { "name": "10 โรงแรมมุกดาหารยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "มุกดาหาร",
+      "href": "city-mukdahan.html"
+    },
+    {
+      "name": "10 โรงแรมมุกดาหารยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "มุกดาหาร", "item": "https://thailandaddict.com/city-mukdahan" },
-    { "name": "10 โรงแรมมุกดาหารยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-mukdahan" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "มุกดาหาร",
+      "item": "https://thailandaddict.com/city-mukdahan"
+    },
+    {
+      "name": "10 โรงแรมมุกดาหารยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-mukdahan"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-mukdahan.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "มุกดาหารไม่มีรถไฟฟ้า เมืองกะทัดรัด เรียก Grab รถรับจ้าง หรือขับรถมาเองสะดวกที่สุด และที่พักหลายแห่งมีที่จอดรถฟรี · ย่านที่พักหลักในบทความนี้: <strong>ริมโขงตลาดอินโดจีน</strong> — ทางเดินริมแม่น้ำโขง ตลาดอินโดจีน วัดศรีมงคลใต้ ของกินและสินค้านำเข้าจากลาว-เวียดนาม-จีน · <strong>ใจกลางเมือง</strong> — หอแก้วมุกดาหาร หอนาฬิกา ตลาดในเมือง Big C เดินถึงริมโขง · <strong>ทางขึ้นสะพานมิตรภาพ 2</strong> — ด่านพรมแดนข้ามไปสะหวันนะเขต ถนนเลี่ยงเมือง ห่างริมโขงราว 7–10 นาทีรถ",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Hotel de Ladda", "price": "฿1,400" },
-    { "n": "2", "color": "#c8a951", "name": "Hop Inn Mukdahan", "price": "฿650" },
-    { "n": "3", "color": "#c8a951", "name": "Riverfront Hotel Mukdahan", "price": "฿1,000" },
-    { "n": "4", "color": "#9e9e9e", "name": "Vieng Khong Hotel", "price": "฿900" },
-    { "n": "5", "color": "#9e9e9e", "name": "Ploy Palace Hotel", "price": "฿1,100" },
-    { "n": "6", "color": "#9e9e9e", "name": "Kiengpiman Hotel", "price": "฿700" },
-    { "n": "7", "color": "#9e9e9e", "name": "Hotel Muq", "price": "฿550" },
-    { "n": "8", "color": "#bf8040", "name": "Bird Day Boutique Hotel", "price": "฿850" },
-    { "n": "9", "color": "#bf8040", "name": "Nawiengkae Riverview Resort", "price": "฿985" },
-    { "n": "10", "color": "#5d4037", "name": "Kim Jek Cin 2 Hotel", "price": "฿350" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Hotel de Ladda",
+      "price": "฿1,400"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hop Inn Mukdahan",
+      "price": "฿650"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Riverfront Hotel Mukdahan",
+      "price": "฿1,000"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Vieng Khong Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Ploy Palace Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Kiengpiman Hotel",
+      "price": "฿700"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Hotel Muq",
+      "price": "฿550"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Bird Day Boutique Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Nawiengkae Riverview Resort",
+      "price": "฿985"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Kim Jek Cin 2 Hotel",
+      "price": "฿350"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,400",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior (Queen)", "price": "฿1,400/คืน" },
-        { "type": "Deluxe Twin", "price": "฿1,700/คืน" },
-        { "type": "Premier Suite (River View)", "price": "฿2,200/คืน" }
+        {
+          "type": "Superior (Queen)",
+          "price": "฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "฿1,700/คืน"
+        },
+        {
+          "type": "Premier Suite (River View)",
+          "price": "฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hotel-de-ladda/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/de-ladda.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-8494552/hotel-de-ladda/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-de-ladda-riverside-mukdahan.html",
-      "tags": ["🌅 ห้องระเบียงวิวแม่น้ำโขง", "🛁 ห้องน้ำหินอ่อน + อ่างอาบน้ำ", "🏊 สระว่ายน้ำ + ฟิตเนสวิวแม่น้ำ", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌅 ห้องระเบียงวิวแม่น้ำโขง",
+        "🛁 ห้องน้ำหินอ่อน + อ่างอาบน้ำ",
+        "🏊 สระว่ายน้ำ + ฟิตเนสวิวแม่น้ำ",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "77 ถนนสำราญชายโขง ต.ศรีบุญเรือง เมืองมุกดาหาร",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.4 — Hotel de Ladda (โรงแรมเดอ ลัดดา) คือ <strong>โรงแรม 4 ดาวริมแม่น้ำโขงที่ห้องเปิดระเบียงแล้วเจอแม่น้ำกับฝั่งลาวเต็มตา</strong> เปิดปี 2016 มี 47 ห้อง · จุดที่คนพักชอบคือหน้าต่างสูงจรดเพดาน ห้องน้ำหินอ่อนพร้อมอ่างอาบน้ำและฝักบัวเรนชาวเวอร์ และสระว่ายน้ำกับฟิตเนสที่มองออกไปเห็นแม่น้ำ · เดินไม่กี่นาทีถึงตลาดอินโดจีนและริมเขื่อน TripAdvisor ให้อันดับ #2 ของมุกดาหาร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ยืนยันขอห้องที่ระบุ River View หรือ Premier Corner Suite ตั้งแต่จอง เพราะไม่ใช่ทุกห้องที่เห็นแม่น้ำ และขอห้องชั้นสูงเพราะผนังค่อนข้างบาง",
@@ -102,15 +189,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double (~20 ตร.ม.)", "price": "฿650/คืน" },
-        { "type": "Standard Twin", "price": "฿700/คืน" },
-        { "type": "Standard (ชั้นสูง)", "price": "฿750/คืน" }
+        {
+          "type": "Standard Double (~20 ตร.ม.)",
+          "price": "฿650/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "Standard (ชั้นสูง)",
+          "price": "฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-mukdahan/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-mukdahan.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-3898241/hop-inn-mukdahan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-mukdahan.html",
-      "tags": ["🧼 ห้องสะอาดสม่ำเสมอ", "🅿️ ที่จอดรถฟรี ใกล้ด่าน", "🛏️ มีระเบียง 20 ตร.ม.", "🕐 เคาน์เตอร์ 24 ชม."],
+      "tags": [
+        "🧼 ห้องสะอาดสม่ำเสมอ",
+        "🅿️ ที่จอดรถฟรี ใกล้ด่าน",
+        "🛏️ มีระเบียง 20 ตร.ม.",
+        "🕐 เคาน์เตอร์ 24 ชม."
+      ],
       "addr": "18 ถนนชยางกูร ก. อำเภอเมืองมุกดาหาร",
       "storyHtml": "คะแนนและจำนวนรีวิวสูงสุดในบทความนี้ที่ 9.6 จาก 127 รีวิว — Hop Inn มุกดาหารคือ <strong>โรงแรมราคาประหยัดในเครือ Hop Inn ที่ขายห้องสะอาด ราคาเบา และมาตรฐานที่วางใจได้</strong> · ห้องเดียวมาตรฐานราว 20 ตร.ม. โทนเทาขาว เตียงใหญ่ มีระเบียงและตู้เย็น คนรีวิวชมตรงกันเรื่องความสะอาด · ทำเลฝั่งถนนเลี่ยงเมืองใกล้สะพานมิตรภาพ 2 มีที่จอดรถฟรี เหมาะกับคนขับรถมาแวะพักหรือมาข้ามด่าน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงจะเงียบและวิวเปิดกว่าห้องชั้นล่าง · ที่นี่ไม่มีอาหารเช้า รอบโรงแรมมีร้านอาหาร ตลาด และ Lotus's / Robinson ขับไม่กี่นาทีถึง",
@@ -142,15 +243,29 @@
       "priceBig": "฿1,000",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard (ฝั่งหลัง)", "price": "฿1,000/คืน" },
-        { "type": "Superior River View", "price": "฿1,300/คืน" },
-        { "type": "Superior (ชั้น 5 วิวแม่น้ำ)", "price": "฿1,500/คืน" }
+        {
+          "type": "Standard (ฝั่งหลัง)",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "Superior River View",
+          "price": "฿1,300/คืน"
+        },
+        {
+          "type": "Superior (ชั้น 5 วิวแม่น้ำ)",
+          "price": "฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/riverfront-hotel-mukdahan/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/riverfront-mukdahan.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-711632/riverfront-hotel-mukdahan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-riverfront-hotel-mukdahan.html",
-      "tags": ["🛍️ ติดตลาดอินโดจีน เดินถึง", "🌅 ห้อง Superior วิวแม่น้ำโขง", "🍳 บุฟเฟ่ต์เช้าชั้น 6 วิวโขง", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🛍️ ติดตลาดอินโดจีน เดินถึง",
+        "🌅 ห้อง Superior วิวแม่น้ำโขง",
+        "🍳 บุฟเฟ่ต์เช้าชั้น 6 วิวโขง",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "22 ถนนสำราญชายโขง ต.ศรีบุญเรือง เมืองมุกดาหาร",
       "storyHtml": "รีวิวมากที่สุดในบทความนี้ รวมกว่า 1,600 รายการ คะแนน 8.4 — Riverfront Hotel Mukdahan คือ <strong>โรงแรม Boutique 3 ดาวริมแม่น้ำโขงที่หลายคนยกให้ทำเลดีที่สุดในเมือง ติดตลาดอินโดจีนพอดี</strong> อาคาร 6 ชั้น 77 ห้อง ทุกห้องมีระเบียง · ห้อง Superior ฝั่งหน้าหันออกแม่น้ำเห็นฝั่งลาว และอาหารเช้าบุฟเฟ่ต์ชั้น 6 ที่มองเห็นแม่น้ำเต็มตา · เดินลงจากล็อบบี้ก็ถึงตลาดและทางเดินริมเขื่อน TripAdvisor จัดอันดับ 1 หมวด B&B/Inn ของมุกดาหาร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Superior ฝั่งหน้าชั้น 5 ขึ้นไปตั้งแต่จอง เพราะช่วงกลางวันแผงตลาดบังวิวจากระดับถนน และเช็กสภาพห้องน้ำตอนเช็คอินเพราะหลายห้องเป็นห้องน้ำแบบเปิด",
@@ -182,15 +297,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "฿900/คืน" },
-        { "type": "Double Room with Balcony", "price": "฿1,000/คืน" },
-        { "type": "Deluxe with Balcony (วิวแม่น้ำ)", "price": "฿1,200/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "฿900/คืน"
+        },
+        {
+          "type": "Double Room with Balcony",
+          "price": "฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe with Balcony (วิวแม่น้ำ)",
+          "price": "฿1,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/viengkhong-hotel/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/vieng-khong.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-9258778/vieng-khong-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-vieng-khong-hotel-riverside-mukdahan.html",
-      "tags": ["🌅 ทุกห้องมีระเบียงริมโขง", "🌳 สวนกว้างริมแม่น้ำ", "🍳 อาหารเช้าบุฟเฟ่ต์", "🅿️ ที่จอดรถฟรี + จุดชาร์จ EV"],
+      "tags": [
+        "🌅 ทุกห้องมีระเบียงริมโขง",
+        "🌳 สวนกว้างริมแม่น้ำ",
+        "🍳 อาหารเช้าบุฟเฟ่ต์",
+        "🅿️ ที่จอดรถฟรี + จุดชาร์จ EV"
+      ],
       "addr": "189 ถนนสำราญชายโขง ต.ศรีบุญเรือง เมืองมุกดาหาร",
       "storyHtml": "Vieng Khong Hotel (เวียงโขง) คือ <strong>โรงแรม 3 ดาวริมแม่น้ำโขงที่ทุกห้องมีระเบียงนั่งดูแม่น้ำ และมีสวนหญ้ากว้างทอดลงไปถึงริมน้ำ</strong> คะแนน 9.2 และได้คะแนนทำเล 10 เต็มบน Booking · เปิดปี 2015 มี 37 ห้อง หลายห้องหันหน้าออกแม่น้ำเห็นฝั่งลาว · เช้ามานั่งจิบกาแฟริมระเบียง เดินเล่นในสวนริมโขง บวกที่จอดรถฟรีและจุดชาร์จ EV เหมาะกับคนขับรถมาเองที่อยากได้ที่พักริมน้ำเงียบสงบ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุขอห้องฝั่งแม่น้ำชั้นสูงตั้งแต่จอง เพราะไม่ใช่ทุกห้องที่หันออกแม่น้ำเต็มตา · ผนังค่อนข้างบาง เตรียมที่อุดหูไว้เผื่อถ้านอนหลับยาก",
@@ -222,15 +351,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "฿1,100/คืน" },
-        { "type": "Deluxe Room", "price": "฿1,400/คืน" },
-        { "type": "Luxury Room", "price": "฿1,700/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "฿1,100/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "฿1,400/คืน"
+        },
+        {
+          "type": "Luxury Room",
+          "price": "฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ploy-palace-hotel/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ploy-palace.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-711628/ploy-palace-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ploy-palace-hotel-mukdahan.html",
-      "tags": ["🏊 สระว่ายน้ำดาดฟ้า + สระเด็ก", "🏙️ ใจกลางเมือง เดินถึงตลาด", "🍳 อาหารเช้าหลากหลาย", "🅿️ ที่จอดรถฟรีกว้าง"],
+      "tags": [
+        "🏊 สระว่ายน้ำดาดฟ้า + สระเด็ก",
+        "🏙️ ใจกลางเมือง เดินถึงตลาด",
+        "🍳 อาหารเช้าหลากหลาย",
+        "🅿️ ที่จอดรถฟรีกว้าง"
+      ],
       "addr": "40 ถนนพิทักษ์พนมเขต ใจกลางเมืองมุกดาหาร",
       "storyHtml": "Ploy Palace Hotel (พลอย พาเลซ) คือ <strong>โรงแรม 4 ดาว 154 ห้องใจกลางเมืองที่คนมุกดาหารนึกถึงเป็นชื่อแรก</strong> คะแนน 8.8 จาก 34 รีวิว · จุดที่คนพักชอบคือทำเลที่เดินถึงตลาดและร้านอาหาร สระว่ายน้ำบนดาดฟ้าพร้อมสระเด็ก และอาหารเช้าบุฟเฟ่ต์ที่มีโซนทำไข่สดและเมนูอีสาน · มีที่จอดรถฟรีกว้าง เหมาะทั้งสายธุระ ประชุม ครอบครัวพาเด็กมาเล่นสระ และคนแวะพักก่อนข้ามไปลาว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงที่รีโนเวตแล้วหรือหันออกสวนสาธารณะ จะได้ห้องสภาพดีและวิวเปิดกว่า เพราะอาคารเปิดมานานหลายปีและบางจุดเริ่มมีอายุ",
@@ -262,15 +405,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "฿700/คืน" },
-        { "type": "Standard Twin", "price": "฿750/คืน" },
-        { "type": "Superior", "price": "฿900/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "฿750/คืน"
+        },
+        {
+          "type": "Superior",
+          "price": "฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kiengpiman-hotel/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-kiengpiman-hotel-mukdahan.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-1550267/kieng-piman-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kiengpiman-hotel-mukdahan.html",
-      "tags": ["🤝 ผู้จัดการพูดอังกฤษ ช่วยเรื่องวีซ่า", "🛏️ ห้องกว้างมีระเบียงทุกห้อง", "🅿️ ที่จอดรถฟรี", "🚲 ให้เช่าจักรยาน"],
+      "tags": [
+        "🤝 ผู้จัดการพูดอังกฤษ ช่วยเรื่องวีซ่า",
+        "🛏️ ห้องกว้างมีระเบียงทุกห้อง",
+        "🅿️ ที่จอดรถฟรี",
+        "🚲 ให้เช่าจักรยาน"
+      ],
       "addr": "26 ถนนดำรงค์มุกดา หลังตลาดเทศบาล 2 เมืองมุกดาหาร",
       "storyHtml": "Kiengpiman Hotel (เคียงพิมาน) คือ <strong>โรงแรม 3 ดาวกลางเมืองที่คนชมเรื่องความคุ้มราคาและพนักงานที่ดูแลดีมาก</strong> คะแนน 8.6 จาก 90 รีวิว TripAdvisor อันดับ #4 ของมุกดาหาร · หลายรีวิวเอ่ยถึงผู้จัดการที่พูดอังกฤษได้คล่อง คอยช่วยเรื่องวีซ่า เช่ามอเตอร์ไซค์ และจัดการเรื่องเดินทาง · 60 ห้องทุกห้องมีระเบียงและตู้เย็น ห้องกว้างกว่าราคา มีสวนหน้าโรงแรม ที่จอดรถฟรี เดินถึงตลาดอินโดจีนและริมโขงราว 900 เมตร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> อาหารเช้าไม่รวมในราคา แต่แจ้งล่วงหน้าหนึ่งคืน โรงแรมทำข้าวต้มหรือไข่กับกาแฟให้ในราคาราว ฿65 · ถามผู้จัดการเรื่องวีซ่าและการข้ามด่านได้ที่เคาน์เตอร์",
@@ -302,15 +459,29 @@
       "priceBig": "฿550",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "฿550/คืน" },
-        { "type": "Deluxe Twin Room", "price": "฿700/คืน" },
-        { "type": "Deluxe King Room", "price": "฿800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "฿550/คืน"
+        },
+        {
+          "type": "Deluxe Twin Room",
+          "price": "฿700/คืน"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "฿800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/muq-muk-hotel/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/muq-cchanghwd-mukdaahaar.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-83425407/hotel-muq/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hotel-muk-hostel-style-mukdahan.html",
-      "tags": ["✨ เปิดใหม่ปี 2021 ห้องกว้าง", "🚌 ติดสถานีขนส่ง ใจกลางเมือง", "🍳 อาหารเช้าบุฟเฟ่ต์", "🅿️ ที่จอดรถฟรี + จุดชาร์จ EV"],
+      "tags": [
+        "✨ เปิดใหม่ปี 2021 ห้องกว้าง",
+        "🚌 ติดสถานีขนส่ง ใจกลางเมือง",
+        "🍳 อาหารเช้าบุฟเฟ่ต์",
+        "🅿️ ที่จอดรถฟรี + จุดชาร์จ EV"
+      ],
       "addr": "33/333 ถนนชยางกูร ใจกลางเมืองมุกดาหาร",
       "storyHtml": "Hotel Muq (โฮเทลมุก) คือ <strong>โรงแรมเปิดใหม่ปี 2021 ใจกลางเมืองที่ห้องกว้างเกินราคาและทุกอย่างยังใหม่สะอาด</strong> คะแนน 8.8 จาก 42 รีวิว มี 65 ห้อง · จุดที่คนพักชอบคือห้องกว้าง เตียงนุ่ม น้ำอุ่นแรง อาหารเช้าบุฟเฟ่ต์ และทำเลที่ติดสถานีขนส่งและตลาดในเมือง · มีลิฟต์ ที่จอดรถฟรีและจุดชาร์จ EV เหมาะทั้งคนเดินทางด้วยรถทัวร์ สายธุระ และคนแวะพักก่อนข้ามไปลาว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงหรือห้องด้านในที่ไม่ติดทางเดินหลัก จะได้ห้องที่เงียบกว่า เพราะเสียงระหว่างห้องเล็ดลอดได้บ้าง และเผื่อแพ็กเกจเน็ตมือถือไว้เพราะ Wi-Fi บางช่วงไม่แรง",
@@ -342,15 +513,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin Room", "price": "฿850/คืน" },
-        { "type": "Superior Plus Double", "price": "฿950/คืน" },
-        { "type": "Superior King Room", "price": "฿1,050/คืน" }
+        {
+          "type": "Superior Twin Room",
+          "price": "฿850/คืน"
+        },
+        {
+          "type": "Superior Plus Double",
+          "price": "฿950/คืน"
+        },
+        {
+          "type": "Superior King Room",
+          "price": "฿1,050/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bird-day-boutique-hotel/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bird-day-boutique-hotel.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-1525524/bird-day-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bird-day-boutique-hotel-mukdahan.html",
-      "tags": ["🛏️ ห้องกว้าง เตียงนุ่ม", "🏬 ติด Big C ใจกลางเมือง", "🍜 อาหารเช้ารวม (เฝอเวียดนาม)", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🛏️ ห้องกว้าง เตียงนุ่ม",
+        "🏬 ติด Big C ใจกลางเมือง",
+        "🍜 อาหารเช้ารวม (เฝอเวียดนาม)",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "77/99 ถนนชยางกูร ใจกลางเมืองมุกดาหาร ติด Big C",
       "storyHtml": "Bird Day Boutique Hotel (เบิร์ดเดย์) คือ <strong>โรงแรมบูทีกเล็ก 34 ห้องใจกลางเมืองที่ห้องกว้างกว่าราคาและติดห้าง Big C</strong> คะแนน 8.7 จาก 21 รีวิว · จุดที่คนพักชอบคือห้องกว้าง เตียงนุ่ม ห้องน้ำกว้าง น้ำอุ่นแรง อาหารเช้ารวมในห้อง (มีเฝอเวียดนาม ขนมปัง ผลไม้) และที่จอดรถฟรี · ตัวโรงแรมตกแต่งสไตล์บูทีกมีสวนเล็กร่มรื่น เคาน์เตอร์เปิด 24 ชั่วโมง เดินไป Big C ซื้อของได้เลย",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ตัวอาคารไม่มีลิฟต์ ถ้ามีกระเป๋าหนักให้ขอห้องชั้นล่าง (พนักงานช่วยยกได้) · ขอห้องด้านในที่ไม่หันออกถนนใหญ่จะเงียบกว่า และลงมาทานอาหารเช้าแต่เช้าจะได้ของครบ",
@@ -382,15 +567,29 @@
       "priceBig": "฿985",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Twin Room", "price": "฿985/คืน" },
-        { "type": "King Room with River View", "price": "฿1,200/คืน" },
-        { "type": "One-Bedroom Pool Villa", "price": "฿2,480/คืน" }
+        {
+          "type": "Superior Twin Room",
+          "price": "฿985/คืน"
+        },
+        {
+          "type": "King Room with River View",
+          "price": "฿1,200/คืน"
+        },
+        {
+          "type": "One-Bedroom Pool Villa",
+          "price": "฿2,480/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nawiengkae-riverview-resort_2/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nawingkaeriverview-resort.html",
       "tripUrl": "https://www.trip.com/hotels/mukdahan-hotel-detail-29754910/nawiengkae-riverview-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nawiengkae-riverview-resort-mukdahan.html",
-      "tags": ["🌊 ริมแม่น้ำโขงเงียบสงบ", "🏊 สระว่ายน้ำ + มี Pool Villa", "🚲 จักรยานให้เช่า", "🛏️ ทุกห้องมีระเบียง"],
+      "tags": [
+        "🌊 ริมแม่น้ำโขงเงียบสงบ",
+        "🏊 สระว่ายน้ำ + มี Pool Villa",
+        "🚲 จักรยานให้เช่า",
+        "🛏️ ทุกห้องมีระเบียง"
+      ],
       "addr": "183 หมู่ 3 ต.นาสีนวน เมืองมุกดาหาร",
       "storyHtml": "Nawiengkae Riverview Resort (นาเวียงแก ริเวอร์วิว) คือ <strong>รีสอร์ตบูทีคเล็ก 12 ห้องริมแม่น้ำโขงที่มาเพื่อความเงียบจริงๆ</strong> คะแนน 8.4 · ตั้งอยู่ ต.นาสีนวน นอกตัวเมือง ตื่นมาเปิดระเบียงเจอแม่น้ำโขงกับฝั่งลาวเต็มตา เงียบได้ยินแต่เสียงน้ำกับเสียงนก · มีสระว่ายน้ำกลางแจ้ง จักรยานให้เช่าปั่นเลียบโขง และ One-Bedroom Pool Villa สำหรับคนอยากได้ส่วนตัว เจ้าของเป็นกันเอง เหมาะคู่รักและครอบครัวที่ขับรถมาเอง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่หันออกแม่น้ำโขงโดยตรง วิวเช้าและพระอาทิตย์ตกคือจุดที่คุ้มที่สุด · มีแค่ 12 ห้อง รับจองผ่านเฟซบุ๊กและโทรศัพท์เป็นหลัก ช่วงวันหยุดยาวควรโทรยืนยันล่วงหน้า และเตรียมของกินติดรถมาเพราะร้านอยู่ไกล",
@@ -422,15 +621,29 @@
       "priceBig": "฿350",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin Room", "price": "฿350/คืน" },
-        { "type": "Standard Double Room", "price": "฿400/คืน" },
-        { "type": "Standard Room (พักได้ 2 ท่าน)", "price": "฿450/คืน" }
+        {
+          "type": "Standard Twin Room",
+          "price": "฿350/คืน"
+        },
+        {
+          "type": "Standard Double Room",
+          "price": "฿400/คืน"
+        },
+        {
+          "type": "Standard Room (พักได้ 2 ท่าน)",
+          "price": "฿450/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kim-jek-sin-2-h68801988/hotel/mukdahan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermkimecchkchin2.html",
       "tripUrl": "https://th.trip.com/hotels/mukdahan-hotel-detail-71382788/kim-jek-sin-2/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kim-jek-cin-2-hotel-mukdahan.html",
-      "tags": ["💰 ราคาเบาที่สุดในเมือง", "🚗 ที่จอดรถฟรี ลานกว้าง", "🏙️ ใจกลางเมือง ใกล้ศาลากลาง", "🕐 ฟร้อนต์ 24 ชม."],
+      "tags": [
+        "💰 ราคาเบาที่สุดในเมือง",
+        "🚗 ที่จอดรถฟรี ลานกว้าง",
+        "🏙️ ใจกลางเมือง ใกล้ศาลากลาง",
+        "🕐 ฟร้อนต์ 24 ชม."
+      ],
       "addr": "95/1 ถนนพิทักษ์พนมเขต อำเภอเมืองมุกดาหาร",
       "storyHtml": "Kim Jek Cin 2 Hotel (โรงแรมกิมเจ็กซิน 2) คือ <strong>โรงแรมที่ราคาเบาที่สุดในบทความนี้ เริ่มแค่ ฿350 แต่มีที่จอดรถฟรีลานกว้างใจกลางเมือง</strong> คะแนน 8.0 จาก 79 รีวิว · เป็นโรงแรม 2 ดาวราว 30 ห้องบนถนนพิทักษ์พนมเขต ใกล้ศาลากลางจังหวัด เดินถึงตลาดอินโดจีนและริมแม่น้ำโขงได้ · ห้องตกแต่งเรียบง่ายเน้นใช้งานจริง สะอาดและกว้างกว่าที่คิด เหมาะกับนักเดินทางสายประหยัด คนทำธุระ และคนแวะพักก่อนข้ามไปลาว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นบนหรือมุมที่ไม่ติดห้องอื่นโดยตรงจะช่วยเรื่องเสียงลอดผนัง และขอห้องที่เพิ่งทำความสะอาดเปิดแอร์ทิ้งไว้เพราะบางห้องมีกลิ่นอับตามประสาอาคารเก่า",
@@ -448,37 +661,192 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม มุกดาหาร 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Hotel de Ladda", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,400", "access": "📍 ริมโขง ตลาดอินโดจีน", "badge": "4 ดาวริมโขง คะแนนสูงสุด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hop Inn Mukdahan", "type": "⭐⭐", "score": "9.6", "price": "฿650", "access": "📍 ใกล้สะพานมิตรภาพ 2", "badge": "รีวิวมากสุด ห้องสะอาด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Riverfront Hotel Mukdahan", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,000", "access": "📍 ริมโขง ติดตลาดอินโดจีน", "badge": "ติดตลาดอินโดจีน", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Vieng Khong Hotel", "type": "⭐⭐⭐", "score": "9.2", "price": "฿900", "access": "📍 ริมโขง สวนริมน้ำ", "badge": "ทุกห้องมีระเบียง", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Ploy Palace Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿1,100", "access": "📍 ใจกลางเมือง", "badge": "สระว่ายน้ำดาดฟ้า", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Kiengpiman Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿700", "access": "📍 ใจกลางเมือง", "badge": "พนักงานช่วยเหลือดี", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Hotel Muq", "type": "⭐⭐⭐", "score": "8.8", "price": "฿550", "access": "📍 ใจกลางเมือง ติดสถานีขนส่ง", "badge": "เปิดใหม่ ห้องกว้าง", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Bird Day Boutique Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿850", "access": "📍 ใจกลางเมือง ติด Big C", "badge": "ห้องกว้าง คุ้มราคา", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Nawiengkae Riverview Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿985", "access": "📍 ริมโขง ต.นาสีนวน (ชานเมือง)", "badge": "ริมโขงเงียบ มี Pool Villa", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Kim Jek Cin 2 Hotel", "type": "⭐⭐", "score": "8.0", "price": "฿350", "access": "📍 ใจกลางเมือง ใกล้ศาลากลาง", "badge": "ถูกสุด", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Hotel de Ladda",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,400",
+      "access": "📍 ริมโขง ตลาดอินโดจีน",
+      "badge": "4 ดาวริมโขง คะแนนสูงสุด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hop Inn Mukdahan",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿650",
+      "access": "📍 ใกล้สะพานมิตรภาพ 2",
+      "badge": "รีวิวมากสุด ห้องสะอาด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Riverfront Hotel Mukdahan",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,000",
+      "access": "📍 ริมโขง ติดตลาดอินโดจีน",
+      "badge": "ติดตลาดอินโดจีน",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Vieng Khong Hotel",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿900",
+      "access": "📍 ริมโขง สวนริมน้ำ",
+      "badge": "ทุกห้องมีระเบียง",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Ploy Palace Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,100",
+      "access": "📍 ใจกลางเมือง",
+      "badge": "สระว่ายน้ำดาดฟ้า",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Kiengpiman Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿700",
+      "access": "📍 ใจกลางเมือง",
+      "badge": "พนักงานช่วยเหลือดี",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Hotel Muq",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿550",
+      "access": "📍 ใจกลางเมือง ติดสถานีขนส่ง",
+      "badge": "เปิดใหม่ ห้องกว้าง",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Bird Day Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿850",
+      "access": "📍 ใจกลางเมือง ติด Big C",
+      "badge": "ห้องกว้าง คุ้มราคา",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Nawiengkae Riverview Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿985",
+      "access": "📍 ริมโขง ต.นาสีนวน (ชานเมือง)",
+      "badge": "ริมโขงเงียบ มี Pool Villa",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Kim Jek Cin 2 Hotel",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿350",
+      "access": "📍 ใจกลางเมือง ใกล้ศาลากลาง",
+      "badge": "ถูกสุด",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมมุกดาหารยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "🌅", "head": "อยากได้ห้องวิวแม่น้ำโขงริมเขื่อน", "bodyHtml": "→ <strong>Hotel de Ladda</strong> ฿1,400 ห้องระเบียงวิวแม่น้ำ ห้องน้ำหินอ่อน คะแนนสูงสุด · หรือ <strong>Vieng Khong Hotel</strong> ฿900 ทุกห้องมีระเบียง สวนริมโขง" },
-    { "icon": "🛍️", "head": "อยากเดินตลาดอินโดจีน เที่ยวริมโขง", "bodyHtml": "→ <strong>Riverfront Hotel Mukdahan</strong> ฿1,000 ติดตลาดอินโดจีนพอดี รีวิวมากสุด บุฟเฟ่ต์เช้าวิวโขง เดินเที่ยวได้แทบไม่ต้องใช้รถ" },
-    { "icon": "💸", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Kim Jek Cin 2</strong> ฿350 ถูกสุดในเมือง ที่จอดรถลานกว้าง · หรือ <strong>Hotel Muq</strong> ฿550 เปิดใหม่ ห้องกว้าง ติดสถานีขนส่ง" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว อยากมีสระให้เด็กเล่น", "bodyHtml": "→ <strong>Ploy Palace Hotel</strong> ฿1,100 สระว่ายน้ำดาดฟ้าและสระเด็กใจกลางเมือง · หรือ <strong>Nawiengkae Riverview Resort</strong> ฿985 ริมโขงมี Pool Villa" },
-    { "icon": "🌉", "head": "ขับรถมาแวะพัก / มาข้ามด่านไปลาว", "bodyHtml": "→ <strong>Hop Inn Mukdahan</strong> ฿650 ห้องสะอาด ที่จอดรถฟรี ใกล้สะพานมิตรภาพ 2 ออกเช้าได้สะดวก คะแนน 9.6" },
-    { "icon": "🤝", "head": "อยากได้พนักงานที่ช่วยเหลือดี พูดอังกฤษ", "bodyHtml": "→ <strong>Kiengpiman Hotel</strong> ฿700 ผู้จัดการพูดอังกฤษ ช่วยเรื่องวีซ่าและการเดินทาง ห้องกว้างมีระเบียง" },
-    { "icon": "🌊", "head": "อยากพักริมโขงเงียบๆ แบบส่วนตัว", "bodyHtml": "→ <strong>Nawiengkae Riverview Resort</strong> ฿985 รีสอร์ตเล็กริมโขง ต.นาสีนวน มี Pool Villa เหมาะกับคนมีรถ" }
+    {
+      "icon": "🌅",
+      "head": "อยากได้ห้องวิวแม่น้ำโขงริมเขื่อน",
+      "bodyHtml": "→ <strong>Hotel de Ladda</strong> ฿1,400 ห้องระเบียงวิวแม่น้ำ ห้องน้ำหินอ่อน คะแนนสูงสุด · หรือ <strong>Vieng Khong Hotel</strong> ฿900 ทุกห้องมีระเบียง สวนริมโขง"
+    },
+    {
+      "icon": "🛍️",
+      "head": "อยากเดินตลาดอินโดจีน เที่ยวริมโขง",
+      "bodyHtml": "→ <strong>Riverfront Hotel Mukdahan</strong> ฿1,000 ติดตลาดอินโดจีนพอดี รีวิวมากสุด บุฟเฟ่ต์เช้าวิวโขง เดินเที่ยวได้แทบไม่ต้องใช้รถ"
+    },
+    {
+      "icon": "💸",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Kim Jek Cin 2</strong> ฿350 ถูกสุดในเมือง ที่จอดรถลานกว้าง · หรือ <strong>Hotel Muq</strong> ฿550 เปิดใหม่ ห้องกว้าง ติดสถานีขนส่ง"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว อยากมีสระให้เด็กเล่น",
+      "bodyHtml": "→ <strong>Ploy Palace Hotel</strong> ฿1,100 สระว่ายน้ำดาดฟ้าและสระเด็กใจกลางเมือง · หรือ <strong>Nawiengkae Riverview Resort</strong> ฿985 ริมโขงมี Pool Villa"
+    },
+    {
+      "icon": "🌉",
+      "head": "ขับรถมาแวะพัก / มาข้ามด่านไปลาว",
+      "bodyHtml": "→ <strong>Hop Inn Mukdahan</strong> ฿650 ห้องสะอาด ที่จอดรถฟรี ใกล้สะพานมิตรภาพ 2 ออกเช้าได้สะดวก คะแนน 9.6"
+    },
+    {
+      "icon": "🤝",
+      "head": "อยากได้พนักงานที่ช่วยเหลือดี พูดอังกฤษ",
+      "bodyHtml": "→ <strong>Kiengpiman Hotel</strong> ฿700 ผู้จัดการพูดอังกฤษ ช่วยเรื่องวีซ่าและการเดินทาง ห้องกว้างมีระเบียง"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมโขงเงียบๆ แบบส่วนตัว",
+      "bodyHtml": "→ <strong>Nawiengkae Riverview Resort</strong> ฿985 รีสอร์ตเล็กริมโขง ต.นาสีนวน มี Pool Villa เหมาะกับคนมีรถ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มต้นโดยประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงเทศกาลและวันหยุดยาว ที่พักริมโขงและในเมืองเต็มเร็วและราคาขยับขึ้น ควรจองล่วงหน้าและล็อกราคาแบบยกเลิกฟรีไว้ก่อน · มุกดาหารไม่มีรถไฟฟ้า ใช้ Grab รถรับจ้าง หรือขับรถมาเองสะดวก ที่พักหลายแห่งมีที่จอดรถฟรี · ริมโขงตลาดอินโดจีนและใจกลางเมืองอยู่ใกล้กัน ส่วนทางขึ้นสะพานมิตรภาพ 2 ห่างริมโขงราว 7–10 นาทีรถ · เนื้อหาเรียบเรียงจากเสียงรีวิวจริงโดย <strong>ThailandAddict</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมมุกดาหาร",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในมุกดาหาร?", "a": "ขึ้นอยู่กับแผนเที่ยว · <strong>ริมโขงตลาดอินโดจีน</strong> เหมาะถ้าอยากได้ห้องวิวแม่น้ำและเดินถึงตลาด (Hotel de Ladda, Riverfront, Vieng Khong) · <strong>ใจกลางเมือง</strong> เหมาะสายที่เดินถึงตลาดและร้านอาหารหรืออยากได้สระว่ายน้ำ (Ploy Palace, Kiengpiman, Hotel Muq, Bird Day, Kim Jek Cin 2) · <strong>ทางขึ้นสะพานมิตรภาพ 2</strong> เหมาะคนขับรถมาแวะพักหรือมาข้ามด่านไปสะหวันนะเขต (Hop Inn) · ส่วน Nawiengkae อยู่ริมโขง ต.นาสีนวน ชานเมือง เน้นความเงียบ ต้องมีรถ" },
-    { "q": "❓ โรงแรมมุกดาหารราคาเท่าไหร่?", "a": "ราคาหลากหลาย: ที่พักหลักร้อยใจกลางเมืองและโรงแรมประหยัดเริ่มราว ฿350–850 ต่อคืน · โรงแรม 3 ดาวริมโขงและในเมืองราว ฿900–1,100 · โรงแรม 4 ดาวริมแม่น้ำโขงและในเมืองราว ฿1,100–1,400 ขึ้นไป · ส่วน Pool Villa ริมโขงราว ฿2,480 · ช่วงเทศกาลและวันหยุดยาวราคาสูงกว่าปกติ ควรเทียบ 3 เว็บและจองล่วงหน้า" },
-    { "q": "❓ โรงแรมไหนในมุกดาหารมีห้องวิวแม่น้ำโขง?", "a": "หลายแห่งบนถนนสำราญชายโขงริมโขง · <strong>Vieng Khong Hotel</strong> ทุกห้องมีระเบียง หลายห้องหันออกแม่น้ำ · <strong>Hotel de Ladda</strong> มีห้อง River View และ Corner Suite ที่มีระเบียงมองข้ามโขงไปฝั่งลาว · <strong>Riverfront Hotel</strong> มีห้อง Superior ฝั่งหน้าวิวแม่น้ำและบุฟเฟ่ต์เช้าชั้น 6 วิวโขง · <strong>Nawiengkae Riverview Resort</strong> ริมโขงชานเมืองทุกห้องมีระเบียง · เวลาจองให้ยืนยันขอห้อง River View เพราะห้องฝั่งหลัง/ฝั่งเมืองมักถูกกว่าแต่ไม่ได้วิว" },
-    { "q": "❓ มาข้ามด่านไปสะหวันนะเขต ควรพักที่ไหน?", "a": "ด่านสะพานมิตรภาพไทย-ลาว แห่งที่ 2 อยู่ห่างตัวเมืองราว 10 กม. · ถ้าขับรถมาแวะพักและออกเช้าข้ามด่าน <strong>Hop Inn Mukdahan</strong> อยู่ฝั่งถนนเลี่ยงเมืองใกล้สะพานที่สุด ห้องสะอาด ที่จอดรถฟรี · ถ้าอยากนอนใจกลางเมืองใกล้ตลาดแล้วค่อยขับไปด่าน เลือก <strong>Ploy Palace</strong>, <strong>Hotel Muq</strong> หรือ <strong>Bird Day</strong> ที่ห่างด่านราว 10–15 นาทีรถ" },
-    { "q": "❓ ควรจองโรงแรมมุกดาหารล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วง <strong>เทศกาลและวันหยุดยาว</strong> รวมถึงช่วงมีงานหรือประชุมในเมือง ที่พักริมโขงและในเมืองเต็มเร็วมากและราคาขยับขึ้น ควรจองล่วงหน้าหลายสัปดาห์และล็อกราคาแบบยกเลิกฟรีไว้ก่อน โดยเฉพาะรีสอร์ตเล็กอย่าง Nawiengkae ที่มีแค่ 12 ห้อง" },
-    { "q": "❓ โรงแรมมุกดาหารมีที่จอดรถฟรีไหม?", "a": "ส่วนใหญ่มี · มุกดาหารเป็นเมืองที่คนนิยมขับรถมาเอง โรงแรมในบทความนี้เกือบทุกแห่งมี <strong>ที่จอดรถฟรี</strong> เช่น Hotel de Ladda, Riverfront, Vieng Khong (มีจุดชาร์จ EV), Ploy Palace, Kiengpiman, Hotel Muq (มีจุดชาร์จ EV), Bird Day, Hop Inn และ Kim Jek Cin 2 (ลานกว้าง) · เมืองไม่มีรถไฟฟ้า ใช้ Grab หรือรถรับจ้างก็สะดวก" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในมุกดาหาร?",
+      "a": "ขึ้นอยู่กับแผนเที่ยว · <strong>ริมโขงตลาดอินโดจีน</strong> เหมาะถ้าอยากได้ห้องวิวแม่น้ำและเดินถึงตลาด (Hotel de Ladda, Riverfront, Vieng Khong) · <strong>ใจกลางเมือง</strong> เหมาะสายที่เดินถึงตลาดและร้านอาหารหรืออยากได้สระว่ายน้ำ (Ploy Palace, Kiengpiman, Hotel Muq, Bird Day, Kim Jek Cin 2) · <strong>ทางขึ้นสะพานมิตรภาพ 2</strong> เหมาะคนขับรถมาแวะพักหรือมาข้ามด่านไปสะหวันนะเขต (Hop Inn) · ส่วน Nawiengkae อยู่ริมโขง ต.นาสีนวน ชานเมือง เน้นความเงียบ ต้องมีรถ"
+    },
+    {
+      "q": "❓ โรงแรมมุกดาหารราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: ที่พักหลักร้อยใจกลางเมืองและโรงแรมประหยัดเริ่มราว ฿350–850 ต่อคืน · โรงแรม 3 ดาวริมโขงและในเมืองราว ฿900–1,100 · โรงแรม 4 ดาวริมแม่น้ำโขงและในเมืองราว ฿1,100–1,400 ขึ้นไป · ส่วน Pool Villa ริมโขงราว ฿2,480 · ช่วงเทศกาลและวันหยุดยาวราคาสูงกว่าปกติ ควรเทียบ 3 เว็บและจองล่วงหน้า"
+    },
+    {
+      "q": "❓ โรงแรมไหนในมุกดาหารมีห้องวิวแม่น้ำโขง?",
+      "a": "หลายแห่งบนถนนสำราญชายโขงริมโขง · <strong>Vieng Khong Hotel</strong> ทุกห้องมีระเบียง หลายห้องหันออกแม่น้ำ · <strong>Hotel de Ladda</strong> มีห้อง River View และ Corner Suite ที่มีระเบียงมองข้ามโขงไปฝั่งลาว · <strong>Riverfront Hotel</strong> มีห้อง Superior ฝั่งหน้าวิวแม่น้ำและบุฟเฟ่ต์เช้าชั้น 6 วิวโขง · <strong>Nawiengkae Riverview Resort</strong> ริมโขงชานเมืองทุกห้องมีระเบียง · เวลาจองให้ยืนยันขอห้อง River View เพราะห้องฝั่งหลัง/ฝั่งเมืองมักถูกกว่าแต่ไม่ได้วิว"
+    },
+    {
+      "q": "❓ มาข้ามด่านไปสะหวันนะเขต ควรพักที่ไหน?",
+      "a": "ด่านสะพานมิตรภาพไทย-ลาว แห่งที่ 2 อยู่ห่างตัวเมืองราว 10 กม. · ถ้าขับรถมาแวะพักและออกเช้าข้ามด่าน <strong>Hop Inn Mukdahan</strong> อยู่ฝั่งถนนเลี่ยงเมืองใกล้สะพานที่สุด ห้องสะอาด ที่จอดรถฟรี · ถ้าอยากนอนใจกลางเมืองใกล้ตลาดแล้วค่อยขับไปด่าน เลือก <strong>Ploy Palace</strong>, <strong>Hotel Muq</strong> หรือ <strong>Bird Day</strong> ที่ห่างด่านราว 10–15 นาทีรถ"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมมุกดาหารล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วง <strong>เทศกาลและวันหยุดยาว</strong> รวมถึงช่วงมีงานหรือประชุมในเมือง ที่พักริมโขงและในเมืองเต็มเร็วมากและราคาขยับขึ้น ควรจองล่วงหน้าหลายสัปดาห์และล็อกราคาแบบยกเลิกฟรีไว้ก่อน โดยเฉพาะรีสอร์ตเล็กอย่าง Nawiengkae ที่มีแค่ 12 ห้อง"
+    },
+    {
+      "q": "❓ โรงแรมมุกดาหารมีที่จอดรถฟรีไหม?",
+      "a": "ส่วนใหญ่มี · มุกดาหารเป็นเมืองที่คนนิยมขับรถมาเอง โรงแรมในบทความนี้เกือบทุกแห่งมี <strong>ที่จอดรถฟรี</strong> เช่น Hotel de Ladda, Riverfront, Vieng Khong (มีจุดชาร์จ EV), Ploy Palace, Kiengpiman, Hotel Muq (มีจุดชาร์จ EV), Bird Day, Hop Inn และ Kim Jek Cin 2 (ลานกว้าง) · เมืองไม่มีรถไฟฟ้า ใช้ Grab หรือรถรับจ้างก็สะดวก"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมมุกดาหารจากทุกระดับ — ตั้งแต่ Hotel de Ladda 4 ดาวริมโขงห้องวิวแม่น้ำ ไปถึง Kim Jek Cin 2 หลักร้อยใจกลางเมือง · คัดจากเสียงรีวิวจริง ราคาจริง เทียบ 3 เว็บ ลิงก์จองตรง"
 }

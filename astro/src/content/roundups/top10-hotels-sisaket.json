@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "ศรีสะเกษ", "href": "city-sisaket.html" },
-    { "name": "12 โรงแรมศรีสะเกษยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "ศรีสะเกษ",
+      "href": "city-sisaket.html"
+    },
+    {
+      "name": "12 โรงแรมศรีสะเกษยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "ศรีสะเกษ", "item": "https://thailandaddict.com/city-sisaket" },
-    { "name": "12 โรงแรมศรีสะเกษยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-sisaket" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "ศรีสะเกษ",
+      "item": "https://thailandaddict.com/city-sisaket"
+    },
+    {
+      "name": "12 โรงแรมศรีสะเกษยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-sisaket"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-sisaket.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "ศรีสะเกษไม่มีรถไฟฟ้า การเดินทางใช้รถยนต์เป็นหลัก แต่ตัวเมืองเล็กพอที่จะเดินเที่ยวในย่านกลางเมืองได้ · ที่พัก <strong>ใจกลางเมือง (รอบตลาดเทศบาล-วัดพระโต-สวนสมเด็จฯ)</strong> หลายแห่งเดินถึงวัด ตลาด และร้านอาหารได้ เหมาะคนที่อยากเที่ยวในเมือง · ที่พัก <strong>ใกล้สถานีรถไฟศรีสะเกษ</strong> เหมาะคนมาด้วยรถไฟ ลงจากสถานีเดินถึงที่พักได้ ไม่ต้องต่อรถ · ส่วน <strong>รอบห้วยน้ำคำและสถานแสดงพันธุ์สัตว์น้ำ</strong> เกือบทุกแห่งสะดวกกว่าถ้ามีรถส่วนตัว เพราะอยู่ขอบเมือง · ใครจะขึ้น <strong>เขาพระวิหาร-ผามออีแดง</strong> พักฝั่งกันทรลักษ์จะใกล้กว่า (จากตัวเมืองศรีสะเกษราว 1.5 ชั่วโมงรถ) · ทำเลในบทความนี้: <strong>ใจกลางเมือง</strong> — วัด ตลาด ของกิน · <strong>ใกล้สถานีรถไฟ</strong> — มาด้วยรถไฟสะดวก · <strong>ห้วยน้ำคำ/นอกเมือง</strong> — เงียบ จอดรถสบาย · <strong>กันทรลักษ์</strong> — ฐานขึ้นเขาพระวิหาร",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Gallery Design Hotel Sisaket", "price": "฿1,000" },
-    { "n": "2", "color": "#c8a951", "name": "Boonsiri Boutique Hotel", "price": "฿450" },
-    { "n": "3", "color": "#c8a951", "name": "B2 Sisaket Boutique & Budget Hotel", "price": "฿461" },
-    { "n": "4", "color": "#9e9e9e", "name": "Tree House Hotel Sisaket", "price": "฿520" },
-    { "n": "5", "color": "#9e9e9e", "name": "Vijit Nakorn Hotel Sisaket", "price": "฿650" },
-    { "n": "6", "color": "#9e9e9e", "name": "Sisaket PonTaWin Budget Inn", "price": "฿420" },
-    { "n": "7", "color": "#9e9e9e", "name": "Si Lamduan Hotel Sisaket", "price": "฿1,100" },
-    { "n": "8", "color": "#bf8040", "name": "Pornsiri Hotel Sisaket", "price": "฿500" },
-    { "n": "9", "color": "#bf8040", "name": "Kessiri Hotel Sisaket", "price": "฿500" },
-    { "n": "10", "color": "#5d4037", "name": "U See Ged Resort Sisaket", "price": "฿600" },
-    { "n": "11", "color": "#5d4037", "name": "The Impress Sisaket Hotel", "price": "฿450" },
-    { "n": "12", "color": "#5d4037", "name": "Prasobsuk Ville Hotel Kantharalak", "price": "฿530" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Gallery Design Hotel Sisaket",
+      "price": "฿1,000"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Boonsiri Boutique Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "B2 Sisaket Boutique & Budget Hotel",
+      "price": "฿461"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Tree House Hotel Sisaket",
+      "price": "฿520"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Vijit Nakorn Hotel Sisaket",
+      "price": "฿650"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Sisaket PonTaWin Budget Inn",
+      "price": "฿420"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Si Lamduan Hotel Sisaket",
+      "price": "฿1,100"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Pornsiri Hotel Sisaket",
+      "price": "฿500"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Kessiri Hotel Sisaket",
+      "price": "฿500"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "U See Ged Resort Sisaket",
+      "price": "฿600"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "The Impress Sisaket Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Prasobsuk Ville Hotel Kantharalak",
+      "price": "฿530"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿1,000",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Twin", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "Deluxe King", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Exclusive Room", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Superior Twin",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe King",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Exclusive Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/gallery-design-hotel-sisaket/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/gallery-design.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-7614497/gallery-design-hotel-sisaket/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-gallery-design-hotel-sisaket.html",
-      "tags": ["🎨 บูทีกมีดีไซน์ 28 ห้อง", "🏊 สระว่ายน้ำ + อาหารเช้าบุฟเฟ่ต์", "🚆 ใกล้สถานีรถไฟศรีสะเกษ", "🔌 จุดชาร์จ EV · SHA Extra Plus"],
+      "tags": [
+        "🎨 บูทีกมีดีไซน์ 28 ห้อง",
+        "🏊 สระว่ายน้ำ + อาหารเช้าบุฟเฟ่ต์",
+        "🚆 ใกล้สถานีรถไฟศรีสะเกษ",
+        "🔌 จุดชาร์จ EV · SHA Extra Plus"
+      ],
       "addr": "1199 ถนนอุบล ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Gallery Design Hotel คือ <strong>คะแนนสูงสุดในกลุ่มนี้ — 9.4 จาก 48 รีวิว และได้มาตรฐาน SHA Extra Plus</strong> · เป็นบูทีกโฮเทลขนาด 28 ห้องบนถนนอุบล กลางเมืองและใกล้สถานีรถไฟ จุดที่คนพักชมตรงกันคืองานดีไซน์ที่เด่นกว่าโรงแรมในเมืองทั่วไป ห้องสะอาด เตียงนุ่ม และมีสระว่ายน้ำกับอาหารเช้าบุฟเฟ่ต์ ซึ่งหาได้ยากในที่พักระดับนี้ที่ศรีสะเกษ · มีจุดชาร์จรถไฟฟ้าให้ด้วย · ข้อแลกเปลี่ยนคือเป็นโรงแรมเล็ก ห้องยอดนิยมเต็มเร็ว และราคาเริ่มสูงกว่าที่พักประหยัดในเมือง · เหมาะกับคนที่อยากได้ที่พักมีดีไซน์และสิ่งอำนวยความสะดวกครบในเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> โรงแรมเล็กแค่ 28 ห้องและคะแนนสูง ห้องเต็มเร็ว ควรจองล่วงหน้าโดยเฉพาะวันหยุด · ถ้ามาด้วยรถไฟ ที่นี่อยู่ใกล้สถานี เดินทางเข้าออกสะดวก · เลือกเรตที่รวมอาหารเช้าบุฟเฟ่ต์ไว้ เพราะเป็นจุดที่คนพักพูดถึงบ่อย",
@@ -104,15 +201,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Queen (ชั้น 3)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Standard Queen (ชั้น 4 มีระเบียง)", "price": "เริ่ม ฿520/คืน" },
-        { "type": "Deluxe Corner", "price": "เริ่ม ฿650/คืน" }
+        {
+          "type": "Standard Queen (ชั้น 3)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Standard Queen (ชั้น 4 มีระเบียง)",
+          "price": "เริ่ม ฿520/คืน"
+        },
+        {
+          "type": "Deluxe Corner",
+          "price": "เริ่ม ฿650/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/boonsiri-boutique-hotel/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/boonsiri-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-3698878/boonsiri-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-boonsiri-boutique-hotel-sisaket.html",
-      "tags": ["🌸 บูทีกสีชมพูทั้งหลัง 63 ห้อง", "🚶 เดินถึงสถานแสดงพันธุ์สัตว์น้ำ", "🛏️ ห้องสะอาด บางห้องมีระเบียง", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌸 บูทีกสีชมพูทั้งหลัง 63 ห้อง",
+        "🚶 เดินถึงสถานแสดงพันธุ์สัตว์น้ำ",
+        "🛏️ ห้องสะอาด บางห้องมีระเบียง",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "1191/3 ถนนวิจิตรนคร ตำบลเมืองเหนือ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Boonsiri Boutique Hotel คือ <strong>บูทีกสีชมพูที่คะแนนสูงและรีวิวเยอะที่สุดแห่งหนึ่งในกลุ่ม — 9.2 จาก 165 รีวิว</strong> · เป็นโรงแรม 63 ห้องย่านห้วยน้ำคำ เดินถึงสถานแสดงพันธุ์สัตว์น้ำศรีสะเกษได้ จุดเด่นคือทั้งตัวอาคารทาโทนสีชมพูสดใส ถ่ายรูปสวย ห้องสะอาด เตียงนุ่ม บางห้องมีระเบียงส่วนตัว และราคาเริ่มเพียงหลักร้อย ถือว่าคุ้มมากสำหรับที่พัก 4 ดาว · มีที่จอดรถฟรี · ข้อแลกเปลี่ยนคืออยู่ฝั่งห้วยน้ำคำ ไม่ได้อยู่ใจกลางเมือง ถ้าไม่มีรถจะหาของกินตอนกลางคืนลำบากกว่า และห้องชั้น 3 ไม่มีระเบียง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าอยากได้ระเบียงส่วนตัว ขอห้องชั้น 4 ตอนจอง เพราะห้องชั้น 3 ไม่มี · ที่นี่เดินถึงสถานแสดงพันธุ์สัตว์น้ำได้ เหมาะพาเด็กมาเที่ยว · มีที่จอดรถฟรี เหมาะคนขับรถมาเอง ส่วนคนไม่มีรถควรเผื่อค่ารถเข้าเมืองตอนกลางคืน",
@@ -144,15 +255,29 @@
       "priceBig": "฿461",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Premier", "price": "เริ่ม ฿461/คืน" },
-        { "type": "Deluxe Triple", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Family Suite", "price": "เริ่ม ฿850/คืน" }
+        {
+          "type": "Superior Premier",
+          "price": "เริ่ม ฿461/คืน"
+        },
+        {
+          "type": "Deluxe Triple",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Family Suite",
+          "price": "เริ่ม ฿850/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/b2-sisaket-boutique-budget-hotel/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/b2-sisaket-boutique-budget.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-130009665/b2-sisaket-boutique-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-b2-boutique-budget-hotel-sisaket.html",
-      "tags": ["🏨 เครือ B2 Hotel มาตรฐานเดียวกัน", "✨ เปิดใหม่ปี 2025 ห้องสะอาด", "🚆 ใกล้สถานีรถไฟ · มีลิฟต์", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🏨 เครือ B2 Hotel มาตรฐานเดียวกัน",
+        "✨ เปิดใหม่ปี 2025 ห้องสะอาด",
+        "🚆 ใกล้สถานีรถไฟ · มีลิฟต์",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "1102-05 ถนนขุขันธ์ ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "B2 Sisaket คือ <strong>บัดเจ็ตโฮเทลในเครือ B2 ที่เปิดใหม่ปี 2025 และมีรีวิวมากที่สุดในกลุ่มนี้ — 169 รีวิว คะแนน 8.7</strong> · จุดเด่นของเครือ B2 คือทุกสาขาห้องมาตรฐานเหมือนกัน สะอาด เรียบ ใช้งานได้จริง ไม่ต้องลุ้น · เป็นอาคารใหม่บนถนนขุขันธ์ กลางเมืองและใกล้สถานีรถไฟ มีลิฟต์และที่จอดรถฟรี ราคาเริ่มเพียง ฿461 ถือว่าถูกและคุ้มสำหรับห้องใหม่ · ข้อแลกเปลี่ยนคือเป็นโรงแรมเน้นห้องพักล้วน ไม่มีสระว่ายน้ำ และบางเรตไม่รวมอาหารเช้า · เหมาะมากกับนักเดินทางงบประหยัดและคนมาด้วยรถไฟ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เพิ่งเปิดปี 2025 ห้องยังใหม่ ขอชั้นสูงจะได้วิวและเงียบกว่า · มาด้วยรถไฟสะดวกเพราะอยู่ใกล้สถานี · เช็กตอนจองว่าเรตที่เลือกรวมอาหารเช้าหรือไม่ ถ้าไม่รวมเดินออกไปหาร้านในเมืองได้",
@@ -184,15 +309,29 @@
       "priceBig": "฿520",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "เริ่ม ฿520/คืน" },
-        { "type": "Deluxe Double (แยกโซนเปียก-แห้ง)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Villa Room (อ่างอาบน้ำ วิวสวน)", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿520/คืน"
+        },
+        {
+          "type": "Deluxe Double (แยกโซนเปียก-แห้ง)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Villa Room (อ่างอาบน้ำ วิวสวน)",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tree-house-hotel/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tree-house-sisaket.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-9569688/tree-house-hotel-sisaket/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tree-house-hotel-sisaket.html",
-      "tags": ["🌳 ดีไซน์ไม้ ต้นไม้ใหญ่ในสวน", "🏊 สระว่ายน้ำ 30 ห้อง", "🛁 ห้อง Villa มีอ่างอาบน้ำ", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🌳 ดีไซน์ไม้ ต้นไม้ใหญ่ในสวน",
+        "🏊 สระว่ายน้ำ 30 ห้อง",
+        "🛁 ห้อง Villa มีอ่างอาบน้ำ",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "43/25 ตำบลหนองครก อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Tree House Hotel คือ <strong>บูทีกรีสอร์ทกลางเมืองธีมบ้านต้นไม้ที่คนพักชมเรื่องบรรยากาศ — 8.7 จาก 24 รีวิว และบริการ 8.8</strong> · เป็นที่พัก 30 ห้องย่านหนองครก จุดเด่นคืองานออกแบบใช้ไม้และต้นไม้ใหญ่ในสวน ให้ฟีลรีสอร์ตเล็กๆ ทั้งที่อยู่ในเมือง มีสระว่ายน้ำ และห้องระดับ Villa มีอ่างอาบน้ำกับวิวสวน · ห้อง Deluxe แยกโซนเปียก-แห้งและมีระเบียงกว้าง · ข้อแลกเปลี่ยนคือรีวิวยังไม่มากนัก และตัวที่พักอยู่ในย่านที่ต้องใช้รถเข้าออกเมือง · เหมาะกับคู่รักและคนที่อยากได้บรรยากาศมากกว่าที่ซุกหัวนอน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้ามาฉลองโอกาสพิเศษ ขอห้อง Villa ที่มีอ่างอาบน้ำและวิวสวน เป็นห้องที่คนพักชอบที่สุด · ลงสระช่วงเย็นบรรยากาศสวนกำลังดี · มีที่จอดรถฟรี เหมาะคนขับรถมาเอง",
@@ -224,15 +363,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double/Twin", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Superior Double (วิวสวน/วิวสระ)", "price": "เริ่ม ฿850/คืน" },
-        { "type": "VIP Room (ของใช้ครบ)", "price": "เริ่ม ฿1,500/คืน" }
+        {
+          "type": "Standard Double/Twin",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Superior Double (วิวสวน/วิวสระ)",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "VIP Room (ของใช้ครบ)",
+          "price": "เริ่ม ฿1,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/vijit-nakorn-hotel/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/vijit-nakorn.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-100659039/vijit-nakorn-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-vijit-nakorn-hotel-sisaket.html",
-      "tags": ["🌿 โอเอซิสในสวนกลางเมือง", "🎨 24 ห้องตกแต่งมีธีมไม่ซ้ำ", "🏊 สระว่ายน้ำ + สระเด็ก", "🚶 เดินถึงตลาดในเมือง"],
+      "tags": [
+        "🌿 โอเอซิสในสวนกลางเมือง",
+        "🎨 24 ห้องตกแต่งมีธีมไม่ซ้ำ",
+        "🏊 สระว่ายน้ำ + สระเด็ก",
+        "🚶 เดินถึงตลาดในเมือง"
+      ],
       "addr": "1478/4 ถนนวิจิตรนคร ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Vijit Nakorn Hotel คือ <strong>บูทีกในสวนกลางเมืองที่คนพักจำได้เรื่องบรรยากาศ — 8.3 จาก 120 รีวิว คะแนนบรรยากาศสูงถึง 8.7</strong> · เป็นโรงแรม 24 ห้องบนถนนวิจิตรนคร จุดที่ต่างจากที่พักในเมืองทั่วไปคือถูกออกแบบเป็นโรงแรมในสวน อาคารล้อมรอบต้นไม้ร่มรื่น แต่ละห้องตกแต่งมีธีมไม่ซ้ำกัน และมีสระว่ายน้ำกับสระเด็กในมุมสวน · ทำเลใจกลางเมือง เดินถึงตลาดและร้านอาหารได้ · ข้อแลกเปลี่ยนตามรีวิวจริงคืออาคารเริ่มมีอายุ งานบำรุงรักษาไม่สม่ำเสมอทุกห้อง และสระค่อนข้างเล็ก · เหมาะกับคู่รักและครอบครัวที่อยากให้ที่พักมีบรรยากาศ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้างบพอ ขอห้อง VIP หรือห้องที่เพิ่งปรับปรุง ของใช้ครบและสภาพใหม่กว่าห้องมาตรฐานชัดเจน · แต่ละห้องตกแต่งต่างกันมาก ลองขอดูภาพห้องก่อนจอง · มากับเด็กให้ลงสระช่วงเช้าหรือเย็นก่อนคนเยอะ เพราะสระเล็ก",
@@ -264,15 +417,29 @@
       "priceBig": "฿420",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Queen Room", "price": "เริ่ม ฿420/คืน" },
-        { "type": "Queen Room (มีระเบียง)", "price": "เริ่ม ฿520/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿720/คืน" }
+        {
+          "type": "Queen Room",
+          "price": "เริ่ม ฿420/คืน"
+        },
+        {
+          "type": "Queen Room (มีระเบียง)",
+          "price": "เริ่ม ฿520/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿720/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pontawin-budget-hotel-h62802878/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermphrthwil-105945.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-114519659/pontawin-budget-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pontawin-budget-inn-sisaket.html",
-      "tags": ["💸 ราคาถูกที่สุดในบทความ ฿420", "🚆 เดินถึงสถานีรถไฟศรีสะเกษ", "🛏️ 32 ห้อง ห้องน้ำในตัว", "🅿️ Wi-Fi-ที่จอดรถฟรี"],
+      "tags": [
+        "💸 ราคาถูกที่สุดในบทความ ฿420",
+        "🚆 เดินถึงสถานีรถไฟศรีสะเกษ",
+        "🛏️ 32 ห้อง ห้องน้ำในตัว",
+        "🅿️ Wi-Fi-ที่จอดรถฟรี"
+      ],
       "addr": "147/5 ถนนศรีสะเกษ ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Sisaket PonTaWin Budget Inn คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿420 แต่เดินจากสถานีรถไฟถึงได้</strong> คะแนน 8.5 จาก 11 รีวิว · เป็นที่พักประหยัด 32 ห้องบนถนนศรีสะเกษ ใจกลางเมือง จุดเด่นคือทำเลที่เดินถึงสถานีรถไฟ ทุกห้องมีแอร์ ทีวีจอแบน และห้องน้ำในตัว บางห้องมีระเบียงเล็ก · มี Wi-Fi และที่จอดรถฟรี · ข้อแลกเปลี่ยนคือเป็นที่พักประหยัด สิ่งอำนวยความสะดวกพื้นฐาน ไม่มีสระว่ายน้ำหรืออาหารเช้า และรีวิวยังไม่มากเพราะเป็นที่พักเล็ก · เหมาะมากกับนักเดินทางงบประหยัดและคนมาด้วยรถไฟ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ลงจากสถานีรถไฟศรีสะเกษเดินถึงที่พักได้ ไม่ต้องเรียกรถ เหมาะมากถ้ามาเที่ยวแบบไม่มีรถส่วนตัว · อยากได้บรรยากาศโล่งขึ้นเพิ่มไม่กี่บาทขอห้องที่มีระเบียง · รอบที่พักมีร้านอาหารในเมืองเดินถึง หากินมื้อเช้าและเย็นได้",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Superior Twin", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/srilamduan-hotel/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/srilamduan-si-sa-ket.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-8413852/srilamduan-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-si-lamduan-hotel-sisaket.html",
-      "tags": ["🏊 มีสระว่ายน้ำ ราว 90 ห้อง", "🏨 โรงแรมเต็มรูปแบบในเมือง", "🅿️ ที่จอดรถฟรี", "🚆 3 กม. จากสถานีรถไฟ"],
+      "tags": [
+        "🏊 มีสระว่ายน้ำ ราว 90 ห้อง",
+        "🏨 โรงแรมเต็มรูปแบบในเมือง",
+        "🅿️ ที่จอดรถฟรี",
+        "🚆 3 กม. จากสถานีรถไฟ"
+      ],
       "addr": "155/5 ถนนโยธาธิการ ตำบลเมืองเหนือ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Si Lamduan Hotel (โรงแรมศรีลำดวน) คือ <strong>โรงแรมเต็มรูปแบบกลางเมืองที่จุดขายคือมีสระว่ายน้ำ ซึ่งหาได้ไม่มากในศรีสะเกษ</strong> คะแนน 8.3 จาก 41 รีวิว · เป็นโรงแรมขนาดราว 90 ห้องบนถนนโยธาธิการ ใจกลางเมือง มีสระว่ายน้ำ ห้องอาหาร และที่จอดรถฟรี เหมาะกับคนที่อยากได้สิ่งอำนวยความสะดวกครบแบบโรงแรมใหญ่ในเมือง · ห่างสถานีรถไฟราว 3 กม. · ข้อแลกเปลี่ยนคือเป็นโรงแรมรุ่นที่เริ่มมีอายุ สภาพห้องไม่สม่ำเสมอทั้งตึก และราคาเริ่มสูงกว่าที่พักประหยัดในเมือง · เหมาะกับครอบครัวและคนที่ต้องการสระว่ายน้ำกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่ปรับปรุงแล้วตอนจอง เพราะสภาพห้องในตึกไม่เท่ากันทุกห้อง · ถ้าตั้งใจมาว่ายน้ำ โทรเช็กกับโรงแรมก่อนว่าสระเปิดปกติ · เป็นโรงแรมใหญ่กลางเมือง เหมาะใช้เป็นฐานเที่ยวเมืองและขับรถไปจุดต่างๆ",
@@ -344,15 +525,29 @@
       "priceBig": "฿500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double (มีระเบียง)", "price": "เริ่ม ฿500/คืน" },
-        { "type": "Standard Twin (มีระเบียง)", "price": "เริ่ม ฿550/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿650/คืน" }
+        {
+          "type": "Standard Double (มีระเบียง)",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "Standard Twin (มีระเบียง)",
+          "price": "เริ่ม ฿550/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿650/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/pornsiri-hotel-sisaket_2/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-pornsiri-hotel-sisaket.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotels/?keyword=Pornsiri%20Hotel%20Sisaket&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pornsiri-hotel-sisaket.html",
-      "tags": ["🛏️ 51 ห้องสไตล์ลอฟต์", "📊 รีวิวมากที่สุดในกลุ่ม 320", "🪟 ทุกห้องมีระเบียง", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🛏️ 51 ห้องสไตล์ลอฟต์",
+        "📊 รีวิวมากที่สุดในกลุ่ม 320",
+        "🪟 ทุกห้องมีระเบียง",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "249 หมู่ 8 ตำบลโพธิ์ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Pornsiri Hotel คือ <strong>โรงแรมในเมืองสไตล์ลอฟต์ที่มีรีวิวมากที่สุดในกลุ่มนี้ — 320 รีวิว คะแนน 7.8</strong> · เป็นโรงแรม 51 ห้องย่านตำบลโพธิ์ ใกล้มหาวิทยาลัยราชภัฏศรีสะเกษ จุดเด่นคือห้องตกแต่งสไตล์ลอฟต์ปูนเปลือยโทนสีสด ทุกห้องมีระเบียง และราคาเริ่มเพียงหลักร้อย จึงเป็นที่พักที่คนเดินทางในเมืองเลือกบ่อย · มีที่จอดรถฟรี · ข้อแลกเปลี่ยนตามเสียงรีวิวคือเรื่องความสะอาดและการบำรุงรักษาไม่สม่ำเสมอทุกห้อง คะแนนจึงอยู่กลางๆ · เหมาะกับคนที่เน้นราคาประหยัดและชอบสไตล์ลอฟต์ในเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Superior ที่กว้างและสภาพดีกว่าห้อง Standard ส่วนต่างไม่กี่ร้อยบาท · ทุกห้องมีระเบียง ขอห้องที่หันออกมุมโล่งจะได้บรรยากาศดีกว่า · ที่จอดรถฟรี เหมาะคนขับรถมาเอง",
@@ -384,15 +579,29 @@
       "priceBig": "฿500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Double", "price": "เริ่ม ฿500/คืน" },
-        { "type": "Deluxe (ปรับปรุงใหม่)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "ห้องพักหลายคน", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Deluxe Double",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "Deluxe (ปรับปรุงใหม่)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "ห้องพักหลายคน",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kessiri-hotel_2/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kessiri.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-11025497/kessiri-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kessiri-hotel-sisaket.html",
-      "tags": ["🍽️ ร้านอาหารในตัว 50 ห้อง", "🚶 ใกล้สถานแสดงพันธุ์สัตว์น้ำ 1 กม.", "🛏️ มีห้องปรับปรุงใหม่ให้เลือก", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🍽️ ร้านอาหารในตัว 50 ห้อง",
+        "🚶 ใกล้สถานแสดงพันธุ์สัตว์น้ำ 1 กม.",
+        "🛏️ มีห้องปรับปรุงใหม่ให้เลือก",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "1102-05 ถนนขุขันธ์ ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "Kessiri Hotel (โรงแรมเกษศิริ) คือ <strong>โรงแรมระดับกลางย่านห้วยน้ำคำที่เด่นเรื่องมีร้านอาหารในตัวและที่จอดรถฟรี</strong> คะแนน 7.7 จาก 127 รีวิว · เป็นโรงแรม 50 ห้องบนถนนขุขันธ์ ห่างสถานแสดงพันธุ์สัตว์น้ำราว 1 กม. จุดที่สะดวกคือมีร้านอาหารในโรงแรม ไม่ต้องออกไปไกลตอนกลางคืน และมีห้องที่ปรับปรุงใหม่ให้เลือกในราคาเพิ่มไม่มาก · ข้อแลกเปลี่ยนคือเป็นโรงแรมรุ่นเก่า สภาพห้องมาตรฐานกับห้องปรับปรุงใหม่ต่างกันชัด คะแนนจึงอยู่กลางๆ · เหมาะกับคนขับรถมาเองที่อยากได้ที่พักมีร้านอาหารและจอดรถสะดวก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอ \"ห้องที่ปรับปรุงใหม่\" ตอนจอง เพราะสภาพดีกว่าห้องมาตรฐานชัดเจน ส่วนต่างไม่กี่ร้อยบาท · มีร้านอาหารในตัว สะดวกมื้อเย็น · เดินถึงสถานแสดงพันธุ์สัตว์น้ำได้ เหมาะพาเด็กมาเที่ยว",
@@ -424,15 +633,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Deluxe (วิวสวน)", "price": "เริ่ม ฿800/คืน" },
-        { "type": "ห้องครอบครัว", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Deluxe (วิวสวน)",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "ห้องครอบครัว",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/u-siket-resort/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/u-siket-resort.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-9569691/u-siket-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-u-see-ged-resort-sisaket.html",
-      "tags": ["🏊 สระว่ายน้ำ 13 ห้อง", "🌳 สวนร่มรื่น เงียบสงบ", "🍽️ ร้านอาหารในตัว", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🏊 สระว่ายน้ำ 13 ห้อง",
+        "🌳 สวนร่มรื่น เงียบสงบ",
+        "🍽️ ร้านอาหารในตัว",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "375 หมู่ 3 ตำบลหนองไผ่ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "U See Ged Resort (รีสอร์ตอยู่ศรีเกษ) คือ <strong>รีสอร์ตเล็กย่านห้วยน้ำคำที่มีสระว่ายน้ำและสวนร่มรื่น</strong> คะแนน 7.4 จาก 58 รีวิว · เป็นรีสอร์ตขนาด 13 ห้องในตำบลหนองไผ่ ฝั่งใกล้ห้วยน้ำคำ จุดเด่นคือบรรยากาศสวนเงียบสงบ มีสระว่ายน้ำและร้านอาหารในตัว เหมาะคนขับรถเที่ยวที่อยากพักนอกความวุ่นวาย · ข้อแลกเปลี่ยนคือทำเลอยู่นอกเมือง ต้องมีรถส่วนตัว สภาพห้องและการบำรุงรักษาไม่สม่ำเสมอ คะแนนจึงอยู่กลางๆ · เหมาะกับครอบครัวและคนขับรถมาเองที่อยากได้บรรยากาศรีสอร์ตในราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Deluxe วิวสวนที่กว้างและสภาพดีกว่าห้อง Standard · ที่นี่อยู่นอกเมือง มีรถส่วนตัวจะสะดวกที่สุด · ลงสระและนั่งเล่นในสวนช่วงเย็นเป็นบรรยากาศที่คนพักชอบ",
@@ -464,15 +687,29 @@
       "priceBig": "฿450",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Classic Double (เตียงคิง)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Classic Twin (เตียงคู่)", "price": "เริ่ม ฿490/คืน" },
-        { "type": "Superior (เตียงคิง)", "price": "เริ่ม ฿550/คืน" }
+        {
+          "type": "Classic Double (เตียงคิง)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Classic Twin (เตียงคู่)",
+          "price": "เริ่ม ฿490/คืน"
+        },
+        {
+          "type": "Superior (เตียงคิง)",
+          "price": "เริ่ม ฿550/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-impress-sisaket/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-impress-sisaket.html",
       "tripUrl": "https://www.trip.com/hotels/sisaket-hotel-detail-3720591/the-impress-sisaket/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-impress-hotel-sisaket.html",
-      "tags": ["🍳 อาหารเช้าฟรี 28 ห้อง", "🐾 รับสัตว์เลี้ยง", "🚶 ใจกลางเมือง ถนนศรีสุมังค์", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🍳 อาหารเช้าฟรี 28 ห้อง",
+        "🐾 รับสัตว์เลี้ยง",
+        "🚶 ใจกลางเมือง ถนนศรีสุมังค์",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "1542/54 ถนนศรีสุมังค์ ตำบลเมืองใต้ อำเภอเมืองศรีสะเกษ",
       "storyHtml": "The Impress Sisaket Hotel คือ <strong>โรงแรมเล็กกลางเมืองที่เด่นเรื่องอาหารเช้าฟรีและรับสัตว์เลี้ยง</strong> คะแนน 7.3 จาก 39 รีวิว · เป็นโรงแรม 28 ห้องบนถนนศรีสุมังค์ ใจกลางเมือง จุดที่ต่างจากที่อื่นคือรับสัตว์เลี้ยงเข้าพัก ซึ่งหายากในศรีสะเกษ มีอาหารเช้าฟรี ห้องราว 28 ตร.ม. และที่จอดรถฟรี · มีห้องพักรายเดือนสำหรับคนพักยาวด้วย · ข้อแลกเปลี่ยนคือเป็นโรงแรมเล็กที่สภาพห้องและการบำรุงรักษาไม่สม่ำเสมอ คะแนนจึงอยู่กลางๆ · เหมาะกับคนที่พาสัตว์เลี้ยงมาด้วย คนที่อยากได้อาหารเช้าฟรีกลางเมือง และคนที่พักยาว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าพาสัตว์เลี้ยงมา แจ้งโรงแรมตอนจองเพื่อยืนยันเงื่อนไข · พักยาวหลายคืนถามเรตรายเดือนได้ ประหยัดกว่าจองรายวัน · อยู่ใจกลางเมือง เดินหาของกินและร้านกาแฟได้สะดวก",
@@ -504,15 +741,29 @@
       "priceBig": "฿530",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿530/คืน" },
-        { "type": "Standard (เตียงแฝด)", "price": "เริ่ม ฿560/คืน" },
-        { "type": "VIP ห้องใหญ่", "price": "เริ่ม ฿750/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿530/คืน"
+        },
+        {
+          "type": "Standard (เตียงแฝด)",
+          "price": "เริ่ม ฿560/คืน"
+        },
+        {
+          "type": "VIP ห้องใหญ่",
+          "price": "เริ่ม ฿750/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/prasobsuk-ville-hotel-kantharalak-h55806197/hotel/sisaket-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Prasobsuk+Ville+Hotel+Kantharalak",
       "tripUrl": "https://th.trip.com/hotels/kantharalak-hotel-detail-81263208/prasobsuk-ville-hotel-kantharalak/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-prasobsuk-ville-kantharalak-sisaket.html",
-      "tags": ["⛰️ ฐานขึ้นเขาพระวิหาร-ผามออีแดง", "🏘️ อำเภอกันทรลักษ์ · ใกล้กันทรลักษ์พลาซ่า", "🅿️ ที่จอดรถ · รปภ. 24 ชม.", "🛏️ มีห้อง Standard และ VIP"],
+      "tags": [
+        "⛰️ ฐานขึ้นเขาพระวิหาร-ผามออีแดง",
+        "🏘️ อำเภอกันทรลักษ์ · ใกล้กันทรลักษ์พลาซ่า",
+        "🅿️ ที่จอดรถ · รปภ. 24 ชม.",
+        "🛏️ มีห้อง Standard และ VIP"
+      ],
       "addr": "131/35 หมู่ 5 ตำบลน้ำอ้อม อำเภอกันทรลักษ์",
       "storyHtml": "Prasobsuk Ville Hotel คือ <strong>โรงแรมในอำเภอกันทรลักษ์ที่เหมาะใช้เป็นฐานขึ้นเขาพระวิหารและผามออีแดง</strong> คะแนน 7.4 จาก 9 รีวิว · เป็นโรงแรมระดับกลางในตำบลน้ำอ้อม ใกล้กันทรลักษ์พลาซ่า จุดเด่นคือทำเลอยู่ฝั่งกันทรลักษ์ ใกล้ทางขึ้นอุทยานเขาพระวิหารกว่าตัวเมืองศรีสะเกษมาก เหมาะคนที่ตั้งใจมาเที่ยวฝั่งนี้โดยเฉพาะ มีห้อง Standard และ VIP ที่จอดรถ และ รปภ. 24 ชม. · ข้อแลกเปลี่ยนคือไม่ได้อยู่ในตัวเมืองศรีสะเกษ รีวิวยังน้อยเพราะเป็นที่พักเล็ก และสิ่งอำนวยความสะดวกพื้นฐาน · เหมาะกับคนขับรถมาเที่ยวเขาพระวิหารและคนที่มาติดต่อธุระในกันทรลักษ์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าตั้งใจขึ้นเขาพระวิหารหรือผามออีแดง พักฝั่งกันทรลักษ์จะออกเดินทางเช้าได้สะดวกกว่าพักในเมืองศรีสะเกษ · มากันหลายคนหรืออยากได้ห้องกว้างขอห้อง VIP · มีรถส่วนตัวจะสะดวกที่สุดสำหรับทำเลนี้",
@@ -530,39 +781,214 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรม ศรีสะเกษ 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Gallery Design Hotel Sisaket", "type": "⭐⭐⭐", "score": "9.4", "price": "฿1,000", "access": "📍 กลางเมือง · ใกล้สถานีรถไฟ", "badge": "คะแนนสูงสุด มีสระ", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Boonsiri Boutique Hotel", "type": "⭐⭐⭐⭐", "score": "9.2", "price": "฿450", "access": "📍 ห้วยน้ำคำ · สถานแสดงพันธุ์สัตว์น้ำ", "badge": "บูทีกสีชมพู คุ้มราคา", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "B2 Sisaket Boutique & Budget", "type": "⭐⭐⭐", "score": "8.7", "price": "฿461", "access": "📍 กลางเมือง · ใกล้สถานีรถไฟ", "badge": "เครือ B2 เปิดใหม่ รีวิวมากสุด", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Tree House Hotel Sisaket", "type": "⭐⭐⭐", "score": "8.7", "price": "฿520", "access": "📍 หนองครก · ใจกลางเมือง", "badge": "บูทีกบ้านต้นไม้ มีสระ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Vijit Nakorn Hotel Sisaket", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿650", "access": "📍 ใจกลางเมือง · เดินถึงตลาด", "badge": "บูทีกในสวน มีสระ", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Sisaket PonTaWin Budget Inn", "type": "⭐⭐", "score": "8.5", "price": "฿420", "access": "📍 ในเมือง · เดินถึงสถานีรถไฟ", "badge": "ถูกสุด เดินถึงสถานีรถไฟ", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Si Lamduan Hotel Sisaket", "type": "⭐⭐⭐", "score": "8.3", "price": "฿1,100", "access": "📍 ใจกลางเมือง · ถนนโยธาธิการ", "badge": "โรงแรมกลางเมือง มีสระ", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Pornsiri Hotel Sisaket", "type": "⭐⭐⭐⭐", "score": "7.8", "price": "฿500", "access": "📍 ในเมือง · ใกล้ ม.ราชภัฏ", "badge": "ลอฟต์ราคาเป็นมิตร รีวิวมากสุด", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Kessiri Hotel Sisaket", "type": "⭐⭐⭐", "score": "7.7", "price": "฿500", "access": "📍 ขุขันธ์ · ห้วยน้ำคำ", "badge": "ร้านอาหารในตัว ที่จอดรถฟรี", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "U See Ged Resort Sisaket", "type": "⭐⭐⭐", "score": "7.4", "price": "฿600", "access": "📍 หนองไผ่ · รอบห้วยน้ำคำ", "badge": "รีสอร์ตมีสระ สวนร่มรื่น", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "The Impress Sisaket Hotel", "type": "⭐⭐⭐", "score": "7.3", "price": "฿450", "access": "📍 ใจกลางเมือง · ศรีสุมังค์", "badge": "อาหารเช้าฟรี รับสัตว์เลี้ยง", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Prasobsuk Ville Kantharalak", "type": "⭐⭐⭐", "score": "7.4", "price": "฿530", "access": "📍 กันทรลักษ์ · ใกล้เขาพระวิหาร", "badge": "ฐานขึ้นเขาพระวิหาร", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Gallery Design Hotel Sisaket",
+      "type": "⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,000",
+      "access": "📍 กลางเมือง · ใกล้สถานีรถไฟ",
+      "badge": "คะแนนสูงสุด มีสระ",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Boonsiri Boutique Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿450",
+      "access": "📍 ห้วยน้ำคำ · สถานแสดงพันธุ์สัตว์น้ำ",
+      "badge": "บูทีกสีชมพู คุ้มราคา",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "B2 Sisaket Boutique & Budget",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿461",
+      "access": "📍 กลางเมือง · ใกล้สถานีรถไฟ",
+      "badge": "เครือ B2 เปิดใหม่ รีวิวมากสุด",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Tree House Hotel Sisaket",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿520",
+      "access": "📍 หนองครก · ใจกลางเมือง",
+      "badge": "บูทีกบ้านต้นไม้ มีสระ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Vijit Nakorn Hotel Sisaket",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿650",
+      "access": "📍 ใจกลางเมือง · เดินถึงตลาด",
+      "badge": "บูทีกในสวน มีสระ",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Sisaket PonTaWin Budget Inn",
+      "type": "⭐⭐",
+      "score": "8.5",
+      "price": "฿420",
+      "access": "📍 ในเมือง · เดินถึงสถานีรถไฟ",
+      "badge": "ถูกสุด เดินถึงสถานีรถไฟ",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Si Lamduan Hotel Sisaket",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,100",
+      "access": "📍 ใจกลางเมือง · ถนนโยธาธิการ",
+      "badge": "โรงแรมกลางเมือง มีสระ",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Pornsiri Hotel Sisaket",
+      "type": "⭐⭐⭐⭐",
+      "score": "7.8",
+      "price": "฿500",
+      "access": "📍 ในเมือง · ใกล้ ม.ราชภัฏ",
+      "badge": "ลอฟต์ราคาเป็นมิตร รีวิวมากสุด",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Kessiri Hotel Sisaket",
+      "type": "⭐⭐⭐",
+      "score": "7.7",
+      "price": "฿500",
+      "access": "📍 ขุขันธ์ · ห้วยน้ำคำ",
+      "badge": "ร้านอาหารในตัว ที่จอดรถฟรี",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "U See Ged Resort Sisaket",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿600",
+      "access": "📍 หนองไผ่ · รอบห้วยน้ำคำ",
+      "badge": "รีสอร์ตมีสระ สวนร่มรื่น",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "The Impress Sisaket Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.3",
+      "price": "฿450",
+      "access": "📍 ใจกลางเมือง · ศรีสุมังค์",
+      "badge": "อาหารเช้าฟรี รับสัตว์เลี้ยง",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Prasobsuk Ville Kantharalak",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿530",
+      "access": "📍 กันทรลักษ์ · ใกล้เขาพระวิหาร",
+      "badge": "ฐานขึ้นเขาพระวิหาร",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมศรีสะเกษยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินถึงสถานีรถไฟ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 บูทีก 4 ดาวสีชมพู · หรือ <strong>B2 Sisaket</strong> ฿461 ห้องใหม่เครือ B2 เปิดปี 2025" },
-    { "icon": "🚆", "head": "มาด้วยรถไฟ ไม่มีรถ", "bodyHtml": "→ <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินจากสถานีรถไฟถึงได้ · หรือ <strong>B2 Sisaket</strong> ฿461 ใกล้สถานีรถไฟ · หรือ <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีดีไซน์ใกล้สถานี" },
-    { "icon": "✨", "head": "อยากได้บูทีกมีดีไซน์ คะแนนดี", "bodyHtml": "→ <strong>Gallery Design Hotel</strong> ฿1,000 คะแนนสูงสุด 9.4 มีสระ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 บูทีกสีชมพู 9.2 · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้" },
-    { "icon": "🏊", "head": "อยากได้สระว่ายน้ำ", "bodyHtml": "→ <strong>Gallery Design Hotel</strong> ฿1,000 มีสระและอาหารเช้าบุฟเฟ่ต์ · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกมีสระ · หรือ <strong>Si Lamduan Hotel</strong> ฿1,100 โรงแรมกลางเมืองมีสระ · หรือ <strong>Vijit Nakorn Hotel</strong> ฿650 บูทีกในสวนมีสระ" },
-    { "icon": "🐘", "head": "พาเด็กไปสถานแสดงพันธุ์สัตว์น้ำ", "bodyHtml": "→ <strong>Boonsiri Boutique Hotel</strong> ฿450 เดินถึงสถานแสดงพันธุ์สัตว์น้ำ · หรือ <strong>Kessiri Hotel</strong> ฿500 ใกล้ราว 1 กม. · หรือ <strong>U See Ged Resort</strong> ฿600 รีสอร์ตมีสระย่านห้วยน้ำคำ" },
-    { "icon": "🚗", "head": "ขับรถมาเอง อยากพักเงียบ จอดสบาย", "bodyHtml": "→ <strong>U See Ged Resort</strong> ฿600 รีสอร์ตสวนร่มรื่นย่านห้วยน้ำคำ · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 ที่จอดรถฟรี" },
-    { "icon": "⛰️", "head": "ตั้งใจขึ้นเขาพระวิหาร-ผามออีแดง", "bodyHtml": "→ <strong>Prasobsuk Ville Hotel Kantharalak</strong> ฿530 พักฝั่งกันทรลักษ์ ใกล้ทางขึ้นเขาพระวิหารกว่าตัวเมืองศรีสะเกษมาก" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินถึงสถานีรถไฟ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 บูทีก 4 ดาวสีชมพู · หรือ <strong>B2 Sisaket</strong> ฿461 ห้องใหม่เครือ B2 เปิดปี 2025"
+    },
+    {
+      "icon": "🚆",
+      "head": "มาด้วยรถไฟ ไม่มีรถ",
+      "bodyHtml": "→ <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินจากสถานีรถไฟถึงได้ · หรือ <strong>B2 Sisaket</strong> ฿461 ใกล้สถานีรถไฟ · หรือ <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีดีไซน์ใกล้สถานี"
+    },
+    {
+      "icon": "✨",
+      "head": "อยากได้บูทีกมีดีไซน์ คะแนนดี",
+      "bodyHtml": "→ <strong>Gallery Design Hotel</strong> ฿1,000 คะแนนสูงสุด 9.4 มีสระ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 บูทีกสีชมพู 9.2 · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้"
+    },
+    {
+      "icon": "🏊",
+      "head": "อยากได้สระว่ายน้ำ",
+      "bodyHtml": "→ <strong>Gallery Design Hotel</strong> ฿1,000 มีสระและอาหารเช้าบุฟเฟ่ต์ · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกมีสระ · หรือ <strong>Si Lamduan Hotel</strong> ฿1,100 โรงแรมกลางเมืองมีสระ · หรือ <strong>Vijit Nakorn Hotel</strong> ฿650 บูทีกในสวนมีสระ"
+    },
+    {
+      "icon": "🐘",
+      "head": "พาเด็กไปสถานแสดงพันธุ์สัตว์น้ำ",
+      "bodyHtml": "→ <strong>Boonsiri Boutique Hotel</strong> ฿450 เดินถึงสถานแสดงพันธุ์สัตว์น้ำ · หรือ <strong>Kessiri Hotel</strong> ฿500 ใกล้ราว 1 กม. · หรือ <strong>U See Ged Resort</strong> ฿600 รีสอร์ตมีสระย่านห้วยน้ำคำ"
+    },
+    {
+      "icon": "🚗",
+      "head": "ขับรถมาเอง อยากพักเงียบ จอดสบาย",
+      "bodyHtml": "→ <strong>U See Ged Resort</strong> ฿600 รีสอร์ตสวนร่มรื่นย่านห้วยน้ำคำ · หรือ <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้ · หรือ <strong>Boonsiri Boutique Hotel</strong> ฿450 ที่จอดรถฟรี"
+    },
+    {
+      "icon": "⛰️",
+      "head": "ตั้งใจขึ้นเขาพระวิหาร-ผามออีแดง",
+      "bodyHtml": "→ <strong>Prasobsuk Ville Hotel Kantharalak</strong> ฿530 พักฝั่งกันทรลักษ์ ใกล้ทางขึ้นเขาพระวิหารกว่าตัวเมืองศรีสะเกษมาก"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณสำหรับห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วง <strong>เทศกาลดอกลำดวนบาน (กุมภาพันธ์–มีนาคม)</strong> และวันหยุดยาว ที่พักในเมืองเต็มเร็วและราคาขยับขึ้น ควรจองล่วงหน้าหลายสัปดาห์ · ศรีสะเกษไม่มีรถไฟฟ้า ที่พักใจกลางเมืองและใกล้สถานีรถไฟเดินทางสะดวกกว่า ส่วนฝั่งห้วยน้ำคำและกันทรลักษ์สะดวกกว่าถ้ามีรถส่วนตัว · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมศรีสะเกษ",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในศรีสะเกษสำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับการเดินทาง · <strong>ใจกลางเมือง</strong> (รอบตลาดเทศบาล วัดพระโต สวนสมเด็จฯ) เหมาะถ้าอยากเดินเที่ยววัด เดินกินของอีสาน (Vijit Nakorn, Tree House, Si Lamduan, The Impress) · <strong>ใกล้สถานีรถไฟ</strong> เหมาะคนมาด้วยรถไฟ ลงจากสถานีเดินถึง (PonTaWin, B2, Gallery Design) · <strong>รอบห้วยน้ำคำและสถานแสดงพันธุ์สัตว์น้ำ</strong> เงียบ จอดรถสบาย เหมาะคนขับรถมาเอง (Boonsiri, Kessiri, U See Ged) · ส่วน <strong>กันทรลักษ์</strong> เหมาะคนที่จะขึ้นเขาพระวิหาร (Prasobsuk Ville)" },
-    { "q": "❓ โรงแรมศรีสะเกษราคาเท่าไหร่?", "a": "ราคาหลากหลาย: ที่พักประหยัดและบูทีกคุ้มค่าเริ่มราว ฿420–520 ต่อคืน (PonTaWin, Boonsiri, B2, Tree House, The Impress) · ระดับกลางราว ฿500–650 (Pornsiri, Kessiri, U See Ged, Vijit Nakorn) · ส่วนโรงแรมกลางเมืองที่มีสระและบูทีกมีดีไซน์ราว ฿1,000–1,100 (Gallery Design, Si Lamduan) · ทั้งหมดเป็นราคาเริ่มประมาณสำหรับห้องมาตรฐาน · ช่วงเทศกาลและวันหยุดยาวราคาสูงกว่าปกติ" },
-    { "q": "❓ มาศรีสะเกษโดยไม่มีรถ พักที่ไหนสะดวก?", "a": "ศรีสะเกษไม่มีรถไฟฟ้า ถ้าไม่มีรถ <strong>พักใจกลางเมืองหรือใกล้สถานีรถไฟสะดวกที่สุด</strong> · <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินจากสถานีรถไฟถึงได้ · <strong>B2 Sisaket</strong> ฿461 ใกล้สถานีรถไฟ ห้องใหม่ · <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีดีไซน์ใกล้สถานี · ส่วนที่พักฝั่งห้วยน้ำคำและกันทรลักษ์เหมาะกับคนมีรถมากกว่า" },
-    { "q": "❓ โรงแรมศรีสะเกษที่มีสระว่ายน้ำมีที่ไหนบ้าง?", "a": "ในศรีสะเกษโรงแรมที่มีสระว่ายน้ำมีไม่มาก · <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีสระและอาหารเช้าบุฟเฟ่ต์ คะแนนสูงสุด · <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้มีสระ · <strong>Si Lamduan Hotel</strong> ฿1,100 โรงแรมกลางเมืองมีสระ · <strong>Vijit Nakorn Hotel</strong> ฿650 บูทีกในสวนมีสระและสระเด็ก · <strong>U See Ged Resort</strong> ฿600 รีสอร์ตมีสระย่านห้วยน้ำคำ" },
-    { "q": "❓ จะขึ้นเขาพระวิหาร-ผามออีแดง ควรพักที่ไหน?", "a": "ทางขึ้นอุทยานแห่งชาติเขาพระวิหารและผามออีแดงอยู่ฝั่ง <strong>อำเภอกันทรลักษ์</strong> ห่างจากตัวเมืองศรีสะเกษราว 1.5 ชั่วโมงรถ · ถ้าตั้งใจขึ้นจุดนี้โดยเฉพาะ พักฝั่งกันทรลักษ์อย่าง <strong>Prasobsuk Ville Hotel Kantharalak</strong> ฿530 จะออกเดินทางเช้าได้สะดวกกว่า · ถ้าใช้ศรีสะเกษเป็นฐานเที่ยวหลายที่ พักในเมืองแล้วขับรถไปก็ได้ แต่ต้องเผื่อเวลาเดินทาง" },
-    { "q": "❓ จองโรงแรมศรีสะเกษเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงเทศกาลและวันหยุดยาวที่ราคาขยับเยอะ" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในศรีสะเกษสำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับการเดินทาง · <strong>ใจกลางเมือง</strong> (รอบตลาดเทศบาล วัดพระโต สวนสมเด็จฯ) เหมาะถ้าอยากเดินเที่ยววัด เดินกินของอีสาน (Vijit Nakorn, Tree House, Si Lamduan, The Impress) · <strong>ใกล้สถานีรถไฟ</strong> เหมาะคนมาด้วยรถไฟ ลงจากสถานีเดินถึง (PonTaWin, B2, Gallery Design) · <strong>รอบห้วยน้ำคำและสถานแสดงพันธุ์สัตว์น้ำ</strong> เงียบ จอดรถสบาย เหมาะคนขับรถมาเอง (Boonsiri, Kessiri, U See Ged) · ส่วน <strong>กันทรลักษ์</strong> เหมาะคนที่จะขึ้นเขาพระวิหาร (Prasobsuk Ville)"
+    },
+    {
+      "q": "❓ โรงแรมศรีสะเกษราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: ที่พักประหยัดและบูทีกคุ้มค่าเริ่มราว ฿420–520 ต่อคืน (PonTaWin, Boonsiri, B2, Tree House, The Impress) · ระดับกลางราว ฿500–650 (Pornsiri, Kessiri, U See Ged, Vijit Nakorn) · ส่วนโรงแรมกลางเมืองที่มีสระและบูทีกมีดีไซน์ราว ฿1,000–1,100 (Gallery Design, Si Lamduan) · ทั้งหมดเป็นราคาเริ่มประมาณสำหรับห้องมาตรฐาน · ช่วงเทศกาลและวันหยุดยาวราคาสูงกว่าปกติ"
+    },
+    {
+      "q": "❓ มาศรีสะเกษโดยไม่มีรถ พักที่ไหนสะดวก?",
+      "a": "ศรีสะเกษไม่มีรถไฟฟ้า ถ้าไม่มีรถ <strong>พักใจกลางเมืองหรือใกล้สถานีรถไฟสะดวกที่สุด</strong> · <strong>Sisaket PonTaWin Budget Inn</strong> ฿420 เดินจากสถานีรถไฟถึงได้ · <strong>B2 Sisaket</strong> ฿461 ใกล้สถานีรถไฟ ห้องใหม่ · <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีดีไซน์ใกล้สถานี · ส่วนที่พักฝั่งห้วยน้ำคำและกันทรลักษ์เหมาะกับคนมีรถมากกว่า"
+    },
+    {
+      "q": "❓ โรงแรมศรีสะเกษที่มีสระว่ายน้ำมีที่ไหนบ้าง?",
+      "a": "ในศรีสะเกษโรงแรมที่มีสระว่ายน้ำมีไม่มาก · <strong>Gallery Design Hotel</strong> ฿1,000 บูทีกมีสระและอาหารเช้าบุฟเฟ่ต์ คะแนนสูงสุด · <strong>Tree House Hotel</strong> ฿520 บูทีกบ้านต้นไม้มีสระ · <strong>Si Lamduan Hotel</strong> ฿1,100 โรงแรมกลางเมืองมีสระ · <strong>Vijit Nakorn Hotel</strong> ฿650 บูทีกในสวนมีสระและสระเด็ก · <strong>U See Ged Resort</strong> ฿600 รีสอร์ตมีสระย่านห้วยน้ำคำ"
+    },
+    {
+      "q": "❓ จะขึ้นเขาพระวิหาร-ผามออีแดง ควรพักที่ไหน?",
+      "a": "ทางขึ้นอุทยานแห่งชาติเขาพระวิหารและผามออีแดงอยู่ฝั่ง <strong>อำเภอกันทรลักษ์</strong> ห่างจากตัวเมืองศรีสะเกษราว 1.5 ชั่วโมงรถ · ถ้าตั้งใจขึ้นจุดนี้โดยเฉพาะ พักฝั่งกันทรลักษ์อย่าง <strong>Prasobsuk Ville Hotel Kantharalak</strong> ฿530 จะออกเดินทางเช้าได้สะดวกกว่า · ถ้าใช้ศรีสะเกษเป็นฐานเที่ยวหลายที่ พักในเมืองแล้วขับรถไปก็ได้ แต่ต้องเผื่อเวลาเดินทาง"
+    },
+    {
+      "q": "❓ จองโรงแรมศรีสะเกษเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน โดยเฉพาะช่วงเทศกาลและวันหยุดยาวที่ราคาขยับเยอะ"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมศรีสะเกษที่เรารีวิวไว้ครบทุกระดับ — ตั้งแต่ Gallery Design บูทีกมีดีไซน์ใกล้สถานีรถไฟ ไปถึงที่พักประหยัดเริ่ม ฿420 ฟังเสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบ 3 เว็บ ลิงก์จองตรง"
 }

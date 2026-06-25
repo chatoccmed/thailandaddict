@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Koh Phangan", "href": "city-koh-phangan.html" },
-    { "name": "Top 12 Koh Phangan Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Koh Phangan",
+      "href": "city-koh-phangan.html"
+    },
+    {
+      "name": "Top 12 Koh Phangan Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Koh Phangan", "item": "https://thailandaddict.com/en/city-koh-phangan" },
-    { "name": "Top 12 Koh Phangan Hotels", "item": "https://thailandaddict.com/en/top10-hotels-koh-phangan" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Koh Phangan",
+      "item": "https://thailandaddict.com/en/city-koh-phangan"
+    },
+    {
+      "name": "Top 12 Koh Phangan Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-koh-phangan"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-koh-phangan.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Koh Phangan has no organised public transport; you get around by songthaew (shared taxi truck), private taxi, or rented scooter/car, and many roads are steep and winding — so your choice of area really sets up the trip. Stays around <strong>Thong Nai Pan Noi (north)</strong> have the prettiest, quietest beaches but sit 45 minutes to an hour from the pier; most resorts run golf-buggy or shuttle services because the terrain is steep. <strong>Sri Thanu and Haad Yao (west)</strong> are the wellness and sunset zone, with vegan cafés and yoga classes, about a 20–30 minute drive from the pier. <strong>Haad Rin (south)</strong> is near Haad Rin pier and is the Full Moon Party spot — lively and loud on party nights. <strong>Thong Sala</strong> is the pier town, within walking distance of restaurants, the night market, and ferries to Samui and Surat Thani — easiest if you don't have a vehicle. The areas in this guide: <strong>Thong Nai Pan Noi</strong> — luxury resorts, quiet beaches · <strong>Sri Thanu–Haad Yao</strong> — wellness, yoga, sunsets · <strong>Haad Rin</strong> — Full Moon Party · <strong>Thong Sala</strong> — pier, food, budget stays.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Santhiya Koh Phangan Resort & Spa", "price": "฿4,500" },
-    { "n": "2", "color": "#c8a951", "name": "Anantara Rasananda Koh Phangan", "price": "฿11,000" },
-    { "n": "3", "color": "#c8a951", "name": "Panviman Resort Koh Phangan", "price": "฿2,800" },
-    { "n": "4", "color": "#9e9e9e", "name": "Orion Healing Centre", "price": "฿1,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "Tide & Tribe Hostel Phangan", "price": "฿450" },
-    { "n": "6", "color": "#9e9e9e", "name": "Loyfa Natural Resort", "price": "฿1,800" },
-    { "n": "7", "color": "#9e9e9e", "name": "Araya Boutique Hotel", "price": "฿900" },
-    { "n": "8", "color": "#bf8040", "name": "Phangan Beach Resort", "price": "฿900" },
-    { "n": "9", "color": "#bf8040", "name": "The 1 Boutique Hotel", "price": "฿750" },
-    { "n": "10", "color": "#5d4037", "name": "Rin Beach Resort", "price": "฿1,000" },
-    { "n": "11", "color": "#5d4037", "name": "Sandy Bay Bungalows", "price": "฿800" },
-    { "n": "12", "color": "#5d4037", "name": "Chaloklum Bay Resort", "price": "฿1,500" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Santhiya Koh Phangan Resort & Spa",
+      "price": "฿4,500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Anantara Rasananda Koh Phangan",
+      "price": "฿11,000"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Panviman Resort Koh Phangan",
+      "price": "฿2,800"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Orion Healing Centre",
+      "price": "฿1,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Tide & Tribe Hostel Phangan",
+      "price": "฿450"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Loyfa Natural Resort",
+      "price": "฿1,800"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Araya Boutique Hotel",
+      "price": "฿900"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Phangan Beach Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "The 1 Boutique Hotel",
+      "price": "฿750"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Rin Beach Resort",
+      "price": "฿1,000"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Sandy Bay Bungalows",
+      "price": "฿800"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Chaloklum Bay Resort",
+      "price": "฿1,500"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (garden view)", "price": "from ฿4,500/night" },
-        { "type": "Supreme Deluxe Room", "price": "from ฿6,000/night" },
-        { "type": "Sea View Pool Villa", "price": "from ฿11,000/night" }
+        {
+          "type": "Superior Room (garden view)",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Supreme Deluxe Room",
+          "price": "from ฿6,000/night"
+        },
+        {
+          "type": "Sea View Pool Villa",
+          "price": "from ฿11,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/santhiya-koh-phangan-resort-spa/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/santhiya-resort-and-spa.html",
       "tripUrl": "https://www.trip.com/hotels/koh-phangan-hotel-detail-712154/santhiya-koh-phangan-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-santhiya-resort-spa-koh-phangan.html",
-      "tags": ["🪵 Distinctive Thai teak craftsmanship", "🏊 Pool villas with private pools, sea views", "🏖️ Quiet private beach, great for honeymoons", "💆 Spa and five-star service"],
+      "tags": [
+        "🪵 Distinctive Thai teak craftsmanship",
+        "🏊 Pool villas with private pools, sea views",
+        "🏖️ Quiet private beach, great for honeymoons",
+        "💆 Spa and five-star service"
+      ],
       "addr": "22/2 Moo 5, Thong Nai Pan Noi Beach, Ban Tai, Koh Phangan",
       "storyHtml": "Santhiya Koh Phangan is <strong>the most-reviewed luxury resort in this guide — 2,135 reviews — and the defining image of high-end Koh Phangan, built almost entirely in carved teak</strong>, scoring 8.7. It clings to a hillside above Thong Nai Pan Noi beach in the north. Real guest reviews praise the teak craftsmanship and authentic Thai atmosphere you won't find elsewhere on the island, villas with private pools and sea views that feel good value for this luxury tier, and a quiet private beach made for honeymoons. The trade-off: the steep terrain means relying on shuttle buggies up and down (sometimes with a wait), in-resort dining is pricey, and it's about 30 minutes from the pier — not a party base. Best for couples, honeymooners and anyone here to genuinely switch off.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a villa higher up the hill for the fullest sea view, but be ready for steps or a buggy wait. In-resort food is expensive and heading out isn't easy, so plan your main meals ahead. Book well in advance over high season and Full Moon nights — it fills fast.",
@@ -104,15 +201,29 @@
       "priceBig": "฿11,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Pool Suite (~80 sqm)", "price": "from ฿11,000/night" },
-        { "type": "Garden Pool Suite (~90 sqm)", "price": "from ฿13,000/night" },
-        { "type": "Ocean Pool Villa (~220 sqm)", "price": "from ฿18,000/night" }
+        {
+          "type": "Pool Suite (~80 sqm)",
+          "price": "from ฿11,000/night"
+        },
+        {
+          "type": "Garden Pool Suite (~90 sqm)",
+          "price": "from ฿13,000/night"
+        },
+        {
+          "type": "Ocean Pool Villa (~220 sqm)",
+          "price": "from ฿18,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/anantara-rasananda-koh-phangan-villas/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rasananda.html",
       "tripUrl": "https://www.trip.com/hotels/koh-phangan-hotel-detail-711145/anantara-rasananda-koh-phangan-villas/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-anantara-rasananda-koh-phangan.html",
-      "tags": ["🏊 Villas with private pools, high privacy", "📱 Villa host on call via WhatsApp", "🏖️ Thong Nai Pan Noi, clear water, white sand", "🌿 Jungle spa, fresh breakfast"],
+      "tags": [
+        "🏊 Villas with private pools, high privacy",
+        "📱 Villa host on call via WhatsApp",
+        "🏖️ Thong Nai Pan Noi, clear water, white sand",
+        "🌿 Jungle spa, fresh breakfast"
+      ],
       "addr": "5/5 Moo 5, Thong Nai Pan Noi Beach, Ban Tai, Koh Phangan",
       "storyHtml": "Anantara Rasananda Koh Phangan Villas takes <strong>the top score in this guide at 9.2 — an intimate, private pool-villa resort on Thong Nai Pan Noi beach, built around privacy and Anantara-level service</strong>, from 239 reviews. Many villas have their own pool. Real guest reviews praise the seclusion and calm, a villa host who replies fast on WhatsApp and looks after you in-room, a clear-water white-sand beach ringed by hills, and a generous fresh breakfast. The catch: it's remote — a winding 45-minute to one-hour drive up from the pier — drink prices are high, and the private-pool water can run cool in spots. Best for couples and higher-budget honeymooners who want a quiet pool villa, full stop.",
       "tipHtml": "💡 <strong>Tip:</strong> Message the villa host on WhatsApp ahead about pier transfers — the climb is long and winding. If you want warmer pool water, ask for a villa that gets sun. Drink prices are high, so budget accordingly.",
@@ -144,15 +255,29 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Hotel (28 sqm)", "price": "from ฿2,800/night" },
-        { "type": "Deluxe Hotel (40 sqm)", "price": "from ฿3,500/night" },
-        { "type": "Pool Villa (37.5 sqm)", "price": "from ฿6,500/night" }
+        {
+          "type": "Superior Hotel (28 sqm)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Deluxe Hotel (40 sqm)",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "Pool Villa (37.5 sqm)",
+          "price": "from ฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/panviman-resort-koh-phangan/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/panviman-koh-phangan.html",
       "tripUrl": "https://www.trip.com/hotels/koh-phangan-hotel-detail-712119/panviman-koh-phangan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-panviman-resort-koh-phangan.html",
-      "tags": ["🌊 Sweeping sea views from the hillside", "🚣 Quiet private beach, free kayaks and snorkel gear", "🛺 Golf-buggy shuttle on demand", "👨‍👩‍👧 Kids' club and family rooms"],
+      "tags": [
+        "🌊 Sweeping sea views from the hillside",
+        "🚣 Quiet private beach, free kayaks and snorkel gear",
+        "🛺 Golf-buggy shuttle on demand",
+        "👨‍👩‍👧 Kids' club and family rooms"
+      ],
       "addr": "22/1 Moo 5, Thong Nai Pan Noi Beach, Ban Tai, Koh Phangan",
       "storyHtml": "Panviman Resort Koh Phangan is <strong>a five-star beachfront resort in the north that delivers hillside sea views at a more reachable price than a pure pool-villa stay</strong>, scoring 8.4 from 1,782 reviews (the second-most in this guide). Real guest reviews praise the sweeping sea views — many rooms look right over the bay — a quiet, clear-water private beach with free kayaks and snorkel gear, friendly staff and an on-call golf-buggy shuttle, plus a kids' club and family rooms. The trade-offs: the terrain is very steep, so you're climbing stairs or calling a buggy, some rooms' furnishings show their age, and it's 45 minutes to an hour from the pier. Best for families and couples who want a scenic beachfront resort without top-luxury pricing.",
       "tipHtml": "💡 <strong>Tip:</strong> Call for a golf buggy any time if you'd rather not tackle the stairs on the steep grounds. Borrow the free kayaks and snorkel gear and head out in the calm morning water. Travelling as a family, pick a family room and send the kids to the kids' club.",
@@ -184,15 +309,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Bamboo Hut (fan)", "price": "from ฿1,500/night" },
-        { "type": "Superior Double (A/C)", "price": "from ฿2,200/night" },
-        { "type": "Deluxe Double (A/C)", "price": "from ฿2,800/night" }
+        {
+          "type": "Bamboo Hut (fan)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Superior Double (A/C)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Deluxe Double (A/C)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/orion-healing-centre/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orion-healing-centre.html",
       "tripUrl": "https://www.trip.com/hotels/koh-phangan-hotel-detail-71496440/orion-healing-centre/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-orion-healing-wellness-srithanu-koh-phangan.html",
-      "tags": ["🧘 Seaside yoga shala for sunrise/sunset practice", "🌿 Quality yoga and detox programmes", "🥗 Vegan food so good it doesn't feel like clean eating", "🕊️ Calm wellness vibe, a reset away from Full Moon"],
+      "tags": [
+        "🧘 Seaside yoga shala for sunrise/sunset practice",
+        "🌿 Quality yoga and detox programmes",
+        "🥗 Vegan food so good it doesn't feel like clean eating",
+        "🕊️ Calm wellness vibe, a reset away from Full Moon"
+      ],
       "addr": "15/8 Moo 8, Sri Thanu, Koh Phangan",
       "storyHtml": "Orion Healing Centre is <strong>a genuine wellness centre that nails the yoga-and-detox side of Koh Phangan — a seaside yoga shala on Sri Thanu at an accessible price</strong>, scoring 8.6 from 344 reviews. Real guest reviews praise the seaside yoga shala for sunrise and sunset practice, quality yoga teachers and detox programme staff who genuinely care, vegan food so good many forget they're eating clean, and a calm vibe perfect for resetting away from the Full Moon scene. The thing to understand: this is a retreat-style stay — some rooms are starting to age, bookings and admin can occasionally stumble, and it's a vegan, alcohol-free space, not a regular holiday resort. Best for yoga people and anyone here for a serious detox.",
       "tipHtml": "💡 <strong>Tip:</strong> Check the class and detox-course schedule ahead, since many guests come specifically for the programmes. Want A/C? Choose Superior or Deluxe — the Bamboo Hut is fan-only. It's alcohol-free and vegan, so come in with retreat expectations before you book.",
@@ -224,15 +363,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Mixed Dorm bed", "price": "from ฿450/night" },
-        { "type": "Female Dorm bed", "price": "from ฿500/night" },
-        { "type": "Private Room", "price": "from ฿1,100/night" }
+        {
+          "type": "Mixed Dorm bed",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Female Dorm bed",
+          "price": "from ฿500/night"
+        },
+        {
+          "type": "Private Room",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tide-tribe-hostel-phangan/hotel/ko-pha-ngan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tide-amp-tribe-hostel-phangan.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotels/?keyword=Tide%20%26%20Tribe%20Hostel%20Phangan&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tide-tribe-hostel-thong-sala-koh-phangan.html",
-      "tags": ["✨ New, well-designed, very clean", "🚶 Central Thong Sala, walk to pier and night market", "🤝 Owner-run and friendly", "🤫 Quiet and easy, not a party hostel"],
+      "tags": [
+        "✨ New, well-designed, very clean",
+        "🚶 Central Thong Sala, walk to pier and night market",
+        "🤝 Owner-run and friendly",
+        "🤫 Quiet and easy, not a party hostel"
+      ],
       "addr": "158/10 Moo 1, Thong Sala, Koh Phangan",
       "storyHtml": "Tide & Tribe Hostel Phangan is <strong>the cheapest stay in this guide, from just ฿450, and it earns a high 8.9 on design and cleanliness right in the middle of Thong Sala</strong>, from 40 reviews. It's a newer place in the pier town, within walking distance of the pier, night market and restaurants — handy for anyone in transit to and from Samui. Real guest reviews praise the new, well-designed, very clean rooms, owner Aykut who's friendly and helpful, and a quiet, safe vibe that isn't a party hostel. The trade-offs: it's not on the beach and has no pool (you'll need transport to swim), it's small (12 rooms) and fills fast in high season and on Full Moon nights, it's adults-only, and there's some road noise at night. Best for solo backpackers and budget couples.",
       "tipHtml": "💡 <strong>Tip:</strong> With only 12 rooms it sells out fast on Full Moon nights and in high season — book ahead. It's adults-only, so check before booking if you're travelling as a family. It's not on the beach, so rent a scooter or grab a ride to go swimming.",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Garden Room", "price": "from ฿1,800/night" },
-        { "type": "Deluxe Sea View Cottage", "price": "from ฿2,800/night" },
-        { "type": "Beach Front Cottage", "price": "from ฿3,800/night" }
+        {
+          "type": "Superior Garden Room",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Deluxe Sea View Cottage",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Beach Front Cottage",
+          "price": "from ฿3,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/loyfa-natural-resort/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/loyfa-natural-resort.html",
       "tripUrl": "https://www.trip.com/hotels/koh-phangan-hotel-detail-712095/loyfa-natural-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-loyfa-natural-resort-srithanu-koh-phangan.html",
-      "tags": ["🌅 Private-cove bungalows with sunset views", "🛖 Hillside sea-view cottages", "🏊 Pool Villa with private pool available", "🌿 Lush, natural setting"],
+      "tags": [
+        "🌅 Private-cove bungalows with sunset views",
+        "🛖 Hillside sea-view cottages",
+        "🏊 Pool Villa with private pool available",
+        "🌿 Lush, natural setting"
+      ],
       "addr": "14/1 Moo 8, Sri Thanu Beach, Koh Phangan",
       "storyHtml": "Loyfa Natural Resort is <strong>a Sri Thanu boutique resort whose edge is its private cove and sunset views at a mid-range price</strong>, scoring 8.2 from 440 reviews. It sits on Sri Thanu beach in the west, the same zone as the wellness scene and cafés. Real guest reviews praise the bungalows and cottages scattered up the hillside looking out over the Gulf, a private cove that's lovely for sunsets, and a lush, natural setting — with options from simple garden-view rooms up to a Pool Villa with its own pool. Best for couples and anyone wanting a sunset-side resort that isn't as far out as the north coast — it's a 20–30 minute drive from the pier, handier than Thong Nai Pan Noi.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a hillside sea-view cottage for the fullest sunset view. The Sri Thanu side has lots of vegan spots and cafés, so rent a scooter to explore the zone. Book ahead in high season, as the cove-side rooms go fast.",
@@ -304,15 +471,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Private Double Room", "price": "from ฿900/night" },
-        { "type": "Deluxe Triple Room", "price": "from ฿1,200/night" },
-        { "type": "Superior Double Pool Access", "price": "from ฿1,500/night" }
+        {
+          "type": "Private Double Room",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Triple Room",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Superior Double Pool Access",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phatchara-boutique-hotel/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phatchara-boutique.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-61452829/araya-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-araya-boutique-thong-sala-koh-phangan.html",
-      "tags": ["🏊 Swimming pool · Pool Access rooms", "🚶 Central Thong Sala, near the pier", "👨‍👩‍👧 Family rooms for 4", "💰 Easy on the budget, in town"],
+      "tags": [
+        "🏊 Swimming pool · Pool Access rooms",
+        "🚶 Central Thong Sala, near the pier",
+        "👨‍👩‍👧 Family rooms for 4",
+        "💰 Easy on the budget, in town"
+      ],
       "addr": "204/30 Moo 1, Thong Sala, Koh Phangan",
       "storyHtml": "Araya Boutique Hotel is <strong>a central Thong Sala boutique that comes with a pool at a budget-friendly price — a rarity in the pier town</strong>, scoring 8.2 from 215 reviews. Unlike most cheap in-town stays that have no pool, this one has a swimming pool and Pool Access rooms you can step into the pool straight from. Real guest reviews praise the value, clean A/C rooms, a central location within walking distance of the pier and restaurants, and family rooms for four. Best for mid-budget travellers who want a pool and a near-pier location without paying resort prices. Entry-level rooms are fairly compact — for more space, go for a Deluxe or Pool Access room.",
       "tipHtml": "💡 <strong>Tip:</strong> Want to use the pool? Choose a Pool Access room you can step into the pool from. The Private Double is on the small side, so for more people or more space ask for the Deluxe Triple or Family room. It's in town — you can walk to the pier and market without a vehicle.",
@@ -344,15 +525,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden Bungalow (fan)", "price": "from ฿900/night" },
-        { "type": "Garden Bungalow (A/C)", "price": "from ฿1,200/night" },
-        { "type": "Deluxe Beach Bungalow", "price": "from ฿1,600/night" }
+        {
+          "type": "Garden Bungalow (fan)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Garden Bungalow (A/C)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe Beach Bungalow",
+          "price": "from ฿1,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phangan-beach-resort/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phangan-beach-resort.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-712123/phangan-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phangan-beach-resort-ban-tai-koh-phangan.html",
-      "tags": ["🏖️ On the island's longest beach", "🛖 Garden bungalows, fan or A/C", "💰 From ฿900, good value beachfront", "🚏 Ban Tai, between the pier and Haad Rin"],
+      "tags": [
+        "🏖️ On the island's longest beach",
+        "🛖 Garden bungalows, fan or A/C",
+        "💰 From ฿900, good value beachfront",
+        "🚏 Ban Tai, between the pier and Haad Rin"
+      ],
       "addr": "111/2 Moo 1, Ban Tai, Koh Phangan",
       "storyHtml": "Phangan Beach Resort is <strong>a budget beachfront bungalow stay in Ban Tai that puts you right on the island's longest beach for a few hundred to a thousand baht</strong>, scoring 8.3 from 110 reviews. It's on the south coast, between Thong Sala pier and Haad Rin — handy both for trips into town and for popping over to the Full Moon. Real guest reviews praise the beachfront location, garden bungalows in fan and A/C options, and the value for a stay on the sand. Bear in mind it's a budget bungalow place — facilities are simple for the price, the fan rooms suit hardier travellers, and the beach on this side is shallow at low tide. Best for backpackers and budget couples who really want to sleep by the water.",
       "tipHtml": "💡 <strong>Tip:</strong> For more comfort, pick an A/C Garden Bungalow or the Deluxe Beach bungalow nearest the sand. The Ban Tai side is shallow at low tide, so check the tide times if you want to swim. It's mid-island, so rent a scooter for easy runs to the pier and Haad Rin.",
@@ -384,15 +579,29 @@
       "priceBig": "฿750",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room", "price": "from ฿750/night" },
-        { "type": "Superior Room", "price": "from ฿950/night" },
-        { "type": "Deluxe Room", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Double Room",
+          "price": "from ฿750/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-1-boutique-hotel/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-1-boutique.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-1517983/the-1-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-1-boutique-thong-sala-koh-phangan.html",
-      "tags": ["💸 Cheapest boutique, from ฿750", "🚶 Central Thong Sala, near the pier", "❄️ Clean A/C rooms, well equipped", "🍜 Walk to the night market and restaurants"],
+      "tags": [
+        "💸 Cheapest boutique, from ฿750",
+        "🚶 Central Thong Sala, near the pier",
+        "❄️ Clean A/C rooms, well equipped",
+        "🍜 Walk to the night market and restaurants"
+      ],
       "addr": "209/3 Moo 1, Thong Sala, Koh Phangan",
       "storyHtml": "The 1 Boutique Hotel is <strong>the cheapest hotel among the proper hotels in this guide, from just ฿750, sitting in central Thong Sala near the pier</strong>, scoring 8.0 from 120 reviews. It suits travellers who want a clean private A/C room on a budget — no dorms, but no resort prices either. Real guest reviews praise the clean, well-equipped rooms and a central location within walking distance of the pier, night market and restaurants — handy for anyone in transit to and from Samui. It's a small hotel, though: no pool, not on the beach, and the Standard rooms are fairly compact. Best for budget travellers who prioritise a near-pier location and a clean private room.",
       "tipHtml": "💡 <strong>Tip:</strong> Arriving or leaving by an early or late ferry? This is handy since you can walk to the pier. The Standard room is small, so for a little more space ask for a Superior or Deluxe. No pool and not on the beach — rent a scooter to reach the various beaches to swim.",
@@ -424,15 +633,29 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Economy / Garden Room", "price": "from ฿1,000/night" },
-        { "type": "Superior Room", "price": "from ฿1,400/night" },
-        { "type": "Sea View Bungalow", "price": "from ฿2,200/night" }
+        {
+          "type": "Economy / Garden Room",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Superior Room",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Sea View Bungalow",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rin-beach-resort/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rin-beach-resort.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-1509028/rin-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rin-beach-resort-haad-rin-koh-phangan.html",
-      "tags": ["🌕 Walk to the Full Moon Party beach", "🏊 Large grounds, big pool, shady garden", "🌊 Over-water sea-view bungalows, big balconies", "💰 Good value for a beachfront stay in Haad Rin"],
+      "tags": [
+        "🌕 Walk to the Full Moon Party beach",
+        "🏊 Large grounds, big pool, shady garden",
+        "🌊 Over-water sea-view bungalows, big balconies",
+        "💰 Good value for a beachfront stay in Haad Rin"
+      ],
       "addr": "94/2 Moo 6, Haad Rin Nai, Koh Phangan",
       "storyHtml": "Rin Beach Resort is <strong>the best Full Moon Party base in this guide — a beach resort in Haad Rin within walking distance of the pier and the party beach</strong>, scoring 7.6 from 670 reviews. It sits on Haad Rin Nai, slightly quieter than the party side. Real guest reviews praise the large resort grounds, a big pool, a shady garden, and over-water sea-view bungalows with big balconies, all at a good price for a beachfront stay in Haad Rin. But to be straight: reviews are polarised — room upkeep and cleanliness are inconsistent, some rooms are aging, water pressure is weak, Wi-Fi drops, and the private beach is shallow with boats moored. Best for Full Moon visitors who want to stay close and care more about location and price than newness.",
       "tipHtml": "💡 <strong>Tip:</strong> Staying here on a Full Moon night, you can easily walk back — but book far ahead, as Haad Rin fills fast and rates climb. Reviews are split, so ask to see a room or choose a Superior/Sea View in better shape. The private beach is shallow with boats, better for looking at than swimming — use the pool instead.",
@@ -464,15 +687,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Fan Bungalow", "price": "from ฿800/night" },
-        { "type": "AC Hillside Bungalow", "price": "from ฿1,200/night" },
-        { "type": "Beachfront Bungalow", "price": "from ฿1,800/night" }
+        {
+          "type": "Fan Bungalow",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "AC Hillside Bungalow",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Beachfront Bungalow",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sandy-bay-bungalows/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sandy-bay-bungalows.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-712152/sandy-bay-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sandy-bay-bungalows-haad-yao-koh-phangan.html",
-      "tags": ["🏖️ Beach bungalows on Haad Yao, west coast", "🌅 Hillside panoramic bay views, sunsets", "💸 From ฿800, fan or A/C", "🐠 Clear water at Haad Yao, snorkelling"],
+      "tags": [
+        "🏖️ Beach bungalows on Haad Yao, west coast",
+        "🌅 Hillside panoramic bay views, sunsets",
+        "💸 From ฿800, fan or A/C",
+        "🐠 Clear water at Haad Yao, snorkelling"
+      ],
       "addr": "54/1 Moo 8, Haad Yao Beach, Koh Phangan",
       "storyHtml": "Sandy Bay Bungalows is <strong>a budget beach bungalow stay at the south end of Haad Yao on the west coast, for anyone who wants to sleep by the sea and catch the sunset for a few hundred baht</strong>, scoring 7.0 from 247 reviews. Haad Yao is a clear-water west-coast beach that's good for snorkelling and sunsets. Real guest reviews praise the beachfront location, the raised Hillside bungalows with panoramic bay views, and prices that are very light for a stay on the sand, in fan and A/C options. It is a simple budget bungalow place, though — basic rooms and facilities, it's at the far end of the beach so you'll want a vehicle, and the fan rooms suit hardier travellers. Best for backpackers and budget couples after a laid-back beachfront base.",
       "tipHtml": "💡 <strong>Tip:</strong> For the best view, choose the AC Hillside bungalow up the slope with its panoramic bay outlook. It's at the far end of Haad Yao, so rent a scooter for trips into town and around the island. Haad Yao has clear water — bring your own snorkel gear.",
@@ -504,15 +741,29 @@
       "priceBig": "฿1,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden Villa", "price": "from ฿1,500/night" },
-        { "type": "Standard Bungalow", "price": "from ฿1,800/night" },
-        { "type": "Superior Seaview", "price": "from ฿2,400/night" }
+        {
+          "type": "Garden Villa",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Standard Bungalow",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Superior Seaview",
+          "price": "from ฿2,400/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chaloklum-bay-resort/hotel/koh-phangan-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chaloklum-bay-resort-garden-villa.html",
       "tripUrl": "https://th.trip.com/hotels/koh-phangan-hotel-detail-3727874/chaloklum-bay-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chaloklum-bay-resort-koh-phangan.html",
-      "tags": ["🐟 On Chaloklum Bay, a quiet fishing village", "🏊 Sea-facing pool, good for sunsets", "🐠 White sand, clear water, reef near shore", "🦐 Walk to seafood in the village"],
+      "tags": [
+        "🐟 On Chaloklum Bay, a quiet fishing village",
+        "🏊 Sea-facing pool, good for sunsets",
+        "🐠 White sand, clear water, reef near shore",
+        "🦐 Walk to seafood in the village"
+      ],
       "addr": "68/1 Moo 7, Chaloklum, Koh Phangan",
       "storyHtml": "Chaloklum Bay Resort is <strong>a beachfront resort on Chaloklum Bay in the north, standing out for its quiet fishing-village atmosphere and a seaside pool</strong>, scoring 6.5 from 85 reviews (the lowest in this guide). Chaloklum is a white-sand, clear-water fishing village with a reef close to shore. Real guest reviews praise the beachfront location, a pool facing the sea for sunset watching, free breakfast, Wi-Fi and parking, and the calm where you can walk to seafood in the village. But honestly, per the real reviews: many rooms are old, with damp walls, peeling paint and deferred maintenance, cleanliness and service are inconsistent, and it's far from the pier and main shops, so you need a vehicle. Best for those who want to escape the crowds into a simple fishing village — and are willing to inspect the room first.",
       "tipHtml": "💡 <strong>Tip:</strong> Reviews say room condition varies a lot — ask for a Superior Seaview nearer the pool and beach in better shape, and view the room before check-in. Rent a scooter or car since it's far from town. Hit the pool in the evening for the sunset, then walk into the village for seafood.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Koh Phangan Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Santhiya Koh Phangan Resort & Spa", "type": "⭐⭐⭐⭐⭐", "score": "8.7", "price": "฿4,500", "access": "📍 Thong Nai Pan Noi, north", "badge": "Island icon, most reviewed", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Anantara Rasananda Koh Phangan", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿11,000", "access": "📍 Thong Nai Pan Noi, north", "badge": "Top score, pool villas", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Panviman Resort Koh Phangan", "type": "⭐⭐⭐⭐⭐", "score": "8.4", "price": "฿2,800", "access": "📍 Thong Nai Pan Noi, north", "badge": "Hillside sea views, kids' club", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Orion Healing Centre", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 Sri Thanu, west", "badge": "True wellness, seaside yoga", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Tide & Tribe Hostel Phangan", "type": "⭐⭐", "score": "8.9", "price": "฿450", "access": "📍 Thong Sala, near the pier", "badge": "Design hostel, cheapest", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Loyfa Natural Resort", "type": "⭐⭐⭐", "score": "8.2", "price": "฿1,800", "access": "📍 Sri Thanu, west", "badge": "Cove bungalows, sunsets", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Araya Boutique Hotel", "type": "⭐⭐⭐", "score": "8.2", "price": "฿900", "access": "📍 Thong Sala, near the pier", "badge": "Boutique with pool, near pier", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Phangan Beach Resort", "type": "⭐⭐", "score": "8.3", "price": "฿900", "access": "📍 Ban Tai, south", "badge": "Beach bungalows, budget", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "The 1 Boutique Hotel", "type": "⭐⭐⭐", "score": "8.0", "price": "฿750", "access": "📍 Thong Sala, near the pier", "badge": "Cheapest boutique, by pier", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Rin Beach Resort", "type": "⭐⭐⭐", "score": "7.6", "price": "฿1,000", "access": "📍 Haad Rin, south", "badge": "Full Moon base, budget beachfront", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Sandy Bay Bungalows", "type": "⭐⭐", "score": "7.0", "price": "฿800", "access": "📍 Haad Yao, west", "badge": "Beach bungalows, cheap", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Chaloklum Bay Resort", "type": "⭐⭐⭐", "score": "6.5", "price": "฿1,500", "access": "📍 Chaloklum Bay, north", "badge": "Quiet fishing village, seaside pool", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Santhiya Koh Phangan Resort & Spa",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿4,500",
+      "access": "📍 Thong Nai Pan Noi, north",
+      "badge": "Island icon, most reviewed",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Anantara Rasananda Koh Phangan",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿11,000",
+      "access": "📍 Thong Nai Pan Noi, north",
+      "badge": "Top score, pool villas",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Panviman Resort Koh Phangan",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿2,800",
+      "access": "📍 Thong Nai Pan Noi, north",
+      "badge": "Hillside sea views, kids' club",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Orion Healing Centre",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 Sri Thanu, west",
+      "badge": "True wellness, seaside yoga",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Tide & Tribe Hostel Phangan",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿450",
+      "access": "📍 Thong Sala, near the pier",
+      "badge": "Design hostel, cheapest",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Loyfa Natural Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿1,800",
+      "access": "📍 Sri Thanu, west",
+      "badge": "Cove bungalows, sunsets",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Araya Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿900",
+      "access": "📍 Thong Sala, near the pier",
+      "badge": "Boutique with pool, near pier",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Phangan Beach Resort",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿900",
+      "access": "📍 Ban Tai, south",
+      "badge": "Beach bungalows, budget",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "The 1 Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿750",
+      "access": "📍 Thong Sala, near the pier",
+      "badge": "Cheapest boutique, by pier",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Rin Beach Resort",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿1,000",
+      "access": "📍 Haad Rin, south",
+      "badge": "Full Moon base, budget beachfront",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Sandy Bay Bungalows",
+      "type": "⭐⭐",
+      "score": "7.0",
+      "price": "฿800",
+      "access": "📍 Haad Yao, west",
+      "badge": "Beach bungalows, cheap",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Chaloklum Bay Resort",
+      "type": "⭐⭐⭐",
+      "score": "6.5",
+      "price": "฿1,500",
+      "access": "📍 Chaloklum Bay, north",
+      "badge": "Quiet fishing village, seaside pool",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Koh Phangan hotel for you",
   "advice": [
-    { "icon": "💎", "head": "Honeymoon / luxury, pool villas", "bodyHtml": "→ <strong>Anantara Rasananda</strong> ฿11,000, private pool villas, top score 9.2 · or <strong>Santhiya</strong> ฿4,500, teak villas on a quiet beach, the island icon · easier on the budget, pick <strong>Panviman</strong> ฿2,800, beachfront with hill views." },
-    { "icon": "🧘", "head": "Wellness, yoga, detox", "bodyHtml": "→ <strong>Orion Healing Centre</strong> ฿1,500, a yoga-and-detox centre on Sri Thanu beach with vegan food · or stay on the sunset side at <strong>Loyfa Natural Resort</strong> ฿1,800, private-cove bungalows in the same wellness zone." },
-    { "icon": "🌕", "head": "Full Moon Party, Haad Rin", "bodyHtml": "→ <strong>Rin Beach Resort</strong> ฿1,000, on Haad Rin Nai, walk to the party beach, big pool · or <strong>Phangan Beach Resort</strong> ฿900, beach bungalows in Ban Tai, between the pier and Haad Rin." },
-    { "icon": "💰", "head": "On a budget, best value", "bodyHtml": "→ <strong>Tide & Tribe Hostel</strong> ฿450, a design hostel scoring 8.9 in central Thong Sala · or <strong>The 1 Boutique</strong> ฿750, a private A/C room near the pier · or <strong>Sandy Bay Bungalows</strong> ฿800, beach bungalows on Haad Yao." },
-    { "icon": "🏖️", "head": "Sleep by the beach, modest budget", "bodyHtml": "→ <strong>Phangan Beach Resort</strong> ฿900, bungalows on the island's longest beach · or <strong>Sandy Bay Bungalows</strong> ฿800, on west-coast Haad Yao with sunsets · or <strong>Chaloklum Bay</strong> ฿1,500, on Chaloklum Bay with a seaside pool." },
-    { "icon": "🚢", "head": "Stay near the pier / transit to Samui", "bodyHtml": "→ <strong>Tide & Tribe Hostel</strong> ฿450, walk to the pier, well designed · or <strong>The 1 Boutique</strong> ฿750, a private room in central Thong Sala · or <strong>Araya Boutique</strong> ฿900, a boutique with a pool near the pier." }
+    {
+      "icon": "💎",
+      "head": "Honeymoon / luxury, pool villas",
+      "bodyHtml": "→ <strong>Anantara Rasananda</strong> ฿11,000, private pool villas, top score 9.2 · or <strong>Santhiya</strong> ฿4,500, teak villas on a quiet beach, the island icon · easier on the budget, pick <strong>Panviman</strong> ฿2,800, beachfront with hill views."
+    },
+    {
+      "icon": "🧘",
+      "head": "Wellness, yoga, detox",
+      "bodyHtml": "→ <strong>Orion Healing Centre</strong> ฿1,500, a yoga-and-detox centre on Sri Thanu beach with vegan food · or stay on the sunset side at <strong>Loyfa Natural Resort</strong> ฿1,800, private-cove bungalows in the same wellness zone."
+    },
+    {
+      "icon": "🌕",
+      "head": "Full Moon Party, Haad Rin",
+      "bodyHtml": "→ <strong>Rin Beach Resort</strong> ฿1,000, on Haad Rin Nai, walk to the party beach, big pool · or <strong>Phangan Beach Resort</strong> ฿900, beach bungalows in Ban Tai, between the pier and Haad Rin."
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, best value",
+      "bodyHtml": "→ <strong>Tide & Tribe Hostel</strong> ฿450, a design hostel scoring 8.9 in central Thong Sala · or <strong>The 1 Boutique</strong> ฿750, a private A/C room near the pier · or <strong>Sandy Bay Bungalows</strong> ฿800, beach bungalows on Haad Yao."
+    },
+    {
+      "icon": "🏖️",
+      "head": "Sleep by the beach, modest budget",
+      "bodyHtml": "→ <strong>Phangan Beach Resort</strong> ฿900, bungalows on the island's longest beach · or <strong>Sandy Bay Bungalows</strong> ฿800, on west-coast Haad Yao with sunsets · or <strong>Chaloklum Bay</strong> ฿1,500, on Chaloklum Bay with a seaside pool."
+    },
+    {
+      "icon": "🚢",
+      "head": "Stay near the pier / transit to Samui",
+      "bodyHtml": "→ <strong>Tide & Tribe Hostel</strong> ฿450, walk to the pier, well designed · or <strong>The 1 Boutique</strong> ฿750, a private room in central Thong Sala · or <strong>Araya Boutique</strong> ฿900, a boutique with a pool near the pier."
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for standard rooms and can change by date and season — always check live prices and compare the 3 sites before booking. On Full Moon Party nights and in high season (Dec–Feb), prices jump sharply and stays around Haad Rin and Thong Sala fill fast, so book several weeks to several months ahead. Almost everything around Thong Nai Pan Noi in the north and Chaloklum Bay is easier with a car/scooter or a resort shuttle, as many roads are steep and winding. Stays in central Thong Sala are easiest if you don't have a vehicle, with the pier to Samui and Surat Thani close by. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Koh Phangan hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in on Koh Phangan?", "a": "It depends on your style of trip. <strong>Thong Nai Pan Noi (north)</strong> suits luxury and honeymoon travellers, with quiet beautiful beaches but 45 min–1 hr from the pier (Santhiya, Anantara, Panviman). <strong>Sri Thanu–Haad Yao (west)</strong> suits wellness, yoga and sunset seekers (Orion, Loyfa, Sandy Bay). <strong>Haad Rin (south)</strong> suits Full Moon Party-goers (Rin Beach, Phangan Beach). And <strong>Thong Sala</strong>, the pier town, is within walking distance of restaurants and the night market — easiest if you don't have a vehicle (Tide & Tribe, The 1, Araya)." },
-    { "q": "❓ How much do Koh Phangan hotels cost?", "a": "Prices vary widely: budget hostels and bungalows start around ฿450–1,000 per night (Tide & Tribe, The 1, Sandy Bay, Phangan Beach, Araya); mid-range resorts and boutiques run about ฿1,000–2,800 (Rin Beach, Orion, Loyfa, Chaloklum, Panviman); and luxury resorts and pool villas run from about ฿4,500–11,000 and up (Santhiya, Anantara). All prices are approximate from-rates for standard rooms, and they're much higher than usual on Full Moon nights and in high season." },
-    { "q": "❓ Where should I stay for the Full Moon Party?", "a": "If you want to walk to the party beach, stay in <strong>Haad Rin</strong> — <strong>Rin Beach Resort</strong> ฿1,000 on Haad Rin Nai has large grounds, a big pool and walking access to the party beach. To dodge some of the chaos but stay close, choose <strong>Phangan Beach Resort</strong> ฿900, beach bungalows in Ban Tai between the pier and Haad Rin. On Full Moon nights, Haad Rin stays fill very fast and prices rise, so book several weeks to several months ahead." },
-    { "q": "❓ Where should I stay for a retreat or yoga on Koh Phangan?", "a": "Koh Phangan's wellness hub is the <strong>Sri Thanu</strong> side. <strong>Orion Healing Centre</strong> ฿1,500 is a genuine yoga-and-detox centre with a seaside yoga shala, vegan food and an alcohol-free setting — ideal if you're here for the programmes. If you'd rather have a quiet resort in the same zone within reach of nearby yoga classes, pick <strong>Loyfa Natural Resort</strong> ฿1,800, private-cove bungalows on the sunset side." },
-    { "q": "❓ Can I get around Koh Phangan without a car or scooter?", "a": "Koh Phangan has no organised public transport, so without a vehicle <strong>staying in central Thong Sala is easiest</strong> — you can walk to restaurants, the night market and the ferries to Samui (Tide & Tribe, The 1, Araya). The north-coast resorts (Thong Nai Pan Noi, Chaloklum) and Haad Yao are far out with steep roads, so rent a scooter, use the resort shuttle, or charter a songthaew." },
-    { "q": "❓ Which site is cheapest for booking a Koh Phangan hotel?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with the promotions running at the time, so open all 3 and compare before every booking — each review page in this guide has the price-comparison links. It can save you hundreds to over a thousand baht a night, especially for the northern luxury resorts and Haad Rin stays on Full Moon nights." }
-  ]
+    {
+      "q": "❓ Which area should I stay in on Koh Phangan?",
+      "a": "It depends on your style of trip. <strong>Thong Nai Pan Noi (north)</strong> suits luxury and honeymoon travellers, with quiet beautiful beaches but 45 min–1 hr from the pier (Santhiya, Anantara, Panviman). <strong>Sri Thanu–Haad Yao (west)</strong> suits wellness, yoga and sunset seekers (Orion, Loyfa, Sandy Bay). <strong>Haad Rin (south)</strong> suits Full Moon Party-goers (Rin Beach, Phangan Beach). And <strong>Thong Sala</strong>, the pier town, is within walking distance of restaurants and the night market — easiest if you don't have a vehicle (Tide & Tribe, The 1, Araya)."
+    },
+    {
+      "q": "❓ How much do Koh Phangan hotels cost?",
+      "a": "Prices vary widely: budget hostels and bungalows start around ฿450–1,000 per night (Tide & Tribe, The 1, Sandy Bay, Phangan Beach, Araya); mid-range resorts and boutiques run about ฿1,000–2,800 (Rin Beach, Orion, Loyfa, Chaloklum, Panviman); and luxury resorts and pool villas run from about ฿4,500–11,000 and up (Santhiya, Anantara). All prices are approximate from-rates for standard rooms, and they're much higher than usual on Full Moon nights and in high season."
+    },
+    {
+      "q": "❓ Where should I stay for the Full Moon Party?",
+      "a": "If you want to walk to the party beach, stay in <strong>Haad Rin</strong> — <strong>Rin Beach Resort</strong> ฿1,000 on Haad Rin Nai has large grounds, a big pool and walking access to the party beach. To dodge some of the chaos but stay close, choose <strong>Phangan Beach Resort</strong> ฿900, beach bungalows in Ban Tai between the pier and Haad Rin. On Full Moon nights, Haad Rin stays fill very fast and prices rise, so book several weeks to several months ahead."
+    },
+    {
+      "q": "❓ Where should I stay for a retreat or yoga on Koh Phangan?",
+      "a": "Koh Phangan's wellness hub is the <strong>Sri Thanu</strong> side. <strong>Orion Healing Centre</strong> ฿1,500 is a genuine yoga-and-detox centre with a seaside yoga shala, vegan food and an alcohol-free setting — ideal if you're here for the programmes. If you'd rather have a quiet resort in the same zone within reach of nearby yoga classes, pick <strong>Loyfa Natural Resort</strong> ฿1,800, private-cove bungalows on the sunset side."
+    },
+    {
+      "q": "❓ Can I get around Koh Phangan without a car or scooter?",
+      "a": "Koh Phangan has no organised public transport, so without a vehicle <strong>staying in central Thong Sala is easiest</strong> — you can walk to restaurants, the night market and the ferries to Samui (Tide & Tribe, The 1, Araya). The north-coast resorts (Thong Nai Pan Noi, Chaloklum) and Haad Yao are far out with steep roads, so rent a scooter, use the resort shuttle, or charter a songthaew."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking a Koh Phangan hotel?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with the promotions running at the time, so open all 3 and compare before every booking — each review page in this guide has the price-comparison links. It can save you hundreds to over a thousand baht a night, especially for the northern luxury resorts and Haad Rin stays on Full Moon nights."
+    }
+  ],
+  "quickAnswerHtml": "12 Koh Phangan hotels we reviewed across every tier — from Santhiya's teak villas and Anantara's pool villas at Thong Nai Pan Noi to Sri Thanu yoga retreats, beach bungalows, and a design hostel in Thong Sala from ฿450. Real guest-review scores, honest pros and cons, 3-site price comparison and direct booking links."
 }

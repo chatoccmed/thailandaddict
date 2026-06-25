@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Uttaradit", "href": "city-uttaradit.html" },
-    { "name": "Top 12 Uttaradit Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Uttaradit",
+      "href": "city-uttaradit.html"
+    },
+    {
+      "name": "Top 12 Uttaradit Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Uttaradit", "item": "https://thailandaddict.com/en/city-uttaradit" },
-    { "name": "Top 12 Uttaradit Hotels", "item": "https://thailandaddict.com/en/top10-hotels-uttaradit" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Uttaradit",
+      "item": "https://thailandaddict.com/en/city-uttaradit"
+    },
+    {
+      "name": "Top 12 Uttaradit Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-uttaradit"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-uttaradit.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Uttaradit has no metro; you get around by car, and the province is spread out enough that your choice of area sets up the whole trip. <strong>City-centre</strong> stays are the most convenient, with Friday department store, Khlong Pho market and restaurants within walking distance, and the train and bus stations close by — great if you don't have a car. Stays in <strong>Laplae old town (Si Phanom Mat)</strong> let you walk to the town gateway and museums within the district, but it's about 8 km from the city. Almost everything in the <strong>Sirikit Dam zone (Tha Pla district)</strong> needs a private or rental car, as it's a separate district about a 45-minute to 1-hour drive from the city. The areas in this guide: <strong>City Centre</strong> — malls, markets, food, the train station · <strong>Laplae Old Town</strong> — old wooden houses, the town gateway · <strong>Sirikit Dam</strong> — a waterside base for boat trips and nature.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Laplae Guesthouse", "price": "฿500" },
-    { "n": "2", "color": "#c8a951", "name": "Areena Resort and Hotel", "price": "฿490" },
-    { "n": "3", "color": "#c8a951", "name": "Ton Thong Resort Hotel", "price": "฿595" },
-    { "n": "4", "color": "#9e9e9e", "name": "Seeharaj Hotel", "price": "฿850" },
-    { "n": "5", "color": "#9e9e9e", "name": "Baan Na Pasiri Resort", "price": "฿1,200" },
-    { "n": "6", "color": "#9e9e9e", "name": "Barista Hotel", "price": "฿650" },
-    { "n": "7", "color": "#9e9e9e", "name": "ARAYA HOTEL", "price": "฿600" },
-    { "n": "8", "color": "#bf8040", "name": "Thaimit Resort", "price": "฿400" },
-    { "n": "9", "color": "#bf8040", "name": "Sirikit Dam Guesthouse (EGAT)", "price": "฿700" },
-    { "n": "10", "color": "#5d4037", "name": "Friday Hotel", "price": "฿450" },
-    { "n": "11", "color": "#5d4037", "name": "@ RocKo Hotel", "price": "฿600" },
-    { "n": "12", "color": "#5d4037", "name": "Sunee Boutique Hotel", "price": "฿600" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Laplae Guesthouse",
+      "price": "฿500"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Areena Resort and Hotel",
+      "price": "฿490"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Ton Thong Resort Hotel",
+      "price": "฿595"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Seeharaj Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Baan Na Pasiri Resort",
+      "price": "฿1,200"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Barista Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "ARAYA HOTEL",
+      "price": "฿600"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Thaimit Resort",
+      "price": "฿400"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Sirikit Dam Guesthouse (EGAT)",
+      "price": "฿700"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Friday Hotel",
+      "price": "฿450"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "@ RocKo Hotel",
+      "price": "฿600"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Sunee Boutique Hotel",
+      "price": "฿600"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Wooden-House Room (single/double)", "price": "from ฿500/night" },
-        { "type": "Room with soaking tub", "price": "from ฿650/night" },
-        { "type": "Whole house (small group)", "price": "from ฿1,200/night" }
+        {
+          "type": "Wooden-House Room (single/double)",
+          "price": "from ฿500/night"
+        },
+        {
+          "type": "Room with soaking tub",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Whole house (small group)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/laplae-guest-house/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lablae-guesthouse.html",
       "tripUrl": "https://th.trip.com/hotels/laplae-district-hotel-detail-7614605/lablae-guesthouse/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-laplae-guesthouse-uttaradit.html",
-      "tags": ["🏚️ Roughly 80-year-old wooden shophouse", "🚲 Bikes to explore the old town", "📷 Vintage 'grandparents' house' feel", "🚶 Walk to the Laplae town gateway"],
+      "tags": [
+        "🏚️ Roughly 80-year-old wooden shophouse",
+        "🚲 Bikes to explore the old town",
+        "📷 Vintage 'grandparents' house' feel",
+        "🚶 Walk to the Laplae town gateway"
+      ],
       "addr": "204 Thesaban Si Phanom Mat Rd, Si Phanom Mat, Laplae District, Uttaradit",
       "storyHtml": "Laplae Guesthouse is <strong>the top score in this guide — Agoda 9.4 · Booking 9.0 — a guesthouse inside a roughly 80-year-old wooden shophouse in the heart of Laplae old town</strong>, just a walk from the Laplae town gateway and the Tin Chok woven-cloth museum. This isn't a standard hotel; it's a wooden house that keeps its vintage character throughout, with mosquito-net beds, fans and retro decor. Real guest reviews praise the 'just like grandparents' house' atmosphere, the very warm owners, and the bikes you can borrow to explore the old town. But understand that it's an old wooden house — simple rooms, none of the usual hotel amenities, and it's in Laplae district about 8 km from the city. Best for heritage-street travellers and photographers who value atmosphere over luxury.",
       "tipHtml": "💡 <strong>Tip:</strong> Borrow a bike and ride the old town in the early morning or evening when it's cooler — the wooden houses and town gateway photograph beautifully. It's an old wooden house with few rooms, so book ahead, especially during festivals and long weekends. Without a car you'll need to connect from the city into Laplae, so allow time.",
@@ -104,15 +201,29 @@
       "priceBig": "฿490",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (breakfast incl.)", "price": "from ฿490/night" },
-        { "type": "Standard Twin (breakfast incl.)", "price": "from ฿560/night" },
-        { "type": "Superior Garden View King", "price": "from ฿850/night" }
+        {
+          "type": "Standard Room (breakfast incl.)",
+          "price": "from ฿490/night"
+        },
+        {
+          "type": "Standard Twin (breakfast incl.)",
+          "price": "from ฿560/night"
+        },
+        {
+          "type": "Superior Garden View King",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/areena-resort-and-hotel-uttaradit/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaerm-aariinaariis-rth-utrditth.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-28804586/areena-hotel-resort-uttaradit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-areena-resort-and-hotel-uttaradit.html",
-      "tags": ["🌿 Quiet garden resort", "🍳 Breakfast included + free bikes", "🚗 Park right outside your room", "💰 From around ฿490/night"],
+      "tags": [
+        "🌿 Quiet garden resort",
+        "🍳 Breakfast included + free bikes",
+        "🚗 Park right outside your room",
+        "💰 From around ฿490/night"
+      ],
       "addr": "119/5 Samniang Ruean Rd, Tha It, Mueang Uttaradit District",
       "storyHtml": "Areena Resort and Hotel is <strong>a small garden resort in the Tha It area that scores a high 8.8 (Agoda 8.7 · Booking 8.6) from just ฿490, breakfast included</strong>. Rather than a roadside block, it's single-storey bungalows arranged around a garden, so you can park right outside your room. Real guest reviews praise the quiet, the leafy garden, the friendly staff, and the bikes you can borrow for a ride. But it's a small resort with limited rooms and no pool, and it's in the suburbs about a 10-minute drive from the city centre, so you'll want a car. Best for self-drivers who value quiet and value-for-money over a city-centre location.",
       "tipHtml": "💡 <strong>Tip:</strong> Driving yourself is easiest — you can park right outside your room. Borrow a bike for a ride around the Tha It area. Rooms are limited, so book ahead during long weekends.",
@@ -144,15 +255,29 @@
       "priceBig": "฿595",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double (Queen)", "price": "from ฿595/night" },
-        { "type": "Standard Twin", "price": "from ฿650/night" },
-        { "type": "Standard Triple", "price": "from ฿900/night" }
+        {
+          "type": "Standard Double (Queen)",
+          "price": "from ฿595/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Triple",
+          "price": "from ฿900/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ton-thong-resort-hotel/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ton-thong-resort.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-22151826/ton-thong-resort-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ton-thong-resort-hotel-uttaradit.html",
-      "tags": ["🏊 Outdoor swimming pool", "🏙️ Near the city centre ~1 km", "🅿️ Free parking", "🛏️ Rooms 22–23 sqm"],
+      "tags": [
+        "🏊 Outdoor swimming pool",
+        "🏙️ Near the city centre ~1 km",
+        "🅿️ Free parking",
+        "🛏️ Rooms 22–23 sqm"
+      ],
       "addr": "123/9 Si Chao Wang Rd, Ban Ko, Mueang Uttaradit District",
       "storyHtml": "Ton Thong Resort Hotel is <strong>the most-reviewed property among the resorts in this guide — 180 reviews, score 8.6 — and an in-town option with a pool from under ฿600</strong>. It sits on Si Chao Wang Road, about 1 km from the clock tower in the city centre, a few minutes' drive to markets and restaurants. Real guest reviews praise the outdoor pool, clean value-for-money rooms and free parking. It's a solid mid-range pick that works well for families who want a pool without paying a premium. Best for city sightseers, families wanting a pool, and anyone who wants both a near-city location and parking.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a group? The Triple room beats booking two rooms. Take a dip in the outdoor pool to cool off in the afternoon. It's near the city but has free parking, so driving yourself is convenient.",
@@ -184,15 +309,29 @@
       "priceBig": "฿850",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Double", "price": "from ฿850/night" },
-        { "type": "Superior Twin", "price": "from ฿900/night" },
-        { "type": "Deluxe Room", "price": "from ฿1,050/night" }
+        {
+          "type": "Superior Double",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Superior Twin",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿1,050/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/seeharaj-hotel/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/seeharaj.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-5419774/seeharaj-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-seeharaj-hotel-uttaradit.html",
-      "tags": ["🏊 Outdoor swimming pool", "🛍️ 2-min walk to Friday store", "🅿️ Free parking · spacious rooms", "🏢 152 rooms, a big in-town hotel"],
+      "tags": [
+        "🏊 Outdoor swimming pool",
+        "🛍️ 2-min walk to Friday store",
+        "🅿️ Free parking · spacious rooms",
+        "🏢 152 rooms, a big in-town hotel"
+      ],
       "addr": "163 Borom-At Rd, Tha It, Mueang Uttaradit District",
       "storyHtml": "Seeharaj Hotel is <strong>a mid-range city-centre hotel with a pool and a short walk to the mall — 152 rooms, score 8.6 from 78 reviews</strong>. It sits on Borom-At Road, a 2-minute walk to the Friday department store and close to the train and bus stations, so it works well without a car. Real guest reviews praise the central location, the outdoor pool, spacious rooms and free parking. It's a large hotel that's been around a while, so parts feel a bit dated, but there are newer-renovated Deluxe/Suite rooms. Best for city sightseers, business travellers and families wanting a central pool.",
       "tipHtml": "💡 <strong>Tip:</strong> Room condition varies by wing — ask for a newer-renovated Deluxe if your budget allows. You can walk to the Friday store and city restaurants, so you can get around without a car. Take a dip to cool off in the afternoon.",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double (breakfast incl.)", "price": "from ฿1,200/night" },
-        { "type": "Nan River House (riverside)", "price": "from ฿1,500/night" },
-        { "type": "Triple Room (family)", "price": "from ฿1,750/night" }
+        {
+          "type": "Standard Double (breakfast incl.)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Nan River House (riverside)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Triple Room (family)",
+          "price": "from ฿1,750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/region/uttaradit-province-th.html?cid=1965862",
       "bookingUrl": "https://napasiriresort.com/",
       "tripUrl": "https://napasiriresort.com/",
       "reviewUrl": "review-baan-na-pasiri-resort-uttaradit.html",
-      "tags": ["🌊 Bungalows on the Nan River", "🎯 Water park, archery, ATV — loads of activities", "🏞️ Base for the Sirikit Dam area", "🍳 Breakfast included"],
+      "tags": [
+        "🌊 Bungalows on the Nan River",
+        "🎯 Water park, archery, ATV — loads of activities",
+        "🏞️ Base for the Sirikit Dam area",
+        "🍳 Breakfast included"
+      ],
       "addr": "99/9 Moo 11, Phaluean, Tha Pla District, Uttaradit",
       "storyHtml": "Baan Na Pasiri Resort is <strong>a Nan River resort in Tha Pla district that makes the most natural base for visiting Sirikit Dam</strong>, scoring 8.6 (Agoda 8.5 · Booking 8.6). It's about 13 km — a 20-minute drive — from Sirikit Dam, cutting out the much longer drive from the city. Real guest reviews praise the riverside bungalows, the Nan River–facing terraces, and the water park and activities (archery, ATV, a small petting zoo) that make it great for families. But it's in a separate district about 45 minutes from the city, prices run higher than in-town hotels, and reviews are still few as it's a niche stay. Best for families and travellers here specifically to relax by the water and visit the dam.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a Nan River house with a riverside terrace — that's the highlight here. Come as a family and make the most of the water park and activities. You can book direct via the resort's site or by phone — confirm ahead for this niche stay.",
@@ -264,15 +417,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Queen", "price": "from ฿650/night" },
-        { "type": "Standard Twin", "price": "from ฿700/night" },
-        { "type": "Deluxe (with balcony)", "price": "from ฿850/night" }
+        {
+          "type": "Standard Queen",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe (with balcony)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/barista-hotel/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermbaaristaa.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-24900266/barista-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-barista-hotel-uttaradit.html",
-      "tags": ["☕ In-house cafe", "🛏️ New, clean rooms, good beds", "🤫 Quiet, easy parking", "🎓 Near Uttaradit Rajabhat University"],
+      "tags": [
+        "☕ In-house cafe",
+        "🛏️ New, clean rooms, good beds",
+        "🤫 Quiet, easy parking",
+        "🎓 Near Uttaradit Rajabhat University"
+      ],
       "addr": "69/1 Moo 4, Tha Sao, Mueang Uttaradit District",
       "storyHtml": "Barista Hotel is <strong>a small 18-room boutique hotel in the Tha Sao area whose selling points are an in-house cafe and new, clean rooms</strong>, scoring 8.3 (Agoda 8.5 · Booking 8.6) from 105 reviews. Real guest reviews praise the new-feeling rooms, comfortable beds, the quiet, and the cafe to sip coffee in. It's about 1.6 km from Uttaradit Rajabhat University and easy to park at. But it's in the suburbs about a 10-minute drive from the centre, and it's a small hotel with no pool. Best for self-drivers who like a quiet boutique vibe with a cafe and new, clean rooms at a fair price.",
       "tipHtml": "💡 <strong>Tip:</strong> Pick the Deluxe with a sitting balcony if you want extra space. Pop down to the in-house cafe in the morning. It's a small hotel with limited rooms — book ahead during university events.",
@@ -304,15 +471,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Villa (King)", "price": "from ฿600/night" },
-        { "type": "Twin Villa Standard", "price": "from ฿650/night" },
-        { "type": "Luxury Room (King)", "price": "from ฿850/night" }
+        {
+          "type": "Standard Villa (King)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Twin Villa Standard",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Luxury Room (King)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/araya-hotel-h14875068/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/araya.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-31600069/araya-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-araya-hotel-uttaradit.html",
-      "tags": ["🏡 Villa rooms with balconies, 36–38 sqm", "🏊 Pool + gym", "🅿️ Spacious parking", "💰 From around ฿600/night"],
+      "tags": [
+        "🏡 Villa rooms with balconies, 36–38 sqm",
+        "🏊 Pool + gym",
+        "🅿️ Spacious parking",
+        "💰 From around ฿600/night"
+      ],
       "addr": "274 Moo 3, Phitsanulok–Den Chai Rd, Khung Taphao, Mueang Uttaradit District",
       "storyHtml": "ARAYA HOTEL is <strong>a villa-style hotel on Phitsanulok–Den Chai Road offering spacious 36–38 sqm rooms with balconies and a pool from just ฿600</strong>, scoring 8.3 (Agoda 8.2 · Booking 8.3) from 81 reviews. Real guest reviews praise the villa rooms that feel bigger than the price, the private balconies, the pool, the gym and the spacious parking. It works well for travellers passing through or wanting a stopover, as it sits on a main road with easy access. But it's about 4 km from the city centre, and being on a main road, some rooms catch traffic noise. Best for self-drivers who want a spacious villa room with a pool at a budget price.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're a light sleeper, ask for a room set back from the main road to avoid traffic noise. The Luxury rooms are newer-renovated and worth the upgrade if your budget allows. On a main road, it's easy to drive in and out for a stopover.",
@@ -344,15 +525,29 @@
       "priceBig": "฿400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room", "price": "from ฿400/night" },
-        { "type": "Standard Twin Room", "price": "from ฿450/night" },
-        { "type": "Deluxe Room (balcony)", "price": "from ฿550/night" }
+        {
+          "type": "Standard Double Room",
+          "price": "from ฿400/night"
+        },
+        {
+          "type": "Standard Twin Room",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Deluxe Room (balcony)",
+          "price": "from ฿550/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/thaimit-resort-h18859160/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/thaimit-resort.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-7627759/thaimit-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-thaimit-resort-uttaradit.html",
-      "tags": ["💸 Cheapest from-price at ฿400/night", "✨ New, clean rooms", "🅿️ Spacious parking + free gym", "🎓 Near Uttaradit Rajabhat University"],
+      "tags": [
+        "💸 Cheapest from-price at ฿400/night",
+        "✨ New, clean rooms",
+        "🅿️ Spacious parking + free gym",
+        "🎓 Near Uttaradit Rajabhat University"
+      ],
       "addr": "28/9 Moo 4, Tha Sao, Mueang Uttaradit District",
       "storyHtml": "Thaimit Resort is <strong>the cheapest from-price in this guide — from just ฿400 — yet you still get new, clean rooms</strong>, scoring 8.0 (Agoda 8.5 · Booking 8.0) from 96 reviews. It's in the Tha Sao area in town, about a 4-minute drive from Uttaradit Rajabhat University. Real guest reviews praise the new-feeling, clean rooms, spacious parking, a Vespa-themed garden and a free gym — rare at this price. But it's a budget resort with no pool, and it's in the suburbs slightly out from the city centre. Best for budget travellers who want clean rooms at the lowest price and have a car or use Grab to get into town.",
       "tipHtml": "💡 <strong>Tip:</strong> The Deluxe has a garden-view balcony — a small step up that's worth it. Use the free gym and snap a photo by the Vespa-themed garden. It's cheap, so rooms fill fast during university events — book ahead.",
@@ -384,15 +579,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Terrace Row Room (standard)", "price": "from ฿700/night" },
-        { "type": "Guest House (small)", "price": "from ฿1,200/night" },
-        { "type": "Detached House (large)", "price": "from ฿2,000/night" }
+        {
+          "type": "Terrace Row Room (standard)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Guest House (small)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Detached House (large)",
+          "price": "from ฿2,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=Uttaradit&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Sirikit+Dam+Uttaradit",
       "tripUrl": "https://www.trip.com/hotels/khung-taphao-sirikit-dam/hotels-c110148m14934388/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sirikit-dam-guesthouse-uttaradit.html",
-      "tags": ["🏞️ Actually sleep inside the Sirikit Dam grounds", "🌊 Reservoir views, very quiet", "💰 Affordable, good value", "🍽️ Restaurants within the dam grounds"],
+      "tags": [
+        "🏞️ Actually sleep inside the Sirikit Dam grounds",
+        "🌊 Reservoir views, very quiet",
+        "💰 Affordable, good value",
+        "🍽️ Restaurants within the dam grounds"
+      ],
       "addr": "40 Moo 10, Phaluean, Tha Pla District (inside Sirikit Dam grounds)",
       "storyHtml": "Sirikit Dam Guesthouse (EGAT) is <strong>a government guesthouse inside the Sirikit Dam grounds whose selling point is that you actually sleep inside the dam zone</strong>, close to the dam crest and reservoir boat trips, scoring 7.8 (Booking 7.9 · Agoda 7.7) from 64 reviews. Real guest reviews praise the quiet, the closeness to nature, the reservoir views and the good value, with options from terrace-row rooms up to large houses for groups. But it's a state guesthouse — simple, official-style rooms, some buildings older — and it's inside the dam grounds about 45 minutes to 1 hour from the city, so you need a car. Best for travellers here specifically to visit the dam and relax by the water, who don't mind a lack of luxury.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a Nan River house or one with reservoir views if available. Wake early to walk the dam crest or catch a reservoir boat trip. As a government guesthouse, contact them to book ahead and bring your own car.",
@@ -424,15 +633,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin Room", "price": "from ฿450/night" },
-        { "type": "Superior Double Room", "price": "from ฿550/night" },
-        { "type": "Deluxe Double Room (bathtub)", "price": "from ฿650/night" }
+        {
+          "type": "Standard Twin Room",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Superior Double Room",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Deluxe Double Room (bathtub)",
+          "price": "from ฿650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/friday-hotel/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/friday.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-3153493/friday-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-friday-hotel-uttaradit.html",
-      "tags": ["🛍️ Attached to a mall + supermarket", "🚶 10-min walk to the clock tower", "🚉 Near the train station", "🅿️ Spacious parking"],
+      "tags": [
+        "🛍️ Attached to a mall + supermarket",
+        "🚶 10-min walk to the clock tower",
+        "🚉 Near the train station",
+        "🅿️ Spacious parking"
+      ],
       "addr": "172 Borom-At Rd, Tha It, Mueang Uttaradit District",
       "storyHtml": "Friday Hotel is <strong>a city-centre hotel whose selling point is its location attached to a mall and supermarket — just ride the lift down — from just ฿450</strong>, scoring 7.6 from 38 reviews. It's on Borom-At Road, a 10-minute walk to the clock tower and close to the train station, so it works without a car. Real guest reviews praise the convenience of the attached mall, the spacious rooms, strong hot water and the spacious parking. But it's a long-standing hotel with some rooms and facilities feeling dated, which keeps the score mid-range. Best for budget travellers who prioritise a central, mall-attached location and easy shopping.",
       "tipHtml": "💡 <strong>Tip:</strong> The Deluxe has a bathtub — a small step up if you want a soak. Ride the lift down to the mall and supermarket for easy shopping. Ask to see the room first and pick one in better condition.",
@@ -464,15 +687,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Twin Room", "price": "from ฿600/night" },
-        { "type": "Family Room (shared bathroom)", "price": "from ฿700/night" },
-        { "type": "Basic Triple Room", "price": "from ฿750/night" }
+        {
+          "type": "Twin Room",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Family Room (shared bathroom)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Basic Triple Room",
+          "price": "from ฿750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rocko-hotel-h68412871/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rocko.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-22227590/rocko-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rocko-hotel-uttaradit.html",
-      "tags": ["🏢 Orange new build, opened 2020", "🅿️ Spacious covered parking", "🚉 Near the train station ~3.6 km", "👨‍👩‍👧 Family Suite for big families"],
+      "tags": [
+        "🏢 Orange new build, opened 2020",
+        "🅿️ Spacious covered parking",
+        "🚉 Near the train station ~3.6 km",
+        "👨‍👩‍👧 Family Suite for big families"
+      ],
       "addr": "195 Moo 3, Pa Sao, Mueang Uttaradit District",
       "storyHtml": "@ RocKo Hotel is <strong>an orange new-build hotel that opened in 2020, whose selling points are fairly new rooms and spacious covered parking</strong>, scoring 7.5 (Agoda 7.7 · Booking 6.5) from 27 reviews. It's in the Pa Sao area in town, about 3.6 km from the train station. Real guest reviews praise the new-looking building, clean rooms and spacious covered parking that shields from sun and rain, plus a Family Suite for big families. But scores are mixed — Booking gives only 6.5, and some reviews flag service and room details, with reviews still few. Best for self-drivers who value spacious parking and new-build rooms at a budget price.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a group or big family? Pick the Family Suite that sleeps several. The parking is covered, good for self-drivers. Scores are mixed, so ask to see the room first and check the latest reviews before booking.",
@@ -504,15 +741,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Queen (balcony)", "price": "from ฿600/night" },
-        { "type": "Standard Twin (balcony)", "price": "from ฿650/night" },
-        { "type": "Deluxe Queen (bathtub)", "price": "from ฿750/night" }
+        {
+          "type": "Standard Queen (balcony)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Standard Twin (balcony)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Queen (bathtub)",
+          "price": "from ฿750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sunee-boutique-hotel/hotel/uttaradit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/su-nee-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/uttaradit-hotel-detail-6445297/sunee-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sunee-boutique-hotel-uttaradit.html",
-      "tags": ["🌿 Green garden, quiet", "🛏️ Rooms with balconies, strong hot water", "🅿️ Spacious parking", "🛒 ~600 m to Khlong Pho market"],
+      "tags": [
+        "🌿 Green garden, quiet",
+        "🛏️ Rooms with balconies, strong hot water",
+        "🅿️ Spacious parking",
+        "🛒 ~600 m to Khlong Pho market"
+      ],
       "addr": "68/6 Borom-At Rd Soi 3, Tha It, Mueang Uttaradit District",
       "storyHtml": "Sunee Boutique Hotel is <strong>an in-town boutique hotel with a green garden and a quiet feel from ฿600</strong>, scoring 7.4 (Booking 7.5 · Agoda 7.4) from 31 reviews. It's in a lane off Borom-At Road, about 600 m — a walk — from Khlong Pho market. Real guest reviews praise the leafy garden, the private balconies, strong hot water and spacious parking. But it's a small hotel with a mid-range score; some reviews note rooms and fittings feeling dated, and it's in a lane that's tight for cars. Best for travellers who want a quiet boutique-with-garden vibe in town and don't mind that it's not brand new.",
       "tipHtml": "💡 <strong>Tip:</strong> The Deluxe has a bathtub — a small step up if you want a soak. Walk to Khlong Pho market for food, about 600 m away. It's in a lane, so ask to see the room first and pick one in better condition.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table: 12 Uttaradit Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Laplae Guesthouse", "type": "⭐⭐", "score": "9.2", "price": "฿500", "access": "📍 Laplae old town", "badge": "Top score, wooden house", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Areena Resort and Hotel", "type": "⭐⭐⭐", "score": "8.8", "price": "฿490", "access": "📍 Tha It suburb", "badge": "Garden resort, breakfast", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Ton Thong Resort Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿595", "access": "📍 Near city centre ~1 km", "badge": "Most reviews, pool", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Seeharaj Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿850", "access": "📍 City centre, walk to mall", "badge": "Pool, central", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Baan Na Pasiri Resort", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,200", "access": "📍 Tha Pla, near Sirikit Dam", "badge": "Riverside, dam base", "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Barista Hotel", "type": "⭐⭐⭐", "score": "8.3", "price": "฿650", "access": "📍 Tha Sao suburb", "badge": "Boutique with cafe, new", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "ARAYA HOTEL", "type": "⭐⭐⭐", "score": "8.3", "price": "฿600", "access": "📍 Phitsanulok–Den Chai Rd", "badge": "Villa with pool, spacious", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Thaimit Resort", "type": "⭐⭐", "score": "8.0", "price": "฿400", "access": "📍 Tha Sao, in town", "badge": "Cheapest, new clean rooms", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Sirikit Dam Guesthouse (EGAT)", "type": "⭐⭐", "score": "7.8", "price": "฿700", "access": "📍 Inside Sirikit Dam, Tha Pla", "badge": "Sleep inside the dam, views", "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Friday Hotel", "type": "⭐⭐⭐", "score": "7.6", "price": "฿450", "access": "📍 Borom-At Rd, city centre", "badge": "Attached to mall, central", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "@ RocKo Hotel", "type": "⭐⭐⭐", "score": "7.5", "price": "฿600", "access": "📍 Pa Sao, Mueang Uttaradit", "badge": "New build, spacious parking", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Sunee Boutique Hotel", "type": "⭐⭐⭐", "score": "7.4", "price": "฿600", "access": "📍 Borom-At Rd, near Khlong Pho market", "badge": "Boutique with garden, quiet", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Laplae Guesthouse",
+      "type": "⭐⭐",
+      "score": "9.2",
+      "price": "฿500",
+      "access": "📍 Laplae old town",
+      "badge": "Top score, wooden house",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Areena Resort and Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿490",
+      "access": "📍 Tha It suburb",
+      "badge": "Garden resort, breakfast",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Ton Thong Resort Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿595",
+      "access": "📍 Near city centre ~1 km",
+      "badge": "Most reviews, pool",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Seeharaj Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿850",
+      "access": "📍 City centre, walk to mall",
+      "badge": "Pool, central",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Baan Na Pasiri Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,200",
+      "access": "📍 Tha Pla, near Sirikit Dam",
+      "badge": "Riverside, dam base",
+      "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Barista Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿650",
+      "access": "📍 Tha Sao suburb",
+      "badge": "Boutique with cafe, new",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "ARAYA HOTEL",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿600",
+      "access": "📍 Phitsanulok–Den Chai Rd",
+      "badge": "Villa with pool, spacious",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Thaimit Resort",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿400",
+      "access": "📍 Tha Sao, in town",
+      "badge": "Cheapest, new clean rooms",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Sirikit Dam Guesthouse (EGAT)",
+      "type": "⭐⭐",
+      "score": "7.8",
+      "price": "฿700",
+      "access": "📍 Inside Sirikit Dam, Tha Pla",
+      "badge": "Sleep inside the dam, views",
+      "badgeStyle": "background:#e1f5fe;color:#0277bd;border-color:#81d4fa;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Friday Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿450",
+      "access": "📍 Borom-At Rd, city centre",
+      "badge": "Attached to mall, central",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "@ RocKo Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.5",
+      "price": "฿600",
+      "access": "📍 Pa Sao, Mueang Uttaradit",
+      "badge": "New build, spacious parking",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Sunee Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.4",
+      "price": "฿600",
+      "access": "📍 Borom-At Rd, near Khlong Pho market",
+      "badge": "Boutique with garden, quiet",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    }
   ],
   "adviceTitle": "How to pick the right Uttaradit hotel for you?",
   "advice": [
-    { "icon": "🏙️", "head": "City sightseeing, malls and food, no car", "bodyHtml": "→ <strong>Seeharaj Hotel</strong> ฿850, central, walk to the Friday store, with a pool · or <strong>Friday Hotel</strong> ฿450, attached to a mall (lift down), near the train station · or <strong>Ton Thong Resort</strong> ฿595, near the city centre, with a pool" },
-    { "icon": "🏊", "head": "Want a pool, travelling as a family", "bodyHtml": "→ <strong>Ton Thong Resort</strong> ฿595, has a pool, near the city, most reviews, Triple rooms · or <strong>Seeharaj Hotel</strong> ฿850, central pool · or <strong>ARAYA HOTEL</strong> ฿600, spacious villa rooms with a pool" },
-    { "icon": "🏚️", "head": "Heritage streets, photography, vintage vibe", "bodyHtml": "→ <strong>Laplae Guesthouse</strong> ฿500, roughly 80-year-old wooden house in Laplae old town, top score, bikes to borrow" },
-    { "icon": "🏞️", "head": "Visiting Sirikit Dam, relaxing by the water", "bodyHtml": "→ <strong>Baan Na Pasiri Resort</strong> ฿1,200, bungalows on the Nan River near the dam, water park and activities · or <strong>Sirikit Dam Guesthouse (EGAT)</strong> ฿700, actually sleep inside the dam grounds with reservoir views" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Thaimit Resort</strong> ฿400, cheapest, new clean rooms · or <strong>Areena Resort</strong> ฿490, garden resort with breakfast · or <strong>Friday Hotel</strong> ฿450, mall-attached, central" },
-    { "icon": "☕", "head": "Boutique vibe, quiet, with a garden/cafe", "bodyHtml": "→ <strong>Barista Hotel</strong> ฿650, boutique with a cafe, new rooms, quiet · or <strong>Sunee Boutique Hotel</strong> ฿600, boutique with a green garden near Khlong Pho market" }
+    {
+      "icon": "🏙️",
+      "head": "City sightseeing, malls and food, no car",
+      "bodyHtml": "→ <strong>Seeharaj Hotel</strong> ฿850, central, walk to the Friday store, with a pool · or <strong>Friday Hotel</strong> ฿450, attached to a mall (lift down), near the train station · or <strong>Ton Thong Resort</strong> ฿595, near the city centre, with a pool"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a pool, travelling as a family",
+      "bodyHtml": "→ <strong>Ton Thong Resort</strong> ฿595, has a pool, near the city, most reviews, Triple rooms · or <strong>Seeharaj Hotel</strong> ฿850, central pool · or <strong>ARAYA HOTEL</strong> ฿600, spacious villa rooms with a pool"
+    },
+    {
+      "icon": "🏚️",
+      "head": "Heritage streets, photography, vintage vibe",
+      "bodyHtml": "→ <strong>Laplae Guesthouse</strong> ฿500, roughly 80-year-old wooden house in Laplae old town, top score, bikes to borrow"
+    },
+    {
+      "icon": "🏞️",
+      "head": "Visiting Sirikit Dam, relaxing by the water",
+      "bodyHtml": "→ <strong>Baan Na Pasiri Resort</strong> ฿1,200, bungalows on the Nan River near the dam, water park and activities · or <strong>Sirikit Dam Guesthouse (EGAT)</strong> ฿700, actually sleep inside the dam grounds with reservoir views"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Thaimit Resort</strong> ฿400, cheapest, new clean rooms · or <strong>Areena Resort</strong> ฿490, garden resort with breakfast · or <strong>Friday Hotel</strong> ฿450, mall-attached, central"
+    },
+    {
+      "icon": "☕",
+      "head": "Boutique vibe, quiet, with a garden/cafe",
+      "bodyHtml": "→ <strong>Barista Hotel</strong> ฿650, boutique with a cafe, new rooms, quiet · or <strong>Sunee Boutique Hotel</strong> ฿600, boutique with a green garden near Khlong Pho market"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and can change by date and season — always check the live rate and compare all 3 sites before booking. Uttaradit has no metro; city-centre stays are the most convenient, with malls and markets within walking distance and the train station close by. Almost everything in Laplae old town and the Sirikit Dam zone (Tha Pla district) is easier with a private or rental car. During the Laplae durian season (Jun–Jul) and long weekends, rooms fill fast, so book ahead. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Uttaradit hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in within Uttaradit?", "a": "It depends on your trip. The <strong>city centre</strong> (Borom-At Road–Clock Tower) suits city sightseeing, malls and food and works without a car, with the Friday store, Khlong Pho market and the train station (Seeharaj, Friday, Ton Thong, Sunee). <strong>Laplae old town</strong> suits heritage-street travellers and photographers (Laplae Guesthouse). The <strong>Sirikit Dam zone (Tha Pla district)</strong> suits travellers here to relax by the water and visit the dam (Baan Na Pasiri, Sirikit Dam Guesthouse)." },
-    { "q": "❓ How much do Uttaradit hotels cost?", "a": "Mostly affordable: budget stays and guesthouses start around ฿400–600/night (Thaimit ฿400, Friday ฿450, Areena ฿490, Laplae Guesthouse ฿500). Mid-range hotels and resorts run about ฿595–850 (Ton Thong, ARAYA, Barista, Sunee, Seeharaj). The riverside resort near the dam tops out around ฿1,200 (Baan Na Pasiri). All are approximate starting rates for standard rooms — compare all 3 sites before booking." },
-    { "q": "❓ Visiting Laplae old town — where should I stay?", "a": "Laplae old town is in Laplae district, about 8 km from the city. If old-town sightseeing and photography are your main goal, stay in that area for the full atmosphere — <strong>Laplae Guesthouse</strong> ฿500, a guesthouse in a roughly 80-year-old wooden shophouse, a walk from the town gateway and the Tin Chok woven-cloth museum, with bikes to borrow. If you also want to stay in the city, pick a central hotel with parking and drive over to Laplae for the day." },
-    { "q": "❓ Using Uttaradit as a base for Sirikit Dam — where should I stay?", "a": "Sirikit Dam is in Tha Pla district, about 45 minutes to 1 hour from the city. If visiting the dam and relaxing by the water is your main goal, stay in that zone to cut the drive — <strong>Baan Na Pasiri Resort</strong> ฿1,200, a Nan River resort ~13 km from the dam with a water park and activities for families, or <strong>Sirikit Dam Guesthouse (EGAT)</strong> ฿700, where you actually sleep inside the dam grounds with reservoir views. Both need a private car." },
-    { "q": "❓ Is Uttaradit easy to get around without a car?", "a": "Uttaradit has no metro, so without a car <strong>staying in the city centre is the most convenient</strong> — Seeharaj and Friday walk to the mall, Sunee walks to Khlong Pho market, all close to the train and bus stations. Stays in Laplae old town, the Sirikit Dam zone and the suburbs (Areena, Barista, ARAYA) have few nearby shops, so come with a car or have Grab ready." },
-    { "q": "❓ Which site is cheapest for booking Uttaradit hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at any given time, so we recommend comparing all 3 before every booking — each review page in this guide includes price-comparison links, which can save you hundreds of baht per night, especially during the Laplae durian season and long weekends when rooms fill fast." }
-  ]
+    {
+      "q": "❓ Which area should I stay in within Uttaradit?",
+      "a": "It depends on your trip. The <strong>city centre</strong> (Borom-At Road–Clock Tower) suits city sightseeing, malls and food and works without a car, with the Friday store, Khlong Pho market and the train station (Seeharaj, Friday, Ton Thong, Sunee). <strong>Laplae old town</strong> suits heritage-street travellers and photographers (Laplae Guesthouse). The <strong>Sirikit Dam zone (Tha Pla district)</strong> suits travellers here to relax by the water and visit the dam (Baan Na Pasiri, Sirikit Dam Guesthouse)."
+    },
+    {
+      "q": "❓ How much do Uttaradit hotels cost?",
+      "a": "Mostly affordable: budget stays and guesthouses start around ฿400–600/night (Thaimit ฿400, Friday ฿450, Areena ฿490, Laplae Guesthouse ฿500). Mid-range hotels and resorts run about ฿595–850 (Ton Thong, ARAYA, Barista, Sunee, Seeharaj). The riverside resort near the dam tops out around ฿1,200 (Baan Na Pasiri). All are approximate starting rates for standard rooms — compare all 3 sites before booking."
+    },
+    {
+      "q": "❓ Visiting Laplae old town — where should I stay?",
+      "a": "Laplae old town is in Laplae district, about 8 km from the city. If old-town sightseeing and photography are your main goal, stay in that area for the full atmosphere — <strong>Laplae Guesthouse</strong> ฿500, a guesthouse in a roughly 80-year-old wooden shophouse, a walk from the town gateway and the Tin Chok woven-cloth museum, with bikes to borrow. If you also want to stay in the city, pick a central hotel with parking and drive over to Laplae for the day."
+    },
+    {
+      "q": "❓ Using Uttaradit as a base for Sirikit Dam — where should I stay?",
+      "a": "Sirikit Dam is in Tha Pla district, about 45 minutes to 1 hour from the city. If visiting the dam and relaxing by the water is your main goal, stay in that zone to cut the drive — <strong>Baan Na Pasiri Resort</strong> ฿1,200, a Nan River resort ~13 km from the dam with a water park and activities for families, or <strong>Sirikit Dam Guesthouse (EGAT)</strong> ฿700, where you actually sleep inside the dam grounds with reservoir views. Both need a private car."
+    },
+    {
+      "q": "❓ Is Uttaradit easy to get around without a car?",
+      "a": "Uttaradit has no metro, so without a car <strong>staying in the city centre is the most convenient</strong> — Seeharaj and Friday walk to the mall, Sunee walks to Khlong Pho market, all close to the train and bus stations. Stays in Laplae old town, the Sirikit Dam zone and the suburbs (Areena, Barista, ARAYA) have few nearby shops, so come with a car or have Grab ready."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Uttaradit hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at any given time, so we recommend comparing all 3 before every booking — each review page in this guide includes price-comparison links, which can save you hundreds of baht per night, especially during the Laplae durian season and long weekends when rooms fill fast."
+    }
+  ],
+  "quickAnswerHtml": "12 Uttaradit hotels we reviewed across every tier — from an old-wooden guesthouse in Laplae old town and a riverside resort near Sirikit Dam to an in-town resort with a pool from ฿400. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

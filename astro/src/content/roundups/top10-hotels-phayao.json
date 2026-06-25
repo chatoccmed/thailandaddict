@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "พะเยา", "href": "city-phayao.html" },
-    { "name": "12 โรงแรมพะเยายอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "พะเยา",
+      "href": "city-phayao.html"
+    },
+    {
+      "name": "12 โรงแรมพะเยายอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "พะเยา", "item": "https://thailandaddict.com/city-phayao" },
-    { "name": "12 โรงแรมพะเยายอดนิยม", "item": "https://thailandaddict.com/top10-hotels-phayao" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "พะเยา",
+      "item": "https://thailandaddict.com/city-phayao"
+    },
+    {
+      "name": "12 โรงแรมพะเยายอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-phayao"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-phayao.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "พะเยาไม่มีรถไฟฟ้าและไม่มีสนามบินพาณิชย์ — ส่วนใหญ่ขับรถมาเองหรือนั่งรถทัวร์มาลง บขส.พะเยากลางเมือง · ที่พักค่อนข้างกระจาย เลือกตามแพลนเที่ยวจะคุ้มที่สุด: <strong>ริมกว๊านฝั่งบ้านต๋อม</strong> — เงียบ วิวทะเลสาบ ขับรถเข้าเมือง 10–15 นาที เหมาะคนมีรถ · <strong>ใจกลางเมือง (ต.เวียง)</strong> — เดินถึงถนนชายกว๊าน ท่าเรือวัดติโลกอาราม ตลาด และ บขส. · <strong>อ.เชียงคำ</strong> — ห่างตัวเมืองราวชั่วโมง เหมาะเที่ยววัดนันตาราม น้ำตกภูซาง · เกือบทุกโรงแรมมีที่จอดรถฟรี เหมาะคนขับรถเที่ยว",
   "secLabel": "ทั้ง 12 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Phuglong Hotel", "price": "฿850" },
-    { "n": "2", "color": "#06B6D4", "name": "ABIZZ Hotel KwanPhayao", "price": "฿650" },
-    { "n": "3", "color": "#06B6D4", "name": "Hop Inn Phayao", "price": "฿650" },
-    { "n": "4", "color": "#06B6D4", "name": "KM Kwanphayao Hotel", "price": "฿650" },
-    { "n": "5", "color": "#FB7185", "name": "Rico Resort Chiang Kham", "price": "฿1,800" },
-    { "n": "6", "color": "#FB7185", "name": "M2 Hotel Waterside", "price": "฿1,200" },
-    { "n": "7", "color": "#FB7185", "name": "Naga Tara Boutique Resort", "price": "฿1,100" },
-    { "n": "8", "color": "#FB7185", "name": "Dee Hotel Phayao", "price": "฿620" },
-    { "n": "9", "color": "#FBBF24", "name": "I Ya Guesthouse", "price": "฿700" },
-    { "n": "10", "color": "#FBBF24", "name": "M2 Hotel Phayao", "price": "฿700" },
-    { "n": "11", "color": "#FBBF24", "name": "The Cozy Nest Boutique Rooms", "price": "฿700" },
-    { "n": "12", "color": "#FBBF24", "name": "ME HUG Guesthouse and Hostel", "price": "฿250" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Phuglong Hotel",
+      "price": "฿850"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "ABIZZ Hotel KwanPhayao",
+      "price": "฿650"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Hop Inn Phayao",
+      "price": "฿650"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "KM Kwanphayao Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Rico Resort Chiang Kham",
+      "price": "฿1,800"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "M2 Hotel Waterside",
+      "price": "฿1,200"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Naga Tara Boutique Resort",
+      "price": "฿1,100"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Dee Hotel Phayao",
+      "price": "฿620"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "I Ya Guesthouse",
+      "price": "฿700"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "M2 Hotel Phayao",
+      "price": "฿700"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "The Cozy Nest Boutique Rooms",
+      "price": "฿700"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "ME HUG Guesthouse and Hostel",
+      "price": "฿250"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿850",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Deluxe Room (บางห้องวิวกว๊าน)", "price": "เริ่ม ฿1,050/คืน" },
-        { "type": "Suite ~60 ตร.ม.", "price": "เริ่ม ฿2,200/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Deluxe Room (บางห้องวิวกว๊าน)",
+          "price": "เริ่ม ฿1,050/คืน"
+        },
+        {
+          "type": "Suite ~60 ตร.ม.",
+          "price": "เริ่ม ฿2,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phuglong-hotel/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-phuglong-hotel-phayao.html",
       "tripUrl": "https://th.trip.com/hotels/phayao-hotel-detail-7603915/phuglong/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phuglong-hotel-phayao.html",
-      "tags": ["🏞️ บางห้องวิวกว๊าน", "🚶 ถนนชายกว๊านใจกลางเมือง", "🛏️ ห้องกว้าง ~30 ตร.ม.", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏞️ บางห้องวิวกว๊าน",
+        "🚶 ถนนชายกว๊านใจกลางเมือง",
+        "🛏️ ห้องกว้าง ~30 ตร.ม.",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "888 ถนนชายกว๊าน ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "Phuglong คือ <strong>โรงแรมที่มีรีวิวมากที่สุดในพะเยา ถึง 371 รีวิว</strong> คะแนน 8.9 · อยู่บนถนนชายกว๊านใจกลางเมือง เดินถึงริมกว๊านได้ บางห้องมีระเบียงมองเห็นทะเลสาบ · ห้องกว้างราว 30 ตร.ม. หน้าต่างบานใหญ่ ราคาเริ่มแค่ ฿850 ถือว่าเหมาะมากสำหรับทำเลกลางเมืองวิวกว๊านแบบนี้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ระบุตอนจองว่าขอห้องชั้นสูงฝั่งกว๊าน วิวทะเลสาบตอนเช้าสวยที่สุด และเดินออกไปริมกว๊านได้เลย",
@@ -104,15 +201,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Twin Bed (17 ตร.ม.)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Double Lake View + ระเบียง", "price": "เริ่ม ฿790/คืน" },
-        { "type": "Triple Family", "price": "เริ่ม ฿990/คืน" }
+        {
+          "type": "Twin Bed (17 ตร.ม.)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Double Lake View + ระเบียง",
+          "price": "เริ่ม ฿790/คืน"
+        },
+        {
+          "type": "Triple Family",
+          "price": "เริ่ม ฿990/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/abizz-hotel-kwanphayao/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/abizz-kwanphayao.html",
       "tripUrl": "https://th.trip.com/hotels/phayao-hotel-detail-74625245/abizz-hotel-kwanphayao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-abizz-hotel-kwanphayao-phayao.html",
-      "tags": ["🏞️ ห้อง Lake View มีระเบียง", "🅿️ ที่จอดรถฟรี", "🛗 มีลิฟต์", "☕ อาหารเช้าบุฟเฟต์ (จ่ายเพิ่ม)"],
+      "tags": [
+        "🏞️ ห้อง Lake View มีระเบียง",
+        "🅿️ ที่จอดรถฟรี",
+        "🛗 มีลิฟต์",
+        "☕ อาหารเช้าบุฟเฟต์ (จ่ายเพิ่ม)"
+      ],
       "addr": "148 หมู่ 11 ต.บ้านต๋อม อ.เมืองพะเยา",
       "storyHtml": "ABIZZ คือ <strong>โรงแรมริมกว๊านที่ห้องวิวทะเลสาบเริ่มแค่ ฿790</strong> คะแนน 9.0 จาก 110 รีวิว · อยู่ฝั่งบ้านต๋อมริมกว๊านพะเยา ห้อง Lake View มีระเบียงส่วนตัวหันออกทะเลสาบ มีลิฟต์และที่จอดรถฟรี · ราคาเริ่มเพียง ฿650 ถือว่าเหมาะมากสำหรับทำเลริมกว๊าน เหมาะคนมีรถที่อยากตื่นมาเจอวิวน้ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> จองห้อง Double Lake View ที่มีระเบียงไปเลย ส่วนต่างจากห้องธรรมดาไม่กี่ร้อย แต่ได้วิวกว๊านเต็มตา",
@@ -144,15 +255,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard with Balcony", "price": "เริ่ม ฿790/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard with Balcony",
+          "price": "เริ่ม ฿790/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hop-inn-phayao/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hop-inn-phayao-phayao.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-120005518/hop-inn-phayao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hop-inn-phayao.html",
-      "tags": ["✅ เชนบัดเจ็ตมาตรฐานนิ่ง", "🚶 ถนนท่ากว๊าน ใกล้กว๊าน", "🛏️ ห้องสะอาดเตียงนุ่ม", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "✅ เชนบัดเจ็ตมาตรฐานนิ่ง",
+        "🚶 ถนนท่ากว๊าน ใกล้กว๊าน",
+        "🛏️ ห้องสะอาดเตียงนุ่ม",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "53/11 ถนนท่ากว๊าน ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "Hop Inn คือ <strong>โรงแรมบัดเจ็ตเชนที่คะแนนสูงถึง 9.4 จาก 109 รีวิว</strong> · จุดเหมาะคือมาตรฐานนิ่ง ห้องสะอาด เตียงนุ่ม ราคาคุมงบได้ ไม่มีลูกเล่นแต่ได้ทุกอย่างที่จำเป็น · อยู่บนถนนท่ากว๊านกลางเมือง ใกล้กว๊านพะเยา เดินไปริมกว๊านและตลาดได้ เหมาะคนเที่ยวคืนเดียวหรือแวะพักระหว่างทาง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้อง Standard with Balcony ชั้นสูง บางห้องมองเห็นกว๊านได้ ราคาต่างจากห้องธรรมดาไม่กี่บาท",
@@ -184,15 +309,29 @@
       "priceBig": "฿650",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard ~25 ตร.ม.", "price": "เริ่ม ฿650/คืน" },
-        { "type": "Deluxe เตียงใหญ่", "price": "เริ่ม ฿850/คืน" },
-        { "type": "Family Room ~100 ตร.ม.", "price": "เริ่ม ฿1,600/คืน" }
+        {
+          "type": "Standard ~25 ตร.ม.",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "Deluxe เตียงใหญ่",
+          "price": "เริ่ม ฿850/คืน"
+        },
+        {
+          "type": "Family Room ~100 ตร.ม.",
+          "price": "เริ่ม ฿1,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kmkwanphayao-hotel/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/km-kwanphayao.html",
       "tripUrl": "https://th.trip.com/hotels/phayao-hotel-detail-9702908/km-kwanphayao-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-km-kwanphayao-hotel-phayao.html",
-      "tags": ["🍳 อาหารเช้าบุฟเฟ่ต์", "🚲 จักรยานฟรี", "🅿️ ที่จอดรถฟรี", "👨‍👩‍👧 มี Family Room ใหญ่"],
+      "tags": [
+        "🍳 อาหารเช้าบุฟเฟ่ต์",
+        "🚲 จักรยานฟรี",
+        "🅿️ ที่จอดรถฟรี",
+        "👨‍👩‍👧 มี Family Room ใหญ่"
+      ],
       "addr": "2 ถนนลำปาง ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "KM Kwanphayao คือ <strong>โรงแรมในเมืองที่ให้ครบทั้งอาหารเช้าบุฟเฟ่ต์และจักรยานฟรี</strong> คะแนน 8.9 จาก 141 รีวิว · อยู่บนถนนลำปาง ต.เวียง ใกล้กว๊านพะเยา ขี่จักรยานเลียบกว๊านได้สบาย · มี Family Room ขนาดใหญ่ราว 100 ตร.ม. เหมาะมากันหลายคน ที่จอดรถฟรี ราคาเริ่มเพียง ฿650",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ยืมจักรยานฟรีของโรงแรมไปปั่นเลียบกว๊านพะเยาตอนเช้า อากาศเย็นสบายและวิวทะเลสาบสวย",
@@ -224,15 +363,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Two Queen ~36 ตร.ม.", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,600/คืน" },
-        { "type": "Three-Bedroom Villa", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Deluxe Two Queen ~36 ตร.ม.",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,600/คืน"
+        },
+        {
+          "type": "Three-Bedroom Villa",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rico-resort-chiang-kham/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/rico-resort-chiang-kham.html",
       "tripUrl": "https://th.trip.com/hotels/chiang-kham-hotel-detail-7010693/rico-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rico-resort-chiang-kham-phayao.html",
-      "tags": ["🏊 สระว่ายน้ำกลางแจ้ง", "🎾 คอร์ตเทนนิส + ฟิตเนส", "🌳 สวนกว้างมีบ่อน้ำ", "🍽️ มีร้านอาหาร"],
+      "tags": [
+        "🏊 สระว่ายน้ำกลางแจ้ง",
+        "🎾 คอร์ตเทนนิส + ฟิตเนส",
+        "🌳 สวนกว้างมีบ่อน้ำ",
+        "🍽️ มีร้านอาหาร"
+      ],
       "addr": "389 หมู่ 4 ต.หย่วน อ.เชียงคำ",
       "storyHtml": "Rico Resort คือ <strong>รีสอร์ตในสวนกว้างฝั่งอำเภอเชียงคำ มีสระว่ายน้ำและคอร์ตเทนนิส</strong> คะแนน 9.1 จาก 53 รีวิว · จุดเหมาะคือพื้นที่สวนกว้างมีบ่อน้ำ ฟิตเนส และร้านอาหารในตัว เหมาะพักผ่อนเงียบ ๆ · เป็นตัวเลือกที่ดีถ้าเที่ยวฝั่งวัดนันตาราม น้ำตกภูซาง โดยไม่ต้องวิ่งกลับตัวเมืองพะเยาทุกวัน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันเป็นกลุ่มหรือครอบครัวให้ดู Three-Bedroom Villa หารกันต่อหัวถูกลงมาก และใช้สระกับสวนได้เต็มที่",
@@ -264,15 +417,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Standard Room (Lake View)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Family Room ~35 ตร.ม.", "price": "เริ่ม ฿2,000/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Standard Room (Lake View)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Family Room ~35 ตร.ม.",
+          "price": "เริ่ม ฿2,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/m2-hotel-waterside/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/m2-waterside.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-73651394/m2-hotel-waterside/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-m2-hotel-waterside-phayao.html",
-      "tags": ["🌇 รูฟท็อปวิวทะเลสาบ", "🏊 สระว่ายน้ำ", "🏞️ ห้อง Lake View กระจกบานใหญ่", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🌇 รูฟท็อปวิวทะเลสาบ",
+        "🏊 สระว่ายน้ำ",
+        "🏞️ ห้อง Lake View กระจกบานใหญ่",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "629 หมู่ 17 ต.บ้านต๋อม อ.เมืองพะเยา",
       "storyHtml": "M2 Hotel Waterside คือ <strong>โรงแรมระดับ 4 ดาวริมกว๊านที่มีรูฟท็อปวิวทะเลสาบและสระว่ายน้ำ</strong> คะแนน 8.3 · เป็นที่พักดาวสูงสุดในบทความนี้ จุดเหมาะคือห้อง Lake View กระจกบานใหญ่หันออกกว๊าน และพื้นที่รูฟท็อปนั่งชมพระอาทิตย์ตก · อยู่ฝั่งบ้านต๋อม เหมาะคนมีรถที่อยากได้บรรยากาศริมน้ำเต็มรูปแบบ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือกห้อง Lake View แล้วขึ้นไปรูฟท็อปช่วงเย็น พระอาทิตย์ตกเหนือกว๊านพะเยาเป็นไฮไลต์ของที่นี่",
@@ -304,15 +471,29 @@
       "priceBig": "฿1,100",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard King Room", "price": "เริ่ม ฿1,100/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Honeymoon Pool Villa", "price": "เริ่ม ฿2,800/คืน" }
+        {
+          "type": "Standard King Room",
+          "price": "เริ่ม ฿1,100/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Honeymoon Pool Villa",
+          "price": "เริ่ม ฿2,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/h6906098/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/naakhaathaaraa-riis-rth.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-58408277/naga-tara-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-naga-tara-boutique-resort-phayao.html",
-      "tags": ["🏊 มีสระว่ายน้ำ", "💑 Honeymoon Pool Villa", "🏞️ วิลลาวิวกว๊าน", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "🏊 มีสระว่ายน้ำ",
+        "💑 Honeymoon Pool Villa",
+        "🏞️ วิลลาวิวกว๊าน",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "608 หมู่ 14 ต.บ้านต๋อม อ.เมืองพะเยา",
       "storyHtml": "Naga Tara คือ <strong>บูทีครีสอร์ทริมกว๊านที่มี Honeymoon Pool Villa และวิลลาวิวทะเลสาบ</strong> คะแนน 8.4 · อยู่ฝั่งบ้านต๋อมริมกว๊านพะเยา มีสระว่ายน้ำและห้องระดับวิลลาหันหน้าออกกว๊าน เหมาะคู่รักที่อยากได้บรรยากาศส่วนตัวริมน้ำ · ห้อง Standard เริ่ม ฿1,100 ส่วน Pool Villa เริ่ม ฿2,800 ถ้าอยากฉลองโอกาสพิเศษ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาฉลองวันพิเศษกับคู่ให้จอง Honeymoon Pool Villa วิวกว๊าน ส่วนวันธรรมดาเลือก Standard King ก็คุ้ม",
@@ -344,15 +525,29 @@
       "priceBig": "฿620",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Superior Double (24 ตร.ม.)", "price": "เริ่ม ฿620/คืน" },
-        { "type": "Deluxe Double (28 ตร.ม.)", "price": "เริ่ม ฿780/คืน" },
-        { "type": "Family Room 2 ห้องนอน", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "Superior Double (24 ตร.ม.)",
+          "price": "เริ่ม ฿620/คืน"
+        },
+        {
+          "type": "Deluxe Double (28 ตร.ม.)",
+          "price": "เริ่ม ฿780/คืน"
+        },
+        {
+          "type": "Family Room 2 ห้องนอน",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dee-hotel-phayao/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Dee+Hotel+Phayao",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-68011040/dee-hotel-phayao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dee-hotel-phayao.html",
-      "tags": ["💰 ราคาเริ่ม ฿620", "🛏️ ห้องกว้าง 24–28 ตร.ม.", "👨‍👩‍👧 มี Family Room", "🅿️ ที่จอดรถ"],
+      "tags": [
+        "💰 ราคาเริ่ม ฿620",
+        "🛏️ ห้องกว้าง 24–28 ตร.ม.",
+        "👨‍👩‍👧 มี Family Room",
+        "🅿️ ที่จอดรถ"
+      ],
       "addr": "989 หมู่ 12 ถนนพหลโยธิน ต.บ้านต๋อม อ.เมืองพะเยา",
       "storyHtml": "Dee Hotel คือ <strong>โรงแรมบัดเจ็ตที่ห้องกว้างกว่าราคา เริ่มแค่ ฿620</strong> คะแนน 8.9 จาก 43 รีวิว · ห้อง Superior ราว 24 ตร.ม. ส่วน Deluxe ขยับเป็น 28 ตร.ม. บางห้องมีระเบียง · อยู่ริมถนนพหลโยธินฝั่งบ้านต๋อม เดินทางเข้าออกเมืองสะดวก มี Family Room สองห้องนอนสำหรับครอบครัว เหมาะคนคุมงบที่อยากได้ห้องไม่อึดอัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับนิดให้เลือก Deluxe Double 28 ตร.ม. ห้องกว้างกว่าและบางห้องมีระเบียง คุ้มกว่า Superior",
@@ -384,15 +579,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard Twin", "price": "เริ่ม ฿800/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿950/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿800/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿950/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/i-ya-guesthouse-phayao/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/i-ya-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-8321795/i-ya-guesthouse-phayao/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-i-ya-guesthouse-phayao.html",
-      "tags": ["⭐ คะแนนรีวิว 9.8", "🤫 ชานเมืองเงียบสงบ", "🛁 ห้องน้ำใหญ่สะอาด", "🅿️ ที่จอดรถหน้าห้อง"],
+      "tags": [
+        "⭐ คะแนนรีวิว 9.8",
+        "🤫 ชานเมืองเงียบสงบ",
+        "🛁 ห้องน้ำใหญ่สะอาด",
+        "🅿️ ที่จอดรถหน้าห้อง"
+      ],
       "addr": "103/1 หมู่ 15 ต.แม่ปืม อ.เมืองพะเยา",
       "storyHtml": "I Ya Guesthouse คือ <strong>เกสต์เฮาส์เล็ก ๆ ที่คะแนนรีวิวสูงสุดในบทความนี้ ถึง 9.8</strong> (จาก 16 รีวิว) · จุดเหมาะคือความสะอาด ห้องน้ำใหญ่ และเจ้าของดูแลเอาใจใส่ บรรยากาศเงียบสงบแบบชานเมืองย่านแม่ปืม · ห้องมีจำกัดราว 4 ห้อง ที่จอดรถหน้าห้อง เหมาะคนมีรถที่อยากได้ที่พักเงียบสะอาด มากกว่าทำเลกลางเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องมีจำกัดแค่ราว 4 ห้องและคะแนนสูงทำให้เต็มเร็ว จองล่วงหน้าได้เปรียบ โดยเฉพาะช่วงวันหยุดยาว",
@@ -424,15 +633,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Standard Twin", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Standard Queen", "price": "เริ่ม ฿780/คืน" },
-        { "type": "Standard ช่วงวันหยุด", "price": "เริ่ม ฿880/คืน" }
+        {
+          "type": "Standard Twin",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Standard Queen",
+          "price": "เริ่ม ฿780/คืน"
+        },
+        {
+          "type": "Standard ช่วงวันหยุด",
+          "price": "เริ่ม ฿880/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/m2-hotel/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/m2.th.html",
       "tripUrl": "https://th.trip.com/hotels/phayao-hotel-detail-3720616/m2-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-m2-hotel-phayao.html",
-      "tags": ["🪙 ราคาเริ่ม ฿700", "🚶 ถนนประตูกลอง 1 กลางเมือง", "☕ มีอาหารเช้า (Happy Mori Cafe)", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🪙 ราคาเริ่ม ฿700",
+        "🚶 ถนนประตูกลอง 1 กลางเมือง",
+        "☕ มีอาหารเช้า (Happy Mori Cafe)",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "23/3 ถนนประตูกลอง 1 ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "M2 Hotel คือ <strong>โรงแรมในเมืองที่ถูกที่สุดในกลุ่มโรงแรม (ไม่นับดอร์ม) เริ่มแค่ ฿700</strong> คะแนน 8.2 จาก 57 รีวิว · อยู่บนถนนประตูกลอง 1 ใจกลางเมืองพะเยา เดินถึงตลาดและริมกว๊านได้ · มีที่จอดรถฟรี Wi-Fi ฟรี และคาเฟ่ Happy Mori สำหรับอาหารเช้า เหมาะคนคุมงบที่อยากพักกลางเมืองโดยไม่ต้องมีรถ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ช่วงวันหยุดยาวราคาขยับขึ้นเป็น ฿880 จองล่วงหน้าช่วงวันธรรมดาจะได้ราคาเริ่ม ฿700 คุ้มกว่า",
@@ -464,15 +687,29 @@
       "priceBig": "฿700",
       "priceSub": "ราคาเริ่มต้น/คืน",
       "rooms": [
-        { "type": "Deluxe Double (~20 ตร.ม.)", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Superior King", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Deluxe Double (~20 ตร.ม.)",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Superior King",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-cozy-nest-boutique-rooms-guest-house/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-cozy-nest-boutique-rooms.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-3717472/the-cozy-nest-boutique-rooms/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-cozy-nest-boutique-rooms-phayao.html",
-      "tags": ["🎨 ตกแต่งสไตล์บูทีก", "🚶 เดินถึงกว๊านพะเยา", "🛏️ ห้องสะอาด ~20 ตร.ม.", "📍 ถนนราชวงศ์กลางเมือง"],
+      "tags": [
+        "🎨 ตกแต่งสไตล์บูทีก",
+        "🚶 เดินถึงกว๊านพะเยา",
+        "🛏️ ห้องสะอาด ~20 ตร.ม.",
+        "📍 ถนนราชวงศ์กลางเมือง"
+      ],
       "addr": "59 ถนนราชวงศ์ ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "The Cozy Nest คือ <strong>เกสต์เฮาส์สไตล์บูทีกใจกลางเมืองที่เดินถึงกว๊านพะเยาได้</strong> คะแนน 8.3 จาก 14 รีวิว · อยู่บนถนนราชวงศ์ ห้องตกแต่งสไตล์บูทีก ราว 20 ตร.ม. สะอาด เริ่ม ฿700 · จุดเหมาะคือทำเลกลางเมืองสำหรับคนไม่มีรถ เดินไปริมกว๊าน ตลาด และร้านอาหารได้ เหมาะคู่หรือนักเดินทางเดี่ยวที่ชอบที่พักเล็ก ๆ มีสไตล์",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> งบพอขยับให้เลือก Superior King ห้องกว้างขึ้นและตกแต่งสไตล์บูทีกชัดกว่าห้อง Deluxe",
@@ -504,15 +741,29 @@
       "priceBig": "฿250",
       "priceSub": "ราคาเริ่มต้น/คืน (เตียงดอร์ม)",
       "rooms": [
-        { "type": "เตียงในดอร์ม (หญิง/ชาย)", "price": "เริ่ม ฿250/คืน" },
-        { "type": "Twin Room ส่วนตัว", "price": "เริ่ม ฿450/คืน" },
-        { "type": "Double Room (City View)", "price": "เริ่ม ฿550/คืน" }
+        {
+          "type": "เตียงในดอร์ม (หญิง/ชาย)",
+          "price": "เริ่ม ฿250/คืน"
+        },
+        {
+          "type": "Twin Room ส่วนตัว",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "Double Room (City View)",
+          "price": "เริ่ม ฿550/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/me-hug-guesthouse-and-hostel-h84532755/hotel/phayao-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/me-hug-guesthouse-and-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/phayao-hotel-detail-133159868/me-hug-guesthouse-and-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-me-hug-guesthouse-and-hostel-phayao.html",
-      "tags": ["🪙 ดอร์มเริ่ม ฿250", "🚌 ตรงข้าม บขส.พะเยา", "🔒 ดอร์มแยกหญิง/ชาย มีล็อกเกอร์", "🚶 ใกล้กว๊าน เดินถึงเมือง"],
+      "tags": [
+        "🪙 ดอร์มเริ่ม ฿250",
+        "🚌 ตรงข้าม บขส.พะเยา",
+        "🔒 ดอร์มแยกหญิง/ชาย มีล็อกเกอร์",
+        "🚶 ใกล้กว๊าน เดินถึงเมือง"
+      ],
       "addr": "12/61 ถนนรอบเวียงประตูกลอง ต.เวียง อ.เมืองพะเยา",
       "storyHtml": "ME HUG คือ <strong>โฮสเทลที่ถูกที่สุดในบทความนี้ เตียงดอร์มเริ่มแค่ ฿250</strong> คะแนน 8.3 · อยู่ตรงข้าม บขส.พะเยา ใกล้กว๊านและกลางเมือง เหมาะนักเดินทางที่นั่งรถทัวร์มาแล้วเดินถึงที่พักได้เลย · มีดอร์มแยกหญิง-ชายพร้อมล็อกเกอร์ และห้องส่วนตัว Twin/Double สำหรับคนอยากได้พื้นที่ส่วนตัว เหมาะแบ็กแพ็กเกอร์และคนเที่ยวคนเดียว",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาคนเดียวเลือกเตียงดอร์ม ฿250 ประหยัดสุด แต่ถ้ามากันสองคนห้อง Twin ฿450 หารกันแล้วถูกพอ ๆ กันและได้ความเป็นส่วนตัว",
@@ -530,39 +781,214 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 12 โรงแรมพะเยา 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Phuglong Hotel", "type": "⭐⭐⭐", "score": "8.9", "price": "฿850", "access": "📍 ถนนชายกว๊าน·ในเมือง", "badge": "รีวิวมากสุด 371", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "ABIZZ Hotel KwanPhayao", "type": "⭐⭐⭐", "score": "9.0", "price": "฿650", "access": "📍 บ้านต๋อม·ริมกว๊าน", "badge": "ห้องวิวกว๊านมีระเบียง", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Hop Inn Phayao", "type": "⭐⭐", "score": "9.4", "price": "฿650", "access": "📍 ถนนท่ากว๊าน·กลางเมือง", "badge": "บัดเจ็ตคะแนนสูง", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "KM Kwanphayao Hotel", "type": "⭐⭐⭐", "score": "8.9", "price": "฿650", "access": "📍 ถนนลำปาง·ใกล้กว๊าน", "badge": "บุฟเฟ่ต์+จักรยานฟรี", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Rico Resort Chiang Kham", "type": "⭐⭐⭐", "score": "9.1", "price": "฿1,800", "access": "📍 อ.เชียงคำ", "badge": "รีสอร์ตสวน+สระ", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "M2 Hotel Waterside", "type": "⭐⭐⭐⭐", "score": "8.3", "price": "฿1,200", "access": "📍 บ้านต๋อม·ริมกว๊าน", "badge": "4★ ริมกว๊าน+รูฟท็อป", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Naga Tara Boutique Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,100", "access": "📍 บ้านต๋อม·ริมกว๊าน", "badge": "มี Pool Villa", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Dee Hotel Phayao", "type": "⭐⭐", "score": "8.9", "price": "฿620", "access": "📍 ถนนพหลโยธิน·บ้านต๋อม", "badge": "บัดเจ็ตคุ้ม", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "I Ya Guesthouse", "type": "⭐⭐", "score": "9.8", "price": "฿700", "access": "📍 ต.แม่ปืม·ชานเมือง", "badge": "คะแนนสูงสุด 9.8", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "M2 Hotel Phayao", "type": "⭐⭐⭐", "score": "8.2", "price": "฿700", "access": "📍 ประตูกลอง 1·ในเมือง", "badge": "โรงแรมในเมืองถูกสุด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "The Cozy Nest Boutique Rooms", "type": "⭐⭐", "score": "8.3", "price": "฿700", "access": "📍 ถนนราชวงศ์·ในเมือง", "badge": "บูทีกเดินถึงกว๊าน", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "ME HUG Guesthouse and Hostel", "type": "⭐⭐", "score": "8.3", "price": "฿250", "access": "📍 ตรงข้าม บขส.·กลางเมือง", "badge": "ถูกสุด ดอร์ม", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Phuglong Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿850",
+      "access": "📍 ถนนชายกว๊าน·ในเมือง",
+      "badge": "รีวิวมากสุด 371",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "ABIZZ Hotel KwanPhayao",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿650",
+      "access": "📍 บ้านต๋อม·ริมกว๊าน",
+      "badge": "ห้องวิวกว๊านมีระเบียง",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Hop Inn Phayao",
+      "type": "⭐⭐",
+      "score": "9.4",
+      "price": "฿650",
+      "access": "📍 ถนนท่ากว๊าน·กลางเมือง",
+      "badge": "บัดเจ็ตคะแนนสูง",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "KM Kwanphayao Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿650",
+      "access": "📍 ถนนลำปาง·ใกล้กว๊าน",
+      "badge": "บุฟเฟ่ต์+จักรยานฟรี",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Rico Resort Chiang Kham",
+      "type": "⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,800",
+      "access": "📍 อ.เชียงคำ",
+      "badge": "รีสอร์ตสวน+สระ",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "M2 Hotel Waterside",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿1,200",
+      "access": "📍 บ้านต๋อม·ริมกว๊าน",
+      "badge": "4★ ริมกว๊าน+รูฟท็อป",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Naga Tara Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,100",
+      "access": "📍 บ้านต๋อม·ริมกว๊าน",
+      "badge": "มี Pool Villa",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Dee Hotel Phayao",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿620",
+      "access": "📍 ถนนพหลโยธิน·บ้านต๋อม",
+      "badge": "บัดเจ็ตคุ้ม",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "I Ya Guesthouse",
+      "type": "⭐⭐",
+      "score": "9.8",
+      "price": "฿700",
+      "access": "📍 ต.แม่ปืม·ชานเมือง",
+      "badge": "คะแนนสูงสุด 9.8",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "M2 Hotel Phayao",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿700",
+      "access": "📍 ประตูกลอง 1·ในเมือง",
+      "badge": "โรงแรมในเมืองถูกสุด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "The Cozy Nest Boutique Rooms",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿700",
+      "access": "📍 ถนนราชวงศ์·ในเมือง",
+      "badge": "บูทีกเดินถึงกว๊าน",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "ME HUG Guesthouse and Hostel",
+      "type": "⭐⭐",
+      "score": "8.3",
+      "price": "฿250",
+      "access": "📍 ตรงข้าม บขส.·กลางเมือง",
+      "badge": "ถูกสุด ดอร์ม",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมพะเยายังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>ME HUG</strong> ดอร์มเริ่ม ฿250 ตรงข้าม บขส. · หรือ <strong>Dee Hotel</strong> ฿620 ห้องกว้างกว่าราคา · หรือ <strong>Hop Inn</strong> ฿650 เชนบัดเจ็ตคะแนน 9.4" },
-    { "icon": "🏞️", "head": "อยากพักริมกว๊าน วิวทะเลสาบ", "bodyHtml": "→ <strong>ABIZZ Hotel KwanPhayao</strong> ฿650 ห้องวิวกว๊านมีระเบียง · หรือ <strong>M2 Hotel Waterside</strong> ฿1,200 4 ดาว รูฟท็อปวิวทะเลสาบ" },
-    { "icon": "🚶", "head": "ไม่มีรถ อยากพักกลางเมือง", "bodyHtml": "→ <strong>Phuglong Hotel</strong> ฿850 ถนนชายกว๊าน เดินถึงริมกว๊าน · หรือ <strong>The Cozy Nest</strong> ฿700 บูทีกถนนราชวงศ์ เดินถึงกว๊าน" },
-    { "icon": "💑", "head": "ทริปคู่รัก อยากได้บรรยากาศส่วนตัว", "bodyHtml": "→ <strong>Naga Tara Boutique Resort</strong> ฿1,100 มี Honeymoon Pool Villa วิวกว๊าน · บรรยากาศริมน้ำเงียบเป็นส่วนตัว" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว มากันหลายคน", "bodyHtml": "→ <strong>KM Kwanphayao</strong> ฿650 มี Family Room ใหญ่ + จักรยานฟรี · หรือ <strong>Rico Resort Chiang Kham</strong> ฿1,800 มีวิลลา 3 ห้องนอน + สระ" },
-    { "icon": "🌳", "head": "เที่ยวฝั่งเชียงคำ-ภูซาง", "bodyHtml": "→ <strong>Rico Resort Chiang Kham</strong> ฿1,800 รีสอร์ตในสวนมีสระและคอร์ตเทนนิส เหมาะไม่ต้องวิ่งกลับตัวเมืองทุกวัน" },
-    { "icon": "⭐", "head": "อยากได้คะแนนรีวิวสูงสุด เงียบสงบ", "bodyHtml": "→ <strong>I Ya Guesthouse</strong> ฿700 คะแนน 9.8 สะอาดมาก ชานเมืองแม่ปืมเงียบ · เหมาะคนมีรถที่เน้นที่พักสะอาดเงียบ" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>ME HUG</strong> ดอร์มเริ่ม ฿250 ตรงข้าม บขส. · หรือ <strong>Dee Hotel</strong> ฿620 ห้องกว้างกว่าราคา · หรือ <strong>Hop Inn</strong> ฿650 เชนบัดเจ็ตคะแนน 9.4"
+    },
+    {
+      "icon": "🏞️",
+      "head": "อยากพักริมกว๊าน วิวทะเลสาบ",
+      "bodyHtml": "→ <strong>ABIZZ Hotel KwanPhayao</strong> ฿650 ห้องวิวกว๊านมีระเบียง · หรือ <strong>M2 Hotel Waterside</strong> ฿1,200 4 ดาว รูฟท็อปวิวทะเลสาบ"
+    },
+    {
+      "icon": "🚶",
+      "head": "ไม่มีรถ อยากพักกลางเมือง",
+      "bodyHtml": "→ <strong>Phuglong Hotel</strong> ฿850 ถนนชายกว๊าน เดินถึงริมกว๊าน · หรือ <strong>The Cozy Nest</strong> ฿700 บูทีกถนนราชวงศ์ เดินถึงกว๊าน"
+    },
+    {
+      "icon": "💑",
+      "head": "ทริปคู่รัก อยากได้บรรยากาศส่วนตัว",
+      "bodyHtml": "→ <strong>Naga Tara Boutique Resort</strong> ฿1,100 มี Honeymoon Pool Villa วิวกว๊าน · บรรยากาศริมน้ำเงียบเป็นส่วนตัว"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว มากันหลายคน",
+      "bodyHtml": "→ <strong>KM Kwanphayao</strong> ฿650 มี Family Room ใหญ่ + จักรยานฟรี · หรือ <strong>Rico Resort Chiang Kham</strong> ฿1,800 มีวิลลา 3 ห้องนอน + สระ"
+    },
+    {
+      "icon": "🌳",
+      "head": "เที่ยวฝั่งเชียงคำ-ภูซาง",
+      "bodyHtml": "→ <strong>Rico Resort Chiang Kham</strong> ฿1,800 รีสอร์ตในสวนมีสระและคอร์ตเทนนิส เหมาะไม่ต้องวิ่งกลับตัวเมืองทุกวัน"
+    },
+    {
+      "icon": "⭐",
+      "head": "อยากได้คะแนนรีวิวสูงสุด เงียบสงบ",
+      "bodyHtml": "→ <strong>I Ya Guesthouse</strong> ฿700 คะแนน 9.8 สะอาดมาก ชานเมืองแม่ปืมเงียบ · เหมาะคนมีรถที่เน้นที่พักสะอาดเงียบ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงวันหยุดยาว เทศกาล และฤดูหนาว (พ.ย.–ม.ค.) ที่อากาศเย็นกำลังดี ราคาขยับขึ้นและห้องเต็มเร็ว จองล่วงหน้า 2–4 สัปดาห์ · พะเยาไม่มีรถไฟฟ้าและสนามบินพาณิชย์ ส่วนใหญ่ขับรถมาเองหรือนั่งรถทัวร์มาลง บขส. · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมพะเยา",
   "faq": [
-    { "q": "❓ พักโซนไหนดีในพะเยา?", "a": "ขึ้นอยู่กับว่ามีรถหรือไม่ · <strong>ริมกว๊านฝั่งบ้านต๋อม</strong> เงียบ วิวทะเลสาบ เหมาะคนมีรถ (ABIZZ, M2 Waterside, Naga Tara) · <strong>ใจกลางเมือง ต.เวียง</strong> เดินถึงถนนชายกว๊าน ตลาด และ บขส. เหมาะคนไม่มีรถ (Phuglong, Hop Inn, M2 Hotel, Cozy Nest, ME HUG) · <strong>อ.เชียงคำ</strong> ห่างตัวเมืองราว 1 ชั่วโมง เหมาะเที่ยววัดนันตาราม-ภูซาง (Rico Resort)" },
-    { "q": "❓ โรงแรมพะเยาราคาเท่าไหร่?", "a": "พะเยาราคาเป็นกันเองมาก: เตียงดอร์มเริ่มราว ฿250 (ME HUG) · โรงแรมในเมืองและบัดเจ็ต 2–3 ดาวราว ฿620–900 (Hop Inn, Dee, M2, KM, Cozy Nest) · บูทีกริมกว๊านราว ฿1,100–1,500 (Naga Tara, M2 Waterside, ABIZZ ห้องวิว) · รีสอร์ตในสวนเชียงคำเริ่ม ฿1,800 (Rico)" },
-    { "q": "❓ ไม่มีรถ พักพะเยาได้ไหม?", "a": "ได้ ถ้าเลือกที่พักกลางเมือง ต.เวียง · <strong>ME HUG</strong> อยู่ตรงข้าม บขส. นั่งรถทัวร์มาแล้วเดินถึงเลย · <strong>Phuglong, Hop Inn, M2 Hotel, The Cozy Nest</strong> อยู่กลางเมือง เดินถึงถนนชายกว๊าน ตลาด ท่าเรือวัดติโลกอารามได้ · แต่ถ้าจะพักริมกว๊านฝั่งบ้านต๋อมหรือเที่ยวเชียงคำ ควรมีรถหรือเช่ามอเตอร์ไซค์" },
-    { "q": "❓ โรงแรมพะเยาที่ไหนมีสระว่ายน้ำ?", "a": "ในบทความนี้ที่มีสระว่ายน้ำคือ <strong>M2 Hotel Waterside</strong> (สระ + รูฟท็อปวิวกว๊าน), <strong>Naga Tara Boutique Resort</strong> (สระริมกว๊าน + Pool Villa) ฝั่งบ้านต๋อม และ <strong>Rico Resort Chiang Kham</strong> (สระกลางแจ้ง + คอร์ตเทนนิส) ฝั่งเชียงคำ" },
-    { "q": "❓ อยากได้ห้องวิวกว๊านพะเยา จองที่ไหน?", "a": "ห้องวิวกว๊านที่คุ้มสุดคือ <strong>ABIZZ Hotel KwanPhayao</strong> ห้อง Lake View มีระเบียงเริ่มราว ฿790 · ส่วน <strong>M2 Hotel Waterside</strong> ฿1,500 ห้อง Lake View กระจกบานใหญ่และรูฟท็อปวิวทะเลสาบ · ระบุตอนจองว่าต้องการห้องวิวกว๊าน เพราะห้องวิวมีจำนวนจำกัด" },
-    { "q": "❓ ควรจองโรงแรมพะเยาล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว เทศกาล และฤดูหนาว (พ.ย.–ม.ค.) ที่คนเที่ยวเหนือเยอะ ห้องริมกว๊านและที่พักห้องน้อย เช่น I Ya Guesthouse หรือ The Cozy Nest เต็มเร็ว ควรจองล่วงหน้า 2–4 สัปดาห์" }
-  ]
+    {
+      "q": "❓ พักโซนไหนดีในพะเยา?",
+      "a": "ขึ้นอยู่กับว่ามีรถหรือไม่ · <strong>ริมกว๊านฝั่งบ้านต๋อม</strong> เงียบ วิวทะเลสาบ เหมาะคนมีรถ (ABIZZ, M2 Waterside, Naga Tara) · <strong>ใจกลางเมือง ต.เวียง</strong> เดินถึงถนนชายกว๊าน ตลาด และ บขส. เหมาะคนไม่มีรถ (Phuglong, Hop Inn, M2 Hotel, Cozy Nest, ME HUG) · <strong>อ.เชียงคำ</strong> ห่างตัวเมืองราว 1 ชั่วโมง เหมาะเที่ยววัดนันตาราม-ภูซาง (Rico Resort)"
+    },
+    {
+      "q": "❓ โรงแรมพะเยาราคาเท่าไหร่?",
+      "a": "พะเยาราคาเป็นกันเองมาก: เตียงดอร์มเริ่มราว ฿250 (ME HUG) · โรงแรมในเมืองและบัดเจ็ต 2–3 ดาวราว ฿620–900 (Hop Inn, Dee, M2, KM, Cozy Nest) · บูทีกริมกว๊านราว ฿1,100–1,500 (Naga Tara, M2 Waterside, ABIZZ ห้องวิว) · รีสอร์ตในสวนเชียงคำเริ่ม ฿1,800 (Rico)"
+    },
+    {
+      "q": "❓ ไม่มีรถ พักพะเยาได้ไหม?",
+      "a": "ได้ ถ้าเลือกที่พักกลางเมือง ต.เวียง · <strong>ME HUG</strong> อยู่ตรงข้าม บขส. นั่งรถทัวร์มาแล้วเดินถึงเลย · <strong>Phuglong, Hop Inn, M2 Hotel, The Cozy Nest</strong> อยู่กลางเมือง เดินถึงถนนชายกว๊าน ตลาด ท่าเรือวัดติโลกอารามได้ · แต่ถ้าจะพักริมกว๊านฝั่งบ้านต๋อมหรือเที่ยวเชียงคำ ควรมีรถหรือเช่ามอเตอร์ไซค์"
+    },
+    {
+      "q": "❓ โรงแรมพะเยาที่ไหนมีสระว่ายน้ำ?",
+      "a": "ในบทความนี้ที่มีสระว่ายน้ำคือ <strong>M2 Hotel Waterside</strong> (สระ + รูฟท็อปวิวกว๊าน), <strong>Naga Tara Boutique Resort</strong> (สระริมกว๊าน + Pool Villa) ฝั่งบ้านต๋อม และ <strong>Rico Resort Chiang Kham</strong> (สระกลางแจ้ง + คอร์ตเทนนิส) ฝั่งเชียงคำ"
+    },
+    {
+      "q": "❓ อยากได้ห้องวิวกว๊านพะเยา จองที่ไหน?",
+      "a": "ห้องวิวกว๊านที่คุ้มสุดคือ <strong>ABIZZ Hotel KwanPhayao</strong> ห้อง Lake View มีระเบียงเริ่มราว ฿790 · ส่วน <strong>M2 Hotel Waterside</strong> ฿1,500 ห้อง Lake View กระจกบานใหญ่และรูฟท็อปวิวทะเลสาบ · ระบุตอนจองว่าต้องการห้องวิวกว๊าน เพราะห้องวิวมีจำนวนจำกัด"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมพะเยาล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติจองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงวันหยุดยาว เทศกาล และฤดูหนาว (พ.ย.–ม.ค.) ที่คนเที่ยวเหนือเยอะ ห้องริมกว๊านและที่พักห้องน้อย เช่น I Ya Guesthouse หรือ The Cozy Nest เต็มเร็ว ควรจองล่วงหน้า 2–4 สัปดาห์"
+    }
+  ],
+  "quickAnswerHtml": "รวม 12 โรงแรมพะเยาคัดมาแล้วจากทุกระดับ — ตั้งแต่ Phuglong บูทีกวิวกว๊านใจกลางเมือง ไปถึง ME HUG ดอร์มเริ่ม ฿250 และ ABIZZ ห้องวิวกว๊านมีระเบียง เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

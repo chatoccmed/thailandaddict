@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Phichit", "href": "city-phichit.html" },
-    { "name": "Top 12 Phichit Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Phichit",
+      "href": "city-phichit.html"
+    },
+    {
+      "name": "Top 12 Phichit Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Phichit", "item": "https://thailandaddict.com/en/city-phichit" },
-    { "name": "Top 12 Phichit Hotels", "item": "https://thailandaddict.com/en/top10-hotels-phichit" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Phichit",
+      "item": "https://thailandaddict.com/en/city-phichit"
+    },
+    {
+      "name": "Top 12 Phichit Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-phichit"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-phichit.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Phichit has no metro; you get around by car, and the Northern Line railway stops at Phichit, Taphan Hin and Bang Mun Nak stations. <strong>City-centre</strong> stays are easiest, with markets, restaurants, Bueng Si Fai and Wat Tha Luang a short drive away, and some walkable to the lake (Orchid Place, The Nest, Phichit Plaza). <strong>Suburban</strong> stays almost all need a car, as dining around them is thin, but you get bigger, quieter rooms (Lanna Bali, Fahluang, Bed Hub, Modern Resort). And <strong>Taphan Hin and Bang Mun Nak</strong> suit rail travellers (Roseinn is by the station) or drivers wanting a riverside or rice-field setting (Ruen Rim Nan, Rice Country Village). The areas in this guide: <strong>City Centre</strong> — markets, food, Bueng Si Fai · <strong>Suburbs</strong> — garden resorts, big rooms, quiet · <strong>Taphan Hin–Bang Mun Nak</strong> — by the train station, the Nan River, rice-field views.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Lanna Bali Kumnuntuo", "price": "฿800" },
-    { "n": "2", "color": "#c8a951", "name": "Fahluang Residence", "price": "฿580" },
-    { "n": "3", "color": "#c8a951", "name": "The Nest Hotel Phichit", "price": "฿650" },
-    { "n": "4", "color": "#9e9e9e", "name": "Rice Country Village", "price": "฿700" },
-    { "n": "5", "color": "#9e9e9e", "name": "Roseinn Hotel Taphanhin", "price": "฿450" },
-    { "n": "6", "color": "#9e9e9e", "name": "Ruen Rim Nan Resort", "price": "฿900" },
-    { "n": "7", "color": "#9e9e9e", "name": "Modern Resort Phichit", "price": "฿700" },
-    { "n": "8", "color": "#bf8040", "name": "Bed Hub Hotel Phichit", "price": "฿550" },
-    { "n": "9", "color": "#bf8040", "name": "Orchid Place Hotel", "price": "฿540" },
-    { "n": "10", "color": "#5d4037", "name": "SP Resort and Garden", "price": "฿437" },
-    { "n": "11", "color": "#5d4037", "name": "Phichit Plaza Hotel", "price": "฿650" },
-    { "n": "12", "color": "#5d4037", "name": "Oka Nakorn Hotel", "price": "฿350" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Lanna Bali Kumnuntuo",
+      "price": "฿800"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Fahluang Residence",
+      "price": "฿580"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "The Nest Hotel Phichit",
+      "price": "฿650"
+    },
+    {
+      "n": "4",
+      "color": "#9e9e9e",
+      "name": "Rice Country Village",
+      "price": "฿700"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Roseinn Hotel Taphanhin",
+      "price": "฿450"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Ruen Rim Nan Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Modern Resort Phichit",
+      "price": "฿700"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Bed Hub Hotel Phichit",
+      "price": "฿550"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Orchid Place Hotel",
+      "price": "฿540"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "SP Resort and Garden",
+      "price": "฿437"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Phichit Plaza Hotel",
+      "price": "฿650"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Oka Nakorn Hotel",
+      "price": "฿350"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Double (Garden View) king bed", "price": "from ฿800/night" },
-        { "type": "Deluxe Double (Garden View) twin beds", "price": "from ฿850/night" },
-        { "type": "Deluxe Room (holiday rate)", "price": "from ฿1,200/night" }
+        {
+          "type": "Deluxe Double (Garden View) king bed",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Deluxe Double (Garden View) twin beds",
+          "price": "from ฿850/night"
+        },
+        {
+          "type": "Deluxe Room (holiday rate)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lanna-bali-kumnuntuo/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lanna-bali-kumnuntuo.html",
       "tripUrl": "https://www.trip.com/hotels/pichit-hotel-detail-10995762/lanna-bali-kumnuntuo/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lanna-bali-kumnuntuo-phichit.html",
-      "tags": ["🐶 Homie & Friends corgi cafe", "🏡 Garden resort, Lanna-Bali theme", "🐾 Pet-friendly + EV charger", "🅿️ Free parking + bikes to borrow"],
+      "tags": [
+        "🐶 Homie & Friends corgi cafe",
+        "🏡 Garden resort, Lanna-Bali theme",
+        "🐾 Pet-friendly + EV charger",
+        "🅿️ Free parking + bikes to borrow"
+      ],
       "addr": "99 Moo 4, Tha Luang, Mueang Phichit",
       "storyHtml": "Lanna Bali Kumnuntuo is <strong>the most-reviewed garden resort in this guide — 164 reviews — and the most distinctive stay in Phichit</strong>, averaging around 8.5. It's a Lanna-meets-Bali themed resort in the suburban Tha Luang area near Bueng Si Fai, rather than a building in town. Real guest reviews praise the cleanliness, leafy garden setting, and the highlight — the Homie & Friends garden cafe with corgis to play with. It's also pet-friendly, with an EV charger and bikes to borrow. Reviewers do note the beds are fairly firm with few pillows, and there's an on-site karaoke that can be noisy at times. Best for animal lovers, people bringing a pet, and anyone wanting a quiet garden resort.",
       "tipHtml": "💡 <strong>Tip:</strong> Many reviews mention firm beds — ask for an extra pillow or a topper at check-in. Light sleeper? Request a room away from the cafe/karaoke zone. Bringing a pet — confirm the conditions with the resort before booking.",
@@ -104,15 +201,29 @@
       "priceBig": "฿580",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Classic Standard Room (~24 sqm)", "price": "from ฿580/night" },
-        { "type": "Classic Deluxe Room (with balcony)", "price": "from ฿650/night" },
-        { "type": "Classic VIP Room (~48 sqm)", "price": "from ฿1,100/night" }
+        {
+          "type": "Classic Standard Room (~24 sqm)",
+          "price": "from ฿580/night"
+        },
+        {
+          "type": "Classic Deluxe Room (with balcony)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Classic VIP Room (~48 sqm)",
+          "price": "from ฿1,100/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/fahluang-residence/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/fahluang-residence.html",
       "tripUrl": "https://www.trip.com/hotels/pichit-hotel-detail-12461987/fahluang-residence/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-fahluang-residence-phichit.html",
-      "tags": ["🛏️ Big rooms 24–48 sqm with balconies", "🌳 Quiet, ~1 km to Bueng Si Fai", "🅿️ Generous parking + breakfast included", "🚿 Strong rainfall hot water + strong Wi-Fi"],
+      "tags": [
+        "🛏️ Big rooms 24–48 sqm with balconies",
+        "🌳 Quiet, ~1 km to Bueng Si Fai",
+        "🅿️ Generous parking + breakfast included",
+        "🚿 Strong rainfall hot water + strong Wi-Fi"
+      ],
       "addr": "93 Moo 8, Tha Luang, Mueang Phichit",
       "storyHtml": "Fahluang Residence takes <strong>the top score in this guide at 8.6 — a 3-star hotel in the Tha Luang area that guests praise most for big, quiet rooms in Phichit city</strong>, from 29 reviews. It's about 1 km from Bueng Si Fai, under a 5-minute drive. Real guest reviews praise rooms larger than the price (standard ~24 sqm up to a 48 sqm VIP), many with private balconies, strong rainfall hot water, plus cleanliness and warm service beyond the price, and generous parking. The catch: it's not by the city-centre market, so without a car you'll lean on Grab, the breakfast has limited choice, and there's no pool. Best for drivers who prioritise big, quiet rooms and parking.",
       "tipHtml": "💡 <strong>Tip:</strong> Many rooms have balconies but not all — request one when booking or at check-in. Some rooms have no tea/coffee set, so bring sachets if you need a morning cup. Bueng Si Fai is just ~1 km away — head out early to walk the park and watch the fish before breakfast.",
@@ -144,15 +255,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin (breakfast for 2)", "price": "from ฿650/night" },
-        { "type": "Standard King (breakfast included)", "price": "from ฿700/night" },
-        { "type": "Suite (1 bedroom + living area)", "price": "from ฿1,650/night" }
+        {
+          "type": "Standard Twin (breakfast for 2)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard King (breakfast included)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Suite (1 bedroom + living area)",
+          "price": "from ฿1,650/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-nest-hotel-phichit/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-the-nest-hotel-phichit-b-n-klaung-kachen.html",
       "tripUrl": "https://th.trip.com/hotels/pichit-hotel-detail-6371321/the-nest-hotel-phichit/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-nest-hotel-phichit.html",
-      "tags": ["🏪 Next to 7-Eleven, shop anytime", "🏙️ City centre, walk to town shops", "🍳 Clean rooms, rate often includes breakfast", "🅿️ Free parking · 24-hour front desk"],
+      "tags": [
+        "🏪 Next to 7-Eleven, shop anytime",
+        "🏙️ City centre, walk to town shops",
+        "🍳 Clean rooms, rate often includes breakfast",
+        "🅿️ Free parking · 24-hour front desk"
+      ],
       "addr": "28/68 Sa Luang Rd, Mueang Phichit",
       "storyHtml": "The Nest Hotel Phichit is <strong>a city-centre 3-star and the most popular practical pick in Phichit</strong>, scoring 8.4 from 46 reviews, opened in 2016. What real guest reviews praise most is that it's <strong>right next to a 7-Eleven</strong> — water, snacks or essentials at any hour are a few steps away. It's on Sa Luang Road, a few minutes' drive from the market, train station and Bueng Si Fai. Reviews praise clean rooms, comfy beds, upkeep better than expected, most rates including a made-to-order Thai breakfast for two, and friendly staff. The catch: cleanliness isn't always consistent across rooms, staff English is limited, and it's a small town so you'll need a car to explore. Best for overnight stays wanting a clean room in town beside a convenience store.",
       "tipHtml": "💡 <strong>Tip:</strong> Many rates include a made-to-order Thai breakfast for two — pick one that does for better value. Cleanliness varies by room, so check the bathroom and bedding on arrival and ask to switch if it's not right; staff are flexible. Some rooms lack a hairdryer — ask at the front desk.",
@@ -184,15 +309,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Villa (with balcony)", "price": "from ฿700/night" },
-        { "type": "Villa with rice-field view (King)", "price": "from ฿900/night" },
-        { "type": "Family Villa (by the pool)", "price": "from ฿1,200/night" }
+        {
+          "type": "Standard Villa (with balcony)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Villa with rice-field view (King)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Family Villa (by the pool)",
+          "price": "from ฿1,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/rice-country-village/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Rice+Country+Village+Bang+Mun+Nak+Phichit",
       "tripUrl": "https://th.trip.com/hotels/bang-mun-nak-hotel-detail-16015003/rice-country-village/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-rice-country-village-phichit.html",
-      "tags": ["🌾 Old rice mill turned boutique resort", "🏞️ Villa rooms with balconies, rice-field views", "🏊 Outdoor pool with a slide", "☕ On-site Rice Country Cafe · free parking"],
+      "tags": [
+        "🌾 Old rice mill turned boutique resort",
+        "🏞️ Villa rooms with balconies, rice-field views",
+        "🏊 Outdoor pool with a slide",
+        "☕ On-site Rice Country Cafe · free parking"
+      ],
       "addr": "109 Moo 8, Ho Krai, Bang Mun Nak",
       "storyHtml": "Rice Country Village is <strong>a boutique resort with a story — the owners turned the family's old rice mill into a stay and cafe</strong>, scoring 8.3 from 51 reviews. It sits among rice fields in Bang Mun Nak district. Real guest reviews praise the quiet, the lovely rice-field views, small villa rooms with private balconies, and the highlight — an outdoor pool with a slide, rare in a small district. There's a Rice Country Cafe for coffee over the fields. The catch: it's in the south of the province, about 45 minutes from Phichit city, with no in-room breakfast and limited restaurants nearby. Best for couples and families set on a rural getaway.",
       "tipHtml": "💡 <strong>Tip:</strong> Many rooms look out over the rice fields — request a field-view room for the morning coffee spot reviewers love most. Check the cafe's opening hours and keep a meal plan in mind, as restaurants around Bang Mun Nak are limited. Rooms are few and it's family-run, so book ahead on long weekends.",
@@ -224,15 +363,29 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (with balcony)", "price": "from ฿450/night" },
-        { "type": "Studio (more spacious)", "price": "from ฿600/night" },
-        { "type": "Suite (with sitting area)", "price": "from ฿850/night" }
+        {
+          "type": "Deluxe Room (with balcony)",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Studio (more spacious)",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Suite (with sitting area)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/roseinn-hotel-taphanhin/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Roseinn+Hotel+Taphanhin+Phichit",
       "tripUrl": "https://www.trip.com/hotels/taphan-hin-district-hotel-detail-9901476/roseinn-hotel-taphanhin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-roseinn-hotel-taphanhin-phichit.html",
-      "tags": ["🚉 ~1-min walk to Taphan Hin station", "🛏️ Big rooms, every room has a balcony", "🛗 Lift · 24-hour front desk", "🅿️ Free parking · free Wi-Fi"],
+      "tags": [
+        "🚉 ~1-min walk to Taphan Hin station",
+        "🛏️ Big rooms, every room has a balcony",
+        "🛗 Lift · 24-hour front desk",
+        "🅿️ Free parking · free Wi-Fi"
+      ],
       "addr": "57 Chom Thirawet Rd, Taphan Hin, Taphan Hin",
       "storyHtml": "Roseinn Hotel Taphanhin is <strong>a budget hotel whose location by Taphan Hin train station is hard to beat — about a 1-minute walk to the station (150 m)</strong>, scoring 8.3 from 15 reviews. It's ideal for Northern Line rail travellers — step off the train and walk straight in. Real guest reviews praise rooms bigger and cleaner than the price, every room with a balcony, new aircon, strong hot water, a lift, and smiling staff, plus plenty of early-morning food around the station. The catch: the building shows its age, corridors are fairly dark, some rooms have a musty smell or mosquitoes, and it's in Taphan Hin district, about 35–40 minutes from Phichit city. Best for errands in Taphan Hin and rail travellers.",
       "tipHtml": "💡 <strong>Tip:</strong> The station is just ~150 m away, perfect for Northern Line travellers. There's plenty of food and street carts around the station, especially early morning. Heading to Phichit city or Bueng Si Fai? Allow 35–40 minutes' drive. The front desk is open 24 hours for late arrivals.",
@@ -264,15 +417,29 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "In-building room (King bed)", "price": "from ฿900/night" },
-        { "type": "In-building room (2 single beds)", "price": "from ฿950/night" },
-        { "type": "Wooden house (2 King beds)", "price": "from ฿1,500/night" }
+        {
+          "type": "In-building room (King bed)",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "In-building room (2 single beds)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Wooden house (2 King beds)",
+          "price": "from ฿1,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/search?city=&text=Ruen+Rim+Nan+Taphan+Hin+Phichit&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Ruen+Rim+Nan+Taphan+Hin+Phichit",
       "tripUrl": "https://th.trip.com/hotels/thap-khlo-hotel-detail-133964842/ruenrimnan/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ruen-rim-nan-resort-phichit.html",
-      "tags": ["🌊 Wooden resort on the Nan River", "🏊 Pool with a small waterfall", "🛖 Choose wooden houses or in-building rooms", "🅿️ Free parking · 24-hour front desk"],
+      "tags": [
+        "🌊 Wooden resort on the Nan River",
+        "🏊 Pool with a small waterfall",
+        "🛖 Choose wooden houses or in-building rooms",
+        "🅿️ Free parking · 24-hour front desk"
+      ],
       "addr": "48 Rim Nan Rd, Huai Ket, Taphan Hin",
       "storyHtml": "Ruen Rim Nan Resort is <strong>a wooden resort on the Nan River with an atmosphere that's hard to find around Taphan Hin</strong>, scoring 8.3 from 8 reviews. The draw is the riverside setting, with a riverside lounging area and a pool built with a small waterfall. Real guest reviews praise the quiet, clean rooms, and a choice of wooden houses (two king beds, good for groups) or in-building rooms. The catch: it's a small district resort with few online reviews so far, a riverside spot away from markets, prices that sometimes need a direct enquiry, and being a wooden riverside place, mosquitoes in the rainy season. Best for drivers around Taphan Hin who want an overnight with riverside atmosphere.",
       "tipHtml": "💡 <strong>Tip:</strong> It isn't on every platform and reviews are few, so call or message the resort directly before booking for clear prices and availability. It's a wooden riverside resort, so pack mosquito repellent for evenings and the rainy season. There's a pool with a waterfall — bring swimwear for the family.",
@@ -304,15 +471,29 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Double Room (twin)", "price": "from ฿700/night" },
-        { "type": "Standard King Room (king bed)", "price": "from ฿760/night" },
-        { "type": "Standard Room (busy periods)", "price": "from ฿1,060/night" }
+        {
+          "type": "Standard Double Room (twin)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Standard King Room (king bed)",
+          "price": "from ฿760/night"
+        },
+        {
+          "type": "Standard Room (busy periods)",
+          "price": "from ฿1,060/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/th-th/modern-resort-phichit-h58149978/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Modern+Resort+Phichit",
       "tripUrl": "https://th.trip.com/hotels/pichit-hotel-detail-127608088/modern-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-modern-resort-phichit.html",
-      "tags": ["✨ Small resort, built 2019", "🅿️ Park right at your door", "🤫 Quiet and private, 16 rooms", "🍳 Clean rooms, breakfast · 24-hour front desk"],
+      "tags": [
+        "✨ Small resort, built 2019",
+        "🅿️ Park right at your door",
+        "🤫 Quiet and private, 16 rooms",
+        "🍳 Clean rooms, breakfast · 24-hour front desk"
+      ],
       "addr": "113 Moo 8, Khlong Khachen, Mueang Phichit",
       "storyHtml": "Modern Resort Phichit is <strong>a small resort built in 2019 whose selling point is new, clean, quiet rooms with parking at your door</strong>, scoring 8.2 from 10 reviews. It's a single-storey, 16-room resort in the Khlong Khachen area of Phichit city. Real guest reviews put cleanliness first, plus a quiet, private feel and door-front parking that makes unloading easy and keeps the car nearby. Rooms have all the basics and breakfast is served. The catch: the bathrooms are fairly small, rooms are just right-sized, beds are firm, breakfast is simple, the 16 rooms fill fast on holidays, and it's in the suburbs. Best for drivers wanting a new, clean, quiet room with easy parking.",
       "tipHtml": "💡 <strong>Tip:</strong> It's in the suburban Khlong Khachen area with door-front parking, but without a car getting into town is awkward, so driving yourself is easiest. One review noted the breakfast count didn't match the booking — confirm how many breakfasts you get at check-in. With only 16 rooms, book ahead on long weekends.",
@@ -344,15 +525,29 @@
       "priceBig": "฿550",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (big, with balcony)", "price": "from ฿550/night" },
-        { "type": "Superior Room (King bed)", "price": "from ฿700/night" },
-        { "type": "Deluxe Room (large work area)", "price": "from ฿850/night" }
+        {
+          "type": "Standard Room (big, with balcony)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Superior Room (King bed)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Deluxe Room (large work area)",
+          "price": "from ฿850/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bed-hub-hotel-h52166752/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Bed+Hub+Hotel+Phichit",
       "tripUrl": "https://th.trip.com/hotels/list?keyword=Bed+Hub+Hotel+Phichit&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-bed-hub-hotel-phichit.html",
-      "tags": ["🛏️ Big rooms for the price, minimalist design", "📶 Strong Wi-Fi + generous parking", "🍜 Free breakfast, pork congee", "🌿 Garden-view balcony · near 7-Eleven"],
+      "tags": [
+        "🛏️ Big rooms for the price, minimalist design",
+        "📶 Strong Wi-Fi + generous parking",
+        "🍜 Free breakfast, pork congee",
+        "🌿 Garden-view balcony · near 7-Eleven"
+      ],
       "addr": "24 Moo 7, Khlong Khachen, Mueang Phichit",
       "storyHtml": "Bed Hub Hotel is <strong>one of the most-praised budget stays in Phichit, with big, clean rooms beyond the price as its selling point</strong>, scoring 8.0 from 12 reviews (TripAdvisor 4/5). It's a small two-storey building with a garden in the Khlong Khachen area. Real guest reviews praise rooms bigger than expected, big beds, a clean, modern minimalist dark-grey design, garden-view balconies, strong, wide Wi-Fi, generous parking, and free hot pork congee at breakfast. The catch: it's about 4 km from the city centre with few shops nearby, no full restaurant, and occasional housekeeping noise mid-morning. Best for road-trippers and errand stays who want a value room.",
       "tipHtml": "💡 <strong>Tip:</strong> It's about 4 km out of town on a main road with easy access and generous parking — driving yourself is easiest. Rooms have garden-view balconies; ask for an upper floor for a better view and more quiet. Shops nearby are few, so stop at the close 7-Eleven or order delivery. The strong Wi-Fi makes working online easy.",
@@ -384,15 +579,29 @@
       "priceBig": "฿540",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (AC, fridge, TV)", "price": "from ฿540/night" },
-        { "type": "Superior Room (a bit bigger)", "price": "from ฿650/night" },
-        { "type": "Deluxe Room (King bed)", "price": "from ฿790/night" }
+        {
+          "type": "Standard Room (AC, fridge, TV)",
+          "price": "from ฿540/night"
+        },
+        {
+          "type": "Superior Room (a bit bigger)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Room (King bed)",
+          "price": "from ฿790/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/orchid-place-hotel/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Orchid+Place+Hotel+Phichit",
       "tripUrl": "https://www.trip.com/hotels/pichit-hotel-detail-9703591/orchid-place-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-orchid-place-hotel-phichit.html",
-      "tags": ["✨ Clean and quiet despite being central", "📍 ~660 m to Bueng Si Fai, ~10-min walk to market", "☕ Free parking + coffee-and-toast breakfast", "🅿️ 50 rooms · free Wi-Fi"],
+      "tags": [
+        "✨ Clean and quiet despite being central",
+        "📍 ~660 m to Bueng Si Fai, ~10-min walk to market",
+        "☕ Free parking + coffee-and-toast breakfast",
+        "🅿️ 50 rooms · free Wi-Fi"
+      ],
       "addr": "24/115 Sa Luang Rd, Nai Mueang, Mueang Phichit",
       "storyHtml": "Orchid Place Hotel is <strong>a small budget hotel in central Phichit whose strength is rooms that stay clean and quiet despite the central location</strong>, scoring 8.0 from 28 reviews. It's on Sa Luang Road, about 660 metres from Bueng Si Fai and a 10-minute walk to the town market. Real guest reviews agree the rooms are clean and quiet with comfy beds, and there's free parking, free Wi-Fi, and fresh coffee with toast in the morning. The catch: it's a small hotel with limited shared facilities, no pool, some rooms on the small side, and staff aren't on duty 24 hours, so call ahead for late arrivals. Best for errand trips and budget travellers.",
       "tipHtml": "💡 <strong>Tip:</strong> Bueng Si Fai is just ~660 m away — an easy walk, good in the morning or evening for the lakeside bird park. Breakfast is fresh coffee and toast, with reviews praising the coffee. It's a small property where staff aren't on duty round the clock, so call ahead with your arrival time if you'll be late.",
@@ -424,15 +633,29 @@
       "priceBig": "฿437",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Duplex House (Standard)", "price": "from ฿437/night" },
-        { "type": "Detached House (Private)", "price": "from ฿550/night" },
-        { "type": "Monthly rental", "price": "enquire with the resort" }
+        {
+          "type": "Duplex House (Standard)",
+          "price": "from ฿437/night"
+        },
+        {
+          "type": "Detached House (Private)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Monthly rental",
+          "price": "enquire with the resort"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sp-resort-and-garden/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=SP+Resort+and+Garden+Phichit",
       "tripUrl": "https://www.trip.com/hotels/list?city=pichit&keyword=SP%20Resort%20and%20Garden&Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sp-resort-and-garden-phichit.html",
-      "tags": ["🏡 House-style rooms with in-room kitchens", "🌾 Green garden, quiet by the fields", "🐾 Pet-friendly · monthly rental available", "🚗 Park at your door · open 24 hours"],
+      "tags": [
+        "🏡 House-style rooms with in-room kitchens",
+        "🌾 Green garden, quiet by the fields",
+        "🐾 Pet-friendly · monthly rental available",
+        "🚗 Park at your door · open 24 hours"
+      ],
       "addr": "27 Moo 11, Route 115, Wachira Barami",
       "storyHtml": "SP Resort and Garden is <strong>the cheapest stay in this guide from just ฿437, with house-style rooms that have in-room kitchens</strong>, scoring 8.0 from 24 reviews. It's on Route 115 in the Wachira Barami area, a quiet rice-field zone outside the city. Real guest reviews praise rooms cleaner than the price, a kind owner, a quiet garden setting, and detached/duplex houses with kitchens, fridges, sofas and TVs — good for cooking your own meals or long stays, with monthly rentals available. The catch: it's about 25 minutes from the city so a car is essential, there's no restaurant, breakfast or pool on site, and online reviews are still few. Best for drivers wanting a private, quiet house on a budget.",
       "tipHtml": "💡 <strong>Tip:</strong> The rooms have a small kitchen and fridge — stop at the market or a convenience store before checking in to cook your own cheap meals. It's on Route 115 outside town with no restaurants walkable, so driving is easiest. Staying long? Ask about monthly rates. Reviews are few, so message or call the resort about room condition and prices before you go.",
@@ -464,15 +687,29 @@
       "priceBig": "฿650",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (spacious)", "price": "from ฿650/night" },
-        { "type": "Deluxe Room (high floor, open view)", "price": "from ฿950/night" },
-        { "type": "Deluxe Family (extra bed available)", "price": "from ฿1,250/night" }
+        {
+          "type": "Superior Room (spacious)",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Deluxe Room (high floor, open view)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Deluxe Family (extra bed available)",
+          "price": "from ฿1,250/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pichit-plaza-hotel/hotel/pichit-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pichit-plaza.html",
       "tripUrl": "https://th.trip.com/hotels/pichit-hotel-detail-2561291/pichit-plaza-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phichit-plaza-hotel-phichit.html",
-      "tags": ["🏊 Has a pool, rare for a budget central stay", "🛏️ Spacious rooms, comfy beds, strong shower", "🏙️ City centre, walk to the market", "🅿️ 90 rooms · lift · parking"],
+      "tags": [
+        "🏊 Has a pool, rare for a budget central stay",
+        "🛏️ Spacious rooms, comfy beds, strong shower",
+        "🏙️ City centre, walk to the market",
+        "🅿️ 90 rooms · lift · parking"
+      ],
       "addr": "9 Sa Luang Rd, Nai Mueang, Mueang Phichit",
       "storyHtml": "Phichit Plaza Hotel is <strong>a city-centre 3-star with a swimming pool, which is rare in Phichit's budget stays</strong>, scoring 7.6 from 24 reviews. It's a 90-room high-rise on Sa Luang Road, opposite Si Suk Hospital, within walking distance of the town market. Real guest reviews praise rooms bigger than expected, comfy beds, a strong shower, a pool for the kids, and friendly staff. To be clear, the building is ageing, upkeep isn't thorough, the pool is sometimes cloudy and unattended, some showers leak, Wi-Fi is weak in some rooms, and the corridors/lift have no AC. Best for families who want a pool and big central rooms on a budget and can accept an older building.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a high floor (6th and up) — quieter, away from the ground-floor karaoke, and usually in better condition. If you're here to swim, check the pool's condition on arrival, as it's sometimes cloudy. Some showers leak — run the water on arrival and ask to switch rooms if it's not right.",
@@ -504,15 +741,29 @@
       "priceBig": "฿350",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (simple)", "price": "from ฿350/night" },
-        { "type": "Superior Room (upper floor, better condition)", "price": "from ฿550/night" },
-        { "type": "Deluxe Room (bigger, King bed)", "price": "from ฿800/night" }
+        {
+          "type": "Standard Room (simple)",
+          "price": "from ฿350/night"
+        },
+        {
+          "type": "Superior Room (upper floor, better condition)",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Deluxe Room (bigger, King bed)",
+          "price": "from ฿800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/search?city=17127&q=Oka+Nakorn+Hotel+Phichit&cid=1965862",
       "bookingUrl": "https://www.booking.com/searchresults.html?ss=Oka+Nakorn+Hotel+Phichit",
       "tripUrl": "https://th.tripadvisor.com/Hotel_Review-g658364-d5123048-Reviews-Oka_Nakorn_Hotel-Phichit_Phichit_Province.html",
       "reviewUrl": "review-oka-nakorn-hotel-phichit.html",
-      "tags": ["💸 Budget from ฿350, cheapest in the guide", "🅿️ Generous parking", "🎤 Banquet/seminar hall + karaoke", "🏙️ In town, near Wat Tha Luang"],
+      "tags": [
+        "💸 Budget from ฿350, cheapest in the guide",
+        "🅿️ Generous parking",
+        "🎤 Banquet/seminar hall + karaoke",
+        "🏙️ In town, near Wat Tha Luang"
+      ],
       "addr": "2/91 Si Mala Rd, Nai Mueang, Mueang Phichit",
       "storyHtml": "Oka Nakorn Hotel is <strong>a long-standing Phichit town hotel and the cheapest in this guide from just ฿350</strong>, scoring 6.6 from 4 reviews. It's an 80-room hotel on Si Mala Road, open for decades. Real guest reviews call it a budget stay for tight wallets — simple rooms with a fridge and TV, generous parking, and a banquet/seminar hall for over 300 plus karaoke that locals use for events. To be clear, the building is ageing, upkeep is inconsistent, Standard rooms are very basic, some beds are uncomfortable, breakfast is very simple, and some nights bring karaoke/party noise. Best for road-trippers, errand stays or event guests who prioritise price and parking.",
       "tipHtml": "💡 <strong>Tip:</strong> Standard rooms are very basic — if your budget allows, pay up to a Deluxe or upper-floor room for clearly better condition. There's karaoke and a banquet hall, so ask when booking whether there's an event that night and request a room away from the event zone. It's a little out from the centre, so driving yourself is easiest.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Compare All 12 Phichit Hotels · 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Lanna Bali Kumnuntuo", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿800", "access": "📍 Suburbs, near Bueng Si Fai", "badge": "Most reviews, corgi cafe", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Fahluang Residence", "type": "⭐⭐⭐", "score": "8.6", "price": "฿580", "access": "📍 City, ~1 km to Bueng Si Fai", "badge": "Top score, big quiet rooms", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "The Nest Hotel Phichit", "type": "⭐⭐⭐", "score": "8.4", "price": "฿650", "access": "📍 City centre, by 7-Eleven", "badge": "Central, by a convenience store", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#9e9e9e", "name": "Rice Country Village", "type": "⭐⭐⭐", "score": "8.3", "price": "฿700", "access": "📍 Bang Mun Nak, rice fields", "badge": "Field-view boutique, pool slide", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Roseinn Hotel Taphanhin", "type": "⭐⭐⭐", "score": "8.3", "price": "฿450", "access": "📍 Taphan Hin, by the station", "badge": "By the train station, balconies", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Ruen Rim Nan Resort", "type": "⭐⭐⭐", "score": "8.3", "price": "฿900", "access": "📍 Taphan Hin, on the Nan River", "badge": "Riverside wooden resort, pool", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Modern Resort Phichit", "type": "⭐⭐⭐", "score": "8.2", "price": "฿700", "access": "📍 Khlong Khachen, suburbs", "badge": "Newly built, park at your door", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Bed Hub Hotel Phichit", "type": "⭐⭐", "score": "8.0", "price": "฿550", "access": "📍 Khlong Khachen, city", "badge": "Big rooms for price, strong Wi-Fi", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Orchid Place Hotel", "type": "⭐⭐⭐", "score": "8.0", "price": "฿540", "access": "📍 City centre, walk to Bueng Si Fai", "badge": "Clean & quiet, low price", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "SP Resort and Garden", "type": "⭐⭐⭐", "score": "8.0", "price": "฿437", "access": "📍 Wachira Barami, by the fields", "badge": "Houses with kitchens, cheapest, monthly", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Phichit Plaza Hotel", "type": "⭐⭐⭐", "score": "7.6", "price": "฿650", "access": "📍 City centre, Sa Luang Rd", "badge": "Has a pool, big rooms", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Oka Nakorn Hotel", "type": "⭐⭐⭐", "score": "6.6", "price": "฿350", "access": "📍 Si Mala Rd, in town", "badge": "Cheapest, generous parking", "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Lanna Bali Kumnuntuo",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿800",
+      "access": "📍 Suburbs, near Bueng Si Fai",
+      "badge": "Most reviews, corgi cafe",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Fahluang Residence",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿580",
+      "access": "📍 City, ~1 km to Bueng Si Fai",
+      "badge": "Top score, big quiet rooms",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "The Nest Hotel Phichit",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿650",
+      "access": "📍 City centre, by 7-Eleven",
+      "badge": "Central, by a convenience store",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#9e9e9e",
+      "name": "Rice Country Village",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿700",
+      "access": "📍 Bang Mun Nak, rice fields",
+      "badge": "Field-view boutique, pool slide",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Roseinn Hotel Taphanhin",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿450",
+      "access": "📍 Taphan Hin, by the station",
+      "badge": "By the train station, balconies",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Ruen Rim Nan Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.3",
+      "price": "฿900",
+      "access": "📍 Taphan Hin, on the Nan River",
+      "badge": "Riverside wooden resort, pool",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Modern Resort Phichit",
+      "type": "⭐⭐⭐",
+      "score": "8.2",
+      "price": "฿700",
+      "access": "📍 Khlong Khachen, suburbs",
+      "badge": "Newly built, park at your door",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Bed Hub Hotel Phichit",
+      "type": "⭐⭐",
+      "score": "8.0",
+      "price": "฿550",
+      "access": "📍 Khlong Khachen, city",
+      "badge": "Big rooms for price, strong Wi-Fi",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Orchid Place Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿540",
+      "access": "📍 City centre, walk to Bueng Si Fai",
+      "badge": "Clean & quiet, low price",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "SP Resort and Garden",
+      "type": "⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿437",
+      "access": "📍 Wachira Barami, by the fields",
+      "badge": "Houses with kitchens, cheapest, monthly",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Phichit Plaza Hotel",
+      "type": "⭐⭐⭐",
+      "score": "7.6",
+      "price": "฿650",
+      "access": "📍 City centre, Sa Luang Rd",
+      "badge": "Has a pool, big rooms",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Oka Nakorn Hotel",
+      "type": "⭐⭐⭐",
+      "score": "6.6",
+      "price": "฿350",
+      "access": "📍 Si Mala Rd, in town",
+      "badge": "Cheapest, generous parking",
+      "badgeStyle": "background:#fff3e0;color:#bf8040;border-color:#ffcc80;"
+    }
   ],
   "adviceTitle": "How to pick the right Phichit hotel for you",
   "advice": [
-    { "icon": "🏙️", "head": "Exploring the town, market and Bueng Si Fai", "bodyHtml": "→ <strong>The Nest Hotel Phichit</strong> ฿650, next to a 7-Eleven, central · or <strong>Orchid Place Hotel</strong> ฿540, ~660 m to Bueng Si Fai, clean and quiet · or <strong>Phichit Plaza</strong> ฿650, central with a pool" },
-    { "icon": "🏡", "head": "Want a quiet, private garden resort", "bodyHtml": "→ <strong>Lanna Bali Kumnuntuo</strong> ฿800, Lanna-Bali resort with a corgi cafe, most reviews · or <strong>Fahluang Residence</strong> ฿580, big quiet rooms, top score · or <strong>Modern Resort</strong> ฿700, newly built, park at your door" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>SP Resort and Garden</strong> ฿437, houses with kitchens, cheapest, monthly rental · or <strong>Oka Nakorn</strong> ฿350, generous parking in town · or <strong>Bed Hub Hotel</strong> ฿550, big rooms for the price with strong Wi-Fi" },
-    { "icon": "🚉", "head": "Travelling by train to Taphan Hin", "bodyHtml": "→ <strong>Roseinn Hotel Taphanhin</strong> ฿450, ~1-min walk to Taphan Hin station, every room with a balcony · or <strong>Ruen Rim Nan Resort</strong> ฿900, wooden resort on the Nan River with a pool, in the Taphan Hin area" },
-    { "icon": "🌾", "head": "Want a rural, rice-field setting", "bodyHtml": "→ <strong>Rice Country Village</strong> ฿700, old rice mill turned boutique resort, rice-field views, pool slide, in Bang Mun Nak · or <strong>SP Resort and Garden</strong> ฿437, field-side houses in Wachira Barami, quiet" },
-    { "icon": "🏊", "head": "Want a hotel with a pool", "bodyHtml": "→ <strong>Phichit Plaza Hotel</strong> ฿650, a city-centre pool the kids can use · or <strong>Ruen Rim Nan Resort</strong> ฿900, pool with a waterfall by the Nan River · or <strong>Rice Country Village</strong> ฿700, pool with a slide, rice-field views" }
+    {
+      "icon": "🏙️",
+      "head": "Exploring the town, market and Bueng Si Fai",
+      "bodyHtml": "→ <strong>The Nest Hotel Phichit</strong> ฿650, next to a 7-Eleven, central · or <strong>Orchid Place Hotel</strong> ฿540, ~660 m to Bueng Si Fai, clean and quiet · or <strong>Phichit Plaza</strong> ฿650, central with a pool"
+    },
+    {
+      "icon": "🏡",
+      "head": "Want a quiet, private garden resort",
+      "bodyHtml": "→ <strong>Lanna Bali Kumnuntuo</strong> ฿800, Lanna-Bali resort with a corgi cafe, most reviews · or <strong>Fahluang Residence</strong> ฿580, big quiet rooms, top score · or <strong>Modern Resort</strong> ฿700, newly built, park at your door"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>SP Resort and Garden</strong> ฿437, houses with kitchens, cheapest, monthly rental · or <strong>Oka Nakorn</strong> ฿350, generous parking in town · or <strong>Bed Hub Hotel</strong> ฿550, big rooms for the price with strong Wi-Fi"
+    },
+    {
+      "icon": "🚉",
+      "head": "Travelling by train to Taphan Hin",
+      "bodyHtml": "→ <strong>Roseinn Hotel Taphanhin</strong> ฿450, ~1-min walk to Taphan Hin station, every room with a balcony · or <strong>Ruen Rim Nan Resort</strong> ฿900, wooden resort on the Nan River with a pool, in the Taphan Hin area"
+    },
+    {
+      "icon": "🌾",
+      "head": "Want a rural, rice-field setting",
+      "bodyHtml": "→ <strong>Rice Country Village</strong> ฿700, old rice mill turned boutique resort, rice-field views, pool slide, in Bang Mun Nak · or <strong>SP Resort and Garden</strong> ฿437, field-side houses in Wachira Barami, quiet"
+    },
+    {
+      "icon": "🏊",
+      "head": "Want a hotel with a pool",
+      "bodyHtml": "→ <strong>Phichit Plaza Hotel</strong> ฿650, a city-centre pool the kids can use · or <strong>Ruen Rim Nan Resort</strong> ฿900, pool with a waterfall by the Nan River · or <strong>Rice Country Village</strong> ฿700, pool with a slide, rice-field views"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate from-rates for standard rooms and can change by date and season; always check live prices and compare 3 sites before booking. Phichit is a small town with no metro; suburban and out-of-district stays (Taphan Hin, Bang Mun Nak, Wachira Barami) are almost all far easier with a private or rental car. City-centre stays are easier to get around, with the market and Bueng Si Fai within a walk or short drive. Small properties like garden resorts and the riverside resort fill fast on long weekends, so book ahead. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Phichit hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Phichit?", "a": "It depends on your trip. <strong>The city centre</strong> (Sa Luang Road–Bueng Si Fai) suits exploring the town, the market, and Bueng Si Fai, easy to get around (The Nest, Orchid Place, Phichit Plaza). <strong>The suburbs</strong> (Tha Luang–Khlong Khachen) have garden resorts and quiet stays with bigger rooms, best for drivers (Lanna Bali, Fahluang, Bed Hub, Modern Resort). <strong>Taphan Hin and Bang Mun Nak</strong> are separate districts, best for rail travellers (Roseinn by the station) or a riverside/rice-field setting (Ruen Rim Nan, Rice Country Village)." },
-    { "q": "❓ How much do Phichit hotels cost?", "a": "Most are affordable: budget stays start around ฿350–550/night (Oka Nakorn, SP Resort, Roseinn, Orchid Place, Bed Hub); mid-range hotels and resorts run about ฿580–900 (Fahluang, The Nest, Phichit Plaza, Modern Resort, Rice Country Village, Lanna Bali, Ruen Rim Nan). All are approximate from-rates for standard rooms. On long weekends, small properties fill fast and rates climb." },
-    { "q": "❓ Which Phichit hotel is closest to Bueng Si Fai?", "a": "Bueng Si Fai is on the west side of town. <strong>Orchid Place Hotel</strong> ฿540 is closest, about a 660-metre walk. <strong>Fahluang Residence</strong> ฿580 is about 1 km away, under a 5-minute drive. The Nest and Phichit Plaza are central, about a 10–12 minute drive to the lake. If the lake is your main goal, pick a stay around Sa Luang Road or Tha Luang to cut the travel time." },
-    { "q": "❓ Coming to Phichit by train — where should I stay?", "a": "Phichit's Northern Line passes several stations. If you alight at Taphan Hin, <strong>Roseinn Hotel Taphanhin</strong> ฿450 is about a 1-minute walk (150 m) — the handiest. If you alight at Phichit city station, central hotels like The Nest or Orchid Place are about a 6–7 minute drive from the station, a few minutes by onward ride. Rail travellers without onward transport will find a station-side or central stay easiest." },
-    { "q": "❓ Is Phichit easy to get around without a car?", "a": "Phichit has no metro, so without a car, <strong>staying in the city centre or by the train station is easiest</strong> — The Nest is next to a 7-Eleven in town, Orchid Place is a walk from Bueng Si Fai and the market, and Roseinn is by Taphan Hin station. Suburban and out-of-district resorts (Lanna Bali, Rice Country Village, SP Resort, Ruen Rim Nan) have few restaurants nearby, so a car or Grab helps." },
-    { "q": "❓ Which site is cheapest for booking Phichit hotels?", "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. For small properties like the garden resorts, the riverside resort and the Bang Mun Nak stay, prices or availability sometimes need a direct enquiry with the property." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Phichit?",
+      "a": "It depends on your trip. <strong>The city centre</strong> (Sa Luang Road–Bueng Si Fai) suits exploring the town, the market, and Bueng Si Fai, easy to get around (The Nest, Orchid Place, Phichit Plaza). <strong>The suburbs</strong> (Tha Luang–Khlong Khachen) have garden resorts and quiet stays with bigger rooms, best for drivers (Lanna Bali, Fahluang, Bed Hub, Modern Resort). <strong>Taphan Hin and Bang Mun Nak</strong> are separate districts, best for rail travellers (Roseinn by the station) or a riverside/rice-field setting (Ruen Rim Nan, Rice Country Village)."
+    },
+    {
+      "q": "❓ How much do Phichit hotels cost?",
+      "a": "Most are affordable: budget stays start around ฿350–550/night (Oka Nakorn, SP Resort, Roseinn, Orchid Place, Bed Hub); mid-range hotels and resorts run about ฿580–900 (Fahluang, The Nest, Phichit Plaza, Modern Resort, Rice Country Village, Lanna Bali, Ruen Rim Nan). All are approximate from-rates for standard rooms. On long weekends, small properties fill fast and rates climb."
+    },
+    {
+      "q": "❓ Which Phichit hotel is closest to Bueng Si Fai?",
+      "a": "Bueng Si Fai is on the west side of town. <strong>Orchid Place Hotel</strong> ฿540 is closest, about a 660-metre walk. <strong>Fahluang Residence</strong> ฿580 is about 1 km away, under a 5-minute drive. The Nest and Phichit Plaza are central, about a 10–12 minute drive to the lake. If the lake is your main goal, pick a stay around Sa Luang Road or Tha Luang to cut the travel time."
+    },
+    {
+      "q": "❓ Coming to Phichit by train — where should I stay?",
+      "a": "Phichit's Northern Line passes several stations. If you alight at Taphan Hin, <strong>Roseinn Hotel Taphanhin</strong> ฿450 is about a 1-minute walk (150 m) — the handiest. If you alight at Phichit city station, central hotels like The Nest or Orchid Place are about a 6–7 minute drive from the station, a few minutes by onward ride. Rail travellers without onward transport will find a station-side or central stay easiest."
+    },
+    {
+      "q": "❓ Is Phichit easy to get around without a car?",
+      "a": "Phichit has no metro, so without a car, <strong>staying in the city centre or by the train station is easiest</strong> — The Nest is next to a 7-Eleven in town, Orchid Place is a walk from Bueng Si Fai and the market, and Roseinn is by Taphan Hin station. Suburban and out-of-district resorts (Lanna Bali, Rice Country Village, SP Resort, Ruen Rim Nan) have few restaurants nearby, so a car or Grab helps."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Phichit hotels?",
+      "a": "Prices differ across Agoda, Booking.com and Trip.com depending on each site's promotions, so open and compare all three before booking — every review page in this guide includes the comparison links. For small properties like the garden resorts, the riverside resort and the Bang Mun Nak stay, prices or availability sometimes need a direct enquiry with the property."
+    }
+  ],
+  "quickAnswerHtml": "12 Phichit hotels we reviewed across every tier — from a boutique resort with a corgi cafe down to a hotel by the Taphan Hin train station from ฿350. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }

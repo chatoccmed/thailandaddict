@@ -101,6 +101,9 @@ const reviewSchema = z.object({
   // When present, ReviewLayout renders a FAQ accordion + FAQPage JSON-LD for SEO.
   faqTitle: z.string().optional(),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+  // AEO direct-answer block (optional · back-compat) — promoted to a quick-answer aside at the top of the review.
+  quickAnswerHtml: z.string().optional(),
+  quickAnswerH2: z.string().optional(),
   // Place data-layer (additive · optional · back-compat) — controlled-vocab tags + geo for the AI Trip Planner
   // (interest/audience/practical matching + logistics). Vocabulary: _internal/PLACE-TAGS-SPEC.md. Content team: add when known.
   tags: z.array(z.string()).optional(),

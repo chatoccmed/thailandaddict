@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "กรุงเทพ", "href": "city-bangkok.html" },
-    { "name": "Top 8 ที่พักใกล้รพ.จุฬาลงกรณ์" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "กรุงเทพ",
+      "href": "city-bangkok.html"
+    },
+    {
+      "name": "Top 8 ที่พักใกล้รพ.จุฬาลงกรณ์"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "กรุงเทพ", "item": "https://thailandaddict.com/city-bangkok" },
-    { "name": "Top 8 ที่พักใกล้รพ.จุฬาลงกรณ์", "item": "https://thailandaddict.com/top8-chulalongkorn-hospital-hotels-bangkok" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "กรุงเทพ",
+      "item": "https://thailandaddict.com/city-bangkok"
+    },
+    {
+      "name": "Top 8 ที่พักใกล้รพ.จุฬาลงกรณ์",
+      "item": "https://thailandaddict.com/top8-chulalongkorn-hospital-hotels-bangkok"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top8-chulalongkorn-hospital-hotels-bangkok.html",
@@ -34,14 +57,54 @@
   "mrtHtml": "<strong>BTS ศาลาแดง (สายสีลม)</strong> คือจุดเชื่อมหลักสำหรับโรงพยาบาลจุฬาลงกรณ์ — ออก Exit 5 แล้วเดินตามทางลอยฟ้ามีหลังคา ถึงอาคาร Por Por Ror โรงพยาบาลในราว 3–4 นาที ทั้งหมดราว <strong>8–10 นาทีจากตัวโรงแรมใกล้สุด</strong> ไม่ต้องออกกลางแดดหรือฝน · <strong>MRT สีลม</strong> ก็เชื่อมทางเดินลอยฟ้าเดียวกันได้ · <strong>MRT สามย่าน</strong> ฝั่งตะวันออก เชื่อมผ่าน Samyan Mitrtown ไม่โดนแดด แล้วเดินตามพระราม 4 อีกราว 15 นาทีถึงรพ. — เหมาะสำหรับที่พักฝั่งจุฬาฯ · ที่พักในบทความนี้กระจายทั้งสองฝั่ง จาก <strong>ใกล้สุด ~350 เมตร (5 นาทีเดิน)</strong> ถึง <strong>ไกลสุด ~1.3 กม. (15 นาทีเดินหรือ Grab 5 นาที)</strong>",
   "secLabel": "ทั้ง 8 ที่พัก — เริ่มกันเลย",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Crowne Plaza Bangkok Lumpini Park", "price": "฿3,200" },
-    { "n": "2", "color": "#06B6D4", "name": "Dusit Thani Bangkok", "price": "฿11,000" },
-    { "n": "3", "color": "#FB7185", "name": "ibis Styles Bangkok Silom", "price": "฿1,500" },
-    { "n": "4", "color": "#06B6D4", "name": "At Ease Saladaeng by AETAS", "price": "฿1,500" },
-    { "n": "5", "color": "#06B6D4", "name": "Mandarin Bangkok (Centre Point)", "price": "฿1,800" },
-    { "n": "6", "color": "#06B6D4", "name": "Triple Two Silom", "price": "฿2,500" },
-    { "n": "7", "color": "#0891b2", "name": "Triple Y Hotel Bangkok", "price": "฿3,000" },
-    { "n": "8", "color": "#FBBF24", "name": "Silom Space Hostel", "price": "฿300" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Crowne Plaza Bangkok Lumpini Park",
+      "price": "฿3,200"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Dusit Thani Bangkok",
+      "price": "฿11,000"
+    },
+    {
+      "n": "3",
+      "color": "#FB7185",
+      "name": "ibis Styles Bangkok Silom",
+      "price": "฿1,500"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "At Ease Saladaeng by AETAS",
+      "price": "฿1,500"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "Mandarin Bangkok (Centre Point)",
+      "price": "฿1,800"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Triple Two Silom",
+      "price": "฿2,500"
+    },
+    {
+      "n": "7",
+      "color": "#0891b2",
+      "name": "Triple Y Hotel Bangkok",
+      "price": "฿3,000"
+    },
+    {
+      "n": "8",
+      "color": "#FBBF24",
+      "name": "Silom Space Hostel",
+      "price": "฿300"
+    }
   ],
   "entries": [
     {
@@ -60,16 +123,33 @@
       "priceBig": "฿3,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Premium Room with Lounge Access", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Junior Suite Lumpini View", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "Junior Suite + Kitchenette (พักยาว)", "price": "เริ่ม ฿7,500/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Premium Room with Lounge Access",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Junior Suite Lumpini View",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "Junior Suite + Kitchenette (พักยาว)",
+          "price": "เริ่ม ฿7,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/crowne-plaza-bangkok-lumpini-park-an-ihg-hotel-h79021621/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/crowne-plaza-bangkok-lumpini-park.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1619469/crowne-plaza-bangkok-lumpini-park/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-crowne-plaza-lumpini-bangkok.html",
-      "tags": ["🏥 เดินถึงรพ.จุฬาฯ 5 นาที", "🚇 BTS ศาลาแดง / MRT สีลม 5 นาที", "🏊 สระว่ายน้ำกลางแจ้ง", "🍽️ อาหารเช้าบุฟเฟ่ต์ไทย-จีน-ญี่ปุ่น"],
+      "tags": [
+        "🏥 เดินถึงรพ.จุฬาฯ 5 นาที",
+        "🚇 BTS ศาลาแดง / MRT สีลม 5 นาที",
+        "🏊 สระว่ายน้ำกลางแจ้ง",
+        "🍽️ อาหารเช้าบุฟเฟ่ต์ไทย-จีน-ญี่ปุ่น"
+      ],
       "addr": "952 ถนนพระราม 4 แขวงสุริยวงศ์ เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>Crowne Plaza Bangkok Lumpini Park</strong> คือโรงแรม 5 ดาวเครือ IHG บนถนนพระราม 4 เขตบางรัก — เปิดปี 2010 ปรับปรุงปี 2019 · ด้วยระยะเดินไปโรงพยาบาลจุฬาลงกรณ์ สภากาชาดไทย แค่ราว <strong>350 เมตร หรือ 5 นาที ตามถนนพระราม 4 โดยไม่ต้องข้ามถนนใหญ่</strong> ที่นี่คือโรงแรมที่ใกล้รพ.จุฬาฯ ที่สุดในชุดนี้ · 243 ห้องเริ่มชั้น 24 วิวเมืองรอบด้าน สระว่ายน้ำกลางแจ้ง สปา ฟิตเนส Club Lounge บนชั้น 31 บุฟเฟ่ต์เช้าที่รีวิวชมว่ามีทั้งอาหารไทย จีน ญี่ปุ่น ฝรั่งในมื้อเดียว — คะแนน 9.2 จาก 497 รีวิวบน Trip.com · ข้อที่ต้องรู้ตามตรง: ราคาสูงกว่าค่าเฉลี่ยในบางช่วง Club Lounge ไม่รวมในห้อง Standard และ Wi-Fi บางช่วงไม่เสถียรเท่าที่หวัง — แต่โดยรวมรีวิวเป็นบวกมาก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ออกประตูโรงแรมเดินตามถนนพระราม 4 ไปทางตะวันออกราว 350 เมตร ถึงทางเข้าหลักรพ.จุฬาลงกรณ์ ไม่ต้องข้ามถนนใหญ่ · ห้อง Junior Suite มีครัวเล็ก เหมาะสำหรับพักยาวเพื่อดูแลผู้ป่วย",
@@ -102,16 +182,33 @@
       "priceBig": "฿11,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Park View", "price": "เริ่ม ฿11,000/คืน" },
-        { "type": "Deluxe Corner Park View", "price": "เริ่ม ฿13,000/คืน" },
-        { "type": "Club Park View", "price": "เริ่ม ฿18,000/คืน" },
-        { "type": "Club Suite / Rattanakosin Suite", "price": "เริ่ม ฿30,000/คืน" }
+        {
+          "type": "Deluxe Park View",
+          "price": "เริ่ม ฿11,000/คืน"
+        },
+        {
+          "type": "Deluxe Corner Park View",
+          "price": "เริ่ม ฿13,000/คืน"
+        },
+        {
+          "type": "Club Park View",
+          "price": "เริ่ม ฿18,000/คืน"
+        },
+        {
+          "type": "Club Suite / Rattanakosin Suite",
+          "price": "เริ่ม ฿30,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/dusit-thani-bangkok_2/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/dusit-thani-bangkok-bangkok1.html",
       "tripUrl": "https://us.trip.com/hotels/bangkok-hotel-detail-119980315/dusit-thani-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-dusit-thani-bangkok.html",
-      "tags": ["🌿 วิว Lumpini Park ทุกห้อง", "🏊 Infinity Pool ชั้น 5", "🍽️ Cannubi (มิชลิน)", "🏛️ เปิดใหม่ ก.ย. 2567"],
+      "tags": [
+        "🌿 วิว Lumpini Park ทุกห้อง",
+        "🏊 Infinity Pool ชั้น 5",
+        "🍽️ Cannubi (มิชลิน)",
+        "🏛️ เปิดใหม่ ก.ย. 2567"
+      ],
       "addr": "98 ถนนพระรามที่ 4 ศาลาแดง บางรัก กรุงเทพ",
       "storyHtml": "<strong>Dusit Thani Bangkok</strong> ฟื้นคืนชีพในอาคาร 39 ชั้นใหม่ทั้งหลังในโครงการ Dusit Central Park เปิดเมื่อ ก.ย. 2567 · 257 ห้อง ขนาดเริ่ม 50 ตร.ม. ออกแบบโดย André Fu Studio ทุกห้องหันหน้าออก<strong>วิว Lumpini Park</strong> เต็มๆ ผ่านกระจกบานใหญ่ 6 เมตร · ได้คะแนนสูงสุดในชุดนี้ที่ 9.4 จาก Trip.com · ข้อสำคัญที่ต้องบอกตามตรง: เปิดได้ไม่กี่เดือน รีวิวจริงยังสะสมอยู่ และมีเสียงบ่นเรื่องระบบเช็กอินในช่วงแรก แต่รีวิวปลายปี 2568 บ่งชี้ว่าการดำเนินงานเสถียรขึ้นมากแล้ว · ราคาเริ่ม ฿11,000/คืน ไม่ใช่ตัวเลือกสำหรับงบจำกัด แต่ถ้าต้องการฐานหรูใกล้รพ.จุฬาฯ ที่มีสระ Infinity สปา Devarana และร้านมิชลิน Cannubi — คุ้มค่าสำหรับทริปพักฟื้นระดับพรีเมียม",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ออกจากโรงแรมขึ้น BTS ศาลาแดง (2 นาที) แล้วเดินตาม skywalk มีหลังคา ออก Exit 5 เข้าอาคาร Por Por Ror รพ.จุฬาฯ รวม ~8–10 นาที ไม่ต้องออกกลางแดดหรือฝน · ห้อง Corner Park View ชั้นสูงวิวกว้างกว่า แนะนำขอตอนจอง",
@@ -144,16 +241,33 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (18 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Superior Room (~19 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Premium (ระเบียง / วิว)", "price": "เริ่ม ฿2,300/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,900/คืน" }
+        {
+          "type": "Standard Room (18 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Superior Room (~19 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Premium (ระเบียง / วิว)",
+          "price": "เริ่ม ฿2,300/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ibis-styles-bangkok-silom/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ibis-styles-bangkok-silom.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-57352068/ibis-styles-bangkok-silom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-ibis-styles-bangkok-silom-bangkok.html",
-      "tags": ["🏊 สระลอยฟ้า + Boho Rooftop Bar", "🚆 BTS ศาลาแดง 7 นาที", "🎨 ดีไซน์สดใสสไตล์ ibis Styles", "🍜 ร้าน Prung Rod อาหารไทย"],
+      "tags": [
+        "🏊 สระลอยฟ้า + Boho Rooftop Bar",
+        "🚆 BTS ศาลาแดง 7 นาที",
+        "🎨 ดีไซน์สดใสสไตล์ ibis Styles",
+        "🍜 ร้าน Prung Rod อาหารไทย"
+      ],
       "addr": "289 ถนนสีลม เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>ibis Styles Bangkok Silom</strong> เปิดปี 2020 เป็นโรงแรม 3 ดาวเครือ Accor บนถนนสีลม ที่มีรีวิวมากที่สุดในชุดนี้ถึง 2,387 ชิ้น คะแนน 9.2 · จุดขายชัดเจนคือ <strong>สระว่ายน้ำลอยฟ้าบนดาดฟ้า</strong>พร้อม Boho Rooftop Bar ในราคาที่หาได้ยากสำหรับโรงแรม Economy ย่านสีลม — ดีไซน์สีสันสดใส ห้องสะอาดตามมาตรฐาน Accor เดิน BTS ศาลาแดงราว 7 นาที แล้ว Exit 5 ตาม skywalk เข้ารพ.จุฬาฯ ราว 10–12 นาที · ข้อที่ต้องรับทราบ: ห้องมาตรฐาน 18 ตร.ม. ไม่ได้ใหญ่ มาสองคนพร้อมกระเป๋าใหญ่จะรู้สึกจำกัด สระลอยฟ้าขนาดพอแช่ไม่ใช่สระรีสอร์ต และห้องฝั่งถนนได้ยินเสียงย่านสีลมยามค่ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขึ้นสระและ rooftop bar ช่วงพระอาทิตย์ตก 17:30–18:30 น. วิวเมืองสวยที่สุด · ถ้าอยากห้องโล่งขึ้นให้อัปเป็นห้อง Premium ที่มีระเบียง ราคาขยับไม่มากแต่รู้สึกต่าง",
@@ -186,16 +300,33 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room (~30 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Deluxe Studio (~43 ตร.ม. มีครัวเล็ก)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "One Bedroom Suite (~50 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" },
-        { "type": "Two Bedroom Suite (~103 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Superior Room (~30 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe Studio (~43 ตร.ม. มีครัวเล็ก)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "One Bedroom Suite (~50 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        },
+        {
+          "type": "Two Bedroom Suite (~103 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/at-ease-saladaeng-by-aetas/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/at-ease-saladaeng.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-700859/at-ease-saladaeng/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-at-ease-saladaeng-by-aetas-bangkok.html",
-      "tags": ["🍳 ห้องกว้าง 30–103 ตร.ม. มีครัวเล็ก", "🚐 รถรับส่งฟรีในรัศมี 2 กม.", "🏊 สระว่ายน้ำกลางแจ้ง + ซาวน่า", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🍳 ห้องกว้าง 30–103 ตร.ม. มีครัวเล็ก",
+        "🚐 รถรับส่งฟรีในรัศมี 2 กม.",
+        "🏊 สระว่ายน้ำกลางแจ้ง + ซาวน่า",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "5 ซอยศาลาแดง 1 ถนนสีลม เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>At Ease Saladaeng by AETAS</strong> เป็นโรงแรม 4 ดาวเครือ AETAS ในซอยเงียบกลางย่านสีลม-ศาลาแดง — จุดขายคือห้องที่กว้างกว่าโรงแรมในเมืองทั่วไปมาก ตั้งแต่ <strong>Superior 30 ตร.ม. ไปจนถึง Two Bedroom Suite 103 ตร.ม.</strong> หลายห้องมีครัวเล็กและมุมนั่งเล่น เหมาะมากสำหรับครอบครัวที่มาดูแลผู้ป่วยระยะยาว · มีสระว่ายน้ำกลางแจ้ง ฟิตเนส ซาวน่า ที่จอดรถฟรี และรถรับส่งฟรีในรัศมี 2 กม. รวม 2,310 รีวิวจากทุกแพลตฟอร์ม · ข้อที่ต้องรู้ตรงๆ: อาคารเปิดปี 2013 มีบางห้องที่ความสะอาดไม่สม่ำเสมอและมีรีวิวกล่าวถึงกลิ่นอับ แนะนำตรวจสภาพห้องตอนเช็คอินและแจ้งเลยถ้าเจอปัญหา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เช็กสภาพห้องตอนเข้าพักทันที ถ้าเจอปัญหาแจ้งเคาน์เตอร์ได้เลย หลายรีวิวบอกว่าโรงแรมยินดีย้ายห้องให้ · ใช้รถรับส่งฟรีในรัศมี 2 กม. ไปสถานี BTS ศาลาแดง จะสะดวกกว่าเดินในวันร้อนหรือฝนตก",
@@ -228,16 +359,33 @@
       "priceBig": "฿1,800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe Plus (มีอ่างอาบน้ำ)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Premier Room", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Grand Suite", "price": "เริ่ม ฿4,200/คืน" }
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Plus (มีอ่างอาบน้ำ)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Premier Room",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Grand Suite",
+          "price": "เริ่ม ฿4,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mandarin-hotel-managed-by-centre-point/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mandarin-managed-by-centre-point.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-996719/mandarin-hotel-managed-by-centre-point/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-mandarin-centre-point-bangkok.html",
-      "tags": ["🍳 บุฟเฟ่ต์เช้าไทย-นานาชาติ", "🚇 เดิน MRT สามย่าน 5 นาที", "🛁 Let's Relax Spa ในโรงแรม", "🛒 Samyan Mitrtown เดิน 2 นาที"],
+      "tags": [
+        "🍳 บุฟเฟ่ต์เช้าไทย-นานาชาติ",
+        "🚇 เดิน MRT สามย่าน 5 นาที",
+        "🛁 Let's Relax Spa ในโรงแรม",
+        "🛒 Samyan Mitrtown เดิน 2 นาที"
+      ],
       "addr": "662 ถนนพระราม 4 แขวงมหาพฤฒาราม เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>Mandarin Hotel Bangkok (Managed by Centre Point)</strong> เป็นโรงแรม 4 ดาวเก่าแก่บนถนนพระราม 4 เขตบางรัก เปิดปี 1968 ปรับปรุงใหญ่ปี 2013 · 367 ห้อง มีรีวิวมากสุดในกลุ่ม 4 ดาวของชุดนี้ถึง 1,978 ชิ้น คะแนน 9.1 — แขกยกให้บุฟเฟ่ต์อาหารเช้าไทย-นานาชาติเป็นจุดเด่นที่สุด · เดิน <strong>MRT สามย่านราว 5 นาที</strong> ซึ่งนั่งต่อไป MRT สีลมสถานีเดียว แล้วต่อ skywalk เข้ารพ.จุฬาฯ หรือนั่ง Grab จากหน้าโรงแรมตรงถึงรพ. 3–5 นาที · มี Let's Relax Spa สระว่ายน้ำ และ Samyan Mitrtown เปิด 24 ชม. เดิน 2 นาที — สะดวกมากสำหรับครอบครัวที่ต้องซื้อของยามดึก · ข้อที่ต้องรู้: มีรีวิวร้องเรียนเรื่องมัดจำที่ใช้เวลาคืนนาน และห้องบางห้องกันเสียงถนนพระราม 4 ได้ไม่ดี",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้าผู้ป่วยเดินไม่สะดวก Grab จากหน้าโรงแรมถึงรพ.จุฬาฯ 3–5 นาที ราคาไม่แพง · ขอห้อง Deluxe Plus ถ้ามาพักฟื้น — มีอ่างอาบน้ำแยกช่วยผ่อนคลายได้มาก",
@@ -270,15 +418,29 @@
       "priceBig": "฿2,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room (45 ตร.ม.)", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Premier Room (45 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Junior Suite (60 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" }
+        {
+          "type": "Deluxe Room (45 ตร.ม.)",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Premier Room (45 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Junior Suite (60 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/triple-two-silom-boutique-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/triple-two-silom.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-703127/triple-two-silom/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-triple-two-silom-bangkok.html",
-      "tags": ["🛏️ ห้อง 45–60 ตร.ม. พื้นไม้ดีไซน์บูติก", "🍳 อาหารเช้าบุฟเฟ่ต์คุณภาพสูง", "🤫 เงียบสงบ บริการส่วนตัว", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🛏️ ห้อง 45–60 ตร.ม. พื้นไม้ดีไซน์บูติก",
+        "🍳 อาหารเช้าบุฟเฟ่ต์คุณภาพสูง",
+        "🤫 เงียบสงบ บริการส่วนตัว",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "222 ถนนสีลม แขวงสุริยวงศ์ เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>Triple Two Silom</strong> เป็นบูติกโฮเทล 4 ดาวเครือ Narai Hospitality บนถนนสีลม เปิดปี 2002 · 75 ห้อง ตกแต่งสไตล์ร่วมสมัยอบอุ่นด้วยพื้นไม้และเฟอร์นิเจอร์ไม้เข้ม ห้อง Deluxe ขนาด 45 ตร.ม. Junior Suite 60 ตร.ม. — ใหญ่กว่าค่าเฉลี่ยในย่านสีลมมาก · อาหารเช้าบุฟเฟ่ต์ได้รับคำชมว่าคุณภาพระดับ 5 ดาว มีไข่ทำสดหน้าตัก ชีสนำเข้า แซลมอนรมควัน · เดิน BTS ศาลาแดงราว 10 นาที แล้วออก Exit 5 ตาม skywalk เข้ารพ.จุฬาฯ อีก 3–4 นาที รวม ~13–14 นาที · ข้อที่ต้องรู้: สระว่ายน้ำต้องเดินข้ามไปใช้ที่ Narai Hotel พี่น้องซึ่งอยู่ข้างๆ รูปลักษณ์เก่ากว่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เดินถนนสีลมไป BTS ศาลาแดง (~10 นาที) ขึ้นรถหรือออก Exit 5 เดินตาม skywalk เข้ารพ.จุฬาลงกรณ์ รวม 13–14 นาที · Junior Suite 60 ตร.ม. มีมุมนั่งเล่นแยก เหมาะมากสำหรับครอบครัวที่พักหลายคืน",
@@ -311,16 +473,33 @@
       "priceBig": "฿3,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Studio Room (17 ตร.ม.)", "price": "เริ่ม ฿2,500/คืน" },
-        { "type": "Deluxe King Room (34 ตร.ม.)", "price": "เริ่ม ฿3,000/คืน" },
-        { "type": "Deluxe Twin Room (34 ตร.ม.)", "price": "เริ่ม ฿3,000/คืน" },
-        { "type": "Deluxe Triple Room (34 ตร.ม.)", "price": "เริ่ม ฿3,500/คืน" }
+        {
+          "type": "Studio Room (17 ตร.ม.)",
+          "price": "เริ่ม ฿2,500/คืน"
+        },
+        {
+          "type": "Deluxe King Room (34 ตร.ม.)",
+          "price": "เริ่ม ฿3,000/คืน"
+        },
+        {
+          "type": "Deluxe Twin Room (34 ตร.ม.)",
+          "price": "เริ่ม ฿3,000/คืน"
+        },
+        {
+          "type": "Deluxe Triple Room (34 ตร.ม.)",
+          "price": "เริ่ม ฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/triple-y-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/triple-y.html",
       "tripUrl": "https://us.trip.com/hotels/bangkok-hotel-detail-39459173/triple-y-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-triple-y-hotel-bangkok.html",
-      "tags": ["🚇 เชื่อม MRT สามย่าน (ทางใต้ดิน) · ไม่โดนแดดฝน", "🛏️ ห้อง 34 ตร.ม. มี daybed วิวเมือง", "☕ กาแฟ Lavazza ฟรีในล็อบบี้", "🏋️ ฟิตเนส 24 ชม."],
+      "tags": [
+        "🚇 เชื่อม MRT สามย่าน (ทางใต้ดิน) · ไม่โดนแดดฝน",
+        "🛏️ ห้อง 34 ตร.ม. มี daybed วิวเมือง",
+        "☕ กาแฟ Lavazza ฟรีในล็อบบี้",
+        "🏋️ ฟิตเนส 24 ชม."
+      ],
       "addr": "948 ถนนพระราม 4 แขวงวังใหม่ เขตปทุมวัน กรุงเทพ",
       "storyHtml": "<strong>Triple Y Hotel Bangkok</strong> เปิดปี 2562 เป็นโรงแรม 4 ดาวรุ่นใหม่ 102 ห้อง ฝั่งมหาวิทยาลัยจุฬาลงกรณ์บนถนนพระราม 4 — จุดที่ทำให้ที่นี่แตกต่างคือ <strong>ทางเดินใต้ดินเชื่อมตรง MRT สามย่านผ่าน Samyan Mitrtown ราว 3–5 นาที</strong> ไม่โดนแดดฝน · ทุกห้อง Deluxe ขนาด <strong>34 ตร.ม. มี daybed วิวเมืองริมหน้าต่าง</strong> และห้องน้ำแยกโซน คะแนน 9.1 จาก 904 รีวิว Trip.com · เดินถึงรพ.จุฬาลงกรณ์ราว 15 นาที (1.3 กม.) ตามพระราม 4 หน้าจุฬาฯ หรือนั่ง MRT สามย่าน→สีลม 1 สถานีแล้วต่อ skywalk / Grab · Samyan Mitrtown ติดกันมีร้านอาหารและ 7-Eleven 24 ชม. · ข้อที่ต้องรู้: ไม่มีสระว่ายน้ำ ไม่มีร้านอาหารในโรงแรม และ Wi-Fi บางห้องสัญญาณไม่เสถียร",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> วันที่เหนื่อยหรือฝนตก ใช้ MRT สามย่านผ่านทางใต้ดิน Samyan Mitrtown ไม่โดนแดดฝนเลย แล้วต่อรถหรือ Grab ถึงรพ. · ถามให้ชัดเรื่องจำนวนผู้เข้าพักตั้งแต่จอง เพราะค่าธรรมเนียมเพิ่มสำหรับคนเพิ่มอาจสูง",
@@ -353,16 +532,33 @@
       "priceBig": "฿300",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงดอร์มรวม 6 เตียง", "price": "เริ่ม ฿300/คืน" },
-        { "type": "ดอร์มหญิงล้วน", "price": "เริ่ม ฿330/คืน" },
-        { "type": "ห้องส่วนตัว Double", "price": "เริ่ม ฿750/คืน" },
-        { "type": "ห้องส่วนตัว Triple (ห้องน้ำในตัว)", "price": "เริ่ม ฿1,100/คืน" }
+        {
+          "type": "เตียงดอร์มรวม 6 เตียง",
+          "price": "เริ่ม ฿300/คืน"
+        },
+        {
+          "type": "ดอร์มหญิงล้วน",
+          "price": "เริ่ม ฿330/คืน"
+        },
+        {
+          "type": "ห้องส่วนตัว Double",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "ห้องส่วนตัว Triple (ห้องน้ำในตัว)",
+          "price": "เริ่ม ฿1,100/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/silom-space-hostel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/silom-space-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-6634170/silom-space-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-silom-space-hostel-bangkok.html",
-      "tags": ["🎒 เตียงดอร์มเริ่ม ฿300", "🚆 เดิน BTS ศาลาแดง 2 นาที", "🍜 บะหมี่ + กาแฟฟรี 24 ชม.", "👩 ดอร์มหญิงล้วนมีให้เลือก"],
+      "tags": [
+        "🎒 เตียงดอร์มเริ่ม ฿300",
+        "🚆 เดิน BTS ศาลาแดง 2 นาที",
+        "🍜 บะหมี่ + กาแฟฟรี 24 ชม.",
+        "👩 ดอร์มหญิงล้วนมีให้เลือก"
+      ],
       "addr": "8 ถนนสีลม แขวงสุริยวงศ์ เขตบางรัก กรุงเทพ",
       "storyHtml": "<strong>Silom Space Hostel</strong> คือตัวเลือกราคาประหยัดที่สุดในชุดนี้ บนถนนสีลมเดิน BTS ศาลาแดงแค่ราว 2 นาที — ออก Exit 5 แล้วตาม skywalk เข้าอาคาร Por Por Ror รพ.จุฬาลงกรณ์ได้ในราว 5–7 นาที รวมเดินจากโฮสเทลถึงรพ.ราว 12 นาที · มีเตียงดอร์มรวม ดอร์มหญิงล้วน และห้องส่วนตัว · ส่วนกลางกว้าง พนักงานเป็นมิตร บะหมี่-กาแฟฟรี 24 ชม. · ข้อแลกที่ต้องรู้ตรงๆ: ย่านสีลม Soi 2 มีคลับและบาร์ <strong>กลางคืนเสียงดังโดยเฉพาะวันศุกร์–เสาร์</strong> ถ้าหลับยากต้องพกที่อุดหู เคาน์เตอร์ปิดเที่ยงคืน มาดึกต้องแจ้งล่วงหน้า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอเตียงหรือห้องที่ไม่ติดฝั่งถนนหรือโซนคลับ และพกที่อุดหูไปด้วย · ถ้าจะมาถึงดึกหลังเที่ยงคืนแจ้งโฮสเทลล่วงหน้าเสมอ เพราะเคาน์เตอร์ปิดเที่ยงคืน",
@@ -381,26 +577,142 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 8 ที่พักใกล้โรงพยาบาลจุฬาลงกรณ์ กรุงเทพฯ 2026",
-  "compareCols": ["#", "ชื่อที่พัก", "ดาว", "คะแนน", "ราคา/คืน", "ระยะถึงรพ.จุฬาฯ", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อที่พัก",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ระยะถึงรพ.จุฬาฯ",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Crowne Plaza Bangkok Lumpini Park", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿3,200", "access": "🏥 ~350 ม. เดิน 5 นาที", "badge": "ใกล้สุด · 5 ดาว", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Dusit Thani Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.4", "price": "฿11,000", "access": "🏥 skywalk BTS ~8–10 นาที", "badge": "คะแนนสูงสุด · ใหม่ 2567", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "3", "rankColor": "#FB7185", "name": "ibis Styles Bangkok Silom", "type": "⭐⭐⭐", "score": "9.2", "price": "฿1,500", "access": "🏥 skywalk BTS ~10–12 นาที", "badge": "รีวิวมากสุด · สระลอยฟ้า", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "At Ease Saladaeng by AETAS", "type": "⭐⭐⭐⭐", "score": "8.5", "price": "฿1,500", "access": "🏥 skywalk BTS ~13–15 นาที", "badge": "ห้องกว้างมีครัว · เหมาะพักยาว", "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "Mandarin Bangkok (Centre Point)", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,800", "access": "🏥 ~15 นาทีเดิน / MRT+Grab", "badge": "รีวิวมากสุดใน 4 ดาว · บุฟเฟ่ต์ดีเลิศ", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Triple Two Silom", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿2,500", "access": "🏥 skywalk BTS ~13–14 นาที", "badge": "ห้องใหญ่ · อาหารเช้าดีเลิศ", "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#0891b2", "name": "Triple Y Hotel Bangkok", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿3,000", "access": "🏥 ~15 นาทีเดิน / MRT+skywalk", "badge": "ฝั่งจุฬาฯ · MRT ใต้ดิน", "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;" },
-    { "rank": "8", "rankColor": "#FBBF24", "name": "Silom Space Hostel", "type": "⭐⭐", "score": "7.5", "price": "฿300", "access": "🏥 skywalk BTS ~12 นาที", "badge": "ประหยัดสุด · BTS 2 นาที", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Crowne Plaza Bangkok Lumpini Park",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿3,200",
+      "access": "🏥 ~350 ม. เดิน 5 นาที",
+      "badge": "ใกล้สุด · 5 ดาว",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Dusit Thani Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿11,000",
+      "access": "🏥 skywalk BTS ~8–10 นาที",
+      "badge": "คะแนนสูงสุด · ใหม่ 2567",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#FB7185",
+      "name": "ibis Styles Bangkok Silom",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,500",
+      "access": "🏥 skywalk BTS ~10–12 นาที",
+      "badge": "รีวิวมากสุด · สระลอยฟ้า",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "At Ease Saladaeng by AETAS",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.5",
+      "price": "฿1,500",
+      "access": "🏥 skywalk BTS ~13–15 นาที",
+      "badge": "ห้องกว้างมีครัว · เหมาะพักยาว",
+      "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "Mandarin Bangkok (Centre Point)",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,800",
+      "access": "🏥 ~15 นาทีเดิน / MRT+Grab",
+      "badge": "รีวิวมากสุดใน 4 ดาว · บุฟเฟ่ต์ดีเลิศ",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Triple Two Silom",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿2,500",
+      "access": "🏥 skywalk BTS ~13–14 นาที",
+      "badge": "ห้องใหญ่ · อาหารเช้าดีเลิศ",
+      "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#0891b2",
+      "name": "Triple Y Hotel Bangkok",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿3,000",
+      "access": "🏥 ~15 นาทีเดิน / MRT+skywalk",
+      "badge": "ฝั่งจุฬาฯ · MRT ใต้ดิน",
+      "badgeStyle": "background:#e0f2f1;color:#0891b2;border-color:#80cbc4;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FBBF24",
+      "name": "Silom Space Hostel",
+      "type": "⭐⭐",
+      "score": "7.5",
+      "price": "฿300",
+      "access": "🏥 skywalk BTS ~12 นาที",
+      "badge": "ประหยัดสุด · BTS 2 นาที",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    }
   ],
   "adviceTitle": "เลือกที่พักใกล้รพ.จุฬาลงกรณ์ยังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "🏥", "head": "อยากได้ที่ใกล้รพ.จุฬาฯ ที่สุด เดินได้สะดวก", "bodyHtml": "→ <strong>Crowne Plaza Bangkok Lumpini Park</strong> ฿3,200 เดินแค่ 350 ม. 5 นาที ตามถนนพระราม 4 ไม่ต้องข้ามถนน — ใกล้สุดในชุดนี้สำหรับผู้ที่ต้องไปรพ.แต่เช้า" },
-    { "icon": "🌿", "head": "อยากได้ความหรูสุดและวิวสวยลุมพินีพาร์ก", "bodyHtml": "→ <strong>Dusit Thani Bangkok</strong> ฿11,000 ห้อง 50 ตร.ม. ทุกห้องวิว Lumpini Park คะแนนสูงสุด 9.4 · ใช้ skywalk BTS ศาลาแดง Exit 5 เข้ารพ.จุฬาฯ ราว 8–10 นาที" },
-    { "icon": "💰", "head": "งบจำกัด ยังอยากได้สระว่ายน้ำและทำเลดี", "bodyHtml": "→ <strong>ibis Styles Bangkok Silom</strong> ฿1,500 รีวิวมากสุด 2,387 ชิ้น สระลอยฟ้า Boho Rooftop Bar คะแนน 9.2 · BTS ศาลาแดง 7 นาที skywalk เข้ารพ.จุฬาฯ ~10–12 นาที" },
-    { "icon": "🍳", "head": "มาดูแลผู้ป่วยนาน อยากได้ห้องกว้างมีครัว", "bodyHtml": "→ <strong>At Ease Saladaeng by AETAS</strong> ฿1,500 ห้อง 30–103 ตร.ม. หลายห้องมีครัวเล็ก เหมาะพักยาว ครอบครัว กลุ่มใหญ่ มีรถรับส่งฟรีในรัศมี 2 กม." },
-    { "icon": "🚇", "head": "ต้องการทำเลฝั่งสามย่าน-จุฬาฯ MRT สะดวก", "bodyHtml": "→ <strong>Triple Y Hotel Bangkok</strong> ฿3,000 เชื่อม MRT สามย่านผ่านทางใต้ดิน Samyan Mitrtown ไม่โดนแดดฝน ห้อง 34 ตร.ม. daybed วิวเมือง · เดินถึงรพ.จุฬาฯ ~15 นาที" },
-    { "icon": "🎒", "head": "งบน้อยมาก แค่อยากได้ทำเลดีใกล้ BTS", "bodyHtml": "→ <strong>Silom Space Hostel</strong> ฿300 เดิน BTS ศาลาแดงแค่ 2 นาที skywalk เข้ารพ.จุฬาฯ ~12 นาที มีดอร์มและห้องส่วนตัว · ต้องทนเสียงย่านสีลมกลางคืน" },
-    { "icon": "🍽️", "head": "อยากได้ 4 ดาวคุ้มค่า บุฟเฟ่ต์เช้าดี MRT สะดวก", "bodyHtml": "→ <strong>Mandarin Bangkok (Centre Point)</strong> ฿1,800 รีวิวมากสุดใน 4 ดาว 1,978 ชิ้น บุฟเฟ่ต์เช้าดีเลิศ Let's Relax Spa เดิน MRT สามย่าน 5 นาที" }
+    {
+      "icon": "🏥",
+      "head": "อยากได้ที่ใกล้รพ.จุฬาฯ ที่สุด เดินได้สะดวก",
+      "bodyHtml": "→ <strong>Crowne Plaza Bangkok Lumpini Park</strong> ฿3,200 เดินแค่ 350 ม. 5 นาที ตามถนนพระราม 4 ไม่ต้องข้ามถนน — ใกล้สุดในชุดนี้สำหรับผู้ที่ต้องไปรพ.แต่เช้า"
+    },
+    {
+      "icon": "🌿",
+      "head": "อยากได้ความหรูสุดและวิวสวยลุมพินีพาร์ก",
+      "bodyHtml": "→ <strong>Dusit Thani Bangkok</strong> ฿11,000 ห้อง 50 ตร.ม. ทุกห้องวิว Lumpini Park คะแนนสูงสุด 9.4 · ใช้ skywalk BTS ศาลาแดง Exit 5 เข้ารพ.จุฬาฯ ราว 8–10 นาที"
+    },
+    {
+      "icon": "💰",
+      "head": "งบจำกัด ยังอยากได้สระว่ายน้ำและทำเลดี",
+      "bodyHtml": "→ <strong>ibis Styles Bangkok Silom</strong> ฿1,500 รีวิวมากสุด 2,387 ชิ้น สระลอยฟ้า Boho Rooftop Bar คะแนน 9.2 · BTS ศาลาแดง 7 นาที skywalk เข้ารพ.จุฬาฯ ~10–12 นาที"
+    },
+    {
+      "icon": "🍳",
+      "head": "มาดูแลผู้ป่วยนาน อยากได้ห้องกว้างมีครัว",
+      "bodyHtml": "→ <strong>At Ease Saladaeng by AETAS</strong> ฿1,500 ห้อง 30–103 ตร.ม. หลายห้องมีครัวเล็ก เหมาะพักยาว ครอบครัว กลุ่มใหญ่ มีรถรับส่งฟรีในรัศมี 2 กม."
+    },
+    {
+      "icon": "🚇",
+      "head": "ต้องการทำเลฝั่งสามย่าน-จุฬาฯ MRT สะดวก",
+      "bodyHtml": "→ <strong>Triple Y Hotel Bangkok</strong> ฿3,000 เชื่อม MRT สามย่านผ่านทางใต้ดิน Samyan Mitrtown ไม่โดนแดดฝน ห้อง 34 ตร.ม. daybed วิวเมือง · เดินถึงรพ.จุฬาฯ ~15 นาที"
+    },
+    {
+      "icon": "🎒",
+      "head": "งบน้อยมาก แค่อยากได้ทำเลดีใกล้ BTS",
+      "bodyHtml": "→ <strong>Silom Space Hostel</strong> ฿300 เดิน BTS ศาลาแดงแค่ 2 นาที skywalk เข้ารพ.จุฬาฯ ~12 นาที มีดอร์มและห้องส่วนตัว · ต้องทนเสียงย่านสีลมกลางคืน"
+    },
+    {
+      "icon": "🍽️",
+      "head": "อยากได้ 4 ดาวคุ้มค่า บุฟเฟ่ต์เช้าดี MRT สะดวก",
+      "bodyHtml": "→ <strong>Mandarin Bangkok (Centre Point)</strong> ฿1,800 รีวิวมากสุดใน 4 ดาว 1,978 ชิ้น บุฟเฟ่ต์เช้าดีเลิศ Let's Relax Spa เดิน MRT สามย่าน 5 นาที"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล · <strong>BTS ศาลาแดง Exit 5 มีทางเดินลอยฟ้ามีหลังคาเชื่อมตรงเข้าอาคาร Por Por Ror โรงพยาบาลจุฬาลงกรณ์ สภากาชาดไทย</strong> ทำให้ที่พักย่าน BTS ศาลาแดง-สีลมสะดวกมากแม้ฝนตก · ระยะทางและเวลาเดินเป็นการประมาณจากแผนที่และข้อมูลรีวิว สภาพจริงอาจต่างกันเล็กน้อย · คะแนนและจุดเด่นมาจากการอ่านเสียงรีวิวจริงของแขกบนแพลตฟอร์มจอง ไม่ได้เข้าพักเอง · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักท่องเที่ยวถามบ่อยเรื่องที่พักใกล้โรงพยาบาลจุฬาลงกรณ์",
@@ -429,5 +741,6 @@
       "q": "❓ ที่พักแถว MRT สามย่านมีให้เลือกไหม และเดินทางไปรพ.จุฬาฯ ยังไง?",
       "a": "ใช่ — <strong>Triple Y Hotel Bangkok</strong> และ <strong>Mandarin Hotel Bangkok (Centre Point)</strong> อยู่บนถนนพระราม 4 ฝั่ง MRT สามย่าน · จาก Triple Y ใช้ทางเดินใต้ดิน Samyan Mitrtown ถึง MRT สามย่านใน 3–5 นาที แล้วนั่ง MRT สามย่าน→สีลม 1 สถานีต่อ skywalk เข้ารพ. หรือเดินตามพระราม 4 ราว 15 นาทีถึงรพ.โดยตรง"
     }
-  ]
+  ],
+  "quickAnswerHtml": "8 ที่พักใกล้โรงพยาบาลจุฬาลงกรณ์ สภากาชาดไทย ที่เรารีวิวไว้แล้ว — ตั้งแต่โรงแรม 5 ดาวเดิน 5 นาทีถึงรพ. ไปจนถึงโฮสเทลราคาหลักร้อย ทุกแห่งเดินทางถึงโรงพยาบาลได้โดยไม่ยุ่งยาก เสียงจากรีวิวจริง คะแนนจริง เทียบราคา 3 เว็บ | ThailandAddict"
 }

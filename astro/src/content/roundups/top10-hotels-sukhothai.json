@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "สุโขทัย", "href": "city-sukhothai.html" },
-    { "name": "10 โรงแรมสุโขทัยยอดนิยม" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "สุโขทัย",
+      "href": "city-sukhothai.html"
+    },
+    {
+      "name": "10 โรงแรมสุโขทัยยอดนิยม"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "สุโขทัย", "item": "https://thailandaddict.com/city-sukhothai" },
-    { "name": "10 โรงแรมสุโขทัยยอดนิยม", "item": "https://thailandaddict.com/top10-hotels-sukhothai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "สุโขทัย",
+      "item": "https://thailandaddict.com/city-sukhothai"
+    },
+    {
+      "name": "10 โรงแรมสุโขทัยยอดนิยม",
+      "item": "https://thailandaddict.com/top10-hotels-sukhothai"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-sukhothai.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "สุโขทัยไม่มีรถไฟฟ้า เมืองกะทัดรัด ใช้รถยนต์ มอเตอร์ไซค์ จักรยาน หรือสองแถวเป็นหลัก · จากสนามบินสุโขทัยเข้าเมืองเก่าราว 40 นาที · ย่านที่พักหลักในบทความนี้: <strong>เมืองเก่า</strong> — รอบอุทยานประวัติศาสตร์สุโขทัย วัดมหาธาตุ วัดศรีชุม ปั่นจักรยานเที่ยวได้ ที่พักเป็นรีสอร์ตในสวน · <strong>เมืองใหม่</strong> — ริมแม่น้ำยม ใกล้ตลาดและร้านอาหาร เกสต์เฮาส์ราคาประหยัด นั่งสองแถวเข้าอุทยานฯ ราว 15–20 นาที · อีกหนึ่งทำเลพิเศษคือ <strong>สวรรคโลก</strong> ใกล้สนามบินสุโขทัย เหมาะถ้าบินเข้า-ออกและอยากพักกลางทุ่งนา",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Thai Thai Sukhothai Resort", "price": "฿900" },
-    { "n": "2", "color": "#c8a951", "name": "Sriwilai Sukhothai Resort & Spa", "price": "฿3,200" },
-    { "n": "3", "color": "#c8a951", "name": "Legendha Sukhothai Resort", "price": "฿1,500" },
-    { "n": "4", "color": "#c8a951", "name": "Sukhothai Heritage Resort", "price": "฿1,800" },
-    { "n": "5", "color": "#9e9e9e", "name": "Phiphu Art and Gallery Boutique", "price": "฿950" },
-    { "n": "6", "color": "#9e9e9e", "name": "TR Guesthouse", "price": "฿600" },
-    { "n": "7", "color": "#9e9e9e", "name": "At Home Sukhothai", "price": "฿500" },
-    { "n": "8", "color": "#bf8040", "name": "Tharaburi Resort", "price": "฿2,200" },
-    { "n": "9", "color": "#bf8040", "name": "Baan Georges Hotel", "price": "฿1,200" },
-    { "n": "10", "color": "#5d4037", "name": "Le Charme Sukhothai Resort", "price": "฿1,800" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Thai Thai Sukhothai Resort",
+      "price": "฿900"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Sriwilai Sukhothai Resort & Spa",
+      "price": "฿3,200"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Legendha Sukhothai Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Sukhothai Heritage Resort",
+      "price": "฿1,800"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Phiphu Art and Gallery Boutique",
+      "price": "฿950"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "TR Guesthouse",
+      "price": "฿600"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "At Home Sukhothai",
+      "price": "฿500"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Tharaburi Resort",
+      "price": "฿2,200"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Baan Georges Hotel",
+      "price": "฿1,200"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Le Charme Sukhothai Resort",
+      "price": "฿1,800"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿900",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double Room", "price": "เริ่ม ฿900/คืน" },
-        { "type": "Superior Double Bungalow", "price": "เริ่ม ฿1,300/คืน" },
-        { "type": "Standard Quadruple Room", "price": "เริ่ม ฿1,700/คืน" }
+        {
+          "type": "Standard Double Room",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "Superior Double Bungalow",
+          "price": "เริ่ม ฿1,300/คืน"
+        },
+        {
+          "type": "Standard Quadruple Room",
+          "price": "เริ่ม ฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/thai-thai-sukhothai-guesthouse/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/thai-thai-sukhothai-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-1525786/thai-thai-sukhothai-guesthouse/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-thai-thai-sukhothai-resort-sukhothai.html",
-      "tags": ["🏡 บังกะโลในสวน", "🏊 สระว่ายน้ำ", "🍳 อาหารเช้าทำสด", "🚲 ปั่นถึงอุทยานฯ"],
+      "tags": [
+        "🏡 บังกะโลในสวน",
+        "🏊 สระว่ายน้ำ",
+        "🍳 อาหารเช้าทำสด",
+        "🚲 ปั่นถึงอุทยานฯ"
+      ],
       "addr": "ถนนเจดีย์ทอง ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.6 — Thai Thai คือ <strong>บังกะโลในสวนกลางเมืองเก่าที่แขกรักทั้งพนักงานและบรรยากาศ</strong> จาก 211 รีวิว · จุดที่หลายคนชมคือพนักงานเป็นมิตรช่วยเหลือดี อาหารเช้าทำสดจัดให้เยอะ และมีสระว่ายน้ำให้ลงเล่นหลังเดินอุทยานฯ · ทำเลปั่นจักรยานถึงอุทยานประวัติศาสตร์ได้ ราคาเริ่มแค่ ฿900 ถือว่าได้คะแนนแขกสูงเกินราคามาก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Superior Double Bungalow ถ้าอยากได้ระเบียงมองสวน ห้องในอาคารบางห้องเล็กกว่า และพกยากันยุงเพราะสวนมียุงบ้างบางช่วง",
@@ -102,15 +189,29 @@
       "priceBig": "฿3,200",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Deluxe Room with Balcony", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "Sriwilai Suite (วิลล่า)", "price": "เริ่ม ฿6,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Deluxe Room with Balcony",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "Sriwilai Suite (วิลล่า)",
+          "price": "เริ่ม ฿6,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sriwilai-sukhothai/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sri-wilai.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-6374833/sriwilai-sukhothai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sriwilai-sukhothai-resort-spa-sukhothai.html",
-      "tags": ["🌾 วิวนาข้าว", "🏊 สระอินฟินิตี้", "💆 สปา", "🚲 รถตุ๊กๆ รับส่งเมืองเก่า"],
+      "tags": [
+        "🌾 วิวนาข้าว",
+        "🏊 สระอินฟินิตี้",
+        "💆 สปา",
+        "🚲 รถตุ๊กๆ รับส่งเมืองเก่า"
+      ],
       "addr": "214/4 หมู่ 2 ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "Sriwilai คือ <strong>รีสอร์ตหรูระดับท็อปในเมืองเก่าสุโขทัย</strong> คะแนน 9.0 · จุดเด่นคืองานออกแบบสไตล์สุโขทัย-ล้านนา สวนและนาข้าวร่มรื่น พร้อมสระอินฟินิตี้วิวนาข้าวที่แขกถ่ายรูปกันเยอะ · ห้องกว้างมีระเบียงส่วนตัวมองออกไปเห็นนา และมีรถตุ๊กๆ รับส่งเข้าอุทยานประวัติศาสตร์ เหมาะกับคู่รักและคนที่อยากพักผ่อนจริงๆ ในบรรยากาศเมืองมรดกโลก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Deluxe Room ที่มีระเบียงวิวนาข้าวถ้างบถึง บรรยากาศตอนเช้าคุ้มมาก และจองรถรับส่งสนามบินล่วงหน้าเพราะเมืองเก่ารถเรียกยาก",
@@ -142,15 +243,29 @@
       "priceBig": "฿1,500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Deluxe Balcony Room", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Two Bedroom Villa", "price": "เริ่ม ฿3,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe Balcony Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Two Bedroom Villa",
+          "price": "เริ่ม ฿3,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/legendha-sukhothai-hotel/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/legendha-sukhothai.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-2199109/legendha-sukhothai-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-legendha-sukhothai-resort-sukhothai.html",
-      "tags": ["🏘️ หมู่บ้านไทยบังกะโลไม้สัก", "🛕 ติดเจดีย์วัดช้างล้อม", "🏊 สระว่ายน้ำ + สระเด็ก", "🚲 ปั่นถึงอุทยานฯ"],
+      "tags": [
+        "🏘️ หมู่บ้านไทยบังกะโลไม้สัก",
+        "🛕 ติดเจดีย์วัดช้างล้อม",
+        "🏊 สระว่ายน้ำ + สระเด็ก",
+        "🚲 ปั่นถึงอุทยานฯ"
+      ],
       "addr": "214 หมู่ 3 ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "Legendha คือ <strong>บูทีครีสอร์ตสไตล์หมู่บ้านไทยที่คุ้มที่สุดในระดับ 4 ดาวของเมืองเก่า</strong> คะแนน 9.1 จาก 99 รีวิว · จุดขายคือบังกะโลไม้สักในสวนร่มรื่น และทำเลที่หลังรีสอร์ตติดเจดีย์วัดช้างล้อม เดินถ่ายรูปได้เลย · ปั่นจักรยานไปอุทยานประวัติศาสตร์สะดวก มีสระว่ายน้ำพร้อมสระเด็ก เหมาะกับครอบครัว ราคาเริ่มแค่ ฿1,500 ถือว่าได้ทำเลและบรรยากาศคุ้มมาก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Deluxe Balcony ขึ้นไปเพราะห้อง Superior เล็กกว่า และไปเดินถ่ายรูปเจดีย์วัดช้างล้อมหลังรีสอร์ตช่วงเย็นแสงสวย",
@@ -182,15 +297,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior King / Twin", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe Twin", "price": "เริ่ม ฿2,400/คืน" },
-        { "type": "One Bedroom Suite", "price": "เริ่ม ฿3,500/คืน" }
+        {
+          "type": "Superior King / Twin",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Twin",
+          "price": "เริ่ม ฿2,400/คืน"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "เริ่ม ฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sukhothai-heritage-resort/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sukhothai-heritage-resort.html",
       "tripUrl": "https://th.trip.com/hotels/khlong-krachong-hotel-detail-710095/sukhothai-heritage-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sukhothai-heritage-resort-sukhothai.html",
-      "tags": ["✈️ ติดสนามบิน รถรับ-ส่งฟรี", "🌾 กลางทุ่งนาเงียบสงบ", "🏊 2 สระว่ายน้ำ", "🚲 จักรยานฟรี"],
+      "tags": [
+        "✈️ ติดสนามบิน รถรับ-ส่งฟรี",
+        "🌾 กลางทุ่งนาเงียบสงบ",
+        "🏊 2 สระว่ายน้ำ",
+        "🚲 จักรยานฟรี"
+      ],
       "addr": "999 หมู่ 2 ตำบลคลองกระจง อำเภอสวรรคโลก",
       "storyHtml": "Sukhothai Heritage คือ <strong>รีสอร์ตดีไซน์สไตล์สุโขทัยที่อยู่ติดสนามบินสุโขทัย กลางทุ่งนาเงียบสงบ</strong> คะแนน 8.8 · จุดเด่นคืองานออกแบบสวยถ่ายรูปได้ทุกมุม มี 2 สระว่ายน้ำ จักรยานให้ยืมฟรี และรถรับ-ส่งสนามบินฟรี เหมาะมากถ้าบินเข้า-ออกสุโขทัย · ข้อแลกเปลี่ยนคืออยู่ห่างอุทยานประวัติศาสตร์ราว 40–45 นาที จึงเหมาะกับคนที่เน้นพักผ่อนหรือพักคืนก่อนบิน มากกว่าฐานเที่ยวเมืองเก่า",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เหมาะใช้พักคืนแรกหรือคืนสุดท้ายที่ติดเที่ยวบิน ใช้รถรับส่งฟรีจากสนามบิน และถ้าจะเที่ยวเมืองเก่าให้เผื่อเวลาเดินทางหรือเช่ารถ",
@@ -222,15 +351,29 @@
       "priceBig": "฿950",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Double Room", "price": "เริ่ม ฿950/คืน" },
-        { "type": "Twin Room", "price": "เริ่ม ฿1,050/คืน" },
-        { "type": "Classic Quadruple Room", "price": "เริ่ม ฿1,400/คืน" }
+        {
+          "type": "Double Room",
+          "price": "เริ่ม ฿950/คืน"
+        },
+        {
+          "type": "Twin Room",
+          "price": "เริ่ม ฿1,050/คืน"
+        },
+        {
+          "type": "Classic Quadruple Room",
+          "price": "เริ่ม ฿1,400/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phiphu-art-and-gallery-boutique-sukhothai_3/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/phiphu-art-and-gallery-boutique-sukhothai-emuue-ng.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-22201825/phiphu-art-and-gallery-boutique-sukhothai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phiphu-art-and-gallery-boutique-sukhothai.html",
-      "tags": ["🎨 ตกแต่งงานศิลปะ", "🚲 จักรยานฟรี", "🛏️ ห้องกว้าง ตู้เย็นใหญ่", "🅿️ ที่จอดรถฟรี"],
+      "tags": [
+        "🎨 ตกแต่งงานศิลปะ",
+        "🚲 จักรยานฟรี",
+        "🛏️ ห้องกว้าง ตู้เย็นใหญ่",
+        "🅿️ ที่จอดรถฟรี"
+      ],
       "addr": "311/6 หมู่ 3 ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "Phiphu คือ <strong>บูทีค B&B ในเมืองเก่าที่ได้คะแนนแขกสูงถึง 9.0 ในราคาเริ่มแค่ ฿950</strong> จาก 120 รีวิว · จุดเด่นคือห้องกว้างสะอาด มีตู้เย็นใบใหญ่และห้องอาบน้ำกว้าง ตกแต่งด้วยงานศิลปะเหมือนพักบ้านคนท้องถิ่น · เดิน 15 นาทีถึงอุทยานประวัติศาสตร์ มีจักรยานให้ยืมฟรีและที่จอดรถฟรี เจ้าของอัธยาศัยดี เหมาะกับคนที่มาเที่ยวโบราณสถานเป็นหลักและอยากได้ที่พักคุ้มราคา",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เหมาะถ้ามาเที่ยวอุทยานฯ เป็นหลัก ยืมจักรยานฟรีปั่นเที่ยวเช้าๆ และเตรียมแอปแปลภาษาเพราะพนักงานสื่อสารอังกฤษได้จำกัด",
@@ -262,15 +405,29 @@
       "priceBig": "฿600",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room (ห้องตึก)", "price": "เริ่ม ฿600/คืน" },
-        { "type": "Garden Bungalow", "price": "เริ่ม ฿750/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Standard Room (ห้องตึก)",
+          "price": "เริ่ม ฿600/คืน"
+        },
+        {
+          "type": "Garden Bungalow",
+          "price": "เริ่ม ฿750/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tr-guesthouse/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tr-guesthouse.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-710065/tr-guesthouse/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tr-guesthouse-sukhothai.html",
-      "tags": ["💬 รีวิวมากสุดในบทความ", "🏡 บังกะโลในสวน", "🛵 เช่ามอเตอร์ไซค์", "🚶 เดินถึงตลาดและร้านอาหาร"],
+      "tags": [
+        "💬 รีวิวมากสุดในบทความ",
+        "🏡 บังกะโลในสวน",
+        "🛵 เช่ามอเตอร์ไซค์",
+        "🚶 เดินถึงตลาดและร้านอาหาร"
+      ],
       "addr": "27/5 ถนนประเวศนคร อำเภอเมืองสุโขทัย (เมืองใหม่)",
       "storyHtml": "TR Guesthouse คือ <strong>เกสต์เฮาส์ที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 520 รีวิว</strong> คะแนน 8.8 · จุดเด่นคือทำเลใจกลางเมืองใหม่ เดินถึงร้านอาหารและตลาด เจ้าของเป็นกันเองช่วยจัดรถและเช่ามอเตอร์ไซค์ให้ · มีทั้งห้องตึกแอร์และบังกะโลในสวนที่เงียบเป็นส่วนตัว ห้องสะอาดเตียงสบาย ราคาเริ่มแค่ ฿600 เหมาะกับนักแบ็กแพ็กและคู่รักงบน้อยที่อยากอยู่ในเมืองใหม่",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Garden Bungalow ถ้าอยากได้ความเป็นส่วนตัวและระเบียงมองสวน และเช่ามอเตอร์ไซค์ที่นี่ปั่นเที่ยวเมืองเก่าเองได้สะดวก",
@@ -302,15 +459,29 @@
       "priceBig": "฿500",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Fan Room", "price": "เริ่ม ฿500/คืน" },
-        { "type": "Air-Con Room", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Garden Bungalow", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "Fan Room",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "Air-Con Room",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Garden Bungalow",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/at-home-sukhothai/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/at-home-sukhothai.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-1073613/at-home-sukhothai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-at-home-sukhothai-sukhothai.html",
-      "tags": ["🏡 บ้านไม้ในสวนริมสระบัว", "🍳 อาหารเช้าให้เยอะ", "🛖 มุมนั่งเล่นและเปลญวน", "🪙 ถูกสุดในบทความ"],
+      "tags": [
+        "🏡 บ้านไม้ในสวนริมสระบัว",
+        "🍳 อาหารเช้าให้เยอะ",
+        "🛖 มุมนั่งเล่นและเปลญวน",
+        "🪙 ถูกสุดในบทความ"
+      ],
       "addr": "184/1 ถนนวิเชียรจำนงค์ อำเภอเมืองสุโขทัย (เมืองใหม่)",
       "storyHtml": "At Home คือ <strong>ที่พักที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿500 แต่ได้บรรยากาศบ้านไม้ในสวนที่มีเสน่ห์</strong> คะแนน 8.8 จาก 213 รีวิว · จุดเด่นคืออาหารเช้าอร่อยให้เยอะเสิร์ฟในสวนริมสระบัว มีมุมนั่งเล่นและเปลญวนผ่อนคลาย เจ้าของเป็นกันเองช่วยจัดรถและแนะนำที่เที่ยว · มีทั้งห้องพัดลม แอร์ และบังกะโลในสวน เหมาะกับนักแบ็กแพ็กและคู่รักงบน้อยที่อยากได้บรรยากาศมากกว่าเกสต์เฮาส์ห้องตึกทั่วไป",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เลือก Air-Con Room ขึ้นไปถ้ามาหน้าร้อน และพกยากันยุงเพราะเป็นบ้านไม้ในสวน · ห่างอุทยานฯ ราว 10–12 กม. ต้องนั่งสองแถวหรือเช่ารถ",
@@ -342,15 +513,29 @@
       "priceBig": "฿2,200",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Plus Room", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Grand Deluxe Room", "price": "เริ่ม ฿2,900/คืน" },
-        { "type": "Family Loft Suite", "price": "เริ่ม ฿3,800/คืน" }
+        {
+          "type": "Deluxe Plus Room",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Grand Deluxe Room",
+          "price": "เริ่ม ฿2,900/คืน"
+        },
+        {
+          "type": "Family Loft Suite",
+          "price": "เริ่ม ฿3,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/tharaburi-resort-sukhothai/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/tharaburi-resort.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-710068/tharaburi-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-tharaburi-resort-sukhothai.html",
-      "tags": ["🌿 บูทีคในสวนร่มรื่น", "🛁 ห้องตกแต่งไม่ซ้ำ มีอ่างอาบน้ำ", "🍳 อาหารเช้าทำสด", "🚲 จักรยานฟรี"],
+      "tags": [
+        "🌿 บูทีคในสวนร่มรื่น",
+        "🛁 ห้องตกแต่งไม่ซ้ำ มีอ่างอาบน้ำ",
+        "🍳 อาหารเช้าทำสด",
+        "🚲 จักรยานฟรี"
+      ],
       "addr": "321/3 หมู่ 3 ถนนเมืองเก่า-นาโพธิ์ ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "Tharaburi คือ <strong>บูทีครีสอร์ตในสวนกลางเมืองเก่าที่ขายความมีเอกลักษณ์ของแต่ละห้อง</strong> คะแนน 8.7 · จุดเด่นคือห้องตกแต่งไม่ซ้ำกัน บางห้องมีอ่างอาบน้ำ บรรยากาศสวนร่มรื่นเงียบสงบ พนักงานเป็นมิตรช่วยจัดทัวร์และคนขับรถ · อาหารเช้าทำสดปรับตามที่ขอได้ ทำเลใกล้อุทยานเมืองเก่า มีจักรยานฟรีปั่นเที่ยว ราคาย่อมเยากว่ารีสอร์ตหรูในย่านเดียวกัน",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอดูรูปห้องก่อนจองเพราะแต่ละห้องตกแต่งไม่เหมือนกัน และเลือก Grand Deluxe ถ้าอยากได้อ่างอาบน้ำแยกฝักบัว",
@@ -382,15 +567,29 @@
       "priceBig": "฿1,200",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Double", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Superior Room", "price": "เริ่ม ฿1,450/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿1,900/คืน" }
+        {
+          "type": "Standard Double",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,450/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-georges-hotel/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-georges.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-2549684/baan-georges-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-georges-hotel-sukhothai.html",
-      "tags": ["🥐 อาหารเช้ารูฟท็อป ขนมปังอบสด", "🏊 สระว่ายน้ำ", "🏡 ที่พักเล็ก 8 ห้อง อบอุ่น", "🚶 เดินถึงสตรีทฟู้ดเมืองใหม่"],
+      "tags": [
+        "🥐 อาหารเช้ารูฟท็อป ขนมปังอบสด",
+        "🏊 สระว่ายน้ำ",
+        "🏡 ที่พักเล็ก 8 ห้อง อบอุ่น",
+        "🚶 เดินถึงสตรีทฟู้ดเมืองใหม่"
+      ],
       "addr": "28/54 ซอยชัยวรรณสุข ถนนจรดวิถีถ่อง อำเภอเมืองสุโขทัย (เมืองใหม่)",
       "storyHtml": "Baan Georges คือ <strong>บูทีคพูลโฮเทลเล็กๆ เพียง 8 ห้องในเมืองใหม่ที่ขายความอบอุ่นเหมือนพักบ้านเพื่อน</strong> คะแนน 8.7 จาก 263 รีวิว · จุดเด่นที่หลายรีวิวชมคืออาหารเช้าบนรูฟท็อป ขนมปังอบสดและกาแฟสด เจ้าของต้อนรับอบอุ่นดูแลเหมือนญาติ · มีสระว่ายน้ำให้คลายร้อนซึ่งหายากในราคานี้ เดินไม่กี่นาทีถึงร้านอาหารและสตรีทฟู้ดในเมืองใหม่ ห่างอุทยานฯ ราว 15 นาทีรถ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ที่พักมีแค่ 8 ห้อง ช่วงไฮซีซันเต็มเร็ว ควรจองล่วงหน้า · ทางเข้าเป็นซอยลึก เดินกลับดึกควรระวังหมาในซอย",
@@ -422,15 +621,29 @@
       "priceBig": "฿1,800",
       "priceSub": "ราคาเริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Deluxe Room", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Family Suite", "price": "เริ่ม ฿3,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Deluxe Room",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Family Suite",
+          "price": "เริ่ม ฿3,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/le-charme-sukhothai-historical-park-resort/hotel/sukhothai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/le-charme-sukhothai.html",
       "tripUrl": "https://www.trip.com/hotels/sukhothai-hotel-detail-710492/le-charme-sukhothai-historical-park-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-le-charme-sukhothai-resort-sukhothai.html",
-      "tags": ["🪷 สวนล้อมบึงบัว", "🏊 สระน้ำเกลือ", "🛏️ ห้องกว้าง ระเบียงมองบึง", "🚲 ปั่นถึงอุทยานฯ"],
+      "tags": [
+        "🪷 สวนล้อมบึงบัว",
+        "🏊 สระน้ำเกลือ",
+        "🛏️ ห้องกว้าง ระเบียงมองบึง",
+        "🚲 ปั่นถึงอุทยานฯ"
+      ],
       "addr": "9/9 ถนนนาโพธิ์-คีรีมาศ ตำบลเมืองเก่า อำเภอเมืองสุโขทัย",
       "storyHtml": "Le Charme คือ <strong>บูทีครีสอร์ตในสวนเขตร้อนล้อมบึงบัวที่เหมาะกับการพักผ่อนแบบเงียบๆ ในเมืองเก่า</strong> คะแนน 8.6 · จุดเด่นคือบรรยากาศสวนร่มรื่นล้อมบึงบัว ห้องกว้างสะอาดมีระเบียงส่วนตัวมองบึงหรือสวน และสระว่ายน้ำเกลือกลางแจ้ง · ทำเลใกล้อุทยานเมืองเก่า ปั่นจักรยานเที่ยวได้ พนักงานเป็นมิตรอาหารเช้าทำสด เหมาะกับคนที่อยากได้รีสอร์ตในสวนราคาไม่แรงในย่านมรดกโลก",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องที่มองเห็นบึงบัวบรรยากาศดีกว่า และเตรียมรถไว้เพราะกลางคืนเงียบมาก ร้านอาหารรอบนอกมีไม่มาก",
@@ -448,37 +661,190 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม สุโขทัย 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Thai Thai Sukhothai Resort", "type": "⭐⭐⭐", "score": "9.6", "price": "฿900", "access": "📍 เมืองเก่า", "badge": "คะแนนสูงสุด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Sriwilai Sukhothai Resort & Spa", "type": "⭐⭐⭐⭐⭐", "score": "9.0", "price": "฿3,200", "access": "📍 เมืองเก่า", "badge": "หรูสุดในเมืองเก่า", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Legendha Sukhothai Resort", "type": "⭐⭐⭐⭐", "score": "9.1", "price": "฿1,500", "access": "📍 เมืองเก่า·วัดช้างล้อม", "badge": "คุ้มสุด 4 ดาว", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Sukhothai Heritage Resort", "type": "⭐⭐⭐⭐⭐", "score": "8.8", "price": "฿1,800", "access": "📍 ติดสนามบินสุโขทัย", "badge": "ใกล้สนามบิน", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Phiphu Art and Gallery Boutique", "type": "⭐⭐⭐", "score": "9.0", "price": "฿950", "access": "📍 เมืองเก่า", "badge": "บูทีคคุ้มราคา", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "TR Guesthouse", "type": "⭐⭐", "score": "8.8", "price": "฿600", "access": "📍 เมืองใหม่·แม่น้ำยม", "badge": "รีวิวมากสุด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "At Home Sukhothai", "type": "⭐⭐", "score": "8.8", "price": "฿500", "access": "📍 เมืองใหม่·แม่น้ำยม", "badge": "ถูกสุด", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Tharaburi Resort", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿2,200", "access": "📍 เมืองเก่า" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Baan Georges Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,200", "access": "📍 เมืองใหม่·แม่น้ำยม", "badge": "รูฟท็อปเบรกฟาสต์", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Le Charme Sukhothai Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,800", "access": "📍 เมืองเก่า", "badge": "รีสอร์ตล้อมบึงบัว", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Thai Thai Sukhothai Resort",
+      "type": "⭐⭐⭐",
+      "score": "9.6",
+      "price": "฿900",
+      "access": "📍 เมืองเก่า",
+      "badge": "คะแนนสูงสุด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Sriwilai Sukhothai Resort & Spa",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿3,200",
+      "access": "📍 เมืองเก่า",
+      "badge": "หรูสุดในเมืองเก่า",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Legendha Sukhothai Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿1,500",
+      "access": "📍 เมืองเก่า·วัดช้างล้อม",
+      "badge": "คุ้มสุด 4 ดาว",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Sukhothai Heritage Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,800",
+      "access": "📍 ติดสนามบินสุโขทัย",
+      "badge": "ใกล้สนามบิน",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Phiphu Art and Gallery Boutique",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿950",
+      "access": "📍 เมืองเก่า",
+      "badge": "บูทีคคุ้มราคา",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "TR Guesthouse",
+      "type": "⭐⭐",
+      "score": "8.8",
+      "price": "฿600",
+      "access": "📍 เมืองใหม่·แม่น้ำยม",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "At Home Sukhothai",
+      "type": "⭐⭐",
+      "score": "8.8",
+      "price": "฿500",
+      "access": "📍 เมืองใหม่·แม่น้ำยม",
+      "badge": "ถูกสุด",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Tharaburi Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿2,200",
+      "access": "📍 เมืองเก่า"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Baan Georges Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,200",
+      "access": "📍 เมืองใหม่·แม่น้ำยม",
+      "badge": "รูฟท็อปเบรกฟาสต์",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Le Charme Sukhothai Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,800",
+      "access": "📍 เมืองเก่า",
+      "badge": "รีสอร์ตล้อมบึงบัว",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมสุโขทัยยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>At Home Sukhothai</strong> ฿500 บ้านไม้ในสวนริมสระบัว · หรือ <strong>TR Guesthouse</strong> ฿600 เกสต์เฮาส์รีวิวมากสุดกลางเมืองใหม่" },
-    { "icon": "🏛️", "head": "มาเที่ยวอุทยานฯ อยากพักเมืองเก่า", "bodyHtml": "→ <strong>Thai Thai Sukhothai Resort</strong> ฿900 บังกะโลในสวนคะแนน 9.6 · หรือ <strong>Phiphu Art and Gallery</strong> ฿950 บูทีคศิลปะ เดิน 15 นาทีถึงอุทยานฯ" },
-    { "icon": "💑", "head": "ทริปพักผ่อน คู่รัก อยากได้บรรยากาศ", "bodyHtml": "→ <strong>Sriwilai Sukhothai Resort & Spa</strong> ฿3,200 รีสอร์ตหรูวิวนาข้าว · หรือ <strong>Legendha Sukhothai Resort</strong> ฿1,500 หมู่บ้านไทยติดเจดีย์วัดช้างล้อม" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว มีเด็ก", "bodyHtml": "→ <strong>Legendha Sukhothai Resort</strong> ฿1,500 มีสระเด็กและ Two Bedroom Villa · หรือ <strong>Le Charme Sukhothai Resort</strong> ฿1,800 มี Family Suite สวนล้อมบึงบัว" },
-    { "icon": "✈️", "head": "บินเข้า-ออกสนามบินสุโขทัย", "bodyHtml": "→ <strong>Sukhothai Heritage Resort</strong> ฿1,800 ติดสนามบิน มีรถรับ-ส่งฟรี เหมาะพักคืนติดเที่ยวบิน" },
-    { "icon": "🍜", "head": "อยากอยู่ใกล้ร้านอาหารและตลาด", "bodyHtml": "→ <strong>Baan Georges Hotel</strong> ฿1,200 เมืองใหม่ เดินถึงสตรีทฟู้ด มีสระ · หรือ <strong>TR Guesthouse</strong> ฿600 ใจกลางเมืองใหม่" },
-    { "icon": "🌿", "head": "อยากได้รีสอร์ตในสวนเงียบสงบ", "bodyHtml": "→ <strong>Tharaburi Resort</strong> ฿2,200 บูทีคในสวนห้องตกแต่งไม่ซ้ำ · หรือ <strong>Le Charme Sukhothai Resort</strong> ฿1,800 สวนล้อมบึงบัว สระน้ำเกลือ" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>At Home Sukhothai</strong> ฿500 บ้านไม้ในสวนริมสระบัว · หรือ <strong>TR Guesthouse</strong> ฿600 เกสต์เฮาส์รีวิวมากสุดกลางเมืองใหม่"
+    },
+    {
+      "icon": "🏛️",
+      "head": "มาเที่ยวอุทยานฯ อยากพักเมืองเก่า",
+      "bodyHtml": "→ <strong>Thai Thai Sukhothai Resort</strong> ฿900 บังกะโลในสวนคะแนน 9.6 · หรือ <strong>Phiphu Art and Gallery</strong> ฿950 บูทีคศิลปะ เดิน 15 นาทีถึงอุทยานฯ"
+    },
+    {
+      "icon": "💑",
+      "head": "ทริปพักผ่อน คู่รัก อยากได้บรรยากาศ",
+      "bodyHtml": "→ <strong>Sriwilai Sukhothai Resort & Spa</strong> ฿3,200 รีสอร์ตหรูวิวนาข้าว · หรือ <strong>Legendha Sukhothai Resort</strong> ฿1,500 หมู่บ้านไทยติดเจดีย์วัดช้างล้อม"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว มีเด็ก",
+      "bodyHtml": "→ <strong>Legendha Sukhothai Resort</strong> ฿1,500 มีสระเด็กและ Two Bedroom Villa · หรือ <strong>Le Charme Sukhothai Resort</strong> ฿1,800 มี Family Suite สวนล้อมบึงบัว"
+    },
+    {
+      "icon": "✈️",
+      "head": "บินเข้า-ออกสนามบินสุโขทัย",
+      "bodyHtml": "→ <strong>Sukhothai Heritage Resort</strong> ฿1,800 ติดสนามบิน มีรถรับ-ส่งฟรี เหมาะพักคืนติดเที่ยวบิน"
+    },
+    {
+      "icon": "🍜",
+      "head": "อยากอยู่ใกล้ร้านอาหารและตลาด",
+      "bodyHtml": "→ <strong>Baan Georges Hotel</strong> ฿1,200 เมืองใหม่ เดินถึงสตรีทฟู้ด มีสระ · หรือ <strong>TR Guesthouse</strong> ฿600 ใจกลางเมืองใหม่"
+    },
+    {
+      "icon": "🌿",
+      "head": "อยากได้รีสอร์ตในสวนเงียบสงบ",
+      "bodyHtml": "→ <strong>Tharaburi Resort</strong> ฿2,200 บูทีคในสวนห้องตกแต่งไม่ซ้ำ · หรือ <strong>Le Charme Sukhothai Resort</strong> ฿1,800 สวนล้อมบึงบัว สระน้ำเกลือ"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · คะแนนและจุดเด่นในบทความนี้สรุปจากเสียงรีวิวจริงของแขกบนแพลตฟอร์มจอง เราไม่ได้ไปพักเอง · สุโขทัยไม่มีรถไฟฟ้า ใช้รถ มอเตอร์ไซค์ จักรยาน หรือสองแถว · เมืองเก่ารถเรียกยาก ควรวางแผนเดินทางหรือเช่ารถล่วงหน้า · ช่วงเทศกาลลอยกระทงเผาเทียนเล่นไฟ (พ.ย.) ห้องเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือน · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมสุโขทัย",
   "faq": [
-    { "q": "❓ พักเมืองเก่าหรือเมืองใหม่ดีกว่ากันในสุโขทัย?", "a": "<strong>เมืองเก่า</strong> เหมาะถ้าทริปเน้นเที่ยวอุทยานประวัติศาสตร์ เพราะที่พักเป็นรีสอร์ตในสวน ปั่นจักรยานชมโบราณสถานได้จากหน้าโรงแรม (Thai Thai, Sriwilai, Legendha, Phiphu, Tharaburi, Le Charme) แต่ร้านอาหารกลางคืนน้อย · <strong>เมืองใหม่</strong> อยู่ห่างราว 12 กม. ริมแม่น้ำยม เดินถึงตลาดและร้านอาหาร ที่พักราคาประหยัด (TR Guesthouse, At Home, Baan Georges) นั่งสองแถวเข้าอุทยานฯ 15–20 นาที" },
-    { "q": "❓ โรงแรมสุโขทัยราคาเท่าไหร่?", "a": "ราคาเริ่มประหยัดมาก: เกสต์เฮาส์และบังกะโลเริ่มราว ฿500–950 ต่อคืน · บูทีครีสอร์ตและ 4 ดาวราว ฿1,500–2,900 · รีสอร์ตหรู 5 ดาวเริ่ม ฿3,200 ขึ้นไป (วิลล่าถึงราว ฿6,800) · ทุกราคาเป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงเทศกาลลอยกระทง (พ.ย.) อาจสูงกว่าปกติและเต็มเร็ว" },
-    { "q": "❓ ควรจองโรงแรมสุโขทัยล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติ จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงเทศกาลลอยกระทงเผาเทียนเล่นไฟ (พฤศจิกายน) ซึ่งเป็นไฮไลต์ของสุโขทัย ห้องดีๆ ในเมืองเก่าเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป" },
-    { "q": "❓ ไม่มีรถจะเที่ยวสุโขทัยยังไง?", "a": "ในเมืองเก่าที่พักส่วนใหญ่มีจักรยานให้ยืมฟรี ปั่นชมอุทยานประวัติศาสตร์ได้สบาย · ถ้าพักเมืองใหม่ นั่งสองแถวเข้าอุทยานฯ ราว 15–20 นาที หรือเช่ามอเตอร์ไซค์/จักรยานจากเกสต์เฮาส์ · เมืองเก่ารถแท็กซี่เรียกยาก ควรวางแผนล่วงหน้าหรือใช้รถรับส่งของรีสอร์ต" },
-    { "q": "❓ มาเที่ยวอุทยานประวัติศาสตร์สุโขทัยควรพักที่ไหน?", "a": "พักย่าน<strong>เมืองเก่า</strong>สะดวกที่สุด เพราะปั่นจักรยานถึงอุทยานฯ ได้จากหน้าโรงแรม · ตัวเลือกคุ้มราคาคือ Thai Thai (฿900) และ Phiphu (฿950) · อยากได้รีสอร์ตในสวนเลือก Legendha (฿1,500) หรือ Le Charme (฿1,800) · งบถึงและอยากหรูเลือก Sriwilai (฿3,200) วิวนาข้าว" },
-    { "q": "❓ บินเข้าสนามบินสุโขทัยควรพักที่ไหน?", "a": "ถ้าบินเข้า-ออกและอยากพักใกล้สนามบิน <strong>Sukhothai Heritage Resort</strong> อยู่ติดสนามบินสุโขทัยในอำเภอสวรรคโลก มีรถรับ-ส่งฟรี เหมาะกับคืนที่ติดเที่ยวบิน · แต่ห่างอุทยานประวัติศาสตร์ราว 40–45 นาที ถ้าจะเที่ยวเมืองเก่าเป็นหลักควรพักย่านเมืองเก่าแทน" }
-  ]
+    {
+      "q": "❓ พักเมืองเก่าหรือเมืองใหม่ดีกว่ากันในสุโขทัย?",
+      "a": "<strong>เมืองเก่า</strong> เหมาะถ้าทริปเน้นเที่ยวอุทยานประวัติศาสตร์ เพราะที่พักเป็นรีสอร์ตในสวน ปั่นจักรยานชมโบราณสถานได้จากหน้าโรงแรม (Thai Thai, Sriwilai, Legendha, Phiphu, Tharaburi, Le Charme) แต่ร้านอาหารกลางคืนน้อย · <strong>เมืองใหม่</strong> อยู่ห่างราว 12 กม. ริมแม่น้ำยม เดินถึงตลาดและร้านอาหาร ที่พักราคาประหยัด (TR Guesthouse, At Home, Baan Georges) นั่งสองแถวเข้าอุทยานฯ 15–20 นาที"
+    },
+    {
+      "q": "❓ โรงแรมสุโขทัยราคาเท่าไหร่?",
+      "a": "ราคาเริ่มประหยัดมาก: เกสต์เฮาส์และบังกะโลเริ่มราว ฿500–950 ต่อคืน · บูทีครีสอร์ตและ 4 ดาวราว ฿1,500–2,900 · รีสอร์ตหรู 5 ดาวเริ่ม ฿3,200 ขึ้นไป (วิลล่าถึงราว ฿6,800) · ทุกราคาเป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงเทศกาลลอยกระทง (พ.ย.) อาจสูงกว่าปกติและเต็มเร็ว"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมสุโขทัยล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติ จองล่วงหน้า 1–2 สัปดาห์เพียงพอ · แต่ช่วงเทศกาลลอยกระทงเผาเทียนเล่นไฟ (พฤศจิกายน) ซึ่งเป็นไฮไลต์ของสุโขทัย ห้องดีๆ ในเมืองเก่าเต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป"
+    },
+    {
+      "q": "❓ ไม่มีรถจะเที่ยวสุโขทัยยังไง?",
+      "a": "ในเมืองเก่าที่พักส่วนใหญ่มีจักรยานให้ยืมฟรี ปั่นชมอุทยานประวัติศาสตร์ได้สบาย · ถ้าพักเมืองใหม่ นั่งสองแถวเข้าอุทยานฯ ราว 15–20 นาที หรือเช่ามอเตอร์ไซค์/จักรยานจากเกสต์เฮาส์ · เมืองเก่ารถแท็กซี่เรียกยาก ควรวางแผนล่วงหน้าหรือใช้รถรับส่งของรีสอร์ต"
+    },
+    {
+      "q": "❓ มาเที่ยวอุทยานประวัติศาสตร์สุโขทัยควรพักที่ไหน?",
+      "a": "พักย่าน<strong>เมืองเก่า</strong>สะดวกที่สุด เพราะปั่นจักรยานถึงอุทยานฯ ได้จากหน้าโรงแรม · ตัวเลือกคุ้มราคาคือ Thai Thai (฿900) และ Phiphu (฿950) · อยากได้รีสอร์ตในสวนเลือก Legendha (฿1,500) หรือ Le Charme (฿1,800) · งบถึงและอยากหรูเลือก Sriwilai (฿3,200) วิวนาข้าว"
+    },
+    {
+      "q": "❓ บินเข้าสนามบินสุโขทัยควรพักที่ไหน?",
+      "a": "ถ้าบินเข้า-ออกและอยากพักใกล้สนามบิน <strong>Sukhothai Heritage Resort</strong> อยู่ติดสนามบินสุโขทัยในอำเภอสวรรคโลก มีรถรับ-ส่งฟรี เหมาะกับคืนที่ติดเที่ยวบิน · แต่ห่างอุทยานประวัติศาสตร์ราว 40–45 นาที ถ้าจะเที่ยวเมืองเก่าเป็นหลักควรพักย่านเมืองเก่าแทน"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมสุโขทัยที่รีวิวจริงจากทุกระดับ — ตั้งแต่ Thai Thai บังกะโลในสวนคะแนน 9.6 ถึง Sriwilai รีสอร์ตหรูริมนาข้าวเมืองเก่า เทียบเมืองเก่ากับเมืองใหม่ ราคาจริงเริ่ม ฿500 จองตรง 3 เว็บ"
 }

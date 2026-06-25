@@ -16,16 +16,39 @@
     "✅ เสียงจาก <strong>รีวิวจริง</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "แม่ฮ่องสอน", "href": "city-mae-hong-son.html" },
-    { "name": "Top 10 โรงแรมแม่ฮ่องสอน" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "แม่ฮ่องสอน",
+      "href": "city-mae-hong-son.html"
+    },
+    {
+      "name": "Top 10 โรงแรมแม่ฮ่องสอน"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "แม่ฮ่องสอน", "item": "https://thailandaddict.com/city-mae-hong-son" },
-    { "name": "Top 10 โรงแรมแม่ฮ่องสอน", "item": "https://thailandaddict.com/top10-hotels-mae-hong-son" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "แม่ฮ่องสอน",
+      "item": "https://thailandaddict.com/city-mae-hong-son"
+    },
+    {
+      "name": "Top 10 โรงแรมแม่ฮ่องสอน",
+      "item": "https://thailandaddict.com/top10-hotels-mae-hong-son"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-mae-hong-son.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "แม่ฮ่องสอนไม่มีรถไฟฟ้าและขนส่งสาธารณะในเมืองมีน้อย — <strong>เช่ารถหรือมอเตอร์ไซค์คือทางที่สะดวกที่สุด</strong> โดยเฉพาะถ้าจะวิ่งระหว่างปายกับตัวเมืองแม่ฮ่องสอน (ทางคดเคี้ยวกว่า 1,800 โค้ง ใช้เวลาราว 3 ชั่วโมง) · มีรถตู้จากเชียงใหม่ขึ้นปายและตัวเมืองทุกวัน · ในปายเดินเที่ยวถนนคนเดินได้สบาย แต่จะออกนอกเมืองต้องมีรถ · โซนหลักในบทความนี้: <strong>ตัวเมืองปาย</strong> — ถนนคนเดิน ริมแม่น้ำปาย คาเฟ่ · <strong>ชานเมืองปาย</strong> — วิวเขา ทุ่งนา เงียบกว่า · <strong>ตัวเมืองแม่ฮ่องสอน</strong> — หนองจองคำ วัดจองคำ-จองกลาง หุบเขาชานเมือง",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Pai Village Boutique Resort", "price": "฿1,500" },
-    { "n": "2", "color": "#06B6D4", "name": "Reverie Siam Resort", "price": "฿4,800" },
-    { "n": "3", "color": "#06B6D4", "name": "The Quarter Pai", "price": "฿1,400" },
-    { "n": "4", "color": "#06B6D4", "name": "Sang Tong Huts", "price": "฿1,000" },
-    { "n": "5", "color": "#FB7185", "name": "The Oia Pai Resort", "price": "฿1,500" },
-    { "n": "6", "color": "#FB7185", "name": "Pai Country Hut", "price": "฿700" },
-    { "n": "7", "color": "#FB7185", "name": "Common Grounds Pai", "price": "฿350" },
-    { "n": "8", "color": "#FB7185", "name": "Fern Resort", "price": "฿1,500" },
-    { "n": "9", "color": "#FBBF24", "name": "Baan Pai Riverside", "price": "฿500" },
-    { "n": "10", "color": "#FBBF24", "name": "Spicypai Backpackers", "price": "฿300" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Pai Village Boutique Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Reverie Siam Resort",
+      "price": "฿4,800"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Quarter Pai",
+      "price": "฿1,400"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Sang Tong Huts",
+      "price": "฿1,000"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "The Oia Pai Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Pai Country Hut",
+      "price": "฿700"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "Common Grounds Pai",
+      "price": "฿350"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Fern Resort",
+      "price": "฿1,500"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "Baan Pai Riverside",
+      "price": "฿500"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Spicypai Backpackers",
+      "price": "฿300"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Boutique Garden", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Grand Village", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Rasa Villa", "price": "เริ่ม ฿3,500/คืน" }
+        {
+          "type": "Boutique Garden",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Grand Village",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Rasa Villa",
+          "price": "เริ่ม ฿3,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pai-village-boutique-resort/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pai-village-boutique-resort-and-farm.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-706634/pai-village-boutique-resort-and-farm/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pai-village-boutique-resort-mae-hong-son.html",
-      "tags": ["🏡 บังกะโลไม้กลางสวน", "🚶 ติดถนนคนเดิน", "🌿 ฟาร์มในตัว", "🍳 อาหารเช้าเด็ด"],
+      "tags": [
+        "🏡 บังกะโลไม้กลางสวน",
+        "🚶 ติดถนนคนเดิน",
+        "🌿 ฟาร์มในตัว",
+        "🍳 อาหารเช้าเด็ด"
+      ],
       "addr": "88 Moo 3, Vieng Tai, ปาย · แม่ฮ่องสอน",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.5 และมีรีวิวมากที่สุดถึง <strong>653 รีวิว</strong> — Pai Village คือบังกะโลไม้กลางสวนที่ตั้งอยู่ติดถนนคนเดินปายเลย เดินออกประตูก็ถึงร้านอาหารและคาเฟ่ · เสียงจากรีวิวจริงชอบบรรยากาศบ้านไม้กลมกลืนธรรมชาติ มีฟาร์มเล็กๆ ในรีสอร์ต และอาหารเช้าที่หลายคนพูดถึง · ทำเลกลางเมืองแต่พอเข้ามาในสวนก็เงียบร่มรื่น",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้อง Boutique Garden ราคาเริ่มต้นคุ้มสุด แต่ถ้ามากันหลายคนลอง Rasa Villa พื้นที่กว้างกว่ามาก · จองล่วงหน้าช่วงหน้าหนาวเพราะติดถนนคนเดินเลยเต็มเร็ว",
@@ -102,15 +189,29 @@
       "priceBig": "฿4,800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Garden View", "price": "เริ่ม ฿4,800/คืน" },
-        { "type": "Deluxe Pool Access", "price": "เริ่ม ฿5,800/คืน" },
-        { "type": "Villa", "price": "เริ่ม ฿8,500/คืน" }
+        {
+          "type": "Deluxe Garden View",
+          "price": "เริ่ม ฿4,800/คืน"
+        },
+        {
+          "type": "Deluxe Pool Access",
+          "price": "เริ่ม ฿5,800/คืน"
+        },
+        {
+          "type": "Villa",
+          "price": "เริ่ม ฿8,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/reverie-siam-resort/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/reverie-siam-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-846820/reverie-siam/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-reverie-siam-resort-mae-hong-son.html",
-      "tags": ["🌊 ริมแม่น้ำปาย", "🏊 สระว่ายน้ำสวย", "🎩 บริการระดับหรู", "🌳 สวนเขียวกว้าง"],
+      "tags": [
+        "🌊 ริมแม่น้ำปาย",
+        "🏊 สระว่ายน้ำสวย",
+        "🎩 บริการระดับหรู",
+        "🌳 สวนเขียวกว้าง"
+      ],
       "addr": "476 Moo 8, Wiang Tai, ปาย · แม่ฮ่องสอน",
       "storyHtml": "Reverie Siam คือ <strong>รีสอร์ตหรูที่สุดในบทความนี้</strong> คะแนน 9.5 ตั้งอยู่ริมแม่น้ำปายในตัวเมือง สไตล์โคโลเนียลผสมล้านนา · เสียงจากรีวิวจริงชมเรื่องสระว่ายน้ำสวย สวนกว้าง และบริการที่ดูแลใกล้ชิด · ทุกห้องพื้นที่กว้างราว 50 ตร.ม. มีทั้งห้องที่เปิดประตูลงสระได้และวิลล่าพร้อมสวนส่วนตัว เหมาะกับทริปฉลองพิเศษหรือฮันนีมูนในปาย",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ถ้างบถึงลอง Deluxe Pool Access เปิดประตูลงสระได้เลย · มาช่วงหน้าหนาวอากาศเย็นสบายที่สุด แต่ห้องเต็มเร็วเพราะรีสอร์ตไม่ใหญ่",
@@ -142,15 +243,29 @@
       "priceBig": "฿1,400",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Quarter Deluxe", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿2,900/คืน" }
+        {
+          "type": "Superior",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Quarter Deluxe",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿2,900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-quarter-resort/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-quarter-pai.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-706635/the-quarter-pai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-quarter-pai-mae-hong-son.html",
-      "tags": ["🏊 สระว่ายน้ำ", "🚶 เดินถึงถนนคนเดิน", "🛏️ ห้องกว้างสะอาด", "👨‍👩‍👧 มีห้องครอบครัว"],
+      "tags": [
+        "🏊 สระว่ายน้ำ",
+        "🚶 เดินถึงถนนคนเดิน",
+        "🛏️ ห้องกว้างสะอาด",
+        "👨‍👩‍👧 มีห้องครอบครัว"
+      ],
       "addr": "245 Moo 1 Chaisongkram Road, Wiang Tai, ปาย · แม่ฮ่องสอน",
       "storyHtml": "The Quarter Pai เป็น <strong>รีสอร์ต 4 ดาวกลางเมืองปายที่คุ้มค่า</strong> คะแนน 9.3 จาก 181 รีวิว ราคาเริ่มแค่ ฿1,400 · เสียงจากรีวิวจริงชอบเรื่องห้องกว้างสะอาด สระว่ายน้ำ และทำเลที่เดินถึงถนนคนเดินปายได้ · มีห้องครอบครัวขนาด 66 ตร.ม. รองรับหลายคน เหมาะกับทั้งคู่รักและครอบครัวที่อยากได้รีสอร์ตในเมืองราคาไม่แรง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Superior ราคาเริ่มต้นไม่มีวิว ถ้าอยากได้ห้องกว้างวิวสวน/สระเพิ่มอีกนิดเป็น Quarter Deluxe คุ้มกว่า · มากันหลายคนเลือก Family Room",
@@ -182,15 +297,29 @@
       "priceBig": "฿1,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Twin Room", "price": "เริ่ม ฿1,000/คืน" },
-        { "type": "Deluxe Double with Balcony", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Family Suite with Balcony", "price": "เริ่ม ฿3,000/คืน" }
+        {
+          "type": "Standard Twin Room",
+          "price": "เริ่ม ฿1,000/คืน"
+        },
+        {
+          "type": "Deluxe Double with Balcony",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Family Suite with Balcony",
+          "price": "เริ่ม ฿3,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sang-tong-huts/hotel/mae-hong-son-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sang-tong-huts.html",
       "tripUrl": "https://www.trip.com/hotels/mae-hong-son-hotel-detail-9403969/sang-tong-huts-bungalow/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sang-tong-huts-mae-hong-son.html",
-      "tags": ["🏡 กระท่อมไม้สวยมีเอกลักษณ์", "🌄 ริมเขาเงียบสงบ", "🍴 ร้านอาหารในที่พักอร่อย", "🌳 สวนร่มรื่น"],
+      "tags": [
+        "🏡 กระท่อมไม้สวยมีเอกลักษณ์",
+        "🌄 ริมเขาเงียบสงบ",
+        "🍴 ร้านอาหารในที่พักอร่อย",
+        "🌳 สวนร่มรื่น"
+      ],
       "addr": "250 Moo 11, Pang Mu, ตัวเมืองแม่ฮ่องสอน",
       "storyHtml": "Sang Tong Huts เป็น <strong>กระท่อมไม้บูทีคชานเมืองแม่ฮ่องสอนที่มีเอกลักษณ์เฉพาะตัว</strong> คะแนน 9.2 · เสียงจากรีวิวจริงชอบงานออกแบบกระท่อมไม้แต่ละหลังที่ไม่ซ้ำกัน บรรยากาศริมเขาเงียบสงบ และร้านอาหารในที่พักที่หลายคนบอกว่าอร่อย · เหมาะกับคนที่อยากพักในตัวเมืองแม่ฮ่องสอนแบบกลมกลืนธรรมชาติ ไม่ใช่โรงแรมตึก ราคาเริ่มแค่ ฿1,000",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอกระท่อมที่มีระเบียงวิวสวน/วิวเขาจะได้บรรยากาศเต็มที่ · ลองทานมื้อเย็นที่ร้านในที่พัก หลายคนรีวิวว่าอาหารดี",
@@ -222,15 +351,29 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Mountain View", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Lake View", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Family Room", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Mountain View",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Lake View",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Family Room",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-oia-pai-resort/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-oia-pai-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-1512649/the-oia-pai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-the-oia-pai-resort-mae-hong-son.html",
-      "tags": ["🏔️ บ้านพักทรงโค้งวิวเขา", "💧 ริมทะเลสาบในรีสอร์ต", "📸 มุมถ่ายรูปสวย", "🏊 สระว่ายน้ำ"],
+      "tags": [
+        "🏔️ บ้านพักทรงโค้งวิวเขา",
+        "💧 ริมทะเลสาบในรีสอร์ต",
+        "📸 มุมถ่ายรูปสวย",
+        "🏊 สระว่ายน้ำ"
+      ],
       "addr": "254 Moo 1, Mae Hi, ปาย · แม่ฮ่องสอน",
       "storyHtml": "The Oia Pai คือ <strong>รีสอร์ตบูทีคชานเมืองปายที่เด่นเรื่องบ้านพักทรงโค้งและวิวเขา</strong> คะแนน 9.0 · เสียงจากรีวิวจริงชอบมุมถ่ายรูปสวยๆ ทั้งบ้านพักดีไซน์โค้งและทะเลสาบน้ำในรีสอร์ต · อยู่ชานเมืองปายจึงเงียบกว่าในเมือง เหมาะกับคนที่อยากได้บรรยากาศรีสอร์ตวิวเขาและพื้นที่ถ่ายรูป ราคาเริ่ม ฿1,500",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> Mountain View ราคาเริ่มต้นได้ระเบียงวิวเขาแล้ว แต่ถ้าชอบมุมน้ำลอง Lake View · อยู่ชานเมืองควรมีรถ เข้าถนนคนเดินสะดวกกว่า",
@@ -262,15 +405,29 @@
       "priceBig": "฿700",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Fan Hut", "price": "เริ่ม ฿700/คืน" },
-        { "type": "Deluxe Fan Hut Riverside", "price": "เริ่ม ฿900/คืน" },
-        { "type": "King Hut (แอร์)", "price": "เริ่ม ฿1,300/คืน" }
+        {
+          "type": "Standard Fan Hut",
+          "price": "เริ่ม ฿700/คืน"
+        },
+        {
+          "type": "Deluxe Fan Hut Riverside",
+          "price": "เริ่ม ฿900/คืน"
+        },
+        {
+          "type": "King Hut (แอร์)",
+          "price": "เริ่ม ฿1,300/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/pai-country-hut/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/pai-country-hut.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-706345/pai-country-hut/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-pai-country-hut-mae-hong-son.html",
-      "tags": ["🛖 กระท่อมไม้ริมน้ำ", "🪢 ระเบียงมีเปลญวน", "🚶 ใกล้ถนนคนเดิน", "💸 ราคาเริ่มประหยัด"],
+      "tags": [
+        "🛖 กระท่อมไม้ริมน้ำ",
+        "🪢 ระเบียงมีเปลญวน",
+        "🚶 ใกล้ถนนคนเดิน",
+        "💸 ราคาเริ่มประหยัด"
+      ],
       "addr": "240 Moo 1, Mae Hi, ปาย · แม่ฮ่องสอน",
       "storyHtml": "Pai Country Hut คือ <strong>กระท่อมไม้ริมแม่น้ำปายที่คุ้มค่าและมีรีวิวเยอะถึง 240 รีวิว</strong> คะแนน 9.0 ราคาเริ่มแค่ ฿700 · เสียงจากรีวิวจริงชอบบรรยากาศกระท่อมไม้ริมน้ำ ระเบียงมีเปลญวนให้นอนเล่น และทำเลที่ใกล้ถนนคนเดินปาย · มีทั้งกระท่อมพัดลมราคาประหยัดและกระท่อมแอร์หลังใหม่ เหมาะกับสายแบ็กแพ็กที่อยากได้บรรยากาศริมน้ำในงบไม่แรง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> หน้าหนาวปายอากาศเย็น กระท่อมพัดลมก็สบายแล้ว ประหยัดกว่า · อยากได้แอร์และห้องใหม่กว่าเลือก King Hut · ขอหลังริมน้ำจะได้วิวเต็มที่",
@@ -302,14 +459,25 @@
       "priceBig": "฿350",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงในดอร์มแอร์", "price": "เริ่ม ฿350/คืน" },
-        { "type": "บังกะโลส่วนตัวพัดลม", "price": "เริ่ม ฿1,000/คืน" }
+        {
+          "type": "เตียงในดอร์มแอร์",
+          "price": "เริ่ม ฿350/คืน"
+        },
+        {
+          "type": "บังกะโลส่วนตัวพัดลม",
+          "price": "เริ่ม ฿1,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/common-grounds-pai/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/common-grounds-pai.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-28872318/common-grounds-pai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-common-grounds-pai-mae-hong-son.html",
-      "tags": ["🧊 ดอร์มติดแอร์", "🍻 บรรยากาศ social", "🚶 ใกล้ถนนคนเดิน", "💸 เริ่ม ฿350"],
+      "tags": [
+        "🧊 ดอร์มติดแอร์",
+        "🍻 บรรยากาศ social",
+        "🚶 ใกล้ถนนคนเดิน",
+        "💸 เริ่ม ฿350"
+      ],
       "addr": "116 Moo 3, Wiang Tai, ปาย · แม่ฮ่องสอน",
       "storyHtml": "Common Grounds เป็น <strong>โฮสเทลสาย social กลางเมืองปาย</strong> คะแนน 8.8 จาก 198 รีวิว · เสียงจากรีวิวจริงชอบบรรยากาศที่ได้เจอเพื่อนนักเดินทาง พื้นที่ส่วนกลางสบายๆ และดอร์มติดแอร์ที่หลับสบายกว่าหลายที่ในปาย · ทำเลใกล้ถนนคนเดิน เดินออกไปเที่ยวได้ เหมาะกับสายแบ็กแพ็กที่มาคนเดียวและอยากเจอคนใหม่ ราคาเริ่มแค่ ฿350",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มาคนเดียวเลือกดอร์มแอร์เพื่อเจอเพื่อนร่วมทาง · มากันเป็นคู่หรืออยากได้ความเป็นส่วนตัวลองบังกะโลส่วนตัวพัดลม · ราคาดอร์มขยับช่วงวันหยุดยาว",
@@ -341,15 +509,29 @@
       "priceBig": "฿1,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Bungalow", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Deluxe Stream View", "price": "เริ่ม ฿2,400/คืน" },
-        { "type": "Family Bungalow", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Standard Bungalow",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Deluxe Stream View",
+          "price": "เริ่ม ฿2,400/คืน"
+        },
+        {
+          "type": "Family Bungalow",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/fern-resort/hotel/mae-hong-son-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/fern-resort-mae-hong-son.html",
       "tripUrl": "https://www.trip.com/hotels/mae-hong-son-hotel-detail-709148/fern-resort-mae-hong-son/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-fern-resort-mae-hong-son.html",
-      "tags": ["🌿 อีโครีสอร์ตในหุบเขา", "🛖 กระท่อมไม้สักมุงหญ้าคา", "🌾 วิวทุ่งนาและลำธาร", "🦋 ธรรมชาติรอบตัว"],
+      "tags": [
+        "🌿 อีโครีสอร์ตในหุบเขา",
+        "🛖 กระท่อมไม้สักมุงหญ้าคา",
+        "🌾 วิวทุ่งนาและลำธาร",
+        "🦋 ธรรมชาติรอบตัว"
+      ],
       "addr": "64 Moo 8, Pha Bong, ตัวเมืองแม่ฮ่องสอน",
       "storyHtml": "Fern Resort คือ <strong>อีโครีสอร์ตในหุบเขาชานเมืองแม่ฮ่องสอนที่มีรีวิวมากถึง 602 รีวิว</strong> คะแนน 8.6 · เสียงจากรีวิวจริงชอบบรรยากาศกระท่อมไม้สักมุงหญ้าคากระจายในหุบเขา ล้อมด้วยทุ่งนาและลำธาร เน้นกลมกลืนธรรมชาติแบบอีโค · เหมาะกับคนที่อยากพักสงบท่ามกลางธรรมชาติของแม่ฮ่องสอน ไม่เน้นความสะดวกในเมือง ราคาเริ่ม ฿1,500",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอ Deluxe Stream View ที่ระเบียงมองลำธารจะได้บรรยากาศเต็มที่ · อยู่ในหุบเขาชานเมือง ควรมีรถ และเตรียมยากันยุงเพราะอยู่กลางธรรมชาติ",
@@ -381,15 +563,29 @@
       "priceBig": "฿500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "บังกะโลพัดลม (Standard Fan)", "price": "เริ่ม ฿500/คืน" },
-        { "type": "บังกะโลริมน้ำ พัดลม (River View Fan)", "price": "เริ่ม ฿650/คืน" },
-        { "type": "บังกะโลแอร์ (Deluxe Air-con)", "price": "เริ่ม ฿900/คืน" }
+        {
+          "type": "บังกะโลพัดลม (Standard Fan)",
+          "price": "เริ่ม ฿500/คืน"
+        },
+        {
+          "type": "บังกะโลริมน้ำ พัดลม (River View Fan)",
+          "price": "เริ่ม ฿650/คืน"
+        },
+        {
+          "type": "บังกะโลแอร์ (Deluxe Air-con)",
+          "price": "เริ่ม ฿900/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/baan-pai-riverside/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/baan-pai-riverside-resort.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-706305/baan-pai-riverside-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-baan-pai-riverside-mae-hong-son.html",
-      "tags": ["🌊 บังกะโลริมแม่น้ำปาย", "🚶 ตัวเมืองปาย เดินเที่ยวได้", "💸 เริ่ม ฿500", "🪵 บังกะโลไม้เรียบง่าย"],
+      "tags": [
+        "🌊 บังกะโลริมแม่น้ำปาย",
+        "🚶 ตัวเมืองปาย เดินเที่ยวได้",
+        "💸 เริ่ม ฿500",
+        "🪵 บังกะโลไม้เรียบง่าย"
+      ],
       "addr": "190 Moo 1, Mae Hi, ปาย · แม่ฮ่องสอน",
       "storyHtml": "Baan Pai Riverside คือ <strong>บังกะโลไม้ริมแม่น้ำปายในตัวเมืองที่ราคาเริ่มแค่ ฿500</strong> คะแนน 8.4 จาก 169 รีวิว · เสียงจากรีวิวจริงชอบทำเลริมน้ำกลางเมืองที่เดินไปถนนคนเดินได้ และบรรยากาศบังกะโลไม้เรียบง่ายริมแม่น้ำ · มีทั้งบังกะโลพัดลมราคาประหยัดและบังกะโลแอร์ เหมาะกับสายแบ็กแพ็กที่อยากได้ที่พักริมน้ำในงบจำกัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอ River View Fan เพิ่มอีกนิดได้ระเบียงมองแม่น้ำ คุ้มกว่า · หน้าร้อนอยากได้แอร์เลือก Deluxe Air-con · เป็นที่พักเรียบง่าย เน้นทำเลและราคา",
@@ -421,15 +617,29 @@
       "priceBig": "฿300",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "เตียงดอร์มไม้ไผ่ (Dorm Bed)", "price": "เริ่ม ฿300/คืน" },
-        { "type": "เตียงดอร์มทรีเฮาส์ (Treehouse Bunk)", "price": "เริ่ม ฿350/คืน" },
-        { "type": "กระท่อมส่วนตัว (Private Hut)", "price": "เริ่ม ฿600/คืน" }
+        {
+          "type": "เตียงดอร์มไม้ไผ่ (Dorm Bed)",
+          "price": "เริ่ม ฿300/คืน"
+        },
+        {
+          "type": "เตียงดอร์มทรีเฮาส์ (Treehouse Bunk)",
+          "price": "เริ่ม ฿350/คืน"
+        },
+        {
+          "type": "กระท่อมส่วนตัว (Private Hut)",
+          "price": "เริ่ม ฿600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/spicypai-backpackers/hotel/pai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/spicypai-backpackers.html",
       "tripUrl": "https://www.trip.com/hotels/pai-hotel-detail-12488658/spicy-pai-backpackers/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-spicypai-backpackers-mae-hong-son.html",
-      "tags": ["🎋 ดอร์มกระท่อมไม้ไผ่", "🌾 กลางทุ่งนาวิวเขา", "🎒 บรรยากาศแบ็กแพ็ก", "💸 ถูกสุด ฿300"],
+      "tags": [
+        "🎋 ดอร์มกระท่อมไม้ไผ่",
+        "🌾 กลางทุ่งนาวิวเขา",
+        "🎒 บรรยากาศแบ็กแพ็ก",
+        "💸 ถูกสุด ฿300"
+      ],
       "addr": "291 Moo 1, Mae Yen, Mae Hi, ปาย · แม่ฮ่องสอน",
       "storyHtml": "Spicypai คือ <strong>โฮสเทลดอร์มกระท่อมไม้ไผ่กลางทุ่งนาที่ถูกที่สุดในบทความนี้ เริ่มแค่ ฿300</strong> คะแนน 8.2 จาก 205 รีวิว · เสียงจากรีวิวจริงชอบบรรยากาศกระท่อมไม้ไผ่ทำมือเปิดโล่งกลางทุ่งนาวิวเขา ตื่นมาเจอวิวธรรมชาติ และบรรยากาศแบ็กแพ็กที่ได้เจอเพื่อนร่วมทาง · เหมาะกับสายแบ็กแพ็กตัวจริงที่ไม่ติดความสะดวก อยากได้ประสบการณ์นอนกลางทุ่งในงบประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เป็นกระท่อมไม้ไผ่เปิดโล่ง เตรียมเสื้อกันหนาวมาช่วงหน้าหนาวเพราะอากาศปายเย็นมากตอนกลางคืน · อยากได้ความเป็นส่วนตัวขึ้นลองกระท่อมส่วนตัว",
@@ -447,36 +657,181 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม แม่ฮ่องสอน-ปาย 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Pai Village Boutique Resort", "type": "⭐⭐⭐⭐", "score": "9.5", "price": "฿1,500", "access": "📍 ติดถนนคนเดินปาย", "badge": "รีวิวมากสุด", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Reverie Siam Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.5", "price": "฿4,800", "access": "📍 ริมแม่น้ำปาย", "badge": "หรูสุด", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Quarter Pai", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿1,400", "access": "📍 ตัวเมืองปาย" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Sang Tong Huts", "type": "⭐⭐⭐", "score": "9.2", "price": "฿1,000", "access": "📍 ชานเมืองแม่ฮ่องสอน", "badge": "กระท่อมไม้เด่น", "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "The Oia Pai Resort", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿1,500", "access": "📍 ชานเมืองปาย วิวเขา" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Pai Country Hut", "type": "⭐⭐⭐", "score": "9.0", "price": "฿700", "access": "📍 ริมแม่น้ำปาย", "badge": "คุ้มสุดริมน้ำ", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "Common Grounds Pai", "type": "⭐⭐", "score": "8.8", "price": "฿350", "access": "📍 กลางเมืองปาย" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Fern Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,500", "access": "📍 หุบเขาชานเมืองแม่ฮ่องสอน", "badge": "อีโครีสอร์ต", "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "Baan Pai Riverside", "type": "⭐⭐", "score": "8.4", "price": "฿500", "access": "📍 ริมแม่น้ำปาย ตัวเมือง", "badge": "ริมน้ำประหยัด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Spicypai Backpackers", "type": "⭐⭐", "score": "8.2", "price": "฿300", "access": "📍 ชานเมืองปาย ทุ่งนา", "badge": "ถูกสุด", "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Pai Village Boutique Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿1,500",
+      "access": "📍 ติดถนนคนเดินปาย",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Reverie Siam Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿4,800",
+      "access": "📍 ริมแม่น้ำปาย",
+      "badge": "หรูสุด",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Quarter Pai",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿1,400",
+      "access": "📍 ตัวเมืองปาย"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Sang Tong Huts",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,000",
+      "access": "📍 ชานเมืองแม่ฮ่องสอน",
+      "badge": "กระท่อมไม้เด่น",
+      "badgeStyle": "background:#ecfeff;color:#0891b2;border-color:#a5f3fc;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "The Oia Pai Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,500",
+      "access": "📍 ชานเมืองปาย วิวเขา"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Pai Country Hut",
+      "type": "⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿700",
+      "access": "📍 ริมแม่น้ำปาย",
+      "badge": "คุ้มสุดริมน้ำ",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "Common Grounds Pai",
+      "type": "⭐⭐",
+      "score": "8.8",
+      "price": "฿350",
+      "access": "📍 กลางเมืองปาย"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Fern Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,500",
+      "access": "📍 หุบเขาชานเมืองแม่ฮ่องสอน",
+      "badge": "อีโครีสอร์ต",
+      "badgeStyle": "background:#fff1f2;color:#f43f5e;border-color:#fecdd3;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "Baan Pai Riverside",
+      "type": "⭐⭐",
+      "score": "8.4",
+      "price": "฿500",
+      "access": "📍 ริมแม่น้ำปาย ตัวเมือง",
+      "badge": "ริมน้ำประหยัด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Spicypai Backpackers",
+      "type": "⭐⭐",
+      "score": "8.2",
+      "price": "฿300",
+      "access": "📍 ชานเมืองปาย ทุ่งนา",
+      "badge": "ถูกสุด",
+      "badgeStyle": "background:#fffbeb;color:#b45309;border-color:#fde68a;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมแม่ฮ่องสอน-ปายยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Spicypai Backpackers</strong> ฿300 ดอร์มไม้ไผ่กลางทุ่งนา · หรือ <strong>Pai Country Hut</strong> ฿700 กระท่อมไม้ริมแม่น้ำปายใกล้ถนนคนเดิน" },
-    { "icon": "💑", "head": "ทริปพิเศษ คู่รัก ฮันนีมูน", "bodyHtml": "→ <strong>Reverie Siam Resort</strong> ฿4,800 รีสอร์ตหรูริมแม่น้ำปาย คะแนน 9.5 · หรือ <strong>Pai Village Boutique Resort</strong> ฿1,500 บังกะโลไม้กลางสวนติดถนนคนเดิน" },
-    { "icon": "👨‍👩‍👧", "head": "มาเป็นครอบครัว", "bodyHtml": "→ <strong>The Quarter Pai</strong> ฿1,400 รีสอร์ตกลางเมืองมีห้องครอบครัว 66 ตร.ม. · หรือ <strong>The Oia Pai Resort</strong> ฿1,500 บ้านพักวิวเขามี Family Room" },
-    { "icon": "🌿", "head": "อยากพักกลางธรรมชาติ เงียบสงบ", "bodyHtml": "→ <strong>Fern Resort</strong> ฿1,500 อีโครีสอร์ตในหุบเขาแม่ฮ่องสอน · หรือ <strong>Sang Tong Huts</strong> ฿1,000 กระท่อมไม้ริมเขาชานเมือง" },
-    { "icon": "🎒", "head": "มาคนเดียว อยากเจอเพื่อนใหม่", "bodyHtml": "→ <strong>Common Grounds Pai</strong> ฿350 โฮสเทลสาย social ดอร์มแอร์กลางเมืองปาย · หรือ <strong>Spicypai Backpackers</strong> ฿300 บรรยากาศแบ็กแพ็กกลางทุ่งนา" },
-    { "icon": "🌊", "head": "อยากพักริมแม่น้ำปาย", "bodyHtml": "→ <strong>Reverie Siam Resort</strong> ฿4,800 หรูริมน้ำ · <strong>Pai Country Hut</strong> ฿700 กระท่อมริมน้ำ · หรือ <strong>Baan Pai Riverside</strong> ฿500 บังกะโลริมน้ำงบประหยัด" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Spicypai Backpackers</strong> ฿300 ดอร์มไม้ไผ่กลางทุ่งนา · หรือ <strong>Pai Country Hut</strong> ฿700 กระท่อมไม้ริมแม่น้ำปายใกล้ถนนคนเดิน"
+    },
+    {
+      "icon": "💑",
+      "head": "ทริปพิเศษ คู่รัก ฮันนีมูน",
+      "bodyHtml": "→ <strong>Reverie Siam Resort</strong> ฿4,800 รีสอร์ตหรูริมแม่น้ำปาย คะแนน 9.5 · หรือ <strong>Pai Village Boutique Resort</strong> ฿1,500 บังกะโลไม้กลางสวนติดถนนคนเดิน"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "มาเป็นครอบครัว",
+      "bodyHtml": "→ <strong>The Quarter Pai</strong> ฿1,400 รีสอร์ตกลางเมืองมีห้องครอบครัว 66 ตร.ม. · หรือ <strong>The Oia Pai Resort</strong> ฿1,500 บ้านพักวิวเขามี Family Room"
+    },
+    {
+      "icon": "🌿",
+      "head": "อยากพักกลางธรรมชาติ เงียบสงบ",
+      "bodyHtml": "→ <strong>Fern Resort</strong> ฿1,500 อีโครีสอร์ตในหุบเขาแม่ฮ่องสอน · หรือ <strong>Sang Tong Huts</strong> ฿1,000 กระท่อมไม้ริมเขาชานเมือง"
+    },
+    {
+      "icon": "🎒",
+      "head": "มาคนเดียว อยากเจอเพื่อนใหม่",
+      "bodyHtml": "→ <strong>Common Grounds Pai</strong> ฿350 โฮสเทลสาย social ดอร์มแอร์กลางเมืองปาย · หรือ <strong>Spicypai Backpackers</strong> ฿300 บรรยากาศแบ็กแพ็กกลางทุ่งนา"
+    },
+    {
+      "icon": "🌊",
+      "head": "อยากพักริมแม่น้ำปาย",
+      "bodyHtml": "→ <strong>Reverie Siam Resort</strong> ฿4,800 หรูริมน้ำ · <strong>Pai Country Hut</strong> ฿700 กระท่อมริมน้ำ · หรือ <strong>Baan Pai Riverside</strong> ฿500 บังกะโลริมน้ำงบประหยัด"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาโดยประมาณ อาจเปลี่ยนตามวันและฤดูกาล แนะนำเช็คราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · ช่วงหน้าหนาว (พ.ย.–ม.ค.) ปายและตัวเมืองแม่ฮ่องสอนเป็นไฮซีซั่น ที่พักดีๆ เต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือน · แม่ฮ่องสอนไม่มีรถไฟฟ้า ขนส่งสาธารณะน้อย เช่ารถหรือมอเตอร์ไซค์สะดวกที่สุด โดยเฉพาะถ้าจะวิ่งระหว่างปายกับตัวเมือง (ทางคดเคี้ยวกว่า 1,800 โค้ง ราว 3 ชั่วโมง) · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมแม่ฮ่องสอน-ปาย",
   "faq": [
-    { "q": "❓ ควรพักปายหรือตัวเมืองแม่ฮ่องสอนดีกว่ากัน?", "a": "ขึ้นอยู่กับสไตล์ทริป · <strong>ปาย</strong> เหมาะคนชอบเมืองเล็กสายชิล ถนนคนเดิน คาเฟ่ และที่พักทุกระดับ (Pai Village, The Quarter, Pai Country Hut) · <strong>ตัวเมืองแม่ฮ่องสอน</strong> เงียบกว่า อยู่ในหุบเขา เหมาะคนอยากพักสงบกลางธรรมชาติ (Fern Resort, Sang Tong Huts) · สองที่ห่างกันราว 3 ชั่วโมงทางคดเคี้ยว ถ้าเวลาน้อยเลือกฐานเดียว" },
-    { "q": "❓ โรงแรมแม่ฮ่องสอน-ปายราคาเท่าไหร่?", "a": "ราคาหลากหลาย: ดอร์มและบังกะโลริมน้ำเริ่มราว ฿300–700 ต่อคืน · บูทีคและรีสอร์ต 3–4 ดาวคุณภาพราว ฿1,000–1,800 · รีสอร์ตหรู 5 ดาวริมแม่น้ำปายเริ่มราว ฿4,800 · ช่วงหน้าหนาว (พ.ย.–ม.ค.) ซึ่งเป็นไฮซีซั่นราคาอาจสูงกว่าปกติและห้องเต็มเร็ว" },
-    { "q": "❓ ควรจองโรงแรมแม่ฮ่องสอน-ปายล่วงหน้านานแค่ไหน?", "a": "วันธรรมดานอกฤดูท่องเที่ยว จองล่วงหน้า 2–4 สัปดาห์เพียงพอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) และวันหยุดยาว ปายและตัวเมืองแม่ฮ่องสอนเป็นไฮซีซั่น ที่พักดีๆ เต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป โดยเฉพาะรีสอร์ตริมน้ำในปาย" },
-    { "q": "❓ ไปแม่ฮ่องสอน-ปายต้องมีรถไหม?", "a": "ในตัวเมืองปายเดินเที่ยวถนนคนเดินได้สบาย แต่ถ้าจะออกนอกเมืองหรือวิ่งระหว่างปายกับตัวเมืองแม่ฮ่องสอน (ทางคดเคี้ยวกว่า 1,800 โค้ง ราว 3 ชั่วโมง) <strong>ควรเช่ารถหรือมอเตอร์ไซค์</strong> · มีรถตู้จากเชียงใหม่ขึ้นปายและตัวเมืองทุกวัน · ขนส่งสาธารณะในเมืองมีน้อย เช่ารถสะดวกที่สุด" },
-    { "q": "❓ จองโรงแรมแม่ฮ่องสอน-ปายเว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน" },
-    { "q": "❓ ไปแม่ฮ่องสอน-ปายช่วงไหนดีที่สุด?", "a": "ช่วง <strong>หน้าหนาว (พฤศจิกายน–กุมภาพันธ์)</strong> อากาศเย็นสบาย ทะเลหมอกสวย เป็นช่วงที่คนนิยมที่สุดแต่ก็แน่นและราคาสูง · เดือนกุมภาพันธ์–มีนาคมอาจมีหมอกควันจากการเผา ควรเช็กสภาพอากาศก่อน · หน้าฝนเขียวชอุ่มแต่ทางภูเขาลื่น ขับรถระวัง" }
-  ]
+    {
+      "q": "❓ ควรพักปายหรือตัวเมืองแม่ฮ่องสอนดีกว่ากัน?",
+      "a": "ขึ้นอยู่กับสไตล์ทริป · <strong>ปาย</strong> เหมาะคนชอบเมืองเล็กสายชิล ถนนคนเดิน คาเฟ่ และที่พักทุกระดับ (Pai Village, The Quarter, Pai Country Hut) · <strong>ตัวเมืองแม่ฮ่องสอน</strong> เงียบกว่า อยู่ในหุบเขา เหมาะคนอยากพักสงบกลางธรรมชาติ (Fern Resort, Sang Tong Huts) · สองที่ห่างกันราว 3 ชั่วโมงทางคดเคี้ยว ถ้าเวลาน้อยเลือกฐานเดียว"
+    },
+    {
+      "q": "❓ โรงแรมแม่ฮ่องสอน-ปายราคาเท่าไหร่?",
+      "a": "ราคาหลากหลาย: ดอร์มและบังกะโลริมน้ำเริ่มราว ฿300–700 ต่อคืน · บูทีคและรีสอร์ต 3–4 ดาวคุณภาพราว ฿1,000–1,800 · รีสอร์ตหรู 5 ดาวริมแม่น้ำปายเริ่มราว ฿4,800 · ช่วงหน้าหนาว (พ.ย.–ม.ค.) ซึ่งเป็นไฮซีซั่นราคาอาจสูงกว่าปกติและห้องเต็มเร็ว"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมแม่ฮ่องสอน-ปายล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดานอกฤดูท่องเที่ยว จองล่วงหน้า 2–4 สัปดาห์เพียงพอ · แต่ช่วงหน้าหนาว (พฤศจิกายน–มกราคม) และวันหยุดยาว ปายและตัวเมืองแม่ฮ่องสอนเป็นไฮซีซั่น ที่พักดีๆ เต็มเร็วมาก ควรจองล่วงหน้า 1–2 เดือนขึ้นไป โดยเฉพาะรีสอร์ตริมน้ำในปาย"
+    },
+    {
+      "q": "❓ ไปแม่ฮ่องสอน-ปายต้องมีรถไหม?",
+      "a": "ในตัวเมืองปายเดินเที่ยวถนนคนเดินได้สบาย แต่ถ้าจะออกนอกเมืองหรือวิ่งระหว่างปายกับตัวเมืองแม่ฮ่องสอน (ทางคดเคี้ยวกว่า 1,800 โค้ง ราว 3 ชั่วโมง) <strong>ควรเช่ารถหรือมอเตอร์ไซค์</strong> · มีรถตู้จากเชียงใหม่ขึ้นปายและตัวเมืองทุกวัน · ขนส่งสาธารณะในเมืองมีน้อย เช่ารถสะดวกที่สุด"
+    },
+    {
+      "q": "❓ จองโรงแรมแม่ฮ่องสอน-ปายเว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เปรียบเทียบราคาให้ครบ ประหยัดได้หลายร้อยบาทต่อคืน"
+    },
+    {
+      "q": "❓ ไปแม่ฮ่องสอน-ปายช่วงไหนดีที่สุด?",
+      "a": "ช่วง <strong>หน้าหนาว (พฤศจิกายน–กุมภาพันธ์)</strong> อากาศเย็นสบาย ทะเลหมอกสวย เป็นช่วงที่คนนิยมที่สุดแต่ก็แน่นและราคาสูง · เดือนกุมภาพันธ์–มีนาคมอาจมีหมอกควันจากการเผา ควรเช็กสภาพอากาศก่อน · หน้าฝนเขียวชอุ่มแต่ทางภูเขาลื่น ขับรถระวัง"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมแม่ฮ่องสอน-ปายจากทุกระดับ — บูทีคริมถนนคนเดินปาย รีสอร์ตหรูริมแม่น้ำปาย กระท่อมไม้ในหุบเขาแม่ฮ่องสอน ไปจนถึงดอร์มเริ่ม ฿300 เสียงจากรีวิวจริง เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

@@ -16,16 +16,39 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "เชียงใหม่", "href": "city-chiang-mai.html" },
-    { "name": "Top 10 โรงแรมเชียงใหม่" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "เชียงใหม่",
+      "href": "city-chiang-mai.html"
+    },
+    {
+      "name": "Top 10 โรงแรมเชียงใหม่"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "เชียงใหม่", "item": "https://thailandaddict.com/city-chiang-mai" },
-    { "name": "Top 10 โรงแรมเชียงใหม่", "item": "https://thailandaddict.com/top10-hotels-chiang-mai" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "เชียงใหม่",
+      "item": "https://thailandaddict.com/city-chiang-mai"
+    },
+    {
+      "name": "Top 10 โรงแรมเชียงใหม่",
+      "item": "https://thailandaddict.com/top10-hotels-chiang-mai"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-chiang-mai.html",
@@ -34,16 +57,66 @@
   "mrtHtml": "เชียงใหม่ไม่มีรถไฟฟ้า แต่เมืองกะทัดรัด เรียก Grab หรือนั่งรถแดง (สองแถว) สะดวกและราคาไม่แพง · จากสนามบินเชียงใหม่เข้าเมืองราว 15 นาที · ย่านหลักในบทความนี้: <strong>เมืองเก่า</strong> — วัดพระสิงห์ วัดเจดีย์หลวง ประตูท่าแพ ถนนคนเดินวันอาทิตย์ · <strong>นิมมาน</strong> — คาเฟ่ One Nimman MAYA ไนท์ไลฟ์ · <strong>ริมแม่น้ำปิง</strong> — เงียบสงบ รีสอร์ตและบูทีค วิวน้ำ · <strong>ช้างคลาน-ไนท์บาซาร์</strong> — ตลาดกลางคืน ช้อปปิ้ง · <strong>แม่ริม</strong> — หุบเขานอกเมือง รีสอร์ตธรรมชาติ ราว 30–40 นาทีจากตัวเมือง",
   "secLabel": "ทั้ง 10 โรงแรม — เริ่มกันเลย",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "137 Pillars House", "price": "฿18,000" },
-    { "n": "2", "color": "#c8a951", "name": "Akyra Manor Chiang Mai", "price": "฿4,500" },
-    { "n": "3", "color": "#c8a951", "name": "U Nimman Chiang Mai", "price": "฿2,800" },
-    { "n": "4", "color": "#c8a951", "name": "Anantara Chiang Mai Resort", "price": "฿8,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "Stamps Backpackers", "price": "฿450" },
-    { "n": "6", "color": "#9e9e9e", "name": "At Pingnakorn Riverside", "price": "฿1,400" },
-    { "n": "7", "color": "#9e9e9e", "name": "Four Seasons Resort Chiang Mai", "price": "฿19,000" },
-    { "n": "8", "color": "#bf8040", "name": "Stay With Nimman", "price": "฿1,200" },
-    { "n": "9", "color": "#bf8040", "name": "De Lanna Hotel", "price": "฿1,400" },
-    { "n": "10", "color": "#5d4037", "name": "Lanna Dusita Riverside Boutique Resort", "price": "฿1,200" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "137 Pillars House",
+      "price": "฿18,000"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Akyra Manor Chiang Mai",
+      "price": "฿4,500"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "U Nimman Chiang Mai",
+      "price": "฿2,800"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "Anantara Chiang Mai Resort",
+      "price": "฿8,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Stamps Backpackers",
+      "price": "฿450"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "At Pingnakorn Riverside",
+      "price": "฿1,400"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Four Seasons Resort Chiang Mai",
+      "price": "฿19,000"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "Stay With Nimman",
+      "price": "฿1,200"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "De Lanna Hotel",
+      "price": "฿1,400"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Lanna Dusita Riverside Boutique Resort",
+      "price": "฿1,200"
+    }
   ],
   "entries": [
     {
@@ -62,15 +135,29 @@
       "priceBig": "฿18,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Rajah Brooke Suite (70 ตร.ม.)", "price": "เริ่ม ฿18,000/คืน" },
-        { "type": "East Borneo Suite (75 ตร.ม.)", "price": "เริ่ม ฿21,000/คืน" },
-        { "type": "William Bain Suite (100 ตร.ม.)", "price": "เริ่ม ฿28,000/คืน" }
+        {
+          "type": "Rajah Brooke Suite (70 ตร.ม.)",
+          "price": "เริ่ม ฿18,000/คืน"
+        },
+        {
+          "type": "East Borneo Suite (75 ตร.ม.)",
+          "price": "เริ่ม ฿21,000/คืน"
+        },
+        {
+          "type": "William Bain Suite (100 ตร.ม.)",
+          "price": "เริ่ม ฿28,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/137-pillars-house/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/one-three-seven-pillars-house.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-997882/137-pillars-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-137-pillars-house-chiang-mai.html",
-      "tags": ["🏛️ บ้านไม้สักปี 1880", "🛏️ ออลสวีท + ระเบียง", "🍸 บริการ Butler", "🌳 สวนเงียบริมน้ำ"],
+      "tags": [
+        "🏛️ บ้านไม้สักปี 1880",
+        "🛏️ ออลสวีท + ระเบียง",
+        "🍸 บริการ Butler",
+        "🌳 สวนเงียบริมน้ำ"
+      ],
       "addr": "2 Nawatgate Road, Wat Ket, เมืองเชียงใหม่",
       "storyHtml": "คะแนนสูงสุดในบทความนี้ที่ 9.5 — 137 Pillars House คือ <strong>โรงแรม Luxury ระดับท็อปของเชียงใหม่</strong> ที่เป็นออลสวีทบนพื้นที่ประวัติศาสตร์ริมน้ำปิง ย่านวัดเกต อาคารไม้สักปี 1880 · ทุกห้องเป็นสวีทเริ่มที่ 70 ตร.ม. พร้อมระเบียงส่วนตัว มีบริการ butler ที่รีวิวบอกว่าตอบสนองเร็วโดยไม่รู้สึกถูกตาม · เดินถึงไนท์บาซาร์ราว 10 นาที แต่พอกลับเข้าประตูก็เงียบสงบเหมือนหลุดออกจากเมือง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอสวีทที่มองเห็นอาคารไม้สักหลักโดยตรง และเช็กแพ็กเกจที่รวมอาหารเช้าที่ Palette ซึ่งรีวิวพูดถึงบ่อยว่าดี",
@@ -102,15 +189,29 @@
       "priceBig": "฿4,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Suite (~30 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Premier Suite (~60 ตร.ม.)", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "Manor Suite (~100 ตร.ม.)", "price": "เริ่ม ฿9,000/คืน" }
+        {
+          "type": "Deluxe Suite (~30 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Premier Suite (~60 ตร.ม.)",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "Manor Suite (~100 ตร.ม.)",
+          "price": "เริ่ม ฿9,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/akyra-manor-chiang-mai/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/akyra-manor-chiang-mai.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-2231150/akyra-manor-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-akyra-manor-chiang-mai-chiang-mai.html",
-      "tags": ["🏊 สระอินฟินิตี้ลอยฟ้า", "🛁 อ่างอาบน้ำกลางแจ้งทุกห้อง", "🍸 RISE Rooftop Bar", "✦ Small Luxury Hotels"],
+      "tags": [
+        "🏊 สระอินฟินิตี้ลอยฟ้า",
+        "🛁 อ่างอาบน้ำกลางแจ้งทุกห้อง",
+        "🍸 RISE Rooftop Bar",
+        "✦ Small Luxury Hotels"
+      ],
       "addr": "22/2 Nimmana Haeminda Rd Soi 9, Su Thep, เมืองเชียงใหม่",
       "storyHtml": "Akyra Manor คือ <strong>บูทีคโฮเทลออลสวีทกลางนิมมาน สมาชิก Small Luxury Hotels of the World</strong> คะแนน 9.3 จาก 426 รีวิว · จุดที่รีวิวพูดถึงบ่อยคือสระอินฟินิตี้บนดาดฟ้าและ RISE Bar วิวเมือง รวมถึงอ่างอาบน้ำกลางแจ้งบนระเบียงทุกห้อง · โรงแรมเล็กเพียง 30 สวีท บริการเป็นส่วนตัว ทำเลซอย 9 เดินไม่กี่นาทีถึงคาเฟ่และ MAYA",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขึ้นดาดฟ้าช่วงเย็นก่อนพระอาทิตย์ตก และขอสวีทชั้นสูงเพื่อวิวเปิดและความเงียบ",
@@ -142,15 +243,29 @@
       "priceBig": "฿2,800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room (32–36 ตร.ม.)", "price": "เริ่ม ฿2,800/คืน" },
-        { "type": "Premium Deluxe Corner (50 ตร.ม.)", "price": "เริ่ม ฿3,400/คืน" },
-        { "type": "One Bedroom Family Suite (67 ตร.ม.)", "price": "เริ่ม ฿5,200/คืน" }
+        {
+          "type": "Deluxe Room (32–36 ตร.ม.)",
+          "price": "เริ่ม ฿2,800/คืน"
+        },
+        {
+          "type": "Premium Deluxe Corner (50 ตร.ม.)",
+          "price": "เริ่ม ฿3,400/คืน"
+        },
+        {
+          "type": "One Bedroom Family Suite (67 ตร.ม.)",
+          "price": "เริ่ม ฿5,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/u-nimman-chiang-mai/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/u-nimman-chiang-mai.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-6161066/u-nimman-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-u-nimman-chiang-mai-chiang-mai.html",
-      "tags": ["📍 ติด One Nimman", "🏊 สระลอยฟ้ารูฟท็อป", "🕐 เข้าพักนับ 24 ชั่วโมง", "🍳 เลือกอาหารเช้าได้ทุกที่ทุกเวลา"],
+      "tags": [
+        "📍 ติด One Nimman",
+        "🏊 สระลอยฟ้ารูฟท็อป",
+        "🕐 เข้าพักนับ 24 ชั่วโมง",
+        "🍳 เลือกอาหารเช้าได้ทุกที่ทุกเวลา"
+      ],
       "addr": "1 Nimmanhaemin Road Lane 1, Suthep, เมืองเชียงใหม่",
       "storyHtml": "ถ้าอยากได้ทำเลนิมมานที่ดีที่สุด U Nimman คือคำตอบ — <strong>ตั้งติดกับ One Nimman และเดินไม่กี่นาทีถึง MAYA</strong> คะแนน 9.3 จาก 791 รีวิว · จุดที่รีวิวพูดถึงบ่อยคือระบบเข้าพักนับ 24 ชั่วโมงเต็ม เช็คอินกี่โมงก็นับครบวันจากเวลานั้น และเลือกกินอาหารเช้าที่ไหนเวลาไหนก็ได้ · มีสระลอยฟ้าบนรูฟท็อปวิวเมือง 147 ห้อง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอห้องชั้นสูงหรือฝั่งหันเข้าใน จะเงียบกว่าฝั่งถนนนิมมานในคืนวันศุกร์-เสาร์",
@@ -182,15 +297,29 @@
       "priceBig": "฿8,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Garden View (50 ตร.ม.)", "price": "เริ่ม ฿8,500/คืน" },
-        { "type": "Deluxe River View (50 ตร.ม.)", "price": "เริ่ม ฿9,800/คืน" },
-        { "type": "Lanna Garden View Suite (105 ตร.ม.)", "price": "เริ่ม ฿14,000/คืน" }
+        {
+          "type": "Deluxe Garden View (50 ตร.ม.)",
+          "price": "เริ่ม ฿8,500/คืน"
+        },
+        {
+          "type": "Deluxe River View (50 ตร.ม.)",
+          "price": "เริ่ม ฿9,800/คืน"
+        },
+        {
+          "type": "Lanna Garden View Suite (105 ตร.ม.)",
+          "price": "เริ่ม ฿14,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/anantara-chiang-mai-resort/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/anantara-chiang-mai-resort-and-spa.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-997780/anantara-chiang-mai-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-anantara-chiang-mai-resort-chiang-mai.html",
-      "tags": ["🛶 ริมแม่น้ำปิง", "🏛️ ดีไซน์ Kerry Hill · 1921 House", "🍽️ มื้อเช้าริมน้ำ Bodhi Terrace", "💆 Anantara Spa"],
+      "tags": [
+        "🛶 ริมแม่น้ำปิง",
+        "🏛️ ดีไซน์ Kerry Hill · 1921 House",
+        "🍽️ มื้อเช้าริมน้ำ Bodhi Terrace",
+        "💆 Anantara Spa"
+      ],
       "addr": "123-123/1 Charoen Prathet Road, Chang Khlan, เมืองเชียงใหม่",
       "storyHtml": "Anantara คือ <strong>รีสอร์ตหรูริมแม่น้ำปิงที่ยังเดินเข้าเมืองได้</strong> คะแนน 9.2 จาก 203 รีวิว · ออกแบบโดยสถาปนิก Kerry Hill บนที่ดินสถานกงสุลอังกฤษเดิม อาคาร 1921 House วันนี้เป็นร้านอาหารและเวที afternoon tea · ห้อง Deluxe กว้าง 50 ตร.ม. รีวิวบอกว่าวิวแม่น้ำคุ้มส่วนต่าง · ทำเลช้างคลานเดินถึงไนท์บาซาร์ แต่กลับมาเจอความสงบริมน้ำ",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขอ Deluxe River View ชั้นบนเพื่อหนีเสียงถนนและได้วิวแม่น้ำเต็มตา และจอง afternoon tea ที่ 1921 House ล่วงหน้า",
@@ -222,15 +351,29 @@
       "priceBig": "฿450",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "ดอร์ม 8 เตียง (พัดลม)", "price": "เริ่ม ฿450/คืน" },
-        { "type": "เตียงบังก์ดอร์มรวม", "price": "เริ่ม ฿480/คืน" },
-        { "type": "ดอร์ม 6 เตียง (แอร์)", "price": "เริ่ม ฿550/คืน" }
+        {
+          "type": "ดอร์ม 8 เตียง (พัดลม)",
+          "price": "เริ่ม ฿450/คืน"
+        },
+        {
+          "type": "เตียงบังก์ดอร์มรวม",
+          "price": "เริ่ม ฿480/คืน"
+        },
+        {
+          "type": "ดอร์ม 6 เตียง (แอร์)",
+          "price": "เริ่ม ฿550/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/stamps-backpackers/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/stamps-backpackers.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-10164766/stamps-backpackers/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-stamps-backpackers-chiang-mai.html",
-      "tags": ["🎉 บาร์ชั้นล่าง กิจกรรมทุกคืน", "🛏️ เตียงพอดมีม่านส่วนตัว", "🔒 ล็อกเกอร์ใบใหญ่ทุกเตียง", "🚻 รับเฉพาะวัย 18–35 ปี"],
+      "tags": [
+        "🎉 บาร์ชั้นล่าง กิจกรรมทุกคืน",
+        "🛏️ เตียงพอดมีม่านส่วนตัว",
+        "🔒 ล็อกเกอร์ใบใหญ่ทุกเตียง",
+        "🚻 รับเฉพาะวัย 18–35 ปี"
+      ],
       "addr": "1/11 Chaiyapoom Road, Chang Moi, เมืองเชียงใหม่",
       "storyHtml": "Stamps Backpackers คือ <strong>โฮสเทลสายสังคมที่มีรีวิวมากที่สุดในบทความนี้ — กว่า 5,555 รีวิว คะแนน 9.6</strong> และคว้า Hoscars Best Social Hostel in Asia ปี 2024 และ 2025 · จุดเด่นคือบาร์ชั้นล่างและกิจกรรมทุกคืนสำหรับคนเดินทางคนเดียวที่อยากเจอเพื่อน เตียงพอดทุกเตียงมีม่านส่วนตัว ไฟอ่านหนังสือ ปลั๊ก และล็อกเกอร์ใบใหญ่ · เดินถึงประตูท่าแพและวัดเชียงมั่นได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> รับเฉพาะวัย 18–35 ปี และเป็นสายสังคมจริง ถ้าอยากนอนเงียบควรเลือกที่อื่น แต่ถ้าอยากเจอเพื่อนที่นี่ตรงใจที่สุด",
@@ -262,15 +405,29 @@
       "priceBig": "฿1,400",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Double (42 ตร.ม.)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Twin (42 ตร.ม.)", "price": "เริ่ม ฿1,500/คืน" },
-        { "type": "Junior Suite (78 ตร.ม.)", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "Deluxe Double (42 ตร.ม.)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Twin (42 ตร.ม.)",
+          "price": "เริ่ม ฿1,500/คืน"
+        },
+        {
+          "type": "Junior Suite (78 ตร.ม.)",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/at-pingnakorn-riverside-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/at-pingnakorn-riverside.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-12663617/at-pingnakorn-riverside/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-at-pingnakorn-riverside-chiang-mai.html",
-      "tags": ["🏛️ ดีไซน์โคโลเนียลผสมล้านนา", "🛏️ ห้องกว้างเริ่ม 42 ตร.ม.", "🏊 สระเกลือกลางแจ้ง", "🍽️ ร้าน Nakara ริมน้ำ"],
+      "tags": [
+        "🏛️ ดีไซน์โคโลเนียลผสมล้านนา",
+        "🛏️ ห้องกว้างเริ่ม 42 ตร.ม.",
+        "🏊 สระเกลือกลางแจ้ง",
+        "🍽️ ร้าน Nakara ริมน้ำ"
+      ],
       "addr": "381 Charoen Rat Road, Wat Ket, เมืองเชียงใหม่",
       "storyHtml": "At Pingnakorn Riverside คือ <strong>บูทีคริมน้ำปิงที่คุ้มค่าที่สุดในบทความนี้</strong> คะแนน 9.2 จาก 178 รีวิว · จุดที่รีวิวชมคือห้องกว้างเริ่มที่ 42 ตร.ม. ในราคาเริ่ม ฿1,400 ซึ่งหาได้ยากในโรงแรมระดับนี้ ดีไซน์โคโลเนียลผสมล้านนาประยุกต์ · มีสระเกลือกลางแจ้งและร้าน Nakara ริมน้ำ ทำเลฝั่งตะวันออกแม่น้ำย่านวัดเกต เงียบสงบแต่เข้าเมืองได้",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ห้องกว้างกว่าราคาที่จ่าย เหมาะคนอยากได้บรรยากาศริมน้ำโดยไม่ต้องจ่ายระดับรีสอร์ตหรู",
@@ -302,15 +459,29 @@
       "priceBig": "฿19,000",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Garden Pavilion", "price": "เริ่ม ฿19,000/คืน" },
-        { "type": "Rice Terrace Pavilion", "price": "เริ่ม ฿24,000/คืน" },
-        { "type": "One-Bedroom Pool Villa", "price": "เริ่ม ฿38,000/คืน" }
+        {
+          "type": "Garden Pavilion",
+          "price": "เริ่ม ฿19,000/คืน"
+        },
+        {
+          "type": "Rice Terrace Pavilion",
+          "price": "เริ่ม ฿24,000/คืน"
+        },
+        {
+          "type": "One-Bedroom Pool Villa",
+          "price": "เริ่ม ฿38,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/four-seasons-resort-chiang-mai/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/four-seasons-resort-chiang-mai.html",
       "tripUrl": "https://www.trip.com/hotels/mae-rim-hotel-detail-928317/four-seasons-resort-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-four-seasons-resort-chiang-mai-chiang-mai.html",
-      "tags": ["🌾 นาขั้นบันไดที่ยังทำนาจริง", "🏊 สระอินฟินิตี้วิวหุบเขา", "🍳 มื้อเช้ากลางนาข้าว", "💆 Wara Cheewa Spa"],
+      "tags": [
+        "🌾 นาขั้นบันไดที่ยังทำนาจริง",
+        "🏊 สระอินฟินิตี้วิวหุบเขา",
+        "🍳 มื้อเช้ากลางนาข้าว",
+        "💆 Wara Cheewa Spa"
+      ],
       "addr": "502 Moo 1, Mae Rim-Samoeng Old Road, Rim Tai, แม่ริม",
       "storyHtml": "Four Seasons คือ <strong>รีสอร์ตหรูกลางหุบเขาแม่ริม ได้ 3 MICHELIN Keys</strong> คะแนน 9.1 จาก 128 รีวิว · จุดที่ทำให้ต่างจากที่อื่นคือนาข้าวขั้นบันไดที่ยังทำนาจริงกลางพื้นที่ 32 เอเคอร์ มีฟาร์มข้าวและฝูงควาย · พาวิลเลียนและวิลล่ากระจายรอบนาเหมือนหมู่บ้านล้านนา มีสระอินฟินิตี้วิวภูเขาและมื้อเช้ากลางนาที่รีวิวยกเป็นไฮไลต์ · ข้อแลกคือทำเลอยู่นอกเมือง 30–40 นาที จึงรั้งอันดับนี้แม้บริการระดับสูง",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> เหมาะคนตั้งใจมาพักในรีสอร์ตเป็นหลัก ไม่ใช่คนอยากเดินตลาดทุกวัน · อย่าพลาดประสบการณ์ Breakfast in the Rice Fields ต้องจองล่วงหน้า",
@@ -342,15 +513,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe King Room", "price": "เริ่ม ฿1,450/คืน" },
-        { "type": "Premier Twin with Bathtub", "price": "เริ่ม ฿1,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe King Room",
+          "price": "เริ่ม ฿1,450/คืน"
+        },
+        {
+          "type": "Premier Twin with Bathtub",
+          "price": "เริ่ม ฿1,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/stay-with-nimman-chiang-mai/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/stay-with-nimmna.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-12591320/stay-with-nimman-chiang-mai/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-stay-with-nimman-chiang-mai.html",
-      "tags": ["🏊 สระลอยฟ้า 2 สระ", "🎨 ดีไซน์โมเดิร์น", "📍 เดินถึง One Nimman", "💰 ราคาประหยัดในย่านนิมมาน"],
+      "tags": [
+        "🏊 สระลอยฟ้า 2 สระ",
+        "🎨 ดีไซน์โมเดิร์น",
+        "📍 เดินถึง One Nimman",
+        "💰 ราคาประหยัดในย่านนิมมาน"
+      ],
       "addr": "8/8 Siri Mangkalajarn Road, Suthep, เมืองเชียงใหม่",
       "storyHtml": "Stay With Nimman คือ <strong>ที่พักดีไซน์ราคาประหยัดกลางย่านนิมมานที่มีรีวิวเยอะถึง 1,562 รีวิว</strong> คะแนน 8.9 · จุดเด่นคือสระว่ายน้ำลอยฟ้า 2 สระในราคาเริ่ม ฿1,200 ซึ่งคุ้มมากสำหรับย่านนิมมาน · ห้องตกแต่งสไตล์โมเดิร์น 133 ห้อง เดินถึง One Nimman และ MAYA · เหมาะคนอยากอยู่กลางนิมมานโดยไม่จ่ายระดับบูทีคหรู",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ขึ้นสระลอยฟ้าตอนหัวค่ำวิวเมืองสวย และเลือกห้องที่ไม่ติดถนนหลักเพื่อความเงียบ",
@@ -382,15 +567,29 @@
       "priceBig": "฿1,400",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room (~25 ตร.ม.)", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe Room (~30 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Honeymoon King Suite (48 ตร.ม.)", "price": "เริ่ม ฿2,600/คืน" }
+        {
+          "type": "Superior Room (~25 ตร.ม.)",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe Room (~30 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Honeymoon King Suite (48 ตร.ม.)",
+          "price": "เริ่ม ฿2,600/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/de-lanna-hotel/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/de-lanna.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-712824/de-lanna-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-de-lanna-hotel-chiang-mai.html",
-      "tags": ["🏮 หลังคาจั่วทรงล้านนา", "🌳 สระว่ายน้ำในสวนเขตร้อน", "🚶 เดินถึงประตูท่าแพ", "🛏️ ส่วนใหญ่มีระเบียงส่วนตัว"],
+      "tags": [
+        "🏮 หลังคาจั่วทรงล้านนา",
+        "🌳 สระว่ายน้ำในสวนเขตร้อน",
+        "🚶 เดินถึงประตูท่าแพ",
+        "🛏️ ส่วนใหญ่มีระเบียงส่วนตัว"
+      ],
       "addr": "44 Intrawarorot Road, Sri Phum, เมืองเชียงใหม่",
       "storyHtml": "De Lanna คือ <strong>บูทีคล้านนากลางเมืองเก่าในราคาที่จับต้องได้</strong> คะแนน 8.7 จาก 786 รีวิว · โรงแรมหลังคาจั่วทรงล้านนาซ่อนในสวนเขตร้อนกลางกำแพงเมืองเก่า เดินไม่กี่นาทีถึงประตูท่าแพ วัดเก่า และถนนคนเดินวันอาทิตย์ · มีสระว่ายน้ำในสวน ห้องส่วนใหญ่มีระเบียงส่วนตัว เหมาะคนอยากได้บรรยากาศไทยร่วมสมัยและทำเลใจกลางเมืองในราคาประหยัด",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> มากันหลายคนหรืออยากได้ห้องกว้างขึ้นให้ดู Deluxe หรือ Suite และไปเดินวัดในเมืองเก่าตอนเช้าก่อนนักท่องเที่ยวเยอะ",
@@ -422,15 +621,29 @@
       "priceBig": "฿1,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,200/คืน" },
-        { "type": "Deluxe Garden View", "price": "เริ่ม ฿1,400/คืน" },
-        { "type": "Deluxe River View", "price": "เริ่ม ฿1,700/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,200/คืน"
+        },
+        {
+          "type": "Deluxe Garden View",
+          "price": "เริ่ม ฿1,400/คืน"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "เริ่ม ฿1,700/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/lanna-dusita-riverside-boutique-resort/hotel/chiang-mai-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/lanna-dusita-riverside-boutique-resort.html",
       "tripUrl": "https://www.trip.com/hotels/chiang-mai-hotel-detail-1564916/lanna-dusita-riverside-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-lanna-dusita-riverside-boutique-resort-chiang-mai.html",
-      "tags": ["🪵 อาคารไม้สักล้านนา", "🌳 สระว่ายน้ำกลางสวน", "🛶 ริมแม่น้ำปิง", "🚕 รถรับส่งฟรีเข้าเมือง"],
+      "tags": [
+        "🪵 อาคารไม้สักล้านนา",
+        "🌳 สระว่ายน้ำกลางสวน",
+        "🛶 ริมแม่น้ำปิง",
+        "🚕 รถรับส่งฟรีเข้าเมือง"
+      ],
       "addr": "146 Paton Road, Pa Tan, เมืองเชียงใหม่",
       "storyHtml": "Lanna Dusita คือ <strong>รีสอร์ตบูทีคล้านนาริมน้ำปิงในงบประหยัด</strong> คะแนน 8.7 · อาคารไม้สักรอบสวนเขียวร่มรื่นย่านป่าตัน ราคาเริ่ม ฿1,200 แต่ได้บรรยากาศรีสอร์ตริมน้ำ · ห้องมีระเบียงส่วนตัวทุกห้อง มีสระว่ายน้ำกลางสวนและสระเด็ก พร้อมรถตุ๊กตุ๊กรับส่งฟรีเข้าตัวเมืองซึ่งช่วยแก้เรื่องทำเลที่อยู่ห่างเมืองเก่าราว 15 นาที",
       "tipHtml": "💡 <strong>เคล็ดลับ:</strong> ใช้รถรับส่งฟรีเข้าเมืองให้คุ้ม และเลือก Deluxe River View ถ้าอยากได้วิวแม่น้ำในส่วนต่างไม่มาก",
@@ -448,37 +661,192 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรม เชียงใหม่ 2026",
-  "compareCols": ["#", "ชื่อโรงแรม", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อโรงแรม",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "137 Pillars House", "type": "⭐⭐⭐⭐⭐", "score": "9.5", "price": "฿18,000", "access": "📍 ริมน้ำปิง·วัดเกต", "badge": "หรู+คะแนนสูงสุด", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Akyra Manor Chiang Mai", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿4,500", "access": "📍 นิมมาน ซอย 9", "badge": "สระลอยฟ้าดีไซน์", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "U Nimman Chiang Mai", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿2,800", "access": "📍 ติด One Nimman", "badge": "ทำเลนิมมานดีสุด", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "Anantara Chiang Mai Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿8,500", "access": "📍 ริมน้ำปิง·ช้างคลาน", "badge": "ริมน้ำหรู", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Stamps Backpackers", "type": "⭐⭐", "score": "9.6", "price": "฿450", "access": "📍 เมืองเก่า·ไชยภูมิ", "badge": "รีวิวมากสุด", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "At Pingnakorn Riverside", "type": "⭐⭐⭐", "score": "9.2", "price": "฿1,400", "access": "📍 ริมน้ำปิง·วัดเกต", "badge": "คุ้มสุดริมน้ำ", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Four Seasons Resort Chiang Mai", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿19,000", "access": "📍 แม่ริม (นอกเมือง)", "badge": "รีสอร์ตธรรมชาติ", "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "Stay With Nimman", "type": "⭐⭐", "score": "8.9", "price": "฿1,200", "access": "📍 นิมมาน", "badge": "ดีไซน์คุ้ม" , "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "De Lanna Hotel", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,400", "access": "📍 เมืองเก่า·ท่าแพ", "badge": "คุ้มสุดเมืองเก่า", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Lanna Dusita Riverside Boutique Resort", "type": "⭐⭐⭐", "score": "8.7", "price": "฿1,200", "access": "📍 ริมน้ำปิง·ป่าตัน", "badge": "ริมน้ำงบประหยัด", "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "137 Pillars House",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿18,000",
+      "access": "📍 ริมน้ำปิง·วัดเกต",
+      "badge": "หรู+คะแนนสูงสุด",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Akyra Manor Chiang Mai",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿4,500",
+      "access": "📍 นิมมาน ซอย 9",
+      "badge": "สระลอยฟ้าดีไซน์",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "U Nimman Chiang Mai",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿2,800",
+      "access": "📍 ติด One Nimman",
+      "badge": "ทำเลนิมมานดีสุด",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "Anantara Chiang Mai Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿8,500",
+      "access": "📍 ริมน้ำปิง·ช้างคลาน",
+      "badge": "ริมน้ำหรู",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Stamps Backpackers",
+      "type": "⭐⭐",
+      "score": "9.6",
+      "price": "฿450",
+      "access": "📍 เมืองเก่า·ไชยภูมิ",
+      "badge": "รีวิวมากสุด",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "At Pingnakorn Riverside",
+      "type": "⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿1,400",
+      "access": "📍 ริมน้ำปิง·วัดเกต",
+      "badge": "คุ้มสุดริมน้ำ",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Four Seasons Resort Chiang Mai",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿19,000",
+      "access": "📍 แม่ริม (นอกเมือง)",
+      "badge": "รีสอร์ตธรรมชาติ",
+      "badgeStyle": "background:#f1f8e9;color:#33691e;border-color:#c5e1a5;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "Stay With Nimman",
+      "type": "⭐⭐",
+      "score": "8.9",
+      "price": "฿1,200",
+      "access": "📍 นิมมาน",
+      "badge": "ดีไซน์คุ้ม",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "De Lanna Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,400",
+      "access": "📍 เมืองเก่า·ท่าแพ",
+      "badge": "คุ้มสุดเมืองเก่า",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Lanna Dusita Riverside Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,200",
+      "access": "📍 ริมน้ำปิง·ป่าตัน",
+      "badge": "ริมน้ำงบประหยัด",
+      "badgeStyle": "background:#efebe9;color:#4e342e;border-color:#bcaaa4;"
+    }
   ],
   "adviceTitle": "เลือกโรงแรมเชียงใหม่ยังไงให้ตรงกับตัวเอง?",
   "advice": [
-    { "icon": "💰", "head": "งบจำกัด อยากได้คุ้มที่สุด", "bodyHtml": "→ <strong>Stamps Backpackers</strong> ฿450 โฮสเทลสายสังคมในเมืองเก่า · หรือ <strong>Lanna Dusita</strong> ฿1,200 รีสอร์ตริมน้ำไม้สักล้านนา มีรถรับส่งฟรีเข้าเมือง" },
-    { "icon": "🎒", "head": "เดินทางคนเดียว อยากเจอเพื่อน", "bodyHtml": "→ <strong>Stamps Backpackers</strong> ฿450 Best Social Hostel in Asia บาร์ชั้นล่างและกิจกรรมทุกคืน รับเฉพาะวัย 18–35 ปี" },
-    { "icon": "🛍️", "head": "อยากอยู่กลางนิมมาน คาเฟ่ ช้อปปิ้ง", "bodyHtml": "→ <strong>U Nimman</strong> ฿2,800 ติด One Nimman · หรือ <strong>Stay With Nimman</strong> ฿1,200 สระลอยฟ้า 2 สระ ราคาประหยัด" },
-    { "icon": "💎", "head": "ทริปพิเศษ Luxury ไม่อั้น", "bodyHtml": "→ <strong>137 Pillars House</strong> ฿18,000 ออลสวีทริมน้ำปิง คะแนน 9.5 · หรือ <strong>Anantara Chiang Mai</strong> ฿8,500 รีสอร์ตหรูริมน้ำ" },
-    { "icon": "🌾", "head": "อยากพักธรรมชาตินอกเมือง", "bodyHtml": "→ <strong>Four Seasons Resort</strong> ฿19,000 กลางนาขั้นบันไดแม่ริม 3 MICHELIN Keys เหมาะคนตั้งใจมาพักรีสอร์ตเป็นหลัก" },
-    { "icon": "🏮", "head": "อยากเดินวัด ถนนคนเดิน เมืองเก่า", "bodyHtml": "→ <strong>De Lanna Hotel</strong> ฿1,400 บูทีคล้านนาเดินถึงประตูท่าแพ · หรือ <strong>Stamps Backpackers</strong> ฿450 สำหรับงบประหยัดในเมืองเก่า" },
-    { "icon": "🛶", "head": "อยากพักริมแม่น้ำปิง เงียบสงบ", "bodyHtml": "→ <strong>Anantara Chiang Mai Resort</strong> ฿8,500 ริมน้ำหรู เดินเข้าเมือง · หรือ <strong>At Pingnakorn Riverside</strong> ฿1,400 บูทีคริมน้ำคุ้มค่า" }
+    {
+      "icon": "💰",
+      "head": "งบจำกัด อยากได้คุ้มที่สุด",
+      "bodyHtml": "→ <strong>Stamps Backpackers</strong> ฿450 โฮสเทลสายสังคมในเมืองเก่า · หรือ <strong>Lanna Dusita</strong> ฿1,200 รีสอร์ตริมน้ำไม้สักล้านนา มีรถรับส่งฟรีเข้าเมือง"
+    },
+    {
+      "icon": "🎒",
+      "head": "เดินทางคนเดียว อยากเจอเพื่อน",
+      "bodyHtml": "→ <strong>Stamps Backpackers</strong> ฿450 Best Social Hostel in Asia บาร์ชั้นล่างและกิจกรรมทุกคืน รับเฉพาะวัย 18–35 ปี"
+    },
+    {
+      "icon": "🛍️",
+      "head": "อยากอยู่กลางนิมมาน คาเฟ่ ช้อปปิ้ง",
+      "bodyHtml": "→ <strong>U Nimman</strong> ฿2,800 ติด One Nimman · หรือ <strong>Stay With Nimman</strong> ฿1,200 สระลอยฟ้า 2 สระ ราคาประหยัด"
+    },
+    {
+      "icon": "💎",
+      "head": "ทริปพิเศษ Luxury ไม่อั้น",
+      "bodyHtml": "→ <strong>137 Pillars House</strong> ฿18,000 ออลสวีทริมน้ำปิง คะแนน 9.5 · หรือ <strong>Anantara Chiang Mai</strong> ฿8,500 รีสอร์ตหรูริมน้ำ"
+    },
+    {
+      "icon": "🌾",
+      "head": "อยากพักธรรมชาตินอกเมือง",
+      "bodyHtml": "→ <strong>Four Seasons Resort</strong> ฿19,000 กลางนาขั้นบันไดแม่ริม 3 MICHELIN Keys เหมาะคนตั้งใจมาพักรีสอร์ตเป็นหลัก"
+    },
+    {
+      "icon": "🏮",
+      "head": "อยากเดินวัด ถนนคนเดิน เมืองเก่า",
+      "bodyHtml": "→ <strong>De Lanna Hotel</strong> ฿1,400 บูทีคล้านนาเดินถึงประตูท่าแพ · หรือ <strong>Stamps Backpackers</strong> ฿450 สำหรับงบประหยัดในเมืองเก่า"
+    },
+    {
+      "icon": "🛶",
+      "head": "อยากพักริมแม่น้ำปิง เงียบสงบ",
+      "bodyHtml": "→ <strong>Anantara Chiang Mai Resort</strong> ฿8,500 ริมน้ำหรู เดินเข้าเมือง · หรือ <strong>At Pingnakorn Riverside</strong> ฿1,400 บูทีคริมน้ำคุ้มค่า"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · คะแนนและจุดเด่นในบทความนี้มาจากการอ่านเสียงรีวิวจริงของแขกบนแพลตฟอร์มจอง ไม่ได้เข้าพักเอง · ช่วงเทศกาล (ยี่เป็ง/ลอยกระทง พ.ย., สงกรานต์ 13–15 เม.ย., ปีใหม่) ราคาสูงขึ้นและห้องหมดเร็ว ควรจองล่วงหน้า 1–2 เดือน · เชียงใหม่ไม่มีรถไฟฟ้า ใช้ Grab หรือรถแดงสะดวก จากสนามบินเข้าเมืองราว 15 นาที · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมเชียงใหม่",
   "faq": [
-    { "q": "❓ พักย่านไหนดีในเชียงใหม่สำหรับนักท่องเที่ยว?", "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>เมืองเก่า</strong> เหมาะถ้าอยากเดินวัดและถนนคนเดิน (De Lanna, Stamps Backpackers) · <strong>นิมมาน</strong> เหมาะคนชอบคาเฟ่ ช้อปปิ้ง ไนท์ไลฟ์ (U Nimman, Akyra Manor, Stay With Nimman) · <strong>ริมแม่น้ำปิง</strong> เหมาะพักผ่อนเงียบสงบ (137 Pillars House, Anantara, At Pingnakorn, Lanna Dusita) · <strong>แม่ริม</strong> เหมาะคนอยากพักธรรมชาตินอกเมือง (Four Seasons) · ทุกย่านในเมืองนั่ง Grab ถึงกันสะดวก" },
-    { "q": "❓ โรงแรมเชียงใหม่ราคาเท่าไหร่?", "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿450–1,400 ต่อคืน · บูทีคและ 4 ดาวราว ฿2,800–4,500 · รีสอร์ตและ Luxury 5 ดาวริมน้ำหรือกลางนาเริ่ม ฿8,500–19,000+ · ราคาทั้งหมดในบทความนี้เป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงเทศกาล (ลอยกระทง/ยี่เป็ง พ.ย., สงกรานต์, ปีใหม่) ราคาอาจสูงกว่าปกติ" },
-    { "q": "❓ ควรจองโรงแรมเชียงใหม่ล่วงหน้านานแค่ไหน?", "a": "วันธรรมดาปกติ จองล่วงหน้า 2–4 สัปดาห์เพียงพอ · แต่ช่วงยี่เป็ง/ลอยกระทง (พฤศจิกายน), สงกรานต์ (13–15 เมษายน) และปีใหม่ ห้องดีๆ เต็มเร็ว ควรจองล่วงหน้า 1–2 เดือนขึ้นไป โดยเฉพาะโรงแรมริมน้ำและในเมืองเก่า" },
-    { "q": "❓ จองโรงแรมเชียงใหม่เว็บไหนคุ้มที่สุด?", "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน" },
-    { "q": "❓ ควรพักเมืองเก่าหรือนิมมานดีกว่ากัน?", "a": "<strong>เมืองเก่า</strong> เหมาะถ้าทริปเน้นวัด ประวัติศาสตร์ ถนนคนเดิน และอยากเดินถึงทุกที่ — แต่คาเฟ่ทันสมัยน้อยกว่า · <strong>นิมมาน</strong> เหมาะคนชอบคาเฟ่ ร้านอาหารทันสมัย ช้อปปิ้ง One Nimman MAYA และไนท์ไลฟ์ — แต่ไกลจากวัดในเมืองเก่า ต้องนั่ง Grab 10–15 นาที · ถ้าเที่ยวหลายวันลองพักทั้งสองย่านก็ได้" },
-    { "q": "❓ จากสนามบินเชียงใหม่เข้าเมืองยังไง?", "a": "สนามบินเชียงใหม่ (CNX) อยู่ใกล้เมืองมาก เข้าเมืองเก่าหรือนิมมานราว <strong>15 นาทีโดยรถ</strong> · เรียก Grab จากสนามบินสะดวกที่สุด หรือใช้แท็กซี่สนามบิน · หลายโรงแรมมีบริการรถรับส่ง (บางแห่งฟรี) สอบถามตอนจองได้ · สำหรับ Four Seasons ที่แม่ริมห่างสนามบินราว 35 นาที" }
-  ]
+    {
+      "q": "❓ พักย่านไหนดีในเชียงใหม่สำหรับนักท่องเที่ยว?",
+      "a": "ขึ้นอยู่กับสไตล์การเที่ยว · <strong>เมืองเก่า</strong> เหมาะถ้าอยากเดินวัดและถนนคนเดิน (De Lanna, Stamps Backpackers) · <strong>นิมมาน</strong> เหมาะคนชอบคาเฟ่ ช้อปปิ้ง ไนท์ไลฟ์ (U Nimman, Akyra Manor, Stay With Nimman) · <strong>ริมแม่น้ำปิง</strong> เหมาะพักผ่อนเงียบสงบ (137 Pillars House, Anantara, At Pingnakorn, Lanna Dusita) · <strong>แม่ริม</strong> เหมาะคนอยากพักธรรมชาตินอกเมือง (Four Seasons) · ทุกย่านในเมืองนั่ง Grab ถึงกันสะดวก"
+    },
+    {
+      "q": "❓ โรงแรมเชียงใหม่ราคาเท่าไหร่?",
+      "a": "ราคาหลากหลายมาก: โฮสเทลและที่พักประหยัดเริ่มราว ฿450–1,400 ต่อคืน · บูทีคและ 4 ดาวราว ฿2,800–4,500 · รีสอร์ตและ Luxury 5 ดาวริมน้ำหรือกลางนาเริ่ม ฿8,500–19,000+ · ราคาทั้งหมดในบทความนี้เป็นราคาเริ่มประมาณจากห้องมาตรฐาน ช่วงเทศกาล (ลอยกระทง/ยี่เป็ง พ.ย., สงกรานต์, ปีใหม่) ราคาอาจสูงกว่าปกติ"
+    },
+    {
+      "q": "❓ ควรจองโรงแรมเชียงใหม่ล่วงหน้านานแค่ไหน?",
+      "a": "วันธรรมดาปกติ จองล่วงหน้า 2–4 สัปดาห์เพียงพอ · แต่ช่วงยี่เป็ง/ลอยกระทง (พฤศจิกายน), สงกรานต์ (13–15 เมษายน) และปีใหม่ ห้องดีๆ เต็มเร็ว ควรจองล่วงหน้า 1–2 เดือนขึ้นไป โดยเฉพาะโรงแรมริมน้ำและในเมืองเก่า"
+    },
+    {
+      "q": "❓ จองโรงแรมเชียงใหม่เว็บไหนคุ้มที่สุด?",
+      "a": "ราคาบนแต่ละเว็บ (Agoda, Booking.com, Trip.com) ต่างกันตามโปรโมชันแต่ละช่วง แนะนำเปิดเทียบราคาทั้ง 3 เว็บก่อนจองทุกครั้ง — แต่ละหน้ารีวิวในบทความนี้มีลิงก์เทียบราคาให้ครบ ช่วยประหยัดได้หลายร้อยบาทต่อคืน"
+    },
+    {
+      "q": "❓ ควรพักเมืองเก่าหรือนิมมานดีกว่ากัน?",
+      "a": "<strong>เมืองเก่า</strong> เหมาะถ้าทริปเน้นวัด ประวัติศาสตร์ ถนนคนเดิน และอยากเดินถึงทุกที่ — แต่คาเฟ่ทันสมัยน้อยกว่า · <strong>นิมมาน</strong> เหมาะคนชอบคาเฟ่ ร้านอาหารทันสมัย ช้อปปิ้ง One Nimman MAYA และไนท์ไลฟ์ — แต่ไกลจากวัดในเมืองเก่า ต้องนั่ง Grab 10–15 นาที · ถ้าเที่ยวหลายวันลองพักทั้งสองย่านก็ได้"
+    },
+    {
+      "q": "❓ จากสนามบินเชียงใหม่เข้าเมืองยังไง?",
+      "a": "สนามบินเชียงใหม่ (CNX) อยู่ใกล้เมืองมาก เข้าเมืองเก่าหรือนิมมานราว <strong>15 นาทีโดยรถ</strong> · เรียก Grab จากสนามบินสะดวกที่สุด หรือใช้แท็กซี่สนามบิน · หลายโรงแรมมีบริการรถรับส่ง (บางแห่งฟรี) สอบถามตอนจองได้ · สำหรับ Four Seasons ที่แม่ริมห่างสนามบินราว 35 นาที"
+    }
+  ],
+  "quickAnswerHtml": "รวม 10 โรงแรมเชียงใหม่ที่เรารีวิวไว้แล้วจากทุกระดับ — ตั้งแต่ 137 Pillars House หรูริมน้ำปิง ถึง Stamps Backpackers โฮสเทลเริ่ม ฿450 · เสียงจากรีวิวจริง คะแนนจริง ราคาเริ่มประมาณ เทียบราคา 3 เว็บ ลิงก์จองตรง"
 }

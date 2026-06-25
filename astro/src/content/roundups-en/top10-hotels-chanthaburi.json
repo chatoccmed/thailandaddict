@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Chanthaburi", "href": "city-chanthaburi.html" },
-    { "name": "Top 12 Chanthaburi Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Chanthaburi",
+      "href": "city-chanthaburi.html"
+    },
+    {
+      "name": "Top 12 Chanthaburi Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Chanthaburi", "item": "https://thailandaddict.com/en/city-chanthaburi" },
-    { "name": "Top 12 Chanthaburi Hotels", "item": "https://thailandaddict.com/en/top10-hotels-chanthaburi" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Chanthaburi",
+      "item": "https://thailandaddict.com/en/city-chanthaburi"
+    },
+    {
+      "name": "Top 12 Chanthaburi Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-chanthaburi"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-chanthaburi.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Chanthaburi has no metro and no commercial airport — most people drive in from Bangkok in about 3–4 hours, or take a van/coach to the town centre. Hotels here are fairly spread out, so pick by your itinerary: <strong>the coast (Chao Lao · Laem Sing)</strong> sits 30–40 km from town and is easiest with your own car; <strong>the Chanthaburi River</strong> is quiet, with resorts and pools, 10–15 minutes' drive into town; <strong>the Chanthaboon Riverside Community</strong> lets you walk the old town and the cathedral; and the <strong>town centre</strong> is near Robinson mall, the gem market and the food streets. Almost every hotel has free parking, so they suit self-drivers well.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Sand Dunes Chaolao Beach Resort", "price": "฿2,200" },
-    { "n": "2", "color": "#06B6D4", "name": "Maneechan Resort", "price": "฿1,400" },
-    { "n": "3", "color": "#06B6D4", "name": "Chaolao Cabana Resort", "price": "฿1,900" },
-    { "n": "4", "color": "#06B6D4", "name": "Phuengluang Riverside Hotel", "price": "฿1,100" },
-    { "n": "5", "color": "#FB7185", "name": "Riverawan Hotel", "price": "฿1,100" },
-    { "n": "6", "color": "#FB7185", "name": "Kasemsarn Hotel Chanthaburi", "price": "฿900" },
-    { "n": "7", "color": "#FB7185", "name": "USABAI Riverside Boutique Hotel", "price": "฿1,000" },
-    { "n": "8", "color": "#FB7185", "name": "Nisasiri Boutique Resort", "price": "฿1,300" },
-    { "n": "9", "color": "#FBBF24", "name": "K.P. Grand Hotel Chanthaburi", "price": "฿1,100" },
-    { "n": "10", "color": "#FBBF24", "name": "Chernchan Hostel", "price": "฿700" },
-    { "n": "11", "color": "#FBBF24", "name": "Eco Inn Lite Chanthaburi", "price": "฿600" },
-    { "n": "12", "color": "#FBBF24", "name": "Laluna River House", "price": "฿450" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Sand Dunes Chaolao Beach Resort",
+      "price": "฿2,200"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Maneechan Resort",
+      "price": "฿1,400"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "Chaolao Cabana Resort",
+      "price": "฿1,900"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Phuengluang Riverside Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "5",
+      "color": "#FB7185",
+      "name": "Riverawan Hotel",
+      "price": "฿1,100"
+    },
+    {
+      "n": "6",
+      "color": "#FB7185",
+      "name": "Kasemsarn Hotel Chanthaburi",
+      "price": "฿900"
+    },
+    {
+      "n": "7",
+      "color": "#FB7185",
+      "name": "USABAI Riverside Boutique Hotel",
+      "price": "฿1,000"
+    },
+    {
+      "n": "8",
+      "color": "#FB7185",
+      "name": "Nisasiri Boutique Resort",
+      "price": "฿1,300"
+    },
+    {
+      "n": "9",
+      "color": "#FBBF24",
+      "name": "K.P. Grand Hotel Chanthaburi",
+      "price": "฿1,100"
+    },
+    {
+      "n": "10",
+      "color": "#FBBF24",
+      "name": "Chernchan Hostel",
+      "price": "฿700"
+    },
+    {
+      "n": "11",
+      "color": "#FBBF24",
+      "name": "Eco Inn Lite Chanthaburi",
+      "price": "฿600"
+    },
+    {
+      "n": "12",
+      "color": "#FBBF24",
+      "name": "Laluna River House",
+      "price": "฿450"
+    }
   ],
   "entries": [
     {
@@ -64,16 +147,33 @@
       "priceBig": "฿2,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Twin (31 sqm)", "price": "from ฿2,200/night" },
-        { "type": "Deluxe Pool View (34 sqm)", "price": "from ฿2,800/night" },
-        { "type": "Family Room (sleeps 3)", "price": "from ฿3,400/night" },
-        { "type": "Deluxe Corner Sea View (46 sqm)", "price": "from ฿4,200/night" }
+        {
+          "type": "Superior Twin (31 sqm)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Deluxe Pool View (34 sqm)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Family Room (sleeps 3)",
+          "price": "from ฿3,400/night"
+        },
+        {
+          "type": "Deluxe Corner Sea View (46 sqm)",
+          "price": "from ฿4,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sand-dunes-chaolao-beach-resort/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sand-dunes-chaolao-beach-resort.html",
       "tripUrl": "https://www.trip.com/hotels/tha-mai-hotel-detail-3724600/sand-dunes-chaolao-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sand-dunes-chaolao-beach-resort-chanthaburi.html",
-      "tags": ["🏖️ On Chao Lao Beach", "🏊 Big sea-facing pool", "👨‍👩‍👧 Kids' mini-train", "🚗 Ample parking"],
+      "tags": [
+        "🏖️ On Chao Lao Beach",
+        "🏊 Big sea-facing pool",
+        "👨‍👩‍👧 Kids' mini-train",
+        "🚗 Ample parking"
+      ],
       "addr": "73 Moo 5, Chaloem Burapha Chonlathit Rd, Khlong Khut, Tha Mai, Chanthaburi",
       "storyHtml": "At 9.0, Sand Dunes is <strong>the most consistently reviewed beachfront resort in this guide</strong> — you can walk straight from your room to the sea. Guests love the big sea-facing pool with sunset views, the spacious rooms (almost all with balconies), and kid-friendly touches like the little resort train. It's an easy drive from Bangkok, with plenty of parking.",
       "tipHtml": "💡 <strong>Tip:</strong> If your budget allows, pick the Deluxe Corner Sea View for a direct ocean outlook and a wide balcony — far better value than the garden-view rooms. Book ahead on holidays, as rates climb fast.",
@@ -105,16 +205,33 @@
       "priceBig": "฿1,400",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (40 sqm)", "price": "from ฿1,400/night" },
-        { "type": "Deluxe Room (50 sqm)", "price": "from ฿1,800/night" },
-        { "type": "Family Deluxe (sleeps 4)", "price": "from ฿2,400/night" },
-        { "type": "Junior Suite (50 sqm)", "price": "from ฿2,800/night" }
+        {
+          "type": "Superior Room (40 sqm)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe Room (50 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Family Deluxe (sleeps 4)",
+          "price": "from ฿2,400/night"
+        },
+        {
+          "type": "Junior Suite (50 sqm)",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/maneechan-resort/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/maneechan-resort.html",
       "tripUrl": "https://www.trip.com/hotels/chanthaburi-hotel-detail-710797/maneechan-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-maneechan-resort-chanthaburi.html",
-      "tags": ["🌳 Big leafy garden with a pond", "🏊 Large pool", "🏋️ Gym·sauna·playground", "🛺 Electric tuk-tuk shuttle"],
+      "tags": [
+        "🌳 Big leafy garden with a pond",
+        "🏊 Large pool",
+        "🏋️ Gym·sauna·playground",
+        "🛺 Electric tuk-tuk shuttle"
+      ],
       "addr": "110 Moo 9, Phlapphla, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Maneechan is <strong>a garden resort right in town that scores a strong 9.0</strong> — ideal if you want a restful base but still want to nip into Chanthaburi for food and sights. The draw is the wide, shady garden with a pond, a large pool, and rooms of 40–50 sqm that are bigger than most in-town hotels at this price. There's a sports club, gym, sauna, playground and an electric tuk-tuk shuttle into town.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a renovated room set back from the road — it'll be newer and quieter than the older wing. A solid family pick, with a pool and playground on site.",
@@ -146,16 +263,33 @@
       "priceBig": "฿1,900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room (28 sqm)", "price": "from ฿1,900/night" },
-        { "type": "Deluxe Sea View", "price": "from ฿2,600/night" },
-        { "type": "Deluxe Pool Access (32 sqm)", "price": "from ฿4,000/night" },
-        { "type": "Cabana Villa (56 sqm)", "price": "from ฿5,500/night" }
+        {
+          "type": "Deluxe Room (28 sqm)",
+          "price": "from ฿1,900/night"
+        },
+        {
+          "type": "Deluxe Sea View",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "Deluxe Pool Access (32 sqm)",
+          "price": "from ฿4,000/night"
+        },
+        {
+          "type": "Cabana Villa (56 sqm)",
+          "price": "from ฿5,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chaolao-cabana-resort/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chaolao-cabana-resort.html",
       "tripUrl": "https://www.trip.com/hotels/tha-mai-hotel-detail-710792/chaolao-cabana-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chaolao-cabana-resort-chanthaburi.html",
-      "tags": ["🌊 Sea-view infinity pool", "🏖️ Private Chao Lao beach", "🏊 Pool Access rooms", "👨‍👩‍👧 Mini-golf·kids' area"],
+      "tags": [
+        "🌊 Sea-view infinity pool",
+        "🏖️ Private Chao Lao beach",
+        "🏊 Pool Access rooms",
+        "👨‍👩‍👧 Mini-golf·kids' area"
+      ],
       "addr": "18/1 Moo 5, Chaloem Burapha Chonlathit Rd, Khlong Khut, Tha Mai, Chanthaburi",
       "storyHtml": "Chaolao Cabana is <strong>the most reviewed resort in this guide — 287 reviews</strong>. The standout is the sea-view infinity pool that couples rate highly, plus Pool Access rooms where you step straight from your terrace into the water. With a private beach, mini-golf and a kids' area, it works for couples and families alike, and from ฿1,900 it's good value among beachfront resorts in this stretch.",
       "tipHtml": "💡 <strong>Tip:</strong> For a sea view, choose Deluxe Sea View or above — the cheaper garden rooms don't see the water. The Pool Access room is the one reviewers recommend most.",
@@ -187,16 +321,33 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Garden View", "price": "from ฿1,100/night" },
-        { "type": "Deluxe River View", "price": "from ฿1,400/night" },
-        { "type": "Pool Access Deluxe", "price": "from ฿1,800/night" },
-        { "type": "Suite Jacuzzi River View", "price": "from ฿2,500/night" }
+        {
+          "type": "Superior Garden View",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Pool Access Deluxe",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Suite Jacuzzi River View",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/phuengluang-riverside-hotel/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/orngaermphuenghlwngriew-raichd.html",
       "tripUrl": "https://th.trip.com/hotels/chanthaburi-hotel-detail-26440521/phuengluang-riverside-hotel-chanthaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-phuengluang-riverside-hotel-chanthaburi.html",
-      "tags": ["🌊 Chanthaburi River views", "🏊 Outdoor pool", "🛶 Free kayaks", "🛁 Riverside Jacuzzi suite"],
+      "tags": [
+        "🌊 Chanthaburi River views",
+        "🏊 Outdoor pool",
+        "🛶 Free kayaks",
+        "🛁 Riverside Jacuzzi suite"
+      ],
       "addr": "8/8 Moo 4, Ko Khwang, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Phuengluang is <strong>a riverside hotel that scores a strong 8.8 from just ฿1,100</strong>. Guests love the quiet riverside setting with better views than expected, plus an outdoor pool and free kayaks. The Pool Access room and the riverside Jacuzzi suite are photogenic, and the wide free parking suits self-drivers wanting a calm riverside stay.",
       "tipHtml": "💡 <strong>Tip:</strong> Pick Deluxe River View or above for the water outlook — the cheaper garden rooms don't see the river. The area is quiet, so bring snacks or drive into town for meals.",
@@ -228,16 +379,33 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Pool River Front (King)", "price": "from ฿1,100/night" },
-        { "type": "Pool River Front (Twin)", "price": "from ฿1,200/night" },
-        { "type": "River Bank Villa", "price": "from ฿1,600/night" },
-        { "type": "River Sweet Villa/Suite (40 sqm)", "price": "from ฿2,500/night" }
+        {
+          "type": "Pool River Front (King)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Pool River Front (Twin)",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "River Bank Villa",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "River Sweet Villa/Suite (40 sqm)",
+          "price": "from ฿2,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/riverawan-hotel/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/riverawan.html",
       "tripUrl": "https://www.trip.com/hotels/chanthaburi-hotel-detail-7623790/riverawan-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-riverawan-hotel-chanthaburi.html",
-      "tags": ["🌅 Sunset balconies", "🏊 Riverside pool", "🏡 Villas right on the river", "🚗 Free parking"],
+      "tags": [
+        "🌅 Sunset balconies",
+        "🏊 Riverside pool",
+        "🏡 Villas right on the river",
+        "🚗 Free parking"
+      ],
       "addr": "Soi Rim Nam-Nong Phu Ne Nai, Chanthanimit, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Riverawan is <strong>a riverside hotel with newer, clean rooms and villas</strong>, scoring 8.6. The highlight is the riverside villas with balconies for watching the sunset, set right on the water, plus a pool and riverside garden that's good for kids. From ฿1,100 for a Pool River Front room, it's good value for a riverside stay with a pool, and parking is free.",
       "tipHtml": "💡 <strong>Tip:</strong> Breakfast must be pre-ordered, so sort it at booking. The River Bank Villa sits right on the water and is worth it if you want the full riverside feel.",
@@ -269,16 +437,33 @@
       "priceBig": "฿900",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard A", "price": "from ฿900/night" },
-        { "type": "Standard B", "price": "from ฿980/night" },
-        { "type": "Deluxe (breakfast included)", "price": "from ฿1,500/night" },
-        { "type": "Suite / Family", "price": "from ฿3,000/night" }
+        {
+          "type": "Standard A",
+          "price": "from ฿900/night"
+        },
+        {
+          "type": "Standard B",
+          "price": "from ฿980/night"
+        },
+        {
+          "type": "Deluxe (breakfast included)",
+          "price": "from ฿1,500/night"
+        },
+        {
+          "type": "Suite / Family",
+          "price": "from ฿3,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/kasemsarn-hotel-chanthaburi_5/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/kasemsarn.html",
       "tripUrl": "https://www.trip.com/hotels/chanthaburi-hotel-detail-7615240/kasemsarn-hotel-chanthaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kasemsarn-hotel-chanthaburi.html",
-      "tags": ["🏛️ Heart of the old town", "🚶 Walk to Chanthaboon riverside", "🚗 Free parking", "💰 Budget-friendly"],
+      "tags": [
+        "🏛️ Heart of the old town",
+        "🚶 Walk to Chanthaboon riverside",
+        "🚗 Free parking",
+        "💰 Budget-friendly"
+      ],
       "addr": "98/1 Benchamarachuthit Rd, Wat Mai, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Kasemsarn is <strong>the best-value pick for staying in the old town, from just ฿900</strong>, scoring 8.4. It sits right in the heart of the old town, within walking distance of the Chanthaboon Riverside Community and the fountain market. It's an older hotel, but the rooms are clean and well kept and staff are happy to recommend sights. Free parking and free Wi-Fi make it a great budget base for exploring the old town on foot.",
       "tipHtml": "💡 <strong>Tip:</strong> Some Standard rooms don't include breakfast — check at booking, or pick the Deluxe if you want it. The 3-storey building has no lift, so ask for a lower floor if you'd rather not take the stairs.",
@@ -310,16 +495,33 @@
       "priceBig": "฿1,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Leisure Mountain View", "price": "from ฿1,000/night" },
-        { "type": "Heaven Sweet Mountain View", "price": "from ฿1,200/night" },
-        { "type": "Heaven Sweet Riverside", "price": "from ฿1,300/night" },
-        { "type": "Leisure Connecting (family)", "price": "from ฿1,800/night" }
+        {
+          "type": "Leisure Mountain View",
+          "price": "from ฿1,000/night"
+        },
+        {
+          "type": "Heaven Sweet Mountain View",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Heaven Sweet Riverside",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Leisure Connecting (family)",
+          "price": "from ฿1,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/usabai-riverside-boutique-hotel/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/usabai-riverside-boutique.html",
       "tripUrl": "https://www.trip.com/hotels/chanthaburi-hotel-detail-71382756/usabai-riverside-boutique-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-usabai-riverside-boutique-hotel-chanthaburi.html",
-      "tags": ["🎨 Photogenic boutique design", "🌊 Riverside sala", "🔌 EV charger·free parking", "🚶 Walk to the old town"],
+      "tags": [
+        "🎨 Photogenic boutique design",
+        "🌊 Riverside sala",
+        "🔌 EV charger·free parking",
+        "🚶 Walk to the old town"
+      ],
       "addr": "22/173 Moo 7, Chanthanimit, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "USABAI is <strong>an in-town riverside boutique with a healthy 250 reviews</strong>, scoring 8.4. The draw is its photogenic Contemporary-Chanthaburi design and the riverside corner with a sala by the water. It's in town by the river, within walking distance of the night market and the Chanthaboon Riverside Community. With free parking and an EV charger it suits self-drivers, and it's good value among in-town boutiques.",
       "tipHtml": "💡 <strong>Tip:</strong> For a river view you'll need a Riverside room — the inner-facing rooms don't see the water. Stroll to the Chanthaboon community in the evening for that old-town atmosphere.",
@@ -351,17 +553,37 @@
       "priceBig": "฿1,300",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room (28 sqm)", "price": "from ฿1,300/night" },
-        { "type": "Comfort Room (32 sqm)", "price": "from ฿1,600/night" },
-        { "type": "Deluxe Room (36 sqm)", "price": "from ฿1,800/night" },
-        { "type": "Family Room (sleeps 4)", "price": "from ฿2,900/night" },
-        { "type": "Pool Villa (sleeps 8)", "price": "from ฿7,200/night" }
+        {
+          "type": "Standard Room (28 sqm)",
+          "price": "from ฿1,300/night"
+        },
+        {
+          "type": "Comfort Room (32 sqm)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Deluxe Room (36 sqm)",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Family Room (sleeps 4)",
+          "price": "from ฿2,900/night"
+        },
+        {
+          "type": "Pool Villa (sleeps 8)",
+          "price": "from ฿7,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/nisasiri-boutique-resort/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/nisasiri-buutique-resort.html",
       "tripUrl": "https://www.trip.com/hotels/laem-sing-hotel-detail-710799/nisasiri-boutique-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-nisasiri-boutique-resort-chanthaburi.html",
-      "tags": ["🏖️ On Laem Sing beach", "🦐 Beachside seafood BBQ", "🚣 Kayaks·cycling", "🏡 Pool Villa sleeps 8"],
+      "tags": [
+        "🏖️ On Laem Sing beach",
+        "🦐 Beachside seafood BBQ",
+        "🚣 Kayaks·cycling",
+        "🏡 Pool Villa sleeps 8"
+      ],
       "addr": "105/3-7 Moo 1, Pak Nam Laem Sing, Laem Sing, Chanthaburi",
       "storyHtml": "Nisasiri is <strong>a quiet beachfront boutique resort on Laem Sing beach</strong>, scoring 8.4 from 240 reviews. You can walk straight to the sea, and the vibe is restful and low-key rather than busy. Guests love the fresh, well-priced seafood at the resort and the beachside activities — seafood BBQ, kayaks, cycling. There's also a Pool Villa that sleeps up to 8, ideal for big groups or families.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling in a group? Look at the Pool Villa that sleeps up to 8. Ask for a room away from the road, as the Comfort rooms near it catch traffic noise. This is a calm sea, not a white-sand, crystal-water beach.",
@@ -393,16 +615,33 @@
       "priceBig": "฿1,100",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room (35 sqm)", "price": "from ฿1,100/night" },
-        { "type": "Deluxe Room (35 sqm)", "price": "from ฿1,400/night" },
-        { "type": "Deluxe High Floor", "price": "from ฿1,600/night" },
-        { "type": "Family / Suite", "price": "from ฿2,200/night" }
+        {
+          "type": "Superior Room (35 sqm)",
+          "price": "from ฿1,100/night"
+        },
+        {
+          "type": "Deluxe Room (35 sqm)",
+          "price": "from ฿1,400/night"
+        },
+        {
+          "type": "Deluxe High Floor",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Family / Suite",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/k-p-grand-hotel-chanthaburi/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/po-k-p-grand-hotel-chanthaburi-chanthaburi.html",
       "tripUrl": "https://www.trip.com/hotels/chanthaburi-hotel-detail-1583460/kp-grand-hotel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-kp-grand-hotel-chanthaburi.html",
-      "tags": ["🛍️ Next to Robinson mall", "💎 Near the gem market", "🏊 Pool·gym·sauna", "🛏️ Roomy 35 sqm rooms"],
+      "tags": [
+        "🛍️ Next to Robinson mall",
+        "💎 Near the gem market",
+        "🏊 Pool·gym·sauna",
+        "🛏️ Roomy 35 sqm rooms"
+      ],
       "addr": "35/200-201 Trirat Rd, Chanthanimit, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "K.P. Grand has <strong>a great central location, right next to Robinson mall and near the gem market</strong>, scoring 8.0. You can walk to the mall, the gem market and the food streets. The plus points are 35 sqm rooms that are bigger than others at this price, plus an on-site pool, gym, sauna and large meeting room. The building has a dated, older style, but it's good value for a central location.",
       "tipHtml": "💡 <strong>Tip:</strong> Ask for a higher-floor city-view room — it's quieter with a better outlook. The decor is older in style; if that's fine by you, the location and room size are great value.",
@@ -434,16 +673,33 @@
       "priceBig": "฿700",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard (no window)", "price": "from ฿700/night" },
-        { "type": "Twin Bunk private room", "price": "from ฿800/night" },
-        { "type": "Deluxe Double (window)", "price": "from ฿950/night" },
-        { "type": "Twin Room", "price": "from ฿1,050/night" }
+        {
+          "type": "Standard (no window)",
+          "price": "from ฿700/night"
+        },
+        {
+          "type": "Twin Bunk private room",
+          "price": "from ฿800/night"
+        },
+        {
+          "type": "Deluxe Double (window)",
+          "price": "from ฿950/night"
+        },
+        {
+          "type": "Twin Room",
+          "price": "from ฿1,050/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chernchan-hostel/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/chernchan-hostel-chanthaburi.html",
       "tripUrl": "https://th.trip.com/hotels/chanthaburi-hotel-detail-9027445/chernchan-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-chernchan-hostel-chanthaburi.html",
-      "tags": ["🎨 Hip design, very clean", "🚪 Private rooms with ensuite", "🚲 Free bikes to borrow", "🚶 Walk to riverside & cathedral"],
+      "tags": [
+        "🎨 Hip design, very clean",
+        "🚪 Private rooms with ensuite",
+        "🚲 Free bikes to borrow",
+        "🚶 Walk to riverside & cathedral"
+      ],
       "addr": "43/11-13 Soi Trirat, Chanthanimit, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Chernchan is <strong>a boutique hostel scoring a high 9.0 from just ฿700</strong>. Guests rave about how clean it is — both rooms and common areas — the hip styling, and the private rooms with ensuite bathrooms. It's in town within walking distance of the riverside community and the cathedral, with free bikes to explore the old town. Reviews are still few (28), but the score really stands out at this price.",
       "tipHtml": "💡 <strong>Tip:</strong> For a longer stay, skip the windowless Standard and pick the Deluxe Double with a window — it feels far airier. Borrow a free bike and ride through the Chanthaboon community in the morning for a great atmosphere.",
@@ -475,15 +731,29 @@
       "priceBig": "฿600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Twin", "price": "from ฿600/night" },
-        { "type": "Superior King", "price": "from ฿650/night" },
-        { "type": "Standard (holiday rate)", "price": "from ฿770/night" }
+        {
+          "type": "Standard Twin",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Superior King",
+          "price": "from ฿650/night"
+        },
+        {
+          "type": "Standard (holiday rate)",
+          "price": "from ฿770/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/eco-inn-chanthaburi_2/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/eco-inn-chanthaburi.html",
       "tripUrl": "https://th.trip.com/hotels/chanthaburi-hotel-detail-7619584/eco-inn-lite-chanthaburi/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-eco-inn-lite-chanthaburi.html",
-      "tags": ["💰 Central budget rates", "🛗 Lift·free parking", "🕛 24-hour check-in", "🚶 Near King Taksin Shrine"],
+      "tags": [
+        "💰 Central budget rates",
+        "🛗 Lift·free parking",
+        "🕛 24-hour check-in",
+        "🚶 Near King Taksin Shrine"
+      ],
       "addr": "Raksakchamun Rd, Wat Mai, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Eco Inn Lite is <strong>a central budget hotel from just ฿600 with a healthy 207 reviews</strong>, scoring 7.8. It's in the city centre near the King Taksin Shrine and the food streets, within walking distance of restaurants and sights. There's a lift and free parking, and 24-hour check-in — handy for self-drivers who just need a clean, cheap bed. Rooms are small and best for sleeping rather than lingering.",
       "tipHtml": "💡 <strong>Tip:</strong> Most rooms don't include breakfast, but you're near plenty of food spots within walking distance. It's better as a one-night stopover than for a long stay.",
@@ -515,16 +785,33 @@
       "priceBig": "฿450",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard (no window)", "price": "from ฿450/night" },
-        { "type": "Standard Twin", "price": "from ฿550/night" },
-        { "type": "Standard Bunk Bed", "price": "from ฿600/night" },
-        { "type": "Superior River View", "price": "from ฿750/night" }
+        {
+          "type": "Standard (no window)",
+          "price": "from ฿450/night"
+        },
+        {
+          "type": "Standard Twin",
+          "price": "from ฿550/night"
+        },
+        {
+          "type": "Standard Bunk Bed",
+          "price": "from ฿600/night"
+        },
+        {
+          "type": "Superior River View",
+          "price": "from ฿750/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/laluna-river-house/hotel/chanthaburi-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/laluna-chanthaburi.html",
       "tripUrl": "https://th.trip.com/hotels/chanthaburi-hotel-detail-7266804/laluna-river-house/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-laluna-river-house-chanthaburi.html",
-      "tags": ["🪙 Cheapest in the guide ฿450", "🏘️ In the Chanthaboon community", "🌊 River-view nook", "🚶 Walk to market & restaurants"],
+      "tags": [
+        "🪙 Cheapest in the guide ฿450",
+        "🏘️ In the Chanthaboon community",
+        "🌊 River-view nook",
+        "🚶 Walk to market & restaurants"
+      ],
       "addr": "192-194 Sukhaphiban Rd, Wat Mai, Mueang Chanthaburi, Chanthaburi",
       "storyHtml": "Laluna is <strong>the cheapest stay in this guide, from just ฿450, yet it sits right in the Chanthaboon Riverside Community</strong>, scoring 7.8. The selling point is the location in a riverside lane in the heart of the old town — walk to the market, restaurants and the cathedral. There's a balcony nook for watching the river, with clean bedding and good air-con. Rooms are small and some have no window, and access by car is tricky (park outside the lane) — but for an old-town location at a budget price, it's a great deal.",
       "tipHtml": "💡 <strong>Tip:</strong> Spend a little more on the Superior River View with a window — it feels far airier than the windowless Standard. Car access is hard, so be ready to park outside the lane and walk in.",
@@ -542,39 +829,214 @@
     }
   ],
   "compareTitle": "Chanthaburi Hotels Compared — 12 Stays, 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Sand Dunes Chaolao Beach Resort", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿2,200", "access": "📍 Chao Lao Beach", "badge": "Beachfront · top score", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Maneechan Resort", "type": "⭐⭐⭐⭐", "score": "9.0", "price": "฿1,400", "access": "📍 In town (garden)", "badge": "Garden resort", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "Chaolao Cabana Resort", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,900", "access": "📍 Chao Lao Beach", "badge": "Most reviewed", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Phuengluang Riverside Hotel", "type": "⭐⭐⭐", "score": "8.8", "price": "฿1,100", "access": "📍 Chanthaburi River", "badge": "Riverside · top score", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "5", "rankColor": "#FB7185", "name": "Riverawan Hotel", "type": "⭐⭐⭐", "score": "8.6", "price": "฿1,100", "access": "📍 Chanthaburi River", "badge": "Riverside villas", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "6", "rankColor": "#FB7185", "name": "Kasemsarn Hotel Chanthaburi", "type": "⭐⭐⭐", "score": "8.4", "price": "฿900", "access": "📍 Old town", "badge": "Best old-town value", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "7", "rankColor": "#FB7185", "name": "USABAI Riverside Boutique Hotel", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,000", "access": "📍 Riverside·near old town", "badge": "Riverside boutique", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "8", "rankColor": "#FB7185", "name": "Nisasiri Boutique Resort", "type": "⭐⭐⭐", "score": "8.4", "price": "฿1,300", "access": "📍 Laem Sing Beach", "badge": "Beachfront·Pool Villa", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;" },
-    { "rank": "9", "rankColor": "#FBBF24", "name": "K.P. Grand Hotel Chanthaburi", "type": "⭐⭐⭐⭐", "score": "8.0", "price": "฿1,100", "access": "📍 Central·by Robinson", "badge": "By mall·near gem market", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "10", "rankColor": "#FBBF24", "name": "Chernchan Hostel", "type": "⭐⭐", "score": "9.0", "price": "฿700", "access": "📍 In town·Chanthanimit", "badge": "Hip boutique · high score", "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;" },
-    { "rank": "11", "rankColor": "#FBBF24", "name": "Eco Inn Lite Chanthaburi", "type": "⭐⭐", "score": "7.8", "price": "฿600", "access": "📍 City centre", "badge": "Budget·has a lift", "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;" },
-    { "rank": "12", "rankColor": "#FBBF24", "name": "Laluna River House", "type": "⭐⭐", "score": "7.8", "price": "฿450", "access": "📍 Chanthaboon community", "badge": "Cheapest", "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Sand Dunes Chaolao Beach Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿2,200",
+      "access": "📍 Chao Lao Beach",
+      "badge": "Beachfront · top score",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Maneechan Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿1,400",
+      "access": "📍 In town (garden)",
+      "badge": "Garden resort",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "Chaolao Cabana Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,900",
+      "access": "📍 Chao Lao Beach",
+      "badge": "Most reviewed",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Phuengluang Riverside Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿1,100",
+      "access": "📍 Chanthaburi River",
+      "badge": "Riverside · top score",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#FB7185",
+      "name": "Riverawan Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,100",
+      "access": "📍 Chanthaburi River",
+      "badge": "Riverside villas",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#FB7185",
+      "name": "Kasemsarn Hotel Chanthaburi",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿900",
+      "access": "📍 Old town",
+      "badge": "Best old-town value",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#FB7185",
+      "name": "USABAI Riverside Boutique Hotel",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,000",
+      "access": "📍 Riverside·near old town",
+      "badge": "Riverside boutique",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#FB7185",
+      "name": "Nisasiri Boutique Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿1,300",
+      "access": "📍 Laem Sing Beach",
+      "badge": "Beachfront·Pool Villa",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#80deea;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FBBF24",
+      "name": "K.P. Grand Hotel Chanthaburi",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.0",
+      "price": "฿1,100",
+      "access": "📍 Central·by Robinson",
+      "badge": "By mall·near gem market",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#FBBF24",
+      "name": "Chernchan Hostel",
+      "type": "⭐⭐",
+      "score": "9.0",
+      "price": "฿700",
+      "access": "📍 In town·Chanthanimit",
+      "badge": "Hip boutique · high score",
+      "badgeStyle": "background:#fff1f2;color:#e11d48;border-color:#fecdd3;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#FBBF24",
+      "name": "Eco Inn Lite Chanthaburi",
+      "type": "⭐⭐",
+      "score": "7.8",
+      "price": "฿600",
+      "access": "📍 City centre",
+      "badge": "Budget·has a lift",
+      "badgeStyle": "background:#fff8e1;color:#b7791f;border-color:#ffe082;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#FBBF24",
+      "name": "Laluna River House",
+      "type": "⭐⭐",
+      "score": "7.8",
+      "price": "฿450",
+      "access": "📍 Chanthaboon community",
+      "badge": "Cheapest",
+      "badgeStyle": "background:#fbe9e7;color:#c0521e;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "How to pick the right Chanthaburi hotel for you",
   "advice": [
-    { "icon": "🏖️", "head": "Want to sleep by the sea", "bodyHtml": "→ <strong>Sand Dunes Chaolao Beach Resort</strong> ฿2,200 on Chao Lao Beach with a sea-view pool · or <strong>Chaolao Cabana Resort</strong> ฿1,900 with an infinity pool and Pool Access rooms · on the Laem Sing side, pick <strong>Nisasiri</strong> ฿1,300" },
-    { "icon": "🌊", "head": "Want a quiet riverside stay", "bodyHtml": "→ <strong>Phuengluang Riverside Hotel</strong> ฿1,100 with river views, a pool and kayaks · or <strong>Riverawan Hotel</strong> ฿1,100 with riverside villas and sunset balconies" },
-    { "icon": "🏛️", "head": "Want to explore the old town & Chanthaboon community", "bodyHtml": "→ <strong>Kasemsarn Hotel</strong> ฿900 in the heart of the old town · <strong>USABAI Riverside</strong> ฿1,000 riverside boutique · or <strong>Laluna River House</strong> ฿450 in the riverside community" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family with kids", "bodyHtml": "→ <strong>Maneechan Resort</strong> ฿1,400 with a big garden, large pool and playground · or <strong>Sand Dunes</strong> ฿2,200 with family rooms and beachside kids' activities" },
-    { "icon": "🛍️", "head": "Want a central base for shopping", "bodyHtml": "→ <strong>K.P. Grand Hotel</strong> ฿1,100 next to Robinson, near the gem market, with a pool · or <strong>Eco Inn Lite</strong> ฿600 — central, budget and with a lift" },
-    { "icon": "💰", "head": "On a budget, want the best value", "bodyHtml": "→ <strong>Laluna River House</strong> ฿450 in the riverside community · <strong>Eco Inn Lite</strong> ฿600 in town with a lift · or <strong>Chernchan Hostel</strong> ฿700, a hip boutique scoring 9.0" },
-    { "icon": "🎨", "head": "Want design-led, photogenic stays", "bodyHtml": "→ <strong>Chernchan Hostel</strong> ฿700, a hip boutique hostel · or <strong>USABAI Riverside</strong> ฿1,000, a Contemporary-Chanthaburi riverside boutique" }
+    {
+      "icon": "🏖️",
+      "head": "Want to sleep by the sea",
+      "bodyHtml": "→ <strong>Sand Dunes Chaolao Beach Resort</strong> ฿2,200 on Chao Lao Beach with a sea-view pool · or <strong>Chaolao Cabana Resort</strong> ฿1,900 with an infinity pool and Pool Access rooms · on the Laem Sing side, pick <strong>Nisasiri</strong> ฿1,300"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want a quiet riverside stay",
+      "bodyHtml": "→ <strong>Phuengluang Riverside Hotel</strong> ฿1,100 with river views, a pool and kayaks · or <strong>Riverawan Hotel</strong> ฿1,100 with riverside villas and sunset balconies"
+    },
+    {
+      "icon": "🏛️",
+      "head": "Want to explore the old town & Chanthaboon community",
+      "bodyHtml": "→ <strong>Kasemsarn Hotel</strong> ฿900 in the heart of the old town · <strong>USABAI Riverside</strong> ฿1,000 riverside boutique · or <strong>Laluna River House</strong> ฿450 in the riverside community"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family with kids",
+      "bodyHtml": "→ <strong>Maneechan Resort</strong> ฿1,400 with a big garden, large pool and playground · or <strong>Sand Dunes</strong> ฿2,200 with family rooms and beachside kids' activities"
+    },
+    {
+      "icon": "🛍️",
+      "head": "Want a central base for shopping",
+      "bodyHtml": "→ <strong>K.P. Grand Hotel</strong> ฿1,100 next to Robinson, near the gem market, with a pool · or <strong>Eco Inn Lite</strong> ฿600 — central, budget and with a lift"
+    },
+    {
+      "icon": "💰",
+      "head": "On a budget, want the best value",
+      "bodyHtml": "→ <strong>Laluna River House</strong> ฿450 in the riverside community · <strong>Eco Inn Lite</strong> ฿600 in town with a lift · or <strong>Chernchan Hostel</strong> ฿700, a hip boutique scoring 9.0"
+    },
+    {
+      "icon": "🎨",
+      "head": "Want design-led, photogenic stays",
+      "bodyHtml": "→ <strong>Chernchan Hostel</strong> ฿700, a hip boutique hostel · or <strong>USABAI Riverside</strong> ฿1,000, a Contemporary-Chanthaburi riverside boutique"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate, based on real standard-room rate ranges, and can change by date and season — always check live prices and compare across the 3 sites before booking. Over long weekends and festivals (New Year, Songkran and the fruit season in May–June) rates rise and rooms fill fast, so book ahead. Chanthaburi has no metro and no commercial airport; most people drive in from Bangkok in about 3–4 hours, and the coastal hotels sit 30–40 km from town. Almost every hotel has free parking. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Chanthaburi hotels",
   "faq": [
-    { "q": "❓ Where should I stay in Chanthaburi — the coast or the town?", "a": "It depends on your plan. To sleep by the sea, pick <strong>Chao Lao Beach</strong> (Sand Dunes, Chaolao Cabana) or <strong>Laem Sing</strong> (Nisasiri), about 30–40 km from town. To explore the old town and the Chanthaboon Riverside Community on foot, choose the <strong>town centre</strong> (Kasemsarn, USABAI, Laluna, Chernchan). For a quiet riverside stay near town, pick the <strong>Chanthaburi River</strong> (Phuengluang, Riverawan)." },
-    { "q": "❓ How much do Chanthaburi hotels cost?", "a": "There's a wide range: budget stays and hostels in town start around ฿450–900/night; 3-star riverside hotels and boutiques run roughly ฿1,000–1,800; and 4-star beachfront resorts are about ฿1,900–4,200. Over long weekends and the fruit season, rates can be higher than usual." },
-    { "q": "❓ Can I visit Chanthaburi without my own car?", "a": "Yes, but plan ahead. If you stay in town (near the Chanthaboon riverside community), you can walk the old town easily and get around the centre. But to reach Chao Lao Beach or Laem Sing, 30–40 km away, your own car is much more convenient, as public transport is infrequent. The coastal hotels in particular suit self-drivers." },
-    { "q": "❓ Which site is cheapest for booking Chanthaburi hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each platform's promotions, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night." },
-    { "q": "❓ When is the best time to visit Chanthaburi?", "a": "The cool season (Nov–Feb) has the best weather for both beach and town. The <strong>fruit season (May–June)</strong> is a Chanthaburi highlight — durian, mangosteen and rambutan fill the orchards, with fruit festivals on — but it's busy and rooms fill fast, so book ahead. In the rainy season the sea can be choppier and murkier than usual." },
-    { "q": "❓ What are Chanthaburi's beaches like — is the water clear?", "a": "Chanthaburi's beaches (Chao Lao, Laem Sing, Khung Wiman) are on the eastern Gulf of Thailand, so the water isn't as clear as the Andaman side. The appeal is the quiet, restful vibe, falling asleep to the waves, and fresh seafood — more than white sand and crystal water. They suit a relaxed getaway close to Bangkok without a long trip." }
-  ]
+    {
+      "q": "❓ Where should I stay in Chanthaburi — the coast or the town?",
+      "a": "It depends on your plan. To sleep by the sea, pick <strong>Chao Lao Beach</strong> (Sand Dunes, Chaolao Cabana) or <strong>Laem Sing</strong> (Nisasiri), about 30–40 km from town. To explore the old town and the Chanthaboon Riverside Community on foot, choose the <strong>town centre</strong> (Kasemsarn, USABAI, Laluna, Chernchan). For a quiet riverside stay near town, pick the <strong>Chanthaburi River</strong> (Phuengluang, Riverawan)."
+    },
+    {
+      "q": "❓ How much do Chanthaburi hotels cost?",
+      "a": "There's a wide range: budget stays and hostels in town start around ฿450–900/night; 3-star riverside hotels and boutiques run roughly ฿1,000–1,800; and 4-star beachfront resorts are about ฿1,900–4,200. Over long weekends and the fruit season, rates can be higher than usual."
+    },
+    {
+      "q": "❓ Can I visit Chanthaburi without my own car?",
+      "a": "Yes, but plan ahead. If you stay in town (near the Chanthaboon riverside community), you can walk the old town easily and get around the centre. But to reach Chao Lao Beach or Laem Sing, 30–40 km away, your own car is much more convenient, as public transport is infrequent. The coastal hotels in particular suit self-drivers."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Chanthaburi hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary with each platform's promotions, so it's worth comparing all three before you book — every review page in this guide has price-comparison links, which can save several hundred baht a night."
+    },
+    {
+      "q": "❓ When is the best time to visit Chanthaburi?",
+      "a": "The cool season (Nov–Feb) has the best weather for both beach and town. The <strong>fruit season (May–June)</strong> is a Chanthaburi highlight — durian, mangosteen and rambutan fill the orchards, with fruit festivals on — but it's busy and rooms fill fast, so book ahead. In the rainy season the sea can be choppier and murkier than usual."
+    },
+    {
+      "q": "❓ What are Chanthaburi's beaches like — is the water clear?",
+      "a": "Chanthaburi's beaches (Chao Lao, Laem Sing, Khung Wiman) are on the eastern Gulf of Thailand, so the water isn't as clear as the Andaman side. The appeal is the quiet, restful vibe, falling asleep to the waves, and fresh seafood — more than white sand and crystal water. They suit a relaxed getaway close to Bangkok without a long trip."
+    }
+  ],
+  "quickAnswerHtml": "12 hand-picked Chanthaburi hotels across every tier — from beachfront Sand Dunes at Chao Lao to Laluna River House in the Chanthaboon old town from ฿450. Real guest reviews, prices compared across 3 sites, direct booking links."
 }

@@ -16,16 +16,39 @@
     "✅ Real <strong>guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "🇹🇭 Thailand", "href": "country-thailand.html" },
-    { "name": "Hua Hin", "href": "city-huahin.html" },
-    { "name": "Top 12 Hua Hin Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "🇹🇭 Thailand",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "Hua Hin",
+      "href": "city-huahin.html"
+    },
+    {
+      "name": "Top 12 Hua Hin Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Hua Hin", "item": "https://thailandaddict.com/en/city-huahin" },
-    { "name": "Top 12 Hua Hin Hotels", "item": "https://thailandaddict.com/en/top10-hotels-huahin" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Hua Hin",
+      "item": "https://thailandaddict.com/en/city-huahin"
+    },
+    {
+      "name": "Top 12 Hua Hin Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-huahin"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "top10-hotels-huahin.html",
@@ -34,18 +57,78 @@
   "mrtHtml": "Hua Hin has no metro. Getting around means your own car, rental car, scooter, taxi, or a songthaew within central Hua Hin. From Bangkok it's about 2.5–3 hours by car, or you can take the train or a minivan. In town you can walk to the beach and the night market easily, but if you're staying at Khao Takiap or Khao Tao a car is more convenient. The areas in this guide: <strong>Central Hua Hin beach</strong> — beach, malls, night market, train station, walk everywhere · <strong>Khao Takiap</strong> — wider, quieter beach at the southern end, ~10 min from town, near Cicada Market · <strong>Khao Tao / Sai Noi beach</strong> — quiet beach, fishing village, ~12 km from town.",
   "secLabel": "All 12 hotels — let's dive in!",
   "toc": [
-    { "n": "1", "color": "#c8a951", "name": "Centara Grand Beach Resort & Villas", "price": "฿4,800" },
-    { "n": "2", "color": "#c8a951", "name": "Hyatt Regency Hua Hin", "price": "฿4,800" },
-    { "n": "3", "color": "#c8a951", "name": "Putahracsa Hua Hin", "price": "฿4,500" },
-    { "n": "4", "color": "#c8a951", "name": "InterContinental Hua Hin Resort", "price": "฿5,500" },
-    { "n": "5", "color": "#9e9e9e", "name": "Mövenpick Asara Resort & Spa", "price": "฿4,500" },
-    { "n": "6", "color": "#9e9e9e", "name": "Anantasila Beach Resort", "price": "฿2,800" },
-    { "n": "7", "color": "#9e9e9e", "name": "Asira Boutique HuaHin", "price": "฿2,200" },
-    { "n": "8", "color": "#bf8040", "name": "G Hua Hin Resort & Mall", "price": "฿1,600" },
-    { "n": "9", "color": "#bf8040", "name": "Maven Stylish Hotel Hua Hin", "price": "฿1,800" },
-    { "n": "10", "color": "#5d4037", "name": "Litera Hostel Hua Hin", "price": "฿390" },
-    { "n": "11", "color": "#5d4037", "name": "Sanae Beach Hua Hin", "price": "฿2,000" },
-    { "n": "12", "color": "#5d4037", "name": "Takiab Beach Resort", "price": "฿1,200" }
+    {
+      "n": "1",
+      "color": "#c8a951",
+      "name": "Centara Grand Beach Resort & Villas",
+      "price": "฿4,800"
+    },
+    {
+      "n": "2",
+      "color": "#c8a951",
+      "name": "Hyatt Regency Hua Hin",
+      "price": "฿4,800"
+    },
+    {
+      "n": "3",
+      "color": "#c8a951",
+      "name": "Putahracsa Hua Hin",
+      "price": "฿4,500"
+    },
+    {
+      "n": "4",
+      "color": "#c8a951",
+      "name": "InterContinental Hua Hin Resort",
+      "price": "฿5,500"
+    },
+    {
+      "n": "5",
+      "color": "#9e9e9e",
+      "name": "Mövenpick Asara Resort & Spa",
+      "price": "฿4,500"
+    },
+    {
+      "n": "6",
+      "color": "#9e9e9e",
+      "name": "Anantasila Beach Resort",
+      "price": "฿2,800"
+    },
+    {
+      "n": "7",
+      "color": "#9e9e9e",
+      "name": "Asira Boutique HuaHin",
+      "price": "฿2,200"
+    },
+    {
+      "n": "8",
+      "color": "#bf8040",
+      "name": "G Hua Hin Resort & Mall",
+      "price": "฿1,600"
+    },
+    {
+      "n": "9",
+      "color": "#bf8040",
+      "name": "Maven Stylish Hotel Hua Hin",
+      "price": "฿1,800"
+    },
+    {
+      "n": "10",
+      "color": "#5d4037",
+      "name": "Litera Hostel Hua Hin",
+      "price": "฿390"
+    },
+    {
+      "n": "11",
+      "color": "#5d4037",
+      "name": "Sanae Beach Hua Hin",
+      "price": "฿2,000"
+    },
+    {
+      "n": "12",
+      "color": "#5d4037",
+      "name": "Takiab Beach Resort",
+      "price": "฿1,200"
+    }
   ],
   "entries": [
     {
@@ -64,15 +147,29 @@
       "priceBig": "฿4,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Room · garden / partial sea view", "price": "from ฿4,800/night" },
-        { "type": "Premium Deluxe Club · Club Lounge access", "price": "from ฿8,000/night" },
-        { "type": "Villa 1 Bedroom Private Pool (~120 sqm)", "price": "from ฿13,000/night" }
+        {
+          "type": "Deluxe Room · garden / partial sea view",
+          "price": "from ฿4,800/night"
+        },
+        {
+          "type": "Premium Deluxe Club · Club Lounge access",
+          "price": "from ฿8,000/night"
+        },
+        {
+          "type": "Villa 1 Bedroom Private Pool (~120 sqm)",
+          "price": "from ฿13,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/centara-grand-beach-resort-villas-hua-hin/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sofitelcentralhuahinresort.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-709400/centara-grand-beach-resort-and-villas-hua-hin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-centara-grand-beach-resort-villas-huahin.html",
-      "tags": ["🏛️ The historic Railway Hotel building, 1923", "🏖️ On the beach in central Hua Hin", "🌳 Wide seafront gardens", "🚶 Walk to the night market"],
+      "tags": [
+        "🏛️ The historic Railway Hotel building, 1923",
+        "🏖️ On the beach in central Hua Hin",
+        "🌳 Wide seafront gardens",
+        "🚶 Walk to the night market"
+      ],
       "addr": "1 Damnernkasem Road, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Centara Grand is a <strong>heritage resort built around the former Railway Hotel of 1923, right on the beach in central Hua Hin</strong>, scoring 9.3 from 243 reviews. Its charm is the old colonial architecture set in wide seafront gardens, with everything from heritage-wing rooms to private pool villas. Real guest reviews praise the location — you can walk to the beach and the night market — and the gardens and pools. Worth knowing: it's a grand old resort, so some rooms in the older wing feel more classic than modern; choose your room type by the style you prefer.",
       "tipHtml": "💡 <strong>Tip:</strong> For a seafront feel, look at rooms in the beach-side zone; for the heritage character, pick the older wing. An evening stroll through the seafront gardens is the highlight here.",
@@ -104,15 +201,29 @@
       "priceBig": "฿4,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Twin / King Garden View (29–35 sqm)", "price": "from ฿4,800/night" },
-        { "type": "King With Pool Access (46 sqm)", "price": "from ฿7,800/night" },
-        { "type": "Barai Suite · private pool + jacuzzi", "price": "from ฿15,000/night" }
+        {
+          "type": "Twin / King Garden View (29–35 sqm)",
+          "price": "from ฿4,800/night"
+        },
+        {
+          "type": "King With Pool Access (46 sqm)",
+          "price": "from ฿7,800/night"
+        },
+        {
+          "type": "Barai Suite · private pool + jacuzzi",
+          "price": "from ฿15,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/hyatt-regency-hua-hin-hotel/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/hyatt-regency-hua-hin.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-709480/hyatt-regency-hua-hin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-hyatt-regency-huahin.html",
-      "tags": ["🛕 Home of The Barai spa", "🌊 Khao Takiap beachfront", "🏊 Pools in tropical gardens", "🍳 Well-reviewed breakfast and service"],
+      "tags": [
+        "🛕 Home of The Barai spa",
+        "🌊 Khao Takiap beachfront",
+        "🏊 Pools in tropical gardens",
+        "🍳 Well-reviewed breakfast and service"
+      ],
       "addr": "91 Hua Hin - Khao Takiap Road, Nong Kae, Hua Hin",
       "storyHtml": "Hyatt Regency is a <strong>5-star beachfront resort at Khao Takiap, and the most-reviewed of the luxury picks with 314 reviews</strong>, scoring 9.3. Its heart is The Barai, a water-temple-style spa that many guests book here specifically to try. The resort spreads low through wide tropical gardens with a private beach. Real guest reviews praise the space, the leafy gardens, the varied breakfast and staff who remember your name. Worth knowing: Khao Takiap means a 10–15 minute drive into town, and a long-running resort means some rooms show their age.",
       "tipHtml": "💡 <strong>Tip:</strong> If you're coming for The Barai, look at packages that include the spa rather than paying separately, and book treatments ahead as they fill fast. Travelling with kids, ask for a Pool Access room — you step straight into the pool from the balcony.",
@@ -144,15 +255,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Sansky Urban Room (48 sqm)", "price": "from ฿4,500/night" },
-        { "type": "Oceanbed Pool Villa (100 sqm)", "price": "from ฿9,500/night" },
-        { "type": "La Canna Beachfront Pool Villa (140 sqm)", "price": "from ฿14,000/night" }
+        {
+          "type": "Sansky Urban Room (48 sqm)",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Oceanbed Pool Villa (100 sqm)",
+          "price": "from ฿9,500/night"
+        },
+        {
+          "type": "La Canna Beachfront Pool Villa (140 sqm)",
+          "price": "from ฿14,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/putahracsa-hua-hin-resort/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/putahracasahuahin.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-996845/putahracsa-hua-hin-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-putahracsa-huahin.html",
-      "tags": ["💬 343 reviews", "🏖️ Beachfront, Naebkehardt area", "🏊 Beachfront pool villas", "🚶 Walk along the beach into town"],
+      "tags": [
+        "💬 343 reviews",
+        "🏖️ Beachfront, Naebkehardt area",
+        "🏊 Beachfront pool villas",
+        "🚶 Walk along the beach into town"
+      ],
       "addr": "22/65 Naebkehardt Road, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Putahracsa is a <strong>5-star boutique beachfront resort in the Naebkehardt area, the most-reviewed of the boutique picks with 343 reviews</strong>, scoring 9.2. It's beachfront yet still central, so you can walk along the sand into town. Rooms range from contemporary Urban Rooms in the main building to beachfront pool villas, suiting both couples and families. Real guest reviews praise the beachfront setting, the design and the easygoing service — a good fit for anyone who wants a beachfront boutique at a gentler price than the big chains.",
       "tipHtml": "💡 <strong>Tip:</strong> For honeymooners or anyone wanting a private pool, look at the Oceanbed or La Canna beachfront villas. Urban Rooms in the main building don't have direct sea views, so pick your room type before booking.",
@@ -184,15 +309,29 @@
       "priceBig": "฿5,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Cosy Room (BluPort Wing) · pet-friendly", "price": "from ฿5,500/night" },
-        { "type": "Premium Ocean View · sea view", "price": "from ฿7,500/night" },
-        { "type": "Single Private Pool Suite (63 sqm)", "price": "from ฿15,000/night" }
+        {
+          "type": "Cosy Room (BluPort Wing) · pet-friendly",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "Premium Ocean View · sea view",
+          "price": "from ฿7,500/night"
+        },
+        {
+          "type": "Single Private Pool Suite (63 sqm)",
+          "price": "from ฿15,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/intercontinental-hua-hin-resort/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/intercontinental-hua-hin-resort.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-1547700/intercontinental-hua-hin-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-intercontinental-huahin.html",
-      "tags": ["🏖️ Beachfront in the heart of town", "🛍️ Right by BluPort mall", "🐾 Pet-friendly rooms available", "🏊 Pools and wide gardens"],
+      "tags": [
+        "🏖️ Beachfront in the heart of town",
+        "🛍️ Right by BluPort mall",
+        "🐾 Pet-friendly rooms available",
+        "🏊 Pools and wide gardens"
+      ],
       "addr": "33/33 Petchkasem Road, Hua Hin",
       "storyHtml": "InterContinental Hua Hin is an <strong>IHG 5-star resort on the beach in the heart of town, right by BluPort mall</strong>, scoring 9.2 from 176 reviews. It's a location few luxury resorts in Hua Hin can match — want the sea, walk to the beach; want food and shopping, the mall is right there. The design is modern, with pools and wide gardens, and there are pet-friendly rooms. Real guest reviews praise the location, breakfast and warm service. Worth knowing: soundproofing between some rooms isn't great.",
       "tipHtml": "💡 <strong>Tip:</strong> Soundproofing is a point reviews flag — ask for a high floor or the Beach Wing and note it on booking. For a direct sea view, choose an Ocean View room rather than the standard.",
@@ -224,15 +363,29 @@
       "priceBig": "฿4,500",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Junior Suite Pool View (120 sqm)", "price": "from ฿4,500/night" },
-        { "type": "1-Bedroom Pool Villa · private pool", "price": "from ฿9,500/night" },
-        { "type": "2-Bedroom Pool Villa · for families/groups", "price": "from ฿16,000/night" }
+        {
+          "type": "Junior Suite Pool View (120 sqm)",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "1-Bedroom Pool Villa · private pool",
+          "price": "from ฿9,500/night"
+        },
+        {
+          "type": "2-Bedroom Pool Villa · for families/groups",
+          "price": "from ฿16,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/movenpick-asara-resort-and-spa-hua-hin/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/asara-villa-suite.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-1512559/mvenpick-asara-resort-and-spa-hua-hin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-movenpick-asara-huahin.html",
-      "tags": ["💬 368 reviews — the most in the guide", "🛏️ All-suite, rooms from 120 sqm", "🏊 Private pool villas", "🌊 Lagoon and wide gardens"],
+      "tags": [
+        "💬 368 reviews — the most in the guide",
+        "🛏️ All-suite, rooms from 120 sqm",
+        "🏊 Private pool villas",
+        "🌊 Lagoon and wide gardens"
+      ],
       "addr": "53 Hua Hin Soi 5, Hua Hin",
       "storyHtml": "Mövenpick Asara is an <strong>all-suite and pool villa resort (Mövenpick/Accor) with the most reviews in this guide — 368</strong>, scoring 9.0. Every room is a suite starting around 120 sqm, very spacious, and there are private pool villas for families and groups. The resort is laid out around a lagoon and gardens for a private feel. Real guest reviews praise the spacious, good-value suites, the lagoon and pools, and the service. Worth knowing: it's not directly on the beach but close to it, a short walk or drive away.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling as a group or family, the 1–2 bedroom pool villas are great value for the private pool. Even the Junior Suite is far larger than a standard resort room — pick by budget.",
@@ -264,15 +417,29 @@
       "priceBig": "฿2,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Como Deluxe Room (~30 sqm)", "price": "from ฿2,800/night" },
-        { "type": "Junior Suite (~70 sqm)", "price": "from ฿4,200/night" },
-        { "type": "Luxury Garda Suite (~100 sqm)", "price": "from ฿6,500/night" }
+        {
+          "type": "Como Deluxe Room (~30 sqm)",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Junior Suite (~70 sqm)",
+          "price": "from ฿4,200/night"
+        },
+        {
+          "type": "Luxury Garda Suite (~100 sqm)",
+          "price": "from ฿6,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/anantasila-villa-by-the-sea-hua-hin/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/anantasila-villa.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-1512561/anantasila-villa-by-the-sea-hua-hin-beachfront/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-anantasila-beach-resort-huahin.html",
-      "tags": ["🌟 9.6 — top score in the guide", "🏖️ On Khao Takiap beach", "🛏️ Spacious suites", "🐾 Pet-friendly rooms"],
+      "tags": [
+        "🌟 9.6 — top score in the guide",
+        "🏖️ On Khao Takiap beach",
+        "🛏️ Spacious suites",
+        "🐾 Pet-friendly rooms"
+      ],
       "addr": "33/17 Soi Hua Don 7, Nong Kae, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Anantasila is a <strong>4-star beachfront resort on Khao Takiap beach, and the highest-scoring hotel in this guide at 9.6</strong> from 80 reviews. It's a small resort right on the sand — wake up and walk straight onto the beach — from just ฿2,800, which makes it stand out for value among beachfront rooms. There are spacious suites and pet-friendly rooms for guests bringing a dog. Real guest reviews praise the beachfront setting, the quiet and the attentive service. Worth knowing: Khao Takiap is about 10 minutes by car from the main town.",
       "tipHtml": "💡 <strong>Tip:</strong> Reviews single out the beachfront and the quiet — couples or small families can step up to the Junior Suite for more space at a small premium, and pets are welcome in the pet-friendly rooms.",
@@ -304,15 +471,29 @@
       "priceBig": "฿2,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden Deluxe Room (~37 sqm)", "price": "from ฿2,200/night" },
-        { "type": "Sala Deluxe Room · many open onto the pool", "price": "from ฿2,600/night" },
-        { "type": "One Bedroom Suite (~48 sqm)", "price": "from ฿3,600/night" }
+        {
+          "type": "Garden Deluxe Room (~37 sqm)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Sala Deluxe Room · many open onto the pool",
+          "price": "from ฿2,600/night"
+        },
+        {
+          "type": "One Bedroom Suite (~48 sqm)",
+          "price": "from ฿3,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/asira-boutique-huahin/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/asira-boutique-huahin.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-9024048/asira-boutique-huahin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-asira-boutique-huahin.html",
-      "tags": ["🎨 Boutique design", "💦 Many rooms open onto the saltwater pool", "📍 In town, near markets", "🚆 Near the train station"],
+      "tags": [
+        "🎨 Boutique design",
+        "💦 Many rooms open onto the saltwater pool",
+        "📍 In town, near markets",
+        "🚆 Near the train station"
+      ],
       "addr": "4 Damrongrat Road (Soi Hua Hin 51), Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Asira is a <strong>4-star design boutique in central Hua Hin where many rooms open straight onto the saltwater pool</strong>, scoring 9.3 from 163 reviews. Its in-town location means you can walk to the markets and it's near the train station — handy for eating, shopping and sightseeing. The design leans on calm and greenery, a fit for couples and anyone who wants a quiet stay in town. Real guest reviews praise the design, the pool and the warm service. Worth knowing: it's not on the beach, so it's a short drive to the sand.",
       "tipHtml": "💡 <strong>Tip:</strong> For a resort-in-the-city feel, ask for a Sala Deluxe that opens onto the pool. Travelling as three, the Deluxe Triple fits comfortably so you don't need two rooms.",
@@ -344,15 +525,29 @@
       "priceBig": "฿1,600",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Deluxe Pool View (~40 sqm)", "price": "from ฿1,600/night" },
-        { "type": "Deluxe Pool Access (~45 sqm)", "price": "from ฿2,200/night" },
-        { "type": "Family Suite (~80 sqm)", "price": "from ฿3,600/night" }
+        {
+          "type": "Deluxe Pool View (~40 sqm)",
+          "price": "from ฿1,600/night"
+        },
+        {
+          "type": "Deluxe Pool Access (~45 sqm)",
+          "price": "from ฿2,200/night"
+        },
+        {
+          "type": "Family Suite (~80 sqm)",
+          "price": "from ฿3,600/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/g-hua-hin-resort-mall/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/g-huahin.html",
       "tripUrl": "https://www.trip.com/hotels/g-hua-hin-resort-and-mall-hotel-detail-709443/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-g-huahin-resort-mall.html",
-      "tags": ["🛍️ Has its own mall", "🏊 Pool Access rooms step into the pool", "👨‍👩‍👧 Family suites and rooms", "🚆 Near the train station"],
+      "tags": [
+        "🛍️ Has its own mall",
+        "🏊 Pool Access rooms step into the pool",
+        "👨‍👩‍👧 Family suites and rooms",
+        "🚆 Near the train station"
+      ],
       "addr": "250/201 Soi Phetchkasem 94, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "G Hua Hin is a <strong>4-star city resort in the centre of town with its own mall and a spot near the train station</strong>, scoring 9.4 from 126 reviews. Its strength is convenience all in one place — shops downstairs, near Market Village, and easy onward travel. There are Pool Access rooms you step into the pool from, and several family room types, from just ฿1,600, which is good value for a central 4-star. Real guest reviews praise the convenience, the clean rooms and how well it suits families.",
       "tipHtml": "💡 <strong>Tip:</strong> Travelling with family, look at the Family Room or Family Suite with extra sofa beds. To swim easily, choose a Deluxe Pool Access and step straight into the pool from your room.",
@@ -384,15 +579,29 @@
       "priceBig": "฿1,800",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Superior Room · balcony, city view", "price": "from ฿1,800/night" },
-        { "type": "Superior Pool View (~30 sqm)", "price": "from ฿2,100/night" },
-        { "type": "Corner Suite with Balcony · corner room", "price": "from ฿2,800/night" }
+        {
+          "type": "Superior Room · balcony, city view",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Superior Pool View (~30 sqm)",
+          "price": "from ฿2,100/night"
+        },
+        {
+          "type": "Corner Suite with Balcony · corner room",
+          "price": "from ฿2,800/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/maven-stylish-hotel-hua-hin/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/maven-stylish-hua-hin.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-58058235/maven-stylish-hotel-hua-hin/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-maven-stylish-hotel-huahin.html",
-      "tags": ["🎨 Design hotel", "🚶 5-min walk to the beach", "🏊 Pool, with Pool View rooms", "🚆 Near the train station"],
+      "tags": [
+        "🎨 Design hotel",
+        "🚶 5-min walk to the beach",
+        "🏊 Pool, with Pool View rooms",
+        "🚆 Near the train station"
+      ],
       "addr": "120/99 Phetkasem Road, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Maven is a <strong>4-star design hotel in central Hua Hin, about a 5-minute walk to the beach</strong>, scoring 9.4 from 84 reviews. It's a stylish, contemporary stay from just ฿1,800, with a central location that walks to the beach, the markets and the train station. There's a pool and Pool View rooms to choose from. Real guest reviews praise the design, the cleanliness, the walk-everywhere location and the value — a good fit for couples and solo travellers who want a smart hotel in town without the high price.",
       "tipHtml": "💡 <strong>Tip:</strong> For a pool view, the Superior Pool View costs only a little more. Travelling as a couple wanting more lounging space, the Corner Suite has a larger balcony.",
@@ -424,15 +633,29 @@
       "priceBig": "฿390",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Bed in 8-bed mixed dorm · curtains, plug, reading light", "price": "from ฿390/night" },
-        { "type": "Bed in 6-bed mixed dorm", "price": "from ฿440/night" },
-        { "type": "Bed in 4-bed mixed dorm · quietest", "price": "from ฿520/night" }
+        {
+          "type": "Bed in 8-bed mixed dorm · curtains, plug, reading light",
+          "price": "from ฿390/night"
+        },
+        {
+          "type": "Bed in 6-bed mixed dorm",
+          "price": "from ฿440/night"
+        },
+        {
+          "type": "Bed in 4-bed mixed dorm · quietest",
+          "price": "from ฿520/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/litera-hostel/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/litera-hostel.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-24137264/litera-hostel/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-litera-hostel-huahin.html",
-      "tags": ["🪙 From ฿390 — cheapest in the guide", "🔞 Adults Only (18+)", "🛏️ 4/6/8-bed dorms with privacy curtains", "🚶 2-min walk to the beach"],
+      "tags": [
+        "🪙 From ฿390 — cheapest in the guide",
+        "🔞 Adults Only (18+)",
+        "🛏️ 4/6/8-bed dorms with privacy curtains",
+        "🚶 2-min walk to the beach"
+      ],
       "addr": "113/21 Soi Hua Hin 67, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Litera Hostel is the <strong>cheapest stay in this guide — from just ฿390, yet scoring a high 9.4</strong> from 222 reviews. It's an adults-only hostel in central Hua Hin, about a 2-minute walk to the beach, near the night market and the train station. Dorms come in 4/6/8-bed configurations, every bed with privacy curtains, a plug and a reading light. Real guest reviews praise the cleanliness, the good design, the central location and the great value. A great fit for backpackers and budget travellers who want to be based in town.",
       "tipHtml": "💡 <strong>Tip:</strong> For more privacy and the quietest sleep, choose the 4-bed dorm with fewer people. It's adults-only (18+), so families with children need a different option.",
@@ -464,15 +687,29 @@
       "priceBig": "฿2,000",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Garden View Room · balcony + outdoor shower", "price": "from ฿2,000/night" },
-        { "type": "Sea View Room (48 sqm) · sea view", "price": "from ฿3,200/night" },
-        { "type": "Family Bungalow · family bungalow", "price": "from ฿4,200/night" }
+        {
+          "type": "Garden View Room · balcony + outdoor shower",
+          "price": "from ฿2,000/night"
+        },
+        {
+          "type": "Sea View Room (48 sqm) · sea view",
+          "price": "from ฿3,200/night"
+        },
+        {
+          "type": "Family Bungalow · family bungalow",
+          "price": "from ฿4,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sanae-beach-club/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/sanae-beach-club-resort.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-2803043/sanae-beach-club/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-sanae-beach-huahin.html",
-      "tags": ["🌊 Quiet Sai Noi beach, Khao Tao", "🏖️ Beachfront, 12 rooms", "🐾 Pet-friendly rooms", "🛁 Balcony + outdoor shower"],
+      "tags": [
+        "🌊 Quiet Sai Noi beach, Khao Tao",
+        "🏖️ Beachfront, 12 rooms",
+        "🐾 Pet-friendly rooms",
+        "🛁 Balcony + outdoor shower"
+      ],
       "addr": "69/19 Soi Moo Baan Khao Tao, Nong Kae, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Sanae Beach is a <strong>small beachfront boutique resort of just 12 rooms on Sai Noi beach at Khao Tao</strong>, scoring 8.4 from 123 reviews. Its charm is Sai Noi beach, which is quiet and very private, well away from the bustle of central Hua Hin about 12 km north. Rooms range from garden views with an outdoor shower to sea-view rooms and family bungalows, and there are pet-friendly rooms. Real guest reviews praise the quiet, the private beach and the restful feel. Worth knowing: it's far from town, so a car is more convenient.",
       "tipHtml": "💡 <strong>Tip:</strong> Come for the quiet and the private beach — for waking to the sea, choose a Sea View Room. It's far from town, so bring a car and grab seafood at Khao Tao before checking in.",
@@ -504,15 +741,29 @@
       "priceBig": "฿1,200",
       "priceSub": "from approx./night",
       "rooms": [
-        { "type": "Standard Room · AC, fridge, balcony", "price": "from ฿1,200/night" },
-        { "type": "Deluxe Room · front side, larger balcony", "price": "from ฿1,800/night" },
-        { "type": "Family Room · near the kids' pool", "price": "from ฿2,200/night" }
+        {
+          "type": "Standard Room · AC, fridge, balcony",
+          "price": "from ฿1,200/night"
+        },
+        {
+          "type": "Deluxe Room · front side, larger balcony",
+          "price": "from ฿1,800/night"
+        },
+        {
+          "type": "Family Room · near the kids' pool",
+          "price": "from ฿2,200/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/takiab-beach-resort/hotel/hua-hin-cha-am-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/takiab-beach-resort-hua-hin.html",
       "tripUrl": "https://www.trip.com/hotels/hua-hin-hotel-detail-709612/takiab-beach-resort/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "review-takiab-beach-resort-huahin.html",
-      "tags": ["🪙 From ฿1,200, near the beach", "🏖️ Khao Takiap, near Cicada Market", "🏊 Has a pool", "👨‍👩‍👧 Family rooms"],
+      "tags": [
+        "🪙 From ฿1,200, near the beach",
+        "🏖️ Khao Takiap, near Cicada Market",
+        "🏊 Has a pool",
+        "👨‍👩‍👧 Family rooms"
+      ],
       "addr": "33/5-6 Khao Takiab, Nong Kae, Hua Hin, Prachuap Khiri Khan",
       "storyHtml": "Takiab Beach Resort is a <strong>budget stay at Khao Takiap, from just ฿1,200 and close to the beach</strong>, scoring 8.1 from 39 reviews. It's a value pick for anyone who wants to be near Khao Takiap beach and Cicada Market without paying much. There's a pool, and rooms have AC, a fridge and a private balcony, plus family rooms. Real guest reviews praise the location near the beach and market, and the low price. Worth knowing: it's a budget property, with simple facilities and service rather than a luxury resort.",
       "tipHtml": "💡 <strong>Tip:</strong> For a larger front-facing balcony, choose the Deluxe Room. Walk to Cicada Market in the evening for good food — and set your expectations to a budget stay.",
@@ -530,38 +781,209 @@
     }
   ],
   "compareTitle": "Comparison Table — 12 Hua Hin Hotels 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/night", "Area", "Highlight"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/night",
+    "Area",
+    "Highlight"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#c8a951", "name": "Centara Grand Beach Resort & Villas", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿4,800", "access": "📍 Central Hua Hin beach", "badge": "Heritage, 1923", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#c8a951", "name": "Hyatt Regency Hua Hin", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿4,800", "access": "📍 Khao Takiap beachfront", "badge": "Most-reviewed luxury", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "3", "rankColor": "#c8a951", "name": "Putahracsa Hua Hin", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿4,500", "access": "📍 South Hua Hin, Naebkehardt", "badge": "Most-reviewed boutique", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "4", "rankColor": "#c8a951", "name": "InterContinental Hua Hin Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.2", "price": "฿5,500", "access": "📍 Central beach, by BluPort", "badge": "Beachfront, walk to mall", "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;" },
-    { "rank": "5", "rankColor": "#9e9e9e", "name": "Mövenpick Asara Resort & Spa", "type": "⭐⭐⭐⭐⭐", "score": "9.0", "price": "฿4,500", "access": "📍 Khao Takiap / north Hua Hin", "badge": "Most-reviewed in guide", "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;" },
-    { "rank": "6", "rankColor": "#9e9e9e", "name": "Anantasila Beach Resort", "type": "⭐⭐⭐⭐", "score": "9.6", "price": "฿2,800", "access": "📍 Khao Takiap beach, beachfront", "badge": "Top score in guide", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "7", "rankColor": "#9e9e9e", "name": "Asira Boutique HuaHin", "type": "⭐⭐⭐⭐", "score": "9.3", "price": "฿2,200", "access": "📍 In town, near markets", "badge": "Design boutique in town", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "8", "rankColor": "#bf8040", "name": "G Hua Hin Resort & Mall", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,600", "access": "📍 Central, has its own mall", "badge": "Family-friendly", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "9", "rankColor": "#bf8040", "name": "Maven Stylish Hotel Hua Hin", "type": "⭐⭐⭐⭐", "score": "9.4", "price": "฿1,800", "access": "📍 Central, 5-min walk to beach", "badge": "Design hotel", "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;" },
-    { "rank": "10", "rankColor": "#5d4037", "name": "Litera Hostel Hua Hin", "type": "⭐⭐", "score": "9.4", "price": "฿390", "access": "📍 In town, 2-min walk to beach", "badge": "Cheapest in the guide", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" },
-    { "rank": "11", "rankColor": "#5d4037", "name": "Sanae Beach Hua Hin", "type": "⭐⭐⭐", "score": "8.4", "price": "฿2,000", "access": "📍 Sai Noi beach, Khao Tao", "badge": "Quiet private beach", "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;" },
-    { "rank": "12", "rankColor": "#5d4037", "name": "Takiab Beach Resort", "type": "⭐⭐⭐", "score": "8.1", "price": "฿1,200", "access": "📍 Khao Takiap, near Cicada Market", "badge": "Beachy and cheap", "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;" }
+    {
+      "rank": "1",
+      "rankColor": "#c8a951",
+      "name": "Centara Grand Beach Resort & Villas",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿4,800",
+      "access": "📍 Central Hua Hin beach",
+      "badge": "Heritage, 1923",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#c8a951",
+      "name": "Hyatt Regency Hua Hin",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿4,800",
+      "access": "📍 Khao Takiap beachfront",
+      "badge": "Most-reviewed luxury",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#c8a951",
+      "name": "Putahracsa Hua Hin",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿4,500",
+      "access": "📍 South Hua Hin, Naebkehardt",
+      "badge": "Most-reviewed boutique",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#c8a951",
+      "name": "InterContinental Hua Hin Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.2",
+      "price": "฿5,500",
+      "access": "📍 Central beach, by BluPort",
+      "badge": "Beachfront, walk to mall",
+      "badgeStyle": "background:#f3e5f5;color:#6a1b9a;border-color:#ce93d8;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#9e9e9e",
+      "name": "Mövenpick Asara Resort & Spa",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿4,500",
+      "access": "📍 Khao Takiap / north Hua Hin",
+      "badge": "Most-reviewed in guide",
+      "badgeStyle": "background:#e8f5e9;color:#1b5e20;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#9e9e9e",
+      "name": "Anantasila Beach Resort",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.6",
+      "price": "฿2,800",
+      "access": "📍 Khao Takiap beach, beachfront",
+      "badge": "Top score in guide",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#9e9e9e",
+      "name": "Asira Boutique HuaHin",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿2,200",
+      "access": "📍 In town, near markets",
+      "badge": "Design boutique in town",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#bf8040",
+      "name": "G Hua Hin Resort & Mall",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,600",
+      "access": "📍 Central, has its own mall",
+      "badge": "Family-friendly",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#bf8040",
+      "name": "Maven Stylish Hotel Hua Hin",
+      "type": "⭐⭐⭐⭐",
+      "score": "9.4",
+      "price": "฿1,800",
+      "access": "📍 Central, 5-min walk to beach",
+      "badge": "Design hotel",
+      "badgeStyle": "background:#eceff1;color:#37474f;border-color:#b0bec5;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#5d4037",
+      "name": "Litera Hostel Hua Hin",
+      "type": "⭐⭐",
+      "score": "9.4",
+      "price": "฿390",
+      "access": "📍 In town, 2-min walk to beach",
+      "badge": "Cheapest in the guide",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    },
+    {
+      "rank": "11",
+      "rankColor": "#5d4037",
+      "name": "Sanae Beach Hua Hin",
+      "type": "⭐⭐⭐",
+      "score": "8.4",
+      "price": "฿2,000",
+      "access": "📍 Sai Noi beach, Khao Tao",
+      "badge": "Quiet private beach",
+      "badgeStyle": "background:#e0f2f1;color:#00695c;border-color:#80cbc4;"
+    },
+    {
+      "rank": "12",
+      "rankColor": "#5d4037",
+      "name": "Takiab Beach Resort",
+      "type": "⭐⭐⭐",
+      "score": "8.1",
+      "price": "฿1,200",
+      "access": "📍 Khao Takiap, near Cicada Market",
+      "badge": "Beachy and cheap",
+      "badgeStyle": "background:#fbe9e7;color:#bf360c;border-color:#ffab91;"
+    }
   ],
   "adviceTitle": "How to pick the right Hua Hin hotel for you",
   "advice": [
-    { "icon": "💰", "head": "On a tight budget, want the best value", "bodyHtml": "→ <strong>Litera Hostel Hua Hin</strong> ฿390 central hostel, scoring 9.4 · or <strong>Takiab Beach Resort</strong> ฿1,200 near Khao Takiap beach" },
-    { "icon": "🏖️", "head": "Want a luxury beachfront resort", "bodyHtml": "→ <strong>Centara Grand Beach Resort</strong> ฿4,800 heritage resort on the beach in town · or <strong>Hyatt Regency Hua Hin</strong> ฿4,800 beachfront at Khao Takiap, home of The Barai spa" },
-    { "icon": "👨‍👩‍👧", "head": "Travelling as a family with kids", "bodyHtml": "→ <strong>G Hua Hin Resort & Mall</strong> ฿1,600 with its own mall and family rooms · or <strong>Mövenpick Asara</strong> ฿4,500 all-suite pool villas, great for groups" },
-    { "icon": "💑", "head": "Romantic trip, couples, honeymoon", "bodyHtml": "→ <strong>Putahracsa Hua Hin</strong> ฿4,500 beachfront pool villas · or <strong>Asira Boutique HuaHin</strong> ฿2,200 design boutique with rooms opening onto the pool" },
-    { "icon": "🌊", "head": "Want a quiet, private beach", "bodyHtml": "→ <strong>Anantasila Beach Resort</strong> ฿2,800 beachfront at Khao Takiap, scoring 9.6 · or <strong>Sanae Beach Hua Hin</strong> ฿2,000 quiet Sai Noi beach at Khao Tao" },
-    { "icon": "🎨", "head": "Want a design hotel in town", "bodyHtml": "→ <strong>Maven Stylish Hotel</strong> ฿1,800 design, 5-min walk to the beach · or <strong>Asira Boutique HuaHin</strong> ฿2,200 design boutique near the markets" }
+    {
+      "icon": "💰",
+      "head": "On a tight budget, want the best value",
+      "bodyHtml": "→ <strong>Litera Hostel Hua Hin</strong> ฿390 central hostel, scoring 9.4 · or <strong>Takiab Beach Resort</strong> ฿1,200 near Khao Takiap beach"
+    },
+    {
+      "icon": "🏖️",
+      "head": "Want a luxury beachfront resort",
+      "bodyHtml": "→ <strong>Centara Grand Beach Resort</strong> ฿4,800 heritage resort on the beach in town · or <strong>Hyatt Regency Hua Hin</strong> ฿4,800 beachfront at Khao Takiap, home of The Barai spa"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "Travelling as a family with kids",
+      "bodyHtml": "→ <strong>G Hua Hin Resort & Mall</strong> ฿1,600 with its own mall and family rooms · or <strong>Mövenpick Asara</strong> ฿4,500 all-suite pool villas, great for groups"
+    },
+    {
+      "icon": "💑",
+      "head": "Romantic trip, couples, honeymoon",
+      "bodyHtml": "→ <strong>Putahracsa Hua Hin</strong> ฿4,500 beachfront pool villas · or <strong>Asira Boutique HuaHin</strong> ฿2,200 design boutique with rooms opening onto the pool"
+    },
+    {
+      "icon": "🌊",
+      "head": "Want a quiet, private beach",
+      "bodyHtml": "→ <strong>Anantasila Beach Resort</strong> ฿2,800 beachfront at Khao Takiap, scoring 9.6 · or <strong>Sanae Beach Hua Hin</strong> ฿2,000 quiet Sai Noi beach at Khao Tao"
+    },
+    {
+      "icon": "🎨",
+      "head": "Want a design hotel in town",
+      "bodyHtml": "→ <strong>Maven Stylish Hotel</strong> ฿1,800 design, 5-min walk to the beach · or <strong>Asira Boutique HuaHin</strong> ฿2,200 design boutique near the markets"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard rooms and can change by date and season — always check live prices and compare 3 sites before booking. High season (November–February) brings cool, pleasant weather but more crowds and higher prices, especially on long weekends, New Year and Songkran, so book 1–2 months ahead, as Hua Hin is a top weekend escape for Bangkok residents. The rainy season (May–October) is cheaper and quieter. Hua Hin has no metro — getting around means your own car, rental car, scooter, and songthaews in town. Bangkok to Hua Hin is about 2.5–3 hours. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common traveller questions about Hua Hin hotels",
   "faq": [
-    { "q": "❓ Which area should I stay in around Hua Hin?", "a": "It depends on your travel style. <strong>Central Hua Hin beach</strong> is the hub — beach, malls, night market, train station, easiest to get around (Centara Grand, InterContinental, Asira, Maven, G Hua Hin, Litera). <strong>Khao Takiap</strong> has a wider, quieter beach at the southern end and is the beachfront resort zone (Hyatt Regency, Mövenpick, Anantasila, Takiab). <strong>Khao Tao / Sai Noi beach</strong> is a quiet, private beach about 12 km south of town (Sanae Beach)." },
-    { "q": "❓ How much do Hua Hin hotels cost?", "a": "There's a wide range: hostels and budget stays start around ฿390–1,800 a night; boutiques and 4-star run about ฿1,600–2,800; 5-star beachfront resorts start around ฿4,500–5,500+, with sea-view rooms and pool villas higher again. All prices are approximate starting rates for standard rooms; high season (Nov–Feb) and long weekends run well above normal." },
-    { "q": "❓ How far ahead should I book a Hua Hin hotel?", "a": "On weekdays outside the tourist season, 2–4 weeks ahead is fine. But in high season (November–February), and especially on long weekends, New Year and Songkran, good rooms and beachfront resorts fill up fast — book 1–2 months ahead or more, since Hua Hin is a top weekend escape for Bangkok residents." },
-    { "q": "❓ How do I get to Hua Hin, and do I need a car?", "a": "Bangkok to Hua Hin is about <strong>2.5–3 hours</strong> by car, minivan or train. Within central Hua Hin there are songthaews and motorbike taxis, which work fine. But if you're staying at Khao Takiap or Khao Tao, <strong>having a car is much more convenient</strong>, as distances are longer and public transport is limited." },
-    { "q": "❓ Which site is cheapest for booking Hua Hin hotels?", "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at different times — we recommend opening all three and comparing before every booking. Each review page in this guide has price-comparison links, which can save you several hundred to over a thousand baht a night during peak periods." },
-    { "q": "❓ Is Hua Hin better for families or couples?", "a": "It works for both. <strong>For families</strong>, choose somewhere with family rooms or pool villas, such as G Hua Hin (its own mall), Mövenpick Asara (all-suite pool villas) or Centara Grand. <strong>For couples and honeymooners</strong>, choose a beachfront boutique or design stay, such as Putahracsa (beachfront pool villas), Asira (rooms opening onto the pool) or Anantasila (quiet beachfront)." }
-  ]
+    {
+      "q": "❓ Which area should I stay in around Hua Hin?",
+      "a": "It depends on your travel style. <strong>Central Hua Hin beach</strong> is the hub — beach, malls, night market, train station, easiest to get around (Centara Grand, InterContinental, Asira, Maven, G Hua Hin, Litera). <strong>Khao Takiap</strong> has a wider, quieter beach at the southern end and is the beachfront resort zone (Hyatt Regency, Mövenpick, Anantasila, Takiab). <strong>Khao Tao / Sai Noi beach</strong> is a quiet, private beach about 12 km south of town (Sanae Beach)."
+    },
+    {
+      "q": "❓ How much do Hua Hin hotels cost?",
+      "a": "There's a wide range: hostels and budget stays start around ฿390–1,800 a night; boutiques and 4-star run about ฿1,600–2,800; 5-star beachfront resorts start around ฿4,500–5,500+, with sea-view rooms and pool villas higher again. All prices are approximate starting rates for standard rooms; high season (Nov–Feb) and long weekends run well above normal."
+    },
+    {
+      "q": "❓ How far ahead should I book a Hua Hin hotel?",
+      "a": "On weekdays outside the tourist season, 2–4 weeks ahead is fine. But in high season (November–February), and especially on long weekends, New Year and Songkran, good rooms and beachfront resorts fill up fast — book 1–2 months ahead or more, since Hua Hin is a top weekend escape for Bangkok residents."
+    },
+    {
+      "q": "❓ How do I get to Hua Hin, and do I need a car?",
+      "a": "Bangkok to Hua Hin is about <strong>2.5–3 hours</strong> by car, minivan or train. Within central Hua Hin there are songthaews and motorbike taxis, which work fine. But if you're staying at Khao Takiap or Khao Tao, <strong>having a car is much more convenient</strong>, as distances are longer and public transport is limited."
+    },
+    {
+      "q": "❓ Which site is cheapest for booking Hua Hin hotels?",
+      "a": "Prices on each site (Agoda, Booking.com, Trip.com) vary by promotion at different times — we recommend opening all three and comparing before every booking. Each review page in this guide has price-comparison links, which can save you several hundred to over a thousand baht a night during peak periods."
+    },
+    {
+      "q": "❓ Is Hua Hin better for families or couples?",
+      "a": "It works for both. <strong>For families</strong>, choose somewhere with family rooms or pool villas, such as G Hua Hin (its own mall), Mövenpick Asara (all-suite pool villas) or Centara Grand. <strong>For couples and honeymooners</strong>, choose a beachfront boutique or design stay, such as Putahracsa (beachfront pool villas), Asira (rooms opening onto the pool) or Anantasila (quiet beachfront)."
+    }
+  ],
+  "quickAnswerHtml": "12 Hua Hin hotels we reviewed across every tier — from the heritage Centara Grand on the beach in town and beachfront Hyatt Regency at Khao Takiap, down to Litera Hostel from ฿390. Real guest-review scores, honest pros and cons, from-prices, 3-site price comparison and direct booking links."
 }
