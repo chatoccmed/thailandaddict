@@ -1,0 +1,14 @@
+import fs from 'fs';
+const B = '/images/food/khao-san/';
+const HERO = { file: 'khao-san-hero.jpg', th: 'ภาพ: ภูเขาทอง วัดสระเกศ (Golden Mount) ย่านข้าวสาร-เมืองเก่า · Vyacheslav Argenberg / Wikimedia (CC BY 4.0)', en: 'Photo: Golden Mount, Wat Saket (Khao San–Old Town) · Vyacheslav Argenberg / Wikimedia (CC BY 4.0)', href: 'https://commons.wikimedia.org/wiki/File:Wat_Saket,_Golden_Mount,_Bangkok,_Thailand.jpg' };
+const IMG = {};
+for (const [path, isEn] of [['astro/src/content/articles/top10-attractions-khao-san.json', false], ['astro/src/content/articles-en/top10-attractions-khao-san.json', true]]) {
+  if (!fs.existsSync(path)) { console.log((isEn ? 'EN' : 'TH') + ': SKIP (file not found) ' + path); continue; }
+  const a = JSON.parse(fs.readFileSync(path, 'utf8'));
+  a.image = B + HERO.file; a.heroImg = B + HERO.file; a.heroCredit = isEn ? HERO.en : HERO.th; a.heroCreditHref = HERO.href;
+  let n = 0;
+  for (const b of a.blocks) { if (b.kind === 'restaurant' && IMG[b.rank]) { b.libImg = B + IMG[b.rank].file; b.libCredit = isEn ? IMG[b.rank].en : IMG[b.rank].th; b.libCreditHref = IMG[b.rank].href; n++; } }
+  fs.writeFileSync(path, JSON.stringify(a, null, 2) + '\n');
+  JSON.parse(fs.readFileSync(path, 'utf8'));
+  console.log((isEn ? 'EN' : 'TH') + ': hero=' + HERO.file + ' + ' + n + ' cards imaged');
+}
