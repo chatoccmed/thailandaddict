@@ -68,7 +68,13 @@ Owner-requested running log (บันทึกการทำงานเป็
 - Notes: 9 new hotel reviews (Workflow-fanout) + 5 reuse. Deploy Version e20c7bfe. cafes workflow died with prior session → relaunched (`wf_4ad72c99`) + reusable hang-poller `_internal/wf/poll-wf.sh`; all 10 cafes had social embeds (0 CC). 2 Wikimedia-CC attraction photos (Chamchuri Square hero, Erawan Brahma for the no-social shrine card). Concurrent-builder-race: commit 4acba155 (another loop) had an incomplete attractions (missing r10 img) → fixed in 7f834d5a; verified HEAD = full correct set before deploy. (⚠️ the cafes/attractions names in an earlier draft of this entry were stale — corrected to the live set.)
 
 ## ⏳ In progress (TWO loops running — coordinate via ย่าน geography to avoid hotel collisions)
-### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — ⚙ CONCURRENT loop · started 2026-06-27 · central-shopping-core hotels (Amari/Centara Grand CentralWorld/Grand Hyatt Erawan/InterContinental = Ratchaprasong)
+### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — 2026-06-27 (✅ LIVE, TH+EN · central-core loop)
+- 🏨 https://thailandaddict.com/top10-hotels-siam-pratunam-bangkok — 10 hotels (Grand Hyatt Erawan/Centara Grand CentralWorld/Anantara Siam/InterContinental/Renaissance Ratchaprasong/Amari/Grande Centre Point Ratchadamri/Pathumwan Princess/Novotel Siam Square/Siam@Siam — 5 new + 5 reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-siam-pratunam-bangkok — 5 value 2-3★ (ibis Siam/Golden House Chidlom/Siam Swana/Siam Nitra/Lub d Siam — all reuse)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-siam-pratunam — Go-Ang Pratunam chicken rice (Michelin), Inter Restaurant grandma's fried rice, Saneh Jaan (Michelin Thai), After You, Erawan Tea Room...
+- ☕ https://thailandaddict.com/top10-popular-cafes-siam-pratunam — % Arabica CentralWorld, Gallery Drip Coffee (BACC), Brave Roasters, Karun Thai Tea, Thongyoy, Cheevit Cheeva bingsu...
+- 📸 https://thailandaddict.com/top10-attractions-siam-pratunam — Siam Paragon+SEA LIFE, CentralWorld, Erawan Shrine, MBK, BACC, Jim Thompson House, Platinum Mall...
+- Notes: 5 NEW flagship reviews (Workflow-fanout) + 5 reuse + Pathumwan Princess reused from samyan. restaurants hung at Frame→Assemble (poller caught 14min) → resume recovered. CentralWorld-night CC hero + Erawan-dance CC card. SELECTIVE git add (other loop building phrom-phong in same tree).
 ### 11. Phrom Phong (พร้อมพงษ์) — ⚙ THIS session (Imac) · started 2026-06-27 · Sukhumvit-east (Emporium/EmQuartier/Phrom Phong BTS) — deliberately skipped ahead of #8–#10 (central core) to avoid colliding with the concurrent loop. Will return to fill any gaps.
 
 ## 📋 Queue (popular-first; #8 siam-pratunam taken by concurrent loop)
