@@ -1,6 +1,6 @@
-# SESSION HANDOFF — start here (last updated 2026-06-26, ~15:45, after the budget-calculator ship)
+# SESSION HANDOFF — start here (last updated 2026-06-26, ~16:45, after de-orphan + Klook deploy)
 
-> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `f7ddd4de`. Nothing is half-done.
+> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `a98edca8`. Nothing is half-done.
 
 ---
 
@@ -16,6 +16,7 @@
 - (earlier in the session: GA4 scaffold gated/needs ID, hreflang-404 fix, currency on review/article, /trip surfaced in nav, Planner v2 = per-day Maps route + .ics, quick-answer+Speakable+LCP).
 
 **Set B — content + tools:**
+- **De-orphan + #16 Klook (deploy `a98edca8`):** national prep/persona guides hoisted to a shared `NAT_GUIDES` const → `country-thailand` now shows a "Plan your trip" guides panel (TH+EN) linking all 22 guides + trip-budget directly from the top country hub. #16 Klook deep-links were ALREADY on all eat-rankings + 1,058 attractions (`/en-US/search/?query=…&aid=121442`); only `lampang` was missing its foodexp link → fixed (TH+EN). **GYG is gated** — 6,766 files carry `__GYG_PARTNER_ID__` placeholders, ready for a repo-wide find-replace once the owner provides the GetYourGuide partner ID. (Bangkok ย่าน hubs were already linked from city-bangkok — not orphaned.)
 - **Budget calculator — SHIPPED + LIVE (deploy `f7ddd4de`)** at `/trip-budget` (TH) + `/en/trip-budget` (EN, reciprocal hreflang). Planner-styled (reuses /trip chrome+CSS, owner-approved "match the planner"). Interactive days×travelers×style → live ฿ trip range; verified per-day figures from the `thailand-travel-budget` guide (NOT fabricated); `budget_calc` + `budget_to_planner` track() events. Surfaced: card on plan-your-trip (gen-hubs G list, tool CTA label) + `cta` block in the `thailand-travel-budget` guide (TH+EN) + hero cross-link in trip.html. ⚠️ standalone public/ pages (not gen-hubs) — edit the HTML directly; if changing one, update both TH+EN twins.
 - **10-topic persona/practical cluster × TH/EN = 20 bilingual guides** (slugs): `thailand-festival-calendar`, `lgbtq-thailand-guide` (2025 marriage-equality law), `solo-female-travel-thailand`, `accessible-travel-thailand`, `family-travel-thailand`, `vegan-vegetarian-thailand`, `digital-nomad-thailand` (DTV visa), `health-medical-thailand`, `halal-travel-thailand`, `senior-travel-thailand`. Each: `quickAnswerHtml` + AEO `table` + 5 `faq`; `type:prep, cluster:thailand`; surfaced as cards on `plan-your-trip` (gen-hubs `G` list) + ItemList JSON-LD.
 - **best-time heatmap** — new `heatmap` block kind in ArticleLayout + content.config; month×region climate grid in `best-time-to-visit-thailand` (TH+EN).
