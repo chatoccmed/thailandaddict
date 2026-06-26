@@ -83,6 +83,10 @@ const NAT_GUIDES = [
     ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
     ['thailand-cooking-classes','🍳','เรียนทำอาหารไทย','Cooking classes','คลาสที่ไหนดี ราคา จองยังไง','Where, prices & how to book','ดูคลาส →','See classes →'],
     ['thailand-diving','🤿','ดำน้ำในไทย','Diving & scuba','เรียน-เที่ยวที่ไหนดี ฤดูกาล ราคา','Where to learn + dive, seasons, cost','ดูคอร์ส →','See courses →'],
+    ['thailand-elephant-sanctuary','🐘','ปางช้างเชิงอนุรักษ์','Elephant sanctuaries','ไม่ขี่ช้าง ที่ไหนดี ราคา','No-riding sanctuaries, where & prices','ดูปาง →','See sanctuaries →'],
+    ['thailand-island-hopping','🏝️','เที่ยวเกาะ Island Hopping','Island hopping','พีพี เจมส์บอนด์ ทัวร์ไหนดี','Phi Phi, James Bond — best tours','ดูทัวร์ →','See tours →'],
+    ['muay-thai-thailand','🥊','ดู & เรียนมวยไทย','Muay Thai','สนามไหนดี ตั๋ว เรียนที่ไหน','Stadiums, tickets & training','ดูตั๋ว →','See tickets →'],
+    ['bangkok-temples-grand-palace','🛕','วัด & พระบรมมหาราชวัง','Temples & Grand Palace','ทัวร์ ตั๋ว ค่าเข้า การแต่งกาย','Tours, tickets, dress code','ดูทัวร์ →','See tours →'],
 ];
 const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
