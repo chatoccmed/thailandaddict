@@ -44,7 +44,8 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - ✅ **#12 hub schema — DONE & LIVE (deploys `a52a3cf1` + `80a5923e`):** `sameAs` (Wikidata + en/th Wikipedia) on all 89 hubs (77 provinces + 12 destinations) + `containsPlace` (≤6 notable attractions, locale-aware) on every hub + `geo`. Verified, nothing fabricated. 4 stale gold resto twins refreshed. (`aggregateRating` on a Place = schema-risky → skipped.)
 - ✅ **Budget calculator — SHIPPED & LIVE (deploy `f7ddd4de`):** `/trip-budget` + `/en/trip-budget` (planner-styled, verified figures, reciprocal hreflang); surfaced on plan-your-trip + the budget guide (TH+EN) + trip.html.
 - ✅ **De-orphan + #16 Klook — DONE & LIVE (deploy `a98edca8`):** national-guides panel on country-thailand (22 guides, TH+EN); Klook deep-links confirmed on all eat-rankings + 1,058 attractions (lampang gap fixed). Bangkok ย่าน already linked from city-bangkok.
-- **Doable next (lower priority):** more niche guides (cooking classes, diving) · refresh stale gold twins (done) · /en/trip planner (translation-heavy)
+- ✅ **Niche affiliate guides — DONE & LIVE (deploy `d8f78ece`):** thailand-cooking-classes + thailand-diving (TH+EN) with Klook deep-links (`aid=121442`) + GYG placeholder; surfaced on plan-your-trip + country-thailand.
+- **Doable next (lower priority):** more activity guides (island-hopping, muay thai, yoga/wellness, elephant sanctuaries) on the same Klook-affiliate recipe · /en/trip planner (translation-heavy)
 - **Owner-gated remaining:** GA4 ID · **GYG partner ID** (6,766 `__GYG_PARTNER_ID__` placeholders ready) · 12Go/Airalo/SafetyWing IDs · email ESP endpoint
 - **Note:** persona/national guides already surfaced as cards on plan-your-trip (TH+EN) via gen-hubs G.
 

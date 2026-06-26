@@ -85,6 +85,7 @@ const S = {
     bylineReadTime: 'อ่าน',
     quickAnswerEyebrow: 'คำตอบสั้นๆ',
     methodologyLabel: 'วิธีการคัดเลือก · ตรวจสอบ · การเปิดเผย',
+    wishWord: '🔖 เก็บลงแผน', wishSaved: '✓ เก็บแล้ว',
     sourcesTitle: 'แหล่งอ้างอิง · Sources & Citations',
     aboutAuthorTitle: 'เกี่ยวกับผู้เขียน',
     ftTag: 'Thailand, Done Right',
@@ -108,6 +109,7 @@ const S = {
     bylineReadTime: 'Read time',
     quickAnswerEyebrow: 'Quick Answer',
     methodologyLabel: 'How we picked · Verification · Disclosure',
+    wishWord: '🔖 Save to plan', wishSaved: '✓ Saved',
     sourcesTitle: 'Sources & Citations',
     aboutAuthorTitle: 'About the author',
     ftTag: 'Thailand, Done Right',
@@ -121,6 +123,19 @@ const S = {
 }[lang];
 
 const reviewAbs = (h: string) => `${base}/${h.replace(/\.html$/, '')}`;
+
+// Trip-planner ("ta_wishlist") wiring — derive the province for each saved hotel
+// from the breadcrumb. The "city-<slug>.html" crumb gives the province slug
+// (data-city) + its display name (data-province), matching the shape that
+// ReviewLayout's .btn-wish writes ({city: slug, province: displayName}).
+const cityCrumb = data.breadcrumb.find((b) => /(?:^|\/)city-[a-z0-9-]+\.html$/i.test(b.href || ''));
+const wishCitySlug = cityCrumb && cityCrumb.href
+  ? cityCrumb.href.replace(/^.*\/?city-/i, '').replace(/\.html$/i, '')
+  : '';
+const wishProvince = cityCrumb ? cityCrumb.name : '';
+// Strip a review href down to the bare slug used as the wishlist key:
+// drop a leading "/" or "/en/" and the trailing ".html".
+const wishSlug = (h: string) => (h || '').replace(/^\/?(?:en\/)?/, '').replace(/\.html$/i, '');
 
 const itemList = {
   '@type': 'ItemList',
@@ -316,6 +331,11 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 .author-bio-tagline{font-style:italic;font-size:12.5px;color:#64748b;border-left:3px solid #FBBF24;padding-left:10px;margin-top:6px}
 .author-bio-link{display:inline-block;margin-top:8px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;color:#06B6D4;border-bottom:1px solid transparent;transition:border-color .2s}
 .author-bio-link:hover{border-bottom-color:#06B6D4}
+
+/* Per-hotel "save to plan" button (entry card → ta_wishlist · shared with FAB + /trip) */
+.entry-save{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;color:#0891b2;background:#ffffff;border:1.5px solid #06B6D4;border-radius:12px;padding:10px 16px;cursor:pointer;transition:all .18s;white-space:nowrap;box-shadow:0 2px 8px rgba(6,182,212,.1)}
+.entry-save:hover{background:#f1fbfd;transform:translateY(-1px);box-shadow:0 6px 16px rgba(6,182,212,.22)}
+.entry-save.saved{color:#fff;background:linear-gradient(135deg,#06B6D4,#0891b2);border-color:transparent;box-shadow:0 7px 16px rgba(6,182,212,.36)}
 </style>
 <!-- ad/monetization tag removed — add ThailandAddict's own here later -->
 </head>
@@ -522,6 +542,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
           <a class="btn-sec" href={e.bookingUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
           <a class="btn-trip" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
           {e.reviewUrl && <a class="btn-text" href={link(e.reviewUrl)}>{S.btnText}</a>}
+          <button class="entry-save" type="button" data-slug={wishSlug(e.reviewUrl)} data-name={e.name} data-img={asset(e.img)} data-url={link(e.reviewUrl)} data-type="stay" data-city={wishCitySlug} data-province={wishProvince} data-word={S.wishWord} data-saved={S.wishSaved}>{S.wishWord}</button>
         </div>
         <div class="entry-content-col">
           <div class="tags-row">
@@ -734,9 +755,53 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 })();
 </script>
+<script is:inline>
+(function(){
+  // Per-hotel save-to-plan buttons (entry cards → ta_wishlist localStorage · shared with the FAB + /trip planner)
+  var KEY='ta_wishlist';
+  function get(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  document.querySelectorAll('.entry-save').forEach(function(btn){
+    var slug=btn.dataset.slug;
+    function render(){var on=get().some(function(x){return x.slug===slug});btn.classList.toggle('saved',on);btn.textContent=on?btn.dataset.saved:btn.dataset.word;}
+    render();
+    btn.addEventListener('click',function(){
+      var l=get(), i=-1; for(var k=0;k<l.length;k++){if(l[k].slug===slug){i=k;break;}}
+      var added=i<0;
+      if(i>=0){l.splice(i,1);}else{l.push({slug:slug,name:btn.dataset.name,img:btn.dataset.img,url:btn.dataset.url,type:btn.dataset.type||'stay',city:btn.dataset.city||'',province:btn.dataset.province||''});}
+      try{localStorage.setItem(KEY,JSON.stringify(l));}catch(e){}
+      render();
+      if(window.taSyncFab)taSyncFab();
+      if(window.taPlanToast)taPlanToast(added,btn.dataset.name,l.length);
+    });
+  });
+})();
+</script>
 <a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
-<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}</style>
-<script>(function(){try{var l=JSON.parse(localStorage.getItem('ta_wishlist')||'[]');if(l&&l.length){var f=document.getElementById('taTripFab');document.getElementById('taTripN').textContent=l.length;f.style.display='flex';}}catch(e){}})();</script>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link"></a></div>
+<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
+.ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
+.ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.ta-plantoast .tpt-msg{flex:1;line-height:1.35;min-width:0}
+.ta-plantoast .tpt-link{flex-shrink:0;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;padding:7px 13px;border-radius:999px;white-space:nowrap}
+@media(max-width:560px){.ta-plantoast{bottom:82px;left:12px;right:12px;max-width:none;transform:translateY(18px)}.ta-plantoast.show{transform:translateY(0)}}</style>
+<script>(function(){
+  var KEY='ta_wishlist', EN=(document.documentElement.lang||'').slice(0,2).toLowerCase()==='en';
+  function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+  var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN'),tfl=fab&&fab.querySelector('.tf-l');
+  if(tfl)tfl.textContent=EN?'My plan':'แผนของฉัน';
+  window.taSyncFab=function(){var n=read().length;if(nEl)nEl.textContent=n;if(fab)fab.style.display=n?'flex':'none';};
+  taSyncFab();
+  var toast=document.getElementById('taPlanToast'),lk=toast&&toast.querySelector('.tpt-link'),tHide;
+  if(lk)lk.textContent=EN?'View plan →':'ดูแผนเที่ยว →';
+  window.taPlanToast=function(added,name,count){
+    if(!toast)return;
+    var nm=(name&&name.length>24)?name.slice(0,24)+'…':(name||(EN?'this place':'ที่นี่'));
+    toast.querySelector('.tpt-msg').textContent=added?(EN?('✓ Saved “'+nm+'” to your plan ('+count+')'):('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)')):(EN?('Removed “'+nm+'” from plan'):('เอา “'+nm+'” ออกจากแผนแล้ว'));
+    lk.style.display=read().length?'inline-block':'none';
+    toast.classList.add('show');clearTimeout(tHide);
+    tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
+  };
+})();</script>
 <script src="/js/currency.js" defer></script>
 </body>
 </html>

@@ -81,6 +81,8 @@ const NAT_GUIDES = [
     ['health-medical-thailand','🏥','สุขภาพ & การแพทย์','Health & medical','โรงพยาบาล น้ำดื่ม ยุง ร้านยา วัคซีน','Hospitals, water, mosquitoes, pharmacies'],
     ['halal-travel-thailand','🕌','เที่ยวสายฮาลาล','Halal travel','อาหารฮาลาล มัสยิด ห้องละหมาด','Halal food, mosques, prayer rooms'],
     ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
+    ['thailand-cooking-classes','🍳','เรียนทำอาหารไทย','Cooking classes','คลาสที่ไหนดี ราคา จองยังไง','Where, prices & how to book','ดูคลาส →','See classes →'],
+    ['thailand-diving','🤿','ดำน้ำในไทย','Diving & scuba','เรียน-เที่ยวที่ไหนดี ฤดูกาล ราคา','Where to learn + dive, seasons, cost','ดูคอร์ส →','See courses →'],
 ];
 const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
