@@ -57,6 +57,31 @@ const DESTINATIONS = [
   ['koh-chang','เกาะช้าง','e'],['koh-lipe','เกาะหลีเป๊ะ','s'],['koh-kood','เกาะกูด','e'],
   ['koh-mak','เกาะหมาก','e'],['koh-larn','เกาะล้าน','e'],
 ];
+// National prep/persona guides — shared by planHub + countryHub (de-orphan). [slug,emoji,th,en,thDesc,enDesc,(ctaTh),(ctaEn)]
+const NAT_GUIDES = [
+    ['thailand-visa-guide','🛂','วีซ่า & การเข้าเมือง','Visa & entry','ใครได้ยกเว้นวีซ่า อยู่ได้กี่วัน + บัตร TDAC','Who’s visa-free, how long + the TDAC card'],
+    ['thailand-esim-internet','📶','ซิม & อินเทอร์เน็ต','eSIM & internet','eSIM กับซิมสนามบิน แบบไหนคุ้ม','eSIM vs airport SIM — which wins'],
+    ['getting-around-thailand','🚌','การเดินทางในไทย','Getting around','เครื่องบิน รถไฟ เรือ BTS Grab มอเตอร์ไซค์','Flights, trains, ferries, BTS, Grab, bikes'],
+    ['best-time-to-visit-thailand','🗓️','ช่วงเวลา & อากาศ','Best time & weather','อากาศรายเดือน + อ่าวไทย vs อันดามัน','Month-by-month + Gulf vs Andaman'],
+    ['thailand-travel-budget','💰','งบเที่ยวต่อวัน','Daily budget','แบ็คแพ็ค กลาง หรู ใช้วันละเท่าไหร่','Backpacker, mid-range, luxury per day'],
+    ['trip-budget','🧮','คำนวณงบทริป','Budget calculator','เลือกจำนวนวัน คน สไตล์ → งบต่อทริปทันที','Pick days, travelers & style → instant trip cost','คำนวณงบ →','Calculate →'],
+    ['thailand-safety-scams','🛡️','ความปลอดภัย & สแกม','Safety & scams','กลโกงยอดฮิต + เบอร์ฉุกเฉิน','Common scams + emergency numbers'],
+    ['thailand-money-atm-tipping','🏧','เงิน ATM & ทิป','Money, ATM & tipping','บัตร เงินสด ค่าธรรมเนียมตู้ ทิป','Cards, cash, ATM fees, tipping'],
+    ['thailand-travel-insurance','🩺','ประกันเดินทาง','Travel insurance','ทำไมควรมี + ครอบคลุมมอเตอร์ไซค์','Why you need it + motorbike cover'],
+    ['thailand-packing-list','🎒','ลิสต์ของที่ต้องเอาไป','Packing list','เข้าวัด ปลั๊กไฟ หน้าฝน ยา','Temple wear, plugs, rain, meds'],
+    ['thai-phrases-for-travelers','🗣️','ประโยคภาษาไทยน่ารู้','Thai phrases','ทักทาย ขอบคุณ ตัวเลข สั่งอาหาร','Greetings, thanks, numbers, food'],
+    ['thailand-etiquette-culture','🙏','มารยาท & วัฒนธรรม','Etiquette & culture','ไหว้ เข้าวัด หัว-เท้า สถาบัน','The wai, temples, head/feet, respect'],
+    ['thailand-festival-calendar','🎉','เทศกาลไทยทั้งปี','Festival calendar','สงกรานต์ ลอยกระทง ยี่เป็ง กินเจ เดือนไหนมีงาน','Songkran, Loy Krathong, Yi Peng, vegetarian fest'],
+    ['lgbtq-thailand-guide','🏳️‍🌈','เที่ยวไทยสำหรับ LGBTQ+','LGBTQ+ Thailand','เมืองที่เป็นมิตร งานไพรด์ สมรสเท่าเทียม','Friendly cities, Pride, marriage equality'],
+    ['solo-female-travel-thailand','🎒','ผู้หญิงเที่ยวคนเดียว','Solo female travel','ปลอดภัยไหม เดินทาง ที่พัก สแกม','Safety, transport, stays, scams'],
+    ['accessible-travel-thailand','♿','เที่ยวแบบเข้าถึงได้','Accessible travel','รถเข็น ผู้สูงอายุ ลิฟต์ วัด','Wheelchair, seniors, lifts, temples'],
+    ['family-travel-thailand','👨‍👩‍👧‍👦','เที่ยวกับเด็ก & ครอบครัว','Family travel','ชายหาดปลอดภัย กิจกรรมเด็ก ที่พัก','Safe beaches, kids activities, stays'],
+    ['vegan-vegetarian-thailand','🥬','วีแกน & มังสวิรัติ','Vegan & vegetarian','เจ vs มังสวิรัติ ประโยคสั่งอาหาร','Jay vs vegetarian, ordering phrases'],
+    ['digital-nomad-thailand','💻','Digital Nomad','Digital nomad','วีซ่า DTV เมือง เน็ต ค่าครองชีพ','DTV visa, cities, wifi, cost'],
+    ['health-medical-thailand','🏥','สุขภาพ & การแพทย์','Health & medical','โรงพยาบาล น้ำดื่ม ยุง ร้านยา วัคซีน','Hospitals, water, mosquitoes, pharmacies'],
+    ['halal-travel-thailand','🕌','เที่ยวสายฮาลาล','Halal travel','อาหารฮาลาล มัสยิด ห้องละหมาด','Halal food, mosques, prayer rooms'],
+    ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
+];
 const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
 // Cards auto-fill hero images as each province's content lands (gen-hubs re-runs per finalize).
@@ -680,7 +705,8 @@ function countryHub(){
   const jsonld={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},{"@type":"ListItem","position":2,"name":tx('ประเทศไทย','Thailand'),"item":J('country-thailand')}]};
   const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand')}])}
 <div class="thero"><div class="eyebrow">${tx('🇹🇭 ชีวิตติดเที่ยว','🇹🇭 Explore Thailand Like a Local')}</div><h1>${tx('เที่ยว<em>ประเทศไทย</em> ครบ 77 จังหวัด','Explore <em>Thailand</em> — all 77 provinces')}</h1><p class="lead">${tx('เลือกภาคและจังหวัดที่อยากไป — แต่ละจังหวัดมีที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริง','Pick a region and province — each one has ranked stays, things to do, food and itineraries, picked from the real thing.')}</p><div class="chips"><span class="chip">🗺️ <b>77</b> ${tx('จังหวัด','provinces')}</span><span class="chip">🧭 <b>6</b> ${tx('ภาค','regions')}</span><span class="chip">✅ <b>100%</b> ${tx('รีวิวจริง','real reviews')}</span></div></div>
-<div style="max-width:1120px;margin:0 auto;padding:34px 28px 0">${blocks}</div>
+<div style="max-width:1120px;margin:0 auto;padding:34px 28px 0">${blocks}
+<section class="regsec"><div class="inner"><div class="shead"><h2>🧭 <span class="em">${tx('เตรียมตัวเที่ยวไทย','Plan your trip')}</span></h2><a href="plan-your-trip.html">${tx('คู่มือทั้งหมด →','All guides →')}</a></div><div class="dgrid">${NAT_GUIDES.map(([s,emo,gth,gen,bth,ben,cth,cen])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${emo}</div><div class="dbody"><h3>${tx(gth,gen)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx(cth||'อ่านคู่มือ →',cen||'Read the guide →')}</span></div></a>`).join('')}</div></div></section></div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx('เริ่มวางแผนทริปไทย','Start planning your Thailand trip')}</h2><p>${tx('เลือกจังหวัด แล้วลุยที่พัก ที่เที่ยว ของกิน ได้เลย','Pick a province, then dive into stays, sights and food')}</p><a href="region-north.html">${tx('เริ่มที่ภาคเหนือ →','Start in the North →')}</a></div></div>`;
   return page({title:tx(`เที่ยวไทย 77 จังหวัด — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`Explore Thailand — All 77 Provinces, Hotels, Things to Do & Food | ThailandAddict`),desc:tx(`คู่มือเที่ยวไทยครบ 77 จังหวัด 6 ภาค — รีวิวที่พักจัดอันดับ ที่เที่ยว ของกิน และแผนเดินทาง คัดจากของจริง`,`A complete Thailand guide — all 77 provinces across 6 regions, with ranked hotel reviews, things to do, food and itineraries.`),slug:`country-thailand`,jsonld,body,image:'/images/heroes/bangkok.jpg'});
 }
@@ -736,30 +762,7 @@ ${dst.length?`<section class="sec" style="padding-top:0"><div class="inner"><div
 // ── Plan Your Trip hub (Essential guides cluster) ──
 function planHub(){
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
-  const G = [
-    ['thailand-visa-guide','🛂','วีซ่า & การเข้าเมือง','Visa & entry','ใครได้ยกเว้นวีซ่า อยู่ได้กี่วัน + บัตร TDAC','Who’s visa-free, how long + the TDAC card'],
-    ['thailand-esim-internet','📶','ซิม & อินเทอร์เน็ต','eSIM & internet','eSIM กับซิมสนามบิน แบบไหนคุ้ม','eSIM vs airport SIM — which wins'],
-    ['getting-around-thailand','🚌','การเดินทางในไทย','Getting around','เครื่องบิน รถไฟ เรือ BTS Grab มอเตอร์ไซค์','Flights, trains, ferries, BTS, Grab, bikes'],
-    ['best-time-to-visit-thailand','🗓️','ช่วงเวลา & อากาศ','Best time & weather','อากาศรายเดือน + อ่าวไทย vs อันดามัน','Month-by-month + Gulf vs Andaman'],
-    ['thailand-travel-budget','💰','งบเที่ยวต่อวัน','Daily budget','แบ็คแพ็ค กลาง หรู ใช้วันละเท่าไหร่','Backpacker, mid-range, luxury per day'],
-    ['trip-budget','🧮','คำนวณงบทริป','Budget calculator','เลือกจำนวนวัน คน สไตล์ → งบต่อทริปทันที','Pick days, travelers & style → instant trip cost','คำนวณงบ →','Calculate →'],
-    ['thailand-safety-scams','🛡️','ความปลอดภัย & สแกม','Safety & scams','กลโกงยอดฮิต + เบอร์ฉุกเฉิน','Common scams + emergency numbers'],
-    ['thailand-money-atm-tipping','🏧','เงิน ATM & ทิป','Money, ATM & tipping','บัตร เงินสด ค่าธรรมเนียมตู้ ทิป','Cards, cash, ATM fees, tipping'],
-    ['thailand-travel-insurance','🩺','ประกันเดินทาง','Travel insurance','ทำไมควรมี + ครอบคลุมมอเตอร์ไซค์','Why you need it + motorbike cover'],
-    ['thailand-packing-list','🎒','ลิสต์ของที่ต้องเอาไป','Packing list','เข้าวัด ปลั๊กไฟ หน้าฝน ยา','Temple wear, plugs, rain, meds'],
-    ['thai-phrases-for-travelers','🗣️','ประโยคภาษาไทยน่ารู้','Thai phrases','ทักทาย ขอบคุณ ตัวเลข สั่งอาหาร','Greetings, thanks, numbers, food'],
-    ['thailand-etiquette-culture','🙏','มารยาท & วัฒนธรรม','Etiquette & culture','ไหว้ เข้าวัด หัว-เท้า สถาบัน','The wai, temples, head/feet, respect'],
-    ['thailand-festival-calendar','🎉','เทศกาลไทยทั้งปี','Festival calendar','สงกรานต์ ลอยกระทง ยี่เป็ง กินเจ เดือนไหนมีงาน','Songkran, Loy Krathong, Yi Peng, vegetarian fest'],
-    ['lgbtq-thailand-guide','🏳️‍🌈','เที่ยวไทยสำหรับ LGBTQ+','LGBTQ+ Thailand','เมืองที่เป็นมิตร งานไพรด์ สมรสเท่าเทียม','Friendly cities, Pride, marriage equality'],
-    ['solo-female-travel-thailand','🎒','ผู้หญิงเที่ยวคนเดียว','Solo female travel','ปลอดภัยไหม เดินทาง ที่พัก สแกม','Safety, transport, stays, scams'],
-    ['accessible-travel-thailand','♿','เที่ยวแบบเข้าถึงได้','Accessible travel','รถเข็น ผู้สูงอายุ ลิฟต์ วัด','Wheelchair, seniors, lifts, temples'],
-    ['family-travel-thailand','👨‍👩‍👧‍👦','เที่ยวกับเด็ก & ครอบครัว','Family travel','ชายหาดปลอดภัย กิจกรรมเด็ก ที่พัก','Safe beaches, kids activities, stays'],
-    ['vegan-vegetarian-thailand','🥬','วีแกน & มังสวิรัติ','Vegan & vegetarian','เจ vs มังสวิรัติ ประโยคสั่งอาหาร','Jay vs vegetarian, ordering phrases'],
-    ['digital-nomad-thailand','💻','Digital Nomad','Digital nomad','วีซ่า DTV เมือง เน็ต ค่าครองชีพ','DTV visa, cities, wifi, cost'],
-    ['health-medical-thailand','🏥','สุขภาพ & การแพทย์','Health & medical','โรงพยาบาล น้ำดื่ม ยุง ร้านยา วัคซีน','Hospitals, water, mosquitoes, pharmacies'],
-    ['halal-travel-thailand','🕌','เที่ยวสายฮาลาล','Halal travel','อาหารฮาลาล มัสยิด ห้องละหมาด','Halal food, mosques, prayer rooms'],
-    ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
-  ];
+  const G = NAT_GUIDES;
   const R = [
     ['bangkok-to-chiang-mai','🚆','กรุงเทพ → เชียงใหม่','Bangkok → Chiang Mai'],
     ['bangkok-to-phuket','✈️','กรุงเทพ → ภูเก็ต','Bangkok → Phuket'],
