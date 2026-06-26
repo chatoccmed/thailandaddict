@@ -89,6 +89,9 @@ const NAT_GUIDES = [
     ['bangkok-temples-grand-palace','🛕','วัด & พระบรมมหาราชวัง','Temples & Grand Palace','ทัวร์ ตั๋ว ค่าเข้า การแต่งกาย','Tours, tickets, dress code','ดูทัวร์ →','See tours →'],
     ['thailand-floating-markets','🛶','ตลาดน้ำใกล้กรุงเทพ','Floating markets','ดำเนินสะดวก อัมพวา แม่กลอง','Damnoen, Amphawa, Maeklong','ดูทัวร์ →','See tours →'],
     ['bangkok-dinner-cruise','🛳️','ล่องเรือดินเนอร์เจ้าพระยา','Dinner cruise','เรือไหนดี ราคา ท่าขึ้นเรือ','Best boats, price, piers','ดูเรือ →','See cruises →'],
+    ['thailand-thai-massage-spa','💆','นวดไทย & สปา','Thai massage & spa','นวดแบบไหนดี ราคา ร้านแนะนำ','Types, prices, top spas','ดูสปา →','See spas →'],
+    ['thailand-zipline-adventure','🌿','ซิปไลน์ & ผจญภัย','Zipline adventure','เชียงใหม่ที่ไหนดี ปลอดภัยไหม','Chiang Mai — where & safety','ดูที่เล่น →','See parks →'],
+    ['bangkok-attractions-tickets','🎢','ที่เที่ยวกรุงเทพ ตั๋วล่วงหน้า','Bangkok attractions','SEA LIFE, Safari World, จุดชมวิว','SEA LIFE, Safari World, views','ดูตั๋ว →','See tickets →'],
 ];
 const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
