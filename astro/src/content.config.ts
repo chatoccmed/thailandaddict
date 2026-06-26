@@ -250,12 +250,12 @@ const articleBlock = z.discriminatedUnion('kind', [
     ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
   // Food-experience monetization module (food tours / cooking classes — Klook/affiliate). Additive · back-compat.
   z.object({ kind: z.literal('foodexp'), title: z.string(), text: z.string().optional(),
-    items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional() })),
+    items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional(), img: z.string().optional() })),
     ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
   // Bookable experiences / tours module (attractions & itineraries — Klook/GetYourGuide affiliate). Additive · back-compat.
-  // Same shape as foodexp; rendered with a tickets/activity accent instead of the food accent.
+  // Same shape as foodexp; rendered with a tickets/activity accent instead of the food accent. img = optional per-item thumbnail.
   z.object({ kind: z.literal('experiences'), title: z.string(), text: z.string().optional(),
-    items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional() })),
+    items: z.array(z.object({ label: z.string(), note: z.string().optional(), href: z.string(), provider: z.string().optional(), emoji: z.string().optional(), img: z.string().optional() })),
     ctaLabel: z.string().optional(), ctaHref: z.string().optional() }),
   // "Know before you go" practical tips box (getting around / payment / timing / tipping). Additive · back-compat.
   z.object({ kind: z.literal('localtips'), title: z.string(),
