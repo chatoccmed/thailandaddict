@@ -51,10 +51,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-khao-san — Golden Mount, Giant Swing, Loha Prasat, Phra Sumen Fort, Khao San Rd...
 - Notes: 13 new hotel reviews (Workflow-fanout). Cafes hung 2× from rally-overload → fixed by resume (cached agents) after dialing back to ~2 concurrent workflows. Swapped CLOSED Jaywalk Cafe → Floral Cafe at Napasorn (+ scrubbed 9 stray refs). Golden Mount CC hero.
 
+### 6. Chinatown–Yaowarat (เยาวราช) — 2026-06-25 (LIVE, TH+EN)
+- 🏨 https://thailandaddict.com/top10-hotels-chinatown-bangkok — 10 hotels (Shanghai Mansion/ASAI/Grand China/Loftel 22 + 3 reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-chinatown-bangkok — 5 value 2-3★ (Loftel 22 9.4/Lhong Yaowarat/W22/Prince Theatre/China Town Hotel)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-chinatown — Hua Seng Hong, Nai Ek (Michelin), Nai Mong oyster, Jek Pui musical-chairs curry...
+- ☕ https://thailandaddict.com/top10-popular-cafes-chinatown — Wallflowers, Lhong Tou, La Cabra Talat Noi, Ear Sae 90yr, Mother Roaster riverside...
+- 📸 https://thailandaddict.com/top10-attractions-chinatown — Wat Traimit Golden Buddha, Wat Mangkon, Yaowarat Rd, Talat Noi street art, Sampheng...
+- Notes: rally-pipelined (built ahead during khao-san). 11 hotel reviews (8 new + 3 reuse). 3 CC photos. **+ FEATURE: added per-hotel "🔖 เก็บลงแผน" save-to-plan button to RoundupLayout (all hotel roundups sitewide) — owner-requested; was missing on roundups (food articles + review pages already had it).**
+
 ## ⏳ In progress
-### 6. Chinatown–Yaowarat (เยาวราช) — started 2026-06-25 (rally-pipelined ahead)
-- 🏨 hotels + 💰 value roundups BUILT (11 reviews: 8 new + 3 reuse Shanghai Mansion/ASAI/Hotel Royal) — deploying with this batch
-- 🍜 ☕ 📸 eat-ranking pending → then deploy + Yaowarat is THE street-food ย่าน
+### 7. Sam Yan (สามย่าน) — starting 2026-06-25
 
 ## 📋 Queue (30 more, popular-first)
 ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
