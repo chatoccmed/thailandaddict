@@ -504,11 +504,14 @@ function provinceHub(slug, th, r, d){
   // Place schema (entity for AI answer-engines + Google knowledge graph) — derived from existing data, nothing fabricated.
   const _co=PVCOORDS[slug];
   const _wd=WIKIDATA[slug];
+  // containsPlace: this province's notable attractions (individual TouristAttraction articles in this locale; excludes list/roundup slugs) — locale-aware URLs, all real pages.
+  const _att=arts.filter(a=>a.type==='attraction'&&!/-attractions$/.test(a.slug)&&a.heroImg).slice(0,6);
   const _place={"@type":"Place","@id":J(`city-${slug}`)+"#place","name":nm,"description":stripTags(tagline),
     ...(heroSrc?{"image":"https://thailandaddict.com"+heroSrc}:{}),
     ...(_co?{"geo":{"@type":"GeoCoordinates","latitude":_co.lat,"longitude":_co.lng}}:{}),
     "address":{"@type":"PostalAddress","addressRegion":nm,"addressCountry":"TH"},
     ...(_wd?{"sameAs":_wd.sameAs}:{}),
+    ...(_att.length?{"containsPlace":_att.map(a=>({"@type":"TouristAttraction","name":stripTags(a.title),"url":J(a.slug)}))}:{}),
     "url":J(`city-${slug}`),"isPartOf":{"@type":"Place","name":RNAME(r)}};
   const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
   // stats
@@ -739,6 +742,7 @@ function planHub(){
     ['getting-around-thailand','🚌','การเดินทางในไทย','Getting around','เครื่องบิน รถไฟ เรือ BTS Grab มอเตอร์ไซค์','Flights, trains, ferries, BTS, Grab, bikes'],
     ['best-time-to-visit-thailand','🗓️','ช่วงเวลา & อากาศ','Best time & weather','อากาศรายเดือน + อ่าวไทย vs อันดามัน','Month-by-month + Gulf vs Andaman'],
     ['thailand-travel-budget','💰','งบเที่ยวต่อวัน','Daily budget','แบ็คแพ็ค กลาง หรู ใช้วันละเท่าไหร่','Backpacker, mid-range, luxury per day'],
+    ['trip-budget','🧮','คำนวณงบทริป','Budget calculator','เลือกจำนวนวัน คน สไตล์ → งบต่อทริปทันที','Pick days, travelers & style → instant trip cost','คำนวณงบ →','Calculate →'],
     ['thailand-safety-scams','🛡️','ความปลอดภัย & สแกม','Safety & scams','กลโกงยอดฮิต + เบอร์ฉุกเฉิน','Common scams + emergency numbers'],
     ['thailand-money-atm-tipping','🏧','เงิน ATM & ทิป','Money, ATM & tipping','บัตร เงินสด ค่าธรรมเนียมตู้ ทิป','Cards, cash, ATM fees, tipping'],
     ['thailand-travel-insurance','🩺','ประกันเดินทาง','Travel insurance','ทำไมควรมี + ครอบคลุมมอเตอร์ไซค์','Why you need it + motorbike cover'],
@@ -770,7 +774,7 @@ function planHub(){
     ['bangkok-bts-mrt-guide','🚇','รถไฟฟ้า BTS & MRT กรุงเทพ','Bangkok BTS & MRT'],
     ['chiang-mai-to-pai','🚐','เชียงใหม่ → ปาย','Chiang Mai → Pai'],
   ];
-  const cards = G.map(([s,emo,th,en,bth,ben])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx('อ่านคู่มือ →','Read the guide →')}</span></div></a>`).join('');
+  const cards = G.map(([s,emo,th,en,bth,ben,cth,cen])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:46px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx(cth||'อ่านคู่มือ →',cen||'Read the guide →')}</span></div></a>`).join('');
   const routeCards = R.map(([s,emo,th,en])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">${emo}</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ไปยังไงดี →','How to get there →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("คู่มือเตรียมตัวเที่ยวไทย","Plan your Thailand trip"),"itemListElement":[...G,...R].map((g,i)=>({"@type":"ListItem","position":i+1,"name":tx(g[2],g[3]),"url":J(g[0])}))};
   const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('เตรียมตัวเที่ยวไทย','Plan Your Trip')}])}
