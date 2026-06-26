@@ -43,7 +43,9 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - ✅ **112 EN eat-ranking twins — DONE & LIVE (2026-06-26, deploy `b02b46d9`):** all 76 `top10-popular-restaurants-*` + 36 `top10-attractions-*` translated to EN (reciprocal hreflang, facts byte-identical, zero Thai); unlocked the `restaurants-en` feed (850; 10 feeds total). Pipeline + validators reusable for the future i18n Tier-1 (zh/ru/…) expansion. Follow-up: refresh the 4 stale pre-existing gold resto twins.
 - ✅ **#12 hub schema — DONE & LIVE (deploys `a52a3cf1` + `80a5923e`):** `sameAs` (Wikidata + en/th Wikipedia) on all 89 hubs (77 provinces + 12 destinations) + `containsPlace` (≤6 notable attractions, locale-aware) on every hub + `geo`. Verified, nothing fabricated. 4 stale gold resto twins refreshed. (`aggregateRating` on a Place = schema-risky → skipped.)
 - ✅ **Budget calculator — SHIPPED & LIVE (deploy `f7ddd4de`):** `/trip-budget` + `/en/trip-budget` (planner-styled, verified figures, reciprocal hreflang); surfaced on plan-your-trip + the budget guide (TH+EN) + trip.html.
-- **Doable next (lower priority):** broader de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · #16 deep-link Klook/GYG (partly owner-gated) · more niche guides (cooking classes, diving)
+- ✅ **De-orphan + #16 Klook — DONE & LIVE (deploy `a98edca8`):** national-guides panel on country-thailand (22 guides, TH+EN); Klook deep-links confirmed on all eat-rankings + 1,058 attractions (lampang gap fixed). Bangkok ย่าน already linked from city-bangkok.
+- **Doable next (lower priority):** more niche guides (cooking classes, diving) · refresh stale gold twins (done) · /en/trip planner (translation-heavy)
+- **Owner-gated remaining:** GA4 ID · **GYG partner ID** (6,766 `__GYG_PARTNER_ID__` placeholders ready) · 12Go/Airalo/SafetyWing IDs · email ESP endpoint
 - **Note:** persona/national guides already surfaced as cards on plan-your-trip (TH+EN) via gen-hubs G.
 
 ---
