@@ -39,7 +39,8 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 ## Still TODO
 - **Owner-gated:** #1 GA4 ID · affiliate signups (GYG/12Go/Airalo/SafetyWing) · email endpoint (forms exist, wire to ESP)
 - **Flagged for owner review (visual/infra/accuracy risk unattended):** #19 sticky CTA (FAB/currency collision) · #11 `/en/trip` (translation-heavy) · #18b AVIF/WebP `<picture>` (R2 re-upload) · #21 wishlist→planner pin (needs planner testing) · `top10-attractions-*` emit Restaurant JSON-LD for temples (fixing = retype = rendering change)
-- **Doable next (lower priority):** broader de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · EN feeds (gen-feeds reads TH only) · #16 deep-link Klook/GYG (partly owner-gated) · more niche guides (seniors, cooking classes, diving)
+- ✅ **EN data feeds — DONE & LIVE (2026-06-26, deploy `b09a2f64`):** gen-feeds now emits hotels-en/attractions-en/guides-en/faqs-en (8,578 EN Q&A) with `/en/` URLs + `lang` field; index.json lists 9 feeds; llms.txt updated. No restaurants-en yet (only ~70 EN resto blocks migrated) — unlocks once the EN resto-ranking twins are translated.
+- **Doable next (lower priority):** **translate 76 TH-only `top10-popular-restaurants-*` → EN twins** (completes bilingual eat-ranking cluster, unlocks English AI-citation + restaurants-en feed; gold refs: chiang-mai/silom-sathorn/sukhumvit/thong-lo EN) · broader de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · #16 deep-link Klook/GYG (partly owner-gated) · more niche guides (cooking classes, diving)
 - **Note:** persona/national guides already surfaced as cards on plan-your-trip (TH+EN) via gen-hubs G.
 
 ---

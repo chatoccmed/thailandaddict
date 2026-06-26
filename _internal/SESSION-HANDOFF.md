@@ -1,12 +1,13 @@
-# SESSION HANDOFF — start here (last updated 2026-06-26, ~05:00, after a big autonomous night run)
+# SESSION HANDOFF — start here (last updated 2026-06-26, ~07:50, after the EN-feeds deploy)
 
-> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `c2845fb6`. Nothing is half-done.
+> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `b09a2f64`. Nothing is half-done.
 
 ---
 
 ## ✅ DONE & LIVE (do NOT redo — verify in repo if unsure)
 
 **Set A — AEO/SEO/measurement infrastructure (complete):**
+- **EN data feeds** (`gen-feeds.mjs`, deploy `b09a2f64`): refactored into a `collect(suffix, urlBase)` pass → now emits 4 English feeds with `/en/` URLs: `hotels-en` (2,102), `attractions-en` (1,058), `guides-en` (1,524), `faqs-en` (**8,578 English planning Q&A** — prime AI-citation asset). NO `restaurants-en` on purpose: only ~70 of 533 EN eat-ranking pages carry structured restaurant blocks, so the canonical (language-neutral) resto data stays in `restaurants.json`. Every feed + item now carries a `lang` field; `index.json` lists all 9 feeds; `llms.txt` documents the EN mirrors. TH feeds byte-for-byte unchanged except the additive `lang` field. Verified live: index lists 9, faqs-en 8,578 items all `/en/`, sample `/en/` page → 200.
 - **quick-answer + Speakable on the FULL ~11k-page corpus** (4,690 reviews+roundups via `gen-quickanswer.mjs` + 6,558 articles via `gen-quickanswer-articles.mjs`), TH+EN, from each page's `metaDesc`. ~100% coverage. This was the audit's #1 AEO lever.
 - **feeds-discovery** (`gen-feeds.mjs`): restaurants feed cleaned 1180→830 (excluded 35 `top10-attractions-*` mistyped `eat-ranking` — source untouched); per-restaurant deep-cite `url #r{rank}`; `updated` date on every feed; new `faqs.json` (lean, planning Q&A); feeds linked from `robots.txt` + `llms.txt`.
 - **77-hub geo schema** (`GeoCoordinates` from `_internal/province-coords.json`), **Org `@id`** entity (index.html + 3 layouts publisher), **ReviewLayout live-clock honesty fix** (static content-date, removed fake "checked: <now>").
@@ -32,11 +33,12 @@
 - **AVIF/WebP `<picture>`** (#18b) — needs R2 re-upload (images are on R2, see [[deploy-pipeline]] memory; ISP blocks the R2 S3 endpoint → use the REST API path `upload-r2-api.mjs`).
 - **wishlist→planner pin + per-day reshuffle** (#21) — planner JS in trip.html; needs in-browser testing.
 - **interactive tools** (budget calculator, island/vibe finder) — like the heatmap but with live JS interaction → unit-test the calc logic + verify structure; still want owner eyes on the UX.
+  - ⏳ **budget calculator — mockup BUILT, awaiting owner visual sign-off (2026-06-26).** Presented an interactive mockup in chat (days × travelers × style → live ฿ trip range). Logic uses the EXACT verified figures from the existing `thailand-travel-budget` guide (Backpacker ฿800–1,500/day · Mid ฿2,500–5,000 · Luxury ฿8,000+) so it cannot contradict our own content; luxury shown as "from" (no fabricated ceiling); per-person THB, flights excluded, accommodation-sharing caveat noted. On approval: add a `budgetCalc()` page to `gen-hubs.mjs` using the `page()` chrome wrapper + Direction-C skin + a "Plan it day-by-day → /trip" CTA, link it from `plan-your-trip` and the `thailand-travel-budget` guide → run gen-hubs → commit hubs → deploy.
 - **`top10-attractions-*` schema retype** — these 35 attraction-ranking articles are `type:eat-ranking` so they emit `Restaurant` JSON-LD for temples. Fixing = retype to attraction = changes their rendering (risky); excluded from the restaurants FEED already, but the on-page schema is still wrong.
 
 ### 3. DOABLE SAFELY (lower priority, no owner needed)
+- ✅ EN feeds — DONE & LIVE (deploy `b09a2f64`, see Set A above).
 - broader de-orphan: national-guides panel into `country-thailand.html` (gen-hubs `countryHub()` L668) — note the guides are already surfaced on plan-your-trip, so low marginal value.
-- EN feeds (gen-feeds reads TH content only; EN articles not in feeds).
 - more niche guides only if a REAL gap (most prep/comparison/best-X topics already exist).
 
 ---
