@@ -59,8 +59,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-chinatown — Wat Traimit Golden Buddha, Wat Mangkon, Yaowarat Rd, Talat Noi street art, Sampheng...
 - Notes: rally-pipelined (built ahead during khao-san). 11 hotel reviews (8 new + 3 reuse). 3 CC photos. **+ FEATURE: added per-hotel "🔖 เก็บลงแผน" save-to-plan button to RoundupLayout (all hotel roundups sitewide) — owner-requested; was missing on roundups (food articles + review pages already had it).**
 
+### 7. Sam Yan–Chula (สามย่าน) — 2026-06-27 (LIVE, TH+EN)
+- 🏨 https://thailandaddict.com/top10-hotels-samyan-bangkok — 10 hotels (Triple Y Mitrtown/dusitD2 9.3/Mandarin CP/Pathumwan Princess + 5 reuse from chula-hospital)
+- 💰 https://thailandaddict.com/top5-love-hotels-samyan-bangkok — 5 value 2-3★ (Samyan Serene/Bed By Sam-Yan/Forgotten Hostel/At Hua Lamphong/Banthat Thong Hostel)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-samyan — Jeh O Chula (Michelin mama), Longleng fishball 40yr, Tang Sui Heng duck (Michelin), Somboon crab curry...
+- ☕ https://thailandaddict.com/top10-popular-cafes-samyan — ABBA, Labyrinth slow bar, Yama Matcha (Uji), PAL Bangkok, Niyom Nom Sod...
+- 📸 https://thailandaddict.com/top10-attractions-samyan — Samyan Mitrtown, Chula Centenary Park, Banthat Thong, MRT LED tunnel, Snake Farm...
+- Notes: 9 new hotel reviews (Workflow-fanout) + 5 reuse. restaurants hung 1h39m at Assemble → resume recovered it (the recurring eat-ranking hang; resume + background-poller now standard). Chula Centenary Park CC hero.
+
 ## ⏳ In progress
-### 7. Sam Yan (สามย่าน) — starting 2026-06-25
+### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — starting 2026-06-27
 
 ## 📋 Queue (30 more, popular-first)
 ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
