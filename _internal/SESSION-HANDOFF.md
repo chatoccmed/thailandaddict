@@ -1,0 +1,56 @@
+# SESSION HANDOFF — start here (last updated 2026-06-26, ~07:50, after the EN-feeds deploy)
+
+> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `b09a2f64`. Nothing is half-done.
+
+---
+
+## ✅ DONE & LIVE (do NOT redo — verify in repo if unsure)
+
+**Set A — AEO/SEO/measurement infrastructure (complete):**
+- **EN data feeds** (`gen-feeds.mjs`, deploy `b09a2f64`): refactored into a `collect(suffix, urlBase)` pass → now emits 4 English feeds with `/en/` URLs: `hotels-en` (2,102), `attractions-en` (1,058), `guides-en` (1,524), `faqs-en` (**8,578 English planning Q&A** — prime AI-citation asset). NO `restaurants-en` on purpose: only ~70 of 533 EN eat-ranking pages carry structured restaurant blocks, so the canonical (language-neutral) resto data stays in `restaurants.json`. Every feed + item now carries a `lang` field; `index.json` lists all 9 feeds; `llms.txt` documents the EN mirrors. TH feeds byte-for-byte unchanged except the additive `lang` field. Verified live: index lists 9, faqs-en 8,578 items all `/en/`, sample `/en/` page → 200.
+- **quick-answer + Speakable on the FULL ~11k-page corpus** (4,690 reviews+roundups via `gen-quickanswer.mjs` + 6,558 articles via `gen-quickanswer-articles.mjs`), TH+EN, from each page's `metaDesc`. ~100% coverage. This was the audit's #1 AEO lever.
+- **feeds-discovery** (`gen-feeds.mjs`): restaurants feed cleaned 1180→830 (excluded 35 `top10-attractions-*` mistyped `eat-ranking` — source untouched); per-restaurant deep-cite `url #r{rank}`; `updated` date on every feed; new `faqs.json` (lean, planning Q&A); feeds linked from `robots.txt` + `llms.txt`.
+- **77-hub geo schema** (`GeoCoordinates` from `_internal/province-coords.json`), **Org `@id`** entity (index.html + 3 layouts publisher), **ReviewLayout live-clock honesty fix** (static content-date, removed fake "checked: <now>").
+- (earlier in the session: GA4 scaffold gated/needs ID, hreflang-404 fix, currency on review/article, /trip surfaced in nav, Planner v2 = per-day Maps route + .ics, quick-answer+Speakable+LCP).
+
+**Set B — content + tools:**
+- **10-topic persona/practical cluster × TH/EN = 20 bilingual guides** (slugs): `thailand-festival-calendar`, `lgbtq-thailand-guide` (2025 marriage-equality law), `solo-female-travel-thailand`, `accessible-travel-thailand`, `family-travel-thailand`, `vegan-vegetarian-thailand`, `digital-nomad-thailand` (DTV visa), `health-medical-thailand`, `halal-travel-thailand`, `senior-travel-thailand`. Each: `quickAnswerHtml` + AEO `table` + 5 `faq`; `type:prep, cluster:thailand`; surfaced as cards on `plan-your-trip` (gen-hubs `G` list) + ItemList JSON-LD.
+- **best-time heatmap** — new `heatmap` block kind in ArticleLayout + content.config; month×region climate grid in `best-time-to-visit-thailand` (TH+EN).
+- NOTE: ~17 `*-vs-*` comparison guides + "best-X" + transport-route guides ALREADY EXISTED — don't recreate (check `ls astro/src/content/articles/` first).
+
+---
+
+## ▶️ START HERE — next work, prioritized
+
+### 1. OWNER-GATED (do the moment the owner provides the input)
+- **GA4 ID** → set the real `G-XXXXXXXXXX` in **3 spots**: `astro/src/components/Analytics.astro`, `_internal/gen-hubs.mjs` (GA_ID const), `astro/public/trip.html` (the gated loader). Rebuild + deploy → analytics + the existing `track()` events (incl planner funnel) go live. Also set `SC_VERIFY` in Analytics.astro if they give a Search Console token.
+- **Affiliate IDs** (after they sign up GetYourGuide / 12Go / Airalo / SafetyWing) → repo-wide find-replace `__GYG_PARTNER_ID__` (in ~6,512 files), `__12GO_AID__`, `__AIRALO_REF__`, `__SAFETYWING_REF__` → rebuild + deploy + assert `grep -rl __GYG_PARTNER_ID__ astro/dist | wc -l` == 0.
+- **Email platform** (Mailchimp/Brevo/Buttondown) → wire `index.html` `.nl-form` + `trip.html` `#pmGo` (currently no-ops) to a Cloudflare Worker→ESP endpoint with success/error states.
+
+### 2. FLAGGED — build WHEN the owner can verify visually (risky to ship blind)
+- **sticky booking CTA** on itinerary/attraction (audit #19) — collides with the bottom-right trip FAB + bottom-left currency bar; needs visual placement check.
+- **/en/trip** (#11) — clone `trip.html` → `en/trip.html`, translate UI strings; unlocks foreign-gated eSIM/insurance/car rows. Hard to verify without the `/api/plan` Worker + browser.
+- **AVIF/WebP `<picture>`** (#18b) — needs R2 re-upload (images are on R2, see [[deploy-pipeline]] memory; ISP blocks the R2 S3 endpoint → use the REST API path `upload-r2-api.mjs`).
+- **wishlist→planner pin + per-day reshuffle** (#21) — planner JS in trip.html; needs in-browser testing.
+- **interactive tools** (budget calculator, island/vibe finder) — like the heatmap but with live JS interaction → unit-test the calc logic + verify structure; still want owner eyes on the UX.
+  - ⏳ **budget calculator — mockup BUILT, awaiting owner visual sign-off (2026-06-26).** Presented an interactive mockup in chat (days × travelers × style → live ฿ trip range). Logic uses the EXACT verified figures from the existing `thailand-travel-budget` guide (Backpacker ฿800–1,500/day · Mid ฿2,500–5,000 · Luxury ฿8,000+) so it cannot contradict our own content; luxury shown as "from" (no fabricated ceiling); per-person THB, flights excluded, accommodation-sharing caveat noted. On approval: add a `budgetCalc()` page to `gen-hubs.mjs` using the `page()` chrome wrapper + Direction-C skin + a "Plan it day-by-day → /trip" CTA, link it from `plan-your-trip` and the `thailand-travel-budget` guide → run gen-hubs → commit hubs → deploy.
+- **`top10-attractions-*` schema retype** — these 35 attraction-ranking articles are `type:eat-ranking` so they emit `Restaurant` JSON-LD for temples. Fixing = retype to attraction = changes their rendering (risky); excluded from the restaurants FEED already, but the on-page schema is still wrong.
+
+### 3. DOABLE SAFELY (lower priority, no owner needed)
+- ✅ EN feeds — DONE & LIVE (deploy `b09a2f64`, see Set A above).
+- broader de-orphan: national-guides panel into `country-thailand.html` (gen-hubs `countryHub()` L668) — note the guides are already surfaced on plan-your-trip, so low marginal value.
+- more niche guides only if a REAL gap (most prep/comparison/best-X topics already exist).
+
+---
+
+## ⚙️ OPERATIONAL NOTES (critical — see [[deploy-pipeline]] memory for full detail)
+- **Node** at `~/nodejs` → bash: `export PATH="$HOME/nodejs:$PATH"` first.
+- **Deploy = `bash ~/ta-build-temp/deploy-batch.sh`** (pushes commits first to dodge the parallel-EN-session race, then CLEAN build, then `wrangler deploy`). Token from `~/.r2-creds`. Occasionally wrangler hits a transient `TypeError: terminated` (network) → just re-run. The git auto-build/CI is DISABLED (it ships partial dist); deploy is manual only.
+- **⚠️ gen-hubs is NOT in prebuild** — the 77 city/region hubs + `plan-your-trip`/`destinations`/`country-thailand`/`search` are committed STATIC files generated by `node _internal/gen-hubs.mjs` run MANUALLY. So: editing gen-hubs has no effect until you run it, and you MUST commit the regenerated hubs (a `git checkout -- .` silently drops them — it cost a deploy this run). The 4 prebuild-regenerated files (`index.html` is patched in-place by gen-home; `en/index.html`, `sitemap.xml`, `search-index.json`, `en/search-index.json`) stay OUT of commits (deploy-batch discards them).
+- **Content-guide pipeline (reusable):** write TH JSON (national guide = `type:prep, cluster:thailand`, crumbCity "เตรียมตัวเที่ยวไทย", crumbCityHref "plan-your-trip.html", evergreen verified facts only, NO fabricated venues, banned-words clean [no `อ่ะ/ปะ/แหละ/ล่ะ` slang, no `ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน`]) → translate to EN via a `general-purpose` subagent (faithful, same slug for reciprocal hreflang, crumbCity "Plan Your Trip") → validate (JSON, fields, block-kinds, no leftover Thai in headline fields, facts preserved) → add to gen-hubs `G` list (~L744) → `node _internal/gen-hubs.mjs` → clean build → verify dist → commit (incl hubs) → deploy.
+- **Block kinds** (content.config articleBlock): h2, p, image, list, table, **heatmap**, tip, localtips, ranked, cards, day, cta, restaurant, staycta, foodexp, experiences, embed.
+- **Brand locks:** Direction-C teal `#06B6D4`/coral `#FB7185`; fonts Outfit (display/UI) + Sarabun (Thai body). Honesty-first (no "we didn't visit" disclaimers).
+
+## 📍 Pointers
+- Full roadmap + audit register: `_internal/DEVELOPMENT-PLAN-v2.md`
+- Memory: `development-plan`, `deploy-pipeline`, `trip-planner`, `restaurant-ranking-skill`, `save-to-plan-ux`, `no-self-undermining-prose`, `ask-before-destructive-decisions`

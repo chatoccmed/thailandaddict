@@ -83,6 +83,329 @@
       "id": "coasts"
     },
     {
+      "kind": "heatmap",
+      "caption": "Best months by region (greener = better) — general climate; actual conditions vary by year",
+      "regions": [
+        "Andaman",
+        "Gulf",
+        "North",
+        "Central",
+        "Isan"
+      ],
+      "rows": [
+        {
+          "m": "Jan",
+          "cells": [
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            }
+          ]
+        },
+        {
+          "m": "Feb",
+          "cells": [
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            }
+          ]
+        },
+        {
+          "m": "Mar",
+          "cells": [
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "🔥",
+              "s": "hot"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            }
+          ]
+        },
+        {
+          "m": "Apr",
+          "cells": [
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "🔥",
+              "s": "hot"
+            },
+            {
+              "e": "🔥",
+              "s": "hot"
+            },
+            {
+              "e": "🔥",
+              "s": "hot"
+            }
+          ]
+        },
+        {
+          "m": "May",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            }
+          ]
+        },
+        {
+          "m": "Jun",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            }
+          ]
+        },
+        {
+          "m": "Jul",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            }
+          ]
+        },
+        {
+          "m": "Aug",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            }
+          ]
+        },
+        {
+          "m": "Sep",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            }
+          ]
+        },
+        {
+          "m": "Oct",
+          "cells": [
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌤️",
+              "s": "ok"
+            }
+          ]
+        },
+        {
+          "m": "Nov",
+          "cells": [
+            {
+              "e": "🌤️",
+              "s": "ok"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            }
+          ]
+        },
+        {
+          "m": "Dec",
+          "cells": [
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "🌧️",
+              "s": "bad"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            },
+            {
+              "e": "☀️",
+              "s": "good"
+            }
+          ]
+        }
+      ],
+      "legend": [
+        "☀️ Dry & pleasant",
+        "🌤️ Okay",
+        "🌧️ Rainy",
+        "🔥 Hot / hazy"
+      ],
+      "cta": {
+        "href": "/trip",
+        "label": "🧳 Plan a trip around the right month"
+      }
+    },
+    {
       "kind": "p",
       "html": "A detail many miss: Thailand’s two coasts do not get rain at the same time. The Andaman side (Phuket, Krabi, Phi Phi) is wettest around May to October, while the Gulf side (Samui, Phangan, Tao) gets its heaviest rain late in the year, around October to December. So if one coast is in its rainy season, the other may have better weather."
     },

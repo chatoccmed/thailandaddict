@@ -24,15 +24,24 @@ The site is **past "content farm."** Foundation is world-class: ~10.6k pages, al
 - ✅ **Wave-0 #6 currency** — on ReviewLayout + ArticleLayout (FAB-aware position).
 - ✅ **Wave-0 #7 dead related** — 30 `.json`→`.html` (all 11,698 related hrefs resolve).
 - ✅ **#2 Planner v2** — per-day full-route Maps link (`dayRouteLink`) + `.ics` export (`downloadICS`).
-- ✅ **Wave-1 #8 quick-answer** — all 4,690 reviews+roundups (TH+EN), 0%→100%, from metaDesc (`gen-quickanswer.mjs`).
+- ✅ **Wave-1 #8 quick-answer — FULL CORPUS** — 4,690 reviews+roundups (`gen-quickanswer.mjs`) **+ 6,558 articles** (attraction/itinerary/eat-ranking/food/prep/guide, `gen-quickanswer-articles.mjs`), TH+EN, from metaDesc. Now ~100% of the ~11k-page corpus has an answer-first block (and Speakable, gated on it). The audit's #1 AEO lever, fully applied.
 - ✅ **Wave-1 #14 Speakable** — 3 layouts (cssSelector `.qa-body`, gated on quickAnswerHtml). *(faqs.json feed part still TODO)*
 - ✅ **Wave-2 #18 ArticleLayout LCP preload** — hero `rel=preload fetchpriority=high` on ~7,170 pages. *(AVIF/WebP part still TODO)*
 
-## Still TODO (status as of 2026-06-25)
-- **Owner-gated:** #1 GA4 ID · #2 affiliate signups (GYG/12Go/Airalo/SafetyWing) · Wave-0 #4 email endpoint (forms exist, wire to ESP)
-- **Bugs left:** ReviewLayout misleading live-clock → static "checked {modifiedDate}" stamp · restaurants.json temple rows miscategorized as foodType
-- **Wave 1 left:** #9 best-time heatmap→/trip · #11 /en/trip · #12 77-hub Place schema (geo/sameAs/containsPlace) · #13 feeds in sitemap+robots+`updated` date+per-restaurant url · #14b faqs.json feed
-- **Wave 2 left:** #15 persona cluster (LGBTQ+/solo-female/festival/accessibility) · #16 deep-link Klook/GYG to real products · #17 flights affiliate · #18b AVIF/WebP `<picture>` · #19 sticky booking CTA on itinerary/attraction · #20 Org @id + de-orphan 67 hub-less articles · #21 wishlist→planner pin + per-day reshuffle
+### Night run (2026-06-26) — all LIVE unless noted
+- ✅ **#13 feeds-discovery** — restaurants 1180→830 (excluded 35 `top10-attractions-*` mistyped eat-ranking; source untouched); per-restaurant deep-cite `url #r{rank}`; `updated` date on every feed; **new `faqs.json`** (8.5k planning Q&A, lean); feeds linked from robots.txt + llms.txt.
+- ✅ **#12 hub Place geo** — `GeoCoordinates` on all 77 city hubs from `province-coords.json` (extracted from gen-home PV). ⚠️ gen-hubs is NOT in prebuild → its output hubs must be COMMITTED (a `git checkout -- .` silently dropped geo once).
+- ✅ **live-clock bug** — ReviewLayout static content-date stamp (removed the fake live "checked: <now>" clock + setInterval).
+- ✅ **#20a Org `@id`** — Organization entity (`#org`, logo; no sameAs — no real socials) in index.html + publisher `@id`-ref in 3 layouts.
+- ✅ **#15 content cluster (10 topics × TH+EN = 20 bilingual guides, all LIVE)** — festival-calendar, lgbtq (2025 marriage-equality), solo-female, accessibility, family, vegan/vegetarian (jay vs mangsawirat + fish-sauce caveat), digital-nomad (DTV visa), health/medical, halal, senior/older-traveler. Each: quickAnswer + AEO table + 5 FAQ; evergreen verified facts only; EN via verified subagent translation; reciprocal hreflang; surfaced as cards on plan-your-trip (TH+EN) + ItemList JSON-LD. (Comparison cluster #221 already existed — ~17 vs-guides.)
+- ✅ **#9 best-time heatmap** — new `heatmap` block kind (ArticleLayout) + month×region climate grid in best-time-to-visit-thailand (TH+EN) + `/trip` CTA. LIVE.
+
+## Still TODO
+- **Owner-gated:** #1 GA4 ID · affiliate signups (GYG/12Go/Airalo/SafetyWing) · email endpoint (forms exist, wire to ESP)
+- **Flagged for owner review (visual/infra/accuracy risk unattended):** #19 sticky CTA (FAB/currency collision) · #11 `/en/trip` (translation-heavy) · #18b AVIF/WebP `<picture>` (R2 re-upload) · #21 wishlist→planner pin (needs planner testing) · `top10-attractions-*` emit Restaurant JSON-LD for temples (fixing = retype = rendering change)
+- ✅ **EN data feeds — DONE & LIVE (2026-06-26, deploy `b09a2f64`):** gen-feeds now emits hotels-en/attractions-en/guides-en/faqs-en (8,578 EN Q&A) with `/en/` URLs + `lang` field; index.json lists 9 feeds; llms.txt updated. No restaurants-en yet (only ~70 EN resto blocks migrated) — unlocks once the EN resto-ranking twins are translated.
+- **Doable next (lower priority):** **translate 76 TH-only `top10-popular-restaurants-*` → EN twins** (completes bilingual eat-ranking cluster, unlocks English AI-citation + restaurants-en feed; gold refs: chiang-mai/silom-sathorn/sukhumvit/thong-lo EN) · broader de-orphan (national-guides panel into country-thailand + map bangkok micro-areas) · #16 deep-link Klook/GYG (partly owner-gated) · more niche guides (cooking classes, diving)
+- **Note:** persona/national guides already surfaced as cards on plan-your-trip (TH+EN) via gen-hubs G.
 
 ---
 

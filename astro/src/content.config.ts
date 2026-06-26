@@ -264,6 +264,12 @@ const articleBlock = z.discriminatedUnion('kind', [
   // Comparison/data table (AEO-friendly — answer engines extract tables). Additive · back-compat.
   z.object({ kind: z.literal('table'), caption: z.string().optional(),
     headers: z.array(z.string()), rows: z.array(z.array(z.string())) }),
+  // Month × region climate heatmap (decision tool — "which month for which region"). Additive · back-compat.
+  z.object({ kind: z.literal('heatmap'), caption: z.string().optional(),
+    regions: z.array(z.string()),
+    rows: z.array(z.object({ m: z.string(), cells: z.array(z.object({ e: z.string(), s: z.string().optional() })) })),
+    legend: z.array(z.string()).optional(),
+    cta: z.object({ text: z.string().optional(), href: z.string(), label: z.string() }).optional() }),
   z.object({ kind: z.literal('tip'), title: z.string().optional(), html: z.string() }),
   z.object({ kind: z.literal('ranked'), items: z.array(z.object({
     rank: z.union([z.string(), z.number()]).transform(String),
