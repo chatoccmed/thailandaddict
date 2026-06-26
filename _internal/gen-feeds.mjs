@@ -59,19 +59,18 @@ write('attractions.json', { ...meta('attractions', 'th', th.attractions.length),
 write('guides.json', { ...meta('guides', 'th', th.guides.length), items: th.guides });
 write('faqs.json', { ...meta('faqs', 'th', th.faqs.length), items: th.faqs });
 
-// --- EN (/en/ pages) — hotels/attractions/guides/faqs carry full data.
-// EN eat-ranking pages are translated prose without the structured restaurant blocks
-// (only ~70 migrated), so there is NO en restaurants feed — the canonical resto data
-// (names, ratings, coords, foodType — all language-neutral) lives in restaurants.json. ---
+// --- EN (/en/ pages) — every kind now carries full structured data (the eat-ranking
+// twins were translated with their restaurant blocks intact), so EN mirrors all 5 feeds. ---
 const en = collect('-en', '/en');
 write('hotels-en.json', { ...meta('hotels', 'en', en.hotels.length), items: en.hotels });
+write('restaurants-en.json', { ...meta('restaurants', 'en', en.restaurants.length), items: en.restaurants });
 write('attractions-en.json', { ...meta('attractions', 'en', en.attractions.length), items: en.attractions });
 write('guides-en.json', { ...meta('guides', 'en', en.guides.length), items: en.guides });
 write('faqs-en.json', { ...meta('faqs', 'en', en.faqs.length), items: en.faqs });
 
 write('index.json', {
   site: SITE, name: 'ThailandAddict data feeds', updated: UPDATED,
-  note: 'Machine-readable Thailand travel data. Free to use with attribution + a link to the source page. Restaurant data is language-neutral (names/ratings/coords) — published once in the TH feed.',
+  note: 'Machine-readable Thailand travel data. Free to use with attribution + a link to the source page. Each feed and item carries a lang (th/en) and a url to its source page.',
   feeds: [
     { type: 'hotels', lang: 'th', url: `${SITE}/feeds/hotels.json`, count: th.hotels.length },
     { type: 'restaurants', lang: 'th', url: `${SITE}/feeds/restaurants.json`, count: th.restaurants.length },
@@ -79,10 +78,11 @@ write('index.json', {
     { type: 'guides', lang: 'th', url: `${SITE}/feeds/guides.json`, count: th.guides.length },
     { type: 'faqs', lang: 'th', url: `${SITE}/feeds/faqs.json`, count: th.faqs.length },
     { type: 'hotels', lang: 'en', url: `${SITE}/feeds/hotels-en.json`, count: en.hotels.length },
+    { type: 'restaurants', lang: 'en', url: `${SITE}/feeds/restaurants-en.json`, count: en.restaurants.length },
     { type: 'attractions', lang: 'en', url: `${SITE}/feeds/attractions-en.json`, count: en.attractions.length },
     { type: 'guides', lang: 'en', url: `${SITE}/feeds/guides-en.json`, count: en.guides.length },
     { type: 'faqs', lang: 'en', url: `${SITE}/feeds/faqs-en.json`, count: en.faqs.length },
   ],
 });
 console.log(`feeds TH: hotels ${th.hotels.length} · restaurants ${th.restaurants.length} · attractions ${th.attractions.length} · guides ${th.guides.length} · faqs ${th.faqs.length}`);
-console.log(`feeds EN: hotels ${en.hotels.length} · attractions ${en.attractions.length} · guides ${en.guides.length} · faqs ${en.faqs.length} (no en restaurants — only ${en.restaurants.length} structured blocks migrated; canonical resto data is in restaurants.json)`);
+console.log(`feeds EN: hotels ${en.hotels.length} · restaurants ${en.restaurants.length} · attractions ${en.attractions.length} · guides ${en.guides.length} · faqs ${en.faqs.length}`);
