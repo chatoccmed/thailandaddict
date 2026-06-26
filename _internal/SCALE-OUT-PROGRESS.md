@@ -35,8 +35,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-thong-lo — theCOMMONS, Donki, Wat That Thong, Gateway Ekamai, Dog in Town...
 - Notes: 11 new hotel reviews + 3 reuse. Swapped CLOSED Ink&Lion→Bartels (cafes rank5). 2 Wikimedia-CC photos (Thong Lo cityscape hero, Sukhumvit street food). LESSON: `npx astro sync` now needs `NODE_OPTIONS=--max-old-space-size=8192` (collection grew past default heap).
 
+### 4. Ari (อารีย์) — 2026-06-25 (LIVE, TH+EN)
+- 🏨 https://thailandaddict.com/top11-ari-bts-hotels-bangkok — 11 hotels (REUSED existing roundup — Craftsman/Quarter Ari/Josh + budget)
+- 💰 https://thailandaddict.com/top5-love-hotels-ari-bangkok — 5 value 2-3★ (Yard Hostel 9.4/2868 / LAF Aree / Ritz Aree / 19A / Lost&Found — reused existing reviews)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-ari — Thani Khao Moo Daeng, Ongtong Khaosoi (Michelin), Lay Lao, Khua Kling Pak Sod, Thong Smith...
+- ☕ https://thailandaddict.com/top10-popular-cafes-ari — NANA Coffee Roasters, Peace Oriental Teahouse, MTCH matcha, Thongyoy, Roots, Guss Damn Good...
+- 📸 https://thailandaddict.com/top10-attractions-ari — Café Amazon flagship, Pearl Art Space, Samsennai Philatelic Museum, Vanit Village, glow street art...
+- Notes: ⚡ FAST — both hotels + value REUSED existing Ari content (top11-ari-bts + 8 existing 2-3★ reviews), zero new hotel reviewers. Hit weekly limit mid-build (resumed after 5am reset). 4 Wikimedia-CC attraction photos (representative). Only new content deployed: value roundup + 3 articles + images/food/ari.
+
 ## ⏳ In progress
-### 4. Ari (อารีย์) — starting 2026-06-25
+### 5. Khao San–Old Town (ข้าวสาร-เมืองเก่า) — starting 2026-06-25
 
 ## 📋 Queue (30 more, popular-first)
 ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
