@@ -63,12 +63,13 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 🏨 https://thailandaddict.com/top10-hotels-samyan-bangkok — 10 hotels (Triple Y Mitrtown/dusitD2 9.3/Mandarin CP/Pathumwan Princess + 5 reuse from chula-hospital)
 - 💰 https://thailandaddict.com/top5-love-hotels-samyan-bangkok — 5 value 2-3★ (Samyan Serene/Bed By Sam-Yan/Forgotten Hostel/At Hua Lamphong/Banthat Thong Hostel)
 - 🍜 https://thailandaddict.com/top10-popular-restaurants-samyan — Jeh O Chula (Michelin mama), Longleng fishball 40yr, Tang Sui Heng duck (Michelin), Somboon crab curry...
-- ☕ https://thailandaddict.com/top10-popular-cafes-samyan — ABBA, Labyrinth slow bar, Yama Matcha (Uji), PAL Bangkok, Niyom Nom Sod...
-- 📸 https://thailandaddict.com/top10-attractions-samyan — Samyan Mitrtown, Chula Centenary Park, Banthat Thong, MRT LED tunnel, Snake Farm...
-- Notes: 9 new hotel reviews (Workflow-fanout) + 5 reuse. restaurants hung 1h39m at Assemble → resume recovered it (the recurring eat-ranking hang; resume + background-poller now standard). Chula Centenary Park CC hero.
+- ☕ https://thailandaddict.com/top10-popular-cafes-samyan — Lhong Tou (Thai-tea Chinese cafe), PRYM Brunch (colonial house), Labyrinth slow bar, YAMA Matcha, Cacao Everywhere, findfoundfounded sourdough, Sun-kissed, ABBA...
+- 📸 https://thailandaddict.com/top10-attractions-samyan — Samyan Mitrtown (24h zone), Chula Centenary Park, Banthat Thong food street, House Samyan arthouse cinema, Wat Hua Lamphong, Chamchuri Square, I'm Park, Slowcombo, Brahma Shrine...
+- Notes: 9 new hotel reviews (Workflow-fanout) + 5 reuse. Deploy Version e20c7bfe. cafes workflow died with prior session → relaunched (`wf_4ad72c99`) + reusable hang-poller `_internal/wf/poll-wf.sh`; all 10 cafes had social embeds (0 CC). 2 Wikimedia-CC attraction photos (Chamchuri Square hero, Erawan Brahma for the no-social shrine card). Concurrent-builder-race: commit 4acba155 (another loop) had an incomplete attractions (missing r10 img) → fixed in 7f834d5a; verified HEAD = full correct set before deploy. (⚠️ the cafes/attractions names in an earlier draft of this entry were stale — corrected to the live set.)
 
-## ⏳ In progress
-### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — starting 2026-06-27
+## ⏳ In progress (TWO loops running — coordinate via ย่าน geography to avoid hotel collisions)
+### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — ⚙ CONCURRENT loop · started 2026-06-27 · central-shopping-core hotels (Amari/Centara Grand CentralWorld/Grand Hyatt Erawan/InterContinental = Ratchaprasong)
+### 11. Phrom Phong (พร้อมพงษ์) — ⚙ THIS session (Imac) · started 2026-06-27 · Sukhumvit-east (Emporium/EmQuartier/Phrom Phong BTS) — deliberately skipped ahead of #8–#10 (central core) to avoid colliding with the concurrent loop. Will return to fill any gaps.
 
-## 📋 Queue (30 more, popular-first)
-ari · khao-san · chinatown · siam-pratunam · samyan · chidlom · ploenchit · phrom-phong · riverside · ratchathewi · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
+## 📋 Queue (popular-first; #8 siam-pratunam taken by concurrent loop)
+chidlom · ploenchit · riverside · ratchathewi (reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai

@@ -11,7 +11,11 @@
 - งานถัดไป (ยังไม่เริ่ม): i18n Tier-1 อีก 7 ภาษา (zh·ru·ko·ja·he·ar·hi) ยัง 0 หน้า — ดู `_internal/I18N-AND-TOURISM-CITY-PLAN.md`
 
 ## 🟢 ACTIVE
-- **[2026-06-24 · เครื่อง Imac]** เริ่มชุดใหม่ **top10-attractions-<X>** (eat-ranking, ที่เที่ยวยอดนิยม/จังหวัด — เสริมจากหน้า `<X>-attractions` เดิมที่ "เก็บไว้ไม่แตะ") · **เครื่องนี้จับฝั่ง attractions** · แผน: ครบ 77 จังหวัด + เมืองท่องเที่ยว
+- **[2026-06-27 · Bangkok ย่าน megaproject — มี 2 loop วิ่งพร้อมกัน]**
+    - **loop A (central core):** กำลังทำ **#8 siam-pratunam** (สยาม-ประตูน้ำ) — ใช้โรงแรมโซน Ratchaprasong/CentralWorld (Amari, Centara Grand CentralWorld, Grand Hyatt Erawan, InterContinental). อาจไล่ #9 chidlom · #10 ploenchit ต่อ (central shopping core ทั้งหมด)
+    - **loop B (this session · Imac):** จับ **#11 phrom-phong** (พร้อมพงษ์ — Sukhumvit east, Emporium/EmQuartier) — ข้าม #8–#10 (central core) เพื่อเลี่ยงชนโรงแรมกับ loop A · เสร็จแล้วค่อยวนมาเก็บ #9/#10 ถ้า loop A ยังไม่ทำ
+    - กติกา: เลี่ยงชนด้วย "ภูมิศาสตร์ย่าน" — อย่าทำย่านที่อีก loop ประกาศไว้ที่นี่ + commit/push บ่อย ๆ (race lesson)
+- **[2026-06-24 · เครื่อง Imac]** ชุด **top10-attractions-<X>** (eat-ranking ที่เที่ยว/จังหวัด — คนละหมวดกับ ย่าน megaproject) · แผน: ครบ 77 จังหวัด
     - ✅ DONE+live: **ayutthaya** (`/top10-attractions-ayutthaya`)
     - 🟡 กำลังทำ: **chiang-mai** (engine รันอยู่)
   - หมายเหตุ: อีกเครื่องทำ restaurants (ล่าสุด bueng-kan) + แก้รูป sukhumvit attractions — แยกหมวดชัด ไม่ชน · มาตรฐานรูป: ทุกการ์ดรูปจริง (IG/FB embed หรือ CC Wikimedia) + hero CC จริง
