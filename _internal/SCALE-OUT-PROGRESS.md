@@ -67,15 +67,23 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-samyan — Samyan Mitrtown (24h zone), Chula Centenary Park, Banthat Thong food street, House Samyan arthouse cinema, Wat Hua Lamphong, Chamchuri Square, I'm Park, Slowcombo, Brahma Shrine...
 - Notes: 9 new hotel reviews (Workflow-fanout) + 5 reuse. Deploy Version e20c7bfe. cafes workflow died with prior session → relaunched (`wf_4ad72c99`) + reusable hang-poller `_internal/wf/poll-wf.sh`; all 10 cafes had social embeds (0 CC). 2 Wikimedia-CC attraction photos (Chamchuri Square hero, Erawan Brahma for the no-social shrine card). Concurrent-builder-race: commit 4acba155 (another loop) had an incomplete attractions (missing r10 img) → fixed in 7f834d5a; verified HEAD = full correct set before deploy. (⚠️ the cafes/attractions names in an earlier draft of this entry were stale — corrected to the live set.)
 
-## ⏳ In progress (TWO loops running — coordinate via ย่าน geography to avoid hotel collisions)
-### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — 2026-06-27 (✅ LIVE, TH+EN · central-core loop)
+### 8. Siam–Pratunam (สยาม-ประตูน้ำ) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop)
 - 🏨 https://thailandaddict.com/top10-hotels-siam-pratunam-bangkok — 10 hotels (Grand Hyatt Erawan/Centara Grand CentralWorld/Anantara Siam/InterContinental/Renaissance Ratchaprasong/Amari/Grande Centre Point Ratchadamri/Pathumwan Princess/Novotel Siam Square/Siam@Siam — 5 new + 5 reuse)
 - 💰 https://thailandaddict.com/top5-love-hotels-siam-pratunam-bangkok — 5 value 2-3★ (ibis Siam/Golden House Chidlom/Siam Swana/Siam Nitra/Lub d Siam — all reuse)
 - 🍜 https://thailandaddict.com/top10-popular-restaurants-siam-pratunam — Go-Ang Pratunam chicken rice (Michelin), Inter Restaurant grandma's fried rice, Saneh Jaan (Michelin Thai), After You, Erawan Tea Room...
 - ☕ https://thailandaddict.com/top10-popular-cafes-siam-pratunam — % Arabica CentralWorld, Gallery Drip Coffee (BACC), Brave Roasters, Karun Thai Tea, Thongyoy, Cheevit Cheeva bingsu...
 - 📸 https://thailandaddict.com/top10-attractions-siam-pratunam — Siam Paragon+SEA LIFE, CentralWorld, Erawan Shrine, MBK, BACC, Jim Thompson House, Platinum Mall...
 - Notes: 5 NEW flagship reviews (Workflow-fanout) + 5 reuse + Pathumwan Princess reused from samyan. restaurants hung at Frame→Assemble (poller caught 14min) → resume recovered. CentralWorld-night CC hero + Erawan-dance CC card. SELECTIVE git add (other loop building phrom-phong in same tree).
-### 11. Phrom Phong (พร้อมพงษ์) — ⚙ THIS session (Imac) · started 2026-06-27 · Sukhumvit-east (Emporium/EmQuartier/Phrom Phong BTS) — deliberately skipped ahead of #8–#10 (central core) to avoid colliding with the concurrent loop. Will return to fill any gaps.
+### 11. Phrom Phong (พร้อมพงษ์) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version 5db56567)
+- 🏨 https://thailandaddict.com/top10-hotels-phrom-phong-bangkok — 10 hotels (Emporium Suites by Chatrium/SKYVIEW/Oakwood Suites/Marriott Exec Apt + DoubleTree & Marriott Marquis reuse + Holiday Inn/Davis/Maitria/Park Plaza 4★)
+- 💰 https://thailandaddict.com/top5-love-hotels-phrom-phong-bangkok — 5 value 2-3★ (Tints of Blue 9.0/5638rev / ibis Sukhumvit 24 / S Box / S33 reuse / Best Western 20)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-phrom-phong — Sorn (3-Michelin southern), Rung Rueng (Tang) Michelin Bib noodles, Appia Roman trattoria, Custard Nakamura, Roast EmQuartier, Peppina, Isao sushi, Nihon Saiseisakaba izakaya...
+- ☕ https://thailandaddict.com/top10-popular-cafes-phrom-phong — Roast, D'ARK (Phillip Di Bella), Sarnies, Ryoku (soufflé pancakes), Tiengna viennoiserie, Honeyful (Manuka latte), Luka, Bottomless...
+- 📸 https://thailandaddict.com/top10-attractions-phrom-phong — EM District (EmSphere+IKEA+UOB Live / EmQuartier 40m waterfall / Emporium), Benjasiri Park, TRIBE Sky Beach Club, Escape rooftop, Flow House surf, Little Japan Soi 33/1...
+- Notes: 12-reviewer Workflow-fanout (8 hotel + 4 value) + 3 reuse. Star-verify caught hotel-icon=4★ (→dropped from value), Maven Stylish=4★/wrong-area → reviewer fallback auto-picked Tints of Blue (3★). cafes hung at Frame→Assemble (poller caught) → resume recovered. 2 Wikimedia-CC (EmQuartier-skyline hero, real Benjasiri Park). Fixed rail img 404 (bangkok-emporiumsuites→bangkok-emporium-suites-chatrium). Concurrent build mid-write broke build once (Movenpick BDMS JSON) → retry succeeded.
 
-## 📋 Queue (popular-first; #8 siam-pratunam taken by concurrent loop)
-chidlom · ploenchit · riverside · ratchathewi (reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
+## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
+### 12. Riverside (ริมเจ้าพระยา) — ⚙ THIS session (Imac) · started 2026-06-27 · Chao Phraya riverfront (Mandarin Oriental/Shangri-La/Peninsula/Millennium Hilton/Avani+/Chatrium/Iconsiam) — far from the central core + Sukhumvit, zero collision with the concurrent loop (now on #9 chidlom / #10 ploenchit).
+
+## 📋 Queue (popular-first; #8 siam-pratunam done by concurrent loop, #11 phrom-phong done this loop)
+chidlom (⚙concurrent) · ploenchit (⚙concurrent) · ratchathewi (reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
