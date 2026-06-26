@@ -504,11 +504,14 @@ function provinceHub(slug, th, r, d){
   // Place schema (entity for AI answer-engines + Google knowledge graph) — derived from existing data, nothing fabricated.
   const _co=PVCOORDS[slug];
   const _wd=WIKIDATA[slug];
+  // containsPlace: this province's notable attractions (individual TouristAttraction articles in this locale; excludes list/roundup slugs) — locale-aware URLs, all real pages.
+  const _att=arts.filter(a=>a.type==='attraction'&&!/-attractions$/.test(a.slug)&&a.heroImg).slice(0,6);
   const _place={"@type":"Place","@id":J(`city-${slug}`)+"#place","name":nm,"description":stripTags(tagline),
     ...(heroSrc?{"image":"https://thailandaddict.com"+heroSrc}:{}),
     ...(_co?{"geo":{"@type":"GeoCoordinates","latitude":_co.lat,"longitude":_co.lng}}:{}),
     "address":{"@type":"PostalAddress","addressRegion":nm,"addressCountry":"TH"},
     ...(_wd?{"sameAs":_wd.sameAs}:{}),
+    ...(_att.length?{"containsPlace":_att.map(a=>({"@type":"TouristAttraction","name":stripTags(a.title),"url":J(a.slug)}))}:{}),
     "url":J(`city-${slug}`),"isPartOf":{"@type":"Place","name":RNAME(r)}};
   const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
   // stats

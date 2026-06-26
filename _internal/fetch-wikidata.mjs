@@ -13,20 +13,32 @@ const UA = 'ThailandAddict-hub-enrichment/1.0 (https://thailandaddict.com; chatm
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const api = async u => { const r = await fetch(u, { headers: { 'User-Agent': UA, 'Accept': 'application/json' } }); if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); };
 
+// tourist-destination slugs (islands/cities/towns/parks) — scored as a place, not a province
+const DEST = new Set(['hat-yai', 'huahin', 'khao-yai', 'koh-chang', 'koh-kood', 'koh-larn', 'koh-lipe', 'koh-mak', 'koh-phangan', 'pai', 'pattaya', 'samui']);
+// disambiguating search terms for slugs whose bare name is ambiguous on Wikidata
+const SEARCH_OVERRIDE = { 'khao-yai': 'Khao Yai National Park', 'pai': 'Pai District Mae Hong Son' };
 async function resolve(slug) {
   const name = EN_NAME[slug] || titlecase(slug);
-  const search = encodeURIComponent(name);
+  const search = encodeURIComponent(SEARCH_OVERRIDE[slug] || name);
   const sj = await api(`https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${search}&language=en&format=json&limit=10`);
   const cands = sj.search || [];
   let best = null, bestScore = 0;
+  const isDest = DEST.has(slug);
   for (const c of cands) {
     const d = (c.description || '').toLowerCase();
     let score = 0;
-    if (/^province\b/.test(d)) score += 5;          // description IS a province ("province in/of …")
-    else { if (/province/.test(d)) score += 2; if (/\b(town|city|district|municipality|village|island|tambon|subdistrict|amphoe)\b/.test(d)) score -= 3; } // penalize sub-entities only when not itself a province
-    if (/thailand/.test(d)) score += 2;
-    if (slug === 'bangkok' && /(capital|special administrative)/.test(d)) score += 5;
-    if ((c.label || '').toLowerCase() === name.toLowerCase()) score += 1;
+    if (isDest) {
+      if (/thailand/.test(d)) score += 3;
+      if (/\b(island|city|town|district|national park|nature reserve|protected area|wildlife sanctuary|resort|beach|municipality|tambon|subdistrict|amphoe|archipelago)\b/.test(d)) score += 3;
+      if (/\b(film|movie|song|album|band|company|person|footballer|software|video game|given name|surname|genus|species)\b/.test(d)) score -= 8;
+      if ((c.label || '').toLowerCase() === name.toLowerCase()) score += 1;
+    } else {
+      if (/^province\b/.test(d)) score += 5;          // description IS a province ("province in/of …")
+      else { if (/province/.test(d)) score += 2; if (/\b(town|city|district|municipality|village|island|tambon|subdistrict|amphoe)\b/.test(d)) score -= 3; } // penalize sub-entities only when not itself a province
+      if (/thailand/.test(d)) score += 2;
+      if (slug === 'bangkok' && /(capital|special administrative)/.test(d)) score += 5;
+      if ((c.label || '').toLowerCase() === name.toLowerCase()) score += 1;
+    }
     if (score > bestScore) { bestScore = score; best = c; }
   }
   if (!best || bestScore < 6) return { slug, name, ok: false, candidates: cands.slice(0, 4).map(c => `${c.id}:${c.description || ''}`) };
