@@ -11,9 +11,9 @@ echo "POLLER: watching $WFDIR (stall=${STALL}s cap=${MAXRUN}s)"
 while true; do
   sleep 90
   NOW=$(date +%s)
-  # DONE: the script's return object (contains restaurantCount) got journaled anywhere in the dir
-  if grep -rqsl "restaurantCount" "$WFDIR" 2>/dev/null; then
-    echo "POLLER: DONE — 'restaurantCount' present in $WFDIR (elapsed $((NOW-START))s)"; exit 0
+  # DONE: the script's return object got journaled (eat-ranking → restaurantCount · reviewer-fanout → okCount/reviewsOk)
+  if grep -rqslE "restaurantCount|okCount|reviewsOk" "$WFDIR" 2>/dev/null; then
+    echo "POLLER: DONE — return marker present in $WFDIR (elapsed $((NOW-START))s)"; exit 0
   fi
   # newest mtime across the dir
   NEWEST=$(find "$WFDIR" -type f -printf '%T@\n' 2>/dev/null | sort -nr | head -1 | cut -d. -f1)
