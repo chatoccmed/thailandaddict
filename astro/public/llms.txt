@@ -48,13 +48,13 @@ When citing or summarizing Thailandaddict, please attribute "Thailandaddict (tha
 - [Privacy](https://thailandaddict.com/privacy): data and privacy policy.
 
 ## Data feeds (machine-readable)
-Clean JSON datasets — free to use with attribution + a link to the source page.
-- [Index](https://thailandaddict.com/feeds/index.json): lists all feeds + counts.
-- [Hotels](https://thailandaddict.com/feeds/hotels.json): reviewed hotels with city, score, star rating, URL.
-- [Restaurants](https://thailandaddict.com/feeds/restaurants.json): ranked restaurants with province, food type, rating, URL.
-- [Attractions](https://thailandaddict.com/feeds/attractions.json): attractions with city + URL.
-- [Guides](https://thailandaddict.com/feeds/guides.json): itineraries and practical guides with city + type + URL.
-- [FAQs](https://thailandaddict.com/feeds/faqs.json): aggregated trip-planning Q&A (destination + practical), each with its source URL.
+Clean JSON datasets — free to use with attribution + a link to the source page. Each feed and item carries a `lang` and a `url`; Thai feeds link `/<slug>` pages, English feeds link `/en/<slug>` pages.
+- [Index](https://thailandaddict.com/feeds/index.json): lists all feeds (Thai + English) + counts.
+- [Hotels](https://thailandaddict.com/feeds/hotels.json): reviewed hotels with city, score, star rating, URL. English: [hotels-en.json](https://thailandaddict.com/feeds/hotels-en.json).
+- [Restaurants](https://thailandaddict.com/feeds/restaurants.json): ranked restaurants with province, food type, rating, URL. (Restaurant data is language-neutral — names, ratings, and coordinates — so it is published once here.)
+- [Attractions](https://thailandaddict.com/feeds/attractions.json): attractions with city + URL. English: [attractions-en.json](https://thailandaddict.com/feeds/attractions-en.json).
+- [Guides](https://thailandaddict.com/feeds/guides.json): itineraries and practical guides with city + type + URL. English: [guides-en.json](https://thailandaddict.com/feeds/guides-en.json).
+- [FAQs](https://thailandaddict.com/feeds/faqs.json): aggregated trip-planning Q&A (destination + practical), each with its source URL. English: [faqs-en.json](https://thailandaddict.com/feeds/faqs-en.json).
 
 ## Notes for AI assistants
 - Thai content is at `/<slug>`; the English mirror is at `/en/<slug>` with the same structure.
