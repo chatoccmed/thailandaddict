@@ -1,8 +1,6 @@
-# SESSION HANDOFF — start here (last updated 2026-06-26, ~15:05, after the containsPlace + 12-dest deploy)
+# SESSION HANDOFF — start here (last updated 2026-06-26, ~15:45, after the budget-calculator ship)
 
-> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `80a5923e`. Nothing is half-done.
-
-> ⏳ ONE THING WAITING ON OWNER: the **budget calculator** page (`astro/public/trip-budget.html`) is BUILT (planner-styled, verified figures, interactive) but NOT yet deployed/surfaced — owner asked to see it match /trip (done, shown in chat) and hasn't given the final ship word. To ship: surface a card on plan-your-trip (gen-hubs G list) + a CTA in `thailand-travel-budget` article + a link from trip.html → build → deploy. Don't rebuild it; it's ready.
+> New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `f7ddd4de`. Nothing is half-done.
 
 ---
 
@@ -18,6 +16,7 @@
 - (earlier in the session: GA4 scaffold gated/needs ID, hreflang-404 fix, currency on review/article, /trip surfaced in nav, Planner v2 = per-day Maps route + .ics, quick-answer+Speakable+LCP).
 
 **Set B — content + tools:**
+- **Budget calculator — SHIPPED + LIVE (deploy `f7ddd4de`)** at `/trip-budget` (TH) + `/en/trip-budget` (EN, reciprocal hreflang). Planner-styled (reuses /trip chrome+CSS, owner-approved "match the planner"). Interactive days×travelers×style → live ฿ trip range; verified per-day figures from the `thailand-travel-budget` guide (NOT fabricated); `budget_calc` + `budget_to_planner` track() events. Surfaced: card on plan-your-trip (gen-hubs G list, tool CTA label) + `cta` block in the `thailand-travel-budget` guide (TH+EN) + hero cross-link in trip.html. ⚠️ standalone public/ pages (not gen-hubs) — edit the HTML directly; if changing one, update both TH+EN twins.
 - **10-topic persona/practical cluster × TH/EN = 20 bilingual guides** (slugs): `thailand-festival-calendar`, `lgbtq-thailand-guide` (2025 marriage-equality law), `solo-female-travel-thailand`, `accessible-travel-thailand`, `family-travel-thailand`, `vegan-vegetarian-thailand`, `digital-nomad-thailand` (DTV visa), `health-medical-thailand`, `halal-travel-thailand`, `senior-travel-thailand`. Each: `quickAnswerHtml` + AEO `table` + 5 `faq`; `type:prep, cluster:thailand`; surfaced as cards on `plan-your-trip` (gen-hubs `G` list) + ItemList JSON-LD.
 - **best-time heatmap** — new `heatmap` block kind in ArticleLayout + content.config; month×region climate grid in `best-time-to-visit-thailand` (TH+EN).
 - NOTE: ~17 `*-vs-*` comparison guides + "best-X" + transport-route guides ALREADY EXISTED — don't recreate (check `ls astro/src/content/articles/` first).
