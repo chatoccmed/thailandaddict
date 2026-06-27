@@ -83,6 +83,14 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-chidlom — Erawan Shrine, CentralWorld, Central Embassy+Open House, Central Chidlom, Lumpini Park, Velaa Sindhorn, Gaysorn+Lakshmi, Trimurti shrine...
 - Notes: 13 NEW reviews (Workflow-fanout, all parsed + star-verified — 9×5★ luxury + 4×2-3★ value). attractions hung at Frame→Assemble (poller caught 14min) → resume recovered (253K tok). CentralWorld-facade CC hero + Trimurti-shrine CC card. SELECTIVE git add. **ploenchit #10 = FOLDED into chidlom (near-100% overlap, same Ploenchit Rd) — skip to avoid duplicate content.**
 
+### 10. Ratchathewi–Phaya Thai (ราชเทวี-พญาไท) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop)
+- 🏨 https://thailandaddict.com/top10-ratchathewi-bts-hotels-bangkok — REUSED existing roundup (VIE MGallery/Eastin Grand Phayathai/Pullman King Power... — Ari-style, no new reviews)
+- 💰 https://thailandaddict.com/top5-love-hotels-ratchathewi-bangkok — 5 value 2-3★ (Vic3/The Posh Phayathai/Bed Station 9.4/Been Hostel/Siam Swana — all reuse)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-ratchathewi — Chakki (Jak Gee) Michelin rad na, Muek Man Kai Singapore chicken rice, Tehoo roti cha chak halal, Baan Khun Ya 60yr...
+- ☕ https://thailandaddict.com/top10-popular-cafes-ratchathewi — Factory Coffee (3× barista champ), Roots, Casa Lapin, Café Narasingh (Thailand's first coffee shop, Phaya Thai Palace), Piccolo Vicolo garden...
+- 📸 https://thailandaddict.com/top10-attractions-ratchathewi — Victory Monument, Phaya Thai Palace (Roman dome), Platinum Fashion Mall, Suan Pakkad Palace Museum, Baiyoke Sky, Baan Krua silk community...
+- Notes: ⚡FAST (Ari-style) — hotels+value 100% REUSE, zero new reviews; only value roundup + 3 articles new. Swapped CLOSED Talad Neon night market → Baiyoke Sky (rank 6). Scrubbed ban-words ระดับโลก/โดดเด่น in attractions. Baiyoke-skyline CC hero + Victory Monument + Baiyoke CC cards. **victory-monument #(future) FOLDS into ratchathewi — skip.** SELECTIVE git add (no new hotel imgs, only food/ratchathewi).
+
 ### 11. Phrom Phong (พร้อมพงษ์) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version 5db56567)
 - 🏨 https://thailandaddict.com/top10-hotels-phrom-phong-bangkok — 10 hotels (Emporium Suites by Chatrium/SKYVIEW/Oakwood Suites/Marriott Exec Apt + DoubleTree & Marriott Marquis reuse + Holiday Inn/Davis/Maitria/Park Plaza 4★)
 - 💰 https://thailandaddict.com/top5-love-hotels-phrom-phong-bangkok — 5 value 2-3★ (Tints of Blue 9.0/5638rev / ibis Sukhumvit 24 / S Box / S33 reuse / Best Western 20)
