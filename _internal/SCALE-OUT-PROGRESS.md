@@ -139,8 +139,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-sai-tai — Taling Chan + Khlong Lat Mayom + Wat Saphan + Song Khlong floating markets, Baan Silapin Artist's House, Wat Champa (Ayutthaya-era), The Circle Ratchaphruek...
 - Notes: ⚡FAST (Ari-style) — hotels+value 100% REUSE, only value roundup + 3 articles new. Swapped CLOSED Suan Ahan Talingchan→PLA-YOOYEN (restaurants r6). cafes EN agent died mid-response (API)→re-ran OK. Taling-Chan-market CC hero. SELECTIVE git add (no new hotel imgs). ratchada→rama9, victory-monument→ratchathewi, ploenchit→chidlom (folded).
 
+### 25. Bang Na (บางนา) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version fbbc91ff)
+- 🏨 https://thailandaddict.com/top10-hotels-bangna-bangkok — 10 (Lasalle Suites 4★/56 Hotel/Brighton/Avana 4★/Shade House BITEC NEW + 5 reuse: Thomson 9.0/Cubic 9.2/Takka/Romance 97/Hop Inn 9.2)
+- 💰 https://thailandaddict.com/top5-love-hotels-bangna-bangkok — 5 value 2-3★ (Cubic 9.2/Hop Inn 9.2/Takka/56 Hotel/Romance Sukhumvit 97)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-bangna — Silawat Seafood (40yr), Maguro 4.7, Ohkajhu rooftop Lasalle, Khelang northern, NANA Coffee, Saen Aroi Pochana, duck+tomyum noodles...
+- ☕ https://thailandaddict.com/top10-popular-cafes-bangna — NANA Coffee Roasters garden roastery 4.6, Roots @ BITEC, Coffee Station Tokyo-subway theme, La Mesa Mayan Mocha, Shelterhood 4.9, Bougain garden cafe...
+- 📸 https://thailandaddict.com/top10-attractions-bangna — Mega Bangna+IKEA, Pororo rooftop AquaPark, Suan Luang Rama 9, Train Night Market, Seacon Square, Bueng Nong Bon sailing, BITEC, TopGolf 4.9, BEAT Active...
+- Notes: 5-reviewer fanout (Lasalle/56/Brighton/Avana/Shade House) + 5 reuse → proper top-10. DATA-CORRECTNESS: spawned cafe closure-verify agent → **all 10 cafes confirmed OPEN** (no swap needed); value h1 clean (ม่านรูด hidden in TH metaDesc only); 24 new hotel imgs → R2. Bhumibol-Bridge-sunset CC hero (CC BY 2.0). Build 12,308 pages. NOTE for srinakarin (next): Train Night Market + Seacon + Suan Luang Rama 9 already used here — differentiate srinakarin attractions.
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
-### 25. Bang Na (บางนา) — ⚙ THIS loop (Imac) · started 2026-06-27 · Southeast BKK (BTS Bang Na/Udom Suk · BITEC · Mega Bangna · Central Bangna · Bangkok Mall) — far from loop A's central/Thonburi cluster. loop A owns Thonburi (sai-tai/talat-phlu/pinklao); loop B owns north/east/southeast (mochit✅/bangna/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana).
+### 26. Srinakarin (ศรีนครินทร์) — ⚙ THIS loop (Imac) · started 2026-06-27 · SE/East BKK (Srinakarin Rd · Seacon Square · Thanya Park · Paseo · Suan Luang Rama 9 · Hua Mak) — adjacent to bangna but inland/east. loop A owns Thonburi (talat-phlu/pinklao); loop B owns east/SE (mochit✅/bangna✅/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana). ⚠️ differentiate attractions from bangna (don't re-headline Train Night Market/Seacon — those overlap).
 
 ## 📋 Queue (popular-first; #8 siam-pratunam done by concurrent loop, #11 phrom-phong done this loop)
 ploenchit (FOLDED into chidlom — skip, ~100% overlap) · ratchathewi (⚙this loop NEXT · reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
