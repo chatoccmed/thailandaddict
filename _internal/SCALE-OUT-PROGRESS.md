@@ -147,6 +147,14 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-bangna — Mega Bangna+IKEA, Pororo rooftop AquaPark, Suan Luang Rama 9, Train Night Market, Seacon Square, Bueng Nong Bon sailing, BITEC, TopGolf 4.9, BEAT Active...
 - Notes: 5-reviewer fanout (Lasalle/56/Brighton/Avana/Shade House) + 5 reuse → proper top-10. DATA-CORRECTNESS: spawned cafe closure-verify agent → **all 10 cafes confirmed OPEN** (no swap needed); value h1 clean (ม่านรูด hidden in TH metaDesc only); 24 new hotel imgs → R2. Bhumibol-Bridge-sunset CC hero (CC BY 2.0). Build 12,308 pages. NOTE for srinakarin (next): Train Night Market + Seacon + Suan Luang Rama 9 already used here — differentiate srinakarin attractions.
 
+### 13. Talat Phlu – Wongwian Yai – Krung Thonburi (ตลาดพลู-วงเวียนใหญ่) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop · Thonburi)
+- 🏨 https://thailandaddict.com/top10-hotels-talat-phlu-bangkok — 10 NEW (Hop Inn Krung Thonburi 9.1/Bangkok Loft Inn/W Station/White Ivory/Klean Residence/Aim House/Aiyapura/Sarasinee/King Royal II/Jolly Suites — all-new, no reuse existed)
+- 💰 https://thailandaddict.com/top5-love-hotels-talat-phlu-bangkok — 5 value 2-3★ (Hop Inn/Klean Residence/Aim House/Aiyapura/King Royal II)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-talat-phlu — Somsak Pu Ob (Michelin crab glass noodles), Kuychai Lee Po Ngek (100yr), Suriya Coffee (100yr kopi), Ni-Ang egg ice cream, Sunee khao moo daeng...
+- ☕ https://thailandaddict.com/top10-popular-cafes-talat-phlu — LYNX Coffee (young-coconut pie), Pracha Cafe (70yr printing house), Siamratana Bakehouse (1964 sangkaya), Trok Talatphlu rooftop (Wat Paknam view), Cafe Marquina...
+- 📸 https://thailandaddict.com/top10-attractions-talat-phlu — Wat Paknam Big Buddha 69m + Glass Pagoda, Talat Phlu market (Lahn Mah film loc), Baan Silapin canal puppets, Wongwian Yai King Taksin Monument, Wat Khun Chan Rahu shrine...
+- Notes: 10-reviewer Workflow-fanout (ALL-NEW — no reuse hotels existed in this Thonburi-west cluster; scoped honest top10 around BTS Wongwian Yai/Krung Thonburi). restaurants hung at Frame→Assemble (poller caught) → resume recovered. Swapped CLOSED Kups Cafe→Cafe Marquina (cafes r9, agent flagged BLOCKER). Wat-Paknam-Big-Buddha CC hero + Wat Intharam CC. SELECTIVE git add. ratchada→rama9, victory-monument→ratchathewi, ploenchit→chidlom (folded).
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
 ### 26. Srinakarin (ศรีนครินทร์) — ⚙ THIS loop (Imac) · started 2026-06-27 · SE/East BKK (Srinakarin Rd · Seacon Square · Thanya Park · Paseo · Suan Luang Rama 9 · Hua Mak) — adjacent to bangna but inland/east. loop A owns Thonburi (talat-phlu/pinklao); loop B owns east/SE (mochit✅/bangna✅/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana). ⚠️ differentiate attractions from bangna (don't re-headline Train Night Market/Seacon — those overlap).
 
