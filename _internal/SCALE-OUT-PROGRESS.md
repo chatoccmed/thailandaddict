@@ -131,6 +131,14 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-mochit-chatuchak — JJ Weekend Market (world's biggest), Or Tor Kor, Rot Fai/Railway Park, Chatuchak Park, Mixt Chatuchak, Queen Sirikit Park, Children's Museum...
 - Notes: existing top9 was budget-only/sub-standard → **upgraded to proper top-10** (3 NEW premium reviewers + 7 reuse) + **retired old top9** (repointed whole-BKK restaurants link → top10, deleted dup). DATA-CORRECTNESS: restaurants hung at Frame→Assemble → resume recovered; cafes had **2 CLOSED cafes** (Standalone Vibhavadi/Pompano @ The Camp) → swapped → Brewery Brasserie + Compress Coffee + frame scrubbed; fixed Tobacco One (FB-as-Booking) + Centara/Josh former-name Booking slugs → search URLs. Chatuchak-market CC hero. Used `git -c rebase.autostash=true` for the churn-race push.
 
+### 12. Sai Tai – Taling Chan (สายใต้ใหม่-ตลิ่งชัน) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop · Thonburi)
+- 🏨 https://thailandaddict.com/top7-sai-tai-bus-terminal-hotels-bangkok — REUSED existing roundup (Visa/Cana/S.D. Avenue/NORN Canalside/Charlie House Pinklao/Royal City/Yaks — Ari-style, no new reviews)
+- 💰 https://thailandaddict.com/top5-love-hotels-sai-tai-bangkok — 5 value 3★ (NORN Canalside/Cana/Charlie House Pinklao/S.D. Avenue/Visa — all reuse)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-sai-tai — Taling Chan Floating Market grilled fish, Huen Lampoon (Michelin Guide N.Thai), Phed Phed Bistro (Bib Gourmand Isan), COAL Bistro charcoal steak...
+- ☕ https://thailandaddict.com/top10-popular-cafes-sai-tai — James Boulangerie (Chef James croissants), Rolling Roasters, Eight de Klong (canalside wood house), RAWVAELA (Khlong Lat Mayom)...
+- 📸 https://thailandaddict.com/top10-attractions-sai-tai — Taling Chan + Khlong Lat Mayom + Wat Saphan + Song Khlong floating markets, Baan Silapin Artist's House, Wat Champa (Ayutthaya-era), The Circle Ratchaphruek...
+- Notes: ⚡FAST (Ari-style) — hotels+value 100% REUSE, only value roundup + 3 articles new. Swapped CLOSED Suan Ahan Talingchan→PLA-YOOYEN (restaurants r6). cafes EN agent died mid-response (API)→re-ran OK. Taling-Chan-market CC hero. SELECTIVE git add (no new hotel imgs). ratchada→rama9, victory-monument→ratchathewi, ploenchit→chidlom (folded).
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
 ### 25. Bang Na (บางนา) — ⚙ THIS loop (Imac) · started 2026-06-27 · Southeast BKK (BTS Bang Na/Udom Suk · BITEC · Mega Bangna · Central Bangna · Bangkok Mall) — far from loop A's central/Thonburi cluster. loop A owns Thonburi (sai-tai/talat-phlu/pinklao); loop B owns north/east/southeast (mochit✅/bangna/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana).
 
