@@ -17,18 +17,47 @@
     "✅ Based on <strong>real guest reviews</strong>"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/en/" },
-    { "name": "Thailand", "href": "/en/country-thailand.html" },
-    { "name": "Bangkok", "href": "/en/city-bangkok.html" },
-    { "name": "Riverside", "href": "/en/area-bangkok-riverside.html" },
-    { "name": "Top 10 Riverside Hotels" }
+    {
+      "name": "ThailandAddict",
+      "href": "/en/"
+    },
+    {
+      "name": "Thailand",
+      "href": "/en/country-thailand.html"
+    },
+    {
+      "name": "Bangkok",
+      "href": "/en/city-bangkok.html"
+    },
+    {
+      "name": "Riverside",
+      "href": "/en/area-bangkok-riverside.html"
+    },
+    {
+      "name": "Top 10 Riverside Hotels"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/en/" },
-    { "name": "Thailand", "item": "https://thailandaddict.com/en/country-thailand" },
-    { "name": "Bangkok", "item": "https://thailandaddict.com/en/city-bangkok" },
-    { "name": "Riverside", "item": "https://thailandaddict.com/en/area-bangkok-riverside" },
-    { "name": "Top 10 Riverside Hotels", "item": "https://thailandaddict.com/en/top10-hotels-riverside-bangkok" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/en/"
+    },
+    {
+      "name": "Thailand",
+      "item": "https://thailandaddict.com/en/country-thailand"
+    },
+    {
+      "name": "Bangkok",
+      "item": "https://thailandaddict.com/en/city-bangkok"
+    },
+    {
+      "name": "Riverside",
+      "item": "https://thailandaddict.com/en/area-bangkok-riverside"
+    },
+    {
+      "name": "Top 10 Riverside Hotels",
+      "item": "https://thailandaddict.com/en/top10-hotels-riverside-bangkok"
+    }
   ],
   "navReviewLabel": "Hotel Reviews",
   "navReviewHref": "/en/top10-hotels-riverside-bangkok.html",
@@ -37,16 +66,66 @@
   "mrtHtml": "Riverside hotels are split across both banks. East-bank properties (Bang Rak, Si Phraya) are closest to BTS Saphan Taksin — <strong>Shangri-La Bangkok is just 270m on foot</strong>. West-bank hotels (Thon Buri, Khlong San) — Peninsula, Millennium Hilton, Chatrium, Anantara, AVANI+ — all run complimentary ferries to BTS Saphan Taksin and ICONSIAM throughout the day. Every hotel in this guide is connected to BTS either by walking or a hotel ferry.",
   "secLabel": "All 10 picks — let's go",
   "toc": [
-    { "n": "1", "color": "#FBBF24", "name": "Mandarin Oriental Bangkok", "price": "฿16,000" },
-    { "n": "2", "color": "#06B6D4", "name": "Four Seasons Hotel Bangkok at Chao Phraya River", "price": "฿13,000" },
-    { "n": "3", "color": "#06B6D4", "name": "The Peninsula Bangkok", "price": "฿11,000" },
-    { "n": "4", "color": "#06B6D4", "name": "Chatrium Hotel Riverside Bangkok", "price": "฿4,200" },
-    { "n": "5", "color": "#06B6D4", "name": "Millennium Hilton Bangkok", "price": "฿4,500" },
-    { "n": "6", "color": "#06B6D4", "name": "Anantara Riverside Bangkok Resort", "price": "฿4,500" },
-    { "n": "7", "color": "#06B6D4", "name": "Royal Orchid Sheraton Hotel & Towers Bangkok", "price": "฿4,000" },
-    { "n": "8", "color": "#06B6D4", "name": "Shangri-La Bangkok", "price": "฿5,500" },
-    { "n": "9", "color": "#FB7185", "name": "AVANI+ Riverside Bangkok Hotel", "price": "฿4,500" },
-    { "n": "10", "color": "#06B6D4", "name": "Ramada Plaza by Wyndham Bangkok Menam Riverside", "price": "฿2,100" }
+    {
+      "n": "1",
+      "color": "#FBBF24",
+      "name": "Mandarin Oriental Bangkok",
+      "price": "฿16,000"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Four Seasons Hotel Bangkok at Chao Phraya River",
+      "price": "฿13,000"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "The Peninsula Bangkok",
+      "price": "฿11,000"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Chatrium Hotel Riverside Bangkok",
+      "price": "฿4,200"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "Millennium Hilton Bangkok",
+      "price": "฿4,500"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Anantara Riverside Bangkok Resort",
+      "price": "฿4,500"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Royal Orchid Sheraton Hotel & Towers Bangkok",
+      "price": "฿4,000"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "Shangri-La Bangkok",
+      "price": "฿5,500"
+    },
+    {
+      "n": "9",
+      "color": "#FB7185",
+      "name": "AVANI+ Riverside Bangkok Hotel",
+      "price": "฿4,500"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Ramada Plaza by Wyndham Bangkok Menam Riverside",
+      "price": "฿2,100"
+    }
   ],
   "entries": [
     {
@@ -65,10 +144,22 @@
       "priceBig": "฿16,000",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿16,000/night" },
-        { "type": "Deluxe River View", "price": "from ฿22,000/night" },
-        { "type": "Premier River View", "price": "from ฿28,000/night" },
-        { "type": "Authors' Suite", "price": "from ฿42,000/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿16,000/night"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "from ฿22,000/night"
+        },
+        {
+          "type": "Premier River View",
+          "price": "from ฿28,000/night"
+        },
+        {
+          "type": "Authors' Suite",
+          "price": "from ฿42,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/mandarin-oriental-bangkok.html",
@@ -110,13 +201,25 @@
       "priceBig": "฿13,000",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe Room (garden view)", "price": "from ฿13,000/night" },
-        { "type": "Deluxe Riverview Room", "price": "from ฿16,000/night" },
-        { "type": "Premier Riverview Room", "price": "from ฿22,000/night" },
-        { "type": "Four Seasons Suite", "price": "from ฿38,000/night" }
+        {
+          "type": "Deluxe Room (garden view)",
+          "price": "from ฿13,000/night"
+        },
+        {
+          "type": "Deluxe Riverview Room",
+          "price": "from ฿16,000/night"
+        },
+        {
+          "type": "Premier Riverview Room",
+          "price": "from ฿22,000/night"
+        },
+        {
+          "type": "Four Seasons Suite",
+          "price": "from ฿38,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/four-seasons-hotel-bangkok-at-chao-praya-river/hotel/bangkok-th.html?cid=1965862",
-      "bookingUrl": "",
+      "bookingUrl": "https://www.booking.com/hotel/th/four-seasons-bangkok-at-chao-phraya-river.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-48004058/four-seasons-hotel-bangkok-at-chao-phraya-river/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "/en/review-four-seasons-chao-phraya-bangkok.html",
       "tags": [
@@ -155,13 +258,25 @@
       "priceBig": "฿11,000",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "from ฿11,000/night" },
-        { "type": "Grand Deluxe Balcony", "price": "from ฿13,500/night" },
-        { "type": "Deluxe Suite", "price": "from ฿22,000/night" },
-        { "type": "Grand Deluxe Suite", "price": "from ฿32,000/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿11,000/night"
+        },
+        {
+          "type": "Grand Deluxe Balcony",
+          "price": "from ฿13,500/night"
+        },
+        {
+          "type": "Deluxe Suite",
+          "price": "from ฿22,000/night"
+        },
+        {
+          "type": "Grand Deluxe Suite",
+          "price": "from ฿32,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/the-peninsula-bangkok/hotel/bangkok-th.html?cid=1965862",
-      "bookingUrl": "",
+      "bookingUrl": "https://www.booking.com/hotel/th/the-peninsula-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-909882/the-peninsula-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "/en/review-the-peninsula-bangkok.html",
       "tags": [
@@ -200,13 +315,25 @@
       "priceBig": "฿4,200",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Grand Deluxe City View (60 sqm)", "price": "from ฿4,200/night" },
-        { "type": "Grand Deluxe River View (60 sqm)", "price": "from ฿5,500/night" },
-        { "type": "One Bedroom Suite", "price": "from ฿8,500/night" },
-        { "type": "Two Bedroom Suite", "price": "from ฿14,000/night" }
+        {
+          "type": "Grand Deluxe City View (60 sqm)",
+          "price": "from ฿4,200/night"
+        },
+        {
+          "type": "Grand Deluxe River View (60 sqm)",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "from ฿8,500/night"
+        },
+        {
+          "type": "Two Bedroom Suite",
+          "price": "from ฿14,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/chatrium-hotel-riverside-bangkok-sha-extra-plus/hotel/bangkok-th.html?cid=1965862",
-      "bookingUrl": "",
+      "bookingUrl": "https://www.booking.com/hotel/th/chatrium-hotel-riverside-bangkok.html",
       "tripUrl": "https://th.trip.com/hotels/bangkok-hotel-detail-996685/chatrium-hotel-riverside-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "/en/review-chatrium-riverside-bangkok.html",
       "tags": [
@@ -245,13 +372,25 @@
       "priceBig": "฿4,500",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe King Room", "price": "from ฿4,500/night" },
-        { "type": "Premium King River View", "price": "from ฿5,800/night" },
-        { "type": "Executive King Room", "price": "from ฿7,200/night" },
-        { "type": "Panoramic Executive Suite", "price": "from ฿12,000/night" }
+        {
+          "type": "Deluxe King Room",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Premium King River View",
+          "price": "from ฿5,800/night"
+        },
+        {
+          "type": "Executive King Room",
+          "price": "from ฿7,200/night"
+        },
+        {
+          "type": "Panoramic Executive Suite",
+          "price": "from ฿12,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/millennium-hilton-bangkok_13/hotel/bangkok-th.html?cid=1965862",
-      "bookingUrl": "",
+      "bookingUrl": "https://www.booking.com/hotel/th/millennium-hilton-bangkok.html",
       "tripUrl": "https://www.trip.com/hotels/bangkok-hotel-detail-1300392/millennium-hilton-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "/en/review-millennium-hilton-bangkok.html",
       "tags": [
@@ -290,10 +429,22 @@
       "priceBig": "฿4,500",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe Room", "price": "from ฿4,500/night" },
-        { "type": "Deluxe River View Room", "price": "from ฿6,000/night" },
-        { "type": "Junior Suite River View", "price": "from ฿9,500/night" },
-        { "type": "Family Suite", "price": "from ฿12,000/night" }
+        {
+          "type": "Deluxe Room",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "Deluxe River View Room",
+          "price": "from ฿6,000/night"
+        },
+        {
+          "type": "Junior Suite River View",
+          "price": "from ฿9,500/night"
+        },
+        {
+          "type": "Family Suite",
+          "price": "from ฿12,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/anantara-riverside-bangkok-resort/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bangkok-riverside-resort-and-spa.html",
@@ -335,10 +486,22 @@
       "priceBig": "฿4,000",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe River View", "price": "from ฿4,000/night" },
-        { "type": "Premium Deluxe River View", "price": "from ฿5,500/night" },
-        { "type": "Club Deluxe River View", "price": "from ฿7,000/night" },
-        { "type": "Junior Suite", "price": "from ฿9,500/night" }
+        {
+          "type": "Deluxe River View",
+          "price": "from ฿4,000/night"
+        },
+        {
+          "type": "Premium Deluxe River View",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "Club Deluxe River View",
+          "price": "from ฿7,000/night"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "from ฿9,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/royal-orchid-sheraton-riverside-hotel-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/royal-orchid-sheraton-and-towers.html",
@@ -380,13 +543,25 @@
       "priceBig": "฿5,500",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Deluxe River View (SL Wing)", "price": "from ฿5,500/night" },
-        { "type": "Deluxe Balcony Room", "price": "from ฿7,000/night" },
-        { "type": "Krungthep Wing Deluxe", "price": "from ฿9,000/night" },
-        { "type": "Horizon Club Room", "price": "from ฿12,000/night" }
+        {
+          "type": "Deluxe River View (SL Wing)",
+          "price": "from ฿5,500/night"
+        },
+        {
+          "type": "Deluxe Balcony Room",
+          "price": "from ฿7,000/night"
+        },
+        {
+          "type": "Krungthep Wing Deluxe",
+          "price": "from ฿9,000/night"
+        },
+        {
+          "type": "Horizon Club Room",
+          "price": "from ฿12,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/shangri-la-hotel-bangkok/hotel/bangkok-th.html?cid=1965862",
-      "bookingUrl": "",
+      "bookingUrl": "https://www.booking.com/hotel/th/shangri-la-bangkok.html",
       "tripUrl": "https://th.trip.com/hotels/bangkok-hotel-detail-996022/shangri-la-hotel-bangkok/?Allianceid=6861268&SID=312919111",
       "reviewUrl": "/en/review-shangri-la-bangkok.html",
       "tags": [
@@ -425,10 +600,22 @@
       "priceBig": "฿4,500",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Skyline River View Room", "price": "from ฿4,500/night" },
-        { "type": "AVANI River View Junior Suite", "price": "from ฿6,500/night" },
-        { "type": "One Bedroom Suite", "price": "from ฿9,000/night" },
-        { "type": "Two Bedroom Suite", "price": "from ฿16,000/night" }
+        {
+          "type": "Skyline River View Room",
+          "price": "from ฿4,500/night"
+        },
+        {
+          "type": "AVANI River View Junior Suite",
+          "price": "from ฿6,500/night"
+        },
+        {
+          "type": "One Bedroom Suite",
+          "price": "from ฿9,000/night"
+        },
+        {
+          "type": "Two Bedroom Suite",
+          "price": "from ฿16,000/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/avani-riverside-bangkok-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/avani-riverside-bangkok-bangkok.html",
@@ -470,10 +657,22 @@
       "priceBig": "฿2,100",
       "priceSub": "approx. from/night",
       "rooms": [
-        { "type": "Superior Room", "price": "from ฿2,100/night" },
-        { "type": "Deluxe River View", "price": "from ฿2,800/night" },
-        { "type": "Grand Deluxe Room", "price": "from ฿3,500/night" },
-        { "type": "Plaza River View Suite", "price": "from ฿5,500/night" }
+        {
+          "type": "Superior Room",
+          "price": "from ฿2,100/night"
+        },
+        {
+          "type": "Deluxe River View",
+          "price": "from ฿2,800/night"
+        },
+        {
+          "type": "Grand Deluxe Room",
+          "price": "from ฿3,500/night"
+        },
+        {
+          "type": "Plaza River View Suite",
+          "price": "from ฿5,500/night"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/ramada-plaza-bangkok-menam-riverside/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/ramada-plaza-menam-riverside-bangkok.html",
@@ -501,29 +700,169 @@
     }
   ],
   "compareTitle": "Comparison Table — 10 Best Chao Phraya Riverside Hotels Bangkok 2026",
-  "compareCols": ["#", "Hotel", "Stars", "Score", "Price/Night", "Location", "Standout"],
+  "compareCols": [
+    "#",
+    "Hotel",
+    "Stars",
+    "Score",
+    "Price/Night",
+    "Location",
+    "Standout"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#FBBF24", "name": "Mandarin Oriental Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.5", "price": "฿16,000", "access": "📍 Oriental Avenue, Bang Rak · Hotel boat", "badge": "Score 9.5 · 150-Year Legend", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Four Seasons Chao Phraya Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿13,000", "access": "📍 Charoen Krung, Yan Nawa · Hotel ferry", "badge": "#2 World's 50 Best Hotels 2025", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "The Peninsula Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿11,000", "access": "📍 Charoen Nakhon, Khlong San · Free teak boat", "badge": "All 348 rooms river-facing · Teak boat", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Chatrium Hotel Riverside Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿4,200", "access": "📍 Charoen Krung Soi 70, Bang Kho Laem", "badge": "Best value in 9.3 group · 60 sqm rooms", "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "Millennium Hilton Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.3", "price": "฿4,500", "access": "📍 Charoennakorn, Khlong San · ICONSIAM 5-min", "badge": "2,678 reviews — most in 9.3 group", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Anantara Riverside Bangkok Resort", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿4,500", "access": "📍 Charoennakorn, Samrae, Thon Buri", "badge": "11-acre garden resort · Manohra Cruise", "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#aed581;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "Royal Orchid Sheraton Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.0", "price": "฿4,000", "access": "📍 Charoen Krung Soi 30, Si Phraya, Bang Rak", "badge": "All 726 rooms river-facing · Thara Thong", "badgeStyle": "background:#f3e5f5;color:#7b1fa2;border-color:#ce93d8;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "Shangri-La Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "8.9", "price": "฿5,500", "access": "📍 Charoen Krung, Bang Rak · BTS 270m walk", "badge": "Closest BTS walk · Salathip pavilion", "badgeStyle": "background:#e8eaf6;color:#283593;border-color:#9fa8da;" },
-    { "rank": "9", "rankColor": "#FB7185", "name": "AVANI+ Riverside Bangkok Hotel", "type": "⭐⭐⭐⭐", "score": "8.8", "price": "฿4,500", "access": "📍 Charoen Nakhon, Samrae, Thon Buri", "badge": "9,000+ reviews — most in the guide", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "Ramada Plaza Menam Riverside", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿2,100", "access": "📍 Charoenkrung Road, Bang Kho Laem", "badge": "Lowest price · Free tuk-tuk to Asiatique", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#7dd3fc;" }
+    {
+      "rank": "1",
+      "rankColor": "#FBBF24",
+      "name": "Mandarin Oriental Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.5",
+      "price": "฿16,000",
+      "access": "📍 Oriental Avenue, Bang Rak · Hotel boat",
+      "badge": "Score 9.5 · 150-Year Legend",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Four Seasons Chao Phraya Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿13,000",
+      "access": "📍 Charoen Krung, Yan Nawa · Hotel ferry",
+      "badge": "#2 World's 50 Best Hotels 2025",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "The Peninsula Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿11,000",
+      "access": "📍 Charoen Nakhon, Khlong San · Free teak boat",
+      "badge": "All 348 rooms river-facing · Teak boat",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Chatrium Hotel Riverside Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿4,200",
+      "access": "📍 Charoen Krung Soi 70, Bang Kho Laem",
+      "badge": "Best value in 9.3 group · 60 sqm rooms",
+      "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "Millennium Hilton Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.3",
+      "price": "฿4,500",
+      "access": "📍 Charoennakorn, Khlong San · ICONSIAM 5-min",
+      "badge": "2,678 reviews — most in 9.3 group",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Anantara Riverside Bangkok Resort",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿4,500",
+      "access": "📍 Charoennakorn, Samrae, Thon Buri",
+      "badge": "11-acre garden resort · Manohra Cruise",
+      "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#aed581;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "Royal Orchid Sheraton Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿4,000",
+      "access": "📍 Charoen Krung Soi 30, Si Phraya, Bang Rak",
+      "badge": "All 726 rooms river-facing · Thara Thong",
+      "badgeStyle": "background:#f3e5f5;color:#7b1fa2;border-color:#ce93d8;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "Shangri-La Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿5,500",
+      "access": "📍 Charoen Krung, Bang Rak · BTS 270m walk",
+      "badge": "Closest BTS walk · Salathip pavilion",
+      "badgeStyle": "background:#e8eaf6;color:#283593;border-color:#9fa8da;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#FB7185",
+      "name": "AVANI+ Riverside Bangkok Hotel",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.8",
+      "price": "฿4,500",
+      "access": "📍 Charoen Nakhon, Samrae, Thon Buri",
+      "badge": "9,000+ reviews — most in the guide",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "Ramada Plaza Menam Riverside",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿2,100",
+      "access": "📍 Charoenkrung Road, Bang Kho Laem",
+      "badge": "Lowest price · Free tuk-tuk to Asiatique",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#7dd3fc;"
+    }
   ],
   "adviceTitle": "Which Riverside Hotel Fits Your Trip?",
   "advice": [
-    { "icon": "🏆", "head": "You want the legendary riverside experience, budget no object", "bodyHtml": "→ <strong>Mandarin Oriental Bangkok</strong> from ฿16,000 · Score 9.5 — highest in the guide · 150-year history · Sala Rim Naam Thai dining · Authors' Wing since 1876" },
-    { "icon": "🌟", "head": "You want a world-ranked award winner with two river infinity pools and Michelin dining", "bodyHtml": "→ <strong>Four Seasons Hotel Bangkok at Chao Phraya River</strong> from ฿13,000 · #2 World's 50 Best Hotels 2025 · Yu Ting Yuan Michelin · BKK Social Club Asia's 50 Best Bars" },
-    { "icon": "🚢", "head": "You want a 5-star where every room is guaranteed river-facing, plus a free teak boat all day", "bodyHtml": "→ <strong>The Peninsula Bangkok</strong> from ฿11,000 · All 348 rooms face the Chao Phraya (W-Wing design) · Free teak boat to BTS/ICONSIAM · Three-tier pool" },
-    { "icon": "💰", "head": "You want a 9.3-score 5-star with spacious 60-sqm rooms at the best value in that tier", "bodyHtml": "→ <strong>Chatrium Hotel Riverside Bangkok</strong> from ฿4,200 · Score 9.3 · Every room 60 sqm+ · 35m infinity pool · Free ferry every 30 min to BTS/ICONSIAM" },
-    { "icon": "🛍️", "head": "You want a 5-star close enough to walk to ICONSIAM, with a 360° rooftop bar", "bodyHtml": "→ <strong>Millennium Hilton Bangkok</strong> from ฿4,500 · Score 9.3 from 2,678 reviews · Three Sixty Rooftop Bar · ICONSIAM 5-min walk · Free ferry every 20 min" },
-    { "icon": "🌿", "head": "You want a garden resort feel, a teak dinner cruise, and Thai cooking classes", "bodyHtml": "→ <strong>Anantara Riverside Bangkok Resort</strong> from ฿4,500 · 11-acre tropical gardens · Manohra teak dinner cruise · Spice Spoons cooking school · 10 restaurants · Family Suite available" },
-    { "icon": "🚇", "head": "You want a 5-star where you can walk to the BTS without waiting for a ferry", "bodyHtml": "→ <strong>Shangri-La Bangkok</strong> from ฿5,500 · BTS Saphan Taksin 270m walk — closest of any riverside hotel · Salathip pavilion restaurant · Chi The Spa · 802 rooms" },
-    { "icon": "👨‍👩‍👧", "head": "You want the best-value riverside stay, ideal for families, close to Asiatique", "bodyHtml": "→ <strong>Ramada Plaza by Wyndham Bangkok Menam Riverside</strong> from ฿2,100 · 285m river frontage · Free tuk-tuk to Asiatique · Free ferry to BTS · Kids' Club · 4,060 reviews · Or <strong>AVANI+ Riverside Bangkok Hotel</strong> from ฿4,500 · 9,000+ reviews · Floor-25 infinity pool · SEEN Rooftop Bar" }
+    {
+      "icon": "🏆",
+      "head": "You want the legendary riverside experience, budget no object",
+      "bodyHtml": "→ <strong>Mandarin Oriental Bangkok</strong> from ฿16,000 · Score 9.5 — highest in the guide · 150-year history · Sala Rim Naam Thai dining · Authors' Wing since 1876"
+    },
+    {
+      "icon": "🌟",
+      "head": "You want a world-ranked award winner with two river infinity pools and Michelin dining",
+      "bodyHtml": "→ <strong>Four Seasons Hotel Bangkok at Chao Phraya River</strong> from ฿13,000 · #2 World's 50 Best Hotels 2025 · Yu Ting Yuan Michelin · BKK Social Club Asia's 50 Best Bars"
+    },
+    {
+      "icon": "🚢",
+      "head": "You want a 5-star where every room is guaranteed river-facing, plus a free teak boat all day",
+      "bodyHtml": "→ <strong>The Peninsula Bangkok</strong> from ฿11,000 · All 348 rooms face the Chao Phraya (W-Wing design) · Free teak boat to BTS/ICONSIAM · Three-tier pool"
+    },
+    {
+      "icon": "💰",
+      "head": "You want a 9.3-score 5-star with spacious 60-sqm rooms at the best value in that tier",
+      "bodyHtml": "→ <strong>Chatrium Hotel Riverside Bangkok</strong> from ฿4,200 · Score 9.3 · Every room 60 sqm+ · 35m infinity pool · Free ferry every 30 min to BTS/ICONSIAM"
+    },
+    {
+      "icon": "🛍️",
+      "head": "You want a 5-star close enough to walk to ICONSIAM, with a 360° rooftop bar",
+      "bodyHtml": "→ <strong>Millennium Hilton Bangkok</strong> from ฿4,500 · Score 9.3 from 2,678 reviews · Three Sixty Rooftop Bar · ICONSIAM 5-min walk · Free ferry every 20 min"
+    },
+    {
+      "icon": "🌿",
+      "head": "You want a garden resort feel, a teak dinner cruise, and Thai cooking classes",
+      "bodyHtml": "→ <strong>Anantara Riverside Bangkok Resort</strong> from ฿4,500 · 11-acre tropical gardens · Manohra teak dinner cruise · Spice Spoons cooking school · 10 restaurants · Family Suite available"
+    },
+    {
+      "icon": "🚇",
+      "head": "You want a 5-star where you can walk to the BTS without waiting for a ferry",
+      "bodyHtml": "→ <strong>Shangri-La Bangkok</strong> from ฿5,500 · BTS Saphan Taksin 270m walk — closest of any riverside hotel · Salathip pavilion restaurant · Chi The Spa · 802 rooms"
+    },
+    {
+      "icon": "👨‍👩‍👧",
+      "head": "You want the best-value riverside stay, ideal for families, close to Asiatique",
+      "bodyHtml": "→ <strong>Ramada Plaza by Wyndham Bangkok Menam Riverside</strong> from ฿2,100 · 285m river frontage · Free tuk-tuk to Asiatique · Free ferry to BTS · Kids' Club · 4,060 reviews · Or <strong>AVANI+ Riverside Bangkok Hotel</strong> from ฿4,500 · 9,000+ reviews · Floor-25 infinity pool · SEEN Rooftop Bar"
+    }
   ],
   "noteHtml": "📌 <strong>Note:</strong> All prices are approximate starting rates for standard room categories and may change by date and season. Always check live rates across all three booking platforms before reserving. Scores and information in this article are drawn from real guest reviews on booking platforms. High season (November–February) and long holidays see higher rates and faster sell-outs — book early. Article by <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — Common Questions About Chao Phraya Riverside Hotels Bangkok",
