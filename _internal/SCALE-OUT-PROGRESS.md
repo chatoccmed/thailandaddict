@@ -155,6 +155,18 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-talat-phlu — Wat Paknam Big Buddha 69m + Glass Pagoda, Talat Phlu market (Lahn Mah film loc), Baan Silapin canal puppets, Wongwian Yai King Taksin Monument, Wat Khun Chan Rahu shrine...
 - Notes: 10-reviewer Workflow-fanout (ALL-NEW — no reuse hotels existed in this Thonburi-west cluster; scoped honest top10 around BTS Wongwian Yai/Krung Thonburi). restaurants hung at Frame→Assemble (poller caught) → resume recovered. Swapped CLOSED Kups Cafe→Cafe Marquina (cafes r9, agent flagged BLOCKER). Wat-Paknam-Big-Buddha CC hero + Wat Intharam CC. SELECTIVE git add. ratchada→rama9, victory-monument→ratchathewi, ploenchit→chidlom (folded).
 
+### 14. Pinklao – Wang Lang – Bangkok Noi (ปิ่นเกล้า-วังหลัง) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop · Thonburi · ⚡FAST/REUSE · **LAST ย่าน → loop A COMPLETE**)
+- 🏨 https://thailandaddict.com/top7-siriraj-hospital-hotels-bangkok — REUSED existing roundup (= Wang Lang/Pinklao/Bangkok Noi zone: Uncle Loy's/Baan Wanglang Riverside/Wang Lang Hostel/Kaya Heritage/Theatre Residence/Icon/Ekanake — no new reviews)
+- 💰 https://thailandaddict.com/top5-love-hotels-pinklao-bangkok — 5 value 2-3★ (Uncle Loy's 9.5/Wang Lang Hostel 9.2/Baan Wanglang Riverside 9.0/Kaya Heritage/Charlie House Pinklao — all reuse)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-pinklao — Khao Dong Moo Daeng charcoal-grill, Earw Thai Suki Boran, Jade Garden Peking duck, Khua Cham Ple (Shell Chuan Chim chicken noodles), Orathai Sushi ฿5/piece, Khun Or Vietnamese kuay jab...
+- ☕ https://thailandaddict.com/top10-popular-cafes-pinklao — N10 Café riverside Wat-Arun view, Japang (first butter-grilled ice cream in TH), Lazy Café La-Z-Boy gallery, Second Cafe riverside, Double Slash specialty, Coffee No.9...
+- 📸 https://thailandaddict.com/top10-attractions-pinklao — Wang Lang Market, Royal Barges National Museum (Suphannahong), Wat Rakhang (ring-the-bell), Central Pinklao IMAX, Siriraj Bimuksthan Museum, Rama VIII Park & cable-stayed bridge, Siriraj Medical Museum...
+- Notes: ⚡FAST (Ari-style) — hotels 100% REUSE top7-siriraj (Wang Lang = Pinklao zone), only value roundup + 3 articles new. All 3 eat-rankings ran clean (no hangs). Suphannahong-Royal-Barge CC hero (CC BY-SA 4.0) + Wat Amarintharam CC. SELECTIVE git add (no new hotel imgs). ratchada→rama9, victory-monument→ratchathewi, ploenchit→chidlom (folded).
+
+---
+## 🏁 LOOP A (central-core · Thonburi) COMPLETE = 14 ย่าน LIVE (2026-06-27)
+**sukhumvit · silom-sathorn · thong-lo · ari · khao-san · chinatown · samyan · siam-pratunam · chidlom · ratchathewi · rama9 · sai-tai · talat-phlu · pinklao** — all 5 dimensions × TH+EN. No clean ย่าน left for loop A (remaining = loop-B's east/north/SE or charoen-krung/saphan-taksin riverside/silom-overlaps). STOP unless owner assigns more.
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
 ### 26. Srinakarin (ศรีนครินทร์) — ⚙ THIS loop (Imac) · started 2026-06-27 · SE/East BKK (Srinakarin Rd · Seacon Square · Thanya Park · Paseo · Suan Luang Rama 9 · Hua Mak) — adjacent to bangna but inland/east. loop A owns Thonburi (talat-phlu/pinklao); loop B owns east/SE (mochit✅/bangna✅/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana). ⚠️ differentiate attractions from bangna (don't re-headline Train Night Market/Seacon — those overlap).
 
