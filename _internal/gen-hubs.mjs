@@ -94,6 +94,8 @@ const NAT_GUIDES = [
     ['bangkok-attractions-tickets','🎢','ที่เที่ยวกรุงเทพ ตั๋วล่วงหน้า','Bangkok attractions','SEA LIFE, Safari World, จุดชมวิว','SEA LIFE, Safari World, views','ดูตั๋ว →','See tickets →'],
     ['bangkok-food-tour','🍢','ฟู้ดทัวร์กรุงเทพ','Bangkok food tour','ทัวร์กินตุ๊กตุ๊กเยาวราช','Tuk-tuk street-food tours','ดูทัวร์ →','See tours →'],
     ['pattaya-attractions-tickets','🏛️','ที่เที่ยวพัทยา ตั๋วล่วงหน้า','Pattaya attractions','ปราสาทสัจธรรม นงนุช เกาะล้าน','Sanctuary, Nong Nooch, Koh Larn','ดูตั๋ว →','See tickets →'],
+    ['phuket-attractions-tickets','🏖️','ที่เที่ยวภูเก็ต ตั๋ว/ทัวร์','Phuket attractions','พระใหญ่ เมืองเก่า ทัวร์เกาะ โชว์','Big Buddha, islands, shows','ดูตั๋ว →','See tickets →'],
+    ['chiang-mai-attractions-tickets','⛰️','ที่เที่ยวเชียงใหม่ ตั๋ว/ทัวร์','Chiang Mai attractions','ดอยสุเทพ ดอยอินทนนท์ เชียงราย','Doi Suthep, Inthanon, Chiang Rai','ดูทัวร์ →','See tours →'],
 ];
 const TH = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s,th]));
 // curated "เมืองท่องเที่ยว" — top tourism cities (cross-cut, may repeat across regions e.g. ภูเก็ต).
