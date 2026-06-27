@@ -107,8 +107,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-riverside — ICONSIAM, Wat Arun, Asiatique, River City, Tha Maharaj, Talat Noi, Khlong Ong Ang, Rama VIII Bridge...
 - Notes: 13-reviewer fanout (8×5★ + 5 value; Ramada Menam verified 5★ not 4★; Loften non-existent → reviewer fallback Hotel Once 3★). cafes+restaurants no hang this run. Wat Arun CC hero. Fixed cross-province stayCta bug (Nakhon Phanom/Chanthaburi "riverside" matched the substring). Build hit a concurrent mid-write JSON once → retry OK.
 
+### 15. On Nut–Phra Khanong (อ่อนนุช-พระโขนง) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version ac8ad4d5)
+- 🏨 https://thailandaddict.com/top10-hotels-on-nut-bangkok — 10 hotels (Avani+ 9.2/Cross Vibe/Hotel Amber 9.1/INNSiDE/Kokotel/Somerset 71/ibis Styles/Quarter Onnut/Ramada 48/Qiu)
+- 💰 https://thailandaddict.com/top5-love-hotels-on-nut-bangkok — 5 value 2-3★ (Hop Inn/ibis Styles/The Bedrooms/Klassique/Aspira 71)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-on-nut — Nam Tian Cantonese (80yr), Nai Uan Yentafo (Michelin Guide), Ha Seng roast duck, Fu Chai pork-blood soup, Heng oyster omelette...
+- ☕ https://thailandaddict.com/top10-popular-cafes-on-nut — Ministry of Roasters, The Wood Land garden cafe, Atlas (11 beans), vast.coffee, Bake Urban croissants, Ekkamai Macchiato...
+- 📸 https://thailandaddict.com/top10-attractions-on-nut — Habito Mall T77, Sansiri Backyard sheep farm, W District art market, Wat Mae Nak Phra Khanong, People Park, Century Movie Plaza...
+- Notes: 11-reviewer fanout w/ HEAVY substitution (Aspira Skye/Citadines/Blu Monkey/Hotel 92 don't exist → reviewers swapped to real ones). **Caught+removed a DUPLICATE** (2 reviewers both picked Quarter Onnut). Repointed 14 dead related-refs. **DATA-CORRECTNESS round (owner-requested):** cafes had a CLOSED cafe (Magpie→Coffee Effect) + a relocated cafe (INK&LION→Ministry of Roasters) → swapped + scrubbed all stale frame/faq refs; `tourlogy-quality-auditor` on hotels confirmed all 10 real+open+located, fixed 2 banned words, Kokotel Booking URL→search URL. New gate: `_internal/wf/audit-roundup.mjs`. Wat Mahabut CC hero.
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
-### 15. On Nut–Phra Khanong (อ่อนนุช-พระโขนง) — ⚙ THIS loop (Imac) · started 2026-06-27 · Sukhumvit far-east (On Nut BTS / W District / Habito / Phra Khanong, Soi 77–81) — distinct from phrom-phong (Soi 24–39) + far from loop A's central/north-central cluster. reuse hop-inn-onnut + somerset-sukhumvit-71.
+### 19. Mochit–Chatuchak (หมอชิต-จตุจักร) — ⚙ THIS loop (Imac) · started 2026-06-27 · North BKK (Mo Chit BTS / Chatuchak MRT / JJ Weekend Market / Or Tor Kor) — far from loop A's central cluster + my Sukhumvit-east/riverside ย่าน. loop A delegated mochit/bangna/srinakarin/ladprao to loop B.
 
 ## 📋 Queue (popular-first; #8 siam-pratunam done by concurrent loop, #11 phrom-phong done this loop)
 ploenchit (FOLDED into chidlom — skip, ~100% overlap) · ratchathewi (⚙this loop NEXT · reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
