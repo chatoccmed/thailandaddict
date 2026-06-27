@@ -74,6 +74,15 @@ Owner-requested running log (บันทึกการทำงานเป็
 - ☕ https://thailandaddict.com/top10-popular-cafes-siam-pratunam — % Arabica CentralWorld, Gallery Drip Coffee (BACC), Brave Roasters, Karun Thai Tea, Thongyoy, Cheevit Cheeva bingsu...
 - 📸 https://thailandaddict.com/top10-attractions-siam-pratunam — Siam Paragon+SEA LIFE, CentralWorld, Erawan Shrine, MBK, BACC, Jim Thompson House, Platinum Mall...
 - Notes: 5 NEW flagship reviews (Workflow-fanout) + 5 reuse + Pathumwan Princess reused from samyan. restaurants hung at Frame→Assemble (poller caught 14min) → resume recovered. CentralWorld-night CC hero + Erawan-dance CC card. SELECTIVE git add (other loop building phrom-phong in same tree).
+
+### 9. Chidlom–Ploenchit–Langsuan (ชิดลม-เพลินจิต) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop)
+- 🏨 https://thailandaddict.com/top10-hotels-chidlom-bangkok — 10 LUXURY (Park Hyatt/Waldorf Astoria/The Athenee/Okura Prestige/Conrad/Sindhorn Kempinski/Grande Centre Point Ploenchit/Sindhorn Midtown/Hansar/Mövenpick BDMS — 9 new + Waldorf reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-chidlom-bangkok — 5 value 2-3★ (The Quart Ruamrudee/Golden House Chidlom/Nantra Ploenchit/Bangkok City Inn/Wish Inn Chidlom)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-chidlom — Gaggan Anand (Asia #3 / Michelin), Polo Fried Chicken (Bib), Saneh Jaan & Royal Osha (royal Thai), Somboon, La Monita...
+- ☕ https://thailandaddict.com/top10-popular-cafes-chidlom — Erawan Tea Room (Michelin afternoon tea), Sarnies Roastery, The Coffee Academics, Open House (Central Embassy), Samantao riverside...
+- 📸 https://thailandaddict.com/top10-attractions-chidlom — Erawan Shrine, CentralWorld, Central Embassy+Open House, Central Chidlom, Lumpini Park, Velaa Sindhorn, Gaysorn+Lakshmi, Trimurti shrine...
+- Notes: 13 NEW reviews (Workflow-fanout, all parsed + star-verified — 9×5★ luxury + 4×2-3★ value). attractions hung at Frame→Assemble (poller caught 14min) → resume recovered (253K tok). CentralWorld-facade CC hero + Trimurti-shrine CC card. SELECTIVE git add. **ploenchit #10 = FOLDED into chidlom (near-100% overlap, same Ploenchit Rd) — skip to avoid duplicate content.**
+
 ### 11. Phrom Phong (พร้อมพงษ์) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version 5db56567)
 - 🏨 https://thailandaddict.com/top10-hotels-phrom-phong-bangkok — 10 hotels (Emporium Suites by Chatrium/SKYVIEW/Oakwood Suites/Marriott Exec Apt + DoubleTree & Marriott Marquis reuse + Holiday Inn/Davis/Maitria/Park Plaza 4★)
 - 💰 https://thailandaddict.com/top5-love-hotels-phrom-phong-bangkok — 5 value 2-3★ (Tints of Blue 9.0/5638rev / ibis Sukhumvit 24 / S Box / S33 reuse / Best Western 20)
@@ -86,4 +95,4 @@ Owner-requested running log (บันทึกการทำงานเป็
 ### 12. Riverside (ริมเจ้าพระยา) — ⚙ THIS session (Imac) · started 2026-06-27 · Chao Phraya riverfront (Mandarin Oriental/Shangri-La/Peninsula/Millennium Hilton/Avani+/Chatrium/Iconsiam) — far from the central core + Sukhumvit, zero collision with the concurrent loop (now on #9 chidlom / #10 ploenchit).
 
 ## 📋 Queue (popular-first; #8 siam-pratunam done by concurrent loop, #11 phrom-phong done this loop)
-chidlom (⚙concurrent) · ploenchit (⚙concurrent) · ratchathewi (reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
+ploenchit (FOLDED into chidlom — skip, ~100% overlap) · ratchathewi (⚙this loop NEXT · reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
