@@ -115,6 +115,14 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-on-nut — Habito Mall T77, Sansiri Backyard sheep farm, W District art market, Wat Mae Nak Phra Khanong, People Park, Century Movie Plaza...
 - Notes: 11-reviewer fanout w/ HEAVY substitution (Aspira Skye/Citadines/Blu Monkey/Hotel 92 don't exist → reviewers swapped to real ones). **Caught+removed a DUPLICATE** (2 reviewers both picked Quarter Onnut). Repointed 14 dead related-refs. **DATA-CORRECTNESS round (owner-requested):** cafes had a CLOSED cafe (Magpie→Coffee Effect) + a relocated cafe (INK&LION→Ministry of Roasters) → swapped + scrubbed all stale frame/faq refs; `tourlogy-quality-auditor` on hotels confirmed all 10 real+open+located, fixed 2 banned words, Kokotel Booking URL→search URL. New gate: `_internal/wf/audit-roundup.mjs`. Wat Mahabut CC hero.
 
+### 11. Rama 9–Ratchada–Huai Khwang (พระราม 9-รัชดา) — 2026-06-27 (LIVE, TH+EN · ⚙ central-core loop)
+- 🏨 https://thailandaddict.com/top10-hotels-rama9-bangkok — 10 (Jubilee Prestige[ex-Swissôtel]/Avani Ratchada/The Emerald/ZAZZ Urban/Somerset/Golden Tulip Sovereign/Maitria/Cassia/Grande Mercure Atrium/Lancaster — 2 new + 8 reuse)
+- 💰 https://thailandaddict.com/top5-love-hotels-rama9-bangkok — 5 value 2-3★ (ibis Styles Ratchada/Calmly Stay/Best Western Ratchada/Chiva/Praso — 3 new + 2 reuse)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-rama9 — Somboon crab curry (1969), Agave Foomuikee Hainanese (Shell Chuan Chim), Holy Shrimp (Jodd Fairs), Lung Luean chicken noodles (1957)...
+- ☕ https://thailandaddict.com/top10-popular-cafes-rama9 — Phil Coffee (70s house), Talaychan Patisserie (Le Cordon Bleu), Baker x Florist, OASIS 24hr, FlowEver Cafe & Wine...
+- 📸 https://thailandaddict.com/top10-attractions-rama9 — JODD FAIRS, The One Ratchada colourful-umbrella market, Central Rama 9, RCA, Wat Phra Ram 9, Esplanade, INVESTORY...
+- Notes: 6-reviewer fanout (3 popular 5★ + 3 value). **Caught DUPE: Grand Mercure Fortune = Avani Ratchada (rebranded 2024, same building) → DROPPED, replaced #4 w/ ZAZZ Urban (reuse).** cafes hung at Frame→Assemble (poller caught) → resume recovered + fixed a garbled string. Swapped CLOSED Pressed Cafe→FlowEver (rank 6). Train-Night-Market-umbrella CC hero + RCA Plaza + SET building CC. **ratchada/huai-khwang FOLD into rama9 — skip.** SELECTIVE commit (5 new hotels, NOT grand-mercure-fortune).
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
 ### 19. Mochit–Chatuchak (หมอชิต-จตุจักร) — ⚙ THIS loop (Imac) · started 2026-06-27 · North BKK (Mo Chit BTS / Chatuchak MRT / JJ Weekend Market / Or Tor Kor) — far from loop A's central cluster + my Sukhumvit-east/riverside ย่าน. loop A delegated mochit/bangna/srinakarin/ladprao to loop B.
 
