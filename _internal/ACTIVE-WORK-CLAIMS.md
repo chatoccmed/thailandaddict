@@ -13,7 +13,7 @@
 ## 🟢 ACTIVE
 - **[2026-06-27 · Bangkok ย่าน megaproject — มี 2 loop วิ่งพร้อมกัน]**
     - **loop A (central core):** ✅ #8 siam-pratunam + ✅ #9 chidlom DONE+LIVE → NOW จับ **#10 ratchathewi** (ราชเทวี-พญาไท · reuse top10-ratchathewi-bts-hotels-bangkok + value reviews โซน Phayathai/Victory). ploenchit FOLDED into chidlom (skip ~100% overlap). ถัดไป rama9/ratchada/victory-monument/charoen-krung/saphan-taksin/... (เลี่ยง riverside+Sukhumvit-east = loop B)
-    - **loop B (this session · Imac):** ✅ #11 phrom-phong DONE+LIVE (Version 5db56567) → NOW จับ **#12 riverside** (ริมเจ้าพระยา — Chao Phraya riverfront: Mandarin Oriental/Shangri-La/Peninsula/Millennium Hilton/Iconsiam) · ไกลจาก central core + Sukhumvit เลี่ยงชนโรงแรมกับ loop A · เสร็จแล้วค่อยวนมาเก็บ #9/#10 ถ้า loop A ยังไม่ทำ
+    - **loop B (this session · Imac):** ✅ #7 samyan + ✅ #11 phrom-phong + ✅ #12 riverside (Version ea24b253) DONE+LIVE → NOW จับ **#15 on-nut** (อ่อนนุช-พระโขนง — Sukhumvit far-east: On Nut BTS/W District/Habito/Phra Khanong Soi 77–81) · ไกลจาก central cluster (loop A) + ไม่ชน phrom-phong/sukhumvit ที่ทำไปแล้ว · ถัดไปจะไล่ mochit-chatuchak/bangna/srinakarin/ladprao/... (โซนนอก-เหนือ-ตะวันออก เลี่ยง central ของ loop A)
     - กติกา: เลี่ยงชนด้วย "ภูมิศาสตร์ย่าน" — อย่าทำย่านที่อีก loop ประกาศไว้ที่นี่ + commit/push บ่อย ๆ (race lesson)
 - **[2026-06-24 · เครื่อง Imac]** ชุด **top10-attractions-<X>** (eat-ranking ที่เที่ยว/จังหวัด — คนละหมวดกับ ย่าน megaproject) · แผน: ครบ 77 จังหวัด
     - ✅ DONE+live: **ayutthaya** (`/top10-attractions-ayutthaya`)

@@ -91,8 +91,16 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-phrom-phong — EM District (EmSphere+IKEA+UOB Live / EmQuartier 40m waterfall / Emporium), Benjasiri Park, TRIBE Sky Beach Club, Escape rooftop, Flow House surf, Little Japan Soi 33/1...
 - Notes: 12-reviewer Workflow-fanout (8 hotel + 4 value) + 3 reuse. Star-verify caught hotel-icon=4★ (→dropped from value), Maven Stylish=4★/wrong-area → reviewer fallback auto-picked Tints of Blue (3★). cafes hung at Frame→Assemble (poller caught) → resume recovered. 2 Wikimedia-CC (EmQuartier-skyline hero, real Benjasiri Park). Fixed rail img 404 (bangkok-emporiumsuites→bangkok-emporium-suites-chatrium). Concurrent build mid-write broke build once (Movenpick BDMS JSON) → retry succeeded.
 
+### 12. Riverside (ริมเจ้าพระยา) — 2026-06-27 (LIVE, TH+EN · ⚙ this loop · Version ea24b253)
+- 🏨 https://thailandaddict.com/top10-hotels-riverside-bangkok — 10 riverfront (Mandarin Oriental 9.5/Four Seasons/Peninsula/Chatrium/Millennium Hilton/Anantara/Royal Orchid Sheraton/Shangri-La/AVANI+/Ramada Menam)
+- 💰 https://thailandaddict.com/top5-love-hotels-riverside-bangkok — 5 value 3★ (Hotel Once 9.2/Baan Wanglang/ibis Riverside/Aurum Wat-Arun-view/ibis Sathorn)
+- 🍜 https://thailandaddict.com/top10-popular-restaurants-riverside — The Deck (Wat Arun view), Supanniga, Yok Yor dinner cruise, Khinlomchomsaphan, NAAM 1608 Song Wat, Riva del Fiume (Four Seasons)...
+- ☕ https://thailandaddict.com/top10-popular-cafes-riverside — Hong Sieng Kong (200yr mansion), Mother Roaster, The Jam Factory, Before Sunset (Wat Arun ice cream), Feng Huang matcha...
+- 📸 https://thailandaddict.com/top10-attractions-riverside — ICONSIAM, Wat Arun, Asiatique, River City, Tha Maharaj, Talat Noi, Khlong Ong Ang, Rama VIII Bridge...
+- Notes: 13-reviewer fanout (8×5★ + 5 value; Ramada Menam verified 5★ not 4★; Loften non-existent → reviewer fallback Hotel Once 3★). cafes+restaurants no hang this run. Wat Arun CC hero. Fixed cross-province stayCta bug (Nakhon Phanom/Chanthaburi "riverside" matched the substring). Build hit a concurrent mid-write JSON once → retry OK.
+
 ## ⏳ In progress (TWO loops · coordinate via ย่าน geography to avoid hotel collisions)
-### 12. Riverside (ริมเจ้าพระยา) — ⚙ THIS session (Imac) · started 2026-06-27 · Chao Phraya riverfront (Mandarin Oriental/Shangri-La/Peninsula/Millennium Hilton/Avani+/Chatrium/Iconsiam) — far from the central core + Sukhumvit, zero collision with the concurrent loop (now on #9 chidlom / #10 ploenchit).
+### 15. On Nut–Phra Khanong (อ่อนนุช-พระโขนง) — ⚙ THIS loop (Imac) · started 2026-06-27 · Sukhumvit far-east (On Nut BTS / W District / Habito / Phra Khanong, Soi 77–81) — distinct from phrom-phong (Soi 24–39) + far from loop A's central/north-central cluster. reuse hop-inn-onnut + somerset-sukhumvit-71.
 
 ## 📋 Queue (popular-first; #8 siam-pratunam done by concurrent loop, #11 phrom-phong done this loop)
 ploenchit (FOLDED into chidlom — skip, ~100% overlap) · ratchathewi (⚙this loop NEXT · reuse top10-ratchathewi-bts) · rama9 · ratchada · on-nut · victory-monument · charoen-krung · saphan-taksin · mochit-chatuchak · ladprao · central-ladprao · ramkhamhaeng · bangkapi · bangna · srinakarin · pinklao · talat-phlu · bang-sue · bang-khen · kaset · chaeng-watthana · sai-tai
