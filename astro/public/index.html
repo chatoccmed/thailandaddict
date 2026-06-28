@@ -334,11 +334,6 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
     <div class="h-eye"><span class="h-dot"></span>ThailandAddict · ชีวิตติดเที่ยว · รีวิวจริงทุกหน้า</div>
     <h1 class="hero-h1">ชีวิต<em>ติดเที่ยว</em></h1>
     <p class="hero-sub">ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย — ข้อมูลจริง ราคาจริง เทียบ 3 เว็บก่อนจอง ไม่มีโฆษณาแฝง</p>
-    <div class="sc-tabs" style="display:flex;gap:7px;margin-bottom:11px">
-      <button class="sct of" data-dim="see" onclick="setSDim('see')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:#fff;color:#0F172A;cursor:pointer">🏞️ ที่เที่ยว</button>
-      <button class="sct of" data-dim="eat" onclick="setSDim('eat')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.16);color:#fff;cursor:pointer">🍜 ที่กิน</button>
-      <button class="sct of" data-dim="stay" onclick="setSDim('stay')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.16);color:#fff;cursor:pointer">🏨 ที่พัก</button>
-    </div>
     <div class="search-card">
       <div class="sc-field"><span>🔍</span><input class="sc-inp" id="si" type="text" placeholder="ค้นหาจังหวัด โรงแรม หรือที่เที่ยว..." autocomplete="off"><div class="sc-drop" id="sidrop"></div></div>
       <button class="sc-btn" onclick="goSearch()">ค้นหา</button>
@@ -578,11 +573,6 @@ fetch('/data/home-index.json').then(function(r){return r.json();}).then(function
   var ee=document.getElementById('eatscroll'); if(ee)ee.innerHTML=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');
   try{var hs=taOrder(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});document.getElementById('topnscroll').innerHTML=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}catch(e){}
 }).catch(function(){});
-var SDIM='see',SIDX2=null;
-fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){SIDX2=d;}).catch(function(){});
-window.setSDim=function(d){SDIM=d;document.querySelectorAll('.sct').forEach(function(b){var on=b.dataset.dim===d;b.style.background=on?'#fff':'rgba(255,255,255,.16)';b.style.color=on?'#0F172A':'#fff';});var si2=document.getElementById('si');if(si2&&SIDX2)runSearch2(si2.value);};
-function runSearch2(q){q=(q||'').trim();var box=document.getElementById('sidrop');if(!box)return;if(!SIDX2||!q){box.classList.remove('show');return;}var r=SIDX2.filter(function(x){return x[2]===SDIM&&(x[0].indexOf(q)>-1||(x[3]||'').indexOf(q)>-1);}).slice(0,8);box.innerHTML=r.length?r.map(function(x){return '<a href="/'+x[1].replace(/\.html$/,'')+'"><div class="t">'+x[0]+'</div><div class="c">'+(x[3]||'')+'</div></a>';}).join(''):'<div class="empty">ไม่พบผลลัพธ์</div>';box.classList.add('show');}
-(function(){var s2=document.getElementById('si');if(s2)s2.addEventListener('input',function(){if(SIDX2)runSearch2(s2.value);});})();
 // nav scroll
 var nav=document.getElementById('nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}window.addEventListener('scroll',onScroll);onScroll();
 // mobile menu
