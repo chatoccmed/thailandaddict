@@ -334,6 +334,11 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
     <div class="h-eye"><span class="h-dot"></span>ThailandAddict · ชีวิตติดเที่ยว · รีวิวจริงทุกหน้า</div>
     <h1 class="hero-h1">ชีวิต<em>ติดเที่ยว</em></h1>
     <p class="hero-sub">ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย — ข้อมูลจริง ราคาจริง เทียบ 3 เว็บก่อนจอง ไม่มีโฆษณาแฝง</p>
+    <div class="sc-tabs" style="display:flex;gap:7px;margin-bottom:11px">
+      <button class="sct of" data-dim="see" onclick="setSDim('see')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:#fff;color:#0F172A;cursor:pointer">🏞️ ที่เที่ยว</button>
+      <button class="sct of" data-dim="eat" onclick="setSDim('eat')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.16);color:#fff;cursor:pointer">🍜 ที่กิน</button>
+      <button class="sct of" data-dim="stay" onclick="setSDim('stay')" style="font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:8px 17px;border-radius:30px;border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.16);color:#fff;cursor:pointer">🏨 ที่พัก</button>
+    </div>
     <div class="search-card">
       <div class="sc-field"><span>🔍</span><input class="sc-inp" id="si" type="text" placeholder="ค้นหาจังหวัด โรงแรม หรือที่เที่ยว..." autocomplete="off"><div class="sc-drop" id="sidrop"></div></div>
       <button class="sc-btn" onclick="goSearch()">ค้นหา</button>
@@ -349,8 +354,8 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 
 <div class="stats">
   <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">จังหวัดพร้อมแล้ว</div></div>
-  <div class="stat"><div class="n" data-stat="reviews">2,100+</div><div class="l">รีวิวโรงแรม</div></div>
-  <div class="stat"><div class="n" data-stat="articles">3,500+</div><div class="l">บทความเที่ยว</div></div>
+  <div class="stat"><div class="n" data-stat="reviews">2,200+</div><div class="l">รีวิวโรงแรม</div></div>
+  <div class="stat"><div class="n" data-stat="articles">3,700+</div><div class="l">บทความเที่ยว</div></div>
   <div class="stat"><div class="n">100%</div><div class="l">รีวิวจริง</div></div>
 </div>
 
@@ -370,6 +375,20 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
   <div class="inner">
     <div class="s-head"><div><div class="slbl">เริ่มที่นี่</div><div class="stit">จัดอันดับ<em>โรงแรม</em> ตามจังหวัด</div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
     <div class="hscroll" id="topnscroll"></div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">เลือกตามจังหวัด</div><div class="stit">จัดอันดับ<em>ที่เที่ยว</em> ตามจังหวัด</div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
+    <div class="hscroll" id="seescroll"></div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">เลือกตามจังหวัด</div><div class="stit">จัดอันดับ<em>ที่กิน</em> ตามจังหวัด</div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
+    <div class="hscroll" id="eatscroll"></div>
   </div>
 </section>
 
@@ -545,6 +564,25 @@ document.getElementById('topnscroll').innerHTML=TOPN.map(function(t){return '<a 
 document.getElementById('hotelgrid').innerHTML=HOTELS.map(function(h){return '<a class="hcard" href="'+h.h+'.html"><div class="hc-img"><span class="hc-score">'+h.sc+'</span><span class="hc-flag">'+h.loc+'</span><img src="'+h.img+'" alt="'+h.n+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="hc-body"><div class="hc-name">'+h.n+'</div><div class="hc-loc">รวมจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="hc-foot"><div class="hc-price"><span class="from">เริ่มประมาณ</span>'+h.pr+'</div><span class="hc-link">ดูอันดับ →</span></div></div></a>';}).join('');
 // articles
 document.getElementById('artgrid').innerHTML='<a class="acard big" href="'+ARTS[0].h+'.html"><div class="acard-img"><span class="acard-badge">'+ARTS[0].bd+'</span><img src="'+ARTS[0].img+'" alt="'+ARTS[0].ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+ARTS[0].l+'</div><div class="acard-title">'+ARTS[0].ti+'</div></div></a><div class="art-right">'+ARTS.slice(1).map(function(a){return '<a class="acard sm" href="'+a.h+'.html"><div class="acard-img"><img src="'+a.img+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+a.l+'</div><div class="acard-title">'+a.ti+'</div></div></a>';}).join('')+'</div>';
+// ---- ADDED: personalized rails (see/eat/stay) + 3-tab search ----
+function taHist(){try{return JSON.parse(localStorage.getItem('ta_seen')||'[]')}catch(e){return[]}}
+function taLog(prov,dim){var h=taHist();h.unshift({province:prov,dim:dim,ts:Date.now()});localStorage.setItem('ta_seen',JSON.stringify(h.slice(0,40)));}
+function taOrder(slugs){var h=taHist(),t={};h.forEach(function(x){t[x.province]=(t[x.province]||0)+1;});var seen=slugs.filter(function(s){return t[s];}).sort(function(a,b){return t[b]-t[a];});var rest=slugs.filter(function(s){return !t[s];});var d=new Date(),o=rest.length?((d.getFullYear()*372+d.getMonth()*31+d.getDate())%rest.length):0;return seen.concat(rest.slice(o)).concat(rest.slice(0,o));}
+var PNAME={};PROV.forEach(function(p){PNAME[p.s]=p.n;});
+function railCard(slug,href,label,tag,dim){return '<a class="tcard" href="'+href+'" onclick="taLog(\''+slug+'\',\''+dim+'\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+slug+'.jpg" alt="'+label+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">'+label+'</div><div class="tcard-tag">'+tag+'</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}
+fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(HI){
+  var P=HI.provinces;
+  var see=taOrder(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].see&&P[s].see.items.length;})).slice(0,12);
+  var se=document.getElementById('seescroll'); if(se)se.innerHTML=see.map(function(s){return railCard(s,'/top10-attractions-'+s,'10 ที่เที่ยว'+(PNAME[s]||P[s].name)+'ยอดนิยม','จัดอันดับ + รีวิวจริงทุกที่','see');}).join('');
+  var eat=taOrder(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].eat&&P[s].eat.length;})).slice(0,12);
+  var ee=document.getElementById('eatscroll'); if(ee)ee.innerHTML=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');
+  try{var hs=taOrder(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});document.getElementById('topnscroll').innerHTML=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}catch(e){}
+}).catch(function(){});
+var SDIM='see',SIDX2=null;
+fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){SIDX2=d;}).catch(function(){});
+window.setSDim=function(d){SDIM=d;document.querySelectorAll('.sct').forEach(function(b){var on=b.dataset.dim===d;b.style.background=on?'#fff':'rgba(255,255,255,.16)';b.style.color=on?'#0F172A':'#fff';});var si2=document.getElementById('si');if(si2&&SIDX2)runSearch2(si2.value);};
+function runSearch2(q){q=(q||'').trim();var box=document.getElementById('sidrop');if(!box)return;if(!SIDX2||!q){box.classList.remove('show');return;}var r=SIDX2.filter(function(x){return x[2]===SDIM&&(x[0].indexOf(q)>-1||(x[3]||'').indexOf(q)>-1);}).slice(0,8);box.innerHTML=r.length?r.map(function(x){return '<a href="/'+x[1].replace(/\.html$/,'')+'"><div class="t">'+x[0]+'</div><div class="c">'+(x[3]||'')+'</div></a>';}).join(''):'<div class="empty">ไม่พบผลลัพธ์</div>';box.classList.add('show');}
+(function(){var s2=document.getElementById('si');if(s2)s2.addEventListener('input',function(){if(SIDX2)runSearch2(s2.value);});})();
 // nav scroll
 var nav=document.getElementById('nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}window.addEventListener('scroll',onScroll);onScroll();
 // mobile menu
