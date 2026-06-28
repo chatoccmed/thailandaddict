@@ -366,6 +366,23 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
   </div>
 </section>
 
+<style>
+.pgrp{margin-top:14px}
+.pgl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--mut);margin-bottom:9px}
+.pchipr{display:flex;flex-wrap:wrap;gap:9px}
+.pc1,.pc2{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;border-radius:30px;padding:9px 16px;cursor:pointer;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);transition:.15s}
+.pc1:hover,.pc2:hover{border-color:var(--bl);color:var(--bl-dk)}
+.pc1.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));color:#fff;border-color:transparent}
+.pc2.on{background:var(--or-lt);color:var(--or-dk);border-color:var(--or)}
+</style>
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">ปรับให้ตรงใจ</div><div class="stit">เที่ยว<em>แบบไหน?</em></div><div class="ssub">เลือกสไตล์ แล้วเราจัดอันดับจังหวัดทุกแถวให้เหมาะกับคุณ</div></div></div>
+    <div class="pgrp"><div class="pgl">ไปกับใคร / แบบไหน (เลือก 1)</div><div class="pchipr" id="tier1"></div></div>
+    <div class="pgrp"><div class="pgl">สไตล์ที่สนใจ (เลือกได้หลายอัน)</div><div class="pchipr" id="tier2"></div></div>
+  </div>
+</section>
+
 <section class="sec pop rv">
   <div class="inner">
     <div class="s-head"><div><div class="slbl">เริ่มที่นี่</div><div class="stit">จัดอันดับ<em>โรงแรม</em> ตามจังหวัด</div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
@@ -559,20 +576,57 @@ document.getElementById('topnscroll').innerHTML=TOPN.map(function(t){return '<a 
 document.getElementById('hotelgrid').innerHTML=HOTELS.map(function(h){return '<a class="hcard" href="'+h.h+'.html"><div class="hc-img"><span class="hc-score">'+h.sc+'</span><span class="hc-flag">'+h.loc+'</span><img src="'+h.img+'" alt="'+h.n+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="hc-body"><div class="hc-name">'+h.n+'</div><div class="hc-loc">รวมจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="hc-foot"><div class="hc-price"><span class="from">เริ่มประมาณ</span>'+h.pr+'</div><span class="hc-link">ดูอันดับ →</span></div></div></a>';}).join('');
 // articles
 document.getElementById('artgrid').innerHTML='<a class="acard big" href="'+ARTS[0].h+'.html"><div class="acard-img"><span class="acard-badge">'+ARTS[0].bd+'</span><img src="'+ARTS[0].img+'" alt="'+ARTS[0].ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+ARTS[0].l+'</div><div class="acard-title">'+ARTS[0].ti+'</div></div></a><div class="art-right">'+ARTS.slice(1).map(function(a){return '<a class="acard sm" href="'+a.h+'.html"><div class="acard-img"><img src="'+a.img+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+a.l+'</div><div class="acard-title">'+a.ti+'</div></div></a>';}).join('')+'</div>';
-// ---- ADDED: personalized rails (see/eat/stay) + 3-tab search ----
+// ---- ADDED: 2-tier persona selector + personalized rails ----
+var TIER1=[
+ {k:'solo',l:'คนเดียว',re:/คนเดียว|เดี่ยว|คาเฟ่|เดินเล่น|เมืองเก่า/},
+ {k:'couple',l:'คู่รัก/ฮันนีมูน',re:/โรแมน|พระอาทิตย์ตก|วิว|ทะเล|คาเฟ่|ริมน้ำ|ฮันนีมูน/},
+ {k:'family-kids',l:'ครอบครัวมีเด็ก',re:/เด็ก|ครอบครัว|สวนสนุก|สวนสัตว์|ฟาร์ม|เล่นน้ำ|อความ/},
+ {k:'family-senior',l:'ครอบครัวผู้สูงอายุ',re:/วัด|ทำบุญ|พระธาตุ|ไหว้|สวนสาธารณะ|ตลาด/},
+ {k:'friends',l:'กลุ่มเพื่อน',re:/กลางคืน|ถนนคนเดิน|ตลาด|คาเฟ่|กิจกรรม|ทะเล/},
+ {k:'budget',l:'ประหยัด/แบ็คแพ็ค',re:/ฟรี|ตลาด|วัด|สวนสาธารณะ|เดินเล่น|ถนนคนเดิน/},
+ {k:'workation',l:'ไปทำงาน/นักดิจิทัล',re:/คาเฟ่|กาแฟ|เมืองเก่า|เงียบ/},
+ {k:'luxury',l:'หรู/พรีเมียม',re:/รีสอร์ต|สปา|วิว|ริมแม่น้ำ|ทะเล|วิลล่า/}
+];
+var TIER2=[
+ {k:'mu',l:'สายมู/ทำบุญ',re:/วัด|พระธาตุ|ศักดิ์สิทธิ์|ไหว้|หลวงพ่อ|เจ้าแม่|มู/},
+ {k:'cafe',l:'คาเฟ่/ถ่ายรูป',re:/คาเฟ่|กาแฟ|ถ่ายรูป|จุดชมวิว/},
+ {k:'nature',l:'ธรรมชาติ/ผจญภัย',re:/น้ำตก|ภูเขา|ดอย|ธรรมชาติ|อุทยาน|ถ้ำ|เขา|ป่า|ล่องแก่ง/},
+ {k:'culture',l:'วัฒนธรรม',re:/วัด|พิพิธภัณฑ์|เมืองเก่า|ประวัติศาสตร์|โบราณ|ปราสาท|มรดกโลก/},
+ {k:'wellness',l:'เวลเนส/สปา',re:/สปา|น้ำพุร้อน|บ่อน้ำร้อน|ออนเซ็น|เวลเนส/},
+ {k:'foodie',l:'สายกิน',re:/ตลาด|ของกิน|สตรีท|ร้าน|กาแฟ/},
+ {k:'sea',l:'ทะเล/เกาะ',re:/ทะเล|หาด|เกาะ|อ่าว|ดำน้ำ/},
+ {k:'festival',l:'เทศกาล/คอนเสิร์ต/วิ่ง',re:/เทศกาล|งาน|ประเพณี|วิ่ง|คอนเสิร์ต/},
+ {k:'halal',l:'ฮาลาล/มุสลิม-friendly',re:/มัสยิด|มุสลิม|ฮาลาล/},
+ {k:'lgbtq',l:'LGBTQ+-friendly',re:/ผับ|บาร์|กลางคืน|คาเฟ่/},
+ {k:'eco',l:'สายเขียว/รักษ์โลก',re:/อุทยาน|ธรรมชาติ|ชุมชน|เกษตร|ป่า/},
+ {k:'medical',l:'การแพทย์/พักฟื้น',re:/สปา|น้ำพุร้อน|เวลเนส|พักผ่อน/}
+];
 function taHist(){try{return JSON.parse(localStorage.getItem('ta_seen')||'[]')}catch(e){return[]}}
 function taLog(prov,dim){var h=taHist();h.unshift({province:prov,dim:dim,ts:Date.now()});localStorage.setItem('ta_seen',JSON.stringify(h.slice(0,40)));}
-function taOrder(slugs){var h=taHist(),t={};h.forEach(function(x){t[x.province]=(t[x.province]||0)+1;});var seen=slugs.filter(function(s){return t[s];}).sort(function(a,b){return t[b]-t[a];});var rest=slugs.filter(function(s){return !t[s];});var d=new Date(),o=rest.length?((d.getFullYear()*372+d.getMonth()*31+d.getDate())%rest.length):0;return seen.concat(rest.slice(o)).concat(rest.slice(0,o));}
+var P1=localStorage.getItem('ta_persona')||'';
+var P2=(function(){try{return JSON.parse(localStorage.getItem('ta_vibes')||'[]')}catch(e){return[]}})();
 var PNAME={};PROV.forEach(function(p){PNAME[p.s]=p.n;});
+var HI=null,PROF={};
+function profScore(s){var pf=PROF[s]||'',sc=0;if(P1){var t=TIER1.find(function(x){return x.k===P1;});if(t&&t.re.test(pf))sc+=3;}P2.forEach(function(k){var v=TIER2.find(function(x){return x.k===k;});if(v&&v.re.test(pf))sc+=2;});return sc;}
+function ord(slugs){var h=taHist(),t={};h.forEach(function(x){t[x.province]=(t[x.province]||0)+1;});var d=new Date(),sd=d.getFullYear()*372+d.getMonth()*31+d.getDate();return slugs.slice().sort(function(a,b){var pa=profScore(a),pb=profScore(b);if(pb!==pa)return pb-pa;var ha=t[a]||0,hb=t[b]||0;if(hb!==ha)return hb-ha;return ((sd+a.length)%7)-((sd+b.length)%7);});}
 function railCard(slug,href,label,tag,dim){return '<a class="tcard" href="'+href+'" onclick="taLog(\''+slug+'\',\''+dim+'\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+slug+'.jpg" alt="'+label+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">'+label+'</div><div class="tcard-tag">'+tag+'</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}
-fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(HI){
-  var P=HI.provinces;
-  var see=taOrder(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].see&&P[s].see.items.length;})).slice(0,12);
-  var se=document.getElementById('seescroll'); if(se)se.innerHTML=see.map(function(s){return railCard(s,'/top10-attractions-'+s,'10 ที่เที่ยว'+(PNAME[s]||P[s].name)+'ยอดนิยม','จัดอันดับ + รีวิวจริงทุกที่','see');}).join('');
-  var eat=taOrder(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].eat&&P[s].eat.length;})).slice(0,12);
-  var ee=document.getElementById('eatscroll'); if(ee)ee.innerHTML=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');
-  try{var hs=taOrder(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});document.getElementById('topnscroll').innerHTML=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}catch(e){}
-}).catch(function(){});
+function renderRails(){
+  if(!HI)return;var P=HI.provinces;
+  var see=ord(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].see&&P[s].see.items.length;})).slice(0,12);
+  var se=document.getElementById('seescroll');if(se)se.innerHTML=see.map(function(s){return railCard(s,'/top10-attractions-'+s,'10 ที่เที่ยว'+(PNAME[s]||P[s].name)+'ยอดนิยม','จัดอันดับ + รีวิวจริงทุกที่','see');}).join('');
+  var eat=ord(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].eat&&P[s].eat.length;})).slice(0,12);
+  var ee=document.getElementById('eatscroll');if(ee)ee.innerHTML=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');
+  try{var hs=ord(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});document.getElementById('topnscroll').innerHTML=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}catch(e){}
+}
+function paintChips(){
+  var a=document.getElementById('tier1');if(a)a.innerHTML=TIER1.map(function(x){return '<button class="pc1'+(P1===x.k?' on':'')+'" data-k="'+x.k+'">'+x.l+'</button>';}).join('');
+  var b=document.getElementById('tier2');if(b)b.innerHTML=TIER2.map(function(x){return '<button class="pc2'+(P2.indexOf(x.k)>-1?' on':'')+'" data-k="'+x.k+'">'+x.l+'</button>';}).join('');
+}
+(function(){paintChips();
+  var a=document.getElementById('tier1');if(a)a.addEventListener('click',function(e){var x=e.target.closest('.pc1');if(!x)return;P1=(P1===x.dataset.k?'':x.dataset.k);localStorage.setItem('ta_persona',P1);paintChips();renderRails();});
+  var b=document.getElementById('tier2');if(b)b.addEventListener('click',function(e){var x=e.target.closest('.pc2');if(!x)return;var i=P2.indexOf(x.dataset.k);if(i>-1)P2.splice(i,1);else P2.push(x.dataset.k);localStorage.setItem('ta_vibes',JSON.stringify(P2));paintChips();renderRails();});
+})();
+fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(d){HI=d;Object.keys(d.provinces).forEach(function(s){var it=(d.provinces[s].see&&d.provinces[s].see.items)||[];PROF[s]=it.map(function(c){return c.name+' '+(c.bestFor||'')+' '+((c.tags||[]).join(' '));}).join(' ');});renderRails();}).catch(function(){});
 // nav scroll
 var nav=document.getElementById('nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}window.addEventListener('scroll',onScroll);onScroll();
 // mobile menu
