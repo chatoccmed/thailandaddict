@@ -32,6 +32,7 @@ const updated = data.modifiedDate || SITE_UPDATED;
 const published = data.publishedDate || updated;
 const faq = data.faq ?? [];
 const strip = (s) => (s || '').replace(/<[^>]+>/g, '').trim();
+const realLib = (s) => (s && s.indexOf('/_lib/') === -1) ? s : '';
 const comma = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : n);
 const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
@@ -254,6 +255,23 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .re-pane.on{display:block}
 .re-pic{position:relative;padding:0}.re-pic img{width:100%;height:540px;object-fit:cover;display:block}
 .re-piccred{position:absolute;bottom:8px;right:8px;font-size:9.5px;background:rgba(15,23,42,.6);color:#fff;padding:3px 8px;border-radius:7px}.re-piccred a{color:#fff;text-decoration:underline}
+.re-zoom,.resto-mainimg{cursor:zoom-in}
+.re-zoomhint{position:absolute;bottom:8px;left:8px;background:rgba(15,23,42,.66);color:#fff;font-size:10px;padding:3px 8px;border-radius:7px;pointer-events:none;z-index:2}
+.re-car{position:relative;height:540px;overflow:hidden}
+.re-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.re-track::-webkit-scrollbar{display:none}
+.re-cslide{min-width:100%;scroll-snap-align:start;margin:0;position:relative;height:100%}.re-cslide img{width:100%;height:100%;object-fit:cover;display:block}
+.re-cbtn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:999px;border:0;background:rgba(255,255,255,.88);color:var(--ink);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}.re-cprev{left:8px}.re-cnext{right:8px}
+.re-ccount{position:absolute;top:10px;left:10px;background:rgba(15,23,42,.66);color:#fff;font-size:11px;padding:3px 9px;border-radius:999px;z-index:2}
+@media(max-width:760px){.re-car{height:440px}}
+.lbx-ov{position:fixed;inset:0;z-index:9999;background:rgba(8,12,20,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:16px}
+.lbx-ov.on{display:flex}
+.lbx-img{max-width:96vw;max-height:80vh;object-fit:contain;border-radius:10px}
+.lbx-cap{color:#fff;font-family:'Outfit';font-weight:800;font-size:15px;margin-top:13px;text-align:center;max-width:92vw}
+.lbx-cred{color:#9fb0c0;font-size:11px;margin-top:4px;text-align:center}.lbx-cred a{color:#cfe3f0}
+.lbx-btn{position:absolute;background:rgba(255,255,255,.16);color:#fff;border:0;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lbx-prev,.lbx-next{width:46px;height:46px;font-size:28px;top:50%;transform:translateY(-50%)}.lbx-prev{left:14px}.lbx-next{right:14px}
+.lbx-close{top:16px;right:16px;width:42px;height:42px;font-size:20px}
+.lbx-count{position:absolute;top:22px;left:18px;color:#cbd5e1;font-size:13px}
 .re-foot{font-size:11px;color:var(--sub);padding:8px 12px;background:#f6fdff;border-top:1px solid var(--bdr)}
 @media(max-width:760px){.re-body,.re-pane{height:440px;min-height:440px}.re-pic img{height:440px}}
 .resto-imgwrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e6eef2;flex-shrink:0}
@@ -623,23 +641,40 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           {(b.igPost || b.fbPage || b.libImg || !b.img) ? (
             <div class="resto-embed">
               <div class="re-tabs">
-                {b.igPost && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-ig`}>📷 Instagram</button>}
-                {b.fbPage && <button class={b.igPost ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-fb`}>📘 Facebook</button>}
-                {b.libImg && <button class={(b.igPost || b.fbPage) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-pic`}>🍜 รูป</button>}
-                <button class={(b.igPost || b.fbPage || b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
+                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>🖼️ รูป</button>}
+                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
+                {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 IG</button>}
+                {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 FB</button>}
               </div>
               <div class="re-body">
-                {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane on" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
-                {b.fbPage && <iframe id={`emb${b.rank}-fb`} class={b.igPost ? 're-pane' : 're-pane on'} loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
-                {b.libImg && <div id={`emb${b.rank}-pic`} class={(b.igPost || b.fbPage) ? 're-pane re-pic' : 're-pane re-pic on'}><img src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}</div>}
-                <iframe id={`emb${b.rank}-map`} class={(b.igPost || b.fbPage || b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
+                {realLib(b.libImg) && <div id={`emb${b.rank}-pic`} class="re-pane re-pic on">
+                  {(b.gallery && b.gallery.length) ? (
+                    <div class="re-car">
+                      <div class="re-track">
+                        {[{ src: b.libImg, credit: b.libCredit, href: b.libCreditHref }, ...b.gallery].map((g) => (
+                          <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={b.alt || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
+                        ))}
+                      </div>
+                      <button class="re-cbtn re-cprev" type="button" aria-label="รูปก่อนหน้า">‹</button>
+                      <button class="re-cbtn re-cnext" type="button" aria-label="รูปถัดไป">›</button>
+                      <span class="re-ccount">1/{b.gallery.length + 1}</span>
+                      <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
+                    </div>
+                  ) : (
+                    <Fragment><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
+                  )}
+                </div>}
+                <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
+                {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
+                {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
               </div>
-              <div class="re-foot">📸 รูปจริงจาก Instagram/Facebook · แผนที่จาก Google (ฝังจากต้นทาง — ถูกลิขสิทธิ์)</div>
+              <div class="re-foot">🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)</div>
             </div>
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
-                <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" onerror="this.style.visibility='hidden'" />
+                <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />
+                <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
               {b.gallery && b.gallery.length > 0 && (
@@ -818,6 +853,40 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           if (p) { actPane(p); p.classList.add('on'); }
         });
       });
+    });
+    // in-page lightbox — tap any photo to zoom WITHOUT leaving the page (no IG/FB bounce)
+    var ov = document.createElement('div'); ov.className = 'lbx-ov';
+    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="ปิด">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="ก่อนหน้า">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="ถัดไป">›</button>';
+    document.body.appendChild(ov);
+    var ovImg = ov.querySelector('.lbx-img'), ovCap = ov.querySelector('.lbx-cap'), ovCred = ov.querySelector('.lbx-cred'), ovCount = ov.querySelector('.lbx-count');
+    var ovPrev = ov.querySelector('.lbx-prev'), ovNext = ov.querySelector('.lbx-next');
+    var LB = { list: [], i: 0 };
+    function lbShow() { var it = LB.list[LB.i]; if (!it) return; ovImg.src = it.src; ovImg.alt = it.cap || ''; ovCap.textContent = it.cap || ''; ovCred.innerHTML = it.cred ? (it.href ? ('📷 <a href="' + it.href + '" target="_blank" rel="nofollow noopener">' + it.cred + '</a>') : ('📷 ' + it.cred)) : ''; var multi = LB.list.length > 1; ovCount.textContent = multi ? (LB.i + 1) + ' / ' + LB.list.length : ''; ovPrev.style.display = multi ? '' : 'none'; ovNext.style.display = multi ? '' : 'none'; }
+    function lbOpen(list, i) { LB.list = list; LB.i = i; lbShow(); ov.classList.add('on'); document.body.style.overflow = 'hidden'; }
+    function lbClose() { ov.classList.remove('on'); document.body.style.overflow = ''; ovImg.src = ''; }
+    function lbGo(d) { LB.i = (LB.i + d + LB.list.length) % LB.list.length; lbShow(); }
+    ov.querySelector('.lbx-close').addEventListener('click', lbClose);
+    ovPrev.addEventListener('click', lbGo.bind(null, -1));
+    ovNext.addEventListener('click', lbGo.bind(null, 1));
+    ov.addEventListener('click', function (e) { if (e.target === ov) lbClose(); });
+    document.addEventListener('keydown', function (e) { if (!ov.classList.contains('on')) return; if (e.key === 'Escape') lbClose(); else if (e.key === 'ArrowLeft') lbGo(-1); else if (e.key === 'ArrowRight') lbGo(1); });
+    document.addEventListener('click', function (e) {
+      var z = e.target.closest('.re-zoom, .resto-mainimg'); if (!z) return;
+      var card = z.closest('.resto'); if (!card) return;
+      var list = [], start = 0;
+      var slides = card.querySelectorAll('.re-pic .re-zoom');
+      if (slides.length) { slides.forEach(function (s) { list.push({ src: s.getAttribute('data-full') || s.src, cap: s.getAttribute('data-cap') || '', cred: s.getAttribute('data-cred') || '', href: s.getAttribute('data-href') || '' }); }); start = [].indexOf.call(slides, z); if (start < 0) start = 0; lbOpen(list, start); return; }
+      var thumbs = card.querySelectorAll('.resto-thumb');
+      if (thumbs.length) { thumbs.forEach(function (t) { list.push({ src: t.getAttribute('data-full'), cap: '', cred: t.getAttribute('data-credit') || '', href: t.getAttribute('data-href') || '' }); }); var act = card.querySelector('.resto-thumb.on'); start = act ? [].indexOf.call(thumbs, act) : 0; lbOpen(list, start); return; }
+      lbOpen([{ src: z.getAttribute('data-full') || z.src, cap: z.getAttribute('data-cap') || '', cred: z.getAttribute('data-cred') || '', href: z.getAttribute('data-href') || '' }], 0);
+    });
+    // image carousel arrows (attraction cards with multiple photos)
+    document.querySelectorAll('.re-car').forEach(function (car) {
+      var track = car.querySelector('.re-track'), count = car.querySelector('.re-ccount'), n = car.querySelectorAll('.re-cslide').length;
+      function cur() { return Math.round(track.scrollLeft / track.clientWidth); }
+      if (count) track.addEventListener('scroll', function () { count.textContent = (cur() + 1) + '/' + n; });
+      car.querySelector('.re-cprev').addEventListener('click', function () { track.scrollTo({ left: (cur() - 1) * track.clientWidth, behavior: 'smooth' }); });
+      car.querySelector('.re-cnext').addEventListener('click', function () { track.scrollTo({ left: (cur() + 1) * track.clientWidth, behavior: 'smooth' }); });
     });
     // save-to-trip buttons (per restaurant → ta_wishlist localStorage, shared with /my-list + trip planner)
     document.querySelectorAll('.resto-save').forEach(function (btn) {
