@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Preview — หน้าแรกใหม่ (personalized) · Thailandaddict</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bl:#06B6D4;--bl-dk:#0891b2;--or:#FB7185;--or-dk:#f43f5e;--go:#FBBF24;--ink:#0F172A;--sub:#64748b;--mut:#9aa7b8;--bdr:#e6eef2;--bg:#f6fafb;--card:#fff;--r:20px}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Noto Sans Thai','Sarabun',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;object-fit:cover}
+.of{font-family:'Outfit','Noto Sans Thai',sans-serif}
+.fr{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.demobar{background:#0F172A;color:#fff;font-size:12.5px;padding:8px 22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.demobar b{color:var(--go)}
+.demobar button{font-family:inherit;font-size:12px;font-weight:600;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:5px 13px;cursor:pointer}
+.demobar button:hover{background:rgba(255,255,255,.26)}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:1120px;margin:0 auto}
+.logo{font-size:24px;font-weight:500}.logo em{font-style:normal;color:var(--bl)}
+.navlinks{display:flex;gap:22px}.navlinks a{font-size:13.5px;font-weight:600;color:var(--sub)}
+
+.hero{position:relative;margin:6px 22px 0;border-radius:28px;overflow:hidden;max-width:1120px;margin-left:auto;margin-right:auto}
+.hero-img{width:100%;height:430px;object-fit:cover}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.42),rgba(8,30,55,.12) 45%,rgba(8,30,55,.30)),linear-gradient(125deg,rgba(6,182,212,.55),rgba(251,113,133,.45) 55%,rgba(251,191,36,.4))}
+.hero-c{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 6%}
+.h-eye{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);font-size:11px;font-weight:700;letter-spacing:1.4px;color:#fff;padding:7px 15px;border-radius:30px;margin-bottom:16px;width:fit-content}
+.h1{font-size:clamp(32px,5.5vw,54px);font-weight:400;color:#fff;line-height:1.05;letter-spacing:-1px;text-shadow:0 2px 22px rgba(0,0,0,.3)}
+.h-sub{color:rgba(255,255,255,.92);font-size:15px;margin:12px 0 20px;max-width:30rem}
+.searchbox{background:#fff;border-radius:18px;padding:8px;max-width:600px;box-shadow:0 18px 50px rgba(8,30,55,.28)}
+.tabs{display:flex;gap:4px;margin-bottom:6px}
+.tab{flex:1;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:700;padding:9px;border-radius:12px;border:none;background:transparent;color:var(--sub);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));color:#fff}
+.tab.on.eat{background:linear-gradient(135deg,var(--or),var(--or-dk))}
+.tab.on.stay{background:linear-gradient(135deg,var(--go),#f59e0b)}
+.srow{display:flex;align-items:center;gap:8px;padding:4px 6px 4px 14px;position:relative}
+.srow input{flex:1;border:none;outline:none;font-family:inherit;font-size:15px;padding:12px 0;background:transparent;color:var(--ink)}
+.sgo{font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;color:#fff;border:none;border-radius:13px;padding:13px 26px;cursor:pointer;background:linear-gradient(135deg,var(--bl),var(--or))}
+.sugg{position:absolute;top:100%;left:0;right:0;background:#fff;border-radius:14px;box-shadow:0 16px 40px rgba(8,30,55,.18);margin-top:8px;overflow:hidden;z-index:9;display:none}
+.sugg a{display:block;padding:11px 16px;font-size:14px;border-bottom:1px solid var(--bdr)}
+.sugg a:hover{background:var(--bg)}.sugg .c{font-size:11.5px;color:var(--mut)}
+.pchips{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.pchip{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:600;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.34);color:#fff;padding:7px 14px;border-radius:30px;cursor:pointer}
+.pchip.on{background:#fff;color:var(--ink)}
+
+.planner{max-width:1120px;margin:34px auto 0;padding:0 22px}
+.planner-in{background:linear-gradient(125deg,#0F172A,#134e5e 60%,#06B6D4);border-radius:24px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#fff}
+.planner h3{font-family:'Fraunces',serif;font-weight:400;font-size:25px;margin:0 0 4px}
+.planner p{margin:0;font-size:14px;color:rgba(255,255,255,.82)}
+.planner .pbtn{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;background:#fff;color:var(--ink);border:none;border-radius:30px;padding:14px 26px;cursor:pointer;white-space:nowrap}
+
+section.rail{max-width:1120px;margin:40px auto 0;padding:0 22px}
+.rhead{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4px}
+.rlabel{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.rlabel.see{color:var(--bl-dk)}.rlabel.stay{color:#d4922e}.rlabel.eat{color:var(--or-dk)}
+.rtitle{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,3.4vw,30px);line-height:1.15}
+.rtitle em{font-style:normal;background:linear-gradient(120deg,var(--bl),var(--or-dk) 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.seeall{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--bl);white-space:nowrap}
+.track{display:flex;gap:16px;overflow-x:auto;padding:16px 2px 6px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.track::-webkit-scrollbar{height:7px}.track::-webkit-scrollbar-thumb{background:#d4dde4;border-radius:10px}
+.tc{min-width:236px;max-width:236px;background:#fff;border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;scroll-snap-align:start;transition:transform .18s,box-shadow .2s}
+.tc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(8,30,55,.14)}
+.tc-imgw{position:relative;height:150px;background:linear-gradient(135deg,#dbeafe,#fde2e7)}
+.tc-imgw img{width:100%;height:100%}
+.tc-rank{position:absolute;top:10px;left:10px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--bl),var(--or));padding:3px 10px;border-radius:18px}
+.tc-score{position:absolute;top:10px;right:10px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--go),#f59e0b);padding:3px 9px;border-radius:11px}
+.tc-b{padding:12px 13px 14px}
+.tc-name{font-family:'Fraunces',serif;font-size:16px;line-height:1.22;font-weight:400}
+.tc-area{font-size:11.5px;color:var(--mut);margin:4px 0 0}
+.tc-tag{display:inline-block;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10.5px;font-weight:600;color:var(--bl-dk);background:#ecfeff;border-radius:6px;padding:2px 8px;margin-top:9px}
+.empty{min-width:100%;color:var(--mut);font-size:14px;padding:20px}
+
+.provsec{max-width:1120px;margin:44px auto 0;padding:0 22px}
+.provgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px}
+.pcard{position:relative;height:110px;border-radius:16px;overflow:hidden;background:#dbeafe}
+.pcard img{width:100%;height:100%}
+.pcard span{position:absolute;left:12px;bottom:9px;color:#fff;font-family:'Fraunces',serif;font-size:17px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.pcard .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,28,52,.7),transparent 60%)}
+
+.personasec{max-width:1120px;margin:44px auto 60px;padding:0 22px}
+.prow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pbig{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;background:#fff;border:1px solid var(--bdr);border-radius:30px;padding:11px 18px;cursor:pointer}
+.pbig:hover{border-color:var(--bl);color:var(--bl-dk)}
+.sec-h{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(22px,3.4vw,30px)}
+.sec-s{font-size:14px;color:var(--sub);margin-top:4px}
+footer{background:#0F172A;color:rgba(255,255,255,.7);padding:30px 22px;text-align:center;font-size:13px;margin-top:10px}
+</style>
+</head>
+<body>
+
+<div class="demobar">
+  <span><b>โหมดเดโม</b> · ลองจำลองประวัติเพื่อดูการจัดอันดับส่วนตัว:</span>
+  <button onclick="seed('chiang-mai')">เคยดู เชียงใหม่</button>
+  <button onclick="seed('krabi')">เคยดู กระบี่</button>
+  <button onclick="seed('nan')">เคยดู น่าน</button>
+  <button onclick="clearHist()">ล้างประวัติ (สุ่ม)</button>
+  <span id="who"></span>
+</div>
+
+<nav>
+  <div class="logo fr">Thailand<em>addict</em></div>
+  <div class="navlinks of"><a href="#">ที่พัก</a><a href="#">ที่กิน</a><a href="#">ที่เที่ยว</a><a href="#">จุดหมาย</a></div>
+</nav>
+
+<div class="hero">
+  <img class="hero-img" id="heroImg" src="/images/heroes/krabi.jpg" alt="">
+  <div class="hero-ov"></div>
+  <div class="hero-c">
+    <span class="h-eye of">✦ เที่ยวไทยเฉพาะทาง</span>
+    <div class="h1 fr">ชีวิตติดเที่ยว</div>
+    <div class="h-sub">ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย — รีวิวจริง ไม่ขายฝัน</div>
+    <div class="searchbox">
+      <div class="tabs of">
+        <button class="tab on" data-dim="see" onclick="setTab('see')">🏞️ ที่เที่ยว</button>
+        <button class="tab" data-dim="eat" onclick="setTab('eat')">🍜 ที่กิน</button>
+        <button class="tab" data-dim="stay" onclick="setTab('stay')">🏨 ที่พัก</button>
+      </div>
+      <div class="srow">
+        <input id="q" placeholder="ค้นจังหวัด เมือง หรือชื่อสถานที่…" autocomplete="off" oninput="onSearch()" onfocus="onSearch()">
+        <button class="sgo of" onclick="goSearch()">ค้นหา</button>
+        <div class="sugg" id="sugg"></div>
+      </div>
+      <div class="pchips" id="heroPersona"></div>
+    </div>
+  </div>
+</div>
+
+<div class="planner">
+  <div class="planner-in">
+    <div>
+      <h3 class="fr">วางแผนทริปใน 3 นาที</h3>
+      <p>เลือกจังหวัด + จำนวนวัน + สไตล์การเที่ยว แล้วให้เราจัดร่างทริปรายวันให้ — ปรับเองได้ เซฟได้</p>
+    </div>
+    <button class="pbtn" onclick="location.href='/trip'">เริ่มวางแผน →</button>
+  </div>
+</div>
+
+<section class="rail"><div class="rhead"><div><div class="rlabel stay">รีวิวคัดแล้ว</div><div class="rtitle fr" id="t-stay"></div></div><a class="seeall" id="a-stay" href="#">ดูทั้งหมด →</a></div><div class="track" id="r-stay"></div></section>
+<section class="rail"><div class="rhead"><div><div class="rlabel see">รีวิวคัดแล้ว</div><div class="rtitle fr" id="t-see"></div></div><a class="seeall" id="a-see" href="#">ดูทั้งหมด →</a></div><div class="track" id="r-see"></div></section>
+<section class="rail"><div class="rhead"><div><div class="rlabel eat">รีวิวคัดแล้ว</div><div class="rtitle fr" id="t-eat"></div></div><a class="seeall" id="a-eat" href="#">ดูทั้งหมด →</a></div><div class="track" id="r-eat"></div></section>
+
+<div class="provsec">
+  <div class="sec-h fr">เลือกตามจังหวัด</div>
+  <div class="sec-s">77 จังหวัด คัดที่เที่ยว ที่กิน ที่พัก จากรีวิวจริง</div>
+  <div class="provgrid" id="provgrid"></div>
+</div>
+
+<div class="personasec">
+  <div class="sec-h fr">เที่ยวแบบไหน?</div>
+  <div class="sec-s">เลือกสไตล์ แล้วเราจัดทุกอย่างให้เหมาะกับคุณ (เดโม — กรองจากแท็กเบื้องต้น · Phase 2 จะติดแท็กแม่นยำขึ้น)</div>
+  <div class="prow" id="personaBig"></div>
+</div>
+
+<footer>Thailandaddict — Explore Thailand like a local · หน้าตัวอย่าง (preview) ไม่ได้เผยแพร่</footer>
+
+<script>
+const IMG='https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
+const PERSONAS=[
+ {k:'couple',l:'คู่รัก',re:/โรแมน|พระอาทิตย์ตก|คู่รัก|วิว|ฮันนีมูน|คาเฟ่|ริมน้ำ/},
+ {k:'family-kids',l:'ครอบครัวมีเด็ก',re:/เด็ก|ครอบครัว|สวนสนุก|สวนสัตว์|เล่น|ฟาร์ม/},
+ {k:'family-senior',l:'ผู้สูงอายุ',re:/วัด|ทำบุญ|พระธาตุ|นั่ง|ตลาด|สวนสาธารณะ/},
+ {k:'solo',l:'คนเดียว',re:/คาเฟ่|เดิน|เมืองเก่า|ถนนคนเดิน|วัด/},
+ {k:'friends',l:'กลุ่มเพื่อน',re:/กลางคืน|บาร์|ตลาด|คาเฟ่|กิจกรรม|ถนนคนเดิน/},
+ {k:'budget',l:'ประหยัด',re:/ฟรี|ตลาด|วัด|สวนสาธารณะ|เดิน/},
+ {k:'workation',l:'ไปทำงาน',re:/คาเฟ่|กาแฟ|coworking|ทำงาน/},
+ {k:'luxury',l:'หรู/พรีเมียม',re:/รีสอร์ต|ริมแม่น้ำ|สปา|วิว|หรู|วิลล่า/},
+ {k:'mu',l:'สายมู',re:/วัด|พระธาตุ|ศักดิ์สิทธิ์|ไหว้|มู|เจ้าแม่|หลวงพ่อ/},
+ {k:'nature',l:'ธรรมชาติ',re:/น้ำตก|ภูเขา|ดอย|ธรรมชาติ|อุทยาน|ทะเล|ถ้ำ|เขา/},
+ {k:'sea',l:'ทะเล/เกาะ',re:/ทะเล|หาด|เกาะ|อ่าว/},
+ {k:'cafe',l:'คาเฟ่/ถ่ายรูป',re:/คาเฟ่|กาแฟ|ถ่ายรูป|จุดชมวิว/}
+];
+let DATA=null, SIDX=null, dim='see', persona='', province='';
+
+const norm=u=>!u?'':(/^https?:\/\//.test(u)?u:(u[0]==='/'?IMG+u:IMG+'/'+u));
+const stripTags=s=>(s||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+function provincesWith(d){return Object.values(DATA.provinces).filter(p=>d==='see'?(p.see&&p.see.items.length):d==='stay'?p.stay.length:p.eat.length);}
+function dayPick(arr){const d=new Date();const n=d.getFullYear()*1000+ (d.getMonth()*31+d.getDate()); return arr[n%arr.length];}
+
+function getHistory(){try{return JSON.parse(localStorage.getItem('ta_seen')||'[]')}catch(e){return[]}}
+function pickProvince(){
+  const h=getHistory(); const tally={};
+  h.forEach(x=>{if(DATA.provinces[x.province])tally[x.province]=(tally[x.province]||0)+1});
+  const top=Object.keys(tally).sort((a,b)=>tally[b]-tally[a])[0];
+  if(top)return {slug:top,why:'จากจังหวัดที่คุณเพิ่งดู'};
+  const pers=localStorage.getItem('ta_persona');
+  const pool=provincesWith('see').map(p=>p.slug);
+  return {slug:dayPick(pool),why:pers?'แนะนำตามสไตล์ที่เลือก':'จังหวัดเด่นวันนี้ (สุ่ม)'};
+}
+function seed(s){const h=getHistory();h.unshift({slug:'top10-attractions-'+s,province:s,dim:'see',ts:Date.now()});localStorage.setItem('ta_seen',JSON.stringify(h.slice(0,30)));render();}
+function clearHist(){localStorage.removeItem('ta_seen');render();}
+
+function matchPersona(item){
+  if(!persona)return true;
+  const p=PERSONAS.find(x=>x.k===persona); if(!p)return true;
+  const hay=(item.name||item.title||'')+' '+(item.area||'')+' '+(item.bestFor||'')+' '+((item.tags||[]).join(' '))+' '+(item.sub||'');
+  return p.re.test(hay);
+}
+function filterItems(items){const f=items.filter(matchPersona);return f.length>=3?f:items;}
+
+function cardSee(it){return `<a class="tc" href="${it.href}"><div class="tc-imgw">${it.img?`<img src="${it.img}" loading="lazy" onerror="this.style.display='none'">`:''}<span class="tc-rank">#${it.rank}</span>${it.rating?`<span class="tc-score">★ ${it.rating}</span>`:''}</div><div class="tc-b"><div class="tc-name fr">${it.name}</div><div class="tc-area">${it.area||''}</div>${it.tags&&it.tags[0]?`<span class="tc-tag">${it.tags[0]}</span>`:''}</div></a>`;}
+function cardStay(it,i){return `<a class="tc" href="${it.href}"><div class="tc-imgw">${it.img?`<img src="${norm(it.img)}" loading="lazy" onerror="this.style.display='none'">`:''}<span class="tc-rank">#${i+1}</span></div><div class="tc-b"><div class="tc-name fr">${stripTags(it.title)}</div><div class="tc-area">${stripTags(it.sub).slice(0,70)}</div></div></a>`;}
+function cardEat(it,i){return `<a class="tc" href="${it.href}"><div class="tc-imgw" style="display:flex;align-items:center;justify-content:center"><span style="font-size:30px">🍜</span><span class="tc-rank">#${i+1}</span></div><div class="tc-b"><div class="tc-name fr" style="font-size:14.5px">${stripTags(it.title)}</div></div></a>`;}
+
+function renderRail(d){
+  const p=DATA.provinces[province]; const track=document.getElementById('r-'+d); const tt=document.getElementById('t-'+d);
+  const pname=p?p.name:'';
+  const titles={see:`ที่เที่ยว Top 10 — <em>${pname}</em>`,stay:`โรงแรมคัดแล้ว — <em>${pname}</em>`,eat:`ที่กิน Top 10 — <em>${pname}</em>`};
+  tt.innerHTML=titles[d];
+  let items=[];
+  if(d==='see'&&p&&p.see)items=filterItems(p.see.items).map(cardSee);
+  else if(d==='stay'&&p)items=filterItems(p.stay).map(cardStay);
+  else if(d==='eat'&&p)items=filterItems(p.eat).map(cardEat);
+  track.innerHTML=items.length?items.join(''):'<div class="empty">ยังไม่มีข้อมูลมิตินี้สำหรับจังหวัดนี้ (จะเติมใน Phase ถัดไป)</div>';
+  document.getElementById('a-'+d).href = d==='see'&&p&&p.see?p.see.href:'#';
+}
+function render(){
+  const pick=pickProvince(); province=pick.slug;
+  const p=DATA.provinces[province];
+  document.getElementById('who').textContent='· แสดง: '+(p?p.name:'')+' ('+pick.why+')';
+  const heroSlug=province; const hi=document.getElementById('heroImg');
+  hi.src='/images/heroes/'+heroSlug+'.jpg'; hi.onerror=()=>{hi.src='/images/heroes/krabi.jpg'};
+  ['stay','see','eat'].forEach(renderRail);
+}
+
+function setTab(d){dim=d;document.querySelectorAll('.tab').forEach(t=>{t.className='tab'+(t.dataset.dim===d?' on '+d:'')});onSearch();}
+function onSearch(){
+  const q=document.getElementById('q').value.trim();const box=document.getElementById('sugg');
+  if(!SIDX||q.length<1){box.style.display='none';return;}
+  const res=SIDX.filter(r=>r[2]===dim&&(r[0].includes(q)||(r[3]||'').includes(q))).slice(0,7);
+  box.innerHTML=res.map(r=>`<a href="/${r[1].replace(/\.html$/,'')}">${r[0]}<div class="c">${r[3]||''}</div></a>`).join('')||'<a><div class="c">ไม่พบผลลัพธ์</div></a>';
+  box.style.display='block';
+}
+function goSearch(){const a=document.querySelector('#sugg a');if(a&&a.href)location.href=a.href;}
+function setPersona(k){persona=(persona===k?'':k);localStorage.setItem('ta_persona',persona);
+  document.querySelectorAll('.pchip').forEach(c=>c.className='pchip'+(c.dataset.k===persona?' on':''));
+  ['stay','see','eat'].forEach(renderRail);
+}
+
+function buildChips(){
+  document.getElementById('heroPersona').innerHTML=PERSONAS.slice(0,6).map(p=>`<span class="pchip" data-k="${p.k}" onclick="setPersona('${p.k}')">${p.l}</span>`).join('');
+  document.getElementById('personaBig').innerHTML=PERSONAS.map(p=>`<span class="pbig" onclick="setPersona('${p.k}');scrollTo({top:0,behavior:'smooth'})">${p.l}</span>`).join('');
+}
+function buildProvGrid(){
+  const ps=provincesWith('see').slice(0,18);
+  document.getElementById('provgrid').innerHTML=ps.map(p=>`<a class="pcard" href="${p.see.href}"><img src="/images/cities/${p.slug}.jpg" loading="lazy" onerror="this.style.display='none'"><div class="ov"></div><span class="fr">${p.name}</span></a>`).join('');
+}
+
+Promise.all([
+  fetch('/data/home-index.json').then(r=>r.json()),
+  fetch('/search-index.json').then(r=>r.json()).catch(()=>null)
+]).then(([d,s])=>{DATA=d;SIDX=s;buildChips();buildProvGrid();render();});
+document.addEventListener('click',e=>{if(!e.target.closest('.srow'))document.getElementById('sugg').style.display='none';});
+</script>
+</body>
+</html>
