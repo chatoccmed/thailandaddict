@@ -201,7 +201,7 @@ function matchPersona(item){
 }
 function filterItems(items){const f=items.filter(matchPersona);return f.length>=3?f:items;}
 
-function cardSee(it){return `<a class="tc" href="${it.href}"><div class="tc-imgw">${it.img?`<img src="${it.img}" loading="lazy" onerror="this.style.display='none'">`:''}<span class="tc-rank">#${it.rank}</span>${it.rating?`<span class="tc-score">★ ${it.rating}</span>`:''}</div><div class="tc-b"><div class="tc-name fr">${it.name}</div><div class="tc-area">${it.area||''}</div>${it.tags&&it.tags[0]?`<span class="tc-tag">${it.tags[0]}</span>`:''}</div></a>`;}
+function cardSee(it){return `<a class="tc" href="${it.href}"><div class="tc-imgw">${it.img?`<img src="${norm(it.img)}" loading="lazy" onerror="this.style.display='none'">`:''}<span class="tc-rank">#${it.rank}</span>${it.rating?`<span class="tc-score">★ ${it.rating}</span>`:''}</div><div class="tc-b"><div class="tc-name fr">${it.name}</div><div class="tc-area">${it.area||''}</div>${it.tags&&it.tags[0]?`<span class="tc-tag">${it.tags[0]}</span>`:''}</div></a>`;}
 function cardStay(it,i){return `<a class="tc" href="${it.href}"><div class="tc-imgw">${it.img?`<img src="${norm(it.img)}" loading="lazy" onerror="this.style.display='none'">`:''}<span class="tc-rank">#${i+1}</span></div><div class="tc-b"><div class="tc-name fr">${stripTags(it.title)}</div><div class="tc-area">${stripTags(it.sub).slice(0,70)}</div></div></a>`;}
 function cardEat(it,i){return `<a class="tc" href="${it.href}"><div class="tc-imgw" style="display:flex;align-items:center;justify-content:center"><span style="font-size:30px">🍜</span><span class="tc-rank">#${i+1}</span></div><div class="tc-b"><div class="tc-name fr" style="font-size:14.5px">${stripTags(it.title)}</div></div></a>`;}
 
