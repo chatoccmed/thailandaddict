@@ -354,6 +354,32 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
   <div class="stat"><div class="n">100%</div><div class="l">รีวิวจริง</div></div>
 </div>
 
+<style>
+.gq{text-align:center;font-family:'Fraunces',serif;font-size:21px;color:var(--ink);margin-bottom:4px}
+.gbtns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.gbtn{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:600;padding:12px 20px;border-radius:16px;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:.15s}
+.gbtn:hover{border-color:var(--bl);transform:translateY(-2px);box-shadow:0 8px 20px rgba(6,182,212,.16)}
+.gbtn .pico{font-size:20px}
+.gnav{text-align:center;margin-top:18px}
+.gback{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--bl);background:none;border:none;cursor:pointer}
+.gres{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:16px;margin-top:18px}
+.grescard{background:#fff;border:1px solid var(--bdr);border-radius:16px;overflow:hidden}
+.grescard a{text-decoration:none}
+.grc-img{position:relative;height:118px;background:linear-gradient(135deg,#dbeafe,#fde2e7)}
+.grc-img img{width:100%;height:100%;object-fit:cover}
+.grc-name{position:absolute;left:11px;bottom:8px;color:#fff;font-family:'Fraunces',serif;font-size:18px;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.grc-b{padding:11px 13px 13px}
+.grc-why{font-size:12.5px;color:var(--sub)}
+.grc-links{margin-top:8px;font-size:12.5px;font-weight:700;display:flex;gap:7px;align-items:center}
+.grc-links a{color:var(--bl)}.grc-links span{color:var(--mut)}
+</style>
+<section class="sec rv" id="guide">
+  <div class="inner">
+    <div class="s-head center"><div><div class="slbl">ยังไม่รู้จะไปไหน?</div><div class="stit">ตอบ 2 ข้อ <em>เดี๋ยวเราจัดให้</em></div><div class="ssub">บอกว่าไปกับใคร + ชอบแบบไหน แล้วเราแนะนำจังหวัดที่ใช่ทันที</div></div></div>
+    <div id="guideBox"></div>
+  </div>
+</section>
+
 <section class="partners">
   <span class="pt-lbl">พาร์ทเนอร์อย่างเป็นทางการ</span>
   <span class="partner"><span class="pdot" style="background:#ff5a1f"></span>Agoda</span><span class="partner"><span class="pdot" style="background:#003580"></span>Booking.com</span><span class="partner"><span class="pdot" style="background:#2577e3"></span>Trip.com</span>
@@ -602,7 +628,7 @@ var TIER2=[
  {k:'culture',l:'วัฒนธรรม',re:/วัด|พิพิธภัณฑ์|เมืองเก่า|ประวัติศาสตร์|โบราณ|ปราสาท|มรดกโลก/},
  {k:'wellness',l:'เวลเนส/สปา',re:/สปา|น้ำพุร้อน|บ่อน้ำร้อน|ออนเซ็น|เวลเนส/},
  {k:'foodie',l:'สายกิน',re:/ตลาด|ของกิน|สตรีท|ร้าน|กาแฟ/},
- {k:'sea',l:'ทะเล/เกาะ',re:/ทะเล|หาด|เกาะ|อ่าว|ดำน้ำ/},
+ {k:'sea',l:'ทะเล/เกาะ',re:/หาด|เกาะ|อ่าว|ดำน้ำ|ชายหาด|ทะเล(?!หมอก|บัว|สาบ|น้อย)/},
  {k:'festival',l:'เทศกาล/คอนเสิร์ต/วิ่ง',re:/เทศกาล|งาน|ประเพณี|วิ่ง|คอนเสิร์ต/},
  {k:'halal',l:'ฮาลาล/มุสลิม-friendly',re:/มัสยิด|มุสลิม|ฮาลาล/},
  {k:'lgbtq',l:'LGBTQ+-friendly',re:/ผับ|บาร์|กลางคืน|คาเฟ่/},
@@ -616,8 +642,9 @@ function taLog(prov,dim){var h=taHist();h.unshift({province:prov,dim:dim,ts:Date
 var P1=localStorage.getItem('ta_persona')||'';
 var P2=(function(){try{return JSON.parse(localStorage.getItem('ta_vibes')||'[]')}catch(e){return[]}})();
 var PNAME={};PROV.forEach(function(p){PNAME[p.s]=p.n;});
-var HI=null,PROF={};
-function profScore(s){var pf=PROF[s]||'',sc=0;if(P1){var t=TIER1.find(function(x){return x.k===P1;});if(t&&t.re.test(pf))sc+=3;}P2.forEach(function(k){var v=TIER2.find(function(x){return x.k===k;});if(v&&v.re.test(pf))sc+=2;});return sc;}
+var HI=null,PITEMS={};
+function vCount(s,re){var a=PITEMS[s]||[],n=0;for(var i=0;i<a.length;i++)if(re.test(a[i]))n++;return n;}
+function profScore(s){var sc=0;if(P1){var t=TIER1.find(function(x){return x.k===P1;});if(t)sc+=vCount(s,t.re);}P2.forEach(function(k){var v=TIER2.find(function(x){return x.k===k;});if(v)sc+=vCount(s,v.re)*2;});return sc;}
 function ord(slugs){var h=taHist(),t={};h.forEach(function(x){t[x.province]=(t[x.province]||0)+1;});var d=new Date(),sd=d.getFullYear()*372+d.getMonth()*31+d.getDate();return slugs.slice().sort(function(a,b){var pa=profScore(a),pb=profScore(b);if(pb!==pa)return pb-pa;var ha=t[a]||0,hb=t[b]||0;if(hb!==ha)return hb-ha;return ((sd+a.length)%7)-((sd+b.length)%7);});}
 function railCard(slug,href,label,tag,dim){return '<a class="tcard" href="'+href+'" onclick="taLog(\''+slug+'\',\''+dim+'\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+slug+'.jpg" alt="'+label+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">'+label+'</div><div class="tcard-tag">'+tag+'</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}
 function renderRails(){
@@ -642,7 +669,28 @@ function paintChips(){
   if(pm&&tw)pm.addEventListener('click',function(){var open=tw.style.display!=='none';tw.style.display=open?'none':'block';pm.textContent=open?'+ เพิ่มสไตล์ที่สนใจ':'– ซ่อนสไตล์';});
   var pc=document.getElementById('pclr');if(pc)pc.addEventListener('click',function(){P1='';P2=[];localStorage.removeItem('ta_persona');localStorage.removeItem('ta_vibes');paintChips();renderRails();});
 })();
-fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(d){HI=d;Object.keys(d.provinces).forEach(function(s){var it=(d.provinces[s].see&&d.provinces[s].see.items)||[];PROF[s]=it.map(function(c){return c.name+' '+(c.bestFor||'')+' '+((c.tags||[]).join(' '));}).join(' ');});renderRails();}).catch(function(){});
+var gWho='',gVibe='';
+var GSTYLES=[{k:'sea',l:'ทะเล/เกาะ'},{k:'nature',l:'ภูเขา/ธรรมชาติ'},{k:'culture',l:'วัด/วัฒนธรรม'},{k:'cafe',l:'คาเฟ่/ชิล'},{k:'foodie',l:'สายกิน'},{k:'shopping',l:'ช้อปปิ้ง'}];
+function gRender(){var box=document.getElementById('guideBox');if(!box)return;
+  if(!gWho){box.innerHTML='<div class="gq">1. ไปกับใคร?</div><div class="gbtns">'+TIER1.map(function(x){return '<button class="gbtn" onclick="gPick1(\''+x.k+'\')"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('')+'</div>';}
+  else if(!gVibe){box.innerHTML='<div class="gq">2. อยากเที่ยวแบบไหน?</div><div class="gbtns">'+GSTYLES.map(function(x){return '<button class="gbtn" onclick="gPick2(\''+x.k+'\')"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('')+'</div><div class="gnav"><button class="gback" onclick="gReset()">← เริ่มใหม่</button></div>';}
+  else{box.innerHTML=gResults();}
+}
+window.gPick1=function(k){gWho=k;gRender();};
+window.gPick2=function(k){gVibe=k;P1=gWho;P2=[k];try{localStorage.setItem('ta_persona',P1);localStorage.setItem('ta_vibes',JSON.stringify(P2));paintChips();renderRails();}catch(e){}gRender();};
+window.gReset=function(){gWho='';gVibe='';gRender();};
+function gResults(){if(!HI)return '<div class="gq">กำลังโหลด…</div>';
+  var wt=TIER1.find(function(x){return x.k===gWho;}),vt=TIER2.find(function(x){return x.k===gVibe;});
+  var wl=wt?wt.l:'',vl=(GSTYLES.find(function(x){return x.k===gVibe;})||{}).l||'';
+  var slugs=Object.keys(HI.provinces).filter(function(s){return PNAME[s]&&HI.provinces[s].see&&HI.provinces[s].see.items.length;});
+  var sc=slugs.map(function(s){return {s:s,sc:(vt?vCount(s,vt.re)*2:0)+(wt?vCount(s,wt.re):0)};}).sort(function(a,b){return b.sc-a.sc;});
+  var top=sc.filter(function(o){return o.sc>0;}).slice(0,5);
+  if(top.length<5){var have={};top.forEach(function(o){have[o.s]=1;});['phuket','krabi','chiang-mai','chiang-rai','ayutthaya','kanchanaburi','nan'].forEach(function(s){if(top.length<5&&!have[s]&&slugs.indexOf(s)>-1){have[s]=1;top.push({s:s,sc:0});}});}
+  var cards=top.map(function(o){var s=o.s;return '<div class="grescard"><a href="/top10-attractions-'+s+'"><div class="grc-img"><img src="/images/heroes/'+s+'.jpg" loading="lazy" onerror="this.style.opacity=0"><span class="grc-name">'+PNAME[s]+'</span></div></a><div class="grc-b"><div class="grc-why">'+(o.sc>0?'ตรงกับ '+vl+' · '+wl:'จังหวัดยอดนิยม')+'</div><div class="grc-links"><a href="/top10-attractions-'+s+'">ที่เที่ยว</a><span>·</span><a href="top10-hotels-'+s+'.html">โรงแรม</a><span>·</span><a href="/city-'+s+'.html">ที่กิน</a></div></div></div>';}).join('');
+  return '<div class="gq">แนะนำ 5 จังหวัดสำหรับ '+(PICON[gWho]||'')+wl+' + '+vl+'</div><div class="gres">'+cards+'</div><div class="gnav"><button class="gback" onclick="gReset()">↺ ลองใหม่</button></div>';
+}
+gRender();
+fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(d){HI=d;Object.keys(d.provinces).forEach(function(s){var it=(d.provinces[s].see&&d.provinces[s].see.items)||[];PITEMS[s]=it.map(function(c){return c.name+' '+(c.bestFor||'')+' '+((c.tags||[]).join(' '));});});renderRails();gRender();}).catch(function(){});
 // nav scroll
 var nav=document.getElementById('nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}window.addEventListener('scroll',onScroll);onScroll();
 // mobile menu
