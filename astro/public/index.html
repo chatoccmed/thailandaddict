@@ -369,9 +369,11 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 <style>
 .pgrp{margin-top:14px}
 .pgl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--mut);margin-bottom:9px}
-.pchipr{display:flex;flex-wrap:wrap;gap:9px}
-.pc1,.pc2{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;border-radius:30px;padding:9px 16px 9px 13px;cursor:pointer;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);transition:.15s;display:inline-flex;align-items:center;gap:7px}
-.pico{font-size:16px;line-height:1}
+.pchipr{display:flex;flex-wrap:wrap;gap:8px}
+.pchipr.nowrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pchipr.nowrap::-webkit-scrollbar{display:none}
+.pc1,.pc2{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:600;border-radius:30px;padding:8px 14px 8px 11px;cursor:pointer;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);transition:.15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex:0 0 auto}
+.pico{font-size:15px;line-height:1}
 .pc1:hover,.pc2:hover{border-color:var(--bl);color:var(--bl-dk)}
 .pc1.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));color:#fff;border-color:transparent}
 .pc2.on{background:var(--or-lt);color:var(--or-dk);border-color:var(--or)}
@@ -383,9 +385,8 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 <section class="sec rv">
   <div class="inner">
     <div class="s-head"><div><div class="slbl">ปรับให้ตรงใจ</div><div class="stit">เที่ยว<em>แบบไหน?</em></div><div class="ssub">เลือกว่าไปกับใคร แล้วเราจัดอันดับจังหวัดทุกแถวให้เหมาะ</div></div></div>
-    <div class="pgrp"><div class="pchipr" id="tier1"></div></div>
-    <div class="pmore-row"><button class="pmore" id="pmore" type="button">+ เพิ่มสไตล์ที่สนใจ</button><button class="pclr" id="pclr" type="button" style="display:none">ล้างตัวเลือก ✕</button></div>
-    <div class="pgrp" id="tier2wrap" style="display:none"><div class="pgl">สไตล์ที่สนใจ — เลือกได้หลายอัน</div><div class="pchipr" id="tier2"></div></div>
+    <div class="pgrp"><div class="pchipr nowrap" id="tier1"></div></div>
+    <div class="pgrp"><div class="pgl">สไตล์ที่สนใจ — เลือกได้หลายอัน <button class="pclr" id="pclr" type="button" style="display:none">· ล้างตัวเลือก ✕</button></div><div class="pchipr" id="tier2"></div></div>
   </div>
 </section>
 
@@ -589,9 +590,9 @@ var TIER1=[
  {k:'family-kids',l:'ครอบครัวมีเด็ก',re:/เด็ก|ครอบครัว|สวนสนุก|สวนสัตว์|ฟาร์ม|เล่นน้ำ|อความ/},
  {k:'family-senior',l:'ครอบครัวผู้สูงอายุ',re:/วัด|ทำบุญ|พระธาตุ|ไหว้|สวนสาธารณะ|ตลาด/},
  {k:'friends',l:'กลุ่มเพื่อน',re:/กลางคืน|ถนนคนเดิน|ตลาด|คาเฟ่|กิจกรรม|ทะเล/},
- {k:'budget',l:'ประหยัด/แบ็คแพ็ค',re:/ฟรี|ตลาด|วัด|สวนสาธารณะ|เดินเล่น|ถนนคนเดิน/},
- {k:'workation',l:'ไปทำงาน/นักดิจิทัล',re:/คาเฟ่|กาแฟ|เมืองเก่า|เงียบ/},
- {k:'luxury',l:'หรู/พรีเมียม',re:/รีสอร์ต|สปา|วิว|ริมแม่น้ำ|ทะเล|วิลล่า/}
+ {k:'budget',l:'ประหยัด',re:/ฟรี|ตลาด|วัด|สวนสาธารณะ|เดินเล่น|ถนนคนเดิน/},
+ {k:'workation',l:'ทำงาน',re:/คาเฟ่|กาแฟ|เมืองเก่า|เงียบ/},
+ {k:'luxury',l:'หรูหรา',re:/รีสอร์ต|สปา|วิว|ริมแม่น้ำ|ทะเล|วิลล่า/}
 ];
 var TIER2=[
  {k:'mu',l:'สายมู/ทำบุญ',re:/วัด|พระธาตุ|ศักดิ์สิทธิ์|ไหว้|หลวงพ่อ|เจ้าแม่|มู/},
