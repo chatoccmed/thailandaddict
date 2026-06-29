@@ -100,7 +100,7 @@ button{cursor:pointer;font-family:inherit}
 .sec-label span{font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);white-space:nowrap}
 
 /* HOTEL ENTRY */
-.hotel-entry{background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:24px;box-shadow:var(--sh);transition:box-shadow .25s,transform .25s}
+.hotel-entry{position:relative;background:var(--card);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:24px;box-shadow:var(--sh);transition:box-shadow .25s,transform .25s}
 .hotel-entry:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
 .entry-header{display:flex;align-items:flex-start;gap:16px;padding:20px 24px 16px;border-bottom:1px solid var(--bdr);position:relative}
 .rank-num{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:23px;font-weight:900;flex-shrink:0;box-shadow:0 6px 16px rgba(6,182,212,.3)}
@@ -111,7 +111,7 @@ button{cursor:pointer;font-family:inherit}
 .score-pill{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#FBBF24,#f59e0b);color:#fff;border:none;padding:3px 11px;border-radius:999px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:800}
 .stars-text{font-size:13px}
 .rev-count{font-size:11px;color:var(--mut)}
-.entry-badge{position:absolute;top:16px;right:20px;color:#fff;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;padding:5px 13px;border-radius:999px;white-space:nowrap;letter-spacing:.3px;box-shadow:0 4px 12px rgba(6,182,212,.2)}
+.entry-badge{position:absolute;top:54px;right:16px;z-index:2;color:#fff;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;padding:5px 13px;border-radius:999px;white-space:nowrap;letter-spacing:.3px;box-shadow:0 4px 12px rgba(6,182,212,.2)}
 .entry-body{display:grid;grid-template-columns:250px 1fr;gap:0}
 @media(max-width:640px){.entry-body{grid-template-columns:1fr}}
 .entry-img-col{background:var(--bg);border-right:1px solid var(--bdr);display:flex;flex-direction:column;padding-bottom:16px}
@@ -133,15 +133,15 @@ button{cursor:pointer;font-family:inherit}
 .room-price{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--gr)}
 .btn-main,.btn-sec,.btn-trip{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 18px 8px;padding:11px 12px;border-radius:12px;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;text-align:center;color:#fff;transition:transform .15s,box-shadow .2s}
 .btn-main:hover,.btn-sec:hover,.btn-trip:hover{transform:translateY(-2px)}
-.btn-main{background:linear-gradient(135deg,#FB7185,#f43f5e);box-shadow:0 6px 16px rgba(251,113,133,.35)}
-.btn-sec{background:#06B6D4;box-shadow:0 6px 16px rgba(6,182,212,.35)}
-.btn-trip{background:#0F172A;box-shadow:0 6px 16px rgba(15,23,42,.3)}
+.btn-main{background:#00A9DC;box-shadow:0 6px 16px rgba(0,169,220,.35)}
+.btn-sec{background:#003580;box-shadow:0 6px 16px rgba(0,53,128,.35)}
+.btn-trip{background:#287DFA;box-shadow:0 6px 16px rgba(40,125,250,.32)}
 .bk-mark{width:20px;height:20px;display:flex;align-items:center;justify-content:center;background:#fff;font-weight:800;font-size:11px;flex-shrink:0;font-family:'Outfit',sans-serif}
 .bk-mark.r{border-radius:50%}
 .bk-mark.sq{border-radius:5px}
-.btn-main .bk-mark{color:#f43f5e}
-.btn-sec .bk-mark{color:#06B6D4}
-.btn-trip .bk-mark{color:#0F172A}
+.btn-main .bk-mark{color:#00A9DC}
+.btn-sec .bk-mark{color:#003580}
+.btn-trip .bk-mark{color:#287DFA}
 .btn-text{display:block;margin:2px 18px 8px;padding:10px 14px;border-radius:12px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;text-align:center;background:var(--bl-lt);color:var(--bl-dk);border:1px solid #cbeef5;transition:background .2s}
 .btn-text:hover{background:rgba(6,182,212,.14)}
 .entry-content-col{padding:20px 24px}
