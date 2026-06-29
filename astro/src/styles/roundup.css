@@ -133,13 +133,13 @@ button{cursor:pointer;font-family:inherit}
 .room-price{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:var(--gr)}
 .btn-main,.btn-sec,.btn-trip{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 18px 8px;padding:11px 12px;border-radius:12px;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;text-align:center;color:#fff;transition:transform .15s,box-shadow .2s}
 .btn-main:hover,.btn-sec:hover,.btn-trip:hover{transform:translateY(-2px)}
-.btn-main{background:#00A9DC;box-shadow:0 6px 16px rgba(0,169,220,.35)}
+.btn-main{background:#FF2938;box-shadow:0 6px 16px rgba(255,41,56,.35)}
 .btn-sec{background:#003580;box-shadow:0 6px 16px rgba(0,53,128,.35)}
 .btn-trip{background:#287DFA;box-shadow:0 6px 16px rgba(40,125,250,.32)}
 .bk-mark{width:20px;height:20px;display:flex;align-items:center;justify-content:center;background:#fff;font-weight:800;font-size:11px;flex-shrink:0;font-family:'Outfit',sans-serif}
 .bk-mark.r{border-radius:50%}
 .bk-mark.sq{border-radius:5px}
-.btn-main .bk-mark{color:#00A9DC}
+.btn-main .bk-mark{color:#FF2938}
 .btn-sec .bk-mark{color:#003580}
 .btn-trip .bk-mark{color:#287DFA}
 .btn-text{display:block;margin:2px 18px 8px;padding:10px 14px;border-radius:12px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;text-align:center;background:var(--bl-lt);color:var(--bl-dk);border:1px solid #cbeef5;transition:background .2s}
