@@ -607,7 +607,9 @@ var TIER2=[
  {k:'halal',l:'ฮาลาล/มุสลิม-friendly',re:/มัสยิด|มุสลิม|ฮาลาล/},
  {k:'lgbtq',l:'LGBTQ+-friendly',re:/ผับ|บาร์|กลางคืน|คาเฟ่/},
  {k:'eco',l:'สายเขียว/รักษ์โลก',re:/อุทยาน|ธรรมชาติ|ชุมชน|เกษตร|ป่า/},
- {k:'medical',l:'การแพทย์/พักฟื้น',re:/สปา|น้ำพุร้อน|เวลเนส|พักผ่อน/}
+ {k:'medical',l:'การแพทย์/พักฟื้น',re:/สปา|น้ำพุร้อน|เวลเนส|พักผ่อน/},
+ {k:'shopping',l:'ช้อปปิ้ง',re:/ห้าง|เซ็นทรัล|เอาท์เล็ต|มอลล์|ไนท์บาซาร์|ตลาดนัด|ถนนคนเดิน|ช้อป|พลาซ่า|ตลาด/},
+ {k:'pet',l:'พาสัตว์เลี้ยง',re:/สัตว์เลี้ยง|หมา|แมว|pet|ฟาร์ม|สวนสาธารณะ/}
 ];
 function taHist(){try{return JSON.parse(localStorage.getItem('ta_seen')||'[]')}catch(e){return[]}}
 function taLog(prov,dim){var h=taHist();h.unshift({province:prov,dim:dim,ts:Date.now()});localStorage.setItem('ta_seen',JSON.stringify(h.slice(0,40)));}
@@ -626,7 +628,7 @@ function renderRails(){
   var ee=document.getElementById('eatscroll');if(ee)ee.innerHTML=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');
   try{var hs=ord(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});document.getElementById('topnscroll').innerHTML=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}catch(e){}
 }
-var PICON={solo:'🧍',couple:'💑','family-kids':'👨‍👩‍👧','family-senior':'🧓',friends:'👫',budget:'🎒',workation:'💻',luxury:'💎',mu:'🙏',cafe:'☕',nature:'🏞️',culture:'🛕',wellness:'🧖',foodie:'🍜',sea:'🏝️',festival:'🎉',halal:'🕌',lgbtq:'🏳️‍🌈',eco:'🌿',medical:'🏥'};
+var PICON={solo:'🧍',couple:'💑','family-kids':'👨‍👩‍👧','family-senior':'🧓',friends:'👫',budget:'🎒',workation:'💻',luxury:'💎',mu:'🙏',cafe:'☕',nature:'🏞️',culture:'🛕',wellness:'🧖',foodie:'🍜',sea:'🏝️',festival:'🎉',halal:'🕌',lgbtq:'🏳️‍🌈',eco:'🌿',medical:'🏥',shopping:'🛍️',pet:'🐶'};
 function paintChips(){
   var a=document.getElementById('tier1');if(a)a.innerHTML=TIER1.map(function(x){return '<button class="pc1'+(P1===x.k?' on':'')+'" data-k="'+x.k+'"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('');
   var b=document.getElementById('tier2');if(b)b.innerHTML=TIER2.map(function(x){return '<button class="pc2'+(P2.indexOf(x.k)>-1?' on':'')+'" data-k="'+x.k+'"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('');
