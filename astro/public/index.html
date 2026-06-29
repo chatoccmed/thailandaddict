@@ -575,6 +575,7 @@ var ARTS=[
  {h:'bangkok-street-food-yaowarat',img:'/images/cm/bangkok-street-food-yaowarat.jpg',l:'กรุงเทพ · ของกิน',ti:'สตรีทฟู้ดเยาวราช ร้านเด็ดที่คนไปจริง',bd:'Food'}
 ];
 function imgErr(e){e.onerror=null;e.style.opacity=0;}
+function aU(p){return (!p||/^https?:/.test(p))?p:'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev'+(p[0]==='/'?p:'/'+p);}
 // destinations
 document.getElementById('destscroll').innerHTML=PROV.map(function(p){return '<a class="dest" href="city-'+p.s+'.html"><img src="/images/heroes/'+p.s+'.jpg" alt="'+p.n+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">📍</div><div class="dest-name">'+p.n+'</div><div class="dest-cnt">'+p.r+' · '+p.t+'</div></div></a>';}).join('');
 // top-n
@@ -582,7 +583,7 @@ document.getElementById('topnscroll').innerHTML=TOPN.map(function(t){return '<a 
 // hotels
 document.getElementById('hotelgrid').innerHTML=HOTELS.map(function(h){return '<a class="hcard" href="'+h.h+'.html"><div class="hc-img"><span class="hc-score">'+h.sc+'</span><span class="hc-flag">'+h.loc+'</span><img src="'+h.img+'" alt="'+h.n+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="hc-body"><div class="hc-name">'+h.n+'</div><div class="hc-loc">รวมจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="hc-foot"><div class="hc-price"><span class="from">เริ่มประมาณ</span>'+h.pr+'</div><span class="hc-link">ดูอันดับ →</span></div></div></a>';}).join('');
 // articles
-document.getElementById('artgrid').innerHTML='<a class="acard big" href="'+ARTS[0].h+'.html"><div class="acard-img"><span class="acard-badge">'+ARTS[0].bd+'</span><img src="'+ARTS[0].img+'" alt="'+ARTS[0].ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+ARTS[0].l+'</div><div class="acard-title">'+ARTS[0].ti+'</div></div></a><div class="art-right">'+ARTS.slice(1).map(function(a){return '<a class="acard sm" href="'+a.h+'.html"><div class="acard-img"><img src="'+a.img+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+a.l+'</div><div class="acard-title">'+a.ti+'</div></div></a>';}).join('')+'</div>';
+document.getElementById('artgrid').innerHTML='<a class="acard big" href="'+ARTS[0].h+'.html"><div class="acard-img"><span class="acard-badge">'+ARTS[0].bd+'</span><img src="'+aU(ARTS[0].img)+'" alt="'+ARTS[0].ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+ARTS[0].l+'</div><div class="acard-title">'+ARTS[0].ti+'</div></div></a><div class="art-right">'+ARTS.slice(1).map(function(a){return '<a class="acard sm" href="'+a.h+'.html"><div class="acard-img"><img src="'+aU(a.img)+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+a.l+'</div><div class="acard-title">'+a.ti+'</div></div></a>';}).join('')+'</div>';
 // ---- ADDED: 2-tier persona selector + personalized rails ----
 var TIER1=[
  {k:'solo',l:'คนเดียว',re:/คนเดียว|เดี่ยว|คาเฟ่|เดินเล่น|เมืองเก่า/},
