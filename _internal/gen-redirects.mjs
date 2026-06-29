@@ -42,7 +42,7 @@ const EXTRA = {
   '/bangkok': '/city-bangkok',
   '/central-thailand': '/region-central', '/eastern-thailand': '/region-east', '/isan-northeastern-thailand': '/region-isan',
   '/northern-thailand': '/region-north', '/southern-thailand': '/region-south', '/western-thailand': '/region-west',
-  '/destinations': '/destinations', '/top-destination-thailand': '/destinations', '/top-destination': '/destinations',
+  '/top-destination-thailand': '/destinations', '/top-destination': '/destinations',
   '/tips': '/plan-your-trip', '/travel-tips': '/plan-your-trip',
   '/top10-chiangmai-thailand-travel-food-hotels': '/city-chiang-mai',
   '/top-10-hotels-nakhon-ratchasima': '/city-nakhon-ratchasima',
