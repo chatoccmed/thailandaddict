@@ -17,6 +17,10 @@ const IDENTICAL_KEYS = new Set([
   'href', 'icon', 'id', 'embedUrl', 'videoId',
 ]);
 const isUrlish = v => typeof v === 'string' && (/^https?:\/\//.test(v) || /^\/[\w-]/.test(v) || /\.html(\?|#|$)/.test(v) || /\.(jpe?g|png|webp|avif|gif|svg)$/i.test(v) || /^\d{4}-\d{2}-\d{2}$/.test(v));
+// URLs sometimes carry a literal Thai filename on the TH side (e.g. Wikimedia Commons File: links from the
+// image-splice pipeline) that the EN twin must percent-encode to satisfy the zero-raw-Thai rule — same
+// destination, different string. Treat those as identical too.
+const sameUrl = (a, b) => { if (a === b) return true; try { return decodeURIComponent(a) === decodeURIComponent(b); } catch { return false; } };
 
 // deep structural parity: same keys + array lengths; numbers/booleans/links/dates byte-identical
 function walkKeyed(th, en, p, key, errs) {
@@ -40,7 +44,7 @@ function walkKeyed(th, en, p, key, errs) {
   }
   if (tt === 'number' || tt === 'boolean') { if (th !== en) errs.push(`${p}: ${tt} ${JSON.stringify(th)}→${JSON.stringify(en)}`); return; }
   if (tt === 'string') {
-    if (IDENTICAL_KEYS.has(key) || isUrlish(th)) { if (th !== en) errs.push(`${p}: must stay identical ("${String(th).slice(0,40)}" → "${String(en).slice(0,40)}")`); }
+    if (IDENTICAL_KEYS.has(key) || isUrlish(th)) { if (!sameUrl(th, en)) errs.push(`${p}: must stay identical ("${String(th).slice(0,40)}" → "${String(en).slice(0,40)}")`); }
   }
 }
 
