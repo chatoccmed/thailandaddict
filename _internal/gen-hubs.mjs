@@ -131,6 +131,26 @@ function guideImg(slug){
   return '';
 }
 
+// destination hub slug → its bookable Klook activity/ticket guides (drives the "Book activities" panel on city hubs).
+// Only destinations with a real, matching guide are mapped; others render nothing.
+const ACT_BY_DEST = {
+  'bangkok':['bangkok-attractions-tickets','bangkok-temples-grand-palace','bangkok-food-tour','bangkok-dinner-cruise','thailand-floating-markets'],
+  'phuket':['phuket-attractions-tickets','thailand-island-hopping','thailand-diving'],
+  'chiang-mai':['chiang-mai-attractions-tickets','thailand-elephant-sanctuary','thailand-zipline-adventure','thailand-cooking-classes'],
+  'krabi':['krabi-attractions-tickets','thailand-island-hopping','thailand-diving'],
+  'pattaya':['pattaya-attractions-tickets'],
+  'samui':['koh-samui-attractions-tickets','thailand-diving'],
+};
+const NG_BY_SLUG = Object.fromEntries(NAT_GUIDES.map(g=>[g[0],g]));
+// "Book activities & tickets (Klook)" panel for a destination hub — links the matching activity guides. '' if none mapped.
+function bookableGuides(slug){
+  const list=ACT_BY_DEST[slug]; if(!list) return '';
+  const cards=list.map(s=>{const g=NG_BY_SLUG[s]; if(!g) return ''; const [,emo,gth,gen,bth,ben,cth,cen]=g; const im=guideImg(s);
+    return `<a class="dcard" href="${s}.html"><div class="dphoto">${im?`<img src="${im}" alt="" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${emo}</span></div><div class="dbody"><h3>${tx(gth,gen)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx(cth||'ดูคู่มือ →',cen||'See guide →')}</span></div></a>`;}).filter(Boolean).join('');
+  if(!cards) return '';
+  return `<div class="section"><div class="sh"><div class="slbl">🎟️ ${tx('จองกิจกรรม & ตั๋ว','Book activities & tickets')}</div><h2>${tx('กิจกรรมและตั๋ว<em>ที่จองล่วงหน้าได้</em>','Activities & tickets <em>you can pre-book</em>')}</h2><p>${tx('คู่มือเลือกทัวร์/ตั๋วที่รีวิวดี จองล่วงหน้าข้ามคิวและมักถูกกว่าหน้างาน','Hand-picked, well-reviewed tours & tickets — book ahead to skip the queue and often pay less')}</p></div><div class="dgrid">${cards}</div></div>`;
+}
+
 // ── content indexes ──
 const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
 const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
@@ -598,6 +618,7 @@ ${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเ�
 <div class="updatepill"><span>${tx(`📅 อัปเดต 2026 · เรียบเรียงโดยทีม ThailandAddict · ${cStay} รีวิวจริง · ไม่มีโฆษณาแฝง`,`📅 Updated 2026 · curated by the ThailandAddict team · ${cStay} real reviews · no hidden ads`)}</span></div>
 <div class="section"><div class="introgrid"><div><div class="slbl">${tx(`ทำไมต้องไป${th}`,`Why visit ${nm}`)}</div><h2>${tx(`เที่ยว${th} <em>ให้ครบในที่เดียว</em>`,`${nm} <em>— all in one place</em>`)}</h2><p class="ssub">${esc(intro.slice(0,280))}</p><a class="introbtn" href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div><div class="icards">${introCards}</div></div></div>
 ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ Editor's Picks</div><h2>${tx('แนะนำที่เที่ยว<em>ที่น่าสนใจ</em>','Standout <em>things to do</em>')}</h2><p>${tx(`ประสบการณ์เด่นของ${th} — มาทริปแรกห้ามพลาด`,`The best of ${nm} — don't miss these on a first trip`)}</p></div><div class="ep-grid">${ep}</div></div>`:''}
+${bookableGuides(slug)}
 ${hoodGuides(slug)?`<div class="section"><div class="sh"><div class="slbl">🏘️ ${tx('พักย่านไหน','Where to stay by area')}</div><h2>${tx(`ย่านน่าพักใน<em>${th}</em>`,`<em>${nm}</em> <em>by neighborhood</em>`)}</h2><p>${tx('แต่ละย่านมีหน้าโรงแรมแนะนำแยกเฉพาะ — เลือกย่านที่ใช่ แล้วดูที่พักจริงในย่านนั้น','Each area has its own hotel guide — pick the area that fits, then see real stays there')}</p></div>${hoodGuides(slug)}</div>`:''}${nearGuides(slug)?`<div class="section"><div class="sh"><div class="slbl">🏥 ${tx('โรงแรมใกล้โรงพยาบาล/แลนด์มาร์ก','Hotels near hospitals & landmarks')}</div><h2>${tx(`พักใกล้<em>จุดหมายเฉพาะใน${th}</em>`,`Stay near a <em>specific landmark</em>`)}</h2><p>${tx('โรงแรมใกล้โรงพยาบาล ศูนย์ประชุม และสนามบิน — แต่ละการ์ดบอกระยะเดิน-รถถึงจุดหมายจริง เหมาะกับญาติผู้ป่วย คนมาประชุม และคนต่อเครื่อง','Hotels by the big hospitals, convention centres and airports — each card shows the real distance to the landmark, made for patient families, event-goers and travellers with early flights')}</p></div>${nearGuides(slug)}</div>`:''}
 <div class="section" style="padding-bottom:0"><div class="sh"><div class="slbl">${tx('บทความที่เราเขียน','Our articles')}</div><h2>${tx('เลือกอ่าน<em>สิ่งที่คุณสนใจ</em>','Read <em>what interests you</em>')}</h2><p>${tx('เลือกแท็บเพื่อดูที่พัก ที่เที่ยว ที่กิน แผนเที่ยว และการเตรียมตัว','Pick a tab for stays, sights, food, itineraries and prep')}</p></div></div>
 <div class="tabwrap"><div class="tabbar">
