@@ -199,9 +199,11 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 top10-attractions-bang-khen — Wat Phra Si Mahathat, Ying Charoen Market, Safari World, Kasetsart U, Central Ramindra, Lak Si Circle, Market Place Thep Rak, IT Square, RTAF Museum (dedup: weak cafe-cluster → Royal Thai Air Force Museum)
 - Notes: honest thin far-north → top-5 (owner "honest smaller builds"). All-new hotels. Wat Phra Si Mahathat chedi CC hero. Ram Inthra Sports Park r8 = soft dup w/ ladprao r10 (accepted, boundary park). 5 dims verify errors=0, EN validate PASS.
 
-## ⏳ In progress (2026-07-02 · autonomous run of all remaining ย่าน)
-### 🟢 Kaset (เกษตร-นวมินทร์) — BUILDING NOW · around Kasetsart University (BTS ม.เกษตรศาสตร์/รัชโยธิน · งามวงศ์วาน · นวมินทร์). Top-7 (Livotel anchor 8.6/1446rev + Maruay Garden 4★/5498rev + Metro Phahon35 9.0 + Missoniya + P24 + Room@Vipa + Pannapat). 7 reviews DONE+committed; roundups building. ⚠️ Kasetsart U is also bang-khen attractions r4 — avoid KU / R.E.A.D Cafe (in bang-khen) when building kaset dims.
-### Queue after kaset: chaeng-watthana (plan buffered $TEMP) · ramkhamhaeng · bangkapi · charoen-krung (⚠️vs riverside/silom) · saphan-taksin (⚠️vs riverside/silom).
+## ⏸️ PAUSED mid-build (2026-07-02 · owner asked to stop + record)
+### 🟡 Kaset (เกษตร-นวมินทร์) — **DIMS 1-3 DONE+committed, NOT deployed. RESUME at dim 4 (cafes).**
+- ✅ top7-hotels-kaset-bangkok + top5-love-hotels-kaset-bangkok (7 reviews: Livotel anchor 8.6/1446rev + Maruay Garden 4★/5498rev + Metro Phahon35 9.0 + Missoniya + P24 + Room@Vipa + Pannapat) + top10-popular-restaurants-kaset (Chocolate Ville, Ajarn Mallika, Camin, Kokhun Ponyangkam, Khrua Mueang Hue, Somtam Dedd...) — all TH+EN committed (HEAD f56ff2e5b), astro-sync clean, images on R2.
+- ⏳ **PENDING: cafes (dim 4) + attractions (dim 5) + deploy.** cafes engine was STOPPED mid-run → resume `Workflow({scriptPath:_internal/wf/cafes-roundup.js, resumeFromRunId:"wf_6a86c329-0a8", args:<kaset cafes args>})`. Full resume instructions + dedup notes (avoid Portobello/Hotto Bun in cafes; avoid Kasetsart U in attractions — it's bang-khen r4) in **`_internal/REMAINING-YAAN-PLANS.md`**.
+### Queue after kaset: chaeng-watthana · ramkhamhaeng · bangkapi · charoen-krung (⚠️vs riverside/silom) · saphan-taksin (⚠️vs riverside/silom). **Research plans for chaeng-watthana + ramkhamhaeng are persisted in `_internal/REMAINING-YAAN-PLANS.md` (ready to build).**
 
 ## 📋 Queue after ladprao (loop B north/east/SE; loop A COMPLETE)
 bang-sue · bang-khen · kaset · chaeng-watthana · ramkhamhaeng · bangkapi · charoen-krung (⚠️differentiate vs riverside/silom) · saphan-taksin (⚠️differentiate vs riverside/silom) — 8 remaining after ladprao. FOLDED/skip: ploenchit→chidlom · ratchada→rama9 · victory-monument→ratchathewi · central-ladprao→ladprao.
