@@ -191,8 +191,17 @@ Owner-requested running log (บันทึกการทำงานเป็
 - 📸 https://thailandaddict.com/top10-attractions-bang-sue — Bang Sue Grand Station, Bang Pho Wood Street, Gateway mall, Tao Poon Market, Wat Bang Pho, Chao Mae Thapthim Shrine, Code Craft Beer Bar... (dedup: Wachirabenchathat Railway Park = mochit r3 → Wat Matchantikaram + full frame scrub)
 - Notes: honest thin transit district → top-6 not padded (owner-approved "honest smaller builds"). All-new hotels (no reuse). 3 cross-ย่าน dedups vs mochit (Sanan/Wachirabenchathat) + reused WE Hotel (re-homed from yanhee). restaurants+cafes+attractions each hung Frame→Assemble once → TaskStop+resume recovered. Bang Sue Grand Station CC hero. All 5 dims verify errors=0, EN validate PASS.
 
-## ⏳ In progress (2026-07-01 · Imac · THIS session)
-### (loop B next) Bang Khen (บางเขน) — NEXT · North BKK (Kaset intersection/ม.เกษตร · Ram Inthra · MRT/SRT Bang Khen). ⚠️ differentiate from kaset (adjacent — decide fold or split). Then: kaset · chaeng-watthana · ramkhamhaeng · bangkapi · charoen-krung (⚠️vs riverside/silom) · saphan-taksin (⚠️vs riverside/silom).
+### 29. Bang Khen (บางเขน) — 2026-07-02 (LIVE, TH+EN · ⚙ autonomous run · Version abbd6a08 · **honest top-5 hotels**)
+- 🏨 top5-hotels-bang-khen-bangkok — 5 far-north budget (Petchsiri 2★8.5/517, 54 Place 2★8.6, Gems Park 3★, 5 Chang Palace 2★, Leelawadee Resotel 3★). No 4★ anchor. kept separate from kaset.
+- 💰 top5-love-hotels-bang-khen-bangkok — same 5 (all 2-3★ budget), value framing
+- 🍜 top10-popular-restaurants-bang-khen — Jintana beef noodle 1956, Thipawan Vietnamese 60yr, Budsabong, Prayut guay jub @ Yingcharoen Market, Found Cafe...
+- ☕ top10-popular-cafes-bang-khen — Davin, Sunny Bear Coffee Roasters, Peter's, DAISY, Le Fawn Patisserie, Orbit, R.E.A.D 24h... (dedup: Found Cafe = restaurants r10 → Sunny Bear; fixed broken intro field)
+- 📸 top10-attractions-bang-khen — Wat Phra Si Mahathat, Ying Charoen Market, Safari World, Kasetsart U, Central Ramindra, Lak Si Circle, Market Place Thep Rak, IT Square, RTAF Museum (dedup: weak cafe-cluster → Royal Thai Air Force Museum)
+- Notes: honest thin far-north → top-5 (owner "honest smaller builds"). All-new hotels. Wat Phra Si Mahathat chedi CC hero. Ram Inthra Sports Park r8 = soft dup w/ ladprao r10 (accepted, boundary park). 5 dims verify errors=0, EN validate PASS.
+
+## ⏳ In progress (2026-07-02 · autonomous run of all remaining ย่าน)
+### 🟢 Kaset (เกษตร-นวมินทร์) — BUILDING NOW · around Kasetsart University (BTS ม.เกษตรศาสตร์/รัชโยธิน · งามวงศ์วาน · นวมินทร์). Top-7 (Livotel anchor 8.6/1446rev + Maruay Garden 4★/5498rev + Metro Phahon35 9.0 + Missoniya + P24 + Room@Vipa + Pannapat). 7 reviews DONE+committed; roundups building. ⚠️ Kasetsart U is also bang-khen attractions r4 — avoid KU / R.E.A.D Cafe (in bang-khen) when building kaset dims.
+### Queue after kaset: chaeng-watthana (plan buffered $TEMP) · ramkhamhaeng · bangkapi · charoen-krung (⚠️vs riverside/silom) · saphan-taksin (⚠️vs riverside/silom).
 
 ## 📋 Queue after ladprao (loop B north/east/SE; loop A COMPLETE)
 bang-sue · bang-khen · kaset · chaeng-watthana · ramkhamhaeng · bangkapi · charoen-krung (⚠️differentiate vs riverside/silom) · saphan-taksin (⚠️differentiate vs riverside/silom) — 8 remaining after ladprao. FOLDED/skip: ploenchit→chidlom · ratchada→rama9 · victory-monument→ratchathewi · central-ladprao→ladprao.
