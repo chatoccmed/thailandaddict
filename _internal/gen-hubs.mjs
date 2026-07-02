@@ -417,13 +417,31 @@ function footerHtml(){ return `<footer class="footer"><div class="ft-grid">
 
 function commonJs(){
   const SP_JSON = JSON.stringify([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s, LOC==='en'?(EN_NAME[s]||th):th]));
-  const verb = tx('เที่ยว','Explore '), empty = tx('ไม่พบจังหวัด','No provinces found'), all = tx('🔎 ค้นหาทั้งเว็บ','🔎 Search the whole site');
+  const verb = tx('เที่ยว','Explore '), all = tx('🔎 ค้นหาทั้งเว็บ','🔎 Search the whole site');
+  const idxUrl = (LOC==='en'?'/en/':'/')+'search-index.json';
+  const BADGE = JSON.stringify({stay:tx('ที่พัก','Stay'),rank:tx('จัดอันดับ','Ranking'),see:tx('ที่เที่ยว','See'),eat:tx('ที่กิน','Eat'),plan:tx('แผน','Plan'),guide:tx('คู่มือ','Guide'),city:tx('เมือง','Place')});
   return `<script>
 var __SP=${SP_JSON};
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
 var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
-if(ns){function full(){var v=ns.value.trim();return '<a href="search.html?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
-ns.addEventListener('input',function(){var q=ns.value.trim().toLowerCase();if(!q){nd.classList.remove('show');return;}var r=__SP.filter(function(p){return p[1].toLowerCase().indexOf(q)>-1||p[0].indexOf(q)>-1;}).slice(0,6);nd.innerHTML=(r.length?r.map(function(p){return '<a href="city-'+p[0]+'.html"><div class="t">${verb}'+p[1]+'</div><div class="c">city-'+p[0]+'</div></a>';}).join(''):'')+full();nd.classList.add('show');});
+if(ns){
+// nav quick-search: bilingual full-index search, index lazy-loaded on first focus/keystroke (0 page-load cost);
+// shows instant province matches (__SP) until the index arrives, then full smart results.
+var IDX_URL=${JSON.stringify(idxUrl)},BADGE=${BADGE},IDX=null,LOADING=false;
+var ALIAS={bkk:'bangkok',cnx:'chiang mai',chiangmai:'chiang mai',hkt:'phuket',kbv:'krabi',huahin:'hua hin'};
+function norm(s){return String(s||'').toLowerCase().replace(/[^\\p{L}\\p{N}\\p{M}]+/gu,' ').replace(/\\s+/g,' ').trim();}
+function expand(n){return n.split(' ').map(function(w){return ALIAS.hasOwnProperty(w)?ALIAS[w]:w;}).join(' ').replace(/\\s+/g,' ').trim();}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function full(){var v=ns.value.trim();return '<a href="search.html?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
+function load(cb){if(IDX){cb&&cb();return;}if(LOADING)return;LOADING=true;fetch(IDX_URL).then(function(r){return r.json();}).then(function(j){IDX=j;cb&&cb();}).catch(function(){LOADING=false;});}
+function blobOf(e){return e[4]||norm((e[0]||'')+' '+(e[3]||''));}
+function fromIndex(q){var qn=expand(norm(q));if(!qn)return[];var toks=qn.split(' ').filter(Boolean),out=[];for(var i=0;i<IDX.length;i++){var e=IDX[i],bl=blobOf(e),ok=true;for(var k=0;k<toks.length;k++){if(bl.indexOf(toks[k])===-1){ok=false;break;}}if(ok)out.push(e);}
+out.sort(function(a,b){function sc(e){var tn=norm(e[0]);return tn.indexOf(qn)===0?0:tn.indexOf(qn)>-1?1:2;}return sc(a)-sc(b);});return out.slice(0,6);}
+function fromSP(q){var lc=q.toLowerCase();return __SP.filter(function(p){return p[1].toLowerCase().indexOf(lc)>-1||p[0].indexOf(lc)>-1;}).slice(0,6).map(function(p){return ['${verb}'+p[1],'city-'+p[0]+'.html','city',p[1]];});}
+function draw(rows){nd.innerHTML=(rows.length?rows.map(function(e){return '<a href="'+e[1]+'"><div class="t">'+esc(e[0])+'</div><div class="c">'+(BADGE[e[2]]||'')+(e[3]?' · '+esc(e[3]):'')+'</div></a>';}).join(''):'')+full();nd.classList.add('show');}
+function upd(){var q=ns.value.trim();if(!q){nd.classList.remove('show');return;}if(IDX){draw(fromIndex(q));}else{draw(fromSP(q));load(function(){if(ns.value.trim()===q)draw(fromIndex(q));});}}
+ns.addEventListener('focus',function(){load();});
+ns.addEventListener('input',upd);
 ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});
 document.addEventListener('click',function(e){if(!e.target.closest('.search-box'))nd.classList.remove('show');});}})();
 </script>`;
