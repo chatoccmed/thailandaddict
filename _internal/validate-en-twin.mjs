@@ -58,9 +58,14 @@ function validate(file) {
   try { th = JSON.parse(fs.readFileSync(thp, 'utf8')); } catch (e) { return { file, ok: false, errs: ['TH parse: ' + e.message] }; }
   try { en = JSON.parse(enText); } catch (e) { return { file, ok: false, errs: ['EN parse: ' + e.message] }; }
   // 1) zero raw Thai anywhere in EN (proper nouns must be romanized; URL-encoded Thai in hrefs is ASCII so fine)
+  //    EXCEPTION (owner policy 2026-07-02): the ฿ (baht) symbol and the word "ฟรี" (free) are accepted in EN text
+  //    — ฿ is an internationally-read currency mark — so they are stripped before this scan. Without this, ~1.5k
+  //    pre-existing ฿-price strings failed and drowned out genuine untranslated-Thai misses. (New twins should
+  //    still prefer "THB"/"free" per _internal/en-twin-spec.md rule E; this only relaxes the validator's alarm.)
+  const ALLOWED_TH = /฿|ฟรี/g;
   const thaiHits = [];
   (function scan(o, p) {
-    if (typeof o === 'string') { if (THAI.test(o) && !IDENTICAL_KEYS.has(p.split('.').pop())) thaiHits.push(`${p}: "${o.slice(0, 50)}"`); }
+    if (typeof o === 'string') { if (THAI.test(o.replace(ALLOWED_TH, '')) && !IDENTICAL_KEYS.has(p.split('.').pop())) thaiHits.push(`${p}: "${o.slice(0, 50)}"`); }
     else if (Array.isArray(o)) o.forEach((v, i) => scan(v, `${p}[${i}]`));
     else if (o && typeof o === 'object') for (const k of Object.keys(o)) scan(o[k], `${p}.${k}`);
   })(en, '$');
