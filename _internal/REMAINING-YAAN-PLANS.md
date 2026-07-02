@@ -2,6 +2,31 @@
 
 > Research already done + buffered here so it isn't lost (it was in ephemeral $TEMP). Follow the per-ย่าน recipe in memory `bangkok-roundup-megaproject` + `_internal/SCALE-OUT-PROGRESS.md`. All eat-ranking engines: `_internal/wf/{restaurants,cafes,attractions}-roundup.js`; pass `args` inline (prov/city/slug/display/hi/stayDefault/stayCta/rail/related). After each eat-ranking: extract res.article → fix crumbCity/crumbCityHref(area-bangkok-<slug>.html) + fix foodexp/localtips labels (prov parenthetical leaks in) → `finalize-resto.mjs <city> <slug>` + `verify-resto.mjs` (errors=0) → EN translate (direct agent, en-twin rules) → `resync-en-twin`+`validate-en-twin`. Attractions also need a Wikimedia-CC image agent (hero cityscape + no-social cards). Commit+push+R2 each step. Deploy = cache-clear + `cd astro && NODE_OPTIONS=--max-old-space-size=8192 npm run build` + `npx wrangler deploy` (discard prebuild churn: index.html/en/index.html/sitemap.xml/search-index.json/en/search-index.json). **⚠️ push permission rule for `git push origin main` is in `.claude/settings.local.json`.**
 
+## ⚠️ PRE-EXISTING REVIEW REUSE MAP (discovered 2026-07-02 — plans wrongly said "all NEW")
+Several planned hotels ALREADY have reviews (from hospital/stadium/chinatown clusters) — REUSE them (reference existing slug in the roundup; do NOT re-review/overwrite). Reviewer workflows must SKIP these:
+- **ramkhamhaeng:** REUSE `review-the-quarter-ramkhamhaeng-by-uhg-bangkok` (in srinakarin+rajamangala roundups) · `review-regent-ramkhamhaeng-22-bangkok` (srinakarin+rajamangala) · `review-inter-place-bangkok` (=Bangkok Inter Place, rajamangala). ⚠️ my reviewer OVERWROTE the-quarter+regent-22 and made a DUP `review-bangkok-inter-place-ramkhamhaeng-bangkok` → restore the 2 (git checkout), delete the inter-place dup, reuse existing.
+- **bangkapi:** REUSE `review-baron-residence-bangkok` (vejthani) · `review-baron-zotel-bangkok` (vejthani) · `review-aunchaleena-grand-hotel-bangkok` (rajamangala). Only create NEW: Metro Point, 130 Hotel, Kantary House, imm Ladprao Bangkapi, Mall Suites (5 new + 3 reuse = 8).
+- **charoen-krung:** REUSE `review-loftel-22-hostel-bangkok` (chinatown). NEW: Oriental Heritage, Unplugged Bangrak, Glad Bangkok, A Sleep, Bangkok Hub, Charoenkrung Place (6 new + 1 reuse = 7).
+- **saphan-taksin:** REUSE `review-prince-theatre-heritage-stay-bangkok` (chinatown). NEW: Centre Point Plus Silom, Marriott Surawongse, Furama Silom, Sathorn Vista MEA, Chatrium Residence Sathon, Jasaen, Sathorn Terrace (7 new + 1 reuse = 8).
+**RULE for every remaining ย่าน:** before running reviewers, `git ls-files reviews/ | grep -iE "<hotel keywords>"` per planned hotel; reuse hits, only create misses. Reusing an existing review in a new roundup = fine (a hotel can be in multiple roundups); overwriting/dup = NOT fine.
+
+## 📌 STATUS @ 2026-07-02 (autonomous run — Fable 5 session)
+**DONE + committed LOCALLY (not pushed/deployed — see blockers):**
+- **kaset (เกษตร-นวมินทร์) ✅ COMPLETE** — all 5 dims TH+EN (commit e65c01cea + 95b1417c8). cafes swapped Davin/Found dups→B-Story/Plantation; attractions no dups, hero=Wat Samian Nari + 3 CC.
+- **chaeng-watthana (แจ้งวัฒนะ) ✅ COMPLETE** — all 5 dims TH+EN (commit 95b1417c8). 9 hotels + top9/top5-love; attractions swapped nonthaburi-dup สวนสมเด็จ→Wat Lak Si + 3 CC.
+
+**ramkhamhaeng 🟡 WIP (reviews on disk, uncommitted):**
+- 5 GOOD new reviews on disk: pillow-b-hotel, wattana-place, at-home-residence, madison-bangkok, salin-home (TH+EN, real images). ⚠️ their parentHref=top10-hotels-ramkhamhaeng-bangkok.html (roundup NOT built yet → 404 until built — do NOT commit until roundup exists).
+- ⚠️ **2 BROKEN reviews need fixing before use:** `review-witz-bangkok-ramkhamhaeng-bangkok` (images are DUP copies of Pillow B — need real Witz photos) · `review-anda-ramkhamhaeng-st-james-bangkok` (hero image MISSING + booking URLs/address/ratingCount UNVERIFIED — the classifier outage blocked its web research; re-do this review).
+- REUSE (already exist, do NOT re-review): the-quarter-ramkhamhaeng-by-uhg, regent-ramkhamhaeng-22, inter-place-bangkok (=Bangkok Inter Place), chaleena-princess-ramkhamhaeng. (I restored the-quarter+regent-22 to committed + deleted the inter-place dup this session.)
+- TODO to finish ramkhamhaeng: fix witz+anda → build top10-hotels + top5-love roundups (5 new + reuse) → 3 eat-rankings (restaurants/cafes/attractions, avoid srinakarin/bangkapi dups) → attraction CC images → EN twins → gen-hubs → commit.
+
+**⛔ BLOCKERS (all ship steps need the OWNER):**
+1. `git push origin main` — DENIED by auto-mode classifier (needs explicit owner authorization / a Bash allow-rule).
+2. R2 image upload — `~/.r2-creds` (R2_API_TOKEN) MISSING on this machine; new hotel + attraction CC images will 404 in prod until uploaded.
+3. `wrangler deploy` — CLOUDFLARE_API_TOKEN not set (registry empty). Use `_internal/deploy.ps1` once token is set via `setx`.
+4. Agent web-research classifier was intermittently UNAVAILABLE late in the run (blocked WebFetch/WebSearch/curl inside agents) → degraded ramkhamhaeng's last reviews. Verify it's healthy before building more ย่าน (hotel reviews + eat-rankings need agent web access).
+
 ## Status @ 2026-07-02 stop
 23 Bangkok ย่าน LIVE. **kaset = MID-BUILD (dims 1-3 committed, NOT deployed).** Remaining: kaset(finish) · chaeng-watthana · ramkhamhaeng · bangkapi · charoen-krung · saphan-taksin.
 
