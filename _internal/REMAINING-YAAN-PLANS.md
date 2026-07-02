@@ -37,9 +37,31 @@ prov="ย่านรามคำแหง-หัวหมาก (ม.ราม�
 
 ---
 
-## BANGKAPI (บางกะปิ) — NOT researched yet
-The Mall Bangkapi (major), Lam Sali, MRT Yellow Line, Ramkhamhaeng east. ⚠️ differentiate vs ramkhamhaeng (adjacent — decide split boundary). Do hotel research first.
+## BANGKAPI (บางกะปิ) — ✅ RESEARCHED 2026-07-02 (honest top-8; inventory medium-thick). All NEW.
+Slug: top8-hotels-bangkapi-bangkok + top5-love-hotels-bangkapi-bangkok. Zone = บางกะปิ core (เดอะมอลล์บางกะปิ/แยกลำสาลี/คลองจั่น/ลาดพร้าว 117-144/เสรีไทย-NIDA/สัมมากร ราม 110). MRT Yellow Line (บางกะปิ/ลำสาลี).
+MAIN TOP-8 (ranked): 1 Baron Residence Bangkok (4★, ~8.7/846, ลาดพร้าว130; hotels) · 2 Metro Point Bangkok Hotel (4★, ~8.1/1735; hotels) · 3 Baron Zotel Bangkok (4★, ~8.3/578, ลาดพร้าว117; hotels) · 4 130 Hotel & Residence Bangkok (4★, ~8.0/585; hotels) · 5 Kantary House Hotel & Serviced Apartments (4★, ~8.2/199, ราม 42 serviced; hotels) · 6 imm hotel Ladprao Bangkapi (3★, ~7.9/280; value) · 7 Aunchaleena Grand Hotel (3★, ~8.0/200; value) · 8 Mall Suites Hotel (3★, ~7.5/301, ติดเดอะมอลล์; value). +bench @81 Hotel (3★, value) · Grand Mandarin Latphrao130 (2★, value).
+VALUE-5: Mall Suites, @81 Hotel, Grand Mandarin Latphrao130, imm hotel Ladprao Bangkapi, Aunchaleena Grand.
+prov="ย่านบางกะปิ (เดอะมอลล์บางกะปิ · แยกลำสาลี · คลองจั่น · เสรีไทย-NIDA · MRT สายสีเหลือง บางกะปิ/ลำสาลี) กรุงเทพฯ", crumbCity "ย่านบางกะปิ"/EN "Bangkapi", crumbCityHref area-bangkok-bangkapi.html.
+⛔ EXCLUDE (ramkhamhaeng/srinakarin): all ramkhamhaeng hotels + Onix/Livotel Hua Mak/Xtreme/The 9/Bay/B2 Srinakharin/Zircon/Alexander/We Hotel. attractions avoid ราชมังคลากีฬาสถาน + ม.รามคำแหง(หัวหมาก)/ABAC + CDC.
+✅ attractions anchors: เดอะมอลล์ไลฟ์สโตร์บางกะปิ, MEGA HarborLand Aqua World, สวนพฤกษชาติคลองจั่น, สวนนวมินทร์ภิรมย์, แยกลำสาลี, โลตัสบางกะปิ, NIDA Museum, วัดเทพลีลา, ท่าเรือคลองแสนแสบ, ตลาดบางกะปิ, สัมมากร ราม110, แฮปปี้แลนด์. restaurants: เสรีทอง, ก๋วยเตี๋ยวตำลึงนายฮิม, เป็ด-หมวยสินธร, ม่านเมือง(Michelin Bib), NeNe/Lucky Suki, Yess by Chef Tum. cafes: Blanc, Brown Burgundy, De Whaeng Lumsalee, Khao Man Baan Nok, LOOP COFFEE, CAPULUS.BKK, Wela Roaster, คลัสเตอร์สัมมากร.
 
-## CHAROEN-KRUNG (เจริญกรุง) — NOT researched. ⚠️ heavy overlap with riverside + silom-sathorn (both LIVE) — must differentiate restaurants/cafes/attractions (Charoen Krung Creative District / TCDC / Talat Noi / Warehouse 30 / OP Place — riverside used ICONSIAM/Asiatique/Wat Arun; silom used Bang Rak). Do research first.
+## CHAROEN-KRUNG (เจริญกรุง) — ✅ RESEARCHED 2026-07-02. ⚠️ hotels THIN → honest top-7 (mostly hostel/boutique); attractions/restaurants/cafes RICH (creative district = the star). All NEW.
+Slug: top7-hotels-charoen-krung-bangkok + top5-love-hotels-charoen-krung-bangkok. Identity = **Charoen Krung Creative District (TCDC/Warehouse 30)**.
+MAIN TOP-7 (ranked): 1 Oriental Heritage Residence (3★, ~8.9/1318 — the one strong-score anchor; hotels) · 2 Unplugged at Bangrak Design Hostel (3★, ~8.9/272, ซ.เจริญกรุง50 near Warehouse30/TCDC; value) · 3 Loftel 22 Hostel (2★, ~7.9/185; value) · 4 Glad Bangkok Hostel (3★; value) · 5 A Sleep Bangkok Charoenkrung (3★; value) · 6 Bangkok Hub Hostel OYO (2★; value) · 7 Charoenkrung Place (3★, ~6.1/23 low-score → tail or skip; value). ⚠️ do NOT force top-10 (would pull riverside towers).
+VALUE-5: Unplugged Bangrak, Loftel 22, Glad Bangkok, A Sleep Charoenkrung, Bangkok Hub OYO.
+prov="ย่านเจริญกรุง (Creative District · TCDC · Warehouse 30 · บางรัก) กรุงเทพฯ", crumbCity "ย่านเจริญกรุง"/EN "Charoen Krung", crumbCityHref area-bangkok-charoen-krung.html.
+✅ attractions: TCDC(ไปรษณีย์กลาง), Warehouse 30, เจริญกรุง32 street art, O.P. Place, อัสสัมชัญ, So Heng Tai Mansion, ATT 19, พิพิธภัณฑ์ชาวบางกอก, มัสยิดฮารูณ, P.Tendercool. restaurants: ประจักษ์เป็ดย่าง(1909), Samlor(Bib), 80/20(1★), Baan Phadthai(Bib), เจริญแสงสีลม, โจ๊กปรินซ์(Bib), Home Cuisine Islamic, Sarnies. cafes: La Cabra, Blackwood, Tangible, Eight O'Clock, Carmina, MaLet's, Tanuki 261, Madi BKK. ⚠️ Muslim Restaurant = ปิดถาวร 2020 → ห้ามใช้ (ใช้ Home Cuisine Islamic).
 
-## SAPHAN-TAKSIN (สะพานตากสิน) — NOT researched. ⚠️ heavy overlap with riverside + silom-sathorn — differentiate (Sathorn pier / BTS Saphan Taksin / Robinson Bangrak / Shangri-La area). Do research first.
+## SAPHAN-TAKSIN (สะพานตากสิน) — ✅ RESEARCHED 2026-07-02 (honest top-8; ก้ำกึ่ง — best riverfront icons taken by riverside/silom). All NEW.
+Slug: top8-hotels-saphan-taksin-bangkok + top5-love-hotels-saphan-taksin-bangkok. Identity = **BTS Saphan Taksin / ท่าเรือสาทร-Central Pier / Robinson Bangrak / Sathorn hotels**.
+MAIN TOP-8 (ranked): 1 Centre Point Plus Hotel Silom (4★, ~8.7, บนโรบินสันบางรัก 120m to Sathorn Pier — flagship; hotels) · 2 Bangkok Marriott The Surawongse (5★, ~9.1; hotels) · 3 Furama Silom Bangkok (4★, ปลายสีลม 350m BTS; hotels) · 4 Sathorn Vista - Marriott Executive Apartments (4★ serviced; hotels) · 5 Chatrium Residence Sathon (4★ serviced, ≠ Chatrium Riverside; hotels) · 6 Jasaen Stylish Boutique (3★, ~8.8/2124; value) · 7 Prince Theatre Heritage Stay (3★, ~9.0, old-cinema boutique; value) · 8 Sathorn Terrace Apartment (3★, ~7.8/220; value). +bench P&R Residence, New Road Guest House (3★, value).
+VALUE-5: Jasaen, Prince Theatre Heritage, P&R Residence, New Road Guest House, Sathorn Terrace.
+prov="ย่านสะพานตากสิน (BTS สะพานตากสิน · ท่าเรือสาทร/Central Pier · โรบินสันบางรัก · สาทร) กรุงเทพฯ", crumbCity "ย่านสะพานตากสิน"/EN "Saphan Taksin", crumbCityHref area-bangkok-saphan-taksin.html.
+✅ attractions: ท่าเรือสาทร/Central Pier, ตลาดบางรัก, Robinson บางรัก, Ma! Bang Rak Bazaar, Silom Soi 20 street food, โบสถ์กาลหว่าร์, จุดชมพระอาทิตย์ตกท่าสาทร. restaurants: Bang Rak market street food (ข้าวมันไก่/ข้าวหน้าเป็ด/ส้มตำตลาดบางรัก), เจริญเวียงโภชนา, ครัวอัปษร. cafes: Sarnies, A COFFEE ROASTER by li-bra-ry, Blue Whale, riverside/pier cafes.
+
+## ⚠️ CHAROEN-KRUNG ↔ SAPHAN-TAKSIN SPLIT (same Bang Rak district — MUST assign each shared item to ONE page only)
+They overlap heavily with each other AND riverside/silom. Build **charoen-krung FIRST** (creative-district identity), then saphan-taksin with charoen-krung's picks in the `avoid` arg. Shared-item assignment:
+- **charoen-krung gets:** ประจักษ์เป็ดย่าง(Prachak), Home Cuisine Islamic, มัสยิดฮารูณ, O.P. Place, So Heng Tai, TCDC/Warehouse30/street-art (all creative-district).
+- **saphan-taksin gets:** อัสสัมชัญ Cathedral, ท่าเรือสาทร/Central Pier, Robinson บางรัก, ตลาดบางรัก + its street food, โบสถ์กาลหว่าร์, Sarnies(cafe).
+- Hotels do NOT overlap (charoen = hostels/Oriental Heritage; saphan = Sathorn hotels/Centre Point Plus) ✓.
+- Both value-5 ⊆ their own main. Both honest ~7-8, do NOT pad.
