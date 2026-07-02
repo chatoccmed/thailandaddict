@@ -81,6 +81,7 @@ const NAT_GUIDES = [
     ['health-medical-thailand','🏥','สุขภาพ & การแพทย์','Health & medical','โรงพยาบาล น้ำดื่ม ยุง ร้านยา วัคซีน','Hospitals, water, mosquitoes, pharmacies'],
     ['halal-travel-thailand','🕌','เที่ยวสายฮาลาล','Halal travel','อาหารฮาลาล มัสยิด ห้องละหมาด','Halal food, mosques, prayer rooms'],
     ['senior-travel-thailand','🧓','เที่ยววัยเก๋า','Senior travel','จุดหมายสบาย จังหวะไม่เร่ง สุขภาพ','Easy destinations, relaxed pace, health'],
+    ['michelin-guide-thailand-2026','🏅','ร้านมิชลินทั่วไทย 2026','Michelin Guide 2026','รายชื่อครบทุกระดับ แยกรายจังหวัด','The complete list, every tier, by province','ดูลิสต์ →','See the list →'],
     ['thailand-cooking-classes','🍳','เรียนทำอาหารไทย','Cooking classes','คลาสที่ไหนดี ราคา จองยังไง','Where, prices & how to book','ดูคลาส →','See classes →'],
     ['thailand-diving','🤿','ดำน้ำในไทย','Diving & scuba','เรียน-เที่ยวที่ไหนดี ฤดูกาล ราคา','Where to learn + dive, seasons, cost','ดูคอร์ส →','See courses →'],
     ['thailand-elephant-sanctuary','🐘','ปางช้างเชิงอนุรักษ์','Elephant sanctuaries','ไม่ขี่ช้าง ที่ไหนดี ราคา','No-riding sanctuaries, where & prices','ดูปาง →','See sanctuaries →'],
