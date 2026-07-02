@@ -6,13 +6,13 @@ export const meta = {
 
 // All NEW. Honest top-8 (Bangkapi core, distinct from ramkhamhaeng/hua-mak + srinakarin). value-5 subset.
 const HOTELS = [
-  { name: 'Baron Residence Bangkok (บารอน เรสซิเดนซ์)', slug: 'review-baron-residence-bangkapi-bangkok', star: 4, area: '777 ซ.ลาดพร้าว 130 (รามคำแหง 81) คลองจั่น บางกะปิ · เดิน ~10 นาทีถึงเดอะมอลล์บางกะปิ · ~1.2 กม. MRT สายสีเหลือง บางกะปิ · คะแนน ~8.7 รีวิว ~846', dim: 'hotels' },
+  // ⚠️ REUSE (already exist, do NOT re-review — reference in roundup only): Baron Residence
+  // (review-baron-residence-bangkok), Baron Zotel (review-baron-zotel-bangkok), Aunchaleena Grand
+  // (review-aunchaleena-grand-hotel-bangkok). Only the 5 NEW hotels below are reviewed here.
   { name: 'Metro Point Bangkok Hotel (เมโทร พอยท์ กรุงเทพ)', slug: 'review-metro-point-bangkapi-bangkok', star: 4, area: '666 ซ.ลาดพร้าว 130 คลองจั่น บางกะปิ · ใกล้เดอะมอลล์บางกะปิ · 4★ คะแนน ~8.1 รีวิว ~1,735', dim: 'hotels' },
-  { name: 'Baron Zotel Bangkok (บารอน โซเทล)', slug: 'review-baron-zotel-bangkapi-bangkok', star: 4, area: '77 ซ.ลาดพร้าว 117 คลองจั่น บางกะปิ · ~1.5 กม. เดอะมอลล์บางกะปิ ใกล้ตลาดคลองจั่น · คะแนน ~8.3 รีวิว ~578', dim: 'hotels' },
   { name: '130 Hotel & Residence Bangkok (130 โฮเทล แอนด์ เรสซิเดนซ์)', slug: 'review-130-hotel-residence-bangkapi-bangkok', star: 4, area: '25 ซ.ลาดพร้าว 130 คลองจั่น บางกะปิ · เดินถึงเดอะมอลล์+โลตัสบางกะปิ · ~1 กม. MRT บางกะปิ · คะแนน ~8.0 รีวิว ~585', dim: 'hotels' },
   { name: 'Kantary House Hotel & Serviced Apartments, Bangkok (แคนทารี เฮาส์)', slug: 'review-kantary-house-bangkapi-bangkok', star: 4, area: '14 ถ.รามคำแหง 42 บางกะปิ · เซอร์วิสอพาร์ตเมนต์ห้องกว้างพักยาว · ใกล้เดอะมอลล์บางกะปิฝั่งรามคำแหง · คะแนน ~8.2', dim: 'hotels' },
   { name: 'imm hotel Ladprao Bangkapi Bangkok (อิม โฮเทล ลาดพร้าว บางกะปิ)', slug: 'review-imm-hotel-ladprao-bangkapi-bangkok', star: 3, area: 'ซ.ลาดพร้าว 127 คลองจั่น บางกะปิ · เดินถึงเดอะมอลล์บางกะปิ ใกล้แยกลำสาลี MRT สายสีเหลือง · 3★ คะแนน ~7.9 รีวิว ~280', dim: 'value' },
-  { name: 'Aunchaleena Grand Hotel (อัญชลีนา แกรนด์)', slug: 'review-aunchaleena-grand-bangkapi-bangkok', star: 3, area: '453 ซ.ลาดพร้าว 122 (รามคำแหง 65) พลับพลา ฝั่งเดอะมอลล์บางกะปิ · ~6 นาที(รถ)ถึงเดอะมอลล์ · 3★ คะแนน ~8.0', dim: 'value' },
   { name: 'Mall Suites Hotel (มอลล์ สวีท โฮเทล)', slug: 'review-mall-suites-bangkapi-bangkok', star: 3, area: '3530 ซ.ลาดพร้าว 144 คลองจั่น บางกะปิ · ติดเดอะมอลล์บางกะปิ (เดินถึง) · อพาร์ตเมนต์มีครัวเล็ก · 3★ คะแนน ~7.5 รีวิว ~301', dim: 'value' },
 ]
 
