@@ -1,0 +1,3 @@
+# New/replaced images from QA phase-b fixes — MUST upload to R2 at deploy (prod serves images/hotels/* from R2)
+# cmd: npx wrangler r2 object put thailandaddict-images/images/hotels/<file> --file=astro/public/images/hotels/<file> --remote
+images/hotels/satun-pinnacle-1.jpg
