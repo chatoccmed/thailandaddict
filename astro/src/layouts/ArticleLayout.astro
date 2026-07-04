@@ -41,6 +41,9 @@ const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.leng
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
+// Attraction-ranking pages (top10-attractions-*) reuse the restaurant block structure for temples/landmarks,
+// so their ItemList must emit TouristAttraction (not Restaurant) items — otherwise a temple gets Restaurant schema.
+const isAttractionList = isResto && /^top10-attractions-/.test(data.slug);
 // ── Quick-answer (AEO): promote a leading "Short answer / คำตอบสั้น" paragraph into the styled QA box.
 const QA_RE = /^\s*<strong>\s*(?:คำตอบสั้น|Short answer)/i;
 const _blocks = data.blocks ?? [];
@@ -107,8 +110,8 @@ const jsonld = {
     // Honest ItemList + Restaurant graph (no fabricated ratings) → rich results + AI answer-engine citations.
     ...(isResto ? [{ '@type': 'ItemList', name: strip(data.title), numberOfItems: restos.length,
       itemListElement: restos.map((b) => ({ '@type': 'ListItem', position: Number(b.rank),
-        item: { '@type': 'Restaurant', name: strip(b.name),
-          ...(b.cuisine ? { servesCuisine: strip(b.cuisine) } : {}),
+        item: { '@type': isAttractionList ? 'TouristAttraction' : 'Restaurant', name: strip(b.name),
+          ...(b.cuisine && !isAttractionList ? { servesCuisine: strip(b.cuisine) } : {}),
           ...(b.priceRange ? { priceRange: strip(b.priceRange) } : {}),
           ...(b.lat && b.lng ? { geo: { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng } } : {}),
           ...(b.area ? { address: { '@type': 'PostalAddress', addressLocality: strip(b.area), addressRegion: data.crumbCity, addressCountry: 'TH' } } : {}),
