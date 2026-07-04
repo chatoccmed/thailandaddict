@@ -1,11 +1,11 @@
 {
  "slug": "michelin-provinces-ranked",
- "type": "prep",
+ "type": "eat-ranking",
  "cluster": "thailand",
  "title": "Thailand's Best Provinces for Michelin Dining 2026 — Ranked | Thailandaddict",
  "metaDesc": "Thai provinces ranked for Michelin dining. Bangkok leads with 39 starred restaurants, followed by Phuket, Chiang Mai, Nonthaburi and Khon Kaen. Compare scores, counts and each province's top restaurant.",
- "keywords": "michelin thailand ranked, best michelin province thailand",
- "ogTitle": "Thailand's Michelin provinces ranked",
+ "keywords": "michelin provinces thailand ranked",
+ "ogTitle": "Thailand provinces ranked for Michelin",
  "ogDesc": "Thai provinces ranked for Michelin dining. Bangkok leads with 39 starred restaurants, followed by Phuket, Chiang Mai, Nonthaburi and Khon Kaen. Compare scores, counts and each province's top restaurant.",
  "image": "/images/food/michelin/michelin-sorn-1.jpg",
  "heroImg": "/images/food/michelin/michelin-sorn-1.jpg",
@@ -16,10 +16,15 @@
  "regionLabel": "🇹🇭 Thailand",
  "regionHref": "country-thailand.html",
  "eyebrow": "Michelin Guide · Thailand 2026",
- "h1": "📍 Thailand's Michelin provinces ranked<br><span class=\"hi\">Thailand Provinces Ranked for Michelin Eating</span>",
+ "h1": "📍 Thailand provinces ranked for Michelin<br><span class=\"hi\">Thailand Provinces Ranked for Michelin Eating</span>",
  "heroEmoji": "📍",
  "intro": "If you want to know which Thai province is best for Michelin dining, Bangkok runs away with it, holding 39 starred restaurants and 32 Bib Gourmands. Phuket and Chiang Mai follow on the strength of deep Bib-heavy street and regional food scenes, while tiny Nonthaburi punches above its weight by holding two stars. We ranked every province by Michelin distinction density using a transparent star-weighted score.",
- "readTime": "5 min",
+ "chips": [
+  "16 provinces",
+  "🏆 ranked",
+  "🇹🇭 nationwide"
+ ],
+ "readTime": "9 min",
  "publishedDate": "2026-07-04",
  "modifiedDate": "2026-07-04",
  "quickAnswerHtml": "<b>Bangkok</b> is Thailand's #1 province for Michelin eating, with 39 starred restaurants and 32 Bib Gourmands, led by the three-star Sorn.",
@@ -29,261 +34,308 @@
    "html": "<p>If you want to know which Thai province is best for Michelin dining, Bangkok runs away with it, holding 39 starred restaurants and 32 Bib Gourmands. Phuket and Chiang Mai follow on the strength of deep Bib-heavy street and regional food scenes, while tiny Nonthaburi punches above its weight by holding two stars. We ranked every province by Michelin distinction density using a transparent star-weighted score.</p>"
   },
   {
-   "kind": "ranked",
-   "items": [
+   "kind": "restaurant",
+   "rank": 1,
+   "name": "🥇 Bangkok",
+   "area": "Led by Sorn ⭐⭐⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>190 Michelin restaurants</b> · score 1636. 39 starred, 32 Bib Gourmand and 119 Selected, led by Sorn. <a href=\"bangkok-michelin-fine-dining.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 39 starred",
+    "🍜 32 Bib",
+    "➕ 119 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-sorn-1.jpg",
+   "credit": "Photo: Official website sornfinesouthern.com",
+   "creditHref": "https://sornfinesouthern.com/",
+   "stayHref": "bangkok-michelin-fine-dining.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 2,
+   "name": "🥈 Phuket",
+   "area": "Led by Pru ⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>60 Michelin restaurants</b> · score 179. 1 starred, 19 Bib Gourmand and 40 Selected, led by Pru. <a href=\"michelin-phuket.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 1 starred",
+    "🍜 19 Bib",
+    "➕ 40 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-pru-1.jpg",
+   "credit": "Photo: Official website prurestaurant.com",
+   "creditHref": "https://www.prurestaurant.com/",
+   "stayHref": "michelin-phuket.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 3,
+   "name": "🥉 Chiang Mai",
+   "area": "Led by CHAWEE",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>51 Michelin restaurants</b> · score 141. 0 starred, 18 Bib Gourmand and 33 Selected, led by CHAWEE. <a href=\"michelin-chiang-mai.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 18 Bib",
+    "➕ 33 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-chawee-1.jpg",
+   "credit": "Photo: Chawee restaurant official Facebook page",
+   "creditHref": "https://www.facebook.com/p/Chawee-61559091207112/",
+   "stayHref": "michelin-chiang-mai.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 4,
+   "name": "Nonthaburi",
+   "area": "Led by Akkee ⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>11 Michelin restaurants</b> · score 84. 2 starred, 5 Bib Gourmand and 4 Selected, led by Akkee. <a href=\"michelin-nonthaburi.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 2 starred",
+    "🍜 5 Bib",
+    "➕ 4 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-akkee-1.jpeg",
+   "credit": "Photo: Official website akkeerestaurant.com",
+   "creditHref": "https://www.akkeerestaurant.com/",
+   "stayHref": "michelin-nonthaburi.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 5,
+   "name": "Khon Kaen",
+   "area": "Led by Baan Heng",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>23 Michelin restaurants</b> · score 78. 0 starred, 11 Bib Gourmand and 12 Selected, led by Baan Heng. <a href=\"michelin-khon-kaen.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 11 Bib",
+    "➕ 12 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-heng-1.jpg",
+   "credit": "Photo: Baan Heng official Facebook page",
+   "creditHref": "https://www.facebook.com/baanheng",
+   "stayHref": "michelin-khon-kaen.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "staycta",
+   "title": "Where to stay nearby",
+   "text": "Base yourself near the action and eat down the list.",
+   "links": [
     {
-     "rank": 1,
-     "name": "🥇 Bangkok",
-     "blurb": "39 starred + 32 Bib Gourmand + 119 Selected. Led by Sorn (⭐⭐⭐).",
-     "meta": "Score 1636 · 190 restaurants",
-     "href": "bangkok-michelin-fine-dining.html"
+     "label": "ที่พักยอดนิยมกรุงเทพฯ",
+     "href": "top10-hotels-bangkok.html",
+     "note": "รวมทุกย่าน เทียบราคา 3 เว็บ"
     },
     {
-     "rank": 2,
-     "name": "🥈 Phuket",
-     "blurb": "1 starred + 19 Bib Gourmand + 40 Selected. Led by Pru (⭐).",
-     "meta": "Score 179 · 60 restaurants",
-     "href": "michelin-phuket.html"
+     "label": "ที่พักย่านเยาวราช",
+     "href": "top10-hotels-chinatown-bangkok.html",
+     "note": "ใกล้ร้านบิบเยาวราชเพียบ"
     },
     {
-     "rank": 3,
-     "name": "🥉 Chiang Mai",
-     "blurb": "0 starred + 18 Bib Gourmand + 33 Selected. Led by CHAWEE.",
-     "meta": "Score 141 · 51 restaurants",
-     "href": "michelin-chiang-mai.html"
-    },
-    {
-     "rank": 4,
-     "name": "Nonthaburi",
-     "blurb": "2 starred + 5 Bib Gourmand + 4 Selected. Led by Akkee (⭐).",
-     "meta": "Score 84 · 11 restaurants",
-     "href": "michelin-nonthaburi.html"
-    },
-    {
-     "rank": 5,
-     "name": "Khon Kaen",
-     "blurb": "0 starred + 11 Bib Gourmand + 12 Selected. Led by Baan Heng.",
-     "meta": "Score 78 · 23 restaurants",
-     "href": "michelin-khon-kaen.html"
-    },
-    {
-     "rank": 6,
-     "name": "Phang-Nga",
-     "blurb": "1 starred + 6 Bib Gourmand + 14 Selected. Led by Aulis (⭐).",
-     "meta": "Score 75 · 21 restaurants",
-     "href": "michelin-phang-nga.html"
-    },
-    {
-     "rank": 7,
-     "name": "Surat Thani",
-     "blurb": "0 starred + 9 Bib Gourmand + 14 Selected. Led by Jun Hom.",
-     "meta": "Score 68 · 23 restaurants",
-     "href": "michelin-surat-thani.html"
-    },
-    {
-     "rank": 8,
-     "name": "Ayutthaya",
-     "blurb": "0 starred + 8 Bib Gourmand + 18 Selected. Led by Baan Pu Karn.",
-     "meta": "Score 66 · 26 restaurants",
-     "href": "michelin-ayutthaya.html"
-    },
-    {
-     "rank": 9,
-     "name": "Nakhon Ratchasima",
-     "blurb": "0 starred + 8 Bib Gourmand + 10 Selected. Led by Banmai Chay Nam.",
-     "meta": "Score 58 · 18 restaurants",
-     "href": "michelin-nakhon-ratchasima.html"
-    },
-    {
-     "rank": 10,
-     "name": "Chon Buri",
-     "blurb": "0 starred + 5 Bib Gourmand + 22 Selected. Led by Khao Lam Mae Khai Toon Klao.",
-     "meta": "Score 52 · 27 restaurants",
-     "href": "michelin-chon-buri.html"
-    },
-    {
-     "rank": 11,
-     "name": "Udon Thani",
-     "blurb": "0 starred + 6 Bib Gourmand + 6 Selected. Led by Kao.Piak.Sen.",
-     "meta": "Score 42 · 12 restaurants",
-     "href": "michelin-udon-thani.html"
-    },
-    {
-     "rank": 12,
-     "name": "Ubon Ratchathani",
-     "blurb": "0 starred + 3 Bib Gourmand + 8 Selected. Led by Agave.",
-     "meta": "Score 26 · 11 restaurants",
-     "href": "michelin-ubon-ratchathani.html"
-    },
-    {
-     "rank": 13,
-     "name": "Nakhon Pathom",
-     "blurb": "0 starred + 3 Bib Gourmand + 4 Selected. Led by Krua Jay Sim.",
-     "meta": "Score 22 · 7 restaurants",
-     "href": "michelin-nakhon-pathom.html"
-    },
-    {
-     "rank": 14,
-     "name": "Pathum Thani",
-     "blurb": "0 starred + 3 Bib Gourmand + 0 Selected. Led by Khao Mun Gai Nha Jone.",
-     "meta": "Score 18 · 3 restaurants",
-     "href": "michelin-pathum-thani.html"
-    },
-    {
-     "rank": 15,
-     "name": "Samut Sakhon",
-     "blurb": "0 starred + 1 Bib Gourmand + 0 Selected. Led by Ruean Panya.",
-     "meta": "Score 6 · 1 restaurants"
-    },
-    {
-     "rank": 16,
-     "name": "Samut Prakan",
-     "blurb": "0 starred + 0 Bib Gourmand + 1 Selected. Led by Rabieng Tale (undefined).",
-     "meta": "Score 1 · 1 restaurants"
+     "label": "ที่พักย่านสีลม-สาทร",
+     "href": "top10-hotels-silom-sathorn-bangkok.html",
+     "note": "โซนร้านดาวหนาแน่นที่สุด"
     }
    ]
   },
   {
-   "kind": "table",
-   "caption": "Every province — the numbers",
-   "headers": [
-    "#",
-    "Province",
-    "⭐ Stars",
-    "🍜 Bib",
-    "Selected",
-    "Total"
+   "kind": "restaurant",
+   "rank": 6,
+   "name": "Phang-Nga",
+   "area": "Led by Aulis ⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>21 Michelin restaurants</b> · score 75. 1 starred, 6 Bib Gourmand and 14 Selected, led by Aulis. <a href=\"michelin-phang-nga.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 1 starred",
+    "🍜 6 Bib",
+    "➕ 14 Selected"
    ],
-   "rows": [
-    [
-     "1",
-     "<a href=\"bangkok-michelin-fine-dining.html\">Bangkok</a>",
-     "39",
-     "32",
-     "119",
-     "190"
-    ],
-    [
-     "2",
-     "<a href=\"michelin-phuket.html\">Phuket</a>",
-     "1",
-     "19",
-     "40",
-     "60"
-    ],
-    [
-     "3",
-     "<a href=\"michelin-chiang-mai.html\">Chiang Mai</a>",
-     "0",
-     "18",
-     "33",
-     "51"
-    ],
-    [
-     "4",
-     "<a href=\"michelin-nonthaburi.html\">Nonthaburi</a>",
-     "2",
-     "5",
-     "4",
-     "11"
-    ],
-    [
-     "5",
-     "<a href=\"michelin-khon-kaen.html\">Khon Kaen</a>",
-     "0",
-     "11",
-     "12",
-     "23"
-    ],
-    [
-     "6",
-     "<a href=\"michelin-phang-nga.html\">Phang-Nga</a>",
-     "1",
-     "6",
-     "14",
-     "21"
-    ],
-    [
-     "7",
-     "<a href=\"michelin-surat-thani.html\">Surat Thani</a>",
-     "0",
-     "9",
-     "14",
-     "23"
-    ],
-    [
-     "8",
-     "<a href=\"michelin-ayutthaya.html\">Ayutthaya</a>",
-     "0",
-     "8",
-     "18",
-     "26"
-    ],
-    [
-     "9",
-     "<a href=\"michelin-nakhon-ratchasima.html\">Nakhon Ratchasima</a>",
-     "0",
-     "8",
-     "10",
-     "18"
-    ],
-    [
-     "10",
-     "<a href=\"michelin-chon-buri.html\">Chon Buri</a>",
-     "0",
-     "5",
-     "22",
-     "27"
-    ],
-    [
-     "11",
-     "<a href=\"michelin-udon-thani.html\">Udon Thani</a>",
-     "0",
-     "6",
-     "6",
-     "12"
-    ],
-    [
-     "12",
-     "<a href=\"michelin-ubon-ratchathani.html\">Ubon Ratchathani</a>",
-     "0",
-     "3",
-     "8",
-     "11"
-    ],
-    [
-     "13",
-     "<a href=\"michelin-nakhon-pathom.html\">Nakhon Pathom</a>",
-     "0",
-     "3",
-     "4",
-     "7"
-    ],
-    [
-     "14",
-     "<a href=\"michelin-pathum-thani.html\">Pathum Thani</a>",
-     "0",
-     "3",
-     "0",
-     "3"
-    ],
-    [
-     "15",
-     "Samut Sakhon",
-     "0",
-     "1",
-     "0",
-     "1"
-    ],
-    [
-     "16",
-     "Samut Prakan",
-     "0",
-     "0",
-     "1",
-     "1"
-    ]
-   ]
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-aulis-1.jpg",
+   "credit": "Photo: Official website aulisphuket.com",
+   "creditHref": "https://www.aulisphuket.com/",
+   "stayHref": "michelin-phang-nga.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 7,
+   "name": "Surat Thani",
+   "area": "Led by Jun Hom",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>23 Michelin restaurants</b> · score 68. 0 starred, 9 Bib Gourmand and 14 Selected, led by Jun Hom. <a href=\"michelin-surat-thani.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 9 Bib",
+    "➕ 14 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-jun-hom-1.jpg",
+   "credit": "Photo: Jun Hom Seafood Koh Samui official Facebook page",
+   "creditHref": "https://www.facebook.com/JunhomKohSamui",
+   "stayHref": "michelin-surat-thani.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 8,
+   "name": "Ayutthaya",
+   "area": "Led by Baan Pu Karn",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>26 Michelin restaurants</b> · score 66. 0 starred, 8 Bib Gourmand and 18 Selected, led by Baan Pu Karn. <a href=\"michelin-ayutthaya.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib",
+    "➕ 18 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-pu-karn.jpg",
+   "credit": "Photo: Baan Pu Karn official Facebook page",
+   "creditHref": "https://www.facebook.com/baanpukan",
+   "stayHref": "michelin-ayutthaya.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 9,
+   "name": "Nakhon Ratchasima",
+   "area": "Led by Banmai Chay Nam",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>18 Michelin restaurants</b> · score 58. 0 starred, 8 Bib Gourmand and 10 Selected, led by Banmai Chay Nam. <a href=\"michelin-nakhon-ratchasima.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib",
+    "➕ 10 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-banmai-chay-nam-1.jpg",
+   "credit": "Photo: Banmai Chay Nam Pak Chong official Facebook page",
+   "creditHref": "https://www.facebook.com/banmaichaynampakchong",
+   "stayHref": "michelin-nakhon-ratchasima.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 10,
+   "name": "Chon Buri",
+   "area": "Led by Khao Lam Mae Khai Toon Klao",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>27 Michelin restaurants</b> · score 52. 0 starred, 5 Bib Gourmand and 22 Selected, led by Khao Lam Mae Khai Toon Klao. <a href=\"michelin-chon-buri.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 5 Bib",
+    "➕ 22 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-khao-lam-mae-khai-toon-klao-2.jpg",
+   "credit": "Photo: Khao Lam Mae Khai Toon Klao official Facebook page",
+   "creditHref": "https://www.facebook.com/100064603905009",
+   "stayHref": "michelin-chon-buri.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 11,
+   "name": "Udon Thani",
+   "area": "Led by Kao.Piak.Sen",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>12 Michelin restaurants</b> · score 42. 0 starred, 6 Bib Gourmand and 6 Selected, led by Kao.Piak.Sen. <a href=\"michelin-udon-thani.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 6 Bib",
+    "➕ 6 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-kao-piak-sen.jpg",
+   "credit": "Photo: Kao.Piak.Sen official Facebook page",
+   "creditHref": "https://www.facebook.com/KAO.PIAK.SEN",
+   "stayHref": "michelin-udon-thani.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 12,
+   "name": "Ubon Ratchathani",
+   "area": "Led by Agave",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>11 Michelin restaurants</b> · score 26. 0 starred, 3 Bib Gourmand and 8 Selected, led by Agave. <a href=\"michelin-ubon-ratchathani.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib",
+    "➕ 8 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-agave.jpg",
+   "credit": "Photo: Agave official Facebook page",
+   "creditHref": "https://www.facebook.com/agave.ubon",
+   "stayHref": "michelin-ubon-ratchathani.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 13,
+   "name": "Nakhon Pathom",
+   "area": "Led by Krua Jay Sim",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>7 Michelin restaurants</b> · score 22. 0 starred, 3 Bib Gourmand and 4 Selected, led by Krua Jay Sim. <a href=\"michelin-nakhon-pathom.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib",
+    "➕ 4 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-krua-jay-sim-1.jpg",
+   "credit": "Photo: Krua Jay Sim official Facebook page",
+   "creditHref": "https://www.facebook.com/p/%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%88%E0%B9%8A%E0%B8%8B%E0%B8%B4%E0%B9%89%E0%B8%A1-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A27-%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B8%99%E0%B8%AD%E0%B8%81-100047122604589/",
+   "stayHref": "michelin-nakhon-pathom.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 14,
+   "name": "Pathum Thani",
+   "area": "Led by Khao Mun Gai Nha Jone",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>3 Michelin restaurants</b> · score 18. 0 starred, 3 Bib Gourmand and 0 Selected, led by Khao Mun Gai Nha Jone. <a href=\"michelin-pathum-thani.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-khao-mun-gai-nha-jone-1.jpg",
+   "credit": "Photo: Khao Mun Gai Nha Jone (Khlong 7, Thanyaburi) official Facebook page",
+   "creditHref": "https://www.facebook.com/profile.php?id=100057654270732",
+   "stayHref": "michelin-pathum-thani.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 15,
+   "name": "Samut Sakhon",
+   "area": "Led by Ruean Panya",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>1 Michelin restaurants</b> · score 6. 0 starred, 1 Bib Gourmand and 0 Selected, led by Ruean Panya.</p>",
+   "tags": [
+    "🍜 1 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-ruean-panya-src.jpg",
+   "credit": "Photo: Wongnai",
+   "creditHref": "https://www.wongnai.com/restaurants/15423NB-%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B2-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B2%E0%B8%84%E0%B8%A3"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 16,
+   "name": "Samut Prakan",
+   "area": "Led by Rabieng Tale",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>1 Michelin restaurants</b> · score 1. 0 starred, 0 Bib Gourmand and 1 Selected, led by Rabieng Tale.</p>",
+   "tags": [
+    "➕ 1 Selected"
+   ],
+   "foodType": ""
   },
   {
    "kind": "cta",
@@ -320,12 +372,12 @@
    "title": "🏅 Thailand Michelin Guide 2026"
   },
   {
-   "href": "michelin-cuisines-ranked.html",
-   "title": "🍽️ Cuisines ranked"
-  },
-  {
    "href": "michelin-finder.html",
    "title": "🔎 Michelin Finder"
+  },
+  {
+   "href": "michelin-provinces-ranked.html",
+   "title": "🏆 Provinces ranked"
   }
  ],
  "rail": [

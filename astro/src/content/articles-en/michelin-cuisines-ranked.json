@@ -1,11 +1,11 @@
 {
  "slug": "michelin-cuisines-ranked",
- "type": "prep",
+ "type": "eat-ranking",
  "cluster": "thailand",
  "title": "Thailand's Michelin Cuisines Ranked 2026 | Thailandaddict",
  "metaDesc": "See which Thai cuisine earns the most Michelin recognition. Fine Dining leads with 22 of 25 spots starred, Thai has the biggest list at 60, and Southern Thai holds Sorn, the lone three-star.",
- "keywords": "michelin thailand ranked, best michelin province thailand",
- "ogTitle": "🍽️ Thailand's Michelin cuisines ranked",
+ "keywords": "michelin cuisines thailand ranked",
+ "ogTitle": "🍽️ Thailand cuisines ranked for Michelin",
  "ogDesc": "See which Thai cuisine earns the most Michelin recognition. Fine Dining leads with 22 of 25 spots starred, Thai has the biggest list at 60, and Southern Thai holds Sorn, the lone three-star.",
  "image": "/images/food/michelin/michelin-suhring-1.jpg",
  "heroImg": "/images/food/michelin/michelin-suhring-1.jpg",
@@ -16,10 +16,15 @@
  "regionLabel": "🇹🇭 Thailand",
  "regionHref": "country-thailand.html",
  "eyebrow": "Michelin Guide · Thailand 2026",
- "h1": "🍽️ Thailand's Michelin cuisines ranked<br><span class=\"hi\">Which Cuisine Wins the Most Michelin Love</span>",
+ "h1": "🍽️ Thailand cuisines ranked for Michelin<br><span class=\"hi\">Which Cuisine Wins the Most Michelin Love</span>",
  "heroEmoji": "🍽️",
  "intro": "Put Thailand's food categories head to head and Fine Dining & International takes the crown, with 22 of its 25 listed spots holding stars, led by three-star Sühring. Thai Cuisine has the deepest bench at 60 restaurants and 20 stars, headed by two-star Baan Tepa, while Southern Thai punches above its weight thanks to Sorn, the category's only three-star.",
- "readTime": "5 min",
+ "chips": [
+  "10 cuisines",
+  "🏆 ranked",
+  "🇹🇭 nationwide"
+ ],
+ "readTime": "9 min",
  "publishedDate": "2026-07-04",
  "modifiedDate": "2026-07-04",
  "quickAnswerHtml": "The most star-dense category is <b>Fine Dining & International</b>, where 22 of 25 listed spots hold stars, led by three-star Sühring.",
@@ -29,162 +34,199 @@
    "html": "<p>Put Thailand's food categories head to head and Fine Dining &amp; International takes the crown, with 22 of its 25 listed spots holding stars, led by three-star Sühring. Thai Cuisine has the deepest bench at 60 restaurants and 20 stars, headed by two-star Baan Tepa, while Southern Thai punches above its weight thanks to Sorn, the category's only three-star.</p>"
   },
   {
-   "kind": "ranked",
-   "items": [
+   "kind": "restaurant",
+   "rank": 1,
+   "name": "🥇 🍽️ Fine Dining & International",
+   "area": "Led by Sühring ⭐⭐⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>25 Michelin restaurants</b>. 22 starred and 3 Bib Gourmand, led by Sühring. <a href=\"michelin-fine-dining-thailand.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 22 starred",
+    "🍜 3 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-suhring-1.jpg",
+   "credit": "Photo: Official website restaurantsuhring.com",
+   "creditHref": "https://restaurantsuhring.com/",
+   "stayHref": "michelin-fine-dining-thailand.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 2,
+   "name": "🥈 🍲 Thai Cuisine",
+   "area": "Led by Baan Tepa ⭐⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>60 Michelin restaurants</b>. 20 starred and 40 Bib Gourmand, led by Baan Tepa. <a href=\"michelin-thai-cuisine.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 20 starred",
+    "🍜 40 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-tepa-2.jpg",
+   "credit": "Photo: Official website baantepabkk.com",
+   "creditHref": "https://baantepabkk.com/",
+   "stayHref": "michelin-thai-cuisine.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 3,
+   "name": "🥉 🌶️ Southern Thai",
+   "area": "Led by Sorn ⭐⭐⭐",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>22 Michelin restaurants</b>. 1 starred and 21 Bib Gourmand, led by Sorn. <a href=\"michelin-southern-thai-food.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "⭐ 1 starred",
+    "🍜 21 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-sorn-1.jpg",
+   "credit": "Photo: Official website sornfinesouthern.com",
+   "creditHref": "https://sornfinesouthern.com/",
+   "stayHref": "michelin-southern-thai-food.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 4,
+   "name": "🍜 Noodles",
+   "area": "Led by Gim Nguan Noodle",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>21 Michelin restaurants</b>. 0 starred and 21 Bib Gourmand, led by Gim Nguan Noodle. <a href=\"michelin-noodles-thailand.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 21 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-gim-nguan-noodle-1.jpg",
+   "credit": "Photo: Gim Nguan Noodle official Facebook page",
+   "creditHref": "https://www.facebook.com/grimnguannoodlebkk",
+   "stayHref": "michelin-noodles-thailand.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 5,
+   "name": "🛵 Street Food",
+   "area": "Led by A Pong Mae Sunee",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>14 Michelin restaurants</b>. 0 starred and 14 Bib Gourmand, led by A Pong Mae Sunee. <a href=\"michelin-street-food-thailand.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 14 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-a-pong-mae-sunee-1.jpg",
+   "credit": "Photo: Khanom A Pong Mae Sunee Phuket official Facebook page",
+   "creditHref": "https://www.facebook.com/p/%E0%B8%82%E0%B8%99%E0%B8%A1%E0%B8%AD%E0%B8%B2%E0%B9%82%E0%B8%9B%E0%B9%8A%E0%B8%87%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%93%E0%B8%B5-%E0%B8%A0%E0%B8%B9%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95-100046788297332/",
+   "stayHref": "michelin-street-food-thailand.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "staycta",
+   "title": "Where to stay nearby",
+   "text": "Base yourself near the action and eat down the list.",
+   "links": [
     {
-     "rank": 1,
-     "name": "🥇 🍽️ Fine Dining & International",
-     "blurb": "25 restaurants, 22 starred. Led by Sühring (⭐⭐⭐).",
-     "meta": "22 starred · 3 Bib",
-     "href": "michelin-fine-dining-thailand.html"
+     "label": "ที่พักยอดนิยมกรุงเทพฯ",
+     "href": "top10-hotels-bangkok.html",
+     "note": "รวมทุกย่าน เทียบราคา 3 เว็บ"
     },
     {
-     "rank": 2,
-     "name": "🥈 🍲 Thai Cuisine",
-     "blurb": "60 restaurants, 20 starred. Led by Baan Tepa (⭐⭐).",
-     "meta": "20 starred · 40 Bib",
-     "href": "michelin-thai-cuisine.html"
+     "label": "ที่พักย่านเยาวราช",
+     "href": "top10-hotels-chinatown-bangkok.html",
+     "note": "ใกล้ร้านบิบเยาวราชเพียบ"
     },
     {
-     "rank": 3,
-     "name": "🥉 🌶️ Southern Thai",
-     "blurb": "22 restaurants, 1 starred. Led by Sorn (⭐⭐⭐).",
-     "meta": "1 starred · 21 Bib",
-     "href": "michelin-southern-thai-food.html"
-    },
-    {
-     "rank": 4,
-     "name": "🍜 Noodles",
-     "blurb": "21 restaurants, 0 starred. Led by Gim Nguan Noodle.",
-     "meta": "0 starred · 21 Bib",
-     "href": "michelin-noodles-thailand.html"
-    },
-    {
-     "rank": 5,
-     "name": "🛵 Street Food",
-     "blurb": "14 restaurants, 0 starred. Led by A Pong Mae Sunee.",
-     "meta": "0 starred · 14 Bib",
-     "href": "michelin-street-food-thailand.html"
-    },
-    {
-     "rank": 6,
-     "name": "🍢 Isan (Northeastern)",
-     "blurb": "8 restaurants, 0 starred. Led by Krua Khun Nid.",
-     "meta": "0 starred · 8 Bib",
-     "href": "michelin-isan-food.html"
-    },
-    {
-     "rank": 7,
-     "name": "🥢 Chinese & Thai-Chinese",
-     "blurb": "8 restaurants, 0 starred. Led by Baan Heng.",
-     "meta": "0 starred · 8 Bib",
-     "href": "michelin-chinese-thai-food.html"
-    },
-    {
-     "rank": 8,
-     "name": "🍮 Desserts & Small Eats",
-     "blurb": "8 restaurants, 0 starred. Led by Bokkia Tha Din Daeng.",
-     "meta": "0 starred · 8 Bib",
-     "href": "michelin-desserts-snacks-thailand.html"
-    },
-    {
-     "rank": 9,
-     "name": "⛰️ Northern Thai",
-     "blurb": "7 restaurants, 0 starred. Led by Euang Kam Sai.",
-     "meta": "0 starred · 7 Bib",
-     "href": "michelin-northern-thai-food.html"
-    },
-    {
-     "rank": 10,
-     "name": "🦐 Seafood",
-     "blurb": "7 restaurants, 0 starred. Led by Ann Tha Din Daeng.",
-     "meta": "0 starred · 7 Bib",
-     "href": "michelin-seafood-thailand.html"
+     "label": "ที่พักย่านสีลม-สาทร",
+     "href": "top10-hotels-silom-sathorn-bangkok.html",
+     "note": "โซนร้านดาวหนาแน่นที่สุด"
     }
    ]
   },
   {
-   "kind": "table",
-   "caption": "Every cuisine — the numbers",
-   "headers": [
-    "#",
-    "Cuisine",
-    "⭐ Stars",
-    "🍜 Bib",
-    "Total"
+   "kind": "restaurant",
+   "rank": 6,
+   "name": "🍢 Isan (Northeastern)",
+   "area": "Led by Krua Khun Nid",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>8 Michelin restaurants</b>. 0 starred and 8 Bib Gourmand, led by Krua Khun Nid. <a href=\"michelin-isan-food.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib"
    ],
-   "rows": [
-    [
-     "1",
-     "<a href=\"michelin-fine-dining-thailand.html\">Fine Dining &amp; International</a>",
-     "22",
-     "3",
-     "25"
-    ],
-    [
-     "2",
-     "<a href=\"michelin-thai-cuisine.html\">Thai Cuisine</a>",
-     "20",
-     "40",
-     "60"
-    ],
-    [
-     "3",
-     "<a href=\"michelin-southern-thai-food.html\">Southern Thai</a>",
-     "1",
-     "21",
-     "22"
-    ],
-    [
-     "4",
-     "<a href=\"michelin-noodles-thailand.html\">Noodles</a>",
-     "0",
-     "21",
-     "21"
-    ],
-    [
-     "5",
-     "<a href=\"michelin-street-food-thailand.html\">Street Food</a>",
-     "0",
-     "14",
-     "14"
-    ],
-    [
-     "6",
-     "<a href=\"michelin-isan-food.html\">Isan (Northeastern)</a>",
-     "0",
-     "8",
-     "8"
-    ],
-    [
-     "7",
-     "<a href=\"michelin-chinese-thai-food.html\">Chinese &amp; Thai-Chinese</a>",
-     "0",
-     "8",
-     "8"
-    ],
-    [
-     "8",
-     "<a href=\"michelin-desserts-snacks-thailand.html\">Desserts &amp; Small Eats</a>",
-     "0",
-     "8",
-     "8"
-    ],
-    [
-     "9",
-     "<a href=\"michelin-northern-thai-food.html\">Northern Thai</a>",
-     "0",
-     "7",
-     "7"
-    ],
-    [
-     "10",
-     "<a href=\"michelin-seafood-thailand.html\">Seafood</a>",
-     "0",
-     "7",
-     "7"
-    ]
-   ]
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-krua-khun-nid.jpg",
+   "credit": "Photo: Krua Khun Nid official Facebook page",
+   "creditHref": "https://www.facebook.com/KruaKhunNid",
+   "stayHref": "michelin-isan-food.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 7,
+   "name": "🥢 Chinese & Thai-Chinese",
+   "area": "Led by Baan Heng",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>8 Michelin restaurants</b>. 0 starred and 8 Bib Gourmand, led by Baan Heng. <a href=\"michelin-chinese-thai-food.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-heng-1.jpg",
+   "credit": "Photo: Baan Heng official Facebook page",
+   "creditHref": "https://www.facebook.com/baanheng",
+   "stayHref": "michelin-chinese-thai-food.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 8,
+   "name": "🍮 Desserts & Small Eats",
+   "area": "Led by Bokkia Tha Din Daeng",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>8 Michelin restaurants</b>. 0 starred and 8 Bib Gourmand, led by Bokkia Tha Din Daeng. <a href=\"michelin-desserts-snacks-thailand.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-bokkia-tha-din-daeng-1.jpg",
+   "credit": "Photo: Bokkia Tha Din Daeng official Facebook page",
+   "creditHref": "https://www.facebook.com/bokkiathadindaeng",
+   "stayHref": "michelin-desserts-snacks-thailand.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 9,
+   "name": "⛰️ Northern Thai",
+   "area": "Led by Euang Kam Sai",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>7 Michelin restaurants</b>. 0 starred and 7 Bib Gourmand, led by Euang Kam Sai. <a href=\"michelin-northern-thai-food.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 7 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-euang-kam-sai-src.png",
+   "credit": "Photo: Wongnai",
+   "creditHref": "https://www.wongnai.com/restaurants/2134Cz",
+   "stayHref": "michelin-northern-thai-food.html",
+   "stayLabel": "Open the guide"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 10,
+   "name": "🦐 Seafood",
+   "area": "Led by Ann Tha Din Daeng",
+   "cuisine": "Michelin destination",
+   "descHtml": "<p><b>7 Michelin restaurants</b>. 0 starred and 7 Bib Gourmand, led by Ann Tha Din Daeng. <a href=\"michelin-seafood-thailand.html\"><b>See the full guide →</b></a></p>",
+   "tags": [
+    "🍜 7 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-ann-tha-din-daeng-src.jpg",
+   "credit": "Photo: Wongnai",
+   "creditHref": "https://www.wongnai.com/reviews/725138b829444f4682de1b0cfb222781",
+   "stayHref": "michelin-seafood-thailand.html",
+   "stayLabel": "Open the guide"
   },
   {
    "kind": "cta",
@@ -221,12 +263,12 @@
    "title": "🏅 Thailand Michelin Guide 2026"
   },
   {
-   "href": "michelin-provinces-ranked.html",
-   "title": "📍 Provinces ranked"
-  },
-  {
    "href": "michelin-finder.html",
    "title": "🔎 Michelin Finder"
+  },
+  {
+   "href": "michelin-provinces-ranked.html",
+   "title": "🏆 Provinces ranked"
   }
  ],
  "rail": [

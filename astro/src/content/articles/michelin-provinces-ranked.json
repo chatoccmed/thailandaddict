@@ -1,10 +1,10 @@
 {
  "slug": "michelin-provinces-ranked",
- "type": "prep",
+ "type": "eat-ranking",
  "cluster": "thailand",
  "title": "จัดอันดับจังหวัดกินมิชลินดีที่สุดในไทย 2026 | Thailandaddict",
  "metaDesc": "จัดอันดับจังหวัดกินมิชลินของไทย กรุงเทพฯ นำด้วยร้านติดดาว 39 ร้าน ตามด้วยภูเก็ต เชียงใหม่ นนทบุรี ขอนแก่น เทียบคะแนน จำนวนร้าน และร้านเด่นแต่ละจังหวัด",
- "keywords": "จัดอันดับมิชลินไทย, จังหวัดมิชลิน, ประเภทอาหารมิชลิน",
+ "keywords": "จัดอันดับร้านมิชลิน จังหวัด",
  "ogTitle": "จัดอันดับจังหวัดกินมิชลิน",
  "ogDesc": "จัดอันดับจังหวัดกินมิชลินของไทย กรุงเทพฯ นำด้วยร้านติดดาว 39 ร้าน ตามด้วยภูเก็ต เชียงใหม่ นนทบุรี ขอนแก่น เทียบคะแนน จำนวนร้าน และร้านเด่นแต่ละจังหวัด",
  "image": "/images/food/michelin/michelin-sorn-1.jpg",
@@ -19,7 +19,12 @@
  "h1": "📍 จัดอันดับจังหวัดกินมิชลิน<br><span class=\"hi\">จัดอันดับจังหวัดกินมิชลิน</span>",
  "heroEmoji": "📍",
  "intro": "ถ้าถามว่าเที่ยวไทยกินมิชลินจังหวัดไหนคุ้มที่สุด กรุงเทพฯ นำโด่งแบบทิ้งห่างด้วยร้านติดดาว 39 ร้านและบิบกูร์มองด์อีก 32 ร้าน ตามด้วยภูเก็ตกับเชียงใหม่ที่แข็งด้านสตรีทฟู้ดและอาหารถิ่นเป็นกองทัพบิบ ส่วนนนทบุรีเมืองเล็กแต่ถือดาวไว้ถึง 2 ดวง เราจัดอันดับจากความหนาแน่นของรางวัลมิชลินด้วยคะแนนถ่วงน้ำหนักดาว",
- "readTime": "5 นาที",
+ "chips": [
+  "16 จังหวัด",
+  "🏆 จัดอันดับ",
+  "🇹🇭 ทั่วไทย"
+ ],
+ "readTime": "9 นาที",
  "publishedDate": "2026-07-04",
  "modifiedDate": "2026-07-04",
  "quickAnswerHtml": "<b>กรุงเทพฯ</b> คือจังหวัดกินมิชลินอันดับหนึ่งของไทย ด้วยร้านติดดาว 39 ร้าน บิบกูร์มองด์ 32 ร้าน นำโดยศรณ์ร้านสามดาว",
@@ -29,261 +34,308 @@
    "html": "<p>ถ้าถามว่าเที่ยวไทยกินมิชลินจังหวัดไหนคุ้มที่สุด กรุงเทพฯ นำโด่งแบบทิ้งห่างด้วยร้านติดดาว 39 ร้านและบิบกูร์มองด์อีก 32 ร้าน ตามด้วยภูเก็ตกับเชียงใหม่ที่แข็งด้านสตรีทฟู้ดและอาหารถิ่นเป็นกองทัพบิบ ส่วนนนทบุรีเมืองเล็กแต่ถือดาวไว้ถึง 2 ดวง เราจัดอันดับจากความหนาแน่นของรางวัลมิชลินด้วยคะแนนถ่วงน้ำหนักดาว</p>"
   },
   {
-   "kind": "ranked",
-   "items": [
+   "kind": "restaurant",
+   "rank": 1,
+   "name": "🥇 กรุงเทพฯ",
+   "area": "นำโดย Sorn ⭐⭐⭐",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 190 ร้าน</b> · คะแนน 1636 · ดาว 39 · Bib 32 · Selected 119 นำโดย Sorn <a href=\"bangkok-michelin-fine-dining.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "⭐ 39 ดาว",
+    "🍜 32 Bib",
+    "➕ 119 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-sorn-1.jpg",
+   "credit": "ภาพ: เว็บไซต์ทางการ sornfinesouthern.com",
+   "creditHref": "https://sornfinesouthern.com/",
+   "stayHref": "bangkok-michelin-fine-dining.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 2,
+   "name": "🥈 ภูเก็ต",
+   "area": "นำโดย Pru ⭐",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 60 ร้าน</b> · คะแนน 179 · ดาว 1 · Bib 19 · Selected 40 นำโดย Pru <a href=\"michelin-phuket.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "⭐ 1 ดาว",
+    "🍜 19 Bib",
+    "➕ 40 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-pru-1.jpg",
+   "credit": "ภาพ: เว็บไซต์ทางการ prurestaurant.com",
+   "creditHref": "https://www.prurestaurant.com/",
+   "stayHref": "michelin-phuket.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 3,
+   "name": "🥉 เชียงใหม่",
+   "area": "นำโดย CHAWEE",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 51 ร้าน</b> · คะแนน 141 · ดาว 0 · Bib 18 · Selected 33 นำโดย CHAWEE <a href=\"michelin-chiang-mai.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 18 Bib",
+    "➕ 33 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-chawee-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้าน ฉวี (Chawee)",
+   "creditHref": "https://www.facebook.com/p/Chawee-61559091207112/",
+   "stayHref": "michelin-chiang-mai.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 4,
+   "name": "นนทบุรี",
+   "area": "นำโดย Akkee ⭐",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 11 ร้าน</b> · คะแนน 84 · ดาว 2 · Bib 5 · Selected 4 นำโดย Akkee <a href=\"michelin-nonthaburi.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "⭐ 2 ดาว",
+    "🍜 5 Bib",
+    "➕ 4 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-akkee-1.jpeg",
+   "credit": "ภาพ: เว็บไซต์ทางการ akkeerestaurant.com",
+   "creditHref": "https://www.akkeerestaurant.com/",
+   "stayHref": "michelin-nonthaburi.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 5,
+   "name": "ขอนแก่น",
+   "area": "นำโดย Baan Heng",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 23 ร้าน</b> · คะแนน 78 · ดาว 0 · Bib 11 · Selected 12 นำโดย Baan Heng <a href=\"michelin-khon-kaen.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 11 Bib",
+    "➕ 12 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-heng-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านบ้านเฮง",
+   "creditHref": "https://www.facebook.com/baanheng",
+   "stayHref": "michelin-khon-kaen.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "staycta",
+   "title": "ที่พักใกล้ร้านเด็ด",
+   "text": "เลือกที่พักทำเลดี แล้วไล่กินตามลิสต์ได้สบาย",
+   "links": [
     {
-     "rank": 1,
-     "name": "🥇 กรุงเทพฯ",
-     "blurb": "39 ดาว + 32 Bib + 119 Selected · นำโดย Sorn (⭐⭐⭐)",
-     "meta": "คะแนน 1636 · 190 ร้าน",
-     "href": "bangkok-michelin-fine-dining.html"
+     "label": "ที่พักยอดนิยมกรุงเทพฯ",
+     "href": "top10-hotels-bangkok.html",
+     "note": "รวมทุกย่าน เทียบราคา 3 เว็บ"
     },
     {
-     "rank": 2,
-     "name": "🥈 ภูเก็ต",
-     "blurb": "1 ดาว + 19 Bib + 40 Selected · นำโดย Pru (⭐)",
-     "meta": "คะแนน 179 · 60 ร้าน",
-     "href": "michelin-phuket.html"
+     "label": "ที่พักย่านเยาวราช",
+     "href": "top10-hotels-chinatown-bangkok.html",
+     "note": "ใกล้ร้านบิบเยาวราชเพียบ"
     },
     {
-     "rank": 3,
-     "name": "🥉 เชียงใหม่",
-     "blurb": "0 ดาว + 18 Bib + 33 Selected · นำโดย CHAWEE",
-     "meta": "คะแนน 141 · 51 ร้าน",
-     "href": "michelin-chiang-mai.html"
-    },
-    {
-     "rank": 4,
-     "name": "นนทบุรี",
-     "blurb": "2 ดาว + 5 Bib + 4 Selected · นำโดย Akkee (⭐)",
-     "meta": "คะแนน 84 · 11 ร้าน",
-     "href": "michelin-nonthaburi.html"
-    },
-    {
-     "rank": 5,
-     "name": "ขอนแก่น",
-     "blurb": "0 ดาว + 11 Bib + 12 Selected · นำโดย Baan Heng",
-     "meta": "คะแนน 78 · 23 ร้าน",
-     "href": "michelin-khon-kaen.html"
-    },
-    {
-     "rank": 6,
-     "name": "พังงา",
-     "blurb": "1 ดาว + 6 Bib + 14 Selected · นำโดย Aulis (⭐)",
-     "meta": "คะแนน 75 · 21 ร้าน",
-     "href": "michelin-phang-nga.html"
-    },
-    {
-     "rank": 7,
-     "name": "สุราษฎร์ธานี",
-     "blurb": "0 ดาว + 9 Bib + 14 Selected · นำโดย Jun Hom",
-     "meta": "คะแนน 68 · 23 ร้าน",
-     "href": "michelin-surat-thani.html"
-    },
-    {
-     "rank": 8,
-     "name": "อยุธยา",
-     "blurb": "0 ดาว + 8 Bib + 18 Selected · นำโดย Baan Pu Karn",
-     "meta": "คะแนน 66 · 26 ร้าน",
-     "href": "michelin-ayutthaya.html"
-    },
-    {
-     "rank": 9,
-     "name": "นครราชสีมา",
-     "blurb": "0 ดาว + 8 Bib + 10 Selected · นำโดย Banmai Chay Nam",
-     "meta": "คะแนน 58 · 18 ร้าน",
-     "href": "michelin-nakhon-ratchasima.html"
-    },
-    {
-     "rank": 10,
-     "name": "ชลบุรี",
-     "blurb": "0 ดาว + 5 Bib + 22 Selected · นำโดย Khao Lam Mae Khai Toon Klao",
-     "meta": "คะแนน 52 · 27 ร้าน",
-     "href": "michelin-chon-buri.html"
-    },
-    {
-     "rank": 11,
-     "name": "อุดรธานี",
-     "blurb": "0 ดาว + 6 Bib + 6 Selected · นำโดย Kao.Piak.Sen",
-     "meta": "คะแนน 42 · 12 ร้าน",
-     "href": "michelin-udon-thani.html"
-    },
-    {
-     "rank": 12,
-     "name": "อุบลราชธานี",
-     "blurb": "0 ดาว + 3 Bib + 8 Selected · นำโดย Agave",
-     "meta": "คะแนน 26 · 11 ร้าน",
-     "href": "michelin-ubon-ratchathani.html"
-    },
-    {
-     "rank": 13,
-     "name": "นครปฐม",
-     "blurb": "0 ดาว + 3 Bib + 4 Selected · นำโดย Krua Jay Sim",
-     "meta": "คะแนน 22 · 7 ร้าน",
-     "href": "michelin-nakhon-pathom.html"
-    },
-    {
-     "rank": 14,
-     "name": "ปทุมธานี",
-     "blurb": "0 ดาว + 3 Bib + 0 Selected · นำโดย Khao Mun Gai Nha Jone",
-     "meta": "คะแนน 18 · 3 ร้าน",
-     "href": "michelin-pathum-thani.html"
-    },
-    {
-     "rank": 15,
-     "name": "สมุทรสาคร",
-     "blurb": "0 ดาว + 1 Bib + 0 Selected · นำโดย Ruean Panya",
-     "meta": "คะแนน 6 · 1 ร้าน"
-    },
-    {
-     "rank": 16,
-     "name": "สมุทรปราการ",
-     "blurb": "0 ดาว + 0 Bib + 1 Selected · นำโดย Rabieng Tale (undefined)",
-     "meta": "คะแนน 1 · 1 ร้าน"
+     "label": "ที่พักย่านสีลม-สาทร",
+     "href": "top10-hotels-silom-sathorn-bangkok.html",
+     "note": "โซนร้านดาวหนาแน่นที่สุด"
     }
    ]
   },
   {
-   "kind": "table",
-   "caption": "ทุกจังหวัด — ตัวเลข",
-   "headers": [
-    "#",
-    "จังหวัด",
-    "⭐ ดาว",
-    "🍜 Bib",
-    "Selected",
-    "รวม"
+   "kind": "restaurant",
+   "rank": 6,
+   "name": "พังงา",
+   "area": "นำโดย Aulis ⭐",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 21 ร้าน</b> · คะแนน 75 · ดาว 1 · Bib 6 · Selected 14 นำโดย Aulis <a href=\"michelin-phang-nga.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "⭐ 1 ดาว",
+    "🍜 6 Bib",
+    "➕ 14 Selected"
    ],
-   "rows": [
-    [
-     "1",
-     "<a href=\"bangkok-michelin-fine-dining.html\">กรุงเทพฯ</a>",
-     "39",
-     "32",
-     "119",
-     "190"
-    ],
-    [
-     "2",
-     "<a href=\"michelin-phuket.html\">ภูเก็ต</a>",
-     "1",
-     "19",
-     "40",
-     "60"
-    ],
-    [
-     "3",
-     "<a href=\"michelin-chiang-mai.html\">เชียงใหม่</a>",
-     "0",
-     "18",
-     "33",
-     "51"
-    ],
-    [
-     "4",
-     "<a href=\"michelin-nonthaburi.html\">นนทบุรี</a>",
-     "2",
-     "5",
-     "4",
-     "11"
-    ],
-    [
-     "5",
-     "<a href=\"michelin-khon-kaen.html\">ขอนแก่น</a>",
-     "0",
-     "11",
-     "12",
-     "23"
-    ],
-    [
-     "6",
-     "<a href=\"michelin-phang-nga.html\">พังงา</a>",
-     "1",
-     "6",
-     "14",
-     "21"
-    ],
-    [
-     "7",
-     "<a href=\"michelin-surat-thani.html\">สุราษฎร์ธานี</a>",
-     "0",
-     "9",
-     "14",
-     "23"
-    ],
-    [
-     "8",
-     "<a href=\"michelin-ayutthaya.html\">อยุธยา</a>",
-     "0",
-     "8",
-     "18",
-     "26"
-    ],
-    [
-     "9",
-     "<a href=\"michelin-nakhon-ratchasima.html\">นครราชสีมา</a>",
-     "0",
-     "8",
-     "10",
-     "18"
-    ],
-    [
-     "10",
-     "<a href=\"michelin-chon-buri.html\">ชลบุรี</a>",
-     "0",
-     "5",
-     "22",
-     "27"
-    ],
-    [
-     "11",
-     "<a href=\"michelin-udon-thani.html\">อุดรธานี</a>",
-     "0",
-     "6",
-     "6",
-     "12"
-    ],
-    [
-     "12",
-     "<a href=\"michelin-ubon-ratchathani.html\">อุบลราชธานี</a>",
-     "0",
-     "3",
-     "8",
-     "11"
-    ],
-    [
-     "13",
-     "<a href=\"michelin-nakhon-pathom.html\">นครปฐม</a>",
-     "0",
-     "3",
-     "4",
-     "7"
-    ],
-    [
-     "14",
-     "<a href=\"michelin-pathum-thani.html\">ปทุมธานี</a>",
-     "0",
-     "3",
-     "0",
-     "3"
-    ],
-    [
-     "15",
-     "สมุทรสาคร",
-     "0",
-     "1",
-     "0",
-     "1"
-    ],
-    [
-     "16",
-     "สมุทรปราการ",
-     "0",
-     "0",
-     "1",
-     "1"
-    ]
-   ]
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-aulis-1.jpg",
+   "credit": "ภาพ: เว็บไซต์ทางการ aulisphuket.com",
+   "creditHref": "https://www.aulisphuket.com/",
+   "stayHref": "michelin-phang-nga.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 7,
+   "name": "สุราษฎร์ธานี",
+   "area": "นำโดย Jun Hom",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 23 ร้าน</b> · คะแนน 68 · ดาว 0 · Bib 9 · Selected 14 นำโดย Jun Hom <a href=\"michelin-surat-thani.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 9 Bib",
+    "➕ 14 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-jun-hom-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านจันทร์หอมซีฟู้ด เกาะสมุย",
+   "creditHref": "https://www.facebook.com/JunhomKohSamui",
+   "stayHref": "michelin-surat-thani.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 8,
+   "name": "อยุธยา",
+   "area": "นำโดย Baan Pu Karn",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 26 ร้าน</b> · คะแนน 66 · ดาว 0 · Bib 8 · Selected 18 นำโดย Baan Pu Karn <a href=\"michelin-ayutthaya.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib",
+    "➕ 18 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-baan-pu-karn.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านบ้านผู้การ",
+   "creditHref": "https://www.facebook.com/baanpukan",
+   "stayHref": "michelin-ayutthaya.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 9,
+   "name": "นครราชสีมา",
+   "area": "นำโดย Banmai Chay Nam",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 18 ร้าน</b> · คะแนน 58 · ดาว 0 · Bib 8 · Selected 10 นำโดย Banmai Chay Nam <a href=\"michelin-nakhon-ratchasima.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 8 Bib",
+    "➕ 10 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-banmai-chay-nam-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านบ้านไม้ชายน้ำ ปากช่อง",
+   "creditHref": "https://www.facebook.com/banmaichaynampakchong",
+   "stayHref": "michelin-nakhon-ratchasima.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 10,
+   "name": "ชลบุรี",
+   "area": "นำโดย Khao Lam Mae Khai Toon Klao",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 27 ร้าน</b> · คะแนน 52 · ดาว 0 · Bib 5 · Selected 22 นำโดย Khao Lam Mae Khai Toon Klao <a href=\"michelin-chon-buri.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 5 Bib",
+    "➕ 22 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-khao-lam-mae-khai-toon-klao-2.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้าน ข้าวหลามแม่ไข่ทูลเกล้า",
+   "creditHref": "https://www.facebook.com/100064603905009",
+   "stayHref": "michelin-chon-buri.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 11,
+   "name": "อุดรธานี",
+   "area": "นำโดย Kao.Piak.Sen",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 12 ร้าน</b> · คะแนน 42 · ดาว 0 · Bib 6 · Selected 6 นำโดย Kao.Piak.Sen <a href=\"michelin-udon-thani.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 6 Bib",
+    "➕ 6 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-kao-piak-sen.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านข้าวเปียก",
+   "creditHref": "https://www.facebook.com/KAO.PIAK.SEN",
+   "stayHref": "michelin-udon-thani.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 12,
+   "name": "อุบลราชธานี",
+   "area": "นำโดย Agave",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 11 ร้าน</b> · คะแนน 26 · ดาว 0 · Bib 3 · Selected 8 นำโดย Agave <a href=\"michelin-ubon-ratchathani.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib",
+    "➕ 8 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-agave.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้านอากาเว่",
+   "creditHref": "https://www.facebook.com/agave.ubon",
+   "stayHref": "michelin-ubon-ratchathani.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 13,
+   "name": "นครปฐม",
+   "area": "นำโดย Krua Jay Sim",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 7 ร้าน</b> · คะแนน 22 · ดาว 0 · Bib 3 · Selected 4 นำโดย Krua Jay Sim <a href=\"michelin-nakhon-pathom.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib",
+    "➕ 4 Selected"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-krua-jay-sim-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้าน ครัวเจ๊ซิ้ม",
+   "creditHref": "https://www.facebook.com/p/%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%88%E0%B9%8A%E0%B8%8B%E0%B8%B4%E0%B9%89%E0%B8%A1-%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%B2%E0%B8%A27-%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%99%E0%B8%99%E0%B8%AD%E0%B8%81-100047122604589/",
+   "stayHref": "michelin-nakhon-pathom.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 14,
+   "name": "ปทุมธานี",
+   "area": "นำโดย Khao Mun Gai Nha Jone",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 3 ร้าน</b> · คะแนน 18 · ดาว 0 · Bib 3 · Selected 0 นำโดย Khao Mun Gai Nha Jone <a href=\"michelin-pathum-thani.html\"><b>ดูไกด์เต็ม →</b></a></p>",
+   "tags": [
+    "🍜 3 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-khao-mun-gai-nha-jone-1.jpg",
+   "credit": "ภาพ: เพจเฟซบุ๊กร้าน ข้าวมันไก่หน้าโจร คลอง 7 ธัญบุรี",
+   "creditHref": "https://www.facebook.com/profile.php?id=100057654270732",
+   "stayHref": "michelin-pathum-thani.html",
+   "stayLabel": "เปิดไกด์เต็ม"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 15,
+   "name": "สมุทรสาคร",
+   "area": "นำโดย Ruean Panya",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 1 ร้าน</b> · คะแนน 6 · ดาว 0 · Bib 1 · Selected 0 นำโดย Ruean Panya</p>",
+   "tags": [
+    "🍜 1 Bib"
+   ],
+   "foodType": "",
+   "img": "/images/food/michelin/michelin-ruean-panya-src.jpg",
+   "credit": "ภาพ: Wongnai",
+   "creditHref": "https://www.wongnai.com/restaurants/15423NB-%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%9B%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B2-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B2%E0%B8%84%E0%B8%A3"
+  },
+  {
+   "kind": "restaurant",
+   "rank": 16,
+   "name": "สมุทรปราการ",
+   "area": "นำโดย Rabieng Tale",
+   "cuisine": "จุดหมายมิชลิน",
+   "descHtml": "<p><b>มิชลิน 1 ร้าน</b> · คะแนน 1 · ดาว 0 · Bib 0 · Selected 1 นำโดย Rabieng Tale</p>",
+   "tags": [
+    "➕ 1 Selected"
+   ],
+   "foodType": ""
   },
   {
    "kind": "cta",
@@ -320,12 +372,12 @@
    "title": "🏅 ร้านมิชลินทั่วไทย 2026"
   },
   {
-   "href": "michelin-cuisines-ranked.html",
-   "title": "🍽️ จัดอันดับประเภทอาหาร"
-  },
-  {
    "href": "michelin-finder.html",
    "title": "🔎 ค้นหาร้านมิชลิน"
+  },
+  {
+   "href": "michelin-provinces-ranked.html",
+   "title": "🏆 จัดอันดับจังหวัด"
   }
  ],
  "rail": [
