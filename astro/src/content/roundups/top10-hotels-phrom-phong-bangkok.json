@@ -16,18 +16,47 @@
     "✅ เสียงจาก<strong>รีวิวจริง</strong>ทุกแห่ง"
   ],
   "breadcrumb": [
-    { "name": "ThailandAddict", "href": "/" },
-    { "name": "🇹🇭 ไทย", "href": "country-thailand.html" },
-    { "name": "กรุงเทพ", "href": "city-bangkok.html" },
-    { "name": "ย่านพร้อมพงษ์", "href": "area-bangkok-phrom-phong.html" },
-    { "name": "Top 10 โรงแรมย่านพร้อมพงษ์" }
+    {
+      "name": "ThailandAddict",
+      "href": "/"
+    },
+    {
+      "name": "🇹🇭 ไทย",
+      "href": "country-thailand.html"
+    },
+    {
+      "name": "กรุงเทพ",
+      "href": "city-bangkok.html"
+    },
+    {
+      "name": "ย่านพร้อมพงษ์",
+      "href": "area-bangkok-phrom-phong.html"
+    },
+    {
+      "name": "Top 10 โรงแรมย่านพร้อมพงษ์"
+    }
   ],
   "breadcrumbSchema": [
-    { "name": "ThailandAddict", "item": "https://thailandaddict.com/" },
-    { "name": "ไทย", "item": "https://thailandaddict.com/country-thailand" },
-    { "name": "กรุงเทพ", "item": "https://thailandaddict.com/city-bangkok" },
-    { "name": "ย่านพร้อมพงษ์", "item": "https://thailandaddict.com/area-bangkok-phrom-phong" },
-    { "name": "Top 10 โรงแรมย่านพร้อมพงษ์", "item": "https://thailandaddict.com/top10-hotels-phrom-phong-bangkok" }
+    {
+      "name": "ThailandAddict",
+      "item": "https://thailandaddict.com/"
+    },
+    {
+      "name": "ไทย",
+      "item": "https://thailandaddict.com/country-thailand"
+    },
+    {
+      "name": "กรุงเทพ",
+      "item": "https://thailandaddict.com/city-bangkok"
+    },
+    {
+      "name": "ย่านพร้อมพงษ์",
+      "item": "https://thailandaddict.com/area-bangkok-phrom-phong"
+    },
+    {
+      "name": "Top 10 โรงแรมย่านพร้อมพงษ์",
+      "item": "https://thailandaddict.com/top10-hotels-phrom-phong-bangkok"
+    }
   ],
   "navReviewLabel": "รีวิวโรงแรม",
   "navReviewHref": "top10-hotels-phrom-phong-bangkok.html",
@@ -36,16 +65,66 @@
   "mrtHtml": "BTS พร้อมพงษ์อยู่บนสายสุขุมวิท ต่อจาก BTS อโศก 1 สถานี (เชื่อม MRT สุขุมวิท) และ BTS ทองหล่อ 1 สถานีในทางตรงข้าม โรงแรมในบทความนี้กระจายอยู่ในซอยสุขุมวิท 18–30 ทั้งหมดเข้าถึง BTS ได้ภายใน 15 นาที <strong>Emporium Suites เชื่อมตรงผ่านสะพานลอยห้าง Holiday Inn มีทางเชื่อม EmSphere</strong> และหลายแห่งมีรถรับส่งฟรีถึงสถานี",
   "secLabel": "ทั้ง 10 แห่ง — ไปดูกันเลย",
   "toc": [
-    { "n": "1", "color": "#06B6D4", "name": "Emporium Suites by Chatrium", "price": "฿4,500" },
-    { "n": "2", "color": "#06B6D4", "name": "Oakwood Suites Bangkok", "price": "฿3,500" },
-    { "n": "3", "color": "#06B6D4", "name": "SKYVIEW Hotel Bangkok", "price": "฿3,300" },
-    { "n": "4", "color": "#06B6D4", "name": "Marriott Executive Apartments Sukhumvit Park", "price": "฿4,200" },
-    { "n": "5", "color": "#06B6D4", "name": "DoubleTree by Hilton Sukhumvit Bangkok", "price": "฿3,200" },
-    { "n": "6", "color": "#06B6D4", "name": "Bangkok Marriott Marquis Queen's Park", "price": "฿4,800" },
-    { "n": "7", "color": "#06B6D4", "name": "Holiday Inn Bangkok Sukhumvit 22", "price": "฿2,900" },
-    { "n": "8", "color": "#06B6D4", "name": "The Davis Bangkok", "price": "฿1,800" },
-    { "n": "9", "color": "#06B6D4", "name": "Park Plaza Bangkok Soi 18", "price": "฿1,900" },
-    { "n": "10", "color": "#06B6D4", "name": "Maitria Hotel Sukhumvit 18", "price": "฿1,900" }
+    {
+      "n": "1",
+      "color": "#06B6D4",
+      "name": "Emporium Suites by Chatrium",
+      "price": "฿4,500"
+    },
+    {
+      "n": "2",
+      "color": "#06B6D4",
+      "name": "Oakwood Suites Bangkok",
+      "price": "฿3,500"
+    },
+    {
+      "n": "3",
+      "color": "#06B6D4",
+      "name": "SKYVIEW Hotel Bangkok",
+      "price": "฿3,300"
+    },
+    {
+      "n": "4",
+      "color": "#06B6D4",
+      "name": "Marriott Executive Apartments Sukhumvit Park",
+      "price": "฿4,200"
+    },
+    {
+      "n": "5",
+      "color": "#06B6D4",
+      "name": "DoubleTree by Hilton Sukhumvit Bangkok",
+      "price": "฿3,200"
+    },
+    {
+      "n": "6",
+      "color": "#06B6D4",
+      "name": "Bangkok Marriott Marquis Queen's Park",
+      "price": "฿4,800"
+    },
+    {
+      "n": "7",
+      "color": "#06B6D4",
+      "name": "Holiday Inn Bangkok Sukhumvit 22",
+      "price": "฿2,900"
+    },
+    {
+      "n": "8",
+      "color": "#06B6D4",
+      "name": "The Davis Bangkok",
+      "price": "฿1,800"
+    },
+    {
+      "n": "9",
+      "color": "#06B6D4",
+      "name": "Park Plaza Bangkok Soi 18",
+      "price": "฿1,900"
+    },
+    {
+      "n": "10",
+      "color": "#06B6D4",
+      "name": "Maitria Hotel Sukhumvit 18",
+      "price": "฿1,900"
+    }
   ],
   "entries": [
     {
@@ -64,10 +143,22 @@
       "priceBig": "฿4,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe King Room (55 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Grand Deluxe Room (65 ตร.ม.)", "price": "เริ่ม ฿5,500/คืน" },
-        { "type": "Executive Deluxe Room (80 ตร.ม.)", "price": "เริ่ม ฿6,800/คืน" },
-        { "type": "One Bedroom Suite (95 ตร.ม.)", "price": "เริ่ม ฿9,500/คืน" }
+        {
+          "type": "Deluxe King Room (55 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Grand Deluxe Room (65 ตร.ม.)",
+          "price": "เริ่ม ฿5,500/คืน"
+        },
+        {
+          "type": "Executive Deluxe Room (80 ตร.ม.)",
+          "price": "เริ่ม ฿6,800/คืน"
+        },
+        {
+          "type": "One Bedroom Suite (95 ตร.ม.)",
+          "price": "เริ่ม ฿9,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/emporium-suites-by-chatrium-sha-plus/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/emporium-suites.html",
@@ -109,10 +200,22 @@
       "priceBig": "฿3,500",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Premier Apartment (40 ตร.ม.)", "price": "เริ่ม ฿3,500/คืน" },
-        { "type": "Studio Deluxe (45 ตร.ม.)", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "One-Bedroom Superior (55 ตร.ม.)", "price": "เริ่ม ฿5,200/คืน" },
-        { "type": "Two-Bedroom Executive (105 ตร.ม.)", "price": "เริ่ม ฿8,500/คืน" }
+        {
+          "type": "Premier Apartment (40 ตร.ม.)",
+          "price": "เริ่ม ฿3,500/คืน"
+        },
+        {
+          "type": "Studio Deluxe (45 ตร.ม.)",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "One-Bedroom Superior (55 ตร.ม.)",
+          "price": "เริ่ม ฿5,200/คืน"
+        },
+        {
+          "type": "Two-Bedroom Executive (105 ตร.ม.)",
+          "price": "เริ่ม ฿8,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/oakwood-suites-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/oakwood-suites-bangkok.html",
@@ -154,10 +257,22 @@
       "priceBig": "฿3,300",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Premier King Room", "price": "เริ่ม ฿3,300/คืน" },
-        { "type": "Grand Premier King Room", "price": "เริ่ม ฿4,000/คืน" },
-        { "type": "Grand Executive Room", "price": "เริ่ม ฿4,800/คืน" },
-        { "type": "Skyview Executive Suite", "price": "เริ่ม ฿7,500/คืน" }
+        {
+          "type": "Premier King Room",
+          "price": "เริ่ม ฿3,300/คืน"
+        },
+        {
+          "type": "Grand Premier King Room",
+          "price": "เริ่ม ฿4,000/คืน"
+        },
+        {
+          "type": "Grand Executive Room",
+          "price": "เริ่ม ฿4,800/คืน"
+        },
+        {
+          "type": "Skyview Executive Suite",
+          "price": "เริ่ม ฿7,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/skyview-hotel-bangkok_5/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/skyview.html",
@@ -199,10 +314,22 @@
       "priceBig": "฿4,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Executive King Studio (45 ตร.ม.)", "price": "เริ่ม ฿4,200/คืน" },
-        { "type": "1 Bedroom Family Suite (65 ตร.ม.)", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "2 Bedroom Apartment (130 ตร.ม.)", "price": "เริ่ม ฿9,500/คืน" },
-        { "type": "3 Bedroom Apartment (180 ตร.ม.)", "price": "เริ่ม ฿14,000/คืน" }
+        {
+          "type": "Executive King Studio (45 ตร.ม.)",
+          "price": "เริ่ม ฿4,200/คืน"
+        },
+        {
+          "type": "1 Bedroom Family Suite (65 ตร.ม.)",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "2 Bedroom Apartment (130 ตร.ม.)",
+          "price": "เริ่ม ฿9,500/คืน"
+        },
+        {
+          "type": "3 Bedroom Apartment (180 ตร.ม.)",
+          "price": "เริ่ม ฿14,000/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/sukhumvit-park-bangkok-marriott-executive-apartments/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/marriott-executive-apartment-sukhumvit-park.html",
@@ -244,10 +371,22 @@
       "priceBig": "฿3,200",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Guest King Room (28 ตร.ม.) ชั้น 8–14", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Deluxe King Room (28 ตร.ม.) ชั้น 15–22", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Deluxe Twin Room (28 ตร.ม.) ชั้น 15–22", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Deluxe Suite (56 ตร.ม.) ชั้น 23", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "Guest King Room (28 ตร.ม.) ชั้น 8–14",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Deluxe King Room (28 ตร.ม.) ชั้น 15–22",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Deluxe Twin Room (28 ตร.ม.) ชั้น 15–22",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Deluxe Suite (56 ตร.ม.) ชั้น 23",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/doubletree-by-hilton-sukhumvit-bangkok/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/doubletree-by-hilton-sukhumvit-bangkok.html",
@@ -289,10 +428,22 @@
       "priceBig": "฿4,800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe King Room (32 ตร.ม.)", "price": "เริ่ม ฿4,800/คืน" },
-        { "type": "Park View Guest Room (32 ตร.ม.)", "price": "เริ่ม ฿5,200/คืน" },
-        { "type": "M Club Lounge Access Room", "price": "เริ่ม ฿6,500/คืน" },
-        { "type": "M 1 Bedroom Suite (64 ตร.ม.)", "price": "เริ่ม ฿9,500/คืน" }
+        {
+          "type": "Deluxe King Room (32 ตร.ม.)",
+          "price": "เริ่ม ฿4,800/คืน"
+        },
+        {
+          "type": "Park View Guest Room (32 ตร.ม.)",
+          "price": "เริ่ม ฿5,200/คืน"
+        },
+        {
+          "type": "M Club Lounge Access Room",
+          "price": "เริ่ม ฿6,500/คืน"
+        },
+        {
+          "type": "M 1 Bedroom Suite (64 ตร.ม.)",
+          "price": "เริ่ม ฿9,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/bangkok-marriott-marquis-queen-s-park-h80208392/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/bangkok-marriott-marquis-queens-park.html",
@@ -329,15 +480,27 @@
       "revCount": "คะแนน 8.7 · 1,284 รีวิว",
       "badge": "🛍️ รีวิวมากสุดใน 4 ดาวชุดนี้ · ทางเชื่อมตรง EmSphere",
       "badgeColor": "#FB7185",
-      "img": "images/hotels/bangkok-holidayinn-1.jpg",
+      "img": "images/hotels/bangkok-holidayinn-sukhumvit22-1.jpg",
       "mrtTag": "📍 ซอยสุขุมวิท 22 · เดิน 5 นาทีถึง BTS พร้อมพงษ์ · ทางเชื่อมตรงเข้า EmSphere",
       "priceBig": "฿2,900",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Standard Room", "price": "เริ่ม ฿2,900/คืน" },
-        { "type": "Standard High Floor", "price": "เริ่ม ฿3,200/คืน" },
-        { "type": "Premium Room", "price": "เริ่ม ฿3,800/คืน" },
-        { "type": "Junior Suite", "price": "เริ่ม ฿5,500/คืน" }
+        {
+          "type": "Standard Room",
+          "price": "เริ่ม ฿2,900/คืน"
+        },
+        {
+          "type": "Standard High Floor",
+          "price": "เริ่ม ฿3,200/คืน"
+        },
+        {
+          "type": "Premium Room",
+          "price": "เริ่ม ฿3,800/คืน"
+        },
+        {
+          "type": "Junior Suite",
+          "price": "เริ่ม ฿5,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/holiday-inn-bangkok-sukhumvit/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/holiday-inn-bangkok-sukhumvit-22.html",
@@ -379,10 +542,22 @@
       "priceBig": "฿1,800",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Deluxe Room Corner Wing (45–55 ตร.ม.)", "price": "เริ่ม ฿1,800/คืน" },
-        { "type": "Studio King Bed (35 ตร.ม.)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Davis Two-Bedroom Suite (130–145 ตร.ม.)", "price": "เริ่ม ฿4,500/คืน" },
-        { "type": "Baan Davis Thai Three-Bedroom Villa (250 ตร.ม.)", "price": "เริ่ม ฿6,500/คืน" }
+        {
+          "type": "Deluxe Room Corner Wing (45–55 ตร.ม.)",
+          "price": "เริ่ม ฿1,800/คืน"
+        },
+        {
+          "type": "Studio King Bed (35 ตร.ม.)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Davis Two-Bedroom Suite (130–145 ตร.ม.)",
+          "price": "เริ่ม ฿4,500/คืน"
+        },
+        {
+          "type": "Baan Davis Thai Three-Bedroom Villa (250 ตร.ม.)",
+          "price": "เริ่ม ฿6,500/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/davis-hotel/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/the-davis-bangkok.html",
@@ -424,10 +599,22 @@
       "priceBig": "฿1,900",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Room", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Deluxe Room With City View", "price": "เริ่ม ฿2,300/คืน" },
-        { "type": "Executive Room", "price": "เริ่ม ฿2,700/คืน" },
-        { "type": "Junior Suite With City View", "price": "เริ่ม ฿3,800/คืน" }
+        {
+          "type": "Superior Room",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Deluxe Room With City View",
+          "price": "เริ่ม ฿2,300/คืน"
+        },
+        {
+          "type": "Executive Room",
+          "price": "เริ่ม ฿2,700/คืน"
+        },
+        {
+          "type": "Junior Suite With City View",
+          "price": "เริ่ม ฿3,800/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/park-plaza-bangkok-soi-18/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/park-plaza-bangkok-soi-18.html",
@@ -469,10 +656,22 @@
       "priceBig": "฿1,900",
       "priceSub": "เริ่มประมาณ/คืน",
       "rooms": [
-        { "type": "Superior Twin Studio (34 ตร.ม.)", "price": "เริ่ม ฿1,900/คืน" },
-        { "type": "Grand Deluxe Studio (41 ตร.ม.)", "price": "เริ่ม ฿2,200/คืน" },
-        { "type": "Triple Room (34–41 ตร.ม.)", "price": "เริ่ม ฿2,400/คืน" },
-        { "type": "One-Bedroom Deluxe Room (46 ตร.ม.)", "price": "เริ่ม ฿3,200/คืน" }
+        {
+          "type": "Superior Twin Studio (34 ตร.ม.)",
+          "price": "เริ่ม ฿1,900/คืน"
+        },
+        {
+          "type": "Grand Deluxe Studio (41 ตร.ม.)",
+          "price": "เริ่ม ฿2,200/คืน"
+        },
+        {
+          "type": "Triple Room (34–41 ตร.ม.)",
+          "price": "เริ่ม ฿2,400/คืน"
+        },
+        {
+          "type": "One-Bedroom Deluxe Room (46 ตร.ม.)",
+          "price": "เริ่ม ฿3,200/คืน"
+        }
       ],
       "agodaUrl": "https://www.agoda.com/maitria-hotel-sukhumvit-18-bangkok-a-chatrium-collection/hotel/bangkok-th.html?cid=1965862",
       "bookingUrl": "https://www.booking.com/hotel/th/maitria-sukhumvit-18.html",
@@ -500,29 +699,169 @@
     }
   ],
   "compareTitle": "ตารางเปรียบเทียบ 10 โรงแรมย่านพร้อมพงษ์ กรุงเทพ 2026",
-  "compareCols": ["#", "ชื่อที่พัก", "ดาว", "คะแนน", "ราคา/คืน", "ทำเล", "จุดเด่น"],
+  "compareCols": [
+    "#",
+    "ชื่อที่พัก",
+    "ดาว",
+    "คะแนน",
+    "ราคา/คืน",
+    "ทำเล",
+    "จุดเด่น"
+  ],
   "compareRows": [
-    { "rank": "1", "rankColor": "#06B6D4", "name": "Emporium Suites by Chatrium", "type": "⭐⭐⭐⭐⭐", "score": "9.0", "price": "฿4,500", "access": "📍 เชื่อมตรง BTS พร้อมพงษ์ผ่าน Emporium", "badge": "ติด BTS ตรงประตู · ห้อง 55 ตร.ม.+", "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;" },
-    { "rank": "2", "rankColor": "#06B6D4", "name": "Oakwood Suites Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿3,500", "access": "📍 เดิน 3 นาทีถึง BTS พร้อมพงษ์", "badge": "คะแนนสูงสุด · Infinity Pool", "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;" },
-    { "rank": "3", "rankColor": "#06B6D4", "name": "SKYVIEW Hotel Bangkok", "type": "⭐⭐⭐⭐⭐", "score": "9.0", "price": "฿3,300", "access": "📍 เดิน 3 นาทีถึง BTS พร้อมพงษ์", "badge": "Vanilla Sky Rooftop Bar ชั้น 35", "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;" },
-    { "rank": "4", "rankColor": "#06B6D4", "name": "Marriott Executive Apts Sukhumvit Park", "type": "⭐⭐⭐⭐⭐", "score": "9.1", "price": "฿4,200", "access": "📍 ชัตเทิลฟรี → BTS พร้อมพงษ์", "badge": "ติด Benjasiri Park · กีฬาครบ", "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;" },
-    { "rank": "5", "rankColor": "#06B6D4", "name": "DoubleTree by Hilton Sukhumvit", "type": "⭐⭐⭐⭐⭐", "score": "8.9", "price": "฿3,200", "access": "📍 เดิน 5–7 นาทีถึง BTS พร้อมพงษ์", "badge": "5★ฮิลตัน · The Ritual Hub ฟรี", "badgeStyle": "background:#e8eaf6;color:#283593;border-color:#9fa8da;" },
-    { "rank": "6", "rankColor": "#06B6D4", "name": "Bangkok Marriott Marquis Queen's Park", "type": "⭐⭐⭐⭐⭐", "score": "8.7", "price": "฿4,800", "access": "📍 เดิน ~10 นาทีผ่านสวนเบญจสิริ", "badge": "รีวิว 2,433 · ABar Rooftop", "badgeStyle": "background:#f3e5f5;color:#7b1fa2;border-color:#ce93d8;" },
-    { "rank": "7", "rankColor": "#06B6D4", "name": "Holiday Inn Bangkok Sukhumvit 22", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿2,900", "access": "📍 เดิน 5 นาทีถึง BTS พร้อมพงษ์", "badge": "ทางเชื่อม EmSphere · IHG", "badgeStyle": "background:#fff3e0;color:#e65100;border-color:#ffcc80;" },
-    { "rank": "8", "rankColor": "#06B6D4", "name": "The Davis Bangkok", "type": "⭐⭐⭐⭐", "score": "8.7", "price": "฿1,800", "access": "📍 ซอย 24 · Grab 5 นาทีถึง BTS", "badge": "วิลล่าไทย 2.3 เอเคอร์ · 2 สระ", "badgeStyle": "background:#e0f7fa;color:#006064;border-color:#80deea;" },
-    { "rank": "9", "rankColor": "#06B6D4", "name": "Park Plaza Bangkok Soi 18", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,900", "access": "📍 เดิน 5 นาทีถึง BTS อโศก/MRT สุขุมวิท", "badge": "รีวิว 2,643 · Rooftop Sway Pool", "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#aed581;" },
-    { "rank": "10", "rankColor": "#06B6D4", "name": "Maitria Hotel Sukhumvit 18", "type": "⭐⭐⭐⭐", "score": "8.6", "price": "฿1,900", "access": "📍 เดิน 5 นาทีถึง BTS อโศก/MRT สุขุมวิท", "badge": "ที่จอดรถฟรี · Rooftop Saltwater Pool", "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#7dd3fc;" }
+    {
+      "rank": "1",
+      "rankColor": "#06B6D4",
+      "name": "Emporium Suites by Chatrium",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿4,500",
+      "access": "📍 เชื่อมตรง BTS พร้อมพงษ์ผ่าน Emporium",
+      "badge": "ติด BTS ตรงประตู · ห้อง 55 ตร.ม.+",
+      "badgeStyle": "background:#e0f7fa;color:#06B6D4;border-color:#80deea;"
+    },
+    {
+      "rank": "2",
+      "rankColor": "#06B6D4",
+      "name": "Oakwood Suites Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿3,500",
+      "access": "📍 เดิน 3 นาทีถึง BTS พร้อมพงษ์",
+      "badge": "คะแนนสูงสุด · Infinity Pool",
+      "badgeStyle": "background:#fff1f3;color:#f43f5e;border-color:#fda4af;"
+    },
+    {
+      "rank": "3",
+      "rankColor": "#06B6D4",
+      "name": "SKYVIEW Hotel Bangkok",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.0",
+      "price": "฿3,300",
+      "access": "📍 เดิน 3 นาทีถึง BTS พร้อมพงษ์",
+      "badge": "Vanilla Sky Rooftop Bar ชั้น 35",
+      "badgeStyle": "background:#fff8e1;color:#c8a951;border-color:#ffe082;"
+    },
+    {
+      "rank": "4",
+      "rankColor": "#06B6D4",
+      "name": "Marriott Executive Apts Sukhumvit Park",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "9.1",
+      "price": "฿4,200",
+      "access": "📍 ชัตเทิลฟรี → BTS พร้อมพงษ์",
+      "badge": "ติด Benjasiri Park · กีฬาครบ",
+      "badgeStyle": "background:#e8f5e9;color:#2e7d32;border-color:#a5d6a7;"
+    },
+    {
+      "rank": "5",
+      "rankColor": "#06B6D4",
+      "name": "DoubleTree by Hilton Sukhumvit",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.9",
+      "price": "฿3,200",
+      "access": "📍 เดิน 5–7 นาทีถึง BTS พร้อมพงษ์",
+      "badge": "5★ฮิลตัน · The Ritual Hub ฟรี",
+      "badgeStyle": "background:#e8eaf6;color:#283593;border-color:#9fa8da;"
+    },
+    {
+      "rank": "6",
+      "rankColor": "#06B6D4",
+      "name": "Bangkok Marriott Marquis Queen's Park",
+      "type": "⭐⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿4,800",
+      "access": "📍 เดิน ~10 นาทีผ่านสวนเบญจสิริ",
+      "badge": "รีวิว 2,433 · ABar Rooftop",
+      "badgeStyle": "background:#f3e5f5;color:#7b1fa2;border-color:#ce93d8;"
+    },
+    {
+      "rank": "7",
+      "rankColor": "#06B6D4",
+      "name": "Holiday Inn Bangkok Sukhumvit 22",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿2,900",
+      "access": "📍 เดิน 5 นาทีถึง BTS พร้อมพงษ์",
+      "badge": "ทางเชื่อม EmSphere · IHG",
+      "badgeStyle": "background:#fff3e0;color:#e65100;border-color:#ffcc80;"
+    },
+    {
+      "rank": "8",
+      "rankColor": "#06B6D4",
+      "name": "The Davis Bangkok",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.7",
+      "price": "฿1,800",
+      "access": "📍 ซอย 24 · Grab 5 นาทีถึง BTS",
+      "badge": "วิลล่าไทย 2.3 เอเคอร์ · 2 สระ",
+      "badgeStyle": "background:#e0f7fa;color:#006064;border-color:#80deea;"
+    },
+    {
+      "rank": "9",
+      "rankColor": "#06B6D4",
+      "name": "Park Plaza Bangkok Soi 18",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,900",
+      "access": "📍 เดิน 5 นาทีถึง BTS อโศก/MRT สุขุมวิท",
+      "badge": "รีวิว 2,643 · Rooftop Sway Pool",
+      "badgeStyle": "background:#f1f8e9;color:#558b2f;border-color:#aed581;"
+    },
+    {
+      "rank": "10",
+      "rankColor": "#06B6D4",
+      "name": "Maitria Hotel Sukhumvit 18",
+      "type": "⭐⭐⭐⭐",
+      "score": "8.6",
+      "price": "฿1,900",
+      "access": "📍 เดิน 5 นาทีถึง BTS อโศก/MRT สุขุมวิท",
+      "badge": "ที่จอดรถฟรี · Rooftop Saltwater Pool",
+      "badgeStyle": "background:#e0f7fa;color:#0891b2;border-color:#7dd3fc;"
+    }
   ],
   "adviceTitle": "เลือกที่พักย่านพร้อมพงษ์ยังไงให้ตรงกับทริป?",
   "advice": [
-    { "icon": "🚇", "head": "ต้องการติด BTS พร้อมพงษ์ตรงประตู ช้อปปิ้ง EM District ได้เลย", "bodyHtml": "→ <strong>Emporium Suites by Chatrium</strong> ฿4,500 · เชื่อมตรง BTS พร้อมพงษ์ผ่านสะพานลอย Emporium ไม่โดนแดดเลย ห้อง 55 ตร.ม.+ ครัวครบ คะแนน 9.0" },
-    { "icon": "🏊", "head": "ต้องการสระว่ายน้ำวิวเมืองและห้องกว้าง ราคาคุ้ม", "bodyHtml": "→ <strong>Oakwood Suites Bangkok</strong> ฿3,500 · Infinity Pool สอลท์วอเตอร์บนดาดฟ้า ทุกยูนิตมีครัวครบ เครื่องซักผ้า คะแนนสูงสุด 9.1 จาก 676 รีวิว" },
-    { "icon": "🌆", "head": "อยากได้บาร์วิวกรุงเทพชั้น 35 และห้องพักระดับ 5 ดาว", "bodyHtml": "→ <strong>SKYVIEW Hotel Bangkok</strong> ฿3,300 · Vanilla Sky Rooftop Bar ชั้น 35 วิว 360 องศา PRIME Steakhouse คะแนน 9.0 จาก 589 รีวิว เดิน 3 นาทีถึง BTS" },
-    { "icon": "🌿", "head": "มาเป็นครอบครัว ต้องการพื้นที่กว้าง กีฬาครบ และสวนสาธารณะ", "bodyHtml": "→ <strong>Marriott Executive Apartments Sukhumvit Park</strong> ฿4,200 · ติด Benjasiri Park เดิน 1 นาที เทนนิส สควอช ซิมกอล์ฟ คิดส์คลับ ครัวครบทุกยูนิต คะแนน 9.1" },
-    { "icon": "🏥", "head": "มาโรงพยาบาลเมดพาร์คหรือต้องการ 5 ดาวฮิลตันในราคาสมเหตุสมผล", "bodyHtml": "→ <strong>DoubleTree by Hilton Sukhumvit</strong> ฿3,200 · ขับรถ ~10 นาทีถึงเมดพาร์ค The Ritual Hub กิจกรรมฟรี คะแนน 8.9 จาก 664 รีวิว" },
-    { "icon": "🍳", "head": "อยากได้บุฟเฟ่ต์เช้าระดับดีที่สุดในย่านและ rooftop bar", "bodyHtml": "→ <strong>Bangkok Marriott Marquis Queen's Park</strong> ฿4,800 · Goji Kitchen+Bar บุฟเฟ่ต์เช้าที่คนยกว่าดีที่สุดในกรุงเทพ ABar Rooftop วิวเมือง 2,433 รีวิว" },
-    { "icon": "🛍️", "head": "ต้องการ 4 ดาวแบรนด์ IHG ราคากลางๆ ทำเลเดิน EmSphere ได้เลย", "bodyHtml": "→ <strong>Holiday Inn Bangkok Sukhumvit 22</strong> ฿2,900 · ทางเชื่อมตรง EmSphere เดิน 5 นาทีถึง BTS พร้อมพงษ์ สระว่ายน้ำชั้น 8 1,284 รีวิว" },
-    { "icon": "🅿️", "head": "ต้องการที่จอดรถฟรีหรืองบน้อยแต่ทำเลดีในซอย 18", "bodyHtml": "→ <strong>Park Plaza Bangkok Soi 18</strong> ฿1,900 · ที่จอดรถฟรี Rooftop Sway Pool วิวเมือง เดิน 5 นาทีถึง BTS อโศก 2,643 รีวิว หรือ <strong>Maitria Hotel Sukhumvit 18</strong> ฿1,900 · ที่จอดรถฟรี + EV Charging Rooftop Saltwater Pool ทำเลเดียวกัน" }
+    {
+      "icon": "🚇",
+      "head": "ต้องการติด BTS พร้อมพงษ์ตรงประตู ช้อปปิ้ง EM District ได้เลย",
+      "bodyHtml": "→ <strong>Emporium Suites by Chatrium</strong> ฿4,500 · เชื่อมตรง BTS พร้อมพงษ์ผ่านสะพานลอย Emporium ไม่โดนแดดเลย ห้อง 55 ตร.ม.+ ครัวครบ คะแนน 9.0"
+    },
+    {
+      "icon": "🏊",
+      "head": "ต้องการสระว่ายน้ำวิวเมืองและห้องกว้าง ราคาคุ้ม",
+      "bodyHtml": "→ <strong>Oakwood Suites Bangkok</strong> ฿3,500 · Infinity Pool สอลท์วอเตอร์บนดาดฟ้า ทุกยูนิตมีครัวครบ เครื่องซักผ้า คะแนนสูงสุด 9.1 จาก 676 รีวิว"
+    },
+    {
+      "icon": "🌆",
+      "head": "อยากได้บาร์วิวกรุงเทพชั้น 35 และห้องพักระดับ 5 ดาว",
+      "bodyHtml": "→ <strong>SKYVIEW Hotel Bangkok</strong> ฿3,300 · Vanilla Sky Rooftop Bar ชั้น 35 วิว 360 องศา PRIME Steakhouse คะแนน 9.0 จาก 589 รีวิว เดิน 3 นาทีถึง BTS"
+    },
+    {
+      "icon": "🌿",
+      "head": "มาเป็นครอบครัว ต้องการพื้นที่กว้าง กีฬาครบ และสวนสาธารณะ",
+      "bodyHtml": "→ <strong>Marriott Executive Apartments Sukhumvit Park</strong> ฿4,200 · ติด Benjasiri Park เดิน 1 นาที เทนนิส สควอช ซิมกอล์ฟ คิดส์คลับ ครัวครบทุกยูนิต คะแนน 9.1"
+    },
+    {
+      "icon": "🏥",
+      "head": "มาโรงพยาบาลเมดพาร์คหรือต้องการ 5 ดาวฮิลตันในราคาสมเหตุสมผล",
+      "bodyHtml": "→ <strong>DoubleTree by Hilton Sukhumvit</strong> ฿3,200 · ขับรถ ~10 นาทีถึงเมดพาร์ค The Ritual Hub กิจกรรมฟรี คะแนน 8.9 จาก 664 รีวิว"
+    },
+    {
+      "icon": "🍳",
+      "head": "อยากได้บุฟเฟ่ต์เช้าระดับดีที่สุดในย่านและ rooftop bar",
+      "bodyHtml": "→ <strong>Bangkok Marriott Marquis Queen's Park</strong> ฿4,800 · Goji Kitchen+Bar บุฟเฟ่ต์เช้าที่คนยกว่าดีที่สุดในกรุงเทพ ABar Rooftop วิวเมือง 2,433 รีวิว"
+    },
+    {
+      "icon": "🛍️",
+      "head": "ต้องการ 4 ดาวแบรนด์ IHG ราคากลางๆ ทำเลเดิน EmSphere ได้เลย",
+      "bodyHtml": "→ <strong>Holiday Inn Bangkok Sukhumvit 22</strong> ฿2,900 · ทางเชื่อมตรง EmSphere เดิน 5 นาทีถึง BTS พร้อมพงษ์ สระว่ายน้ำชั้น 8 1,284 รีวิว"
+    },
+    {
+      "icon": "🅿️",
+      "head": "ต้องการที่จอดรถฟรีหรืองบน้อยแต่ทำเลดีในซอย 18",
+      "bodyHtml": "→ <strong>Park Plaza Bangkok Soi 18</strong> ฿1,900 · ที่จอดรถฟรี Rooftop Sway Pool วิวเมือง เดิน 5 นาทีถึง BTS อโศก 2,643 รีวิว หรือ <strong>Maitria Hotel Sukhumvit 18</strong> ฿1,900 · ที่จอดรถฟรี + EV Charging Rooftop Saltwater Pool ทำเลเดียวกัน"
+    }
   ],
   "noteHtml": "📌 <strong>หมายเหตุ:</strong> ราคาทั้งหมดเป็นราคาเริ่มประมาณจากช่วงราคาห้องมาตรฐาน อาจเปลี่ยนแปลงตามวันและฤดูกาล แนะนำเช็กราคาจริงและเทียบ 3 เว็บก่อนจองทุกครั้ง · คะแนนและข้อมูลในบทความนี้มาจากการอ่านเสียงรีวิวจริงของแขกบนแพลตฟอร์มจอง · ช่วง high season (พฤศจิกายน–กุมภาพันธ์) และวันหยุดยาวราคาสูงขึ้นและห้องหมดเร็ว ควรจองล่วงหน้า · บทความโดย <strong>ThailandAddict.com</strong>",
   "faqTitle": "FAQ — คำถามที่นักเดินทางถามบ่อยเรื่องโรงแรมย่านพร้อมพงษ์ กรุงเทพ",
