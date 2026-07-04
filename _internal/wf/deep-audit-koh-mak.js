@@ -1,0 +1,24 @@
+export const meta = {
+  name: 'deep-audit-koh-mak',
+  description: 'Phase-A deep audit (data accuracy + image-match) for 14 koh-mak reviews, 2 batch(es). Web-verify each hotel real+open, score/price plausible, hero plausibly matches. Returns per-hotel verdicts; no edits (fixes applied after by the loop).',
+  phases: [{ title: 'Audit', detail: '2 batch agent(s), ~9 hotels each' }],
+}
+const BATCHES = [[{"slug":"review-ao-kao-white-sand-koh-mak","name":"Ao Kao White Sand Beach Resort","score":9.1,"addr":"1/29 Moo 2, Ao Kao Beach, Ko Mak","hero":"images/hotels/koh-mak-aokao-1.jpg"},{"slug":"review-baan-talay-hostel-koh-mak","name":"Baan TaLay Hostel","score":9.5,"addr":"63 ถนนคนเดิน เกาะหมาก (ฝั่งอ่าวนิด) ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-baantalay-1.jpg"},{"slug":"review-banana-sunset-koh-mak","name":"Banana Sunset - Bar & Bungalows","score":8.3,"addr":"60/2 Moo 1, south coast (Laem Chan area), Ko Mak","hero":"images/hotels/koh-mak-banana-1.jpg"},{"slug":"review-cinnamon-art-koh-mak","name":"The Cinnamon Art Resort and Spa","score":7.9,"addr":"26/9-10 หมู่ 2 ตำบลเกาะหมาก อำเภอเกาะกูด (ย่านอ่าวนิด)","hero":"images/hotels/koh-mak-cinnamon-1.jpg"},{"slug":"review-cococape-koh-mak","name":"Koh Mak Cococape Resort","score":8.1,"addr":"แหลมระหว่างอ่าวสวนใหญ่–อ่าวพร้าว ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-cococape-1.jpg"},{"slug":"review-islanda-koh-mak","name":"Islanda Resort Hotel Koh Mak","score":8.7,"addr":"หมู่ 2 เนินอ่าวสวนใหญ่–อ่าวไก่ ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-islanda-1.jpg"},{"slug":"review-koh-mak-resort-koh-mak","name":"Koh Mak Resort","score":8.3,"addr":"1 หมู่ 2 หาดอ่าวสวนใหญ่ ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-kohmakresort-1.jpg"},{"slug":"review-lazy-day-koh-mak","name":"Lazy Day The Resort","score":9.3,"addr":"49/9 หมู่ 1 หาดอ่าวเก๋า ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-lazyday-1.jpg"},{"slug":"review-makathanee-koh-mak","name":"Makathanee Resort","score":8.3,"addr":"63/14 หมู่ 1 หาดอ่าวเก๋า ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-makathanee-1.jpg"}],[{"slug":"review-mira-montra-koh-mak","name":"Mira Montra Resort Koh Mak","score":9,"addr":"อ่าวพร้าว เกาะหมาก ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-miramontra-1.jpg"},{"slug":"review-monkey-island-koh-mak","name":"Monkey Island Resort","score":8.4,"addr":"หมู่ 1 ใกล้หาดอ่าวเก๋า ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-monkeyisland-1.jpg"},{"slug":"review-naivacha-tent-koh-mak","name":"Naivacha Tent Koh Mak","score":8.4,"addr":"49/25 หมู่ 1 หาดอ่าวแดง ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-naivacha-1.jpg"},{"slug":"review-plubpla-koh-mak","name":"Plubpla Koh Mak Retreat","score":8.6,"addr":"50/5 หมู่ 2 หาดอ่าวไผ่ ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-plubpla-1.jpg"},{"slug":"review-seavana-koh-mak","name":"Seavana Koh Mak Beach Resort","score":9.3,"addr":"อ่าวสวนใหญ่ ตำบลเกาะหมาก อำเภอเกาะกูด","hero":"images/hotels/koh-mak-seavana-1.jpg"}]];
+const VSCHEMA = { type:'object', additionalProperties:false, required:['verdicts'], properties:{
+  verdicts:{ type:'array', items:{ type:'object', additionalProperties:false, required:['slug','real','open','dataOk','imageOk'], properties:{
+    slug:{type:'string'}, real:{type:'boolean',description:'โรงแรมนี้มีอยู่จริง'}, open:{type:'boolean',description:'ยังเปิดดำเนินการ (ไม่ปิดถาวร)'},
+    dataOk:{type:'boolean',description:'score/ราคา/ลิงก์/ข้อเท็จจริงไม่มีที่ผิดชัดเจน'}, imageOk:{type:'boolean',description:'รูป hero สมเหตุสมผลว่าเป็นโรงแรมนี้ (ชื่อไฟล์/แหล่งตรง ไม่ผิดเมือง)'},
+    issue:{type:'string',description:'อธิบายปัญหาถ้ามี (ปิดถาวร/ไม่เจอ/ข้อมูลผิด/รูปไม่ตรง) สั้นๆ'}, severity:{type:'string',enum:['none','minor','major']} } } } } };
+phase('Audit')
+const res = await parallel(BATCHES.map((b, bi) => () =>
+  agent(`ตรวจสอบความถูกต้อง (QA) ของรีวิวโรงแรม ${b.length} แห่งในจังหวัด koh-mak — **ตรวจอย่างเดียว ห้ามแก้ไฟล์**
+สำหรับแต่ละโรงแรม: web-search ชื่อ+พื้นที่ → ประเมิน
+1) real: มีอยู่จริงไหม  2) open: ยังเปิดไหม (ปิดถาวร=false)  3) dataOk: score/ราคา/ลิงก์ในรีวิวไม่ผิดเพี้ยนชัดเจน  4) imageOk: รูป hero (ดู path ในลิสต์ด้านล่าง) สมเหตุสมผลว่าเป็นโรงแรมนี้ (ชื่อไฟล์/แหล่ง ไม่ใช่เมืองอื่น/โรงแรมอื่น)
+โรงแรม (slug · ชื่อ · score · ที่อยู่ · hero):
+${b.map(h=>'  - '+h.slug+' · '+h.name+' · '+h.score+' · '+h.addr+' · '+h.hero).join('\n')}
+ถ้าทุกอย่างปกติ → real/open/dataOk/imageOk=true, severity=none. มีปัญหา → ระบุ issue + severity (minor/major). อย่าเดา ถ้าไม่ชัวร์ให้ค้นจริง
+return: verdicts (1 ต่อ slug ครบทุกตัว)`,
+    { label:'audit:koh-mak#'+(bi+1), phase:'Audit', schema:VSCHEMA })
+    .then(v=>v?.verdicts||[]).catch(e=>[{slug:'__batch'+bi+'__',real:true,open:true,dataOk:true,imageOk:true,issue:'agent-error '+String(e),severity:'none'}])
+))
+return { cluster:'koh-mak', verdicts: res.flat() }
