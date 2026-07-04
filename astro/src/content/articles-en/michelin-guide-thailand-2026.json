@@ -74,6 +74,90 @@
    ]
   },
   {
+   "__finder": true,
+   "kind": "cta",
+   "text": "Filter all 485 restaurants by star, province & cuisine",
+   "href": "michelin-finder.html",
+   "label": "Open the Michelin Finder"
+  },
+  {
+   "__prov": true,
+   "kind": "table",
+   "caption": "Michelin by province — jump to a full local guide",
+   "headers": [
+    "Province",
+    "Restaurants",
+    "Mix"
+   ],
+   "rows": [
+    [
+     "<a href=\"michelin-phuket.html\">Phuket</a>",
+     "20",
+     "⭐ 1 · 🍜 19"
+    ],
+    [
+     "<a href=\"michelin-chiang-mai.html\">Chiang Mai</a>",
+     "18",
+     "🍜 18"
+    ],
+    [
+     "<a href=\"michelin-khon-kaen.html\">Khon Kaen</a>",
+     "11",
+     "🍜 11"
+    ],
+    [
+     "<a href=\"michelin-surat-thani.html\">Surat Thani</a>",
+     "9",
+     "🍜 9"
+    ],
+    [
+     "<a href=\"michelin-ayutthaya.html\">Ayutthaya</a>",
+     "8",
+     "🍜 8"
+    ],
+    [
+     "<a href=\"michelin-nakhon-ratchasima.html\">Nakhon Ratchasima</a>",
+     "8",
+     "🍜 8"
+    ],
+    [
+     "<a href=\"michelin-nonthaburi.html\">Nonthaburi</a>",
+     "7",
+     "⭐ 2 · 🍜 5"
+    ],
+    [
+     "<a href=\"michelin-phang-nga.html\">Phang Nga</a>",
+     "7",
+     "⭐ 1 · 🍜 6"
+    ],
+    [
+     "<a href=\"michelin-udon-thani.html\">Udon Thani</a>",
+     "6",
+     "🍜 6"
+    ],
+    [
+     "<a href=\"michelin-chon-buri.html\">Chon Buri</a>",
+     "5",
+     "🍜 5"
+    ],
+    [
+     "<a href=\"michelin-nakhon-pathom.html\">Nakhon Pathom</a>",
+     "3",
+     "🍜 3"
+    ],
+    [
+     "<a href=\"michelin-pathum-thani.html\">Pathum Thani</a>",
+     "3",
+     "🍜 3"
+    ],
+    [
+     "<a href=\"michelin-ubon-ratchathani.html\">Ubon Ratchathani</a>",
+     "3",
+     "🍜 3"
+    ]
+   ]
+  },
+  {
    "kind": "h2",
    "text": "⭐⭐⭐ Three Stars — 2 restaurants (both in Bangkok)",
    "id": "three-star"
@@ -1297,6 +1381,10 @@
   }
  ],
  "related": [
+  {
+   "href": "michelin-finder.html",
+   "title": "🔎 Michelin Finder (filter 485)"
+  },
   {
    "href": "bangkok-michelin-fine-dining.html",
    "title": "🍽️ Michelin & Fine Dining in Bangkok"
