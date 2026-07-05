@@ -96,6 +96,10 @@ const CATALOG = {
   'akha-cooking':      '10239-thai-akha-kitchen-cooking-class-local-market-tour-chiang-mai',
   'phuket-streetfood': '80104-join-phuket-old-town-street-food-walking-tour-phuket',         // websearch-verified
   'phuket-michelin':   '31293-phuket-michelin-guide-food-tour-old-town',                     // websearch-verified
+  // wave 10 (2026-07-06): rayong (koh samet) + ratchaburi (damnoen)
+  'kohsamet-day':      '150194-koh-samet-island-day-tour-from-bangkok-pattaya',              // websearch-verified
+  'kohsamet-9island':  '138440-koh-samet-exclusive-9-island-snorkeling-trip',               // websearch-verified
+  'damnoen-ratchaburi':'98608-floating-market-ratchaburi-landmark-private-one-day-tour-bangkok', // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -606,6 +610,10 @@ const IT = {
   paiPrivate:  { key: 'pai-day-private',  emoji: '🚐', th: ['เดย์ทัวร์ปาย รถส่วนตัว', 'จัดจังหวะเองได้ เหมาะมากันเป็นกลุ่ม'], en: ['Pai private day tour', 'Your own pace — good for groups'] },
   cheowlan:    { key: 'cheowlan-day',     emoji: '🛶', th: ['เดย์ทัวร์เขื่อนเชี่ยวหลาน เรือหางยาว', 'ล่องทะเลสาบ เข้าถ้ำ กินข้าวแพกลางน้ำ'], en: ['Cheow Lan Lake day tour by longtail', 'Lake cruise, cave & floating-raft lunch'] },
   amphawaFire: { key: 'amphawa-firefly', emoji: '✨', th: ['อัมพวา + ล่องเรือดูหิ่งห้อย', 'ตลาดน้ำยามเย็น ปิดท้ายด้วยหิ่งห้อย'], en: ['Amphawa + firefly boat ride', 'Evening market, firefly cruise to finish'] },
+  // wave 10
+  kohSametDay: { key: 'kohsamet-day',     emoji: '🏖️', th: ['เดย์ทัวร์เกาะเสม็ด', 'เรือไป-กลับ + เที่ยวหาดทรายขาว'], en: ['Koh Samet island day tour', 'Round-trip boat + white-sand beaches'] },
+  kohSamet9:   { key: 'kohsamet-9island', emoji: '🤿', th: ['ทัวร์ 9 เกาะรอบเสม็ด ดำน้ำตื้น', 'สปีดโบ๊ตเก็บหลายเกาะในวันเดียว'], en: ['Koh Samet 9-island snorkeling trip', 'Speedboat, several islands in a day'] },
+  damnoenRat:  { key: 'damnoen-ratchaburi', emoji: '🛶', th: ['ตลาดน้ำดำเนินสะดวก + แลนด์มาร์กราชบุรี', 'เดย์ทัวร์ส่วนตัวจากกรุงเทพ'], en: ['Damnoen Saduak + Ratchaburi landmarks', 'Private day tour from Bangkok'] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -672,6 +680,17 @@ BATCHES.wave9 = {
   ...clusterItin('khao-yai',            S(IT.khaoyaiFull)),
   ...clusterItin('nakhon-ratchasima',   S(IT.khaoyaiFull)),
   ...clusterItin('surat-thani',         S(IT.cheowlan, IT.kohTao, IT.angThong)),
+};
+
+// ---- wave 10: rayong (koh samet) + ratchaburi (damnoen) — attractions + itineraries ----
+BATCHES.wave10 = {
+  ...clusterItin('rayong', S(IT.kohSametDay, IT.kohSamet9)),
+  'koh-samet-guide':    S(IT.kohSametDay, IT.kohSamet9),
+  'koh-samet-beaches':  S(IT.kohSametDay, IT.kohSamet9),
+  'rayong-attractions': S(IT.kohSametDay, IT.kohSamet9),
+  ...clusterItin('ratchaburi', S(IT.damnoenRat, IT.damnoen)),
+  'damnoen-saduak-floating-market': S(IT.damnoenRat, IT.damnoen),
+  'ratchaburi-attractions':         S(IT.damnoenRat, IT.damnoen),
 };
 
 const batchName = process.argv[2];
