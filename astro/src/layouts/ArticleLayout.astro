@@ -48,7 +48,28 @@ const isAttractionList = isResto && /^top10-attractions-/.test(data.slug);
 const QA_RE = /^\s*<strong>\s*(?:คำตอบสั้น|Short answer)/i;
 const _blocks = data.blocks ?? [];
 const _leadQA = !(data as any).quickAnswerHtml && !isResto && _blocks[0] && _blocks[0].kind === 'p' && QA_RE.test(_blocks[0].html || '');
-const quickAnswerHtml = (data as any).quickAnswerHtml || (_leadQA ? _blocks[0].html : '');
+// Derive a "#1 pick" answer from the first ranked/restaurant block when there's no hand-written one (AEO + Speakable coverage).
+const _pickBlk = (!(data as any).quickAnswerHtml && !_leadQA) ? _blocks.find((b) => b.kind === 'ranked' || b.kind === 'restaurant') : null;
+let _derivedQA = '';
+if (_pickBlk) {
+  const _isRes = _pickBlk.kind === 'restaurant';
+  const _p = _isRes ? _pickBlk : (((_pickBlk as any).items || []).find((x) => String(x.rank) === '1') || ((_pickBlk as any).items || [])[0]);
+  if (_p && _p.name) {
+    let _price = String(_p.price || _p.priceRange || '').split(/\s+[·(]/)[0].trim();
+    if (_price.length > 30) _price = '';
+    let _ex = [];
+    if (_isRes) {
+      _ex = [_p.cuisine, _p.area].filter(Boolean).map((s) => String(s).replace(/<[^>]+>/g, '').trim())
+        .filter(Boolean).map((s) => s.length > 44 ? s.slice(0, 44).trim() + '…' : s).slice(0, 2);
+    } else {
+      const _bl = String(_p.blurb || '').replace(/<[^>]+>/g, '').trim();
+      if (_bl) _ex = [_bl.length > 90 ? _bl.slice(0, 90).replace(/\s+\S*$/, '') + '…' : _bl];
+    }
+    const _lead = isEn ? 'Our #1 pick is' : 'อันดับ 1 คือ';
+    _derivedQA = `${_lead} <strong>${_p.name}</strong>${_price ? ` (${_price})` : ''}${_ex.length ? ` · ${_ex.join(' · ')}` : ''}`;
+  }
+}
+const quickAnswerHtml = (data as any).quickAnswerHtml || (_leadQA ? _blocks[0].html : '') || _derivedQA;
 const bodyBlocks = _leadQA ? _blocks.slice(1) : _blocks;
 // ── HowTo schema — only for genuinely procedural pages (transport routes, getting-around, visa/eSIM/safety
 // how-tos), built from the article's own h2 sections. Never where-to-stay / comparisons / listicles / attractions.

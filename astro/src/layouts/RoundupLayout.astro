@@ -15,6 +15,15 @@ const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c0
 const base = isEn ? `${SITE}/en` : SITE;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
+// AEO answer block — derive an extractable, Speakable "#1 pick" answer from the TOC when there's no hand-written quickAnswerHtml.
+const _n1 = (data.toc && data.toc[0]) ? data.toc[0] : null;
+const _tocN = (data.toc || []).length;
+const _derivedQA = (!(data as any).quickAnswerHtml && _n1 && _n1.name)
+  ? (isEn
+      ? `Our #1 pick is <strong>${_n1.name}</strong>${_n1.price ? ` (${_n1.price})` : ''} · from ${_tocN} places compared in this guide`
+      : `อันดับ 1 คือ <strong>${_n1.name}</strong>${_n1.price ? ` (${_n1.price})` : ''} · คัดจากทั้งหมด ${_tocN} ที่ในบทความนี้`)
+  : '';
+const qaHtml = (data as any).quickAnswerHtml || _derivedQA;
 const today = '2026-05-17';
 
 // Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
@@ -160,7 +169,7 @@ const article = {
   publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
   datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
 };
-const speakable = (data as any).quickAnswerHtml ? [{ '@type': 'WebPage', '@id': `${url}#webpage`, url, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } }] : [];
+const speakable = qaHtml ? [{ '@type': 'WebPage', '@id': `${url}#webpage`, url, speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } }] : [];
 const schema = { '@context': 'https://schema.org', '@graph': [itemList, breadcrumb, article, ...speakable] };
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -430,11 +439,11 @@ const splitSource = (s: any): { label: string; url: string | null } => {
     </div>
   )}
 
-  {(data as any).quickAnswerHtml && (
+  {qaHtml && (
     <aside class="quick-answer rv">
       <div class="qa-eyebrow">{S.quickAnswerEyebrow}</div>
       {(data as any).quickAnswerH2 && <h2>{(data as any).quickAnswerH2}</h2>}
-      <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
+      <div class="qa-body" set:html={qaHtml}></div>
     </aside>
   )}
 
