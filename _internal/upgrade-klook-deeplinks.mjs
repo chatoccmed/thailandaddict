@@ -40,6 +40,7 @@ const CATALOG = {
   'khai-phiphi-bond':  '3250-khai-islands-phi-phi-james-bond-phuket-speedboat',
   'phiphi-snorkel':    '6556-phi-phi-island-snorkeling-day-trip-phuket',
   'similan-snorkel':   '14828-similan-islands-snorkeling-tour-phuket',
+  'similan-khaolak':   '78693-similan-island-day-trip-phuket-khaolak-round-transfer',
   'phuket-elephant':   '28486-phuket-elephant-sanctuary-experience',
   'simon-cabaret':     '292-simon-cabaret-show-phuket',
   'fantasea':          '294-phuket-fantasea-phuket',
@@ -81,6 +82,9 @@ const CATALOG = {
   'vana-nava':         '3871-vana-nava-waterpark-hua-hin',                                   // websearch-verified
   'santorini-water':   '4209-santorini-park-waterventures-day-pass-hua-hin',                 // websearch-verified
   'huahin-zipline':    '44174-zipline-experience-hua-hin',
+  // wave 3 (2026-07-06): sukhothai (rest reuse existing keys)
+  'sukhothai-cycling': '42956-cycling-sukhothai-historical-park-half-day-tour',              // websearch-verified
+  'sukhothai-sunset':  '44549-sunset-cycling-tour-sukhothai',                                // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -404,6 +408,74 @@ const BATCHES = {
     // ayutthaya wat pages we can't confirm on itineraries / bang-pa-in / river-cruise / night-temples / bike /
     // khaoyai waterfalls/farms/wineries/palio / huahin beaches/station/plearn-wan/sheep-farm/khao-takiab etc.:
     // no verified matching product — keep search
+  },
+  wave3: { // chonburi + nakhon-ratchasima + prachuap + phang-nga + phetchaburi + sukhothai (province twins reuse verified slugs)
+    'sanctuary-of-truth-guide': [
+      { i: 0, key: 'sanctuary-truth', emoji: '🏛️', th: ['ตั๋วปราสาทสัจธรรม', 'จองล่วงหน้า เข้าชมงานไม้ริมทะเล'], en: ['Sanctuary of Truth ticket', 'Book ahead for the seaside wood temple'] },
+      { i: 1, key: 'kohlarn-combo', emoji: '🚤', th: ['เดย์ทัวร์เกาะล้าน + สัจธรรม + จุดชมวิว', 'เก็บไฮไลต์พัทยาในวันเดียว'], en: ['Koh Larn + Sanctuary + viewpoint day tour', 'Pattaya highlights in one day'] },
+    ],
+    'nong-nooch-garden-guide': [
+      { i: 0, key: 'nong-nooch', emoji: '🌴', th: ['ตั๋วสวนนงนุช', 'สวนพฤกษศาสตร์ + โชว์วัฒนธรรม-ช้าง'], en: ['Nong Nooch Garden ticket', 'Botanical park with cultural & elephant shows'] },
+    ],
+    'koh-larn-guide': [
+      { i: 0, key: 'kohlarn-combo', emoji: '🚤', th: ['เดย์ทัวร์เกาะล้าน + สัจธรรม + จุดชมวิว', 'รวมเรือไป-กลับเกาะล้าน'], en: ['Koh Larn + Sanctuary + viewpoint day tour', 'Boat to Koh Larn included'] },
+    ],
+    'pattaya-viewpoint-guide': [
+      { i: 0, key: 'kohlarn-combo', emoji: '🚤', th: ['เดย์ทัวร์เกาะล้าน + สัจธรรม + จุดชมวิว', 'มีแวะจุดชมวิวพัทยาด้วย'], en: ['Koh Larn + Sanctuary + viewpoint day tour', 'Includes the Pattaya viewpoint stop'] },
+    ],
+    'chonburi-attractions': [
+      { i: 0, key: 'sanctuary-truth', emoji: '🏛️', th: ['ตั๋วปราสาทสัจธรรม', 'แลนด์มาร์กงานไม้ริมทะเลพัทยา'], en: ['Sanctuary of Truth ticket', "Pattaya's wood-carved seaside landmark"] },
+      { i: 1, key: 'nong-nooch', emoji: '🌴', th: ['ตั๋วสวนนงนุช', 'สวนพฤกษศาสตร์ + โชว์วัฒนธรรม-ช้าง'], en: ['Nong Nooch Garden ticket', 'Botanical park with cultural & elephant shows'] },
+    ],
+    'khao-yai-national-park-guide': [
+      { i: 0, key: 'khaoyai-fullday', emoji: '🌳', th: ['เดย์ทัวร์อุทยานแห่งชาติเขาใหญ่', 'เดินเทรล ส่องสัตว์ จากกรุงเทพ'], en: ['Khao Yai National Park full-day tour', 'Trails & wildlife, from Bangkok'] },
+    ],
+    'korat-attractions': [
+      { i: 0, key: 'khaoyai-fullday', emoji: '🌳', th: ['เดย์ทัวร์อุทยานแห่งชาติเขาใหญ่', 'ไฮไลต์ธรรมชาติของโคราช'], en: ['Khao Yai National Park full-day tour', "Korat's headline nature trip"] },
+    ],
+    'prachuap-attractions': [
+      { i: 0, key: 'vana-nava', emoji: '💦', th: ['ตั๋ว Vana Nava Water Jungle หัวหิน', 'สวนน้ำใหญ่ของจังหวัด'], en: ['Vana Nava Water Jungle ticket, Hua Hin', "The province's big water park"] },
+      { i: 1, key: 'huahin-zipline', emoji: '🌲', th: ['ซิปไลน์หัวหิน', 'กิจกรรมโหนสลิงในป่าใกล้เมือง'], en: ['Hua Hin zipline experience', 'Forest ziplines close to town'] },
+    ],
+    'similan-islands-guide': [
+      { i: 0, key: 'similan-snorkel', emoji: '🐠', th: ['ทัวร์ดำน้ำตื้นหมู่เกาะสิมิลัน', 'ออกจากภูเก็ต (เปิดตามฤดูกาล)'], en: ['Similan Islands snorkeling tour', 'From Phuket (seasonal opening)'] },
+      { i: 1, key: 'similan-khaolak', emoji: '🚤', th: ['สิมิลันเดย์ทริป รับส่งภูเก็ต/เขาหลัก', 'จุดขึ้นเรืออยู่ฝั่งเขาหลัก'], en: ['Similan day trip, Phuket/Khao Lak transfer', 'Boats depart from the Khao Lak side'] },
+    ],
+    'khao-lak-guide': [
+      { i: 0, key: 'similan-khaolak', emoji: '🐠', th: ['เดย์ทริปสิมิลันจากเขาหลัก', 'จุดขึ้นเรือหลักไปสิมิลัน'], en: ['Similan day trip from Khao Lak', 'The main jump-off point for the Similans'] },
+    ],
+    'phang-nga-bay-james-bond': [
+      { i: 0, key: 'jamesbond-longtail', emoji: '🛶', th: ['เกาะเจมส์บอนด์ด้วยเรือหางยาว', 'ล่องอ่าวพังงาแบบดั้งเดิม พายแคนูถ้ำลอด'], en: ['James Bond Island by longtail boat', 'Classic Phang Nga Bay route with canoeing'] },
+      { i: 1, key: 'jamesbond-bigboat', emoji: '🚤', th: ['เดย์ทัวร์เจมส์บอนด์ เรือใหญ่ + สปีดโบ๊ต', 'ทางเลือกนั่งสบาย คลื่นน้อย'], en: ['James Bond day tour: big boat + speedboat', 'The comfier, calmer ride'] },
+    ],
+    'phang-nga-sea-canoe': [
+      { i: 0, key: 'jamesbond-longtail', emoji: '🛶', th: ['ทัวร์อ่าวพังงา + พายแคนูถ้ำลอด', 'รวมพายแคนูชมถ้ำ-ลากูน'], en: ['Phang Nga Bay tour with sea canoeing', 'Canoe through caves & lagoons included'] },
+    ],
+    'phang-nga-attractions': [
+      { i: 0, key: 'jamesbond-longtail', emoji: '🛶', th: ['เกาะเจมส์บอนด์ด้วยเรือหางยาว', 'ไฮไลต์อ่าวพังงา'], en: ['James Bond Island by longtail boat', 'The Phang Nga Bay highlight'] },
+      { i: 1, key: 'similan-snorkel', emoji: '🐠', th: ['ทัวร์ดำน้ำตื้นหมู่เกาะสิมิลัน', 'ทะเลใสอันดับต้นของไทย (ตามฤดูกาล)'], en: ['Similan Islands snorkeling tour', 'Some of the clearest sea in Thailand (seasonal)'] },
+    ],
+    'cha-am-beach-guide': [
+      { i: 0, key: 'santorini-water', emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures', 'สวนน้ำธีมกรีซของชะอำ'], en: ['Santorini Park Waterventures pass', "Cha-am's Greek-themed water park"] },
+    ],
+    'phetchaburi-attractions': [
+      { i: 0, key: 'santorini-water', emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures (ชะอำ)', 'สวนน้ำธีมกรีซในจังหวัด'], en: ['Santorini Park Waterventures (Cha-am)', "The province's Greek-themed water park"] },
+    ],
+    'sukhothai-historical-park-guide': [
+      { i: 0, key: 'sukhothai-cycling', emoji: '🚲', th: ['ปั่นจักรยานชมอุทยานประวัติศาสตร์', 'ครึ่งวัน มีไกด์นำ'], en: ['Sukhothai Historical Park cycling tour', 'Half day with a guide'] },
+      { i: 1, key: 'sukhothai-sunset', emoji: '🌅', th: ['ปั่นชมพระอาทิตย์ตกที่สุโขทัย', 'รอบเย็น แสงสวยสุดของอุทยาน'], en: ['Sukhothai sunset cycling tour', "Evening ride in the park's best light"] },
+    ],
+    'sukhothai-old-city-cycling': [
+      { i: 0, key: 'sukhothai-cycling', emoji: '🚲', th: ['ปั่นจักรยานชมอุทยานประวัติศาสตร์', 'ครึ่งวัน มีไกด์นำ'], en: ['Sukhothai Historical Park cycling tour', 'Half day with a guide'] },
+      { i: 1, key: 'sukhothai-sunset', emoji: '🌅', th: ['ปั่นชมพระอาทิตย์ตกที่สุโขทัย', 'รอบเย็น แสงสวยสุดของอุทยาน'], en: ['Sukhothai sunset cycling tour', "Evening ride in the park's best light"] },
+    ],
+    'sukhothai-attractions': [
+      { i: 0, key: 'sukhothai-cycling', emoji: '🚲', th: ['ปั่นจักรยานชมอุทยานประวัติศาสตร์', 'วิธีเที่ยวอุทยานที่คนนิยมสุด'], en: ['Sukhothai Historical Park cycling tour', 'The classic way to see the park'] },
+    ],
+    // bangsaen/sriracha/sattahip/khao-chi-chan/khao-sam-muk/pattaya-beach/floating-market · korat phimai/old-town/
+    // dam/silk/petrified-wood/thao-suranari/wat-ban-rai · prachuap hua-hin twins/sam-roi-yot/phraya-nakhon/rajabhakti ·
+    // phang-nga koh-yao/surin/takua-pa/wat-tham/samet-nangshe/waterfalls · phetchaburi palaces/caves/temples/kaeng-krachan ·
+    // sukhothai si-satchanalai/wat pages/loy-krathong/kilns · rayong/satun ทั้งจังหวัด: no verified product — keep search
   },
 };
 
