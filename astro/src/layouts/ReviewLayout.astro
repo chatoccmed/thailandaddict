@@ -472,7 +472,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   </style>
 
   <div class="fade-up byline">
-    <div class="byline-av">{hasEditor ? (_edName.trim()[0] || 'T') : 'T'}</div>
+    <div class="byline-av">{hasEditor && String(_ed.image || '').trim()
+      ? <img src={asset(_ed.image)} alt={_edName} loading="lazy" onerror="this.replaceWith(document.createTextNode((this.alt||'T').charAt(0)))" />
+      : (hasEditor ? (_edName.trim()[0] || 'T') : 'T')}</div>
     <div>
       <div class="byline-name">{hasEditor ? bylineName : S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
       <div class="byline-text"><Fragment set:html={S.bylineText} /><a href={link('editorial-policy.html')}>{S.bylineLink}</a></div>
