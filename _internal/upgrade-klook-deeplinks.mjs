@@ -85,6 +85,11 @@ const CATALOG = {
   // wave 3 (2026-07-06): sukhothai (rest reuse existing keys)
   'sukhothai-cycling': '42956-cycling-sukhothai-historical-park-half-day-tour',              // websearch-verified
   'sukhothai-sunset':  '44549-sunset-cycling-tour-sukhothai',                                // websearch-verified
+  // wave 4 (2026-07-06): pai + koh chang
+  'pai-day-join':      '178066-pai-one-day-tour',                                            // websearch-verified
+  'pai-day-private':   '73843-pai-highlights-private-day-tour-from-chiang-mai',              // websearch-verified
+  'kohchang-speed':    '5920-speedboat-snorkeling-tour-koh-chang',                           // websearch-verified
+  'kohchang-kontiki':  '5958-kon-tiki-snorkeling-cruise-koh-chang',                          // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -476,6 +481,31 @@ const BATCHES = {
     // dam/silk/petrified-wood/thao-suranari/wat-ban-rai · prachuap hua-hin twins/sam-roi-yot/phraya-nakhon/rajabhakti ·
     // phang-nga koh-yao/surin/takua-pa/wat-tham/samet-nangshe/waterfalls · phetchaburi palaces/caves/temples/kaeng-krachan ·
     // sukhothai si-satchanalai/wat pages/loy-krathong/kilns · rayong/satun ทั้งจังหวัด: no verified product — keep search
+  },
+  wave4: { // mae-hong-son (pai) + trat (koh chang)
+    'pai-guide': [
+      { i: 0, key: 'pai-day-join', emoji: '⛰️', th: ['เดย์ทัวร์ปายจากเชียงใหม่ (จอยทัวร์)', 'ปายแคนยอน สะพานประวัติศาสตร์ หมู่บ้านสันติชล'], en: ['Pai day tour from Chiang Mai (join)', 'Pai Canyon, Memorial Bridge & Santichon'] },
+      { i: 1, key: 'pai-day-private', emoji: '🚐', th: ['เดย์ทัวร์ปาย รถส่วนตัว', 'จัดจังหวะเองได้ เหมาะมากันเป็นกลุ่ม'], en: ['Pai private day tour', 'Your own pace — good for groups'] },
+    ],
+    'pai-canyon-viewpoints': [
+      { i: 0, key: 'pai-day-join', emoji: '⛰️', th: ['เดย์ทัวร์ปาย (รวมปายแคนยอน)', 'ไปเช้าเย็นกลับจากเชียงใหม่'], en: ['Pai day tour (includes Pai Canyon)', 'Out and back from Chiang Mai'] },
+    ],
+    'mae-hong-son-attractions': [
+      { i: 0, key: 'pai-day-join', emoji: '⛰️', th: ['เดย์ทัวร์ปายจากเชียงใหม่', 'จุดเริ่มยอดนิยมของจังหวัด'], en: ['Pai day tour from Chiang Mai', "The province's most popular springboard"] },
+    ],
+    'koh-chang-guide': [
+      { i: 0, key: 'kohchang-speed', emoji: '🚤', th: ['ทัวร์ดำน้ำตื้น 4-5 เกาะ สปีดโบ๊ต', 'รอบอุทยานทางทะเลเกาะช้าง'], en: ['4-5 island snorkel tour by speedboat', 'Around the Koh Chang marine park'] },
+      { i: 1, key: 'kohchang-kontiki', emoji: '⛵', th: ['Kon Tiki ครูซดำน้ำตื้น', 'เรือใหญ่นั่งสบาย มีบุฟเฟต์กลางวัน'], en: ['Kon Tiki snorkeling cruise', 'Comfy big boat with lunch buffet'] },
+    ],
+    'trat-snorkeling-islands': [
+      { i: 0, key: 'kohchang-speed', emoji: '🚤', th: ['ทัวร์ดำน้ำตื้น 4-5 เกาะ สปีดโบ๊ต', 'เกาะหวาย เกาะเหลายา เกาะรัง'], en: ['4-5 island snorkel tour by speedboat', 'Koh Wai, Koh Laoya & Koh Rang'] },
+      { i: 1, key: 'kohchang-kontiki', emoji: '⛵', th: ['Kon Tiki ครูซดำน้ำตื้น', 'เรือใหญ่นั่งสบาย มีบุฟเฟต์กลางวัน'], en: ['Kon Tiki snorkeling cruise', 'Comfy big boat with lunch buffet'] },
+    ],
+    'trat-attractions': [
+      { i: 0, key: 'kohchang-speed', emoji: '🚤', th: ['ทัวร์ดำน้ำตื้นรอบเกาะช้าง', 'กิจกรรมทะเลหลักของจังหวัด'], en: ['Koh Chang snorkel tour', "The province's main sea outing"] },
+    ],
+    // ban-rak-thai/ban-ja-bo/pang-ung/tham-lod/bua-tong/sea-of-mist/doi-kong-mu/wat pages · koh-kood/koh-mak/
+    // klong-plu/naval-memorial/old-town/wat-buppharam/hat-lek: no verified product — keep search
   },
 };
 
