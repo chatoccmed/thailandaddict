@@ -65,7 +65,9 @@
 
 ## 1.5 แก้ไขระหว่างทำ audit นี้ (ไม่ต้องรอ Tier ไหนเลย — ทำเสร็จในตัว)
 - **Best of Thailand 2026 tentpole มี 0 monetization field** (agent เจอ — ตรวจสอบตรงว่าจริง ไม่มี stayHref/staycta/klook/agodaUrl เลยสักจุด ทั้งที่เพิ่ง build วันเดียวกัน) → **เติมแล้ว**: `rail` (hotel roundup กรุงเทพ/ภูเก็ต/เชียงใหม่) + `staycta` block (ลิงก์ Agoda ทั่วไทย cid=1965862) ทั้ง TH+EN, ยัง build-test ไม่เสร็จตอนเขียนไฟล์นี้ — ดูสถานะ build ก่อน commit
-- **2 data bug จากสุ่มตรวจ 213 hotel entries**: (1) `top10-chao-lao-beach-hotels-chanthaburi.json` — Seashell Village Resort: `tripUrl` = URL Agoda ซ้ำกับ `agodaUrl` (ปุ่ม "Trip.com" พาไป Agoda แทน — labeling ผิด ไม่ใช่ลิงก์ตาย) (2) `top10-hotels-kamphaeng-phet.json` — Wanalee Resort: ทั้ง 3 ช่อง (agoda/booking/trip) ชี้ไปเว็บ/FB ของโรงแรมเอง ไม่มี OTA จริงเลย — **ยังไม่แก้** ต้อง WebSearch หาลิงก์จริงก่อน (ห้ามกุ)
+- **2 data bug จากสุ่มตรวจ 213 hotel entries** — verify ด้วย WebSearch จริงแล้ว:
+  - **(1) แก้แล้ว** — `top10-chao-lao-beach-hotels-chanthaburi.json` (TH+EN) Seashell Village Resort: `tripUrl` เคยซ้ำกับ `agodaUrl` (ปุ่ม "Trip.com" พาไป Agoda) → verify ยืนยัน Agoda+Booking ถูกต้องอยู่แล้ว แต่หา Trip.com hotel-detail เฉพาะไม่เจอจริง → เปลี่ยนเป็น city-search fallback (`city=36043&keyword=Seashell...`) ซึ่งเป็น pattern จริงที่ไฟล์เดียวกันใช้อยู่แล้วกับโรงแรมอื่น (ไม่ได้กุ URL ใหม่)
+  - **(2) ยังไม่แก้ — ต้องตัดสินใจ template ก่อน** — `top10-hotels-kamphaeng-phet.json` Wanalee Resort: verify แล้วว่า**ไม่มีอยู่บน Agoda/Booking/Trip จริง** (รีสอร์ท 11 บังกะโล จองผ่านโทร/ไลน์เท่านั้น) — ปัญหาคือปุ่ม "Agoda/Booking.com/Trip.com" label ทั้ง 3 ปุ่ม hardcode ไว้ใน RoundupLayout ไม่ได้ผูกกับข้อมูลจริง จะแก้ให้ถูกต้อง (เช่น โชว์ "จองตรงกับรีสอร์ท" แทน) ต้องแก้ template ที่กระทบทุกโรงแรมอื่นด้วย — ควรสำรวจก่อนว่ามีโรงแรมแบบนี้ (ไม่มี OTA) กี่แห่งทั่วเว็บ แล้วค่อยตัดสินใจว่าจะทำ template variant ใหม่หรือไม่
 
 ## 2. ข้อแก้ไขข้อมูลเก่า (agent บางตัวรายงานผิดเพราะอ่าน doc เก่า)
 - **EEAT/บรรณาธิการ**: 2 agent อ้างว่ายัง "Organization" ทั่วเว็บ — **ผิด**, Doctor Chat Person schema+byline+รูปจริง live แล้วตั้งแต่ deploy `6f9cc417` ก่อนหน้านี้ในวันเดียวกัน
