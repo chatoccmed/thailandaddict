@@ -90,6 +90,12 @@ const CATALOG = {
   'pai-day-private':   '73843-pai-highlights-private-day-tour-from-chiang-mai',              // websearch-verified
   'kohchang-speed':    '5920-speedboat-snorkeling-tour-koh-chang',                           // websearch-verified
   'kohchang-kontiki':  '5958-kon-tiki-snorkeling-cruise-koh-chang',                          // websearch-verified
+  // wave 5 (2026-07-06): eat-ranking foodexp blocks
+  'arun-cooking':      '117838-arun-thai-cooking-class-with-market-tour-tuk-tuk',
+  'cm-streetfood':     '93022-chiang-mai-evening-street-food-walking-private-tour',          // websearch-verified
+  'akha-cooking':      '10239-thai-akha-kitchen-cooking-class-local-market-tour-chiang-mai',
+  'phuket-streetfood': '80104-join-phuket-old-town-street-food-walking-tour-phuket',         // websearch-verified
+  'phuket-michelin':   '31293-phuket-michelin-guide-food-tour-old-town',                     // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -509,6 +515,36 @@ const BATCHES = {
   },
 };
 
+// ---- wave 5: eat-ranking foodexp blocks (uniform slots per cluster → build programmatically) ----
+// slots: [0] food tour · [1] cooking class · [2] night market food · [3] GYG (untouched)
+const mk = (files, items) => Object.fromEntries(files.map(f => [f, items]));
+const BKK_FOOD = [
+  { i: 0, key: 'michelin-tuktuk', emoji: '🛺', th: ['ทัวร์ตุ๊กตุ๊กชิมร้านมิชลินยามค่ำ', 'มีคนท้องถิ่นพาตะลุยหลายร้าน'], en: ['Michelin street-food tuk-tuk night tour', 'A local steers you through the best stops'] },
+  { i: 1, key: 'arun-cooking', emoji: '👩‍🍳', th: ['คลาสทำอาหารไทย + เดินตลาดสด', 'นั่งตุ๊กตุ๊กไปตลาด แล้วลงมือทำเอง'], en: ['Thai cooking class with market tour', 'Tuk-tuk to the market, then cook it yourself'] },
+  { i: 2, key: 'midnight-food', emoji: '🌃', th: ['ฟู้ดทัวร์รอบดึกด้วยตุ๊กตุ๊ก', 'ชิมของกินเด็ดหลังพระอาทิตย์ตก'], en: ['Midnight food tour by tuk-tuk', 'Late-night eats after sundown'] },
+];
+const CM_FOOD = [
+  { i: 0, key: 'cm-streetfood', emoji: '🍜', th: ['ทัวร์สตรีทฟู้ดยามเย็นเชียงใหม่', 'เดินชิมย่านประตูเชียงใหม่กับไกด์'], en: ['Chiang Mai evening street-food walk', 'Graze the Chiang Mai Gate stalls with a guide'] },
+  { i: 1, key: 'akha-cooking', emoji: '👩‍🍳', th: ['คลาสทำอาหาร Thai Akha + เดินตลาดสด', 'อาหารไทย-อาข่า เริ่มจากตลาดท้องถิ่น'], en: ['Thai Akha cooking class with market tour', 'Thai-Akha dishes, starts at a local market'] },
+];
+const PKT_FOOD = [
+  { i: 0, key: 'phuket-streetfood', emoji: '🍜', th: ['ทัวร์สตรีทฟู้ดเมืองเก่าภูเก็ต', 'เดินชิมร้านดั้งเดิมกับคนท้องถิ่น'], en: ['Phuket old town street-food walk', 'Heritage eats with a local guide'] },
+];
+BATCHES.wave5 = {
+  ...mk(['bangkok-boat-noodles','bangkok-cafe-guide','bangkok-dessert-bakery','bangkok-mookata-buffet','bangkok-rooftop-bars','bangkok-seafood','bangkok-street-food-yaowarat','top10-popular-restaurants-bangkok'], BKK_FOOD),
+  ...mk(['chiang-mai-cafe-guide','chiang-mai-coffee-roasters','chiang-mai-dessert-bakery','chiang-mai-fine-dining','chiang-mai-mookata-buffet','chiang-mai-northern-cuisine','chiang-mai-riverside-restaurants','chiang-mai-vegetarian-vegan','top-khao-soi-chiang-mai','top10-popular-restaurants-chiang-mai'], CM_FOOD),
+  ...mk(['phuket-beach-bars-dining','phuket-dim-sum-breakfast','phuket-hokkien-mee','phuket-local-sweets','phuket-mookata-buffet','phuket-old-town-cafe','phuket-seafood','phuket-southern-food'], PKT_FOOD),
+  'phuket-michelin-fine-dining': [
+    { i: 0, key: 'phuket-michelin', emoji: '⭐', th: ['ฟู้ดทัวร์ตามรอยมิชลินไกด์ + เมืองเก่า', 'ชิมโอ้เอ๋ว หมี่ฮกเกี้ยน ร้านในไกด์'], en: ['Michelin Guide food tour + old town', 'Oh-aew, Hokkien mee & guide-listed stops'] },
+  ],
+  'top10-attractions-chiang-mai': [
+    { i: 1, key: 'doisuthep-tour', emoji: '⛰️', th: ['ทัวร์วัดพระธาตุดอยสุเทพ (ไพรเวท)', 'จุดที่ควรไปให้ได้ของเชียงใหม่'], en: ['Doi Suthep temple private tour', "Chiang Mai's essential sight"] },
+  ],
+  'top10-attractions-phuket': [
+    { i: 1, key: 'bigbuddha-chalong', emoji: '🙏', th: ['ทัวร์พระใหญ่ + วัดฉลอง + เมืองเก่า', 'ไกด์พาชม 3 จุดหลักในครึ่งวัน'], en: ['Big Buddha, Wat Chalong & town guided tour', 'Three main sights in half a day'] },
+  ],
+};
+
 const batchName = process.argv[2];
 const apply = process.argv.includes('--apply');
 const batch = BATCHES[batchName];
@@ -523,8 +559,8 @@ for (const [name, items] of Object.entries(batch)) {
     if (!fs.existsSync(p)) { console.error('✗ MISSING FILE', p); problems++; continue; }
     const raw = fs.readFileSync(p, 'utf8');
     const j = JSON.parse(raw);
-    const b = (j.blocks || []).find(x => x.kind === 'experiences');
-    if (!b) { console.error('✗ NO experiences block', name, lang); problems++; continue; }
+    const b = (j.blocks || []).find(x => x.kind === 'experiences' || x.kind === 'foodexp');
+    if (!b) { console.error('✗ NO experiences/foodexp block', name, lang); problems++; continue; }
     let touched = false;
     for (const it of items) {
       const item = b.items[it.i];
