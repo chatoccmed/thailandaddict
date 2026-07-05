@@ -68,6 +68,19 @@ const CATALOG = {
   'tiffany-show':      '336-tiffanys-show-pattaya',              // websearch-verified
   'ramayana-park':     '2322-ramayana-water-park-pattaya',       // websearch-verified
   'art-in-paradise':   '337-art-in-paradise-pattaya',            // websearch-verified
+  // wave 2 (2026-07-06): chiang-rai / surat-thani / kanchanaburi / ayutthaya / khao-yai / hua-hin
+  'cr-3temples':       '73501-chiangrai-white-blue-black-temple-series-fullday-tour-from-chiangmai',
+  'cheowlan-day':      '82133-join-day-tour-longtail-boat-on-cheow-lan-khao-sok-suratthani', // websearch-verified
+  'padi-open-water':   '95113-padi-open-water-diver-koh-tao-padi-5-star-idc-resort',
+  'padi-discover':     '95146-padi-discover-scuba-diving-koh-tao-padi-5-star-cdc',
+  'erawan-kwai':       '66922-erawan-waterfall-riverkwai-bridge-fullday',                    // websearch-verified
+  'death-railway':     '13209-kanchanaburi-full-day-tour-by-ak-travel-kanchanaburi',         // websearch-verified
+  'ayutthaya-fullday': '66903-ayutthaya-historical-park-fullday-tour',                       // websearch-verified
+  'ayutthaya-temples': '33742-ayuthaya-must-visit-temples-tour-bangkok',                     // websearch-verified
+  'khaoyai-fullday':   '78546-khao-yai-national-park-tour-from-bangkok-full-day-tour',       // websearch-verified
+  'vana-nava':         '3871-vana-nava-waterpark-hua-hin',                                   // websearch-verified
+  'santorini-water':   '4209-santorini-park-waterventures-day-pass-hua-hin',                 // websearch-verified
+  'huahin-zipline':    '44174-zipline-experience-hua-hin',
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -287,6 +300,110 @@ const BATCHES = {
       { i: 2, key: 'ramayana-park', emoji: '💦', th: ['ตั๋ว Ramayana Water Park', 'สวนน้ำใหญ่ที่สุดของไทย สไลเดอร์ 21 ตัว'], en: ['Ramayana Water Park ticket', "Thailand's biggest water park, 21 slides"] },
     ],
     // pattaya-big-buddha / khao-chi-chan / jomtien-beach / walking-street / temples-culture: no matching product — keep search
+  },
+  wave2a: { // samut-songkhram + chiang-rai + surat-thani
+    'maeklong-railway-market': [
+      { i: 0, key: 'damnoen-maeklong', emoji: '🚂', th: ['ดำเนินสะดวก + ตลาดร่มหุบแม่กลอง', 'สองตลาดดังจบในทริปเดียว (จากกรุงเทพ)'], en: ['Damnoen Saduak + Maeklong Railway Market', 'Two famous markets in one trip (from Bangkok)'] },
+      { i: 1, key: 'amphawa-firefly', emoji: '✨', th: ['แม่กลอง + อัมพวา ล่องเรือดูหิ่งห้อย', 'ต่อด้วยตลาดน้ำยามเย็น'], en: ['Maeklong + Amphawa with firefly cruise', 'Follow up with the evening floating market'] },
+    ],
+    'amphawa-floating-market': [
+      { i: 0, key: 'amphawa-firefly', emoji: '✨', th: ['ทัวร์อัมพวา + แม่กลอง + ล่องเรือหิ่งห้อย', 'ไปเย็นกลับดึกจากกรุงเทพ'], en: ['Amphawa + Maeklong with firefly cruise', 'Evening trip from Bangkok'] },
+    ],
+    'amphawa-firefly-boat': [
+      { i: 0, key: 'amphawa-firefly', emoji: '✨', th: ['ทัวร์อัมพวา + ล่องเรือหิ่งห้อย', 'รวมตลาดร่มหุบแม่กลองด้วย'], en: ['Amphawa firefly cruise tour', 'Includes the Maeklong railway market'] },
+    ],
+    'samut-songkhram-attractions': [
+      { i: 0, key: 'damnoen-maeklong', emoji: '🚂', th: ['ดำเนินสะดวก + ตลาดร่มหุบแม่กลอง', 'สองตลาดดังจบในทริปเดียว'], en: ['Damnoen Saduak + Maeklong Railway Market', 'Two famous markets in one trip'] },
+      { i: 1, key: 'amphawa-firefly', emoji: '✨', th: ['อัมพวา + ล่องเรือดูหิ่งห้อย', 'ตลาดน้ำยามเย็น ปิดท้ายด้วยหิ่งห้อย'], en: ['Amphawa + firefly boat ride', 'Evening market, firefly cruise to finish'] },
+    ],
+    'wat-rong-khun-guide': [
+      { i: 0, key: 'cr-3temples', emoji: '🤍', th: ['ทัวร์วัดร่องขุ่น-ร่องเสือเต้น-บ้านดำ', 'ไปเช้าเย็นกลับจากเชียงใหม่ ครบสามจุดดัง'], en: ['White, Blue & Black temple day tour', 'From Chiang Mai — all three icons in a day'] },
+    ],
+    'wat-rong-suea-ten-guide': [
+      { i: 0, key: 'cr-3temples', emoji: '💙', th: ['ทัวร์วัดร่องเสือเต้น-ร่องขุ่น-บ้านดำ', 'ไปเช้าเย็นกลับจากเชียงใหม่ ครบสามจุดดัง'], en: ['Blue, White & Black temple day tour', 'From Chiang Mai — all three icons in a day'] },
+    ],
+    'baan-dam-museum-guide': [
+      { i: 0, key: 'cr-3temples', emoji: '🖤', th: ['ทัวร์บ้านดำ-วัดร่องขุ่น-ร่องเสือเต้น', 'ไปเช้าเย็นกลับจากเชียงใหม่ ครบสามจุดดัง'], en: ['Black House, White & Blue temple day tour', 'From Chiang Mai — all three icons in a day'] },
+    ],
+    'chiang-rai-attractions': [
+      { i: 0, key: 'cr-3temples', emoji: '🛕', th: ['ทัวร์วัดร่องขุ่น-ร่องเสือเต้น-บ้านดำ', 'สามจุดที่คนไปเยอะที่สุดของเชียงราย'], en: ['White, Blue & Black temple day tour', "Chiang Rai's three most-visited sights"] },
+    ],
+    'khao-sok-national-park': [
+      { i: 0, key: 'cheowlan-day', emoji: '🛶', th: ['เดย์ทัวร์เขื่อนเชี่ยวหลาน เรือหางยาว', 'ล่องทะเลสาบ เข้าถ้ำ กินข้าวแพกลางน้ำ'], en: ['Cheow Lan Lake day tour by longtail', 'Lake cruise, cave & floating-raft lunch'] },
+    ],
+    'cheow-lan-lake-guide': [
+      { i: 0, key: 'cheowlan-day', emoji: '🛶', th: ['เดย์ทัวร์เขื่อนเชี่ยวหลาน เรือหางยาว', 'ล่องทะเลสาบ เข้าถ้ำ กินข้าวแพกลางน้ำ'], en: ['Cheow Lan Lake day tour by longtail', 'Lake cruise, cave & floating-raft lunch'] },
+    ],
+    'khao-sok-waterfalls-caves': [
+      { i: 0, key: 'cheowlan-day', emoji: '🛶', th: ['เดย์ทัวร์เชี่ยวหลาน (มีเข้าถ้ำ)', 'ล่องเรือหางยาว + เดินป่าเข้าถ้ำ'], en: ['Cheow Lan day tour (with cave visit)', 'Longtail cruise + jungle walk to a cave'] },
+    ],
+    'koh-tao-guide': [
+      { i: 0, key: 'kohtao-nangyuan', emoji: '🤿', th: ['เดย์ทริปเกาะเต่า-นางยวน (จากสมุย)', 'สปีดโบ๊ต ดำน้ำตื้นจุดดัง'], en: ['Koh Tao & Nangyuan day trip (from Samui)', 'Speedboat with top snorkel stops'] },
+      { i: 1, key: 'padi-discover', emoji: '🐠', th: ['ลองดำน้ำลึกครั้งแรก (PADI Discover)', 'ที่เกาะเต่า มีครูประกบ'], en: ['First-time scuba (PADI Discover)', 'On Koh Tao with an instructor'] },
+      { i: 2, key: 'padi-open-water', emoji: '📜', th: ['คอร์ส PADI Open Water เกาะเต่า', 'เรียนจบได้ใบดำน้ำจริง'], en: ['PADI Open Water course, Koh Tao', 'Finish with a real dive licence'] },
+    ],
+    'koh-phangan-guide': [
+      { i: 0, key: 'kohtao-phangan', emoji: '🏝️', th: ['ทัวร์เกาะเต่า + นางยวน + พะงัน', 'สามเกาะในทริปเดียวจากสมุย'], en: ['Koh Tao, Nangyuan & Pha-ngan combo', 'Three islands in one trip from Samui'] },
+    ],
+    'koh-samui-guide': [
+      { i: 0, key: 'angthong-319', emoji: '🏝️', th: ['เดย์ทัวร์อุทยานหมู่เกาะอ่างทอง', 'ทริปที่คนจองเยอะที่สุดจากสมุย'], en: ['Ang Thong Marine Park day tour', 'The most-booked trip from Samui'] },
+      { i: 1, key: 'kohtao-nangyuan', emoji: '🤿', th: ['เดย์ทริปเกาะเต่า-นางยวน', 'สปีดโบ๊ต ดำน้ำตื้นจุดดัง'], en: ['Koh Tao & Nangyuan day trip', 'Speedboat with top snorkel stops'] },
+    ],
+    // tha-kha-floating-market / don-hoi-lot / mae-klong-* / wat-* / golden-triangle / doi-tung / phu-chi-fa /
+    // mae-sai / choui-fong / doi-chang / clock-tower / wat-huay-pla-kang / donsak / chaiya / suan-mokkh etc.:
+    // no matching product — keep search
+  },
+  wave2b: { // kanchanaburi + ayutthaya + khao-yai + hua-hin
+    'erawan-waterfall-guide': [
+      { i: 0, key: 'erawan-kwai', emoji: '💦', th: ['เดย์ทัวร์น้ำตกเอราวัณ + สะพานข้ามแม่น้ำแคว', 'ไปเช้าเย็นกลับจากกรุงเทพ'], en: ['Erawan Waterfall + River Kwai Bridge day tour', 'Out and back from Bangkok'] },
+    ],
+    'bridge-river-kwai-guide': [
+      { i: 0, key: 'death-railway', emoji: '🚂', th: ['เดย์ทัวร์ทางรถไฟสายมรณะ + สะพานแคว', 'รวมนั่งรถไฟช่วงถ้ำกระแซ'], en: ['Death Railway + River Kwai Bridge day tour', 'Includes the Tham Krasae train ride'] },
+      { i: 1, key: 'erawan-kwai', emoji: '💦', th: ['เอราวัณ + สะพานแคว ในวันเดียว', 'สายธรรมชาติ+ประวัติศาสตร์'], en: ['Erawan + River Kwai in one day', 'Nature and history combined'] },
+    ],
+    'death-railway-tham-krasae': [
+      { i: 0, key: 'death-railway', emoji: '🚂', th: ['เดย์ทัวร์ทางรถไฟสายมรณะ + สะพานแคว', 'รวมนั่งรถไฟช่วงถ้ำกระแซ'], en: ['Death Railway + River Kwai Bridge day tour', 'Includes the Tham Krasae train ride'] },
+    ],
+    'kanchanaburi-attractions': [
+      { i: 0, key: 'erawan-kwai', emoji: '💦', th: ['เดย์ทัวร์น้ำตกเอราวัณ + สะพานแคว', 'สองไฮไลต์ของจังหวัดในวันเดียว'], en: ['Erawan Waterfall + River Kwai day tour', 'The two big highlights in one day'] },
+      { i: 1, key: 'death-railway', emoji: '🚂', th: ['เดย์ทัวร์ทางรถไฟสายมรณะ', 'สายประวัติศาสตร์ รวมนั่งรถไฟ'], en: ['Death Railway full-day tour', 'History-focused, includes the train ride'] },
+    ],
+    'ayutthaya-attractions': [
+      { i: 0, key: 'ayutthaya-fullday', emoji: '🏛️', th: ['เดย์ทัวร์อุทยานประวัติศาสตร์อยุธยา', 'เต็มวันจากกรุงเทพ'], en: ['Ayutthaya Historical Park full-day tour', 'Full day from Bangkok'] },
+      { i: 1, key: 'ayutthaya-temples', emoji: '🛕', th: ['ทัวร์วัดดังอยุธยาในวันเดียว', 'รวมเศียรพระในรากไม้วัดมหาธาตุ'], en: ['Ayutthaya must-visit temples day tour', 'Includes the Buddha head at Wat Mahathat'] },
+    ],
+    'wat-mahathat-guide': [
+      { i: 0, key: 'ayutthaya-temples', emoji: '🛕', th: ['ทัวร์วัดดังอยุธยา (รวมวัดมหาธาตุ)', 'จุดถ่ายรูปเศียรพระในรากไม้'], en: ['Ayutthaya temples tour (incl. Wat Mahathat)', 'Home of the Buddha head in tree roots'] },
+    ],
+    'wat-phra-si-sanphet-guide': [
+      { i: 0, key: 'ayutthaya-fullday', emoji: '🏛️', th: ['เดย์ทัวร์อุทยานประวัติศาสตร์อยุธยา', 'วัดพระศรีสรรเพชญ์อยู่ใจกลางอุทยาน'], en: ['Ayutthaya Historical Park full-day tour', 'Wat Phra Si Sanphet sits at its heart'] },
+    ],
+    'khaoyai-national-park': [
+      { i: 0, key: 'khaoyai-fullday', emoji: '🌳', th: ['เดย์ทัวร์อุทยานแห่งชาติเขาใหญ่', 'เดินเทรล ส่องสัตว์ จากกรุงเทพ'], en: ['Khao Yai National Park full-day tour', 'Trails & wildlife, from Bangkok'] },
+    ],
+    'khaoyai-attractions': [
+      { i: 0, key: 'khaoyai-fullday', emoji: '🌳', th: ['เดย์ทัวร์อุทยานแห่งชาติเขาใหญ่', 'เดินเทรล ส่องสัตว์ จากกรุงเทพ'], en: ['Khao Yai National Park full-day tour', 'Trails & wildlife, from Bangkok'] },
+    ],
+    'huahin-vana-nava-waterpark': [
+      { i: 0, key: 'vana-nava', emoji: '💦', th: ['ตั๋ว Vana Nava Water Jungle', 'จองล่วงหน้า เข้าได้เลย'], en: ['Vana Nava Water Jungle ticket', 'Book ahead, walk straight in'] },
+    ],
+    'huahin-santorini-park': [
+      { i: 0, key: 'santorini-water', emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures', 'โซนสวนน้ำของสวนสนุกธีมกรีซ'], en: ['Santorini Park Waterventures pass', 'The water-park zone of the Greek-themed park'] },
+    ],
+    'tours-activities-hua-hin': [
+      { i: 0, key: 'huahin-zipline', emoji: '🌲', th: ['ซิปไลน์หัวหิน', 'กิจกรรมโหนสลิงในป่าใกล้เมือง'], en: ['Hua Hin zipline experience', 'Forest ziplines close to town'] },
+      { i: 1, key: 'vana-nava', emoji: '💦', th: ['ตั๋ว Vana Nava Water Jungle', 'สวนน้ำใหญ่กลางหัวหิน'], en: ['Vana Nava Water Jungle ticket', "Hua Hin's big water park"] },
+      { i: 2, key: 'santorini-water', emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures', 'สวนน้ำธีมกรีซที่ชะอำ'], en: ['Santorini Park Waterventures pass', 'Greek-themed water park in Cha-am'] },
+    ],
+    'huahin-attractions': [
+      { i: 0, key: 'vana-nava', emoji: '💦', th: ['ตั๋ว Vana Nava Water Jungle', 'สวนน้ำใหญ่กลางหัวหิน'], en: ['Vana Nava Water Jungle ticket', "Hua Hin's big water park"] },
+      { i: 1, key: 'santorini-water', emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures', 'สวนน้ำธีมกรีซที่ชะอำ'], en: ['Santorini Park Waterventures pass', 'Greek-themed water park in Cha-am'] },
+      { i: 2, key: 'huahin-zipline', emoji: '🌲', th: ['ซิปไลน์หัวหิน', 'กิจกรรมโหนสลิงในป่าใกล้เมือง'], en: ['Hua Hin zipline experience', 'Forest ziplines close to town'] },
+    ],
+    // hellfire-pass / sai-yok / sangkhlaburi / srinakarin / prasat-muang-sing / raft-houses / caves-hotsprings /
+    // ayutthaya wat pages we can't confirm on itineraries / bang-pa-in / river-cruise / night-temples / bike /
+    // khaoyai waterfalls/farms/wineries/palio / huahin beaches/station/plearn-wan/sheep-farm/khao-takiab etc.:
+    // no verified matching product — keep search
   },
 };
 
