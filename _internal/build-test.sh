@@ -46,5 +46,10 @@ echo "=== astro build ==="
 # not just this local test. This export is a harmless fallback/override.
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=8192}"
 npm run build
+
+echo "=== Booking→CJ revenue guard (see _internal/BOOKING-CJ-GUIDE.md) ==="
+# guard resolves the repo content/hub dirs from cwd — must run from repo root,
+# otherwise the content-canonical + hub checks pass vacuously on 0 files
+(cd "$SCRIPT_DIR/.." && node _internal/qa/check-booking-cj.mjs "$TMP/dist") || { echo "ERROR: Booking CJ guard failed — fix before push (revenue at risk)"; exit 4; }
 echo ""
 echo "BUILD OK — safe to push"
