@@ -34,6 +34,16 @@ const link = (h: string) => {
 // correctly from both / (Thai) and /en/ (English) pages.
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (/^\//.test(p) ? p : `/${p}`)));
 
+// Booking.com (Thailand publishers) pays ONLY via CJ (Commission Junction) — the legacy ?aid= programme
+// does not credit. Content JSON keeps canonical booking.com URLs; this wraps them into a CJ deep link at
+// render time, so if the programme moves again we change ONE constant here, not 10,000 content files.
+// sid = page slug → CJ Reports "Performance by SID" shows exactly which page earned each booking.
+const CJ_PID = '101809619'; // ThailandAddict website id on CJ · advertiser: Booking.com APAC (7854081)
+const cjSid = ((isEn ? 'en-' : '') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
+const cjBooking = (u: string) => (u && /booking\.com/.test(u))
+  ? `https://www.anrdoezrs.net/links/${CJ_PID}/type/dlg/sid/${cjSid}/${/[?]/.test(u) ? encodeURIComponent(u) : u}`
+  : u;
+
 // Browser-tab title: lead with the hotel name so the tab is identifiable.
 // Many titles are benefit-led with the hotel name buried at the end — the tab
 // truncates before reaching it. Reorder to "{name} — {hook} | ThailandAddict",
@@ -397,7 +407,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
       <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
     </div>
     <div class="hero-sub-2" style="position:relative;">
-      <a href={data.heroSub2Href} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <a href={cjBooking(data.heroSub2Href)} target="_blank" rel="noopener nofollow sponsored" style="display:block;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
       <button class="hero-more-btn">{S.heroMore}</button>
     </div>
@@ -614,7 +624,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <div class="pw-cta-h">{S.pwCtaH}</div>
     <div class="pw-btns">
       <button class="pw-btn agoda" data-href={data.bookingAgoda}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn booking" data-href={data.bookingBooking}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
+      <button class="pw-btn booking" data-href={cjBooking(data.bookingBooking)}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
       <button class="pw-btn trip" data-href={data.bookingTrip}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
     </div>
     <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
@@ -766,7 +776,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <div class="rv-price">💰 <span class="rv-pf">{S.rvFrom}</span> <b>{data.qiPrice}</b><span class="rv-pu"> {data.qiPriceUnit}</span><span class="rv-ref">{S.rvRef}</span></div>
   <div class="rv-cards">
     <a class="rv-card rv-ag" href={data.bookingAgoda} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
-    <a class="rv-card rv-bk" href={data.bookingBooking} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
+    <a class="rv-card rv-bk" href={cjBooking(data.bookingBooking)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
     <a class="rv-card rv-tp" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
   </div>
 </div>
