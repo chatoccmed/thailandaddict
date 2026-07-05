@@ -3,6 +3,12 @@ import '../styles/roundup.css';
 import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
+import webpManifest from '../data/webp-manifest.json';
+// Serve a webp twin when one exists (pilot: top 150 most-referenced images, see _internal/DEVELOPMENT-PLAN-v4-revenue.md).
+// Gated on the manifest so we never request a .webp that doesn't exist on R2 — <picture> falls back to the original if missing anyway,
+// but the manifest avoids a doomed request for the ~14k images not yet converted.
+const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
+const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
 interface Props {
   data: CollectionEntry<'roundups'>['data'];
@@ -604,7 +610,14 @@ const splitSource = (s: any): { label: string; url: string | null } => {
       <div class="entry-body">
         <div class="entry-img-col">
           <div class="img-wrap">
-            <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
+            {hasWebp(e.img) ? (
+              <picture>
+                <source srcset={asset(webpOf(e.img))} type="image/webp" />
+                <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
+              </picture>
+            ) : (
+              <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
+            )}
             <div class="img-overlay"><div class="mrt-tag">{e.mrtTag}</div></div>
             <a class="rd-img-book" href={cjBooking(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
           </div>
