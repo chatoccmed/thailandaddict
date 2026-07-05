@@ -575,6 +575,22 @@ const IT = {
   khai:        { key: 'khai-phiphi-bond', emoji: '🏝️', th: ['เกาะไข่ + พีพี + เจมส์บอนด์ (สปีดโบ๊ต)', 'ฮอปปิ้งหลายเกาะในวันเดียว'], en: ['Khai Islands + Phi Phi + James Bond speedboat', 'Multi-island hop in one day'] },
   similan:     { key: 'similan-snorkel',  emoji: '🐠', th: ['ทัวร์ดำน้ำตื้นหมู่เกาะสิมิลัน', 'น้ำใสอันดับต้นของไทย (ตามฤดูกาล)'], en: ['Similan Islands snorkeling tour', 'Some of the clearest water in Thailand (seasonal)'] },
   phiphi4is:   { key: 'phiphi-4islands',  emoji: '🚤', th: ['พีพี + 4 เกาะ กระบี่ ในทริปเดียว', 'ต่อเที่ยวฝั่งกระบี่ได้เลย'], en: ['Phi Phi + Krabi 4 Islands combo', 'Pairs with the Krabi side'] },
+  // krabi
+  fourIslands: { key: '4islands-day',     emoji: '🏝️', th: ['เดย์ทัวร์ 4 เกาะ กระบี่', 'เกาะปอดะ-ไก่-ทับ-หาดถ้ำพระนาง'], en: ['Krabi 4 Islands day tour', 'Poda, Chicken, Tup & Phra Nang beach'] },
+  fourIsLong:  { key: '4islands-longtail', emoji: '🛶', th: ['ทัวร์ 4 เกาะ เรือหางยาว (จอยทัวร์)', 'สายดำน้ำตื้น ราคาเบากว่า'], en: ['4 Islands join tour by longtail boat', 'Snorkel-focused, easier on the budget'] },
+  emeraldTiger:{ key: 'emerald-tigercave', emoji: '💧', th: ['สระมรกต + น้ำตกร้อน + วัดถ้ำเสือ', 'สามจุดดังฝั่งบกจบในวันเดียว'], en: ['Emerald Pool, Hot Spring & Tiger Cave Temple', 'The three inland sights in one day'] },
+  railayClimb: { key: 'railay-climbing', emoji: '🧗', th: ['คอร์สปีนผาไร่เลย์ 1 วัน', 'มีครูดูแล อุปกรณ์ครบ'], en: ['Railay rock climbing 1-day course', 'Instructor-led with full gear'] },
+  // samui
+  angThong:    { key: 'angthong-319',     emoji: '🏝️', th: ['เดย์ทัวร์อุทยานหมู่เกาะอ่างทอง', 'ทริปที่คนจองเยอะที่สุดจากสมุย'], en: ['Ang Thong Marine Park day tour', 'The most-booked trip from Samui'] },
+  kohTao:      { key: 'kohtao-nangyuan',  emoji: '🤿', th: ['เกาะเต่า-เกาะนางยวน สปีดโบ๊ต', 'จุดดำน้ำตื้นดังที่สุดใกล้สมุย'], en: ['Koh Tao & Koh Nangyuan by speedboat', 'The best-known snorkel spots near Samui'] },
+  kohTaoPha:   { key: 'kohtao-phangan',   emoji: '🐠', th: ['เกาะเต่า + นางยวน + พะงัน', 'สามเกาะในทริปเดียว'], en: ['Koh Tao, Nangyuan & Pha-ngan combo', 'Three islands in one trip'] },
+  // pattaya
+  sanctuary:   { key: 'sanctuary-truth',  emoji: '🏛️', th: ['ตั๋วปราสาทสัจธรรม', 'แลนด์มาร์กงานไม้ริมทะเล'], en: ['Sanctuary of Truth ticket', 'The seaside wood-carved landmark'] },
+  nongNooch:   { key: 'nong-nooch',       emoji: '🌴', th: ['ตั๋วสวนนงนุช', 'สวนพฤกษศาสตร์ + โชว์วัฒนธรรม-ช้าง'], en: ['Nong Nooch Garden ticket', 'Botanical park with cultural & elephant shows'] },
+  kohLarn:     { key: 'kohlarn-combo',    emoji: '🚤', th: ['เดย์ทัวร์เกาะล้าน + สัจธรรม + จุดชมวิว', 'เก็บไฮไลต์พัทยาในวันเดียว'], en: ['Koh Larn + Sanctuary + viewpoint day tour', 'Pattaya highlights in one day'] },
+  artParadise: { key: 'art-in-paradise',  emoji: '🎨', th: ['ตั๋ว Art in Paradise พัทยา', 'มิวเซียมภาพ 3D ถ่ายรูปสนุกวันฝนตก'], en: ['Art in Paradise Pattaya ticket', '3D trick-art museum, great on rainy days'] },
+  tiffany:     { key: 'tiffany-show',     emoji: '🎭', th: ["ตั๋วโชว์ Tiffany's พัทยา", 'คาบาเรต์เจ้าดังที่เปิดมานานที่สุด'], en: ["Tiffany's Show ticket, Pattaya", 'The longest-running cabaret in town'] },
+  ramayana:    { key: 'ramayana-park',    emoji: '💦', th: ['ตั๋ว Ramayana Water Park', 'สวนน้ำใหญ่ที่สุดของไทย สไลเดอร์ 21 ตัว'], en: ['Ramayana Water Park ticket', "Thailand's biggest water park, 21 slides"] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -596,6 +612,25 @@ BATCHES.wave7 = {
   'phuket-island-hopping-plan': S(IT.khai, IT.phiphiSnork, IT.similan),
   'phuket-krabi-plan':          S(IT.bigBuddha, IT.phiphiSnork, IT.phiphi4is),
   'phuket-phang-nga-plan':      S(IT.jamesBond, IT.jamesBondBig, IT.bigBuddha),
+};
+
+// ---- wave 8: itinerary pages for krabi / samui / pattaya ----
+const KRABI_ITIN = S(IT.fourIslands, IT.emeraldTiger, IT.phiphi4is);
+const SAMUI_ITIN = S(IT.angThong, IT.kohTao, IT.kohTaoPha);
+const PATTAYA_ITIN = S(IT.sanctuary, IT.nongNooch, IT.kohLarn);
+BATCHES.wave8 = {
+  // krabi
+  ...mk(['krabi-1-day-itinerary','krabi-2d1n-itinerary','krabi-3d2n-itinerary','krabi-cafe-town-plan','krabi-family-plan','krabi-first-timer-guide','krabi-nature-plan','krabi-photo-spots-plan','krabi-phuket-plan','krabi-trang-plan'], KRABI_ITIN),
+  'krabi-island-plan':       S(IT.fourIslands, IT.fourIsLong, IT.phiphi4is),
+  'krabi-aonang-railay-plan': S(IT.fourIslands, IT.railayClimb, IT.emeraldTiger),
+  // samui
+  ...mk(['samui-1-day-itinerary','samui-3d2n-itinerary','samui-4d3n-itinerary','samui-beach-hopping-plan','samui-budget-plan','samui-couple-honeymoon-plan','samui-family-plan','samui-first-timer-guide','samui-koh-phangan-plan','samui-nightlife-plan','samui-photo-spots-plan','samui-sea-island-plan'], SAMUI_ITIN),
+  // pattaya
+  ...mk(['pattaya-1-day-itinerary','pattaya-2d1n-itinerary','pattaya-3d2n-itinerary','pattaya-bangkok-plan','pattaya-budget-plan','pattaya-couple-plan','pattaya-first-timer-guide','pattaya-photo-spots-plan'], PATTAYA_ITIN),
+  'pattaya-koh-larn-day-trip': S(IT.kohLarn, IT.sanctuary, IT.nongNooch),
+  'pattaya-family-plan':       S(IT.nongNooch, IT.ramayana, IT.artParadise),
+  'pattaya-nightlife-plan':    S(IT.tiffany, IT.sanctuary, IT.kohLarn),
+  'pattaya-rainy-day-plan':    S(IT.artParadise, IT.tiffany, IT.nongNooch),
 };
 
 const batchName = process.argv[2];
