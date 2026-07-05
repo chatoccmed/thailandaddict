@@ -53,10 +53,11 @@ const link = (h: string) => {
 // Booking.com (Thailand publishers) pays ONLY via CJ (Commission Junction) — the legacy ?aid= programme
 // does not credit. Entries keep canonical booking.com URLs; this wraps them into a CJ deep link at render
 // time (single point of change). sid = page slug → per-page revenue attribution in CJ Reports.
-const CJ_PID = '101809619'; // ThailandAddict website id on CJ · advertiser: Booking.com APAC (7854081)
+const CJ_PID = '101809619';  // ThailandAddict website id on CJ · advertiser: Booking.com APAC (7854081)
+const CJ_ADID = '17289009';  // active text-link id from our CJ account (click-format deep link, production-proven)
 const cjSid = ((isEn ? 'en-' : '') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
 const cjBooking = (u: string) => (u && /booking\.com/.test(u))
-  ? `https://www.anrdoezrs.net/links/${CJ_PID}/type/dlg/sid/${cjSid}/${/[?]/.test(u) ? encodeURIComponent(u) : u}`
+  ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${cjSid}&url=${encodeURIComponent(u)}`
   : u;
 
 // Asset (image) helper: force a root-absolute path so images resolve

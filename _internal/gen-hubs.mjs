@@ -113,9 +113,10 @@ let LOC = 'th';                                  // current locale being generat
 const tx = (th, en) => LOC === 'en' ? en : th;   // pick locale string
 // Booking.com (Thailand publishers) pays ONLY via CJ — wrap every booking.com href in a CJ deep link.
 // sid = hub slug (en- prefixed for /en/) → per-page revenue attribution in CJ Reports.
-const CJ_PID = '101809619'; // ThailandAddict on CJ · advertiser: Booking.com APAC (7854081)
+const CJ_PID = '101809619';  // ThailandAddict on CJ · advertiser: Booking.com APAC (7854081)
+const CJ_ADID = '17289009';  // active text-link id from our CJ account (click-format deep link, production-proven)
 const cjB = (u, sid) => u && /booking\.com/.test(u)
-  ? `https://www.anrdoezrs.net/links/${CJ_PID}/type/dlg/sid/${((LOC==='en'?'en-':'')+String(sid||'hub')).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60)}/${/[?]/.test(u)?encodeURIComponent(u):u}`
+  ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${((LOC==='en'?'en-':'')+String(sid||'hub')).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60)}&url=${encodeURIComponent(u)}`
   : u;
 const NAME = slug => LOC === 'en' ? (EN_NAME[slug] || slug.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())) : (TH[slug] || slug);
 const RNAME = r => LOC === 'en' ? REGION[r].en : REGION[r].th;

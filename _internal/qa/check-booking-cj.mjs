@@ -37,10 +37,11 @@ const bad = (msg) => { console.error('  ✗ ' + msg); fail++; };
     for (const f of fs.readdirSync(dir)) {
       if (!f.endsWith('.html')) continue;
       const s = fs.readFileSync(path.join(dir, f), 'utf8');
-      const r = (s.match(/href="https:\/\/www\.booking\.com\//g) || []).length;
+      const r = (s.match(/href="https:\/\/www\.booking\.com\//g) || []).length
+              + (s.match(/anrdoezrs\.net\/links\/101809619\/type\/dlg\//g) || []).length; // legacy dlg = stale, must be migrated
       if (r && raw < 3) console.error('    e.g. ' + dir + '/' + f + ' (' + r + ')');
       raw += r;
-      wrapped += (s.match(/anrdoezrs\.net\/links\/101809619\/type\/dlg\//g) || []).length;
+      wrapped += (s.match(/anrdoezrs\.net\/click-101809619-17289009\?sid=/g) || []).length;
     }
   }
   if (raw) bad(`static hubs: ${raw} RAW booking.com hrefs (run _internal/qa/wrap-booking-cj.mjs — or gen-hubs regenerated without the cjB patch)`);
@@ -59,10 +60,11 @@ if (dist && fs.existsSync(dist)) {
       if (!f.endsWith('.html')) continue;
       scanned++;
       const s = fs.readFileSync(p, 'utf8');
-      const r = (s.match(/(?:href|data-href)="https:\/\/www\.booking\.com\//g) || []).length;
+      const r = (s.match(/(?:href|data-href)="https:\/\/www\.booking\.com\//g) || []).length
+              + (s.match(/anrdoezrs\.net\/links\/101809619\/type\/dlg\//g) || []).length; // legacy dlg = stale, must be migrated
       if (r && raw < 3) console.error('    e.g. ' + p + ' (' + r + ')');
       raw += r;
-      cj += (s.match(/anrdoezrs\.net\/links\/101809619\/type\/dlg\//g) || []).length;
+      cj += (s.match(/anrdoezrs\.net\/click-101809619-17289009\?sid=/g) || []).length;
     }
   };
   walk(dist);
