@@ -552,6 +552,52 @@ BATCHES.wave6 = {
   ...mk(['phuket-food-guide','phuket-roti-tea','phuket-street-food-markets'], PKT_FOOD),
 };
 
+// ---- wave 7: itinerary pages (experiences block, big-3 cities) ----
+// reusable slot-item defs (no index) → S() assigns i=0,1,2 in order
+const S = (...arr) => arr.map((it, i) => ({ i, ...it }));
+const IT = {
+  landmarks:   { key: 'landmarks-day',    emoji: '🏛️', th: ['เดย์ทัวร์แลนด์มาร์กกรุงเทพ', 'เก็บจุดหลักครบในวันเดียว'], en: ['Bangkok must-visit landmarks day tour', 'The big sights in one day'] },
+  palace:      { key: 'palace-ticket',    emoji: '🎟️', th: ['ตั๋วพระบรมมหาราชวัง + วัดพระแก้ว (ไม่ต้องต่อคิว)', 'จองล่วงหน้า เข้าประตูได้เลย'], en: ['Grand Palace & Emerald Buddha skip-the-line ticket', 'Book ahead, walk straight in'] },
+  floating:    { key: 'floating-day',     emoji: '🛶', th: ['เดย์ทัวร์ตลาดน้ำจากกรุงเทพ', 'มีรถรับส่ง ไปเช้ากลับบ่าย'], en: ['Floating markets day tour from Bangkok', 'Hotel pickup, back by afternoon'] },
+  templeTrio:  { key: 'temple-trio',      emoji: '🛕', th: ['ทัวร์ 3 วัดดัง: วัดอรุณ วัดโพธิ์ วัดไตรมิตร', 'ไกด์พาชม จบในครึ่งวัน'], en: ['Iconic temple tour: Wat Arun, Wat Pho & Wat Traimit', 'Guided, done in half a day'] },
+  nightTukTuk: { key: 'night-tuktuk',     emoji: '🛺', th: ['ทัวร์ตุ๊กตุ๊กยามค่ำ วัด-ตลาด-ของกิน', 'เที่ยวเมืองเก่าตอนกลางคืน'], en: ['Night tuk-tuk tour: temples, markets & food', 'The old town after dark'] },
+  ayutthaya:   { key: 'ayutthaya-fullday', emoji: '🏯', th: ['เดย์ทัวร์อยุธยาจากกรุงเทพ', 'อุทยานประวัติศาสตร์ UNESCO เต็มวัน'], en: ['Ayutthaya day tour from Bangkok', 'Full day at the UNESCO historical park'] },
+  damnoen:     { key: 'damnoen-maeklong', emoji: '🚂', th: ['ดำเนินสะดวก + ตลาดร่มหุบแม่กลอง', 'สองตลาดดังจบในทริปเดียว'], en: ['Damnoen Saduak + Maeklong Railway Market', 'Two famous markets in one trip'] },
+  doiSuthep:   { key: 'doisuthep-tour',   emoji: '⛰️', th: ['ทัวร์วัดพระธาตุดอยสุเทพ (ไพรเวท)', 'จุดที่ควรไปให้ได้ของเชียงใหม่'], en: ['Doi Suthep temple private tour', "Chiang Mai's essential sight"] },
+  elephantCM:  { key: 'elephant-jungle', emoji: '🐘', th: ['Elephant Jungle Sanctuary', 'ให้อาหาร-อาบน้ำช้าง ไม่มีขี่ช้าง'], en: ['Elephant Jungle Sanctuary', 'Feed & bathe, no riding'] },
+  doiInthanon: { key: 'doiinthanon-tour', emoji: '🏔️', th: ['เดย์ทัวร์อุทยานดอยอินทนนท์', 'หลังคาเมืองไทยจบในวันเดียว'], en: ['Doi Inthanon National Park day tour', "Thailand's rooftop in one day"] },
+  cr3:         { key: 'cr-3temples',      emoji: '🛕', th: ['ทัวร์วัดร่องขุ่น-ร่องเสือเต้น-บ้านดำ', 'เดย์ทริปเชียงรายจากเชียงใหม่'], en: ['White, Blue & Black temple day tour', 'Chiang Rai day trip from Chiang Mai'] },
+  pai:         { key: 'pai-day-join',     emoji: '🌄', th: ['เดย์ทัวร์ปายจากเชียงใหม่', 'ปายแคนยอน สะพานประวัติศาสตร์'], en: ['Pai day tour from Chiang Mai', 'Pai Canyon & Memorial Bridge'] },
+  bigBuddha:   { key: 'bigbuddha-chalong', emoji: '🙏', th: ['ทัวร์พระใหญ่ + วัดฉลอง + เมืองเก่า', 'ไกด์พาชม 3 จุดหลักในครึ่งวัน'], en: ['Big Buddha, Wat Chalong & town guided tour', 'Three main sights in half a day'] },
+  phiphiSnork: { key: 'phiphi-snorkel',   emoji: '🤿', th: ['เดย์ทริปดำน้ำตื้นเกาะพีพี', 'รวมอ่าวมาหยา-เกาะไม้ไผ่'], en: ['Phi Phi snorkeling day trip', 'Covers Maya Bay & Bamboo Island'] },
+  jamesBond:   { key: 'jamesbond-longtail', emoji: '🛶', th: ['เกาะเจมส์บอนด์ด้วยเรือหางยาว', 'ล่องอ่าวพังงาแบบดั้งเดิม'], en: ['James Bond Island by longtail boat', 'Classic Phang Nga Bay route'] },
+  jamesBondBig:{ key: 'jamesbond-bigboat', emoji: '🚤', th: ['เจมส์บอนด์ เรือใหญ่ + สปีดโบ๊ต', 'นั่งสบาย คลื่นน้อย'], en: ['James Bond big boat + speedboat', 'Comfier, calmer ride'] },
+  khai:        { key: 'khai-phiphi-bond', emoji: '🏝️', th: ['เกาะไข่ + พีพี + เจมส์บอนด์ (สปีดโบ๊ต)', 'ฮอปปิ้งหลายเกาะในวันเดียว'], en: ['Khai Islands + Phi Phi + James Bond speedboat', 'Multi-island hop in one day'] },
+  similan:     { key: 'similan-snorkel',  emoji: '🐠', th: ['ทัวร์ดำน้ำตื้นหมู่เกาะสิมิลัน', 'น้ำใสอันดับต้นของไทย (ตามฤดูกาล)'], en: ['Similan Islands snorkeling tour', 'Some of the clearest water in Thailand (seasonal)'] },
+  phiphi4is:   { key: 'phiphi-4islands',  emoji: '🚤', th: ['พีพี + 4 เกาะ กระบี่ ในทริปเดียว', 'ต่อเที่ยวฝั่งกระบี่ได้เลย'], en: ['Phi Phi + Krabi 4 Islands combo', 'Pairs with the Krabi side'] },
+};
+const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
+const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
+const PKT_ITIN = S(IT.bigBuddha, IT.phiphiSnork, IT.jamesBond);
+BATCHES.wave7 = {
+  // bangkok (defaults + themed)
+  ...mk(['bangkok-1-day-itinerary','bangkok-2d1n-itinerary','bangkok-3d2n-itinerary','bangkok-cafe-hopping-plan','bangkok-family-plan','bangkok-first-timer-guide','bangkok-nature-green-plan','bangkok-photo-spots-plan','bangkok-shopping-plan'], BKK_ITIN),
+  'bangkok-old-town-temples-plan': S(IT.templeTrio, IT.palace, IT.nightTukTuk),
+  'bangkok-ayutthaya-day-trip':    S(IT.landmarks, IT.palace, IT.ayutthaya),
+  'bangkok-samut-songkhram-plan':  S(IT.landmarks, IT.palace, IT.damnoen),
+  // chiang-mai (defaults + themed)
+  ...mk(['chiang-mai-1-day-itinerary','chiang-mai-2d1n-itinerary','chiang-mai-3d2n-itinerary','chiang-mai-budget-plan','chiang-mai-cafe-hopping-plan','chiang-mai-family-plan','chiang-mai-first-timer-guide','chiang-mai-photo-spots-plan','chiang-mai-temples-culture-plan'], CM_ITIN),
+  'chiang-mai-chiang-rai-4d3n':      S(IT.doiSuthep, IT.elephantCM, IT.cr3),
+  'chiang-mai-doi-angkhang-road-trip': S(IT.doiInthanon, IT.doiSuthep, IT.elephantCM),
+  'chiang-mai-nature-doi-plan':      S(IT.doiInthanon, IT.doiSuthep, IT.elephantCM),
+  'chiang-mai-pai-loop-plan':        S(IT.doiSuthep, IT.elephantCM, IT.pai),
+  // phuket (defaults + themed)
+  ...mk(['phuket-1-day-itinerary','phuket-2d1n-itinerary','phuket-3d2n-itinerary','phuket-beach-plan','phuket-budget-plan','phuket-family-plan','phuket-first-timer-guide','phuket-old-town-cafe-plan','phuket-photo-spots-plan'], PKT_ITIN),
+  'phuket-island-hopping-plan': S(IT.khai, IT.phiphiSnork, IT.similan),
+  'phuket-krabi-plan':          S(IT.bigBuddha, IT.phiphiSnork, IT.phiphi4is),
+  'phuket-phang-nga-plan':      S(IT.jamesBond, IT.jamesBondBig, IT.bigBuddha),
+};
+
 const batchName = process.argv[2];
 const apply = process.argv.includes('--apply');
 const batch = BATCHES[batchName];
