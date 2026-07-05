@@ -35,7 +35,8 @@ const authorNode: any = hasEditor
       ...(String(_ed.image || '').trim() ? { image: `${IMG_BASE || SITE}/${String(_ed.image).replace(/^\//, '')}` } : {}),
       ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
   : { '@type': 'Organization', name: 'ThailandAddict Editorial' };
-const today = '2026-05-17';
+// Prefer a real per-roundup date over the shared fallback — every roundup otherwise showed the identical stamp.
+const today = (data as any).modifiedDate || '2026-05-17';
 
 // Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
 // and the .html suffix stripped (clean URL).

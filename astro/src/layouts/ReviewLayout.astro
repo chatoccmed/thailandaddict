@@ -16,7 +16,8 @@ const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c0
 const base = isEn ? `${SITE}/en` : SITE;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
-const today = '2026-05-17';
+// Prefer a real per-review date over the shared fallback — every review otherwise showed the identical stamp.
+const today = (data as any).modifiedDate || '2026-05-17';
 // Honest static "last checked" stamp from the content date (was a live new Date() clock that falsely implied a real-time price check).
 const _tdParts = today.split('-');
 const TS_MON_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
@@ -94,7 +95,7 @@ const S = {
     qiType: 'ประเภท', qiScore: 'คะแนนรีวิว', qiPrice: 'ราคาเริ่มต้น', qiRooms: 'ห้องพัก',
     qiBook: 'จองเลย →', qiWish: '🔖 เก็บลงแผน', qiWishSaved: '✓ เก็บแล้ว',
     secReview: 'Review · รีวิว',
-    updateChip: '📅 อัปเดตล่าสุด พฤษภาคม 2026 · ตรวจสอบราคาและข้อมูลแล้ว',
+    updateChip: `📅 อัปเดตล่าสุด ${priceTs} · ตรวจสอบราคาและข้อมูลแล้ว`,
     bylineName: 'รีวิวโดย ทีมบรรณาธิการ ThailandAddict', bylineBadge: '✓ ตรวจสอบข้อมูลแล้ว',
     bylineText: 'ทีมงานมีประสบการณ์รีวิวโรงแรมและทำเว็บท่องเที่ยวมากกว่า 10 ปี — รีวิวนี้ประมวลจากรีวิวแขกจริงหลายร้อยรายการบน Booking &amp; Agoda ผสานกับการตรวจสอบทำเล ราคา และข้อมูลห้องพักโดยทีมงาน · ',
     bylineLink: 'วิธีการรีวิวของเรา →',
@@ -129,7 +130,7 @@ const S = {
     qiType: 'Type', qiScore: 'Review Score', qiPrice: 'From', qiRooms: 'Rooms',
     qiBook: 'Book now →', qiWish: '🔖 Save to plan', qiWishSaved: '✓ Saved',
     secReview: 'Review',
-    updateChip: '📅 Last updated May 2026 · Prices &amp; info verified',
+    updateChip: `📅 Last updated ${priceTs} · Prices &amp; info verified`,
     bylineName: 'Reviewed by the ThailandAddict Editorial Team', bylineBadge: '✓ Fact-checked',
     bylineText: 'Our team has 10+ years of experience reviewing hotels and running travel sites — this review draws on hundreds of real guest reviews on Booking &amp; Agoda, combined with our own checks on location, pricing and room details. · ',
     bylineLink: 'Our review methodology →',
