@@ -545,6 +545,13 @@ BATCHES.wave5 = {
   ],
 };
 
+// ---- wave 6: food-type pages with the same foodexp block ----
+BATCHES.wave6 = {
+  ...mk(['bangkok-food-guide','bangkok-khao-gaeng','bangkok-local-breakfast','bangkok-night-market-food'], BKK_FOOD),
+  ...mk(['chiang-mai-food-guide','chiang-mai-khao-soi','chiang-mai-local-breakfast','chiang-mai-out-of-town-dining','chiang-mai-street-food'], CM_FOOD),
+  ...mk(['phuket-food-guide','phuket-roti-tea','phuket-street-food-markets'], PKT_FOOD),
+};
+
 const batchName = process.argv[2];
 const apply = process.argv.includes('--apply');
 const batch = BATCHES[batchName];
