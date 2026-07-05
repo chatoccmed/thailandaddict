@@ -2,6 +2,7 @@
 import '../styles/review.css';
 import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
+import editorial from '../data/editorial.json';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
@@ -59,6 +60,18 @@ const _derivedQA = (data.name && Number(data.score) > 0)
       : `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · คะแนนรีวิวรวม ${data.score}/10${_qaPrice ? ` · ราคาเริ่ม ${_qaPrice}${_qaUnit}` : ''}`)
   : '';
 const qaHtml = (data as any).quickAnswerHtml || _derivedQA;
+
+// EEAT — named editor (gated: falls back to the Organization author until editorial.json holds a real name).
+const _ed = (editorial as any).editor || {};
+const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
+const _edName = (isEn ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (isEn ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const authorNode: any = hasEditor
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${base}/about`, worksFor: { '@id': `${SITE}/#org` },
+      ...(String(_ed.image || '').trim() ? { image: asset(_ed.image) } : {}),
+      ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
+  : { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE };
+const bylineName = hasEditor ? (isEn ? `Reviewed by ${_edName}` : `รีวิวโดย ${_edName}`) : '';
 
 // UI strings
 const S = {
@@ -224,7 +237,7 @@ const schema = {
       '@type': 'Review', '@id': `${url}#review`,
       itemReviewed: { '@id': `${url}#hotel` },
       reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
-      author: { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE },
+      author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: today, dateModified: today,
     }] : []),
@@ -448,9 +461,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   </style>
 
   <div class="fade-up byline">
-    <div class="byline-av">T</div>
+    <div class="byline-av">{hasEditor ? (_edName.trim()[0] || 'T') : 'T'}</div>
     <div>
-      <div class="byline-name">{S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
+      <div class="byline-name">{hasEditor ? bylineName : S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
       <div class="byline-text"><Fragment set:html={S.bylineText} /><a href={link('editorial-policy.html')}>{S.bylineLink}</a></div>
     </div>
   </div>

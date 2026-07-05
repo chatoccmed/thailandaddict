@@ -2,6 +2,7 @@
 import '../styles/roundup.css';
 import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
+import editorial from '../data/editorial.json';
 
 interface Props {
   data: CollectionEntry<'roundups'>['data'];
@@ -24,6 +25,16 @@ const _derivedQA = (!(data as any).quickAnswerHtml && _n1 && _n1.name)
       : `อันดับ 1 คือ <strong>${_n1.name}</strong>${_n1.price ? ` (${_n1.price})` : ''} · คัดจากทั้งหมด ${_tocN} ที่ในบทความนี้`)
   : '';
 const qaHtml = (data as any).quickAnswerHtml || _derivedQA;
+// EEAT — named editor (gated: falls back to Organization author until editorial.json holds a real name).
+const _ed = (editorial as any).editor || {};
+const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
+const _edName = (isEn ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (isEn ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const authorNode: any = hasEditor
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${base}/about`, worksFor: { '@id': `${SITE}/#org` },
+      ...(String(_ed.image || '').trim() ? { image: `${IMG_BASE || SITE}/${String(_ed.image).replace(/^\//, '')}` } : {}),
+      ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
+  : { '@type': 'Organization', name: 'ThailandAddict Editorial' };
 const today = '2026-05-17';
 
 // Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
@@ -165,7 +176,7 @@ const breadcrumb = {
 };
 const article = {
   '@type': 'Article', headline: data.ogTitle, description: data.metaDesc, image: imgAbs,
-  author: { '@type': 'Organization', name: 'ThailandAddict Editorial' },
+  author: authorNode,
   publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
   datePublished: today, dateModified: today, inLanguage: lang, articleSection: 'Hotel Reviews',
 };
@@ -185,7 +196,9 @@ const author = (data as any).author;
 const authorBio = author ? (isEn && author.bioEn ? author.bioEn : (author.bio || '')) : '';
 // EEAT: always show an editorial byline + fact-checked badge on roundups, even without a named author.
 // (The bottom author-bio box stays gated on a real `author` — no fabricated bio.)
-const by = author || { name: isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict', jobTitle: isEn ? 'Hotel reviews & rankings' : 'รีวิว & จัดอันดับโรงแรม' };
+const by = author || (hasEditor
+  ? { name: _edName, jobTitle: _edRole, url: `${base}/about`, avatar: String(_ed.image || '').trim() }
+  : { name: isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict', jobTitle: isEn ? 'Hotel reviews & rankings' : 'รีวิว & จัดอันดับโรงแรม' });
 const factCheckedL = isEn ? '✓ Fact-checked' : '✓ ตรวจสอบแล้ว';
 // Normalize sources into array of strings (the schema allows any · pilot uses string[]).
 const sources: any[] = Array.isArray((data as any).sourcesAndCitations) ? (data as any).sourcesAndCitations : [];

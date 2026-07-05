@@ -2,6 +2,7 @@
 // ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
+import editorial from '../data/editorial.json';
 const { data, lang = 'th', hasEn = true } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
@@ -115,10 +116,20 @@ const showFilters = isResto && (zones.length >= 2 || types.length >= 2 || prices
 const railItems = (data.rail && data.rail.length ? data.rail : []);
 const foodBlock = isResto ? (data.blocks.find((b) => b.kind === 'foodexp') || null) : null;
 const hasRail = isResto && (railItems.length > 0 || !!foodBlock);
+// EEAT — named editor (gated: falls back to Organization author until editorial.json holds a real name).
+const _ed = (editorial as any).editor || {};
+const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
+const _edName = (isEn ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (isEn ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const authorNode: any = hasEditor
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${SITE}${isEn ? '/en' : ''}/about`, worksFor: { '@id': `${SITE}/#org` },
+      ...(String(_ed.image || '').trim() ? { image: asset(_ed.image) } : {}),
+      ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
+  : { '@type': 'Organization', name: 'ThailandAddict' };
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
     { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
-      author: { '@type': 'Organization', name: 'ThailandAddict' },
+      author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: published, dateModified: updated,
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
