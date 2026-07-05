@@ -591,6 +591,21 @@ const IT = {
   artParadise: { key: 'art-in-paradise',  emoji: '🎨', th: ['ตั๋ว Art in Paradise พัทยา', 'มิวเซียมภาพ 3D ถ่ายรูปสนุกวันฝนตก'], en: ['Art in Paradise Pattaya ticket', '3D trick-art museum, great on rainy days'] },
   tiffany:     { key: 'tiffany-show',     emoji: '🎭', th: ["ตั๋วโชว์ Tiffany's พัทยา", 'คาบาเรต์เจ้าดังที่เปิดมานานที่สุด'], en: ["Tiffany's Show ticket, Pattaya", 'The longest-running cabaret in town'] },
   ramayana:    { key: 'ramayana-park',    emoji: '💦', th: ['ตั๋ว Ramayana Water Park', 'สวนน้ำใหญ่ที่สุดของไทย สไลเดอร์ 21 ตัว'], en: ['Ramayana Water Park ticket', "Thailand's biggest water park, 21 slides"] },
+  // wave 9 secondary clusters
+  vanaNava:    { key: 'vana-nava',        emoji: '💦', th: ['ตั๋ว Vana Nava Water Jungle หัวหิน', 'สวนน้ำใหญ่ของเมือง'], en: ['Vana Nava Water Jungle ticket, Hua Hin', "Hua Hin's big water park"] },
+  santorini:   { key: 'santorini-water',  emoji: '🎡', th: ['ตั๋ว Santorini Park Waterventures', 'สวนน้ำธีมกรีซที่ชะอำ'], en: ['Santorini Park Waterventures pass', 'Greek-themed water park in Cha-am'] },
+  huahinZip:   { key: 'huahin-zipline',   emoji: '🌲', th: ['ซิปไลน์หัวหิน', 'โหนสลิงในป่าใกล้เมือง'], en: ['Hua Hin zipline experience', 'Forest ziplines close to town'] },
+  erawanKwai:  { key: 'erawan-kwai',      emoji: '💦', th: ['เดย์ทัวร์น้ำตกเอราวัณ + สะพานแคว', 'ไปเช้าเย็นกลับจากกรุงเทพ'], en: ['Erawan Waterfall + River Kwai day tour', 'Out and back from Bangkok'] },
+  deathRail:   { key: 'death-railway',    emoji: '🚂', th: ['เดย์ทัวร์ทางรถไฟสายมรณะ + สะพานแคว', 'รวมนั่งรถไฟช่วงถ้ำกระแซ'], en: ['Death Railway + River Kwai Bridge day tour', 'Includes the Tham Krasae train ride'] },
+  ayutTemples: { key: 'ayutthaya-temples', emoji: '🛕', th: ['ทัวร์วัดดังอยุธยาในวันเดียว', 'รวมเศียรพระในรากไม้วัดมหาธาตุ'], en: ['Ayutthaya must-visit temples day tour', 'Includes the Buddha head at Wat Mahathat'] },
+  sukhCyc:     { key: 'sukhothai-cycling', emoji: '🚲', th: ['ปั่นจักรยานชมอุทยานประวัติศาสตร์', 'ครึ่งวัน มีไกด์นำ'], en: ['Sukhothai Historical Park cycling tour', 'Half day with a guide'] },
+  sukhSun:     { key: 'sukhothai-sunset', emoji: '🌅', th: ['ปั่นชมพระอาทิตย์ตกที่สุโขทัย', 'รอบเย็น แสงสวยสุดของอุทยาน'], en: ['Sukhothai sunset cycling tour', "Evening ride in the park's best light"] },
+  khaoyaiFull: { key: 'khaoyai-fullday',  emoji: '🌳', th: ['เดย์ทัวร์อุทยานแห่งชาติเขาใหญ่', 'เดินเทรล ส่องสัตว์ จากกรุงเทพ'], en: ['Khao Yai National Park full-day tour', 'Trails & wildlife, from Bangkok'] },
+  kohChangSp:  { key: 'kohchang-speed',   emoji: '🚤', th: ['ทัวร์ดำน้ำตื้น 4-5 เกาะ สปีดโบ๊ต', 'รอบอุทยานทางทะเลเกาะช้าง'], en: ['4-5 island snorkel tour by speedboat', 'Around the Koh Chang marine park'] },
+  kohChangKon: { key: 'kohchang-kontiki', emoji: '⛵', th: ['Kon Tiki ครูซดำน้ำตื้น', 'เรือใหญ่นั่งสบาย มีบุฟเฟต์กลางวัน'], en: ['Kon Tiki snorkeling cruise', 'Comfy big boat with lunch buffet'] },
+  paiPrivate:  { key: 'pai-day-private',  emoji: '🚐', th: ['เดย์ทัวร์ปาย รถส่วนตัว', 'จัดจังหวะเองได้ เหมาะมากันเป็นกลุ่ม'], en: ['Pai private day tour', 'Your own pace — good for groups'] },
+  cheowlan:    { key: 'cheowlan-day',     emoji: '🛶', th: ['เดย์ทัวร์เขื่อนเชี่ยวหลาน เรือหางยาว', 'ล่องทะเลสาบ เข้าถ้ำ กินข้าวแพกลางน้ำ'], en: ['Cheow Lan Lake day tour by longtail', 'Lake cruise, cave & floating-raft lunch'] },
+  amphawaFire: { key: 'amphawa-firefly', emoji: '✨', th: ['อัมพวา + ล่องเรือดูหิ่งห้อย', 'ตลาดน้ำยามเย็น ปิดท้ายด้วยหิ่งห้อย'], en: ['Amphawa + firefly boat ride', 'Evening market, firefly cruise to finish'] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -631,6 +646,32 @@ BATCHES.wave8 = {
   'pattaya-family-plan':       S(IT.nongNooch, IT.ramayana, IT.artParadise),
   'pattaya-nightlife-plan':    S(IT.tiffany, IT.sanctuary, IT.kohLarn),
   'pattaya-rainy-day-plan':    S(IT.artParadise, IT.tiffany, IT.nongNooch),
+};
+
+// ---- wave 9: itinerary pages for secondary clusters (auto-discovered per cluster) ----
+// applies the SAME signature triple to every itinerary page in the cluster; partial
+// (1-2 item) triples leave the remaining slots on search links.
+const ARTDIR = path.join(import.meta.dirname, '..', 'astro/src/content/articles');
+const itinFiles = (cluster) => fs.readdirSync(ARTDIR)
+  .filter(f => f.endsWith('.json'))
+  .filter(f => { const j = JSON.parse(fs.readFileSync(path.join(ARTDIR, f), 'utf8')); return j.type === 'itinerary' && j.cluster === cluster; })
+  .map(f => f.replace('.json', ''));
+const clusterItin = (cluster, items) => mk(itinFiles(cluster), items);
+BATCHES.wave9 = {
+  ...clusterItin('huahin',              S(IT.vanaNava, IT.santorini, IT.huahinZip)),
+  ...clusterItin('prachuap-khiri-khan', S(IT.vanaNava)),
+  ...clusterItin('chonburi',            S(IT.sanctuary, IT.nongNooch, IT.kohLarn)),
+  ...clusterItin('phang-nga',           S(IT.jamesBond, IT.jamesBondBig, IT.similan)),
+  ...clusterItin('ayutthaya',           S(IT.ayutthaya, IT.ayutTemples)),
+  ...clusterItin('kanchanaburi',        S(IT.erawanKwai, IT.deathRail)),
+  ...clusterItin('sukhothai',           S(IT.sukhCyc, IT.sukhSun)),
+  ...clusterItin('trat',                S(IT.kohChangSp, IT.kohChangKon)),
+  ...clusterItin('mae-hong-son',        S(IT.pai, IT.paiPrivate)),
+  ...clusterItin('samut-songkhram',     S(IT.damnoen, IT.amphawaFire)),
+  ...clusterItin('chiang-rai',          S(IT.cr3)),
+  ...clusterItin('khao-yai',            S(IT.khaoyaiFull)),
+  ...clusterItin('nakhon-ratchasima',   S(IT.khaoyaiFull)),
+  ...clusterItin('surat-thani',         S(IT.cheowlan, IT.kohTao, IT.angThong)),
 };
 
 const batchName = process.argv[2];
