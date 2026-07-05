@@ -198,8 +198,6 @@ const roundupSchema = z.object({
   personaClosingHtml: z.string().optional(),  // Dr Chat persona-based closing
   sourcesAndCitations: z.any().optional(),    // bottom-of-article sources list
   jsonLd: z.any().optional(),                 // custom JSON-LD block (Person + ItemList + FAQPage + Hotel + AggregateRating · in addition to template-generated schema)
-  // Honest per-file freshness stamp (optional · back-compat) — a real per-roundup date beats one hardcoded constant repeated across all roundups.
-  modifiedDate: z.string().optional(),
 });
 
 // Thai collections (served at site root).
