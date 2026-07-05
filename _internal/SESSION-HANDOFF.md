@@ -1,5 +1,8 @@
 # SESSION HANDOFF — start here (last updated 2026-07-01, ~14:30, after GENUINELY closing the top10-attractions EN-twin gap to 0/96 — the final 23 Isan/deep-south provinces — + ladprao ย่าน in progress)
 
+> ## ⏩ NEWER HANDOFF EXISTS — read `_internal/SESSION-END-2026-07-05.md` FIRST
+> (2026-07-05 mega-session: site-wide QA a–e ALL DONE + venue/attraction verify + **Booking.com→CJ monetization LIVE**. Before touching ANYTHING Booking-related read `_internal/BOOKING-CJ-GUIDE.md`, and run `node _internal/qa/check-booking-cj.mjs astro/dist` before every deploy. Latest deploy version `62215f85`.)
+
 > New session: read this first, then `_internal/DEVELOPMENT-PLAN-v2.md` (full roadmap) + the memory files. Site is LIVE, repo is CLEAN (everything committed + pushed to origin/main), latest deploy version `1aa32ef3`. Nothing is half-done.
 
 ---
