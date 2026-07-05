@@ -389,7 +389,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <div class="hero">
   <div class="hero-grid">
     <div class="hero-main">
-      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
+      <a href={cjBooking(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
       <div class="hero-main-ov"></div>
       <div class="hero-badges">
@@ -404,7 +404,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
       </div>
     </div>
     <div class="hero-sub">
-      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <a href={cjBooking(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
     </div>
     <div class="hero-sub-2" style="position:relative;">
@@ -485,15 +485,15 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <div class="gal-main">
       <div class="gp main-gp">
         <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
-        <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+        <a href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
       </div>
       {data.gallery.map((g, i) => (
         <div class="gp">
           <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
-          <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+          <a href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
         </div>
       ))}
-      <a class="gp-more" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored">
+      <a class="gp-more" href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored">
         <div class="n">+30</div>
         <div>{S.galleryMore}</div>
       </a>
@@ -512,7 +512,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
               <figure class="rv-body-fig">
                 <div class="rv-body-imgwrap">
                   <img class="rv-body-img" src={asset(blk.src)} alt={blk.alt} loading="lazy" onerror="this.closest('.rv-body-fig').style.display='none'" />
-                  <a class="rv-body-book" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name}><span>{S.imgBook}</span></a>
+                  <a class="rv-body-book" href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name}><span>{S.imgBook}</span></a>
                 </div>
                 {blk.alt ? <figcaption>{blk.alt}</figcaption> : null}
               </figure>
@@ -624,9 +624,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </div>
     <div class="pw-cta-h">{S.pwCtaH}</div>
     <div class="pw-btns">
-      <button class="pw-btn agoda" data-href={data.bookingAgoda}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
+      <button class="pw-btn agoda" data-href={cjBooking(data.bookingAgoda)}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
       <button class="pw-btn booking" data-href={cjBooking(data.bookingBooking)}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn trip" data-href={data.bookingTrip}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
+      <button class="pw-btn trip" data-href={cjBooking(data.bookingTrip)}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
     </div>
     <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
   </div>
@@ -776,9 +776,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <div class="rvbar">
   <div class="rv-price">💰 <span class="rv-pf">{S.rvFrom}</span> <b>{data.qiPrice}</b><span class="rv-pu"> {data.qiPriceUnit}</span><span class="rv-ref">{S.rvRef}</span></div>
   <div class="rv-cards">
-    <a class="rv-card rv-ag" href={data.bookingAgoda} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
+    <a class="rv-card rv-ag" href={cjBooking(data.bookingAgoda)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
     <a class="rv-card rv-bk" href={cjBooking(data.bookingBooking)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
-    <a class="rv-card rv-tp" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
+    <a class="rv-card rv-tp" href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
   </div>
 </div>
 

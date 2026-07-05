@@ -568,7 +568,7 @@ function hotelCards(slug){
     const stars=h.star?`<div class="hc-stars">${'★'.repeat(h.star)}</div>`:'';
     const sc=h.score?`<span class="hc-score">${h.score.toFixed(1)}</span>`:'';
     const price=h.price?`<div class="hc-price">${tx('เริ่มประมาณ','From approx.')} <b>${esc(h.price)}</b></div>`:'';
-    const bk=(h.agoda?`<a class="hbtn bk1" href="${h.agoda}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')+(h.booking?`<a class="hbtn bk2" href="${cjB(h.booking,slug)}" target="_blank" rel="nofollow noopener">Booking</a>`:'')+(h.trip?`<a class="hbtn bk3" href="${h.trip}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
+    const bk=(h.agoda?`<a class="hbtn bk1" href="${cjB(h.agoda,slug)}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')+(h.booking?`<a class="hbtn bk2" href="${cjB(h.booking,slug)}" target="_blank" rel="nofollow noopener">Booking</a>`:'')+(h.trip?`<a class="hbtn bk3" href="${cjB(h.trip,slug)}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
     return `<div class="hcard"><div class="hc-img">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}${sc}</div><div class="hc-body"><div class="hc-name">${esc(h.name)}</div>${stars}<div class="hc-type">${esc(h.type)}</div>${h.loc?`<div class="hc-loc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">${tx('ดูรีวิวเต็ม →','Read full review →')}</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
   }).join('')+`</div>`;
 }

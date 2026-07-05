@@ -558,7 +558,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
           <div class="img-wrap">
             <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
             <div class="img-overlay"><div class="mrt-tag">{e.mrtTag}</div></div>
-            <a class="rd-img-book" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
+            <a class="rd-img-book" href={cjBooking(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
           </div>
           <div class="price-block">
             <div class="price-label-sm">{S.priceLabel}</div>
@@ -570,9 +570,9 @@ const splitSource = (s: any): { label: string; url: string | null } => {
               <div class="room-opt"><span class="room-type">{r.type}</span><span class="room-price">{r.price}</span></div>
             ))}
           </div>
-          <a class="btn-main" href={e.agodaUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
+          <a class="btn-main" href={cjBooking(e.agodaUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
           <a class="btn-sec" href={cjBooking(e.bookingUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
-          <a class="btn-trip" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
+          <a class="btn-trip" href={cjBooking(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
           {e.reviewUrl && <a class="btn-text" href={link(e.reviewUrl)}>{S.btnText}</a>}
           <button class="entry-save" type="button" data-slug={wishSlug(e.reviewUrl)} data-name={e.name} data-img={asset(e.img)} data-url={link(e.reviewUrl)} data-type="stay" data-city={wishCitySlug} data-province={wishProvince} data-word={S.wishWord} data-saved={S.wishSaved}>{S.wishWord}</button>
         </div>
