@@ -35,6 +35,9 @@ if [ ! -d node_modules ] || [ package-lock.json -nt node_modules ]; then
   echo "=== npm ci ==="
   npm ci
 fi
+echo "=== dark-pattern lint (honesty guardrail — no manufactured urgency/scarcity/countdown) ==="
+node "$SCRIPT_DIR/lint-dark-patterns.mjs" || { echo "ERROR: dark-pattern lint failed — rewrite as honest info before push"; exit 3; }
+
 echo "=== astro build ==="
 # Site grew past ~3000 pages → Node's default ~2GB heap OOMs mid-build (exit 134,
 # "FATAL ERROR: Reached heap limit"). The real fix lives in astro/package.json's
