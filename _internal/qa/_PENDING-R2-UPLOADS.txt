@@ -1,9 +1,1 @@
-# New/replaced images from QA phase-b fixes — MUST upload to R2 at deploy (prod serves images/hotels/* from R2)
-# cmd: npx wrangler r2 object put thailandaddict-images/images/hotels/<file> --file=astro/public/images/hotels/<file> --remote
-images/hotels/satun-pinnacle-1.jpg
-images/hotels/songkhla-srikohyou-1.jpg
-images/hotels/songkhla-srikohyou-2.jpg
-images/hotels/songkhla-srikohyou-3.jpg
-images/hotels/bangkok-dd-inn-khaosan-1.jpg
-images/hotels/bangkok-chinatownhotel-1.jpg
-images/hotels/bangkok-holidayinn-sukhumvit22-1.jpg
+# All 7 QA phase-b images uploaded to R2 2026-07-06 (wrangler r2 object put --remote, OAuth) — verified 200. DONE.

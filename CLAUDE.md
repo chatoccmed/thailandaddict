@@ -1,8 +1,9 @@
 # CLAUDE.md — thailandaddict.com
 
 แบรนด์ **เที่ยวไทยเฉพาะทาง** (TH + EN) บน Astro static → Cloudflare
-Scaffold ยกสถาปัตยกรรมมาจาก wherebest (repo `tourlogy`) แล้ว rebrand · เริ่มเนื้อหาสดใหม่
+Scaffold ยกสถาปัตยกรรมมาจาก wherebest (repo `tourlogy`) แล้ว rebrand
 
+> ⚠️ **STATUS (อัปเดต 2026-07-06 — เว็บ LIVE เต็มรูปแบบแล้ว ไม่ใช่ scaffold เปล่า):** เนื้อหาครบ ~13,150 หน้า TH/EN — **reviews 2,296 · roundups 296 · articles 3,986** (attraction/itinerary/eat-ranking/food/prep/guide) ครบ 77 จังหวัด + 33 ย่านกรุงเทพ · **มี search** (`search.html` + `search-index.json` + ช่องใน nav) · หน้า hub 77 จังหวัด + region/country/destinations **มีจริงแล้ว** (gen จาก `_internal/gen-hubs.mjs`) · AI planner `/trip` + budget + wishlist live · Booking→CJ + Agoda/Trip/Klook deep links live · i18n 9 ภาษาเริ่ม scaffold แล้ว (UI chrome) · **ส่วน "งานต่อไป/future target" ด้านล่างส่วนใหญ่ทำเสร็จแล้ว — เชื่อ production + git log ก่อนเชื่อ doc** · handoff ล่าสุด = `_internal/SESSION-END-2026-07-05.md` + memory files
 > อ่าน `thailandaddict-handoff.md` สำหรับบริบทเต็ม (portfolio 3 เว็บ, inventory 212 posts เดิม, การตัดสินใจ)
 
 ---
@@ -21,7 +22,7 @@ Scaffold ยกสถาปัตยกรรมมาจาก wherebest (repo 
 ```
 astro/
   src/content.config.ts        schema (reviews/roundups + EN) · default addressCountry 'TH'
-  src/content/{reviews,roundups,reviews-en,roundups-en}/   *.json (ตอนนี้ว่าง — .gitkeep)
+  src/content/{reviews,roundups,reviews-en,roundups-en}/   *.json (LIVE: reviews 2,296 · roundups 296 + EN twins) · articles,articles-en/ = 3,986 บทความ
   src/layouts/{ReviewLayout,RoundupLayout}.astro
   src/styles/{review,roundup}.css
   src/pages/[slug].astro · src/pages/en/[slug].astro
@@ -60,13 +61,13 @@ _internal/
 - agents: roundup-builder · hotel-reviewer · food-writer · attraction-writer · quality-auditor (งานเขียน = Opus)
 - ⚠️ ยังชื่อ prefix `tourlogy-` — rename เป็น `thailandaddict-` ภายหลังได้ (ตอน reuse จริง)
 
-## งานต่อไป (ดูแฮนด์ออฟ §แผน)
+## งานต่อไป (⚠️ ขั้น 1-6 นี้ **เสร็จหมดแล้ว** — เก็บไว้เป็นประวัติ · งานปัจจุบัน ดู `_internal/SESSION-END-2026-07-05.md` §งานถัดไป + memory)
 1. ✅ scaffold stack + rebrand (เสร็จ)
-2. ✅ chrome/hub pages: `index.html`, `country-thailand.html`, about/contact/editorial-policy/privacy/404 (Thailand-scoped nav/footer · design system จาก wherebest) — nav/footer ของ layout resolve ครบแล้ว
-3. ดึง 212 posts เดิม → topic list (WP REST: `thailandaddict.com/wp-json/wp/v2/posts?per_page=100&page=N`)
-4. เขียนใหม่สไตล์ v2-clean ทีละหัวข้อ (verify โรงแรมจริง · รูป Trip.com) → ลง content collections
-5. สร้าง `city-*.html` (25 จังหวัด) + `top10-hotels-*.html` — ตอนนี้เป็น future target ที่ index/country/footer ลิงก์ถึง (ยัง 404)
-6. Cloudflare auto-deploy
+2. ✅ chrome/hub pages: `index.html`, `country-thailand.html`, about/contact/editorial-policy/privacy/404 — resolve ครบ
+3. ✅ ดึง 212 posts เดิม → เขียนใหม่ครบ (ตอนนี้ 2,296 reviews + 296 roundups + 3,986 articles มากกว่า inventory เดิมหลายเท่า)
+4. ✅ เขียน v2-clean + verify โรงแรมจริง (web-verify ครบ 2,296 ใบ + ร้าน/สถานที่)
+5. ✅ `city-*.html` (77 จังหวัด ไม่ใช่ 25) + `top10-hotels-*.html` — สร้างครบแล้ว ไม่ 404
+6. ✅ Cloudflare deploy (⚠️ **auto-deploy ปิดตั้งแต่ 2026-06-23** — CI เคย ship partial dist · deploy = MANUAL `npm run build` + `npx wrangler deploy` เท่านั้น ดู memory `deploy-pipeline`)
 
 ## 🎨 Design system — "Vibrant Island Pop" (Direction C · LOCKED)
 เอกลักษณ์เฉพาะ thailandaddict (ฉีกจาก wherebest blue/orange · owner เลือก C) — ใช้**ทุกหน้า** ทั้ง hub + layout รีวิว/roundup
@@ -75,7 +76,7 @@ _internal/
 - **สไตล์:** สดใส มนโค้งใหญ่ (การ์ด 20–26px · ปุ่ม 12px · pill 999px) · เงาสีสด · gradient (hero teal→coral, ปุ่ม, score)
 - **Booking buttons:** Agoda=coral gradient · Booking=teal · Trip=ink · rank tile=teal gradient · score=mango→amber gradient pill · rating bars=teal→coral
 - **ต้นแบบ/design-system reference = `astro/public/index.html`** (`<style>` block + nav/footer chrome) — หน้า hub อื่นก๊อป block นี้ · layout รีวิว/roundup ฝัง palette เดียวกันใน `review.css`/`roundup.css` + inline `<style>`
-- favicon = teal `T` (`%2306B6D4`) · chrome ร่วม nav/footer เหมือนกันทุกหน้า · ไม่มี search infra
+- favicon = teal `T` (`%2306B6D4`) · chrome ร่วม nav/footer เหมือนกันทุกหน้า · **มี search แล้ว** (`search.html` + `search-index.json` 1.18MB TH/EN + ช่องใน nav — ค้นจังหวัด/หน้า)
 - (เคยลอง A "Modern Tropical Editorial" cream/teal/Fraunces — owner เลือก C แทน · ห้ามใช้ token A เดิม `#0E7C6B`/`#FF6B4A`/cream/Fraunces)
 - **local preview:** `.claude/launch.json` → static-preview (public, :4399) + dist-preview (`~/ta-build-temp/dist`, :4400) → `_internal/preview-server.mjs` (รับ root/port ผ่าน argv)
 
@@ -89,4 +90,4 @@ _internal/
 
 ## หมายเหตุ scaffold
 - ลบ ad/monetization tag ของ wherebest (emrldco/Travelpayouts) ออกจาก layout แล้ว — ใส่ tag ของ thailandaddict เองภายหลัง
-- nav/footer default ชี้ `country-thailand.html`, `🇹🇭 Thailand` — หน้า hub เหล่านี้ยังไม่มี (สร้างในขั้น 4) ลิงก์จะ 404 จนกว่าจะสร้าง
+- nav/footer default ชี้ `country-thailand.html`, `🇹🇭 Thailand` — หน้า hub เหล่านี้ **มีจริงแล้ว** (ไม่ 404)
