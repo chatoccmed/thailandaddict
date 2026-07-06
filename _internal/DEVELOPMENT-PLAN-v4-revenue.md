@@ -4,6 +4,12 @@
 > ต่อยอด v1 (north-star/moat) · v2 (activation gap) · v3 (competitive benchmark, AEO wedge) — **v4 นี้ = เจาะเฉพาะ "ปิดรอยรั่วรายได้" จริงในโค้ด ไม่ใช่ทฤษฎี**
 > อ้างอิงคู่กับ `_internal/SESSION-END-2026-07-05.md` (QA + Booking→CJ ทำไปแล้วมหาศาล) — v4 นี้คือสิ่งที่เหลือ **หลัง** งานนั้น
 
+## ✅ Tier 0 ที่ทำเสร็จแล้ว (คืน 2026-07-05→06 — owner สั่ง "ทำต่อเนื่องได้เลย ไปนอนก่อน")
+- **0.1 Faceted filter (stars+budget) บน RoundupLayout** — พอร์ตจาก `.rfilter` pattern ของ eat-ranking มาใช้กับ 296 หน้า Top-N ที่พัก, derive จาก field ที่มีอยู่แล้ว (`stars`, `priceBig`) 0 ไฟล์คอนเทนต์ต้องแก้ · live
+- **0.4 Decision-content เพิ่ม 3 คู่ TH+EN**: `ayutthaya-day-trip-or-overnight` (ปิด gap เดย์ทริป/ค้างคืน), `best-time-to-visit-phuket` (เรื่องฝนคนละฝั่งทะเล), `best-time-to-visit-chiang-mai` (เรื่องหน้าหมอกควัน PM2.5) — ทุกอันอ้างอิงข้อมูลที่ verify แล้วในเว็บ ไม่ใช่ค้นคว้าใหม่ · cross-link ครบ · live
+- **bug ที่เจอระหว่างทาง**: roundupSchema มี `modifiedDate` field ซ้ำ 2 ที่ (ของเดิมที่มีอยู่แล้ว + ที่ผมเผลอเพิ่มซ้ำตอนแก้ freshness-date) → ลบตัวซ้ำแล้ว
+- **Tier 2 image pipeline (ทำบางส่วนแบบระมัดระวัง — ไม่แตะทั้ง 14,170 ไฟล์รวดเดียวตอนไม่มีคนดูแล)**: วิเคราะห์ความถี่การอ้างอิงรูปทั้งเว็บ → เลือก 150 ไฟล์ที่ถูกอ้างอิงบ่อยสุด (รวม 7,531 ครั้ง) → แปลง webp (ลดขนาด 23%) → อัป R2 → เพิ่ม `astro/src/data/webp-manifest.json` + wire `<picture><source webp>` ที่การ์ดโรงแรมใน RoundupLayout (จุดเดียว, gate ด้วย manifest, ยืนยันว่ารูปที่ไม่อยู่ใน manifest render เหมือนเดิม 100% ไม่มี regression) — **เหลือ**: พอร์ต pattern เดียวกันไปยัง ReviewLayout/ArticleLayout (จุดเรนเดอร์รูปอื่น) + แปลงรูปที่เหลืออีก ~14,000 ไฟล์ (ทำทีละล็อตในเซสชันถัดไป จะปลอดภัยกว่า)
+
 ---
 
 ## 0. สถานะเมื่อเริ่ม v4 (ยืนยันด้วย grep จริง ไม่ใช่สมมติ)

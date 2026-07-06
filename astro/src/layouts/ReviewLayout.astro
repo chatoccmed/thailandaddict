@@ -3,6 +3,7 @@ import '../styles/review.css';
 import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
+import webpManifest from '../data/webp-manifest.json';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
@@ -34,6 +35,10 @@ const link = (h: string) => {
 // Asset (image) helper: force a root-absolute path so images resolve
 // correctly from both / (Thai) and /en/ (English) pages.
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (/^\//.test(p) ? p : `/${p}`)));
+// Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
+// _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
+const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
+const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 
 // Booking.com (Thailand publishers) pays ONLY via CJ (Commission Junction) — the legacy ?aid= programme
 // does not credit. Content JSON keeps canonical booking.com URLs; this wraps them into a CJ deep link at
@@ -300,7 +305,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href={favSvg} />
-<link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />
+<link rel="preload" as="image" href={hasWebp(data.heroImg) ? asset(webpOf(data.heroImg)) : asset(data.heroImg)} fetchpriority="high" />
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 <style>
 .lang-sw{display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;border:1.5px solid #06B6D4;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
@@ -391,7 +396,14 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <div class="hero-grid">
     <div class="hero-main">
       <a href={cjBooking(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      {hasWebp(data.heroImg) ? (
+        <picture>
+          <source srcset={asset(webpOf(data.heroImg))} type="image/webp" />
+          <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
       <div class="hero-main-ov"></div>
       <div class="hero-badges">
         <span class="htag mid">{data.badgeMid}</span>
@@ -406,11 +418,23 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </div>
     <div class="hero-sub">
       <a href={cjBooking(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      {hasWebp(data.heroSub1) ? (
+        <picture><source srcset={asset(webpOf(data.heroSub1))} type="image/webp" />
+          <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
     </div>
     <div class="hero-sub-2" style="position:relative;">
       <a href={cjBooking(data.heroSub2Href)} target="_blank" rel="noopener nofollow sponsored" style="display:block;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      {hasWebp(data.heroSub2) ? (
+        <picture><source srcset={asset(webpOf(data.heroSub2))} type="image/webp" />
+          <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
       <button class="hero-more-btn">{S.heroMore}</button>
     </div>
   </div>
@@ -487,12 +511,24 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <div class="sec-label" set:html={S.secGallery}></div>
     <div class="gal-main">
       <div class="gp main-gp">
-        <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        {hasWebp(data.heroImg) ? (
+          <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" />
+            <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          </picture>
+        ) : (
+          <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        )}
         <a href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
       </div>
       {data.gallery.map((g, i) => (
         <div class="gp">
-          <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          {hasWebp(g) ? (
+            <picture><source srcset={asset(webpOf(g))} type="image/webp" />
+              <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+            </picture>
+          ) : (
+            <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          )}
           <a href={cjBooking(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
         </div>
       ))}
