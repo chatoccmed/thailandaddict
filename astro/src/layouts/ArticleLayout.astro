@@ -3,12 +3,17 @@
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
+import webpManifest from '../data/webp-manifest.json';
 const { data, lang = 'th', hasEn = true } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
 const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
+// Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
+// _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
+const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
+const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 const S = isEn
   ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
       priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
@@ -559,8 +564,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div></section>
     {data.heroImg && (data.heroCredit
-      ? <figure class="heroimg-fig"><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" /><figcaption class="heroimg-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener" set:html={data.heroCredit} /> : <span set:html={data.heroCredit} />}</figcaption></figure>
-      : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />)}
+      ? <figure class="heroimg-fig">{hasWebp(data.heroImg) ? <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" /><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" /></picture> : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" />}<figcaption class="heroimg-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener" set:html={data.heroCredit} /> : <span set:html={data.heroCredit} />}</figcaption></figure>
+      : hasWebp(data.heroImg) ? <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" /><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" /></picture> : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />)}
   </>
 )}
 {isResto &&
@@ -687,7 +692,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                       <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
                     </div>
                   ) : (
-                    <Fragment><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
+                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
                   )}
                 </div>}
                 <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
@@ -699,7 +704,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
-                <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />
+                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
                 <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
