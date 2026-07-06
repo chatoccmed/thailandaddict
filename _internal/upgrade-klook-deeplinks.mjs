@@ -100,6 +100,14 @@ const CATALOG = {
   'kohsamet-day':      '150194-koh-samet-island-day-tour-from-bangkok-pattaya',              // websearch-verified
   'kohsamet-9island':  '138440-koh-samet-exclusive-9-island-snorkeling-trip',               // websearch-verified
   'damnoen-ratchaburi':'98608-floating-market-ratchaburi-landmark-private-one-day-tour-bangkok', // websearch-verified
+  // wave 11 (2026-07-06): satun / udon-thani / nong-khai / loei / trang
+  'lipe-catamaran':    '70212-koh-lipe-join-day-boat-tour-sailing-catamaran-satun',         // websearch-verified
+  'lipe-islandhop':    '57734-koh-lipe-join-island-hopping-tour-longtail-boat',             // websearch-verified
+  'udon-classic':      '123869-udon-thani-nong-khai-classic-tour-temple-in-heaven-shuttle', // websearch-verified
+  'udon-temples':      '44636-private-day-tour-temples-udon-thani',                         // websearch-verified
+  'loei-chiangkhan':   '130662-loei-private-tour-chiang-khan-walking-street-more-by-ckrm-travel', // websearch-verified
+  'loei-phukradueng':  '44997-3D2N-Phu-Kradung-Tour',                                       // websearch-verified
+  'trang-emerald':     '82446-join-snorkel-tour-4-islands-emerald-cave-lanta-krabi',        // websearch-verified (departs Koh Lanta)
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -614,6 +622,14 @@ const IT = {
   kohSametDay: { key: 'kohsamet-day',     emoji: '🏖️', th: ['เดย์ทัวร์เกาะเสม็ด', 'เรือไป-กลับ + เที่ยวหาดทรายขาว'], en: ['Koh Samet island day tour', 'Round-trip boat + white-sand beaches'] },
   kohSamet9:   { key: 'kohsamet-9island', emoji: '🤿', th: ['ทัวร์ 9 เกาะรอบเสม็ด ดำน้ำตื้น', 'สปีดโบ๊ตเก็บหลายเกาะในวันเดียว'], en: ['Koh Samet 9-island snorkeling trip', 'Speedboat, several islands in a day'] },
   damnoenRat:  { key: 'damnoen-ratchaburi', emoji: '🛶', th: ['ตลาดน้ำดำเนินสะดวก + แลนด์มาร์กราชบุรี', 'เดย์ทัวร์ส่วนตัวจากกรุงเทพ'], en: ['Damnoen Saduak + Ratchaburi landmarks', 'Private day tour from Bangkok'] },
+  // wave 11
+  lipeHop:     { key: 'lipe-islandhop',   emoji: '🏝️', th: ['ทัวร์ฮอปปิ้งเกาะลีเป (เรือหางยาว)', 'ดำน้ำตื้นรอบเกาะน้ำใส'], en: ['Koh Lipe island hopping (longtail)', 'Snorkel the clear-water islands'] },
+  lipeCat:     { key: 'lipe-catamaran',   emoji: '⛵', th: ['ทัวร์เกาะลีเป เรือใบคาตามารัน', 'ชม-ดำน้ำ เกาะหินงาม อาดัง ราวี'], en: ['Koh Lipe by sailing catamaran', 'Snorkel Hin Ngam, Adang & Rawi'] },
+  udonClassic: { key: 'udon-classic',     emoji: '🛕', th: ['ทัวร์อุดร-หนองคาย + วัดผาตากเสื้อ', 'ไฮไลต์สองจังหวัดในวันเดียว'], en: ['Udon–Nong Khai classic tour + sky temple', 'Two-province highlights in a day'] },
+  udonTemples: { key: 'udon-temples',     emoji: '🙏', th: ['เดย์ทัวร์วัดดังอุดรธานี (ส่วนตัว)', 'ไกด์พาไหว้พระจุดหลัก'], en: ['Udon Thani temples private day tour', 'Guided temple highlights'] },
+  loeiCK:      { key: 'loei-chiangkhan',  emoji: '🏞️', th: ['ทัวร์เชียงคาน ถนนคนเดิน + ริมโขง', 'ไกด์ท้องถิ่นพาเที่ยว'], en: ['Chiang Khan tour: walking street & Mekong', 'With a local guide'] },
+  loeiPK:      { key: 'loei-phukradueng', emoji: '⛰️', th: ['ทัวร์ภูกระดึง 3 วัน 2 คืน', 'เดินขึ้นหลังแป ชมพระอาทิตย์'], en: ['Phu Kradueng 3D2N tour', 'Hike the plateau, catch the sunrise'] },
+  trangEmerald:{ key: 'trang-emerald',    emoji: '🤿', th: ['ทัวร์ถ้ำมรกต + 4 เกาะ ตรัง', 'ออกจากเกาะลันตา ว่ายเข้าถ้ำมรกต'], en: ['Emerald Cave + 4 Trang islands tour', 'Departs Koh Lanta, swim into the cave'] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -691,6 +707,38 @@ BATCHES.wave10 = {
   ...clusterItin('ratchaburi', S(IT.damnoenRat, IT.damnoen)),
   'damnoen-saduak-floating-market': S(IT.damnoenRat, IT.damnoen),
   'ratchaburi-attractions':         S(IT.damnoenRat, IT.damnoen),
+};
+
+// ---- wave 11: satun / udon-thani / nong-khai / loei / trang (attractions + itineraries) ----
+BATCHES.wave11 = {
+  // satun — Koh Lipe
+  'koh-lipe':                S(IT.lipeHop, IT.lipeCat),
+  'koh-hin-ngam-koh-adang':  S(IT.lipeCat, IT.lipeHop),
+  'satun-attractions':       S(IT.lipeHop, IT.lipeCat),
+  'tarutao-national-park':   S(IT.lipeCat, IT.lipeHop),
+  ...clusterItin('satun', S(IT.lipeHop, IT.lipeCat)),
+  // udon-thani
+  'udon-attractions':        S(IT.udonClassic, IT.udonTemples),
+  ...clusterItin('udon-thani', S(IT.udonClassic, IT.udonTemples)),
+  // nong-khai (Udon–Nong Khai classic tour includes the "temple in heaven" = Wat Pha Tak Suea)
+  'nong-khai-attractions':   S(IT.udonClassic),
+  'wat-pha-tak-suea':        S(IT.udonClassic),
+  ...clusterItin('nong-khai', S(IT.udonClassic)),
+  // loei
+  'loei-attractions':            S(IT.loeiCK),
+  'chiang-khan-walking-street':  S(IT.loeiCK),
+  'chiang-khan-skywalk':         S(IT.loeiCK),
+  'phu-thok-chiang-khan':        S(IT.loeiCK),
+  'kaeng-khut-khu':              S(IT.loeiCK),
+  'phu-kradueng-national-park-guide': S(IT.loeiPK),
+  ...clusterItin('loei', S(IT.loeiCK, IT.loeiPK)),
+  // trang — Emerald Cave / islands (tour departs Koh Lanta, visits Trang islands)
+  'emerald-cave-koh-mook':   S(IT.trangEmerald),
+  'koh-kradan':              S(IT.trangEmerald),
+  'koh-cheuk':               S(IT.trangEmerald),
+  'trang-island-hopping':    S(IT.trangEmerald),
+  'trang-attractions':       S(IT.trangEmerald),
+  ...clusterItin('trang', S(IT.trangEmerald)),
 };
 
 const batchName = process.argv[2];
