@@ -684,11 +684,14 @@ BATCHES.wave8 = {
 // applies the SAME signature triple to every itinerary page in the cluster; partial
 // (1-2 item) triples leave the remaining slots on search links.
 const ARTDIR = path.join(import.meta.dirname, '..', 'astro/src/content/articles');
-const itinFiles = (cluster) => fs.readdirSync(ARTDIR)
+const clusterFiles = (cluster, type, nameFilter) => fs.readdirSync(ARTDIR)
   .filter(f => f.endsWith('.json'))
-  .filter(f => { const j = JSON.parse(fs.readFileSync(path.join(ARTDIR, f), 'utf8')); return j.type === 'itinerary' && j.cluster === cluster; })
-  .map(f => f.replace('.json', ''));
-const clusterItin = (cluster, items) => mk(itinFiles(cluster), items);
+  .filter(f => { const j = JSON.parse(fs.readFileSync(path.join(ARTDIR, f), 'utf8')); return j.type === type && j.cluster === cluster; })
+  .map(f => f.replace('.json', ''))
+  .filter(s => !nameFilter || nameFilter(s));
+const clusterItin = (cluster, items) => mk(clusterFiles(cluster, 'itinerary'), items);
+// prep sweep: where-to-stay-* + hotels-near-* only (uniform 3-Klook experiences block); skips best-time-to-visit (irregular)
+const clusterPrep = (cluster, items) => mk(clusterFiles(cluster, 'prep', s => s.startsWith('where-to-stay') || s.startsWith('hotels-near')), items);
 BATCHES.wave9 = {
   ...clusterItin('huahin',              S(IT.vanaNava, IT.santorini, IT.huahinZip)),
   ...clusterItin('prachuap-khiri-khan', S(IT.vanaNava)),
@@ -766,6 +769,38 @@ BATCHES.wave13 = {
   'hatyai-municipal-park-cable-car': S(IT.songkhlaTour),
   'songkhla-attractions':           S(IT.songkhlaTour),
   ...clusterItin('songkhla', S(IT.songkhlaTour)),
+};
+
+// ---- wave 14: prep pages (where-to-stay-* + hotels-near-*) — same signature triple per cluster ----
+BATCHES.wave14 = {
+  ...clusterPrep('bangkok',           S(IT.landmarks, IT.palace, IT.floating)),
+  ...clusterPrep('chiang-mai',        S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon)),
+  ...clusterPrep('phuket',            S(IT.bigBuddha, IT.phiphiSnork, IT.jamesBond)),
+  ...clusterPrep('krabi',             S(IT.fourIslands, IT.emeraldTiger, IT.phiphi4is)),
+  ...clusterPrep('samui',             S(IT.angThong, IT.kohTao, IT.kohTaoPha)),
+  ...clusterPrep('pattaya',           S(IT.sanctuary, IT.nongNooch, IT.kohLarn)),
+  ...clusterPrep('huahin',            S(IT.vanaNava, IT.santorini, IT.huahinZip)),
+  ...clusterPrep('chonburi',          S(IT.sanctuary, IT.nongNooch, IT.kohLarn)),
+  ...clusterPrep('phang-nga',         S(IT.jamesBond, IT.jamesBondBig, IT.similan)),
+  ...clusterPrep('surat-thani',       S(IT.cheowlan, IT.kohTao, IT.angThong)),
+  ...clusterPrep('ayutthaya',         S(IT.ayutthaya, IT.ayutTemples)),
+  ...clusterPrep('kanchanaburi',      S(IT.erawanKwai, IT.deathRail)),
+  ...clusterPrep('sukhothai',         S(IT.sukhCyc, IT.sukhSun)),
+  ...clusterPrep('trat',              S(IT.kohChangSp, IT.kohChangKon)),
+  ...clusterPrep('mae-hong-son',      S(IT.pai, IT.paiPrivate)),
+  ...clusterPrep('samut-songkhram',   S(IT.damnoen, IT.amphawaFire)),
+  ...clusterPrep('rayong',            S(IT.kohSametDay, IT.kohSamet9)),
+  ...clusterPrep('ratchaburi',        S(IT.damnoenRat, IT.damnoen)),
+  ...clusterPrep('satun',             S(IT.lipeHop, IT.lipeCat)),
+  ...clusterPrep('udon-thani',        S(IT.udonClassic, IT.udonTemples)),
+  ...clusterPrep('loei',              S(IT.loeiCK, IT.loeiPK)),
+  ...clusterPrep('chiang-rai',        S(IT.cr3)),
+  ...clusterPrep('khao-yai',          S(IT.khaoyaiFull)),
+  ...clusterPrep('nakhon-ratchasima', S(IT.khaoyaiFull)),
+  ...clusterPrep('nong-khai',         S(IT.udonClassic)),
+  ...clusterPrep('trang',             S(IT.trangEmerald)),
+  ...clusterPrep('buriram',           S(IT.buriramKhmer)),
+  ...clusterPrep('songkhla',          S(IT.songkhlaTour)),
 };
 
 const batchName = process.argv[2];
