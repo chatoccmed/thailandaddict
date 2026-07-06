@@ -108,6 +108,8 @@ const CATALOG = {
   'loei-chiangkhan':   '130662-loei-private-tour-chiang-khan-walking-street-more-by-ckrm-travel', // websearch-verified
   'loei-phukradueng':  '44997-3D2N-Phu-Kradung-Tour',                                       // websearch-verified
   'trang-emerald':     '82446-join-snorkel-tour-4-islands-emerald-cave-lanta-krabi',        // websearch-verified (departs Koh Lanta)
+  // wave 12 (2026-07-06): buriram
+  'buriram-khmer':     '61985-buriram-ban-khok-mueang-community-tracing-khmer-civilization-tour', // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -630,6 +632,8 @@ const IT = {
   loeiCK:      { key: 'loei-chiangkhan',  emoji: '🏞️', th: ['ทัวร์เชียงคาน ถนนคนเดิน + ริมโขง', 'ไกด์ท้องถิ่นพาเที่ยว'], en: ['Chiang Khan tour: walking street & Mekong', 'With a local guide'] },
   loeiPK:      { key: 'loei-phukradueng', emoji: '⛰️', th: ['ทัวร์ภูกระดึง 3 วัน 2 คืน', 'เดินขึ้นหลังแป ชมพระอาทิตย์'], en: ['Phu Kradueng 3D2N tour', 'Hike the plateau, catch the sunrise'] },
   trangEmerald:{ key: 'trang-emerald',    emoji: '🤿', th: ['ทัวร์ถ้ำมรกต + 4 เกาะ ตรัง', 'ออกจากเกาะลันตา ว่ายเข้าถ้ำมรกต'], en: ['Emerald Cave + 4 Trang islands tour', 'Departs Koh Lanta, swim into the cave'] },
+  // wave 12
+  buriramKhmer:{ key: 'buriram-khmer',    emoji: '🛕', th: ['ทัวร์อารยธรรมขอมบุรีรัมย์ (2 วัน 1 คืน)', 'พนมรุ้ง เมืองต่ำ บ้านโคกเมือง'], en: ['Buriram Khmer civilization tour (2D1N)', 'Phanom Rung, Muang Tam & Ban Khok Mueang'] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -739,6 +743,15 @@ BATCHES.wave11 = {
   'trang-island-hopping':    S(IT.trangEmerald),
   'trang-attractions':       S(IT.trangEmerald),
   ...clusterItin('trang', S(IT.trangEmerald)),
+};
+
+// ---- wave 12: buriram (Khmer heritage) ----
+BATCHES.wave12 = {
+  'phanom-rung-historical-park': S(IT.buriramKhmer),
+  'phanom-rung-sun-alignment':   S(IT.buriramKhmer),
+  'prasat-muang-tam':            S(IT.buriramKhmer),
+  'buriram-attractions':         S(IT.buriramKhmer),
+  ...clusterItin('buriram', S(IT.buriramKhmer)),
 };
 
 const batchName = process.argv[2];
