@@ -90,13 +90,14 @@ const reviewSchema = z.object({
   nearby: z.array(z.object({ n: z.string(), d: z.string() })),
   relatedTitle: z.string(),
   related: z.array(z.object({ href: z.string(), img: z.string(), name: z.string(), loc: z.string(), price: z.string() })),
-  // article footer prev / next
-  prevHref: z.string(),
-  prevLabel: z.string(),
-  prevName: z.string(),
-  nextHref: z.string(),
-  nextLabel: z.string(),
-  nextName: z.string(),
+  // article footer prev / next — optional: some reviews legitimately have no neighbour
+  // (their old prev/next targets never existed; integrity audit 2026-07-07 removed those dead trios)
+  prevHref: z.string().optional(),
+  prevLabel: z.string().optional(),
+  prevName: z.string().optional(),
+  nextHref: z.string().optional(),
+  nextLabel: z.string().optional(),
+  nextName: z.string().optional(),
   // FAQ — optional · back-compat with existing reviews.
   // When present, ReviewLayout renders a FAQ accordion + FAQPage JSON-LD for SEO.
   faqTitle: z.string().optional(),

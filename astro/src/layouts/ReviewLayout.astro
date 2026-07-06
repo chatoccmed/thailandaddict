@@ -790,21 +790,25 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   })} />
 )}
 
-<!-- Article Footer -->
+<!-- Article Footer (prev/next are optional — render placeholders keep the share row centred) -->
 <div class="art-footer">
-  <a class="af-link" href={link(data.prevHref)}>
-    <div class="af-lbl">{data.prevLabel}</div>
-    <div class="af-nm">{data.prevName}</div>
-  </a>
+  {data.prevHref ? (
+    <a class="af-link" href={link(data.prevHref)}>
+      <div class="af-lbl">{data.prevLabel}</div>
+      <div class="af-nm">{data.prevName}</div>
+    </a>
+  ) : <span class="af-link" aria-hidden="true"></span>}
   <div class="share-row">
     <button class="share-btn">f</button>
     <button class="share-btn">𝕏</button>
     <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">🔗</button>
   </div>
-  <a class="af-link af-r" href={link(data.nextHref)}>
-    <div class="af-lbl">{data.nextLabel}</div>
-    <div class="af-nm">{data.nextName}</div>
-  </a>
+  {data.nextHref ? (
+    <a class="af-link af-r" href={link(data.nextHref)}>
+      <div class="af-lbl">{data.nextLabel}</div>
+      <div class="af-nm">{data.nextName}</div>
+    </a>
+  ) : <span class="af-link af-r" aria-hidden="true"></span>}
 </div>
 
 <footer class="footer">
