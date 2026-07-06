@@ -156,7 +156,7 @@ const S = {
     ftTag: 'Thailand, Done Right',
     ftDesc: 'รีวิวโรงแรมและที่เที่ยวทั่วโลก โดยผู้เชี่ยวชาญ พร้อมราคาจริงและลิงก์จองตรง ไม่มีโฆษณาแฝง',
     ftHeadDest: 'จุดหมาย', ftHeadReviews: 'รีวิวโรงแรม', ftHeadAbout: 'เกี่ยวกับ',
-    ftR1: '12 Hostel ไทเป', ftR2: 'Top 10 ซีเหมินติง', ftR3: '5 ที่พักชิงจิ้ง',
+    ftR1: 'Top 10 โรงแรมเชียงใหม่', ftR2: 'Top 10 โรงแรมกรุงเทพ', ftR3: 'Top 10 โรงแรมภูเก็ต',
     ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · อัปเดตล่าสุด พ.ค. 2026',
     ftAff: '⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ รีวิวและการจัดอันดับเป็นอิสระจากการสนับสนุนใดๆ',
     mbarBook: '🔴 จองผ่าน Agoda', mbarAll: 'ดูรีวิวทั้งหมด',
@@ -180,7 +180,7 @@ const S = {
     ftTag: 'Thailand, Done Right',
     ftDesc: 'Hotel and destination reviews worldwide, by experts — with real prices and direct booking links. No hidden ads.',
     ftHeadDest: 'Destinations', ftHeadReviews: 'Hotel Reviews', ftHeadAbout: 'About',
-    ftR1: '12 Hostels in Taipei', ftR2: 'Top 10 Ximending', ftR3: '5 Cingjing Stays',
+    ftR1: 'Top 10 Chiang Mai Hotels', ftR2: 'Top 10 Bangkok Hotels', ftR3: 'Top 10 Phuket Hotels',
     ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Last updated May 2026',
     ftAff: '⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you. Our reviews and rankings remain independent of any sponsorship.',
     mbarBook: '🔴 Book via Agoda', mbarAll: 'See all reviews',
@@ -834,14 +834,14 @@ const splitSource = (s: any): { label: string; url: string | null } => {
     <div class="ft-col">
       <h4>{S.ftHeadDest}</h4>
       <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
-      <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
-      <a href={link('city-taipei.html')}>🏙️ Taipei</a>
+      <a href={link('destinations.html')}>🔥 Top Cities</a>
+      <a href={link('city-bangkok.html')}>🏙️ Bangkok</a>
     </div>
     <div class="ft-col">
       <h4>{S.ftHeadReviews}</h4>
-      <a href={link('top12-hostel-taipei.html')}>{S.ftR1}</a>
-      <a href={link('country-thailand.html')}>{S.ftR2}</a>
-      <a href={link('top5-stay-cingjing-farm.html')}>{S.ftR3}</a>
+      <a href={link('top10-hotels-chiang-mai.html')}>{S.ftR1}</a>
+      <a href={link('top10-hotels-bangkok.html')}>{S.ftR2}</a>
+      <a href={link('top10-hotels-phuket.html')}>{S.ftR3}</a>
     </div>
     <div class="ft-col">
       <h4>{S.ftHeadAbout}</h4>
