@@ -112,6 +112,20 @@ const CATALOG = {
   'buriram-khmer':     '61985-buriram-ban-khok-mueang-community-tracing-khmer-civilization-tour', // websearch-verified
   // wave 13 (2026-07-06): songkhla
   'songkhla-tour':     '39744-songkhla-one-day-tour-hat-yai',                                // websearch-verified
+  // wave 15 (2026-07-06): guide pages — cooking / spa / golf
+  'house-taste-cooking': '26535-house-taste-thai-cooking-class-silom-bangkok',
+  'sompong-cooking':   '3286-sompong-thai-cooking-class-bangkok',
+  'mamanoi-cooking':   '4573-mama-noi-cooking-class-chiang-mai',
+  'grandmas-cooking':  '6936-grandmas-home-cooking-school-chiang-mai',
+  'calm-massage-cm':   '104176-calm-massage-spa-chiang-mai-thailand',
+  'letsrelax-phuket':  '5844-lets-relax-spa-treatments-phuket',                             // websearch-verified
+  'oasis-phuket':      '1550-oasis-spa-phuket',                                             // websearch-verified
+  'oasis-kata-phuket': '76729-oasis-sky-breeze-spa-kata-phuket',                           // websearch-verified
+  'banyan-golf':       '103886-join-golfing-banyan-golf-club-hua-hin-prachuap-khiri-khan',  // websearch-verified
+  'blackmountain-golf':'103883-join-golfing-black-mountain-golf-club-hua-hin-prachuap-khiri-khan', // websearch-verified
+  'phuket-country-golf':'27271-golf-club-phuket-country',                                   // websearch-verified
+  'lochpalm-golf':     '27146-golf-loch-palm-club-phuket',                                  // websearch-verified
+  'redmountain-golf':  '27148-golf-red-mountain-club-phuket',                               // websearch-verified
 };
 
 // ---- per-file mapping: item index → replacement ----
@@ -638,6 +652,22 @@ const IT = {
   buriramKhmer:{ key: 'buriram-khmer',    emoji: '🛕', th: ['ทัวร์อารยธรรมขอมบุรีรัมย์ (2 วัน 1 คืน)', 'พนมรุ้ง เมืองต่ำ บ้านโคกเมือง'], en: ['Buriram Khmer civilization tour (2D1N)', 'Phanom Rung, Muang Tam & Ban Khok Mueang'] },
   // wave 13
   songkhlaTour:{ key: 'songkhla-tour',    emoji: '🏖️', th: ['ทัวร์สงขลา 1 วัน จากหาดใหญ่', 'สมิหลา เมืองเก่า เขาตังกวน'], en: ['Songkhla one-day tour from Hat Yai', 'Samila, old town & Tang Kuan cable car'] },
+  // wave 15 — cooking / spa / golf
+  arunCook:    { key: 'arun-cooking',     emoji: '👩‍🍳', th: ['คลาสทำอาหารไทย Arun + เดินตลาด', 'นั่งตุ๊กตุ๊กไปตลาด แล้วลงมือทำเอง'], en: ['Arun Thai cooking class + market tour', 'Tuk-tuk to the market, then cook it'] },
+  houseTaste:  { key: 'house-taste-cooking', emoji: '🍳', th: ['คลาสทำอาหาร House of Taste สีลม', 'ทำอาหารไทยหลายเมนู'], en: ['House of Taste cooking class, Silom', 'Cook several Thai dishes'] },
+  sompongCook: { key: 'sompong-cooking',  emoji: '🥘', th: ['คลาสทำอาหาร Sompong', 'เดินตลาด + สอนเป็นขั้นตอน'], en: ['Sompong Thai cooking class', 'Market walk + step-by-step class'] },
+  akhaCook:    { key: 'akha-cooking',     emoji: '👩‍🍳', th: ['คลาส Thai Akha + เดินตลาด', 'อาหารไทย-อาข่า เริ่มจากตลาดท้องถิ่น'], en: ['Thai Akha cooking class + market', 'Thai-Akha dishes, starts at a local market'] },
+  mamaNoi:     { key: 'mamanoi-cooking',  emoji: '🍜', th: ['คลาสทำอาหาร Mama Noi', 'เจ้าดังในเชียงใหม่'], en: ['Mama Noi cooking class', 'A Chiang Mai favourite'] },
+  grandmas:    { key: 'grandmas-cooking', emoji: '🥗', th: ["คลาส Grandma's Home Cooking", 'บรรยากาศบ้านสวน'], en: ["Grandma's Home Cooking School", 'Homely garden setting'] },
+  calmMassage: { key: 'calm-massage-cm',  emoji: '💆', th: ['Calm Massage & Spa เชียงใหม่', 'นวดผ่อนคลายกลางเมือง'], en: ['Calm Massage & Spa, Chiang Mai', 'Relaxing massage in town'] },
+  letsRelaxPkt:{ key: 'letsrelax-phuket', emoji: '💆', th: ["Let's Relax Spa ภูเก็ต", 'สปาเจ้าดัง จองล่วงหน้า'], en: ["Let's Relax Spa, Phuket", 'Popular spa chain, book ahead'] },
+  oasisPkt:    { key: 'oasis-phuket',     emoji: '🌴', th: ['Oasis Spa ภูเก็ต (Laguna)', 'สปาหรูในสวนเขตร้อน'], en: ['Oasis Spa Phuket (Laguna)', 'Luxe spa in a tropical garden'] },
+  oasisKata:   { key: 'oasis-kata-phuket', emoji: '🌅', th: ['Oasis Sky Breeze Spa กะตะ', 'วิวเขา-ทะเล มีรถรับส่ง'], en: ['Oasis Sky Breeze Spa, Kata', 'Hill & sea views, transfer included'] },
+  banyanGolf:  { key: 'banyan-golf',      emoji: '⛳', th: ['ออกรอบ Banyan Golf Club หัวหิน', 'กรีนฟี 18 หลุม + รถ + แคดดี้'], en: ['Banyan Golf Club, Hua Hin', '18-hole green fee + cart + caddy'] },
+  blackMtnGolf:{ key: 'blackmountain-golf', emoji: '⛳', th: ['ออกรอบ Black Mountain หัวหิน', 'สนามรางวัล 27 หลุม'], en: ['Black Mountain Golf Club, Hua Hin', 'Award-winning 27-hole resort'] },
+  phuketCtryGolf:{ key: 'phuket-country-golf', emoji: '⛳', th: ['ออกรอบ Phuket Country Club', 'สนามเก่าแก่ใกล้เมืองภูเก็ต'], en: ['Phuket Country Club', "The island's original course"] },
+  lochPalmGolf:{ key: 'lochpalm-golf',    emoji: '⛳', th: ['ออกรอบ Loch Palm Golf Club', 'วิวสวย ใจกลางเกาะ'], en: ['Loch Palm Golf Club', 'Scenic, central Phuket'] },
+  redMtnGolf:  { key: 'redmountain-golf', emoji: '⛳', th: ['ออกรอบ Red Mountain Golf Club', 'สนามท้าทาย แคดดี้ชำนาญ'], en: ['Red Mountain Golf Club', 'Challenging layout, skilled caddies'] },
 };
 const BKK_ITIN = S(IT.landmarks, IT.palace, IT.floating);
 const CM_ITIN  = S(IT.doiSuthep, IT.elephantCM, IT.doiInthanon);
@@ -801,6 +831,16 @@ BATCHES.wave14 = {
   ...clusterPrep('trang',             S(IT.trangEmerald)),
   ...clusterPrep('buriram',           S(IT.buriramKhmer)),
   ...clusterPrep('songkhla',          S(IT.songkhlaTour)),
+};
+
+// ---- wave 15: guide pages — cooking classes / spa / golf (specific product matches) ----
+BATCHES.wave15 = {
+  'cooking-classes-bangkok':    S(IT.arunCook, IT.houseTaste, IT.sompongCook),
+  'cooking-classes-chiang-mai': S(IT.akhaCook, IT.mamaNoi, IT.grandmas),
+  'spa-wellness-chiang-mai':    S(IT.calmMassage),
+  'spa-wellness-phuket':        S(IT.letsRelaxPkt, IT.oasisPkt, IT.oasisKata),
+  'golf-courses-hua-hin':       S(IT.banyanGolf, IT.blackMtnGolf),
+  'golf-courses-phuket':        S(IT.phuketCtryGolf, IT.lochPalmGolf, IT.redMtnGolf),
 };
 
 const batchName = process.argv[2];
