@@ -51,6 +51,37 @@ const cjBooking = (u: string) => (u && /booking\.com/.test(u))
   ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${cjSid}&url=${encodeURIComponent(u)}`
   : u;
 
+// Domain-aware booking buttons (honesty-first): the label must match where the link actually goes.
+// A minority of rural stays are not on any OTA and carry their real channel (Facebook page / own site /
+// Traveloka / Trivago) in the booking fields — label each by its destination and de-duplicate identical
+// hrefs. OTA hotels render exactly as before (Agoda / Booking.com / Trip.com). `S` is defined below and
+// only read at render time (after init), so referencing it here is safe.
+const REAL_OTA = /(agoda\.com|booking\.com|trip\.com|traveloka)/;
+const bookButtons = (d: any) => {
+  const out: any[] = [], seen = new Set();
+  for (const u of [d.bookingAgoda, d.bookingBooking, d.bookingTrip]) {
+    if (!u) continue;
+    let b;
+    if (/agoda\.com/.test(u))         b = { href: cjBooking(u), brand: 'Agoda',       cls: 'agoda',   mark: 'a',  markCls: 'pw-mark r' };
+    else if (/booking\.com/.test(u))  b = { href: cjBooking(u), brand: 'Booking.com', cls: 'booking', mark: 'B.', markCls: 'pw-mark sq' };
+    else if (/trip\.com/.test(u))     b = { href: cjBooking(u), brand: 'Trip.com',    cls: 'trip',    mark: 't',  markCls: 'pw-mark sq' };
+    else {
+      const brand = /facebook\.com/.test(u) ? (S as any).btnFacebook
+                  : /tripadvisor/.test(u)   ? 'Tripadvisor'
+                  : /trivago/.test(u)       ? 'Trivago'
+                  : /choowap/.test(u)       ? 'Choowap'
+                  : /traveloka/.test(u)     ? 'Traveloka'
+                  : (S as any).btnDirect;
+      b = { href: u, brand, cls: 'trip', mark: '↗', markCls: 'pw-mark sq' };
+    }
+    if (seen.has(b.href)) continue;
+    seen.add(b.href);
+    out.push(b);
+  }
+  return out;
+};
+const hasRealOTA = [data.bookingAgoda, data.bookingBooking, data.bookingTrip].some((u: string) => u && REAL_OTA.test(u));
+
 // Browser-tab title: lead with the hotel name so the tab is identifiable.
 // Many titles are benefit-led with the hotel name buried at the end — the tab
 // truncates before reaching it. Reorder to "{name} — {hook} | ThailandAddict",
@@ -115,7 +146,8 @@ const S = {
     htChecksSub: '3 จุดนี้สำคัญกับบางคน — ดูให้ชัวร์ว่าตรงกับทริปคุณไหม (เราใส่ทางแก้ไว้ให้แล้ว)',
     pwLbl: 'ราคาโดยประมาณ · เทียบ 3 เว็บ', pwPer: '/ คืน',
     pwFromSuffix: ' · ราคาเริ่มต้นโดยประมาณ',
-    pwCtaH: '⚖️ เทียบราคา 3 เว็บ — แล้วจองที่ถูกที่สุด', pwCheck: 'เช็กราคา →',
+    pwCtaH: '⚖️ เทียบราคา 3 เว็บ — แล้วจองที่ถูกที่สุด', pwCtaDirect: '🔗 ช่องทางจองที่พักนี้', pwCheck: 'เช็กราคา →',
+    btnFacebook: 'จองผ่าน Facebook', btnDirect: 'จองกับที่พักโดยตรง',
     secTips: 'Insider Tips · เคล็ดลับจากทีมงาน',
     sideInfo: 'ข้อมูลโรงแรม', sideLoc: 'ที่ตั้งและการเดินทาง',
     mapAlt: 'แผนที่บริเวณโรงแรม', sideNearby: 'จุดใกล้เคียง',
@@ -150,7 +182,8 @@ const S = {
     htChecksSub: 'These 3 points matter to some travellers — make sure they fit your trip (we have added the workaround).',
     pwLbl: 'Estimated price · compare 3 sites', pwPer: '/ night',
     pwFromSuffix: ' · estimated starting price',
-    pwCtaH: '⚖️ Compare 3 sites — then book the cheapest', pwCheck: 'Check price →',
+    pwCtaH: '⚖️ Compare 3 sites — then book the cheapest', pwCtaDirect: '🔗 How to book this stay', pwCheck: 'Check price →',
+    btnFacebook: 'Book via Facebook', btnDirect: 'Book direct with the stay',
     secTips: 'Insider Tips',
     sideInfo: 'Hotel Info', sideLoc: 'Location &amp; Getting There',
     mapAlt: 'Hotel area map', sideNearby: 'Nearby',
@@ -661,11 +694,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
         </div>
       ))}
     </div>
-    <div class="pw-cta-h">{S.pwCtaH}</div>
+    <div class="pw-cta-h">{hasRealOTA ? S.pwCtaH : S.pwCtaDirect}</div>
     <div class="pw-btns">
-      <button class="pw-btn agoda" data-href={cjBooking(data.bookingAgoda)}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn booking" data-href={cjBooking(data.bookingBooking)}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn trip" data-href={cjBooking(data.bookingTrip)}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
+      {bookButtons(data).map((b) => (
+        <button class={`pw-btn ${b.cls}`} data-href={b.href}><span class="pw-brand"><span class={b.markCls}>{b.mark}</span>{b.brand}</span><small>{S.pwCheck}</small></button>
+      ))}
     </div>
     <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
   </div>

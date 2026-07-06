@@ -67,6 +67,34 @@ const cjBooking = (u: string) => (u && /booking\.com/.test(u))
   ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${cjSid}&url=${encodeURIComponent(u)}`
   : u;
 
+// Domain-aware booking buttons (honesty-first): the label must match where the link actually goes.
+// Rural stays not on any OTA carry their real booking channel (Facebook page / own site / Tripadvisor)
+// in the agoda/booking/trip fields — so label each button by its destination domain, and de-duplicate
+// identical hrefs. OTA hotels (the vast majority) render exactly as before: Agoda / Booking.com / Trip.com.
+const bookButtons = (e: any) => {
+  const out: any[] = [], seen = new Set();
+  for (const u of [e.agodaUrl, e.bookingUrl, e.tripUrl]) {
+    if (!u) continue;
+    let b;
+    if (/agoda\.com/.test(u))         b = { href: cjBooking(u), label: S.btnAgoda,   cls: 'btn-main', mark: 'a',  markCls: 'bk-mark r' };
+    else if (/booking\.com/.test(u))  b = { href: cjBooking(u), label: 'Booking.com', cls: 'btn-sec',  mark: 'B.', markCls: 'bk-mark sq' };
+    else if (/trip\.com/.test(u))     b = { href: cjBooking(u), label: 'Trip.com',    cls: 'btn-trip', mark: 't',  markCls: 'bk-mark sq' };
+    else {
+      const label = /facebook\.com/.test(u) ? S.btnFacebook
+                  : /tripadvisor/.test(u)   ? 'Tripadvisor'
+                  : /trivago/.test(u)       ? 'Trivago'
+                  : /choowap/.test(u)       ? 'Choowap'
+                  : /traveloka/.test(u)     ? 'Traveloka'
+                  : S.btnDirect;
+      b = { href: u, label, cls: 'btn-trip', mark: '↗', markCls: 'bk-mark sq' };
+    }
+    if (seen.has(b.href)) continue;
+    seen.add(b.href);
+    out.push(b);
+  }
+  return out;
+};
+
 // Asset (image) helper: force a root-absolute path so images resolve
 // correctly from both / (Thai) and /en/ (English) pages.
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (/^\//.test(p) ? p : `/${p}`)));
@@ -114,7 +142,7 @@ const S = {
     mmHome: 'หน้าแรก', mmContact: 'ติดต่อ',
     tocTitle: 'สารบัญ — คลิกเพื่อข้ามไปอ่านได้เลย!',
     priceLabel: 'ราคาเริ่มต้น',
-    btnAgoda: 'จองผ่าน Agoda', btnText: '📖 อ่านรีวิวเต็ม →', imgBook: '🛏️ ดูห้องว่าง',
+    btnAgoda: 'จองผ่าน Agoda', btnFacebook: 'จองผ่าน Facebook', btnDirect: 'จองกับที่พักโดยตรง', btnText: '📖 อ่านรีวิวเต็ม →', imgBook: '🛏️ ดูห้องว่าง',
     prosTitle: '👍 จุดเด่น', consTitle: '👎 ข้อสังเกต',
     faqEyebrow: 'คำถามที่พบบ่อย',
     bylinePublished: 'เผยแพร่',
@@ -138,7 +166,7 @@ const S = {
     mmHome: 'Home', mmContact: 'Contact',
     tocTitle: 'Contents — click to jump straight to a hotel!',
     priceLabel: 'Starting price',
-    btnAgoda: 'Book via Agoda', btnText: '📖 Read the full review →', imgBook: '🛏️ Check availability',
+    btnAgoda: 'Book via Agoda', btnFacebook: 'Book via Facebook', btnDirect: 'Book direct with the stay', btnText: '📖 Read the full review →', imgBook: '🛏️ Check availability',
     prosTitle: '👍 Pros', consTitle: '👎 Things to note',
     faqEyebrow: 'Frequently Asked Questions',
     bylinePublished: 'Published',
@@ -631,9 +659,9 @@ const splitSource = (s: any): { label: string; url: string | null } => {
               <div class="room-opt"><span class="room-type">{r.type}</span><span class="room-price">{r.price}</span></div>
             ))}
           </div>
-          <a class="btn-main" href={cjBooking(e.agodaUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
-          <a class="btn-sec" href={cjBooking(e.bookingUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
-          <a class="btn-trip" href={cjBooking(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
+          {bookButtons(e).map((b) => (
+            <a class={b.cls} href={b.href} target="_blank" rel="sponsored noopener nofollow"><span class={b.markCls}>{b.mark}</span>{b.label}</a>
+          ))}
           {e.reviewUrl && <a class="btn-text" href={link(e.reviewUrl)}>{S.btnText}</a>}
           <button class="entry-save" type="button" data-slug={wishSlug(e.reviewUrl)} data-name={e.name} data-img={asset(e.img)} data-url={link(e.reviewUrl)} data-type="stay" data-city={wishCitySlug} data-province={wishProvince} data-word={S.wishWord} data-saved={S.wishSaved}>{S.wishWord}</button>
         </div>

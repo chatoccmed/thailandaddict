@@ -568,7 +568,21 @@ function hotelCards(slug){
     const stars=h.star?`<div class="hc-stars">${'★'.repeat(h.star)}</div>`:'';
     const sc=h.score?`<span class="hc-score">${h.score.toFixed(1)}</span>`:'';
     const price=h.price?`<div class="hc-price">${tx('เริ่มประมาณ','From approx.')} <b>${esc(h.price)}</b></div>`:'';
-    const bk=(h.agoda?`<a class="hbtn bk1" href="${cjB(h.agoda,slug)}" target="_blank" rel="nofollow noopener">Agoda</a>`:'')+(h.booking?`<a class="hbtn bk2" href="${cjB(h.booking,slug)}" target="_blank" rel="nofollow noopener">Booking</a>`:'')+(h.trip?`<a class="hbtn bk3" href="${cjB(h.trip,slug)}" target="_blank" rel="nofollow noopener">Trip</a>`:'');
+    // Domain-aware, de-duplicated booking buttons: label matches the real destination.
+    // Rural stays not on any OTA carry Facebook / own-site / Tripadvisor in these fields —
+    // labelling them "Booking" would send the reader somewhere the label doesn't promise.
+    const bkList=[], seenBk=new Set();
+    for(const u of [h.agoda,h.booking,h.trip]){
+      if(!u) continue;
+      let href, label, klass;
+      if(/agoda\.com/.test(u)){href=cjB(u,slug);label='Agoda';klass='bk1';}
+      else if(/booking\.com/.test(u)){href=cjB(u,slug);label='Booking';klass='bk2';}
+      else if(/trip\.com/.test(u)){href=cjB(u,slug);label='Trip';klass='bk3';}
+      else{href=u;klass='bk3';label=/facebook\.com/.test(u)?'Facebook':/tripadvisor/.test(u)?'Tripadvisor':/trivago/.test(u)?'Trivago':/traveloka/.test(u)?'Traveloka':/choowap/.test(u)?'Choowap':tx('จองตรง','Direct');}
+      if(seenBk.has(href)) continue; seenBk.add(href);
+      bkList.push(`<a class="hbtn ${klass}" href="${href}" target="_blank" rel="nofollow noopener">${label}</a>`);
+    }
+    const bk=bkList.join('');
     return `<div class="hcard"><div class="hc-img">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}${sc}</div><div class="hc-body"><div class="hc-name">${esc(h.name)}</div>${stars}<div class="hc-type">${esc(h.type)}</div>${h.loc?`<div class="hc-loc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">${tx('ดูรีวิวเต็ม →','Read full review →')}</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
   }).join('')+`</div>`;
 }
