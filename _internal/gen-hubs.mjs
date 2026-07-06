@@ -130,6 +130,16 @@ const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;')
 // stay in the bundle, so heroSrc / neighbor cards keep plain /images/ paths. Override via PUBLIC_IMG_BASE env.
 const IMG_BASE = process.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
 const imgUrl = s => !s ? '' : (/^https?:/.test(s) ? s : IMG_BASE + (s.startsWith('/') ? s : '/'+s));
+// webp twin for the LCP hero (gated on the shared manifest, same as the Astro layouts). heroSrc may be a
+// bundle path (/images/heroes/x.jpg) or an R2 URL — webpOf keeps whichever; the .webp exists in both places.
+const WEBP_MAN = JSON.parse(fs.readFileSync(path.join(ROOT, 'astro/src/data/webp-manifest.json'), 'utf8'));
+const manKey = u => String(u || '').replace(/^https?:\/\/[^/]+/, '').replace(/^\//, '');
+const hasWebp = u => !!WEBP_MAN[manKey(u)];
+const webpOf = u => u.replace(/\.(jpe?g|png)$/i, '.webp');
+const heroPic = (src, alt) => !src ? ''
+  : hasWebp(src)
+    ? `<picture><source srcset="${webpOf(src)}" type="image/webp"><img src="${src}" alt="${esc(alt)}" loading="eager" onerror="this.style.opacity=0"></picture>`
+    : `<img src="${src}" alt="${esc(alt)}" loading="eager" onerror="this.style.opacity=0">`;
 const stripTags = s => String(s||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
 // real hero photo for a guide/route card (from its article's heroImg, locale-aware) — '' if none.
 function guideImg(slug){
@@ -650,7 +660,7 @@ function provinceHub(slug, th, r, d){
   const tab=(id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
   const body=`
 ${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:RNAME(r),href:`region-${R.slug}.html`},{t:nm}])}
-<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(nm)}" loading="eager" onerror="this.style.opacity=0">`:''}
+<div class="phero">${heroPic(heroSrc,nm)}
   <div class="pherobody"><span class="pheye">${emoji} ${RNAME(r)}</span><h1>${tx(`เที่ยว<em>${th}</em>`,`Explore <em>${nm}</em>`)}</h1><p class="phlead">${esc(tagline)}</p>
   <div class="phchips">${chips}</div></div>
 </div>
@@ -741,7 +751,7 @@ function hoodHub(hood){
   const nearList=OVERLAYS.filter(o=>o.zoneSlug===hood);
   const nearHere=nearList.map(o=>{const a=(ARTS['bangkok']||[]).find(x=>x.slug===o.slug);const img=(a&&a.heroImg)||'';const anm=en?o.anchorShortEn:o.anchorShortTh;const sub=en?o.anchorEn:o.anchorTh;return `<a class="hcc" href="${o.slug}.html">${img?`<img src="${img}" alt="${esc(anm)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="hcc-cap"><span class="hcc-e">${GROUP_EMOJI[o.group]||'📍'}</span><b>${esc(anm)}</b><i>${esc(sub)}</i></span></a>`;}).join('');
   const body=`${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเทศไทย','Thailand'),href:'country-thailand.html'},{t:tx('กรุงเทพฯ','Bangkok'),href:'city-bangkok.html'},{t:nm}])}
-<div class="phero">${heroSrc?`<img src="${heroSrc}" alt="${esc(nm)}" loading="eager" onerror="this.style.opacity=0">`:''}
+<div class="phero">${heroPic(heroSrc,nm)}
   <div class="pherobody"><span class="pheye">${emoji} ${tx('ย่านในกรุงเทพฯ','A Bangkok neighbourhood')}</span><h1>${tx(`พักย่าน<em>${nm}</em>`,`Stay in <em>${nm}</em>`)}</h1><p class="phlead">${esc(cap||intro.slice(0,120))}</p>
   <div class="phchips">${highlights.slice(0,5).map(h=>`<span class="phchip">📍 ${esc(en?h.nameEn:h.nameTh)}</span>`).join('')||`<span class="phchip">📍 ${tx('กรุงเทพฯ','Bangkok')}</span>`}</div></div>
 </div>
