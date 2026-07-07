@@ -336,6 +336,8 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta name="twitter:description" content={data.twDesc} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href={IMG_BASE} crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href={favSvg} />
 <link rel="preload" as="image" href={hasWebp(data.heroImg) ? asset(webpOf(data.heroImg)) : asset(data.heroImg)} fetchpriority="high" />
@@ -799,9 +801,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </a>
   ) : <span class="af-link" aria-hidden="true"></span>}
   <div class="share-row">
-    <button class="share-btn">f</button>
-    <button class="share-btn">𝕏</button>
-    <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">🔗</button>
+    <button class="share-btn" title="แชร์ Facebook" aria-label="แชร์ Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','noopener')">f</button>
+    <button class="share-btn" title="แชร์ X" aria-label="แชร์ X" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href),'_blank','noopener')">𝕏</button>
+    <button class="share-btn" title="คัดลอกลิงก์" aria-label="คัดลอกลิงก์" onclick="var b=this;navigator.clipboard.writeText(location.href).then(function(){var o=b.textContent;b.textContent='✓';setTimeout(function(){b.textContent=o},1500)})">🔗</button>
   </div>
   {data.nextHref ? (
     <a class="af-link af-r" href={link(data.nextHref)}>
