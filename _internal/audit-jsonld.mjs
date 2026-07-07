@@ -47,7 +47,7 @@ if (SAMPLE) {
   ].map((f) => path.join(DIST, f)).filter(fs.existsSync);
   const reviews = listHtml(DIST).filter((p) => /\/(the-|hotel-|resort-)/.test(p)).slice(0, 3);
   const hubs = ['index.html', 'country-thailand.html', 'city-bangkok.html', 'city-phang-nga.html',
-    'region-north.html', 'destinations.html', 'plan-your-trip.html', 'search.html']
+    'region-north.html', 'tourist-cities.html', 'plan-your-trip.html', 'search.html']
     .map((f) => path.join(PUB, f)).filter(fs.existsSync);
   files = [...pick, ...reviews, ...hubs, ...hubs.map((p) => p.replace(PUB, path.join(PUB, 'en'))).filter(fs.existsSync)];
 } else {

@@ -279,6 +279,8 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 .nl{background:linear-gradient(120deg,#06B6D4 0%,#FB7185 60%,#FBBF24 128%)}
 .hero-h1 em{text-shadow:0 2px 24px rgba(251,191,36,.45)}
 </style>
+<link rel="preload" as="image" href="/images/heroes/krabi.jpg" fetchpriority="high">
+<link rel="stylesheet" href="/css/proto3.css">
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -286,7 +288,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
   <div class="nav-mid">
     <div class="has-drop"><a href="country-thailand.html">Destinations</a>
       <div class="drop"><span class="h">✨ Popular</span>
-        <a href="destinations.html">🔥 Top destinations</a>
+        <a href="tourist-cities.html">🔥 Top destinations</a>
         <span class="h">🇹🇭 6 regions</span>
         <a href="region-north.html">⛰️ North</a><a href="region-isan.html">🌾 Isan</a><a href="region-central.html">🏙️ Central</a>
         <a href="region-east.html">🏝️ East</a><a href="region-west.html">🌅 West</a><a href="region-south.html">🌊 South</a>
@@ -316,7 +318,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 <div class="mm" id="mm">
   <div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
   <a href="country-thailand.html" style="font-weight:700;color:var(--bl)!important">🇹🇭 Destinations · 77 provinces</a>
-  <a href="destinations.html" style="font-weight:700;color:var(--bl)!important">🔥 Top destinations</a>
+  <a href="tourist-cities.html" style="font-weight:700;color:var(--bl)!important">🔥 Top destinations</a>
   <a href="region-north.html">⛰️ North</a><a href="region-central.html">🏙️ Central</a><a href="region-south.html">🌊 South</a>
   <a href="city-chiang-mai.html#stay" style="font-weight:700;color:var(--bl)!important">🏨 Hotels · rankings</a>
   <a href="city-chiang-mai.html#eat" style="font-weight:700;color:var(--bl)!important">🍜 Eat & Explore</a>
@@ -345,8 +347,8 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 
 <div class="stats">
   <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">Provinces ready</div></div>
-  <div class="stat"><div class="n" data-stat="reviews">1,900+</div><div class="l">Hotel reviews</div></div>
-  <div class="stat"><div class="n" data-stat="articles">3,400+</div><div class="l">Travel articles</div></div>
+  <div class="stat"><div class="n" data-stat="reviews">2,200+</div><div class="l">Hotel reviews</div></div>
+  <div class="stat"><div class="n" data-stat="articles">4,000+</div><div class="l">Travel articles</div></div>
   <div class="stat"><div class="n">100%</div><div class="l">Real reviews</div></div>
 </div>
 
@@ -357,7 +359,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
 
 <section class="sec rv">
   <div class="inner">
-    <div class="s-head"><div><div class="slbl">Explore by destination</div><div class="stit">Where to <em>go next?</em></div></div><a class="see-all" href="destinations.html">See all →</a></div>
+    <div class="s-head"><div><div class="slbl">Explore by destination</div><div class="stit">Where to <em>go next?</em></div></div><a class="see-all" href="tourist-cities.html">See all →</a></div>
     <div class="hscroll" id="destscroll"></div>
   </div>
 </section>
@@ -375,7 +377,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
     <div class="hgrid" id="hotelgrid"></div>
     <div class="aff-banner">
       <div><div class="ab-lbl">◆ Affiliate Partner</div><div class="ab-h">Book via Agoda · Booking · Trip and save more</div><div class="ab-s">Best prices · free cancellation · compare 3 sites before you book, no extra cost</div></div>
-      <div class="ab-btns"><a class="ab-btn1" href="https://www.agoda.com/?cid=1965862" target="_blank" rel="nofollow noopener">🔴 Book Agoda now</a><a class="ab-btn2" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">🔵 Booking.com</a></div>
+      <div class="ab-btns"><a class="ab-btn1" href="https://www.agoda.com/?cid=1965862" target="_blank" rel="nofollow noopener">🔴 Book Agoda now</a><a class="ab-btn2" href="/go/b?u=https%3A%2F%2Fwww.booking.com%2F&sid=home" target="_blank" rel="nofollow noopener">🔵 Booking.com</a></div>
     </div>
     <div class="see-all-btn"><a href="country-thailand.html">See hotels in every province →</a></div>
   </div>
@@ -568,5 +570,6 @@ try{map.fitBounds(grp.getBounds().pad(0.06));}catch(e){}
 // reveal
 try{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
 </script>
+<script src="/js/proto3-motion.js" defer></script>
 </body>
 </html>

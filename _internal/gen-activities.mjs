@@ -93,7 +93,7 @@ function buildArticle(r, loc) {
     pushIf(`${a.slug}.html`, `📍 ${en ? a.en : a.th}`);
   }
   pushIf('plan-your-trip.html', en ? '🧭 Plan Your Trip hub' : '🧭 ศูนย์รวมคู่มือเตรียมตัว');
-  pushIf('destinations.html', en ? '🗺️ All top destinations' : '🗺️ เมืองท่องเที่ยวทั้งหมด');
+  pushIf('tourist-cities.html', en ? '🗺️ All top destinations' : '🗺️ เมืองท่องเที่ยวทั้งหมด');
   return {
     slug: r.slug, type: r.type, cluster: r.city,
     title: en ? r.titleEn : r.titleTh, metaDesc: en ? r.metaDescEn : r.metaDescTh,
