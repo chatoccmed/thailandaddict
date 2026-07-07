@@ -2,34 +2,59 @@
 // ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
-const { data, lang = 'th', hasEn = true } = Astro.props;
+const { data, lang = 'th', hasEn = true }: { data: any; lang?: 'th' | 'en' | 'ru'; hasEn?: boolean } = Astro.props;
+const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent((data.slug || 'page').slice(0, 60)) : u);
+const EN_ARTICLES = new Set(Object.keys(import.meta.glob('../content/articles-en/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
+const enExists = hasEn && (lang === 'en' || EN_ARTICLES.has(data.slug));
+const RU_ARTICLES = new Set(Object.keys(import.meta.glob('../content/articles-ru/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
+const ruExists = lang === 'ru' || RU_ARTICLES.has(data.slug);
 const isEn = lang === 'en';
+// 3-way helper for scattered inline strings — usage: tr(english, thai, russian). ru falls back to english when omitted.
+const tr = (en: string, th: string, ru?: string) => (lang === 'en' ? en : lang === 'ru' ? (ru ?? en) : th);
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
+const LOCALE_PREFIX = lang === 'en' ? '/en' : lang === 'ru' ? '/ru' : '';
+const link = (href: string) => (/^https?:\/\//.test(href) ? goB(href) : (`${LOCALE_PREFIX}/${href}`).replace(/\/+/g, '/'));
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
-const S = isEn
-  ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
+const S_EN = { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
       priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
       hoursL: 'Hours', halalL: 'Halal', vegL: 'Veg options', enMenuL: 'English menu', spiceL: 'Spice', usdL: '≈',
       mapTitle: 'All restaurants on the map', mapSub: 'Tap a pin for the spot + nearby stays', mapStay: 'Stays near here', railH: 'Where to stay nearby', railFoodH: 'Food tours & classes', railFoodSub: 'Guided tastings & hands-on classes · via Klook', railFoodAll: 'See all experiences', quickAnswerEyebrow: 'Quick answer',
       copyTitle: 'Copyright & Image Takedown Policy', copyA: 'Thailandaddict is created to review and share travel experiences. Where an image is sourced from elsewhere, we credit the source. If you are the copyright owner and prefer that your image not appear on this site, please ', copyLink: 'contact us', copyB: ' and we will gladly remove the image or correct the information.',
       ftDesc: 'A Thailand travel guide from real travelers — honest reviews of stays, things to do and food across the country.', ftDestH: 'Destinations', ftThai: '🇹🇭 Explore Thailand', ftContentH: 'Content', ftEat: 'Where to eat', ftSee: 'Things to do', ftStay: 'Where to stay', ftAboutH: 'About', ftAboutUs: 'About us', ftEditorial: 'Editorial Policy', ftContact: 'Contact', ftPrivacy: 'Privacy', ftCopy: '© 2026 thailandaddict.com — Thailand, done right',
-      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ' }
-  : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
+      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ', durationL: 'Duration', bookL: 'Book on ', prosL: 'Highlights from reviews', consL: 'Worth noting', writtenL: 'Written', factCheckL: 'Fact-checked',
+      zoomHint: '🔍 Tap to zoom', prevImg: 'Previous photo', nextImg: 'Next photo', picTab: '🖼️ Photos', mapTab: '🗺️ Map', embedFoot: '🖼️ Tap a photo to zoom in-page · map / social embedded from the source (copyright-safe)',
+      save: 'Save to plan', saveSm: 'Save', savedFull: 'Saved', savedSm: '✓ Saved', saveEatAria: 'Save this place to your trip plan', lbClose: 'Close', lbPrev: 'Previous', lbNext: 'Next',
+      fabAria: 'My trip plan', fabLabel: 'My plan', viewPlan: 'View my trip →', thisPlace: 'this place', toastAdded: '✓ Saved “{n}” to your plan ({c} saved)', toastRemoved: 'Removed “{n}” from your plan' };
+const S_TH = { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
       priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน',
       hoursL: 'เวลาเปิด', halalL: 'ฮาลาล', vegL: 'มีเมนูเจ/มังสวิรัติ', enMenuL: 'เมนูอังกฤษ', spiceL: 'ความเผ็ด', usdL: '≈',
       mapTitle: 'แผนที่ร้านทั้งหมด', mapSub: 'แตะหมุดเพื่อดูร้าน + ที่พักย่านนั้น', mapStay: 'ที่พักย่านนี้', railH: 'รีวิวที่พักน่าสนใจแถวนี้', railFoodH: 'ฟู้ดทัวร์ & คลาสทำอาหาร', railFoodSub: 'มีไกด์พาไป / ลงมือทำเอง · จองผ่าน Klook', railFoodAll: 'ดูประสบการณ์ทั้งหมด', quickAnswerEyebrow: 'คำตอบสั้น ๆ',
       copyTitle: 'นโยบายลิขสิทธิ์และการแจ้งลบภาพ', copyA: 'เว็บไซต์ Thailandaddict จัดทำขึ้นเพื่อรีวิวและแบ่งปันประสบการณ์ หากภาพใดนำมาจากแหล่งข้อมูลอื่น เราได้ระบุแหล่งที่มาไว้แล้ว หากท่านเป็นเจ้าของลิขสิทธิ์และไม่ประสงค์ให้ปรากฏภาพบนเว็บไซต์ โปรด', copyLink: 'ติดต่อเรา', copyB: 'ได้ทันที ทางเรายินดีดำเนินการลบภาพหรือแก้ไขข้อมูลให้ถูกต้องครับ',
       ftDesc: 'คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ', ftDestH: 'จุดหมาย', ftThai: '🇹🇭 เที่ยวไทย', ftContentH: 'คอนเทนต์', ftEat: 'ที่กิน', ftSee: 'ที่เที่ยว', ftStay: 'ที่พัก', ftAboutH: 'เกี่ยวกับ', ftAboutUs: 'เกี่ยวกับเรา', ftEditorial: 'นโยบายบรรณาธิการ', ftContact: 'ติดต่อ', ftPrivacy: 'ความเป็นส่วนตัว', ftCopy: '© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง',
-      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ' };
+      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ', durationL: 'ระยะเวลา', bookL: 'จองบน ', prosL: 'จุดเด่นจากรีวิว', consL: 'ข้อสังเกต', writtenL: 'เขียนเมื่อ', factCheckL: 'ตรวจสอบข้อมูลล่าสุด',
+      zoomHint: '🔍 แตะเพื่อซูม', prevImg: 'รูปก่อนหน้า', nextImg: 'รูปถัดไป', picTab: '🖼️ รูป', mapTab: '🗺️ แผนที่', embedFoot: '🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)',
+      save: 'เก็บลงแผน', saveSm: 'เก็บแผน', savedFull: 'เก็บแล้ว', savedSm: '✓ เก็บแล้ว', saveEatAria: 'เก็บร้านนี้ลงแผนการเดินทาง', lbClose: 'ปิด', lbPrev: 'ก่อนหน้า', lbNext: 'ถัดไป',
+      fabAria: 'แผนการเดินทางของฉัน', fabLabel: 'แผนของฉัน', viewPlan: 'ดูแผนเที่ยว →', thisPlace: 'ร้านนี้', toastAdded: '✓ เก็บ “{n}” ลงแผนแล้ว ({c} ที่)', toastRemoved: 'เอา “{n}” ออกจากแผนแล้ว' };
+const S_RU = { home: 'Главная', th: 'Таиланд', nav: ['Направления','Отели','Развлечения','Еда','О нас'], cta: 'Найти отель', faqH: 'Вопросы и ответы', relH: 'Читайте также', ftTag: 'Thailand, Done Right',
+      priceLabel: 'Примерная цена', sigLabel: 'Фирменное блюдо', mustLabel: 'Обязательно попробуйте', stayDefault: 'Отели поблизости', mapLabel: 'Смотреть на карте', fbLabel: 'Страница в Facebook',
+      hoursL: 'Часы работы', halalL: 'Халяль', vegL: 'Вегетарианские блюда', enMenuL: 'Меню на английском', spiceL: 'Острота', usdL: '≈',
+      mapTitle: 'Все рестораны на карте', mapSub: 'Нажмите на метку, чтобы увидеть заведение и отели рядом', mapStay: 'Отели поблизости', railH: 'Где остановиться рядом', railFoodH: 'Гастрономические туры и мастер-классы', railFoodSub: 'Дегустации с гидом и мастер-классы · через Klook', railFoodAll: 'Смотреть все впечатления', quickAnswerEyebrow: 'Короткий ответ',
+      copyTitle: 'Политика авторских прав и удаления изображений', copyA: 'Thailandaddict создан для того, чтобы делиться впечатлениями от путешествий и честными обзорами. Если изображение взято из другого источника, мы указываем его происхождение. Если вы являетесь правообладателем и не хотите, чтобы ваше изображение отображалось на этом сайте, пожалуйста, ', copyLink: 'свяжитесь с нами', copyB: ', и мы с радостью удалим изображение или исправим информацию.',
+      ftDesc: 'Гид по Таиланду от реальных путешественников — честные обзоры отелей, развлечений и еды по всей стране.', ftDestH: 'Направления', ftThai: '🇹🇭 Исследовать Таиланд', ftContentH: 'Контент', ftEat: 'Где поесть', ftSee: 'Чем заняться', ftStay: 'Где остановиться', ftAboutH: 'О нас', ftAboutUs: 'О нас', ftEditorial: 'Редакционная политика', ftContact: 'Контакты', ftPrivacy: 'Конфиденциальность', ftCopy: '© 2026 thailandaddict.com — Таиланд без прикрас',
+      updatedL: 'Обновлено', freshL: 'Последняя проверка', freshNote: ' · детали и часы работы могут измениться — уточняйте на месте перед визитом', fType: 'Тип', fAll: 'Все', fZone: 'Район', fPrice: 'Цена', fVeg: '🥗 Вег.', fHalal: '🕌 Халяль', fCountTpl: 'Показано {s}/{t} мест', bestForL: '👍 Лучше всего для', reviewsL: 'отзывов', nearL: 'Ближайшее: ', durationL: 'Продолжительность', bookL: 'Забронировать на ', prosL: 'Плюсы из отзывов', consL: 'Стоит учесть', writtenL: 'Написано', factCheckL: 'Проверено',
+      zoomHint: '🔍 Нажмите, чтобы увеличить', prevImg: 'Предыдущее фото', nextImg: 'Следующее фото', picTab: '🖼️ Фото', mapTab: '🗺️ Карта', embedFoot: '🖼️ Нажмите на фото, чтобы увеличить · карта / соцсети встроены из источника (без нарушения авторских прав)',
+      save: 'Сохранить в план', saveSm: 'Сохранить', savedFull: 'Сохранено', savedSm: '✓ Сохранено', saveEatAria: 'Сохранить это место в план поездки', lbClose: 'Закрыть', lbPrev: 'Назад', lbNext: 'Далее',
+      fabAria: 'Мой план поездки', fabLabel: 'Мой план', viewPlan: 'Смотреть мой план →', thisPlace: 'это место', toastAdded: '✓ «{n}» сохранено в план ({c})', toastRemoved: '«{n}» удалено из плана' };
+const S = { en: S_EN, th: S_TH, ru: S_RU }[lang] ?? S_TH;
 
-const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
+const canonical = `${SITE}${LOCALE_PREFIX}/${data.slug}`;
 // Freshness: every article shows a "Last updated" date. Use the article's own modifiedDate when set,
 // else the site-wide freshness-pass date (the whole content base was audited/refreshed on this date).
 const SITE_UPDATED = '2026-06-21';
 const updated = data.modifiedDate || SITE_UPDATED;
 const published = data.publishedDate || updated;
+const factChecked = (data as any).factCheckedDate || '';
 const faq = data.faq ?? [];
 const strip = (s) => (s || '').replace(/<[^>]+>/g, '').trim();
 const realLib = (s) => (s && s.indexOf('/_lib/') === -1) ? s : '';
@@ -37,10 +62,22 @@ const comma = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : n);
 const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
 const EN_MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? (isEn ? `${parseInt(p[2],10)} ${EN_MON[parseInt(p[1],10)-1]} ${p[0]}` : `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}`) : (iso || ''); };
+const RU_MON = ['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
+const fmtDate = (iso) => { const p = String(iso || '').split('-'); const MON = lang === 'en' ? EN_MON : lang === 'ru' ? RU_MON : TH_MON; return p.length === 3 ? `${parseInt(p[2],10)} ${MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
+// Activity mode: same rich card engine, but the "places" are bookable activities/tours (not restaurants).
+// Swap the food-flavoured labels + schema type so nothing reads "ร้าน".
+const isActivity = isResto && /^activity/.test(data.type || '');
+if (isActivity) {
+  S.fCountTpl = tr('Showing {s}/{t} activities', 'แสดง {s}/{t} กิจกรรม', 'Показано {s}/{t} мероприятий');
+  S.freshNote = tr(' · prices and schedules can change — check with the operator before booking', ' · ราคาและรอบอาจเปลี่ยน ตรวจสอบกับผู้ให้บริการก่อนจอง', ' · цены и расписание могут измениться — уточняйте у организатора перед бронированием');
+  S.saveAria = tr('Save this activity to your plan', 'เก็บกิจกรรมนี้ลงแผนการเดินทาง', 'Сохранить это мероприятие в план поездки');
+  S.bookWideL = tr('Book this activity on Klook', 'จองกิจกรรมนี้บน Klook', 'Забронировать на Klook');
+  S.bookSub = tr('Compare prices · instant confirmation', 'เทียบราคา · ยืนยันที่นั่งทันที', 'Сравните цены · мгновенное подтверждение');
+  S.stayWideL = tr('Find hotels nearby', 'ดูที่พักใกล้ ๆ', 'Найти отели поблизости');
+}
 // ── Quick-answer (AEO): promote a leading "Short answer / คำตอบสั้น" paragraph into the styled QA box.
 const QA_RE = /^\s*<strong>\s*(?:คำตอบสั้น|Short answer)/i;
 const _blocks = data.blocks ?? [];
@@ -76,7 +113,7 @@ const showHowTo = howtoSteps.length >= 2;
 const geoRestos = restos.filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number');
 const haversineKm = (a, b) => { const R = 6371, toR = (d) => d * Math.PI / 180, dLa = toR(b.lat - a.lat), dLo = toR(b.lng - a.lng); const x = Math.sin(dLa/2)**2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLo/2)**2; return 2 * R * Math.asin(Math.sqrt(x)); };
 const nearestOf = (b) => { let best = null, bd = Infinity; for (const o of geoRestos) { if (o.rank === b.rank) continue; const d = haversineKm(b, o); if (d < bd) { bd = d; best = o; } } return best ? { name: strip(best.name), km: bd } : null; };
-const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${isEn ? 'm' : 'ม.'}` : `~${km.toFixed(1)} ${isEn ? 'km' : 'กม.'}`);
+const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${tr('m', 'ม.', 'м')}` : `~${km.toFixed(1)} ${tr('km', 'กม.', 'км')}`);
 const mapPins = geoRestos.map((b) => { const nr = nearestOf(b); return { rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay, near: nr ? `${nr.name} · ${distLabel(nr.km)}` : '' }; });
 const showMap = isResto && mapPins.length >= 3;
 // v3 filters: zone / food-type / price-tier axes + diet toggles. Each group is conditional on data.
@@ -93,21 +130,21 @@ const foodBlock = isResto ? (data.blocks.find((b) => b.kind === 'foodexp') || nu
 const hasRail = isResto && (railItems.length > 0 || !!foodBlock);
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
+    { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: lang,
       author: { '@type': 'Organization', name: 'ThailandAddict' },
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: published, dateModified: updated,
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
       mainEntityOfPage: canonical },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${isEn ? '/en/' : '/'}` },
-      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${isEn ? '/en' : ''}/country-thailand` },
-      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${isEn ? '/en' : ''}/${data.crumbCityHref.replace(/\.html$/, '')}` },
+      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${LOCALE_PREFIX ? LOCALE_PREFIX + '/' : '/'}` },
+      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${LOCALE_PREFIX}/country-thailand` },
+      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${LOCALE_PREFIX}/${data.crumbCityHref.replace(/\.html$/, '')}` },
       { '@type': 'ListItem', position: 4, name: data.title, item: canonical } ] },
     // Honest ItemList + Restaurant graph (no fabricated ratings) → rich results + AI answer-engine citations.
     ...(isResto ? [{ '@type': 'ItemList', name: strip(data.title), numberOfItems: restos.length,
       itemListElement: restos.map((b) => ({ '@type': 'ListItem', position: Number(b.rank),
-        item: { '@type': 'Restaurant', name: strip(b.name),
+        item: { '@type': isActivity ? 'TouristAttraction' : 'Restaurant', name: strip(b.name),
           ...(b.cuisine ? { servesCuisine: strip(b.cuisine) } : {}),
           ...(b.priceRange ? { priceRange: strip(b.priceRange) } : {}),
           ...(b.lat && b.lng ? { geo: { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng } } : {}),
@@ -133,7 +170,7 @@ const jsonld = {
 const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='Outfit,sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E";
 ---
 <!doctype html>
-<html lang={isEn ? 'en' : 'th'}>
+<html lang={lang}>
 <head>
 <meta charset="UTF-8" />
 <Analytics />
@@ -150,9 +187,10 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:url" content={canonical} />
 {(data.image || data.heroImg) && <meta property="og:image" content={asset(data.image || data.heroImg)} />}
 {data.heroImg && <link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />}
-<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta property="og:locale" content={lang === 'en' ? 'en_US' : lang === 'ru' ? 'ru_RU' : 'th_TH'} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
-{hasEn && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
+{enExists && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
+{ruExists && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -278,6 +316,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .rbtn.stay{background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;box-shadow:0 6px 16px rgba(244,63,94,.32)}
 .rbtn.map{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;box-shadow:0 6px 16px rgba(6,182,212,.3)}
 .rbtn.fb{background:#fff;border:2px solid var(--bdr);color:var(--ink)}
+.rbtn.book{background:linear-gradient(135deg,#ff7a00,#ff5b00);color:#fff;box-shadow:0 6px 16px rgba(255,91,0,.34)}
 .rbtn:hover{transform:translateY(-2px)}
 .resto-content{padding:20px 24px 22px;min-width:0}
 .resto-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
@@ -286,6 +325,29 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-sig{display:flex;gap:9px;align-items:flex-start;background:var(--soft);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:10px 14px;margin-bottom:15px;font-size:13.5px;line-height:1.6;color:#1e293b}
 .resto-sig b{font-family:'Outfit';color:var(--teal-dk);font-weight:800}
 .resto-desc{font-size:15px;color:#1e293b;line-height:1.8}.resto-desc strong{color:var(--ink);font-weight:700}.resto-desc p{margin:0 0 12px}.resto-desc p:last-child{margin-bottom:0}
+.resto-cardtip{display:flex;gap:10px;align-items:flex-start;margin:0 24px 4px;padding:14px 18px;background:#fffbeb;border:1px solid #fde68a;border-radius:14px}
+.resto-cardtip .rct-i{font-size:18px;flex-shrink:0}.resto-cardtip .rct-b{font-size:14px;line-height:1.7;color:#78350f}.resto-cardtip b{color:#92400e}
+.resto-pc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 4px;padding:0 24px 24px}@media(max-width:620px){.resto-pc{grid-template-columns:1fr}}
+.resto-pc .pc-col{border-radius:14px;padding:16px 18px}
+.resto-pc .pc-pro{background:#ecfdf5;border:1px solid #a7f3d0}.resto-pc .pc-con{background:#fff7ed;border:1px solid #fed7aa}
+.resto-pc .pc-h{font-family:'Outfit';font-weight:800;font-size:12.5px;margin-bottom:8px}.resto-pc .pc-pro .pc-h{color:#047857}.resto-pc .pc-con .pc-h{color:#c2410c}
+.resto-pc ul{margin:0;padding-left:18px}.resto-pc li{font-size:13.5px;line-height:1.7;color:#1e293b;margin-bottom:4px}
+.resto-book{display:flex;gap:12px;flex-wrap:wrap;padding:4px 24px 24px}
+.resto-pc + .resto-book,.resto-cardtip + .resto-book{margin-top:-8px}
+.resto-book .bk{display:flex;align-items:center;gap:13px;text-decoration:none;border-radius:16px;padding:15px 20px;font-family:'Outfit',sans-serif;transition:transform .14s ease,box-shadow .14s ease}
+.resto-book .bk:hover{transform:translateY(-2px)}
+.resto-book .bk-klook{flex:3 1 320px;background:linear-gradient(135deg,#ff7e1d,#ff5b00);box-shadow:0 9px 24px rgba(255,91,0,.36);color:#fff}
+.resto-book .bk-klook:hover{box-shadow:0 13px 30px rgba(255,91,0,.46)}
+.resto-book .kl-badge{background:#fff;color:#ff5b00;font-weight:900;font-size:19px;letter-spacing:-.6px;border-radius:9px;padding:6px 13px 7px;line-height:1;box-shadow:0 2px 7px rgba(0,0,0,.14);flex-shrink:0}
+.resto-book .kl-main{display:flex;flex-direction:column;line-height:1.28;flex:1;min-width:0}
+.resto-book .kl-main b{font-size:16.5px;font-weight:800;letter-spacing:-.2px}
+.resto-book .kl-main small{font-size:12.5px;line-height:1.45;opacity:.94;font-weight:500}
+.resto-book .kl-arr{font-size:23px;font-weight:800;flex-shrink:0;transition:transform .14s ease}
+.resto-book .bk-klook:hover .kl-arr{transform:translateX(4px)}
+.resto-book .bk-stay{flex:1 1 200px;justify-content:center;background:#ecfeff;border:1.5px solid #a5f3fc;color:#0e7490;font-weight:800;font-size:14.5px}
+.resto-book .bk-stay:hover{background:#cffafe;border-color:#67e8f9}
+.resto-book .bks-i{font-size:17px}
+@media(max-width:620px){.resto-book{padding:4px 16px 18px}.resto-book .bk-klook,.resto-book .bk-stay{flex:1 1 100%}}
 .resto-must{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--bdr)}
 .resto-must .ml{font-family:'Outfit';font-weight:800;font-size:11px;color:var(--teal-dk);text-transform:uppercase;letter-spacing:.6px}
 .resto-must .mo{font-family:'Outfit';font-size:12.5px;font-weight:600;background:#fff;border:1px solid var(--bdr);border-radius:999px;padding:5px 12px}
@@ -469,6 +531,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .ft a{display:block;font-size:13px;color:#94a3b8;margin-bottom:8px}.ft a:hover{color:#fff}
 .ftbar{max-width:1080px;margin:24px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-family:'Outfit';font-size:12px;color:#64748b}
 </style>
+<link rel="stylesheet" href="/css/premium.css">
 </head>
 <body>
 <nav class="nav">
@@ -478,13 +541,13 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     <a href={link('country-thailand.html#hotels')}>{S.nav[1]}</a>
     <a href={link('country-thailand.html#see')}>{S.nav[2]}</a>
     <a href={link('country-thailand.html#eat')}>{S.nav[3]}</a>
-    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
-    <a href={link('plan-your-trip.html')}>{isEn ? 'Plan Trip' : 'เตรียมตัว'}</a>
+    <a href="/trip" style="font-weight:700">{tr('Plan trip', 'วางแผนทริป', 'Планировать поездку')}</a>
+    <a href={link('plan-your-trip.html')}>{tr('Plan Trip', 'เตรียมตัว', 'Подготовка')}</a>
     <a href={link('about.html')}>{S.nav[4]}</a>
   </div>
   <div class="nr">
-    <span class="lang"><a href={`/${data.slug}`} class={isEn ? '' : 'on'}>TH</a><a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a></span>
-    <a href={link('search.html')} aria-label={isEn ? 'Search' : 'ค้นหา'} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
+    <span class="lang"><a href={`/${data.slug}`} class={isEn || lang === 'ru' ? '' : 'on'}>TH</a>{enExists && <a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a>}{ruExists && <a href={`/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''}>RU</a>}</span>
+    <a href={link('search.html')} aria-label={tr('Search', 'ค้นหา', 'Поиск')} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
     <button class="cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.cta}</button>
     <button class="hb" id="hb">☰</button>
   </div>
@@ -492,11 +555,12 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <div class="mm" id="mm">
   <div class="mm-top"><a href={link('/')} class="logo">Thailand<em>Addict</em></a><button class="mm-x" id="mmx">✕</button></div>
   <a href={link('/')}>{S.home}</a>
-  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+  <a href="/trip">{tr('Plan trip', 'วางแผนทริป', 'Планировать поездку')}</a>
   <a href={link('country-thailand.html')}>{S.nav[0]}</a>
   <a href={link(data.crumbCityHref)}>{data.crumbCity}</a>
-  <a href={link('plan-your-trip.html')}>{isEn ? '🧭 Plan Your Trip' : '🧭 เตรียมตัวเที่ยว'}</a>
-  <a href={link('search.html')}>{isEn ? '🔎 Search' : '🔎 ค้นหา'}</a>
+  <a href={link('plan-your-trip.html')}>{tr('🧭 Plan Your Trip', '🧭 เตรียมตัวเที่ยว', '🧭 Подготовка к поездке')}</a>
+  <a href={link('search.html')}>{tr('🔎 Search', '🔎 ค้นหา', '🔎 Поиск')}</a>
+  <span class="lang" style="margin:10px 0"><a href={`/${data.slug}`} class={isEn || lang === 'ru' ? '' : 'on'}>TH</a>{enExists && <a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a>}{ruExists && <a href={`/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''}>RU</a>}</span>
   <a href={link('about.html')}>{S.nav[4]}</a>
 </div>
 
@@ -511,7 +575,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       {data.chips && data.chips.length > 0 &&
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div>
-    <a class="rhero-scroll" href="#r1"><span>{isEn ? 'Explore all 10' : 'เลื่อนดูทั้ง 10 ร้าน'}</span><em>↓</em></a>
+    <a class="rhero-scroll" href="#r1"><span>{isActivity ? tr(`Explore all ${restos.length}`, `เลื่อนดูทั้ง ${restos.length} กิจกรรม`, `Смотреть все ${restos.length}`) : tr('Explore all 10', 'เลื่อนดูทั้ง 10 ร้าน', 'Смотреть все 10')}</span><em>↓</em></a>
     {data.heroCredit && <span class="rhero-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener">{data.heroCredit}</a> : data.heroCredit}</span>}
   </section>
 ) : (
@@ -560,7 +624,9 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <article class="body"><div class={hasRail ? 'wrap rgrid' : 'wrap'}>
   <div class="rmain">
   {isResto ? (
-    <p class="rfresh">🔄 {S.freshL} {fmtDate(updated)}{S.freshNote}</p>
+    factChecked
+      ? <p class="rfresh">📝 {S.writtenL} {fmtDate(published)} · ✅ {S.factCheckL} {fmtDate(factChecked)}{S.freshNote}</p>
+      : <p class="rfresh">🔄 {S.freshL} {fmtDate(updated)}{S.freshNote}</p>
   ) : (
     <p class="updated">🔄 {S.updatedL} {fmtDate(updated)}</p>
   )}
@@ -625,15 +691,15 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type="eat" data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เก็บร้านนี้ลงแผนการเดินทาง"><span class="rs-ico">🔖</span> <span class="rs-label">เก็บลงแผน</span><span class="rs-label-sm">เก็บแผน</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type={isActivity ? 'activity' : 'eat'} data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label={isActivity ? (S.saveAria || S.saveEatAria) : S.saveEatAria}><span class="rs-ico">🔖</span> <span class="rs-label">{S.save}</span><span class="rs-label-sm">{S.saveSm}</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
           {(b.igPost || b.fbPage || b.libImg || !b.img) ? (
             <div class="resto-embed">
               <div class="re-tabs">
-                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>🖼️ รูป</button>}
-                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
+                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>{S.picTab}</button>}
+                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>{S.mapTab}</button>
                 {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 IG</button>}
                 {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 FB</button>}
               </div>
@@ -646,26 +712,26 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                           <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={b.alt || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
                         ))}
                       </div>
-                      <button class="re-cbtn re-cprev" type="button" aria-label="รูปก่อนหน้า">‹</button>
-                      <button class="re-cbtn re-cnext" type="button" aria-label="รูปถัดไป">›</button>
+                      <button class="re-cbtn re-cprev" type="button" aria-label={S.prevImg}>‹</button>
+                      <button class="re-cbtn re-cnext" type="button" aria-label={S.nextImg}>›</button>
                       <span class="re-ccount">1/{b.gallery.length + 1}</span>
-                      <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
+                      <span class="re-zoomhint">{S.zoomHint}</span>
                     </div>
                   ) : (
-                    <Fragment><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
+                    <Fragment><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">{S.zoomHint}</span></Fragment>
                   )}
                 </div>}
-                <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
+                <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=${lang === 'ru' ? 'ru' : isEn ? 'en' : 'th'}&output=embed`}></iframe>
                 {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
                 {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
               </div>
-              <div class="re-foot">🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)</div>
+              <div class="re-foot">{S.embedFoot}</div>
             </div>
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
                 <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />
-                <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
+                <span class="re-zoomhint">{S.zoomHint}</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
               {b.gallery && b.gallery.length > 0 && (
@@ -679,9 +745,10 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
             </Fragment>
           )}
           <div class="resto-side">
+            {b.duration && <div class="resto-price"><span class="pl">{S.durationL}</span><span class="pv" set:html={b.duration} /></div>}
             {b.priceRange && <div class="resto-price"><span class="pl">{S.priceLabel}</span><span class="pv" set:html={b.priceRange} /></div>}
-            {(b.stayHref || b.mapHref || b.fbHref) &&
-              <div class="resto-act">{b.stayHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || S.stayDefault)} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">{'📍 ' + S.mapLabel}</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">{S.fbLabel}</a>}</div>}
+            {((b.stayHref && !b.bookHref) || b.mapHref || b.fbHref) &&
+              <div class="resto-act">{b.stayHref && !b.bookHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || S.stayDefault)} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">{'📍 ' + S.mapLabel}</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">{S.fbLabel}</a>}</div>}
           </div>
         </div>
         <div class="resto-content">
@@ -703,6 +770,21 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
             <div class="resto-must"><span class="ml">{S.mustLabel}</span>{b.mustOrder.map((m) => <span class="mo" set:html={m} />)}</div>}
         </div>
       </div>
+      {b.tipHtml && <div class="resto-cardtip"><span class="rct-i">💡</span><div class="rct-b" set:html={b.tipHtml} /></div>}
+      {((b.pros && b.pros.length) || (b.cons && b.cons.length)) &&
+        <div class="resto-pc">
+          {b.pros && b.pros.length > 0 && <div class="pc-col pc-pro"><div class="pc-h">✅ {S.prosL}</div><ul>{b.pros.map((p) => <li set:html={p} />)}</ul></div>}
+          {b.cons && b.cons.length > 0 && <div class="pc-col pc-con"><div class="pc-h">⚠️ {S.consL}</div><ul>{b.cons.map((c) => <li set:html={c} />)}</ul></div>}
+        </div>}
+      {b.bookHref &&
+        <div class="resto-book">
+          <a class="bk bk-klook" href={goB(b.bookHref)} target="_blank" rel="nofollow noopener sponsored">
+            <span class="kl-badge">klook</span>
+            <span class="kl-main"><b set:html={b.bookLabel || S.bookWideL || (S.bookL + (b.bookProvider || 'Klook'))} /><small set:html={S.bookSub || ''} /></span>
+            <span class="kl-arr">→</span>
+          </a>
+          {b.stayHref && <a class="bk bk-stay" href={link(b.stayHref)}><span class="bks-i">🏨</span><span class="bks-t" set:html={b.stayLabel || S.stayWideL || S.stayDefault} /></a>}
+        </div>}
     </section> :
     b.kind === 'embed' ? <section class="resembed" style="margin:28px 0;padding:18px;border:1px solid #e6eef2;border-radius:18px;background:#f6fdff">
       {b.title && <h3 style="margin:0 0 4px;font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:#0f172a" set:html={b.title} />}
@@ -731,28 +813,28 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <h3 set:html={b.title} />
         {b.text && <p set:html={b.text} />}
         <div class="staycta-links">{b.links.map((l) => <a href={link(l.href)}><span class="ll" set:html={l.label} />{l.note && <small set:html={l.note} />}</a>)}</div>
-        {b.ctaHref && <a class="staycta-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
+        {b.ctaHref && <a class="staycta-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
       </div>
     </section> :
     b.kind === 'foodexp' ? <section class="foodexp">
       <div class="foodexp-head"><span class="foodexp-ic">🍢</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
       <div class="foodexp-grid">{b.items.map((it) => (
-        <a class="foodexp-card" href={it.href} target="_blank" rel="sponsored nofollow noopener">
+        <a class="foodexp-card" href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
           {it.img ? <img class="foodexp-thumb" src={asset(it.img)} alt="" loading="lazy" onerror="this.style.display='none'" /> : <span class="foodexp-emoji">{it.emoji ?? '🥢'}</span>}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
+      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
     </section> :
     b.kind === 'experiences' ? <section class="foodexp exp">
       <div class="foodexp-head"><span class="foodexp-ic">🎟️</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
       <div class="foodexp-grid">{b.items.map((it) => (
-        <a class="foodexp-card" href={it.href} target="_blank" rel="sponsored nofollow noopener">
+        <a class="foodexp-card" href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
           {it.img ? <img class="foodexp-thumb" src={asset(it.img)} alt="" loading="lazy" onerror="this.style.display='none'" /> : <span class="foodexp-emoji">{it.emoji ?? '🎟️'}</span>}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (isEn ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
+      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? tr('See all activities', 'ดูกิจกรรมทั้งหมด', 'Смотреть все мероприятия')} />}
     </section> :
     b.kind === 'localtips' ? <section class="localtips">
       <h3 class="lt-h">💡 <span set:html={b.title} /></h3>
@@ -778,7 +860,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         : <div class="cd">{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></div>))}</div> :
     b.kind === 'day' ? <div class="day"><div class="dl" set:html={b.label} />{b.title && <h3 set:html={b.title} />}
       {b.items.map((s) => <div class="step"><div class="tm" set:html={s.time ?? ''} /><div class="ac">{<span set:html={s.activity} />}{s.note && <small set:html={s.note} />}</div></div>)}</div> :
-    b.kind === 'cta' ? <div class="ctaband"><p set:html={b.text} />{/^https?:/.test(b.href) ? <a href={b.href} target="_blank" rel="sponsored nofollow noopener" set:html={b.label ?? S.cta} /> : <a href={b.href} set:html={b.label ?? S.cta} />}</div> :
+    b.kind === 'cta' ? <div class="ctaband"><p set:html={b.text} />{/^https?:/.test(b.href) ? <a href={goB(b.href)} target="_blank" rel="sponsored nofollow noopener" set:html={b.label ?? S.cta} /> : <a href={b.href} set:html={b.label ?? S.cta} />}</div> :
     null
   ))}
   </div>
@@ -800,7 +882,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           <div class="rrail-h">🍢 {S.railFoodH}</div>
           <p class="rrail-fsub">{S.railFoodSub}</p>
           {foodBlock.items.map((it, i) => (
-            <a class={`rrail-fcard c${i % 4}`} href={it.href} target="_blank" rel="sponsored nofollow noopener">
+            <a class={`rrail-fcard c${i % 4}`} href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
               <span class="rrail-ficon">{it.emoji ?? '🥢'}</span>
               <span class="rrail-fbody">
                 <span class="rrail-ftitle" set:html={it.label} />
@@ -809,7 +891,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
               <span class="rrail-fchev">›</span>
             </a>
           ))}
-          {foodBlock.ctaHref && <a class="rrail-fcta" href={foodBlock.ctaHref} target="_blank" rel="sponsored nofollow noopener">{S.railFoodAll} <span>›</span></a>}
+          {foodBlock.ctaHref && <a class="rrail-fcta" href={goB(foodBlock.ctaHref)} target="_blank" rel="sponsored nofollow noopener">{S.railFoodAll} <span>›</span></a>}
         </div>
       )}
     </div></aside>
@@ -817,7 +899,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 </div></article>
 
 {isResto && (
-  <script is:inline>
+  <script is:inline define:vars={{ TW: { save: S.save, saveSm: S.saveSm, savedFull: S.savedFull, savedSm: S.savedSm, lbClose: S.lbClose, lbPrev: S.lbPrev, lbNext: S.lbNext } }}>
   (function () {
     // photo gallery — swap main image + credit on thumbnail click
     document.addEventListener('click', function (e) {
@@ -847,7 +929,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     });
     // in-page lightbox — tap any photo to zoom WITHOUT leaving the page (no IG/FB bounce)
     var ov = document.createElement('div'); ov.className = 'lbx-ov';
-    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="ปิด">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="ก่อนหน้า">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="ถัดไป">›</button>';
+    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="' + TW.lbClose + '">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="' + TW.lbPrev + '">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="' + TW.lbNext + '">›</button>';
     document.body.appendChild(ov);
     var ovImg = ov.querySelector('.lbx-img'), ovCap = ov.querySelector('.lbx-cap'), ovCred = ov.querySelector('.lbx-cred'), ovCount = ov.querySelector('.lbx-count');
     var ovPrev = ov.querySelector('.lbx-prev'), ovNext = ov.querySelector('.lbx-next');
@@ -883,7 +965,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? 'เก็บแล้ว' : 'เก็บลงแผน'; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? '✓ เก็บแล้ว' : 'เก็บแผน'; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? TW.savedFull : TW.save; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? TW.savedSm : TW.saveSm; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
@@ -962,8 +1044,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <script is:inline>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
 </script>
-<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
-<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">ดูแผนเที่ยว →</a></div>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label={S.fabAria} style="display:none">🧳<span class="tf-l">{S.fabLabel}</span><b id="taTripN">0</b></a>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">{S.viewPlan}</a></div>
 <style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
 .ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
 .ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
@@ -981,7 +1063,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .lbx-close{top:16px;right:16px;width:42px;height:42px;font-size:20px}
 .lbx-count{position:absolute;top:22px;left:18px;color:#cbd5e1;font-size:13px}
 </style>
-<script>(function(){
+<script is:inline define:vars={{ TWT: { thisPlace: S.thisPlace, toastAdded: S.toastAdded, toastRemoved: S.toastRemoved } }}>(function(){
   var KEY='ta_wishlist';
   function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
   var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN');
@@ -990,13 +1072,14 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
   var toast=document.getElementById('taPlanToast'),tHide;
   window.taPlanToast=function(added,name,count){
     if(!toast)return;
-    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||'ร้านนี้');
-    toast.querySelector('.tpt-msg').textContent=added?('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)'):('เอา “'+nm+'” ออกจากแผนแล้ว');
+    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||TWT.thisPlace);
+    toast.querySelector('.tpt-msg').textContent=added?TWT.toastAdded.replace('{n}',nm).replace('{c}',count):TWT.toastRemoved.replace('{n}',nm);
     toast.querySelector('.tpt-link').style.display=read().length?'inline-block':'none';
     toast.classList.add('show');clearTimeout(tHide);
     tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
   };
 })();</script>
 <script src="/js/currency.js" defer></script>
+<script src="/js/premium-motion.js" defer></script>
 </body>
 </html>

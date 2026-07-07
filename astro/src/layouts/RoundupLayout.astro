@@ -5,29 +5,38 @@ import Analytics from '../components/Analytics.astro';
 
 interface Props {
   data: CollectionEntry<'roundups'>['data'];
-  lang?: 'th' | 'en';
+  lang?: 'th' | 'en' | 'ru';
 }
 const { data, lang = 'th' } = Astro.props;
+const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent((data.slug || 'page').slice(0, 60)) : u);
 const isEn = lang === 'en';
+const isRu = lang === 'ru';
 
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const base = isEn ? `${SITE}/en` : SITE;
+// Locale URL-prefix — resolves uniformly for th/en/ru ('' for th, keeps root).
+const LOCALE_PREFIX: Record<string, string> = { th: '', en: '/en', ru: '/ru' };
+const localePrefix = LOCALE_PREFIX[lang] || '';
+const base = `${SITE}${localePrefix}`;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 const today = '2026-05-17';
 
-// Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
-// and the .html suffix stripped (clean URL).
+// Russian roundups that exist on disk — used to gate the hreflang alternate + lang switcher.
+const RU_ROUNDUPS = new Set(Object.keys(import.meta.glob('../content/roundups-ru/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
+const ruExists = RU_ROUNDUPS.has(data.slug);
+
+// Internal-link helper: Thai keeps the raw href, English/Russian get a locale
+// prefix (/en/, /ru/) and the .html suffix stripped (clean URL).
 const link = (h: string) => {
-  if (h === '/' || h === '') return isEn ? '/en/' : '/';
+  if (h === '/' || h === '') return localePrefix ? `${localePrefix}/` : '/';
   if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
-  if (!isEn) return h;
-  // Normalise then add a single /en/ prefix — robust to inputs already stored as
+  if (!localePrefix) return h;
+  // Normalise then add a single locale prefix — robust to inputs already stored as
   // "/en/review-x" (avoids the /en//en/... double-prefix bug), "/review-x" or "review-x.html".
-  let p = h.replace(/\.html$/, '').replace(/^\/en\//, '/');
+  let p = h.replace(/\.html$/, '').replace(/^\/(en|ru)\//, '/');
   if (!p.startsWith('/')) p = '/' + p;
-  return '/en' + p;
+  return localePrefix + p;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve
@@ -91,7 +100,7 @@ const S = {
     ftTag: 'Thailand, Done Right',
     ftDesc: 'รีวิวโรงแรมและที่เที่ยวทั่วโลก โดยผู้เชี่ยวชาญ พร้อมราคาจริงและลิงก์จองตรง ไม่มีโฆษณาแฝง',
     ftHeadDest: 'จุดหมาย', ftHeadReviews: 'รีวิวโรงแรม', ftHeadAbout: 'เกี่ยวกับ',
-    ftR1: '12 Hostel ไทเป', ftR2: 'Top 10 ซีเหมินติง', ftR3: '5 ที่พักชิงจิ้ง',
+    ftR1: 'Top 10 โรงแรมกรุงเทพ', ftR2: 'Top 10 โรงแรมเชียงใหม่', ftR3: 'Top 10 โรงแรมภูเก็ต', ftDest2: 'เมืองท่องเที่ยว',
     ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · อัปเดตล่าสุด พ.ค. 2026',
     ftAff: '⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ รีวิวและการจัดอันดับเป็นอิสระจากการสนับสนุนใดๆ',
     mbarBook: '🔴 จองผ่าน Agoda', mbarAll: 'ดูรีวิวทั้งหมด',
@@ -115,10 +124,34 @@ const S = {
     ftTag: 'Thailand, Done Right',
     ftDesc: 'Hotel and destination reviews worldwide, by experts — with real prices and direct booking links. No hidden ads.',
     ftHeadDest: 'Destinations', ftHeadReviews: 'Hotel Reviews', ftHeadAbout: 'About',
-    ftR1: '12 Hostels in Taipei', ftR2: 'Top 10 Ximending', ftR3: '5 Cingjing Stays',
+    ftR1: 'Top 10 Bangkok Hotels', ftR2: 'Top 10 Chiang Mai Hotels', ftR3: 'Top 10 Phuket Hotels', ftDest2: 'Top Cities',
     ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Last updated May 2026',
     ftAff: '⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you. Our reviews and rankings remain independent of any sponsorship.',
     mbarBook: '🔴 Book via Agoda', mbarAll: 'See all reviews',
+  },
+  ru: {
+    navDest: 'Направления', navAbout: 'О нас', navCta: 'Найти отель',
+    mmHome: 'Главная', mmContact: 'Контакты',
+    tocTitle: 'Содержание — нажмите, чтобы перейти к отелю!',
+    priceLabel: 'Цена от',
+    btnAgoda: 'Забронировать на Agoda', btnText: '📖 Читать полный обзор →', imgBook: '🛏️ Проверить наличие',
+    prosTitle: '👍 Плюсы', consTitle: '👎 На что обратить внимание',
+    faqEyebrow: 'Часто задаваемые вопросы',
+    bylinePublished: 'Опубликовано',
+    bylineUpdated: 'Обновлено',
+    bylineReadTime: 'Время чтения',
+    quickAnswerEyebrow: 'Короткий ответ',
+    methodologyLabel: 'Как мы выбирали · Проверка · Раскрытие информации',
+    wishWord: '🔖 Сохранить в план', wishSaved: '✓ Сохранено',
+    sourcesTitle: 'Источники и ссылки',
+    aboutAuthorTitle: 'Об авторе',
+    ftTag: 'Thailand, Done Right',
+    ftDesc: 'Обзоры отелей и направлений по всему миру от экспертов — с реальными ценами и прямыми ссылками на бронирование. Никакой скрытой рекламы.',
+    ftHeadDest: 'Направления', ftHeadReviews: 'Обзоры отелей', ftHeadAbout: 'О нас',
+    ftR1: 'Топ-10 отелей Бангкока', ftR2: 'Топ-10 отелей Чиангмая', ftR3: 'Топ-10 отелей Пхукета', ftDest2: 'Популярные города',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Обновлено в мае 2026',
+    ftAff: '⚡ ThailandAddict — партнёр по партнёрской программе Agoda, Booking.com и Trip.com — мы можем получать комиссию, когда вы бронируете по ссылкам на сайте, без дополнительных затрат для вас. Наши обзоры и рейтинги независимы от какого-либо спонсорства.',
+    mbarBook: '🔴 Забронировать на Agoda', mbarAll: 'Смотреть все обзоры',
   },
 }[lang];
 
@@ -171,13 +204,14 @@ const faqSchema = {
 };
 const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
 
-// Author shape may vary — guard each field; bio prefers EN field for /en/ pages when available.
+// Author shape may vary — guard each field; bio prefers EN field for /en/ pages when available
+// (Russian pages fall back to the EN bio too, since there's no bioRu field on the schema).
 const author = (data as any).author;
-const authorBio = author ? (isEn && author.bioEn ? author.bioEn : (author.bio || '')) : '';
+const authorBio = author ? ((isEn || isRu) && author.bioEn ? author.bioEn : (author.bio || '')) : '';
 // EEAT: always show an editorial byline + fact-checked badge on roundups, even without a named author.
 // (The bottom author-bio box stays gated on a real `author` — no fabricated bio.)
-const by = author || { name: isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict', jobTitle: isEn ? 'Hotel reviews & rankings' : 'รีวิว & จัดอันดับโรงแรม' };
-const factCheckedL = isEn ? '✓ Fact-checked' : '✓ ตรวจสอบแล้ว';
+const by = author || { name: isRu ? 'Редакция ThailandAddict' : (isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict'), jobTitle: isRu ? 'Обзоры и рейтинги отелей' : (isEn ? 'Hotel reviews & rankings' : 'รีวิว & จัดอันดับโรงแรม') };
+const factCheckedL = isRu ? '✓ Проверено' : (isEn ? '✓ Fact-checked' : '✓ ตรวจสอบแล้ว');
 // Normalize sources into array of strings (the schema allows any · pilot uses string[]).
 const sources: any[] = Array.isArray((data as any).sourcesAndCitations) ? (data as any).sourcesAndCitations : [];
 // Helper: split "Label — URL" into { label, url } if separator found; else treat full string as label only.
@@ -206,6 +240,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 <link rel="canonical" href={url} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
 <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+{ruExists && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta property="og:type" content="article" />
 <meta property="og:title" content={data.ogTitle} />
@@ -213,7 +248,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 <meta property="og:url" content={url} />
 <meta property="og:site_name" content="ThailandAddict" />
 <meta property="og:image" content={imgAbs} />
-<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta property="og:locale" content={isRu ? 'ru_RU' : (isEn ? 'en_US' : 'th_TH')} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -338,6 +373,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 .entry-save.saved{color:#fff;background:linear-gradient(135deg,#06B6D4,#0891b2);border-color:transparent;box-shadow:0 7px 16px rgba(6,182,212,.36)}
 </style>
 <!-- ad/monetization tag removed — add ThailandAddict's own here later -->
+<link rel="stylesheet" href="/css/premium.css">
 </head>
 <body class="rl-page">
 
@@ -346,13 +382,16 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   <div class="nav-mid">
     <a href={link('country-thailand.html')}>{S.navDest}</a>
     <a href={link(data.navReviewHref)}>{data.navReviewLabel}</a>
-    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+    <a href="/trip" style="font-weight:700">{isRu ? 'План поездки' : (isEn ? 'Plan trip' : 'วางแผนทริป')}</a>
     <a href={link('about.html')}>{S.navAbout}</a>
   </div>
   <div class="nav-r">
     <span class="lang-sw">
-      <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th" aria-label="ภาษาไทย">TH</a>
-      <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
+      <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th" aria-label="ภาษาไทย">TH</a>
+      <a href={`${SITE}/en/${data.slug}`} class={lang === 'en' ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
+      {ruExists
+        ? <a href={`${SITE}/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''} hreflang="ru" aria-label="Русский">RU</a>
+        : <span class="dis" title="เร็วๆ นี้ · Coming soon">RU</span>}
       <span class="dis" title="เร็วๆ นี้ · Coming soon">中文</span>
       <span class="dis" title="เร็วๆ นี้ · Coming soon">ES</span>
       <span class="dis" title="เร็วๆ นี้ · Coming soon">FR</span>
@@ -369,12 +408,15 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   <a href={link('/')}>{S.mmHome}</a>
   <a href={link('country-thailand.html')}>{S.navDest}</a>
   <a href={link(data.navReviewHref)}>{data.navReviewLabel}</a>
-  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+  <a href="/trip">{isRu ? 'План поездки' : (isEn ? 'Plan trip' : 'วางแผนทริป')}</a>
   <a href={link('about.html')}>{S.navAbout}</a>
   <a href={link('contact.html')}>{S.mmContact}</a>
   <span class="lang-sw mm-lang">
-    <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th">🇹🇭 ไทย</a>
-    <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en">🇬🇧 English</a>
+    <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th">🇹🇭 ไทย</a>
+    <a href={`${SITE}/en/${data.slug}`} class={lang === 'en' ? 'on' : ''} hreflang="en">🇬🇧 English</a>
+    {ruExists
+      ? <a href={`${SITE}/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''} hreflang="ru">🇷🇺 Русский</a>
+      : <span class="dis">🇷🇺 Русский</span>}
     <span class="dis">🇨🇳 中文</span>
     <span class="dis">🇪🇸 Español</span>
     <span class="dis">🇫🇷 Français</span>
@@ -526,7 +568,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
           <div class="img-wrap">
             <img src={asset(e.img)} alt={e.name} loading="lazy" onerror="this.closest('.img-wrap').style.background='#2d2416'" />
             <div class="img-overlay"><div class="mrt-tag">{e.mrtTag}</div></div>
-            <a class="rd-img-book" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
+            <a class="rd-img-book" href={goB(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow" aria-label={e.name}><span>{S.imgBook}</span></a>
           </div>
           <div class="price-block">
             <div class="price-label-sm">{S.priceLabel}</div>
@@ -538,9 +580,9 @@ const splitSource = (s: any): { label: string; url: string | null } => {
               <div class="room-opt"><span class="room-type">{r.type}</span><span class="room-price">{r.price}</span></div>
             ))}
           </div>
-          <a class="btn-main" href={e.agodaUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
-          <a class="btn-sec" href={e.bookingUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
-          <a class="btn-trip" href={e.tripUrl} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
+          <a class="btn-main" href={goB(e.agodaUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark r">a</span>{S.btnAgoda}</a>
+          <a class="btn-sec" href={goB(e.bookingUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">B.</span>Booking.com</a>
+          <a class="btn-trip" href={goB(e.tripUrl)} target="_blank" rel="sponsored noopener nofollow"><span class="bk-mark sq">t</span>Trip.com</a>
           {e.reviewUrl && <a class="btn-text" href={link(e.reviewUrl)}>{S.btnText}</a>}
           <button class="entry-save" type="button" data-slug={wishSlug(e.reviewUrl)} data-name={e.name} data-img={asset(e.img)} data-url={link(e.reviewUrl)} data-type="stay" data-city={wishCitySlug} data-province={wishProvince} data-word={S.wishWord} data-saved={S.wishSaved}>{S.wishWord}</button>
         </div>
@@ -675,7 +717,7 @@ const splitSource = (s: any): { label: string; url: string | null } => {
         {author.tagline && <p class="author-bio-tagline">“{author.tagline}”</p>}
         {author.url && (
           <a class="author-bio-link" href={link(author.url.replace(/^https?:\/\/[^/]+/, ''))}>
-            {isEn ? 'More about the author →' : 'อ่านเพิ่มเติมเกี่ยวกับผู้เขียน →'}
+            {isRu ? 'Подробнее об авторе →' : (isEn ? 'More about the author →' : 'อ่านเพิ่มเติมเกี่ยวกับผู้เขียน →')}
           </a>
         )}
       </div>
@@ -687,11 +729,11 @@ const splitSource = (s: any): { label: string; url: string | null } => {
 <section style="max-width:1080px;margin:8px auto 0;padding:0 24px">
   <div style="background:linear-gradient(135deg,#0F172A 0%,#06B6D4 100%);border-radius:22px;padding:28px 30px;color:#fff">
     <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#FBBF24;margin-bottom:8px">⚽ FIFA World Cup 2026</div>
-    <h2 style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;margin:0 0 8px;color:#fff;line-height:1.2">{isEn ? `Going to ${wc.en} for the World Cup?` : `ไปดูบอลโลก 2026 ที่${wc.th}?`}</h2>
-    <p style="font-size:15px;line-height:1.7;margin:0 0 18px;color:rgba(255,255,255,.9);max-width:680px">{isEn ? `${wc.en} is a 2026 host city. Read the full guide — match schedule, where to stay, tickets and visa — plus exactly how to get to ${wc.stn} on match day.` : `${wc.th}เป็นเมืองเจ้าภาพฟุตบอลโลก 2026 — อ่านคู่มือฉบับเต็ม (ตารางแมตช์ ที่พัก ตั๋ว วีซ่า) พร้อมวิธีไปสนาม ${wc.stn} วันแข่งแบบละเอียด`}</p>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:800;margin:0 0 8px;color:#fff;line-height:1.2">{isRu ? `Едете в ${wc.en} на Чемпионат мира?` : (isEn ? `Going to ${wc.en} for the World Cup?` : `ไปดูบอลโลก 2026 ที่${wc.th}?`)}</h2>
+    <p style="font-size:15px;line-height:1.7;margin:0 0 18px;color:rgba(255,255,255,.9);max-width:680px">{isRu ? `${wc.en} — город-хозяин ЧМ-2026. Читайте полный гид: расписание матчей, где остановиться, билеты и виза — плюс подробно, как добраться до ${wc.stn} в день матча.` : (isEn ? `${wc.en} is a 2026 host city. Read the full guide — match schedule, where to stay, tickets and visa — plus exactly how to get to ${wc.stn} on match day.` : `${wc.th}เป็นเมืองเจ้าภาพฟุตบอลโลก 2026 — อ่านคู่มือฉบับเต็ม (ตารางแมตช์ ที่พัก ตั๋ว วีซ่า) พร้อมวิธีไปสนาม ${wc.stn} วันแข่งแบบละเอียด`)}</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a href={link(`city-${wcCity}-world-cup.html`)} style="display:inline-block;background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:12px">{isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`}</a>
-      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:12px">{isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`}</a>
+      <a href={link(`city-${wcCity}-world-cup.html`)} style="display:inline-block;background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:12px">{isRu ? `📋 Гид по ЧМ в ${wc.en} →` : (isEn ? `📋 ${wc.en} World Cup guide →` : `📋 คู่มือ${wc.th} ฟุตบอลโลก →`)}</a>
+      <a href={link(`getting-to-${wc.st}.html`)} style="display:inline-block;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;padding:13px 24px;border-radius:12px">{isRu ? `🚆 Как добраться до ${wc.stn}` : (isEn ? `🚆 Getting to ${wc.stn}` : `🚆 วิธีไป ${wc.stn}`)}</a>
     </div>
   </div>
 </section>
@@ -713,14 +755,14 @@ const splitSource = (s: any): { label: string; url: string | null } => {
     <div class="ft-col">
       <h4>{S.ftHeadDest}</h4>
       <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
-      <a href={link('country-thailand.html')}>🇹🇭 Thailand</a>
-      <a href={link('city-taipei.html')}>🏙️ Taipei</a>
+      <a href={link('tourist-cities.html')}>🔥 {S.ftDest2}</a>
+      <a href={link('city-bangkok.html')}>🏙️ Bangkok</a>
     </div>
     <div class="ft-col">
       <h4>{S.ftHeadReviews}</h4>
-      <a href={link('top12-hostel-taipei.html')}>{S.ftR1}</a>
-      <a href={link('country-thailand.html')}>{S.ftR2}</a>
-      <a href={link('top5-stay-cingjing-farm.html')}>{S.ftR3}</a>
+      <a href={link('top10-hotels-bangkok.html')}>{S.ftR1}</a>
+      <a href={link('top10-hotels-chiang-mai.html')}>{S.ftR2}</a>
+      <a href={link('top10-hotels-phuket.html')}>{S.ftR3}</a>
     </div>
     <div class="ft-col">
       <h4>{S.ftHeadAbout}</h4>
@@ -803,5 +845,6 @@ const splitSource = (s: any): { label: string; url: string | null } => {
   };
 })();</script>
 <script src="/js/currency.js" defer></script>
+<script src="/js/premium-motion.js" defer></script>
 </body>
 </html>

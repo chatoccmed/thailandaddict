@@ -5,14 +5,20 @@ import Analytics from '../components/Analytics.astro';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
-  lang?: 'th' | 'en';
+  lang?: 'th' | 'en' | 'ru';
 }
 const { data, lang = 'th' } = Astro.props;
+const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent((data.slug || 'page').slice(0, 60)) : u);
 const isEn = lang === 'en';
+const isRu = lang === 'ru';
+
+const RU_REVIEWS = new Set(Object.keys(import.meta.glob('../content/reviews-ru/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
+const ruExists = RU_REVIEWS.has(data.slug);
 
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const base = isEn ? `${SITE}/en` : SITE;
+const LOCALE_PREFIX = lang === 'en' ? '/en' : lang === 'ru' ? '/ru' : '';
+const base = `${SITE}${LOCALE_PREFIX}`;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 const today = '2026-05-17';
@@ -20,13 +26,14 @@ const today = '2026-05-17';
 const _tdParts = today.split('-');
 const TS_MON_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const TS_MON_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const priceTs = (lang === 'en' ? TS_MON_EN : TS_MON_TH)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
+const TS_MON_RU = ['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
+const priceTs = (lang === 'en' ? TS_MON_EN : lang === 'ru' ? TS_MON_RU : TS_MON_TH)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
 
-// Internal-link helper: Thai keeps the raw href, English gets an /en/ prefix
-// and the .html suffix stripped (clean URL).
+// Internal-link helper: Thai keeps the raw href, English/Russian get a locale
+// prefix (/en/ or /ru/) and the .html suffix stripped (clean URL).
 const link = (h: string) => {
-  if (h === '/' || h === '') return isEn ? '/en/' : '/';
-  return isEn ? `/en/${h.replace(/\.html$/, '')}` : h;
+  if (h === '/' || h === '') return LOCALE_PREFIX ? `${LOCALE_PREFIX}/` : '/';
+  return LOCALE_PREFIX ? `${LOCALE_PREFIX}/${h.replace(/\.html$/, '')}` : h;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve
@@ -121,12 +128,49 @@ const S = {
     tsLabel: 'Last checked: ', locale: 'en-US',
     twSuffix: '— Review | ThailandAddict',
   },
+  ru: {
+    navDest: 'Направления', navAbout: 'О нас', navCta: 'Найти отель',
+    mmHome: 'Главная', mmContact: 'Контакты',
+    bcHome: 'Главная', bcTaiwan: 'Таиланд',
+    heroMore: '+ Все фото',
+    qiType: 'Тип', qiScore: 'Оценка', qiPrice: 'От', qiRooms: 'Номера',
+    qiBook: 'Забронировать →', qiWish: '🔖 Сохранить в план', qiWishSaved: '✓ Сохранено',
+    secReview: 'Обзор · Review',
+    updateChip: '📅 Обновлено в мае 2026 · Цены и данные проверены',
+    bylineName: 'Обзор подготовлен редакцией ThailandAddict', bylineBadge: '✓ Проверено',
+    bylineText: 'Наша команда более 10 лет пишет обзоры отелей и ведёт туристические сайты — этот обзор основан на сотнях реальных отзывов гостей на Booking &amp; Agoda, а также на собственной проверке расположения, цен и номеров. · ',
+    bylineLink: 'Как мы пишем обзоры →',
+    secGallery: 'Галерея · Фото отеля и окрестностей', galleryMore: 'все фото',
+    secBody: 'Полный обзор от редакции',
+    secRating: 'Наша оценка', ratingOut: 'из 10 баллов',
+    secGuest: 'Отзывы гостей · Guest Reviews',
+    prCount: 'сотни отзывов', prPros: '✦ Плюсы', prCons: '◎ На заметку',
+    secHonest: 'Честное мнение',
+    htTitle: 'Это место <em>отлично подойдёт</em>, если...',
+    htChecksLbl: '💡 Проверьте перед бронированием',
+    htChecksSub: 'Эти 3 момента важны не для всех — убедитесь, что они подходят именно вашей поездке (мы уже подсказали, как быть).',
+    pwLbl: 'Ориентировочная цена · сравнение 3 сайтов', pwPer: '/ ночь',
+    pwFromSuffix: ' · ориентировочная цена от',
+    pwCtaH: '⚖️ Сравните 3 сайта — забронируйте по лучшей цене', pwCheck: 'Узнать цену →',
+    secTips: 'Советы от редакции',
+    sideInfo: 'Информация об отеле', sideLoc: 'Расположение и как добраться',
+    mapAlt: 'Карта района отеля', sideNearby: 'Рядом',
+    ftDesc: 'Обзоры отелей и направлений по всему миру от экспертов — с реальными ценами и прямыми ссылками на бронирование. Без скрытой рекламы.',
+    ftDest: 'Направления', ftContent: 'Материалы', ftAbout: 'О нас',
+    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Обновлено в мае 2026',
+    ftAff: '⚡ ThailandAddict является партнёром Agoda, Booking.com и Trip.com — мы можем получать комиссию с бронирований по ссылкам на сайте, без каких-либо дополнительных затрат для вас.',
+    mbarBook: '🔴 Забронировать на Agoda', mbarAll: 'Смотреть все обзоры', rvAgoda: 'Цены для участников', rvBooking: 'Актуальные номера', rvTrip: 'Сравнить · оплата позже', rvFrom: 'От', rvRef: 'ориентировочно · нажмите для актуальной цены', imgBook: '🛏️ Смотреть номера · цены',
+    tsLabel: 'Последняя проверка: ', locale: 'ru-RU',
+    twSuffix: '— Обзор | ThailandAddict',
+  },
 }[lang];
 
 const ratingCountText = isEn
   ? `Based on ${data.ratingCount}+ reviews`
+  : isRu
+  ? `На основе ${data.ratingCount}+ отзывов`
   : `รวม ${data.ratingCount}+ รีวิว`;
-const guestH2 = isEn ? 'Summary from <em>Booking &amp; Agoda</em>' : 'สรุปจาก <em>Booking &amp; Agoda</em>';
+const guestH2 = isEn ? 'Summary from <em>Booking &amp; Agoda</em>' : isRu ? 'Обзор отзывов на <em>Booking &amp; Agoda</em>' : 'สรุปจาก <em>Booking &amp; Agoda</em>';
 
 // ── Interleave the review's own photos through the body, so the long review
 // text isn't a wall of words. We reuse the images the review already ships
@@ -249,6 +293,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <link rel="canonical" href={url} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
 <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
+{ruExists && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta property="og:title" content={data.ogTitle} />
 <meta property="og:description" content={data.ogDesc} />
@@ -256,7 +301,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ThailandAddict" />
 <meta property="og:image" content={imgAbs} />
-<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta property="og:locale" content={isEn ? 'en_US' : isRu ? 'ru_RU' : 'th_TH'} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={`${data.name} ${S.twSuffix}`} />
 <meta name="twitter:description" content={data.twDesc} />
@@ -305,6 +350,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 .rv-body-fig .rv-body-book:hover span{transform:translateY(-2px);box-shadow:0 5px 16px rgba(0,0,0,.26)}
 </style>
 <!-- ad/monetization tag removed — add ThailandAddict's own here later -->
+<link rel="stylesheet" href="/css/premium.css">
 </head>
 <body>
 
@@ -313,13 +359,16 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <div class="nav-mid">
     <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
     <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
-    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : isRu ? 'Планировать поездку' : 'วางแผนทริป'}</a>
     <a href={link('about.html')}>{S.navAbout}</a>
   </div>
   <div class="nav-r">
     <span class="lang-sw">
-      <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th" aria-label="ภาษาไทย">TH</a>
+      <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th" aria-label="ภาษาไทย">TH</a>
       <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
+      {ruExists
+        ? <a href={`${SITE}/ru/${data.slug}`} class={isRu ? 'on' : ''} hreflang="ru" aria-label="Русский">RU</a>
+        : <span class="dis" title="เร็วๆ นี้ · Coming soon">RU</span>}
       <span class="dis" title="เร็วๆ นี้ · Coming soon">中文</span>
       <span class="dis" title="เร็วๆ นี้ · Coming soon">ES</span>
       <span class="dis" title="เร็วๆ นี้ · Coming soon">FR</span>
@@ -336,12 +385,15 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <a href={link('/')}>{S.mmHome}</a>
   <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
   <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
-  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+  <a href="/trip">{isEn ? 'Plan trip' : isRu ? 'Планировать поездку' : 'วางแผนทริป'}</a>
   <a href={link('about.html')}>{S.navAbout}</a>
   <a href={link('contact.html')}>{S.mmContact}</a>
   <span class="lang-sw mm-lang">
-    <a href={`${SITE}/${data.slug}`} class={isEn ? '' : 'on'} hreflang="th">🇹🇭 ไทย</a>
+    <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th">🇹🇭 ไทย</a>
     <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en">🇬🇧 English</a>
+    {ruExists
+      ? <a href={`${SITE}/ru/${data.slug}`} class={isRu ? 'on' : ''} hreflang="ru">🇷🇺 Русский</a>
+      : <span class="dis">🇷🇺 Русский</span>}
     <span class="dis">🇨🇳 中文</span>
     <span class="dis">🇪🇸 Español</span>
     <span class="dis">🇫🇷 Français</span>
@@ -354,7 +406,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <div class="hero">
   <div class="hero-grid">
     <div class="hero-main">
-      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
+      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
       <div class="hero-main-ov"></div>
       <div class="hero-badges">
@@ -369,11 +421,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
       </div>
     </div>
     <div class="hero-sub">
-      <a href={data.bookingAgoda} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
     </div>
     <div class="hero-sub-2" style="position:relative;">
-      <a href={data.heroSub2Href} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      <a href={goB(data.heroSub2Href)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
       <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
       <button class="hero-more-btn">{S.heroMore}</button>
     </div>
@@ -423,7 +475,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 
   {(data as any).quickAnswerHtml && (
     <aside class="quick-answer rv">
-      <span class="qa-eyebrow">{isEn ? 'Quick answer' : 'คำตอบสั้น ๆ'}</span>
+      <span class="qa-eyebrow">{isEn ? 'Quick answer' : isRu ? 'Короткий ответ' : 'คำตอบสั้น ๆ'}</span>
       {(data as any).quickAnswerH2 && <h2>{(data as any).quickAnswerH2}</h2>}
       <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
     </aside>
@@ -450,15 +502,15 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <div class="gal-main">
       <div class="gp main-gp">
         <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
-        <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+        <a href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
       </div>
       {data.gallery.map((g, i) => (
         <div class="gp">
           <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
-          <a href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
+          <a href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
         </div>
       ))}
-      <a class="gp-more" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored">
+      <a class="gp-more" href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored">
         <div class="n">+30</div>
         <div>{S.galleryMore}</div>
       </a>

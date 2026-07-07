@@ -6,10 +6,26 @@ const MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 const CAP = { see: 8, eat: 5, stay: 4 };           // candidate gap-fill caps per type
 const AI_TIMEOUT_MS = 28000;
 
+// ── Booking.com via CJ (Commission Junction) ─────────────────────────────────
+// Affiliate ids live HERE ONLY (site links point to /go/b so a CJ format change = edit this one spot).
+// /go/b?u=<encoded booking.com URL>&sid=<page-slug> → 302 CJ click → Booking.
+// PID 101809619 (ThailandAddict property in CJ) · deep-link ad 17293139 · program Booking.com APAC 7854081.
+const CJ_BOOKING = { host: 'https://www.anrdoezrs.net', pid: '101809619', adid: '17293139' };
+function bookingGo(url) {
+  let dest = url.searchParams.get('u') || 'https://www.booking.com/';
+  const sid = (url.searchParams.get('sid') || 'site').slice(0, 64).replace(/[^\w-]/g, '') || 'site';
+  let d = null;
+  try { d = new URL(dest); } catch {}
+  if (!d || !/(^|\.)booking\.com$/.test(d.hostname)) dest = 'https://www.booking.com/';  // open-redirect guard
+  const cj = `${CJ_BOOKING.host}/click-${CJ_BOOKING.pid}-${CJ_BOOKING.adid}?sid=${sid}&url=${encodeURIComponent(dest)}`;
+  return new Response(null, { status: 302, headers: { 'Location': cj, 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     try {
+      if (url.pathname === '/go/b') return bookingGo(url);
       if (url.pathname === '/api/plan' && request.method === 'POST') return await handlePlan(request, env);
       if (url.pathname === '/api/plan') return json({ ok: false, error: 'POST only' }, 405);
       if (url.pathname === '/api/suggest') return await handleSuggest(request, env);
