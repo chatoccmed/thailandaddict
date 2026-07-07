@@ -1,0 +1,437 @@
+/* ==== TA GLOSSY PREMIUM (proto2) — depth + gloss + weight-contrast + motion ==== */
+
+/* -- CINEMATIC IMAGE -- */
+/* ==========================================================================
+   CINEMATIC IMAGE GRADE — content photos only (append LAST; overrides prior)
+   Scope: .hero-bg, .dest img, .tcard-img img, .hc-img img, .acard-img img,
+          .grc-img img  — NEVER logo/favicon/emoji/icons/partner logos/map.
+   Preserves object-fit:cover, ken-burns (@keyframes kz), per-card hover-zoom.
+   ========================================================================== */
+
+/* ---- 1. THE GRADE — richer, editorial, clearly visible ---------------- */
+/* saturate 1.16 · contrast 1.12 · brightness .975 · faint warmth (sepia)   */
+/* transition:filter added for smooth hover; transform kept so ken-burns    */
+/* and the existing hover-zoom transitions survive.                         */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{
+  filter:saturate(1.16) contrast(1.12) brightness(.975) sepia(.05) hue-rotate(-4deg);
+  transition:transform .6s cubic-bezier(.22,.61,.36,1), filter .5s ease !important;
+  will-change:transform, filter;
+}
+/* .grc-img img had object-fit but no transition/transform hook before —    */
+/* keep it graded + smooth even though it has no hover-zoom of its own.      */
+
+/* The hero background is a CSS background-image (not an <img>), grade it too */
+.hero-bg{
+  filter:saturate(1.18) contrast(1.13) brightness(.965) sepia(.05) hue-rotate(-4deg);
+}
+
+/* ---- 2. HOVER — a further richness lift (deep + expensive) ------------- */
+.dest:hover img,
+.tcard:hover .tcard-img img,
+.hcard:hover .hc-img img,
+.acard:hover .acard-img img,
+.grescard:hover .grc-img img{
+  filter:saturate(1.24) contrast(1.16) brightness(1) sepia(.06) hue-rotate(-4deg);
+}
+
+/* ---- 3. DEPTH / VIGNETTE overlay on photo CARDS ----------------------- */
+/* A soft inner vignette + subtle bottom-weight gives each photo dimension. */
+/* Containers are already position:relative; overflow:hidden. z-index:1 so   */
+/* it sits over the image but UNDER any absolutely-placed label/badge.       */
+.tcard-img::before,
+.hc-img::before,
+.acard-img::before,
+.grc-img::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(120% 100% at 50% 42%, transparent 55%, rgba(8,24,45,.10) 82%, rgba(8,24,45,.26) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(8,24,45,0) 24%, rgba(8,24,45,.06) 100%);
+}
+/* .dest already carries .dest-ov (its own scrim) — give it just the         */
+/* corner vignette so it gains depth without double-darkening the label.     */
+.dest::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(120% 96% at 50% 40%, transparent 58%, rgba(8,24,45,.14) 84%, rgba(8,24,45,.30) 100%);
+}
+
+/* ---- 4. BOTTOM LEGIBILITY SCRIM under photos carrying text ------------ */
+/* .dest already has .dest-ov, so it is covered. .grc-img has a .grc-name    */
+/* label sitting directly on the photo with NO scrim → add one.             */
+.grc-img::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:60%;pointer-events:none;z-index:1;
+  background:linear-gradient(to top, rgba(6,20,38,.72) 0%, rgba(6,20,38,.30) 42%, rgba(6,20,38,0) 100%);
+}
+/* keep the .grc-name label above the new scrim */
+.grc-name{z-index:2}
+
+/* ---- 5. STRONGER CINEMATIC VIGNETTE on the HERO ----------------------- */
+/* Layer over .hero-ov (which handles the brand-tint + fade-to-page).        */
+/* This adds a dark filmic vignette that focuses the eye on the headline.    */
+/* .hero-c (content) must stay above — it already sits at a higher z-index.  */
+.hero-ov{
+  background:
+    radial-gradient(130% 120% at 50% 34%, transparent 40%, rgba(4,16,34,.28) 78%, rgba(4,16,34,.52) 100%),
+    linear-gradient(180deg,rgba(8,30,55,.42) 0%,rgba(8,30,55,.16) 45%,rgba(246,250,251,0) 82%,rgba(246,250,251,1) 100%),
+    linear-gradient(125deg,rgba(6,182,212,.62) 0%,rgba(251,113,133,.52) 52%,rgba(251,191,36,.42) 100%)
+    !important;
+}
+
+/* ---- 6. REDUCED-MOTION: kill the filter transition & ken-burns -------- */
+@media (prefers-reduced-motion: reduce){
+  .dest img,.tcard-img img,.hc-img img,.acard-img img,.grc-img img{
+    transition-duration:.001ms !important;
+  }
+  .hero-bg{animation:none !important;}
+}
+
+/* -- TYPE DRAMA -- */
+/* ══════════════════════════════════════════════════════════════
+   TYPE DRAMA — weight-contrast + premium type feel (thailandaddict)
+   Appended LAST so it overrides earlier rules. Additive only.
+   NO section-spacing / .sec padding / vertical-rhythm changes.
+   Keeps font-families (Outfit/Sarabun/Noto/Fraunces) + brand colors.
+   Thai constraint respected: Thai caps at 700 — drama comes from
+   SIZE + gloss + a THIN Latin kicker, never 900-weight Thai. Thai
+   headline line-height kept >=1.3 and tracking gentle so tone marks
+   never clip or collide.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1. HERO TITLE — bigger, more dramatic, glossy in-brand ────── */
+/* Bigger + denser mass = optical "heavy". line-height stays Thai-safe
+   at 1.3 (task min), tracking only -0.5px so Thai vowels don't merge. */
+.hero-h1{
+  font-size:clamp(44px,9vw,82px)!important;
+  line-height:1.3!important;
+  letter-spacing:-.5px!important;
+  margin-bottom:14px;
+}
+/* Glossy teal->coral->mango sheen on the <em> ("ติดเที่ยว").
+   A vertical light-to-rich gradient reads as a wet/enamel surface;
+   background-clip paints Thai glyphs fine even though the fill is
+   Latin-defined. drop-shadow gives the brand glow (was flat yellow). */
+.hero-h1 em{
+  background:linear-gradient(178deg,
+      #7fe9f5 0%,        /* bright teal top-light — the "sheen" */
+      var(--bl) 30%,     /* #06B6D4 teal body                  */
+      var(--or) 72%,     /* #FB7185 coral                      */
+      var(--go) 100%);   /* #FBBF24 mango warm base            */
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 2px 14px rgba(6,182,212,.42))
+         drop-shadow(0 1px 2px rgba(15,40,70,.30));
+  text-shadow:none;   /* neutralize the earlier flat-yellow shadow */
+}
+/* Optical top-highlight on the whole (mostly-white) Thai title so it
+   reads richer/heavier without touching font-weight. Subtle. */
+.hero-h1{
+  text-shadow:0 1px 0 rgba(255,255,255,.30),
+              0 3px 34px rgba(0,0,0,.34);
+}
+
+/* ── HERO KICKER (.h-eye) — HAIRLINE Latin against the bold title ─ */
+/* The luxury tell: a thin, wide-tracked eyebrow beside a big title.
+   Tracking kept at 2px (Thai-safe — .h-eye holds Thai between dots;
+   uppercase is a no-op on Thai, so we lean on the 300 weight for the
+   thick/thin contrast, not extreme tracking). */
+.h-eye{
+  font-weight:300!important;
+  letter-spacing:2px!important;
+  font-size:10.5px!important;
+}
+
+/* ── 2. SECTION HEADS — bold .stit / thin .slbl / lighter .ssub ── */
+/* Thin, airy, wide kicker = the hairline half of the contrast. */
+.slbl{
+  font-weight:300!important;
+  letter-spacing:3px!important;
+  font-size:11px!important;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+/* Editorial hairline rule trailing the kicker (fine-stroke polish). */
+.slbl::after{
+  content:'';
+  flex:1;
+  min-width:34px;
+  max-width:64px;
+  height:1px;
+  background:linear-gradient(90deg,currentColor,transparent);
+  opacity:.5;
+}
+/* Bigger title jump + tight tracking = reads heavy by mass.
+   line-height 1.2 keeps Thai tone marks clear. */
+.stit{
+  font-size:clamp(28px,4.6vw,42px)!important;
+  letter-spacing:-.6px!important;
+  line-height:1.2!important;
+}
+/* Crisp lit edge on the gradient <em> = optically "heavier". */
+.stit em{
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.6));
+}
+/* Lighter, calmer subtitle completes the 3-tier hierarchy. */
+.ssub{
+  font-weight:400!important;
+  color:var(--sub);
+}
+/* On the dark .sec.pop band the white rule needs to stay visible;
+   currentColor there is already light so it inherits correctly. */
+
+/* ── 3. STAT NUMBERS (.stat .n, Fraunces) — hero-scale, tight ──── */
+/* Big size jump over the tiny uppercase .l label manufactures strong
+   thick/thin contrast. Slight negative tracking + brand glow so the
+   77 / 2,200+ read like polished, weighty numerals. */
+.stat .n{
+  font-size:46px!important;
+  letter-spacing:-1px!important;
+  filter:drop-shadow(0 2px 7px rgba(6,182,212,.26));
+}
+@media(max-width:560px){
+  .stat .n{font-size:38px!important;}
+}
+
+/* ── prefers-reduced-motion: nothing here animates, but honor the
+   contract for the drop-shadows staying static (no-op safety). ── */
+@media (prefers-reduced-motion: reduce){
+  .hero-h1 em,.stit em,.stat .n{transition:none!important;}
+}
+
+/* -- DEPTH + GLOSS -- */
+/* ============================================================
+   DEPTH + GLOSS MODULE  (append LAST inside <style>, after line 283)
+   Bold, visible premium elevation + glass + shine. Brand colors intact.
+   No spacing / .sec padding changes.
+   ============================================================ */
+
+/* 1) SHADOW TOKENS — replace the near-invisible --sh (.07) with a real
+   3-part stack (contact + key + ambient). Every .stat/.dest/.tcard/.hcard/
+   .acard/.grescard/.why/.map-box that reads var(--sh) floats instantly. */
+:root{
+  --sh:0 1px 2px rgba(15,40,70,.06), 0 8px 18px rgba(15,40,70,.10), 0 22px 48px rgba(15,40,70,.14);
+  --sh2:0 2px 4px rgba(15,40,70,.10), 0 16px 34px rgba(15,40,70,.16), 0 40px 80px rgba(15,40,70,.22);
+}
+
+/* 2) RESTING CARD DEPTH + bright lit rim + convex top-highlight ------------- */
+.rgcard,.tcard,.hcard,.acard,.grescard,.dest,.why{
+  box-shadow:0 1px 2px rgba(15,40,70,.05),
+             0 10px 24px rgba(15,40,70,.10),
+             0 26px 50px rgba(6,182,212,.10);
+  border:1px solid rgba(255,255,255,.72);
+}
+.rgcard,.tcard,.hcard,.acard,.grescard,.why{position:relative}
+/* inset specular rim — reads as a lit convex bevel on white cards */
+.rgcard::after,.tcard::after,.hcard::after,.acard::after,.grescard::after,.why::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 1px rgba(255,255,255,.30);
+}
+
+/* 3) HOVER — big lift + BRAND-COLORED glow + diagonal SHINE-SWEEP ----------- */
+.tcard,.hcard,.acard,.grescard,.rgcard,.dest,.why{
+  transition:transform .40s cubic-bezier(.34,1.56,.64,1),
+             box-shadow .40s cubic-bezier(.22,.61,.36,1)!important;
+}
+.tcard:hover,.hcard:hover,.acard:hover,.grescard:hover,.dest:hover{
+  transform:translateY(-8px) scale(1.015)!important;
+}
+.rgcard:hover,.why:hover{transform:translateY(-6px)!important}
+/* per-card brand hue keeps the palette on-brand */
+.tcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(6,182,212,.36), 0 12px 26px rgba(6,182,212,.24)!important}
+.hcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(251,113,133,.36), 0 12px 26px rgba(251,113,133,.24)!important}
+.acard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(251,191,36,.32), 0 12px 26px rgba(251,113,133,.22)!important}
+.grescard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 28px 58px rgba(6,182,212,.30), 0 12px 26px rgba(251,113,133,.20)!important}
+.rgcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.10), 0 26px 54px rgba(6,182,212,.28)!important}
+.why:hover{box-shadow:0 4px 10px rgba(15,40,70,.10), 0 24px 50px rgba(6,182,212,.26)!important}
+.dest:hover{box-shadow:0 30px 64px rgba(6,182,212,.42), 0 12px 26px rgba(15,40,70,.30)!important}
+
+/* diagonal shine-sweep light passing across the card on hover */
+.tcard,.hcard,.acard,.grescard,.rgcard,.dest{overflow:hidden}
+.tcard::before,.hcard::before,.acard::before,.grescard::before,.rgcard::before,.dest::before{
+  content:'';position:absolute;top:-60%;left:-90%;width:55%;height:220%;pointer-events:none;z-index:4;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);
+  transform:skewX(-20deg);opacity:0;
+}
+.tcard:hover::before,.hcard:hover::before,.acard:hover::before,
+.grescard:hover::before,.rgcard:hover::before,.dest:hover::before{
+  animation:cardShine .9s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes cardShine{0%{left:-90%;opacity:0}12%{opacity:.85}70%{opacity:.7}100%{left:150%;opacity:0}}
+
+/* specular top-edge sheen over card photos (glossy magazine look) ----------- */
+.tcard-img,.hc-img,.acard-img,.grc-img,.dest{position:relative}
+.tcard-img::after,.hc-img::after,.acard-img::after,.grc-img::after,.dest-ov::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,0) 24%);
+  mix-blend-mode:screen;
+}
+/* smoother ken-burns easing on image zoom */
+.tcard-img img,.hc-img img,.acard-img img,.grc-img img,.dest img{
+  transition:transform .7s cubic-bezier(.22,.61,.36,1)!important;
+}
+
+/* 4) GLASS — nav + hero search-card + stat cards --------------------------- */
+.nav.solid{
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 6px 24px rgba(15,40,70,.10);
+}
+.search-card{
+  background:rgba(255,255,255,.86)!important;
+  backdrop-filter:blur(10px) saturate(150%);
+  -webkit-backdrop-filter:blur(10px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10), 0 26px 60px rgba(8,30,55,.34), inset 0 1px 0 rgba(255,255,255,.9)!important;
+  border:1px solid rgba(255,255,255,.7);
+}
+/* GLASS stat panels floating over the hero (they overlap it at -46px) */
+.stat{
+  background:#ffffff!important;
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.22),
+             inset 0 1px 0 rgba(255,255,255,.95)!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+}
+
+/* 5) GLOSSY BUTTONS — top-light sheen + inset rim + inner shadow + shine ---- */
+.sc-btn,.nav-cta,.mm-cta,.nl-cta,.ab-btn1,.see-all-btn a,.lp-btn,.nl-btn{
+  position:relative;overflow:hidden;isolation:isolate;
+}
+/* keep brand gradients; layer gloss ON TOP */
+.sc-btn{box-shadow:0 8px 20px rgba(6,182,212,.38), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -2px 6px rgba(0,0,0,.14)!important}
+.nav-cta{box-shadow:0 8px 20px rgba(251,113,133,.50), inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.14)!important}
+.mm-cta{box-shadow:0 8px 20px rgba(251,113,133,.42), inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.14)}
+.nl-cta{box-shadow:0 12px 30px rgba(8,30,55,.24), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -2px 6px rgba(0,0,0,.08)}
+.ab-btn1{box-shadow:0 8px 20px rgba(225,29,72,.28), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -2px 6px rgba(0,0,0,.08)}
+.nl-btn{box-shadow:0 8px 20px rgba(15,23,42,.30), inset 0 1px 0 rgba(255,255,255,.22), inset 0 -2px 6px rgba(0,0,0,.20)}
+.see-all-btn a{box-shadow:0 6px 16px rgba(15,40,70,.10), inset 0 1px 0 rgba(255,255,255,.9)}
+.lp-btn{box-shadow:0 6px 14px rgba(6,182,212,.32), inset 0 1px 0 rgba(255,255,255,.4)}
+/* injection-molded top-light overlay */
+.sc-btn::before,.nav-cta::before,.mm-cta::before,.nl-cta::before,.ab-btn1::before,.nl-btn::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:50%;border-radius:inherit;pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0));
+}
+.sc-btn>*,.nav-cta>*,.mm-cta>*,.nl-cta>*,.ab-btn1>*,.nl-btn>*{position:relative;z-index:1}
+/* diagonal shine-sweep streak on hover (the "expensive" tell) */
+.sc-btn::after,.nav-cta::after,.mm-cta::after,.nl-cta::after,.ab-btn1::after,.see-all-btn a::after,.nl-btn::after{
+  content:'';position:absolute;top:-60%;left:-75%;width:50%;height:220%;pointer-events:none;z-index:2;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);
+  transform:skewX(-22deg);opacity:0;
+}
+.sc-btn:hover::after,.nav-cta:hover::after,.mm-cta:hover::after,.nl-cta:hover::after,
+.ab-btn1:hover::after,.see-all-btn a:hover::after,.nl-btn:hover::after{
+  animation:btnShine .85s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes btnShine{0%{left:-75%;opacity:0}12%{opacity:.9}60%{opacity:.85}100%{left:130%;opacity:0}}
+/* press feedback */
+.sc-btn:active,.nav-cta:active,.mm-cta:active,.nl-cta:active,.ab-btn1:active,.nl-btn:active{
+  transform:translateY(1px) scale(.985);transition:transform .08s;
+}
+/* ambient auto-shine on the hero search button so it's alive in a still shot */
+
+
+/* 6) GLOSSY SCORE / RANK / BADGE pills (enamel look) ----------------------- */
+.hc-score,.tcard-badge,.dest-badge,.acard-badge{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6), inset 0 -2px 4px rgba(0,0,0,.18), 0 5px 14px rgba(0,0,0,.24);
+  position:relative;overflow:hidden;
+}
+.hc-score::before,.tcard-badge::before,.dest-badge::before,.acard-badge::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:48%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.5),transparent);
+}
+
+/* 7) REDUCED-MOTION KILL SWITCH (mandatory) -------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .sc-btn::after{animation:none!important;opacity:0!important}
+}
+
+/* -- MOTION (css) -- */
+/* ═══════════════════════════════════════════════════════════════════
+   PREMIUM MOTION LAYER — thailandaddict.com homepage
+   Append LAST inside <style> (after line 283). transform/opacity/filter only.
+   All "start hidden" states are gated behind html.mjs (added by the IIFE),
+   so with JS disabled the page renders fully visible.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* premium easing palette */
+:root{
+  --e-out:cubic-bezier(.22,.61,.36,1);
+  --e-hero:cubic-bezier(.16,1,.3,1);
+  --e-inout:cubic-bezier(.65,0,.35,1);
+}
+
+/* ── 1 · SCROLL-PROGRESS BAR (slim brand gradient, top of viewport) ── */
+.m-prog{position:fixed;top:0;left:0;height:3px;width:100%;z-index:1400;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--bl),var(--or),var(--go));
+  box-shadow:0 1px 6px rgba(6,182,212,.5);will-change:transform;pointer-events:none}
+
+/* ── 2 · HERO HEADLINE MASK-REVEAL ──
+   JS splits .hero-h1 into two .word-mask>.word tokens; the ready class
+   (mrdy) lands ON .hero-h1, so we target the compound .hero-h1.mrdy .word */
+html.mjs .hero-h1 .word-mask{display:inline-block;overflow:hidden;
+  vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+html.mjs .hero-h1 .word{display:inline-block;transform:translateY(115%);
+  will-change:transform}
+html.mjs .hero-h1.mrdy .word{transform:translateY(0);
+  transition:transform .9s var(--e-hero)}
+html.mjs .hero-h1.mrdy .word-mask:nth-child(2) .word{transition-delay:.09s}
+.hero-h1 .word em{font-style:normal;color:#FFE15D}
+
+/* ── 3 · HERO SLOW ANIMATED GRADIENT SHEEN (≈14s, cinematic drift) ──
+   hero-c already sits at z-index:1; bump it to 2 so the sheen (z-index:1)
+   stays behind the text and never blocks clicks. */
+.hero{position:relative}
+.hero-c{z-index:2}
+.hero::after{content:'';position:absolute;inset:-20% -10%;z-index:1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.10) 48%,rgba(255,255,255,.16) 52%,transparent 66%);
+  transform:translateX(-42%);
+  animation:mHeroSheen 14s var(--e-inout) 1.5s 3;will-change:transform}
+@keyframes mHeroSheen{0%{transform:translateX(-46%)}55%,100%{transform:translateX(46%)}}
+
+/* ── 4 · SCROLL-REVEAL for CARDS (fade + rise, light per-card stagger) ──
+   Sections/.s-head keep the site's existing .rv system (upgraded below);
+   this covers the cards that currently pop in with their parent section,
+   plus JS-generated .tcard / .dest (rescanned by MutationObserver). */
+html.mjs .m-rv{opacity:0;transform:translateY(22px);will-change:transform,opacity}
+html.mjs .m-rv.m-in{opacity:1;transform:none;
+  transition:opacity .66s var(--e-out),transform .66s var(--e-out)}
+
+/* ── existing .rv upgrade — filmic blur-in + premium easing (no JS needed) ── */
+html.mjs .rv{filter:blur(6px);
+  transition:opacity .7s var(--e-out),transform .7s var(--e-out),filter .7s ease}
+html.mjs .rv.in{filter:blur(0)}
+
+/* ── 5 · ONE-TIME SHINE-SWEEP across stat / glass cards after they reveal ── */
+.stat,.search-card{position:relative}
+.m-shine{overflow:hidden}
+.m-shine::after{content:'';position:absolute;top:-60%;left:-75%;width:55%;height:220%;
+  pointer-events:none;z-index:4;opacity:0;transform:skewX(-20deg);
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%)}
+.m-shine.m-swept::after{animation:mShineSweep 1.1s cubic-bezier(.25,.6,.3,1) 1}
+@keyframes mShineSweep{0%{left:-75%;opacity:0}14%{opacity:.85}60%{opacity:.7}100%{left:135%;opacity:0}}
+
+/* ── 6 · COUNT-UP polish — steady tabular numerals while ticking ── */
+.stat .n[data-stat]{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ═══ FULL prefers-reduced-motion KILL SWITCH ═══ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    animation-delay:0ms!important;transition-duration:.001ms!important;
+    scroll-behavior:auto!important}
+  .m-prog{display:none!important}
+  .hero-bg{animation:none!important}
+  .hero::after{animation:none!important;opacity:0!important}
+  .m-shine::after{display:none!important}
+  html.mjs .hero-h1 .word{transform:none!important}
+  html.mjs .m-rv{opacity:1!important;transform:none!important}
+  html.mjs .rv{filter:none!important}
+}

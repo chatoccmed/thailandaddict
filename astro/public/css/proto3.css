@@ -1,0 +1,148 @@
+/* ============================================================
+   TA PREMIUM — SURGICAL (proto3)
+   คงดีไซน์เดิม 100% · เพิ่มเฉพาะ 5 จุดตามที่ owner ระบุ
+   ไม่แตะ: หัวข้อ section, nav, ระยะห่าง, โครงหน้า, รูป hero
+   ============================================================ */
+
+/* ── 1) HERO HEADLINE — ใหญ่ขึ้นชัด + เงาวาว + เช็ดขึ้นทีละคำ ──
+   คง Fraunces / สี / line-height / letter-spacing เดิม · เพิ่มแค่ขนาด+glow */
+.hero-h1{
+  font-size:clamp(44px, 8.4vw, 76px)!important;    /* เดิม 36/7vw/62 → ใหญ่ขึ้นทุกช่วง */
+  text-shadow:0 2px 22px rgba(6,182,212,.20),      /* glow แบรนด์ (เงาวาว) */
+              0 2px 28px rgba(0,0,0,.32);          /* คงเงาดำเดิม (อ่านง่ายบนรูป) */
+}
+/* mask-reveal (JS แยกเป็น .word-mask>.word · ready class = .mrdy บน .hero-h1) */
+html.mjs .hero-h1 .word-mask{display:inline-block;overflow:hidden;
+  padding:.2em 0;margin:-.2em 0;vertical-align:top}   /* room กันวรรณยุกต์ไทยตัด */
+html.mjs .hero-h1 .word{display:inline-block;transform:translateY(125%);will-change:transform}
+html.mjs .hero-h1.mrdy .word{transform:translateY(0);
+  transition:transform .9s cubic-bezier(.16,1,.3,1)}
+html.mjs .hero-h1.mrdy .word-mask:nth-child(2) .word{transition-delay:.09s}
+
+/* ── 2) STAT — การ์ดกระจกลอยมีมิติ (ตัวเลขนับขึ้นด้วย JS) ── */
+.stat{
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(14px) saturate(165%);
+  -webkit-backdrop-filter:blur(14px) saturate(165%);
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.20),
+             inset 0 1px 0 rgba(255,255,255,.95)!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+}
+
+/* ── 3) SEARCH CARD — กระจกฝ้า เงาลึก ── */
+.search-card{
+  background:rgba(255,255,255,.90)!important;
+  backdrop-filter:blur(9px) saturate(150%);
+  -webkit-backdrop-filter:blur(9px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 26px 58px rgba(8,30,55,.32),
+             inset 0 1px 0 rgba(255,255,255,.9)!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+}
+
+/* ── 4) การ์ดเมือง/ภาค — ยกตัว+เรืองแสง+แสงกวาด · รูปอิ่มสีลึก ── */
+.dest,.rgcard,.tcard,.hcard,.grescard,.acard{
+  box-shadow:0 1px 2px rgba(15,40,70,.05),
+             0 10px 24px rgba(15,40,70,.10),
+             0 22px 46px rgba(6,182,212,.08);
+  transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+  position:relative;
+}
+.dest,.tcard,.hcard,.grescard,.acard{overflow:hidden}
+.dest:hover,.rgcard:hover,.tcard:hover,.hcard:hover,.grescard:hover,.acard:hover{
+  transform:translateY(-6px);
+  box-shadow:0 4px 12px rgba(15,40,70,.12),
+             0 30px 60px rgba(6,182,212,.30),
+             0 10px 24px rgba(6,182,212,.20)!important;
+}
+/* แสงกวาด (shine sweep) ตอน hover */
+.dest::before,.rgcard::before,.tcard::before,.hcard::before,.grescard::before,.acard::before{
+  content:"";position:absolute;top:-60%;left:-90%;width:55%;height:220%;
+  pointer-events:none;z-index:4;transform:skewX(-20deg);opacity:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+}
+.dest:hover::before,.rgcard:hover::before,.tcard:hover::before,
+.hcard:hover::before,.grescard:hover::before,.acard:hover::before{
+  animation:p3shine .8s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes p3shine{0%{left:-90%;opacity:0}12%{opacity:.85}60%{opacity:.85}100%{left:130%;opacity:0}}
+/* รูปการ์ดอิ่มสีลึกแบบซีเนมา (ไม่แตะรูป hero) */
+.dest img,.tcard-img img,.hc-img img,.grc-img img,.acard-img img{
+  filter:saturate(1.14) contrast(1.09) brightness(.98) sepia(.03) hue-rotate(-4deg);
+  transition:filter .4s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.dest:hover img,.tcard:hover .tcard-img img,.hcard:hover .hc-img img,
+.grescard:hover .grc-img img,.acard:hover .acard-img img{
+  filter:saturate(1.2) contrast(1.11) brightness(1.03) sepia(.02) hue-rotate(-3deg);
+}
+/* legibility scrim ใต้ชื่อเมืองบนรูป (ให้ตัวอักษรเด่น) */
+.dest::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;
+  pointer-events:none;z-index:1;
+  background:linear-gradient(transparent, rgba(15,23,42,.5));}
+.dest-ov{z-index:2}.dest-info,.dest-name{z-index:3}
+
+/* ── 5) ปุ่ม — เงาวาวแบบแก้ว + แสงวิ่งตอนแตะ ── */
+.sc-btn,.nav-cta,.mm-cta{position:relative;overflow:hidden;isolation:isolate}
+.sc-btn{box-shadow:0 8px 20px rgba(6,182,212,.35),
+        inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.12)!important}
+.nav-cta{box-shadow:0 8px 20px rgba(251,113,133,.45),
+        inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.12)!important}
+/* gloss ด้านบน (สะท้อนแสง) */
+.sc-btn::before,.nav-cta::before,.mm-cta::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:50%;border-radius:inherit;
+  pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0));}
+.sc-btn>*,.nav-cta>*,.mm-cta>*{position:relative;z-index:1}
+/* แสงวิ่งตอน hover */
+.sc-btn::after,.nav-cta::after,.mm-cta::after{
+  content:"";position:absolute;top:-60%;left:-75%;width:50%;height:220%;
+  pointer-events:none;z-index:1;transform:skewX(-22deg);opacity:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);}
+.sc-btn:hover::after,.nav-cta:hover::after,.mm-cta:hover::after{
+  animation:p3btn .85s cubic-bezier(.25,.6,.3,1) 1;}
+@keyframes p3btn{0%{left:-75%;opacity:0}10%{opacity:.9}100%{left:130%;opacity:0}}
+
+/* ── accessibility: ปิด motion ทั้งหมดเมื่อผู้ใช้ตั้ง reduced-motion ── */
+@media(prefers-reduced-motion:reduce){
+  html.mjs .hero-h1 .word{transform:none!important;transition:none!important}
+  .dest::before,.rgcard::before,.tcard::before,.hcard::before,.grescard::before,
+  .acard::before,.sc-btn::after,.nav-cta::after,.mm-cta::after{display:none!important}
+}
+
+
+/* ── polish: search focus glow + stat hover lift ── */
+.search-card:focus-within{
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 30px 66px rgba(8,30,55,.36),
+             0 0 0 3px rgba(6,182,212,.35),
+             inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+.stat{transition:transform .3s cubic-bezier(.16,1,.3,1), box-shadow .3s}
+.stat:hover{transform:translateY(-4px)}
+@media(prefers-reduced-motion:reduce){.stat{transition:none}.stat:hover{transform:none}}
+
+
+/* ── View Transitions — เปลี่ยนหน้าลื่นไหล (Chrome/Edge; browser อื่น = nav ปกติ) ── */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:taVtOut .26s ease both}
+::view-transition-new(root){animation:taVtIn .34s cubic-bezier(.16,1,.3,1) both}
+@keyframes taVtOut{to{opacity:0}}
+@keyframes taVtIn{from{opacity:0;transform:translateY(8px)}}
+/* reading progress bar */
+.ta-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;pointer-events:none;background:linear-gradient(90deg,#06B6D4,#FB7185 55%,#FBBF24);box-shadow:0 0 8px rgba(6,182,212,.35)}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}.ta-progress{display:none}}
+
+
+/* ── back-to-top button ── */
+.ta-top{position:fixed;right:16px;bottom:20px;z-index:850;width:46px;height:46px;border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-size:22px;line-height:1;
+  box-shadow:0 8px 22px rgba(6,182,212,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;
+  transition:opacity .3s,transform .3s cubic-bezier(.16,1,.3,1)}
+.ta-top.show{opacity:1;transform:none;pointer-events:auto}
+.ta-top:hover{transform:translateY(-2px)}
+/* ── a11y: visible keyboard focus ring (brand) ── */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid rgba(6,182,212,.65);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ta-top{transition:opacity .2s}.ta-top:hover{transform:none}}

@@ -1,0 +1,394 @@
+/* ==== TA PREMIUM UPLIFT (prototype) — image-grade + type/space + restrained motion ==== */
+
+/* ---------- MODULE 1: IMAGE GRADE ---------- */
+/* ===================================================================
+   IMAGE GRADE MODULE — "one premium set" photography grade
+   Additive-only. No brand color or font-family changes.
+   Scoped to CONTENT photos ONLY:
+     .hero-bg (bg-image) · .dest img · .tcard-img img ·
+     .hc-img img · .acard-img img · .grc-img img
+   NEVER touches: logo, favicon, emoji, UI icons, map pins, partner logos.
+   NOTE: this is a CSS-only prototype grade. Production should move the
+   grade + clarity/sharpen into an R2 + sharp pipeline (bake the sat/
+   contrast/warmth into the served derivative, ship AVIF/WebP at correct
+   DPR) so devices don't pay a per-paint filter cost. The CSS here mirrors
+   what that pipeline should produce so the look is locked in now.
+   =================================================================== */
+
+/* ---- 1. UNIFIED BASE GRADE (all card content photos share one look) ----
+   Restrained editorial zone: sat 1.06 · contrast 1.045 · a hair of warmth
+   via a tiny sepia + hue nudge (keeps teal/coral honest, just averages the
+   raw JPEG white balance toward a common warm-neutral). brightness ~0.995
+   so nothing blows out. transition:filter so hover feels integrated. */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{
+  filter:saturate(1.06) contrast(1.045) brightness(.995) sepia(.03) hue-rotate(-4deg);
+  transition:transform .5s ease, filter .45s ease;
+  /* perceived-clarity / anti-upscale-blur: crisper resample on scale */
+  image-rendering:auto;
+  backface-visibility:hidden;      /* steadier GPU raster on the scaled img */
+  transform:translateZ(0);         /* placeholder-safe no-op; see reset below */
+}
+/* guard: the line above must not introduce a bogus transform — reset it
+   cleanly so the existing hover scale() is the only transform in play. */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{ transform:none; }
+
+/* keep the global cover-fit explicit on every graded image (defends against
+   any future per-card object-fit drift; global img{} already sets cover) */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{ object-fit:cover; object-position:center; }
+
+/* ---- 2. HOVER "PREMIUM GLOW" (sat+brightness lift, integrated w/ zoom) ----
+   The existing scale(1.07)/scale(1.05) transforms are preserved — we only
+   layer the filter shift. Values stay inside the editorial ceiling (<1.15). */
+.dest:hover img,
+.tcard:hover .tcard-img img,
+.hcard:hover .hc-img img,
+.acard:hover .acard-img img,
+.grescard:hover .grc-img img{
+  filter:saturate(1.12) contrast(1.055) brightness(1.03) sepia(.02) hue-rotate(-3deg);
+}
+
+/* ---- 3. UNIFYING BRAND-TINT SCRIM (the real "one set" trick) ----
+   A single low-opacity teal→coral cast over every card photo, mirroring
+   what .hero-ov already does for the hero. soft-light = a tint, not a wash.
+   Alpha kept single-digit (.06/.05) so warm & cool source photos share a
+   common cast WITHOUT visibly recoloring. All these wrappers are already
+   position:relative;overflow:hidden, so ::after clips to the image. */
+.dest,
+.tcard-img,
+.hc-img,
+.acard-img,
+.grc-img{ position:relative; }
+
+.dest::after,
+.tcard-img::after,
+.hc-img::after,
+.acard-img::after,
+.grc-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;                       /* above img, below any badge/scrim text */
+  background:linear-gradient(160deg, rgba(6,182,212,.06), rgba(251,113,133,.05));
+  mix-blend-mode:soft-light;
+}
+
+/* ---- 4. LEGIBILITY SCRIM for photos that carry text on them ----
+   .dest and .grc-img render the card title directly over the photo, so a
+   bottom-up dark gradient keeps labels readable on ANY source photo (this
+   art-directed floor is why hotel SOTDs look intentional). Kept SEPARATE
+   from the tint scrim and below the existing .dest-ov / .grc-name so those
+   still win. z-index sits under the info/name layers. */
+.dest::before,
+.grc-img::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:62%;
+  pointer-events:none;
+  z-index:1;
+  background:linear-gradient(transparent 0%, rgba(15,23,42,.42) 100%);
+}
+/* ensure the hand-written .dest-ov gradient + text sit ABOVE our scrims */
+.dest-ov{ z-index:2; }
+.dest-info{ z-index:3; }
+.grc-name{ z-index:2; }
+
+/* ---- 5. HERO PHOTO MICRO-GRADE (matches cards' tonal family) ----
+   The hero already gets a strong brand gradient from .hero-ov, so NO extra
+   tint scrim here — just a matching micro-grade on the photo itself so hero
+   and cards sit in the same set. filter on .hero-bg does NOT disturb the
+   ken-burns because that animation drives `transform`, not `filter`. */
+.hero-bg{
+  filter:saturate(1.06) contrast(1.04) brightness(.985) sepia(.025) hue-rotate(-4deg);
+  /* faint cinematic center-focus vignette (Aman/Peninsula move) — kept
+     inside the bg layer via box-shadow inset so it rides under .hero-ov */
+  box-shadow:inset 0 0 220px 40px rgba(8,20,40,.28);
+}
+
+/* ---- 6. FLUID ASPECT CONSISTENCY (optional polish, non-breaking) ----
+   The Top-N card image is a fixed 160px height; giving it a 16/10 ratio
+   makes the rail visually consistent while staying cover-fit. Only applied
+   where it can't break an existing fixed layout (tcard is JS-gen, fluid). */
+.tcard-img{ aspect-ratio:16/10; height:auto; }
+
+/* ---- MOBILE: soften the filter cost + keep grade subtle on small dpr ---- */
+@media(max-width:560px){
+  .dest img,
+  .tcard-img img,
+  .hc-img img,
+  .acard-img img,
+  .grc-img img{
+    filter:saturate(1.05) contrast(1.035) brightness(.995) sepia(.025) hue-rotate(-4deg);
+  }
+}
+
+/* ---- ACCESSIBILITY: honor reduced-motion (grade stays, motion calms) ----
+   The grade itself is static, but drop the filter/zoom TRANSITION so
+   hover doesn't animate for motion-sensitive users. Ken-burns is handled
+   by the page's own reduced-motion rules; we don't re-enable it here. */
+@media (prefers-reduced-motion: reduce){
+  .dest img,
+  .tcard-img img,
+  .hc-img img,
+  .acard-img img,
+  .grc-img img{ transition:none; }
+}
+
+/* ---------- MODULE 2: TYPE & SPACE ---------- */
+/* ===================================================================
+   THAILANDADDICT — Homepage Typography & Spacing upgrade (ADDITIVE)
+   Airy, magazine-premium. Font-families + brand colors UNTOUCHED.
+   Append AFTER the main <style> head block (post line 284) or as a
+   new <style> at end of <body>. Selectors are specific + additive.
+   =================================================================== */
+
+:root{
+  /* --- Fluid type scale (Utopia-style: 320px→1240px, minor-3rd→perfect-4th).
+         rem-based for WCAG 1.4.4; max <= 2.5x min on every step. --- */
+  --ta-step--1: clamp(0.83rem, 0.80rem + 0.16vw, 0.94rem); /* labels / captions */
+  --ta-step-0:  clamp(1.00rem, 0.96rem + 0.22vw, 1.13rem); /* body 16->18px */
+  --ta-step-1:  clamp(1.20rem, 1.13rem + 0.36vw, 1.50rem); /* subtitle / card title 19->24 */
+  --ta-step-2:  clamp(1.44rem, 1.31rem + 0.64vw, 2.00rem); /* section title 23->32 */
+  --ta-step-3:  clamp(1.73rem, 1.51rem + 1.08vw, 2.66rem); /* big section 28->43 */
+  --ta-step-4:  clamp(2.07rem, 1.72rem + 1.77vw, 3.55rem); /* hero-h1 33->57 */
+  --ta-step-5:  clamp(2.49rem, 1.94rem + 2.75vw, 4.73rem); /* oversized display */
+
+  /* --- Spacing scale (8px base) --- */
+  --ta-2xs:8px; --ta-xs:12px; --ta-sm:16px; --ta-md:24px;
+  --ta-lg:40px; --ta-xl:64px; --ta-2xl:96px;
+
+  /* --- Rhythm + containers --- */
+  --ta-gutter: clamp(18px, 5vw, 40px);
+  --ta-section-y: clamp(56px, 4vw + 40px, 120px);
+  --ta-wrap: 1200px;
+  --ta-measure: 68ch;
+
+  /* --- Thai leading (Sarabun / Noto Thai need MORE than Latin) --- */
+  --ta-lh-thai-body: 1.8;   /* body prose */
+  --ta-lh-thai-head: 1.4;   /* Thai display headings */
+}
+
+/* -------------------------------------------------------------------
+   SECTION VERTICAL RHYTHM — the single biggest premium lever.
+   Fluid 56px (mobile) -> ~120px (wide) vs the flat 58px.
+   ------------------------------------------------------------------- */
+.sec{
+  padding-block: var(--ta-section-y);
+  padding-inline: var(--ta-gutter);
+}
+
+/* Comfortable, slightly wider content cap + safe gutters (was flat 1120px) */
+.inner{
+  max-width: var(--ta-wrap);
+  padding-inline: 0;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------
+   S-HEAD — give the eyebrow/title/subtitle cluster real air before
+   the grid. Asymmetric: title hugs its subtitle, floats from grid.
+   ------------------------------------------------------------------- */
+.s-head{
+  margin-bottom: clamp(32px, 4vw, 56px);
+  gap: var(--ta-xs) var(--ta-md);
+  row-gap: var(--ta-xs);
+}
+/* left cluster (slbl+stit+ssub) reads as a measured block */
+.s-head > div{ max-width: 640px; }
+.s-head.center{ justify-content:center; text-align:center; }
+.s-head.center > div{ margin-inline:auto; }
+
+/* -------------------------------------------------------------------
+   EYEBROW / KICKER — stays tiny + static (rhythm anchor, NOT fluid).
+   Outfit family kept; only size/tracking/spacing tuned.
+   ------------------------------------------------------------------- */
+.slbl{
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  margin-bottom: var(--ta-sm);   /* slbl -> stit = 16px */
+}
+.h-eye{ letter-spacing: 0.14em; }
+
+/* -------------------------------------------------------------------
+   SECTION TITLE — fluid, tighter tracking, comfortable Thai leading.
+   Font-family + em-gradient color untouched.
+   ------------------------------------------------------------------- */
+.stit{
+  font-size: var(--ta-step-2);
+  line-height: 1.28;              /* Thai-safe (Fraunces w/ Noto fallback) */
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ssub{
+  font-size: var(--ta-step-0);
+  line-height: var(--ta-lh-thai-body);
+  margin-top: var(--ta-xs);       /* stit -> ssub = 12px */
+  max-width: var(--ta-measure);
+}
+.s-head.center .ssub{ margin-inline:auto; }
+
+/* -------------------------------------------------------------------
+   HERO — fluid H1 with Thai-safe leading (tone marks must not clip),
+   airier subtitle, viewport-scaled height with a "peek" of next band.
+   ------------------------------------------------------------------- */
+.hero{
+  min-height: clamp(560px, 78vh, 760px);
+  padding-inline: var(--ta-gutter);
+}
+.hero-h1{
+  font-size: var(--ta-step-4);
+  line-height: 1.3;               /* NEVER below 1.3 for Thai on Fraunces */
+  letter-spacing: -0.02em;
+  margin-bottom: 0.32em;
+  text-wrap: balance;
+}
+.hero-sub{
+  font-size: var(--ta-step-0);
+  line-height: 1.75;              /* Thai body leading */
+  max-width: 560px;
+  margin-bottom: var(--ta-lg);
+}
+
+/* -------------------------------------------------------------------
+   THAI BODY LEADING — raise readability leading site-wide on the
+   homepage body copy (Sarabun / Noto Thai stack). +0.2 over Latin.
+   ------------------------------------------------------------------- */
+.ssub,
+.why-b,
+.ft-desc,
+.tcard-name,
+.hc-name,
+.dest-name{
+  line-height: var(--ta-lh-thai-body);
+}
+/* Thai body paragraphs breathe a touch more between blocks */
+.why-b{ margin-bottom: 0; }
+
+/* -------------------------------------------------------------------
+   OUTFIT DISPLAY / CARD TITLES — tighten tracking on larger sans
+   display so it reads editorial (family unchanged).
+   ------------------------------------------------------------------- */
+.tcard-name,.hc-name,.dest-name{
+  letter-spacing: -0.005em;
+  line-height: 1.32;              /* Thai-safe for card titles */
+}
+.nl-h{
+  font-size: var(--ta-step-3);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* -------------------------------------------------------------------
+   STATS — keep Fraunces (family untouched). Only a hair of negative
+   tracking at the large size; label spacing left as-is.
+   ------------------------------------------------------------------- */
+.stat .n{ letter-spacing: -0.01em; }
+
+/* -------------------------------------------------------------------
+   .sec.pop safety — this variant flips heading colors light. We only
+   set size/leading/tracking above (no color), so it stays correct.
+   Re-assert leading here in case of specificity interplay.
+   ------------------------------------------------------------------- */
+.sec.pop .stit{ line-height:1.28; }
+.sec.pop .ssub{ line-height:var(--ta-lh-thai-body); }
+
+/* ===================================================================
+   MOBILE — keep it balanced on small screens; don't waste vertical
+   space, tighten heading leading slightly, restore hugging rhythm.
+   =================================================================== */
+@media (max-width:560px){
+  .sec{ padding-inline: var(--ta-gutter); }
+  .s-head{ margin-bottom: 28px; }
+  .s-head > div{ max-width:100%; }
+  .hero{ min-height: clamp(480px, 82vh, 620px); }
+  .hero-h1{ line-height:1.34; letter-spacing:-0.01em; }
+  .hero-sub{ margin-bottom: var(--ta-md); line-height:1.7; }
+  .stit{ line-height:1.3; }
+  .ssub{ line-height:1.75; }
+}
+
+/* Ultrawide — keep prose from running long even inside the wider wrap */
+@media (min-width:1400px){
+  .s-head > div{ max-width:680px; }
+}
+
+/* No motion is introduced by this module. Guard is a harmless no-op
+   that also neutralizes any inherited transition on touched elements
+   for motion-sensitive users. */
+@media (prefers-reduced-motion: reduce){
+  .hero-h1,.stit,.ssub,.hero-sub{ transition:none; }
+}
+
+/* ---------- MODULE 3: RESTRAINED MOTION (css) ---------- */
+/* ============================================================
+   thailandaddict — RESTRAINED motion module (additive)
+   transform/opacity ONLY · no tilt/cursor/nav-hide/magnetic
+   Brand colors & font-families untouched.
+   ============================================================ */
+
+/* --- scroll-progress bar (brand gradient) --- */
+#ta-progress{
+  position:fixed; top:0; left:0; height:3px; width:0%;
+  z-index:9999; pointer-events:none;
+  background:linear-gradient(90deg,var(--bl),var(--or) 55%,var(--go));
+  box-shadow:0 0 8px rgba(6,182,212,.35);
+  transition:width .08s linear;
+}
+
+/* --- hero headline mask-reveal --- */
+/* each logical word is wrapped in .ta-mask (clip) > .ta-word (slides up) */
+.hero-h1 .ta-mask{
+  display:inline-block; overflow:hidden;
+  /* extra room so Thai lower vowels / tone marks aren't sheared */
+  padding-bottom:.16em; margin-bottom:-.16em;
+  vertical-align:top;
+}
+.hero-h1 .ta-word{
+  display:inline-block;
+  transform:translateY(110%);
+  will-change:transform;
+}
+.hero-h1.ta-h1-ready .ta-word{
+  transform:translateY(0);
+  transition:transform .9s cubic-bezier(.16,1,.3,1);
+  transition-delay:var(--d,0ms);
+}
+
+/* --- scroll-reveal: sections, heads, cards (fade + short rise) --- */
+.ta-rv{
+  opacity:0;
+  transform:translateY(20px);
+  will-change:transform,opacity;
+}
+.ta-rv.ta-in{
+  opacity:1;
+  transform:none;
+  transition:opacity .62s cubic-bezier(.16,1,.3,1),
+             transform .62s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i,0) * 70ms);
+}
+
+/* ============================================================
+   ACCESSIBILITY KILL SWITCH — full static page
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  #ta-progress{display:none !important;}
+  .hero-h1 .ta-mask{overflow:visible; padding-bottom:0; margin-bottom:0;}
+  .hero-h1 .ta-word{transform:none !important; transition:none !important;}
+  .ta-rv{opacity:1 !important; transform:none !important; transition:none !important;}
+}

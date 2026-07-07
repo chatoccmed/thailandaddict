@@ -1,0 +1,424 @@
+/* ============================================================
+   TA PREMIUM — SITE-WIDE SURGICAL LAYER  (premium.css)
+   Applies the SAME 5 approved touches from proto3.css to the
+   HOTEL / ROUNDUP / ARTICLE / HUB page types, bound to THEIR
+   real classes. Homepage keeps its own proto3 file.
+   ADDITIVE ONLY · specific selectors · override-last.
+   NO change to brand colors (teal #06B6D4 / coral #FB7185 /
+   mango #FBBF24) or fonts (Outfit/Sarabun/Noto Thai/Fraunces).
+   NO change to spacing / layout / structure. transform/opacity/
+   filter only. Full prefers-reduced-motion kill switch at bottom.
+   ============================================================ */
+
+/* ============================================================
+   1) HERO HEADING — bigger + brand glow + word-by-word mask-reveal
+   The JS splits the FIRST matched candidate heading into
+   .word-mask > .word and adds the ready class (.mrdy) to the
+   heading element. CSS below uses the SAME compound recipe as
+   proto3 (html.mjs HEADING.mrdy .word) for EACH candidate class.
+   Only the mask/reveal + a subtle brand glow are added — size is
+   NOT changed on shared-title elements (hotel .sec-title is reused
+   by every section H2, so we DON'T resize it — glow-free, reveal only).
+   ============================================================ */
+
+/* --- shared mask primitives for every candidate heading --- */
+html.mjs .rhero h1 .word-mask,
+html.mjs .hero h1 .word-mask,
+html.mjs .rl-page .hero h1 .word-mask,
+html.mjs .phero h1 .word-mask,
+html.mjs .thero h1 .word-mask,
+html.mjs .ahub-hero h1 .word-mask,
+html.mjs .hi-name.mrdy-host .word-mask,
+html.mjs .page-h1.mrdy-host .word-mask{
+  display:inline-block;overflow:hidden;
+  padding:.2em 0;margin:-.2em 0;vertical-align:top;   /* room for Thai tone marks */
+}
+html.mjs .rhero h1 .word,
+html.mjs .hero h1 .word,
+html.mjs .rl-page .hero h1 .word,
+html.mjs .phero h1 .word,
+html.mjs .thero h1 .word,
+html.mjs .ahub-hero h1 .word,
+html.mjs .hi-name.mrdy-host .word,
+html.mjs .page-h1.mrdy-host .word{
+  display:inline-block;transform:translateY(125%);will-change:transform;
+}
+/* reveal: compound ready-class per candidate (mirrors proto3 .hero-h1.mrdy) */
+html.mjs .rhero h1.mrdy .word,
+html.mjs .hero h1.mrdy .word,
+html.mjs .rl-page .hero h1.mrdy .word,
+html.mjs .phero h1.mrdy .word,
+html.mjs .thero h1.mrdy .word,
+html.mjs .ahub-hero h1.mrdy .word,
+html.mjs .hi-name.mrdy-host.mrdy .word,
+html.mjs .page-h1.mrdy-host.mrdy .word{
+  transform:translateY(0);
+  transition:transform .9s cubic-bezier(.16,1,.3,1);
+}
+/* staggered second word (same delay recipe as proto3) */
+html.mjs .rhero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .hero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .rl-page .hero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .phero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .thero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .ahub-hero h1.mrdy .word-mask:nth-child(2) .word,
+html.mjs .hi-name.mrdy-host.mrdy .word-mask:nth-child(2) .word,
+html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(2) .word{transition-delay:.09s}
+html.mjs .rhero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .hero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .rl-page .hero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .phero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .thero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .ahub-hero h1.mrdy .word-mask:nth-child(3) .word,
+html.mjs .hi-name.mrdy-host.mrdy .word-mask:nth-child(3) .word,
+html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:.17s}
+
+/* --- brand glow, ONLY on the big white-on-photo VISUAL heroes
+   (these are unique heading elements, never shared with section H2s,
+   so a subtle glow is safe and does NOT alter size/color/font) --- */
+.rhero h1,
+.rl-page .hero h1,
+.phero h1,
+.thero h1,
+.ahub-hero h1,
+.hero-info .hi-name{
+  text-shadow:0 2px 22px rgba(6,182,212,.18),
+              0 2px 28px rgba(0,0,0,.30);
+}
+/* Article LIGHT hero sits on a pale bg — keep glow ultra-subtle, no dark shadow */
+.hero > .wrap > h1{ text-shadow:0 1px 18px rgba(6,182,212,.14); }
+
+/* ============================================================
+   2) KEY NUMBER / SCORE / PRICE displays — count-up + glass card
+   JS count-up is applied ONLY to purely-numeric nodes flagged by
+   the script (it skips anything with letters and skips the nodes
+   already animated by each layout's own observer: .r-num & .rbar-fill
+   on hotel). CSS here adds the frosted "glass card" lift to the
+   prominent stat/score containers. Colors untouched.
+   ============================================================ */
+
+/* HOTEL — big rating box + quick-bar + platform score cards */
+.rating-box,
+.pr-card,
+.pw{
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.16),
+             inset 0 1px 0 rgba(255,255,255,.9);
+}
+.quick-bar{
+  backdrop-filter:blur(10px) saturate(150%);
+  -webkit-backdrop-filter:blur(10px) saturate(150%);
+}
+
+/* ROUNDUP — hero stat pills + per-hotel score/price already brand pills;
+   give the hero stat strip a touch more glass lift (scoped to .rl-page) */
+.rl-page .stat-pill{
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 14px 32px rgba(6,182,212,.14),
+             inset 0 1px 0 rgba(255,255,255,.20);
+}
+
+/* ARTICLE — resto score pill + price block sit on cards already;
+   lift the rank/score numerics' host card subtly (handled via card rule below) */
+
+/* HUB — the .cstats stat strip: frosted glass floating cards
+   (mirrors proto3 .stat recipe, bound to .cstat) */
+.cstat{
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(14px) saturate(165%);
+  -webkit-backdrop-filter:blur(14px) saturate(165%);
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.20),
+             inset 0 1px 0 rgba(255,255,255,.95)!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+}
+
+/* count-up nodes: prevent layout jitter while numbers tween */
+.qi-val,.pw-price,.pr-sc,.price-big,.score-pill,.stat-pill strong,
+.cstat .n,.resto-price .pv{ font-variant-numeric:tabular-nums; }
+
+/* ============================================================
+   3) PROMINENT SUMMARY / QUICK-FACTS / BOOKING cards — frosted glass
+   (mirrors proto3 .search-card recipe: blur + deep shadow.)
+   Bound to each page's real "summary / glance / booking" surface.
+   These are LIGHT-bg cards, so we lighten the frost so text stays crisp.
+   ============================================================ */
+
+/* HOTEL: price widget + quick-answer AEO block + sidebar map/related host */
+.quick-answer,
+.pw{
+  background:rgba(255,255,255,.90)!important;
+  backdrop-filter:blur(9px) saturate(150%);
+  -webkit-backdrop-filter:blur(9px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 26px 58px rgba(8,30,55,.20),
+             inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+
+/* ROUNDUP: comparison tables + quick-answer + article-meta glance cards */
+.compare-top,
+.compare-section,
+.rl-page .quick-answer,
+.article-meta-box{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px) saturate(145%);
+  -webkit-backdrop-filter:blur(8px) saturate(145%);
+  box-shadow:0 2px 6px rgba(15,40,70,.09),
+             0 22px 50px rgba(8,30,55,.16),
+             inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+/* ARTICLE: quick-answer AEO callout (the closest "summary card") */
+.quick-answer{
+  backdrop-filter:blur(9px) saturate(150%);
+  -webkit-backdrop-filter:blur(9px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 22px 50px rgba(8,30,55,.16),
+             inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+/* HUB: province quick-answer summary card */
+.qabox{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(9px) saturate(150%);
+  -webkit-backdrop-filter:blur(9px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 24px 54px rgba(8,30,55,.18),
+             inset 0 1px 0 rgba(255,255,255,.9);
+}
+
+/* ============================================================
+   4) CONTENT CARDS WITH PHOTOS — resting depth + hover lift +
+   brand glow + diagonal shine-sweep + cinematic photo grade +
+   legibility scrim under on-photo labels.
+   (mirrors proto3 card recipe, bound to each page's real card class.)
+   ============================================================ */
+
+/* -- resting depth + hover lift + brand glow -- */
+.hotel-entry,           /* roundup card */
+.resto,                 /* article resto/attraction/activity card */
+.rrail-card,            /* article sticky-rail hotel card */
+.foodexp-card,          /* article food-experience card */
+.hcard,                 /* hub hotel card */
+.dcard,                 /* hub article card */
+.ep-card,               /* hub editor-pick card */
+.hcc,                   /* hub neighbourhood photo card */
+.ahub-card,             /* hub activities card */
+.gp,                    /* hotel gallery tile */
+.side-card,             /* hotel sidebar map card */
+.related-a{             /* hotel sidebar related card */
+  box-shadow:0 1px 2px rgba(15,40,70,.05),
+             0 10px 24px rgba(15,40,70,.10),
+             0 22px 46px rgba(6,182,212,.08);
+  transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+  position:relative;
+}
+/* NOTE: card-level overflow:hidden + card shine-sweep are intentionally
+   OMITTED. Several cards carry CC image credits (.resto-cred) or badges
+   that sit OUTSIDE the card box and must NOT be clipped (credit visibility
+   is a licensing requirement). Cards keep depth + hover-lift + brand glow +
+   cinematic photo grade + legibility scrim; the shine-sweep lives on
+   BUTTONS only (self-contained, safe to clip). */
+
+.hotel-entry:hover,.resto:hover,.rrail-card:hover,.foodexp-card:hover,
+.hcard:hover,.dcard:hover,.ep-card:hover,.hcc:hover,.ahub-card:hover,
+.gp:hover,.side-card:hover,.related-a:hover{
+  transform:translateY(-6px);
+  box-shadow:0 4px 12px rgba(15,40,70,.12),
+             0 30px 60px rgba(6,182,212,.30),
+             0 10px 24px rgba(6,182,212,.20)!important;
+}
+
+/* (card shine-sweep removed for credit-safety — see note above; buttons still shine) */
+
+/* -- cinematic photo grade (target the real <img> inside each card's
+   photo wrapper). NOTE many hero/gallery imgs carry inline style; these
+   filter rules still apply (filter isn't set inline). We deliberately
+   DON'T grade hotel HERO trio imgs to keep the big hero look untouched. -- */
+.hotel-entry .img-wrap img,
+.resto-media img,.resto-mainimg,.re-zoom,.re-cslide img,
+.rrail-card img,.foodexp-thumb,
+.hc-img img,.dphoto img,.ep-img img,.hcc > img,.ahub-ph img,
+.gp img,.map-thumb img,.rel-img{
+  filter:saturate(1.16) contrast(1.08) brightness(.99);
+  transition:filter .4s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.hotel-entry:hover .img-wrap img,
+.resto:hover .resto-mainimg,.resto:hover .re-zoom,
+.rrail-card:hover img,.foodexp-card:hover .foodexp-thumb,
+.hcard:hover .hc-img img,.dcard:hover .dphoto img,
+.ep-card:hover .ep-img img,.hcc:hover > img,.ahub-card:hover .ahub-ph img,
+.gp:hover img,.side-card:hover .map-thumb img,.related-a:hover .rel-img{
+  filter:saturate(1.22) contrast(1.1) brightness(1.03);
+}
+
+/* -- legibility scrim under on-photo labels (only where a label sits on
+   the photo). We add a soft bottom gradient inside the photo wrapper via
+   a pseudo, kept BELOW the label/link z-index so overlays stay clickable. -- */
+.hotel-entry .img-wrap::after,
+.hcc::after,
+.ahub-ph::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:58%;
+  pointer-events:none;z-index:1;
+  background:linear-gradient(transparent, rgba(15,23,42,.42));
+}
+/* keep existing overlays/labels above the scrim (they already have their
+   own z-index; reinforce the on-photo label/link layers) */
+.hotel-entry .img-overlay,.hotel-entry .mrt-tag,.hotel-entry .rd-img-book,
+.hotel-entry .entry-save,.hotel-entry .entry-badge{z-index:3}
+.hcc-cap{position:relative;z-index:2}
+.ahub-tag{z-index:2}
+
+/* ============================================================
+   5) BUTTONS / CTAs — glossy top-sheen + shine-sweep on hover.
+   Brand base colors LEFT UNTOUCHED (Agoda / Booking / Trip / Klook
+   keep their locked fills) — we only overlay a gloss highlight + a
+   moving shine via ::before/::after, matching proto3.
+   ============================================================ */
+
+/* establish stacking context on every CTA/booking button */
+/* -- shared nav / mobile CTAs -- */
+.nav-cta,.mm-cta,.cta,
+/* -- HOTEL booking -- */
+.btn-book,.pw-btn,.rv-card,.rv-body-book,.hero-more-btn,.gp-more,
+/* -- ROUNDUP booking -- */
+.btn-main,.btn-sec,.btn-trip,.rd-img-book,.mbar .m1,.mbar .m2,.ct-book,
+/* -- ARTICLE booking / CTAs -- */
+.rbtn,.bk,.bk-klook,.bk-stay,.staycta-btn,.foodexp-btn,.rrail-fcta,.hmap-cta,
+/* -- HUB booking / CTAs -- */
+.hbtn,.hview,.kl-b,.ahub-klkbtn,.ahub-htlbtn,.ctaband a,.callout a,.hl-book,
+.qa-cta,.mbar a,.affcard a{
+  position:relative;overflow:hidden;isolation:isolate;
+}
+
+/* -- glossy top sheen (a soft light band over the top half) -- */
+.nav-cta::before,.mm-cta::before,.cta::before,
+.btn-book::before,.pw-btn::before,.rv-card::before,.rv-body-book::before,
+.hero-more-btn::before,.gp-more::before,
+.btn-main::before,.btn-sec::before,.btn-trip::before,.rd-img-book::before,
+.mbar .m1::before,.mbar .m2::before,.ct-book::before,
+.rbtn::before,.bk::before,.bk-klook::before,.bk-stay::before,
+.staycta-btn::before,.foodexp-btn::before,.rrail-fcta::before,.hmap-cta::before,
+.hbtn::before,.hview::before,.kl-b::before,.ahub-klkbtn::before,
+.ahub-htlbtn::before,.ctaband a::before,.callout a::before,.hl-book::before,
+.qa-cta::before,.mbar a::before,.affcard a::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:50%;border-radius:inherit;
+  pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0));
+}
+/* keep button label/icons above the sheen layer */
+.nav-cta > *,.mm-cta > *,.cta > *,
+.btn-book > *,.pw-btn > *,.rv-card > *,.rv-body-book > *,
+.hero-more-btn > *,.gp-more > *,
+.btn-main > *,.btn-sec > *,.btn-trip > *,.rd-img-book > *,
+.mbar .m1 > *,.mbar .m2 > *,.ct-book > *,
+.rbtn > *,.bk > *,.bk-klook > *,.bk-stay > *,
+.staycta-btn > *,.foodexp-btn > *,.rrail-fcta > *,.hmap-cta > *,
+.hbtn > *,.hview > *,.kl-b > *,.ahub-klkbtn > *,.ahub-htlbtn > *,
+.ctaband a > *,.callout a > *,.hl-book > *,.qa-cta > *,.mbar a > *,
+.affcard a > *{position:relative;z-index:1}
+
+/* -- moving shine on hover (same keyframe timing as proto3 btn) -- */
+.nav-cta::after,.mm-cta::after,.cta::after,
+.btn-book::after,.pw-btn::after,.rv-card::after,.rv-body-book::after,
+.hero-more-btn::after,.gp-more::after,
+.btn-main::after,.btn-sec::after,.btn-trip::after,.rd-img-book::after,
+.mbar .m1::after,.mbar .m2::after,.ct-book::after,
+.rbtn::after,.bk::after,.bk-klook::after,.bk-stay::after,
+.staycta-btn::after,.foodexp-btn::after,.rrail-fcta::after,.hmap-cta::after,
+.hbtn::after,.hview::after,.kl-b::after,.ahub-klkbtn::after,
+.ahub-htlbtn::after,.ctaband a::after,.callout a::after,.hl-book::after,
+.qa-cta::after,.mbar a::after,.affcard a::after{
+  content:"";position:absolute;top:-60%;left:-75%;width:50%;height:220%;
+  pointer-events:none;z-index:1;transform:skewX(-22deg);opacity:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+}
+.nav-cta:hover::after,.mm-cta:hover::after,.cta:hover::after,
+.btn-book:hover::after,.pw-btn:hover::after,.rv-card:hover::after,
+.rv-body-book:hover::after,.hero-more-btn:hover::after,.gp-more:hover::after,
+.btn-main:hover::after,.btn-sec:hover::after,.btn-trip:hover::after,
+.rd-img-book:hover::after,.mbar .m1:hover::after,.mbar .m2:hover::after,
+.ct-book:hover::after,
+.rbtn:hover::after,.bk:hover::after,.bk-klook:hover::after,.bk-stay:hover::after,
+.staycta-btn:hover::after,.foodexp-btn:hover::after,.rrail-fcta:hover::after,
+.hmap-cta:hover::after,
+.hbtn:hover::after,.hview:hover::after,.kl-b:hover::after,
+.ahub-klkbtn:hover::after,.ahub-htlbtn:hover::after,.ctaband a:hover::after,
+.callout a:hover::after,.hl-book:hover::after,.qa-cta:hover::after,
+.mbar a:hover::after,.affcard a:hover::after{
+  animation:taBtnShine .85s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes taBtnShine{0%{left:-75%;opacity:0}10%{opacity:.85}100%{left:130%;opacity:0}}
+
+
+/* -- card-photo shine: contained bg-sweep (no overflow/clip → credit-safe),
+   only on image wrappers that do NOT already use ::after for a scrim -- */
+.resto-imgwrap,.hc-img,.dphoto,.ep-img,.gp{position:relative}
+.resto-imgwrap::after,.hc-img::after,.dphoto::after,.ep-img::after,.gp::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0;
+  background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.42) 50%,transparent 62%);
+  background-size:220% 100%;background-position:125% 0;
+}
+.resto:hover .resto-imgwrap::after,.hcard:hover .hc-img::after,.dcard:hover .dphoto::after,
+.ep-card:hover .ep-img::after,.gp:hover::after{
+  animation:taImgShine .85s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes taImgShine{0%{opacity:0;background-position:125% 0}14%{opacity:1}100%{opacity:0;background-position:-45% 0}}
+
+/* ============================================================
+   ACCESSIBILITY — full prefers-reduced-motion kill switch
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  /* reveal headings instantly, no transform */
+  html.mjs .rhero h1 .word,
+  html.mjs .hero h1 .word,
+  html.mjs .rl-page .hero h1 .word,
+  html.mjs .phero h1 .word,
+  html.mjs .thero h1 .word,
+  html.mjs .ahub-hero h1 .word,
+  html.mjs .hi-name.mrdy-host .word,
+  html.mjs .page-h1.mrdy-host .word{transform:none!important;transition:none!important}
+
+  /* kill every shine-sweep (card + button) */
+  .hotel-entry::before,.resto::before,.rrail-card::before,.foodexp-card::before,
+  .hcard::before,.dcard::before,.ep-card::before,.hcc::before,.ahub-card::before,
+  /* card shine ::after kill */.resto-imgwrap::after,.hc-img::after,.dphoto::after,.ep-img::after,.gp::after,
+  .nav-cta::after,.mm-cta::after,.cta::after,
+  .btn-book::after,.pw-btn::after,.rv-card::after,.rv-body-book::after,
+  .hero-more-btn::after,.gp-more::after,
+  .btn-main::after,.btn-sec::after,.btn-trip::after,.rd-img-book::after,
+  .mbar .m1::after,.mbar .m2::after,.ct-book::after,
+  .rbtn::after,.bk::after,.bk-klook::after,.bk-stay::after,
+  .staycta-btn::after,.foodexp-btn::after,.rrail-fcta::after,.hmap-cta::after,
+  .hbtn::after,.hview::after,.kl-b::after,.ahub-klkbtn::after,
+  .ahub-htlbtn::after,.ctaband a::after,.callout a::after,.hl-book::after,
+  .qa-cta::after,.mbar a::after,.affcard a::after{display:none!important}
+
+  /* freeze card lift + photo grade transitions */
+  .hotel-entry,.resto,.rrail-card,.foodexp-card,.hcard,.dcard,.ep-card,
+  .hcc,.ahub-card,.gp,.side-card,.related-a{transition:none!important}
+}
+
+/* ── View Transitions — เปลี่ยนหน้าลื่นไหล (Chrome/Edge; browser อื่น = nav ปกติ) ── */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:taVtOut .26s ease both}
+::view-transition-new(root){animation:taVtIn .34s cubic-bezier(.16,1,.3,1) both}
+@keyframes taVtOut{to{opacity:0}}
+@keyframes taVtIn{from{opacity:0;transform:translateY(8px)}}
+/* reading progress bar */
+.ta-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;pointer-events:none;background:linear-gradient(90deg,#06B6D4,#FB7185 55%,#FBBF24);box-shadow:0 0 8px rgba(6,182,212,.35)}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}.ta-progress{display:none}}
+
+
+/* ── back-to-top button ── */
+.ta-top{position:fixed;right:16px;bottom:20px;z-index:850;width:46px;height:46px;border-radius:999px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-size:22px;line-height:1;
+  box-shadow:0 8px 22px rgba(6,182,212,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;
+  transition:opacity .3s,transform .3s cubic-bezier(.16,1,.3,1)}
+.ta-top.show{opacity:1;transform:none;pointer-events:auto}
+.ta-top:hover{transform:translateY(-2px)}
+/* ── a11y: visible keyboard focus ring (brand) ── */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid rgba(6,182,212,.65);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ta-top{transition:opacity .2s}.ta-top:hover{transform:none}}
