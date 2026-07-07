@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articlesRu');
+  return articles.map((r) => ({
+    params: { slug: r.data.slug },
+    props: { data: r.data },
+  }));
+}
+
+const { data } = Astro.props;
+---
+<ArticleLayout data={data} lang="ru" hasEn={true} />

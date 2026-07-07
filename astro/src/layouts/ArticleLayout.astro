@@ -5,36 +5,53 @@ import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
 const { data, lang = 'th', hasEn = true } = Astro.props;
-const isEn = lang === 'en';
+const isTh = lang === 'th';
+const pfx = isTh ? '' : `/${lang}`;               // URL locale prefix: '' | /en | /zh | /ru
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
 const link = (href: string) => {
   if (/^(https?:)?\/\//.test(href) || href.startsWith('#')) return href;
   const c = href.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
-  return (isEn ? `/en/${c}` : `/${c}`).replace(/\/+/g, '/');
+  return `${pfx}/${c}`.replace(/\/+/g, '/');
 };
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 // Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
 // _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
 const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
 const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-const S = isEn
-  ? { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
+const STRINGS: Record<string, any> = {
+  en: { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
       priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
       hoursL: 'Hours', halalL: 'Halal', vegL: 'Veg options', enMenuL: 'English menu', spiceL: 'Spice', usdL: '≈',
       mapTitle: 'All restaurants on the map', mapSub: 'Tap a pin for the spot + nearby stays', mapStay: 'Stays near here', railH: 'Where to stay nearby', railFoodH: 'Food tours & classes', railFoodSub: 'Guided tastings & hands-on classes · via Klook', railFoodAll: 'See all experiences', quickAnswerEyebrow: 'Quick answer',
       copyTitle: 'Copyright & Image Takedown Policy', copyA: 'Thailandaddict is created to review and share travel experiences. Where an image is sourced from elsewhere, we credit the source. If you are the copyright owner and prefer that your image not appear on this site, please ', copyLink: 'contact us', copyB: ' and we will gladly remove the image or correct the information.',
       ftDesc: 'A Thailand travel guide from real travelers — honest reviews of stays, things to do and food across the country.', ftDestH: 'Destinations', ftThai: '🇹🇭 Explore Thailand', ftContentH: 'Content', ftEat: 'Where to eat', ftSee: 'Things to do', ftStay: 'Where to stay', ftAboutH: 'About', ftAboutUs: 'About us', ftEditorial: 'Editorial Policy', ftContact: 'Contact', ftPrivacy: 'Privacy', ftCopy: '© 2026 thailandaddict.com — Thailand, done right',
-      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ' }
-  : { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
+      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ' },
+  th: { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
       priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน',
       hoursL: 'เวลาเปิด', halalL: 'ฮาลาล', vegL: 'มีเมนูเจ/มังสวิรัติ', enMenuL: 'เมนูอังกฤษ', spiceL: 'ความเผ็ด', usdL: '≈',
       mapTitle: 'แผนที่ร้านทั้งหมด', mapSub: 'แตะหมุดเพื่อดูร้าน + ที่พักย่านนั้น', mapStay: 'ที่พักย่านนี้', railH: 'รีวิวที่พักน่าสนใจแถวนี้', railFoodH: 'ฟู้ดทัวร์ & คลาสทำอาหาร', railFoodSub: 'มีไกด์พาไป / ลงมือทำเอง · จองผ่าน Klook', railFoodAll: 'ดูประสบการณ์ทั้งหมด', quickAnswerEyebrow: 'คำตอบสั้น ๆ',
       copyTitle: 'นโยบายลิขสิทธิ์และการแจ้งลบภาพ', copyA: 'เว็บไซต์ Thailandaddict จัดทำขึ้นเพื่อรีวิวและแบ่งปันประสบการณ์ หากภาพใดนำมาจากแหล่งข้อมูลอื่น เราได้ระบุแหล่งที่มาไว้แล้ว หากท่านเป็นเจ้าของลิขสิทธิ์และไม่ประสงค์ให้ปรากฏภาพบนเว็บไซต์ โปรด', copyLink: 'ติดต่อเรา', copyB: 'ได้ทันที ทางเรายินดีดำเนินการลบภาพหรือแก้ไขข้อมูลให้ถูกต้องครับ',
       ftDesc: 'คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ', ftDestH: 'จุดหมาย', ftThai: '🇹🇭 เที่ยวไทย', ftContentH: 'คอนเทนต์', ftEat: 'ที่กิน', ftSee: 'ที่เที่ยว', ftStay: 'ที่พัก', ftAboutH: 'เกี่ยวกับ', ftAboutUs: 'เกี่ยวกับเรา', ftEditorial: 'นโยบายบรรณาธิการ', ftContact: 'ติดต่อ', ftPrivacy: 'ความเป็นส่วนตัว', ftCopy: '© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง',
-      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ' };
+      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ' },
+  zh: { home: '首页', th: '泰国', nav: ['目的地','住宿','景点','美食','关于'], cta: '查找酒店', faqH: '常见问题', relH: '相关阅读', ftTag: 'Thailand, Done Right',
+      priceLabel: '大致价格', sigLabel: '招牌', mustLabel: '必点', stayDefault: '附近住宿', mapLabel: '查看地图', fbLabel: 'Facebook 主页',
+      hoursL: '营业时间', halalL: '清真', vegL: '素食选择', enMenuL: '英文菜单', spiceL: '辣度', usdL: '≈',
+      mapTitle: '所有餐厅地图', mapSub: '点击图钉查看餐厅和附近住宿', mapStay: '附近住宿', railH: '附近推荐住宿', railFoodH: '美食之旅与烹饪课', railFoodSub: '有导览／亲手体验 · 通过 Klook 预订', railFoodAll: '查看所有体验', quickAnswerEyebrow: '快速解答',
+      copyTitle: '版权与图片撤除政策', copyA: 'Thailandaddict 旨在分享旅行体验与评测。若图片来自其他来源，我们已注明出处。如果您是版权所有者，不希望图片出现在本站，请', copyLink: '联系我们', copyB: '，我们会尽快删除图片或更正信息。',
+      ftDesc: '来自真实旅行者的泰国旅行指南 — 诚实评测全国的住宿、景点与美食。', ftDestH: '目的地', ftThai: '🇹🇭 探索泰国', ftContentH: '内容', ftEat: '美食', ftSee: '景点', ftStay: '住宿', ftAboutH: '关于', ftAboutUs: '关于我们', ftEditorial: '编辑方针', ftContact: '联系', ftPrivacy: '隐私', ftCopy: '© 2026 thailandaddict.com — 用心玩转泰国',
+      updatedL: '更新于', freshL: '最近核对', freshNote: ' · 详情与营业时间可能变动，出行前请再次确认', fType: '类型', fAll: '全部', fZone: '区域', fPrice: '价格', fVeg: '🥗 素食', fHalal: '🕌 清真', fCountTpl: '显示 {s}/{t} 个地点', bestForL: '👍 最适合', reviewsL: '条评价', nearL: '最近：' },
+  ru: { home: 'Главная', th: 'Таиланд', nav: ['Направления','Отели','Развлечения','Еда','О нас'], cta: 'Найти отель', faqH: 'Частые вопросы', relH: 'Похожее', ftTag: 'Thailand, Done Right',
+      priceLabel: 'Примерная цена', sigLabel: 'Фирменное блюдо', mustLabel: 'Обязательно попробуйте', stayDefault: 'Жильё поблизости', mapLabel: 'Открыть карту', fbLabel: 'Страница в Facebook',
+      hoursL: 'Часы работы', halalL: 'Халяль', vegL: 'Веган/вегетарианские блюда', enMenuL: 'Меню на английском', spiceL: 'Острота', usdL: '≈',
+      mapTitle: 'Все рестораны на карте', mapSub: 'Нажмите на метку — ресторан и жильё рядом', mapStay: 'Жильё рядом', railH: 'Где остановиться поблизости', railFoodH: 'Гастротуры и кулинарные классы', railFoodSub: 'С гидом или своими руками · через Klook', railFoodAll: 'Все впечатления', quickAnswerEyebrow: 'Кратко',
+      copyTitle: 'Авторские права и удаление изображений', copyA: 'Thailandaddict создан, чтобы делиться впечатлениями о путешествиях. Если изображение взято из другого источника, мы указываем его. Если вы правообладатель и не хотите, чтобы оно было на сайте, ', copyLink: 'свяжитесь с нами', copyB: ' — мы удалим изображение или исправим информацию.',
+      ftDesc: 'Путеводитель по Таиланду от настоящих путешественников — честные обзоры жилья, развлечений и еды по всей стране.', ftDestH: 'Направления', ftThai: '🇹🇭 Исследуйте Таиланд', ftContentH: 'Контент', ftEat: 'Где поесть', ftSee: 'Чем заняться', ftStay: 'Где остановиться', ftAboutH: 'О нас', ftAboutUs: 'О нас', ftEditorial: 'Редакционная политика', ftContact: 'Контакты', ftPrivacy: 'Конфиденциальность', ftCopy: '© 2026 thailandaddict.com — Таиланд по-настоящему',
+      updatedL: 'Обновлено', freshL: 'Последняя проверка', freshNote: ' · детали и часы работы могут меняться — уточняйте на месте', fType: 'Тип', fAll: 'Все', fZone: 'Район', fPrice: 'Цена', fVeg: '🥗 Вег', fHalal: '🕌 Халяль', fCountTpl: 'Показано {s}/{t} мест', bestForL: '👍 Лучше всего для', reviewsL: 'отзывов', nearL: 'Ближайшее: ' },
+};
+const S = STRINGS[lang] || STRINGS.en;
 
-const canonical = `${SITE}${isEn ? '/en' : ''}/${data.slug}`;
+const canonical = `${SITE}${pfx}/${data.slug}`;
 // Freshness: every article shows a "Last updated" date. Use the article's own modifiedDate when set,
 // else the site-wide freshness-pass date (the whole content base was audited/refreshed on this date).
 const SITE_UPDATED = '2026-06-21';
@@ -47,7 +64,7 @@ const comma = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : n);
 const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
 const EN_MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? (isEn ? `${parseInt(p[2],10)} ${EN_MON[parseInt(p[1],10)-1]} ${p[0]}` : `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}`) : (iso || ''); };
+const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? (!isTh ? `${parseInt(p[2],10)} ${EN_MON[parseInt(p[1],10)-1]} ${p[0]}` : `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}`) : (iso || ''); };
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
@@ -75,7 +92,7 @@ if (_pickBlk) {
       const _bl = String(_p.blurb || '').replace(/<[^>]+>/g, '').trim();
       if (_bl) _ex = [_bl.length > 90 ? _bl.slice(0, 90).replace(/\s+\S*$/, '') + '…' : _bl];
     }
-    const _lead = isEn ? 'Our #1 pick is' : 'อันดับ 1 คือ';
+    const _lead = !isTh ? 'Our #1 pick is' : 'อันดับ 1 คือ';
     _derivedQA = `${_lead} <strong>${_p.name}</strong>${_price ? ` (${_price})` : ''}${_ex.length ? ` · ${_ex.join(' · ')}` : ''}`;
   }
 }
@@ -110,7 +127,7 @@ const showHowTo = howtoSteps.length >= 2;
 const geoRestos = restos.filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number');
 const haversineKm = (a, b) => { const R = 6371, toR = (d) => d * Math.PI / 180, dLa = toR(b.lat - a.lat), dLo = toR(b.lng - a.lng); const x = Math.sin(dLa/2)**2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLo/2)**2; return 2 * R * Math.asin(Math.sqrt(x)); };
 const nearestOf = (b) => { let best = null, bd = Infinity; for (const o of geoRestos) { if (o.rank === b.rank) continue; const d = haversineKm(b, o); if (d < bd) { bd = d; best = o; } } return best ? { name: strip(best.name), km: bd } : null; };
-const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${isEn ? 'm' : 'ม.'}` : `~${km.toFixed(1)} ${isEn ? 'km' : 'กม.'}`);
+const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${!isTh ? 'm' : 'ม.'}` : `~${km.toFixed(1)} ${!isTh ? 'km' : 'กม.'}`);
 const mapPins = geoRestos.map((b) => { const nr = nearestOf(b); return { rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay, near: nr ? `${nr.name} · ${distLabel(nr.km)}` : '' }; });
 const showMap = isResto && mapPins.length >= 3;
 // v3 filters: zone / food-type / price-tier axes + diet toggles. Each group is conditional on data.
@@ -128,25 +145,25 @@ const hasRail = isResto && (railItems.length > 0 || !!foodBlock);
 // EEAT — named editor (gated: falls back to Organization author until editorial.json holds a real name).
 const _ed = (editorial as any).editor || {};
 const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
-const _edName = (isEn ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
-const _edRole = (isEn ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const _edName = (!isTh ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (!isTh ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
 const authorNode: any = hasEditor
-  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${SITE}${isEn ? '/en' : ''}/about`, worksFor: { '@id': `${SITE}/#org` },
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${SITE}${pfx}/about`, worksFor: { '@id': `${SITE}/#org` },
       ...(String(_ed.image || '').trim() ? { image: asset(_ed.image) } : {}),
       ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
   : { '@type': 'Organization', name: 'ThailandAddict' };
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: isEn ? 'en' : 'th',
+    { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: lang,
       author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: published, dateModified: updated,
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
       mainEntityOfPage: canonical },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${isEn ? '/en/' : '/'}` },
-      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${isEn ? '/en' : ''}/country-thailand` },
-      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${isEn ? '/en' : ''}/${data.crumbCityHref.replace(/\.html$/, '')}` },
+      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${pfx}/` },
+      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${pfx}/country-thailand` },
+      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${pfx}/${data.crumbCityHref.replace(/\.html$/, '')}` },
       { '@type': 'ListItem', position: 4, name: data.title, item: canonical } ] },
     // Honest ItemList + Restaurant graph (no fabricated ratings) → rich results + AI answer-engine citations.
     ...(isResto ? [{ '@type': 'ItemList', name: strip(data.title), numberOfItems: restos.length,
@@ -177,7 +194,7 @@ const jsonld = {
 const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='Outfit,sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E";
 ---
 <!doctype html>
-<html lang={isEn ? 'en' : 'th'}>
+<html lang={lang}>
 <head>
 <meta charset="UTF-8" />
 <Analytics />
@@ -194,9 +211,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:url" content={canonical} />
 {(data.image || data.heroImg) && <meta property="og:image" content={asset(data.image || data.heroImg)} />}
 {data.heroImg && <link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />}
-<meta property="og:locale" content={isEn ? 'en_US' : 'th_TH'} />
+<meta property="og:locale" content={({th:'th_TH',en:'en_US',zh:'zh_CN',ru:'ru_RU'} as Record<string,string>)[lang]} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
 {hasEn && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
+{lang === 'zh' && <link rel="alternate" hreflang="zh" href={`${SITE}/zh/${data.slug}`} />}
+{lang === 'ru' && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -523,13 +542,13 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     <a href={link('country-thailand.html#hotels')}>{S.nav[1]}</a>
     <a href={link('country-thailand.html#see')}>{S.nav[2]}</a>
     <a href={link('country-thailand.html#eat')}>{S.nav[3]}</a>
-    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
-    <a href={link('plan-your-trip.html')}>{isEn ? 'Plan Trip' : 'เตรียมตัว'}</a>
+    <a href="/trip" style="font-weight:700">{!isTh ? 'Plan trip' : 'วางแผนทริป'}</a>
+    <a href={link('plan-your-trip.html')}>{!isTh ? 'Plan Trip' : 'เตรียมตัว'}</a>
     <a href={link('about.html')}>{S.nav[4]}</a>
   </div>
   <div class="nr">
-    <span class="lang"><a href={`/${data.slug}`} class={isEn ? '' : 'on'}>TH</a><a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a></span>
-    <a href={link('search.html')} aria-label={isEn ? 'Search' : 'ค้นหา'} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
+    <span class="lang"><a href={`/${data.slug}`} class={!isTh ? '' : 'on'}>TH</a><a href={`/en/${data.slug}`} class={!isTh ? 'on' : ''}>EN</a></span>
+    <a href={link('search.html')} aria-label={!isTh ? 'Search' : 'ค้นหา'} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
     <button class="cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.cta}</button>
     <button class="hb" id="hb">☰</button>
   </div>
@@ -537,11 +556,11 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <div class="mm" id="mm">
   <div class="mm-top"><a href={link('/')} class="logo">Thailand<em>Addict</em></a><button class="mm-x" id="mmx">✕</button></div>
   <a href={link('/')}>{S.home}</a>
-  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
+  <a href="/trip">{!isTh ? 'Plan trip' : 'วางแผนทริป'}</a>
   <a href={link('country-thailand.html')}>{S.nav[0]}</a>
   <a href={link(data.crumbCityHref)}>{data.crumbCity}</a>
-  <a href={link('plan-your-trip.html')}>{isEn ? '🧭 Plan Your Trip' : '🧭 เตรียมตัวเที่ยว'}</a>
-  <a href={link('search.html')}>{isEn ? '🔎 Search' : '🔎 ค้นหา'}</a>
+  <a href={link('plan-your-trip.html')}>{!isTh ? '🧭 Plan Your Trip' : '🧭 เตรียมตัวเที่ยว'}</a>
+  <a href={link('search.html')}>{!isTh ? '🔎 Search' : '🔎 ค้นหา'}</a>
   <a href={link('about.html')}>{S.nav[4]}</a>
 </div>
 
@@ -556,7 +575,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       {data.chips && data.chips.length > 0 &&
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div>
-    <a class="rhero-scroll" href="#r1"><span>{isEn ? 'Explore all 10' : 'เลื่อนดูทั้ง 10 ร้าน'}</span><em>↓</em></a>
+    <a class="rhero-scroll" href="#r1"><span>{!isTh ? 'Explore all 10' : 'เลื่อนดูทั้ง 10 ร้าน'}</span><em>↓</em></a>
     {data.heroCredit && <span class="rhero-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener">{data.heroCredit}</a> : data.heroCredit}</span>}
   </section>
 ) : (
@@ -797,7 +816,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (isEn ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
+      {b.ctaHref && <a class="foodexp-btn" href={b.ctaHref} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (!isTh ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
     </section> :
     b.kind === 'localtips' ? <section class="localtips">
       <h3 class="lt-h">💡 <span set:html={b.title} /></h3>

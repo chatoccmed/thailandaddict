@@ -221,6 +221,16 @@ const roundupsEn = defineCollection({
   schema: roundupSchema,
 });
 
+// Simplified-Chinese collections (served under /zh/ — Tier-1 i18n expansion, _internal/I18N-AND-TOURISM-CITY-PLAN.md).
+const reviewsZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-zh' }),
+  schema: reviewSchema,
+});
+const roundupsZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-zh' }),
+  schema: roundupSchema,
+});
+
 // Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
 // One layout (ArticleLayout) renders all of them from a typed list of content blocks.
 const articleBlock = z.discriminatedUnion('kind', [
@@ -341,5 +351,13 @@ const articlesEn = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-en' }),
   schema: articleSchema,
 });
+const articlesZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-zh' }),
+  schema: articleSchema,
+});
+const articlesRu = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ru' }),
+  schema: articleSchema,
+});
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn };
+export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu };
