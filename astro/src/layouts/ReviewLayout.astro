@@ -29,7 +29,9 @@ const priceTs = (lang === 'en' ? TS_MON_EN : TS_MON_TH)[(+_tdParts[1] || 1) - 1]
 // and the .html suffix stripped (clean URL).
 const link = (h: string) => {
   if (h === '/' || h === '') return isEn ? '/en/' : '/';
-  return isEn ? `/en/${h.replace(/\.html$/, '')}` : h;
+  if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
+  const c = h.replace(/\.html$/, '');   // clean URLs resolve directly — no .html→extensionless 307 redirect
+  return isEn ? `/en/${c}` : c;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve

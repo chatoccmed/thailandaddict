@@ -8,7 +8,11 @@ const { data, lang = 'th', hasEn = true } = Astro.props;
 const isEn = lang === 'en';
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const link = (href: string) => (isEn ? `/en/${href}`.replace(/\/+/g, '/') : `/${href}`.replace(/\/+/g, '/'));
+const link = (href: string) => {
+  if (/^(https?:)?\/\//.test(href) || href.startsWith('#')) return href;
+  const c = href.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
+  return (isEn ? `/en/${c}` : `/${c}`).replace(/\/+/g, '/');
+};
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 // Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
 // _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.

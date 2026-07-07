@@ -49,7 +49,7 @@ const today = (data as any).modifiedDate || '2026-05-17';
 const link = (h: string) => {
   if (h === '/' || h === '') return isEn ? '/en/' : '/';
   if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
-  if (!isEn) return h;
+  if (!isEn) return h.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
   // Normalise then add a single /en/ prefix — robust to inputs already stored as
   // "/en/review-x" (avoids the /en//en/... double-prefix bug), "/review-x" or "review-x.html".
   let p = h.replace(/\.html$/, '').replace(/^\/en\//, '/');
