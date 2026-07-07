@@ -11,31 +11,33 @@ export default {
     const url = new URL(request.url);
     try {
       // Abuse guard on the write/compute endpoints. /api/plan burns Workers-AI neurons per call and the
-      // others write KV unauthenticated, so an unmetered loop is a denial-of-wallet vector. Coarse per-IP
-      // caps remove the amplification; the limiter fails OPEN so a KV hiccup never blocks real visitors.
+      // others write KV unauthenticated, so an unmetered loop is a denial-of-wallet vector. Backed by
+      // Cloudflare's native Rate Limiting bindings (RL_PLAN / RL_WRITE — accurate, unlike a KV counter
+      // whose edge read-caching lets bursts slip through). Limits live in wrangler.jsonc; fails OPEN so a
+      // binding hiccup never blocks real visitors.
       if (url.pathname === '/api/plan' && request.method === 'POST') {
-        if (!await allow(env, request, 'plan', 20, 60)) return tooMany();
+        if (!await allow(env.RL_PLAN, request, 'plan')) return tooMany();
         return await handlePlan(request, env);
       }
       if (url.pathname === '/api/plan') return json({ ok: false, error: 'POST only' }, 405);
       if (url.pathname === '/api/suggest') return await handleSuggest(request, env);
       if (url.pathname === '/api/trips' && request.method === 'POST') {
-        if (!await allow(env, request, 'trips', 30, 60)) return tooMany();
+        if (!await allow(env.RL_WRITE, request, 'trips')) return tooMany();
         return await saveTrip(request, env);
       }
       const cm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)\/(vote|suggest)$/i);
       if (cm && request.method === 'POST') {
-        if (!await allow(env, request, 'collab', 40, 60)) return tooMany();
+        if (!await allow(env.RL_WRITE, request, 'collab')) return tooMany();
         return await collabAction(request, env, cm[1], cm[2].toLowerCase());
       }
       const tm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)$/i);
       if (tm) return await getTrip(tm[1], env);
       if (url.pathname === '/api/email' && request.method === 'POST') {
-        if (!await allow(env, request, 'email', 10, 60)) return tooMany();
+        if (!await allow(env.RL_WRITE, request, 'email')) return tooMany();
         return await saveEmail(request, env);
       }
       if (url.pathname === '/api/contact' && request.method === 'POST') {
-        if (!await allow(env, request, 'contact', 8, 60)) return tooMany();
+        if (!await allow(env.RL_WRITE, request, 'contact')) return tooMany();
         return await saveContact(request, env);
       }
       const sm = url.pathname.match(/^\/t\/([a-z0-9]+)$/i);
@@ -422,19 +424,17 @@ function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }
 
-// ---- abuse guard (coarse per-IP rate limit on write/compute endpoints) ----
-// Uses a short-TTL KV counter per (bucket, IP, minute-window). KV is eventually consistent, so this is a
-// loose cap — intentionally: it exists to kill runaway loops (denial-of-wallet on Workers AI / KV writes),
-// not to be a precise quota. Fails OPEN on any error so a KV problem never locks out real visitors.
-async function allow(env, request, bucket, max, windowSec) {
+// ---- abuse guard (Cloudflare native Rate Limiting binding, per-IP) ----
+// `rl` is a Rate Limiting binding (env.RL_PLAN / env.RL_WRITE, configured in wrangler.jsonc). Its .limit()
+// is an accurate distributed counter — unlike a KV counter, whose edge read-caching (~60s) lets bursts
+// slip through. Keyed by bucket:IP so each endpoint-group throttles independently. Fails OPEN if the
+// binding is missing or errors, so a platform hiccup never locks out real visitors.
+async function allow(rl, request, bucket) {
   try {
-    if (!env.TRIPS) return true;
+    if (!rl || typeof rl.limit !== 'function') return true;
     const ip = request.headers.get('CF-Connecting-IP') || 'anon';
-    const key = `rl:${bucket}:${ip}`;
-    const n = parseInt(await env.TRIPS.get(key), 10) || 0;
-    if (n >= max) return false;
-    await env.TRIPS.put(key, String(n + 1), { expirationTtl: windowSec });
-    return true;
+    const { success } = await rl.limit({ key: `${bucket}:${ip}` });
+    return success !== false;
   } catch { return true; }
 }
 function tooMany() { return json({ ok: false, error: 'rate_limited', message: 'มีคำขอถี่เกินไป ลองใหม่อีกครั้งในอีกสักครู่' }, 429); }
