@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<script src="/js/sortable.min.js"></script>
+<script defer src="/js/sortable.min.js"></script>
 <style>
   :root{
     --teal:#06B6D4;--teal-dk:#0891b2;--coral:#FB7185;--coral-dk:#f43f5e;--mango:#FBBF24;
@@ -634,7 +634,7 @@ function renderItin(t,prefs,picks){
   if(window._trip) window._trip._byUid={};
   const head=ce('div','plan-head');
   head.innerHTML=`<h2>${esc(t.title||'แผนการเดินทางของคุณ')}</h2>`+
-    `<div class="sm">${prefs.days} วัน ${prefs.nights} คืน · ${prefs.pax} คน · ${esc(prefs.transport)}${prefs.interests.length?' · '+prefs.interests.map(esc).join(', '):''}</div>`+
+    `<div class="sm">${+prefs.days||0} วัน ${+prefs.nights||0} คืน · ${+prefs.pax||0} คน · ${esc(prefs.transport)}${prefs.interests.length?' · '+prefs.interests.map(esc).join(', '):''}</div>`+
     (t.summary?`<div class="sm">${esc(t.summary)}</div>`:'')+
     `<div class="legend"><span>⭐ <b style="color:var(--coral-dk)">คุณเลือกเอง</b></span><span>💡 <b style="color:#2563eb">เราแนะนำเพิ่ม</b></span></div>`+
     `<div class="sm" style="font-size:11.5px;margin-top:4px">⏱ เวลาแวะเป็นค่าประมาณ · ⏰ เวลาเปิด-ปิด/ราคาดึงจากข้อมูลเรา (ที่เที่ยวบางแห่งยังไม่มี เช็กก่อนไป) · 🧭 ระยะทาง/เวลาเดินทางดูจริงได้ที่ Google Maps</div>`;
@@ -645,7 +645,7 @@ function renderItin(t,prefs,picks){
     if(prevProv && d.province && prevProv!==d.province) out.appendChild(transferBand(prevProv,d.province,prefs));
     prevProv = d.province || prevProv;
     const day=ce('div','day');
-    day.innerHTML=`<div class="day-h"><span class="day-n">วันที่ ${d.day}</span><div><div class="day-t">${esc(d.title||('วันที่ '+d.day))}</div>${d.province?`<div class="day-p">📍 ${esc(d.province)}</div>`:''}</div></div>`;
+    day.innerHTML=`<div class="day-h"><span class="day-n">วันที่ ${+d.day||di+1}</span><div><div class="day-t">${esc(d.title||('วันที่ '+(+d.day||di+1)))}</div>${d.province?`<div class="day-p">📍 ${esc(d.province)}</div>`:''}</div></div>`;
     const seeCount=(d.items||[]).filter(i=>i.type==='see').length;
     let pmax=PACE_MAX[prefs.pace]||4; if(prefs.kids||prefs.elderly)pmax=Math.max(2,pmax-1);
     if(seeCount>pmax) day.insertAdjacentHTML('beforeend',`<div class="day-warn">⚠️ วันนี้ค่อนข้างแน่น (${seeCount} จุด) — จังหวะ "${esc(prefs.pace||'สมดุล')}" แนะนำราว ${pmax} จุด · กด ✕ ลดบางจุดได้</div>`);
@@ -671,7 +671,7 @@ function renderItin(t,prefs,picks){
         (it.travelNote?`<div class="tn">🚶 ${esc(it.travelNote)}</div>`:'')+
         (meta.length?`<div class="ti-meta">${meta.join('')}</div>`:'')+
         `<div class="acts">`+
-          (it.url?`<a href="${internal(it.url)}" target="_blank" rel="noopener" onclick="track('item_click',{type:'${it.type}'})">ดูข้อมูล →</a>`:'')+
+          (it.url?`<a href="${esc(internal(it.url))}" target="_blank" rel="noopener" onclick="track('item_click',{type:'${it.type==='stay'||it.type==='eat'||it.type==='see'?it.type:''}'})">ดูข้อมูล →</a>`:'')+
           `<a href="${mapsLink(it.name,d.province)}" target="_blank" rel="noopener">📍 แผนที่</a>`+
           dir+
         `</div>`+
@@ -681,7 +681,7 @@ function renderItin(t,prefs,picks){
     });
     day.appendChild(tl);
     const _route=dayRouteLink(d);
-    if(_route) day.insertAdjacentHTML('beforeend',`<div style="margin:9px 0 0"><a href="${_route}" target="_blank" rel="noopener" onclick="track('day_route',{day:${d.day}})" style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:#0891b2;text-decoration:none;border:1px solid #06B6D4;border-radius:999px;padding:6px 13px">🧭 นำทางทั้งวันบน Maps</a></div>`);
+    if(_route) day.insertAdjacentHTML('beforeend',`<div style="margin:9px 0 0"><a href="${esc(_route)}" target="_blank" rel="noopener" onclick="track('day_route',{day:${+d.day||di+1}})" style="display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:#0891b2;text-decoration:none;border:1px solid #06B6D4;border-radius:999px;padding:6px 13px">🧭 นำทางทั้งวันบน Maps</a></div>`);
     day.insertAdjacentHTML('beforeend',`<div class="day-add"><button data-act="addown" data-di="${di}">+ เพิ่มที่เที่ยว/ร้านของคุณเอง</button></div>`);
     if(d.hotel){
       const ht=d.hotel, h=ce('div','hotel');

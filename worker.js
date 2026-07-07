@@ -10,15 +10,34 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     try {
-      if (url.pathname === '/api/plan' && request.method === 'POST') return await handlePlan(request, env);
+      // Abuse guard on the write/compute endpoints. /api/plan burns Workers-AI neurons per call and the
+      // others write KV unauthenticated, so an unmetered loop is a denial-of-wallet vector. Coarse per-IP
+      // caps remove the amplification; the limiter fails OPEN so a KV hiccup never blocks real visitors.
+      if (url.pathname === '/api/plan' && request.method === 'POST') {
+        if (!await allow(env, request, 'plan', 20, 60)) return tooMany();
+        return await handlePlan(request, env);
+      }
       if (url.pathname === '/api/plan') return json({ ok: false, error: 'POST only' }, 405);
       if (url.pathname === '/api/suggest') return await handleSuggest(request, env);
-      if (url.pathname === '/api/trips' && request.method === 'POST') return await saveTrip(request, env);
+      if (url.pathname === '/api/trips' && request.method === 'POST') {
+        if (!await allow(env, request, 'trips', 30, 60)) return tooMany();
+        return await saveTrip(request, env);
+      }
       const cm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)\/(vote|suggest)$/i);
-      if (cm && request.method === 'POST') return await collabAction(request, env, cm[1], cm[2].toLowerCase());
+      if (cm && request.method === 'POST') {
+        if (!await allow(env, request, 'collab', 40, 60)) return tooMany();
+        return await collabAction(request, env, cm[1], cm[2].toLowerCase());
+      }
       const tm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)$/i);
       if (tm) return await getTrip(tm[1], env);
-      if (url.pathname === '/api/email' && request.method === 'POST') return await saveEmail(request, env);
+      if (url.pathname === '/api/email' && request.method === 'POST') {
+        if (!await allow(env, request, 'email', 10, 60)) return tooMany();
+        return await saveEmail(request, env);
+      }
+      if (url.pathname === '/api/contact' && request.method === 'POST') {
+        if (!await allow(env, request, 'contact', 8, 60)) return tooMany();
+        return await saveContact(request, env);
+      }
       const sm = url.pathname.match(/^\/t\/([a-z0-9]+)$/i);
       if (sm) return await serveSharedTrip(request, env, sm[1]);
     } catch (e) {
@@ -111,7 +130,13 @@ async function handleSuggest(request, env) {
 }
 
 // ---- feeds ----
+// The three feeds total ~2.4 MB and were fetched + JSON.parsed on EVERY /api/plan and /api/suggest call.
+// Cache them at module scope per warm isolate (10 min) — the feeds only change on deploy, so this cuts
+// ~2.4 MB of fetch+parse off the hot path without risking staleness beyond a rebuild cycle.
+let _feedsCache = null, _feedsAt = 0;
+const FEEDS_TTL_MS = 10 * 60 * 1000;
 async function loadFeeds(request, env) {
+  if (_feedsCache && (Date.now() - _feedsAt) < FEEDS_TTL_MS) return _feedsCache;
   const get = async (name) => {
     try {
       const r = await env.ASSETS.fetch(new Request(new URL('/feeds/' + name + '.json', request.url)));
@@ -121,7 +146,9 @@ async function loadFeeds(request, env) {
     } catch { return []; }
   };
   const [hotels, attractions, restaurants] = await Promise.all([get('hotels'), get('attractions'), get('restaurants')]);
-  return { hotels, attractions, restaurants };
+  const feeds = { hotels, attractions, restaurants };
+  if (hotels.length || attractions.length || restaurants.length) { _feedsCache = feeds; _feedsAt = Date.now(); }  // don't cache an all-empty fetch failure
+  return feeds;
 }
 // name -> real {img,price,hours} so SAVED items (which only carry name/url) get enriched too
 function buildIndex(feeds) {
@@ -395,15 +422,61 @@ function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }
 
+// ---- abuse guard (coarse per-IP rate limit on write/compute endpoints) ----
+// Uses a short-TTL KV counter per (bucket, IP, minute-window). KV is eventually consistent, so this is a
+// loose cap — intentionally: it exists to kill runaway loops (denial-of-wallet on Workers AI / KV writes),
+// not to be a precise quota. Fails OPEN on any error so a KV problem never locks out real visitors.
+async function allow(env, request, bucket, max, windowSec) {
+  try {
+    if (!env.TRIPS) return true;
+    const ip = request.headers.get('CF-Connecting-IP') || 'anon';
+    const key = `rl:${bucket}:${ip}`;
+    const n = parseInt(await env.TRIPS.get(key), 10) || 0;
+    if (n >= max) return false;
+    await env.TRIPS.put(key, String(n + 1), { expirationTtl: windowSec });
+    return true;
+  } catch { return true; }
+}
+function tooMany() { return json({ ok: false, error: 'rate_limited', message: 'มีคำขอถี่เกินไป ลองใหม่อีกครั้งในอีกสักครู่' }, 429); }
+
 // ---- shareable trips + lead-gen (Workers KV) ----
 const TRIP_TTL = 60 * 60 * 24 * 365;   // 1 year
 function genId() { return crypto.randomUUID().replace(/-/g, '').slice(0, 12); }
 function escAttr(s) { return String(s || '').replace(/[<>"&]/g, c => ({ '<': '&lt;', '>': '&gt;', '"': '&quot;', '&': '&amp;' }[c])); }
 
+// Sanitize a client-submitted trip before it is persisted and later re-served to OTHER users via /t/:id.
+// The shared-trip renderer (trip.html) interpolates day.day / prefs counts / item.type RAW (no escaping),
+// and drops item/hotel urls straight into href — so a malicious itin becomes stored XSS. We coerce the
+// numeric/enum fields and strip non-http(s) url schemes here, at the trust boundary, for every field the
+// page can render. (Text fields like name/title/note are escaped client-side, so they stay as-is.)
+const SAFE_TYPES = ['stay', 'eat', 'see'];
+function safeUrl(u) {
+  const s = String(u || '').trim();
+  if (!s) return '';
+  // allow only absolute https(?) or a same-site root-relative path; reject //protocol-relative (off-site
+  // redirect) and any script-ish scheme (javascript:/data:/vbscript: never match the allowlist anyway)
+  return /^(https?:\/\/|\/(?!\/))/i.test(s) ? s.slice(0, 400) : '';
+}
+function sanitizePick(h) { return h && typeof h === 'object' ? { ...h, url: safeUrl(h.url), agoda: safeUrl(h.agoda) } : h; }
+function sanitizePicks(arr) { return (Array.isArray(arr) ? arr : []).slice(0, 60).map(sanitizePick); }
+function sanitizeItin(itin) {
+  const days = (Array.isArray(itin.days) ? itin.days : []).slice(0, 40).map((d, i) => {
+    const day = { ...d, day: clampNum(d.day, 1, 999, i + 1) };
+    day.items = (Array.isArray(d.items) ? d.items : []).slice(0, 40).map(it => ({ ...it, type: SAFE_TYPES.includes(it.type) ? it.type : 'see', url: safeUrl(it.url) }));
+    if (d.hotel && typeof d.hotel === 'object') day.hotel = sanitizePick(d.hotel);
+    return day;
+  });
+  return { ...itin, days };
+}
+function sanitizeStoredPrefs(p) {
+  p = (p && typeof p === 'object') ? p : {};
+  return { ...p, days: clampNum(p.days, 0, 999, 0), nights: clampNum(p.nights, 0, 999, 0), pax: clampNum(p.pax, 0, 999, 0) };
+}
+
 async function saveTrip(request, env) {
   const body = await request.json().catch(() => null);
   if (!body || !body.itin || !Array.isArray(body.itin.days) || !body.itin.days.length) return json({ ok: false, error: 'bad trip' }, 400);
-  const rec = JSON.stringify({ v: 1, itin: body.itin, prefs: body.prefs || {}, hotelPicks: body.hotelPicks || [], swapPool: body.swapPool || {}, ts: Date.now() });
+  const rec = JSON.stringify({ v: 1, itin: sanitizeItin(body.itin), prefs: sanitizeStoredPrefs(body.prefs), hotelPicks: sanitizePicks(body.hotelPicks), swapPool: { stay: sanitizePicks(body.swapPool && body.swapPool.stay), see: sanitizePicks(body.swapPool && body.swapPool.see), eat: sanitizePicks(body.swapPool && body.swapPool.eat) }, ts: Date.now() });
   if (rec.length > 200000) return json({ ok: false, error: 'too large' }, 413);
   const id = genId();
   await env.TRIPS.put('trip:' + id, rec, { expirationTtl: TRIP_TTL });
@@ -447,6 +520,19 @@ async function saveEmail(request, env) {
   const email = body && String(body.email || '').trim().toLowerCase();
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
   await env.TRIPS.put('email:' + email, JSON.stringify({ email, tripId: String(body.tripId || '').slice(0, 20), province: String(body.province || '').slice(0, 60), ts: Date.now() }));
+  return json({ ok: true });
+}
+
+// Contact-form submissions → KV (the form used to be a mailto: link, which silently lost messages on any
+// device without a configured mail client). Keyed with a unique suffix so multiple messages never collide.
+async function saveContact(request, env) {
+  const body = await request.json().catch(() => null);
+  const email = body && String(body.email || '').trim().toLowerCase();
+  const message = body && String(body.message || '').trim();
+  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
+  if (!message || message.length < 2) return json({ ok: false, error: 'no message' }, 400);
+  const rec = { name: String(body.name || '').slice(0, 80), email, subject: String(body.subject || '').slice(0, 160), message: message.slice(0, 4000), ts: Date.now() };
+  await env.TRIPS.put('contact:' + email + ':' + genId(), JSON.stringify(rec));
   return json({ ok: true });
 }
 
