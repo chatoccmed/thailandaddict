@@ -18,10 +18,8 @@
 /*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: text/html; charset=utf-8
-
-# ── JSON feeds / ดัชนีค้นหา — cache 1 ชั่วโมง (revalidate เบื้องหลัง) ──
-/*.json
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+# (JSON feeds/search-index inherit Cache-Control from the /* rule above — no separate /*.json
+#  rule, otherwise both match and Cloudflare emits a duplicated Cache-Control header)
 
 # ── Homepage ── cache 30 นาที ──
 /index.html
