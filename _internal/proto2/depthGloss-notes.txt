@@ -1,0 +1,18 @@
+WHERE TO PUT IT: append this block LAST inside the existing <head> <style>, immediately before the closing </style> at line 284 (after line 283 `.hero-h1 em{...}`). It overrides the too-flat --sh token and the earlier weak premium layer (lines 260-283). No markup, no JS, no spacing changes — verified live in a browser against the real index.html (all effects visibly applied, no console errors, all button text intact).
+
+WHAT IT DOES (all obvious in a compressed screenshot, verified):
+1. --sh / --sh2 rewritten as 3-layer contact+key+ambient stacks (.06-.22 alpha, up to 48-80px blur) — every card/panel that reads var(--sh) floats instantly, no markup change.
+2. Cards (.rgcard/.tcard/.hcard/.acard/.grescard/.dest/.why): resting 3-layer shadow with a brand teal-tinted ambient layer + a bright 1px white rim + a ::after inset convex top-highlight bevel.
+3. HOVER: -8px lift + 1.015 scale (springy overshoot easing) + a STRONGER per-card BRAND-colored glow (teal on Top-N/region, coral on hotels/articles, mango on articles) + a diagonal white SHINE-SWEEP (::before, cardShine .9s) crossing the card. Photos get a specular top-edge sheen strip (screen blend) + slower ken-burns easing.
+4. GLASS: .nav.solid (blur20 + saturate180 + inset highlight), .search-card (frosted, heavy drop shadow + inset highlight), and .stat upgraded to semi-transparent frosted panels (blur14 + saturate160 + inset top highlight) so the stats band reads as premium glass floating over the hero (it already overlaps at -46px).
+5. BUTTONS (.sc-btn/.nav-cta/.mm-cta/.nl-cta/.ab-btn1/.see-all-btn a/.lp-btn/.nl-btn): glossy top-light ::before sheen + inset white rim + inner shadow (injection-molded look) + a ::after shine-sweep streak on hover; brand base gradients/colors untouched. The hero search .sc-btn also has a slow ambient auto-shine (every ~4.6s) so it looks alive in a still shot. `>*{z-index:1}` guards any wrapped label above the gloss pseudo (plain text nodes are unaffected and render fine — verified).
+6. Score/rank/badge pills (.hc-score/.tcard-badge/.dest-badge/.acard-badge): enamel gloss — inset highlight + inner shadow + drop shadow + a ::before top sheen strip.
+7. prefers-reduced-motion kill switch at the very end neutralizes all transitions/animations incl. the ambient button shine.
+
+CONSTRAINTS RESPECTED: brand colors (teal #06B6D4 / coral #FB7185 / mango #FBBF24) and font-families unchanged — depth comes only from shadows/glass/gradients/highlights/shine. No .sec padding or vertical-rhythm change. All motion is transform/opacity/filter (GPU). Additive, specific selectors, override-last.
+
+NOTES / GOTCHAS:
+- The primary hotel/Top-N booking cards (.tcard/.hcard) are <a> blocks with text-link CTAs (.tcard-cta/.hc-link), not <button>s — so the "card booking buttons" gloss is delivered via the card-level depth+shine + the real CTA buttons (.ab-btn1 affiliate, .nl-cta, .lp-btn map popup, .mm-cta mobile). If JS-generated cards later add true <button> booking elements, add their class to the button gloss selector lists.
+- .dest overlay sheen is attached to .dest-ov::before (the .dest-ov gradient sits above the img); works because .dest is overflow:hidden.
+- Files touched during verification only (reverted): .claude/launch.json had a temp preview entry added then removed — no permanent change. The CSS itself is NOT yet written into index.html; deliver by pasting the css block before line 284's </style>.
+- Reference CSS also saved at C:\Users\Imac\AppData\Local\Temp\claude\C--Users-Imac-Thailandaddict\01ee25ef-2945-4fd5-879e-29b41307d448\scratchpad\depth-gloss.css

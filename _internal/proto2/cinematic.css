@@ -1,0 +1,86 @@
+/* ==========================================================================
+   CINEMATIC IMAGE GRADE — content photos only (append LAST; overrides prior)
+   Scope: .hero-bg, .dest img, .tcard-img img, .hc-img img, .acard-img img,
+          .grc-img img  — NEVER logo/favicon/emoji/icons/partner logos/map.
+   Preserves object-fit:cover, ken-burns (@keyframes kz), per-card hover-zoom.
+   ========================================================================== */
+
+/* ---- 1. THE GRADE — richer, editorial, clearly visible ---------------- */
+/* saturate 1.16 · contrast 1.12 · brightness .975 · faint warmth (sepia)   */
+/* transition:filter added for smooth hover; transform kept so ken-burns    */
+/* and the existing hover-zoom transitions survive.                         */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{
+  filter:saturate(1.16) contrast(1.12) brightness(.975) sepia(.05) hue-rotate(-4deg);
+  transition:transform .6s cubic-bezier(.22,.61,.36,1), filter .5s ease !important;
+  will-change:transform, filter;
+}
+/* .grc-img img had object-fit but no transition/transform hook before —    */
+/* keep it graded + smooth even though it has no hover-zoom of its own.      */
+
+/* The hero background is a CSS background-image (not an <img>), grade it too */
+.hero-bg{
+  filter:saturate(1.18) contrast(1.13) brightness(.965) sepia(.05) hue-rotate(-4deg);
+}
+
+/* ---- 2. HOVER — a further richness lift (deep + expensive) ------------- */
+.dest:hover img,
+.tcard:hover .tcard-img img,
+.hcard:hover .hc-img img,
+.acard:hover .acard-img img,
+.grescard:hover .grc-img img{
+  filter:saturate(1.24) contrast(1.16) brightness(1) sepia(.06) hue-rotate(-4deg);
+}
+
+/* ---- 3. DEPTH / VIGNETTE overlay on photo CARDS ----------------------- */
+/* A soft inner vignette + subtle bottom-weight gives each photo dimension. */
+/* Containers are already position:relative; overflow:hidden. z-index:1 so   */
+/* it sits over the image but UNDER any absolutely-placed label/badge.       */
+.tcard-img::before,
+.hc-img::before,
+.acard-img::before,
+.grc-img::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(120% 100% at 50% 42%, transparent 55%, rgba(8,24,45,.10) 82%, rgba(8,24,45,.26) 100%),
+    linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(8,24,45,0) 24%, rgba(8,24,45,.06) 100%);
+}
+/* .dest already carries .dest-ov (its own scrim) — give it just the         */
+/* corner vignette so it gains depth without double-darkening the label.     */
+.dest::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(120% 96% at 50% 40%, transparent 58%, rgba(8,24,45,.14) 84%, rgba(8,24,45,.30) 100%);
+}
+
+/* ---- 4. BOTTOM LEGIBILITY SCRIM under photos carrying text ------------ */
+/* .dest already has .dest-ov, so it is covered. .grc-img has a .grc-name    */
+/* label sitting directly on the photo with NO scrim → add one.             */
+.grc-img::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:60%;pointer-events:none;z-index:1;
+  background:linear-gradient(to top, rgba(6,20,38,.72) 0%, rgba(6,20,38,.30) 42%, rgba(6,20,38,0) 100%);
+}
+/* keep the .grc-name label above the new scrim */
+.grc-name{z-index:2}
+
+/* ---- 5. STRONGER CINEMATIC VIGNETTE on the HERO ----------------------- */
+/* Layer over .hero-ov (which handles the brand-tint + fade-to-page).        */
+/* This adds a dark filmic vignette that focuses the eye on the headline.    */
+/* .hero-c (content) must stay above — it already sits at a higher z-index.  */
+.hero-ov{
+  background:
+    radial-gradient(130% 120% at 50% 34%, transparent 40%, rgba(4,16,34,.28) 78%, rgba(4,16,34,.52) 100%),
+    linear-gradient(180deg,rgba(8,30,55,.42) 0%,rgba(8,30,55,.16) 45%,rgba(246,250,251,0) 82%,rgba(246,250,251,1) 100%),
+    linear-gradient(125deg,rgba(6,182,212,.62) 0%,rgba(251,113,133,.52) 52%,rgba(251,191,36,.42) 100%)
+    !important;
+}
+
+/* ---- 6. REDUCED-MOTION: kill the filter transition & ken-burns -------- */
+@media (prefers-reduced-motion: reduce){
+  .dest img,.tcard-img img,.hc-img img,.acard-img img,.grc-img img{
+    transition-duration:.001ms !important;
+  }
+  .hero-bg{animation:none !important;}
+}

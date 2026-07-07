@@ -1,0 +1,82 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PREMIUM MOTION LAYER — thailandaddict.com homepage
+   Append LAST inside <style> (after line 283). transform/opacity/filter only.
+   All "start hidden" states are gated behind html.mjs (added by the IIFE),
+   so with JS disabled the page renders fully visible.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* premium easing palette */
+:root{
+  --e-out:cubic-bezier(.22,.61,.36,1);
+  --e-hero:cubic-bezier(.16,1,.3,1);
+  --e-inout:cubic-bezier(.65,0,.35,1);
+}
+
+/* ── 1 · SCROLL-PROGRESS BAR (slim brand gradient, top of viewport) ── */
+.m-prog{position:fixed;top:0;left:0;height:3px;width:100%;z-index:1400;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--bl),var(--or),var(--go));
+  box-shadow:0 1px 6px rgba(6,182,212,.5);will-change:transform;pointer-events:none}
+
+/* ── 2 · HERO HEADLINE MASK-REVEAL ──
+   JS splits .hero-h1 into two .word-mask>.word tokens; the ready class
+   (mrdy) lands ON .hero-h1, so we target the compound .hero-h1.mrdy .word */
+html.mjs .hero-h1 .word-mask{display:inline-block;overflow:hidden;
+  vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+html.mjs .hero-h1 .word{display:inline-block;transform:translateY(115%);
+  will-change:transform}
+html.mjs .hero-h1.mrdy .word{transform:translateY(0);
+  transition:transform .9s var(--e-hero)}
+html.mjs .hero-h1.mrdy .word-mask:nth-child(2) .word{transition-delay:.09s}
+.hero-h1 .word em{font-style:normal;color:#FFE15D}
+
+/* ── 3 · HERO SLOW ANIMATED GRADIENT SHEEN (≈14s, cinematic drift) ──
+   hero-c already sits at z-index:1; bump it to 2 so the sheen (z-index:1)
+   stays behind the text and never blocks clicks. */
+.hero{position:relative}
+.hero-c{z-index:2}
+.hero::after{content:'';position:absolute;inset:-20% -10%;z-index:1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.10) 48%,rgba(255,255,255,.16) 52%,transparent 66%);
+  transform:translateX(-42%);
+  animation:mHeroSheen 14s var(--e-inout) 1.5s infinite;will-change:transform}
+@keyframes mHeroSheen{0%{transform:translateX(-46%)}55%,100%{transform:translateX(46%)}}
+
+/* ── 4 · SCROLL-REVEAL for CARDS (fade + rise, light per-card stagger) ──
+   Sections/.s-head keep the site's existing .rv system (upgraded below);
+   this covers the cards that currently pop in with their parent section,
+   plus JS-generated .tcard / .dest (rescanned by MutationObserver). */
+html.mjs .m-rv{opacity:0;transform:translateY(22px);will-change:transform,opacity}
+html.mjs .m-rv.m-in{opacity:1;transform:none;
+  transition:opacity .66s var(--e-out),transform .66s var(--e-out)}
+
+/* ── existing .rv upgrade — filmic blur-in + premium easing (no JS needed) ── */
+html.mjs .rv{filter:blur(6px);
+  transition:opacity .7s var(--e-out),transform .7s var(--e-out),filter .7s ease}
+html.mjs .rv.in{filter:blur(0)}
+
+/* ── 5 · ONE-TIME SHINE-SWEEP across stat / glass cards after they reveal ── */
+.stat,.search-card{position:relative}
+.m-shine{overflow:hidden}
+.m-shine::after{content:'';position:absolute;top:-60%;left:-75%;width:55%;height:220%;
+  pointer-events:none;z-index:4;opacity:0;transform:skewX(-20deg);
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%)}
+.m-shine.m-swept::after{animation:mShineSweep 1.1s cubic-bezier(.25,.6,.3,1) 1}
+@keyframes mShineSweep{0%{left:-75%;opacity:0}14%{opacity:.85}60%{opacity:.7}100%{left:135%;opacity:0}}
+
+/* ── 6 · COUNT-UP polish — steady tabular numerals while ticking ── */
+.stat .n[data-stat]{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ═══ FULL prefers-reduced-motion KILL SWITCH ═══ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    animation-delay:0ms!important;transition-duration:.001ms!important;
+    scroll-behavior:auto!important}
+  .m-prog{display:none!important}
+  .hero-bg{animation:none!important}
+  .hero::after{animation:none!important;opacity:0!important}
+  .m-shine::after{display:none!important}
+  html.mjs .hero-h1 .word{transform:none!important}
+  html.mjs .m-rv{opacity:1!important;transform:none!important}
+  html.mjs .rv{filter:none!important}
+}

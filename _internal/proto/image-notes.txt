@@ -1,0 +1,22 @@
+Additive CSS-only photography grade that unifies every CONTENT photo on the homepage into one premium "set" — zero brand-color or font changes.
+
+WHAT IT CHANGES (scoped ONLY to content photos):
+- Base grade on .dest img, .tcard-img img, .hc-img img, .acard-img img, .grc-img img: saturate(1.06) contrast(1.045) brightness(.995) + a hair of warmth (sepia .03 / hue-rotate -4deg) to average raw-JPEG white balance toward a common warm-neutral. All values inside the jury-safe "enhance not overwhelm" zone (<1.15 any channel), so it reads editorial, not Instagram-filter.
+- Hover "premium glow": sat/contrast/brightness lift on hover, integrated with the existing scale(1.07)/scale(1.05) zoom. I only add a `filter` transition and preserve the existing `transform` zoom — the hover scale keeps working.
+- Unifying brand-tint ::after scrim (teal .06 -> coral .05, mix-blend soft-light) on each card image wrapper — the "one set" trick, single-digit alpha so warm/cool photos share a cast without visible recoloring.
+- Legibility ::before scrim (transparent -> rgba(15,23,42,.42)) on .dest and .grc-img only (the two wrappers that render title text over the photo); z-index layered UNDER the existing .dest-ov/.dest-info/.grc-name so those still win.
+- Hero: .hero-bg gets a matching micro-grade + a faint inset vignette (cinematic center-focus). NO tint scrim on the hero (its .hero-ov already carries the strong brand gradient). Filter rides on top of the ken-burns — the kz animation drives `transform`, not `filter`, so it is untouched.
+- object-fit:cover made explicit on graded images (defensive; global img{} already sets it) — no upscaling distortion.
+- .tcard-img given aspect-ratio:16/10 for fluid rail consistency (it's JS-generated, so safe).
+
+SAFETY / MUST-NOT-BREAK adherence:
+- NEVER selects the logo, favicon, emoji, UI icons, map pins (.mpin), or partner logos — only the five content-image selectors + .hero-bg.
+- Does not touch the global img{} rule or any :root token.
+- Ken-burns preserved (filter != transform). Existing hover shadows/zoom untouched.
+- prefers-reduced-motion drops only the hover transition; the static grade remains.
+
+CAVEATS:
+1. There is a typo in the css that MUST be fixed before use: line `transform:translateЗ(0);` contains a Cyrillic 'З' and is invalid — it was intended as a GPU-hint no-op and is immediately reset by the following `transform:none` block anyway, so the correct fix is to DELETE that line (do not "correct" it to translateZ, since transform:none must remain the final word so the existing hover scale() is the only transform). I'm flagging it explicitly rather than shipping it silently.
+2. mix-blend-mode: soft-light on ::after tints correctly over photos; on the two placeholder-gradient wrappers (.grc-img has a pink/blue gradient bg before its img loads) the tint is negligible.
+3. This is a prototype grade. Production should bake saturate/contrast/warmth into R2/sharp-generated derivatives and ship AVIF/WebP at correct DPR, retiring the per-paint CSS filter for performance (noted inline at top of the module).
+Source file: C:\Users\Imac\Thailandaddict\astro\public\index.html (single self-contained static HTML; append this in a <style> block at end of <body> so it wins over the four existing <style> blocks, including the later inline .grescard/.rgcard blocks).

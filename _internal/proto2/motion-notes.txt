@@ -1,0 +1,20 @@
+WHAT THIS DELIVERS (6 motions, all transform/opacity/filter, GPU-friendly):
+1. Hero mask-reveal — JS splits .hero-h1 ("ชีวิต" + <em>ติดเที่ยว</em>) into two .word-mask>.word tokens, each wiped up from behind overflow:hidden, 90ms stagger, cubic-bezier(.16,1,.3,1)/.9s. The <em> (and its #FFE15D color) is preserved. Ready class lands ON .hero-h1 so CSS targets the COMPOUND .hero-h1.mrdy .word (not a descendant), exactly as required.
+2. Scroll-reveal (fade + rise 22px, ~70ms stagger) on cards via a dedicated .m-rv class + IntersectionObserver. A MutationObserver on #onerail and #destscroll re-scans the JS-generated .tcard/.dest so late cards reveal too. Sections/.s-head are left to the site's existing .rv system (I only upgraded .rv with a filmic blur-in + premium easing) to AVOID double-hiding/observer conflict.
+3. Count-up on .stat .n[data-stat] — parses "2,200+" / "4,000+" / "77" (keeps the +/% suffix), ease-out-cubic settle, 1.15s, fires at threshold .6. "100%" has no data-stat so it stays static, per spec.
+4. Hero animated gradient sheen — .hero::after diagonal light drifts across every ~14s (subtle .10–.16 white), var(--e-inout). Bumped .hero-c to z-index:2 so text stays clickable above the z-index:1 sheen.
+5. One-time shine-sweep — a skewed specular streak crosses each .stat ~0.5s after it reveals, and the hero .search-card ~1.1s after load. Fires once (no loop), peaks .55 alpha → classy not gaudy.
+6. Slim brand-gradient (teal→coral→mango) scroll-progress bar, fixed top, rAF-throttled scaleX.
+
+SAFETY / ROBUSTNESS:
+- No-JS proof: every "start hidden" rule is scoped to html.mjs, and the IIFE adds .mjs to <html> as its FIRST action. If JS is off or errors early, nothing is hidden.
+- prefers-reduced-motion: full kill switch at the end of the CSS zeroes all animations/transitions, hides the progress bar + hero sheen + shine, and force-shows .m-rv/hero words. The JS also reads matchMedia and, when reduced, skips the count-up (leaves real values), skips card reveal (cards visible), skips hero mask (shows immediately), and skips the progress bar.
+- Belt-and-braces: a 1.6s setTimeout un-hides any .m-rv that never got an observer callback (matches the site's own 1.4s .rv safety pattern).
+
+NO SPACING CHANGES: zero padding/margin/gap edits to .sec or any layout. The only margins used are the tiny negative overflow-mask pair on .word-mask (padding-bottom .06em / margin-bottom -.06em) so Thai descenders/ascenders aren't clipped by the mask — net-zero vertical footprint.
+
+BRAND UNTOUCHED: no color or font-family changes; the progress bar and hero sheen reuse existing --bl/--or/--go tokens. All new hooks are namespaced (.m-*, .word/.word-mask, .mjs) so nothing collides with the existing .rv system or the tcard/dest render JS.
+
+INTEGRATION: append the CSS at the very end of the <head> <style> block (after line 283); drop the JS in a <script defer> (or at end of <body>). The IIFE is defer-safe — it runs after DOM parse and re-scans dynamically for the rail cards, so load order relative to the site's own render script does not matter.
+
+VERIFY NOTE: this task returns css/js only and does not modify astro/public/index.html, so there is nothing new rendered in the running preview to verify. JS syntax was validated with `node --check` (passes).

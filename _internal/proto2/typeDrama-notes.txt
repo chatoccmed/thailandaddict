@@ -1,0 +1,14 @@
+Type-drama module for astro/public/index.html — append LAST inside the existing <style> (after line 283) so it overrides. Additive, specific selectors, brand colors + font-families untouched, NO section-spacing changes.
+
+WHAT IT DELIVERS (visible at a glance):
+- HERO: .hero-h1 jumps to clamp(44px,9vw,82px) (was 36–62px) — noticeably bigger/heavier by mass. The <em> "ติดเที่ยว" gets a glossy in-brand teal→coral→mango vertical gradient with a bright teal top-light (the sheen) + brand drop-shadow glow, replacing the old flat #FFE15D yellow. A faint white top-highlight text-shadow makes the mostly-white Thai title read richer.
+- HERO KICKER .h-eye → weight 300, 2px tracking: thin/wide Latin eyebrow against the big bold title = the luxury thick/thin pairing.
+- SECTION HEADS: .slbl → hairline 300 / 3px tracking + a trailing gradient hairline rule; .stit → bigger clamp(28–42px) with tight -0.6px tracking and a lit-edge drop-shadow on <em>; .ssub → lighter 400. Three clear weight/size tiers.
+- STAT NUMBERS .stat .n → 46px (was 37px) with -1px tracking + teal glow; the size gap over the 11px uppercase .l label is the thick/thin drama. Mobile clamps to 38px.
+
+THAI-SAFETY (deliberate deviations from the reference brief):
+- Reference proposed hero line-height 1.02 and -1.5px tracking — that CLIPS Thai tone marks (สระบน/วรรณยุกต์) and merges glyphs. I used line-height 1.3 (task's stated min) and gentle -0.5px so Thai stays legible. Drama still lands via SIZE + gloss.
+- Kicker tracking kept at 2–3px (not the reference's 3–4px on .h-eye) because .h-eye/.slbl contain Thai between separators; wide tracking breaks Thai combining vowels. The thin 300 weight carries the contrast instead — exactly the "get thickness contrast from the thin kicker, not 900 Thai" instruction.
+- No 900-weight applied to any Thai text anywhere.
+
+NO SPACING TOUCHED: no .sec padding, no margins on section wrappers, no vertical rhythm changes (only kept .hero-h1's existing 14px margin-bottom as-is to avoid the size bump nudging layout). js is empty as required.

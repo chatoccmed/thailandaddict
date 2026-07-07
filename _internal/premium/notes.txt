@@ -1,0 +1,38 @@
+Both files are strictly additive and reuse the EXACT proto3 recipes (same keyframe shapes, same mask primitives, same easing/timing, same shadow/blur values), only rebound to the real classes of the hotel / roundup / article / hub page types. No brand color, font-family, spacing, or structural rule is touched — all effects use only transform / opacity / filter / box-shadow / backdrop-filter, and everything is gated behind a full prefers-reduced-motion kill switch.
+
+KEY SAFETY DECISIONS honoring the class-map warnings:
+1. Mask-reveal targets a PRIORITIZED candidate list and splits only the FIRST match. The big white-on-photo VISUAL heroes (.rhero/.rl-page .hero h1/.phero/.thero/.ahub-hero, plus hotel .hi-name) are unique elements, so a subtle brand glow + reveal is safe there. The hotel true H1 (.sec-title) is SHARED with every section H2, so it is only used as the LAST-RESORT fallback and is NOT resized or glowed — the JS prefers .hi-name (the intended visual headline) ahead of it. DIV / shared candidates get an explicit .mrdy-host hook class instead of assuming a fixed element class. The setTimeout(…,140) failsafe is preserved verbatim.
+2. Count-up rejects any node containing letters (latin OR Thai ก–๙), so mixed strings like the roundup/article "★ 4.8 · 1,234 รีวิว (source)" score pill are left untouched; it only tweens clean numeric displays (.qi-val, .pw-price, .pr-sc, .price-big, .stat-pill strong, .cstat .n, .resto-price .pv). It preserves currency prefix (฿), trailing suffix (/10, +), decimal places (9.1 stays 9.1) and thousands grouping, and guards NaN. It explicitly SKIPS .r-num and .rbar-fill, which the hotel layout already animates via its own observer — no double-animation.
+3. Frosted glass uses the lighter proto3 .search-card frost on LIGHT-bg summary/booking cards (hotel .pw + .quick-answer, roundup .compare-top/.compare-section/.quick-answer/.article-meta-box, article .quick-answer, hub .qabox) and the heavier .stat frost on the hub .cstat strip, so text stays crisp.
+4. Card grade/glow/shine + button gloss/shine are bound to each page's real image-card and CTA/booking classes. Booking buttons keep their brand fills untouched (Agoda/Booking/Trip/Klook) — only a translucent white sheen + moving highlight is overlaid via ::before/::after with isolation to protect stacking. On the roundup card, on-photo overlays (.img-overlay/.mrt-tag/.rd-img-book/.entry-save/.entry-badge) are re-asserted above the added legibility scrim so the full-cover book link stays clickable.
+
+NOT-BROKEN checklist: does not add/remove .rv or .fade-up (those reveal observers are untouched); does not force opacity:1 on .rv; does not put transform/overflow on .rgrid or sticky ancestors (only on the cards themselves, which are not sticky); respects inline-styled colors (we never set color on rank/score/badge nodes); pseudo-element shine never blocks pointer events (pointer-events:none everywhere). Wiring: add <link rel="stylesheet" href="/css/premium.css"> and <script defer src="/js/premium-motion.js"></script> to the hotel/roundup/article layouts and the hub page() chrome (harmless if it also loads on the homepage since selectors are scoped to non-homepage classes).
+
+=== PER PAGE ===
+HOTEL (ReviewLayout + review.css):
+- Hero mask-reveal → .hero-info .hi-name (the big visual headline; a DIV, gets .mrdy-host). True H1 .sec-title used only as last-resort fallback, deliberately NOT resized (shared with section H2s).
+- Count-up → .qi-val (quick-bar score/price cells), .pw-price (price widget), .pr-sc (Booking/Agoda platform scores). SKIPS .r-num and .rbar-fill (already animated by the layout's own observer).
+- Frosted glass → .pw (price widget) + .quick-answer AEO block; quick-bar gets a light blur; .rating-box/.pr-card get glass lift.
+- Cards → .gp gallery tiles, .side-card map, .related-a related cards get depth+lift+glow+shine + cinematic grade on their imgs (.gp img, .map-thumb img, .rel-img). Hero trio imgs intentionally left ungraded.
+- Buttons → .btn-book, .pw-btn (agoda/booking/trip), .rv-card (sticky bar), .rv-body-book, .hero-more-btn, .gp-more, plus shared .nav-cta/.mm-cta — sheen + hover shine, brand fills untouched.
+
+ROUNDUP (RoundupLayout + roundup.css, scoped .rl-page):
+- Hero mask-reveal → .rl-page .hero h1 (the single H1), + brand glow. Section H2s untouched.
+- Count-up → .price-big (per-hotel price), .stat-pill strong (hero stat numbers). The mixed-text .score-pill ("★ x/10 · reviews") is skipped by the letter guard.
+- Frosted glass → .compare-top, .compare-section (comparison tables), .rl-page .quick-answer, .article-meta-box glance cards.
+- Cards → .hotel-entry gets depth+lift+glow+shine; cinematic grade on .img-wrap img; legibility scrim added inside .img-wrap with overlays (.mrt-tag/.rd-img-book/.entry-save/.entry-badge) re-asserted above it.
+- Buttons → .btn-main/.btn-sec/.btn-trip (brand-locked fills kept), .rd-img-book on-photo chip, .mbar .m1/.m2 sticky bar, .ct-book compare CTA, shared .nav-cta/.mm-cta — sheen + shine only.
+
+ARTICLE (ArticleLayout, scoped <style>):
+- Hero mask-reveal → .rhero h1 (immersive resto/activity hero) OR .hero > .wrap > h1 (light hero), whichever exists first; + brand glow (subtle on light hero).
+- Count-up → .resto-price .pv (duration/price value). .resto-score (mixed text) and .resto-rank (kept as static rank tile) skipped.
+- Frosted glass → .quick-answer AEO callout.
+- Cards → .resto (main item card), .rrail-card (sticky-rail hotel), .foodexp-card get depth+lift+glow+shine; cinematic grade on .resto-media img/.resto-mainimg/.re-zoom/.re-cslide img/.rrail-card img/.foodexp-thumb. Sticky .rrail untouched (no transform/overflow on ancestors).
+- Buttons → .rbtn (stay/map/fb/book), .bk/.bk-klook/.bk-stay (Klook orange + cyan cross-sell, fills kept), .staycta-btn, .foodexp-btn, .rrail-fcta, .hmap-cta, shared .cta — sheen + shine.
+
+HUB (gen-hubs.mjs generated *.html, shared style const):
+- Hero mask-reveal → .phero h1 (province/area image hero) OR .thero h1 (region/country/tourist-cities text hero) OR .ahub-hero h1 (activities), first match; + brand glow. Keeps inner <em> markup intact.
+- Count-up → .cstat .n (the big stat numbers: review count, article count, avg score 9.1, min price ฿1,200) — preserves ฿ prefix, commas, and the 9.1 decimal via the decimal-aware tween. Prices with commas grouped correctly; NaN guarded.
+- Frosted glass → .qabox province quick-answer summary card; .cstat strip gets the heavier .stat-style frost.
+- Cards → .hcard (hotel), .dcard (article), .ep-card (editor pick), .hcc (neighbourhood photo card), .ahub-card (activities) get depth+lift+glow+shine + cinematic grade on their imgs; .hcc/.ahub-ph get on-photo legibility scrim with caption/tag layers kept above.
+- Buttons → .hbtn (bk1/bk2/bk3), .hview, .kl-b (Klook), .ahub-klkbtn/.ahub-htlbtn, .ctaband a, .callout a, .hl-book, .qa-cta, .mbar a, .affcard a (b-agoda/b-booking/b-trip brand fills kept), shared .nav-cta/.mm-cta — sheen + shine only. NOTE: files are generated, so the <link>/<script> tags must be added to gen-hubs.mjs page() chrome and the CSS/JS shipped to astro/public/css & /js, not hand-edited into the HTML.

@@ -1,0 +1,145 @@
+/* ===================================================================
+   IMAGE GRADE MODULE — "one premium set" photography grade
+   Additive-only. No brand color or font-family changes.
+   Scoped to CONTENT photos ONLY:
+     .hero-bg (bg-image) · .dest img · .tcard-img img ·
+     .hc-img img · .acard-img img · .grc-img img
+   NEVER touches: logo, favicon, emoji, UI icons, map pins, partner logos.
+   NOTE: this is a CSS-only prototype grade. Production should move the
+   grade + clarity/sharpen into an R2 + sharp pipeline (bake the sat/
+   contrast/warmth into the served derivative, ship AVIF/WebP at correct
+   DPR) so devices don't pay a per-paint filter cost. The CSS here mirrors
+   what that pipeline should produce so the look is locked in now.
+   =================================================================== */
+
+/* ---- 1. UNIFIED BASE GRADE (all card content photos share one look) ----
+   Restrained editorial zone: sat 1.06 · contrast 1.045 · a hair of warmth
+   via a tiny sepia + hue nudge (keeps teal/coral honest, just averages the
+   raw JPEG white balance toward a common warm-neutral). brightness ~0.995
+   so nothing blows out. transition:filter so hover feels integrated. */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{
+  filter:saturate(1.06) contrast(1.045) brightness(.995) sepia(.03) hue-rotate(-4deg);
+  transition:transform .5s ease, filter .45s ease;
+  /* perceived-clarity / anti-upscale-blur: crisper resample on scale */
+  image-rendering:auto;
+  backface-visibility:hidden;      /* steadier GPU raster on the scaled img */
+  transform:translateЗ(0);         /* placeholder-safe no-op; see reset below */
+}
+/* guard: the line above must not introduce a bogus transform — reset it
+   cleanly so the existing hover scale() is the only transform in play. */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{ transform:none; }
+
+/* keep the global cover-fit explicit on every graded image (defends against
+   any future per-card object-fit drift; global img{} already sets cover) */
+.dest img,
+.tcard-img img,
+.hc-img img,
+.acard-img img,
+.grc-img img{ object-fit:cover; object-position:center; }
+
+/* ---- 2. HOVER "PREMIUM GLOW" (sat+brightness lift, integrated w/ zoom) ----
+   The existing scale(1.07)/scale(1.05) transforms are preserved — we only
+   layer the filter shift. Values stay inside the editorial ceiling (<1.15). */
+.dest:hover img,
+.tcard:hover .tcard-img img,
+.hcard:hover .hc-img img,
+.acard:hover .acard-img img,
+.grescard:hover .grc-img img{
+  filter:saturate(1.12) contrast(1.055) brightness(1.03) sepia(.02) hue-rotate(-3deg);
+}
+
+/* ---- 3. UNIFYING BRAND-TINT SCRIM (the real "one set" trick) ----
+   A single low-opacity teal→coral cast over every card photo, mirroring
+   what .hero-ov already does for the hero. soft-light = a tint, not a wash.
+   Alpha kept single-digit (.06/.05) so warm & cool source photos share a
+   common cast WITHOUT visibly recoloring. All these wrappers are already
+   position:relative;overflow:hidden, so ::after clips to the image. */
+.dest,
+.tcard-img,
+.hc-img,
+.acard-img,
+.grc-img{ position:relative; }
+
+.dest::after,
+.tcard-img::after,
+.hc-img::after,
+.acard-img::after,
+.grc-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;                       /* above img, below any badge/scrim text */
+  background:linear-gradient(160deg, rgba(6,182,212,.06), rgba(251,113,133,.05));
+  mix-blend-mode:soft-light;
+}
+
+/* ---- 4. LEGIBILITY SCRIM for photos that carry text on them ----
+   .dest and .grc-img render the card title directly over the photo, so a
+   bottom-up dark gradient keeps labels readable on ANY source photo (this
+   art-directed floor is why hotel SOTDs look intentional). Kept SEPARATE
+   from the tint scrim and below the existing .dest-ov / .grc-name so those
+   still win. z-index sits under the info/name layers. */
+.dest::before,
+.grc-img::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:62%;
+  pointer-events:none;
+  z-index:1;
+  background:linear-gradient(transparent 0%, rgba(15,23,42,.42) 100%);
+}
+/* ensure the hand-written .dest-ov gradient + text sit ABOVE our scrims */
+.dest-ov{ z-index:2; }
+.dest-info{ z-index:3; }
+.grc-name{ z-index:2; }
+
+/* ---- 5. HERO PHOTO MICRO-GRADE (matches cards' tonal family) ----
+   The hero already gets a strong brand gradient from .hero-ov, so NO extra
+   tint scrim here — just a matching micro-grade on the photo itself so hero
+   and cards sit in the same set. filter on .hero-bg does NOT disturb the
+   ken-burns because that animation drives `transform`, not `filter`. */
+.hero-bg{
+  filter:saturate(1.06) contrast(1.04) brightness(.985) sepia(.025) hue-rotate(-4deg);
+  /* faint cinematic center-focus vignette (Aman/Peninsula move) — kept
+     inside the bg layer via box-shadow inset so it rides under .hero-ov */
+  box-shadow:inset 0 0 220px 40px rgba(8,20,40,.28);
+}
+
+/* ---- 6. FLUID ASPECT CONSISTENCY (optional polish, non-breaking) ----
+   The Top-N card image is a fixed 160px height; giving it a 16/10 ratio
+   makes the rail visually consistent while staying cover-fit. Only applied
+   where it can't break an existing fixed layout (tcard is JS-gen, fluid). */
+.tcard-img{ aspect-ratio:16/10; height:auto; }
+
+/* ---- MOBILE: soften the filter cost + keep grade subtle on small dpr ---- */
+@media(max-width:560px){
+  .dest img,
+  .tcard-img img,
+  .hc-img img,
+  .acard-img img,
+  .grc-img img{
+    filter:saturate(1.05) contrast(1.035) brightness(.995) sepia(.025) hue-rotate(-4deg);
+  }
+}
+
+/* ---- ACCESSIBILITY: honor reduced-motion (grade stays, motion calms) ----
+   The grade itself is static, but drop the filter/zoom TRANSITION so
+   hover doesn't animate for motion-sensitive users. Ken-burns is handled
+   by the page's own reduced-motion rules; we don't re-enable it here. */
+@media (prefers-reduced-motion: reduce){
+  .dest img,
+  .tcard-img img,
+  .hc-img img,
+  .acard-img img,
+  .grc-img img{ transition:none; }
+}

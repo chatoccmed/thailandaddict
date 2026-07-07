@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<base href="https://thailandaddict.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>ThailandAddict ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย</title>
+<meta name="description" content="ThailandAddict ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย · คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวจริงทุกหน้า ราคาจริง เทียบ Agoda · Booking · Trip.com ก่อนจอง ไม่มีโฆษณาแฝง">
+<link rel="canonical" href="https://thailandaddict.com/">
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/">
+<link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/">
+<meta property="og:site_name" content="ThailandAddict">
+<meta property="og:title" content="ThailandAddict ชีวิตติดเที่ยว · Explore Thailand Like a Local">
+<meta property="og:description" content="ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย — รีวิวจริงทุกหน้า ราคาจริง ลิงก์จองตรง ไม่มีโฆษณาแฝง">
+<meta property="og:url" content="https://thailandaddict.com/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thailandaddict.com/images/heroes/krabi.jpg">
+<meta property="og:locale" content="th_TH">
+<meta name="theme-color" content="#06B6D4">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"ThailandAddict","url":"https://thailandaddict.com","description":"คู่มือเที่ยวไทยจากคนเที่ยวจริง — รีวิวโรงแรม ที่กิน ที่เที่ยว และแผนเที่ยวทั่วไทย","inLanguage":"th","potentialAction":{"@type":"SearchAction","target":"https://thailandaddict.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","@id":"https://thailandaddict.com/#org","name":"ThailandAddict","url":"https://thailandaddict.com","logo":{"@type":"ImageObject","url":"https://thailandaddict.com/logo.png"},"description":"คู่มือเที่ยวไทยเฉพาะทาง — รีวิวโรงแรม ที่กิน ที่เที่ยว และวางแผนเที่ยวทั่วไทยทั้ง 77 จังหวัด"}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;background:#f6fafb;color:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+:root{
+  --bl:#06B6D4;--bl-dk:#0891b2;--bl-lt:#ecfeff;
+  --or:#FB7185;--or-dk:#f43f5e;--or-lt:#fff1f3;
+  --gr:#10b981;--gr-lt:#E9F7EF;
+  --go:#FBBF24;--rd:#f43f5e;
+  --ink:#0F172A;--sub:#64748b;--mut:#9aa7b8;
+  --bdr:#e6eef2;--bg:#f6fafb;--card:#fff;
+  --r:20px;--r2:13px;
+  --sh:0 6px 22px rgba(15,40,70,.07);--sh2:0 14px 44px rgba(15,40,70,.15);
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%;object-fit:cover}
+button{cursor:pointer;font-family:inherit}
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;transition:background .35s,box-shadow .35s}
+.nav.solid{background:rgba(255,255,255,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--bdr)}
+@media(max-width:560px){.nav{padding:0 18px}}
+.logo{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:25px;font-weight:500;color:#fff;letter-spacing:-.5px;transition:color .35s}
+.logo em{font-style:normal;font-weight:400;color:#fff}
+.nav.solid .logo{color:var(--ink)}.nav.solid .logo em{color:var(--bl)}
+.nav-mid{display:flex;gap:28px}@media(max-width:860px){.nav-mid{display:none}}
+.nav-mid a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.9);transition:color .2s}
+.nav.solid .nav-mid a{color:var(--sub)}
+.nav-mid a:hover{color:var(--bl)!important}
+.nav-mid .has-drop{position:relative}
+.nav-mid .has-drop>a::after{content:' ▾';font-size:9px;opacity:.55;margin-left:2px}
+.nav-mid .drop{position:absolute;top:calc(100% + 8px);left:-14px;min-width:240px;background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:12px;box-shadow:0 16px 40px rgba(15,40,70,.18);opacity:0;visibility:hidden;transform:translateY(-4px);transition:.18s;z-index:1200}
+.nav-mid .has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-mid .drop a{display:block;font-size:13.5px!important;color:var(--ink)!important;padding:9px 12px!important;border-radius:8px;font-weight:500!important}
+.nav-mid .drop a:hover{background:var(--bl-lt);color:var(--bl-dk)!important}
+.nav-mid .drop .h{display:block;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);padding:8px 12px 3px}
+.nav-r{display:flex;align-items:center;gap:10px}
+.search-box{position:relative}@media(max-width:760px){.search-box{display:none}}
+.search-input{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;font-size:13.5px;width:210px;padding:9px 14px 9px 36px;border-radius:30px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.14);color:#fff;outline:none;transition:.2s;backdrop-filter:blur(8px)}
+.search-input::placeholder{color:rgba(255,255,255,.75)}
+.search-input:focus{width:290px;background:#fff;color:var(--ink);border-color:var(--bl)}
+.nav.solid .search-input{background:#fff;color:var(--ink);border-color:var(--bdr)}
+.nav.solid .search-input::placeholder{color:var(--mut)}
+.search-box::before{content:'🔍';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;opacity:.7;pointer-events:none}
+.search-drop{position:absolute;top:calc(100% + 8px);right:0;width:360px;max-height:440px;overflow-y:auto;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 16px 40px rgba(15,40,70,.18);z-index:1300;display:none}
+.search-drop.show{display:block}
+.search-drop a{display:block;padding:11px 14px;border-bottom:1px solid var(--bdr)}.search-drop a:last-child{border-bottom:none}
+.search-drop a:hover{background:var(--bl-lt)}
+.search-drop .t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:600;color:var(--ink)}
+.search-drop .c{font-size:11.5px;color:var(--mut)}
+.search-drop .empty{padding:20px;text-align:center;font-size:13px;color:var(--mut)}
+.lang-wrap{display:flex;gap:1px}
+.lb{background:transparent;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);padding:5px 8px;border-radius:6px;transition:.2s}
+.nav.solid .lb{color:var(--mut)}
+.lb.active{color:#fff;background:rgba(255,255,255,.22)}.nav.solid .lb.active{color:var(--bl);background:var(--bl-lt)}
+.nav-cta{background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;padding:10px 20px;border-radius:30px;box-shadow:0 6px 18px rgba(251,113,133,.5);transition:.2s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(251,113,133,.5)}
+@media(max-width:860px){.nav-cta{display:none}}
+.hb{display:none;background:none;border:none;color:#fff;font-size:24px;padding:4px;line-height:1}
+.nav.solid .hb{color:var(--ink)}@media(max-width:860px){.hb{display:block}}
+.mm{position:fixed;inset:0;z-index:1000;background:#fff;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:24px;overflow-y:auto}
+.mm.open{transform:translateX(0)}
+.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.mm-top .logo{color:var(--ink)}.mm-top .logo em{color:var(--bl)}
+.mm-x{background:none;border:none;font-size:28px;color:var(--ink)}
+.mm a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:18px;font-weight:600;color:var(--ink);padding:14px 0;border-bottom:1px solid var(--bdr)}
+.mm-cta{margin-top:22px;background:var(--or);color:#fff;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:700;padding:15px;border-radius:30px}
+/* HERO */
+.hero{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;padding:104px 22px 70px}
+.hero-bg{position:absolute;inset:0;background:url('/images/heroes/krabi.jpg') center/cover;animation:kz 22s ease-in-out infinite alternate}
+@keyframes kz{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.42) 0%,rgba(8,30,55,.16) 45%,rgba(246,250,251,0) 82%,rgba(246,250,251,1) 100%),linear-gradient(125deg,rgba(6,182,212,.62) 0%,rgba(251,113,133,.52) 52%,rgba(251,191,36,.42) 100%)}
+.hero-c{position:relative;z-index:1;width:100%;max-width:790px;text-align:center}
+.h-eye{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#fff;padding:7px 16px;border-radius:30px;margin-bottom:20px}
+.h-dot{width:8px;height:8px;border-radius:50%;background:#5fe09a;box-shadow:0 0 0 4px rgba(95,224,154,.3)}
+.hero-h1{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:clamp(36px,7vw,62px);font-weight:400;color:#fff;line-height:1.06;letter-spacing:-1px;margin-bottom:14px;text-shadow:0 2px 28px rgba(0,0,0,.32)}
+.hero-h1 em{font-style:normal;color:#FFE15D}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,.95);max-width:540px;margin:0 auto 30px;line-height:1.7;text-shadow:0 1px 14px rgba(0,0,0,.35)}
+.search-card{background:#fff;border-radius:22px;box-shadow:0 22px 54px rgba(8,30,55,.32);padding:10px;display:flex;gap:8px;max-width:580px;margin:0 auto}
+@media(max-width:560px){.search-card{flex-direction:column;padding:12px}}
+.sc-field{flex:1;display:flex;align-items:center;gap:10px;padding:0 14px;position:relative}
+.sc-field span{font-size:19px}
+.sc-inp{flex:1;border:none;outline:none;background:transparent;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;font-size:15px;color:var(--ink);padding:16px 0}
+.sc-inp::placeholder{color:var(--mut)}
+.sc-btn{background:linear-gradient(135deg,var(--bl),var(--or));color:#fff;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:800;padding:15px 30px;border-radius:14px;white-space:nowrap;transition:.2s;box-shadow:0 8px 20px rgba(6,182,212,.35)}
+.sc-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.sc-drop{position:absolute;top:calc(100% + 12px);left:0;right:0;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 18px 44px rgba(8,30,55,.22);text-align:left;max-height:340px;overflow-y:auto;display:none;z-index:20}
+.sc-drop.show{display:block}
+.sc-drop a{display:block;padding:11px 16px;border-bottom:1px solid var(--bdr)}.sc-drop a:last-child{border-bottom:none}
+.sc-drop a:hover{background:var(--bl-lt)}.sc-drop .t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:600;font-size:14px;color:var(--ink)}.sc-drop .c{font-size:11.5px;color:var(--mut)}
+.hero-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.htag{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.32);border-radius:24px;padding:8px 15px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:500;color:#fff;transition:.2s}
+.htag:hover{background:#fff;color:var(--bl)}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:-46px auto 0;position:relative;z-index:3;max-width:820px;padding:0 22px}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:#fff;border-radius:var(--r2);box-shadow:var(--sh);padding:20px 12px;text-align:center}
+.stat .n{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:34px;font-weight:400;line-height:1;background:linear-gradient(120deg,var(--bl),var(--or-dk) 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .l{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);margin-top:6px}
+/* PARTNERS */
+.partners{padding:30px 22px;display:flex;align-items:center;justify-content:center;gap:14px 30px;flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.partners .pt-lbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--mut)}
+.partner{display:flex;align-items:center;gap:6px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:700;color:var(--sub);opacity:.85}
+/* SECTIONS */
+.sec{padding:58px 24px}@media(max-width:560px){.sec{padding:44px 18px}}
+.sec.gray{background:#fff}
+.sec.tint{background:linear-gradient(135deg,#d6fbff 0%,#fff3cf 50%,#ffe1ea 100%)}
+.inner{max-width:1120px;margin:0 auto}
+.s-head{margin-bottom:26px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.slbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--or-dk);margin-bottom:6px}
+.stit{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:clamp(25px,4vw,37px);font-weight:400;color:var(--ink);line-height:1.15}
+.stit em{font-style:normal;background:linear-gradient(120deg,var(--bl) 10%,var(--or-dk) 95%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ssub{font-size:14px;color:var(--sub);margin-top:7px}
+.see-all{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;color:var(--bl);white-space:nowrap}
+.see-all:hover{color:var(--or-dk)}
+.hscroll{display:flex;gap:16px;overflow-x:auto;padding:4px 24px 14px;margin:0 -24px;scrollbar-width:none}
+.hscroll::-webkit-scrollbar{display:none}
+/* DEST CARDS */
+.dest{flex-shrink:0;width:210px;height:270px;border-radius:var(--r);overflow:hidden;position:relative;display:block;box-shadow:var(--sh)}
+@media(max-width:560px){.dest{width:165px;height:225px}}
+.dest img{width:100%;height:100%;transition:transform .6s}.dest:hover img{transform:scale(1.07)}
+.dest-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,28,52,.88),rgba(8,28,52,.04) 62%)}
+.dest-info{position:absolute;left:0;right:0;bottom:0;padding:18px}
+.dest-flag{font-size:22px}
+.dest-name{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:22px;font-weight:400;color:#fff;margin-top:2px}
+.dest-cnt{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;color:rgba(255,255,255,.78);margin-top:2px}
+.dest-badge{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--or),var(--go));color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10px;font-weight:800;letter-spacing:.5px;padding:4px 10px;border-radius:20px}
+/* TOP-N ROUNDUP CARDS */
+.tcard{flex-shrink:0;width:248px;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:block}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.tcard-img{height:160px;position:relative;overflow:hidden}
+.tcard-img img{width:100%;height:100%;transition:transform .5s}.tcard:hover .tcard-img img{transform:scale(1.07)}
+.tcard-badge{position:absolute;top:11px;left:11px;color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:800;padding:4px 11px;border-radius:20px;background:linear-gradient(135deg,var(--bl),var(--or))}
+.tcard-body{padding:15px 17px 18px}
+.tcard-name{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:18px;font-weight:400;color:var(--ink);line-height:1.25}
+.tcard-tag{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;letter-spacing:.4px;color:var(--mut);margin:6px 0 12px}
+.tcard-cta{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;color:var(--bl)}.tcard:hover .tcard-cta{color:var(--or-dk)}
+/* HOTEL GRID */
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:880px){.hgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.hgrid{grid-template-columns:1fr}}
+.hcard{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:block}
+.hcard:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.hc-img{position:relative;height:190px;overflow:hidden}
+.hc-img img{width:100%;height:100%;transition:transform .55s}.hcard:hover .hc-img img{transform:scale(1.07)}
+.hc-score{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--go),#f59e0b);color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:800;padding:5px 11px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.hc-flag{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.52);color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;backdrop-filter:blur(4px)}
+.hc-body{padding:16px 17px 18px}
+.hc-name{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:18px;font-weight:400;color:var(--ink);line-height:1.2}
+.hc-loc{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;color:var(--mut);margin-top:4px}
+.hc-foot{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px;padding-top:13px;border-top:1px solid var(--bdr)}
+.hc-price{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:18px;font-weight:800;color:var(--ink)}
+.hc-price .from{display:block;font-size:10px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.hc-link{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;color:var(--bl)}.hcard:hover .hc-link{color:var(--or-dk)}
+.see-all-btn{display:flex;justify-content:center;margin-top:32px}
+.see-all-btn a{background:#fff;border:1.5px solid var(--bdr);color:var(--ink);font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:700;padding:14px 32px;border-radius:30px;transition:.2s}
+.see-all-btn a:hover{border-color:var(--bl);color:var(--bl);background:var(--bl-lt)}
+/* ARTICLE GRID */
+.art-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}@media(max-width:680px){.art-grid{grid-template-columns:1fr}}
+.art-right{display:flex;flex-direction:column;gap:18px}
+.acard{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:.22s;display:flex;flex-direction:column}
+.acard:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+.acard-img{position:relative;overflow:hidden}
+.acard.big .acard-img{height:290px}@media(max-width:680px){.acard.big .acard-img{height:210px}}
+.acard.sm{flex-direction:row}.acard.sm .acard-img{width:140px;height:120px;flex-shrink:0}
+.acard-img img{width:100%;height:100%;transition:transform .5s}.acard:hover .acard-img img{transform:scale(1.05)}
+.acard-badge{position:absolute;top:12px;left:12px;color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:10px;font-weight:800;padding:4px 11px;border-radius:20px;background:linear-gradient(135deg,var(--or),var(--go))}
+.acard-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.acard-lbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;letter-spacing:.5px;color:var(--mut);margin-bottom:6px}
+.acard-title{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:400;color:var(--ink);line-height:1.3}
+.acard.big .acard-title{font-size:23px}.acard.sm .acard-title{font-size:16px}
+/* MAP */
+.map-box{height:440px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);border:1px solid var(--bdr)}
+@media(max-width:600px){.map-box{height:340px}}
+#map{width:100%;height:100%;background:#eaf4f7}
+.mpin{display:block;width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 7px rgba(15,40,70,.35);transition:transform .15s}
+.leaflet-marker-icon:hover .mpin{transform:scale(1.35)}
+.mclu{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--bl),var(--or));color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;border:3px solid #fff;box-shadow:0 4px 14px rgba(6,182,212,.4)}
+.map-legend{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:14px;justify-content:center}
+.mleg{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:600;color:var(--sub)}
+.mleg i{width:11px;height:11px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.leaflet-popup-content-wrapper{border-radius:14px;box-shadow:0 14px 40px rgba(15,40,70,.22)}.leaflet-popup-content{margin:13px 15px}
+.lp{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;min-width:170px}
+.lp-name{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.lp-loc{font-size:11.5px;color:var(--mut);margin-bottom:8px}
+.lp-btn{display:block;background:var(--bl);color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;padding:8px;border-radius:8px;text-align:center}
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}@media(max-width:760px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+.why{background:#fff;border-radius:var(--r);padding:24px 20px;box-shadow:var(--sh);transition:.2s}.why:hover{transform:translateY(-4px)}
+.why-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px;background:var(--bl-lt)}
+.why-t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.why-b{font-size:13px;color:var(--sub);line-height:1.65}
+/* NEWSLETTER */
+.nl{background:linear-gradient(120deg,var(--bl) 0%,var(--bl-dk) 50%,var(--or) 150%);padding:60px 24px;text-align:center;position:relative;overflow:hidden}
+.nl::before{content:'';position:absolute;top:-70px;right:-50px;width:260px;height:260px;background:rgba(255,255,255,.1);border-radius:50%}
+.nl-c{position:relative;z-index:1;max-width:520px;margin:0 auto}
+.nl-h{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:clamp(26px,4.5vw,38px);font-weight:400;color:#fff;margin-bottom:10px}
+.nl-sub{font-size:14px;color:rgba(255,255,255,.9);margin-bottom:26px}
+.nl-cta{display:inline-block;background:#fff;color:var(--bl-dk);font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:800;padding:15px 32px;border-radius:40px;box-shadow:0 12px 30px rgba(8,30,55,.22)}
+.nl-form{display:flex;background:#fff;border-radius:50px;padding:6px;box-shadow:0 12px 34px rgba(8,30,55,.25);max-width:450px;margin:0 auto}
+@media(max-width:480px){.nl-form{flex-direction:column;border-radius:18px;gap:6px}}
+.nl-input{flex:1;border:none;outline:none;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;font-size:14px;color:var(--ink);padding:13px 20px;background:transparent}
+.nl-input::placeholder{color:var(--mut)}
+.nl-btn{background:var(--ink);color:#fff;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:13px 26px;border-radius:40px;white-space:nowrap}
+.nl-note{font-size:12px;color:rgba(255,255,255,.65);margin-top:14px}
+/* AFFILIATE BANNER */
+.aff-banner{margin-top:30px;background:linear-gradient(120deg,#e11d48,#fb7185);border-radius:var(--r);padding:26px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;box-shadow:0 12px 32px rgba(225,29,72,.2)}
+.aff-banner .ab-lbl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:5px}
+.aff-banner .ab-h{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:23px;font-weight:400;color:#fff}
+.aff-banner .ab-s{font-size:13px;color:rgba(255,255,255,.86);margin-top:4px}
+.ab-btns{display:flex;gap:10px;flex-wrap:wrap}
+.ab-btn1{background:#fff;color:#e11d48;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:13px 24px;border-radius:30px;white-space:nowrap}
+.ab-btn2{background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.45);color:#fff;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:13px 24px;border-radius:30px;white-space:nowrap}
+/* FOOTER */
+.footer{background:var(--ink);padding:52px 24px 100px}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;max-width:1120px;margin:0 auto 30px}@media(max-width:680px){.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
+.ft-logo{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:25px;font-weight:400;color:#fff;margin-bottom:6px}.ft-logo em{font-style:normal;color:var(--bl)}
+.ft-tag{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--go);margin-bottom:12px}
+.ft-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px;max-width:250px}
+.ft-col h4{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:13px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:9px}.ft-col a:hover{color:#fff}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);max-width:1120px;margin:0 auto;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;color:rgba(255,255,255,.4)}
+.ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
+/* MOBILE BAR */
+.mbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;box-shadow:0 -4px 20px rgba(15,40,70,.12);display:none;gap:10px;padding:10px 14px}
+@media(max-width:860px){.mbar{display:flex}}
+.mbar a{flex:1;text-align:center;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;padding:13px;border-radius:14px}
+.mbar .m1{background:var(--or);color:#fff}.mbar .m2{background:var(--bl-lt);color:var(--bl-dk)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@keyframes rvSafety{to{opacity:1;transform:none}}.rv{animation:rvSafety .01s ease 1.4s forwards}.rv.in{animation:none!important}
+/* ── PREMIUM VIBRANT LAYER ── */
+body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),transparent 40%),radial-gradient(circle at 92% 3%,rgba(251,113,133,.11),transparent 38%),radial-gradient(circle at 50% 114%,rgba(251,191,36,.09),transparent 46%)}
+.stat{position:relative;overflow:hidden;border:1px solid #eafaff;box-shadow:0 12px 32px rgba(6,182,212,.15)}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--bl),var(--or),var(--go))}
+.stat .n{font-size:37px;font-weight:500}
+.stat:nth-child(1) .n{background-image:linear-gradient(120deg,#0891b2,#06d6e0)}
+.stat:nth-child(2) .n{background-image:linear-gradient(120deg,#fb7185,#f43f5e)}
+.stat:nth-child(3) .n{background-image:linear-gradient(120deg,#f59e0b,#fb923c)}
+.stat:nth-child(4) .n{background-image:linear-gradient(120deg,#fb7185,#FBBF24)}
+.pdot{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:7px;vertical-align:-1px;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+.dest{border:1px solid rgba(6,182,212,.08)}
+.dest:hover{box-shadow:0 22px 50px rgba(6,182,212,.34)}
+.tcard:hover{box-shadow:0 24px 54px rgba(6,182,212,.36)!important}
+.hcard:hover{box-shadow:0 24px 54px rgba(251,113,133,.34)!important}
+.why:hover{box-shadow:0 20px 46px rgba(6,182,212,.24)}
+.acard:hover{box-shadow:0 22px 48px rgba(251,113,133,.28)!important}
+.tcard,.hcard{border:1px solid rgba(6,182,212,.08)}
+.sec.pop{background:linear-gradient(135deg,#06B6D4 0%,#0aa2c0 30%,#f15a86 76%,#FB7185 100%);position:relative;overflow:hidden}
+.sec.pop::before{content:'';position:absolute;top:-90px;right:-60px;width:330px;height:330px;background:radial-gradient(circle,rgba(251,191,36,.4),transparent 64%);pointer-events:none}
+.sec.pop::after{content:'';position:absolute;bottom:-110px;left:-70px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 66%);pointer-events:none}
+.sec.pop .stit{color:#fff}.sec.pop .stit em{-webkit-text-fill-color:#FFE15D;color:#FFE15D}
+.sec.pop .slbl{color:#FFE15D}.sec.pop .see-all{color:#fff;background:rgba(255,255,255,.18);padding:7px 15px;border-radius:30px}
+.nl{background:linear-gradient(120deg,#06B6D4 0%,#FB7185 60%,#FBBF24 128%)}
+.hero-h1 em{text-shadow:0 2px 24px rgba(251,191,36,.45)}
+</style>
+<style>
+/* ============================================================
+   TA PREMIUM — SURGICAL (proto3)
+   คงดีไซน์เดิม 100% · เพิ่มเฉพาะ 5 จุดตามที่ owner ระบุ
+   ไม่แตะ: หัวข้อ section, nav, ระยะห่าง, โครงหน้า, รูป hero
+   ============================================================ */
+
+/* ── 1) HERO HEADLINE — ใหญ่ขึ้นชัด + เงาวาว + เช็ดขึ้นทีละคำ ──
+   คง Fraunces / สี / line-height / letter-spacing เดิม · เพิ่มแค่ขนาด+glow */
+.hero-h1{
+  font-size:clamp(44px, 8.4vw, 76px)!important;    /* เดิม 36/7vw/62 → ใหญ่ขึ้นทุกช่วง */
+  text-shadow:0 2px 22px rgba(6,182,212,.20),      /* glow แบรนด์ (เงาวาว) */
+              0 2px 28px rgba(0,0,0,.32);          /* คงเงาดำเดิม (อ่านง่ายบนรูป) */
+}
+/* mask-reveal (JS แยกเป็น .word-mask>.word · ready class = .mrdy บน .hero-h1) */
+html.mjs .hero-h1 .word-mask{display:inline-block;overflow:hidden;
+  padding:.2em 0;margin:-.2em 0;vertical-align:top}   /* room กันวรรณยุกต์ไทยตัด */
+html.mjs .hero-h1 .word{display:inline-block;transform:translateY(125%);will-change:transform}
+html.mjs .hero-h1.mrdy .word{transform:translateY(0);
+  transition:transform .9s cubic-bezier(.16,1,.3,1)}
+html.mjs .hero-h1.mrdy .word-mask:nth-child(2) .word{transition-delay:.09s}
+
+/* ── 2) STAT — การ์ดกระจกลอยมีมิติ (ตัวเลขนับขึ้นด้วย JS) ── */
+.stat{
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(14px) saturate(165%);
+  -webkit-backdrop-filter:blur(14px) saturate(165%);
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.20),
+             inset 0 1px 0 rgba(255,255,255,.95)!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+}
+
+/* ── 3) SEARCH CARD — กระจกฝ้า เงาลึก ── */
+.search-card{
+  background:rgba(255,255,255,.90)!important;
+  backdrop-filter:blur(9px) saturate(150%);
+  -webkit-backdrop-filter:blur(9px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10),
+             0 26px 58px rgba(8,30,55,.32),
+             inset 0 1px 0 rgba(255,255,255,.9)!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+}
+
+/* ── 4) การ์ดเมือง/ภาค — ยกตัว+เรืองแสง+แสงกวาด · รูปอิ่มสีลึก ── */
+.dest,.rgcard,.tcard,.hcard,.grescard,.acard{
+  box-shadow:0 1px 2px rgba(15,40,70,.05),
+             0 10px 24px rgba(15,40,70,.10),
+             0 22px 46px rgba(6,182,212,.08);
+  transition:transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s;
+  position:relative;
+}
+.dest,.tcard,.hcard,.grescard,.acard{overflow:hidden}
+.dest:hover,.rgcard:hover,.tcard:hover,.hcard:hover,.grescard:hover,.acard:hover{
+  transform:translateY(-6px);
+  box-shadow:0 4px 12px rgba(15,40,70,.12),
+             0 30px 60px rgba(6,182,212,.30),
+             0 10px 24px rgba(6,182,212,.20)!important;
+}
+/* แสงกวาด (shine sweep) ตอน hover */
+.dest::before,.rgcard::before,.tcard::before,.hcard::before,.grescard::before,.acard::before{
+  content:"";position:absolute;top:-60%;left:-90%;width:55%;height:220%;
+  pointer-events:none;z-index:4;transform:skewX(-20deg);opacity:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+}
+.dest:hover::before,.rgcard:hover::before,.tcard:hover::before,
+.hcard:hover::before,.grescard:hover::before,.acard:hover::before{
+  animation:p3shine .8s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes p3shine{0%{left:-90%;opacity:0}12%{opacity:.85}60%{opacity:.85}100%{left:130%;opacity:0}}
+/* รูปการ์ดอิ่มสีลึกแบบซีเนมา (ไม่แตะรูป hero) */
+.dest img,.tcard-img img,.hc-img img,.grc-img img,.acard-img img{
+  filter:saturate(1.14) contrast(1.09) brightness(.98) sepia(.03) hue-rotate(-4deg);
+  transition:filter .4s ease, transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.dest:hover img,.tcard:hover .tcard-img img,.hcard:hover .hc-img img,
+.grescard:hover .grc-img img,.acard:hover .acard-img img{
+  filter:saturate(1.2) contrast(1.11) brightness(1.03) sepia(.02) hue-rotate(-3deg);
+}
+/* legibility scrim ใต้ชื่อเมืองบนรูป (ให้ตัวอักษรเด่น) */
+.dest::after{content:"";position:absolute;left:0;right:0;bottom:0;height:60%;
+  pointer-events:none;z-index:1;
+  background:linear-gradient(transparent, rgba(15,23,42,.5));}
+.dest-ov{z-index:2}.dest-info,.dest-name{z-index:3}
+
+/* ── 5) ปุ่ม — เงาวาวแบบแก้ว + แสงวิ่งตอนแตะ ── */
+.sc-btn,.nav-cta,.mm-cta{position:relative;overflow:hidden;isolation:isolate}
+.sc-btn{box-shadow:0 8px 20px rgba(6,182,212,.35),
+        inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.12)!important}
+.nav-cta{box-shadow:0 8px 20px rgba(251,113,133,.45),
+        inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.12)!important}
+/* gloss ด้านบน (สะท้อนแสง) */
+.sc-btn::before,.nav-cta::before,.mm-cta::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:50%;border-radius:inherit;
+  pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(255,255,255,0));}
+.sc-btn>*,.nav-cta>*,.mm-cta>*{position:relative;z-index:1}
+/* แสงวิ่งตอน hover */
+.sc-btn::after,.nav-cta::after,.mm-cta::after{
+  content:"";position:absolute;top:-60%;left:-75%;width:50%;height:220%;
+  pointer-events:none;z-index:1;transform:skewX(-22deg);opacity:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);}
+.sc-btn:hover::after,.nav-cta:hover::after,.mm-cta:hover::after{
+  animation:p3btn .85s cubic-bezier(.25,.6,.3,1) 1;}
+@keyframes p3btn{0%{left:-75%;opacity:0}10%{opacity:.9}100%{left:130%;opacity:0}}
+
+/* ── accessibility: ปิด motion ทั้งหมดเมื่อผู้ใช้ตั้ง reduced-motion ── */
+@media(prefers-reduced-motion:reduce){
+  html.mjs .hero-h1 .word{transform:none!important;transition:none!important}
+  .dest::before,.rgcard::before,.tcard::before,.hcard::before,.grescard::before,
+  .acard::before,.sc-btn::after,.nav-cta::after,.mm-cta::after{display:none!important}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="/" class="logo">Thailand<em>Addict</em></a>
+  <div class="nav-mid">
+    <div class="has-drop"><a href="country-thailand.html">จุดหมาย</a>
+      <div class="drop"><span class="h">✨ ยอดนิยม</span>
+        <a href="tourist-cities.html">🔥 เมืองท่องเที่ยว</a>
+        <span class="h">🇹🇭 6 ภาค</span>
+        <a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-isan.html">🌾 ภาคอีสาน</a><a href="region-central.html">🏙️ ภาคกลาง</a>
+        <a href="region-east.html">🏝️ ภาคตะวันออก</a><a href="region-west.html">🌅 ภาคตะวันตก</a><a href="region-south.html">🌊 ภาคใต้</a>
+        <a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)!important">→ ดูทั้ง 77 จังหวัด</a></div>
+    </div>
+    <div class="has-drop"><a href="city-chiang-mai.html#stay">โรงแรม</a>
+      <div class="drop"><span class="h">จัดอันดับยอดนิยม</span>
+        <a href="top10-hotels-chiang-mai.html">Top 10 เชียงใหม่</a><a href="top10-hotels-bangkok.html">Top 10 กรุงเทพ</a>
+        <a href="top10-hotels-phuket.html">Top 10 ภูเก็ต</a><a href="top10-hotels-krabi.html">Top 10 กระบี่</a>
+        <a href="top10-hotels-chonburi.html">Top 10 พัทยา</a>
+        <a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)!important">→ โรงแรมทุกจังหวัด</a></div>
+    </div>
+    <div class="has-drop"><a href="city-chiang-mai.html#see">ที่เที่ยว</a>
+      <div class="drop"><span class="h">ที่เที่ยวยอดนิยม</span>
+        <a href="city-chiang-mai.html#see">เชียงใหม่</a><a href="city-bangkok.html#see">กรุงเทพ</a>
+        <a href="city-phuket.html#see">ภูเก็ต</a><a href="city-krabi.html#see">กระบี่</a>
+        <span class="h">คู่มือเที่ยว</span>
+        <a href="best-day-trips-from-bangkok.html">เที่ยวรอบกรุงเทพ 1 วัน</a><a href="best-islands-snorkeling-thailand.html">เกาะดำน้ำน้ำใส</a>
+        <a href="best-temple-destinations-thailand.html">ไหว้พระ–วัดสวย</a>
+        <a href="tourist-cities.html" style="font-weight:700;color:var(--bl-dk)!important">→ เมืองท่องเที่ยวทั้งหมด</a></div>
+    </div>
+    <div class="has-drop"><a href="city-chiang-mai.html#eat">ของกิน</a>
+      <div class="drop"><span class="h">ของกินเด็ด</span>
+        <a href="city-chiang-mai.html#eat">เชียงใหม่</a><a href="city-bangkok.html#eat">กรุงเทพ</a>
+        <a href="city-phuket.html#eat">ภูเก็ต</a><a href="city-krabi.html#eat">กระบี่</a>
+        <span class="h">คู่มือกิน</span>
+        <a href="best-cafe-hopping-thailand.html">คาเฟ่ฮอปปิ้ง</a><a href="cooking-classes-bangkok.html">เรียนทำอาหารไทย</a></div>
+    </div>
+    <a href="/trip" style="font-weight:700">วางแผนทริป AI</a>
+    <a href="plan-your-trip.html">เตรียมตัว</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+  </div>
+  <div class="nav-r">
+    <div class="lang-wrap"><button class="lb active">TH</button><button class="lb" onclick="location.href='/en/'">EN</button></div>
+    <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="ค้นหาจังหวัด โรงแรม..." autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
+    <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาที่พัก</button>
+    <button class="hb" id="hb">☰</button>
+  </div>
+</nav>
+<div class="mm" id="mm">
+  <div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
+  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)!important">🇹🇭 จุดหมาย · 77 จังหวัด</a>
+  <a href="tourist-cities.html" style="font-weight:700;color:var(--bl)!important">🔥 เมืองท่องเที่ยว</a>
+  <a href="region-north.html">⛰️ ภาคเหนือ</a><a href="region-central.html">🏙️ ภาคกลาง</a><a href="region-south.html">🌊 ภาคใต้</a>
+  <a href="city-chiang-mai.html#stay" style="font-weight:700;color:var(--bl)!important">🏨 โรงแรม · จัดอันดับ</a>
+  <a href="city-chiang-mai.html#see" style="font-weight:700;color:var(--bl)!important">🏖️ ที่เที่ยว</a>
+  <a href="city-chiang-mai.html#eat" style="font-weight:700;color:var(--bl)!important">🍜 ของกิน</a>
+  <a href="/trip" style="font-weight:700;color:var(--bl)!important">🤖 วางแผนทริป AI</a>
+  <a href="plan-your-trip.html">🧭 เตรียมตัวเที่ยว</a>
+  <a href="about.html">เกี่ยวกับเรา</a><a href="contact.html">ติดต่อ</a>
+  <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาโรงแรม</button>
+</div>
+
+<div class="hero">
+  <div class="hero-bg"></div><div class="hero-ov"></div>
+  <div class="hero-c">
+    <div class="h-eye"><span class="h-dot"></span>ThailandAddict · ชีวิตติดเที่ยว · รีวิวจริงทุกหน้า</div>
+    <h1 class="hero-h1">ชีวิต<em>ติดเที่ยว</em></h1>
+    <p class="hero-sub">ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย — ข้อมูลจริง ราคาจริง เทียบ 3 เว็บก่อนจอง ไม่มีโฆษณาแฝง</p>
+    <div class="search-card">
+      <div class="sc-field"><span>🔍</span><input class="sc-inp" id="si" type="text" placeholder="ค้นหาจังหวัด โรงแรม หรือที่เที่ยว..." autocomplete="off"><div class="sc-drop" id="sidrop"></div></div>
+      <button class="sc-btn" onclick="goSearch()">ค้นหา</button>
+    </div>
+    <div class="hero-tags">
+      <a class="htag" href="city-krabi.html#see">🏖️ ชายหาด</a><a class="htag" href="city-trat.html#see">🏝️ เกาะ</a>
+      <a class="htag" href="city-bangkok.html#see">🏙️ เมือง</a><a class="htag" href="city-chiang-mai.html#eat">🍜 อาหาร</a>
+      <a class="htag" href="city-chiang-mai.html#see">⛰️ ภูเขา</a><a class="htag" href="city-ayutthaya.html#see">🏛️ มรดกโลก</a>
+      <a class="htag" href="city-chiang-rai.html#eat">☕ คาเฟ่</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">จังหวัดพร้อมแล้ว</div></div>
+  <div class="stat"><div class="n" data-stat="reviews">2,200+</div><div class="l">รีวิวโรงแรม</div></div>
+  <div class="stat"><div class="n" data-stat="articles">4,000+</div><div class="l">บทความเที่ยว</div></div>
+  <div class="stat"><div class="n">100%</div><div class="l">รีวิวจริง</div></div>
+</div>
+
+<style>
+.gq{text-align:center;font-family:'Fraunces',serif;font-size:21px;color:var(--ink);margin-bottom:4px}
+.gbtns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.gbtn{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:600;padding:12px 20px;border-radius:16px;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:9px;transition:.15s}
+.gbtn:hover{border-color:var(--bl);transform:translateY(-2px);box-shadow:0 8px 20px rgba(6,182,212,.16)}
+.gbtn .pico{font-size:20px}
+.gnav{text-align:center;margin-top:18px}
+.gback{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--bl);background:none;border:none;cursor:pointer}
+.gres{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:16px;margin-top:18px}
+.grescard{background:#fff;border:1px solid var(--bdr);border-radius:16px;overflow:hidden}
+.grescard a{text-decoration:none}
+.grc-img{position:relative;height:118px;background:linear-gradient(135deg,#dbeafe,#fde2e7)}
+.grc-img img{width:100%;height:100%;object-fit:cover}
+.grc-name{position:absolute;left:11px;bottom:8px;color:#fff;font-family:'Fraunces',serif;font-size:18px;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.grc-b{padding:11px 13px 13px}
+.grc-why{font-size:12.5px;color:var(--sub)}
+.grc-links{margin-top:8px;font-size:12.5px;font-weight:700;display:flex;gap:7px;align-items:center}
+.grc-links a{color:var(--bl)}.grc-links span{color:var(--mut)}
+</style>
+<section class="sec rv" id="guide">
+  <div class="inner">
+    <div class="s-head center"><div><div class="slbl">ยังไม่รู้จะไปไหน?</div><div class="stit">ตอบ 2 ข้อ <em>เดี๋ยวเราจัดให้</em></div><div class="ssub">บอกว่าไปกับใคร + ชอบแบบไหน แล้วเราแนะนำจังหวัดที่ใช่ทันที</div></div></div>
+    <div id="guideBox"></div>
+  </div>
+</section>
+
+<section class="partners">
+  <span class="pt-lbl">พาร์ทเนอร์อย่างเป็นทางการ</span>
+  <span class="partner"><span class="pdot" style="background:#ff5a1f"></span>Agoda</span><span class="partner"><span class="pdot" style="background:#003580"></span>Booking.com</span><span class="partner"><span class="pdot" style="background:#2577e3"></span>Trip.com</span>
+</section>
+
+<style>
+.pgrp{margin-top:14px}
+.pgl{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--mut);margin-bottom:9px}
+.pchipr{display:flex;flex-wrap:wrap;gap:8px}
+.pchipr.nowrap{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.pchipr.nowrap::-webkit-scrollbar{display:none}
+.pc1,.pc2{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:600;border-radius:30px;padding:8px 14px 8px 11px;cursor:pointer;border:1.5px solid var(--bdr);background:#fff;color:var(--ink);transition:.15s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;flex:0 0 auto}
+.pico{font-size:15px;line-height:1}
+.pc1:hover,.pc2:hover{border-color:var(--bl);color:var(--bl-dk)}
+.pc1.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));color:#fff;border-color:transparent}
+.pc2.on{background:var(--or-lt);color:var(--or-dk);border-color:var(--or)}
+.pmore-row{margin-top:13px;display:flex;align-items:center;gap:18px}
+.pmore,.pclr{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:600;background:none;border:none;cursor:pointer;padding:2px 0}
+.pmore{color:var(--bl)}.pmore:hover{color:var(--bl-dk)}
+.pclr{color:var(--mut)}.pclr:hover{color:var(--or-dk)}
+.rtabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 2px}
+.rtab{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:700;padding:9px 18px;border-radius:30px;border:1.5px solid var(--bdr);background:#fff;color:var(--sub);cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+.rtab.on{background:linear-gradient(135deg,var(--bl),var(--bl-dk));color:#fff;border-color:transparent}
+.radj{margin-left:auto;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:600;color:var(--bl);background:none;border:none;cursor:pointer}
+#adjwrap{background:#f6fdff;border:1px solid var(--bdr);border-radius:14px;padding:14px 16px;margin-top:12px}
+</style>
+<section class="sec pop rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">รีวิวคัดแล้ว · จัดอันดับจริง</div><div class="stit">10 อันดับ<em>ตามจังหวัด</em></div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
+    <div class="rtabs">
+      <button class="rtab on" data-d="stay" onclick="setRD('stay')">🏨 โรงแรม</button>
+      <button class="rtab" data-d="see" onclick="setRD('see')">🏞️ ที่เที่ยว</button>
+      <button class="rtab" data-d="eat" onclick="setRD('eat')">🍜 ที่กิน</button>
+      <button class="radj" id="radj" type="button">⚙︎ ปรับให้ตรงใจ ▾</button>
+    </div>
+    <div id="adjwrap" style="display:none">
+      <div class="pgl">ไปกับใคร — เลือก 1</div>
+      <div class="pchipr nowrap" id="tier1"></div>
+      <div class="pgl" style="margin-top:12px">สไตล์ที่สนใจ — เลือกได้หลายอัน <button class="pclr" id="pclr" type="button" style="display:none">· ล้างตัวเลือก ✕</button></div>
+      <div class="pchipr" id="tier2"></div>
+    </div>
+    <div class="hscroll" id="onerail"></div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">โรงแรมแนะนำ</div><div class="stit">ที่พักที่<em>รีวิวมาแล้ว</em></div><div class="ssub">คัดจากเสียงรีวิวจริง เทียบราคา Agoda · Booking · Trip.com</div></div></div>
+    <div class="hgrid" id="hotelgrid"></div>
+    <div class="aff-banner">
+      <div><div class="ab-lbl">◆ Affiliate Partner</div><div class="ab-h">จองผ่าน Agoda · Booking · Trip ประหยัดกว่า</div><div class="ab-s">ราคาที่ดีที่สุด · ยกเลิกฟรี · เทียบ 3 เว็บก่อนจอง ไม่มีค่าใช้จ่ายเพิ่ม</div></div>
+      <div class="ab-btns"><a class="ab-btn1" href="https://www.agoda.com/?cid=1965862" target="_blank" rel="nofollow noopener">🔴 จอง Agoda ตอนนี้</a><a class="ab-btn2" href="https://www.booking.com/" target="_blank" rel="nofollow noopener">🔵 Booking.com</a></div>
+    </div>
+    <div class="see-all-btn"><a href="country-thailand.html">ดูโรงแรมทุกจังหวัด →</a></div>
+  </div>
+</section>
+
+<section class="sec tint rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">บทความแนะนำ</div><div class="stit">อ่านก่อน<em>เที่ยว</em></div></div></div>
+    <div class="art-grid" id="artgrid"></div>
+  </div>
+</section>
+
+<style>
+.rggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:18px}
+.rgcard{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:16px 18px}
+.rgname{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-size:19px;color:var(--ink);display:flex;align-items:center;gap:8px}
+.rgprov{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 13px}
+.rgprov a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;font-weight:600;color:var(--ink);background:var(--bg);border:1px solid var(--bdr);border-radius:20px;padding:5px 12px}
+.rgprov a:hover{border-color:var(--bl);color:var(--bl-dk)}
+.rglink{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:700;color:var(--bl)}
+</style>
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">สำรวจตามภูมิภาค</div><div class="stit">เที่ยว<em>ตามภาค</em></div><div class="ssub">เลือกภาคที่อยากไป — แต่ละภาคมีจังหวัดเด่นแนะนำ</div></div><a class="see-all" href="country-thailand.html">ทุกจังหวัด →</a></div>
+    <div class="rggrid">
+      <div class="rgcard"><div class="rgname">⛰️ ภาคเหนือ</div><div class="rgprov"><a href="city-chiang-mai.html">เชียงใหม่</a><a href="city-chiang-rai.html">เชียงราย</a><a href="city-nan.html">น่าน</a><a href="city-mae-hong-son.html">แม่ฮ่องสอน</a><a href="city-sukhothai.html">สุโขทัย</a></div><a class="rglink" href="region-north.html">ดูทั้งภาคเหนือ →</a></div>
+      <div class="rgcard"><div class="rgname">🌾 อีสาน</div><div class="rgprov"><a href="city-nakhon-ratchasima.html">นครราชสีมา</a><a href="city-ubon-ratchathani.html">อุบลราชธานี</a><a href="city-khon-kaen.html">ขอนแก่น</a><a href="city-udon-thani.html">อุดรธานี</a><a href="city-buriram.html">บุรีรัมย์</a></div><a class="rglink" href="region-isan.html">ดูทั้งอีสาน →</a></div>
+      <div class="rgcard"><div class="rgname">🏙️ ภาคกลาง</div><div class="rgprov"><a href="city-bangkok.html">กรุงเทพ</a><a href="city-ayutthaya.html">อยุธยา</a><a href="city-lopburi.html">ลพบุรี</a><a href="city-nakhon-pathom.html">นครปฐม</a><a href="city-suphan-buri.html">สุพรรณบุรี</a></div><a class="rglink" href="region-central.html">ดูทั้งภาคกลาง →</a></div>
+      <div class="rgcard"><div class="rgname">🌊 ภาคตะวันออก</div><div class="rgprov"><a href="city-chonburi.html">ชลบุรี · พัทยา</a><a href="city-rayong.html">ระยอง</a><a href="city-chanthaburi.html">จันทบุรี</a><a href="city-trat.html">ตราด · เกาะช้าง</a></div><a class="rglink" href="region-east.html">ดูทั้งภาคตะวันออก →</a></div>
+      <div class="rgcard"><div class="rgname">🌅 ภาคตะวันตก</div><div class="rgprov"><a href="city-kanchanaburi.html">กาญจนบุรี</a><a href="city-phetchaburi.html">เพชรบุรี</a><a href="city-prachuap-khiri-khan.html">ประจวบฯ · หัวหิน</a><a href="city-ratchaburi.html">ราชบุรี</a></div><a class="rglink" href="region-west.html">ดูทั้งภาคตะวันตก →</a></div>
+      <div class="rgcard"><div class="rgname">🏝️ ภาคใต้</div><div class="rgprov"><a href="city-phuket.html">ภูเก็ต</a><a href="city-krabi.html">กระบี่</a><a href="city-surat-thani.html">สุราษฎร์ธานี</a><a href="city-songkhla.html">สงขลา · หาดใหญ่</a><a href="city-phang-nga.html">พังงา</a></div><a class="rglink" href="region-south.html">ดูทั้งภาคใต้ →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">ไอคอนิกของไทย</div><div class="stit">เมือง<em>ท่องเที่ยว</em>ยอดนิยม</div><div class="ssub">เกาะ · ภูเขา · เมืองพักผ่อน ที่คนไปกันมากที่สุด</div></div><a class="see-all" href="tourist-cities.html">ดูทั้งหมด →</a></div>
+    <div class="hscroll">
+      <a class="dest" href="city-pai.html"><img src="/images/heroes/pai.jpg" alt="ปาย" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">ปาย</div><div class="dest-cnt">แม่ฮ่องสอน · เมืองในหุบเขา</div></div></a>
+      <a class="dest" href="city-huahin.html"><img src="/images/heroes/huahin.jpg" alt="หัวหิน" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">หัวหิน</div><div class="dest-cnt">ประจวบฯ · ทะเลใกล้กรุง</div></div></a>
+      <a class="dest" href="city-khao-yai.html"><img src="/images/heroes/khao-yai.jpg" alt="เขาใหญ่" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">เขาใหญ่</div><div class="dest-cnt">นครราชสีมา · ภูเขา-ไร่องุ่น</div></div></a>
+      <a class="dest" href="city-koh-chang.html"><img src="/images/heroes/koh-chang.jpg" alt="เกาะช้าง" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">เกาะช้าง</div><div class="dest-cnt">ตราด · เกาะใหญ่ฝั่งตะวันออก</div></div></a>
+      <a class="dest" href="city-koh-lipe.html"><img src="/images/heroes/koh-lipe.jpg" alt="เกาะหลีเป๊ะ" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">เกาะหลีเป๊ะ</div><div class="dest-cnt">สตูล · น้ำใสมัลดีฟส์เมืองไทย</div></div></a>
+      <a class="dest" href="city-koh-phangan.html"><img src="/images/heroes/koh-phangan.jpg" alt="เกาะพะงัน" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">เกาะพะงัน</div><div class="dest-cnt">สุราษฎร์ธานี · ฟูลมูนปาร์ตี้</div></div></a>
+      <a class="dest" href="city-koh-kood.html"><img src="/images/heroes/koh-kood.jpg" alt="เกาะกูด" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">เกาะกูด</div><div class="dest-cnt">ตราด · เกาะเงียบน้ำใส</div></div></a>
+      <a class="dest" href="city-hat-yai.html"><img src="/images/heroes/hat-yai.jpg" alt="หาดใหญ่" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-name">หาดใหญ่</div><div class="dest-cnt">สงขลา · เมืองกิน-ช้อป</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">ทุกจุดหมายบนแผนที่</div><div class="stit">จังหวัดยอดนิยม<em>ที่พร้อมแล้ว</em></div><div class="ssub">คลิกหมุดเพื่อเปิดคู่มือเที่ยวจังหวัดนั้น</div></div></div>
+    <div class="map-box"><div id="map"></div></div>
+    <div class="map-legend"><span class="mleg"><i style="background:#06B6D4"></i>ภาคเหนือ</span><span class="mleg"><i style="background:#FBBF24"></i>อีสาน</span><span class="mleg"><i style="background:#FB7185"></i>ภาคกลาง</span><span class="mleg"><i style="background:#10B981"></i>ภาคตะวันออก</span><span class="mleg"><i style="background:#A78BFA"></i>ภาคตะวันตก</span><span class="mleg"><i style="background:#F97316"></i>ภาคใต้</span></div>
+  </div>
+</section>
+
+<section class="sec tint rv">
+  <div class="inner">
+    <div class="s-head center"><div class="slbl">ทำไมต้อง ThailandAddict</div><div class="stit">เที่ยวไทย <em>แบบรู้จริง</em></div></div>
+    <div class="why-grid">
+      <div class="why"><div class="why-ico">💬</div><div class="why-t">เสียงจากรีวิวจริง</div><div class="why-b">สรุปจากรีวิวผู้เข้าพักจริงหลายร้อยรายการ ไม่อวยเกินจริง</div></div>
+      <div class="why"><div class="why-ico">💸</div><div class="why-t">เทียบราคา 3 เว็บ</div><div class="why-b">Agoda · Booking · Trip.com ลิงก์จองตรง ไม่มีโฆษณาแฝง</div></div>
+      <div class="why"><div class="why-ico">✅</div><div class="why-t">verify เปิดจริง</div><div class="why-b">เช็กว่าโรงแรม/ร้านยังเปิด ไม่ปิดหรือเปลี่ยนชื่อ</div></div>
+      <div class="why"><div class="why-ico">⚖️</div><div class="why-t">บอกตรงดี-เสีย</div><div class="why-b">มีหัวข้อ "ไม่แนะนำถ้า..." ทุกรีวิว เลือกได้ตรงใจ</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="nl">
+  <div class="nl-c">
+    <div class="nl-h">รับดีลโรงแรมก่อนใคร 📭</div>
+    <div class="nl-sub">สมัครรับจดหมายรายสัปดาห์ — ที่พักเด็ด ของกินใหม่ และจังหวัดใหม่ที่เพิ่งลงเว็บ ก่อนใคร</div>
+    <form class="nl-form" onsubmit="this.querySelector('.nl-btn').textContent='ขอบคุณ! ✓';this.querySelector('.nl-input').value='';return false">
+      <input class="nl-input" type="email" placeholder="อีเมลของคุณ..." required>
+      <button class="nl-btn" type="submit">สมัครเลย</button>
+    </form>
+    <div class="nl-note">📩 ส่งทุกวันจันทร์ · ยกเลิกได้ตลอด · ไม่มี spam</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="ft-grid">
+    <div><div class="ft-logo">Thailand<em>Addict</em></div><div class="ft-tag">Explore Thailand Like a Local</div><p class="ft-desc">ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง</p></div>
+    <div class="ft-col"><h4>จุดหมาย</h4><a href="country-thailand.html">🇹🇭 เที่ยวไทย</a><a href="city-chiang-mai.html">เชียงใหม่</a><a href="city-bangkok.html">กรุงเทพ</a><a href="city-phuket.html">ภูเก็ต</a><a href="city-krabi.html">กระบี่</a></div>
+    <div class="ft-col"><h4>คอนเทนต์</h4><a href="city-chiang-mai.html#stay">โรงแรมเชียงใหม่</a><a href="city-bangkok.html#eat">ของกินกรุงเทพ</a><a href="country-thailand.html">คู่มือเที่ยวไทย</a><a href="plan-your-trip.html">เตรียมตัวเที่ยว</a></div>
+    <div class="ft-col"><h4>เกี่ยวกับ</h4><a href="about.html">เกี่ยวกับเรา</a><a href="editorial-policy.html">นโยบายบรรณาธิการ</a><a href="contact.html">ติดต่อ</a><a href="privacy.html">ความเป็นส่วนตัว</a></div>
+  </div>
+  <div class="ft-bottom"><span>© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง</span><span>Privacy · Editorial Policy</span></div>
+  <div class="ft-aff">⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ</div>
+</footer>
+
+<div class="mbar"><a class="m1" href="country-thailand.html">🇹🇭 เลือกจังหวัด</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">🏨 ค้นหาที่พัก</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script>
+/*GEN:PROV*/
+var PROV=[
+ {s:'bangkok',n:'กรุงเทพมหานคร',r:'ภาคกลาง',t:'เมืองหลวงที่มีทั้งวัดเก่า ตึกสูง และสตรีทฟู้ดในซอยเดียวกัน',lat:13.75,lng:100.5,c:'#FB7185'},
+ {s:'chiang-mai',n:'เชียงใหม่',r:'ภาคเหนือ',t:'เมืองเก่าในหุบเขา ที่อยู่ได้นานกว่าที่คิด',lat:18.79,lng:98.98,c:'#06B6D4'},
+ {s:'phuket',n:'ภูเก็ต',r:'ภาคใต้',t:'เกาะใหญ่ฝั่งอันดามัน หาดทรายขาว ย่านเมืองเก่าชิโน-โปรตุกีส และอาหารฮกเกี้ยน',lat:7.88,lng:98.39,c:'#F97316'},
+ {s:'krabi',n:'กระบี่',r:'ภาคใต้',t:'เมืองเขาหินปูนริมอันดามัน หาดทรายขาว เกาะใส ปีนผาเรลเลย์ และน้ำใสเขียวมรกต',lat:8.09,lng:98.91,c:'#F97316'},
+ {s:'chiang-rai',n:'เชียงราย',r:'ภาคเหนือ',t:'เมืองเหนือสุดที่มีทั้งวัดสวย ดอยสูง และไร่ชา',lat:19.91,lng:99.84,c:'#06B6D4'},
+ {s:'chonburi',n:'ชลบุรี',r:'ภาคตะวันออก',t:'เมืองชายทะเลตะวันออก ที่มีทั้งพัทยา เกาะ และของกินทะเลใกล้กรุงเทพ',lat:13.36,lng:100.98,c:'#10B981'},
+ {s:'surat-thani',n:'สุราษฎร์ธานี',r:'ภาคใต้',t:'เมืองร้อยเกาะริมอ่าวไทย ประตูสู่สมุย เขื่อนเชี่ยวหลาน และถิ่นไหว้พระธาตุไชยา',lat:9.14,lng:99.33,c:'#F97316'},
+ {s:'prachuap-khiri-khan',n:'ประจวบคีรีขันธ์',r:'ภาคตะวันตก',t:'จังหวัดแคบสุดของไทยที่มีทั้งหัวหิน อ่าวประจวบสามอ่าว เขาตะเกียบ และอุทยานเขาสามร้อยยอด',lat:12.57,lng:99.96,c:'#A78BFA'},
+ {s:'kanchanaburi',n:'กาญจนบุรี',r:'ภาคตะวันตก',t:'เมืองสะพานข้ามแม่น้ำแคว น้ำตกใหญ่ ป่าเขาตะวันตก และแพริมน้ำที่ไปนอนพักได้ทั้งปี',lat:14.02,lng:99.53,c:'#A78BFA'},
+ {s:'ayutthaya',n:'พระนครศรีอยุธยา',r:'ภาคกลาง',t:'ราชธานีเก่ามรดกโลก เดินดูวัดร้าง ปั่นจักรยานในเกาะเมือง',lat:14.35,lng:100.58,c:'#FB7185'},
+ {s:'rayong',n:'ระยอง',r:'ภาคตะวันออก',t:'เมืองชายทะเลตะวันออก ที่มีเกาะเสม็ด หาดเงียบ ๆ ผลไม้สวน และของทะเลแห้งขึ้นชื่อ',lat:12.68,lng:101.28,c:'#10B981'},
+ {s:'trat',n:'ตราด',r:'ภาคตะวันออก',t:'จังหวัดสุดท้ายฝั่งตะวันออก ที่มีเกาะช้าง เกาะกูด เกาะหมาก น้ำใส และทะเลเงียบ ๆ',lat:12.24,lng:102.51,c:'#10B981'},
+ {s:'phang-nga',n:'พังงา',r:'ภาคใต้',t:'เมืองอ่าวหินปูนริมอันดามัน ถิ่นเขาตะปู เกาะสิมิลัน และเขาหลัก',lat:8.45,lng:98.53,c:'#F97316'},
+ {s:'nan',n:'น่าน',r:'ภาคเหนือ',t:'เมืองเก่าในหุบเขาที่มีวัดสวย กาแฟดี และทางขึ้นดอยให้ไปดูทะเลหมอก',lat:18.78,lng:100.77,c:'#06B6D4'},
+ {s:'mae-hong-son',n:'แม่ฮ่องสอน',r:'ภาคเหนือ',t:'เมืองสามหมอก ปลายทางสุดทางโค้ง',lat:19.3,lng:97.97,c:'#06B6D4'},
+ {s:'sukhothai',n:'สุโขทัย',r:'ภาคเหนือ',t:'เมืองมรดกโลก เดินดูเจดีย์เก่ากลางทุ่ง',lat:17.01,lng:99.82,c:'#06B6D4'},
+ {s:'nakhon-ratchasima',n:'นครราชสีมา',r:'อีสาน',t:'ประตูสู่อีสาน เมืองย่าโม ที่มีทั้งเขาใหญ่ ปราสาทหิน และไร่องุ่น',lat:14.97,lng:102.1,c:'#FBBF24'},
+ {s:'phetchabun',n:'เพชรบูรณ์',r:'ภาคเหนือ',t:'เขาค้อทะเลหมอก ภูทับเบิกหนาว ๆ กับมะขามหวานคู่เมือง',lat:16.42,lng:101.16,c:'#06B6D4'},
+ {s:'lamphun',n:'ลำพูน',r:'ภาคเหนือ',t:'เมืองเล็กเงียบ ๆ ที่เก่าแก่ที่สุดในภาคเหนือ',lat:18.58,lng:99.01,c:'#06B6D4'},
+ {s:'lampang',n:'ลำปาง',r:'ภาคเหนือ',t:'เมืองรถม้ากับวัดเก่า เดินช้า ๆ ได้ทั้งวัน',lat:18.29,lng:99.49,c:'#06B6D4'},
+ {s:'phayao',n:'พะเยา',r:'ภาคเหนือ',t:'เมืองเล็กริมกว๊านที่เดินช้า ๆ ดูพระอาทิตย์ตกได้ทั้งเย็น',lat:19.17,lng:99.9,c:'#06B6D4'},
+ {s:'phrae',n:'แพร่',r:'ภาคเหนือ',t:'เมืองไม้สักกับผ้าหม้อห้อม เดินเมืองเก่าแบบช้า ๆ',lat:18.14,lng:100.14,c:'#06B6D4'},
+ {s:'uttaradit',n:'อุตรดิตถ์',r:'ภาคเหนือ',t:'เมืองลางสาด เขื่อนสิริกิติ์ และเมืองลับแลในตำนาน',lat:17.62,lng:100.1,c:'#06B6D4'},
+ {s:'phitsanulok',n:'พิษณุโลก',r:'ภาคเหนือ',t:'เมืองพระพุทธชินราช ประตูสู่ภูเขาฝั่งตะวันออก',lat:16.82,lng:100.27,c:'#06B6D4'},
+ {s:'tak',n:'ตาก',r:'ภาคเหนือ',t:'เมืองชายแดนตะวันตก น้ำตกใหญ่กลางป่าลึก',lat:16.87,lng:99.13,c:'#06B6D4'},
+ {s:'kamphaeng-phet',n:'กำแพงเพชร',r:'ภาคเหนือ',t:'เมืองมรดกโลกเงียบ ๆ กับกล้วยไข่ขึ้นชื่อ',lat:16.48,lng:99.52,c:'#06B6D4'},
+ {s:'phichit',n:'พิจิตร',r:'ภาคเหนือ',t:'เมืองชาลวัน บึงสีไฟ กับวิถีริมน้ำน่าน',lat:16.44,lng:100.35,c:'#06B6D4'},
+ {s:'nakhon-sawan',n:'นครสวรรค์',r:'ภาคเหนือ',t:'ปากน้ำโพ ต้นแม่น้ำเจ้าพระยา เมืองเทศกาลตรุษจีน',lat:15.7,lng:100.14,c:'#06B6D4'},
+ {s:'uthai-thani',n:'อุทัยธานี',r:'ภาคเหนือ',t:'เมืองเล็กริมแม่น้ำสะแกกรัง กับป่าห้วยขาแข้งมรดกโลก',lat:15.38,lng:100.02,c:'#06B6D4'},
+ {s:'buriram',n:'บุรีรัมย์',r:'อีสาน',t:'เมืองปราสาทหินบนภูเขาไฟ บ้านของฟุตบอลและสนามแข่งรถระดับประเทศ',lat:14.99,lng:103.1,c:'#FBBF24'},
+ {s:'surin',n:'สุรินทร์',r:'อีสาน',t:'เมืองช้าง ปราสาทขอม และผ้าไหมพื้นบ้านของอีสานใต้',lat:14.88,lng:103.49,c:'#FBBF24'},
+ {s:'sisaket',n:'ศรีสะเกษ',r:'อีสาน',t:'เมืองทุเรียนภูเขาไฟ ปราสาทขอม และเขาพระวิหารชายแดนใต้',lat:15.12,lng:104.32,c:'#FBBF24'},
+ {s:'ubon-ratchathani',n:'อุบลราชธานี',r:'อีสาน',t:'เมืองริมโขงสุดแดนตะวันออก ผาแต้ม สามพันโบก และเทียนพรรษา',lat:15.24,lng:104.85,c:'#FBBF24'},
+ {s:'yasothon',n:'ยโสธร',r:'อีสาน',t:'เมืองบั้งไฟโก้ พระธาตุก่องข้าวน้อย และย่านเมืองเก่าบ้านสิงห์ท่า',lat:15.79,lng:104.15,c:'#FBBF24'},
+ {s:'chaiyaphum',n:'ชัยภูมิ',r:'อีสาน',t:'ทุ่งดอกกระเจียวบานหน้าฝน เสาหินมอหินขาว กับผ้าไหมบ้านเขว้า',lat:15.81,lng:102.03,c:'#FBBF24'},
+ {s:'amnat-charoen',n:'อำนาจเจริญ',r:'อีสาน',t:'เมืองเล็กริมอีสานใต้ พระมงคลมิ่งเมืององค์ใหญ่ และวิถีนาเงียบ ๆ',lat:15.86,lng:104.63,c:'#FBBF24'},
+ {s:'nong-bua-lamphu',n:'หนองบัวลำภู',r:'อีสาน',t:'เมืองเล็กเชิงภูพาน ถ้ำกลองเพลหลวงปู่ขาว กับอ่างเก็บน้ำอุบลรัตน์',lat:17.2,lng:102.44,c:'#FBBF24'},
+ {s:'khon-kaen',n:'ขอนแก่น',r:'อีสาน',t:'เมืองศูนย์กลางอีสาน ไดโนเสาร์ บึงแก่นนคร และผ้าไหมมัดหมี่ชนบท',lat:16.44,lng:102.83,c:'#FBBF24'},
+ {s:'udon-thani',n:'อุดรธานี',r:'อีสาน',t:'เมืองใหญ่อีสานตอนบน บ้านเชียงมรดกโลก ทะเลบัวแดง และของกินเวียดนาม',lat:17.41,lng:102.79,c:'#FBBF24'},
+ {s:'loei',n:'เลย',r:'อีสาน',t:'เมืองภูเขาอากาศหนาว ทะเลหมอกภูกระดึง กับผีตาโขนด่านซ้าย',lat:17.49,lng:101.73,c:'#FBBF24'},
+ {s:'nong-khai',n:'หนองคาย',r:'อีสาน',t:'เมืองริมโขงสุดชายแดน สะพานข้ามไปลาว ศาลาแก้วกู่ และบั้งไฟพญานาค',lat:17.88,lng:102.74,c:'#FBBF24'},
+ {s:'maha-sarakham',n:'มหาสารคาม',r:'อีสาน',t:'เมืองการศึกษากลางอีสาน พระธาตุนาดูน กู่โบราณ และชีวิตนักศึกษาที่คึกคัก',lat:16.18,lng:103.3,c:'#FBBF24'},
+ {s:'roi-et',n:'ร้อยเอ็ด',r:'อีสาน',t:'เมืองบึงพลาญชัย พระมหาเจดีย์ชัยมงคล และทุ่งกุลาร้องไห้',lat:16.05,lng:103.65,c:'#FBBF24'},
+ {s:'kalasin',n:'กาฬสินธุ์',r:'อีสาน',t:'เมืองไดโนเสาร์ของอีสาน ผ้าไหมแพรวา เขื่อนลำปาว และแนวเทือกภูพาน',lat:16.43,lng:103.51,c:'#FBBF24'},
+ {s:'sakon-nakhon',n:'สกลนคร',r:'อีสาน',t:'เมืองพระธาตุเชิงชุม ผ้าครามย้อมมือ หนองหารกว้าง และเทือกเขาภูพาน',lat:17.16,lng:104.15,c:'#FBBF24'},
+ {s:'nakhon-phanom',n:'นครพนม',r:'อีสาน',t:'เมืองริมโขงวิวภูเขาลาว พระธาตุพนม สะพานเดินเล่นยามเย็น และชุมชนเวียดนามเก่า',lat:17.39,lng:104.78,c:'#FBBF24'},
+ {s:'mukdahan',n:'มุกดาหาร',r:'อีสาน',t:'เมืองริมโขงชายแดนข้ามไปสะหวันนะเขต ตลาดอินโดจีน หอแก้วมุกดาหาร และวิวภูผาเทิบ',lat:16.54,lng:104.72,c:'#FBBF24'},
+ {s:'bueng-kan',n:'บึงกาฬ',r:'อีสาน',t:'เมืองริมโขงน้องใหม่สุดอีสาน ภูทอกบันไดไม้ หินสามวาฬ และสวนยางสุดลูกหูลูกตา',lat:18.36,lng:103.65,c:'#FBBF24'},
+ {s:'nonthaburi',n:'นนทบุรี',r:'ภาคกลาง',t:'เมืองริมเจ้าพระยาที่ติดกรุงเทพแบบไร้รอยต่อ',lat:13.86,lng:100.51,c:'#FB7185'},
+ {s:'pathum-thani',n:'ปทุมธานี',r:'ภาคกลาง',t:'เมืองรังสิตปลายทางรถไฟฟ้า ทุ่งคลอง สวนสนุก และพิพิธภัณฑ์วิทยาศาสตร์',lat:14.02,lng:100.53,c:'#FB7185'},
+ {s:'samut-prakan',n:'สมุทรปราการ',r:'ภาคกลาง',t:'เมืองปากน้ำริมอ่าวไทย ที่มีทั้งป้อมเก่า เมืองโบราณ และตลาดปลาริมทะเล',lat:13.6,lng:100.6,c:'#FB7185'},
+ {s:'samut-sakhon',n:'สมุทรสาคร',r:'ภาคกลาง',t:'เมืองมหาชัยริมอ่าวไทย ที่มีทั้งตลาดปลาใหญ่ นาเกลือ และอาหารทะเลสด',lat:13.55,lng:100.27,c:'#FB7185'},
+ {s:'samut-songkhram',n:'สมุทรสงคราม',r:'ภาคกลาง',t:'เมืองแม่กลองเล็ก ๆ ริมน้ำสามน้ำ ที่มีตลาดร่มหุบ ตลาดน้ำอัมพวา และสวนมะพร้าวเต็มไปหมด',lat:13.41,lng:100,c:'#FB7185'},
+ {s:'nakhon-pathom',n:'นครปฐม',r:'ภาคกลาง',t:'เมืององค์พระปฐมเจดีย์ ติดกรุงเทพ มีตลาดเก่า ตลาดน้ำ และของกินขึ้นชื่อเพียบ',lat:13.82,lng:100.06,c:'#FB7185'},
+ {s:'ang-thong',n:'อ่างทอง',r:'ภาคกลาง',t:'เมืองพระใหญ่กลางที่ราบลุ่ม วัดเก่า หมู่บ้านงานฝีมือ และวิถีริมแม่น้ำเจ้าพระยา',lat:14.59,lng:100.45,c:'#FB7185'},
+ {s:'lopburi',n:'ลพบุรี',r:'ภาคกลาง',t:'เมืองลิงกับวังนารายณ์ ทุ่งทานตะวันบานหน้าหนาว',lat:14.8,lng:100.65,c:'#FB7185'},
+ {s:'sing-buri',n:'สิงห์บุรี',r:'ภาคกลาง',t:'เมืองวีรชนค่ายบางระจัน ปลาช่อนแม่ลา และวัดเก่าริมแม่น้ำเจ้าพระยา',lat:14.89,lng:100.4,c:'#FB7185'},
+ {s:'chai-nat',n:'ชัยนาท',r:'ภาคกลาง',t:'เมืองริมเจ้าพระยากับสวนนก เขื่อนใหญ่ และเมืองเก่าสรรคบุรี',lat:15.19,lng:100.13,c:'#FB7185'},
+ {s:'saraburi',n:'สระบุรี',r:'ภาคกลาง',t:'เมืองรอยพระพุทธบาท นมมวกเหล็ก และน้ำตกเชิงเขาใหญ่',lat:14.53,lng:100.91,c:'#FB7185'},
+ {s:'suphan-buri',n:'สุพรรณบุรี',r:'ภาคกลาง',t:'เมืองเก่าริมแม่น้ำท่าจีน ถิ่นเพลงลูกทุ่ง ตลาดร้อยปี และเมืองที่จัดของเที่ยวไว้ครบในที่เดียว',lat:14.47,lng:100.12,c:'#FB7185'},
+ {s:'nakhon-nayok',n:'นครนายก',r:'ภาคกลาง',t:'เมืองน้ำตกเชิงเขาใหญ่ ใกล้กรุงเทพ ล่องแก่ง กางเต็นท์ และผลไม้พื้นเมือง',lat:14.21,lng:101.21,c:'#FB7185'},
+ {s:'chanthaburi',n:'จันทบุรี',r:'ภาคตะวันออก',t:'เมืองผลไม้และพลอยริมตะวันออก ที่มีชุมชนเก่าริมน้ำ ภูเขา และทะเล',lat:12.61,lng:102.1,c:'#10B981'},
+ {s:'chachoengsao',n:'ฉะเชิงเทรา',r:'ภาคตะวันออก',t:'เมืองหลวงพ่อโสธรริมแม่น้ำบางปะกง ใกล้กรุงเทพ มีตลาดเก่า วัดดัง และสวนมะม่วง',lat:13.69,lng:101.07,c:'#10B981'},
+ {s:'prachinburi',n:'ปราจีนบุรี',r:'ภาคตะวันออก',t:'เมืองสมุนไพรอภัยภูเบศร เชิงเขาใหญ่ฝั่งตะวันออก มีโบราณสถานเก่าแก่ ล่องแก่งหินเพิง และกระท้อนหวาน',lat:14.05,lng:101.37,c:'#10B981'},
+ {s:'sa-kaeo',n:'สระแก้ว',r:'ภาคตะวันออก',t:'เมืองชายแดนตะวันออกติดกัมพูชา มีตลาดโรงเกลือ ปราสาทขอม ป่าเขา และน้ำตก',lat:13.81,lng:102.07,c:'#10B981'},
+ {s:'ratchaburi',n:'ราชบุรี',r:'ภาคตะวันตก',t:'เมืองโอ่งมังกรริมแม่น้ำแม่กลอง มีตลาดน้ำดำเนินสะดวก ถ้ำเขางู และเทือกเขาตะนาวศรีฝั่งสวนผึ้ง',lat:13.54,lng:99.81,c:'#A78BFA'},
+ {s:'phetchaburi',n:'เพชรบุรี',r:'ภาคตะวันตก',t:'เมืองเก่าริมแม่น้ำเพชรที่มีพระนครคีรี วัดช่างฝีมือ ขนมหม้อแกง และชายทะเลชะอำ–แหลมผักเบี้ย',lat:13.11,lng:99.94,c:'#A78BFA'},
+ {s:'chumphon',n:'ชุมพร',r:'ภาคใต้',t:'ประตูสู่ภาคใต้ ที่มีหาดทรายรี เรือรบหลวงเสด็จเตี่ย หมู่เกาะดำน้ำ และกาแฟโรบัสต้า',lat:10.49,lng:99.18,c:'#F97316'},
+ {s:'ranong',n:'ระนอง',r:'ภาคใต้',t:'เมืองฝนแปดแดดสี่ริมทะเลอันดามัน ที่มีบ่อน้ำร้อน เกาะพะยาม และชายแดนพม่า',lat:9.96,lng:98.64,c:'#F97316'},
+ {s:'nakhon-si-thammarat',n:'นครศรีธรรมราช',r:'ภาคใต้',t:'เมืองพระธาตุพันปี ไอ้ไข่วัดเจดีย์ คาเฟ่หนังตะลุง และน้ำตกกับทะเลฝั่งอ่าวไทย',lat:8.43,lng:99.96,c:'#F97316'},
+ {s:'phatthalung',n:'พัทลุง',r:'ภาคใต้',t:'เมืองริมทะเลสาบสงขลา เขาอกทะลุ บัวแดงทะเลน้อย นาข้าวกับควาย และถิ่นหนังตะลุงมโนราห์',lat:7.62,lng:100.08,c:'#F97316'},
+ {s:'trang',n:'ตรัง',r:'ภาคใต้',t:'เมืองคนช่างกินฝั่งอันดามัน หมูย่างเช้า ติ่มซำร้อน ๆ ถ้ำมรกต และเกาะเงียบ ๆ ให้นอนยาว',lat:7.56,lng:99.61,c:'#F97316'},
+ {s:'satun',n:'สตูล',r:'ภาคใต้',t:'เมืองชายแดนใต้ริมอันดามัน อุทยานธรณีโลก หมู่เกาะตะรุเตา-หลีเป๊ะ และวิถีมุสลิมเงียบสงบ',lat:6.62,lng:100.07,c:'#F97316'},
+ {s:'songkhla',n:'สงขลา',r:'ภาคใต้',t:'เมืองสองทะเลกับเมืองเก่าหลากสี หาดสมิหลานางเงือก ย่านถนนนางงาม และเมืองค้าชายแดนหาดใหญ่',lat:7.2,lng:100.6,c:'#F97316'},
+ {s:'pattani',n:'ปัตตานี',r:'ภาคใต้',t:'เมืองท่าเก่าชายแดนใต้ กลิ่นอายมลายู มัสยิดเก่าแก่ ย่านเมืองเก่าตึกชิโน และอาหารถิ่นรสจัด',lat:6.87,lng:101.25,c:'#F97316'},
+ {s:'yala',n:'ยะลา',r:'ภาคใต้',t:'ใต้สุดแดนสยาม เมืองผังกลมที่จัดวางสวยที่สุด เบตงทะเลหมอกอัยเยอร์เวง อุโมงค์เก่า และของกินจีนฮกเกี้ยน',lat:6.54,lng:101.28,c:'#F97316'},
+ {s:'narathiwat',n:'นราธิวาส',r:'ภาคใต้',t:'จังหวัดใต้สุดริมอ่าวไทย เมืองชายแดนกลิ่นอายมลายู หาดทรายยาว ป่าพรุโต๊ะแดง และอาหารถิ่นรสจัด',lat:6.43,lng:101.82,c:'#F97316'}
+];
+/*GEN:PROV-END*/
+var TOPN=[['chiang-mai','เชียงใหม่'],['bangkok','กรุงเทพ'],['phuket','ภูเก็ต'],['krabi','กระบี่'],['chonburi','พัทยา · ชลบุรี'],['phang-nga','พังงา'],['prachuap-khiri-khan','หัวหิน · ประจวบฯ'],['surat-thani','สุราษฎร์ธานี'],['kanchanaburi','กาญจนบุรี'],['ayutthaya','อยุธยา'],['chiang-rai','เชียงราย'],['trat','ตราด']];
+var HOTELS=[
+ {h:'top10-hotels-chiang-mai',img:'/images/heroes/chiang-mai.jpg',n:'โรงแรมเชียงใหม่ Top 10',loc:'🇹🇭 เชียงใหม่',sc:'9.5',pr:'฿900'},
+ {h:'top10-hotels-bangkok',img:'/images/heroes/bangkok.jpg',n:'โรงแรมกรุงเทพ Top 10',loc:'🇹🇭 กรุงเทพ',sc:'9.4',pr:'฿1,200'},
+ {h:'top10-hotels-phuket',img:'/images/heroes/phuket.jpg',n:'โรงแรมภูเก็ต Top 10',loc:'🇹🇭 ภูเก็ต',sc:'9.3',pr:'฿1,500'},
+ {h:'top10-hotels-krabi',img:'/images/heroes/krabi.jpg',n:'โรงแรมกระบี่ Top 10',loc:'🇹🇭 กระบี่',sc:'9.3',pr:'฿1,100'},
+ {h:'top10-hotels-phang-nga',img:'/images/heroes/phang-nga.jpg',n:'โรงแรมพังงา Top 10',loc:'🇹🇭 พังงา',sc:'9.2',pr:'฿1,400'},
+ {h:'top10-hotels-chonburi',img:'/images/heroes/chonburi.jpg',n:'โรงแรมพัทยา Top 10',loc:'🇹🇭 ชลบุรี',sc:'9.1',pr:'฿900'}
+];
+var ARTS=[
+ {big:1,h:'wat-rong-khun-guide',img:'/images/cm/wat-rong-khun-guide.jpg',l:'เชียงราย · ที่เที่ยว',ti:'วัดร่องขุ่น — วัดขาวที่เป็นภาพจำของเชียงราย',bd:'Top Picks'},
+ {h:'top-khao-soi-chiang-mai',img:'/images/cm/top-khao-soi-chiang-mai.jpg',l:'เชียงใหม่ · ของกิน',ti:'จัดอันดับร้านข้าวซอยเชียงใหม่',bd:'Food'},
+ {h:'phi-phi-island-tour',img:'/images/cm/phi-phi-island-tour.jpg',l:'ภูเก็ต · ทัวร์เกาะ',ti:'ทัวร์เกาะพีพีจากภูเก็ต ครบทุกเรื่อง',bd:'Guide'},
+ {h:'bangkok-street-food-yaowarat',img:'/images/cm/bangkok-street-food-yaowarat.jpg',l:'กรุงเทพ · ของกิน',ti:'สตรีทฟู้ดเยาวราช ร้านเด็ดที่คนไปจริง',bd:'Food'}
+];
+function imgErr(e){e.onerror=null;e.style.opacity=0;}
+function aU(p){return (!p||/^https?:/.test(p))?p:'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev'+(p[0]==='/'?p:'/'+p);}
+// destinations
+var _ds=document.getElementById('destscroll');if(_ds)_ds.innerHTML=PROV.map(function(p){return '<a class="dest" href="city-'+p.s+'.html"><img src="/images/heroes/'+p.s+'.jpg" alt="'+p.n+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">📍</div><div class="dest-name">'+p.n+'</div><div class="dest-cnt">'+p.r+' · '+p.t+'</div></div></a>';}).join('');
+// top-n
+var _tn=document.getElementById('topnscroll');if(_tn)_tn.innerHTML=TOPN.map(function(t){return '<a class="tcard" href="top10-hotels-'+t[0]+'.html"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+t[0]+'.jpg" alt="โรงแรม'+t[1]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+t[1]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');
+// hotels
+document.getElementById('hotelgrid').innerHTML=HOTELS.map(function(h){return '<a class="hcard" href="'+h.h+'.html"><div class="hc-img"><span class="hc-score">'+h.sc+'</span><span class="hc-flag">'+h.loc+'</span><img src="'+h.img+'" alt="'+h.n+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="hc-body"><div class="hc-name">'+h.n+'</div><div class="hc-loc">รวมจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="hc-foot"><div class="hc-price"><span class="from">เริ่มประมาณ</span>'+h.pr+'</div><span class="hc-link">ดูอันดับ →</span></div></div></a>';}).join('');
+// articles
+document.getElementById('artgrid').innerHTML='<a class="acard big" href="'+ARTS[0].h+'.html"><div class="acard-img"><span class="acard-badge">'+ARTS[0].bd+'</span><img src="'+aU(ARTS[0].img)+'" alt="'+ARTS[0].ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+ARTS[0].l+'</div><div class="acard-title">'+ARTS[0].ti+'</div></div></a><div class="art-right">'+ARTS.slice(1).map(function(a){return '<a class="acard sm" href="'+a.h+'.html"><div class="acard-img"><img src="'+aU(a.img)+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="acard-body"><div class="acard-lbl">'+a.l+'</div><div class="acard-title">'+a.ti+'</div></div></a>';}).join('')+'</div>';
+// ---- ADDED: 2-tier persona selector + personalized rails ----
+var TIER1=[
+ {k:'solo',l:'คนเดียว',re:/คนเดียว|เดี่ยว|คาเฟ่|เดินเล่น|เมืองเก่า/},
+ {k:'couple',l:'คู่รัก/ฮันนีมูน',re:/โรแมน|พระอาทิตย์ตก|วิว|ทะเล|คาเฟ่|ริมน้ำ|ฮันนีมูน/},
+ {k:'family-kids',l:'ครอบครัวมีเด็ก',re:/เด็ก|ครอบครัว|สวนสนุก|สวนสัตว์|ฟาร์ม|เล่นน้ำ|อความ/},
+ {k:'family-senior',l:'ครอบครัวผู้สูงอายุ',re:/วัด|ทำบุญ|พระธาตุ|ไหว้|สวนสาธารณะ|ตลาด/},
+ {k:'friends',l:'กลุ่มเพื่อน',re:/กลางคืน|ถนนคนเดิน|ตลาด|คาเฟ่|กิจกรรม|ทะเล/},
+ {k:'budget',l:'ประหยัด',re:/ฟรี|ตลาด|วัด|สวนสาธารณะ|เดินเล่น|ถนนคนเดิน/},
+ {k:'workation',l:'ทำงาน',re:/คาเฟ่|กาแฟ|เมืองเก่า|เงียบ/},
+ {k:'luxury',l:'หรูหรา',re:/รีสอร์ต|สปา|วิว|ริมแม่น้ำ|ทะเล|วิลล่า/}
+];
+var TIER2=[
+ {k:'mu',l:'สายมู/ทำบุญ',re:/วัด|พระธาตุ|ศักดิ์สิทธิ์|ไหว้|หลวงพ่อ|เจ้าแม่|มู/},
+ {k:'cafe',l:'คาเฟ่/ถ่ายรูป',re:/คาเฟ่|กาแฟ|ถ่ายรูป|จุดชมวิว/},
+ {k:'nature',l:'ธรรมชาติ/ผจญภัย',re:/น้ำตก|ภูเขา|ดอย|ธรรมชาติ|อุทยาน|ถ้ำ|เขา|ป่า|ล่องแก่ง/},
+ {k:'culture',l:'วัฒนธรรม',re:/วัด|พิพิธภัณฑ์|เมืองเก่า|ประวัติศาสตร์|โบราณ|ปราสาท|มรดกโลก/},
+ {k:'wellness',l:'เวลเนส/สปา',re:/สปา|น้ำพุร้อน|บ่อน้ำร้อน|ออนเซ็น|เวลเนส/},
+ {k:'foodie',l:'สายกิน',re:/ตลาด|ของกิน|สตรีท|ร้าน|กาแฟ/},
+ {k:'sea',l:'ทะเล/เกาะ',re:/หาด|เกาะ|อ่าว|ดำน้ำ|ชายหาด|ทะเล(?!หมอก|บัว|สาบ|น้อย)/},
+ {k:'festival',l:'เทศกาล/คอนเสิร์ต/วิ่ง',re:/เทศกาล|งาน|ประเพณี|วิ่ง|คอนเสิร์ต/},
+ {k:'halal',l:'ฮาลาล/มุสลิม-friendly',re:/มัสยิด|มุสลิม|ฮาลาล/},
+ {k:'lgbtq',l:'LGBTQ+-friendly',re:/ผับ|บาร์|กลางคืน|คาเฟ่/},
+ {k:'eco',l:'สายเขียว/รักษ์โลก',re:/อุทยาน|ธรรมชาติ|ชุมชน|เกษตร|ป่า/},
+ {k:'medical',l:'การแพทย์/พักฟื้น',re:/สปา|น้ำพุร้อน|เวลเนส|พักผ่อน/},
+ {k:'shopping',l:'ช้อปปิ้ง',re:/ห้าง|เซ็นทรัล|เอาท์เล็ต|มอลล์|ไนท์บาซาร์|ตลาดนัด|ถนนคนเดิน|ช้อป|พลาซ่า|ตลาด/},
+ {k:'pet',l:'พาสัตว์เลี้ยง',re:/สัตว์เลี้ยง|หมา|แมว|pet|ฟาร์ม|สวนสาธารณะ/}
+];
+function taHist(){try{return JSON.parse(localStorage.getItem('ta_seen')||'[]')}catch(e){return[]}}
+function taLog(prov,dim){var h=taHist();h.unshift({province:prov,dim:dim,ts:Date.now()});localStorage.setItem('ta_seen',JSON.stringify(h.slice(0,40)));}
+var P1=localStorage.getItem('ta_persona')||'';
+var P2=(function(){try{return JSON.parse(localStorage.getItem('ta_vibes')||'[]')}catch(e){return[]}})();
+var PNAME={};PROV.forEach(function(p){PNAME[p.s]=p.n;});
+var HI=null,PITEMS={};
+function vCount(s,re){var a=PITEMS[s]||[],n=0;for(var i=0;i<a.length;i++)if(re.test(a[i]))n++;return n;}
+function profScore(s){var sc=0;if(P1){var t=TIER1.find(function(x){return x.k===P1;});if(t)sc+=vCount(s,t.re);}P2.forEach(function(k){var v=TIER2.find(function(x){return x.k===k;});if(v)sc+=vCount(s,v.re)*2;});return sc;}
+function ord(slugs){var h=taHist(),t={};h.forEach(function(x){t[x.province]=(t[x.province]||0)+1;});var d=new Date(),sd=d.getFullYear()*372+d.getMonth()*31+d.getDate();return slugs.slice().sort(function(a,b){var pa=profScore(a),pb=profScore(b);if(pb!==pa)return pb-pa;var ha=t[a]||0,hb=t[b]||0;if(hb!==ha)return hb-ha;return ((sd+a.length)%7)-((sd+b.length)%7);});}
+function railCard(slug,href,label,tag,dim){return '<a class="tcard" href="'+href+'" onclick="taLog(\''+slug+'\',\''+dim+'\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+slug+'.jpg" alt="'+label+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">'+label+'</div><div class="tcard-tag">'+tag+'</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}
+var RD='stay';
+function renderRails(){
+  if(!HI)return;var P=HI.provinces;var el=document.getElementById('onerail');if(!el)return;var html='';
+  if(RD==='stay'){var hs=ord(TOPN.map(function(t){return t[0];})),bn={};TOPN.forEach(function(t){bn[t[0]]=t[1];});html=hs.map(function(s){return '<a class="tcard" href="top10-hotels-'+s+'.html" onclick="taLog(\''+s+'\',\'stay\')"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+s+'.jpg" alt="โรงแรม'+bn[s]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+bn[s]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');}
+  else if(RD==='see'){var see=ord(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].see&&P[s].see.items.length;})).slice(0,12);html=see.map(function(s){return railCard(s,'/top10-attractions-'+s,'10 ที่เที่ยว'+(PNAME[s]||P[s].name)+'ยอดนิยม','จัดอันดับ + รีวิวจริงทุกที่','see');}).join('');}
+  else{var eat=ord(Object.keys(P).filter(function(s){return PNAME[s]&&P[s].eat&&P[s].eat.length;})).slice(0,12);html=eat.map(function(s){var hf=P[s].eat[0]?P[s].eat[0].href:'/city-'+s+'.html';return railCard(s,hf,'ที่กินเด็ด'+(PNAME[s]||P[s].name),'ร้านเด็ด คาเฟ่ ของถิ่น','eat');}).join('');}
+  el.innerHTML=html;
+}
+window.setRD=function(d){RD=d;document.querySelectorAll('.rtab').forEach(function(b){b.classList.toggle('on',b.dataset.d===d);});renderRails();};
+var PICON={solo:'🧍',couple:'💑','family-kids':'👨‍👩‍👧','family-senior':'🧓',friends:'👫',budget:'🎒',workation:'💻',luxury:'💎',mu:'🙏',cafe:'☕',nature:'🏞️',culture:'🛕',wellness:'🧖',foodie:'🍜',sea:'🏝️',festival:'🎉',halal:'🕌',lgbtq:'🏳️‍🌈',eco:'🌿',medical:'🏥',shopping:'🛍️',pet:'🐶'};
+function paintChips(){
+  var a=document.getElementById('tier1');if(a)a.innerHTML=TIER1.map(function(x){return '<button class="pc1'+(P1===x.k?' on':'')+'" data-k="'+x.k+'"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('');
+  var b=document.getElementById('tier2');if(b)b.innerHTML=TIER2.map(function(x){return '<button class="pc2'+(P2.indexOf(x.k)>-1?' on':'')+'" data-k="'+x.k+'"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('');
+  var c=document.getElementById('pclr');if(c)c.style.display=(P1||P2.length)?'inline':'none';
+}
+(function(){paintChips();
+  var aw=document.getElementById('adjwrap'),radj=document.getElementById('radj');
+  if((P1||P2.length)&&aw){aw.style.display='block';if(radj)radj.textContent='⚙︎ ซ่อน ▴';}
+  var a=document.getElementById('tier1');if(a)a.addEventListener('click',function(e){var x=e.target.closest('.pc1');if(!x)return;P1=(P1===x.dataset.k?'':x.dataset.k);localStorage.setItem('ta_persona',P1);paintChips();renderRails();});
+  var b=document.getElementById('tier2');if(b)b.addEventListener('click',function(e){var x=e.target.closest('.pc2');if(!x)return;var i=P2.indexOf(x.dataset.k);if(i>-1)P2.splice(i,1);else P2.push(x.dataset.k);localStorage.setItem('ta_vibes',JSON.stringify(P2));paintChips();renderRails();});
+  if(radj&&aw)radj.addEventListener('click',function(){var open=aw.style.display!=='none';aw.style.display=open?'none':'block';radj.textContent=open?'⚙︎ ปรับให้ตรงใจ ▾':'⚙︎ ซ่อน ▴';});
+  var pc=document.getElementById('pclr');if(pc)pc.addEventListener('click',function(){P1='';P2=[];localStorage.removeItem('ta_persona');localStorage.removeItem('ta_vibes');paintChips();renderRails();});
+})();
+var gWho='',gVibe='';
+var GSTYLES=[{k:'sea',l:'ทะเล/เกาะ'},{k:'nature',l:'ภูเขา/ธรรมชาติ'},{k:'culture',l:'วัด/วัฒนธรรม'},{k:'cafe',l:'คาเฟ่/ชิล'},{k:'foodie',l:'สายกิน'},{k:'shopping',l:'ช้อปปิ้ง'}];
+function gRender(){var box=document.getElementById('guideBox');if(!box)return;
+  if(!gWho){box.innerHTML='<div class="gq">1. ไปกับใคร?</div><div class="gbtns">'+TIER1.map(function(x){return '<button class="gbtn" onclick="gPick1(\''+x.k+'\')"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('')+'</div>';}
+  else if(!gVibe){box.innerHTML='<div class="gq">2. อยากเที่ยวแบบไหน?</div><div class="gbtns">'+GSTYLES.map(function(x){return '<button class="gbtn" onclick="gPick2(\''+x.k+'\')"><span class="pico">'+(PICON[x.k]||'')+'</span>'+x.l+'</button>';}).join('')+'</div><div class="gnav"><button class="gback" onclick="gReset()">← เริ่มใหม่</button></div>';}
+  else{box.innerHTML=gResults();}
+}
+window.gPick1=function(k){gWho=k;gRender();};
+window.gPick2=function(k){gVibe=k;P1=gWho;P2=[k];try{localStorage.setItem('ta_persona',P1);localStorage.setItem('ta_vibes',JSON.stringify(P2));paintChips();renderRails();}catch(e){}gRender();};
+window.gReset=function(){gWho='';gVibe='';gRender();};
+function gResults(){if(!HI)return '<div class="gq">กำลังโหลด…</div>';
+  var wt=TIER1.find(function(x){return x.k===gWho;}),vt=TIER2.find(function(x){return x.k===gVibe;});
+  var wl=wt?wt.l:'',vl=(GSTYLES.find(function(x){return x.k===gVibe;})||{}).l||'';
+  var slugs=Object.keys(HI.provinces).filter(function(s){return PNAME[s]&&HI.provinces[s].see&&HI.provinces[s].see.items.length;});
+  var sc=slugs.map(function(s){return {s:s,sc:(vt?vCount(s,vt.re)*2:0)+(wt?vCount(s,wt.re):0)};}).sort(function(a,b){return b.sc-a.sc;});
+  var top=sc.filter(function(o){return o.sc>0;}).slice(0,5);
+  if(top.length<5){var have={};top.forEach(function(o){have[o.s]=1;});['phuket','krabi','chiang-mai','chiang-rai','ayutthaya','kanchanaburi','nan'].forEach(function(s){if(top.length<5&&!have[s]&&slugs.indexOf(s)>-1){have[s]=1;top.push({s:s,sc:0});}});}
+  var cards=top.map(function(o){var s=o.s;return '<div class="grescard"><a href="/top10-attractions-'+s+'"><div class="grc-img"><img src="/images/heroes/'+s+'.jpg" loading="lazy" onerror="this.style.opacity=0"><span class="grc-name">'+PNAME[s]+'</span></div></a><div class="grc-b"><div class="grc-why">'+(o.sc>0?'ตรงกับ '+vl+' · '+wl:'จังหวัดยอดนิยม')+'</div><div class="grc-links"><a href="/top10-attractions-'+s+'">ที่เที่ยว</a><span>·</span><a href="top10-hotels-'+s+'.html">โรงแรม</a><span>·</span><a href="/city-'+s+'.html">ที่กิน</a></div></div></div>';}).join('');
+  return '<div class="gq">แนะนำ 5 จังหวัดสำหรับ '+(PICON[gWho]||'')+wl+' + '+vl+'</div><div class="gres">'+cards+'</div><div class="gnav"><button class="gback" onclick="gReset()">↺ ลองใหม่</button></div>';
+}
+gRender();
+fetch('/data/home-index.json').then(function(r){return r.json();}).then(function(d){HI=d;Object.keys(d.provinces).forEach(function(s){var it=(d.provinces[s].see&&d.provinces[s].see.items)||[];PITEMS[s]=it.map(function(c){return c.name+' '+(c.bestFor||'')+' '+((c.tags||[]).join(' '));});});renderRails();gRender();}).catch(function(){});
+// nav scroll
+var nav=document.getElementById('nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40);}window.addEventListener('scroll',onScroll);onScroll();
+// mobile menu
+var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');
+if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
+// search
+var IDX=PROV.map(function(p){return {t:'เที่ยว'+p.n,c:p.r+' · '+p.t,u:'city-'+p.s+'.html'};})
+ .concat(TOPN.map(function(t){return {t:'Top 10 โรงแรม'+t[1],c:'จัดอันดับที่พัก',u:'top10-hotels-'+t[0]+'.html'};}));
+function runSearch(q,box){q=q.trim().toLowerCase();if(!q){box.classList.remove('show');return;}var r=IDX.filter(function(i){return (i.t+i.c).toLowerCase().indexOf(q)>-1;}).slice(0,8);box.innerHTML=r.length?r.map(function(i){return '<a href="'+i.u+'"><div class="t">'+i.t+'</div><div class="c">'+i.c+'</div></a>';}).join(''):'<div class="empty">ไม่พบผลลัพธ์</div>';box.classList.add('show');}
+var si=document.getElementById('si'),sidrop=document.getElementById('sidrop');
+if(si){si.addEventListener('input',function(){runSearch(si.value,sidrop);});si.addEventListener('keydown',function(e){if(e.key==='Enter')goSearch();});}
+var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
+if(ns){ns.addEventListener('input',function(){runSearch(ns.value,nd);});ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});}
+document.addEventListener('click',function(e){if(si&&!e.target.closest('.sc-field')){sidrop.classList.remove('show');}if(ns&&!e.target.closest('.search-box')){nd.classList.remove('show');}});
+function goSearch(){var v=(si.value||'').trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}
+// map — all 77 provinces, region-coloured pins, clustered
+try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:18}).addTo(map);
+function mpin(c){return L.divIcon({className:'',html:'<span class="mpin" style="background:'+c+'"></span>',iconSize:[16,16],iconAnchor:[8,8]});}
+var grp=(typeof L.markerClusterGroup==='function')?L.markerClusterGroup({maxClusterRadius:26,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.4,disableClusteringAtZoom:8,iconCreateFunction:function(cl){return L.divIcon({html:'<span class="mclu">'+cl.getChildCount()+'</span>',className:'',iconSize:[40,40]});}}):L.layerGroup();
+PROV.forEach(function(p){L.marker([p.lat,p.lng],{icon:mpin(p.c||'#06B6D4'),title:p.n}).bindPopup('<div class="lp"><div class="lp-name">'+p.n+'</div><div class="lp-loc">'+p.r+' · '+p.t+'</div><a class="lp-btn" href="city-'+p.s+'.html">เปิดคู่มือ →</a></div>').addTo(grp);});
+map.addLayer(grp);
+try{map.fitBounds(grp.getBounds().pad(0.06));}catch(e){}
+}catch(e){}
+// reveal
+try{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
+</script>
+<script>
+/* TA PREMIUM SURGICAL (proto3) motion — mask-reveal หัวข้อ + count-up ตัวเลข
+   (ที่เหลือ hover/gloss เป็น CSS ล้วน) · เคารพ prefers-reduced-motion */
+(function(){
+  var d=document, root=d.documentElement;
+  var RM=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  root.classList.add('mjs');   /* บอก CSS ว่า JS พร้อม (กันหัวข้อหายถ้า JS ล่ม) */
+
+  /* 1) HERO HEADLINE mask-reveal — แยกเป็น 2 คำไทย ("ชีวิต" + <em>ติดเที่ยว</em>) */
+  (function(){
+    var h1=d.querySelector('.hero-h1'); if(!h1) return;
+    var toks=[];
+    Array.prototype.forEach.call(h1.childNodes,function(n){
+      if(n.nodeType===3){ var t=n.textContent; if(t && t.trim()) toks.push(t); }
+      else if(n.nodeType===1){ toks.push(n.outerHTML); }
+    });
+    if(!toks.length) return;
+    h1.innerHTML=toks.map(function(x){
+      return '<span class="word-mask"><span class="word">'+x+'</span></span>';
+    }).join('');
+    if(RM){ h1.classList.add('mrdy'); return; }
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      h1.classList.add('mrdy');
+    });});
+    /* failsafe: rAF ถูก throttle/pause ตอน tab พื้นหลัง → ประกันว่าหัวข้อโผล่แน่ */
+    setTimeout(function(){ h1.classList.add('mrdy'); }, 140);
+  })();
+
+  /* 2) COUNT-UP ตัวเลขสถิติ (77 / 2,200+ / 4,000+ ; "100%" ไม่มี data-stat = คงที่) */
+  (function(){
+    var nodes=d.querySelectorAll('.stat .n[data-stat]'); if(!nodes.length) return;
+    Array.prototype.forEach.call(nodes,function(el){
+      var raw=el.textContent.trim(), m=raw.match(/([\d,]+)/); if(!m) return;
+      var end=parseInt(m[1].replace(/,/g,''),10); if(isNaN(end)) return;
+      var suf=raw.slice(m.index+m[1].length);
+      if(RM) return;
+      var ran=false, run=function(){
+        if(ran) return; ran=true;
+        var dur=1200, t0=performance.now();
+        (function tick(t){
+          var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
+          el.textContent=Math.round(end*e).toLocaleString('en-US')+suf;
+          if(p<1) requestAnimationFrame(tick);
+        })(t0);
+      };
+      if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(es,o){
+          es.forEach(function(e){ if(e.isIntersecting){ o.disconnect(); run(); } });
+        },{threshold:.5});
+        io.observe(el);
+      } else run();
+    });
+  })();
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+Scope is CONTENT PHOTOS ONLY — matched to the exact selectors in astro/public/index.html: .hero-bg, .dest img, .tcard-img img, .hc-img img, .acard-img img, .grc-img img. Logo/favicon/emoji/UI icons/partner logos/map are never touched.
+
+WHY THIS IS VISIBLE (the last pass was too subtle): the grade is saturate 1.16 / contrast 1.12 / brightness .975 with a faint warm sepia(.05)+hue-rotate(-4deg) — squarely in the "deep & expensive, still editorial" band you asked for, clearly readable even in a compressed thumbnail, but held just under instagram-filter territory. Hero background pushes slightly harder (1.18/1.13/.965) since it is the largest photo on the page.
+
+DEPTH: every photo card (.tcard-img/.hc-img/.acard-img/.grc-img) gets a ::before radial inner-vignette + subtle top-light/bottom-weight so the image reads as a physical object, not a flat rectangle. .dest already carries its own .dest-ov scrim, so it only receives the corner vignette (no double-darkening). The hero gets a genuinely stronger filmic radial vignette layered INTO .hero-ov (kept via !important, brand tint + page-fade preserved underneath) to focus the eye on the headline.
+
+LEGIBILITY SCRIM: .dest already has .dest-ov under its label. The gap was .grc-img — its .grc-name sat on the bare photo — so I added a .grc-img::after bottom gradient scrim (and bumped .grc-name to z-index:2 so it stays on top).
+
+KEN-BURNS / HOVER-ZOOM INTACT: the grade rule re-declares transition with BOTH transform (.6s, matching/replacing the originals) AND filter (.5s) so the @keyframes kz hero animation and every .card:hover img scale(1.07) still fire. On hover the grade lifts further (saturate 1.24 / contrast 1.16 / brightness 1) for a richness pop. Overlays use pointer-events:none and z-index:1 so they never block clicks and always sit under absolutely-positioned labels/badges (z-index:2+).
+
+CONSTRAINTS HONORED: no brand colors or font-families changed; no .sec padding or vertical spacing added (this module is purely image-layer filters + overlays); appended last so it overrides line 151's plain transition and line 102's hero-ov. Full prefers-reduced-motion kill switch included (drops filter-transition duration and stops the hero ken-burns).
+
+NOTE ON SCOPE: this deliverable is the cinematic IMAGE-GRADE module specifically requested (grade + depth/vignette + hero vignette + scrim, transitions intact). The broader depth/gloss/weight/motion reference material in the brief (shadow-token upgrade, glossy buttons, shine-sweep, typography, count-up) is a separate layer and was intentionally not folded in here to keep this module tightly scoped to photos as instructed.

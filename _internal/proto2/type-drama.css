@@ -1,0 +1,111 @@
+/* ══════════════════════════════════════════════════════════════
+   TYPE DRAMA — weight-contrast + premium type feel (thailandaddict)
+   Appended LAST so it overrides earlier rules. Additive only.
+   NO section-spacing / .sec padding / vertical-rhythm changes.
+   Keeps font-families (Outfit/Sarabun/Noto/Fraunces) + brand colors.
+   Thai constraint respected: Thai caps at 700 — drama comes from
+   SIZE + gloss + a THIN Latin kicker, never 900-weight Thai. Thai
+   headline line-height kept >=1.3 and tracking gentle so tone marks
+   never clip or collide.
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 1. HERO TITLE — bigger, more dramatic, glossy in-brand ────── */
+/* Bigger + denser mass = optical "heavy". line-height stays Thai-safe
+   at 1.3 (task min), tracking only -0.5px so Thai vowels don't merge. */
+.hero-h1{
+  font-size:clamp(44px,9vw,82px)!important;
+  line-height:1.3!important;
+  letter-spacing:-.5px!important;
+  margin-bottom:14px;
+}
+/* Glossy teal->coral->mango sheen on the <em> ("ติดเที่ยว").
+   A vertical light-to-rich gradient reads as a wet/enamel surface;
+   background-clip paints Thai glyphs fine even though the fill is
+   Latin-defined. drop-shadow gives the brand glow (was flat yellow). */
+.hero-h1 em{
+  background:linear-gradient(178deg,
+      #7fe9f5 0%,        /* bright teal top-light — the "sheen" */
+      var(--bl) 30%,     /* #06B6D4 teal body                  */
+      var(--or) 72%,     /* #FB7185 coral                      */
+      var(--go) 100%);   /* #FBBF24 mango warm base            */
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 2px 14px rgba(6,182,212,.42))
+         drop-shadow(0 1px 2px rgba(15,40,70,.30));
+  text-shadow:none;   /* neutralize the earlier flat-yellow shadow */
+}
+/* Optical top-highlight on the whole (mostly-white) Thai title so it
+   reads richer/heavier without touching font-weight. Subtle. */
+.hero-h1{
+  text-shadow:0 1px 0 rgba(255,255,255,.30),
+              0 3px 34px rgba(0,0,0,.34);
+}
+
+/* ── HERO KICKER (.h-eye) — HAIRLINE Latin against the bold title ─ */
+/* The luxury tell: a thin, wide-tracked eyebrow beside a big title.
+   Tracking kept at 2px (Thai-safe — .h-eye holds Thai between dots;
+   uppercase is a no-op on Thai, so we lean on the 300 weight for the
+   thick/thin contrast, not extreme tracking). */
+.h-eye{
+  font-weight:300!important;
+  letter-spacing:2px!important;
+  font-size:10.5px!important;
+}
+
+/* ── 2. SECTION HEADS — bold .stit / thin .slbl / lighter .ssub ── */
+/* Thin, airy, wide kicker = the hairline half of the contrast. */
+.slbl{
+  font-weight:300!important;
+  letter-spacing:3px!important;
+  font-size:11px!important;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+/* Editorial hairline rule trailing the kicker (fine-stroke polish). */
+.slbl::after{
+  content:'';
+  flex:1;
+  min-width:34px;
+  max-width:64px;
+  height:1px;
+  background:linear-gradient(90deg,currentColor,transparent);
+  opacity:.5;
+}
+/* Bigger title jump + tight tracking = reads heavy by mass.
+   line-height 1.2 keeps Thai tone marks clear. */
+.stit{
+  font-size:clamp(28px,4.6vw,42px)!important;
+  letter-spacing:-.6px!important;
+  line-height:1.2!important;
+}
+/* Crisp lit edge on the gradient <em> = optically "heavier". */
+.stit em{
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.6));
+}
+/* Lighter, calmer subtitle completes the 3-tier hierarchy. */
+.ssub{
+  font-weight:400!important;
+  color:var(--sub);
+}
+/* On the dark .sec.pop band the white rule needs to stay visible;
+   currentColor there is already light so it inherits correctly. */
+
+/* ── 3. STAT NUMBERS (.stat .n, Fraunces) — hero-scale, tight ──── */
+/* Big size jump over the tiny uppercase .l label manufactures strong
+   thick/thin contrast. Slight negative tracking + brand glow so the
+   77 / 2,200+ read like polished, weighty numerals. */
+.stat .n{
+  font-size:46px!important;
+  letter-spacing:-1px!important;
+  filter:drop-shadow(0 2px 7px rgba(6,182,212,.26));
+}
+@media(max-width:560px){
+  .stat .n{font-size:38px!important;}
+}
+
+/* ── prefers-reduced-motion: nothing here animates, but honor the
+   contract for the drop-shadows staying static (no-op safety). ── */
+@media (prefers-reduced-motion: reduce){
+  .hero-h1 em,.stit em,.stat .n{transition:none!important;}
+}

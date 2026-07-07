@@ -1,0 +1,151 @@
+/* ============================================================
+   DEPTH + GLOSS MODULE  (append LAST inside <style>, after line 283)
+   Bold, visible premium elevation + glass + shine. Brand colors intact.
+   No spacing / .sec padding changes.
+   ============================================================ */
+
+/* 1) SHADOW TOKENS — replace the near-invisible --sh (.07) with a real
+   3-part stack (contact + key + ambient). Every .stat/.dest/.tcard/.hcard/
+   .acard/.grescard/.why/.map-box that reads var(--sh) floats instantly. */
+:root{
+  --sh:0 1px 2px rgba(15,40,70,.06), 0 8px 18px rgba(15,40,70,.10), 0 22px 48px rgba(15,40,70,.14);
+  --sh2:0 2px 4px rgba(15,40,70,.10), 0 16px 34px rgba(15,40,70,.16), 0 40px 80px rgba(15,40,70,.22);
+}
+
+/* 2) RESTING CARD DEPTH + bright lit rim + convex top-highlight ------------- */
+.rgcard,.tcard,.hcard,.acard,.grescard,.dest,.why{
+  box-shadow:0 1px 2px rgba(15,40,70,.05),
+             0 10px 24px rgba(15,40,70,.10),
+             0 26px 50px rgba(6,182,212,.10);
+  border:1px solid rgba(255,255,255,.72);
+}
+.rgcard,.tcard,.hcard,.acard,.grescard,.why{position:relative}
+/* inset specular rim — reads as a lit convex bevel on white cards */
+.rgcard::after,.tcard::after,.hcard::after,.acard::after,.grescard::after,.why::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), inset 0 0 0 1px rgba(255,255,255,.30);
+}
+
+/* 3) HOVER — big lift + BRAND-COLORED glow + diagonal SHINE-SWEEP ----------- */
+.tcard,.hcard,.acard,.grescard,.rgcard,.dest,.why{
+  transition:transform .40s cubic-bezier(.34,1.56,.64,1),
+             box-shadow .40s cubic-bezier(.22,.61,.36,1)!important;
+}
+.tcard:hover,.hcard:hover,.acard:hover,.grescard:hover,.dest:hover{
+  transform:translateY(-8px) scale(1.015)!important;
+}
+.rgcard:hover,.why:hover{transform:translateY(-6px)!important}
+/* per-card brand hue keeps the palette on-brand */
+.tcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(6,182,212,.36), 0 12px 26px rgba(6,182,212,.24)!important}
+.hcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(251,113,133,.36), 0 12px 26px rgba(251,113,133,.24)!important}
+.acard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 30px 62px rgba(251,191,36,.32), 0 12px 26px rgba(251,113,133,.22)!important}
+.grescard:hover{box-shadow:0 4px 10px rgba(15,40,70,.12), 0 28px 58px rgba(6,182,212,.30), 0 12px 26px rgba(251,113,133,.20)!important}
+.rgcard:hover{box-shadow:0 4px 10px rgba(15,40,70,.10), 0 26px 54px rgba(6,182,212,.28)!important}
+.why:hover{box-shadow:0 4px 10px rgba(15,40,70,.10), 0 24px 50px rgba(6,182,212,.26)!important}
+.dest:hover{box-shadow:0 30px 64px rgba(6,182,212,.42), 0 12px 26px rgba(15,40,70,.30)!important}
+
+/* diagonal shine-sweep light passing across the card on hover */
+.tcard,.hcard,.acard,.grescard,.rgcard,.dest{overflow:hidden}
+.tcard::before,.hcard::before,.acard::before,.grescard::before,.rgcard::before,.dest::before{
+  content:'';position:absolute;top:-60%;left:-90%;width:55%;height:220%;pointer-events:none;z-index:4;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);
+  transform:skewX(-20deg);opacity:0;
+}
+.tcard:hover::before,.hcard:hover::before,.acard:hover::before,
+.grescard:hover::before,.rgcard:hover::before,.dest:hover::before{
+  animation:cardShine .9s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes cardShine{0%{left:-90%;opacity:0}12%{opacity:.85}70%{opacity:.7}100%{left:150%;opacity:0}}
+
+/* specular top-edge sheen over card photos (glossy magazine look) ----------- */
+.tcard-img,.hc-img,.acard-img,.grc-img,.dest{position:relative}
+.tcard-img::after,.hc-img::after,.acard-img::after,.grc-img::after,.dest-ov::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,0) 24%);
+  mix-blend-mode:screen;
+}
+/* smoother ken-burns easing on image zoom */
+.tcard-img img,.hc-img img,.acard-img img,.grc-img img,.dest img{
+  transition:transform .7s cubic-bezier(.22,.61,.36,1)!important;
+}
+
+/* 4) GLASS — nav + hero search-card + stat cards --------------------------- */
+.nav.solid{
+  background:rgba(255,255,255,.72)!important;
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 6px 24px rgba(15,40,70,.10);
+}
+.search-card{
+  background:rgba(255,255,255,.86)!important;
+  backdrop-filter:blur(10px) saturate(150%);
+  -webkit-backdrop-filter:blur(10px) saturate(150%);
+  box-shadow:0 2px 6px rgba(15,40,70,.10), 0 26px 60px rgba(8,30,55,.34), inset 0 1px 0 rgba(255,255,255,.9)!important;
+  border:1px solid rgba(255,255,255,.7);
+}
+/* GLASS stat panels floating over the hero (they overlap it at -46px) */
+.stat{
+  background:rgba(255,255,255,.70)!important;
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  box-shadow:0 2px 6px rgba(15,40,70,.08),
+             0 18px 42px rgba(6,182,212,.22),
+             inset 0 1px 0 rgba(255,255,255,.95)!important;
+  border:1px solid rgba(255,255,255,.85)!important;
+}
+
+/* 5) GLOSSY BUTTONS — top-light sheen + inset rim + inner shadow + shine ---- */
+.sc-btn,.nav-cta,.mm-cta,.nl-cta,.ab-btn1,.see-all-btn a,.lp-btn,.nl-btn{
+  position:relative;overflow:hidden;isolation:isolate;
+}
+/* keep brand gradients; layer gloss ON TOP */
+.sc-btn{box-shadow:0 8px 20px rgba(6,182,212,.38), inset 0 1px 0 rgba(255,255,255,.55), inset 0 -2px 6px rgba(0,0,0,.14)!important}
+.nav-cta{box-shadow:0 8px 20px rgba(251,113,133,.50), inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.14)!important}
+.mm-cta{box-shadow:0 8px 20px rgba(251,113,133,.42), inset 0 1px 0 rgba(255,255,255,.5), inset 0 -2px 6px rgba(0,0,0,.14)}
+.nl-cta{box-shadow:0 12px 30px rgba(8,30,55,.24), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -2px 6px rgba(0,0,0,.08)}
+.ab-btn1{box-shadow:0 8px 20px rgba(225,29,72,.28), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -2px 6px rgba(0,0,0,.08)}
+.nl-btn{box-shadow:0 8px 20px rgba(15,23,42,.30), inset 0 1px 0 rgba(255,255,255,.22), inset 0 -2px 6px rgba(0,0,0,.20)}
+.see-all-btn a{box-shadow:0 6px 16px rgba(15,40,70,.10), inset 0 1px 0 rgba(255,255,255,.9)}
+.lp-btn{box-shadow:0 6px 14px rgba(6,182,212,.32), inset 0 1px 0 rgba(255,255,255,.4)}
+/* injection-molded top-light overlay */
+.sc-btn::before,.nav-cta::before,.mm-cta::before,.nl-cta::before,.ab-btn1::before,.nl-btn::before{
+  content:'';position:absolute;left:0;right:0;top:0;height:50%;border-radius:inherit;pointer-events:none;z-index:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,0));
+}
+.sc-btn>*,.nav-cta>*,.mm-cta>*,.nl-cta>*,.ab-btn1>*,.nl-btn>*{position:relative;z-index:1}
+/* diagonal shine-sweep streak on hover (the "expensive" tell) */
+.sc-btn::after,.nav-cta::after,.mm-cta::after,.nl-cta::after,.ab-btn1::after,.see-all-btn a::after,.nl-btn::after{
+  content:'';position:absolute;top:-60%;left:-75%;width:50%;height:220%;pointer-events:none;z-index:2;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);
+  transform:skewX(-22deg);opacity:0;
+}
+.sc-btn:hover::after,.nav-cta:hover::after,.mm-cta:hover::after,.nl-cta:hover::after,
+.ab-btn1:hover::after,.see-all-btn a:hover::after,.nl-btn:hover::after{
+  animation:btnShine .85s cubic-bezier(.25,.6,.3,1) 1;
+}
+@keyframes btnShine{0%{left:-75%;opacity:0}12%{opacity:.9}60%{opacity:.85}100%{left:130%;opacity:0}}
+/* press feedback */
+.sc-btn:active,.nav-cta:active,.mm-cta:active,.nl-cta:active,.ab-btn1:active,.nl-btn:active{
+  transform:translateY(1px) scale(.985);transition:transform .08s;
+}
+/* ambient auto-shine on the hero search button so it's alive in a still shot */
+.sc-btn::after{animation:btnShine 4.6s ease-in-out 1.4s infinite}
+
+/* 6) GLOSSY SCORE / RANK / BADGE pills (enamel look) ----------------------- */
+.hc-score,.tcard-badge,.dest-badge,.acard-badge{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6), inset 0 -2px 4px rgba(0,0,0,.18), 0 5px 14px rgba(0,0,0,.24);
+  position:relative;overflow:hidden;
+}
+.hc-score::before,.tcard-badge::before,.dest-badge::before,.acard-badge::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:48%;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.5),transparent);
+}
+
+/* 7) REDUCED-MOTION KILL SWITCH (mandatory) -------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;
+  }
+  .sc-btn::after{animation:none!important;opacity:0!important}
+}

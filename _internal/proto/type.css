@@ -1,0 +1,185 @@
+/* ===================================================================
+   THAILANDADDICT — Homepage Typography & Spacing upgrade (ADDITIVE)
+   Airy, magazine-premium. Font-families + brand colors UNTOUCHED.
+   Append AFTER the main <style> head block (post line 284) or as a
+   new <style> at end of <body>. Selectors are specific + additive.
+   =================================================================== */
+
+:root{
+  /* --- Fluid type scale (Utopia-style: 320px→1240px, minor-3rd→perfect-4th).
+         rem-based for WCAG 1.4.4; max <= 2.5x min on every step. --- */
+  --ta-step--1: clamp(0.83rem, 0.80rem + 0.16vw, 0.94rem); /* labels / captions */
+  --ta-step-0:  clamp(1.00rem, 0.96rem + 0.22vw, 1.13rem); /* body 16->18px */
+  --ta-step-1:  clamp(1.20rem, 1.13rem + 0.36vw, 1.50rem); /* subtitle / card title 19->24 */
+  --ta-step-2:  clamp(1.44rem, 1.31rem + 0.64vw, 2.00rem); /* section title 23->32 */
+  --ta-step-3:  clamp(1.73rem, 1.51rem + 1.08vw, 2.66rem); /* big section 28->43 */
+  --ta-step-4:  clamp(2.07rem, 1.72rem + 1.77vw, 3.55rem); /* hero-h1 33->57 */
+  --ta-step-5:  clamp(2.49rem, 1.94rem + 2.75vw, 4.73rem); /* oversized display */
+
+  /* --- Spacing scale (8px base) --- */
+  --ta-2xs:8px; --ta-xs:12px; --ta-sm:16px; --ta-md:24px;
+  --ta-lg:40px; --ta-xl:64px; --ta-2xl:96px;
+
+  /* --- Rhythm + containers --- */
+  --ta-gutter: clamp(18px, 5vw, 40px);
+  --ta-section-y: clamp(56px, 4vw + 40px, 120px);
+  --ta-wrap: 1200px;
+  --ta-measure: 68ch;
+
+  /* --- Thai leading (Sarabun / Noto Thai need MORE than Latin) --- */
+  --ta-lh-thai-body: 1.8;   /* body prose */
+  --ta-lh-thai-head: 1.4;   /* Thai display headings */
+}
+
+/* -------------------------------------------------------------------
+   SECTION VERTICAL RHYTHM — the single biggest premium lever.
+   Fluid 56px (mobile) -> ~120px (wide) vs the flat 58px.
+   ------------------------------------------------------------------- */
+.sec{
+  padding-block: var(--ta-section-y);
+  padding-inline: var(--ta-gutter);
+}
+
+/* Comfortable, slightly wider content cap + safe gutters (was flat 1120px) */
+.inner{
+  max-width: var(--ta-wrap);
+  padding-inline: 0;
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------
+   S-HEAD — give the eyebrow/title/subtitle cluster real air before
+   the grid. Asymmetric: title hugs its subtitle, floats from grid.
+   ------------------------------------------------------------------- */
+.s-head{
+  margin-bottom: clamp(32px, 4vw, 56px);
+  gap: var(--ta-xs) var(--ta-md);
+  row-gap: var(--ta-xs);
+}
+/* left cluster (slbl+stit+ssub) reads as a measured block */
+.s-head > div{ max-width: 640px; }
+.s-head.center{ justify-content:center; text-align:center; }
+.s-head.center > div{ margin-inline:auto; }
+
+/* -------------------------------------------------------------------
+   EYEBROW / KICKER — stays tiny + static (rhythm anchor, NOT fluid).
+   Outfit family kept; only size/tracking/spacing tuned.
+   ------------------------------------------------------------------- */
+.slbl{
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  margin-bottom: var(--ta-sm);   /* slbl -> stit = 16px */
+}
+.h-eye{ letter-spacing: 0.14em; }
+
+/* -------------------------------------------------------------------
+   SECTION TITLE — fluid, tighter tracking, comfortable Thai leading.
+   Font-family + em-gradient color untouched.
+   ------------------------------------------------------------------- */
+.stit{
+  font-size: var(--ta-step-2);
+  line-height: 1.28;              /* Thai-safe (Fraunces w/ Noto fallback) */
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.ssub{
+  font-size: var(--ta-step-0);
+  line-height: var(--ta-lh-thai-body);
+  margin-top: var(--ta-xs);       /* stit -> ssub = 12px */
+  max-width: var(--ta-measure);
+}
+.s-head.center .ssub{ margin-inline:auto; }
+
+/* -------------------------------------------------------------------
+   HERO — fluid H1 with Thai-safe leading (tone marks must not clip),
+   airier subtitle, viewport-scaled height with a "peek" of next band.
+   ------------------------------------------------------------------- */
+.hero{
+  min-height: clamp(560px, 78vh, 760px);
+  padding-inline: var(--ta-gutter);
+}
+.hero-h1{
+  font-size: var(--ta-step-4);
+  line-height: 1.3;               /* NEVER below 1.3 for Thai on Fraunces */
+  letter-spacing: -0.02em;
+  margin-bottom: 0.32em;
+  text-wrap: balance;
+}
+.hero-sub{
+  font-size: var(--ta-step-0);
+  line-height: 1.75;              /* Thai body leading */
+  max-width: 560px;
+  margin-bottom: var(--ta-lg);
+}
+
+/* -------------------------------------------------------------------
+   THAI BODY LEADING — raise readability leading site-wide on the
+   homepage body copy (Sarabun / Noto Thai stack). +0.2 over Latin.
+   ------------------------------------------------------------------- */
+.ssub,
+.why-b,
+.ft-desc,
+.tcard-name,
+.hc-name,
+.dest-name{
+  line-height: var(--ta-lh-thai-body);
+}
+/* Thai body paragraphs breathe a touch more between blocks */
+.why-b{ margin-bottom: 0; }
+
+/* -------------------------------------------------------------------
+   OUTFIT DISPLAY / CARD TITLES — tighten tracking on larger sans
+   display so it reads editorial (family unchanged).
+   ------------------------------------------------------------------- */
+.tcard-name,.hc-name,.dest-name{
+  letter-spacing: -0.005em;
+  line-height: 1.32;              /* Thai-safe for card titles */
+}
+.nl-h{
+  font-size: var(--ta-step-3);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* -------------------------------------------------------------------
+   STATS — keep Fraunces (family untouched). Only a hair of negative
+   tracking at the large size; label spacing left as-is.
+   ------------------------------------------------------------------- */
+.stat .n{ letter-spacing: -0.01em; }
+
+/* -------------------------------------------------------------------
+   .sec.pop safety — this variant flips heading colors light. We only
+   set size/leading/tracking above (no color), so it stays correct.
+   Re-assert leading here in case of specificity interplay.
+   ------------------------------------------------------------------- */
+.sec.pop .stit{ line-height:1.28; }
+.sec.pop .ssub{ line-height:var(--ta-lh-thai-body); }
+
+/* ===================================================================
+   MOBILE — keep it balanced on small screens; don't waste vertical
+   space, tighten heading leading slightly, restore hugging rhythm.
+   =================================================================== */
+@media (max-width:560px){
+  .sec{ padding-inline: var(--ta-gutter); }
+  .s-head{ margin-bottom: 28px; }
+  .s-head > div{ max-width:100%; }
+  .hero{ min-height: clamp(480px, 82vh, 620px); }
+  .hero-h1{ line-height:1.34; letter-spacing:-0.01em; }
+  .hero-sub{ margin-bottom: var(--ta-md); line-height:1.7; }
+  .stit{ line-height:1.3; }
+  .ssub{ line-height:1.75; }
+}
+
+/* Ultrawide — keep prose from running long even inside the wider wrap */
+@media (min-width:1400px){
+  .s-head > div{ max-width:680px; }
+}
+
+/* No motion is introduced by this module. Guard is a harmless no-op
+   that also neutralizes any inherited transition on touched elements
+   for motion-sensitive users. */
+@media (prefers-reduced-motion: reduce){
+  .hero-h1,.stit,.ssub,.hero-sub{ transition:none; }
+}
