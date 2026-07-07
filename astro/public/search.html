@@ -285,7 +285,7 @@ ns.addEventListener('input',upd);
 ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});
 document.addEventListener('click',function(e){if(!e.target.closest('.search-box'))nd.classList.remove('show');});}})();
 </script><script>
-(function(){var IDX="/search-index.json",B={"stay":"ที่พัก","rank":"จัดอันดับ","see":"ที่เที่ยว","eat":"ที่กิน","plan":"แผน","guide":"คู่มือ","city":"เมือง"},S={"ph":"พิมพ์ชื่อที่พัก เมือง ที่เที่ยว หรือคู่มือ…","none":"ไม่พบผลลัพธ์ ลองคำอื่น","found":"พบ","results":"ผลลัพธ์","more":"ผลลัพธ์ · แสดง 100 แรก","start":"เริ่มพิมพ์เพื่อค้นหาทั้งเว็บ"},data=[],q='',cat='all';
+(function(){var IDX="/search-index.json",B={"stay":"ที่พัก","rank":"จัดอันดับ","see":"ที่เที่ยว","eat":"ที่กิน","plan":"แผน","guide":"คู่มือ","city":"เมือง"},S={"ph":"พิมพ์ชื่อที่พัก เมือง ที่เที่ยว หรือคู่มือ…","none":"ไม่พบผลลัพธ์ ลองคำอื่น","found":"พบ","results":"ผลลัพธ์","more":"ผลลัพธ์ · แสดง 100 แรก","start":"เริ่มพิมพ์เพื่อค้นหาทั้งเว็บ","loading":"กำลังโหลดดัชนีค้นหา…","err":"โหลดดัชนีไม่สำเร็จ ลองรีเฟรชหน้าอีกครั้ง"},data=[],q='',cat='all';
 var inp=document.getElementById('sq'),res=document.getElementById('sres'),cnt=document.getElementById('scount'),chips=document.getElementById('schips');
 // bilingual smart matcher: normalize (keep TH+EN letters/numbers, drop punctuation), expand a few aliases, AND-match every token against each entry's bilingual blob (e[4])
 var ALIAS={bkk:'bangkok',cnx:'chiang mai',chiangmai:'chiang mai',hkt:'phuket',kbv:'krabi',huahin:'hua hin',ayutthaya:'ayutthaya'};
@@ -294,7 +294,7 @@ function expand(n){var w=n.split(' '),o=[];for(var i=0;i<w.length;i++){o.push(AL
 function blobOf(e){return e[4]||norm((e[0]||'')+' '+(e[3]||''));}
 inp.placeholder=S.ph;var p=new URLSearchParams(location.search),q0=p.get('q')||'';if(q0){inp.value=q0;q=q0;}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function render(){if(!data.length){return;}var qn=expand(norm(q));if(!qn){cnt.textContent='';res.innerHTML='<div class="scount">'+S.start+'</div>';return;}
+function render(){if(!data.length){if(q)cnt.textContent=S.loading;return;}var qn=expand(norm(q));if(!qn){cnt.textContent='';res.innerHTML='<div class="scount">'+S.start+'</div>';return;}
 var toks=qn.split(' ').filter(Boolean),out=[];
 for(var i=0;i<data.length;i++){var e=data[i];if(cat!=='all'&&e[2]!==cat)continue;var bl=blobOf(e),ok=true;for(var k=0;k<toks.length;k++){if(bl.indexOf(toks[k])===-1){ok=false;break;}}if(ok)out.push(e);}
 function sc(e){var tn=norm(e[0]);if(tn.indexOf(qn)===0)return 0;if(tn.indexOf(qn)>-1)return 1;if(norm(e[3]).indexOf(qn)>-1)return 2;return 3;}
@@ -304,7 +304,7 @@ if(!total){res.innerHTML='<div class="scount">'+S.none+'</div>';return;}
 res.innerHTML=out.slice(0,100).map(function(e){return '<a class="srow" href="'+e[1]+'"><span class="sbadge '+e[2]+'">'+(B[e[2]]||'')+'</span><span class="sinfo"><span class="stitle">'+esc(e[0])+'</span>'+(e[3]?'<span class="splace">📍 '+esc(e[3])+'</span>':'')+'</span></a>';}).join('');}
 var t;inp.addEventListener('input',function(){q=inp.value;clearTimeout(t);t=setTimeout(render,110);});
 chips.addEventListener('click',function(e){var b=e.target.closest('.schip');if(!b)return;cat=b.getAttribute('data-cat');chips.querySelectorAll('.schip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();});
-fetch(IDX).then(function(r){return r.json();}).then(function(j){data=j;render();}).catch(function(){cnt.textContent='';});})();
+cnt.textContent=S.loading;fetch(IDX).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){data=j;if(q){render();}else{cnt.textContent='';}}).catch(function(){cnt.textContent='';res.innerHTML='<div class="scount">'+S.err+'</div>';});})();
 </script>
 <script src="/js/currency.js" defer></script>
 </body></html>
