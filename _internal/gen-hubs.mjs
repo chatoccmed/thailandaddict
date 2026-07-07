@@ -454,12 +454,12 @@ var ALIAS={bkk:'bangkok',cnx:'chiang mai',chiangmai:'chiang mai',hkt:'phuket',kb
 function norm(s){return String(s||'').toLowerCase().replace(/[^\\p{L}\\p{N}\\p{M}]+/gu,' ').replace(/\\s+/g,' ').trim();}
 function expand(n){return n.split(' ').map(function(w){return ALIAS.hasOwnProperty(w)?ALIAS[w]:w;}).join(' ').replace(/\\s+/g,' ').trim();}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function full(){var v=ns.value.trim();return '<a href="search.html?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
+function full(){var v=ns.value.trim();return '<a href="search?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
 function load(cb){if(IDX){cb&&cb();return;}if(LOADING)return;LOADING=true;fetch(IDX_URL).then(function(r){return r.json();}).then(function(j){IDX=j;cb&&cb();}).catch(function(){LOADING=false;});}
 function blobOf(e){return e[4]||norm((e[0]||'')+' '+(e[3]||''));}
 function fromIndex(q){var qn=expand(norm(q));if(!qn)return[];var toks=qn.split(' ').filter(Boolean),out=[];for(var i=0;i<IDX.length;i++){var e=IDX[i],bl=blobOf(e),ok=true;for(var k=0;k<toks.length;k++){if(bl.indexOf(toks[k])===-1){ok=false;break;}}if(ok)out.push(e);}
 out.sort(function(a,b){function sc(e){var tn=norm(e[0]);return tn.indexOf(qn)===0?0:tn.indexOf(qn)>-1?1:2;}return sc(a)-sc(b);});return out.slice(0,6);}
-function fromSP(q){var lc=q.toLowerCase();return __SP.filter(function(p){return p[1].toLowerCase().indexOf(lc)>-1||p[0].indexOf(lc)>-1;}).slice(0,6).map(function(p){return ['${verb}'+p[1],'city-'+p[0]+'.html','city',p[1]];});}
+function fromSP(q){var lc=q.toLowerCase();return __SP.filter(function(p){return p[1].toLowerCase().indexOf(lc)>-1||p[0].indexOf(lc)>-1;}).slice(0,6).map(function(p){return ['${verb}'+p[1],'city-'+p[0],'city',p[1]];});}
 function draw(rows){nd.innerHTML=(rows.length?rows.map(function(e){return '<a href="'+e[1]+'"><div class="t">'+esc(e[0])+'</div><div class="c">'+(BADGE[e[2]]||'')+(e[3]?' · '+esc(e[3]):'')+'</div></a>';}).join(''):'')+full();nd.classList.add('show');}
 function upd(){var q=ns.value.trim();if(!q){nd.classList.remove('show');return;}if(IDX){draw(fromIndex(q));}else{draw(fromSP(q));load(function(){if(ns.value.trim()===q)draw(fromIndex(q));});}}
 ns.addEventListener('focus',function(){load();});
@@ -469,12 +469,22 @@ document.addEventListener('click',function(e){if(!e.target.closest('.search-box'
 </script>`;
 }
 
+// Strip .html from INTERNAL links so clicks hit the extensionless canonical directly (the Worker
+// 307-redirects /x.html → /x). Only matches href="…"/location.href='…' whose target is relative or
+// root-relative — the (?!https?:|//) guard leaves external URLs alone, and this runs on page() output
+// (HTML content) so the writeFileSync filenames are never touched.
+function cleanLinks(html) {
+  return html
+    .replace(/href="(?!https?:|\/\/)(\/?[a-zA-Z0-9][a-zA-Z0-9/_-]*)\.html((?:#[^"]*)?)"/g, 'href="$1$2"')
+    .replace(/location\.href='(?!https?:|\/\/)(\/?[a-zA-Z0-9][^']*?)\.html((?:\?[^']*)?)'/g, "location.href='$1$2'");
+}
+
 function page({ title, desc, slug, jsonld, body, extraJS, image }) {
   const canon = `https://thailandaddict.com/${LOC==='en'?'en/':''}${slug}`;
   const altTH = `https://thailandaddict.com/${slug}`;
   const altEN = `https://thailandaddict.com/en/${slug}`;
   const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
-  return `<!doctype html>
+  return cleanLinks(`<!doctype html>
 <html lang="${LOC}"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${GA_HEAD}
 <title>${title}</title>
@@ -494,7 +504,7 @@ ${body}
 ${footerHtml()}
 ${commonJs()}${extraJS||''}
 <script src="/js/currency.js" defer></script>
-</body></html>`;
+</body></html>`);
 }
 
 function crumb(parts){
@@ -893,7 +903,7 @@ function searchPage(){
   const cats = [['all',tx('ทั้งหมด','All')],['stay',tx('🏨 ที่พัก','🏨 Stays')],['rank',tx('🏆 จัดอันดับ','🏆 Rankings')],['see',tx('📍 ที่เที่ยว','📍 See')],['eat',tx('🍜 ที่กิน','🍜 Eat')],['plan',tx('🗺️ แผนเที่ยว','🗺️ Plans')],['guide',tx('🧭 คู่มือ','🧭 Guides')],['city',tx('🏙️ เมือง/จังหวัด','🏙️ Places')]];
   const chips = cats.map((c,i)=>`<button class="schip${i===0?' on':''}" data-cat="${c[0]}">${c[1]}</button>`).join('');
   const badge = JSON.stringify({stay:tx('ที่พัก','Stay'),rank:tx('จัดอันดับ','Ranking'),see:tx('ที่เที่ยว','See'),eat:tx('ที่กิน','Eat'),plan:tx('แผน','Plan'),guide:tx('คู่มือ','Guide'),city:tx('เมือง','Place')});
-  const STR = JSON.stringify({ph:tx('พิมพ์ชื่อที่พัก เมือง ที่เที่ยว หรือคู่มือ…','Search hotels, cities, sights or guides…'),none:tx('ไม่พบผลลัพธ์ ลองคำอื่น','No results — try another word'),found:tx('พบ','Found'),results:tx('ผลลัพธ์','results'),more:tx('ผลลัพธ์ · แสดง 100 แรก','results · showing first 100'),start:tx('เริ่มพิมพ์เพื่อค้นหาทั้งเว็บ','Start typing to search the whole site')});
+  const STR = JSON.stringify({ph:tx('พิมพ์ชื่อที่พัก เมือง ที่เที่ยว หรือคู่มือ…','Search hotels, cities, sights or guides…'),none:tx('ไม่พบผลลัพธ์ ลองคำอื่น','No results — try another word'),found:tx('พบ','Found'),results:tx('ผลลัพธ์','results'),more:tx('ผลลัพธ์ · แสดง 100 แรก','results · showing first 100'),start:tx('เริ่มพิมพ์เพื่อค้นหาทั้งเว็บ','Start typing to search the whole site'),loading:tx('กำลังโหลดดัชนีค้นหา…','Loading search index…'),err:tx('โหลดดัชนีไม่สำเร็จ ลองรีเฟรชหน้าอีกครั้ง','Could not load the index — please refresh')});
   const body=`<style>
 .swrap{max-width:760px;margin:0 auto;padding:26px 22px 60px}
 .sbig{width:100%;font-family:inherit;font-size:18px;padding:16px 18px;border:2px solid var(--bdr);border-radius:16px;outline:none;transition:border-color .15s}
@@ -928,7 +938,7 @@ function expand(n){var w=n.split(' '),o=[];for(var i=0;i<w.length;i++){o.push(AL
 function blobOf(e){return e[4]||norm((e[0]||'')+' '+(e[3]||''));}
 inp.placeholder=S.ph;var p=new URLSearchParams(location.search),q0=p.get('q')||'';if(q0){inp.value=q0;q=q0;}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function render(){if(!data.length){return;}var qn=expand(norm(q));if(!qn){cnt.textContent='';res.innerHTML='<div class="scount">'+S.start+'</div>';return;}
+function render(){if(!data.length){if(q)cnt.textContent=S.loading;return;}var qn=expand(norm(q));if(!qn){cnt.textContent='';res.innerHTML='<div class="scount">'+S.start+'</div>';return;}
 var toks=qn.split(' ').filter(Boolean),out=[];
 for(var i=0;i<data.length;i++){var e=data[i];if(cat!=='all'&&e[2]!==cat)continue;var bl=blobOf(e),ok=true;for(var k=0;k<toks.length;k++){if(bl.indexOf(toks[k])===-1){ok=false;break;}}if(ok)out.push(e);}
 function sc(e){var tn=norm(e[0]);if(tn.indexOf(qn)===0)return 0;if(tn.indexOf(qn)>-1)return 1;if(norm(e[3]).indexOf(qn)>-1)return 2;return 3;}
@@ -938,7 +948,7 @@ if(!total){res.innerHTML='<div class="scount">'+S.none+'</div>';return;}
 res.innerHTML=out.slice(0,100).map(function(e){return '<a class="srow" href="'+e[1]+'"><span class="sbadge '+e[2]+'">'+(B[e[2]]||'')+'</span><span class="sinfo"><span class="stitle">'+esc(e[0])+'</span>'+(e[3]?'<span class="splace">📍 '+esc(e[3])+'</span>':'')+'</span></a>';}).join('');}
 var t;inp.addEventListener('input',function(){q=inp.value;clearTimeout(t);t=setTimeout(render,110);});
 chips.addEventListener('click',function(e){var b=e.target.closest('.schip');if(!b)return;cat=b.getAttribute('data-cat');chips.querySelectorAll('.schip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');render();});
-fetch(IDX).then(function(r){return r.json();}).then(function(j){data=j;render();}).catch(function(){cnt.textContent='';});})();
+cnt.textContent=S.loading;fetch(IDX).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(j){data=j;if(q){render();}else{cnt.textContent='';}}).catch(function(){cnt.textContent='';res.innerHTML='<div class="scount">'+S.err+'</div>';});})();
 </script>`;
   const jsonld={"@context":"https://schema.org","@type":"WebSite","name":"ThailandAddict","url":"https://thailandaddict.com/","potentialAction":{"@type":"SearchAction","target":J('search.html')+"?q={query}","query-input":"required name=query"}};
   return page({title:tx('ค้นหา — ที่พัก ที่เที่ยว คู่มือเที่ยวไทย | ThailandAddict','Search — Hotels, Sights & Thailand Travel Guides | ThailandAddict'),desc:tx('ค้นหาที่พัก ที่เที่ยว ของกิน แผนเที่ยว และคู่มือเตรียมตัวทั่วไทยในที่เดียว','Search hotels, things to do, food, itineraries and travel guides across Thailand in one place.'),slug:'search',jsonld,body,extraJS,image:'/images/heroes/bangkok.jpg'});
