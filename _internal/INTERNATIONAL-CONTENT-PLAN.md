@@ -24,14 +24,14 @@
 ### P0 · Itinerary cluster (10 pillars) — START HERE
 Hub-and-spoke: each links down into existing city/transport/experience pages (funnels traffic to what's already built) and cross-links the others.
 - ✅ **thailand-10-day-itinerary** (BUILT 2026-07-07, TH+EN, live-pending) — the flagship template
-- thailand-7-day-itinerary · thailand-2-week-itinerary · thailand-3-week-itinerary
-- thailand-first-timer-route (evergreen anchor) · thailand-with-kids-itinerary · thailand-honeymoon-itinerary
-- northern-thailand-itinerary (Bangkok–Sukhothai–Chiang Mai–Chiang Rai, no flights)
-- southern-thailand-islands-itinerary (Andaman vs Gulf loops)
+- ✅ thailand-7-day-itinerary · ✅ thailand-2-week-itinerary · thailand-3-week-itinerary (todo)
+- ✅ first-time-thailand (planning hub) · thailand-with-kids-itinerary (todo) · thailand-honeymoon-itinerary (todo)
+- ✅ northern-thailand-itinerary (Bangkok–Sukhothai–Chiang Mai–Pai–Chiang Rai, overland)
+- ✅ southern-thailand-itinerary (Andaman vs Gulf by season)
 - thailand-1-month-itinerary (slow travel / nomad)
 
 ### P0 · Iconic events (2–3 pillars)
-- songkran-guide (where/when/how, city-by-city, safety) — refresh annually
+- ✅ songkran-guide (where/when/how, city-by-city, safety) — refresh annually
 - yi-peng-lantern-festival (Chiang Mai) · (loy-krathong exists — cross-link)
 
 ### P1 · Discoverability (UX, not new content)
