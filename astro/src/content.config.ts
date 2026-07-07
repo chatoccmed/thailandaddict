@@ -62,8 +62,8 @@ const reviewSchema = z.object({
   h1: z.string(),                   // may contain <em>
   intro: z.string(),                // may contain <strong>
   // gallery (3 secondary images; main = heroImg)
-  gallery: z.array(z.string()).length(3),
-  galleryAlts: z.array(z.string()).length(3),
+  gallery: z.array(z.string()).min(1).max(3),   // deduped: hotels with <3 unique photos keep only unique ones
+  galleryAlts: z.array(z.string()).min(1).max(3),
   // review body — ordered blocks
   body: z.array(z.object({ kind: z.enum(['p', 'quote']), html: z.string() })),
   // highlights
@@ -218,6 +218,16 @@ const roundupsEn = defineCollection({
   schema: roundupSchema,
 });
 
+// Russian collections (served under /ru/).
+const reviewsRu = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ru' }),
+  schema: reviewSchema,
+});
+const roundupsRu = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ru' }),
+  schema: roundupSchema,
+});
+
 // Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
 // One layout (ArticleLayout) renders all of them from a typed list of content blocks.
 const articleBlock = z.discriminatedUnion('kind', [
@@ -243,7 +253,11 @@ const articleBlock = z.discriminatedUnion('kind', [
     // v3: trust signals + scannability + photo gallery. All optional · back-compat.
     rating: z.number().optional(), ratingCount: z.number().optional(), ratingSrc: z.string().optional(),
     bestFor: z.string().optional(), zone: z.string().optional(), foodType: z.string().optional(),
-    gallery: z.array(z.object({ src: z.string(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() })).optional() }),
+    gallery: z.array(z.object({ src: z.string(), alt: z.string().optional(), credit: z.string().optional(), creditHref: z.string().optional() })).optional(),
+    // activity layer (additive · back-compat) — bookable-experience card: review pros/cons (from real reviews,
+    // attributed), a Klook (or other) deep-link book button, and a duration. Used by type:'activity-ranking'.
+    pros: z.array(z.string()).optional(), cons: z.array(z.string()).optional(), tipHtml: z.string().optional(),
+    bookHref: z.string().optional(), bookLabel: z.string().optional(), bookProvider: z.string().optional(), duration: z.string().optional() }),
   // Hotel-booking conversion module (drives readers → accommodation pages). Additive · back-compat.
   z.object({ kind: z.literal('staycta'), title: z.string(), text: z.string().optional(), img: z.string().optional(),
     links: z.array(z.object({ label: z.string(), href: z.string(), note: z.string().optional() })),
@@ -315,6 +329,7 @@ const articleSchema = z.object({
   readTime: z.string().optional(),
   publishedDate: z.string().optional(),
   modifiedDate: z.string().optional(),
+  factCheckedDate: z.string().optional(),  // date facts/images/links were last audited — distinct from modifiedDate
   blocks: z.array(articleBlock),
   faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
   related: z.array(z.object({ href: z.string(), title: z.string() })).optional(),
@@ -338,5 +353,9 @@ const articlesEn = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-en' }),
   schema: articleSchema,
 });
+const articlesRu = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ru' }),
+  schema: articleSchema,
+});
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn };
+export const collections = { reviews, roundups, reviewsEn, roundupsEn, reviewsRu, roundupsRu, articles, articlesEn, articlesRu };
