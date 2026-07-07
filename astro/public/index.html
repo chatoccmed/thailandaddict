@@ -17,12 +17,13 @@
 <meta property="og:image" content="https://thailandaddict.com/images/heroes/krabi.jpg">
 <meta property="og:locale" content="th_TH">
 <meta name="theme-color" content="#06B6D4">
+<link rel="preload" as="image" href="/images/heroes/krabi.webp" type="image/webp" fetchpriority="high">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<!-- Leaflet CSS/JS are lazy-loaded when the map scrolls into view (see initMap loader) — the map is far
+     below the fold, so eager-loading ~70KB JS + tiles was pure LCP waste on every homepage visit. -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"ThailandAddict","url":"https://thailandaddict.com","description":"คู่มือเที่ยวไทยจากคนเที่ยวจริง — รีวิวโรงแรม ที่กิน ที่เที่ยว และแผนเที่ยวทั่วไทย","inLanguage":"th","potentialAction":{"@type":"SearchAction","target":"https://thailandaddict.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
 </script>
@@ -97,7 +98,7 @@ button{cursor:pointer;font-family:inherit}
 .mm-cta{margin-top:22px;background:var(--or);color:#fff;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:15px;font-weight:700;padding:15px;border-radius:30px}
 /* HERO */
 .hero{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;padding:104px 22px 70px}
-.hero-bg{position:absolute;inset:0;background:url('/images/heroes/krabi.jpg') center/cover;animation:kz 22s ease-in-out infinite alternate}
+.hero-bg{position:absolute;inset:0;background:url('/images/heroes/krabi.jpg') center/cover;background:image-set(url('/images/heroes/krabi.webp') type('image/webp'), url('/images/heroes/krabi.jpg') type('image/jpeg')) center/cover;animation:kz 22s ease-in-out infinite alternate}
 @keyframes kz{from{transform:scale(1)}to{transform:scale(1.07)}}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.42) 0%,rgba(8,30,55,.16) 45%,rgba(246,250,251,0) 82%,rgba(246,250,251,1) 100%),linear-gradient(125deg,rgba(6,182,212,.62) 0%,rgba(251,113,133,.52) 52%,rgba(251,191,36,.42) 100%)}
 .hero-c{position:relative;z-index:1;width:100%;max-width:790px;text-align:center}
@@ -465,8 +466,7 @@ function taSubmitNewsletter(form,lang){
 
 <div class="mbar"><a class="m1" href="country-thailand.html">🇹🇭 เลือกจังหวัด</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">🏨 ค้นหาที่พัก</a></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<!-- Leaflet JS lazy-injected on map intersection (see below) -->
 <script>
 /*GEN:PROV*/
 var PROV=[
@@ -588,15 +588,24 @@ var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop'
 if(ns){ns.addEventListener('input',function(){runSearch(ns.value,nd);});ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});}
 document.addEventListener('click',function(e){if(si&&!e.target.closest('.sc-field')){sidrop.classList.remove('show');}if(ns&&!e.target.closest('.search-box')){nd.classList.remove('show');}});
 function goSearch(){var v=(si.value||'').trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}
-// map — all 77 provinces, region-coloured pins, clustered
-try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
+// map — all 77 provinces, region-coloured pins, clustered. Leaflet is loaded on demand the first
+// time the map scrolls near the viewport (saves ~70KB JS + basemap tiles on initial homepage load).
+function initMap(){try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:18}).addTo(map);
 function mpin(c){return L.divIcon({className:'',html:'<span class="mpin" style="background:'+c+'"></span>',iconSize:[16,16],iconAnchor:[8,8]});}
 var grp=(typeof L.markerClusterGroup==='function')?L.markerClusterGroup({maxClusterRadius:26,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.4,disableClusteringAtZoom:8,iconCreateFunction:function(cl){return L.divIcon({html:'<span class="mclu">'+cl.getChildCount()+'</span>',className:'',iconSize:[40,40]});}}):L.layerGroup();
 PROV.forEach(function(p){L.marker([p.lat,p.lng],{icon:mpin(p.c||'#06B6D4'),title:p.n}).bindPopup('<div class="lp"><div class="lp-name">'+p.n+'</div><div class="lp-loc">'+p.r+' · '+p.t+'</div><a class="lp-btn" href="city-'+p.s+'.html">เปิดคู่มือ →</a></div>').addTo(grp);});
 map.addLayer(grp);
 try{map.fitBounds(grp.getBounds().pad(0.06));}catch(e){}
-}catch(e){}
+}catch(e){}}
+function loadLeaflet(cb){if(window.L){cb();return;}
+['https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css','https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css'].forEach(function(h){var l=document.createElement('link');l.rel='stylesheet';l.href=h;document.head.appendChild(l);});
+var s1=document.createElement('script');s1.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+s1.onload=function(){var s2=document.createElement('script');s2.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js';s2.onload=cb;s2.onerror=cb;document.body.appendChild(s2);};
+s1.onerror=cb;document.body.appendChild(s1);}
+(function(){var mapEl=document.getElementById('map');if(!mapEl)return;
+var go=function(){loadLeaflet(function(){if(window.L)initMap();});};
+try{var mio=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){mio.disconnect();go();}},{rootMargin:'300px'});mio.observe(mapEl);}catch(e){go();}})();
 // reveal
 try{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});}
 </script>
