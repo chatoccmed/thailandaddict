@@ -359,5 +359,13 @@ const articlesRu = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-ru' }),
   schema: articleSchema,
 });
+const articlesKo = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ko' }),
+  schema: articleSchema,
+});
+const articlesJa = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ja' }),
+  schema: articleSchema,
+});
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu };
+export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa };
