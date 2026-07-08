@@ -1,0 +1,533 @@
+{
+  "head": {
+    "title": "ThailandAddict — Explore Thailand Like a Local · the best stays, food & places across Thailand",
+    "desc": "ThailandAddict — Explore Thailand Like a Local · a Thailand travel guide from people who actually go. Real reviews on every page, real prices, compare Agoda · Booking · Trip.com before you book. No hidden ads.",
+    "ogTitle": "ThailandAddict · Explore Thailand Like a Local",
+    "ogDesc": "The best stays, food and places across Thailand — real reviews on every page, real prices, direct booking links, no hidden ads.",
+    "jsonldDesc": "A Thailand travel guide from people who actually go — hotel, food and attraction reviews plus trip plans across Thailand"
+  },
+  "chrome": {
+    "nav_destinations": "<a href=\"country-thailand.html\">Destinations</a>",
+    "nav_pop": "<span class=\"h\">✨ Popular</span>",
+    "nav_topdest": ">🔥 Top destinations</a>",
+    "nav_6regions": "<span class=\"h\">🇹🇭 6 regions</span>",
+    "nav_north": ">⛰️ North</a>",
+    "nav_isan": ">🌾 Isan</a>",
+    "nav_central": ">🏙️ Central</a>",
+    "nav_east": ">🏝️ East</a>",
+    "nav_west": ">🌅 West</a>",
+    "nav_south": ">🌊 South</a>",
+    "nav_seeall77": "→ See all 77 provinces</a>",
+    "nav_hotels": "<a href=\"city-chiang-mai.html#stay\">Hotels</a>",
+    "nav_poprank": "<span class=\"h\">Popular rankings</span>",
+    "nav_t10cm": ">Top 10 Chiang Mai</a>",
+    "nav_t10bkk": ">Top 10 Bangkok</a>",
+    "nav_t10hkt": ">Top 10 Phuket</a>",
+    "nav_t10kbi": ">Top 10 Krabi</a>",
+    "nav_t10pty": ">Top 10 Pattaya</a>",
+    "nav_eat": "<a href=\"city-chiang-mai.html#eat\">Eat & Explore</a>",
+    "nav_foodtodo": "<span class=\"h\">Food · things to do</span>",
+    "nav_cmfood": ">Chiang Mai food</a>",
+    "nav_bkkattr": ">Bangkok attractions</a>",
+    "nav_hktattr": ">Phuket attractions</a>",
+    "nav_kbiattr": ">Krabi attractions</a>",
+    "nav_nearme": ">📍 Near Me</a>",
+    "nav_plantrip": "<a href=\"plan-your-trip.html\">Plan Trip</a>",
+    "nav_about": "<a href=\"about.html\">About</a>",
+    "nav_search_ph": "placeholder=\"Search provinces, hotels...\"",
+    "nav_cta": ">Find a stay</button>",
+    "mm_dest": ">🇹🇭 Destinations · 77 provinces</a>",
+    "mm_hotels": ">🏨 Hotels · rankings</a>",
+    "mm_eat": ">🍜 Eat & Explore</a>",
+    "mm_contact": "<a href=\"contact.html\">Contact</a>",
+    "mm_cta": ">Find a hotel</button>",
+    "hero_eye": "ThailandAddict · Explore Thailand Like a Local · real reviews on every page",
+    "hero_h1": "Explore Thailand <em>like a local</em>",
+    "hero_sub": "The best stays, food and places across Thailand — real info, real prices, three sites compared before you book. No hidden ads.",
+    "hero_search_ph": "placeholder=\"Search a province, hotel or place to go...\"",
+    "hero_search_btn": ">Search</button>",
+    "tag_beaches": ">🏖️ Beaches</a>",
+    "tag_islands": ">🏝️ Islands</a>",
+    "tag_city": ">🏙️ City</a>",
+    "tag_food": ">🍜 Food</a>",
+    "tag_mountains": ">⛰️ Mountains</a>",
+    "tag_heritage": ">🏛️ World heritage</a>",
+    "tag_cafes": ">☕ Cafes</a>",
+    "tag_michelin": ">🏅 Michelin 2026</a>",
+    "tag_bestof": ">🇹🇭 Best of Thailand 2026</a>",
+    "stat_provinces": "<div class=\"l\">Provinces ready</div>",
+    "stat_reviews": "<div class=\"l\">Hotel reviews</div>",
+    "stat_articles": "<div class=\"l\">Travel articles</div>",
+    "stat_real": "<div class=\"l\">Real reviews</div>",
+    "partners_lbl": ">Official partners</span>",
+    "mich_lbl": "<div class=\"slbl\">New</div>",
+    "mich_tit": "Eat & drink the <em>best</em> of Thailand",
+    "mich_c1t": "All 485 restaurants",
+    "mich_c1s": "Stars · Bib · Selected",
+    "mich_c2t": "Find & filter",
+    "mich_c2s": "By star, province, cuisine",
+    "mich_c3t": "Starred nationwide",
+    "mich_c3s": "43 starred spots",
+    "mich_c4t": "Bib Gourmand",
+    "mich_c4s": "137 great-value picks",
+    "mich_c5t": "Provinces ranked",
+    "mich_c5s": "Best province to eat",
+    "mich_c6t": "How to book",
+    "mich_c6s": "Sorn · Sühring · Jay Fai",
+    "mich_c7t": "Bangkok's 50 Best Bars",
+    "mich_c7s": "Bar Us · Dry Wave · Vesper",
+    "dest_lbl": "<div class=\"slbl\">Explore by destination</div>",
+    "dest_tit": "Where to <em>go next?</em>",
+    "topn_lbl": "<div class=\"slbl\">Start here</div>",
+    "topn_tit": "Hotel <em>rankings</em> by province",
+    "topn_seeall": ">All provinces →</a>",
+    "hot_lbl": "<div class=\"slbl\">Featured hotels</div>",
+    "hot_tit": "Stays we've <em>reviewed</em>",
+    "hot_sub": "Picked from real guest reviews, prices compared across Agoda · Booking · Trip.com",
+    "aff_lbl": "<div class=\"ab-lbl\">◆ Affiliate Partner</div>",
+    "aff_h": "Book via Agoda · Booking · Trip and save more",
+    "aff_s": "Best prices · free cancellation · compare 3 sites before you book, no extra cost",
+    "aff_b1": ">🔴 Book Agoda now</a>",
+    "aff_b2": ">🔵 Booking.com</a>",
+    "hot_seeall": ">See hotels in every province →</a>",
+    "arts_lbl": "<div class=\"slbl\">Featured reads</div>",
+    "arts_tit": "Read before <em>you go</em>",
+    "map_lbl": "<div class=\"slbl\">Every destination on the map</div>",
+    "map_tit": "Popular provinces <em>ready to go</em>",
+    "map_sub": "Tap a pin to open that province's travel guide",
+    "leg_north": "<i style=\"background:#06B6D4\"></i>North",
+    "leg_isan": "<i style=\"background:#FBBF24\"></i>Isan",
+    "leg_central": "<i style=\"background:#FB7185\"></i>Central",
+    "leg_east": "<i style=\"background:#10B981\"></i>East",
+    "leg_west": "<i style=\"background:#A78BFA\"></i>West",
+    "leg_south": "<i style=\"background:#F97316\"></i>South",
+    "why_lbl": "<div class=\"slbl\">Why ThailandAddict</div>",
+    "why_tit": "Travel Thailand <em>like you know it</em>",
+    "why_t1": "<div class=\"why-t\">From real reviews</div>",
+    "why_b1": "Summed up from hundreds of real guest reviews — no over-hyping",
+    "why_t2": "<div class=\"why-t\">3 sites compared</div>",
+    "why_b2": "Agoda · Booking · Trip.com, direct booking links, no hidden ads",
+    "why_t3": "<div class=\"why-t\">Checked it's open</div>",
+    "why_b3": "We verify the hotel or shop is still open and hasn't changed names",
+    "why_t4": "<div class=\"why-t\">The good and the bad</div>",
+    "why_b4": "Every review has a \"skip it if...\" section so you can pick what fits",
+    "nl_h": "Get hotel deals first 📭",
+    "nl_sub": "Join the list — the best stays, new eats and provinces we just added, and we'll let you know first",
+    "nl_ph": "placeholder=\"Your email...\"",
+    "nl_btn": ">Join the list</button>",
+    "nl_note": "📩 No spam · unsubscribe anytime · only things genuinely worth it",
+    "ft_tag": "<div class=\"ft-tag\">Explore Thailand Like a Local</div>",
+    "ft_desc": "Explore Thailand like a local — the best stays, food and places across Thailand, picked from real reviews",
+    "ft_h_dest": "<h4>Destinations</h4>",
+    "ft_thai": ">🇹🇭 Thailand travel</a>",
+    "ft_h_content": "<h4>Content</h4>",
+    "ft_cmhotels": ">Chiang Mai hotels</a>",
+    "ft_bkkfood": ">Bangkok food</a>",
+    "ft_guide": ">Thailand travel guide</a>",
+    "ft_plan": ">Plan Your Trip</a>",
+    "ft_h_about": "<h4>About</h4>",
+    "ft_aboutus": ">About us</a>",
+    "ft_edpol": ">Editorial policy</a>",
+    "ft_privacy": ">Privacy</a>",
+    "ft_copy": "© 2026 thailandaddict.com — Thailand travel, done right",
+    "ft_bottomright": "<span>Privacy · Editorial Policy</span>",
+    "ft_aff": "⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you.",
+    "mbar_pick": ">🇹🇭 Pick a province</a>",
+    "mbar_stay": ">🏨 Find a stay</a>"
+  },
+  "ui": {
+    "bestHotelsIn": "10 best hotels in {name}",
+    "rankedRoundup": "ranked roundup + individual hotel reviews",
+    "seeAll10": "See all 10 →",
+    "fromAbout": "from about",
+    "seeRankings": "See rankings →",
+    "visit": "Visit {name}",
+    "top10Hotels": "Top 10 {name} hotels",
+    "hotelRankings": "hotel rankings",
+    "noResults": "No results found",
+    "openGuide": "Open guide →",
+    "nlSending": "Sending…",
+    "nlOk": "Thanks! ✓",
+    "nlFail": "Something went wrong — try again"
+  },
+  "regions": {
+    "North": "North",
+    "Isan": "Isan",
+    "Central": "Central",
+    "East": "East",
+    "West": "West",
+    "South": "South"
+  },
+  "prov": {
+    "bangkok": {
+      "n": "Bangkok",
+      "t": "The capital where old temples, high-rises, and street food share the same soi"
+    },
+    "chiang-mai": {
+      "n": "Chiang Mai",
+      "t": "An old town in the valley that’s easy to stay in longer than planned"
+    },
+    "phuket": {
+      "n": "Phuket",
+      "t": "A big Andaman island with white-sand beaches, a Sino-Portuguese old town, and Hokkien food"
+    },
+    "krabi": {
+      "n": "Krabi",
+      "t": "Andaman limestone cliffs, white-sand beaches, clear islands, rock climbing at Railay, and emerald-green water"
+    },
+    "chiang-rai": {
+      "n": "Chiang Rai",
+      "t": "Thailand’s northernmost city, with striking temples, high mountains, and tea farms"
+    },
+    "chonburi": {
+      "n": "Chonburi",
+      "t": "Thailand’s eastern seaboard — Pattaya, nearby islands, and fresh seafood, all a short drive from Bangkok"
+    },
+    "surat-thani": {
+      "n": "Surat Thani",
+      "t": "The ’town of a hundred islands’ on the Gulf of Thailand — gateway to Samui, Cheow Lan Lake, and the old temple town of Chaiya"
+    },
+    "prachuap-khiri-khan": {
+      "n": "Prachuap Khiri Khan",
+      "t": "Thailand’s narrowest province, home to Hua Hin, the three-bay coast of Prachuap, Khao Takiab, and Khao Sam Roi Yot National Park"
+    },
+    "kanchanaburi": {
+      "n": "Kanchanaburi",
+      "t": "Home of the Bridge over the River Kwai, big waterfalls, the forested west, and riverside raft houses you can stay on all year"
+    },
+    "ayutthaya": {
+      "n": "Ayutthaya",
+      "t": "A former royal capital and World Heritage city — wander old temple ruins and cycle the island."
+    },
+    "rayong": {
+      "n": "Rayong",
+      "t": "An eastern seaside province with Koh Samet, quiet beaches, fruit orchards, and famous dried seafood"
+    },
+    "trat": {
+      "n": "Trat",
+      "t": "Thailand’s last province on the eastern coast, home to Koh Chang, Koh Kood, and Koh Mak — clear water and quiet seas"
+    },
+    "phang-nga": {
+      "n": "Phang Nga",
+      "t": "Limestone-bay country on the Andaman — home to James Bond Island, the Similans, and Khao Lak"
+    },
+    "nan": {
+      "n": "Nan",
+      "t": "An old town in a valley with pretty temples, good coffee, and mountain roads up to the morning mist"
+    },
+    "mae-hong-son": {
+      "n": "Mae Hong Son",
+      "t": "City of three mists at the end of the winding road"
+    },
+    "sukhothai": {
+      "n": "Sukhothai",
+      "t": "A World Heritage city — old stupas scattered across open fields"
+    },
+    "nakhon-ratchasima": {
+      "n": "Nakhon Ratchasima",
+      "t": "The gateway to Isan — Khao Yai, Khmer temples, and vineyards an easy drive from Bangkok"
+    },
+    "phetchabun": {
+      "n": "Phetchabun",
+      "t": "Mist over Khao Kho, chilly nights on Phu Tab Berk, and the sweet tamarind the province is known for"
+    },
+    "lamphun": {
+      "n": "Lamphun",
+      "t": "A quiet little town that’s the oldest in the North"
+    },
+    "lampang": {
+      "n": "Lampang",
+      "t": "Horse carriages and old temples — a town made for slow walks all day"
+    },
+    "phayao": {
+      "n": "Phayao",
+      "t": "A small town by the lake where you slow down and watch the sunset every evening"
+    },
+    "phrae": {
+      "n": "Phrae",
+      "t": "Teak houses and indigo-dyed cloth, an old town to wander slowly"
+    },
+    "uttaradit": {
+      "n": "Uttaradit",
+      "t": "Home of langsat fruit, Sirikit Dam, and the legendary town of Laplae"
+    },
+    "phitsanulok": {
+      "n": "Phitsanulok",
+      "t": "Home of the Phra Phuttha Chinnarat, gateway to the eastern mountains"
+    },
+    "tak": {
+      "n": "Tak",
+      "t": "A western border province with a huge waterfall deep in the jungle"
+    },
+    "kamphaeng-phet": {
+      "n": "Kamphaeng Phet",
+      "t": "A quiet World Heritage town known for its sweet egg bananas"
+    },
+    "phichit": {
+      "n": "Phichit",
+      "t": "Chalawan’s town, Bueng Si Fai, and riverside life along the Nan"
+    },
+    "nakhon-sawan": {
+      "n": "Nakhon Sawan",
+      "t": "Pak Nam Pho, where the Chao Phraya River begins and the biggest Chinese New Year in Thailand happens"
+    },
+    "uthai-thani": {
+      "n": "Uthai Thani",
+      "t": "A small town on the Sakae Krang River, next to the Huai Kha Khaeng World Heritage forest"
+    },
+    "buriram": {
+      "n": "Buriram",
+      "t": "Stone temples on extinct volcanoes, plus the home of Thai football and big-league motorsport"
+    },
+    "surin": {
+      "n": "Surin",
+      "t": "Elephant country, Khmer temples, and the handwoven silk of southern Isan"
+    },
+    "sisaket": {
+      "n": "Sisaket",
+      "t": "Volcanic-soil durian, Khmer temples, and the Khao Phra Wihan border trail in the deep south of Isan"
+    },
+    "ubon-ratchathani": {
+      "n": "Ubon Ratchathani",
+      "t": "A Mekong-side city in Thailand’s far east — Pha Taem, Sam Phan Bok, and the Candle Festival"
+    },
+    "yasothon": {
+      "n": "Yasothon",
+      "t": "Home of the rocket festival, Phra That Kong Khao Noi, and the Ban Singha Tha old town"
+    },
+    "chaiyaphum": {
+      "n": "Chaiyaphum",
+      "t": "Pink siam tulip fields in the rains, the stone pillars of Mo Hin Khao, and Ban Khwao silk"
+    },
+    "amnat-charoen": {
+      "n": "Amnat Charoen",
+      "t": "A small town in the southern Isan, home to the giant Phra Mongkhon Ming Muang Buddha and quiet rice-field life"
+    },
+    "nong-bua-lamphu": {
+      "n": "Nong Bua Lamphu",
+      "t": "A small town below the Phu Phan range, Luang Pu Khao’s Wat Tham Klong Phen, and the Ubolratana reservoir"
+    },
+    "khon-kaen": {
+      "n": "Khon Kaen",
+      "t": "Isaan’s hub city — dinosaurs, Bueng Kaen Nakhon lake, and countryside mudmee silk"
+    },
+    "udon-thani": {
+      "n": "Udon Thani",
+      "t": "The big city of the upper Isan, with the Ban Chiang World Heritage site, the Red Lotus Sea, and great Vietnamese food"
+    },
+    "loei": {
+      "n": "Loei",
+      "t": "Cool mountain air, the Phu Kradueng sea of fog, and the Phi Ta Khon festival in Dan Sai"
+    },
+    "nong-khai": {
+      "n": "Nong Khai",
+      "t": "A Mekong border town with the Friendship Bridge to Laos, Sala Kaew Ku, and the Naga fireballs"
+    },
+    "maha-sarakham": {
+      "n": "Maha Sarakham",
+      "t": "The education hub of central Isan — Phra That Na Dun, ancient Khmer ruins, and a lively student scene"
+    },
+    "roi-et": {
+      "n": "Roi Et",
+      "t": "Home of Bueng Phlan Chai, the great Phra Maha Chedi Chai Mongkol, and the Thung Kula Ronghai plains"
+    },
+    "kalasin": {
+      "n": "Kalasin",
+      "t": "Isan’s dinosaur town — Praewa silk, Lam Pao Dam, and the Phu Phan range"
+    },
+    "sakon-nakhon": {
+      "n": "Sakon Nakhon",
+      "t": "Home of Wat Phra That Choeng Chum, hand-dyed indigo cloth, the wide Nong Han lake, and the Phu Phan hills"
+    },
+    "nakhon-phanom": {
+      "n": "Nakhon Phanom",
+      "t": "A Mekong town facing the mountains of Laos — Phra That Phanom, an evening riverside walk, and an old Vietnamese quarter"
+    },
+    "mukdahan": {
+      "n": "Mukdahan",
+      "t": "A Mekong border town across from Savannakhet — the Indochina Market, Ho Kaeo Mukdahan tower, and the rock views of Phu Pha Thoep"
+    },
+    "bueng-kan": {
+      "n": "Bueng Kan",
+      "t": "Isan’s newest Mekong town — Phu Tok’s wooden stairways, the Three Whale Rocks, and rubber plantations as far as you can see"
+    },
+    "nonthaburi": {
+      "n": "Nonthaburi",
+      "t": "A Chao Phraya riverside town that blends seamlessly into Bangkok"
+    },
+    "pathum-thani": {
+      "n": "Pathum Thani",
+      "t": "Rangsit at the end of the train line, canal-side rice fields, theme parks, and a big science museum"
+    },
+    "samut-prakan": {
+      "n": "Samut Prakan",
+      "t": "The river-mouth town on the Gulf of Thailand, with old forts, the Ancient City, and seaside fish markets"
+    },
+    "samut-sakhon": {
+      "n": "Samut Sakhon",
+      "t": "Mahachai, the port town on the Gulf with a huge fish market, salt flats, and fresh seafood"
+    },
+    "samut-songkhram": {
+      "n": "Samut Songkhram",
+      "t": "The small riverside town of Mae Klong, where three waters meet — home to the Maeklong Railway Market, Amphawa Floating Market, and coconut groves everywhere"
+    },
+    "nakhon-pathom": {
+      "n": "Nakhon Pathom",
+      "t": "Home of the giant Phra Pathom Chedi, next door to Bangkok, with old markets, floating markets, and loads of famous food"
+    },
+    "ang-thong": {
+      "n": "Ang Thong",
+      "t": "A flat river plain with a giant Buddha, old temples, craft villages, and life along the Chao Phraya"
+    },
+    "lopburi": {
+      "n": "Lopburi",
+      "t": "City of monkeys and King Narai’s palace, with sunflower fields in the cool season"
+    },
+    "sing-buri": {
+      "n": "Sing Buri",
+      "t": "Home of the Bang Rachan heroes, Mae La snakehead fish, and old temples along the Chao Phraya River"
+    },
+    "chai-nat": {
+      "n": "Chai Nat",
+      "t": "A Chao Phraya riverside town with a bird park, a big dam, and the old town of Sankhaburi"
+    },
+    "saraburi": {
+      "n": "Saraburi",
+      "t": "Home of the Buddha’s Footprint, Muak Lek milk, and waterfalls at the foot of Khao Yai"
+    },
+    "suphan-buri": {
+      "n": "Suphan Buri",
+      "t": "An old town on the Tha Chin River — home of luk thung music, century-old markets, and a city where everything worth seeing sits close together"
+    },
+    "nakhon-nayok": {
+      "n": "Nakhon Nayok",
+      "t": "Waterfall country at the foot of Khao Yai near Bangkok, with rafting, camping, and local fruit"
+    },
+    "chanthaburi": {
+      "n": "Chanthaburi",
+      "t": "An eastern town of fruit and gemstones, with an old riverside community, mountains, and the sea"
+    },
+    "chachoengsao": {
+      "n": "Chachoengsao",
+      "t": "Home of Luang Pho Sothon on the Bang Pakong River, an easy trip from Bangkok with old markets, big temples, and mango orchards"
+    },
+    "prachinburi": {
+      "n": "Prachinburi",
+      "t": "Home of Abhaibhubejhr herbal medicine, the eastern foothills of Khao Yai, with ancient ruins, the Hin Phoeng rapids, and sweet santol fruit"
+    },
+    "sa-kaeo": {
+      "n": "Sa Kaeo",
+      "t": "An eastern border province next to Cambodia, with Rong Kluea Market, Khmer temples, hills, and waterfalls"
+    },
+    "ratchaburi": {
+      "n": "Ratchaburi",
+      "t": "The dragon-jar town on the Mae Klong River, home to Damnoen Saduak floating market, Khao Ngu caves, and the Tenasserim hills out at Suan Phueng"
+    },
+    "phetchaburi": {
+      "n": "Phetchaburi",
+      "t": "An old town on the Phetchaburi River with the Phra Nakhon Khiri palace, craftsman temples, mor kaeng custard, and the beaches of Cha-am and Laem Phak Bia"
+    },
+    "chumphon": {
+      "n": "Chumphon",
+      "t": "The gateway to the south, with long Sai Ri Beach, the Prince of Chumphon’s warship, dive islands, and robusta coffee"
+    },
+    "ranong": {
+      "n": "Ranong",
+      "t": "An Andaman coast town of hot springs, Koh Phayam, and the Myanmar border, known for eight months of rain and four of sun"
+    },
+    "nakhon-si-thammarat": {
+      "n": "Nakhon Si Thammarat",
+      "t": "A thousand-year-old stupa, Ai Khai of Wat Chedi, shadow-puppet cafes, and waterfalls plus the Gulf coast"
+    },
+    "phatthalung": {
+      "n": "Phatthalung",
+      "t": "A lakeside town on Songkhla Lake — Khao Ok Thalu mountain, red lotus blooms at Thale Noi, rice fields with water buffalo, and the home of shadow puppetry and Manora dance"
+    },
+    "trang": {
+      "n": "Trang",
+      "t": "The Andaman coast’s food town — morning roast pork, hot dim sum, the Emerald Cave, and quiet islands made for slow nights"
+    },
+    "satun": {
+      "n": "Satun",
+      "t": "A southern border town on the Andaman, a UNESCO Global Geopark, the Tarutao–Koh Lipe islands, and a quiet Muslim way of life"
+    },
+    "songkhla": {
+      "n": "Songkhla",
+      "t": "A two-sea province with a colorful old town, Samila Beach and its mermaid, the Nang Ngam street quarter, and the border trade city of Hat Yai"
+    },
+    "pattani": {
+      "n": "Pattani",
+      "t": "An old southern port town with a Malay soul — historic mosques, a Sino-Portuguese old quarter, and bold local food"
+    },
+    "yala": {
+      "n": "Yala",
+      "t": "Thailand’s southernmost province — a town laid out in perfect circles, plus Betong with the Aiyoeweng sea of fog, an old tunnel, and Hokkien Chinese food"
+    },
+    "narathiwat": {
+      "n": "Narathiwat",
+      "t": "Thailand’s southernmost province on the Gulf coast — a Malay-flavored border town with long sandy beaches, the Toh Daeng peat swamp, and bold local food"
+    }
+  },
+  "topn": {
+    "chiang-mai": "Chiang Mai",
+    "bangkok": "Bangkok",
+    "phuket": "Phuket",
+    "krabi": "Krabi",
+    "chonburi": "Pattaya · Chonburi",
+    "phang-nga": "Phang Nga",
+    "prachuap-khiri-khan": "Hua Hin · Prachuap",
+    "surat-thani": "Surat Thani",
+    "kanchanaburi": "Kanchanaburi",
+    "ayutthaya": "Ayutthaya",
+    "chiang-rai": "Chiang Rai",
+    "trat": "Trat"
+  },
+  "hotels": {
+    "top10-hotels-chiang-mai": {
+      "n": "Top 10 Chiang Mai Hotels",
+      "loc": "🇹🇭 Chiang Mai"
+    },
+    "top10-hotels-bangkok": {
+      "n": "Top 10 Bangkok Hotels",
+      "loc": "🇹🇭 Bangkok"
+    },
+    "top10-hotels-phuket": {
+      "n": "Top 10 Phuket Hotels",
+      "loc": "🇹🇭 Phuket"
+    },
+    "top10-hotels-krabi": {
+      "n": "Top 10 Krabi Hotels",
+      "loc": "🇹🇭 Krabi"
+    },
+    "top10-hotels-phang-nga": {
+      "n": "Top 10 Phang Nga Hotels",
+      "loc": "🇹🇭 Phang Nga"
+    },
+    "top10-hotels-chonburi": {
+      "n": "Top 10 Pattaya Hotels",
+      "loc": "🇹🇭 Chonburi"
+    }
+  },
+  "arts": {
+    "wat-rong-khun-guide": {
+      "l": "Chiang Rai · attractions",
+      "ti": "Wat Rong Khun — the White Temple that defines Chiang Rai",
+      "bd": "Top Picks"
+    },
+    "top-khao-soi-chiang-mai": {
+      "l": "Chiang Mai · food",
+      "ti": "The best khao soi shops in Chiang Mai, ranked",
+      "bd": "Food"
+    },
+    "phi-phi-island-tour": {
+      "l": "Phuket · island tours",
+      "ti": "Phi Phi island tours from Phuket — everything you need to know",
+      "bd": "Guide"
+    },
+    "bangkok-street-food-yaowarat": {
+      "l": "Bangkok · food",
+      "ti": "Yaowarat street food — the stalls locals actually go to",
+      "bd": "Food"
+    }
+  }
+}
