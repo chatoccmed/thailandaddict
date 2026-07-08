@@ -38,7 +38,12 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .search-drop{position:absolute;top:calc(100% + 8px);right:0;width:320px;max-height:380px;overflow-y:auto;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 16px 40px rgba(15,40,70,.18);z-index:1300;display:none}
 .search-drop.show{display:block}.search-drop a{display:block;padding:11px 14px;border-bottom:1px solid var(--bdr)}.search-drop a:hover{background:var(--bl-lt)}
 .search-drop .t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:600}.search-drop .c{font-size:11.5px;color:var(--mut)}.search-drop .empty{padding:18px;text-align:center;color:var(--mut);font-size:13px}
-.lang-wrap{display:flex;gap:1px}.lb{background:transparent;border:none;font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;color:var(--mut);padding:5px 8px;border-radius:6px}.lb.active{color:var(--bl);background:var(--bl-lt)}
+.flagbar{display:inline-flex;align-items:center;gap:3px;background:var(--bl-lt);border:1px solid var(--bdr);border-radius:30px;padding:4px 6px}
+.flagbar a{display:block;width:24px;height:24px;border-radius:50%;overflow:hidden;opacity:.72;transition:transform .16s,opacity .16s;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.flagbar a:hover{opacity:1;transform:scale(1.12)}
+.flagbar a.on{opacity:1;transform:scale(1.2);box-shadow:0 0 0 2px #fff,0 3px 9px rgba(15,40,70,.22);position:relative;z-index:1}
+.flg{width:100%;height:100%;background-size:cover;background-position:center;display:block}
+.flg-th{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjQTUxOTMxIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48cGF0aCBmaWxsPSIjRjRGNUY4IiBkPSJNMCAxMDBoOTAwdjQwMEgweiIvPjxwYXRoIGZpbGw9IiMyRDJBNEEiIGQ9Ik0wIDIwMGg5MDB2MjAwSDB6Ii8+PC9zdmc+")}.flg-en{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIj48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYiI+PHBhdGggZD0iTTMwIDE1aDMwdjE1enYxNUgwekgwVjB6VjBoMzB6Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiIGZpbGw9IiMwMTIxNjkiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgY2xpcC1wYXRoPSJ1cmwoI2IpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPjwvc3ZnPg==")}
 .nav-cta{background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:10px 20px;border-radius:30px;box-shadow:0 6px 18px rgba(251,113,133,.5)}@media(max-width:860px){.nav-cta{display:none}}
 .hb{display:none;background:none;border:none;color:var(--ink);font-size:24px}@media(max-width:860px){.hb{display:block}}
 .mm{position:fixed;inset:0;z-index:1000;background:#fff;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:24px;overflow-y:auto}.mm.open{transform:translateX(0)}
@@ -216,7 +221,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
     <a href="about">About</a>
   </div>
   <div class="nav-r">
-    <div class="lang-wrap"><button class="lb" onclick="location.href='/city-pattani'">TH</button><button class="lb active">EN</button></div>
+    <div class="flagbar" role="navigation" aria-label="Language"><a href="/city-pattani" title="ไทย" aria-label="ไทย"><span class="flg flg-th"></span></a><a href="/en/city-pattani" class="on" title="English" aria-label="English"><span class="flg flg-en"></span></a></div>
     <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="Search provinces..." autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
     <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">Find Hotels</button>
     <button class="hb" id="hb">☰</button>
