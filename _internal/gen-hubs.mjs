@@ -126,9 +126,13 @@ for(const l of NEW_LOCS){
   CITY_NAME[l]={}; REGION_NAME[l]={};
   try{
     const h=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/homepage-i18n',l+'.json'),'utf8'));
-    for(const [sl,o] of Object.entries(h.prov||{})) if(o&&o.n) CITY_NAME[l][sl]=o.n;
     for(const [rk,hk] of Object.entries(REGION_HKEY)) if(h.regions && h.regions[hk]) REGION_NAME[l][rk]=h.regions[hk];
   }catch{}
+  // city display names: read each tourism city's OWN translated data file (covers provinces +
+  // sub-destinations alike — the homepage `prov` dict only has the 77 provinces, not pai/huahin/etc).
+  for(const sl of TOURISM){
+    try{ const c=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/province-data-'+l,sl+'.json'),'utf8')); if(c&&c.th) CITY_NAME[l][sl]=c.th; }catch{}
+  }
 }
 const FLAG_B64 = {};
 for(const l of ['th','en',...NEW_LOCS]){ try{ FLAG_B64[l]=fs.readFileSync(path.join(ROOT,'astro/public/images/flags',l+'.svg')).toString('base64'); }catch{} }
