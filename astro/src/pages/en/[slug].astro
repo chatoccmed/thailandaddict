@@ -3,11 +3,13 @@ import { getCollection } from 'astro:content';
 import ReviewLayout from '../../layouts/ReviewLayout.astro';
 import RoundupLayout from '../../layouts/RoundupLayout.astro';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { extraLocalesBySlug } from '../../lib/locales';
 
 export async function getStaticPaths() {
   const reviews = await getCollection('reviewsEn');
   const roundups = await getCollection('roundupsEn');
   const articles = await getCollection('articlesEn');
+  const extra = await extraLocalesBySlug();
   return [
     ...reviews.map((r) => ({
       params: { slug: r.data.slug },
@@ -19,15 +21,16 @@ export async function getStaticPaths() {
     })),
     ...articles.map((r) => ({
       params: { slug: r.data.slug },
-      props: { kind: 'article' as const, data: r.data },
+      props: { kind: 'article' as const, data: r.data,
+        availableLocales: ['th', 'en', ...(extra[r.data.slug] || [])] },
     })),
   ];
 }
 
-const { kind, data } = Astro.props;
+const { kind, data, availableLocales } = Astro.props;
 ---
 {kind === 'review'
   ? <ReviewLayout data={data} lang="en" />
   : kind === 'roundup'
   ? <RoundupLayout data={data} lang="en" />
-  : <ArticleLayout data={data} lang="en" />}
+  : <ArticleLayout data={data} lang="en" availableLocales={availableLocales} />}

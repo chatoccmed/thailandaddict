@@ -1,15 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { extraLocalesBySlug } from '../../lib/locales';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articlesKo');
+  const extra = await extraLocalesBySlug();
   return articles.map((r) => ({
     params: { slug: r.data.slug },
-    props: { data: r.data },
+    props: { data: r.data, availableLocales: ['th', 'en', ...(extra[r.data.slug] || [])] },
   }));
 }
 
-const { data } = Astro.props;
+const { data, availableLocales } = Astro.props;
 ---
-<ArticleLayout data={data} lang="ko" hasEn={true} />
+<ArticleLayout data={data} lang="ko" hasEn={true} availableLocales={availableLocales} />

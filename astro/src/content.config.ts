@@ -367,5 +367,9 @@ const articlesJa = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-ja' }),
   schema: articleSchema,
 });
+const articlesHi = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-hi' }),
+  schema: articleSchema,
+});
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa };
+export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa, articlesHi };
