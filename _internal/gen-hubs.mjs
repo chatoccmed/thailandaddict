@@ -109,19 +109,71 @@ const TOPDEST = ['bangkok','chiang-mai','phuket','krabi','chiang-rai','chonburi'
 const EN_NAME = {
   'amnat-charoen':'Amnat Charoen','ang-thong':'Ang Thong','ayutthaya':'Ayutthaya','bangkok':'Bangkok','bueng-kan':'Bueng Kan','buriram':'Buriram','chachoengsao':'Chachoengsao','chai-nat':'Chai Nat','chaiyaphum':'Chaiyaphum','chanthaburi':'Chanthaburi','chiang-mai':'Chiang Mai','chiang-rai':'Chiang Rai','chonburi':'Chonburi','chumphon':'Chumphon','hat-yai':'Hat Yai','huahin':'Hua Hin','kalasin':'Kalasin','kamphaeng-phet':'Kamphaeng Phet','kanchanaburi':'Kanchanaburi','khao-yai':'Khao Yai','khon-kaen':'Khon Kaen','koh-chang':'Koh Chang','koh-kood':'Koh Kood','koh-larn':'Koh Larn','koh-lipe':'Koh Lipe','koh-mak':'Koh Mak','koh-phangan':'Koh Phangan','krabi':'Krabi','lampang':'Lampang','lamphun':'Lamphun','loei':'Loei','lopburi':'Lopburi','mae-hong-son':'Mae Hong Son','maha-sarakham':'Maha Sarakham','mukdahan':'Mukdahan','nakhon-nayok':'Nakhon Nayok','nakhon-pathom':'Nakhon Pathom','nakhon-phanom':'Nakhon Phanom','nakhon-ratchasima':'Nakhon Ratchasima','nakhon-sawan':'Nakhon Sawan','nakhon-si-thammarat':'Nakhon Si Thammarat','nan':'Nan','narathiwat':'Narathiwat','nong-bua-lamphu':'Nong Bua Lamphu','nong-khai':'Nong Khai','nonthaburi':'Nonthaburi','pai':'Pai','pathum-thani':'Pathum Thani','pattani':'Pattani','pattaya':'Pattaya','phang-nga':'Phang Nga','phatthalung':'Phatthalung','phayao':'Phayao','phetchabun':'Phetchabun','phetchaburi':'Phetchaburi','phichit':'Phichit','phitsanulok':'Phitsanulok','phrae':'Phrae','phuket':'Phuket','prachinburi':'Prachinburi','prachuap-khiri-khan':'Prachuap Khiri Khan','ranong':'Ranong','ratchaburi':'Ratchaburi','rayong':'Rayong','roi-et':'Roi Et','sa-kaeo':'Sa Kaeo','sakon-nakhon':'Sakon Nakhon','samui':'Koh Samui','samut-prakan':'Samut Prakan','samut-sakhon':'Samut Sakhon','samut-songkhram':'Samut Songkhram','saraburi':'Saraburi','satun':'Satun','sing-buri':'Sing Buri','sisaket':'Sisaket','songkhla':'Songkhla','sukhothai':'Sukhothai','suphan-buri':'Suphan Buri','surat-thani':'Surat Thani','surin':'Surin','tak':'Tak','trang':'Trang','trat':'Trat','ubon-ratchathani':'Ubon Ratchathani','udon-thani':'Udon Thani','uthai-thani':'Uthai Thani','uttaradit':'Uttaradit','yala':'Yala','yasothon':'Yasothon',
 };
+// ── 9-language locale infrastructure ──
+const NEW_LOCS = ['zh','ru','ko','ja','hi','he','ar'];
+const RTL_LOCS = new Set(['he','ar']);
+const OG_LOCALE = {th:'th_TH',en:'en_US',zh:'zh_CN',ru:'ru_RU',ko:'ko_KR',ja:'ja_JP',hi:'hi_IN',he:'he_IL',ar:'ar_AR'};
+const LANG_LABEL = {th:'ไทย',en:'English',zh:'中文',ru:'Русский',ko:'한국어',ja:'日本語',hi:'हिन्दी',he:'עברית',ar:'العربية'};
+const PILLAR_SLUGS = ['first-time-thailand','thailand-7-day-itinerary','thailand-10-day-itinerary','thailand-2-week-itinerary','thailand-3-week-itinerary','thailand-1-month-itinerary','northern-thailand-itinerary','southern-thailand-itinerary','thailand-with-kids-itinerary','thailand-honeymoon-itinerary','songkran-guide','yi-peng-lantern-festival'];
+const TOURISM = [...new Set([...TOPDEST, ...DESTINATIONS.map(d=>d[0])])];
+const REGION_OF = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([sl,,r])=>[sl,r]));
+const CHROME = {};
+for(const l of NEW_LOCS){ try{ CHROME[l]=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/hub-i18n',l+'.json'),'utf8')); }catch{ CHROME[l]=null; } }
+const CITY_NAME = {};
+const REGION_NAME = {};
+const REGION_HKEY = {n:'North',ne:'Isan',c:'Central',e:'East',w:'West',s:'South'};
+for(const l of NEW_LOCS){
+  CITY_NAME[l]={}; REGION_NAME[l]={};
+  try{
+    const h=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/homepage-i18n',l+'.json'),'utf8'));
+    for(const [sl,o] of Object.entries(h.prov||{})) if(o&&o.n) CITY_NAME[l][sl]=o.n;
+    for(const [rk,hk] of Object.entries(REGION_HKEY)) if(h.regions && h.regions[hk]) REGION_NAME[l][rk]=h.regions[hk];
+  }catch{}
+}
+const FLAG_B64 = {};
+for(const l of ['th','en',...NEW_LOCS]){ try{ FLAG_B64[l]=fs.readFileSync(path.join(ROOT,'astro/public/images/flags',l+'.svg')).toString('base64'); }catch{} }
+let AVAIL = null;   // set per genAll: page-slugs that exist in the current (new) locale
+// which locales a PAGE slug exists in (tourism-city hubs vary by translated data; everything else = th/en)
+function pageLocales(slug){
+  const m = /^city-(.+)$/.exec(slug);
+  if(m && TOURISM.includes(m[1])){ const locs=['th','en']; for(const l of NEW_LOCS){ try{ if(fs.existsSync(path.join(DATA+'-'+l, m[1]+'.json'))) locs.push(l); }catch{} } return locs; }
+  return ['th','en'];
+}
 let LOC = 'th';                                  // current locale being generated
-const tx = (th, en) => LOC === 'en' ? en : th;   // pick locale string
+// DYN: the current page's dynamic interpolation values (e.g. {nm:'Phuket', cStay:'12'}) — set
+// once per hub (provinceHub) so tx() can translate title/heading templates that embed a live value
+// (`Explore ${nm}`) without touching every call site. Reconstructs the ${name} template from the
+// resolved runtime string (longest values first, to avoid short numbers colliding with substrings),
+// looks that template up in the chrome dict, then substitutes the real values back into the translation.
+let DYN = {};
+const tx = (th, en) => {
+  if (LOC === 'th') return th;
+  if (LOC === 'en') return en;
+  if (typeof en !== 'string') return en;   // e.g. tx({...th-map}, {...en-map}) — no string dict lookup applies
+  const dict = CHROME[LOC];
+  if (!dict) return en;
+  if (en in dict) return dict[en];
+  const entries = Object.entries(DYN).filter(([, v]) => v != null && String(v) !== '').sort((a, b) => String(b[1]).length - String(a[1]).length);
+  let key = en;
+  for (const [name, val] of entries) key = key.split(String(val)).join('${' + name + '}');
+  if (key !== en && (key in dict)) {
+    let out = dict[key];
+    for (const [name, val] of entries) out = out.split('${' + name + '}').join(String(val));
+    return out;
+  }
+  return en;
+};
 // Booking.com (Thailand publishers) pays ONLY via CJ — wrap every booking.com href in a CJ deep link.
 // sid = hub slug (en- prefixed for /en/) → per-page revenue attribution in CJ Reports.
 const CJ_PID = '101809619';  // ThailandAddict on CJ · advertiser: Booking.com APAC (7854081)
 const CJ_ADID = '17289009';  // active text-link id from our CJ account (click-format deep link, production-proven)
 const cjB = (u, sid) => u && /booking\.com/.test(u)
-  ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${((LOC==='en'?'en-':'')+String(sid||'hub')).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60)}&url=${encodeURIComponent(u)}`
+  ? `https://www.anrdoezrs.net/click-${CJ_PID}-${CJ_ADID}?sid=${((LOC==='th'?'':LOC+'-')+String(sid||'hub')).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60)}&url=${encodeURIComponent(u)}`
   : u;
-const NAME = slug => LOC === 'en' ? (EN_NAME[slug] || slug.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())) : (TH[slug] || slug);
-const RNAME = r => LOC === 'en' ? REGION[r].en : REGION[r].th;
-const RINTRO = r => LOC === 'en' ? REGION[r].intro_en : REGION[r].intro;
-const PFX = () => LOC === 'en' ? '/en/' : '/';    // home href for current locale
+const NAME = slug => LOC==='th' ? (TH[slug] || slug) : LOC==='en' ? (EN_NAME[slug] || slug.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())) : ((CITY_NAME[LOC] && CITY_NAME[LOC][slug]) || EN_NAME[slug] || slug.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()));
+const RNAME = r => LOC==='th' ? REGION[r].th : LOC==='en' ? REGION[r].en : ((REGION_NAME[LOC] && REGION_NAME[LOC][r]) || REGION[r].en);
+const RINTRO = r => LOC==='th' ? REGION[r].intro : REGION[r].intro_en;
+const PFX = () => LOC==='th' ? '/' : '/'+LOC+'/';    // home href for current locale
 const ALT = slug => LOC === 'en' ? '/'+slug+'.html' : '/en/'+slug+'.html'; // other-locale URL of this page
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -189,8 +241,8 @@ function buildIndex(loc){
 }
 const IDX = { th: buildIndex('th'), en: buildIndex('en') };
 // LOC-aware accessors (used throughout builders)
-const ARTS = new Proxy({}, { get:(_,k)=> IDX[LOC].ARTS[k] });
-const REVS = new Proxy({}, { get:(_,k)=> IDX[LOC].REVS[k] });
+const ARTS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).ARTS[k] });
+const REVS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).REVS[k] });
 // Phase-1 "hotels near <anchor>" overlays (medical/MICE/airport). Locale-agnostic source records (carry TH+EN
 // fields) — used by nearGuides() on the city hub and the per-ย่าน cross-link in hoodHub(). Articles themselves
 // are generated by _internal/gen-overlay.mjs and already live in ARTS (type:prep, cluster:bangkok).
@@ -234,6 +286,7 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .flagbar a:hover{opacity:1;transform:scale(1.12)}
 .flagbar a.on{opacity:1;transform:scale(1.2);box-shadow:0 0 0 2px #fff,0 3px 9px rgba(15,40,70,.22);position:relative;z-index:1}
 .flg{width:100%;height:100%;background-size:cover;background-position:center;display:block}
+html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 .flg-th{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjQTUxOTMxIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48cGF0aCBmaWxsPSIjRjRGNUY4IiBkPSJNMCAxMDBoOTAwdjQwMEgweiIvPjxwYXRoIGZpbGw9IiMyRDJBNEEiIGQ9Ik0wIDIwMGg5MDB2MjAwSDB6Ii8+PC9zdmc+")}.flg-en{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIj48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYiI+PHBhdGggZD0iTTMwIDE1aDMwdjE1enYxNUgwekgwVjB6VjBoMzB6Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiIGZpbGw9IiMwMTIxNjkiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgY2xpcC1wYXRoPSJ1cmwoI2IpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPjwvc3ZnPg==")}
 .nav-cta{background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:10px 20px;border-radius:30px;box-shadow:0 6px 18px rgba(251,113,133,.5)}@media(max-width:860px){.nav-cta{display:none}}
 .hb{display:none;background:none;border:none;color:var(--ink);font-size:24px}@media(max-width:860px){.hb{display:block}}
@@ -405,9 +458,13 @@ const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">`;
 
 function navHtml(slug){
+  const _locs = pageLocales(slug);
+  const _extra = _locs.filter(l=>l!=='th'&&l!=='en');
+  const _flagcss = _extra.length ? '<style>'+_extra.map(l=>`.flg-${l}{background-image:url("data:image/svg+xml;base64,${FLAG_B64[l]}")}`).join('')+'</style>' : '';
+  const _bar = '<div class="flagbar" role="navigation" aria-label="Language">'+_locs.map(l=>`<a href="/${l==='th'?'':l+'/'}${slug}"${l===LOC?' class="on"':''} title="${LANG_LABEL[l]}" aria-label="${LANG_LABEL[l]}"><span class="flg flg-${l}"></span></a>`).join('')+'</div>';
   const lbTH = `<button class="lb${LOC==='th'?' active':''}"${LOC==='th'?'':` onclick="location.href='/${slug}.html'"`}>TH</button>`;
   const lbEN = `<button class="lb${LOC==='en'?' active':''}"${LOC==='en'?'':` onclick="location.href='/en/${slug}.html'"`}>EN</button>`;
-  return `<nav class="nav">
+  return `${_flagcss}<nav class="nav">
   <a href="${PFX()}" class="logo">Thailand<em>Addict</em></a>
   <div class="nav-mid">
     <div class="has-drop"><a href="country-thailand.html">${tx('จุดหมาย','Destinations')}</a><div class="drop"><span class="h">${tx('✨ ยอดนิยม','✨ Popular')}</span><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><span class="h">${tx('🇹🇭 6 ภาค','🇹🇭 6 Regions')}</span><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-isan.html">${tx('🌾 ภาคอีสาน','🌾 Isan')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-east.html">${tx('🏝️ ภาคตะวันออก','🏝️ East')}</a><a href="region-west.html">${tx('🌅 ภาคตะวันตก','🌅 West')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">${tx('→ ดูทั้ง 77 จังหวัด','→ All 77 provinces')}</a></div></div>
@@ -418,7 +475,7 @@ function navHtml(slug){
     <a href="about.html">${tx('เกี่ยวกับเรา','About')}</a>
   </div>
   <div class="nav-r">
-    <div class="flagbar" role="navigation" aria-label="Language"><a href="/${slug}.html"${LOC==='th'?' class="on"':''} title="ไทย" aria-label="ไทย"><span class="flg flg-th"></span></a><a href="/en/${slug}.html"${LOC==='en'?' class="on"':''} title="English" aria-label="English"><span class="flg flg-en"></span></a></div>
+    ${_bar}
     <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="${tx('ค้นหาจังหวัด...','Search provinces...')}" autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
     <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">${tx('ค้นหาที่พัก','Find Hotels')}</button>
     <button class="hb" id="hb">☰</button>
@@ -479,27 +536,29 @@ document.addEventListener('click',function(e){if(!e.target.closest('.search-box'
 // root-relative — the (?!https?:|//) guard leaves external URLs alone, and this runs on page() output
 // (HTML content) so the writeFileSync filenames are never touched.
 function cleanLinks(html) {
+  const isNew = LOC!=='th' && LOC!=='en';
+  const fix = (p, hash) => { if(!isNew) return p+hash; const sl = p.replace(/^\//,''); return (AVAIL && AVAIL.has(sl)) ? '/'+LOC+'/'+sl+hash : '/en/'+sl+hash; };
   return html
-    .replace(/href="(?!https?:|\/\/)(\/?[a-zA-Z0-9][a-zA-Z0-9/_-]*)\.html((?:#[^"]*)?)"/g, 'href="$1$2"')
-    .replace(/location\.href='(?!https?:|\/\/)(\/?[a-zA-Z0-9][^']*?)\.html((?:\?[^']*)?)'/g, "location.href='$1$2'");
+    .replace(/href="(?!https?:|\/\/)(\/?[a-zA-Z0-9][a-zA-Z0-9/_-]*)\.html((?:#[^"]*)?)"/g, (m,p,h)=>`href="${fix(p,h)}"`)
+    .replace(/location\.href='(?!https?:|\/\/)(\/?[a-zA-Z0-9][^']*?)\.html((?:\?[^']*)?)'/g, (m,p,h)=>`location.href='${fix(p,h)}'`);
 }
 
 function page({ title, desc, slug, jsonld, body, extraJS, image }) {
-  const canon = `https://thailandaddict.com/${LOC==='en'?'en/':''}${slug}`;
+  const canon = `https://thailandaddict.com/${LOC==='th'?'':LOC+'/'}${slug}`;
   const altTH = `https://thailandaddict.com/${slug}`;
   const altEN = `https://thailandaddict.com/en/${slug}`;
   const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
   return cleanLinks(`<!doctype html>
-<html lang="${LOC}"><head>
+<html lang="${LOC}"${RTL_LOCS.has(LOC)?' dir="rtl"':''}><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${GA_HEAD}
 <title>${title}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canon}">
-<link rel="alternate" hreflang="th" href="${altTH}"><link rel="alternate" hreflang="en" href="${altEN}"><link rel="alternate" hreflang="x-default" href="${altTH}">
+${pageLocales(slug).map(l=>`<link rel="alternate" hreflang="${l}" href="https://thailandaddict.com/${l==='th'?'':l+'/'}${slug}">`).join('')}<link rel="alternate" hreflang="x-default" href="${altTH}">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canon}"><meta property="og:type" content="website">
-<meta property="og:image" content="${ogImg}"><meta property="og:locale" content="${LOC==='en'?'en_US':'th_TH'}"><meta name="theme-color" content="#06B6D4">
+<meta property="og:image" content="${ogImg}"><meta property="og:locale" content="${OG_LOCALE[LOC]||'th_TH'}"><meta name="theme-color" content="#06B6D4">
 ${FONTS}
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 ${CSS}
@@ -620,6 +679,7 @@ function hotelCards(slug){
 function provinceHub(slug, th, r, d){
   const R = REGION[r];
   const nm = NAME(slug);
+  DYN = { nm };   // dynamic-string scope for tx() — extended below once cStay/moveArt/tipsArt exist
   const tagline = d.tagline || tx(`เที่ยว${th}`,`Explore ${nm}`);
   const best = d.bestTime || tx('เที่ยวได้ตลอดปี','Good year-round');
   const emoji = d.heroEmoji || R.emoji;
@@ -633,6 +693,7 @@ function provinceHub(slug, th, r, d){
   const arrow=tx(' →',' →');
   const nbrs=(d.neighbors||[]).filter(n=>TH[n]).map(n=>`<a class="nc" href="city-${n}.html">${NAME(n)}${arrow}</a>`).join('');
   const tipsArt=arts.find(a=>/travel-tips$/.test(a.slug)), moveArt=arts.find(a=>/getting-around$/.test(a.slug));
+  DYN = { nm, cStay: String(cStay), 'moveArt.slug': moveArt && moveArt.slug, 'tipsArt.slug': tipsArt && tipsArt.slug, 'RNAME(r)': RNAME(r) };
   const J = p => `https://thailandaddict.com/${LOC==='en'?'en/':''}${p}`;
   const _bc={"@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":tx('หน้าแรก','Home'),"item":J('')},
@@ -977,7 +1038,7 @@ cnt.textContent=S.loading;fetch(IDX).then(function(r){if(!r.ok)throw 0;return r.
   return page({title:tx('ค้นหา — ที่พัก ที่เที่ยว คู่มือเที่ยวไทย | ThailandAddict','Search — Hotels, Sights & Thailand Travel Guides | ThailandAddict'),desc:tx('ค้นหาที่พัก ที่เที่ยว ของกิน แผนเที่ยว และคู่มือเตรียมตัวทั่วไทยในที่เดียว','Search hotels, things to do, food, itineraries and travel guides across Thailand in one place.'),slug:'search',jsonld,body,extraJS,image:'/images/heroes/bangkok.jpg'});
 }
 function readData(slug){
-  const dirs = LOC==='en' ? [DATA+'-en', DATA] : [DATA];   // EN prefers province-data-en, falls back to TH
+  const dirs = LOC==='th' ? [DATA] : LOC==='en' ? [DATA+'-en', DATA] : [DATA+'-'+LOC, DATA+'-en', DATA];
   for(const dir of dirs){ const f=path.join(dir,slug+'.json'); if(fs.existsSync(f)){ try{return JSON.parse(fs.readFileSync(f,'utf8'))}catch{} } }
   return null;
 }
@@ -986,6 +1047,15 @@ function readData(slug){
 function genAll(loc, outDir){
   LOC = loc;                                  // set current locale for all builders
   fs.mkdirSync(outDir, { recursive: true });
+  if(loc!=='th' && loc!=='en'){
+    const cities = TOURISM.filter(sl => fs.existsSync(path.join(DATA+'-'+loc, sl+'.json')));
+    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS]);
+    let n=0;
+    for(const sl of cities){ const d=readData(sl); if(!d) continue; fs.writeFileSync(path.join(outDir,`city-${sl}.html`), provinceHub(sl, TH[sl]||sl, REGION_OF[sl], d)); n++; }
+    console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · tourism-cities:${n}`);
+    return;
+  }
+  AVAIL = null;
   let nP=0,nMiss=[];
   for(const [slug,th,r] of PROVINCES){const d=readData(slug);if(!d)nMiss.push(slug);fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d||{}));nP++;}
   let nD=0;for(const [slug,th,r] of DESTINATIONS){const d=readData(slug);if(!d){nMiss.push(slug);continue;}fs.writeFileSync(path.join(outDir,`city-${slug}.html`),provinceHub(slug,th,r,d));nD++;}
@@ -999,6 +1069,6 @@ function genAll(loc, outDir){
   if(nMiss.length) console.log(`   [${loc}] missing data (fallback): ${nMiss.length} → ${nMiss.join(',')}`);
 }
 // which locales to build: args, default both
-const want = process.argv.slice(2).filter(a=>['th','en'].includes(a));
-const LOCALES = want.length ? want : ['th','en'];
-for(const loc of LOCALES) genAll(loc, loc==='en' ? path.join(PUB,'en') : PUB);
+const want = process.argv.slice(2).filter(a=>['th','en',...NEW_LOCS].includes(a));
+const LOCALES = want.length ? want : ['th','en',...NEW_LOCS];
+for(const loc of LOCALES) genAll(loc, loc==='th' ? PUB : path.join(PUB, loc));
