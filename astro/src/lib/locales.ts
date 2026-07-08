@@ -10,6 +10,8 @@ export async function extraLocalesBySlug(): Promise<Record<string, string[]>> {
     ['ko', 'articlesKo'],
     ['ja', 'articlesJa'],
     ['hi', 'articlesHi'],
+    ['he', 'articlesHe'],
+    ['ar', 'articlesAr'],
   ];
   const m: Record<string, string[]> = {};
   for (const [loc, col] of cols) {
