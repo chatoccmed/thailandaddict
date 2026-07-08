@@ -81,6 +81,13 @@ button{cursor:pointer;font-family:inherit}
 .search-drop .c{font-size:11.5px;color:var(--mut)}
 .search-drop .empty{padding:20px;text-align:center;font-size:13px;color:var(--mut)}
 .lang-wrap{display:flex;gap:1px}
+.langsel{position:relative}
+.langsel>summary{list-style:none;cursor:pointer;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.9);padding:6px 10px;border-radius:8px;background:rgba(255,255,255,.14);display:flex;align-items:center;gap:4px}
+.langsel>summary::-webkit-details-marker{display:none}
+.langsel[open]>summary{background:rgba(255,255,255,.26)}
+.langsel-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:168px;background:#fff;border:1px solid #e6eef2;border-radius:13px;box-shadow:0 16px 42px rgba(15,40,70,.22);padding:6px;z-index:1400;display:flex;flex-direction:column;gap:1px}
+.langsel-menu a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;color:#0F172A;padding:9px 12px;border-radius:9px;text-decoration:none;display:block}
+.langsel-menu a:hover{background:#ecfeff;color:#0891b2}
 .lb{background:transparent;border:none;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);padding:5px 8px;border-radius:6px;transition:.2s}
 .nav.solid .lb{color:var(--mut)}
 .lb.active{color:#fff;background:rgba(255,255,255,.22)}.nav.solid .lb.active{color:var(--bl);background:var(--bl-lt)}
@@ -313,7 +320,7 @@ body{background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.11),trans
     <a href="about.html">เกี่ยวกับเรา</a>
   </div>
   <div class="nav-r">
-    <div class="lang-wrap"><button class="lb active">TH</button><button class="lb" onclick="location.href='/en/'">EN</button></div>
+    <details class="langsel"><summary>🌐 <span>ไทย</span></summary><div class="langsel-menu"><a href="/">🇹🇭 ไทย</a><a href="/en/">🇬🇧 English</a><a href="/zh/first-time-thailand">🇨🇳 中文</a><a href="/ru/first-time-thailand">🇷🇺 Русский</a><a href="/ko/first-time-thailand">🇰🇷 한국어</a><a href="/ja/first-time-thailand">🇯🇵 日本語</a><a href="/hi/first-time-thailand">🇮🇳 हिन्दी</a><a href="/he/first-time-thailand">🇮🇱 עברית</a><a href="/ar/first-time-thailand">🇸🇦 العربية</a></div></details>
     <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="ค้นหาจังหวัด โรงแรม..." autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
     <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">ค้นหาที่พัก</button>
     <button class="hb" id="hb">☰</button>
