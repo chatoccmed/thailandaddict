@@ -230,7 +230,7 @@ const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
 const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
 // Build {ARTS,REVS} indexes for a locale (th = root collections, en = -en collections).
 function buildIndex(loc){
-  const suf = loc==='en' ? '-en' : '';
+  const suf = loc==='th' ? '' : '-'+loc;
   const ARTDIR = path.join(ROOT,'astro/src/content/articles'+suf);
   const REVDIR = path.join(ROOT,'astro/src/content/reviews'+suf);
   const ARTS={}, REVS={};
@@ -243,7 +243,7 @@ function buildIndex(loc){
   }
   return {ARTS,REVS};
 }
-const IDX = { th: buildIndex('th'), en: buildIndex('en') };
+const IDX = { th: buildIndex('th'), en: buildIndex('en'), zh: buildIndex('zh'), ru: buildIndex('ru'), ko: buildIndex('ko'), ja: buildIndex('ja'), hi: buildIndex('hi'), he: buildIndex('he'), ar: buildIndex('ar') };
 // LOC-aware accessors (used throughout builders)
 const ARTS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).ARTS[k] });
 const REVS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).REVS[k] });
@@ -1053,10 +1053,17 @@ function genAll(loc, outDir){
   fs.mkdirSync(outDir, { recursive: true });
   if(loc!=='th' && loc!=='en'){
     const cities = TOURISM.filter(sl => fs.existsSync(path.join(DATA+'-'+loc, sl+'.json')));
-    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS]);
+    // booking-funnel i18n: a roundup/review is "available" in this locale iff its translated
+    // JSON file exists — lets the hub's "Top 10 Hotels"/"Read full review" links stay locale-
+    // relative once translated, and gracefully fall back to /en/ (via cleanLinks) until then.
+    const roundDirLoc = path.join(ROOT, 'astro/src/content/roundups-'+loc);
+    const revDirLoc = path.join(ROOT, 'astro/src/content/reviews-'+loc);
+    const roundupSlugs = fs.existsSync(roundDirLoc) ? fs.readdirSync(roundDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
+    const reviewSlugs = fs.existsSync(revDirLoc) ? fs.readdirSync(revDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
+    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS, ...roundupSlugs, ...reviewSlugs]);
     let n=0;
     for(const sl of cities){ const d=readData(sl); if(!d) continue; fs.writeFileSync(path.join(outDir,`city-${sl}.html`), provinceHub(sl, TH[sl]||sl, REGION_OF[sl], d)); n++; }
-    console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · tourism-cities:${n}`);
+    console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · tourism-cities:${n} · roundups:${roundupSlugs.length} · reviews:${reviewSlugs.length}`);
     return;
   }
   AVAIL = null;

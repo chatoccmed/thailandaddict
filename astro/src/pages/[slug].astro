@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import ReviewLayout from '../layouts/ReviewLayout.astro';
 import RoundupLayout from '../layouts/RoundupLayout.astro';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
-import { extraLocalesBySlug } from '../lib/locales';
+import { extraLocalesBySlug, extraReviewLocalesBySlug, extraRoundupLocalesBySlug } from '../lib/locales';
 
 export async function getStaticPaths() {
   const reviews = await getCollection('reviews');
@@ -12,14 +12,16 @@ export async function getStaticPaths() {
   const articlesEn = await getCollection('articlesEn');
   const enArt = new Set(articlesEn.map((r) => r.data.slug));
   const extra = await extraLocalesBySlug();
+  const extraRv = await extraReviewLocalesBySlug();
+  const extraRd = await extraRoundupLocalesBySlug();
   return [
     ...reviews.map((r) => ({
       params: { slug: r.data.slug },
-      props: { kind: 'review' as const, data: r.data },
+      props: { kind: 'review' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRv[r.data.slug] || [])] },
     })),
     ...roundups.map((r) => ({
       params: { slug: r.data.slug },
-      props: { kind: 'roundup' as const, data: r.data },
+      props: { kind: 'roundup' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRd[r.data.slug] || [])] },
     })),
     ...articles.map((r) => ({
       params: { slug: r.data.slug },
@@ -31,6 +33,6 @@ export async function getStaticPaths() {
 
 const { kind, data, hasEn, availableLocales } = Astro.props;
 ---
-{kind === 'review' ? <ReviewLayout data={data} />
-  : kind === 'roundup' ? <RoundupLayout data={data} />
+{kind === 'review' ? <ReviewLayout data={data} availableLocales={availableLocales} />
+  : kind === 'roundup' ? <RoundupLayout data={data} availableLocales={availableLocales} />
   : <ArticleLayout data={data} hasEn={hasEn} availableLocales={availableLocales} />}

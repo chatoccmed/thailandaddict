@@ -231,6 +231,21 @@ const roundupsZh = defineCollection({
   schema: roundupSchema,
 });
 
+// Remaining Tier-1 locales (served under /ru/ /ko/ /ja/ /hi/ /he/ /ar/) — reviews/roundups for the
+// 30 curated tourism-city hotel roundups + their linked individual hotel reviews only (not site-wide).
+const reviewsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ru' }), schema: reviewSchema });
+const roundupsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ru' }), schema: roundupSchema });
+const reviewsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ko' }), schema: reviewSchema });
+const roundupsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ko' }), schema: roundupSchema });
+const reviewsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ja' }), schema: reviewSchema });
+const roundupsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ja' }), schema: roundupSchema });
+const reviewsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-hi' }), schema: reviewSchema });
+const roundupsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-hi' }), schema: roundupSchema });
+const reviewsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-he' }), schema: reviewSchema });
+const roundupsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-he' }), schema: roundupSchema });
+const reviewsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ar' }), schema: reviewSchema });
+const roundupsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ar' }), schema: roundupSchema });
+
 // Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
 // One layout (ArticleLayout) renders all of them from a typed list of content blocks.
 const articleBlock = z.discriminatedUnion('kind', [
@@ -380,4 +395,8 @@ const articlesAr = defineCollection({
   schema: articleSchema,
 });
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn, reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa, articlesHi, articlesHe, articlesAr };
+export const collections = {
+  reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn,
+  reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa, articlesHi, articlesHe, articlesAr,
+  reviewsRu, roundupsRu, reviewsKo, roundupsKo, reviewsJa, roundupsJa, reviewsHi, roundupsHi, reviewsHe, roundupsHe, reviewsAr, roundupsAr,
+};

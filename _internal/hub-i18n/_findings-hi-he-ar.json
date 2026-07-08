@@ -1,0 +1,914 @@
+[
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\hi.json",
+    "old": "\"fromAbout\": \"लगभग से\",",
+    "new": "\"fromAbout\": \"लगभग\",",
+    "reason": "\"लगभग से\" (\"approximately from\") is reversed/dangling postposition and unnatural as a price prefix (used like \"from about ₹X\"); natural Hindi equivalent is simply \"लगभग\", matching how other locales render this key as a single approximation word (zh 起价约, ko 최저, ja 参考価格)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\hi.json",
+    "old": "\"hot_tit\": \"हमारे <em>समीक्षा किए</em> ठहराव\",",
+    "new": "\"hot_tit\": \"हमारे <em>समीक्षा किए गए</em> ठहराव\",",
+    "reason": "\"समीक्षा किए\" is missing the passive auxiliary \"गए\" needed to form the correct past-participle modifier (\"reviewed stays\"); without it the phrase is ungrammatical Hindi that reads like a literal/machine rendering of \"Stays we've reviewed\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\hi.json",
+    "old": "\"Stay near a <em>specific landmark</em>\": \"<em>${th} में किसी खास लैंडमार्क</em> के पास ठहरें\",",
+    "new": "\"Stay near a <em>specific landmark</em>\": \"<em>किसी खास लैंडमार्क</em> के पास ठहरें\",",
+    "reason": "The English source key has no ${th} placeholder (it's only present in the unrelated Thai-source _strings.json reference, where ${th} means 'in <province>'); this variable is undefined in the actual template context used for this English-keyed string, so it will render literally as 'undefined' or break — every other language file (ja, ru, etc.) correctly translates this line without inserting any placeholder."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\phuket.json",
+    "old": "ओह ताओ सीपों को घोल और अरबी के साथ तला जाता है, बाहर से कुरकुरा और अंदर से नरम — पुराने शहर का एक लोकप्रिय नाश्ता, डिम सम और सुबह के दिम सम के साथ खाया जाता है।",
+    "new": "ओह ताओ सीपों को घोल और अरबी के साथ तला जाता है, बाहर से कुरकुरा और अंदर से नरम — पुराने शहर का एक लोकप्रिय नाश्ता, जिसे सुबह के वक़्त हल्के-फुल्के खाने के तौर पर खाया जाता है।",
+    "reason": "Original repeats 'dim sum' twice nonsensically ('eaten with dim sum and morning dim sum'), which is a mistranslation/duplication error — Oh Tao (fried oyster omelette) is a standalone breakfast snack, not eaten 'with dim sum'."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\phuket.json",
+    "old": "\"name\": \"नाककर्द हिल बिग बुद्धा\",",
+    "new": "\"name\": \"नाककर्द पहाड़ी बिग बुद्धा\",",
+    "reason": "Inconsistent naming for the same location: the highlights section two lines earlier calls it 'नाककर्द पहाड़ी' (Hindi for hill), but this attraction entry switches to the English loanword 'हिल' for the identical place — jarring inconsistency within the same file."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\bangkok.json",
+    "old": "समुत प्राकान की तरफ़ चाओ फ्राया पर हरा-भरा, कली जैसा टुकड़ा — बगीचों और तैरते बाज़ार में साइकिल चलाएँ",
+    "new": "समुत प्राकान की तरफ़ चाओ फ्राया की मोड़ पर बसा हरा-भरा द्वीपनुमा टुकड़ा — बगीचों और तैरते बाज़ार में साइकिल चलाएँ",
+    "reason": "'कली जैसा टुकड़ा' (a bud-shaped patch) is a confusing, unnatural image for a Hindi reader — Bang Krachao is known as a green peninsula formed by a river bend, not something resembling a flower bud; the metaphor doesn't land and reads as an odd literal rendering."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\ayutthaya.json",
+    "old": "\"note\": \"अयोध्या तैरता बाज़ार और शहर भर के बाज़ारों में चखने के लिए बहुत कुछ है — तले नाश्ते, मिठाइयाँ, और स्थानीय दामों पर एक-प्लेट डिश।\"",
+    "new": "\"note\": \"अयुत्थया तैरता बाज़ार और शहर भर के बाज़ारों में चखने के लिए बहुत कुछ है — तले नाश्ते, मिठाइयाँ, और स्थानीय दामों पर एक-प्लेट डिश।\"",
+    "reason": "Thailand's Ayutthaya was mistranslated as \"अयोध्या\" (Ayodhya), a famous unrelated city in India — confusing and factually wrong; the file correctly uses \"अयुत्थया\" for the province name everywhere else."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\ayutthaya.json",
+    "old": "\"name\": \"अयोध्या तैरता बाज़ार\",",
+    "new": "\"name\": \"अयुत्थया तैरता बाज़ार\",",
+    "reason": "Same Ayutthaya→Ayodhya mix-up in the attraction name field, inconsistent with the correct spelling used throughout the rest of the file."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\ayutthaya.json",
+    "old": "\"note\": \"अयुत्थया में अभी भी पुराने राजमहल-शैली की थाई मिठाइयाँ चखने को मिलती हैं, जिनमें थोंग यिप, थोंग योत और फोई थोंग शामिल हैं, बाज़ारों और मिठाई की दुकानों में मिलती हैं।\"",
+    "new": "\"note\": \"अयुत्थया में अभी भी पुराने राजमहल-शैली की थाई मिठाइयाँ चखने को मिलती हैं, जिनमें थोंग यिप, थोंग योत और फोई थोंग शामिल हैं — ये बाज़ारों और मिठाई की दुकानों में मिलती हैं।\"",
+    "reason": "The verb \"मिलती हैं\" was repeated for the same subject without a proper connector, creating a run-on, machine-translated-sounding sentence; adding \"ये\" as a subject for the second clause fixes the grammar."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\surat-thani.json",
+    "old": "\"blurb\": \"चैया एक प्राचीन श्रीविजय-युगीन शहर है, जो फ्रा बोरोम्मथात चैया का घर है, दक्षिणवासियों द्वारा पूजनीय एक पुराना स्तूप, और एक पुरातात्विक स्थल जो प्रांत के इतिहास की कहानी बताता है।\"",
+    "new": "\"blurb\": \"चैया एक प्राचीन श्रीविजय-युगीन शहर है, जो फ्रा बोरोम्मथात चैया — दक्षिणवासियों द्वारा पूजनीय एक पुराना स्तूप — और प्रांत के इतिहास की कहानी बताने वाले एक पुरातात्विक स्थल, दोनों का घर है।\"",
+    "reason": "The original sentence lists two things Chaiya is \"home to\" but the relative clause \"जो...का घर है\" grammatically attaches to only the first item, leaving the stupa description and the archaeological site dangling without a connecting verb — reads as broken, machine-translated apposition."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\prachuap-khiri-khan.json",
+    "old": "और दक्षिण में प्राचुआप शहर ख़ुद है, पहाड़ियों से घिरा एक सुंदर तीन-खाड़ी वाला तट, साथ ही अपने तटीय आर्द्रभूमि और फ्रया नाखोन गुफा के साथ खाओ साम रोई योत, और अभी भी शांत समुद्र किनारे का बांग साफान ज़िला।",
+    "new": "और दक्षिण में प्राचुआप शहर ख़ुद है, पहाड़ियों से घिरा एक सुंदर तीन-खाड़ी वाला तट; अपनी तटीय आर्द्रभूमि और फ्रया नाखोन गुफा वाला खाओ साम रोई योत; और अभी भी शांत समुद्र किनारे वाला बांग साफान ज़िला।",
+    "reason": "The nested \"साथ ही...के साथ...\" (\"along with...with...\") created a confusing double-\"with\" construction when listing three separate places (Prachuap city, Khao Sam Roi Yot, Bang Saphan) — natural Hindi would list them as parallel items rather than stacking possessive clauses."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\kanchanaburi.json",
+    "old": "\"blurb\": \"पन्ना-हरे पानी वाला सात-स्तरीय झरना — ऊपर चढ़ें और हर स्तर पर तैरें। कांचनाबुरी की सबसे मुख्य झरना जो लोगों के मन में आता है।\"",
+    "new": "\"blurb\": \"पन्ना-हरे पानी वाला सात-स्तरीय झरना — ऊपर चढ़ें और हर स्तर पर तैरें। कांचनाबुरी का सबसे मशहूर झरना, जो सबसे पहले लोगों के मन में आता है।\"",
+    "reason": "\"सबसे मुख्य\" (\"most main\") is a redundant, unnatural superlative that no native speaker would produce — should be \"सबसे मशहूर\" (most famous) or similar; also fixed the incorrect \"की\" possessive (झरना is masculine, takes \"का\") and awkward word order."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\rayong.json",
+    "old": "एक पूर्वी तटीय प्रांत, को समेत, शांत समुद्रतट, फलों के बाग और मशहूर सूखा समुद्री खाना",
+    "new": "एक पूर्वी तटीय प्रांत — को समेत, शांत समुद्रतट, फलों के बाग और मशहूर सूखे समुद्री खाने का घर",
+    "reason": "The tagline has a broken construction: \"एक पूर्वी तटीय प्रांत, को समेत, ...\" reads as an unfinished list with a stray comma after \"प्रांत\" and no verb/predicate tying the list to the province — it should read as \"home to X, Y, Z\" like the other files' taglines (e.g. trat.json uses \"...का घर\"); also \"सूखा समुद्री खाना\" should agree in gender/case as \"सूखे समुद्री खाने\" when governed by \"मशहूर...का घर\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\rayong.json",
+    "old": "लंबा और शांत मे राम्फुएंग समुद्रतट है",
+    "new": "मे राम्फुएंग का लंबा और शांत समुद्रतट है",
+    "reason": "Unnatural word order — a proper-noun beach name should not be sandwiched mid-adjective-string (\"लंबा और शांत मे राम्फुएंग समुद्रतट\"); natural Hindi puts the possessive/name before the descriptive noun phrase."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\rayong.json",
+    "old": "फिर को समेत जाने के लिए नाव पकड़कर रेत पर आराम करते हैं",
+    "new": "फिर को समेत जाने के लिए नाव पकड़ते हैं और रेत पर आराम करते हैं",
+    "reason": "\"नाव पकड़कर रेत पर आराम करते हैं\" literally chains the two actions as if boarding the boat directly causes the resting; natural Hindi separates the two clauses with \"और\" since taking the boat and relaxing on the sand are sequential, not causally chained, activities."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\rayong.json",
+    "old": "गर्मियों में बाग जितना चाहो उतना फल खाने और कुछ घर ले जाने के लिए ख़रीदने को खुलते हैं",
+    "new": "गर्मियों में बाग खुलते हैं, जहाँ जितना चाहें उतना फल खा सकते हैं और कुछ घर ले जाने के लिए ख़रीद सकते हैं",
+    "reason": "The original clause is garbled machine-translation syntax (\"बाग ... खाने ... ख़रीदने को खुलते हैं\" doesn't parse naturally) — restructured into natural Hindi with a relative clause and proper verb forms."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\phang-nga.json",
+    "old": "फांग नगा वह अंडमान प्रांत है जिसे लोग फांग नगा खाड़ी सोचते ही अपने ज़हन में ले आते हैं",
+    "new": "फांग नगा वह अंडमान प्रांत है जिसे लोग फांग नगा खाड़ी सोचते ही अपने ज़हन में ले आते हैं — एक चौड़ी खाड़ी",
+    "reason": "placeholder-not-used"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\sukhothai.json",
+    "old": "खाओ सोई, नाम न्गियाओ, साई उआ — शहर भर की दुकानों में मिलते हैं, उत्तरी शैली में मध्य-थाई छुअन के साथ।",
+    "new": "खाओ सोई, नाम न्गियाओ, साई उआ — शहर भर की दुकानों में मिलते हैं, उत्तरी शैली में मध्य-थाई प्रभाव के साथ।",
+    "reason": "\"छुअन\" is not a real Hindi word (garbled/fabricated term); natural Hindi here would be \"प्रभाव\" (influence) or \"छाप\" (touch)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\sukhothai.json",
+    "old": "इस शहर की पहचान बना डिश, लंबी फलियों, मूँगफली और मीठे-से झुकाव वाले शोरबे में पका सूअर का मांस — पूरे शहर में आसानी से मिल जाता है।",
+    "new": "इस शहर की पहचान बना डिश, लंबी फलियों, मूँगफली और हल्के मीठे शोरबे में पका सूअर का मांस — पूरे शहर में आसानी से मिल जाता है।",
+    "reason": "\"मीठे-से झुकाव वाले शोरबे\" is an unnatural calque — \"झुकाव\" (inclination/tendency) is not used for describing flavor in natural Hindi; \"हल्के मीठे शोरबे\" (lightly sweet broth) is how a native speaker would phrase it."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\sukhothai.json",
+    "old": "शहर की पहचान बना व्यंजन — मीठे-से झुकाव वाले शोरबे में पतले चावल के नूडल्स, साथ में कटी लंबी फलियाँ, मूँगफली और सूअर का मांस। कई मशहूर दुकानें हैं।",
+    "new": "शहर की पहचान बना व्यंजन — हल्के मीठे शोरबे में पतले चावल के नूडल्स, साथ में कटी लंबी फलियाँ, मूँगफली और सूअर का मांस। कई मशहूर दुकानें हैं।",
+    "reason": "Same unnatural \"झुकाव\" (inclination) calque used for flavor description; \"हल्के मीठे शोरबे\" reads naturally to a Hindi speaker."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\nakhon-ratchasima.json",
+    "old": "स्थानीय अंदाज़ में बने तले हुए चावल के नूडल्स, मीठे झुकाव के साथ हल्का खट्टापन — एक ख़ास डिश जो ज़रूर चखनी चाहिए",
+    "new": "स्थानीय अंदाज़ में बने तले हुए चावल के नूडल्स, हल्की मिठास के साथ हल्का खट्टापन — एक ख़ास डिश जो ज़रूर चखनी चाहिए",
+    "reason": "\"मीठे झुकाव\" (sweet inclination) is an unnatural word choice for taste; \"हल्की मिठास\" (a light sweetness) matches the parallel \"हल्का खट्टापन\" (a light sourness) construction naturally."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\nakhon-ratchasima.json",
+    "old": "मित्रफाप रोड से हटकर एक विशाल जलाशय, पवन-चक्की व्यूपॉइंट और हल्की-फुल्की, आरामदायक फ़िज़ा के साथ",
+    "new": "मित्रफाप रोड से हटकर एक विशाल जलाशय, पवन-चक्की व्यूपॉइंट और हल्के-फुल्के, आरामदायक माहौल के साथ",
+    "reason": "\"फ़िज़ा\" (poetic word for breeze/air) mismatched in register and grammatically doesn't pair naturally with \"हल्की-फुल्की\" (which describes mood, not air); \"माहौल\" (atmosphere/vibe) with matching \"हल्के-फुल्के\" agreement is the natural travel-writing choice."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\koh-phangan.json",
+    "old": "थोंग सला घाट इलाक़े का नाइट मार्केट थाई और दक्षिणी स्ट्रीट फ़ूड, ग्रिल्ड और तले हुए व्यंजन, मिठाइयाँ और फल एक जगह लाता है, पर्यटक समुद्रतटों से सस्ते दाम पर।",
+    "new": "थोंग सला घाट इलाक़े का नाइट मार्केट थाई और दक्षिणी स्ट्रीट फ़ूड, ग्रिल्ड और तले हुए व्यंजन, मिठाइयाँ और फल एक जगह लाता है, पर्यटक समुद्रतटों की तुलना में सस्ते दाम पर।",
+    "reason": "Missing comparative marker \"की तुलना में\" (compared to) — as written it literally reads \"at cheap prices from tourist beaches\" instead of the intended \"cheaper than at tourist beaches\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\hat-yai.json",
+    "old": "हात याई से क़रीब 30 मिनट की गाड़ी से पुराने शहर सोंगख्ला की चीन-पुर्तगाली इमारतों और सामिला बीच के सुनहरे जलपरी तक — जोड़ने के लिए आसान आधे दिन की यात्रा।",
+    "new": "हात याई से क़रीब 30 मिनट की गाड़ी से पुराने शहर सोंगख्ला की चीन-पुर्तगाली इमारतों और सामिला बीच की सुनहरी जलपरी तक — जोड़ने के लिए आसान आधे दिन की यात्रा।",
+    "reason": "Gender agreement error: \"जलपरी\" (mermaid) is feminine, so the adjective must be \"सुनहरी\" not \"सुनहरे\"; also corrected \"के\" to \"की\" to agree with the feminine noun."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\khao-yai.json",
+    "old": "{ \"name\": \"प्रीमो पियात्सा\", \"kind\": \"city\", \"blurb\": \"एक छोटे पेटिंग फ़ार्म वाला इटालियन-शैली का गाँव — घोड़ों और भेड़ों को खाना खिलाएँ और यूरोपीय-शैली की तस्वीरें लें। परिवारों और जोड़ों के लिए अच्छा।\" }",
+    "new": "{ \"name\": \"प्रीमो पियात्सा\", \"kind\": \"city\", \"blurb\": \"एक छोटे जानवरों वाले फ़ार्म के साथ इटालियन-शैली का गाँव — घोड़ों और भेड़ों को खाना खिलाएँ और यूरोपीय-शैली की तस्वीरें लें। परिवारों और जोड़ों के लिए अच्छा।\" }",
+    "reason": "\"पेटिंग फ़ार्म\" is an awkward raw transliteration of English \"petting farm\" that isn't a recognizable term in Hindi (unlike common borrowings such as रिसॉर्ट or चेक-इन) and is redundant since the sentence already explains the activity (feeding horses and sheep); rephrased to describe it naturally instead of transliterating the English term."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\koh-kood.json",
+    "old": "उससे ज़्यादा शांत क्लोंग याई की झरना, साफ़ पानी",
+    "new": "उससे ज़्यादा शांत क्लोंग याई का झरना, साफ़ पानी",
+    "reason": "Gender-agreement error: झरना (waterfall) is masculine in Hindi, so the possessive must be का, not की — the AI translation incorrectly treated it as feminine."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-hi\\koh-kood.json",
+    "old": "{ \"name\": \"क्लोंग याई की झरना\", \"kind\": \"nature\", \"blurb\": \"क्लोंग चाओ से ज़्यादा शांत, कई स्तरों वाला झरना",
+    "new": "{ \"name\": \"क्लोंग याई का झरना\", \"kind\": \"nature\", \"blurb\": \"क्लोंग चाओ से ज़्यादा शांत, कई स्तरों वाला झरना",
+    "reason": "Same gender-agreement error repeated in the attractions[].name field — झरना is masculine, so it must be क्लोंग याई का झरना, not की."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\first-time-thailand.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 मिनट पढ़ें\",",
+    "reason": "Leftover untranslated English text in a Hindi-locale field; the sibling files in this same set (northern-thailand-itinerary, southern-thailand-itinerary) correctly localize this field to Hindi (e.g. \"12 मिनट पढ़ें\"), so this is an inconsistent English leftover rather than a stylistic choice."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\songkran-guide.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 मिनट पढ़ें\",",
+    "reason": "Leftover untranslated English text in a Hindi-locale field; the sibling files in this same set (northern-thailand-itinerary, southern-thailand-itinerary) correctly localize this field to Hindi (e.g. \"12 मिनट पढ़ें\"), so this is an inconsistent English leftover rather than a stylistic choice."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-10-day-itinerary.json",
+    "old": "बैंकॉक कुछ दिनों का इनाम देता है: गर्मी से पहले सुबह भव्य मंदिर",
+    "new": "बैंकॉक को कुछ दिन दें तो यह पूरा फ़ायदा देता है: गर्मी से पहले सुबह भव्य मंदिर",
+    "reason": "\"इनाम देता है\" (gives a prize/reward) is an unnatural literal calque of the English idiom \"rewards a couple of days\" — a Hindi speaker doesn't say a city \"gives a reward\" for time spent; natural phrasing expresses that the days spent pay off."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-1-month-itinerary.json",
+    "old": "\"title\": \"पहले छोटी बुक करें, फिर व्यक्तिगत रूप से मासिक किराए पर लें\"",
+    "new": "\"title\": \"पहले छोटी बुकिंग करें, फिर वहाँ जाकर मासिक किराए पर लें\"",
+    "reason": "\"व्यक्तिगत रूप से मासिक किराए पर लें\" literally means \"personally rent it\" (emphasis on the doer), which is not what \"in person\" (i.e., viewing/renting on-site once there) means — this reads as an awkward machine-translation calque of English \"in person.\""
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-1-month-itinerary.json",
+    "old": "आप बस गए और बड़े दो देख लिए — अब सात दिन कहीं ऐसी जगह बिताएं",
+    "new": "आप बस चुके हैं और दो बड़ी जगहें देख चुके हैं — अब सात दिन कहीं ऐसी जगह बिताएं",
+    "reason": "\"बड़े दो\" is an unnatural literal calque of \"the big two\" — it dangles without a noun and reads like machine translation; natural Hindi needs the noun (जगहें/शहर) attached to the numeral."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-1-month-itinerary.json",
+    "old": "और अगर आप अपना ओपन-वाटर टिकट चाहते हैं तो <a href=\"thailand-diving.html\">डाइविंग गाइड</a>",
+    "new": "और अगर आप अपना ओपन-वाटर सर्टिफिकेशन चाहते हैं तो <a href=\"thailand-diving.html\">डाइविंग गाइड</a>",
+    "reason": "\"टिकट\" (ticket) is a confusing, overly literal word choice for a diving certification — a Hindi reader would read this as an admission/travel ticket; the same document uses \"सर्टिफिकेशन\" for the identical concept elsewhere, so this is inconsistent and unclear."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-2-week-itinerary.json",
+    "old": "खाड़ी की ओर पार जाएं <strong>कोह समुई</strong> के लिए",
+    "new": "खाड़ी की तरफ़ पार करके <strong>कोह समुई</strong> जाएं",
+    "reason": "\"खाड़ी की ओर पार जाएं ... के लिए\" is an unnatural word order that reads like a literal calque of \"cross to the Gulf for\" — natural Hindi would place the destination verb (पार करके जाएं) before the purpose clause, not split across an awkward postposition chain."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-2-week-itinerary.json",
+    "old": "<strong>दिन 12:</strong> पार यात्रा करें (फेरी + उड़ान, या क्राबी की ओर से खाड़ी तक नावें), पहुंचें और कुछ न करें",
+    "new": "<strong>दिन 12:</strong> आर-पार यात्रा करें (फेरी + उड़ान, या क्राबी की ओर से खाड़ी तक नावें), पहुंचें और कुछ न करें",
+    "reason": "\"पार यात्रा करें\" (cross-travel) is an awkward literal calque of \"travel over\" that doesn't read as a natural Hindi verb phrase; \"आर-पार यात्रा करें\" (travel across) is the natural way to express making the crossing."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-2-week-itinerary.json",
+    "old": "चियांग माई वह जगह है जहाँ यात्रा गियर बदलती है।",
+    "new": "चियांग माई वह जगह है जहाँ यात्रा की रफ़्तार बदल जाती है।",
+    "reason": "\"यात्रा गियर बदलती है\" is a literal calque of the English car-metaphor idiom \"the trip changes gear,\" which has no equivalent meaning in Hindi and reads as confusing machine translation; the site elsewhere naturally expresses this same idea with \"रफ़्तार धीमी कर देते हैं\" (pace slows down)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-3-week-itinerary.json",
+    "old": "आखिरी छह दिन आपके अपने आकार देने के लिए हैं।",
+    "new": "आखिरी छह दिन आपके अपने हिसाब से ढालने के लिए हैं।",
+    "reason": "The original construction is grammatically incomplete/dangling — \"आपके अपने आकार देने के लिए\" is missing the object being shaped, an unnatural literal rendering of \"yours to shape\"; the corrected phrase reads as complete, natural Hindi."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-hi\\thailand-7-day-itinerary.json",
+    "old": "आप अयुत्थया डे ट्रिप छोड़ते हैं, हर शहर में दो के बजाय एक बड़ा अनुभव पाते हैं, और दो के बजाय एक द्वीप हिस्सा उतरते हैं।",
+    "new": "आप अयुत्थया डे ट्रिप छोड़ते हैं, हर शहर में दो के बजाय एक बड़ा अनुभव पाते हैं, और दो के बजाय एक ही द्वीप-चरण पर टिके रहते हैं।",
+    "reason": "\"एक द्वीप हिस्सा उतरते हैं\" is an unnatural literal calque of English \"you land one island leg\" — a native Hindi speaker would phrase settling for one island stage as \"एक ही द्वीप-चरण पर टिके रहते हैं\", not use \"उतरना\" (to land/descend) with \"हिस्सा\" this way."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\he.json",
+    "old": "\"t\": \"ביתו של הגשר על נהר קוואי, מפלים גדולים, המערב המיוער וּבתי רפסודה על גדות הנהר שאפשר ללון בהם כל השנה\"",
+    "new": "\"t\": \"ביתו של הגשר על נהר קוואי, מפלים גדולים, יערות פרועים ובתי רפסודה על גדות הנהר שאפשר ללון בהם כל השנה\"",
+    "reason": "\"המערב המיוער\" (\"the forested West\") is a confusing, non-idiomatic phrase that doesn't read as natural Hebrew (unclear what \"West\" refers to here), and the conjunction \"וּ\" carries a stray dagesh niqqud mark inconsistent with the rest of the plain-Hebrew file, reading like a rendering artifact."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\he.json",
+    "old": "\"t\": \"עיירת שפך הנהר על מפרץ תאילנד, עם מבצרים עתיקים, העיר העתיקה וׁשוקי דגים על חוף הים\"",
+    "new": "\"t\": \"עיירת שפך הנהר על מפרץ תאילנד, עם מבצרים עתיקים, העיר העתיקה ושוקי דגים על חוף הים\"",
+    "reason": "The conjunction before \"שוקי\" carries a stray shin-dot niqqud mark on the letter vav (nonsensical — a shin-dot only belongs on the letter shin), a clear rendering/encoding artifact that doesn't belong in the plain-Hebrew text."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\he.json",
+    "old": "\"t\": \"עיירת כדי-הדרקון על נהר מאה קלונג, ביתם של השוק הצף דמנואן סדואק, מערות קאו נגו וגבעות טנסרים באזור סואן פואנג\"",
+    "new": "\"t\": \"עיירת פרי הדרקון על נהר מאה קלונג, ביתם של השוק הצף דמנואן סדואק, מערות קאו נגו וגבעות טנסרים באזור סואן פואנג\"",
+    "reason": "\"כדי-הדרקון\" (literally \"jars/vessels of the dragon\") is a wrong-word mistranslation of \"dragon fruit\" (Ratchaburi's famous crop) — the correct Hebrew term is \"פרי הדרקון\" (fruit of the dragon)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\he.json",
+    "old": "שדות אורז עם תאואי מים, וביתם של תיאטרון הצלליות וריקוד המנורה",
+    "new": "שדות אורז עם באפלו מים, וביתם של תיאטרון הצלליות וריקוד המנורה",
+    "reason": "\"תאואי מים\" is not a valid Hebrew noun phrase (malformed construct form) for \"water buffalo\" — the natural, correct Hebrew term is \"באפלו מים\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Hotels near hospitals & landmarks\": \"מלונות ליד בתי חולים ואתרים\",",
+    "new": "\"Hotels near hospitals & landmarks\": \"מלונות ליד בתי חולים וציוני דרך\",",
+    "reason": "\"אתר/אתרים\" reads as \"website(s)\" in modern Hebrew (that exact word is used for \"website\" elsewhere in this same file, e.g. \"חיפוש בכל האתר\"); the correct word for a tourist \"landmark\" is \"ציון דרך\" (pl. \"ציוני דרך\"), avoiding confusing overlap with the site-search UI strings."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Stay near a <em>specific landmark</em>\": \"לינה ליד<em>אתר ספציפי</em>\",",
+    "new": "\"Stay near a <em>specific landmark</em>\": \"לינה ליד<em>ציון דרך ספציפי</em>\",",
+    "reason": "\"אתר\" reads as \"website\" in Hebrew, not \"landmark\" — same word is used for \"website\" elsewhere in this file, causing ambiguity; \"ציון דרך\" is the correct term for a tourism landmark."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "כל כרטיסייה מציגה את המרחק האמיתי לאתר, מיועד למשפחות מטופלים",
+    "new": "כל כרטיסייה מציגה את המרחק האמיתי לציון הדרך, מיועד למשפחות מטופלים",
+    "reason": "\"אתר\" (website) is the wrong word for \"the landmark\" here; should be \"ציון הדרך\" to match the tourism-landmark meaning and avoid confusion with the site's own website-search strings."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Near a landmark here\": \"ליד אתר בשכונה זו\",",
+    "new": "\"Near a landmark here\": \"ליד ציון דרך בשכונה זו\",",
+    "reason": "\"אתר\" means \"website\" in modern Hebrew, not \"landmark\"; \"ציון דרך\" is the correct, unambiguous term for a tourism landmark, consistent with the other landmark strings in this file."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Halal travel\": \"טיולים הלאל\",",
+    "new": "\"Halal travel\": \"טיולי חלאל\",",
+    "reason": "\"הלאל\" is misspelled (standard Hebrew transliteration of halal uses ח, i.e. \"חלאל\") and \"טיולים הלאל\" is an ungrammatical noun+definite-article pairing; the natural construct form is \"טיולי חלאל\" (halal travel)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Halal food, mosques, prayer rooms\": \"אוכל הלאל, מסגדים, חדרי תפילה\",",
+    "new": "\"Halal food, mosques, prayer rooms\": \"אוכל חלאל, מסגדים, חדרי תפילה\",",
+    "reason": "\"הלאל\" is a misspelling of \"halal\" — standard Hebrew spells it \"חלאל\" (with ח); \"אוכל הלאל\" also incorrectly places a definite article where none belongs, unlike the correct bare-noun-pair \"אוכל חלאל\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\he.json",
+    "old": "\"Solo female travel\": \"טיול לנשים לבד\",",
+    "new": "\"Solo female travel\": \"טיולי נשים לבד\",",
+    "reason": "\"טיול לנשים לבד\" awkwardly leaves \"לבד\" (alone) dangling at the end with ambiguous attachment (unclear if it modifies the trip or the women); the natural Hebrew category label is the construct form \"טיולי נשים לבד\" (women's solo travel), matching the parallel category labels elsewhere in the file (e.g. \"טיולים משפחתיים\", \"טיולים נגישים\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\bangkok.json",
+    "old": "עם וואט פרה קאיאו, הארמון הגדול, וואט פו ווואט ארון כולם קרובים זה לזה",
+    "new": "עם וואט פרה קאיאו, הארמון הגדול, וואט פו ווואט ארון, כולם קרובים זה לזה",
+    "reason": "Typo/garbled text: \"ווואט ארון\" (a doubled vav merging \"ו\" + \"וואט\") reads as a misspelled non-word to a native reader; the list of four temple/palace names also needs a comma before \"כולם\" for natural Hebrew list rhythm."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\bangkok.json",
+    "old": "כולל סיאם פרגון, סנטרל וורלד ומקדש ארָוואן, הכול מחובר בהליכה עילית",
+    "new": "כולל סיאם פרגון, סנטרל וורלד ומקדש ארוואן, הכול מחובר בהליכה עילית",
+    "reason": "Stray isolated niqqud (kamatz) on a single letter of a transliterated name in otherwise unvocalized running text is not how modern Hebrew web copy is written and reads as a translation artifact; the name should stay plain like all other transliterations in the file."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\bangkok.json",
+    "old": "וברכבת BTS, עם מקדש ארָוואן ממש בקרבת מקום",
+    "new": "וברכבת BTS, עם מקדש ארוואן ממש בקרבת מקום",
+    "reason": "Same stray isolated niqqud artifact on the transliterated place name as elsewhere in the file; unvocalized spelling is the natural, consistent style used for all other transliterations."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\bangkok.json",
+    "old": "חביתת צדפות מטוגנת (הוֹי טוֹד), פירות ים על הגריל",
+    "new": "חביתת צדפות מטוגנת (הוי טוד), פירות ים על הגריל",
+    "reason": "Stray isolated niqqud (holam) on a transliterated dish name breaks with the plain-transliteration convention used everywhere else and reads as a translation artifact rather than natural Hebrew."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "כדי להשתחוות בפסגה, להשרות ברֵיכת האמרלד ובמפל החם ביער קאו פאנום בנג'ה",
+    "new": "כדי להשתחוות בפסגה, להשרות בברֵיכת האמרלד ובמפל החם ביער קאו פאנום בנג'ה",
+    "reason": "Missing preposition \"ב-\" before \"ברֵיכת\" (should be \"להשרות ב-בריכת\", i.e. \"to soak in the pool\") — as written it grammatically reads as \"to soak [the] pool\", missing the required locative preposition."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "\"name\": \"ברֵיכת האמרלד והמפל החם\",",
+    "new": "\"name\": \"בריכת האמרלד והמפל החם\",",
+    "reason": "Stray isolated niqqud (tzere) on a single letter in an otherwise unvocalized string is a translation artifact, not natural modern Hebrew styling; the word should stay plain like the rest of the text."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "ביער קאו פאנום בנג'ה יש ברֵיכה ירוקת-אמרלד ניזונה ממעיין טבעי להשרות בה",
+    "new": "ביער קאו פאנום בנג'ה יש בריכה ירוקת-אמרלד ניזונה ממעיין טבעי להשרות בה",
+    "reason": "Stray isolated niqqud artifact on a single letter; plain unvocalized spelling matches the natural style used throughout the rest of the corpus."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "עיר העתיקה של לנטה על הים וחיי צוענֵי-ים",
+    "new": "עיר העתיקה של לנטה על הים וחיי צוענֵי ים",
+    "reason": "Stray niqqud combined with a hyphen where none is needed grammatically (\"צוענֵי-ים\" is a normal two-word construct \"צוענֵי ים\", not a hyphenated compound); the isolated diacritic is also a translation artifact inconsistent with the plain style used elsewhere."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "\"name\": \"ברֵיכת האמרלד והמפל החם של קלונג תום\",",
+    "new": "\"name\": \"בריכת האמרלד והמפל החם של קלונג תום\",",
+    "reason": "Stray isolated niqqud on a single letter is a translation artifact; plain unvocalized spelling is the natural, consistent style used for this word elsewhere."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "\"blurb\": \"ברֵיכה ירוקת-אמרלד ניזונה ממעיין טבעי ביער קאו פאנום בנג'ה, בנוסף למפל חם שזורם על סלעים חמים להשרות בו עמוק ביער.\"",
+    "new": "\"blurb\": \"בריכה ירוקת-אמרלד ניזונה ממעיין טבעי ביער קאו פאנום בנג'ה, בנוסף למפל חם שזורם על סלעים חמים להשרות בו עמוק ביער.\"",
+    "reason": "Stray isolated niqqud artifact on a single letter; plain unvocalized spelling matches natural modern Hebrew style used throughout."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\krabi.json",
+    "old": "קראבי לטבע — ברֵיכת האמרלד, המפל החם, וואט טאם סואה",
+    "new": "קראבי לטבע — בריכת האמרלד, המפל החם, וואט טאם סואה",
+    "reason": "Stray isolated niqqud artifact on a single letter in an itinerary title; plain unvocalized spelling matches the natural style used for every other word in the list."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\chiang-rai.json",
+    "old": "עם מופע אור מתחלף צבעים אחרי החשיכה",
+    "new": "עם מופע אור שמתחלף בצבעים אחרי החשיכה",
+    "reason": "Grammatically incomplete construction — \"מתחלף צבעים\" (changes colors) is missing the required preposition; natural Hebrew needs \"שמתחלף בצבעים\" (changes in colors)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\ayutthaya.json",
+    "old": "שכרו אופניים או קחו טרם ואפשר לבלות יום שלם בסיבוב ביניהם",
+    "new": "שכרו אופניים או קחו טוקטוק, ותוכלו לבלות יום שלם בסיבוב ביניהם",
+    "reason": "\"טרם\" (Hebrew for \"not yet\") is a garbled mistranslation of \"tuk-tuk\" (טוקטוק) — a nonsensical word substitution; also fixed the jarring mid-sentence shift from imperative (שכרו/קחו) to impersonal (ואפשר) by keeping the address consistent (ותוכלו)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\ayutthaya.json",
+    "old": "רכבו על אופניים או על טרם ותוכלו לראות את כולם ביום אחד",
+    "new": "רכבו על אופניים או על טוקטוק ותוכלו לראות את כולם ביום אחד",
+    "reason": "\"טרם\" (Hebrew for \"not yet\") is a garbled mistranslation of \"tuk-tuk\" (טוקטוק) — same corrupted word repeated from the intro; nonsensical in context (\"ride on bicycles or on 'not-yet'\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\ayutthaya.json",
+    "old": "השוק הצף איותהיה והשווקים ברחבי העיר",
+    "new": "השוק הצף איוטהיה והשווקים ברחבי העיר",
+    "reason": "City name misspelled \"איותהיה\" here (missing/transposed letter) versus the correct \"איוטהיה\" spelling used everywhere else in the same file — inconsistent proper-name spelling."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\ayutthaya.json",
+    "old": "\"name\": \"השוק הצף איותהיה\",",
+    "new": "\"name\": \"השוק הצף איוטהיה\",",
+    "reason": "City name misspelled \"איותהיה\" (missing/transposed letter) versus the correct \"איוטהיה\" spelling used everywhere else in the same file — inconsistent proper-name spelling."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\kanchanaburi.json",
+    "old": "שפע מקומות מו קראטה (גריל בעשה זאת בעצמך) ומקומות אוכל ושתייה נינוחים",
+    "new": "שפע מקומות מו קראטה (גריל עשה-זאת-בעצמך) ומקומות אוכל ושתייה נינוחים",
+    "reason": "\"גריל בעשה זאת בעצמך\" is ungrammatical — the preposition \"ב\" incorrectly precedes the imperative phrase; the standard Hebrew compound adjective \"עשה-זאת-בעצמך\" (DIY) should modify \"גריל\" directly without the leading \"ב\", as used correctly elsewhere for the same dish."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\rayong.json",
+    "old": "ראיונג היא עיר של דוריאן, רמבוטן ומנגוסטין. בקיץ המטעים נפתחים לאכול-כמה-שרוצים ולקנות קצת לקחת הביתה",
+    "new": "ראיונג היא עיר של דוריאן, רמבוטן ומנגוסטין. בקיץ המטעים נפתחים לאכול כמה שרוצים ולקנות קצת לקחת הביתה",
+    "reason": "\"לאכול-כמה-שרוצים\" hyphenates a full clause into a pseudo-adjective, an unnatural English-style calque; natural Hebrew just says \"לאכול כמה שרוצים\" without the artificial hyphens."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\trat.json",
+    "old": "הסירה מהמזח באו תממאצ'אט קצרה.",
+    "new": "נסיעת הסירה מהמזח באו תממאצ'אט קצרה.",
+    "reason": "\"הסירה...קצרה\" literally says \"the boat is short\" (describing the boat's length) instead of describing the crossing/ride as short; needs \"נסיעת הסירה\" (the boat ride)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\phang-nga.json",
+    "old": "שעועית ארוכה, פנירוורט ועלי קשיו צעירים",
+    "new": "שעועית ארוכה, פניוורט ועלי קשיו צעירים",
+    "reason": "\"פנירוורט\" is a garbled transliteration of \"pennywort\" with a stray extra letter; the standard Hebrew transliteration is \"פניוורט\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\phang-nga.json",
+    "old": "סירות מהירות יוצאות מתאפ לאמו לשנירקול ושחייה מול חופי חול לבן.",
+    "new": "סירות מהירות יוצאות מתאפ לאמו לשנרקל ושחייה מול חופי חול לבן.",
+    "reason": "\"לשנירקול\" is a garbled/inconsistent transliteration of \"snorkeling\"; the rest of the document uses \"לשנרקל\"/\"שנרקלו\" (lines 18 and 77), so this form breaks consistency and reads oddly."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\phang-nga.json",
+    "old": "אי באמצע מפרץ פאנג נגה שבו חיי הכפר עדיין שרירים — חופים שקטים",
+    "new": "אי באמצע מפרץ פאנג נגה שבו חיי הכפר עדיין שוררים — חופים שקטים",
+    "reason": "\"שרירים\" means \"muscular/sinewy\" (from שריר, muscle) which is a nonsensical word choice describing village life; the parallel highlights entry for the same island uses \"החיים עדיין מתנהלים\", confirming the intended meaning is \"still continuing/still going\" (\"עדיין שוררים\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\nan.json",
+    "old": "ביתה של חטיפת השן השחורה וסיפורה של נאן",
+    "new": "ביתה של השן השחורה וסיפורה של נאן",
+    "reason": "\"חטיפת\" means \"kidnapping/abduction\" and does not belong here — the museum is home to the famous Black Tusk (\"השן השחורה\") relic, not a \"kidnapping of the black tooth\"; this is a mistranslation."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\mae-hong-son.json",
+    "old": "זה מקום למי שאוהב לנסוע לאט, לקחת את הזמן, ולא להפריע לו הקור.",
+    "new": "זה מקום למי שאוהב לנסוע לאט, לקחת את הזמן, ושהקור לא מפריע לו.",
+    "reason": "\"ולא להפריע לו הקור\" is an awkward literal word-order calque of \"and not be bothered by the cold\"; natural Hebrew phrasing is \"שהקור לא מפריע לו\" (whom the cold doesn't bother)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\mae-hong-son.json",
+    "old": "ארוחת בוקר פופולרית בשוק, עם מרק נאם נגיאו על הגב ונאכלת עם ירקות טריים וקרטיבי חזיר",
+    "new": "ארוחת בוקר פופולרית בשוק, עם מרק נאם נגיאו עשיר ונאכל עם ירקות טריים וקרטיבי חזיר",
+    "reason": "\"על הגב\" (\"on the back\") is a nonsensical, garbled phrase in this food context, and \"נאכלת\" (feminine) doesn't agree with the masculine \"מרק\" (soup) — should be \"נאכל\"; fixed to a coherent phrase describing the broth as rich, with correct gender agreement."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\sukhothai.json",
+    "old": "\"name\": \"קאו פויְפ\",",
+    "new": "\"name\": \"קאו פויפ\",",
+    "reason": "Stray niqqud (sheva) mark on the vav is a script inconsistency — the file is otherwise unpointed, so this leftover diacritic reads as an error."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\sukhothai.json",
+    "old": "עם פחות אנשים — טובה לשוטטות שלוות בין הסטופות הישנות.",
+    "new": "עם פחות אנשים — טובה לשיטוטים שלווים בין הסטופות הישנות.",
+    "reason": "\"שוטטות\" (an uncountable/abstract noun meaning loitering) does not agree in number with the plural adjective \"שלוות\"; natural Hebrew uses the plural noun \"שיטוטים\" with the matching plural adjective \"שלווים\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\nakhon-ratchasima.json",
+    "old": "עם המקדש המרהיב טהֵפ ויתאיאקום המצופה קרמיקה",
+    "new": "עם המקדש המרהיב טהפ ויתאיאקום המצופה קרמיקה",
+    "reason": "Stray niqqud (tsere) mark on the heh is a script inconsistency — the file is otherwise unpointed."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\nakhon-ratchasima.json",
+    "old": "אזור פאק צ'ונג–קאו יאי מלא בבתי קפה עם נוף להרים וכרמים — נקודות קלות ללגום קפה באוויר הקריר",
+    "new": "אזור פאק צ'ונג–קאו יאי מלא בבתי קפה עם נוף להרים וכרמים — נקודות נוחות ללגום קפה באוויר הקריר",
+    "reason": "\"נקודות קלות\" (\"easy spots\") is an unnatural literal word choice for describing a pleasant location; natural Hebrew says \"נקודות נוחות\" (convenient/pleasant spots)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\nakhon-ratchasima.json",
+    "old": "מזכרות צפופות בטעם עדין — קחו הביתה או אכלו עם דייסת אורז, שניהם עובדים",
+    "new": "מזכרות צפופות בטעם עדין — קחו הביתה או אכלו עם דייסת אורז, שניהם מוצלחים",
+    "reason": "\"שניהם עובדים\" (\"both work\") is an English-idiom calque that does not read as natural Hebrew for describing food; the file itself uses the natural equivalent \"שניהם מעולים\" elsewhere, showing the idiomatic alternative."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\koh-phangan.json",
+    "old": "קו מה מול מאה האד שבו אפשר לצלול צלילת שנורקל מעל אלמוגים",
+    "new": "קו מה מול מאה האד שבו אפשר לשחות שנורקל מעל אלמוגים",
+    "reason": "\"לצלול צלילת שנורקל\" (\"to dive a snorkel-dive\") is a redundant cognate-object construction that reads as awkward machine translation; natural Hebrew phrases this as \"לשחות שנורקל\" or \"לעשות שנורקל\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\koh-phangan.json",
+    "old": "קו פנגן — מסיבת הירח המלאה והיטענות מחדש",
+    "new": "קו פנגן — מסיבת הירח המלאה ולהיטען מחדש",
+    "reason": "\"היטענות\" is not a standard Hebrew noun form (an unnatural nominalization of the verb \"להיטען\"); the file itself uses the correct verb form \"להיטען מחדש\" elsewhere."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\hat-yai.json",
+    "old": "עם השורשים הסיניים של העיר, באט יאי יש הרבה מסעדות סיניות",
+    "new": "עם השורשים הסיניים של העיר, בהאט יאי יש הרבה מסעדות סיניות",
+    "reason": "Missing the definite-article heh from the city name (\"באט יאי\" instead of \"בהאט יאי\") — a spelling error that misspells the city's name; the file correctly uses \"בהאט יאי\" elsewhere."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\hat-yai.json",
+    "old": "באו להאט יאי כדי לאכול, לקנות, ולהשתמש בה כבסיס לחקר סונגקלה והדרום התחתון.",
+    "new": "באו להאט יאי כדי לאכול, לקנות, ולהשתמש בו כבסיס לחקר סונגקלה והדרום התחתון.",
+    "reason": "Gender-agreement inconsistency: the whole intro paragraph treats Hat Yai as masculine (\"האט יאי הוא\", \"הוא יושב\"), but this pronoun switches to feminine \"בה\"; should be masculine \"בו\" to match."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\hat-yai.json",
+    "old": "\"name\": \"בסיס לסונגקלה ולדרום התחתון\", \"blurb\": \"האט יאי היא עצירת ביניים נוחה ונקודת יציאה לעיר העתיקה סונגקלה, חוף סמילה, מפל טון נגה צ'אנג, ומעבר לגבול מלזיה — קל ברכבת, ברכב מיניבוס או במטוס.\"",
+    "new": "\"name\": \"בסיס לסונגקלה ולדרום התחתון\", \"blurb\": \"האט יאי הוא עצירת ביניים נוחה ונקודת יציאה לעיר העתיקה סונגקלה, חוף סמילה, מפל טון נגה צ'אנג, ומעבר לגבול מלזיה — קל ברכבת, ברכב מיניבוס או במטוס.\"",
+    "reason": "Gender-agreement inconsistency: this is the only place in the file that refers to Hat Yai as feminine (\"היא\"); every other reference (intro, taglines) treats it as masculine (\"הוא\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\samui.json",
+    "old": "סמוי מתאים גם לחובבי חוף, גם לחוברי מסיבות, גם למשפחות וגם לזוגות בירח דבש.",
+    "new": "סמוי מתאים גם לחובבי חוף, גם לחובבי מסיבות, גם למשפחות וגם לזוגות בירח דבש.",
+    "reason": "\"חוברי מסיבות\" is not a real Hebrew word — should be \"חובבי מסיבות\" (party lovers), matching \"חובבי חוף\" earlier in the same sentence."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\samui.json",
+    "old": "קערות סמוזי ואכילה נקייה, שמתאימים לקהל הוולנס וה-דיטוקס שנשאר לתקופות ארוכות.",
+    "new": "קערות סמוזי ואכילה נקייה, שמתאימים לקהל הוולנס והדיטוקס שנשאר לתקופות ארוכות.",
+    "reason": "Awkward, inconsistent hyphenation \"וה-דיטוקס\" — the parallel term \"הוולנס\" right next to it correctly has no hyphen; natural Hebrew writes it as one word \"והדיטוקס\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\samui.json",
+    "old": "קוֹ סָמוּי–קוֹ פאנגן — קפיצה בין איים בסירה על פני שני איים",
+    "new": "קוֹ סָמוּי–קוֹ פאנגן — קפיצה בין איים בסירה בין שני האיים",
+    "reason": "Redundant repetition of \"איים\" (islands) twice in one short phrase reads like an unpolished machine translation; tightened to avoid the awkward double mention."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\pattaya.json",
+    "old": "אם בא לכם מים צלולים, אפשר לקחת סירה לקו לארן ליום שלם. · ביושר: בפטאיה יש אזור חיי לילה מוגדר בבירור — צאו לבלות בשכל וסמכו עין על החפצים היקרים שלכם.</p>",
+    "new": "אם בא לכם מים צלולים, אפשר לקחת סירה לקו לארן ליום שלם. · ביושר: בפטאיה יש אזור חיי לילה מוגדר בבירור — צאו לבלות בשכל ושימו עין על החפצים היקרים שלכם.</p>",
+    "reason": "Wrong verb: \"סמכו עין על\" (trust an eye on) is not a Hebrew idiom — the correct idiom for \"keep an eye on your belongings\" is \"שימו עין על\", used correctly elsewhere in this same corpus (e.g. huahin.json)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\pattaya.json",
+    "old": "{ \"name\": \"רחוב ווקינג סטריט\", \"kind\": \"city\", \"blurb\": \"רצועת חיי הלילה התוססת ביותר בפטאיה, מלאה בברים, פאבים, מסעדות ואורות ניאון. צאו לבלות בשכל וסמכו עין על החפצים היקרים שלכם.\" }",
+    "new": "{ \"name\": \"רחוב ווקינג סטריט\", \"kind\": \"city\", \"blurb\": \"רצועת חיי הלילה התוססת ביותר בפטאיה, מלאה בברים, פאבים, מסעדות ואורות ניאון. צאו לבלות בשכל ושימו עין על החפצים היקרים שלכם.\" }",
+    "reason": "Same wrong-verb error repeated: \"סמכו עין על\" should be \"שימו עין על\" (the correct Hebrew idiom for keeping watch over belongings)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\pattaya.json",
+    "old": "שרימפס, רכיכות, סרטנים ודגים שמבושלים טריים ליד הים. לכאן תושבי פטאיה עצמם הולכים לפירות ים.",
+    "new": "שרימפס, רכיכות, סרטנים ודגים שמבושלים טריים ליד הים. לכאן תושבי פטאיה עצמם באים לאכול פירות ים.",
+    "reason": "\"הולכים לפירות ים\" (literally \"go to seafood\") is missing the verb \"to eat\" and reads as an unnatural, translated fragment; natural Hebrew needs \"באים לאכול פירות ים\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\pattaya.json",
+    "old": "{ \"name\": \"גן נונג נוץ' פטאיה\", \"blurb\": \"גן בוטני גדול עם אזורים נושאיים — גן צרפתי, עמק דינוזאורים, וגם מופעי פילים ותרבות תאילנדית. יום שלם קל של שיטוט.\" }",
+    "new": "{ \"name\": \"גן נונג נוץ' פטאיה\", \"blurb\": \"גן בוטני גדול עם אזורים נושאיים — גן צרפתי, עמק דינוזאורים, וגם מופעי פילים ותרבות תאילנדית. יום שלם ונעים של שיטוט.\" }",
+    "reason": "\"יום שלם קל של שיטוט\" awkwardly stacks two adjectives (\"שלם\" and \"קל\") with no connector before \"של שיטוט\"; the parallel attractions-section entry for the same place correctly reads just \"יום שלם של שיטוט\" — smoothed to \"יום שלם ונעים\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\huahin.json",
+    "old": "עיירת נופש חופית קלאסית על מפרץ תאילנד — חוף ארוך, תחנת הרכבת האדומה העתיקה, שוק סיקאדה, קאו טאקיאב וכרם היין מונסון ואלי",
+    "new": "עיירת נופש חופית קלאסית על מפרץ תאילנד — חוף ארוך, תחנת הרכבת האדומה העתיקה, שוק סיקאדה, קאו טאקיאב וכרם יין מונסון ואלי",
+    "reason": "\"כרם היין מונסון ואלי\" is a construct-state (smichut) error — a definite article cannot attach to the first noun of a construct chain followed by a proper name; correct form is \"כרם יין מונסון ואלי\", as used correctly for the parallel Khao Yai vineyard (\"כרם יין גראן-מונטה\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\huahin.json",
+    "old": "עצרו בכפר הווינטג' פלרן וואן, בפארק הצילומים הנאה סנטוריני, ובכרם היין מונסון ואלי.",
+    "new": "עצרו בכפר הווינטג' פלרן וואן, בפארק הצילומים הנאה סנטוריני, ובכרם יין מונסון ואלי.",
+    "reason": "Same construct-state grammar error as the tagline — \"ובכרם היין מונסון ואלי\" should be \"ובכרם יין מונסון ואלי\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\huahin.json",
+    "old": "{ \"name\": \"כרם היין מונסון ואלי\", \"blurb\": \"כרם יין ובית יין הממוקם בגבעות מחוץ להואה הין. עשו סיבוב בין הגפנים, טעמו יין וצלמו את נופי ההרים — עצירה לחובבי טבע ובתי קפה.\" }",
+    "new": "{ \"name\": \"כרם יין מונסון ואלי\", \"blurb\": \"כרם יין ובית יין הממוקם בגבעות מחוץ להואה הין. עשו סיבוב בין הגפנים, טעמו יין וצלמו את נופי ההרים — עצירה לחובבי טבע ובתי קפה.\" }",
+    "reason": "Highlight name repeats the construct-state error \"כרם היין מונסון ואלי\"; should be \"כרם יין מונסון ואלי\" (the blurb text right after it already correctly uses \"כרם יין\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-he\\huahin.json",
+    "old": "{ \"name\": \"כרם היין מונסון ואלי\", \"kind\": \"nature\", \"blurb\": \"כרם יין ובית יין הממוקם בגבעות. עשו סיבוב בין הגפנים, טעמו יין וצלמו את נופי ההרים — עצירה לחובבי טבע ובתי קפה.\" }",
+    "new": "{ \"name\": \"כרם יין מונסון ואלי\", \"kind\": \"nature\", \"blurb\": \"כרם יין ובית יין הממוקם בגבעות. עשו סיבוב בין הגפנים, טעמו יין וצלמו את נופי ההרים — עצירה לחובבי טבע ובתי קפה.\" }",
+    "reason": "Attractions entry repeats the same construct-state error in the \"name\" field — should be \"כרם יין מונסון ואלי\", matching the correct form used inside its own blurb."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\songkran-guide.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 דקות קריאה\",",
+    "reason": "Leftover untranslated English string — all other Hebrew articles in this collection use the Hebrew equivalent \"X דקות קריאה\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\songkran-guide.json",
+    "old": "הניחו שכל מה שעליכם יירטב. שאו רק את מה שהייתם מוכנים להפיל לתוך דלי מים, וסגרו היטב את השאר. ראו את רשימת המלאה שלנו בעמוד רשימת האריזה לתאילנד.",
+    "new": "הניחו שכל מה שעליכם יירטב. קחו איתכם רק את מה שהייתם מוכנים להפיל לתוך דלי מים, וסגרו היטב את השאר. ראו את הרשימה המלאה שלנו בעמוד רשימת האריזה לתאילנד.",
+    "reason": "\"שאו\" is an archaic/biblical verb form that clashes with the casual modern tone used throughout the site (natural: \"קחו איתכם\"); and \"רשימת המלאה\" is a garbled phrase (reads like \"the inventory's list\") — the intended meaning \"a full list\" is \"הרשימה המלאה\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\first-time-thailand.json",
+    "old": "אתם לא חייבים לעשות כל אחד — אבל לדעת מה כל אחד מציע הופך את הבחירה לקלה.",
+    "new": "אתם לא חייבים לעשות את כולם — אבל לדעת מה כל אחד מציע הופך את הבחירה לקלה.",
+    "reason": "\"לעשות כל אחד\" is an unnatural calque (should refer back to the three regions as a group); natural modern Hebrew phrasing is \"לעשות את כולם\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-1-month-itinerary.json",
+    "old": "אחרי שבועיים רגועים, בנגקוק פוגעת אחרת — ושבוע שלם אומר שאתם יכולים ליהנות ממנה במקום לשרוד אותה. שכרו ליד ה-BTS או ה-MRT כדי שהפקקים לעולם לא יחזיקו את היום שלכם, שלבו בקרי סיור עם אחר צהריים של עבודה, ואכלו לרוחב העיר. רדו בטיסה של שעה או ברכבת הלילה הנופית; ראו",
+    "new": "אחרי שבועיים רגועים, בנגקוק מרגישה אחרת — ושבוע שלם אומר שאתם יכולים ליהנות ממנה במקום לשרוד אותה. התמקמו ליד ה-BTS או ה-MRT כדי שהפקקים לעולם לא יחזיקו את היום שלכם, שלבו בקרי סיור עם אחר צהריים של עבודה, ואכלו בכל רחבי העיר. הגיעו בטיסה של שעה או ברכבת הלילה הנופית; ראו",
+    "reason": "\"פוגעת אחרת\" is an unnatural literal calque of the English slang \"hits different\"; \"שכרו ליד\" (rent near) is the wrong verb for settling into a neighborhood (should match the \"התמקמו\" pattern used everywhere else); \"רדו בטיסה\" (get off/disembark a flight) is the wrong verb for arriving by flight, which should be \"הגיעו\" (arrive)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-1-month-itinerary.json",
+    "old": "בתי קפה שנבנו חצי עבור אנשים עם מחשבים ניידים",
+    "new": "בתי קפה שנבנו כמעט במיוחד עבור אנשים עם מחשבים ניידים",
+    "reason": "\"שנבנו חצי עבור\" (built half for) is a stiff, unnatural calque of English \"built half for\"; natural Hebrew reads \"built almost especially for.\""
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-1-month-itinerary.json",
+    "old": "והשיגו כזו עם מקום להשמיע במקום לחתוך בצמצום.\"\n        },\n        {\n          \"icon\": \"📶\"",
+    "new": "והשיגו כזו עם מרחב נשימה במקום לחתוך בצמצום.\"\n        },\n        {\n          \"icon\": \"📶\"",
+    "reason": "\"מקום להשמיע\" (\"room to voice/sound out\") is a mistranslation of \"room to breathe\"; the correct natural Hebrew phrase, used consistently elsewhere in these articles, is \"מרחב נשימה\" (breathing room/margin)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-1-month-itinerary.json",
+    "old": "אז שווה לארגן שהות שמכסה את כל הטיול שלכם עם מקום להשמיע במקום להסתמך על פטור קצר.",
+    "new": "אז שווה לארגן שהות שמכסה את כל הטיול שלכם עם מרחב נשימה במקום להסתמך על פטור קצר.",
+    "reason": "Same mistranslation of \"room to breathe\" as \"מקום להשמיע\" (room to voice/sound out); should be \"מרחב נשימה\" as used elsewhere in the site's itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-10-day-itinerary.json",
+    "old": "לבנגקוק–צ'יאנג מאי אפשר לקחת רכבת שינה נופית וללילה ולחסוך לינה, אך קטע השונית והאיים לקראבי מהיר בהרבה באוויר.",
+    "new": "לבנגקוק–צ'יאנג מאי אפשר לקחת רכבת לילה נופית ולחסוך לינה, אך קטע החוף והאיים לקראבי מהיר בהרבה באוויר.",
+    "reason": "\"רכבת שינה נופית וללילה\" redundantly repeats \"sleeper\" and \"for the night\" (natural pattern elsewhere is simply \"רכבת לילה נופית\"); \"קטע השונית\" (the reef segment) is a wrong word choice — this trip segment is about the coast/islands to Krabi, not a reef, so it should be \"קטע החוף.\""
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-2-week-itinerary.json",
+    "old": "היכנסו בהדרגה — מקדש או שניים על גדת הנהר, ואז צ'יינטאון (יאווארט) לאוכל רחוב אחרי רדת החשכה.",
+    "new": "היכנסו בהדרגה — מקדש או שניים על גדת הנהר, ואז צ'יינטאון (יאוואראט) לאוכל רחוב אחרי רדת החשכה.",
+    "reason": "\"יאווארט\" is missing a syllable and is inconsistent with the correct transliteration \"יאוואראט\" (Yaowarat) used in the sibling 1-month and 10-day itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-3-week-itinerary.json",
+    "old": "עם שלושה שבועות לפניכם אין צורך להתפרץ על בנגקוק — פרסו אותה, מקדשים בבקרים הקרירים, סירת נהר, אוכל רחוב בלילה, ויום נינוח אחד לבירה הישנה.",
+    "new": "עם שלושה שבועות לפניכם אין צורך להתפרץ על בנגקוק — פזרו את הזמן: מקדשים בבקרים הקרירים, סירת נהר, אוכל רחוב בלילה, ויום נינוח אחד לבירה הישנה.",
+    "reason": "\"פרסו אותה, מקדשים בבקרים...\" is an ungrammatical run-on calque of an English sentence structure (\"spread her out, temples in the mornings...\") that doesn't parse as a coherent Hebrew sentence; rephrased as \"פזרו את הזמן:\" (spread out the time:) followed by a clean list."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-3-week-itinerary.json",
+    "old": "\"text\": \"החוויות ששלושה שבועות משאירים לכן מקום עבורן — השוו אפשרויות וביקורות:\",",
+    "new": "\"text\": \"החוויות ששלושה שבועות משאירים לכם מקום עבורן — השוו אפשרויות וביקורות:\",",
+    "reason": "\"לכן\" (feminine plural \"you\") breaks gender agreement with every other second-person reference in this article, which consistently uses masculine/generic plural \"לכם\" (e.g. \"שלכם\", \"אתם יכולים\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\yi-peng-lantern-festival.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 דקות קריאה\",",
+    "reason": "Leftover untranslated English — every sibling article in this locale uses the Hebrew phrasing \"X דקות קריאה\" for readTime; this one was never translated."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-7-day-itinerary.json",
+    "old": "לונו ממש ליד תחנת BTS או MRT כדי לדלג על הפקקים — זהו החוסך הזמן היחיד הכי טוב בטיול קצר.",
+    "new": "לונו ממש ליד תחנת BTS או MRT כדי לדלג על הפקקים — זהו החיסכון בזמן הכי משמעותי בטיול קצר.",
+    "reason": "Awkward calque/machine-translation-like stacking of definite article + \"היחיד\" + \"הכי טוב\" (\"the time-saver the only the best\"); not natural Hebrew phrasing."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-he\\thailand-honeymoon-itinerary.json",
+    "old": "\"a\": \"10 עד 12 ימים הם נקודת המתיקות. זה נותן לכם התחלה עירונית קצרה וזוהרת",
+    "new": "\"a\": \"10 עד 12 ימים הם הטווח האידיאלי. זה נותן לכם התחלה עירונית קצרה וזוהרת",
+    "reason": "\"נקודת המתיקות\" is a literal calque of the English idiom \"sweet spot\" that doesn't exist as a natural Hebrew expression; a native writer would say \"הטווח האידיאלי\" or similar."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ar.json",
+    "old": "العاصمة حيث تتشارك المعابد القديمة وناطحات السحاب وطعام الشارع الزقاق نفسه",
+    "new": "العاصمة حيث تتجاور المعابد القديمة وناطحات السحاب وطعام الشارع في الزقاق نفسه",
+    "reason": "\"تتشارك ... الزقاق نفسه\" (temples/skyscrapers/street food \"share\" the alley) is an awkward calque of the English \"share the same soi\" idiom; تشارك in Arabic implies jointly holding/dividing something, not spatial coexistence, so it reads as machine-translated rather than natural travel prose — تتجاور (\"sit side by side\") is the idiomatic native choice for describing things coexisting in the same space."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ar.json",
+    "old": "\"Stay near a <em>specific landmark</em>\": \"أقم قرب <em>معلم محدد في ${th}</em>\",",
+    "new": "\"Stay near a <em>specific landmark</em>\": \"أقم قرب <em>معلم محدد</em>\",",
+    "reason": "The Arabic translation introduces a `${th}` placeholder that does not exist anywhere in the English source string (\"Stay near a specific landmark\") — this variable isn't supplied for this key and will render literally as the broken text `${th}` or throw at build time; it must be removed to match the source exactly (all other placeholders in the file, e.g. `${nm}`, are only used where the English source also contains them)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\bangkok.json",
+    "old": "البرج النهري المغطّى ببلاط الخزف، يبدو رائعاً من عبر النهر عند تا تيان نهاراً أو ليلاً",
+    "new": "البرج النهري المغطّى ببلاط الخزف، يبدو رائعاً من الضفة المقابلة عند تا تيان نهاراً أو ليلاً",
+    "reason": "\"من عبر النهر\" هو تراكم حروف جر ركيك وغير طبيعي في العربية الفصحى؛ الصياغة الطبيعية هي \"من الضفة المقابلة\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\bangkok.json",
+    "old": "تشارونكرونغ وأاري وثونغلور مليئة بمقاهٍ مصمَّمة بعناية ومحال قهوة مختصّة",
+    "new": "تشارونكرونغ وآري وثونغلور مليئة بمقاهٍ مصمَّمة بعناية ومحال قهوة مختصّة",
+    "reason": "\"أاري\" خطأ إملائي (ألف مزدوجة) في نقل اسم حيّ \"Ari\" — الصواب \"آري\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\bangkok.json",
+    "old": "جولة مقاهي بانكوك — تشارونكرونغ وأاري وثونغلور",
+    "new": "جولة مقاهي بانكوك — تشارونكرونغ وآري وثونغلور",
+    "reason": "\"أاري\" خطأ إملائي (ألف مزدوجة) في نقل اسم حيّ \"Ari\" — الصواب \"آري\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\chiang-rai.json",
+    "old": "معبد الفنّان أاجارن تشالرمتشاي كوسيتبيبات الأبيض بالكامل",
+    "new": "معبد الفنّان آجارن تشالرمتشاي كوسيتبيبات الأبيض بالكامل",
+    "reason": "\"أاجارن\" خطأ إملائي (ألف مزدوجة) في نقل لقب \"Ajarn\" — الصواب \"آجارن\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\chiang-rai.json",
+    "old": "بكل بوصة من الفن صمّمها أاجارن تشالرمتشاي",
+    "new": "بكل بوصة من الفن صمّمها آجارن تشالرمتشاي",
+    "reason": "\"أاجارن\" خطأ إملائي (ألف مزدوجة) في نقل لقب \"Ajarn\" — الصواب \"آجارن\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\chiang-rai.json",
+    "old": "معلم وسط المدينة صمّمه أاجارن تشالرمتشاي، بعرض إضاءة متغيّرة الألوان بعد حلول الظلام",
+    "new": "معلم وسط المدينة صمّمه آجارن تشالرمتشاي، بعرض إضاءة متغيّرة الألوان بعد حلول الظلام",
+    "reason": "\"أاجارن\" خطأ إملائي (ألف مزدوجة) في نقل لقب \"Ajarn\" — الصواب \"آجارن\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\krabi.json",
+    "old": "شبه جزيرة لا يُصَل إليها إلا بقارب لونغتيل، برمال بيضاء وجدران كلسية للتسلّق وكهف فرا نانغ حيث يترك الناس القرابين. إنها بقعة يطير إليها متسلّقو الصخور من حول العالم لتجربتها.",
+    "new": "شبه جزيرة لا يُوصَل إليها إلا بقارب لونغتيل، برمال بيضاء وجدران كلسية للتسلّق وكهف فرا نانغ حيث يترك الناس القرابين. إنها بقعة يطير إليها متسلّقو الصخور من حول العالم لتجربتها.",
+    "reason": "\"يُصَل\" صيغة مبني للمجهول خاطئة من الفعل \"وصل\"؛ الصيغة الصحيحة هي \"يُوصَل\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\krabi.json",
+    "old": "شبه جزيرة لا يُصَل إليها إلا بقارب لونغتيل، برمال بيضاء وجدران كلسية للتسلّق وكهف فرا نانغ الساحلي. إنها بقعة تسلّق يأتي إليها الناس من حول العالم لتجربتها.",
+    "new": "شبه جزيرة لا يُوصَل إليها إلا بقارب لونغتيل، برمال بيضاء وجدران كلسية للتسلّق وكهف فرا نانغ الساحلي. إنها بقعة تسلّق يأتي إليها الناس من حول العالم لتجربتها.",
+    "reason": "\"يُصَل\" صيغة مبني للمجهول خاطئة من الفعل \"وصل\"؛ الصيغة الصحيحة هي \"يُوصَل\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\krabi.json",
+    "old": "معبد على قمة جبل يُصَل إليه بصعود أكثر من ألف درجة لتقديم الاحترام عند القمة",
+    "new": "معبد على قمة جبل يُوصَل إليه بصعود أكثر من ألف درجة لتقديم الاحترام عند القمة",
+    "reason": "\"يُصَل\" صيغة مبني للمجهول خاطئة من الفعل \"وصل\"؛ الصيغة الصحيحة هي \"يُوصَل\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\krabi.json",
+    "old": "تؤكل مع كل أنواع الخضار النيئة كالفاصولياء الطويلة والبيغويلة والبراعم الكاجو",
+    "new": "تؤكل مع كل أنواع الخضار النيئة كالفاصولياء الطويلة والباذنجان والبراعم الكاجو",
+    "reason": "\"البيغويلة\" ليست كلمة عربية صحيحة (خطأ في النقل الصوتي)؛ استُبدلت بخضار نيئة معروفة تُؤكل تقليدياً مع خاو يام."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\krabi.json",
+    "old": "حيث ينحسر المدّ فتمشي عبر الشعاب الرملية الرابطة بين الجزر",
+    "new": "حيث ينحسر المدّ فتمشي عبر الشريط الرملي الرابط بين الجزر",
+    "reason": "\"الشعاب\" توحي بشعاب مرجانية لا برمال المدّ الرابطة (تومبولو)؛ الوصف الصحيح المستخدم في مكان آخر من الملف نفسه هو \"شريط رملي\"، وهذا يوحّد المصطلح ويزيل اللبس."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\chonburi.json",
+    "old": "مدينة ساحلية فيها رمال وشارع والكينغ ستريت وكل نوع من الأنشطة، نابضة بالحياة ليل نهار",
+    "new": "مدينة ساحلية فيها شاطئ رملي وشارع ووكينغ ستريت الشهير وكل نوع من الأنشطة، نابضة بالحياة ليل نهار",
+    "reason": "\"فيها رمال وشارع والكينغ ستريت\" is garbled machine-translation phrasing (\"sand and a street and Walking Street\") — the generic word \"شارع\" collides confusingly with the proper noun \"الكينغ ستريت\" (Walking Street), which already means \"street\" in English; needs to read as two distinct, clear items."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\surat-thani.json",
+    "old": "بعد البحيرة، في منطقة خاو سوك كهوف نحتتها الأنهار وجداول صافية ومسارات مشي عبر غابة مطيرة كثيفة — جيدة لمحبي الطبيعة الخشنة العملية.",
+    "new": "بعد البحيرة، في منطقة خاو سوك كهوف نحتتها الأنهار وجداول صافية ومسارات مشي عبر غابة مطيرة كثيفة — جيدة لعشّاق المغامرة والاستكشاف في الطبيعة.",
+    "reason": "\"الطبيعة الخشنة العملية\" (literally \"rough practical nature\") is an unnatural, machine-literal rendering; the intended meaning is rugged/hands-on outdoor adventure, not \"practical nature\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\prachuap-khiri-khan.json",
+    "old": "اجلس واحتسِ القهوة فوق البحر، سهلة في النهار أو المساء.",
+    "new": "الجلوس واحتساء القهوة فوق البحر أمر سهل في النهار أو المساء.",
+    "reason": "The feminine adjective \"سهلة\" has no noun to agree with, leaving a dangling, grammatically broken fragment (\"sit and sip coffee over the sea, easy in the day or evening\") — a clear machine-translation artifact."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\ayutthaya.json",
+    "old": "يمكنك شراءها لتأخذها معك من أي محل تقريباً في المدينة.",
+    "new": "يمكنك شراؤها لتأخذها معك من أي محل تقريباً في المدينة.",
+    "reason": "Case-ending error: \"شراء\" is the grammatical subject (فاعل) of \"يمكن\" and must take the nominative ending \"شراؤها\", not the accusative \"شراءها\" (the same construction is correctly written as \"شراؤها\" in the parallel Nan province file)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\mae-hong-son.json",
+    "old": "\"tagline\": \"مدينة الضباب الثلاثة في نهاية الطريق المتعرّج\",",
+    "new": "\"tagline\": \"مدينة الضبابات الثلاثة في نهاية الطريق المتعرّج\",",
+    "reason": "Number-noun agreement error: \"الضباب\" (fog) is singular/mass and cannot directly follow the cardinal \"الثلاثة\" (three); it must be pluralized to \"الضبابات\" (the three fogs/mists) to match Mae Hong Son's actual epithet (Thai: เมืองสามหมอก, city of three mists)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\mae-hong-son.json",
+    "old": "بمزارع شاي وبيوت طينية وطعام يوناني (يوننان) لتذوّقه",
+    "new": "بمزارع شاي وبيوت طينية وطعام يوننانيّ (يوننان) لتذوّقه",
+    "reason": "\"يوناني\" means \"Greek\" in Arabic, not \"Yunnanese\" — wrong word entirely confusing Greece with Yunnan province in China; should be \"يوننانيّ\" (Yunnanese), as correctly used elsewhere in this same file (\"طعام يوننان\", \"صينية يوننانية\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\mae-hong-son.json",
+    "old": "بمزارع شاي وبيوت طينية وطعام يوناني (يوننان) لتجربته",
+    "new": "بمزارع شاي وبيوت طينية وطعام يوننانيّ (يوننان) لتجربته",
+    "reason": "\"يوناني\" means \"Greek\" in Arabic, not \"Yunnanese\" — wrong word entirely confusing Greece with Yunnan province in China; should be \"يوننانيّ\" (Yunnanese), as correctly used elsewhere in this same file (\"طعام يوننان\", \"صينية يوننانية\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\mae-hong-son.json",
+    "old": "يُقدَّم بمرق نام نغياو ويُؤكل مع خضار طازجة وقشدة لحم الخنزير المقرمشة",
+    "new": "يُقدَّم بمرق نام نغياو ويُؤكل مع خضار طازجة وقشور لحم الخنزير المقرمشة",
+    "reason": "\"قشدة\" means dairy \"cream\", which makes no sense with \"crispy pork\" — the intended word is \"قشور\" (rinds/shavings), the exact term used correctly for the same dish (pork rinds/cracklings) in the sister files chiang-mai.json and chiang-rai.json."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\phang-nga.json",
+    "old": "\"blurb\": \"شاطئ طويل يُستخدم قاعدة لرحلات إلى الجزر، بمنتجعات ساحلية ونصب تذكاري لقارب الشرطة 813 الذي جرفه تسونامي 2004\"",
+    "new": "\"blurb\": \"شاطئ طويل يُستخدم كقاعدة لرحلات إلى الجزر، بمنتجعات ساحلية ونصب تذكاري لقارب الشرطة 813 الذي جرفه تسونامي 2004\"",
+    "reason": "Missing preposition \"كـ\" (as) before \"قاعدة\" — \"يُستخدم قاعدة\" is ungrammatical; must be \"يُستخدم كقاعدة\" (used as a base), exactly as correctly written earlier in this same file (\"يُستخدم كقاعدة لرحلات\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\rayong.json",
+    "old": "\"note\": \"شاطئ ماي رامفونغ وبان في والساحل مليئة بأماكن المأكولات البحرية التي تقدّم الروبيان الطازج والمحار والسلطعون والحبّار بأسعار معقولة\"",
+    "new": "\"note\": \"شاطئ ماي رامفونغ وبان في والساحل، كلّها مليئة بأماكن المأكولات البحرية التي تقدّم الروبيان الطازج والمحار والسلطعون والحبّار بأسعار معقولة\"",
+    "reason": "Gender/number agreement break: three coordinated masculine-singular place nouns (شاطئ.../بان في/الساحل) are followed directly by the feminine-singular predicate \"مليئة\" with no linking word, reading as ungrammatical; inserting \"كلّها\" (all of them) before the adjective fixes the agreement by making it refer to the group collectively."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\hat-yai.json",
+    "old": "{ \"name\": \"سوقا كيم يونغ وسانتيسوك\", \"blurb\": \"أسواق في وسط هات ياي تبيع الوجبات الخفيفة والبضائع المستوردة — حلويات وشوكولاتة ومكسّرات وحبّار مجفّف وهدايا تذكارية. يمكنك التجوّل فيها طوال اليوم؛ إنها من أبرز معالم المدينة.\" }",
+    "new": "{ \"name\": \"سوقا كيم يونغ وسانتيسوك\", \"blurb\": \"سوقان في وسط هات ياي يبيعان الوجبات الخفيفة والبضائع المستوردة — حلويات وشوكولاتة ومكسّرات وحبّار مجفّف وهدايا تذكارية. يمكنك التجوّل فيهما طوال اليوم؛ إنهما من أبرز معالم المدينة.\" }",
+    "reason": "Grammatical number mismatch: the name uses the dual \"سوقا\" (the two markets of Kim Yong and Santisuk), but the blurb switches to indefinite plural \"أسواق\" and plural pronouns/verbs instead of agreeing in the dual, making it read as a disconnected, machine-generated description rather than referring back to the two named markets."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\sukhothai.json",
+    "old": "موقع أفران خزف سانغخالوك القديمة — تعرّف على الخزف الذي كان يُصدَّر بعيداً في الماضي.",
+    "new": "موقع أفران خزف سانغخالوك القديمة — تعرّف على الخزف الذي كان يُصدَّر إلى أماكن بعيدة في الماضي.",
+    "reason": "\"يُصدَّر بعيداً\" (literally \"was exported far\") is an unnatural, literal-translation-style calque; natural MSA phrasing requires a prepositional object like \"إلى أماكن بعيدة\" (\"to distant places\") rather than the bare adverb."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\samui.json",
+    "old": "بالضبط شعور الجزيرة الذي يقصده الناس ساموي من أجله.",
+    "new": "بالضبط شعور الجزيرة الذي يقصد الناس ساموي لأجله.",
+    "reason": "Doubled resumptive pronoun (\"يقصده ... من أجله\") is redundant and reads as machine-translated; also the word order \"يقصده الناس ساموي\" obscures which noun is the object, so the verb+pronoun should not both carry the object reference."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\samui.json",
+    "old": "وأطباق السموذي بول والأكل النظيف",
+    "new": "وأطباق سموذي بول والأكل النظيف",
+    "reason": "The definite article \"ال\" is incorrectly attached only to the first word of the transliterated foreign compound \"سموذي بول\" (smoothie bowl), producing broken agreement; the correct indefinite form (as used consistently elsewhere in the dataset, e.g. pai.json) is \"سموذي بول\" without \"ال\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\pattaya.json",
+    "old": "كثرة من المطاعم الساحلية والرياضات المائية والفنادق على البحر.",
+    "new": "الكثير من المطاعم الساحلية والرياضات المائية والفنادق على البحر.",
+    "reason": "\"كثرة من\" as a bare sentence-fragment quantifier is unidiomatic MSA; every other occurrence of this same idea across the whole dataset uses \"الكثير من\" / \"كثيراً من\", making this the sole non-native outlier."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\koh-mak.json",
+    "old": "إنها إحدى سحرها الحقيقي.",
+    "new": "وهذا جزء من سحرها الحقيقي.",
+    "reason": "Grammatically broken: \"سحر\" (charm) is a masculine singular noun and cannot follow \"إحدى\" (which requires a feminine or plural referent) — the sentence as written does not parse in correct Arabic."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\koh-mak.json",
+    "old": "يُطلب من الزوار إعادة نفاياتهم معهم وعدم إزعاج المحيط الطبيعي.",
+    "new": "يُطلب من الزوار أخذ نفاياتهم معهم وعدم إزعاج المحيط الطبيعي.",
+    "reason": "Wrong verb choice: \"إعادة\" means \"returning/giving back\" which doesn't fit \"take your trash with you\"; the correct verb (used correctly elsewhere in this same file set, e.g. \"خذ نفاياتك معك\") is \"أخذ\" (to take/carry)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\koh-chang.json",
+    "old": "شلال متعدد المستويات على الجانب الشرقي من الجزيرة، بمسار للمشي وأجنحة للمشاهدة. استقبل زيارات ملكية في السابق",
+    "new": "شلال متعدد المستويات على الجانب الشرقي من الجزيرة، بمسار للمشي ومنصّات للمشاهدة. استقبل زيارات ملكية في السابق",
+    "reason": "\"أجنحة\" means building/literal wings, a wrong word for waterfall viewing platforms/decks; the natural term is \"منصّات للمشاهدة\" (viewing platforms)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\koh-lipe.json",
+    "old": "الشيء الذي لا يتخطاه أحد في رحلة إلى ليبي.",
+    "new": "تجربة لا يجب أن تفوتها في رحلة إلى ليبي.",
+    "reason": "\"الشيء الذي لا يتخطاه أحد\" is an unnatural machine-translation-like calque for \"must-not-miss\"; the correct natural phrasing (\"لا يجب أن تفوتها\") is already used consistently for this exact concept elsewhere in the same file set."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ar\\koh-larn.json",
+    "old": "من باتايا إلى كوه لارن — يوم بحري صافي المياه بالقارب",
+    "new": "من باتايا إلى كوه لارن — رحلة بحرية بمياه صافية بالقارب",
+    "reason": "\"يوم بحري صافي المياه بالقارب\" awkwardly stacks compound adjectives in an unnatural word order; \"رحلة بحرية بمياه صافية بالقارب\" reads as natural travel Arabic."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\first-time-thailand.json",
+    "old": "معظم الزائرين لأول مرة يبلون أفضل بلاءً مع <strong>10 أيام</strong>",
+    "new": "معظم الزائرين لأول مرة يبلون بلاءً حسنًا مع <strong>10 أيام</strong>",
+    "reason": "Wrong idiom: the correct Arabic collocation is \"يُبلي بلاءً حسنًا\" (to do well); \"أفضل بلاءً\" is an unnatural machine-translation-style calque of English \"do best\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\songkran-guide.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 دقائق قراءة\",",
+    "reason": "Leftover untranslated English string; every other article in this set uses the Arabic form \"X دقائق/دقيقة قراءة\" for this field."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\northern-thailand-itinerary.json",
+    "old": "أصباح موسم البرودة في دوي سوثيب أو دوي إنثانون أو في باي قد تكون باردة حقًا.",
+    "new": "صباحات موسم البرودة في دوي سوثيب أو دوي إنثانون أو في باي قد تكون باردة حقًا.",
+    "reason": "\"أصباح\" is not a correct plural of \"صباح\" (morning) in Arabic; the correct plural is \"صباحات\" — this reads as a typo/spelling error."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-3-week-itinerary.json",
+    "old": "\"html\": \"<strong>النسخة المختصرة:</strong> اطر إلى بانكوك، امنحها 3 أيام بالإضافة إلى يوم هادئ لرحلة إلى أيوثايا.",
+    "new": "\"html\": \"<strong>النسخة المختصرة:</strong> طِر إلى بانكوك، امنحها 3 أيام بالإضافة إلى يوم هادئ لرحلة إلى أيوثايا.",
+    "reason": "Wrong imperative verb form: \"اطر\" is not a valid Arabic word (missing hamzat wasl / wrong conjugation of طار \"to fly\"); the correct imperative is \"طِر\", which is used correctly elsewhere in the sibling articles (e.g. \"طِر شمالًا\" in the 2-week itinerary)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-3-week-itinerary.json",
+    "old": "\"html\": \"اطر جنوبًا (عادةً عبر ربط سريع في بانكوك) واستبدل الجبال بمنحدرات جيرية تهبط مباشرة في مياه فيروزية.",
+    "new": "\"html\": \"طِر جنوبًا (عادةً عبر ربط سريع في بانكوك) واستبدل الجبال بمنحدرات جيرية تهبط مباشرة في مياه فيروزية.",
+    "reason": "Same wrong imperative form \"اطر\" (not a valid word) instead of the correct \"طِر\" (imperative of طار, to fly)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-1-month-itinerary.json",
+    "old": "          \"أول رحلة، ومع ذلك بطيئة\",",
+    "new": "          \"رحلة أولى، لكن بطيئة\",",
+    "reason": "Unnatural, machine-literal word order for \"first trip, but still slow\" — \"أول رحلة، ومع ذلك بطيئة\" reads awkwardly in Arabic; natural phrasing places the adjective order and connective differently, matching the terse noun-phrase style of the other rows in the same table."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-7-day-itinerary.json",
+    "old": "\"<strong>اليوم 5:</strong> اِصل، واستقر في آو نانغ أو استقلّ قارب الذيل الطويل إلى رايلي الخالية من السيارات لمنحدراتها وشواطئها الهادئة\",",
+    "new": "\"<strong>اليوم 5:</strong> صِل، واستقر في آو نانغ أو استقلّ قارب الذيل الطويل إلى رايلي الخالية من السيارات لمنحدراتها وشواطئها الهادئة\",",
+    "reason": "\"اِصل\" is not a correctly formed Arabic imperative; the correct form of the imperative from وصل/يصل (to arrive) is \"صِل\", not \"اِصل\" (which incorrectly adds a hamzat-wasl alif that this verb form doesn't take)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-honeymoon-itinerary.json",
+    "old": "\"<strong>الليلة 1:</strong> اوصل، استقر، واحجز جلسة للأزواج — تدليك تايلاندي أو مساء سبا لإعادة الضبط. راجع <a href=\\\"thailand-thai-massage-spa.html\\\">دليل التدليك والسبا التايلاندي</a> لما تتوقعه وكيف تختار مكاناً جيداً\",",
+    "new": "\"<strong>الليلة 1:</strong> صِل، استقر، واحجز جلسة للأزواج — تدليك تايلاندي أو مساء سبا لإعادة الضبط. راجع <a href=\\\"thailand-thai-massage-spa.html\\\">دليل التدليك والسبا التايلاندي</a> لما تتوقعه وكيف تختار مكاناً جيداً\",",
+    "reason": "\"اوصل\" is an incorrect/malformed imperative; the correct imperative of وصل/يصل (to arrive) is \"صِل\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\thailand-with-kids-itinerary.json",
+    "old": "\"<strong>اليوم 7:</strong> اوصل ولا تفعل الكثير — مسبح، خوض في الشاطئ، عشاء مبكر. أيام السفر الطويلة صعبة على الأطفال، لذا اجعل هذا اليوم ناعماً\",",
+    "new": "\"<strong>اليوم 7:</strong> صِل ولا تفعل الكثير — مسبح، خوض في الشاطئ، عشاء مبكر. أيام السفر الطويلة صعبة على الأطفال، لذا اجعل هذا اليوم ناعماً\",",
+    "reason": "\"اوصل\" is an incorrect/malformed imperative; the correct imperative of وصل/يصل (to arrive) is \"صِل\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ar\\yi-peng-lantern-festival.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"قراءة 10 دقائق\",",
+    "reason": "Leftover untranslated English string in an otherwise fully Arabic file; the equivalent field in the other three Arabic itinerary files is correctly rendered in Arabic (e.g. \"قراءة 10 دقائق\")."
+  }
+]
