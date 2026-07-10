@@ -258,6 +258,56 @@ const OVERLAYS = (fs.existsSync(OVERLAYDIR) ? fs.readdirSync(OVERLAYDIR).filter(
   .filter(o=>{ const ok = o.slug && fs.existsSync(path.join(ROOT,'astro/src/content/articles',o.slug+'.json')); if(!ok) console.log('  [overlays] skip orphan record:', o.slug); return ok; });
 const GROUP_EMOJI = { medical:'🏥', mice:'🎪', airport:'✈️' };
 
+// ── roundup index: every roundup mapped to its city (revenue audit 2026-07-10 found 73/296 roundup
+// pages with ZERO internal links — live + monetized but invisible; this index powers the hub sections
+// that surface them). Locale-aware: only lists a roundup when its twin exists in that locale's dir,
+// so non-th/en hubs never link a 404. Re-runnable check: node _internal/audit-roundup-coverage.mjs
+const RU_ALIAS = { 'korat':'nakhon-ratchasima', 'prachuap':'prachuap-khiri-khan', 'koh-samet':'rayong' };
+const RU_EMOJI = [ [/budget|hostel/,'💸'], [/luxury|5-?star/,'💎'], [/love|couple/,'❤️'], [/family|kids/,'👨‍👩‍👧'], [/beach|seafront/,'🏖️'], [/nature|view|mountain/,'🏞️'], [/apartment|serviced/,'🏢'], [/hospital/,'🏥'], [/airport/,'✈️'], [/night-market|walking-street/,'🌙'], [/onsen|boutique|design/,'✨'] ];
+function buildRoundupIndex(loc){
+  const suf = loc==='th' ? '' : '-'+loc;
+  const dir = path.join(ROOT,'astro/src/content/roundups'+suf);
+  const byCity={};
+  if(!fs.existsSync(dir)) return byCity;
+  const cities=[...PROVINCES.map(p=>p[0]),...DESTINATIONS.map(d=>d[0])];
+  for(const f of fs.readdirSync(dir).filter(x=>x.endsWith('.json'))){
+    const slug=f.slice(0,-5);
+    let o; try{ o=JSON.parse(fs.readFileSync(path.join(dir,f),'utf8')); }catch{ continue; }
+    let city=null;
+    const cands=cities.filter(c=>slug===`top10-hotels-${c}`||slug.includes(`-${c}-`)||slug.endsWith(`-${c}`)||new RegExp(`^top\\d+-${c}-`).test(slug));
+    if(cands.length) city=cands.sort((a,b)=>b.length-a.length)[0];
+    if(!city) for(const [al,canon] of Object.entries(RU_ALIAS)) if(slug.includes(al)){ city=canon; break; }
+    if(!city) continue;
+    const isAnchor=slug===`top10-hotels-${city}`;
+    // Bangkok district/BTS/landmark-scoped roundups belong on their area page, not the (already huge) city hub
+    const bkkScoped=city==='bangkok'&&!isAnchor;
+    const label=stripTags(String(o.h1||o.title||slug).split(/<br/i)[0]).replace(/\s*[|—].*$/,'').trim()||slug;
+    const emoji=(RU_EMOJI.find(([re])=>re.test(slug))||[,'🏨'])[1];
+    (byCity[city] ||= []).push({slug,label,emoji,isAnchor,bkkScoped});
+  }
+  return byCity;
+}
+const RU_IDX = Object.fromEntries(['th','en','zh','ru','ko','ja','hi','he','ar'].map(l=>[l,buildRoundupIndex(l)]));
+// "more hotel rankings for this city" pills — surfaces every non-anchor roundup on its city hub.
+// Bangkok: district/BTS/hospital-scoped roundups sort LAST so they land behind the "see all" toggle
+// (they're also surfaced on their own area page via hoodRankGuides — double surfacing is fine).
+function rankGuides(citySlug){
+  const all=((RU_IDX[LOC]||RU_IDX.en)[citySlug]||[]).filter(r=>!r.isAnchor);
+  const list=[...all.filter(r=>!r.bkkScoped),...all.filter(r=>r.bkkScoped)];
+  if(!list.length) return '';
+  const pill=r=>`<a class="nc" href="${r.slug}.html">${r.emoji} ${esc(r.label)} →</a>`;
+  const N=12, head=list.slice(0,N).map(pill).join(''), rest=list.slice(N);
+  let out=`<div class="ncards">${head}</div>`;
+  if(rest.length) out+=`<details class="hccmore"><summary>${tx(`ดูจัดอันดับทั้งหมด (${list.length}) →`,`See all ${list.length} rankings →`)}</summary><div class="ncards">${rest.map(pill).join('')}</div></details>`;
+  return out;
+}
+// district-scoped roundup pills for a Bangkok area page (e.g. top10-hotels-sukhumvit-bangkok + top5-love-…)
+function hoodRankGuides(hood){
+  const list=((RU_IDX[LOC]||RU_IDX.en).bangkok||[]).filter(r=>new RegExp(`-${hood}-bangkok$`).test(r.slug));
+  if(!list.length) return '';
+  return `<div class="ncards">${list.map(r=>`<a class="nc" href="${r.slug}.html">${r.emoji} ${esc(r.label)} →</a>`).join('')}</div>`;
+}
+
 // ── shared CSS (design system, matches index.html) ──
 const CSS = `<style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -760,8 +810,9 @@ ${hoodGuides(slug)?`<div class="section"><div class="sh"><div class="slbl">🏘�
 </div></div>
 <div class="cwrap">
 <section class="panel active" id="p-stay">
-  <div class="callout"><div><h3>${tx(`Top 10 โรงแรม${th}`,`Top 10 ${nm} Hotels`)}${hasRoundup(slug)?'':` <span style="font-size:12px;color:#c2410c">${tx('· กำลังจัดทำ','· coming soon')}</span>`}</h3><p>${tx('รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com','A ranked roundup plus per-hotel reviews, with prices compared across Agoda · Booking · Trip.com')}</p></div><a href="top10-hotels-${slug}.html">${tx('ดูอันดับที่พัก →','See the ranking →')}</a></div>
+  <div class="callout"><div><h3>${tx(`Top 10 โรงแรม${th}`,`Top 10 ${nm} Hotels`)}${hasRoundup(slug)?'':` <span style="font-size:12px;color:#c2410c">${tx('· กำลังจัดทำ','· coming soon')}</span>`}</h3><p>${tx('รีวิวรวมจัดอันดับ + รีวิวแยกรายโรงแรม เทียบราคา Agoda · Booking · Trip.com','A ranked roundup plus per-hotel reviews, with prices compared across Agoda · Booking · Trip.com')}</p></div><a href="top10-hotels-${slug}.html">${cStay?tx(`ดูอันดับที่พัก → (${cStay} โรงแรม)`,`See the ranking → (${cStay} hotels)`):tx('ดูอันดับที่พัก →','See the ranking →')}</a></div>
   ${wtsArt?`<div class="callout" style="background:linear-gradient(135deg,#fff5f7,#ecfeff)"><div><h3>${tx(`พักย่านไหนดีใน${th}?`,`Where to stay in ${nm}?`)}</h3><p>${tx('เทียบย่านที่พักยอดนิยม เลือกตามสไตล์ ก่อนจองโรงแรม','Compare the top neighborhoods and pick by your travel style before you book')}</p></div><a href="${wtsArt.slug}.html">${tx('ดูย่านที่พัก →','See the areas →')}</a></div>`:''}
+  ${rankGuides(slug)?`<h2 class="pnhead">${tx(`จัดอันดับที่พัก<em>ตามสไตล์และทำเล</em>`,`Rankings <em>by style & location</em>`)}</h2><p class="pintro">${tx(`เจาะลึกกว่า Top 10 — จัดอันดับแยกตามงบ ทำเล และสไตล์การพักใน${th}`,`Beyond the Top 10 — rankings by budget, location and stay style in ${nm}`)}</p>${rankGuides(slug)}`:''}
   <p class="pintro">${tx(`รีวิวที่พัก${th} คัดจากเสียงรีวิวจริง — บอกตรงทั้งข้อดีข้อเสีย พร้อมช่วงราคาและลิงก์จอง`,`${nm} stays picked from real reviews — honest about the good and the bad, with price ranges and booking links`)}</p>
   ${hotelCards(slug)}
 </section>
@@ -848,6 +899,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ ${tx('ไฮไ
 <div class="tabwrap"><div class="tabbar">${tab('stay','🏨',tx('ที่พัก','Stays'),hotels.length,true)}${tab('see','📍',tx('ที่เที่ยว','See'),highlights.length,false)}${tab('eat','🍜',tx('ที่กิน','Eat'),foods.length,false)}${tab('plan','🗺️',tx('แผนเที่ยว','Plan'),0,false)}${tab('prep','🎒',tx('เดินทาง','Around'),0,false)}</div></div>
 <div class="cwrap">
 <section class="panel active" id="p-stay"><h2 class="pnhead">${tx(`ที่พักย่าน<em>${nm}</em>`,`Where to stay in <em>${nm}</em>`)}</h2>
+  ${hoodRankGuides(hood)?`<h2 class="pnhead" style="margin-top:4px">${tx(`จัดอันดับโรงแรม<em>ย่าน${nm}</em>`,`<em>${nm}</em> hotel rankings`)}</h2><p class="pintro">${tx('จัดอันดับฉบับเต็มของย่านนี้ — รีวิวจริงรายโรงแรม พร้อมเทียบราคา 3 เว็บ','Full ranked reviews for this area — real per-hotel reviews with 3-site price comparison')}</p>${hoodRankGuides(hood)}`:''}
   ${hotels.length?`<div class="callout"><div><h3>${tx(`คู่มือที่พักย่าน${nm} ฉบับเต็ม`,`Full ${nm} hotel guide`)}</h3><p>${tx('รีวิวแยกรายโรงแรม เทียบราคา และ FAQ','Per-hotel detail, price comparison and FAQ')}</p></div><a href="${wts}.html">${tx('อ่านฉบับเต็ม →','Read the full guide →')}</a></div><div class="hl-list">${hotelList}</div>`:`<p class="pintro">${tx('กำลังคัดที่พักย่านนี้ — รีวิวจะตามมาเรื่อย ๆ','Curating stays for this area — reviews coming soon')}</p><div class="callout"><div><h3>${tx('ระหว่างนี้','Meanwhile')}</h3><p>${tx('ดูที่พักทั่วกรุงเทพ','Browse stays across Bangkok')}</p></div><a href="city-bangkok.html">${tx('ที่พักกรุงเทพ →','Bangkok stays →')}</a></div>`}
 </section>
 <section class="panel" id="p-see"><h2 class="pnhead">${tx(`ที่เที่ยวย่าน<em>${nm}</em>`,`Things to do in <em>${nm}</em>`)}</h2><p class="pintro">${tx('ไฮไลต์ แลนด์มาร์ก และจุดเด่นที่นักท่องเที่ยวนิยมในย่านนี้','Highlights and spots visitors love in this area')}</p>${hgHl?`<div class="hoodgrid">${hgHl}</div>`:`<p class="pintro">${tx('ที่เที่ยวย่านนี้กำลังเพิ่ม','Sights coming soon')}</p>`}</section>
