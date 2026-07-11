@@ -25,8 +25,10 @@ const P1 = [
 const BANNED = /ตอบโจทย์|โดดเด่น|ครบครัน|ระดับโลก|สุดยอด|อันซีน/g;
 const THAI = /[ก-๛]/g;
 const GOLDR = new Set(Object.keys(JSON.parse(fs.readFileSync(path.join(RD, 'top10-jomtien-beach-hotels-pattaya.json'), 'utf8'))));
-// optional per schema (conditional render) — older/reuse reviews may omit them, don't flag as missing
-const OPTIONAL_V = new Set(['prevHref', 'prevLabel', 'prevName', 'nextHref', 'nextLabel', 'nextName', 'faq', 'faqTitle']);
+// optional per schema (conditional render) — older/reuse reviews may omit them, don't flag as missing.
+// quickAnswerHtml/quickAnswerH2 = AEO answer block; ReviewLayout derives it from structured data when
+// absent (see ReviewLayout.astro `quickAnswerHtml || _derivedQA`), so older reviews legitimately omit it.
+const OPTIONAL_V = new Set(['prevHref', 'prevLabel', 'prevName', 'nextHref', 'nextLabel', 'nextName', 'faq', 'faqTitle', 'quickAnswerHtml', 'quickAnswerH2']);
 const GOLDV = new Set([...Object.keys(JSON.parse(fs.readFileSync(path.join(RV, 'review-glam-habitat-phuket.json'), 'utf8')))].filter(k => !OPTIONAL_V.has(k)));
 const imgOnDisk = i => i && fs.existsSync(path.join(PUB, String(i).replace(/^\//, '')));
 
