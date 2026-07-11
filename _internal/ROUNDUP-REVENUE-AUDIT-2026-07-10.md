@@ -109,3 +109,14 @@ S-tier anchors (bangkok/phuket/chiang-mai/pattaya) — currently no cadence exis
 The surfacing fix is committed+pushed but **NOT deployed** — the working tree holds ~2,100
 untracked hi/he/ar translations (Wave 2) still in QA; deploying now would ship them raw.
 Deploy AFTER Wave-2 QA lands (one deploy ships both).
+
+---
+## ⚠️ Phase-1 follow-up flag (2026-07-11): ao-nang cannibalization
+Phase-1 built `top10-ao-nang-beach-hotels-krabi` (assemble-only) — but a pre-existing committed roundup
+`top15-ao-nang-hotels-krabi` already covers ao-nang (8/10 hotel overlap). The audit missed this because
+top15-ao-nang was classified as generic "area" segment, so krabi's "beach/area" gap looked open.
+**Decision needed (owner):** (a) keep top15 only + discard the new top10-ao-nang-beach (redundant), or
+(b) consolidate to the new one + redirect the old, or (c) keep both. Pending decision, the new
+top10-ao-nang-beach-hotels-krabi TH+EN is left UNCOMMITTED (on disk, not shipped). Krabi's real remaining
+beach/area gaps are railay + klong-muang (would need ~top5 each — thin existing inventory: rayavadee/sand-sea
+= railay; tubkaak/nakamanda = klong-muang). The new `top8-luxury-hotels-krabi` is a genuine non-duplicate addition.
