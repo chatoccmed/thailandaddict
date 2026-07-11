@@ -111,6 +111,46 @@ untracked hi/he/ar translations (Wave 2) still in QA; deploying now would ship t
 Deploy AFTER Wave-2 QA lands (one deploy ships both).
 
 ---
+## ✅ SESSION 2026-07-12: S-TIER REVENUE CORE COMPLETE (Phase-1 crosscut finish + Phase 2)
+Continued the coworker's unfinished crosscut + carried Phase 2 to done. **All 7 S-tier cities now
+show ZERO gap (`—`) in the audit** (bangkok, chiang-mai, pattaya, phuket, huahin, krabi, samui) —
+each has anchor + budget + luxury + ≥2 beach/area + 1 audience. Roundups 296→320.
+
+**Bangkok crosscut (last S-tier province gap)** — commit `329006485`, pushed. `top10-budget-hotels-bangkok`
++ `top10-luxury-hotels-bangkok` (TH+EN), assembled from the 400-review bangkok pool (0 new reviews;
+all 20 images already on R2). Gate PASS.
+
+**Phase 2 audience roundups** — commit `3ac96717c`, pushed. honeymoon (phuket/samui/krabi), couples
+(chiang-mai), family (huahin/pattaya) — 6 roundups TH+EN, assembled from existing pools (0 new reviews;
+60 images on R2). Gate PASS.
+
+**Adversarial WebSearch fact-check discipline (NEW — do this for every roundup batch with award/year/superlative claims).**
+Ran a per-roundup fact-check workflow (`_internal/wf/factcheck-bangkok-luxury.js` + `factcheck-phase2.js`)
+BEFORE shipping. It caught real errors the builders introduced:
+- Bangkok luxury (4 fixed): Yu Ting Yuan "Michelin" (star lost after 2023 → cuisine); Peninsula 348→367
+  rooms (also fixed the source review TH+EN); InterContinental "since 1966" (rebranded from Le Royal
+  Meridien ~2003 → dropped); W Bangkok "Michelin Key" was a false-positive (not in content).
+- Phase 2 (2 refuted + 5 uncertain fixed): Rachamankha architect อ๊อด อมตะกุล→องอาจ สาตรพันธุ์;
+  137 Pillars "140yr"→"130yr"; Raya "first in CM to join LHW" dropped; Avani+ "50sqm every room"→"from
+  50sqm"; Kiang Haad "biggest mall in Hua Hin" softened; Baan Duangkaew "~11 rooms" dropped; Renaissance
+  Pattaya "157-sqm villa" figure dropped. The big claims (Four Seasons CM **3 Michelin Keys**, PRU 1 star,
+  Four Seasons BKK #2 World's 50 Best 2025, Michelin Keys for Park Hyatt/IC, Centara=1923 Railway Hotel,
+  Garrya 1987, Dusit=former Sheraton Krabi) all VERIFIED TRUE and kept. **Lesson: builders assemble facts
+  well but occasionally overstate awards/superlatives/round numbers — always web-verify before ship.**
+
+**⚠️ DEPLOY GOTCHA HIT THIS SESSION:** a plain `cd astro && npm run build` used a STALE Astro content-layer
+cache (`node_modules/.astro/data-store.json`) and silently OMITTED the newly-added roundups from dist
+(build succeeded, pages just missing). The canonical deploy (`_internal/deploy.ps1`, see [[deploy-pipeline]])
+nukes `astro/.astro` + `astro/node_modules/.astro` + `dist` first — DO THAT. After cache-clear rebuild,
+all pages present. **Deploy still PENDING owner authorization** (auto-mode safety classifier blocks
+`wrangler deploy` without explicit owner OK); dist is built & verified ready (bangkok + Phase 2).
+
+**Remaining (Phase 3–5, not started):** A-tier budget sweep (~17 + 12 "+1 segment"), B-tier budget (48),
+remaining district roundups (chiang-mai 5, pattaya 3, huahin 2, krabi 3, phang-nga 3). Also a spawned
+follow-up task to fix 2 stale facts in pre-existing review pages (Four Seasons Yu Ting Yuan, InterContinental
+1966) that mirror the roundup issues.
+
+---
 ## ⚠️ Phase-1 follow-up flag (2026-07-11): ao-nang cannibalization
 Phase-1 built `top10-ao-nang-beach-hotels-krabi` (assemble-only) — but a pre-existing committed roundup
 `top15-ao-nang-hotels-krabi` already covers ao-nang (8/10 hotel overlap). The audit missed this because
