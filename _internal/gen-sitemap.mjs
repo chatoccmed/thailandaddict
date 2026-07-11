@@ -15,44 +15,59 @@ const readDate = (coll, slug) => {
   catch { return SITE_UPDATED; }
 };
 
+// Hub/static pages get the full 9-language treatment (they're the only pages with all locales built);
+// content collections (articles/reviews/roundups) are TH+EN only until article-level translation (Phase 2).
+const HTML_LANG = { zh: 'zh-Hans', ru: 'ru', ko: 'ko', ja: 'ja', he: 'he', ar: 'ar', hi: 'hi' };
+const HUB_LOCALES = ['en', ...Object.keys(HTML_LANG)];
+
 // 1) content slugs (TH set + which have EN) + per-entry lastmod
 const sets = [
   ['articles', 'articles-en'],
   ['reviews', 'reviews-en'],
   ['roundups', 'roundups-en'],
 ];
-const pairs = [];                       // {slug, en:boolean, lastmod}
+const pairs = [];                       // {slug, locales:Set<string>, lastmod}
 for (const [th, en] of sets) {
   const enSet = new Set(C(path.join(ROOT, 'astro/src/content', en)));
-  for (const slug of C(path.join(ROOT, 'astro/src/content', th))) pairs.push({ slug, en: enSet.has(slug), lastmod: readDate(th, slug) });
+  for (const slug of C(path.join(ROOT, 'astro/src/content', th))) pairs.push({ slug, locales: new Set(enSet.has(slug) ? ['en'] : []), lastmod: readDate(th, slug) });
 }
 
 // 2) hub + static page basenames (root public *.html), excluding non-indexable
 const EXCLUDE = new Set(['404', 'font-compare']);
 const rootHtml = fs.readdirSync(PUB).filter(f => f.endsWith('.html')).map(f => f.slice(0, -5)).filter(n => !EXCLUDE.has(n));
-const enHtml = new Set(fs.existsSync(path.join(PUB, 'en')) ? fs.readdirSync(path.join(PUB, 'en')).filter(f => f.endsWith('.html')).map(f => f.slice(0, -5)) : []);
-for (const name of rootHtml) pairs.push({ slug: name, en: enHtml.has(name), lastmod: SITE_UPDATED });
+const localeHtml = {};
+for (const loc of HUB_LOCALES) {
+  const dir = path.join(PUB, loc);
+  localeHtml[loc] = new Set(fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => f.endsWith('.html')).map(f => f.slice(0, -5)) : []);
+}
+for (const name of rootHtml) {
+  const locales = new Set(HUB_LOCALES.filter(loc => localeHtml[loc].has(name)));
+  pairs.push({ slug: name, locales, lastmod: SITE_UPDATED });
+}
 
 // 3) homepage (index → '')
-pairs.unshift({ slug: '', en: enHtml.has('index'), home: true, lastmod: SITE_UPDATED });
+pairs.unshift({ slug: '', locales: new Set(HUB_LOCALES.filter(loc => localeHtml[loc].has('index'))), home: true, lastmod: SITE_UPDATED });
 
 const esc = s => s.replace(/&/g, '&amp;');
-function urlEntry(loc, hasEn, thPath, enPath, lastmod) {
+const localePath = (loc, slug) => loc === 'th' ? '/' + slug : `/${loc}/${slug}`;
+function urlEntry(loc, path_, locales, lastmod) {
   const lm = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : '';
-  const alts = hasEn
-    ? `\n    <xhtml:link rel="alternate" hreflang="th" href="${esc(BASE + thPath)}"/>` +
-      `\n    <xhtml:link rel="alternate" hreflang="en" href="${esc(BASE + enPath)}"/>` +
-      `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(BASE + thPath)}"/>`
-    : '';
+  let alts = '';
+  if (locales.size) {
+    alts += `\n    <xhtml:link rel="alternate" hreflang="th" href="${esc(BASE + path_.th)}"/>`;
+    for (const l of locales) alts += `\n    <xhtml:link rel="alternate" hreflang="${HTML_LANG[l] || l}" href="${esc(BASE + path_[l])}"/>`;
+    alts += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(BASE + (path_.en || path_.th))}"/>`;
+  }
   return `  <url>\n    <loc>${esc(BASE + loc)}</loc>${lm}${alts}\n  </url>`;
 }
 
 const entries = [];
 for (const p of pairs) {
   const thPath = p.home ? '/' : '/' + p.slug;
-  const enPath = p.home ? '/en/' : '/en/' + p.slug;
-  entries.push(urlEntry(thPath, p.en, thPath, enPath, p.lastmod));     // TH url
-  if (p.en) entries.push(urlEntry(enPath, true, thPath, enPath, p.lastmod)); // EN url
+  const path_ = { th: thPath };
+  for (const l of p.locales) path_[l] = p.home ? `/${l}/` : `/${l}/${p.slug}`;
+  entries.push(urlEntry(thPath, path_, p.locales, p.lastmod));            // TH url
+  for (const l of p.locales) entries.push(urlEntry(path_[l], path_, p.locales, p.lastmod)); // each locale url
 }
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
@@ -60,5 +75,6 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>\n` +
   entries.join('\n') + `\n</urlset>\n`;
 
 fs.writeFileSync(path.join(PUB, 'sitemap.xml'), xml);
-const thCount = pairs.length, enCount = pairs.filter(p => p.en).length;
-console.log(`sitemap.xml written · ${entries.length} <url> entries (TH ${thCount} + EN ${enCount}) · <lastmod> on every url · ${(xml.length/1024/1024).toFixed(2)} MB`);
+const thCount = pairs.length, enCount = pairs.filter(p => p.locales.has('en')).length;
+const perLocale = HUB_LOCALES.map(l => `${l} ${pairs.filter(p => p.locales.has(l)).length}`).join(', ');
+console.log(`sitemap.xml written · ${entries.length} <url> entries (TH ${thCount}, ${perLocale}) · <lastmod> on every url · ${(xml.length/1024/1024).toFixed(2)} MB`);

@@ -29,6 +29,14 @@ const TS_MON_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','
 const TS_MON_RU = ['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
 const priceTs = (lang === 'en' ? TS_MON_EN : lang === 'ru' ? TS_MON_RU : TS_MON_TH)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
 
+// Honest "last updated" chip: use the review's own modifiedDate when it's actually been re-checked;
+// otherwise show a plain price-may-vary disclaimer instead of a false per-hotel "verified" claim.
+const UPDATE_CHIP = {
+  th: (data as any).modifiedDate ? `📅 ตรวจสอบข้อมูลล่าสุด ${(data as any).modifiedDate}` : '📅 ราคาที่แสดงเป็นราคาโดยประมาณ กดลิงก์ด้านล่างเพื่อดูราคาจริงและห้องว่างล่าสุด',
+  en: (data as any).modifiedDate ? `📅 Last checked ${(data as any).modifiedDate}` : '📅 Prices shown are estimates — tap a link below for live pricing &amp; availability',
+  ru: (data as any).modifiedDate ? `📅 Последняя проверка ${(data as any).modifiedDate}` : '📅 Указанные цены ориентировочные — актуальную цену и наличие смотрите по ссылке ниже',
+};
+
 // Internal-link helper: Thai keeps the raw href, English/Russian get a locale
 // prefix (/en/ or /ru/) and the .html suffix stripped (clean URL).
 const link = (h: string) => {
@@ -66,7 +74,6 @@ const S = {
     qiType: 'ประเภท', qiScore: 'คะแนนรีวิว', qiPrice: 'ราคาเริ่มต้น', qiRooms: 'ห้องพัก',
     qiBook: 'จองเลย →', qiWish: '🔖 เก็บลงแผน', qiWishSaved: '✓ เก็บแล้ว',
     secReview: 'Review · รีวิว',
-    updateChip: '📅 อัปเดตล่าสุด พฤษภาคม 2026 · ตรวจสอบราคาและข้อมูลแล้ว',
     bylineName: 'รีวิวโดย ทีมบรรณาธิการ ThailandAddict', bylineBadge: '✓ ตรวจสอบข้อมูลแล้ว',
     bylineText: 'ทีมงานมีประสบการณ์รีวิวโรงแรมและทำเว็บท่องเที่ยวมากกว่า 10 ปี — รีวิวนี้ประมวลจากรีวิวแขกจริงหลายร้อยรายการบน Booking &amp; Agoda ผสานกับการตรวจสอบทำเล ราคา และข้อมูลห้องพักโดยทีมงาน · ',
     bylineLink: 'วิธีการรีวิวของเรา →',
@@ -101,7 +108,6 @@ const S = {
     qiType: 'Type', qiScore: 'Review Score', qiPrice: 'From', qiRooms: 'Rooms',
     qiBook: 'Book now →', qiWish: '🔖 Save to plan', qiWishSaved: '✓ Saved',
     secReview: 'Review',
-    updateChip: '📅 Last updated May 2026 · Prices &amp; info verified',
     bylineName: 'Reviewed by the ThailandAddict Editorial Team', bylineBadge: '✓ Fact-checked',
     bylineText: 'Our team has 10+ years of experience reviewing hotels and running travel sites — this review draws on hundreds of real guest reviews on Booking &amp; Agoda, combined with our own checks on location, pricing and room details. · ',
     bylineLink: 'Our review methodology →',
@@ -136,7 +142,6 @@ const S = {
     qiType: 'Тип', qiScore: 'Оценка', qiPrice: 'От', qiRooms: 'Номера',
     qiBook: 'Забронировать →', qiWish: '🔖 Сохранить в план', qiWishSaved: '✓ Сохранено',
     secReview: 'Обзор · Review',
-    updateChip: '📅 Обновлено в мае 2026 · Цены и данные проверены',
     bylineName: 'Обзор подготовлен редакцией ThailandAddict', bylineBadge: '✓ Проверено',
     bylineText: 'Наша команда более 10 лет пишет обзоры отелей и ведёт туристические сайты — этот обзор основан на сотнях реальных отзывов гостей на Booking &amp; Agoda, а также на собственной проверке расположения, цен и номеров. · ',
     bylineLink: 'Как мы пишем обзоры →',
@@ -468,7 +473,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 
   <div class="fade-up" style="margin-bottom:36px;">
     <div class="sec-label">{S.secReview}</div>
-    <div class="update-chip" set:html={S.updateChip}></div>
+    <div class="update-chip" set:html={UPDATE_CHIP[lang]}></div>
     <h1 class="sec-title" set:html={data.h1}></h1>
     <p class="review-intro" set:html={data.intro}></p>
   </div>
