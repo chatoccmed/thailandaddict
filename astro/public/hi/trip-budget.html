@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="hi" dir="ltr"><head>
+<meta charset="UTF-8">
+<script>(function(){var ID='G-XXXXXXXXXX';if(!/^G-[A-Z0-9]{8,}$/.test(ID)||ID.indexOf('XXXX')>-1)return;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',ID,{anonymize_ip:true});})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>थाईलैंड ट्रिप बजट कैलकुलेटर — बैकपैकर, मिड-रेंज और लग्ज़री | ThailandAddict</title>
+<meta name="description" content="एक थाईलैंड ट्रिप बजट कैलकुलेटर — अपने दिन, यात्रियों की संख्या और यात्रा शैली चुनें और असली दैनिक खर्चों — ठहरना, खाना, आवागमन और गतिविधियां — के आधार पर तुरंत पूरी ट्रिप का अनुमान पाएं।">
+<link rel="canonical" href="https://thailandaddict.com/hi/trip-budget">
+
+
+
+<meta property="og:title" content="थाईलैंड ट्रिप बजट कैलकुलेटर | ThailandAddict">
+<meta property="og:description" content="थाईलैंड यात्रा की तुरंत लागत जानने के लिए दिन, यात्रियों की संख्या और यात्रा स्टाइल चुनें।">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thailandaddict.com/hi/trip-budget">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='sans-serif' font-size='62' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&amp;family=Sarabun:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Thailand Trip Budget Calculator — ThailandAddict","url":"https://thailandaddict.com/en/trip-budget","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"THB"},"description":"Estimate a Thailand trip's cost from days, travelers and travel style (backpacker, mid-range, luxury) using real daily costs.","publisher":{"@type":"Organization","name":"ThailandAddict","url":"https://thailandaddict.com/"}}</script>
+<style>
+  :root{
+    --teal:#06B6D4;--teal-dk:#0891b2;--coral:#FB7185;--coral-dk:#f43f5e;--mango:#FBBF24;
+    --ink:#0F172A;--sub:#64748b;--bdr:#e6eef2;--bg:#f1fbfd;--card:#fff;
+    --shadow:0 10px 30px -12px rgba(15,40,70,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Sarabun',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-text-size-adjust:100%}
+  a{color:inherit;text-decoration:none}
+  .head{background:linear-gradient(135deg,var(--teal),var(--teal-dk));color:#fff;padding:13px 18px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:0 4px 18px -6px rgba(8,145,178,.5)}
+  .head .logo{font-family:'Outfit';font-weight:900;font-size:20px;letter-spacing:-.5px}
+  .head .back{font-size:13.5px;opacity:.95;font-weight:600}
+  .wrap{max-width:840px;margin:0 auto;padding:22px 16px 90px}
+  .hero{text-align:center;padding:14px 6px 22px}
+  .hero h1{font-family:'Outfit';font-weight:900;font-size:clamp(25px,6vw,36px);letter-spacing:-.6px;line-height:1.12}
+  .hero h1 .g{background:linear-gradient(120deg,var(--teal-dk),var(--coral-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{color:var(--sub);font-size:15px;margin-top:8px;max-width:560px;margin-inline:auto}
+  .sec{background:var(--card);border:1px solid var(--bdr);border-radius:20px;padding:18px 18px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+  .sec-h{font-family:'Outfit';font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .sec-sub{color:var(--sub);font-size:13px;margin-bottom:14px}
+  .field{margin-bottom:16px}
+  .field:last-child{margin-bottom:0}
+  .field>label{display:block;font-family:'Outfit';font-weight:700;font-size:14px;margin-bottom:8px}
+  .row2{display:flex;gap:18px;flex-wrap:wrap}
+  .row2>.field{flex:1;min-width:150px;margin-bottom:0}
+  .step{display:inline-flex;align-items:center;gap:0;border:1.5px solid var(--bdr);border-radius:12px;overflow:hidden}
+  .step button{width:44px;height:44px;border:none;background:#fff;font-size:21px;cursor:pointer;color:var(--teal-dk);font-weight:700;line-height:1}
+  .step button:active{background:var(--bg)}
+  .step .v{min-width:84px;text-align:center;font-family:'Outfit';font-weight:800;font-size:16px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{border:1.5px solid var(--bdr);background:#fff;border-radius:13px;padding:9px 14px;font-size:13.5px;font-family:'Sarabun';cursor:pointer;transition:.15s;font-weight:600;color:var(--ink)}
+  .opt:hover{border-color:var(--teal)}
+  .opt.on{border-color:var(--teal);background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(251,113,133,.10));box-shadow:inset 0 0 0 1px var(--teal)}
+  .opt.pace{flex:1;min-width:96px;text-align:center;display:flex;flex-direction:column;gap:2px;align-items:center}
+  .opt.pace .ic{font-size:20px}
+  .opt.pace small{font-weight:400;color:var(--sub);font-size:11px}
+  .opt.pace.on small{color:var(--teal-dk)}
+  .res{background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(251,113,133,.07));border:1px solid var(--bdr)}
+  .res .cap{text-align:center;font-family:'Outfit';font-weight:700;color:var(--sub);font-size:13.5px;letter-spacing:.04em}
+  .bigamt{font-family:'Outfit';font-weight:900;font-size:clamp(30px,8.5vw,48px);letter-spacing:-1px;text-align:center;line-height:1.05;margin:4px 0 2px}
+  .bigamt .g{background:linear-gradient(120deg,var(--teal-dk),var(--coral-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .perday{text-align:center;color:var(--sub);font-size:13.5px;margin-bottom:4px}
+  .perday b{font-family:'Outfit';color:var(--ink)}
+  .bd{margin-top:14px}
+  .bd .br{display:flex;justify-content:space-between;align-items:center;padding:9px 2px;border-bottom:1px solid var(--bdr);font-size:14px}
+  .bd .br .l{display:flex;align-items:center;gap:9px;font-weight:600}
+  .bd .br .l .em{font-size:17px}
+  .bd .br .r{font-family:'Outfit';font-weight:700;white-space:nowrap}
+  .bd .tot{border-bottom:none;padding-top:11px;margin-top:3px;border-top:2px solid #fff}
+  .bd .tot .l{font-family:'Outfit';font-weight:800}
+  .bd .tot .r{color:var(--coral-dk);font-size:16px}
+  .note{color:var(--sub);font-size:12.5px;margin-top:13px;line-height:1.5}
+  .go{width:100%;border:none;border-radius:16px;padding:16px;font-family:'Outfit';font-weight:800;font-size:17px;color:#fff;background:linear-gradient(135deg,var(--coral),var(--coral-dk));cursor:pointer;box-shadow:0 12px 26px -8px rgba(244,63,94,.55);transition:.15s;display:flex;align-items:center;justify-content:center;gap:9px;margin-top:4px}
+  .go:hover{transform:translateY(-2px);box-shadow:0 16px 32px -8px rgba(244,63,94,.6)}
+  .link2{display:block;text-align:center;margin-top:14px;font-family:'Outfit';font-weight:700;font-size:14px;color:var(--teal-dk)}
+  .link2:hover{text-decoration:underline}
+  .foot{text-align:center;color:var(--sub);font-size:12.5px;padding:8px 0 0}
+  .foot a{color:var(--teal-dk);font-weight:600}
+</style>
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/trip-budget"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/trip-budget"><link rel="alternate" hreflang="zh-Hans" href="https://thailandaddict.com/zh/trip-budget"><link rel="alternate" hreflang="ru" href="https://thailandaddict.com/ru/trip-budget"><link rel="alternate" hreflang="ar" href="https://thailandaddict.com/ar/trip-budget"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/trip-budget"><link rel="alternate" hreflang="hi" href="https://thailandaddict.com/hi/trip-budget"><link rel="alternate" hreflang="ja" href="https://thailandaddict.com/ja/trip-budget"><link rel="alternate" hreflang="ko" href="https://thailandaddict.com/ko/trip-budget"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/en/trip-budget"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700;900&amp;display=swap" rel="stylesheet"><style id="lsw-css">
+.lang-switch{position:relative;font-family:Outfit,'Noto Sans Thai',sans-serif}
+.lang-btn{display:inline-flex;align-items:center;gap:4px;font:inherit;font-weight:700;font-size:13px;color:var(--ink,#0F172A);background:var(--bl-lt,#f1fbfd);border:1.5px solid var(--bdr,#e6eef2);border-radius:999px;padding:6px 12px;cursor:pointer}
+.lang-caret{font-size:10px}
+.lang-menu{position:absolute;top:calc(100% + 6px);inset-inline-end:0;min-width:150px;background:#fff;border:1px solid var(--bdr,#e6eef2);border-radius:14px;box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px;display:none;z-index:120;max-height:60vh;overflow:auto}
+.lang-switch.open .lang-menu{display:block}
+.lsw-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:9px;color:var(--ink,#0F172A);text-decoration:none;font-size:13.5px}
+.lsw-item:hover{background:var(--bl-lt,#f1fbfd)}
+.lsw-item.active{background:linear-gradient(135deg,var(--bl,#06B6D4),var(--or,#FB7185));color:#fff}
+.lsw-item[aria-disabled]{pointer-events:none}
+.lsw-code{font-weight:800;font-size:11px;min-width:22px;color:var(--sub,#64748b)}
+.lsw-item.active .lsw-code{color:#fff}
+</style></head>
+<body>
+<header class="head">
+  <a class="logo" href="/hi/">ThailandAddict</a>
+  <a class="back" href="/hi/">← होम</a>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>थाईलैंड ट्रिप <span class="g">बजट कैलकुलेटर</span></h1>
+    <p>अपने दिन, यात्रियों की संख्या और यात्रा स्टाइल चुनें ताकि तुरंत यात्रा का अनुमान मिल सके — यह ठहरने, खाने, ट्रांसपोर्ट और गतिविधियों के असली रोज़ाना खर्च पर आधारित है।</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h">✏️ आपकी यात्रा</div>
+    <div class="sec-sub">संख्याएं बदलें और बजट तुरंत अपडेट हो जाएगा</div>
+    <div class="row2">
+      <div class="field">
+        <label>📅 कितने दिन</label>
+        <div class="step"><button id="dminus" aria-label="कम दिन">–</button><span class="v" id="days">7 दिन</span><button id="dplus" aria-label="और दिन">+</button></div>
+      </div>
+      <div class="field">
+        <label>👥 कितने यात्री</label>
+        <div class="step"><button id="pminus" aria-label="कम यात्री">–</button><span class="v" id="ppl">2 लोग</span><button id="pplus" aria-label="और यात्री">+</button></div>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px">
+      <label>🎒 यात्रा शैली</label>
+      <div class="opts" id="styles">
+        <button class="opt pace" data-k="backpacker"><span class="ic">🎒</span>बैकपैकर<small>डॉर्म · स्ट्रीट फूड</small></button>
+        <button class="opt pace" data-k="midrange"><span class="ic">🏨</span>मध्यम श्रेणी<small>3–4★ · सिट-डाउन</small></button>
+        <button class="opt pace" data-k="luxury"><span class="ic">✨</span>लक्ज़री<small>रिज़ॉर्ट · फाइन डाइनिंग</small></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec res">
+    <div class="cap">पूरी यात्रा के लिए अनुमानित बजट</div>
+    <div class="bigamt"><span class="g" id="amt">฿0</span></div>
+    <div class="perday" id="perday">प्रति दिन · प्रति व्यक्ति</div>
+    <div class="bd" id="bd"></div>
+    <p class="note" id="note"></p>
+  </div>
+
+  <button class="go" id="toPlanner">🧭 अपनी दिन-प्रतिदिन योजना बनाएं →</button>
+  <a class="link2" href="/hi/thailand-travel-budget">पूरी थाईलैंड बजट गाइड पढ़ें — पैसे कैसे बचाएं + असली खर्च →</a>
+  <div class="foot">ThailandAddict के अनुमान <a href="/hi/thailand-travel-budget">थाईलैंड बजट गाइड</a> · 2026 में अपडेट किया गया</div>
+</div>
+
+<script>
+function track(ev,p){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev},p||{}));if(window.gtag)window.gtag('event',ev,p||{})}catch(e){}}
+(function(){
+  var TIERS={
+    backpacker:{label:'Backpacker',low:800,high:1500,plus:false,note:'Dorm bed, street food and public transport. Two sharing a private room land near the top of this range.',cats:[['🛏️','Stay','฿300–600 (dorm)'],['🍜','Food','฿200–400'],['🚌','Transport','฿100–250'],['🎟️','Activities','฿200–500']]},
+    midrange:{label:'Mid-range',low:2500,high:5000,plus:false,note:'3–4★ hotel, sit-down restaurants and a few tours. Accommodation is roughly per room, so two sharing pay less per person.',cats:[['🛏️','Stay','฿1,200–2,800'],['🍜','Food','฿600–1,200'],['🚌','Transport','฿300–700'],['🎟️','Activities','฿600–1,500']]},
+    luxury:{label:'Luxury',low:8000,high:0,plus:true,note:'4–5★ resort, fine dining and private transfers. This is a floor, not a ceiling — shown as “from”.',cats:[['🛏️','Stay','฿5,000+'],['🍜','Food','฿2,000+'],['🚌','Transport','฿1,000+'],['🎟️','Activities','฿2,000+']]}
+  };
+  var sel='midrange',days=7,ppl=2;
+  var baht=function(n){return '฿'+Math.round(n).toLocaleString('en-US');};
+  var $=function(id){return document.getElementById(id);};
+  function paintStyles(){$('styles').querySelectorAll('.opt').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-k')===sel);});}
+  function render(){
+    var t=TIERS[sel];
+    $('days').textContent=days+(days===1?' day':' days');
+    $('ppl').textContent=ppl+(ppl===1?' person':' people');
+    var lo=t.low*days*ppl, hi=t.high*days*ppl;
+    $('amt').textContent=t.plus?('from '+baht(lo)):(baht(lo)+' – '+baht(hi));
+    $('perday').innerHTML=t.plus?('from <b>'+baht(t.low)+'</b> / day / person'):('<b>'+baht(t.low)+'–'+baht(t.high)+'</b> / day / person');
+    var rows=t.cats.map(function(c){return '<div class="br"><span class="l"><span class="em">'+c[0]+'</span>'+c[1]+'</span><span class="r">'+c[2]+'</span></div>';});
+    rows.push('<div class="br tot"><span class="l">'+t.label+' · per day</span><span class="r">'+(t.plus?('฿'+t.low.toLocaleString('en-US')+'+'):('฿'+t.low.toLocaleString('en-US')+'–'+t.high.toLocaleString('en-US')))+'</span></div>');
+    $('bd').innerHTML=rows.join('');
+    $('note').textContent='Per-person estimate in Thai baht (฿), excluding international flights. '+t.note;
+  }
+  var calcTracked=false;
+  function onChange(){ render(); if(!calcTracked){calcTracked=true;track('budget_calc',{style:sel});} }
+  $('styles').addEventListener('click',function(e){var b=e.target.closest('.opt');if(!b)return;sel=b.getAttribute('data-k');paintStyles();onChange();});
+  $('dminus').onclick=function(){days=Math.max(1,days-1);onChange();};
+  $('dplus').onclick=function(){days=Math.min(45,days+1);onChange();};
+  $('pminus').onclick=function(){ppl=Math.max(1,ppl-1);onChange();};
+  $('pplus').onclick=function(){ppl=Math.min(12,ppl+1);onChange();};
+  $('toPlanner').onclick=function(){ track('budget_to_planner',{style:sel,days:days,ppl:ppl}); location.href='/trip'; };
+  paintStyles();render();
+})();
+</script>
+
+
+<script>(function(){var s=document.querySelector('.lang-switch');if(!s)return;var b=s.querySelector('.lang-btn');b.addEventListener('click',function(e){e.stopPropagation();s.classList.toggle('open');b.setAttribute('aria-expanded',s.classList.contains('open'))});document.addEventListener('click',function(){s.classList.remove('open');b.setAttribute('aria-expanded','false')})})();</script></body></html>
