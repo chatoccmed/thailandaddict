@@ -9,15 +9,19 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const APPLY = process.argv.includes('--apply');
-const SCRIPT = { ru: /[Ѐ-ӿ]/, ko: /[가-힣]/, ja: /[぀-ヿ一-鿿]/ };
+const SCRIPT = { ru: /[Ѐ-ӿ]/, ko: /[가-힣]/, ja: /[぀-ヿ一-鿿]/, hi: /[ऀ-ॿ]/, he: /[֐-׿]/, ar: /[؀-ۿ]/ };
+// langs from argv (any of the SCRIPT keys), else default to the Wave-1 set.
+const LANGS = process.argv.filter(a => SCRIPT[a]);
+const ACTIVE = LANGS.length ? LANGS : ['ru', 'ko', 'ja'];
 const FIELDS = ['parentName', 'parentShort', 'parentCrumbName'];
 const cityOf = href => (String(href || '').match(/top10-hotels-([a-z-]+)\.html/) || [])[1] || '?';
 const translated = (lang, v) => typeof v === 'string' && v.trim() && SCRIPT[lang].test(v);
 
 let totalFixed = 0;
 const needAgent = [];
-for (const lang of ['ru', 'ko', 'ja']) {
+for (const lang of ACTIVE) {
   const dir = path.join(ROOT, `astro/src/content/reviews-${lang}`);
+  if (!fs.existsSync(dir)) continue;
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
   // group files by city
   const byCity = {};

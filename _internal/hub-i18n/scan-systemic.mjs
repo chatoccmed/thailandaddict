@@ -5,7 +5,9 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const OUT = process.argv[2] || '.';
-const SCRIPT = { ru: /[Ѐ-ӿ]/, ko: /[가-힣]/, ja: /[぀-ヿ一-鿿]/ };
+const SCRIPT = { ru: /[Ѐ-ӿ]/, ko: /[가-힣]/, ja: /[぀-ヿ一-鿿]/, hi: /[ऀ-ॿ]/, he: /[֐-׿]/, ar: /[؀-ۿ]/ };
+const _langArgs = process.argv.slice(3).filter(a => SCRIPT[a]);
+const LANGS = _langArgs.length ? _langArgs : ['ru', 'ko', 'ja'];
 const CJK = /[぀-ヿ一-鿿가-힣]/;
 // mixed-script garble: a Latin run of >=2 letters glued directly to a CJK char (no space) — e.g. 涼season, seasonシ
 const GLUED = /(?:[一-鿿぀-ヿ가-힣][A-Za-z]{2,})|(?:[A-Za-z]{2,}[一-鿿぀-ヿ가-힣])/;
@@ -19,7 +21,7 @@ function walkStrings(o, cb, p = '$') {
 
 const report = { parentEnglish: {}, ltgtEntities: {}, gluedLatin: {}, taxExcluded: {} };
 for (const coll of ['reviews', 'roundups']) {
-  for (const lang of ['ru', 'ko', 'ja']) {
+  for (const lang of LANGS) {
     const enDir = path.join(ROOT, `astro/src/content/${coll}-en`);
     const twDir = path.join(ROOT, `astro/src/content/${coll}-${lang}`);
     if (!fs.existsSync(twDir)) continue;
