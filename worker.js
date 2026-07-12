@@ -20,7 +20,10 @@ export default {
         return await handlePlan(request, env);
       }
       if (url.pathname === '/api/plan') return json({ ok: false, error: 'POST only' }, 405);
-      if (url.pathname === '/api/suggest') return await handleSuggest(request, env);
+      if (url.pathname === '/api/suggest') {
+        if (!await allow(env.RL_WRITE, request, 'suggest')) return tooMany();
+        return await handleSuggest(request, env);
+      }
       if (url.pathname === '/api/trips' && request.method === 'POST') {
         if (!await allow(env.RL_WRITE, request, 'trips')) return tooMany();
         return await saveTrip(request, env);
@@ -43,7 +46,9 @@ export default {
       const sm = url.pathname.match(/^\/t\/([a-z0-9]+)$/i);
       if (sm) return await serveSharedTrip(request, env, sm[1]);
     } catch (e) {
-      return json({ ok: false, error: String(e && e.message || e) }, 500);
+      // don't leak internal error detail (stack/messages) to clients; expose it only under ?debug
+      const dbg = url.searchParams.has('debug');
+      return json({ ok: false, error: 'server_error', ...(dbg ? { detail: String(e && e.message || e) } : {}) }, 500);
     }
     // all other paths → static assets (also yields the 404 page for unknown routes)
     return env.ASSETS.fetch(request);
@@ -420,8 +425,11 @@ function strip(s) { return String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+
 function normName(s) { return strip(s).replace(/\s+/g, '').toLowerCase(); }
 function clean(u) { return String(u || '').trim(); }
 function withTimeout(promise, ms) { return Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]); }
+// Security headers for Worker-generated responses. The static _headers file (X-Frame-Options/nosniff/…)
+// only applies to assets served directly — dynamic responses (json(), serveSharedTrip) bypass it entirely.
+const SEC_HEADERS = { 'x-content-type-options': 'nosniff', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'strict-origin-when-cross-origin' };
 function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+  return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...SEC_HEADERS } });
 }
 
 // ---- abuse guard (Cloudflare native Rate Limiting binding, per-IP) ----
@@ -443,6 +451,11 @@ function tooMany() { return json({ ok: false, error: 'rate_limited', message: '�
 const TRIP_TTL = 60 * 60 * 24 * 365;   // 1 year
 function genId() { return crypto.randomUUID().replace(/-/g, '').slice(0, 12); }
 function escAttr(s) { return String(s || '').replace(/[<>"&]/g, c => ({ '<': '&lt;', '>': '&gt;', '"': '&quot;', '&': '&amp;' }[c])); }
+// Strict email allowlist. The old /^[^@\s]+@[^@\s]+\.[^@\s]+$/ accepted shell/CSV-dangerous chars
+// (" $ ; ` = …) in the local part, so a "malicious address" signed up via the public newsletter/contact
+// form became a stored command-injection payload for the operator's export-emails.mjs (and a CSV formula).
+// This charset covers all real-world addresses while rejecting every dangerous character at the boundary.
+const EMAIL_RE = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
 // Sanitize a client-submitted trip before it is persisted and later re-served to OTHER users via /t/:id.
 // The shared-trip renderer (trip.html) interpolates day.day / prefs counts / item.type RAW (no escaping),
@@ -506,6 +519,8 @@ async function collabAction(request, env, id, action) {
   if (action === 'vote') {
     const k = String(body.key || '').slice(0, 80);
     if (!k) return json({ ok: false, error: 'no key' }, 400);
+    // cap distinct vote keys so an unauthenticated caller can't inflate the shared record unbounded
+    if (!(k in rec.collab.votes) && Object.keys(rec.collab.votes).length >= 200) return json({ ok: false, error: 'too many' }, 429);
     rec.collab.votes[k] = (rec.collab.votes[k] || 0) + 1;
     await env.TRIPS.put(key, JSON.stringify(rec), { expirationTtl: TRIP_TTL });
     return json({ ok: true, count: rec.collab.votes[k] });
@@ -524,7 +539,7 @@ async function collabAction(request, env, id, action) {
 async function saveEmail(request, env) {
   const body = await request.json().catch(() => null);
   const email = body && String(body.email || '').trim().toLowerCase();
-  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
+  if (!email || !EMAIL_RE.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
   await env.TRIPS.put('email:' + email, JSON.stringify({ email, tripId: String(body.tripId || '').slice(0, 20), province: String(body.province || '').slice(0, 60), ts: Date.now() }));
   return json({ ok: true });
 }
@@ -535,7 +550,7 @@ async function saveContact(request, env) {
   const body = await request.json().catch(() => null);
   const email = body && String(body.email || '').trim().toLowerCase();
   const message = body && String(body.message || '').trim();
-  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
+  if (!email || !EMAIL_RE.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
   if (!message || message.length < 2) return json({ ok: false, error: 'no message' }, 400);
   const rec = { name: String(body.name || '').slice(0, 80), email, subject: String(body.subject || '').slice(0, 160), message: message.slice(0, 4000), ts: Date.now() };
   await env.TRIPS.put('contact:' + email + ':' + genId(), JSON.stringify(rec));
@@ -551,5 +566,6 @@ async function serveSharedTrip(request, env, id) {
   const og = `<meta property="og:type" content="article"><meta property="og:title" content="${escAttr(title)}"><meta property="og:description" content="${escAttr(desc)}"><meta property="og:image" content="https://thailandaddict.com/images/heroes/chiang-mai.jpg"><meta name="twitter:card" content="summary_large_image"><script>window.__TRIP_ID__=${JSON.stringify(id)};</script>`;
   // function replacement so a `$` in the (escAttr'd) title/desc can't be read as a $-pattern (e.g. $&, $1)
   html = html.replace('</head>', () => og + '</head>');
-  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
+  // frame-ancestors 'self' = clickjacking defense on this cross-user page; SEC_HEADERS adds nosniff/frame-options.
+  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'content-security-policy': "frame-ancestors 'self'", ...SEC_HEADERS } });
 }

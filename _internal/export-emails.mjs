@@ -25,8 +25,17 @@ try {
 if (!keys.length) { console.error('(no newsletter emails collected yet — key prefix email: is empty)'); process.exit(0); }
 console.error(`${keys.length} email(s) in KV — fetching values…`);
 
+// Defense-in-depth: the key is interpolated into a shell command below, so refuse any key that isn't a
+// plain `email:<address>` with a safe charset. The Worker now enforces this (EMAIL_RE), but records stored
+// before that fix could still carry shell metacharacters — skip them rather than execute them.
+const SAFE_KEY = /^email:[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+// Guard against CSV formula injection: a cell starting with = + - @ (or tab/CR) is executed as a formula by
+// Excel/Sheets. Prefix such cells with a single quote so they render as text.
+const csvCell = (c) => { let s = String(c == null ? '' : c); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; };
+
 const rows = [['email', 'source_province', 'trip_id', 'signed_up_utc']];
 for (const key of keys) {
+  if (!SAFE_KEY.test(key)) { console.error(`⚠ skipping key with unexpected characters (not exported): ${key.slice(0, 60)}`); continue; }
   let rec = {};
   try { rec = JSON.parse(sh(`npx wrangler kv key get "${key}" --namespace-id ${NS} --remote`)); } catch { /* keep bare email */ }
   const email = rec.email || key.replace(/^email:/, '');
@@ -35,5 +44,5 @@ for (const key of keys) {
 }
 // stable order: newest signups first
 rows.splice(1, rows.length, ...rows.slice(1).sort((a, b) => String(b[3]).localeCompare(String(a[3]))));
-process.stdout.write(rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n') + '\n');
+process.stdout.write(rows.map((r) => r.map(csvCell).join(',')).join('\n') + '\n');
 console.error('✓ done');
