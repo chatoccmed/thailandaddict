@@ -142,8 +142,10 @@ BEFORE shipping. It caught real errors the builders introduced:
 cache (`node_modules/.astro/data-store.json`) and silently OMITTED the newly-added roundups from dist
 (build succeeded, pages just missing). The canonical deploy (`_internal/deploy.ps1`, see [[deploy-pipeline]])
 nukes `astro/.astro` + `astro/node_modules/.astro` + `dist` first — DO THAT. After cache-clear rebuild,
-all pages present. **Deploy still PENDING owner authorization** (auto-mode safety classifier blocks
-`wrangler deploy` without explicit owner OK); dist is built & verified ready (bangkok + Phase 2).
+all pages present. **DEPLOYED 2026-07-12** (owner said "deploy") — Version `1c871280-8ed5-4a43-8f14-8c4a4472dee2`,
+verified live: all 8 new roundups TH+EN 200, fact-check fixes shipped, hub surfacing + R2 images working, no
+existing pages clobbered. Note `wrangler deploy` needs explicit owner OK (auto-mode classifier blocks it) and
+took ~11 min to hash the 31k-asset dir before uploading only the changed delta (38 files).
 
 **Remaining (Phase 3–5, not started):** A-tier budget sweep (~17 + 12 "+1 segment"), B-tier budget (48),
 remaining district roundups (chiang-mai 5, pattaya 3, huahin 2, krabi 3, phang-nga 3). Also a spawned
