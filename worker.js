@@ -455,7 +455,13 @@ function safeUrl(u) {
   if (!s) return '';
   // allow only absolute https(?) or a same-site root-relative path; reject //protocol-relative (off-site
   // redirect) and any script-ish scheme (javascript:/data:/vbscript: never match the allowlist anyway)
-  return /^(https?:\/\/|\/(?!\/))/i.test(s) ? s.slice(0, 400) : '';
+  if (!/^(https?:\/\/|\/(?!\/))/i.test(s)) return '';
+  // Reject raw HTML-attribute-breakout / whitespace chars. The shared-trip renderer (trip.html) drops these
+  // URLs straight into an href attribute; a real booking URL never contains an unencoded " ' < > ` \ or
+  // whitespace, but a stored-XSS payload needs one to break out. Rejecting here kills the attack at the
+  // trust boundary even if the client fails to escape. (See the stored-XSS fix — trip.html also esc()s these.)
+  if (/["'<>`\s\\]/.test(s)) return '';
+  return s.slice(0, 400);
 }
 function sanitizePick(h) { return h && typeof h === 'object' ? { ...h, url: safeUrl(h.url), agoda: safeUrl(h.agoda) } : h; }
 function sanitizePicks(arr) { return (Array.isArray(arr) ? arr : []).slice(0, 60).map(sanitizePick); }
@@ -543,6 +549,7 @@ async function serveSharedTrip(request, env, id) {
   const rec = await env.TRIPS.get('trip:' + id);
   if (rec) { try { const t = JSON.parse(rec); if (t.itin && t.itin.title) title = t.itin.title; const p = t.prefs || {}; const provs = (p.provinces || []).join(' · '); desc = [provs, p.days ? p.days + ' วัน ' + (p.nights || '') + ' คืน' : '', 'จัดโดย Thailandaddict'].filter(Boolean).join(' · '); } catch (e) {} }
   const og = `<meta property="og:type" content="article"><meta property="og:title" content="${escAttr(title)}"><meta property="og:description" content="${escAttr(desc)}"><meta property="og:image" content="https://thailandaddict.com/images/heroes/chiang-mai.jpg"><meta name="twitter:card" content="summary_large_image"><script>window.__TRIP_ID__=${JSON.stringify(id)};</script>`;
-  html = html.replace('</head>', og + '</head>');
+  // function replacement so a `$` in the (escAttr'd) title/desc can't be read as a $-pattern (e.g. $&, $1)
+  html = html.replace('</head>', () => og + '</head>');
   return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
 }

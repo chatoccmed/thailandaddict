@@ -569,7 +569,7 @@ function klookSearch(q,en){ return 'https://www.klook.com/'+(en?'en-US':'th')+'/
 // (set live:true + fill marker/url from the provider dashboard). See _internal/AFFILIATE-PHASE3.md.
 const AFF={ discovercars:{live:false,marker:''}, drivehub:{live:false,url:''}, airalo:{live:false,url:''}, ekta:{live:false,url:''}, safetywing:{live:false,url:''} };
 // attribution: UTM on external affiliate links (Agoda/Klook); a light ?from=trip on our own pages (no GA source pollution)
-function addParams(href,params){ try{ const u=new URL(href, location.origin); Object.entries(params).forEach(([k,v])=>{ if(v&&!u.searchParams.has(k))u.searchParams.set(k,v); }); return u.toString(); }catch(e){ return href; } }
+function addParams(href,params){ try{ const u=new URL(href, location.origin); Object.entries(params).forEach(([k,v])=>{ if(v&&!u.searchParams.has(k))u.searchParams.set(k,v); }); return u.toString(); }catch(e){ return ''; } }
 function aff(href,medium){ return addParams(href,{utm_source:'thailandaddict-trip',utm_medium:medium,utm_campaign:'ai-planner'}); }
 function internal(href){ return addParams(href,{from:'trip-planner'}); }
 
@@ -688,8 +688,8 @@ function renderItin(t,prefs,picks){
       const himg=ht.img?`<img src="${esc(ht.img)}" alt="" loading="lazy" style="width:56px;height:56px;border-radius:11px;object-fit:cover;flex-shrink:0" onerror="this.style.display='none'">`:'<span class="hi">🏨</span>';
       const sub=[ht.htype?esc(ht.htype):'', ht.price?'💰 '+esc(ht.price):'', ht.source==='saved'?'⭐ คุณเลือกเอง':'💡 เราแนะนำ'].filter(Boolean).join(' · ');
       const btns=`<div style="display:flex;flex-direction:column;gap:4px;flex-shrink:0">`+
-        (ht.agoda?`<a href="${aff(ht.agoda,'agoda')}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:(ht.url?`<a href="${internal(ht.url)}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`:''))+
-        (ht.agoda&&ht.url?`<a class="hb-rv" href="${internal(ht.url)}" target="_blank" rel="noopener">ดูรีวิวเต็ม →</a>`:'')+
+        (ht.agoda?`<a href="${esc(aff(ht.agoda,'agoda'))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:(ht.url?`<a href="${esc(internal(ht.url))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`:''))+
+        (ht.agoda&&ht.url?`<a class="hb-rv" href="${esc(internal(ht.url))}" target="_blank" rel="noopener">ดูรีวิวเต็ม →</a>`:'')+
       `</div>`;
       h.innerHTML=himg+`<div class="ht"><b>${esc(ht.name)}</b><div>ที่พักคืนนี้ · ${sub}</div><div class="hotel-edit"><button data-act="swaphotel" data-di="${di}">🔄 เปลี่ยน</button><button data-act="rmhotel" data-di="${di}">✕ เอาออก</button></div></div>`+btns;
       day.appendChild(h);
@@ -753,8 +753,8 @@ function renderHotelPicks(picks){
         `<div class="hp-m">`+(h.score?`<span class="hp-sc">★ ${esc(h.score)}</span>`:'')+(h.type?`<span>${esc(h.type)}</span>`:'')+(h.loc?`<span>${esc(h.loc)}</span>`:'')+`</div>`+
         (h.price?`<div class="hp-pr">💰 ${esc(h.price)}</div>`:'')+
         `<div class="hp-btns">`+
-          (h.agoda?`<a class="hp-ag" href="${aff(h.agoda,'agoda')}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:`<a class="hp-ag" href="${internal(h.url)}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`)+
-          (h.agoda&&h.url?`<a class="hp-rv" href="${internal(h.url)}" target="_blank" rel="noopener">ดูรีวิว</a>`:'')+
+          (h.agoda?`<a class="hp-ag" href="${esc(aff(h.agoda,'agoda'))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:`<a class="hp-ag" href="${esc(internal(h.url))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`)+
+          (h.agoda&&h.url?`<a class="hp-rv" href="${esc(internal(h.url))}" target="_blank" rel="noopener">ดูรีวิว</a>`:'')+
         `</div>`+
       `</div>`;
     grid.appendChild(c);
@@ -772,7 +772,7 @@ function renderChecklist(t,prefs){
   const uniq=arr=>{const s=new Set(),o=[];arr.forEach(x=>{if(!s.has(x.url+x.name)){s.add(x.url+x.name);o.push(x)}});return o;};
   let html='';
   html+=grp('🏨 ที่พัก', uniq(hotels).map(h=>{
-    const book = h.agoda?`<a class="agoda" href="${aff(h.agoda,'agoda')}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:(h.url?`<a class="agoda" href="${internal(h.url)}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`:'');
+    const book = h.agoda?`<a class="agoda" href="${esc(aff(h.agoda,'agoda'))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'agoda'})">🔴 จองบน Agoda</a>`:(h.url?`<a class="agoda" href="${esc(internal(h.url))}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'hotel'})">เช็กราคา & จอง</a>`:'');
     return `<div class="brow"><div class="bn">${esc(h.name)}${h.price?`<small>💰 ${esc(h.price)}</small>`:''}</div>${book}</div>`;
   }));
   html+=grp('🎟️ กิจกรรม · ทัวร์ · ตั๋ว', [...provs].map(p=>`<div class="brow"><div class="bn">หากิจกรรม ทัวร์ ตั๋ว ใน ${esc(p)}<small>เปรียบเทียบราคาบน Klook</small></div><a class="klook" href="${aff(klookLink(p),'klook')}" target="_blank" rel="noopener" onclick="track('booking_click',{provider:'klook'})">ดูบน Klook</a></div>`));
@@ -800,8 +800,8 @@ function renderChecklist(t,prefs){
     {n:'EKTA', on:AFF.ekta.live, u:AFF.ekta.url, prov:'ekta'},
     {n:'SafetyWing', on:AFF.safetywing.live, u:AFF.safetywing.url, prov:'safetywing'} ]));
   html+=grp('🎒 บริการเดินทาง · จองเพิ่ม', svc.filter(Boolean));
-  html+=grp('🍽 ที่กิน', uniq(eats).map(e=>`<div class="brow"><div class="bn">${esc(e.name)}</div>${e.url?`<a href="${internal(e.url)}" target="_blank" rel="noopener">ดูร้าน</a>`:''}</div>`));
-  html+=grp('📍 ที่เที่ยว', uniq(sees).map(s=>`<div class="brow"><div class="bn">${esc(s.name)}</div>${s.url?`<a href="${internal(s.url)}" target="_blank" rel="noopener">ดูข้อมูล</a>`:''}</div>`));
+  html+=grp('🍽 ที่กิน', uniq(eats).map(e=>`<div class="brow"><div class="bn">${esc(e.name)}</div>${e.url?`<a href="${esc(internal(e.url))}" target="_blank" rel="noopener">ดูร้าน</a>`:''}</div>`));
+  html+=grp('📍 ที่เที่ยว', uniq(sees).map(s=>`<div class="brow"><div class="bn">${esc(s.name)}</div>${s.url?`<a href="${esc(internal(s.url))}" target="_blank" rel="noopener">ดูข้อมูล</a>`:''}</div>`));
   sec.insertAdjacentHTML('beforeend', html || '<div class="sec-sub">—</div>');
   sec.insertAdjacentHTML('beforeend','<div class="booknote">💙 จองผ่านลิงก์เราช่วยสนับสนุนเว็บ โดยคุณจ่ายเท่าเดิม</div>');
   return sec;
