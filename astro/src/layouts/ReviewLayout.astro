@@ -35,11 +35,18 @@ const priceTs = (isTh ? TS_MON_TH : TS_MON_EN)[(+_tdParts[1] || 1) - 1] + ' ' + 
 
 // Internal-link helper: Thai keeps the raw href, every other locale gets its
 // own prefix (/en/, /zh/, /ru/...) and the .html suffix stripped (clean URL).
+// Same robust form as RoundupLayout: strip any already-present locale prefix and normalise the leading
+// slash before adding a single prefix, so inputs stored as "/en/review-x", "/review-x" or "review-x.html"
+// never produce a /en//en/… double-prefix or //double-slash broken link. (Was diverged from RoundupLayout.)
+const ALL_LOCS = ['en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
 const link = (h: string) => {
   if (h === '/' || h === '') return isTh ? '/' : `${pfx}/`;
   if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
-  const c = h.replace(/\.html$/, '');   // clean URLs resolve directly — no .html→extensionless 307 redirect
-  return isTh ? c : `${pfx}/${c}`;
+  if (isTh) return h.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
+  let p = h.replace(/\.html$/, '');
+  for (const l of ALL_LOCS) p = p.replace(new RegExp(`^/${l}/`), '/');
+  if (!p.startsWith('/')) p = '/' + p;
+  return pfx + p;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve
@@ -809,7 +816,8 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href={IMG_BASE} crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 <link rel="icon" type="image/svg+xml" href={favSvg} />
 <link rel="preload" as="image" href={hasWebp(data.heroImg) ? asset(webpOf(data.heroImg)) : asset(data.heroImg)} fetchpriority="high" />
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
