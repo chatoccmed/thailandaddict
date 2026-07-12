@@ -67,7 +67,7 @@ async function handlePlan(request, env) {
 
   // 2. load feeds once → candidates (gap-fill) + an index to enrich SAVED items with real img/price/hours
   const feeds = targets.size ? await loadFeeds(request, env) : { hotels: [], attractions: [], restaurants: [] };
-  const idx = buildIndex(feeds);
+  const idx = getIndex(feeds);
   saved.forEach(s => { const e = idx[normName(s.name)]; if (e) { s.img = s.img || e.img; s.price = s.price || e.price; s.hours = s.hours || e.hours; s.htype = s.htype || e.htype; s.loc = s.loc || e.loc; s.agoda = s.agoda || e.agoda; if (s.lat == null) { s.lat = e.lat; s.lng = e.lng; } } });
   const candidates = buildCandidates(feeds, targets, saved, prefs);
   const hotelPicks = pickHotels(feeds, targets, saved, prefs);  // style-matched hotel options for the UI section
@@ -142,6 +142,10 @@ async function handleSuggest(request, env) {
 // ~2.4 MB of fetch+parse off the hot path without risking staleness beyond a rebuild cycle.
 let _feedsCache = null, _feedsAt = 0;
 const FEEDS_TTL_MS = 10 * 60 * 1000;
+// Cache the derived name→data index alongside the feeds so /api/plan doesn't rebuild it (~4.9k items)
+// on every request. Identity-keyed: recomputes only when loadFeeds returns a different feeds object.
+let _idxCache = null, _idxSrc = null;
+function getIndex(feeds) { if (_idxCache && _idxSrc === feeds) return _idxCache; _idxCache = buildIndex(feeds); _idxSrc = feeds; return _idxCache; }
 async function loadFeeds(request, env) {
   if (_feedsCache && (Date.now() - _feedsAt) < FEEDS_TTL_MS) return _feedsCache;
   const get = async (name) => {
@@ -558,8 +562,15 @@ async function saveContact(request, env) {
 }
 
 // serve the shared-trip page: inject per-trip og tags + the trip id so the static planner auto-loads it
+let _tripTpl = null, _tripTplAt = 0;
 async function serveSharedTrip(request, env, id) {
-  let html = await (await env.ASSETS.fetch(new Request(new URL('/trip', request.url)))).text();
+  // cache the /trip HTML template per warm isolate (it only changes on deploy) rather than re-fetching and
+  // reading its ~85 KB on every /t/:id hit; per-request og injection still happens below on the cached copy
+  if (!_tripTpl || (Date.now() - _tripTplAt) > FEEDS_TTL_MS) {
+    _tripTpl = await (await env.ASSETS.fetch(new Request(new URL('/trip', request.url)))).text();
+    _tripTplAt = Date.now();
+  }
+  let html = _tripTpl;
   let title = 'แผนการเดินทางของฉัน', desc = 'แผนเที่ยวไทยที่จัดโดย Thailandaddict';
   const rec = await env.TRIPS.get('trip:' + id);
   if (rec) { try { const t = JSON.parse(rec); if (t.itin && t.itin.title) title = t.itin.title; const p = t.prefs || {}; const provs = (p.provinces || []).join(' · '); desc = [provs, p.days ? p.days + ' วัน ' + (p.nights || '') + ' คืน' : '', 'จัดโดย Thailandaddict'].filter(Boolean).join(' · '); } catch (e) {} }
