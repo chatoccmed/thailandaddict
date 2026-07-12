@@ -152,6 +152,21 @@ remaining district roundups (chiang-mai 5, pattaya 3, huahin 2, krabi 3, phang-n
 follow-up task to fix 2 stale facts in pre-existing review pages (Four Seasons Yu Ting Yuan, InterContinental
 1966) that mirror the roundup issues.
 
+## ✅ PHASE 3a+3b DEPLOYED 2026-07-12 (14 A-tier budget roundups)
+Version `6c9cb0f8-e286-4c9c-8a5b-ec5b60bc5ab5`, verified live. Roundups 320→334. Assembled from existing
+pools (0 new reviews, all images on R2), honest Top-N.
+- **3a** (`9a049e8ab`): prachuap, nan, chiang-rai, mae-hong-son, pai, trat, sukhothai, ayutthaya, hat-yai.
+- **3b** (`71faa2668`): koh-larn, koh-mak, koh-phangan, koh-lipe, khao-yai.
+- **⚠️ CROSS-CLUSTER CANNIBALIZATION (recurring — check every A-tier build):** a *province* cluster often
+  holds a famous sub-destination's hotels that have their OWN cluster/roundup. mae-hong-son's pool was 40%
+  Pai (excluded — Pai has its own roundup); surat-thani's is mostly Samui/Phangan. Check `cluster` of each
+  pick; exclude sub-destinations that own their roundup.
+- **DEFERRED (need fresh OTA research, not pool assembly):** surat-thani (Samui-heavy pool), phang-nga (~3
+  budget candidates). **Phase 3c "+1 segment"** for the small remaining A-tier cities NOT built — pools too
+  thin (hat-yai has 1 non-budget hotel); likely not worth forcing.
+- Fact-check: 2 "TripAdvisor #1" claims verified TRUE & kept (trat BaanRimNam, koh-larn Suntosa); 2
+  unverifiable opening years softened (hat-yai B2 "2021", khao-yai Phuwanalee "2010").
+
 ---
 ## ⚠️ Phase-1 follow-up flag (2026-07-11): ao-nang cannibalization
 Phase-1 built `top10-ao-nang-beach-hotels-krabi` (assemble-only) — but a pre-existing committed roundup
