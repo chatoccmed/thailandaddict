@@ -292,15 +292,15 @@
     <div class="row2">
       <div class="field">
         <label>📅 กี่วัน</label>
-        <div class="step"><button type="button" data-step="days" data-d="-1">−</button><span class="v" id="vDays">3</span><button type="button" data-step="days" data-d="1">+</button></div>
+        <div class="step" role="group" aria-label="จำนวนวัน"><button type="button" data-step="days" data-d="-1" aria-label="ลดจำนวนวัน">−</button><span class="v" id="vDays" aria-live="polite" aria-atomic="true">3</span><button type="button" data-step="days" data-d="1" aria-label="เพิ่มจำนวนวัน">+</button></div>
       </div>
       <div class="field">
         <label>🌙 กี่คืน</label>
-        <div class="step"><button type="button" data-step="nights" data-d="-1">−</button><span class="v" id="vNights">2</span><button type="button" data-step="nights" data-d="1">+</button></div>
+        <div class="step" role="group" aria-label="จำนวนคืน"><button type="button" data-step="nights" data-d="-1" aria-label="ลดจำนวนคืน">−</button><span class="v" id="vNights" aria-live="polite" aria-atomic="true">2</span><button type="button" data-step="nights" data-d="1" aria-label="เพิ่มจำนวนคืน">+</button></div>
       </div>
       <div class="field">
         <label>👥 กี่คน</label>
-        <div class="step"><button type="button" data-step="pax" data-d="-1">−</button><span class="v" id="vPax">2</span><button type="button" data-step="pax" data-d="1">+</button></div>
+        <div class="step" role="group" aria-label="จำนวนคน"><button type="button" data-step="pax" data-d="-1" aria-label="ลดจำนวนคน">−</button><span class="v" id="vPax" aria-live="polite" aria-atomic="true">2</span><button type="button" data-step="pax" data-d="1" aria-label="เพิ่มจำนวนคน">+</button></div>
       </div>
     </div>
 
@@ -315,10 +315,10 @@
     <div class="field">
       <label>🎚️ จังหวะเที่ยว</label>
       <div class="opts" id="paceOpts">
-        <button type="button" class="opt pace" data-pace="ชิล">ชิล <small>เน้นพักผ่อน</small></button>
-        <button type="button" class="opt pace on" data-pace="สมดุล">สมดุล <small>กำลังดี</small></button>
-        <button type="button" class="opt pace" data-pace="อัดแน่น">อัดแน่น <small>เที่ยวเต็มที่</small></button>
-        <button type="button" class="opt pace" data-pace="ครอบครัว">ครอบครัว <small>ชิล พักเยอะ</small></button>
+        <button type="button" class="opt pace" data-pace="ชิล" aria-pressed="false">ชิล <small>เน้นพักผ่อน</small></button>
+        <button type="button" class="opt pace on" data-pace="สมดุล" aria-pressed="true">สมดุล <small>กำลังดี</small></button>
+        <button type="button" class="opt pace" data-pace="อัดแน่น" aria-pressed="false">อัดแน่น <small>เที่ยวเต็มที่</small></button>
+        <button type="button" class="opt pace" data-pace="ครอบครัว" aria-pressed="false">ครอบครัว <small>ชิล พักเยอะ</small></button>
       </div>
     </div>
 
@@ -330,9 +330,9 @@
     <div class="field">
       <label>🚗 เดินทางยังไง</label>
       <div class="opts" id="transOpts">
-        <button type="button" class="opt trans on" data-trans="รถสาธารณะ">🚌 รถสาธารณะ</button>
-        <button type="button" class="opt trans" data-trans="รถเช่า">🚗 รถเช่า</button>
-        <button type="button" class="opt trans" data-trans="ขับรถเที่ยวเอง">🛣️ ขับรถเอง</button>
+        <button type="button" class="opt trans on" data-trans="รถสาธารณะ" aria-pressed="true">🚌 รถสาธารณะ</button>
+        <button type="button" class="opt trans" data-trans="รถเช่า" aria-pressed="false">🚗 รถเช่า</button>
+        <button type="button" class="opt trans" data-trans="ขับรถเที่ยวเอง" aria-pressed="false">🛣️ ขับรถเอง</button>
       </div>
     </div>
 
@@ -345,10 +345,10 @@
   </div>
 
   <div id="restoreBar" style="display:none"></div>
-  <div class="err" id="err"></div>
+  <div class="err" id="err" role="alert" aria-live="assertive"></div>
 
   <!-- loading -->
-  <div class="load" id="load">
+  <div class="load" id="load" role="status" aria-live="polite">
     <div class="spin"></div>
     <div class="msg" id="loadMsg">กำลังจัดทริปให้คุณ…</div>
     <div class="msg2">Thailandaddict กำลังจัดเรียงรายการให้เข้ากับสไตล์คุณ ใช้เวลาสักครู่</div>
@@ -431,7 +431,7 @@ function renderProvChips(){
 function buildOptionGroups(){
   PROVINCE_NAMES.forEach(n=>{ const o=ce('option'); o.value=n; $('#provList').appendChild(o); });
   const ib=$('#interestOpts');
-  INTERESTS.forEach(n=>{ const b=ce('button','opt'); b.type='button'; b.textContent=n; b.onclick=()=>{ b.classList.toggle('on'); if(state.interests.has(n))state.interests.delete(n); else state.interests.add(n); scheduleSuggest(); }; ib.appendChild(b); });
+  INTERESTS.forEach(n=>{ const b=ce('button','opt'); b.type='button'; b.textContent=n; b.setAttribute('aria-pressed','false'); b.onclick=()=>{ const on=b.classList.toggle('on'); b.setAttribute('aria-pressed', on?'true':'false'); if(state.interests.has(n))state.interests.delete(n); else state.interests.add(n); scheduleSuggest(); }; ib.appendChild(b); });
 }
 
 // ---- live suggestions (browse + add before generating) ----
@@ -482,8 +482,8 @@ function wire(){
   });
   $('#kids').onchange=e=>{state.kids=e.target.checked;$('#cbKids').classList.toggle('on',e.target.checked);scheduleSuggest()};
   $('#elderly').onchange=e=>{state.elderly=e.target.checked;$('#cbElderly').classList.toggle('on',e.target.checked);scheduleSuggest()};
-  $('#paceOpts').querySelectorAll('.pace').forEach(b=>b.onclick=()=>{ $('#paceOpts').querySelectorAll('.pace').forEach(x=>x.classList.remove('on')); b.classList.add('on'); state.pace=b.dataset.pace; scheduleSuggest(); });
-  $('#transOpts').querySelectorAll('.trans').forEach(b=>b.onclick=()=>{ $('#transOpts').querySelectorAll('.trans').forEach(x=>x.classList.remove('on')); b.classList.add('on'); state.transport=b.dataset.trans; });
+  $('#paceOpts').querySelectorAll('.pace').forEach(b=>b.onclick=()=>{ $('#paceOpts').querySelectorAll('.pace').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');}); b.classList.add('on'); b.setAttribute('aria-pressed','true'); state.pace=b.dataset.pace; scheduleSuggest(); });
+  $('#transOpts').querySelectorAll('.trans').forEach(b=>b.onclick=()=>{ $('#transOpts').querySelectorAll('.trans').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-pressed','false');}); b.classList.add('on'); b.setAttribute('aria-pressed','true'); state.transport=b.dataset.trans; });
   $('#goBtn').onclick=generate;
 }
 
@@ -840,14 +840,17 @@ function initShared(){
   const id=window.__TRIP_ID__||new URLSearchParams(location.search).get('t');
   if(!id)return false;
   fetch('/api/trips/'+encodeURIComponent(id)).then(r=>r.json()).then(t=>{
-    if(!t||!t.itin||!Array.isArray(t.itin.days)||!t.itin.days.length){ toast('ไม่พบทริปนี้ (อาจหมดอายุแล้ว)'); return; }
+    if(!t||!t.itin||!Array.isArray(t.itin.days)||!t.itin.days.length){ sharedNotFound('ไม่พบทริปนี้ (ลิงก์อาจหมดอายุหรือไม่ถูกต้อง)'); return; }
     window._trip={itin:t.itin,prefs:t.prefs||{},hotelPicks:t.hotelPicks||[],swapPool:t.swapPool||{},collab:t.collab||{votes:{},suggestions:[]}};
     window._shared=true;
     const sb=$('#restoreBar'); sb.style.display='block'; sb.innerHTML='<div class="rbar">👥 แผนที่แชร์มา — ช่วยกันวางแผนได้! กด 👍 รายการที่อยากไป หรือเสนอที่ใหม่ด้านล่าง</div>';
     renderItin(t.itin,t.prefs||{},t.hotelPicks||[]); track('shared_open');
-  }).catch(()=>{});
+  }).catch(()=>{ sharedNotFound('โหลดทริปที่แชร์มาไม่สำเร็จ — ลองรีเฟรชอีกครั้ง'); });
   return true;
 }
+// Persistent, helpful notice when a shared link is expired/broken (instead of a 2.4s toast that leaves a
+// blank planner) — the planner form below stays usable so the visitor can just build their own.
+function sharedNotFound(msg){ const sb=$('#restoreBar'); if(sb){ sb.style.display='block'; sb.innerHTML='<div class="rbar">😕 '+esc(msg)+' — สร้างแผนของคุณเองด้านล่างได้เลย</div>'; } }
 
 // ---- collaborative planning (shared trips only): vote + suggest, persisted to KV ----
 function tripId(){ return window.__TRIP_ID__||new URLSearchParams(location.search).get('t')||''; }

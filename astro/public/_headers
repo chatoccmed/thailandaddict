@@ -21,7 +21,10 @@
 # (JSON feeds/search-index inherit Cache-Control from the /* rule above — no separate /*.json
 #  rule, otherwise both match and Cloudflare emits a duplicated Cache-Control header)
 
-# ── Homepage ── cache 30 นาที ──
+# ── Homepage ── cache 30 นาที ── (the site serves clean URLs, so the homepage is "/" not "/index.html";
+#    the /index.html rule below never matched a real request — the "/" rule is the one that actually applies)
+/
+  Cache-Control: public, max-age=1800, stale-while-revalidate=3600
 /index.html
   Cache-Control: public, max-age=1800, stale-while-revalidate=3600
 
