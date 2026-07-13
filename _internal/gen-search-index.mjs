@@ -100,7 +100,11 @@ function emit(loc) {
   const arr = RAW[loc].map((e) => {
     const t = twin[keyOf(e)] || {};
     const prov = `${PROV.th[e.cluster] || ''} ${PROV.en[e.cluster] || ''}`;   // province name in BOTH languages (fixes English-only hotel addresses)
-    const blob = norm([e.title, e.place, keyOf(e).replace(/-/g, ' '), t.th || '', t.en || '', CAT_KW[e.cat] || '', prov].join(' '));
+    // Dedupe the blob's tokens: title/place appear both directly AND inside t.th (norm(title+place)),
+    // so the raw blob repeats most words. Search matches each query token via blob.indexOf(token) (order-
+    // independent AND-match), so keeping each unique word once preserves recall exactly while cutting the
+    // blob — the largest field (~73% of the index) — roughly in half (faster client JSON.parse).
+    const blob = [...new Set(norm([e.title, e.place, keyOf(e).replace(/-/g, ' '), t.th || '', t.en || '', CAT_KW[e.cat] || '', prov].join(' ')).split(' '))].filter(Boolean).join(' ');
     return [e.title, e.url, e.cat, e.place, blob];
   });
   const out = loc === 'en' ? path.join(PUB, 'en', 'search-index.json') : path.join(PUB, 'search-index.json');
