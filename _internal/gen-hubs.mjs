@@ -977,6 +977,14 @@ function destinationsHub(){
     ['best-river-mekong-thailand','เที่ยวริมโขง','Mekong river towns','🛶'],
     ['best-quiet-islands-thailand','เกาะเงียบหนีคน','Quiet islands','🏝️'],
     ['best-historic-old-towns-thailand','เมืองเก่า','Historic old towns','🏛️'],
+    ['best-beaches-thailand','หาดสวยที่สุด','Best beaches','🏖️'],
+    ['best-temples-thailand','วัดสวย-ไหว้พระ','Best temples','🛕'],
+    ['best-waterfalls-thailand','น้ำตกสวยที่สุด','Best waterfalls','💦'],
+    ['best-national-parks-hiking-thailand','อุทยาน-เดินป่า','National parks & hikes','🥾'],
+    ['best-markets-shopping-thailand','ตลาด-ช้อปปิ้ง','Markets & shopping','🛍️'],
+    ['best-viewpoints-mountains-thailand','จุดชมวิว-ภูเขา','Viewpoints & mountains','⛰️'],
+    ['best-elephant-sanctuaries-thailand','ปางช้างมีจริยธรรม','Ethical elephant sanctuaries','🐘'],
+    ['best-caves-thailand','ถ้ำสวยที่สุด','Best caves','🕳️'],
   ];
   const bestCards = BESTOF.map(([s,th,en,em])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">${em}</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ดูอันดับ →','See the picks →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("เมืองท่องเที่ยวยอดนิยมในไทย","Top tourist cities in Thailand"),"itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":NAME(s),"url":J(`city-${s}`)}))};

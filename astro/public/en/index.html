@@ -385,7 +385,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 <div class="stats">
   <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">Provinces ready</div></div>
   <div class="stat"><div class="n" data-stat="reviews">2,300+</div><div class="l">Hotel reviews</div></div>
-  <div class="stat"><div class="n" data-stat="articles">3,900+</div><div class="l">Travel articles</div></div>
+  <div class="stat"><div class="n" data-stat="articles">4,000+</div><div class="l">Travel articles</div></div>
   <div class="stat"><div class="n">100%</div><div class="l">Real reviews</div></div>
 </div>
 
@@ -407,6 +407,13 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
   <div class="inner">
     <div class="s-head"><div><div class="slbl">Explore by destination</div><div class="stit">Where to <em>go next?</em></div></div><a class="see-all" href="destinations.html">See all →</a></div>
     <div class="hscroll" id="destscroll"></div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">Explore by activity</div><div class="stit">What do you <em>want to do?</em></div><div class="ssub">Real places across Thailand, picked by activity — beaches, mountains, waterfalls, temples, hikes, markets</div></div><a class="see-all" href="destinations.html">See all →</a></div>
+    <div class="hscroll" id="actscroll"></div>
   </div>
 </section>
 
@@ -591,15 +598,18 @@ var HOTELS=[
  {h:'top10-hotels-phang-nga',img:'/images/heroes/phang-nga.jpg',n:'Top 10 Phang Nga Hotels',loc:'🇹🇭 Phang Nga',sc:'9.2',pr:'฿1,400'},
  {h:'top10-hotels-chonburi',img:'/images/heroes/chonburi.jpg',n:'Top 10 Pattaya Hotels',loc:'🇹🇭 Chonburi',sc:'9.1',pr:'฿900'}
 ];
-var ARTS=[
- {big:1,h:'wat-rong-khun-guide',img:'/images/cm/wat-rong-khun-guide.jpg',l:'Chiang Rai · attractions',ti:'Wat Rong Khun — the White Temple that defines Chiang Rai',bd:'Top Picks'},
- {h:'top-khao-soi-chiang-mai',img:'/images/cm/top-khao-soi-chiang-mai.jpg',l:'Chiang Mai · food',ti:'The best khao soi shops in Chiang Mai, ranked',bd:'Food'},
- {h:'phi-phi-island-tour',img:'/images/cm/phi-phi-island-tour.jpg',l:'Phuket · island tours',ti:'Phi Phi island tours from Phuket — everything you need to know',bd:'Guide'},
- {h:'bangkok-street-food-yaowarat',img:'/images/cm/bangkok-street-food-yaowarat.jpg',l:'Bangkok · food',ti:'Yaowarat street food — the stalls locals actually go to',bd:'Food'}
-];
+var ARTS=/*GEN:ARTS*/[
+ {big:1,h:'best-beaches-thailand',img:'/images/heroes/krabi.jpg',l:'Best Beaches in Thailand',ti:'Thailand’s Best Beaches 12 Shores Worth the Trip',bd:'Guide'},
+ {h:'best-temples-thailand',img:'/images/heroes/ayutthaya.jpg',l:'Temples & merit-making',ti:'Thailand’s best temples and where to go',bd:'Guide'},
+ {h:'best-national-parks-hiking-thailand',img:'/images/heroes/khao-yai.jpg',l:'National parks & hiking',ti:'Best national parks & hikes in Thailand',bd:'Guide'},
+ {h:'best-waterfalls-nature-thailand',img:'/images/heroes/kanchanaburi.jpg',l:'Waterfalls & nature',ti:'Best waterfalls & nature',bd:'Guide'},
+ {h:'best-waterfalls-thailand',img:'/images/heroes/kanchanaburi.jpg',l:'Waterfalls & swimming',ti:'Thailand’s most beautiful waterfalls',bd:'Guide'}
+]/*GEN:ARTS-END*/;
+var ACTS=/*GEN:ACTS*/[{h:'best-beaches-thailand',img:'/images/heroes/krabi.jpg',e:'🏖️',ti:'Thailand’s Best Beaches 12 Shores Worth the Trip',l:'Best Beaches in Thailand'},{h:'best-temples-thailand',img:'/images/heroes/ayutthaya.jpg',e:'🛕',ti:'Thailand’s best temples and where to go',l:'Temples & merit-making'},{h:'best-national-parks-hiking-thailand',img:'/images/heroes/khao-yai.jpg',e:'🥾',ti:'Best national parks & hikes in Thailand',l:'National parks & hiking'},{h:'best-waterfalls-nature-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'💦',ti:'Best waterfalls & nature',l:'Waterfalls & nature'},{h:'best-waterfalls-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'💦',ti:'Thailand’s most beautiful waterfalls',l:'Waterfalls & swimming'},{h:'best-viewpoints-mountains-thailand',img:'/images/heroes/pai.jpg',e:'⛰️',ti:'Thailand’s best viewpoints & mountains',l:'Viewpoints & mountains'},{h:'best-markets-shopping-thailand',img:'/images/heroes/bangkok.jpg',e:'🛍️',ti:'Thailand’s best markets and where to shop',l:'Markets & shopping'},{h:'best-caves-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'🕳️',ti:'Thailand’s most beautiful caves',l:'Caves & adventure'},{h:'best-elephant-sanctuaries-thailand',img:'/images/heroes/chiang-mai.jpg',e:'🐘',ti:'Ethical elephant sanctuaries in Thailand',l:'Elephants & sanctuaries'},{h:'best-budget-backpacker-thailand',img:'/images/heroes/chiang-rai.jpg',e:'🎒',ti:'Best budget backpacker trips',l:'Budget & backpacking'},{h:'best-cafe-hopping-thailand',img:'/images/heroes/nan.jpg',e:'☕',ti:'Best places for café-hopping',l:'Cafés & sweets'},{h:'best-cool-season-mountains-thailand',img:'/images/heroes/pai.jpg',e:'🏔️',ti:'Cool-season mountain escapes',l:'Mountains & cool season'},{h:'best-day-trips-from-bangkok',img:'/images/heroes/ayutthaya.jpg',e:'🚆',ti:'Day trips from Bangkok',l:'Day trips near Bangkok'},{h:'best-family-beaches-thailand',img:'/images/heroes/huahin.jpg',e:'👨‍👩‍👧',ti:'Best beaches for families',l:'Beaches & family'},{h:'best-historic-old-towns-thailand',img:'/images/heroes/sukhothai.jpg',e:'🏛️',ti:'Best historic old towns',l:'Old towns & history'},{h:'best-honeymoon-escapes-thailand',img:'/images/heroes/koh-kood.jpg',e:'💛',ti:'Quiet honeymoon escapes',l:'Honeymoon & quiet'},{h:'best-islands-snorkeling-thailand',img:'/images/heroes/koh-lipe.jpg',e:'🤿',ti:'Clearest water, best snorkeling islands',l:'Islands & snorkeling'},{h:'best-nightlife-thailand',img:'/images/heroes/koh-phangan.jpg',e:'🎉',ti:'Where to party in Thailand',l:'Nightlife & parties'},{h:'best-quiet-islands-thailand',img:'/images/heroes/koh-mak.jpg',e:'🏝️',ti:'Quiet islands away from crowds',l:'Quiet islands'},{h:'best-rainy-season-thailand',img:'/images/heroes/chiang-mai.jpg',e:'🌧️',ti:'Where to go in the rainy season',l:'Rainy season & where to go'},{h:'best-river-mekong-thailand',img:'/images/heroes/nong-khai.jpg',e:'🛶',ti:'Best Mekong river towns',l:'Mekong & Isan'},{h:'best-solo-travel-thailand',img:'/images/heroes/bangkok.jpg',e:'🧳',ti:'Best places for solo travel',l:'Solo travel'},{h:'best-temple-destinations-thailand',img:'/images/heroes/nakhon-phanom.jpg',e:'🛕',ti:'Best temple destinations',l:'Temples & merit'},{h:'best-time-to-visit-chiang-mai',img:'images/cm/chiang-mai-attractions.jpg',e:'🏔️',ti:'Best Time to Visit Chiang Mai?',l:'Trip planning'},{h:'best-time-to-visit-koh-samui',img:'images/cm/samui-attractions.jpg',e:'🌴',ti:'Best Time to Visit Koh Samui?',l:'Trip planning'},{h:'best-time-to-visit-phuket',img:'images/cm/phuket-attractions.jpg',e:'🌤️',ti:'Best Time to Visit Phuket?',l:'Trip planning'},{h:'best-time-to-visit-thailand',img:'/images/heroes/krabi.jpg',e:'🗓️',ti:'Best Time to Visit Thailand',l:'Plan Your Trip'}]/*GEN:ACTS-END*/;
 function imgErr(e){e.onerror=null;e.style.opacity=0;}
 // destinations
 document.getElementById('destscroll').innerHTML=PROV.map(function(p){return '<a class="dest" href="city-'+p.s+'.html"><img src="/images/heroes/'+p.s+'.jpg" alt="'+p.n+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">📍</div><div class="dest-name">'+p.n+'</div><div class="dest-cnt">'+p.r+' · '+p.t+'</div></div></a>';}).join('');
+if(document.getElementById('actscroll'))document.getElementById('actscroll').innerHTML=ACTS.map(function(a){return '<a class="dest" href="'+a.h+'.html"><img src="'+a.img+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">'+a.e+'</div><div class="dest-name">'+a.ti+'</div><div class="dest-cnt">'+a.l+'</div></div></a>';}).join('');
 // top-n
 document.getElementById('topnscroll').innerHTML=TOPN.map(function(t){return '<a class="tcard" href="top10-hotels-'+t[0]+'.html"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+t[0]+'.jpg" alt="'+t[1]+' hotels" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 best hotels in '+t[1]+'</div><div class="tcard-tag">ranked roundup + individual hotel reviews</div><div class="tcard-cta">See all 10 →</div></div></a>';}).join('');
 // hotels

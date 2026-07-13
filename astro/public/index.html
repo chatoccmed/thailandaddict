@@ -391,7 +391,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 <div class="stats">
   <div class="stat"><div class="n" data-stat="provinces">77</div><div class="l">จังหวัดพร้อมแล้ว</div></div>
   <div class="stat"><div class="n" data-stat="reviews">2,300+</div><div class="l">รีวิวโรงแรม</div></div>
-  <div class="stat"><div class="n" data-stat="articles">3,900+</div><div class="l">บทความเที่ยว</div></div>
+  <div class="stat"><div class="n" data-stat="articles">4,000+</div><div class="l">บทความเที่ยว</div></div>
   <div class="stat"><div class="n">100%</div><div class="l">รีวิวจริง</div></div>
 </div>
 
@@ -413,6 +413,13 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
   <div class="inner">
     <div class="s-head"><div><div class="slbl">สำรวจตามจุดหมาย</div><div class="stit">ไปเที่ยว<em>ที่ไหนดี?</em></div></div><a class="see-all" href="destinations.html">ดูทั้งหมด →</a></div>
     <div class="hscroll" id="destscroll"></div>
+  </div>
+</section>
+
+<section class="sec rv">
+  <div class="inner">
+    <div class="s-head"><div><div class="slbl">เที่ยวตามกิจกรรม</div><div class="stit">อยากไป<em>ทำอะไร?</em></div><div class="ssub">คัดที่เที่ยวจริงทั่วไทยตามกิจกรรม — ทะเล ภูเขา น้ำตก วัด เดินป่า ตลาด</div></div><a class="see-all" href="destinations.html">ดูทั้งหมด →</a></div>
+    <div class="hscroll" id="actscroll"></div>
   </div>
 </section>
 
@@ -596,15 +603,18 @@ var HOTELS=[
  {h:'top10-hotels-phang-nga',img:'/images/heroes/phang-nga.jpg',n:'โรงแรมพังงา Top 10',loc:'🇹🇭 พังงา',sc:'9.2',pr:'฿1,400'},
  {h:'top10-hotels-chonburi',img:'/images/heroes/chonburi.jpg',n:'โรงแรมพัทยา Top 10',loc:'🇹🇭 ชลบุรี',sc:'9.1',pr:'฿900'}
 ];
-var ARTS=[
- {big:1,h:'wat-rong-khun-guide',img:'/images/cm/wat-rong-khun-guide.jpg',l:'เชียงราย · ที่เที่ยว',ti:'วัดร่องขุ่น — วัดขาวที่เป็นภาพจำของเชียงราย',bd:'Top Picks'},
- {h:'top-khao-soi-chiang-mai',img:'/images/cm/top-khao-soi-chiang-mai.jpg',l:'เชียงใหม่ · ของกิน',ti:'จัดอันดับร้านข้าวซอยเชียงใหม่',bd:'Food'},
- {h:'phi-phi-island-tour',img:'/images/cm/phi-phi-island-tour.jpg',l:'ภูเก็ต · ทัวร์เกาะ',ti:'ทัวร์เกาะพีพีจากภูเก็ต ครบทุกเรื่อง',bd:'Guide'},
- {h:'bangkok-street-food-yaowarat',img:'/images/cm/bangkok-street-food-yaowarat.jpg',l:'กรุงเทพ · ของกิน',ti:'สตรีทฟู้ดเยาวราช ร้านเด็ดที่คนไปจริง',bd:'Food'}
-];
+var ARTS=/*GEN:ARTS*/[
+ {big:1,h:'best-beaches-thailand',img:'/images/heroes/krabi.jpg',l:'หาดสวยทั่วไทย',ti:'หาดสวยที่สุดในไทย 12 หาดที่ควรไปสักครั้ง',bd:'ไกด์เที่ยว'},
+ {h:'best-temples-thailand',img:'/images/heroes/ayutthaya.jpg',l:'วัด & ไหว้พระ',ti:'วัดสวย & ที่ไหว้พระ ทั่วไทยไปที่ไหนดี',bd:'ไกด์เที่ยว'},
+ {h:'best-national-parks-hiking-thailand',img:'/images/heroes/khao-yai.jpg',l:'อุทยาน & เดินป่า',ti:'เที่ยวอุทยาน เดินป่าที่ไหนดี',bd:'ไกด์เที่ยว'},
+ {h:'best-waterfalls-nature-thailand',img:'/images/heroes/kanchanaburi.jpg',l:'น้ำตก & ธรรมชาติ',ti:'น้ำตก-ธรรมชาติ ไปที่ไหนดี',bd:'ไกด์เที่ยว'},
+ {h:'best-waterfalls-thailand',img:'/images/heroes/kanchanaburi.jpg',l:'น้ำตก & เล่นน้ำ',ti:'น้ำตกสวยที่สุด ในไทย ไปไหนดี',bd:'ไกด์เที่ยว'}
+]/*GEN:ARTS-END*/;
+var ACTS=/*GEN:ACTS*/[{h:'best-beaches-thailand',img:'/images/heroes/krabi.jpg',e:'🏖️',ti:'หาดสวยที่สุดในไทย 12 หาดที่ควรไปสักครั้ง',l:'หาดสวยทั่วไทย'},{h:'best-temples-thailand',img:'/images/heroes/ayutthaya.jpg',e:'🛕',ti:'วัดสวย & ที่ไหว้พระ ทั่วไทยไปที่ไหนดี',l:'วัด & ไหว้พระ'},{h:'best-national-parks-hiking-thailand',img:'/images/heroes/khao-yai.jpg',e:'🥾',ti:'เที่ยวอุทยาน เดินป่าที่ไหนดี',l:'อุทยาน & เดินป่า'},{h:'best-waterfalls-nature-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'💦',ti:'น้ำตก-ธรรมชาติ ไปที่ไหนดี',l:'น้ำตก & ธรรมชาติ'},{h:'best-waterfalls-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'💦',ti:'น้ำตกสวยที่สุด ในไทย ไปไหนดี',l:'น้ำตก & เล่นน้ำ'},{h:'best-viewpoints-mountains-thailand',img:'/images/heroes/pai.jpg',e:'⛰️',ti:'จุดชมวิว & ภูเขา สวยที่สุดในไทย',l:'จุดชมวิว & ภูเขา'},{h:'best-markets-shopping-thailand',img:'/images/heroes/bangkok.jpg',e:'🛍️',ti:'ตลาดเด็ด & ช้อปปิ้ง ทั่วไทยไปไหนดี',l:'ตลาด & ช้อปปิ้ง'},{h:'best-caves-thailand',img:'/images/heroes/kanchanaburi.jpg',e:'🕳️',ti:'ถ้ำสวยที่สุด ในไทย ไปไหนดี',l:'ถ้ำ & ผจญภัย'},{h:'best-elephant-sanctuaries-thailand',img:'/images/heroes/chiang-mai.jpg',e:'🐘',ti:'ปางช้างแบบมีจริยธรรม ไปที่ไหนดี',l:'ปางช้าง & อนุรักษ์'},{h:'best-budget-backpacker-thailand',img:'/images/heroes/chiang-rai.jpg',e:'🎒',ti:'แบ็คแพ็คงบน้อย ไปเที่ยวไหนดี',l:'แบ็คแพ็ค & งบน้อย'},{h:'best-cafe-hopping-thailand',img:'/images/heroes/nan.jpg',e:'☕',ti:'สายคาเฟ่ ไปเที่ยวไหนดี',l:'คาเฟ่ & ของหวาน'},{h:'best-cool-season-mountains-thailand',img:'/images/heroes/pai.jpg',e:'🏔️',ti:'เที่ยวหน้าหนาว ภูเขาไหนดี',l:'ภูเขา & หน้าหนาว'},{h:'best-day-trips-from-bangkok',img:'/images/heroes/ayutthaya.jpg',e:'🚆',ti:'เที่ยวใกล้กรุงเทพ ไปเช้า-เย็นกลับ',l:'เดย์ทริปใกล้กรุงเทพ'},{h:'best-family-beaches-thailand',img:'/images/heroes/huahin.jpg',e:'👨‍👩‍👧',ti:'ทะเลไหนเหมาะ พาครอบครัวเที่ยว',l:'ทะเล & ครอบครัว'},{h:'best-historic-old-towns-thailand',img:'/images/heroes/sukhothai.jpg',e:'🏛️',ti:'เมืองเก่า ไปเที่ยวไหนดี',l:'เมืองเก่า & ประวัติศาสตร์'},{h:'best-honeymoon-escapes-thailand',img:'/images/heroes/koh-kood.jpg',e:'💛',ti:'ฮันนีมูนเงียบ ๆ ไปที่ไหนดี',l:'ฮันนีมูน & เงียบ'},{h:'best-islands-snorkeling-thailand',img:'/images/heroes/koh-lipe.jpg',e:'🤿',ti:'เกาะไหนน้ำใส ดำน้ำสวยที่สุด',l:'เกาะ & ดำน้ำ'},{h:'best-nightlife-thailand',img:'/images/heroes/koh-phangan.jpg',e:'🎉',ti:'สายปาร์ตี้ ไปเที่ยวไหนดี',l:'ไนต์ไลฟ์ & ปาร์ตี้'},{h:'best-quiet-islands-thailand',img:'/images/heroes/koh-mak.jpg',e:'🏝️',ti:'เกาะเงียบ ๆ หนีคนไปไหนดี',l:'เกาะเงียบ & หนีคน'},{h:'best-rainy-season-thailand',img:'/images/heroes/chiang-mai.jpg',e:'🌧️',ti:'หน้าฝน เที่ยวไหนดี',l:'หน้าฝน & เที่ยวไหนดี'},{h:'best-river-mekong-thailand',img:'/images/heroes/nong-khai.jpg',e:'🛶',ti:'เที่ยวริมโขง ไปจังหวัดไหนดี',l:'ริมโขง & อีสาน'},{h:'best-solo-travel-thailand',img:'/images/heroes/bangkok.jpg',e:'🧳',ti:'เที่ยวคนเดียว ไปไหนดี-ปลอดภัย',l:'เที่ยวคนเดียว'},{h:'best-temple-destinations-thailand',img:'/images/heroes/nakhon-phanom.jpg',e:'🛕',ti:'สายวัด-สายมู ไปจังหวัดไหนดี',l:'วัด & สายมู'},{h:'best-time-to-visit-chiang-mai',img:'images/cm/chiang-mai-attractions.jpg',e:'🏔️',ti:'เชียงใหม่ควรมา ช่วงไหนดี?',l:'วางแผนทริป'},{h:'best-time-to-visit-koh-samui',img:'images/cm/samui-attractions.jpg',e:'🌴',ti:'เกาะสมุยควรมา ช่วงไหนดี?',l:'วางแผนทริป'},{h:'best-time-to-visit-phuket',img:'images/cm/phuket-attractions.jpg',e:'🌤️',ti:'ภูเก็ตควรมา ช่วงไหนดี?',l:'วางแผนทริป'},{h:'best-time-to-visit-thailand',img:'/images/heroes/krabi.jpg',e:'🗓️',ti:'ช่วงไหน เที่ยวไทยดีที่สุด',l:'เตรียมตัวเที่ยวไทย'}]/*GEN:ACTS-END*/;
 function imgErr(e){e.onerror=null;e.style.opacity=0;}
 // destinations
 document.getElementById('destscroll').innerHTML=PROV.map(function(p){return '<a class="dest" href="city-'+p.s+'.html"><img src="/images/heroes/'+p.s+'.jpg" alt="'+p.n+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">📍</div><div class="dest-name">'+p.n+'</div><div class="dest-cnt">'+p.r+' · '+p.t+'</div></div></a>';}).join('');
+if(document.getElementById('actscroll'))document.getElementById('actscroll').innerHTML=ACTS.map(function(a){return '<a class="dest" href="'+a.h+'.html"><img src="'+a.img+'" alt="'+a.ti+'" loading="lazy" onerror="this.style.opacity=0"><div class="dest-ov"></div><div class="dest-info"><div class="dest-flag">'+a.e+'</div><div class="dest-name">'+a.ti+'</div><div class="dest-cnt">'+a.l+'</div></div></a>';}).join('');
 // top-n
 document.getElementById('topnscroll').innerHTML=TOPN.map(function(t){return '<a class="tcard" href="top10-hotels-'+t[0]+'.html"><div class="tcard-img"><span class="tcard-badge">TOP 10</span><img src="/images/heroes/'+t[0]+'.jpg" alt="โรงแรม'+t[1]+'" loading="lazy" onerror="this.style.opacity=0"></div><div class="tcard-body"><div class="tcard-name">10 โรงแรม'+t[1]+'ยอดนิยม</div><div class="tcard-tag">รีวิวจัดอันดับ + รีวิวแยกรายโรงแรม</div><div class="tcard-cta">ดูทั้ง 10 →</div></div></a>';}).join('');
 // hotels

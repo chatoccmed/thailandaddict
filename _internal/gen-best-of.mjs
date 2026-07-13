@@ -611,6 +611,16 @@ function buildArticle(L, loc) {
   };
 }
 
+// merge agent-authored activity-guide data files (same LIST schema) so new nationwide activity guides
+// (beaches/temples/waterfalls/…) don't need inline edits — they flow through the same validation+emit below.
+const AGD = path.join(ROOT, '_internal/activity-guide-data');
+if (fs.existsSync(AGD)) {
+  for (const f of fs.readdirSync(AGD).filter((f) => f.endsWith('.json') && !f.startsWith('_'))) {
+    try { const g = JSON.parse(fs.readFileSync(path.join(AGD, f), 'utf8')); if (g && g.slug && Array.isArray(g.items) && g.items.length) LISTS.push(g); else console.error('skip incomplete activity-guide', f); }
+    catch (e) { console.error('skip bad activity-guide data', f, String(e && e.message || e)); }
+  }
+}
+
 // ---------- write ----------
 let n = 0; const leaks = [], misaligned = [];
 // validate all link targets exist (city/where-to-stay slug or a hub) before writing
