@@ -985,6 +985,13 @@ function destinationsHub(){
     ['best-viewpoints-mountains-thailand','จุดชมวิว-ภูเขา','Viewpoints & mountains','⛰️'],
     ['best-elephant-sanctuaries-thailand','ปางช้างมีจริยธรรม','Ethical elephant sanctuaries','🐘'],
     ['best-caves-thailand','ถ้ำสวยที่สุด','Best caves','🕳️'],
+    ['best-kids-activities-thailand','เที่ยวกับเด็กทั่วไทย','Kids & family, Thailand-wide','🧸'],
+    ['kids-family-central-thailand','เที่ยวเด็ก กรุงเทพ-กลาง','Kids: Bangkok & Central','🎢'],
+    ['kids-family-north-thailand','เที่ยวเด็ก ภาคเหนือ','Kids: the North','🎠'],
+    ['kids-family-northeast-thailand','เที่ยวเด็ก อีสาน','Kids: Isan','🦕'],
+    ['kids-family-east-thailand','เที่ยวเด็ก ภาคตะวันออก','Kids: the East','🏊'],
+    ['kids-family-west-thailand','เที่ยวเด็ก ภาคตะวันตก','Kids: the West','🐑'],
+    ['kids-family-south-thailand','เที่ยวเด็ก ภาคใต้','Kids: the South','🐠'],
   ];
   const bestCards = BESTOF.map(([s,th,en,em])=>`<a class="dcard" href="${s}.html"><div class="dphoto" style="display:flex;align-items:center;justify-content:center;font-size:40px">${em}</div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ดูอันดับ →','See the picks →')}</span></div></a>`).join('');
   const jsonld={"@context":"https://schema.org","@type":"ItemList","name":tx("เมืองท่องเที่ยวยอดนิยมในไทย","Top tourist cities in Thailand"),"itemListElement":TOPDEST.filter(s=>TH[s]).map((s,i)=>({"@type":"ListItem","position":i+1,"name":NAME(s),"url":J(`city-${s}`)}))};

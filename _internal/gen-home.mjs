@@ -92,9 +92,9 @@ const esc = s => String(s || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g
 function guideCards(loc) {
   const dir = path.join(ROOT, 'astro/src/content', loc === 'en' ? 'articles-en' : 'articles');
   if (!fs.existsSync(dir)) return [];
-  const files = fs.readdirSync(dir).filter(f => f.startsWith('best-') && f.endsWith('.json') && f !== 'best-of-thailand-2026.json');
-  // the 8 pure-activity guides first (most relevant to "เที่ยวตามกิจกรรม"), then the rest
-  const ACT_FIRST = ['best-beaches', 'best-temples', 'best-national-parks', 'best-waterfalls', 'best-viewpoints', 'best-markets', 'best-caves', 'best-elephant'];
+  const files = fs.readdirSync(dir).filter(f => (f.startsWith('best-') || f.startsWith('kids-family-')) && f.endsWith('.json') && f !== 'best-of-thailand-2026.json');
+  // kids/family guide first (owner-priority group), then the pure-activity guides, then the rest
+  const ACT_FIRST = ['best-kids-activities', 'best-beaches', 'best-temples', 'best-national-parks', 'best-waterfalls', 'best-viewpoints', 'best-markets', 'best-caves', 'best-elephant', 'kids-family-central', 'kids-family-north', 'kids-family-northeast', 'kids-family-east', 'kids-family-west', 'kids-family-south'];
   const rank = f => { const i = ACT_FIRST.findIndex(p => f.startsWith(p)); return i < 0 ? 99 : i; };
   files.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
   const cards = [];
