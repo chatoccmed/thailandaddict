@@ -6,7 +6,10 @@
 // gen-near-me runs AFTER gen-feeds (it reads the just-written feeds/*.json to build the /near-me geo-index).
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-for (const mod of ['../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs']) {
+// gen-hubs runs FIRST: it regenerates every city/region/country/destination hub (all locales) from current
+// content, so newly-added roundups/reviews are linked (not orphaned) and downstream gens see fresh hubs.
+// (Was previously a manual-only step — a green build could ship stale hubs with unlinked roundups.)
+for (const mod of ['../_internal/gen-hubs.mjs', '../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs']) {
   // The isolated _internal/build-test.sh copy has no _internal/ — skip a genuinely-absent generator so a
   // content-only validation build still passes. But if the generator IS present and throws, let it fail the
   // build: swallowing it shipped a green build with stale/broken home/sitemap/search/feeds/near-me.
