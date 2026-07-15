@@ -87,6 +87,8 @@ const specs = [
   { slug: 'top9-boutique-resorts-sukhothai', n: 9, list: pool('sukhothai').filter(r => priceNum(r) >= 900 && !nameHas(r, 'bangkok') && !nameHas(r, 'กรุงเทพ')) },
   // NEW-ZONE: Railay Beach (Krabi) — the 8 hotels we just reviewed (selected by explicit slug, not filename substring).
   { slug: 'top8-railay-hotels-krabi', n: 8, list: reviews.filter(r => ['review-rayavadee-krabi','review-railay-bay-resort-spa-krabi','review-railay-princess-resort-spa-krabi','review-sand-sea-resort-railay-krabi','review-railay-village-resort-spa-krabi','review-sunrise-tropical-resort-railay-krabi','review-anyavee-railay-resort-krabi','review-railay-great-view-resort-krabi'].includes(r.slug)) },
+  // NEW-ZONE: Koh Phi Phi Don (Krabi) — 8 hotels across the island's beaches (selected by explicit slug).
+  { slug: 'top8-phi-phi-hotels-krabi', n: 8, list: reviews.filter(r => ['review-saii-phi-phi-island-village-krabi','review-phi-phi-holiday-resort-krabi','review-phi-phi-island-cabana-hotel-krabi','review-phi-phi-the-beach-resort-krabi','review-pp-princess-resort-krabi','review-phi-phi-bayview-premier-resort-krabi','review-viking-nature-resort-phi-phi-krabi','review-paradise-pearl-bungalows-phi-phi-krabi'].includes(r.slug)) },
 ];
 
 const summary = [];
