@@ -10,13 +10,8 @@ const POOLDIR = path.join(REPO, '_internal/wf/roundup-pools');
 const OUTDIR = path.join(REPO, 'astro/src/content/roundups');
 
 const SLUGS = [
-  'top10-nimman-hotels-chiang-mai',
-  'top10-old-city-hotels-chiang-mai',
-  'top10-night-bazaar-hotels-chiang-mai',
-  'top6-wongamat-naklua-hotels-pattaya',
-  'top10-khao-lak-hotels-phang-nga',
-  'top8-budget-hotels-nakhon-nayok',
-  'top5-koh-lipe-hotels-satun',
+  'top9-riverside-boutique-hotels-ayutthaya',
+  'top9-boutique-resorts-sukhothai',
 ];
 
 const TOP_KEYS = ['slug','title','metaDesc','ogTitle','ogDesc','image','heroImg','heroEyebrow','h1','heroSub','heroStats','breadcrumb','breadcrumbSchema','navReviewLabel','navReviewHref','introH2','introHtml','mrtHtml','secLabel','toc','entries','compareTitle','compareCols','compareRows','adviceTitle','advice','noteHtml','faqTitle','faq'];

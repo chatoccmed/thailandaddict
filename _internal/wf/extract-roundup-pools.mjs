@@ -80,6 +80,11 @@ const specs = [
   { slug: 'top8-budget-hotels-nakhon-nayok', n: 8, list: pool('nakhon-nayok').filter(r => priceNum(r) <= 2200) },
   // Koh Lipe ISLAND resorts only — match the island in the name (excludes mainland Pak Bara pier stays); Idyllic is on Lipe's Sunrise Beach
   { slug: 'top5-koh-lipe-hotels-satun', n: 5, list: pool('satun').filter(r => nameHas(r, 'lipe') || nameHas(r, 'idyllic')) },
+  // Phase-5b "+1 segment" for heritage-tourism A-tier cities (distinct from their existing anchor+budget roundups).
+  // Ayutthaya riverside/heritage boutique (drops the sub-฿650 backpacker hostels which the budget roundup covers).
+  { slug: 'top9-riverside-boutique-hotels-ayutthaya', n: 9, list: pool('ayutthaya').filter(r => priceNum(r) >= 650) },
+  // Sukhothai boutique resorts near the historical park (drops sub-฿900 budget guesthouses + the false-positive "The Sukhothai Bangkok" which is in Bangkok, not Sukhothai).
+  { slug: 'top9-boutique-resorts-sukhothai', n: 9, list: pool('sukhothai').filter(r => priceNum(r) >= 900 && !nameHas(r, 'bangkok') && !nameHas(r, 'กรุงเทพ')) },
 ];
 
 const summary = [];
