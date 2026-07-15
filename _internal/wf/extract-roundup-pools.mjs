@@ -85,6 +85,8 @@ const specs = [
   { slug: 'top9-riverside-boutique-hotels-ayutthaya', n: 9, list: pool('ayutthaya').filter(r => priceNum(r) >= 650) },
   // Sukhothai boutique resorts near the historical park (drops sub-฿900 budget guesthouses + the false-positive "The Sukhothai Bangkok" which is in Bangkok, not Sukhothai).
   { slug: 'top9-boutique-resorts-sukhothai', n: 9, list: pool('sukhothai').filter(r => priceNum(r) >= 900 && !nameHas(r, 'bangkok') && !nameHas(r, 'กรุงเทพ')) },
+  // NEW-ZONE: Railay Beach (Krabi) — the 8 hotels we just reviewed (selected by explicit slug, not filename substring).
+  { slug: 'top8-railay-hotels-krabi', n: 8, list: reviews.filter(r => ['review-rayavadee-krabi','review-railay-bay-resort-spa-krabi','review-railay-princess-resort-spa-krabi','review-sand-sea-resort-railay-krabi','review-railay-village-resort-spa-krabi','review-sunrise-tropical-resort-railay-krabi','review-anyavee-railay-resort-krabi','review-railay-great-view-resort-krabi'].includes(r.slug)) },
 ];
 
 const summary = [];
