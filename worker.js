@@ -431,7 +431,7 @@ function clean(u) { return String(u || '').trim(); }
 function withTimeout(promise, ms) { return Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]); }
 // Security headers for Worker-generated responses. The static _headers file (X-Frame-Options/nosniff/…)
 // only applies to assets served directly — dynamic responses (json(), serveSharedTrip) bypass it entirely.
-const SEC_HEADERS = { 'x-content-type-options': 'nosniff', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'strict-origin-when-cross-origin' };
+const SEC_HEADERS = { 'x-content-type-options': 'nosniff', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'strict-origin-when-cross-origin', 'content-security-policy': "object-src 'none'; base-uri 'self'; frame-ancestors 'self'" };
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...SEC_HEADERS } });
 }
@@ -578,5 +578,5 @@ async function serveSharedTrip(request, env, id) {
   // function replacement so a `$` in the (escAttr'd) title/desc can't be read as a $-pattern (e.g. $&, $1)
   html = html.replace('</head>', () => og + '</head>');
   // frame-ancestors 'self' = clickjacking defense on this cross-user page; SEC_HEADERS adds nosniff/frame-options.
-  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', 'content-security-policy': "frame-ancestors 'self'", ...SEC_HEADERS } });
+  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', ...SEC_HEADERS } });
 }
