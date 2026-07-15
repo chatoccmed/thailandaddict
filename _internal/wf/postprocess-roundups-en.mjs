@@ -8,7 +8,7 @@ const TH_DIR = path.join(REPO, 'astro/src/content/roundups');
 const EN_DIR = path.join(REPO, 'astro/src/content/roundups-en');
 
 const SLUGS = [
-  'top8-phi-phi-hotels-krabi',
+  'top9-koh-lanta-hotels-krabi',
 ];
 
 const TOP_KEYS = ['slug','title','metaDesc','ogTitle','ogDesc','image','heroImg','heroEyebrow','h1','heroSub','heroStats','breadcrumb','breadcrumbSchema','navReviewLabel','navReviewHref','introH2','introHtml','mrtHtml','secLabel','toc','entries','compareTitle','compareCols','compareRows','adviceTitle','advice','noteHtml','faqTitle','faq'];

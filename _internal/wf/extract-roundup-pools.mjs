@@ -89,6 +89,8 @@ const specs = [
   { slug: 'top8-railay-hotels-krabi', n: 8, list: reviews.filter(r => ['review-rayavadee-krabi','review-railay-bay-resort-spa-krabi','review-railay-princess-resort-spa-krabi','review-sand-sea-resort-railay-krabi','review-railay-village-resort-spa-krabi','review-sunrise-tropical-resort-railay-krabi','review-anyavee-railay-resort-krabi','review-railay-great-view-resort-krabi'].includes(r.slug)) },
   // NEW-ZONE: Koh Phi Phi Don (Krabi) — 8 hotels across the island's beaches (selected by explicit slug).
   { slug: 'top8-phi-phi-hotels-krabi', n: 8, list: reviews.filter(r => ['review-saii-phi-phi-island-village-krabi','review-phi-phi-holiday-resort-krabi','review-phi-phi-island-cabana-hotel-krabi','review-phi-phi-the-beach-resort-krabi','review-pp-princess-resort-krabi','review-phi-phi-bayview-premier-resort-krabi','review-viking-nature-resort-phi-phi-krabi','review-paradise-pearl-bungalows-phi-phi-krabi'].includes(r.slug)) },
+  // NEW-ZONE: Koh Lanta (Krabi) — 8 new hotels across the island's beaches + the existing Avani+ review (top 9).
+  { slug: 'top9-koh-lanta-hotels-krabi', n: 9, list: reviews.filter(r => ['review-pimalai-resort-spa-koh-lanta-krabi','review-layana-resort-spa-koh-lanta-krabi','review-the-houben-hotel-koh-lanta-krabi','review-rawi-warin-resort-spa-koh-lanta-krabi','review-srilanta-resort-spa-koh-lanta-krabi','review-southern-lanta-resort-koh-lanta-krabi','review-lanta-castaway-beach-resort-koh-lanta-krabi','review-klong-jark-bungalows-koh-lanta-krabi','review-avani-plus-koh-lanta-krabi-resort-krabi'].includes(r.slug)) },
 ];
 
 const summary = [];
