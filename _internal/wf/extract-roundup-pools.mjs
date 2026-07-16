@@ -97,6 +97,11 @@ const specs = [
   { slug: 'top10-koh-yao-hotels-phang-nga', n: 10, list: reviews.filter(r => ['review-six-senses-yao-noi-phang-nga','review-treehouse-villas-koh-yao-phang-nga','review-anantara-koh-yao-yai-phang-nga','review-koyao-bay-pavilions-phang-nga','review-koh-yao-yai-village-phang-nga','review-thiwson-beach-resort-koh-yao-yai-phang-nga','review-cape-kudu-phang-nga','review-koyao-island-resort-phang-nga','review-elixir-koh-yao-yai-phang-nga','review-santhiya-koh-yao-yai-phang-nga'].includes(r.slug)) },
   // NEW-ZONE: Khao Sok (Surat Thani) — 6 new stays (lake rafts + jungle lodges) + 2 pre-existing (top 8).
   { slug: 'top8-khao-sok-hotels-surat-thani', n: 8, list: reviews.filter(r => ['review-panvaree-the-greenery-resort-khao-sok-surat-thani','review-praiwan-raft-house-khao-sok-surat-thani','review-our-jungle-house-khao-sok-surat-thani','review-anurak-community-lodge-khao-sok-surat-thani','review-khao-sok-las-orquideas-resort-surat-thani','review-montania-lifestyle-hotel-khao-sok-surat-thani','review-500-rai-khao-sok-floating-resort-surat-thani','review-khao-sok-rafthouse-surat-thani'].includes(r.slug)) },
+  // SUB-ZONE roundups from EXISTING reviews (no new reviews) — famous zones lacking a dedicated roundup.
+  // Krabi Klong Muang/Tubkaak luxury beach (quiet luxury strip W of Ao Nang; excludes Panan which is Ao Nang).
+  { slug: 'top6-klong-muang-tubkaak-hotels-krabi', n: 6, list: reviews.filter(r => ['review-phulay-bay-ritz-carlton-reserve-krabi','review-banyan-tree-krabi','review-dusit-thani-krabi-beach-resort-krabi','review-the-tubkaak-krabi-boutique-resort-krabi','review-nakamanda-resort-and-spa-krabi','review-sofitel-phokeethra-krabi'].includes(r.slug)) },
+  // Chiang Mai Mae Rim / Mae Sa valley nature-retreat zone (N of the city; drops the 7.4 outlier).
+  { slug: 'top8-mae-rim-mae-sa-hotels-chiang-mai', n: 8, list: reviews.filter(r => ['review-onsen-at-moncham-chiang-mai','review-raya-heritage-chiang-mai','review-four-seasons-resort-chiang-mai-chiang-mai','review-mori-natural-farm-chiang-mai','review-hmong-hilltribe-lodge-chiang-mai','review-proud-phu-fah-hip-green-resort-chiang-mai','review-jirung-health-village-chiang-mai','review-mae-sa-valley-garden-resort-chiang-mai'].includes(r.slug)) },
 ];
 
 const summary = [];
