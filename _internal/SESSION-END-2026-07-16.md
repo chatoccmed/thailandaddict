@@ -41,8 +41,13 @@ Then: **build** (`cd astro && rm -rf dist .astro node_modules/.vite node_modules
 4. **Trip.com fallback for blocked official sites** — curl the Trip hotel-detail page (browser UA) → extract `ak-d.tripcdn.com/images/<id>_W_1280_853_R5_Q70.jpg`. Strip WordPress `-WIDTHxHEIGHT` suffix for full-res.
 5. **Gap analysis: confirm cluster + real island, not filename substring** — "yao" matched Phayao province + Yaowarat(BKK) + Haad Yao(Phangan), falsely inflating Koh Yao's count 4→26.
 
-## In progress / next
-- **Khao Sok** (Surat Thani, 2 reviews + 0 roundups) — 6th zone, discovery running. Cheow Lan Lake floating raft houses + Khlong Sok jungle lodges. Note: many lake rafts sell tour-package-only (no OTA) — discovery flags `otaBookable`; fold the 2 existing (500 Rai, Khao Sok Rafthouse) into the roundup.
+## ⏸ Khao Sok — WIP, PAUSED on weekly agent limit (resets 5am Asia/Bangkok), NOT deployed
+6th zone (Surat Thani, Cheow Lan Lake rafts + Khlong Sok jungle lodges). Saved as WIP commit `620bde460` (pushed, not deployed).
+- **DONE:** 6 new TH reviews (Panvaree The Greenery + Praiwan = lake rafts; Our Jungle House, Anurak Community Lodge, Khao Sok Las Orquideas, Montania = jungle lodges) — schema-valid, affiliate-stamped, heroCredit set. 24 photos resized+webp, **uploaded to R2**. Pool spec + postprocess SLUGS point at `top8-khao-sok-hotels-surat-thani` (folds in 2 existing). Data corrections already applied (Praiwan 9.8→8.6 location-only; Elephant Hills excluded = tour-only no OTA).
+- **PENDING (hit the weekly agent limit — EN twins failed 0/6):** EN twins → roundup TH+EN → build → deploy → verify.
+- **RESUME (after 5am reset), all in `_internal/wf/khaosok/`:** `khaosok-reviews-en.js` → `node _internal/wf/extract-roundup-pools.mjs` → `khaosok-roundup-th.js` → `node _internal/wf/postprocess-roundups.mjs` → `khaosok-roundup-en.js` → `node _internal/wf/postprocess-roundups-en.mjs` → build (cd astro, clear caches, verify dist render) → `wrangler deploy` → push → verify live. (Note: postprocess SLUGS are already set to the Khao Sok roundup.)
+
+## Next (after Khao Sok)
 - **Famous islands now mostly done.** Koh Phangan (18 rev, 2 roundups), Koh Samet (50 rev, 2 roundups), Samui (8 roundups), Koh Chang (5) all well-covered — no action needed.
 - **Other autonomous backlog** (from the earlier audit, if continuing past islands): roundup Phase 3c (thin pools) + deferred Surat Thani/Phang Nga roundups; Michelin W3 booking/budget guides + W4 Nov-2026 refresh; 5 remaining kid-attraction photos (post-mourning, via venue FB).
 - **Owner-blocked** (cannot do autonomously): GA4 Measurement ID, Search Console sitemap submit, sameAs social URLs.
