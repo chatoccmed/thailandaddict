@@ -2856,7 +2856,7 @@ function comparisonArticle(C, loc) {
       : `${C.a.th} vs ${C.b.th} เทียบตรง ๆ ทั้งบรรยากาศ หาด ไนต์ไลฟ์ ครอบครัว ราคา และการเดินทาง พร้อมสรุปว่าควรเลือกที่ไหน และไปทั้งคู่ได้ไหม`,
     ogTitle: title.split(' | ')[0], ogDesc: loc === 'en' ? `${C.a.en} vs ${C.b.en} — which is right for your trip?` : `${C.a.th} vs ${C.b.th} — ที่ไหนเหมาะกับทริปคุณ?`,
     image: `/images/heroes/${C.hero}.jpg`,
-    crumbCity: loc === 'en' ? 'Compare destinations' : 'เทียบจุดหมาย', crumbCityHref: 'tourist-cities.html',
+    crumbCity: loc === 'en' ? 'Compare destinations' : 'เทียบจุดหมาย', crumbCityHref: 'destinations.html',
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
     eyebrow: loc === 'en' ? 'Compare destinations' : 'เทียบจุดหมาย',
     h1: loc === 'en' ? `${C.a.en} vs ${C.b.en}<br>which to choose?` : `${C.a.th} vs ${C.b.th}<br>เลือกที่ไหนดี?`,

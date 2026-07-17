@@ -594,13 +594,13 @@ function buildArticle(L, loc) {
   const seen = new Set();
   const rel = [];
   for (const it of L.items) { if (!seen.has(it.href)) { seen.add(it.href); rel.push({ href: it.href, title: it.name[loc] }); } }
-  rel.push({ href: 'tourist-cities.html', title: en ? '🗺️ All top destinations' : '🗺️ เมืองท่องเที่ยวทั้งหมด' });
+  rel.push({ href: 'destinations.html', title: en ? '🗺️ All top destinations' : '🗺️ เมืองท่องเที่ยวทั้งหมด' });
   rel.push({ href: 'plan-your-trip.html', title: en ? '🧭 Plan Your Trip hub' : '🧭 ศูนย์รวมคู่มือเตรียมตัว' });
   return {
     slug: L.slug, type: 'guide', cluster: 'thailand',
     title: t.title, metaDesc: t.metaDesc, ogTitle: t.title.split(' | ')[0], ogDesc: t.intro,
     image: `/images/heroes/${L.hero}.jpg`, heroImg: `/images/heroes/${L.hero}.jpg`,
-    crumbCity: en ? 'Top destinations' : 'เมืองท่องเที่ยว', crumbCityHref: 'tourist-cities.html',
+    crumbCity: en ? 'Top destinations' : 'เมืองท่องเที่ยว', crumbCityHref: 'destinations.html',
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
     eyebrow: t.eyebrow, h1: t.h1, heroEmoji: L.emoji, intro: t.intro,
     chips: en ? ['Ranked', 'Real destinations', 'Where to stay'] : ['จัดอันดับ', 'ที่จริงทั้งหมด', 'พร้อมที่พัก'],
