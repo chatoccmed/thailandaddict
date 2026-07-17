@@ -27,11 +27,11 @@ repo นี้มีหลายเครื่อง/หลาย session push 
 **212 posts เดิม:** ย้าย/ตัดสินใจแล้ว 195/209 (อีก 14 ตั้งใจข้าม — cache อยู่ที่ `_internal/migration/oldposts/`)
 
 **งานถัดไปที่ยังไม่ทำ:**
-- **แปล delta 2,560 สตริง** ที่ localize.mjs รายงาน `misses(→en)` หลัง merge (สตริงใหม่จาก expert-hub/near-me) — ตอนนี้หน้า 193×7 แปล ~96% ที่เหลือ fallback เป็น EN
-- **คำ AI ต้องห้ามเหลือ ~53 จุด** ในรีวิวที่ origin เพิ่มเข้ามา (`ตอบโจทย์`/`ครบครัน`/`โดดเด่น`/`สุดยอด`/`ระดับโลก`) — ของเดิมเคลียร์ 0 แล้ว · ระวังคำว่า **"ลงตัว" ที่กลายเป็นคำฟุ่มเฟือยตัวใหม่ (1,481 ครั้ง)**
+- **🔴 content-layer localized articles ลิงก์เสีย ~2,361 จุด (58 บทความ × 7 ภาษา):** หน้า `pages/<loc>/[slug].astro` (reviews-<loc>/articles-<loc> ที่ origin localize) — `ArticleLayout.link()` เติม `${pfx}/` (เช่น `/ar/`) ให้ **ทุก** internal href แม้ target ไม่มีเวอร์ชันแปล → `/ar/getting-around-thailand` 404 (ของจริงอยู่ที่ /en/ + root). **fix ที่ถูกต้อง (ไม่ใช่ band-aid):** getStaticPaths ใน `pages/<loc>/[slug].astro` ทั้ง 7 ไฟล์ต้องสร้าง set ของ slug ที่มีเวอร์ชัน `<loc>` (จาก content collections + hub pages) แล้วส่งเป็น prop ให้ ArticleLayout → `link()` route ไป `/<loc>/` ถ้า target อยู่ใน set ไม่งั้น `/en/`. (band-aid = ส่ง /en/ หมด มี regression: hub cross-link ที่แปลได้กลายเป็น EN — เลี่ยง). ⚠️ เป็นระบบ i18n ชั้นเนื้อหาของ origin — ประสานก่อนแก้. **hub-layer เจอบั๊กเดียวกันแก้แล้ว** ใน `localize.mjs rewriteUrls` (2026-07-18, 45k ลิงก์) — ใช้เป็นแบบอ้างอิงได้
+- **คำ "ลงตัว" 1,436 ครั้ง (39% ของรีวิว)** — คำไทยถูกต้อง ไม่ใช่คำต้องห้าม แต่กลายเป็น template crutch · จะ de-cliché ไหม = judgment call ของเจ้าของ (คำ AI ต้องห้ามจริง = 0 แล้ว)
 - **รูปแผนที่ placeholder ตัวเดียวใช้ซ้ำ 717 รีวิว** (`images/gallery/220t180000014yxfw73B0.webp`) — ควรใส่รูปจริงรายโรงแรม
-- ดีไซน์ premium (`premium.css`/`proto3.css`) **ไม่ได้อยู่บน production แล้ว** — deploy ของเครื่องอื่นทับหายไป (merge นี้ใส่กลับใน layout แล้ว แต่หน้าแรกยังเป็นของ origin)
-- Byline ผู้เขียนจริง, GA4 ID จริง (ยัง placeholder), alt text หน้า "-compared" (~43% ว่าง), cornerstone/pillar content
+- Byline ผู้เขียนจริง, GA4 ID จริง (ยัง placeholder), cornerstone/pillar content
+- ⚠️ **audit-site.mjs รู้จัก `/go/b` `/api/*` เป็น worker route แล้ว** (ไม่นับเป็น dead) — ถ้าเพิ่ม worker route ใหม่ อัปเดต isValidInternal ด้วย
 
 ---
 
