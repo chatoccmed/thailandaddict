@@ -196,6 +196,53 @@
       ]
     },
     {
+      "kind": "experiences",
+      "title": "Book activities & tickets in advance",
+      "text": "Popular activities fill up fast — booking online ahead of time is more convenient.",
+      "items": [
+        {
+          "label": "Ethical elephant sanctuary",
+          "note": "Half day–full day",
+          "href": "https://www.klook.com/th/search/?query=Chiang%20Mai%20elephant%20sanctuary&aid=121442",
+          "provider": "Klook",
+          "emoji": "🐘"
+        },
+        {
+          "label": "Doi Inthanon tour",
+          "note": "Full day",
+          "href": "https://www.klook.com/th/search/?query=Doi%20Inthanon%20tour&aid=121442",
+          "provider": "Klook",
+          "emoji": "⛰️"
+        },
+        {
+          "label": "Thai cooking class",
+          "note": "Half day",
+          "href": "https://www.klook.com/th/search/?query=Chiang%20Mai%20cooking%20class&aid=121442",
+          "provider": "Klook",
+          "emoji": "🍳"
+        }
+      ],
+      "ctaLabel": "See all Chiang Mai activities on Klook",
+      "ctaHref": "https://www.klook.com/th/search/?query=Chiang%20Mai&aid=121442"
+    },
+    {
+      "kind": "staycta",
+      "title": "Where to stay in Chiang Mai?",
+      "text": "Getting around is easiest from a central base — pick a well-located hotel near the sights and compare prices across 3 sites before booking.",
+      "links": [
+        {
+          "href": "top10-hotels-chiang-mai.html",
+          "label": "Top 10 hotels in Chiang Mai"
+        },
+        {
+          "href": "top10-nature-view-hotels-chiang-mai.html",
+          "label": "Nature-view hotels"
+        }
+      ],
+      "ctaLabel": "Search hotels on Agoda",
+      "ctaHref": "https://www.agoda.com/th-th/city/chiang-mai-th.html?cid=1965862"
+    },
+    {
       "kind": "cta",
       "text": "Plan your whole Chiang Mai trip in one place — where to stay, what to see, what to eat",
       "href": "city-chiang-mai.html",
@@ -239,5 +286,25 @@
     }
   ],
   "heroImg": "/images/cm/chiang-mai-getting-around.jpg",
-  "quickAnswerHtml": "A plain-English guide to getting around Chiang Mai, Thailand: what a red songthaew costs, whether Grab is worth it, where to rent a car or scooter, airport-to-city options, and how to reach Doi Suthep and Doi Inthanon — with real 2026 prices."
+  "quickAnswerHtml": "A plain-English guide to getting around Chiang Mai, Thailand: what a red songthaew costs, whether Grab is worth it, where to rent a car or scooter, airport-to-city options, and how to reach Doi Suthep and Doi Inthanon — with real 2026 prices.",
+  "rail": [
+    {
+      "title": "Top 10 hotels in Chiang Mai",
+      "href": "top10-hotels-chiang-mai.html",
+      "note": "Great locations, compare prices across 3 sites",
+      "img": "images/hotels/chiang-mai-137pillars-1.jpg"
+    },
+    {
+      "title": "Nature-view hotels in Chiang Mai",
+      "href": "top10-nature-view-hotels-chiang-mai.html",
+      "note": "Mountain and garden views",
+      "img": "images/hotels/chiang-mai-onsen-moncham-1.jpg"
+    },
+    {
+      "title": "Luxury hotels in Chiang Mai",
+      "href": "top10-luxury-hotels-chiang-mai.html",
+      "note": "5-star, great value",
+      "img": "images/hotels/chiang-mai-baanbooloo-1.jpg"
+    }
+  ]
 }
