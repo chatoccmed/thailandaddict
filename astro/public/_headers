@@ -38,24 +38,21 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
 
-# ── Hand-authored, STABLE-NAMED assets (premium.css/proto3.css/*-motion.js) ──
-# These live under /css/ and /js/ with fixed filenames and DO change on redeploy, so they must
-# NOT be immutable — otherwise a design change is invisible to returning visitors (and the edge)
-# for up to a year. A more-specific path rule (/css/*, /js/*) overrides the /*.css /*.js wildcards
-# below. Short fresh window + long SWR = fast, but a redeploy is picked up within the hour.
-# (The content-hashed Astro bundles live under /_astro/ and correctly stay immutable via /*.css.)
+# ── immutable ONLY for content-hashed bundles (filename changes when content changes) ──
+# Astro emits hashed CSS/JS under /_astro/ (e.g. _slug_.BTre0zWJ.css) — safe to cache forever.
+# We deliberately do NOT use a /*.css or /*.js wildcard here: those would also catch the
+# hand-authored, FIXED-name files (premium.css / proto3.css / *-motion.js) which DO change on
+# redeploy, and marking them immutable made a design change invisible for up to a year. Scoping
+# immutable to /_astro/ leaves those to the /css/ + /js/ short-cache rules below.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Hand-authored, STABLE-NAMED assets (premium.css/proto3.css/*-motion.js) — revalidate ──
 /css/*
   Cache-Control: public, max-age=600, stale-while-revalidate=86400
 
 /js/*
   Cache-Control: public, max-age=600, stale-while-revalidate=86400
-
-# ── Static assets — cache 1 ปี (hashed bundles under /_astro/, images, fonts) ──
-/*.css
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.js
-  Cache-Control: public, max-age=31536000, immutable
 
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
