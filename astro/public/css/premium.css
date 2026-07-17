@@ -196,7 +196,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
 
 /* -- resting depth + hover lift + brand glow -- */
 .hotel-entry,           /* roundup card */
-.resto,                 /* article resto/attraction/activity card */
+.resto.resto,                 /* article resto/attraction/activity card */
 .rrail-card,            /* article sticky-rail hotel card */
 .foodexp-card,          /* article food-experience card */
 .hcard,                 /* hub hotel card */
@@ -220,7 +220,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
    cinematic photo grade + legibility scrim; the shine-sweep lives on
    BUTTONS only (self-contained, safe to clip). */
 
-.hotel-entry:hover,.resto:hover,.rrail-card:hover,.foodexp-card:hover,
+.hotel-entry:hover,.resto.resto:hover,.rrail-card:hover,.foodexp-card:hover,
 .hcard:hover,.dcard:hover,.ep-card:hover,.hcc:hover,.ahub-card:hover,
 .gp:hover,.side-card:hover,.related-a:hover{
   transform:translateY(-6px);
@@ -244,7 +244,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   transition:filter .4s ease, transform .5s cubic-bezier(.22,.61,.36,1);
 }
 .hotel-entry:hover .img-wrap img,
-.resto:hover .resto-mainimg,.resto:hover .re-zoom,
+.resto.resto:hover .resto-mainimg,.resto.resto:hover .re-zoom,
 .rrail-card:hover img,.foodexp-card:hover .foodexp-thumb,
 .hcard:hover .hc-img img,.dcard:hover .dphoto img,
 .ep-card:hover .ep-img img,.hcc:hover > img,.ahub-card:hover .ahub-ph img,
@@ -266,7 +266,10 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
    own z-index; reinforce the on-photo label/link layers) */
 .hotel-entry .img-overlay,.hotel-entry .mrt-tag,.hotel-entry .rd-img-book,
 .hotel-entry .entry-save,.hotel-entry .entry-badge{z-index:3}
-.hcc-cap{position:relative;z-index:2}
+/* z-index only — do NOT set position here. gen-hubs already makes .hcc-cap absolute (bottom:0) so the
+   caption sits on the photo scrim; re-declaring position:relative won it on load order and threw the
+   white caption 13px ABOVE the card. z-index applies to an absolutely-positioned box on its own. */
+.hcc-cap{z-index:2}
 .ahub-tag{z-index:2}
 
 /* ============================================================
@@ -286,9 +289,13 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
 /* -- ARTICLE booking / CTAs -- */
 .rbtn,.bk,.bk-klook,.bk-stay,.staycta-btn,.foodexp-btn,.rrail-fcta,.hmap-cta,
 /* -- HUB booking / CTAs -- */
+/* vertical-align:top is load-bearing, not cosmetic: these are inline-block buttons, and giving an
+   inline-block a non-visible overflow moves its baseline from the last line box to the bottom margin
+   edge — which grew .affcard by 9px (158→167) purely from containing the sheen. Measured on a live
+   city hub; with this line the geometry matches production exactly. No-op for the block/flex ones. */
 .hbtn,.hview,.kl-b,.ahub-klkbtn,.ahub-htlbtn,.ctaband a,.callout a,.hl-book,
 .qa-cta,.mbar a,.affcard a{
-  position:relative;overflow:hidden;isolation:isolate;
+  position:relative;overflow:hidden;isolation:isolate;vertical-align:top;
 }
 
 /* -- glossy top sheen (a soft light band over the top half) -- */
@@ -359,7 +366,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.42) 50%,transparent 62%);
   background-size:220% 100%;background-position:125% 0;
 }
-.resto:hover .resto-imgwrap::after,.hcard:hover .hc-img::after,.dcard:hover .dphoto::after,
+.resto.resto:hover .resto-imgwrap::after,.hcard:hover .hc-img::after,.dcard:hover .dphoto::after,
 .ep-card:hover .ep-img::after,.gp:hover::after{
   animation:taImgShine .85s cubic-bezier(.25,.6,.3,1) 1;
 }
@@ -395,7 +402,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   .qa-cta::after,.mbar a::after,.affcard a::after{display:none!important}
 
   /* freeze card lift + photo grade transitions */
-  .hotel-entry,.resto,.rrail-card,.foodexp-card,.hcard,.dcard,.ep-card,
+  .hotel-entry,.resto.resto,.rrail-card,.foodexp-card,.hcard,.dcard,.ep-card,
   .hcc,.ahub-card,.gp,.side-card,.related-a{transition:none!important}
 }
 
