@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import ReviewLayout from '../../layouts/ReviewLayout.astro';
+import RoundupLayout from '../../layouts/RoundupLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { extraLocalesBySlug, extraReviewLocalesBySlug, extraRoundupLocalesBySlug } from '../../lib/locales';
+
+export async function getStaticPaths() {
+  let reviews = [], roundups = [];
+  try { reviews = await getCollection('reviewsZh'); } catch {}
+  try { roundups = await getCollection('roundupsZh'); } catch {}
+  const articles = await getCollection('articlesZh');
+  const extra = await extraLocalesBySlug();
+  const extraRv = await extraReviewLocalesBySlug();
+  const extraRd = await extraRoundupLocalesBySlug();
+  return [
+    ...reviews.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'review' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRv[r.data.slug] || [])] },
+    })),
+    ...roundups.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'roundup' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRd[r.data.slug] || [])] },
+    })),
+    ...articles.map((r) => ({
+      params: { slug: r.data.slug },
+      props: { kind: 'article' as const, data: r.data, availableLocales: ['th', 'en', ...(extra[r.data.slug] || [])] },
+    })),
+  ];
+}
+
+const { kind, data, availableLocales } = Astro.props;
+---
+{kind === 'review'
+  ? <ReviewLayout data={data} lang="zh" availableLocales={availableLocales} />
+  : kind === 'roundup'
+  ? <RoundupLayout data={data} lang="zh" availableLocales={availableLocales} />
+  : <ArticleLayout data={data} lang="zh" hasEn={true} availableLocales={availableLocales} />}

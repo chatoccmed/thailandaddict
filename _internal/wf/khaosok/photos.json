@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "review-panvaree-the-greenery-resort-khao-sok-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://static.wixstatic.com/media/a9f338_e0e543499a1f449ab1f1e5ad44070016~mv2.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/a9f338_45c255f594e24080982589661372534c~mv2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/a9f338_2ed09bcfc38744a0974a36fafa7afe8f~mv2.jpg",
+        "kind": "lake"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/a9f338_3495337fcb284f79accb05397a41c387~mv2.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Panvaree The Greenery (thegreenerypanvaree.com)",
+    "sourceUrl": "https://www.thegreenerypanvaree.com/",
+    "notes": "Photos are from the stay's OWN official website (thegreenerypanvaree.com), a Wix site served via the Wixstatic CDN. The in-page URLs carry Wix transform params (/v1/fill/...enc_avif...); I stripped those to the canonical original-file form (base media path + ~mv2.jpg), which is the standard reliable Wix original and each verified HTTP 200 with content-type image/jpeg (sizes ~0.2-10.8 MB). All four are genuine Panvaree resort photos: (1) e0e543 = 'panvaree-greenery (53)' floating raft villa exterior/hero; (2) 45c255 = 'Superior-panvaree-greenery (7)' floating room interior; (3) 2ed09b = scenic longtail boat trip on Cheow Lan Lake with limestone karst; (4) 3495337 = kayaking on the emerald lake water. No facebook/fbcdn, no third-party review blog, no listing thumbnails used. Trip.com page not needed since the official site yielded enough. One filename (549436814_..._n.jpg) on the site looked FB-sourced so it was avoided."
+  },
+  {
+    "slug": "review-praiwan-raft-house-khao-sok-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://praiwanrafthouse.com/wp-content/uploads/2023/01/S__61235258.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://praiwanrafthouse.com/wp-content/uploads/2023/01/S__61235259.jpg",
+        "kind": "lake"
+      },
+      {
+        "url": "https://praiwanrafthouse.com/wp-content/uploads/2014/03/IMG_2294.jpg",
+        "kind": "river"
+      },
+      {
+        "url": "https://praiwanrafthouse.com/wp-content/uploads/2014/03/P3240532.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Praiwan Raft House (praiwanrafthouse.com)",
+    "sourceUrl": "https://praiwanrafthouse.com/",
+    "notes": "Stay = Praiwan Raft House (แพไพรวัลย์), floating raft house on Cheow Lan Lake, Khao Sok. research.json photoSourceUrl pointed to TripAdvisor (avoided per instructions). Instead used the OFFICIAL WordPress site praiwanrafthouse.com. The homepage/gallery/stay-with-us pages all lazy-load images (WebFetch's markdown conversion only returned a base64 Thai-flag placeholder), and both trip.com + us.trip.com hotel pages returned HTTP 418 (anti-bot). SOLUTION: pulled real direct URLs from the site's own WP REST media API (/wp-json/wp/v2/media). Downloaded + visually verified 8 candidates. The 4 returned are all genuine, high-res, official-site-hosted photos OF THIS STAY: (1) S__61235258.jpg = row of thatched floating bamboo bungalows against jade water + towering karst peaks, kayaks (best hero — exterior/raft + karst); (2) S__61235259.jpg = same raft village, guests swimming, karst backdrop (lake/raft angle); (3) IMG_2294.jpg = longtail transfer boat arriving past the full row of raft bungalows on the lake (river/lake + arrival); (4) P3240532.jpg = wooden pontoon deck at dusk with Thai triangle cushions + candles, lake + karst + lodge behind (lakeside ambiance/view). Excluded: Priwan-Raft-House.jpg (logo only), P4100717/family + S__8101899/group portraits (people-focused). No clean room-interior shot was available in the media set. All 4 are creditable to the hotel's own website. NOTE: several media filenames end in _n.jpg/_o.jpg (Facebook-origin) but are self-hosted on praiwanrafthouse.com — the 4 chosen are camera-original filenames (S__/IMG_/P-prefixed), not fbcdn/scontent URLs."
+  },
+  {
+    "slug": "review-our-jungle-house-khao-sok-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.khaosokaccommodation.com/images/pages/home/hero.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.khaosokaccommodation.com/images/pages/home/room-slice-1.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.khaosokaccommodation.com/images/pages/home/room-slice-2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.khaosokaccommodation.com/images/pages/home/whyus-2.jpg",
+        "kind": "jungle"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Our Jungle House (khaosokaccommodation.com)",
+    "sourceUrl": "https://www.khaosokaccommodation.com/accommodation",
+    "notes": "The official Our Jungle House site (khaosokaccommodation.com) is a Next.js app that wraps images through the /_next/image optimizer, but the underlying static files live at /images/... I extracted the real source paths from the HTML and verified each direct .jpg with curl: all returned HTTP 200 + Content-Type image/jpeg with real byte sizes. hero.jpg = riverside/jungle hero (9.8MB, very large full-res); room-slice-1.jpg and room-slice-2.jpg = treehouse/bungalow room slices; whyus-2.jpg = jungle/nature view (610KB). All 4 are creditable to the stay's own official website. The research.json photoSourceUrl pointed at a TripAdvisor page which was NOT used (third-party listing, avoided per instructions). Trip.com page not needed since official-site direct images were confirmed. Consider downscaling hero.jpg on self-host (nearly 10MB). Trip.com URL for reference: https://www.trip.com/hotels/khlong-sok-hotel-detail-22088744/our-jungle-house/"
+  },
+  {
+    "slug": "review-anurak-community-lodge-khao-sok-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://ak-d.tripcdn.com/images/0581g12000rbp36zw38BC_Z_1280_853_R50_Q90.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0222x12000kz23vrs7B22_Z_1280_853_R50_Q90.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0225712000kvwzjcg2569_Z_1280_853_R50_Q90.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/1ik3812000t0j4aej44F6_Z_1280_853_R50_Q90.jpg",
+        "kind": "jungle"
+      }
+    ],
+    "credit": "ภาพ: Trip.com",
+    "sourceUrl": "https://www.trip.com/hotels/phanom-hotel-detail-6139866/anurak-community-lodge/",
+    "notes": "Stay: Anurak Community Lodge (Khlong Sok / Khao Sok NP edge, Surat Thani). The OFFICIAL site (https://anuraklodge.com/anurak-lodge/accommodation/ and root) was UNREACHABLE — both WebFetch and curl got ECONNREFUSED to 194.163.47.119:443 (server down or firewall/geo-blocked from this network), so no official-site images could be confirmed. Trip.com hotel page returned HTTP 418 to WebFetch but was fetchable via curl with a browser UA. From that HTML I extracted real ak-d.tripcdn.com gallery photos of this property and verified 4 of them download as genuine JPEGs (image/jpeg, ~136KB–360KB each, 1280x853). These are Trip.com-hosted real property photos, not base64 placeholders. kind labels (hero/room/view/jungle) are best-guess from a full-size gallery; all are real photos of the lodge. Credit to Trip.com since the stay's own site could not be reached. Additional confirmed-real Trip.com URLs available if needed: 0224t120009ko41vz5086, 1ik1s12000sktxn9fDE73, 0223l12000kvx3xv9CEFB (all _Z_1280_853_R50_Q90.jpg)."
+  },
+  {
+    "slug": "review-khao-sok-las-orquideas-resort-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://static.wixstatic.com/media/fcd999_2a2855108bb64afc8403bb5be9201b6d~mv2.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/fcd999_d0795bb17d8f401ca5d2dc575b1fdac1~mv2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/fcd999_aa3050a9eda54a05a26987a3d3b9161b~mv2.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/fcd999_609c02c8558243b8b5cba8583b0971a9~mv2.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Khao Sok Las Orquideas Resort",
+    "sourceUrl": "https://www.lasorquideasresorts.com/khaosok",
+    "notes": "Official website (lasorquideasresorts.com/khaosok) is a Wix site. WebFetch returned 30 real direct image URLs from the resort's own gallery (static.wixstatic.com, path ends .jpg). Selected 4 large landscape gallery photos (w_960). URLs are the resort's own official photos, creditable. Kind labels (hero/room/pool/view) are best-guess by size/aspect since I could not visually confirm each frame's exact subject, but all are genuine on-page gallery images of this specific stay. No Trip.com page needed. Avoided the logo PNG and small thumbnails."
+  },
+  {
+    "slug": "review-montania-lifestyle-hotel-khao-sok-surat-thani",
+    "found": true,
+    "images": [
+      {
+        "url": "https://montanialifestyle.com/wp-content/uploads/C2-1.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://montanialifestyle.com/wp-content/uploads/C1-1.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://montanialifestyle.com/wp-content/uploads/Montania-Lifestyle-Hotel-ClassicRoom7.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://montanialifestyle.com/wp-content/uploads/Montania-Lifestyle-Restaurant3.jpeg",
+        "kind": "other"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Montania Lifestyle Hotel (montanialifestyle.com)",
+    "sourceUrl": "https://montanialifestyle.com/",
+    "notes": "Official site (montanialifestyle.com) is WordPress and lazy-loads — the homepage HTML only carries base64 placeholders, so WebFetch saw no real photos. Found real full-size image assets by reading the WP sitemap + the /detail/, /details-room/, and /about/ pages, then verified each URL returns HTTP 200 image/jpeg (sizes 127KB-1.18MB). Trip.com hotel page (trip.com/hotels/khlong-sok-hotel-detail-58222754) blocked WebFetch with HTTP 418, so all 4 photos are from the stay's OWN official website (creditable). Chosen: C2-1.jpg + C1-1.jpg = wooden chalet/bungalow rooms; ClassicRoom7.jpg = classic room interior; Restaurant3.jpeg = on-site jungle restaurant. No exterior/pool image with a clean filename was exposed outside base64 placeholders; these 4 best represent the land-based jungle lodge. All verified real (not invented), no facebook/fbcdn/stock URLs used."
+  }
+]

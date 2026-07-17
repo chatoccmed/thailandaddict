@@ -1,0 +1,860 @@
+[
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\zh.json",
+    "old": "通过 Agoda · Booking · Trip 预订，省得更多",
+    "new": "通过 Agoda · Booking · Trip 预订，帮你省更多",
+    "reason": "\"省得\" is a conjunction meaning \"so as to avoid/lest\" (e.g. 早点走省得堵车) and cannot mean \"save money\" here; the English source (\"Book via Agoda · Booking · Trip and save more\") calls for 省钱/省更多 phrasing, not 省得."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\zh.json",
+    "old": "三水交汇处的湄公河畔小城 — 有美功铁道市场、安帕瓦水上市场，还有处处可见的椰林",
+    "new": "三水交汇处的美功河畔小城 — 有美功铁道市场、安帕瓦水上市场，还有处处可见的椰林",
+    "reason": "The English source says \"the small riverside town of Mae Klong\" (แม่กลอง, a river near the Gulf of Thailand) — this was mistranslated as 湄公河 (the Mekong River, a completely different river on the Laos border), contradicting the correct 美功 rendering used later in the same sentence for the Mae Klong Railway Market."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\zh.json",
+    "old": "湄公河畔的龙缸之城，有丹嫩沙多水上市场、考鲁岩洞，还有素攀武里那边的德那沙林丘陵",
+    "new": "美功河畔的龙缸之城，有丹嫩沙多水上市场、考鲁岩洞，还有素攀武里那边的德那沙林丘陵",
+    "reason": "The English source (\"The dragon-jar town on the Mae Klong River\") refers to the Mae Klong River, not the Mekong (湄公河) — Ratchaburi is nowhere near the Mekong; same river-name confusion as the Samut Songkhram entry."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\zh.json",
+    "old": "塔津河畔的古城 — 泰国乡村歌之乡、百年老市场，还有一座值得一看的地方都近在咫尺的城",
+    "new": "塔津河畔的古城 — 泰国乡村歌之乡、百年老市场，还有一座景点都近在咫尺、逛起来很方便的城",
+    "reason": "Original clause is grammatically garbled (singular \"一座...地方\" mismatched with plural verb \"都\"), unnatural and hard to parse; rewritten to cleanly convey \"a city where everything worth seeing is close together\" as in the English source."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\zh.json",
+    "old": "\"Big Buddha, islands, shows\": \"大佛、古城、跳岛团、表演秀\",",
+    "new": "\"Big Buddha, islands, shows\": \"大佛、跳岛团、表演秀\",",
+    "reason": "The source lists exactly 3 items (Big Buddha, islands, shows) for Phuket attractions, but the translation inserts a fabricated 4th item \"古城\" (old town) that has no basis in the English source — Phuket's attraction subtitle should not invent an \"old town\" concept not present in the source string."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\zh.json",
+    "old": "\"Damnoen, Amphawa, Maeklong\": \"丹嫩沙朵、安帕瓦、湄功\",",
+    "new": "\"Damnoen, Amphawa, Maeklong\": \"丹嫩沙朵、安帕瓦、美功\",",
+    "reason": "Maeklong (the famous railway market near Bangkok) is consistently rendered as 美功 in Chinese travel sources (Wikipedia zh-hans, KKday, Klook, Qunar); \"湄功\" uses the wrong character (湄 instead of 美) and is not an attested name."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chiang-rai.json",
+    "old": "  \"highlights\": [\n    {\n      \"name\": \"白龙寺\",\n      \"blurb\": \"查伦猜·柯西比帕先生设计的全白寺庙",
+    "new": "  \"highlights\": [\n    {\n      \"name\": \"白庙\",\n      \"blurb\": \"查伦猜·柯西比帕先生设计的全白寺庙",
+    "reason": "Wat Rong Khun (the Chalermchai Kositpipat white temple) is universally known in Chinese as 白庙 (White Temple); '白龙寺' (White Dragon Temple) invents a nonexistent 'dragon' element and is a factual/naming error."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chiang-rai.json",
+    "old": "  \"attractions\": [\n    {\n      \"name\": \"白龙寺\",\n      \"kind\": \"culture\",",
+    "new": "  \"attractions\": [\n    {\n      \"name\": \"白庙\",\n      \"kind\": \"culture\",",
+    "reason": "Same temple (Wat Rong Khun) referenced again in attractions; must match the corrected standard Chinese name 白庙 (White Temple), not the invented '白龙寺' (White Dragon Temple)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chonburi.json",
+    "old": "\"农奴芭提雅植物园\",\n      \"blurb\": \"一座大型植物园，有多个主题园区、文化表演，可以逛上一整天\"",
+    "new": "\"农怒芭提雅植物园（东芭乐园）\",\n      \"blurb\": \"一座大型植物园，有多个主题园区、文化表演，可以逛上一整天\"",
+    "reason": "\"农奴\" literally means \"serf/slave\" in Chinese — a jarring and confusing mistransliteration of Nong Nooch; the garden's actual common Chinese name is 东芭乐园 (or the neutral transliteration 农怒), not a word meaning slave."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chonburi.json",
+    "old": "      \"name\": \"涛岛（帕岛）\",\n      \"blurb\": \"芭提雅外海的岛屿，搭船很快就到——海水清澈、白沙细腻，很适合一日游游泳浮潜\"",
+    "new": "      \"name\": \"涛岛\",\n      \"blurb\": \"芭提雅外海的岛屿，搭船很快就到——海水清澈、白沙细腻，很适合一日游游泳浮潜\"",
+    "reason": "\"（帕岛）\" falsely implies Ko Tao (涛岛) and Ko Phangan (帕岸岛/帕岛) are the same island — they are two entirely separate islands in Thailand; the parenthetical alt-name is a factual place-name confusion and should be removed."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chonburi.json",
+    "old": "      \"name\": \"涛岛（帕岛）\",\n      \"kind\": \"nature\",\n      \"blurb\": \"芭提雅外海的岛屿——海水清澈、白沙细腻，搭船出海一日游就能游泳浮潜\"",
+    "new": "      \"name\": \"涛岛\",\n      \"kind\": \"nature\",\n      \"blurb\": \"芭提雅外海的岛屿——海水清澈、白沙细腻，搭船出海一日游就能游泳浮潜\"",
+    "reason": "Same false-equivalence error repeated in the attractions list — Ko Tao (涛岛) and Ko Phangan (帕岛) are distinct islands, not alternate names for one another."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\chonburi.json",
+    "old": "\"春武里就在曼谷东边，沿高速公路开一小段就到。这里有邦盛海滩，人们来这里坐在海边发呆；有永不打烊的芭提雅；还有可以搭船出海，玩上一整天的涛岛（帕岛）。</p>",
+    "new": "\"春武里就在曼谷东边，沿高速公路开一小段就到。这里有邦盛海滩，人们来这里坐在海边发呆；有永不打烊的芭提雅；还有可以搭船出海，玩上一整天的涛岛。</p>",
+    "reason": "Same false parenthetical equivalence between Ko Tao and Ko Phangan (two distinct islands) repeated in the intro paragraph."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\prachuap-khiri-khan.json",
+    "old": "      \"name\": \"夜功与巴蜀鲭鱼\",",
+    "new": "      \"name\": \"巴蜀鲭鱼\",",
+    "reason": "\"夜功\" (Ye Gong) is the standard Chinese name for Samut Songkhram province, a completely different province from Prachuap Khiri Khan (巴蜀); its presence here confuses two unrelated provinces, and the note content is entirely about local Prachuap mackerel with no connection to Samut Songkhram."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\kanchanaburi.json",
+    "old": "      \"name\": \"考曼颂潭与伊善菜\",",
+    "new": "      \"name\": \"青木瓜沙拉与伊善菜\",",
+    "reason": "\"考曼颂潭\" is a meaningless, garbled transliteration that doesn't match its own note content (green papaya salad/som tam, grilled chicken, larb); it should render \"som tam\" (green papaya salad) rather than an unrecognizable placeholder string."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\ayutthaya.json",
+    "old": "\"大城至今仍保留着老派的泰式宫廷甜品，包括金丝蛋黄甜球、金丝蛋黄球和黄金丝线甜品，在市场和甜品店都能找到。\"",
+    "new": "\"大城至今仍保留着老派的泰式宫廷甜品，包括金片蛋黄糖、金球蛋黄糖和黄金丝线甜品，在市场和甜品店都能找到。\"",
+    "reason": "The three listed desserts (meant to be the classic trio thong yip/thong yod/foi thong) were rendered as three near-identical, redundant phrases (\"金丝蛋黄甜球、金丝蛋黄球\") that fail to distinguish the first two distinct desserts, reading like a machine-translation repetition artifact rather than three recognizable named sweets."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\rayong.json",
+    "old": "这里有白沙滩、Ao Phrao湾，还有更小的海湾可以选择住宿",
+    "new": "这里有白沙滩、帕劳湾，还有更小的海湾可以选择住宿",
+    "reason": "Leftover untranslated Thai/English place name \"Ao Phrao\" left in Latin script instead of being rendered in Chinese like every other place name in the document."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\rayong.json",
+    "old": "班佩外海海水清澈的岛屿，有白沙滩、Ao Phrao湾，还有可以游泳浮潜的小海湾",
+    "new": "班佩外海海水清澈的岛屿，有白沙滩、帕劳湾，还有可以游泳浮潜的小海湾",
+    "reason": "Same leftover untranslated Thai/English place name \"Ao Phrao\" recurring in the attractions entry; should match Chinese transliteration style used throughout."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\rayong.json",
+    "old": "\"name\": \"泰式烤肉与street food\",",
+    "new": "\"name\": \"泰式烤肉与街头小吃\",",
+    "reason": "Leftover untranslated English \"street food\" in a section name field where every other entry in the file is fully in Chinese."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\rayong.json",
+    "old": "位于克莱县的一座纪念碑，纪念这位伟大诗人，也是他父亲的家乡，周围有取材自《帕阿派玛尼》的人物雕像可供参观",
+    "new": "位于克莱县的一座纪念碑，纪念这位伟大诗人，克莱县正是他父亲的家乡，周围有取材自《帕阿派玛尼》的人物雕像可供参观",
+    "reason": "Dangling clause \"也是他父亲的家乡\" has no clear subject and reads as ungrammatical machine translation; needs to explicitly state that Klaeng district is his father's hometown."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\trat.json",
+    "old": "本府最大的岛屿，有白沙滩、白莎滩、丛林瀑布，住宿选择从平房到度假村一应俱全。从塔玛差码头坐船过去很快。",
+    "new": "本府最大的岛屿，有白沙滩、红沙滩、丛林瀑布，住宿选择从平房到度假村一应俱全。从塔玛差码头坐船过去很快。",
+    "reason": "\"白莎滩\" is a homophone typo/duplicate of \"白沙滩\" (same beach listed twice); the parallel attraction entry for Koh Chang correctly lists \"白沙滩、红沙滩\" (White Sand Beach, Red Beach) as two distinct real beaches, so this should match for factual consistency."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\sukhothai.json",
+    "old": "这座城市的招牌美食，加长豆、花生和炖猪肉，汤底偏甜 — 城里到处都能吃到。",
+    "new": "这座城市的招牌美食，配长豆、花生和炖猪肉，汤底偏甜 — 城里到处都能吃到。",
+    "reason": "\"加长豆\" reads awkwardly as if it fuses into \"加长\"(elongate) + \"豆\"; the rest of the corpus (krabi.json, phang-nga.json, surat-thani.json) consistently pairs the ingredient with \"配\"/uses \"长豆\"/\"长豆角\" for yardlong beans, so \"配长豆\" matches the established natural phrasing."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\sukhothai.json",
+    "old": "这座城市的招牌菜 — 细米粉配偏甜的汤底，加长豆片、花生和猪肉。有好几家知名老店。",
+    "new": "这座城市的招牌菜 — 细米粉配偏甜的汤底，配长豆片、花生和猪肉。有好几家知名老店。",
+    "reason": "\"加长豆片\" has the same fused, unnatural reading as \"加长\"(elongate) + \"豆片\"; matches the corpus convention of using \"配\" before the ingredient list."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\phetchabun.json",
+    "old": "每年雨季转凉时，曼谷和中部平原的人喜欢开车上碧差汶避暑。",
+    "new": "每年天气转凉时，曼谷和中部平原的人喜欢开车上碧差汶避暑。",
+    "reason": "\"雨季转凉\" incorrectly conflates Thailand's rainy season with the cool season; the file's own bestTime field states the cool/foggy season runs Nov-Jan, unrelated to the rainy season, so \"雨季\" here is a factual/logical mismatch — natural phrasing is simply \"天气转凉时\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\phetchabun.json",
+    "old": "普塔伯山上有层层叠叠的高丽菜田，还能顺路去苗族村落逛逛。",
+    "new": "普塔伯山上有层层叠叠的卷心菜田，还能顺路去苗族村落逛逛。",
+    "reason": "\"高丽菜\" is a Taiwanese/Southern-Min regional term for cabbage, not standard Simplified Chinese vocabulary used elsewhere on the site; \"卷心菜\" is the natural mainland-standard term expected in Simplified Chinese travel content."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\phetchabun.json",
+    "old": "全府海拔最高的地方，层层叠叠的高丽菜田是这里的招牌景色。冬天要早起才能看到云海和刺骨的寒气",
+    "new": "全府海拔最高的地方，层层叠叠的卷心菜田是这里的招牌景色。冬天要早起才能看到云海和刺骨的寒气",
+    "reason": "\"高丽菜\" is a Taiwanese/Southern-Min regional term for cabbage, not standard Simplified Chinese vocabulary; should match \"卷心菜\" used consistently for a mainland-simplified-Chinese audience."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\phetchabun.json",
+    "old": "全府海拔最高点。可以看到层层叠叠的高丽菜田和清晨的云海，冬天寒气逼人",
+    "new": "全府海拔最高点。可以看到层层叠叠的卷心菜田和清晨的云海，冬天寒气逼人",
+    "reason": "\"高丽菜\" is a Taiwanese/Southern-Min regional term for cabbage, not standard Simplified Chinese vocabulary; should be \"卷心菜\" for consistency and native-fluency."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\pattaya.json",
+    "old": "在芭提雅可以按自己喜欢的氛围选区域。芭提雅中天海滩热闹，紧挨着商场和步行街；中天海滩更长也更安静，适合带小孩的家庭；那卡鲁阿—旺阿曼海滩一带则比较平静。",
+    "new": "在芭提雅可以按自己喜欢的氛围选区域。芭提雅海滩热闹，紧挨着商场和步行街；中天海滩更长也更安静，适合带小孩的家庭；那卡鲁阿—旺阿曼海滩一带则比较平静。",
+    "reason": "介绍段把两个不同的海滩都写成\"中天海滩\"（Jomtien Beach）——紧挨商场和步行街、热闹喧嚣的其实是芭提雅海滩（Pattaya Beach），与highlights/attractions里正确描述为\"更长更安静\"的中天海滩是两处不同地方，重名造成事实混淆。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\huahin.json",
+    "old": "就在华欣—차암公路上，很适合家庭出游。",
+    "new": "就在华欣—差安公路上，很适合家庭出游。",
+    "reason": "地名中混入了韩文音节\"차암\"（应为泰国地名差安 Cha-am 的中文音译），属于脚本/文字错误，读者会看到无法辨识的外语字符。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-larn.json",
+    "old": "\"tagline\": \"芭提雅外海的清水海岛——白沙海滩、浮潜、水上运动，从春武里坐船就能轻松一日往返\",",
+    "new": "\"tagline\": \"芭提雅外海的清澈海岛——白沙海滩、浮潜、水上运动，从春武里坐船就能轻松一日往返\",",
+    "reason": "\"清水\" (plain/tap water) is an unnatural rendering of \"clear water\" in a travel context; the site consistently uses \"清澈海岛\" elsewhere (e.g. koh-lipe.json, krabi.json, pattaya.json) and this file itself uses \"清澈\" correctly in bestTime."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-larn.json",
+    "old": "这是一处清水度假地，来自曼谷的游客和旅人常来这里玩个一日游或住一晚",
+    "new": "这是一处清澈海岛度假地，来自曼谷的游客和旅人常来这里玩个一日游或住一晚",
+    "reason": "\"清水度假地\" reads unnaturally (\"plain-water resort\"); should match the site's standard \"清澈\" phrasing for clear tropical water."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-larn.json",
+    "old": "\"芭提雅到兰岛——一场清水海上一日游\",",
+    "new": "\"芭提雅到兰岛——一场清澈海岛一日游\",",
+    "reason": "\"清水海上一日游\" is awkward and non-idiomatic; other itinerary lines and files use \"清澈海岛\" for this recurring descriptor."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-larn.json",
+    "old": "一处小而宁静的海滩，海水非常清澈，适合躲开人潮。氛围private，沙滩边有几家小餐厅。",
+    "new": "一处小而宁静的海滩，海水非常清澈，适合躲开人潮。私密感很强，沙滩边有几家小餐厅。",
+    "reason": "Leftover untranslated English word \"private\" left in a Chinese sentence; every comparable beach description elsewhere on the site (koh-kood.json, koh-mak.json) uses the natural Chinese \"私密感\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-kood.json",
+    "old": "\"tagline\": \"达叻府最边远的一座静谧海岛——考龙差瀑布、白沙碧海、几百年树龄的大马哈树，还有老渔村的日子\",",
+    "new": "\"tagline\": \"达叻府最边远的一座静谧海岛——考龙差瀑布、白沙碧海、几百年树龄的马卡巨树，还有老渔村的日子\",",
+    "reason": "\"大马哈\" is a mistransliteration of the Thai tree name \"มะค่า\" (Makha); in Chinese \"大马哈\" specifically means chum salmon (大马哈鱼), which is factually confusing for a tree — should render the plant name, not a fish name."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-kood.json",
+    "old": "{ \"name\": \"大马哈树\", \"blurb\": \"库德岛森林深处一棵几百年树龄的大马哈蒙树，树干粗到要好几个人才能合抱——很适合停下来拍照、亲近自然。\" },",
+    "new": "{ \"name\": \"马卡巨树\", \"blurb\": \"库德岛森林深处一棵几百年树龄的马卡蒙巨树，树干粗到要好几个人才能合抱——很适合停下来拍照、亲近自然。\" },",
+    "reason": "\"大马哈\"/\"大马哈蒙\" mistransliterates the Thai Makha (มะค่า/มะค่าโมง) tree name as \"chum salmon,\" and is inconsistent even within this file (name field vs blurb differ)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-kood.json",
+    "old": "{ \"name\": \"大马哈树\", \"kind\": \"nature\", \"blurb\": \"森林里一棵几百年树龄的大马哈蒙树，树干粗到要好几个人才能合抱——是个亲近自然、拍照的好地方。\" },",
+    "new": "{ \"name\": \"马卡巨树\", \"kind\": \"nature\", \"blurb\": \"森林里一棵几百年树龄的马卡蒙巨树，树干粗到要好几个人才能合抱——是个亲近自然、拍照的好地方。\" },",
+    "reason": "Same mistransliteration of the Makha tree name as chum salmon, repeated in the attractions list."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-kood.json",
+    "old": "\"库德岛自然系玩法——瀑布、大马哈树、森林徒步\",",
+    "new": "\"库德岛自然系玩法——瀑布、马卡巨树、森林徒步\",",
+    "reason": "Same mistransliteration of the Makha tree name in the itinerary idea line."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-kood.json",
+    "old": "岛上物价比本岛贵，因为什么都得靠船运进来",
+    "new": "岛上物价比本土贵，因为什么都得靠船运进来",
+    "reason": "\"本岛\" literally means \"this same island,\" making the price comparison self-contradictory; the intended meaning (mainland Thailand) requires \"本土,\" which koh-mak.json uses correctly for the identical comparison."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-lipe.json",
+    "old": "岛上的东西比本岛贵，因为一切物资都得靠船运进来。",
+    "new": "岛上的东西比本土贵，因为一切物资都得靠船运进来。",
+    "reason": "\"本岛\" literally means \"this same island,\" creating a nonsensical self-comparison; should be \"本土\" (mainland), matching the correct usage in koh-mak.json for the same comparison."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-zh\\koh-lipe.json",
+    "old": "{ \"name\": \"新鲜海鲜\", \"note\": \"芭提雅海滩和步行街沿线的餐厅供应新鲜海鲜 — 虾、贝类、螃蟹、鱼，用烤、蒸或炒的方式料理。价格比本岛贵一些，但能就着清澈海水享用。\" },",
+    "new": "{ \"name\": \"新鲜海鲜\", \"note\": \"芭提雅海滩和步行街沿线的餐厅供应新鲜海鲜 — 虾、贝类、螃蟹、鱼，用烤、蒸或炒的方式料理。价格比本土贵一些，但能就着清澈海水享用。\" },",
+    "reason": "Same \"本岛\" self-contradiction (comparing the island's seafood prices to \"this same island\") in the foodScene entry; should read \"本土\" (mainland) as intended."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\first-time-thailand.json",
+    "old": "不确定怎么分配天数？告诉我们免费的AI规划器你的日期和节奏，它会帮你生成路线",
+    "new": "不确定怎么分配天数？把你的日期和节奏告诉我们免费的AI行程规划器，它会帮你生成路线",
+    "reason": "Garbled ditransitive construction: \"告诉我们免费的AI规划器\" reads as \"tell us, the free AI planner\" (missing possessive linkage) instead of \"tell our free AI planner\" — confusing object order that doesn't match the natural \"用/让 + 规划器\" CTA pattern used consistently everywhere else in the corpus (e.g. northern-thailand-itinerary.json, southern-thailand-itinerary.json use \"用我们的免费 AI 行程规划器\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "不含国际机票，背包客10天大约每天40–60美元，中档每天约80–150美元，高端则可以舒适地更高。",
+    "new": "不含国际机票，背包客10天大约每天40–60美元，中档每天约80–150美元，高端消费则舒适得多。",
+    "reason": "\"高端则可以舒适地更高\" is a garbled, literal machine-translation of \"comfortably more at the top end\" — ungrammatical Chinese. Sibling itinerary files (7-day, 2-week) render the same English source sentence naturally as \"高端消费则舒适得多\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "海岛玩3–4天（莱莉海滩、跳岛）。用两段提前预订的短途国内航班串起各段行程。",
+    "new": "海岛玩3–4天（莱利海滩、跳岛）。用两段提前预订的短途国内航班串起各段行程。",
+    "reason": "\"莱莉\" is a non-standard transliteration of Railay Beach; every other itinerary/comparison article on the site (7-day, 2-week, 3-week, honeymoon, southern-thailand, krabi-vs-phuket) consistently uses \"莱利\", so this file's naming is inconsistent and less recognizable."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "莱莉海滩、奥南、跳岛（皮皮岛、宏岛）、海滩",
+    "new": "莱利海滩、奥南、跳岛（皮皮岛、宏岛）、海滩",
+    "reason": "\"莱莉\" should be \"莱利\" (Railay Beach) to match the standard transliteration used consistently across all other site itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "从清迈飞往甲米（通常经曼谷快速中转），落脚在奥南或莱莉。这是你的海滩与游船时段。",
+    "new": "从清迈飞往甲米（通常经曼谷快速中转），落脚在奥南或莱利。这是你的海滩与游船时段。",
+    "reason": "\"莱莉\" should be \"莱利\" (Railay Beach) to match the standard transliteration used consistently across all other site itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "<strong>第7天：</strong>抵达，安顿在奥南，或乘长尾船前往无车的 <strong>莱莉</strong>，欣赏峭壁与宁静的海滩",
+    "new": "<strong>第7天：</strong>抵达，安顿在奥南，或乘长尾船前往无车的 <strong>莱利</strong>，欣赏峭壁与宁静的海滩",
+    "reason": "\"莱莉\" should be \"莱利\" (Railay Beach) to match the standard transliteration used consistently across all other site itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "奥南适合餐厅和搭乘渡轮；莱莉适合峭壁与宁静。",
+    "new": "奥南适合餐厅和搭乘渡轮；莱利适合峭壁与宁静。",
+    "reason": "\"莱莉\" should be \"莱利\" (Railay Beach) to match the standard transliteration used consistently across all other site itinerary articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\thailand-10-day-itinerary.json",
+    "old": "\"note\": \"排名 · 奥南与莱莉\"",
+    "new": "\"note\": \"排名 · 奥南与莱利\"",
+    "reason": "\"莱莉\" should be \"莱利\" (Railay Beach) to match the standard transliteration used consistently across all other site itinerary articles. This appears twice in the file at the staycta block and the rail block, both need the same fix."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-zh\\yi-peng-lantern-festival.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 分钟阅读\",",
+    "reason": "Leftover untranslated English in an otherwise fully Chinese file — the sibling itinerary articles (thailand-honeymoon-itinerary.json, thailand-with-kids-itinerary.json) already use the consistent localized pattern \"X 分钟阅读\" for this same field."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ru.json",
+    "old": "\"nl_sub\": \"Присоединяйся к рассылке — лучшие отели, новые места для еды и провинции, которые мы только что добавили, и мы сообщим тебе первым\",",
+    "new": "\"nl_sub\": \"Присоединяйся к рассылке — узнавай первым про лучшие отели, новые места для еды и провинции, которые мы только что добавили\",",
+    "reason": "The original is an ungrammatical calque of the English list structure: the relative clause \"которые мы только что добавили\" awkwardly dangles off only the last item, and the trailing \"и мы сообщим тебе первым\" has no clear object, reading as unnatural machine translation. Restructuring around \"узнавай первым про...\" makes it a single natural Russian sentence."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ru.json",
+    "old": "\"mich_c4s\": \"137 отличных мест по цене\",",
+    "new": "\"mich_c4s\": \"137 мест с отличным соотношением цены и качества\",",
+    "reason": "\"137 отличных мест по цене\" is an unclear literal calque of \"137 great-value picks\" — \"по цене\" alone doesn't convey value-for-money in Russian and reads as a dangling, confusing modifier."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ru.json",
+    "old": "\"hot_sub\": \"Выбрано из настоящих отзывов гостей, цены сравнены по Agoda · Booking · Trip.com\",",
+    "new": "\"hot_sub\": \"Выбрано из настоящих отзывов гостей, цены сравнены на Agoda · Booking · Trip.com\",",
+    "reason": "\"сравнены по Agoda\" is an awkward literal calque of \"compared across Agoda\" — natural Russian uses the preposition \"на\" (on the platforms), not \"по\", when saying prices were compared across booking sites."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ru.json",
+    "old": "\"Big Buddha, islands, shows\": \"Большой Будда, старый город, туры на острова, шоу\",",
+    "new": "\"Big Buddha, islands, shows\": \"Большой Будда, острова, шоу\",",
+    "reason": "The Russian translation fabricates an extra item, \"старый город\" (old town), that does not exist in the English source (a 3-item list for Phuket attractions), and needlessly expands \"islands\" into \"туры на острова\" (island tours) inconsistent with how the same word is rendered in sibling entries (e.g. \"4 Islands, Railay, Emerald Pool\" → \"4 острова, ...\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ru.json",
+    "old": "\"Muay Thai\": \"Смотреть и учить тайский бокс\",",
+    "new": "\"Muay Thai\": \"Смотреть и учиться тайскому боксу\",",
+    "reason": "Grammar error/wrong verb: \"учить тайский бокс\" means \"to teach Thai boxing\" (transitive \"учить\" + accusative object), not \"to learn/study\" it; the intended meaning (learning Muay Thai as a visitor) requires the reflexive \"учиться\" with the dative case (\"учиться тайскому боксу\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ru.json",
+    "old": "\"from /night\": \"от/ночь\",",
+    "new": "\"from /night\": \"от /ночь\",",
+    "reason": "Missing space before the slash, inconsistent with the identical sibling string \"From /night\" which is correctly rendered as \"От /ночь\" elsewhere in the same file."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\krabi.json",
+    "old": "Сюда поднимаются ради заслуг и вида без исключений.",
+    "new": "Сюда поднимаются ради заслуг и вида.",
+    "reason": "\"без исключений\" (without exceptions) is a nonsensical tail that doesn't logically connect to the sentence — reads as a mistranslation artifact; the parallel attractions entry for the same temple correctly ends the thought at \"заслуг и вида\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\krabi.json",
+    "old": "Природное место в лесу — контраст морскому побережью.",
+    "new": "Природное место в лесу — контраст морскому побережью, до которого рукой подать.",
+    "reason": "PLACEHOLDER_WILL_BE_OVERWRITTEN"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\krabi.json",
+    "old": "с горячим вытяжным чаем на стороне.",
+    "new": "и запивают горячим вытяжным чаем.",
+    "reason": "\"на стороне\" is a literal English calque (\"on the side\") that is not natural Russian for accompanying a meal; natural phrasing matches the parallel construction used in the Phuket file (\"запивают горячим вытяжным чаем\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\phuket.json",
+    "old": "Местное хоккиенское блюдо, которое найдёшь в старых закусочных старого города.",
+    "new": "Местное хоккиенское блюдо, которое найдёшь в старых закусочных исторического квартала.",
+    "reason": "Redundant repetition of \"старых/старого\" (old eateries of the OLD town) reads clunky; varying the second occurrence removes the tautology."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chiang-rai.json",
+    "old": "Чианграй — самая северная провинция Таиланда, город, по которому можно неспешно бродить весь день и не заскучать.",
+    "new": "Чианграй — город в самой северной провинции Таиланда, по которому можно неспешно бродить весь день и не заскучать.",
+    "reason": "The original calls the same subject both \"провинция\" and \"город\" in one appositive chain, which is grammatically confusing and contradicts the tagline that calls it a city; fixed to describe it consistently as a city in the northernmost province."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chiang-rai.json",
+    "old": "Местные блюда горных общин, живущих в горах, с непривычными вкусами",
+    "new": "Местные блюда горных общин с непривычными вкусами",
+    "reason": "Tautological repetition: \"горных общин, живущих в горах\" redundantly restates \"mountain\" twice (mountain communities living in the mountains)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chiang-rai.json",
+    "old": "с кафе, где можно посидеть и попить чай над холмами.",
+    "new": "с кафе, где можно посидеть и попить чай с видом на холмы.",
+    "reason": "\"попить чай над холмами\" (drink tea above the hills) is an awkward literal calque; natural Russian expresses this as \"с видом на холмы\" (with a view of the hills)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chiang-mai.json",
+    "old": "блюдо, по которому скучаешь после Чиангмая больше всего",
+    "new": "блюдо, по которому скучаешь больше всего, уехав из Чиангмая",
+    "reason": "\"скучаешь после Чиангмая\" is an unnatural calque (missing something \"after\" a place rather than after leaving it); natural Russian ties the missing to leaving/departure."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chonburi.json",
+    "old": "Это провинция с пляжем Бангсэн, куда приезжают посидеть у воды, вечно бодрствующей Паттайей и островом Кохларн, куда можно сплавать на лодке и провести день у моря.",
+    "new": "Здесь и пляж Бангсэн, куда приезжают посидеть у воды, и вечно бодрствующая Паттайя, и остров Кохларн, куда можно сплавать на лодке и провести день у моря.",
+    "reason": "Original is a confusing run-on calque that crams three list items (пляжем Бангсэн / Паттайей / островом Кохларн) around two relative clauses in instrumental case, reading like unnatural machine translation; restructured into clear parallel Russian syntax."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chonburi.json",
+    "old": "\"name\": \"Санктуарий Истины\",\n      \"kind\": \"culture\",\n      \"blurb\": \"Резное деревянное святилище у моря в северной Паттайе",
+    "new": "\"name\": \"Святилище Истины\",\n      \"kind\": \"culture\",\n      \"blurb\": \"Резное деревянное святилище у моря в северной Паттайе",
+    "reason": "\"Санктуарий\" is an unnatural English-calque transliteration, not a real Russian word; the file's own blurb calls the place a \"святилище\" (shrine), and the standard Russian name for this landmark is \"Святилище Истины\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\chonburi.json",
+    "old": "\"Чонбури, осмотр Паттайи — пляж, Санктуарий Истины, Нонгнуч\",",
+    "new": "\"Чонбури, осмотр Паттайи — пляж, Святилище Истины, Нонгнуч\",",
+    "reason": "Same unnatural calque \"Санктуарий\" repeated in the itinerary idea list; corrected to match the natural Russian name used consistently elsewhere for this landmark."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\phang-nga.json",
+    "old": "Возьми лонгтейл от пирса, пройди сквозь морские пещеры и весь день гребите на каяке среди мангровых зарослей",
+    "new": "Возьми лонгтейл от пирса, пройди сквозь морские пещеры и весь день греби на каяке среди мангровых зарослей",
+    "reason": "Verb form switches from informal ты-imperative (\"Возьми\", \"пройди\") to formal/plural imperative (\"гребите\") mid-sentence, breaking the consistent informal ты tone used throughout the site."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\nan.json",
+    "old": "\"blurb\": \"Хранительная ступа Нана, золотой чеди на возвышенности, видимый издалека, — святилище года кролика\"",
+    "new": "\"blurb\": \"Главная ступа-святыня Нана, золотой чеди на возвышенности, видимое издалека, — святилище для рождённых в год Кролика\"",
+    "reason": "\"Хранительная\" is not a natural Russian adjective (unnatural calque); \"видимый\" fails to agree in gender with the neuter indeclinable noun \"чеди\" (should be \"видимое\", as used elsewhere on the site, e.g. samui.json \"ориентир, видимый издалека\" vs pattaya.json \"фото, видимое издалека\"); and \"святилище года кролика\" is an awkward literal calque — natural Russian needs a preposition/construction like \"для рождённых в год Кролика\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\sukhothai.json",
+    "old": "втиснутая в узкий мондоп — фото-остановка, которую делает каждый в Сукхотхае.",
+    "new": "втиснутая в узкий мондоп — снимок, который делает в Сукхотхае каждый.",
+    "reason": "\"фото-остановка\" is an unnatural English calque (\"photo stop\"); a native speaker would phrase this around the photo/shot itself, not an invented \"photo-stop\" noun."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\sukhothai.json",
+    "old": "рядами статуй Будды — один из лучших фото-споров.",
+    "new": "рядами статуй Будды — одно из лучших мест для фото.",
+    "reason": "\"фото-споров\" is the genitive of \"фото-спор\" (photo-argument/dispute), a wrong word entirely — it should refer to a photo spot, not a dispute."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\koh-phangan.json",
+    "old": "В Панган можно приехать, чтобы вечеринка, чтобы найти тишину или чтобы отдохнуть и восстановить силы.",
+    "new": "В Панган можно приехать, чтобы оторваться на вечеринке, чтобы найти тишину или чтобы отдохнуть и восстановить силы.",
+    "reason": "Broken grammar: \"чтобы вечеринка\" has no verb, leaving the first clause of this three-part parallel structure ungrammatical."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\hat-yai.json",
+    "old": "Хатъяй в Сонгкхлу — сино-старый город и пляж Самила",
+    "new": "Хатъяй в Сонгкхлу — сино-португальский старый город и пляж Самила",
+    "reason": "\"сино-старый город\" is a garbled/truncated calque (\"sino-\" left dangling without \"португальский\"), unlike the correct full form \"сино-португальский\" used elsewhere in the same file and dataset."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\pai.json",
+    "old": "пешеходная улица, каньон Пай и историческй мост времён Второй мировой",
+    "new": "пешеходная улица, каньон Пай и исторический мост времён Второй мировой",
+    "reason": "Typo: \"историческй\" is missing the letter \"и\" — should be \"исторический\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\pai.json",
+    "old": "Дорога в Пай из Чиангмая насчитывает 762 поворота, так что тем, кого укачивает, стоит взять с собой что-нибудь от этого.",
+    "new": "Дорога в Пай из Чиангмая насчитывает 762 поворота, так что тем, кого укачивает, стоит взять с собой таблетки от укачивания.",
+    "reason": "\"что-нибудь от этого\" is a vague, awkward calque; natural Russian names the remedy directly (\"таблетки от укачивания\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\pattaya.json",
+    "old": "Пляжи Тавэн, Самэ и Нуан со белым песком и чистой водой — самая популярная морская поездка из Паттайи.",
+    "new": "Пляжи Тавэн, Самэ и Нуан с белым песком и чистой водой — самая популярная морская поездка из Паттайи.",
+    "reason": "Wrong preposition form: \"со\" is used before certain consonant clusters, not before \"белым\" — should be \"с белым песком\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\pattaya.json",
+    "old": "Пляжи Тавэн, Самэ и Нуан со белым песком и чистой водой — популярная морская поездка.",
+    "new": "Пляжи Тавэн, Самэ и Нуан с белым песком и чистой водой — популярная морская поездка.",
+    "reason": "Wrong preposition form (duplicate of the highlights entry): \"со белым\" should be \"с белым\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\samui.json",
+    "old": "Большинство представляет Самуи как Чавенг — длинный, оживлённый пляж",
+    "new": "Большинство представляет себе Самуи как Чавенг — длинный, оживлённый пляж",
+    "reason": "Missing reflexive \"себе\": \"представлять\" without \"себе\" means \"to represent/introduce\", not \"to picture/imagine\" — an English calque that reads as a grammar slip."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\khao-yai.json",
+    "old": "заскочи на дегустацию на винодельни GranMonte и PB Valley",
+    "new": "заскочи на винодельни GranMonte и PB Valley на дегустацию",
+    "reason": "Awkward back-to-back \"на ... на\" construction reads like a literal calque; reordering fixes the clunky repetition."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\koh-lipe.json",
+    "old": "лучшее время для снорклинга и поездок по островам на лодке, это открытый сезон острова.",
+    "new": "лучшее время для снорклинга и поездок по островам на лодке — это высокий сезон.",
+    "reason": "\"открытый сезон острова\" is an unnatural literal calque of \"open season\"; every sibling file (koh-chang, koh-kood, koh-mak, etc.) correctly uses the standard Russian tourism term \"высокий сезон\" for this exact meaning."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\koh-lipe.json",
+    "old": "подают свежие морепродукты — креветки, моллюски, крабов, рыбу — на гриле, на пару или обжаренные.",
+    "new": "подают свежие морепродукты — креветки, моллюски, крабы, рыбу — на гриле, на пару или обжаренные.",
+    "reason": "Case agreement breaks mid-list: \"крабов\" switches to animate accusative while the rest of the list (\"креветки, моллюски\") and every parallel list in sibling files use the inanimate-style accusative (\"креветки, моллюски, крабы и рыба\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\koh-lipe.json",
+    "old": "То, что никто не пропускает в поездке на Липе.",
+    "new": "Морская поездка, которую не стоит пропускать на Липе.",
+    "reason": "\"То, что никто не пропускает\" is a stiff, unnatural calque of the English \"the thing nobody skips\"; the parallel highlight in koh-chang.json renders the identical English phrase idiomatically as \"поездка, которую не стоит пропускать\" — this file should match that natural pattern."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ru\\koh-larn.json",
+    "old": "лёгкая поездка на день по морю из Чонбури",
+    "new": "лёгкая однодневная поездка по морю из Чонбури",
+    "reason": "\"поездка на день\" is an awkward literal calque of \"day trip\"; the correct, natural Russian tourism term \"однодневная поездка\" is used consistently everywhere else in the corpus, including elsewhere in this same file's itineraryIdeas."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\first-time-thailand.json",
+    "old": "\"q\": \"Хорошее ли направление Таиланд для первой поездки новичка?\",",
+    "new": "\"q\": \"Таиланд — хорошее направление для первой поездки новичка?\",",
+    "reason": "Awkward calque word order (\"Хорошее ли направление Таиланд...\" mirrors English \"Is Thailand a good destination...\"); natural Russian puts the subject Таиланд first with a dash before the predicate."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\first-time-thailand.json",
+    "old": "\"a\": \"Да — Таиланд одна из самых простых стран для первой поездки.",
+    "new": "\"a\": \"Да — Таиланд одна из самых простых стран для первой поездки.\" ",
+    "reason": "placeholder-not-used"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-10-day-itinerary.json",
+    "old": "\"readTime\": \"11 min read\",",
+    "new": "\"readTime\": \"чтение 11 мин\",",
+    "reason": "Leftover untranslated English string — every sibling itinerary article in this batch (and site-wide) has readTime localized into Russian (e.g. \"чтение 13 мин\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-10-day-itinerary.json",
+    "old": "лонгтейл на бесмашинный <strong>Рейли</strong>",
+    "new": "лонгтейл на безмашинный <strong>Рейли</strong>",
+    "reason": "\"Бесмашинный\" is not a standard Russian word (wrong prefix); the correct adjective is \"безмашинный\", used correctly in the sister 2-week and 3-week articles for the same place (Railay)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-10-day-itinerary.json",
+    "old": "\"note\": \"Рейтинг · старый город и Ниммана\"",
+    "new": "\"note\": \"Рейтинг · старый город и Нимман\"",
+    "reason": "Wrong case — \"Ниммана\" is genitive but the phrase needs nominative \"Нимман\" (matches how every other article in the site refers to this Chiang Mai neighborhood, e.g. \"старый город и Нимман\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-10-day-itinerary.json",
+    "old": "\"note\": \"Старый город и Ниммана\"",
+    "new": "\"note\": \"Старый город и Нимман\"",
+    "reason": "Wrong case — \"Ниммана\" is genitive but the phrase needs nominative \"Нимман\" (matches usage in every other sister article for this Chiang Mai neighborhood)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-1-month-itinerary.json",
+    "old": "Спускайтесь часовым перелётом или живописным ночным поездом; о компромиссах смотрите",
+    "new": "Доберитесь часовым перелётом или живописным ночным поездом; о компромиссах смотрите",
+    "reason": "\"Спускайтесь\" (descend) is an awkward literal calque of the English idiom \"come down\" for travelling to a city — unnatural in Russian, which doesn't use \"спускаться\" for this kind of travel; \"доберитесь\" reads naturally."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-1-month-itinerary.json",
+    "old": "чередуйте утренний осмотр с рабочими днями и ешьте, продвигаясь через весь город.",
+    "new": "чередуйте утренний осмотр с рабочими днями и пробуйте еду по всему городу.",
+    "reason": "\"Ешьте, продвигаясь через весь город\" is an unnatural literal calque of the English phrase \"eat your way across town\" — reads as machine translation; rephrased to a natural Russian equivalent."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-2-week-itinerary.json",
+    "old": "по храмам старого города (Ват Чеди Луанг, Ват Пхра Синг); закат на Дой Сутхеп над городом. Билеты и туры на странице",
+    "new": "по храмам старого города (Ват Чеди Луанг, Ват Пхра Сингх); закат на Дой Сутхеп над городом. Билеты и туры на странице",
+    "reason": "Temple name truncated — \"Ват Пхра Синг\" drops the final х; the correct transliteration \"Ват Пхра Сингх\" is used consistently in the sister 1-month and 10-day itinerary articles in this same batch."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\yi-peng-lantern-festival.json",
+    "old": "\"readTime\": \"10 min read\",",
+    "new": "\"readTime\": \"10 мин чтения\",",
+    "reason": "Leftover untranslated English string in an otherwise fully Russian file; the other three sibling articles all use a Russian readTime label (e.g. \"11 мин чтения\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\yi-peng-lantern-festival.json",
+    "old": "Чиангмай — лучший выбор, если вам нужны и небесные фонари.",
+    "new": "Чиангмай — лучший выбор, если вам нужны и небесные фонари, и Лой Кратонг.",
+    "reason": "Broken/truncated comparative construction: \"нужны и небесные фонари\" (\"you need both... sky lanterns\") promises a second item via \"и\" that is never named, reading as an unfinished machine-translated sentence."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ru\\thailand-7-day-itinerary.json",
+    "old": "\"readTime\": \"чтение 10 мин\",",
+    "new": "\"readTime\": \"10 мин чтения\",",
+    "reason": "Awkward word order (calque-like \"чтение 10 мин\") inconsistent with the natural \"X мин чтения\" pattern used in the other three sibling articles."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ko.json",
+    "old": "\"why_b4\": \"모든 후기에 「이런 분은 피하세요」 섹션이 있어 나에게 맞는 곳을 고를 수 있습니다\",",
+    "new": "\"why_b4\": \"모든 후기에 \\\"이런 분은 피하세요\\\" 섹션이 있어 나에게 맞는 곳을 고를 수 있습니다\",",
+    "reason": "Uses Japanese-style corner brackets 「」 instead of standard Korean quotation marks; reads as a leftover foreign typographic convention rather than native Korean punctuation."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ko.json",
+    "old": "\"t\": \"태국 최남단 주 — 완벽한 원형으로 설계된 도시, 그리고 아이여웽 운해, 오래된 터널, 호키엔 중국 음식이 있는 베똥\"",
+    "new": "\"t\": \"태국 최남단 주 — 완벽한 원형으로 설계된 도시, 아이여웽 운해, 오래된 터널, 호키엔 중국 음식이 있는 베똥\"",
+    "reason": "Stray \"그리고\" (and) breaks the comma-list phrasing pattern used consistently in every other province tagline in this file, reading as an awkward machine-translation artifact."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ko.json",
+    "old": "\"Sanctuary, Nong Nooch, Koh Larn\": \"사찬 사원, 농눗 빌리지, 란섬\",",
+    "new": "\"Sanctuary, Nong Nooch, Koh Larn\": \"진리의 성전, 농눗 빌리지, 란섬\",",
+    "reason": "\"Sanctuary\" refers to the Sanctuary of Truth (Wat Prasat Mai), Pattaya's famous all-wood temple/museum — universally rendered in Korean travel content as \"진리의 성전\" (or \"진실의 성전\"). \"사찬 사원\" is not a recognized name for this landmark and would confuse Korean readers looking for this attraction."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\phuket.json",
+    "old": "오따오는 굴을 반죽과 타로에 버무려 튀긴 요리로 겉은 바삭하고 속은 부드럽습니다. 딤섬, 아침 딤섬과 함께 즐기는 인기 있는 올드타운 간식입니다.",
+    "new": "오따오는 굴을 반죽과 타로에 버무려 튀긴 요리로 겉은 바삭하고 속은 부드럽습니다. 아침 딤섬과 함께 즐기는 인기 있는 올드타운 간식입니다.",
+    "reason": "Garbled/redundant phrase repeats '딤섬' twice in a row ('딤섬, 아침 딤섬과 함께') which is a duplication artifact, not natural Korean — Or Tao is not dim sum itself, it's simply enjoyed alongside morning dim sum, so the stray leading '딤섬,' should be removed."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\phuket.json",
+    "old": "선착장에서 피피섬, 코랄(해)섬, 마이톤섬, 팡응아만까지 당일 보트 투어가 다닙니다",
+    "new": "선착장에서 피피섬, 코랄섬(코해), 마이톤섬, 팡응아만까지 당일 보트 투어가 다닙니다",
+    "reason": "\"코랄(해)섬\" awkwardly splits the place name with parentheses mid-word, and a bare '해' inside parens reads like the Sino-Korean morpheme for 'sea' rather than the Thai name 'Koh Hae' — should follow the same dual-name convention used elsewhere in these files (e.g. '와로롯 시장(깟루앙)') by putting the alternate name after the full noun."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\phuket.json",
+    "old": "푸껫에서 보트를 타고 피피섬, 마이톤섬, 코랄(해)섬으로 가서 맑은 물속 산호 위를 스노클링할 수 있습니다",
+    "new": "푸껫에서 보트를 타고 피피섬, 마이톤섬, 코랄섬(코해)으로 가서 맑은 물속 산호 위를 스노클링할 수 있습니다",
+    "reason": "Same awkward mid-word parenthetical split of the place name as the other occurrence of '코랄(해)섬' — fixed for consistency and clarity."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\ayutthaya.json",
+    "old": "\"name\": \"아요타야 수상시장\",",
+    "new": "\"name\": \"아유타야 수상시장\",",
+    "reason": "Misspelled province name — every other occurrence in this file correctly renders Ayutthaya as \"아유타야\", but this entry has the typo \"아요타야\" (a different-looking, incorrect transliteration), which reads as if it names a different place."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\prachuap-khiri-khan.json",
+    "old": "\"name\": \"매끌롱과 쁘라추압 고등어\",",
+    "new": "\"name\": \"쁘라추압 고등어\",",
+    "reason": "\"매끌롱\" (Mae Klong) is the well-known mackerel-fishing area in Samut Songkhram province, not Prachuap Khiri Khan — including it here misleadingly implies Mae Klong is part of/near this province, and the accompanying note text doesn't mention it at all, describing only Prachuap's own mackerel."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\surat-thani.json",
+    "old": "\"note\": \"시내 중심과 타피 강변에는 느긋한 카페들이 있습니다, 신선한 원두를 내리는 곳부터 편히 쉬어가는 곳까지. 배를 기다리거나 도시를 거니는 사이 커피 한 잔 하기 좋습니다.\"",
+    "new": "\"note\": \"시내 중심과 타피 강변에는 느긋한 카페들이 있습니다 — 신선한 원두를 내리는 곳부터 편히 쉬어가는 곳까지 다양합니다. 배를 기다리거나 도시를 거니는 사이 커피 한 잔 하기 좋습니다.\"",
+    "reason": "Awkward comma-splice after a complete sentence (\"있습니다, 신선한...\") reads like a direct transplant of English sentence structure rather than natural Korean, which would use a dash or restart the clause."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\pai.json",
+    "old": "카오소이, 남응이여, 깽항래, 남프릭눔을 마을 곳곳의 현지 식당에서 쉽게 찾을 수 있습니다",
+    "new": "카오소이, 남응이여우, 깽항래, 남프릭눔을 마을 곳곳의 현지 식당에서 쉽게 찾을 수 있습니다",
+    "reason": "'남응이여' is a truncated/incorrect transliteration of the Northern Thai noodle dish น้ำเงี้ยว (nam ngiao); every other sibling Korean file (chiang-mai, chiang-rai, mae-hong-son, nan, sukhothai) consistently spells it '남응이여우' — this is a typo/dropped syllable."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\khao-yai.json",
+    "old": "{ \"name\": \"팜초콜라디\", \"kind\": \"nature\", \"blurb\": \"농장 투어와 젖소 착유 체험, 승마, 카우보이 쇼를 즐길 수 있는 대형 목장으로, 스테이크 하우스와 신선한 우유 아이스크림도 있습니다. 가족 여행에 좋습니다.\" },",
+    "new": "{ \"name\": \"팜초크차이\", \"kind\": \"nature\", \"blurb\": \"농장 투어와 젖소 착유 체험, 승마, 카우보이 쇼를 즐길 수 있는 대형 목장으로, 스테이크 하우스와 신선한 우유 아이스크림도 있습니다. 가족 여행에 좋습니다.\" },",
+    "reason": "'팜초콜라디' garbles the real attraction name 'Farm Chokchai' (ฟาร์มโชคชัย) into something that reads like 'chocolate' in Korean, which is factually confusing; the correct transliteration (matching the convention used in the Japanese sibling file, ファームチョクチャイ) is '팜초크차이'."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\khao-yai.json",
+    "old": "\"카오야이 3박2일 — 폭포, 팔리오, 양 농장, 와이너리까지 한 바퀴\",\n    \"방콕–카오야이 — 더위를 피하는 주말 드라이브\",\n    \"자연을 위한 카오야이 — 국립공원, 폭포, 야생동물, 운해\",\n    \"카페와 와인을 위한 카오야이 — 와이너리, 산 전망 카페, 팔리오\",\n    \"가족과 함께하는 카오야이 — 팜초콜라디, 양 농장, 워터파크\"",
+    "new": "\"카오야이 3박2일 — 폭포, 팔리오, 양 농장, 와이너리까지 한 바퀴\",\n    \"방콕–카오야이 — 더위를 피하는 주말 드라이브\",\n    \"자연을 위한 카오야이 — 국립공원, 폭포, 야생동물, 운해\",\n    \"카페와 와인을 위한 카오야이 — 와이너리, 산 전망 카페, 팔리오\",\n    \"가족과 함께하는 카오야이 — 팜초크차이, 양 농장, 워터파크\"",
+    "reason": "Same 'Farm Chokchai' name repeated in itineraryIdeas with the same garbled transliteration '팜초콜라디'; corrected to '팜초크차이' for consistency and factual accuracy."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\koh-chang.json",
+    "old": "새우, 조개, 게, 신선한 생선을 구이·찜·카레가루 볶음으로 즐기며",
+    "new": "새우, 조개, 게, 신선한 생선을 구이·찜·커리 가루 볶음으로 즐기며",
+    "reason": "\"카레가루\" is an unnatural, run-together rendering of the poo pad pong curry dish; the sibling files (krabi.json, phuket.json) consistently use the properly spaced, more natural \"커리 가루 볶음\" — this file's phrasing is an inconsistent, awkward compound."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\koh-kood.json",
+    "old": "\"tagline\": \"뜨랏 끝자락의 조용한 섬 — 클롱차오 폭포, 하얀 모래와 맑은 물, 거대한 마카 나무, 그리고 오래된 어촌 마을들\",",
+    "new": "\"tagline\": \"뜨랏 끝자락의 조용한 섬 — 클롱차오 폭포, 하얀 모래와 맑은 물, 거대한 마카몽 나무, 그리고 오래된 어촌 마을들\",",
+    "reason": "The tree's name is inconsistently transliterated: tagline and highlight/attraction \"name\" fields say \"마카 나무\" while both matching blurbs say \"마카몽 나무\" (Makamong tree) — this mismatch reads as a typo/truncation within the same file and should be made consistent."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\koh-kood.json",
+    "old": "{ \"name\": \"거대한 마카 나무\", \"blurb\": \"꼬꿋의 숲 깊은 곳에 있는 수백 년 된 거대한 마카몽 나무입니다.",
+    "new": "{ \"name\": \"거대한 마카몽 나무\", \"blurb\": \"꼬꿋의 숲 깊은 곳에 있는 수백 년 된 거대한 마카몽 나무입니다.",
+    "reason": "The highlight name field truncates \"마카몽\" to \"마카\", inconsistent with the blurb in the same object and with the attractions entry for the same landmark."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\koh-kood.json",
+    "old": "{ \"name\": \"거대한 마카 나무\", \"kind\": \"nature\", \"blurb\": \"숲속에 있는 수백 년 된 거대한 마카몽 나무로,",
+    "new": "{ \"name\": \"거대한 마카몽 나무\", \"kind\": \"nature\", \"blurb\": \"숲속에 있는 수백 년 된 거대한 마카몽 나무로,",
+    "reason": "The attractions name field truncates \"마카몽\" to \"마카\", inconsistent with its own blurb and with the highlights entry for the same landmark."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ko\\koh-kood.json",
+    "old": "\"자연을 사랑하는 사람을 위한 꼬꿋 — 폭포, 거대한 마카 나무, 숲길 산책\",",
+    "new": "\"자연을 사랑하는 사람을 위한 꼬꿋 — 폭포, 거대한 마카몽 나무, 숲길 산책\",",
+    "reason": "Itinerary idea truncates \"마카몽\" to \"마카\", inconsistent with the tree's full name used elsewhere after correction."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ko\\northern-thailand-itinerary.json",
+    "old": "\"readTime\": \"12 min read\",",
+    "new": "\"readTime\": \"12분 읽기\",",
+    "reason": "Leftover untranslated English in an otherwise fully Korean file; the other three ko articles use Korean phrasing like \"10분 읽기\"/\"10분 소요\" for this same field."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ko\\southern-thailand-itinerary.json",
+    "old": "\"readTime\": \"12 min read\",",
+    "new": "\"readTime\": \"12분 읽기\",",
+    "reason": "Leftover untranslated English in an otherwise fully Korean file; the other three ko articles use Korean phrasing like \"10분 읽기\"/\"10분 소요\" for this same field."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ko\\thailand-3-week-itinerary.json",
+    "old": "BTS/MRT 근처(수쿰빗 또는 실롬)에 거점을 잡으면 교통 체증에 지지 않습니다.",
+    "new": "BTS/MRT 근처(수쿰윗 또는 실롬)에 거점을 잡으면 교통 체증에 지지 않습니다.",
+    "reason": "Place-name spelling inconsistency: 'Sukhumvit' is rendered '수쿰윗' in the other three itinerary files (10-day, 2-week, 7-day) but '수쿰빗' only here; should match the standard site spelling."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ko\\thailand-3-week-itinerary.json",
+    "old": "안다만</strong> 섬(끄라비, 피피, 란타 — 4일)",
+    "new": "안다만</strong> 섬(끄라비, 피피, 꼬란타 — 4일)",
+    "reason": "Inconsistent short/full form of the island name within the same article's quick-answer summary; the day-by-day sections below use the fuller '꼬란타' form, so the summary should match rather than dropping to bare '란타'."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ko\\thailand-3-week-itinerary.json",
+    "old": "\"라일레이, 피피, 꼬란타, 섬 호핑, 다이빙 데이\"",
+    "new": "\"라일레이, 피피, 꼬란타, 섬 호핑, 다이빙 데이\"",
+    "reason": "placeholder-not-a-real-change"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ja.json",
+    "old": "\"t\": \"かつての王都であり世界遺産の街 — 古い寺院跡を歩き、島を自転車で巡ろう。\"",
+    "new": "\"t\": \"かつての王都であり世界遺産の街 — 古い寺院跡を歩き、島を自転車で巡ろう\"",
+    "reason": "This is the only one of all 76 province taglines that ends with a trailing Japanese period (。); every other entry ends without punctuation, so this reads as a leftover artifact/inconsistency rather than intentional style."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\homepage-i18n\\ja.json",
+    "old": "古い砦、古都サムット・プラーカーン(ムアンボーラーン)、そして海辺の魚市場",
+    "new": "古い砦、古都サムットプラーカーン(ムアンボーラーン)、そして海辺の魚市場",
+    "reason": "Katakana rendering of the province name is inconsistent within the same entry: the \"n\" field spells it \"サムットプラーカーン\" (no middle dot) but the tagline spells the same place \"サムット・プラーカーン\" (with a middle dot), making it read like two different names for the same city."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ja.json",
+    "old": "\"Half-day and full-day routes for this area are in the works — coming soon\": \"このエリアの半日・1日ルートを準備中 — レビューは近日公開\",",
+    "new": "\"Half-day and full-day routes for this area are in the works — coming soon\": \"このエリアの半日・1日ルートを準備中 — 近日公開\",",
+    "reason": "The source string is about itinerary routes being 'in the works — coming soon', but the translation says \"レビューは近日公開\" (\"reviews coming soon\") — a mismatched noun apparently copy-pasted from the neighboring 'reviews coming soon' strings; it doesn't match what the source is describing (routes/plans, not reviews)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ja.json",
+    "old": "\"Ang Thong, Koh Tao, Big Buddha\": \"アンントン諸島、コタオ島、ビッグブッダ\"",
+    "new": "\"Ang Thong, Koh Tao, Big Buddha\": \"アントン諸島、コタオ島、ビッグブッダ\"",
+    "reason": "Katakana typo: \"アンントン\" has an extra ン; the correct rendering of \"Ang Thong\" is \"アントン\"."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\hub-i18n\\ja.json",
+    "old": "\"Easy destinations, relaxed pace, health\": \"楽に周れる行き先、ゆったりしたペース、健康面の注意点\"",
+    "new": "\"Easy destinations, relaxed pace, health\": \"楽に巡れる行き先、ゆったりしたペース、健康面の注意点\"",
+    "reason": "Wrong kanji: 周れる should be 巡れる (めぐれる, \"easy to go around/tour\") — 周る is not used this way in standard Japanese; the file itself correctly uses 巡り elsewhere (e.g. \"カフェ巡り\"), confirming this instance is an error."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\bangkok.json",
+    "old": "サイアムパラゴン、セントラルワールド、エラワンプームの祠が並び、すべてスカイウォークでつながっています",
+    "new": "サイアムパラゴン、セントラルワールド、エラワン廟が並び、すべてスカイウォークでつながっています",
+    "reason": "「エラワンプームの祠」はエラワン廟(ศาลพระพรหมเอラワン)のカタカナ表記が崩れて「プーム」と「祠」が重複した不自然な訳で、日本語の観光表現としては「エラワン廟」が正しく自然。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\bangkok.json",
+    "old": "スカイウォークとBTSでつながり、エラワンプームの祠もすぐ近くにあります",
+    "new": "スカイウォークとBTSでつながり、エラワン廟もすぐ近くにあります",
+    "reason": "同上。「プーム」+「祠」の重複表記で不自然、正しくは「エラワン廟」。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\krabi.json",
+    "old": "ご飯にブードゥーソース、刻んだ野菜、炒りココナッツ、干しエビを混ぜたもので、酸味・塩味・甘味が一皿に詰まっています。",
+    "new": "ご飯にブドゥソース、刻んだ野菜、炒りココナッツ、干しエビを混ぜたもので、酸味・塩味・甘味が一皿に詰まっています。",
+    "reason": "「ブードゥーソース」はタイ南部の魚醤バードゥ(บูดู)の表記のはずが、長音表記のため日本語で「ブードゥー教(voodoo)」と紛らわしく読める誤解を招く表記になっている。「ブドゥソース」が正しい。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\phuket.json",
+    "old": "\"name\": \"イスラム系の店のロティとチャーヤン\"",
+    "new": "\"name\": \"イスラム系の店のロティとチャーヤック\"",
+    "reason": "「引き茶」(ชาชัก)の表記が同じサイト内クラビ(krabi.json)ページでは「チャーヤック」なのに対し、こちらは「チャーヤン」(=タイの氷入りミルクティー ชาเย็น と紛らわしい別の飲み物名)になっており不整合・不正確。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\phuket.json",
+    "old": "ロティとチャーヤン(引き茶)の店は朝から夜遅くまで開いています。ロティは外がカリッと中がもちもちで、カレーを添えるかミルクをかけて食べ、熱いチャーヤンと一緒にいただきます。街中やビーチ沿いで見つかります。",
+    "new": "ロティとチャーヤック(引き茶)の店は朝から夜遅くまで開いています。ロティは外がカリッと中がもちもちで、カレーを添えるかミルクをかけて食べ、熱いチャーヤックと一緒にいただきます。街中やビーチ沿いで見つかります。",
+    "reason": "同上。「チャーヤン」はタイの氷入りミルクティー(ชาเย็น)と混同しやすく、「引き茶」(ชาชัก)を指すならクラビ版と同じ「チャーヤック」に統一すべき。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\prachuap-khiri-khan.json",
+    "old": "\"name\": \"メークロンとプラチュワップのサバ\",",
+    "new": "\"name\": \"プラチュワップのサバ\",",
+    "reason": "\"メークロン\" (Mae Klong) is a district/river in Samut Songkhram province, an entirely different province from Prachuap Khiri Khan — its inclusion here factually confuses a different place with Prachuap Khiri Khan's own mackerel fishery, which the note text already describes on its own."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\trat.json",
+    "old": "\"blurb\": \"タイ最南端のタイ・カンボジア国境検問所。市場や国境グルメを見て回れます\"",
+    "new": "\"blurb\": \"タイ最東端のタイ・カンボジア国境検問所。市場や国境グルメを見て回れます\"",
+    "reason": "Factual error: Ban Hat Lek is at Thailand's easternmost point (consistent with the file's own intro calling Trat \"タイ最東端の県\"), not the southernmost point of Thailand, which lies far to the south near the Malaysian border — unrelated to Trat."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\nan.json",
+    "old": "黒い象牙の牙とナーンの物語を展示しています",
+    "new": "黒い象牙とナーンの物語を展示しています",
+    "reason": "Redundant wording: 象牙 already means \"elephant tusk/ivory\", so appending 牙 (tusk) again is repetitive; the standard Japanese name for this artifact (งาช้างดำ) is simply 黒い象牙."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\nan.json",
+    "old": "\"ナーン〜プレー、上部北部の旧市街めぐり\"",
+    "new": "\"ナーン〜プレー、タイ最北部の旧市街めぐり\"",
+    "reason": "\"上部北部\" (\"upper north\") is an awkward, unnatural calque in Japanese; native phrasing refers to the far-north region as 最北部 or 北部最奥."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\rayong.json",
+    "old": "\"blurb\": \"パクナムプラセーのコミュニティにある、見渡す限り緑金色のプロンの木々の上を歩ける木製の遊歩道があるマングローブ林\"",
+    "new": "\"blurb\": \"パクナムプラセーのコミュニティにある、緑金色のプロンの木々が見渡す限り広がるマングローブ林。木製の遊歩道が整備され、木々の上を歩くように散策できます\"",
+    "reason": "The original packs too many nested modifiers before the noun (\"...木々の上を歩ける木製の遊歩道があるマングローブ林\"), making it read as an awkward, confusing run-on rather than natural Japanese; split into two clear clauses."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\mae-hong-son.json",
+    "old": "そしてナムギヤオ麺 — どれも町のシャン族としてのルーツを映し出しています",
+    "new": "そしてナムギヤオ麺 — どれもこの町がシャン族の文化に深く根ざしていることを物語っています",
+    "reason": "\"町のシャン族としてのルーツ\" is an awkward, machine-translation-like particle/phrase construction; rephrased into a more natural native sentence with the same meaning."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\khao-yai.json",
+    "old": "食事処、撮影スポットが揃うイタリア風のヨーロピアンな村。タナーラット通り沿いの人気の散策コースです。\" },",
+    "new": "食事処、撮影スポットが揃うイタリア風の村。タナーラット通り沿いの人気の散策コースです。\" },",
+    "reason": "「イタリア風のヨーロピアンな村」は「イタリア風」と「ヨーロピアンな」が意味的に重複し、な形容詞としても不自然。同じ場所を指す attractions 側の記述（28行目）では自然に「イタリア風の村」とだけ書かれており、それに揃えるべき。"
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\koh-kood.json",
+    "old": "巨大なマカ(マコ)の木、そして古い漁村",
+    "new": "巨大なマカモンの木、そして古い漁村",
+    "reason": "Inconsistent/incorrect tree name: the tagline gives two conflicting katakana forms in parentheses (マカ/マコ), neither of which matches \"マカモン\" (Makamong) used consistently everywhere else in this same file (highlights, attractions, itinerary) — should read マカモン throughout for both accuracy and internal consistency."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\koh-lipe.json",
+    "old": "リペ島の旅で誰も欠かさない体験です。",
+    "new": "リペ島の旅で欠かせない体験です。",
+    "reason": "Unnatural, machine-translated-sounding phrasing — \"誰も欠かさない\" (literally \"no one skips it\") is not idiomatic Japanese; the natural idiom is \"欠かせない体験\" (an indispensable/must-have experience), which is exactly the pattern the parallel sentence in koh-chang.json uses (\"外せない海の旅です\")."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\koh-kood.json",
+    "old": "11月～4月は海が澄み穏やかで、遊泳やシュノーケリングに最適 — 島が全開している時期です。",
+    "new": "11月～4月は海が澄み穏やかで、遊泳やシュノーケリングに最適 — 島がベストシーズンを迎える時期です。",
+    "reason": "\"島が全開している\" is unnatural word choice — 全開 (\"fully open/wide open\", used for throttles, valves, etc.) is not idiomatically applied to a tourist season; natural phrasing is \"ベストシーズンを迎える\" or similar, as reflected by the more natural \"オープンシーズン\" wording used for the same concept in koh-lipe.json."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\_internal\\province-data-ja\\koh-mak.json",
+    "old": "11月～4月は海が澄み穏やかで、遊泳・シュノーケリング・サイクリングに最適 — 島が全開している時期です。",
+    "new": "11月～4月は海が澄み穏やかで、遊泳・シュノーケリング・サイクリングに最適 — 島がベストシーズンを迎える時期です。",
+    "reason": "Same unnatural \"島が全開している\" construction as in koh-kood.json — 全開 is not idiomatic for describing a tourism high season; corrected to natural \"ベストシーズンを迎える\" phrasing."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\southern-thailand-itinerary.json",
+    "old": "1〜9月（最も濕るのは10〜12月）",
+    "new": "1〜9月（最も湿るのは10〜12月）",
+    "reason": "「濕」is the traditional Chinese variant of the kanji, not valid in standard Japanese script; modern Japanese uses 湿 (e.g. 湿気, 湿った) — this is a script/OCR-style error, not the correct Japanese character."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\southern-thailand-itinerary.json",
+    "old": "タイランド湾自体の最も濕る時期はもっと遅く、おおむね10月から12月です。",
+    "new": "タイランド湾自体の最も湿る時期はもっと遅く、おおむね10月から12月です。",
+    "reason": "Same script error repeated: 「濕」 is not standard Japanese kanji; should be 湿 as used correctly elsewhere in Japanese writing."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\thailand-2-week-itinerary.json",
+    "old": "その後、暗くなってからチャイナタウン（ヤワラー）で屋台料理。",
+    "new": "その後、暗くなってからチャイナタウン（ヤワラート）で屋台料理。",
+    "reason": "Katakana typo: \"ヤワラー\" drops the final mora and should be \"ヤワラート\" (Yaowarat), matching the correct spelling used consistently in the other itinerary articles (1-month, 10-day, 3-week, 7-day)."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\thailand-honeymoon-itinerary.json",
+    "old": "4月はとても暑いですがソンクランがあります。",
+    "new": "4月はとても暑いですがソンクラーンがあります。",
+    "reason": "Incorrect katakana rendering of Songkran (missing long vowel) — the site's own correct/standard form used elsewhere (e.g. the 7-day itinerary FAQ and the dedicated Songkran guide) is ソンクラーン, not ソンクラン."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\thailand-with-kids-itinerary.json",
+    "old": "レストランと便利なアクセスならアオナン；浅い子ども用プールのあるリゾートはその重さ分の値打ちがあります。",
+    "new": "レストランと便利なアクセスならアオナン；浅い子ども用プールのあるリゾートは探してでも泊まる価値があります。",
+    "reason": "「その重さ分の値打ちがあります」is an unnatural literal calque of the English idiom \"worth its weight (in gold)\" — this construction does not exist in Japanese and reads as machine-translated; natural Japanese simply says something is worth the extra effort/cost."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\yi-peng-lantern-festival.json",
+    "old": "<strong>チェンマイ</strong>がその中心です。売り切れるので、ずっと前に予約を。",
+    "new": "<strong>チェンマイ</strong>がその中心です。宿は早く売り切れるので、ずっと前に予約を。",
+    "reason": "「売り切れるので」has no subject in Japanese, making the sentence feel abruptly incomplete/machine-translated — needs an explicit subject (e.g. 宿/ホテル) for what sells out."
+  },
+  {
+    "file": "C:\\Users\\Imac\\Thailandaddict\\thailandaddict\\astro\\src\\content\\articles-ja\\yi-peng-lantern-festival.json",
+    "old": "川や旧市街の堀沿いには無料で楽しめる公の面があり、高額な有料の大量放天イベントという別世界が別にあります。",
+    "new": "川や旧市街の堀沿いには無料で楽しめる公開エリアがある一方、高額な有料の大量放天イベントというまったく別の世界も存在します。",
+    "reason": "「公の面があり」is an awkward noun choice and「別世界が別にあります」redundantly repeats 別 (\"separate world is separately\"), reading as an unnatural translation artifact rather than native prose."
+  }
+]

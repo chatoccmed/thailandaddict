@@ -2,51 +2,121 @@
 import '../styles/review.css';
 import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
+import editorial from '../data/editorial.json';
+import webpManifest from '../data/webp-manifest.json';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
-  lang?: 'th' | 'en' | 'ru';
+  lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
+  availableLocales?: string[];
 }
-const { data, lang = 'th' } = Astro.props;
-const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent((data.slug || 'page').slice(0, 60)) : u);
-const isEn = lang === 'en';
-const isRu = lang === 'ru';
-
-const RU_REVIEWS = new Set(Object.keys(import.meta.glob('../content/reviews-ru/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
-const ruExists = RU_REVIEWS.has(data.slug);
+const { data, lang = 'th', availableLocales } = Astro.props;
+const isTh = lang === 'th';
+const isEn = !isTh;   // legacy flag: "not Thai" — chrome text not covered by a language-specific S block falls back to English (established site convention)
+const isRtl = lang === 'he' || lang === 'ar';
+const pfx = isTh ? '' : `/${lang}`;
+const LOCS = (availableLocales && availableLocales.length) ? availableLocales : (isTh ? ['th', 'en'] : ['th', 'en']);
+const OG_LOCALE: Record<string, string> = { th: 'th_TH', en: 'en_US', zh: 'zh_CN', ru: 'ru_RU', ko: 'ko_KR', ja: 'ja_JP', hi: 'hi_IN', he: 'he_IL', ar: 'ar_AR' };
+const LANGNAME: Record<string, string> = { th: 'ไทย', en: 'English', zh: '中文', ru: 'Русский', ko: '한국어', ja: '日本語', hi: 'हिन्दी', he: 'עברית', ar: 'العربية' };
+const locHref = (l: string) => (l === 'th' ? `/${data.slug}` : `/${l}/${data.slug}`);
 
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const LOCALE_PREFIX = lang === 'en' ? '/en' : lang === 'ru' ? '/ru' : '';
-const base = `${SITE}${LOCALE_PREFIX}`;
+const base = `${SITE}${pfx}`;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
-const today = '2026-05-17';
+// Prefer a real per-review date over the shared fallback — every review otherwise showed the identical stamp.
+const today = (data as any).modifiedDate || '2026-05-17';
 // Honest static "last checked" stamp from the content date (was a live new Date() clock that falsely implied a real-time price check).
 const _tdParts = today.split('-');
 const TS_MON_TH = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const TS_MON_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const TS_MON_RU = ['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
-const priceTs = (lang === 'en' ? TS_MON_EN : lang === 'ru' ? TS_MON_RU : TS_MON_TH)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
+const priceTs = (isTh ? TS_MON_TH : TS_MON_EN)[(+_tdParts[1] || 1) - 1] + ' ' + _tdParts[0];
 
-// Honest "last updated" chip: use the review's own modifiedDate when it's actually been re-checked;
-// otherwise show a plain price-may-vary disclaimer instead of a false per-hotel "verified" claim.
-const UPDATE_CHIP = {
-  th: (data as any).modifiedDate ? `📅 ตรวจสอบข้อมูลล่าสุด ${(data as any).modifiedDate}` : '📅 ราคาที่แสดงเป็นราคาโดยประมาณ กดลิงก์ด้านล่างเพื่อดูราคาจริงและห้องว่างล่าสุด',
-  en: (data as any).modifiedDate ? `📅 Last checked ${(data as any).modifiedDate}` : '📅 Prices shown are estimates — tap a link below for live pricing &amp; availability',
-  ru: (data as any).modifiedDate ? `📅 Последняя проверка ${(data as any).modifiedDate}` : '📅 Указанные цены ориентировочные — актуальную цену и наличие смотрите по ссылке ниже',
+// Honest "last updated" chip (LOCKED editorial rule — never fabricate a "verified on <date>" claim):
+// show a real "last checked" date ONLY when the review actually carries a modifiedDate; otherwise show a
+// neutral price-estimate disclaimer. `today`/`priceTs` above fall back to a shared site date, so they must
+// never be used to assert that THIS hotel's price was re-checked.
+// th/en/ru are hand-written; every other locale falls back to English (the isEn = !isTh chrome convention).
+const _modDate = (data as any).modifiedDate;
+const UPDATE_CHIP_EN = _modDate
+  ? `📅 Last checked ${_modDate}`
+  : '📅 Prices shown are estimates — tap a link below for live pricing &amp; availability';
+const UPDATE_CHIP: Record<string, string> = {
+  th: _modDate
+    ? `📅 ตรวจสอบข้อมูลล่าสุด ${_modDate}`
+    : '📅 ราคาที่แสดงเป็นราคาโดยประมาณ กดลิงก์ด้านล่างเพื่อดูราคาจริงและห้องว่างล่าสุด',
+  ru: _modDate
+    ? `📅 Последняя проверка ${_modDate}`
+    : '📅 Указанные цены ориентировочные — актуальную цену и наличие смотрите по ссылке ниже',
+  en: UPDATE_CHIP_EN, zh: UPDATE_CHIP_EN, ko: UPDATE_CHIP_EN,
+  ja: UPDATE_CHIP_EN, hi: UPDATE_CHIP_EN, he: UPDATE_CHIP_EN, ar: UPDATE_CHIP_EN,
 };
+const updateChipHtml = UPDATE_CHIP[lang] || UPDATE_CHIP_EN;
 
-// Internal-link helper: Thai keeps the raw href, English/Russian get a locale
-// prefix (/en/ or /ru/) and the .html suffix stripped (clean URL).
+// Internal-link helper: Thai keeps the raw href, every other locale gets its
+// own prefix (/en/, /zh/, /ru/...) and the .html suffix stripped (clean URL).
+// Same robust form as RoundupLayout: strip any already-present locale prefix and normalise the leading
+// slash before adding a single prefix, so inputs stored as "/en/review-x", "/review-x" or "review-x.html"
+// never produce a /en//en/… double-prefix or //double-slash broken link. (Was diverged from RoundupLayout.)
+const ALL_LOCS = ['en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
 const link = (h: string) => {
-  if (h === '/' || h === '') return LOCALE_PREFIX ? `${LOCALE_PREFIX}/` : '/';
-  return LOCALE_PREFIX ? `${LOCALE_PREFIX}/${h.replace(/\.html$/, '')}` : h;
+  if (h === '/' || h === '') return isTh ? '/' : `${pfx}/`;
+  if (/^(https?:)?\/\//.test(h) || h.startsWith('#')) return h;
+  if (isTh) return h.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
+  let p = h.replace(/\.html$/, '');
+  for (const l of ALL_LOCS) p = p.replace(new RegExp(`^/${l}/`), '/');
+  if (!p.startsWith('/')) p = '/' + p;
+  return pfx + p;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve
 // correctly from both / (Thai) and /en/ (English) pages.
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (/^\//.test(p) ? p : `/${p}`)));
+// Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
+// _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
+const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
+const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+
+// Booking.com (Thailand publishers) pays ONLY via CJ (Commission Junction) — the legacy ?aid= programme
+// does not credit. Content JSON keeps canonical booking.com URLs; rather than baking a CJ deep link into
+// every rendered page, we route through the /go/b worker route: the affiliate ids live in ONE place
+// (worker.js), so a CJ programme/format change is a 10-line edit there — not a 13,000-page rebuild.
+// worker.js validates the destination host (open-redirect guard) and 302s to the CJ click URL.
+// sid = locale + page slug → CJ Reports "Performance by SID" shows exactly which page earned each booking.
+const cjSid = ((isTh ? '' : lang + '-') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
+const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent(cjSid) : u);
+
+// Domain-aware booking buttons (honesty-first): the label must match where the link actually goes.
+// A minority of rural stays are not on any OTA and carry their real channel (Facebook page / own site /
+// Traveloka / Trivago) in the booking fields — label each by its destination and de-duplicate identical
+// hrefs. OTA hotels render exactly as before (Agoda / Booking.com / Trip.com). `S` is defined below and
+// only read at render time (after init), so referencing it here is safe.
+const REAL_OTA = /(agoda\.com|booking\.com|trip\.com|traveloka)/;
+const bookButtons = (d: any) => {
+  const out: any[] = [], seen = new Set();
+  for (const u of [d.bookingAgoda, d.bookingBooking, d.bookingTrip]) {
+    if (!u) continue;
+    let b;
+    if (/agoda\.com/.test(u))         b = { href: goB(u), brand: 'Agoda',       cls: 'agoda',   mark: 'a',  markCls: 'pw-mark r' };
+    else if (/booking\.com/.test(u))  b = { href: goB(u), brand: 'Booking.com', cls: 'booking', mark: 'B.', markCls: 'pw-mark sq' };
+    else if (/trip\.com/.test(u))     b = { href: goB(u), brand: 'Trip.com',    cls: 'trip',    mark: 't',  markCls: 'pw-mark sq' };
+    else {
+      const brand = /facebook\.com/.test(u) ? (S as any).btnFacebook
+                  : /tripadvisor/.test(u)   ? 'Tripadvisor'
+                  : /trivago/.test(u)       ? 'Trivago'
+                  : /choowap/.test(u)       ? 'Choowap'
+                  : /traveloka/.test(u)     ? 'Traveloka'
+                  : (S as any).btnDirect;
+      b = { href: u, brand, cls: 'trip', mark: '↗', markCls: 'pw-mark sq' };
+    }
+    if (seen.has(b.href)) continue;
+    seen.add(b.href);
+    out.push(b);
+  }
+  return out;
+};
+const hasRealOTA = [data.bookingAgoda, data.bookingBooking, data.bookingTrip].some((u: string) => u && REAL_OTA.test(u));
 
 // Browser-tab title: lead with the hotel name so the tab is identifiable.
 // Many titles are benefit-led with the hotel name buried at the end — the tab
@@ -63,6 +133,29 @@ const tabTitle = (() => {
   const hook = (hookParts.length ? hookParts : parts).join(' — ');
   return `${baseName} — ${hook}${brand}`;
 })();
+
+// AEO answer block — derive an extractable, Speakable answer from structured data when no hand-written quickAnswerHtml.
+const _qaCat = (isEn ? (data.typeEn || '') : (data.type || '')).trim();
+const _qaPrice = data.qiPrice || data.priceRange || '';
+const _qaUnit = isEn ? (String(data.qiPriceUnit || '').includes('คืน') ? '/night' : (data.qiPriceUnit || '')) : (data.qiPriceUnit || '');
+const _derivedQA = (data.name && Number(data.score) > 0)
+  ? (isEn
+      ? `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · ${data.score}/10 guest review score${_qaPrice ? ` · from ${_qaPrice}${_qaUnit}` : ''}`
+      : `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · คะแนนรีวิวรวม ${data.score}/10${_qaPrice ? ` · ราคาเริ่ม ${_qaPrice}${_qaUnit}` : ''}`)
+  : '';
+const qaHtml = (data as any).quickAnswerHtml || _derivedQA;
+
+// EEAT — named editor (gated: falls back to the Organization author until editorial.json holds a real name).
+const _ed = (editorial as any).editor || {};
+const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
+const _edName = (isEn ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (isEn ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const authorNode: any = hasEditor
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${base}/about`, worksFor: { '@id': `${SITE}/#org` },
+      ...(String(_ed.image || '').trim() ? { image: asset(_ed.image) } : {}),
+      ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
+  : { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE };
+const bylineName = hasEditor ? (isEn ? `Reviewed by ${_edName}` : `รีวิวโดย ${_edName}`) : '';
 
 // UI strings
 const S = {
@@ -88,7 +181,8 @@ const S = {
     htChecksSub: '3 จุดนี้สำคัญกับบางคน — ดูให้ชัวร์ว่าตรงกับทริปคุณไหม (เราใส่ทางแก้ไว้ให้แล้ว)',
     pwLbl: 'ราคาโดยประมาณ · เทียบ 3 เว็บ', pwPer: '/ คืน',
     pwFromSuffix: ' · ราคาเริ่มต้นโดยประมาณ',
-    pwCtaH: '⚖️ เทียบราคา 3 เว็บ — แล้วจองที่ถูกที่สุด', pwCheck: 'เช็กราคา →',
+    pwCtaH: '⚖️ เทียบราคา 3 เว็บ — แล้วจองที่ถูกที่สุด', pwCtaDirect: '🔗 ช่องทางจองที่พักนี้', pwCheck: 'เช็กราคา →',
+    btnFacebook: 'จองผ่าน Facebook', btnDirect: 'จองกับที่พักโดยตรง',
     secTips: 'Insider Tips · เคล็ดลับจากทีมงาน',
     sideInfo: 'ข้อมูลโรงแรม', sideLoc: 'ที่ตั้งและการเดินทาง',
     mapAlt: 'แผนที่บริเวณโรงแรม', sideNearby: 'จุดใกล้เคียง',
@@ -122,7 +216,8 @@ const S = {
     htChecksSub: 'These 3 points matter to some travellers — make sure they fit your trip (we have added the workaround).',
     pwLbl: 'Estimated price · compare 3 sites', pwPer: '/ night',
     pwFromSuffix: ' · estimated starting price',
-    pwCtaH: '⚖️ Compare 3 sites — then book the cheapest', pwCheck: 'Check price →',
+    pwCtaH: '⚖️ Compare 3 sites — then book the cheapest', pwCtaDirect: '🔗 How to book this stay', pwCheck: 'Check price →',
+    btnFacebook: 'Book via Facebook', btnDirect: 'Book direct with the stay',
     secTips: 'Insider Tips',
     sideInfo: 'Hotel Info', sideLoc: 'Location &amp; Getting There',
     mapAlt: 'Hotel area map', sideNearby: 'Nearby',
@@ -134,48 +229,467 @@ const S = {
     tsLabel: 'Last checked: ', locale: 'en-US',
     twSuffix: '— Review | ThailandAddict',
   },
+  zh: {
+    "navDest": "目的地",
+    "navAbout": "关于我们",
+    "navCta": "查找酒店",
+    "mmHome": "首页",
+    "mmContact": "联系我们",
+    "bcHome": "首页",
+    "bcTaiwan": "泰国",
+    "heroMore": "+ 查看全部照片",
+    "qiType": "类型",
+    "qiScore": "点评评分",
+    "qiPrice": "起价",
+    "qiRooms": "客房",
+    "qiBook": "立即预订 →",
+    "qiWish": "🔖 收藏到行程",
+    "qiWishSaved": "✓ 已收藏",
+    "secReview": "点评",
+    "bylineName": "由 ThailandAddict 编辑团队点评",
+    "bylineBadge": "✓ 事实核查",
+    "bylineText": "我们的团队拥有10年以上酒店点评及旅游网站运营经验——本篇点评参考了Booking和Agoda上数百条真实住客点评，并结合我们对位置、价格与房型的实地核实。· ",
+    "bylineLink": "了解我们的点评方法 →",
+    "secGallery": "图库 · 酒店及周边照片",
+    "galleryMore": "全部照片",
+    "secBody": "完整点评",
+    "secRating": "我们的评分",
+    "ratingOut": "满分10分",
+    "secGuest": "住客点评摘要",
+    "prCount": "数百条点评",
+    "prPros": "✦ 优点",
+    "prCons": "◎ 注意事项",
+    "secHonest": "真心话",
+    "htTitle": "如果符合以下情况，这里<em>非常适合你</em>……",
+    "htChecksLbl": "💡 预订前请确认",
+    "htChecksSub": "以下3点对部分旅客来说很重要——请确认是否符合你的行程（我们已附上应对方法）。",
+    "pwLbl": "预估价格 · 对比3个平台",
+    "pwPer": "/ 晚",
+    "pwFromSuffix": " · 预估起价",
+    "pwCtaH": "⚖️ 对比3个平台——再预订最便宜的",
+    "pwCtaDirect": "🔗 如何预订此房源",
+    "pwCheck": "查看价格 →",
+    "btnFacebook": "通过Facebook预订",
+    "btnDirect": "直接向房源预订",
+    "secTips": "内行贴士",
+    "sideInfo": "酒店信息",
+    "sideLoc": "位置与交通",
+    "mapAlt": "酒店周边地图",
+    "sideNearby": "周边景点",
+    "ftDesc": "全球酒店及目的地专家点评——提供真实价格与直接预订链接，无隐藏广告。",
+    "ftDest": "目的地",
+    "ftContent": "内容",
+    "ftAbout": "关于我们",
+    "ftBottom": "© 2025–2026 thailandaddict.com — 玩转泰国，恰到好处 · 2026年5月更新",
+    "ftAff": "⚡ ThailandAddict 是 Agoda、Booking.com 和 Trip.com 的联盟合作伙伴——当你通过本站链接预订时，我们可能会赚取佣金，你无需支付额外费用。",
+    "mbarBook": "🔴 通过Agoda预订",
+    "mbarAll": "查看全部点评",
+    "rvAgoda": "会员优惠",
+    "rvBooking": "最新空房",
+    "rvTrip": "比价 · 先订后付",
+    "rvFrom": "起价",
+    "rvRef": "仅供参考 · 点击查看实时价格",
+    "imgBook": "🛏️ 查看空房情况",
+    "tsLabel": "最后核实：",
+    "locale": "zh-CN",
+    "twSuffix": "— 点评 | ThailandAddict"
+  },
   ru: {
-    navDest: 'Направления', navAbout: 'О нас', navCta: 'Найти отель',
-    mmHome: 'Главная', mmContact: 'Контакты',
-    bcHome: 'Главная', bcTaiwan: 'Таиланд',
-    heroMore: '+ Все фото',
-    qiType: 'Тип', qiScore: 'Оценка', qiPrice: 'От', qiRooms: 'Номера',
-    qiBook: 'Забронировать →', qiWish: '🔖 Сохранить в план', qiWishSaved: '✓ Сохранено',
-    secReview: 'Обзор · Review',
-    bylineName: 'Обзор подготовлен редакцией ThailandAddict', bylineBadge: '✓ Проверено',
-    bylineText: 'Наша команда более 10 лет пишет обзоры отелей и ведёт туристические сайты — этот обзор основан на сотнях реальных отзывов гостей на Booking &amp; Agoda, а также на собственной проверке расположения, цен и номеров. · ',
-    bylineLink: 'Как мы пишем обзоры →',
-    secGallery: 'Галерея · Фото отеля и окрестностей', galleryMore: 'все фото',
-    secBody: 'Полный обзор от редакции',
-    secRating: 'Наша оценка', ratingOut: 'из 10 баллов',
-    secGuest: 'Отзывы гостей · Guest Reviews',
-    prCount: 'сотни отзывов', prPros: '✦ Плюсы', prCons: '◎ На заметку',
-    secHonest: 'Честное мнение',
-    htTitle: 'Это место <em>отлично подойдёт</em>, если...',
-    htChecksLbl: '💡 Проверьте перед бронированием',
-    htChecksSub: 'Эти 3 момента важны не для всех — убедитесь, что они подходят именно вашей поездке (мы уже подсказали, как быть).',
-    pwLbl: 'Ориентировочная цена · сравнение 3 сайтов', pwPer: '/ ночь',
-    pwFromSuffix: ' · ориентировочная цена от',
-    pwCtaH: '⚖️ Сравните 3 сайта — забронируйте по лучшей цене', pwCheck: 'Узнать цену →',
-    secTips: 'Советы от редакции',
-    sideInfo: 'Информация об отеле', sideLoc: 'Расположение и как добраться',
-    mapAlt: 'Карта района отеля', sideNearby: 'Рядом',
-    ftDesc: 'Обзоры отелей и направлений по всему миру от экспертов — с реальными ценами и прямыми ссылками на бронирование. Без скрытой рекламы.',
-    ftDest: 'Направления', ftContent: 'Материалы', ftAbout: 'О нас',
-    ftBottom: '© 2025–2026 thailandaddict.com — Thailand, Done Right · Обновлено в мае 2026',
-    ftAff: '⚡ ThailandAddict является партнёром Agoda, Booking.com и Trip.com — мы можем получать комиссию с бронирований по ссылкам на сайте, без каких-либо дополнительных затрат для вас.',
-    mbarBook: '🔴 Забронировать на Agoda', mbarAll: 'Смотреть все обзоры', rvAgoda: 'Цены для участников', rvBooking: 'Актуальные номера', rvTrip: 'Сравнить · оплата позже', rvFrom: 'От', rvRef: 'ориентировочно · нажмите для актуальной цены', imgBook: '🛏️ Смотреть номера · цены',
-    tsLabel: 'Последняя проверка: ', locale: 'ru-RU',
-    twSuffix: '— Обзор | ThailandAddict',
+    "navDest": "Направления",
+    "navAbout": "О нас",
+    "navCta": "Найти отель",
+    "mmHome": "Главная",
+    "mmContact": "Контакты",
+    "bcHome": "Главная",
+    "bcTaiwan": "Таиланд",
+    "heroMore": "+ Все фото",
+    "qiType": "Тип",
+    "qiScore": "Оценка",
+    "qiPrice": "От",
+    "qiRooms": "Номера",
+    "qiBook": "Забронировать →",
+    "qiWish": "🔖 Сохранить в план",
+    "qiWishSaved": "✓ Сохранено",
+    "secReview": "Обзор",
+    "bylineName": "Обзор подготовлен редакцией ThailandAddict",
+    "bylineBadge": "✓ Факты проверены",
+    "bylineText": "Наша команда уже больше 10 лет пишет обзоры отелей и ведёт туристические сайты — этот обзор основан на сотнях реальных отзывов гостей на Booking &amp; Agoda, а также на наших собственных проверках расположения, цен и деталей номеров. · ",
+    "bylineLink": "Как мы составляем обзоры →",
+    "secGallery": "Галерея · Фото отеля и окрестностей",
+    "galleryMore": "все фото",
+    "secBody": "Полный обзор",
+    "secRating": "Наша оценка",
+    "ratingOut": "из 10",
+    "secGuest": "Отзывы гостей",
+    "prCount": "сотни отзывов",
+    "prPros": "✦ Плюсы",
+    "prCons": "◎ На что обратить внимание",
+    "secHonest": "Честное мнение",
+    "htTitle": "Это место <em>отлично подойдёт</em>, если...",
+    "htChecksLbl": "💡 Проверь перед бронированием",
+    "htChecksSub": "Эти 3 момента важны не для всех — убедись, что они подходят под твою поездку (мы указали, как это обойти).",
+    "pwLbl": "Ориентировочная цена · сравни 3 сайта",
+    "pwPer": "/ ночь",
+    "pwFromSuffix": " · ориентировочная стартовая цена",
+    "pwCtaH": "⚖️ Сравни 3 сайта — забронируй там, где дешевле",
+    "pwCtaDirect": "🔗 Как забронировать это место",
+    "pwCheck": "Узнать цену →",
+    "btnFacebook": "Забронировать через Facebook",
+    "btnDirect": "Забронировать напрямую",
+    "secTips": "Полезные советы",
+    "sideInfo": "Информация об отеле",
+    "sideLoc": "Расположение и как добраться",
+    "mapAlt": "Карта района отеля",
+    "sideNearby": "Рядом",
+    "ftDesc": "Обзоры отелей и направлений по всему миру от экспертов — с реальными ценами и прямыми ссылками на бронирование. Никакой скрытой рекламы.",
+    "ftDest": "Направления",
+    "ftContent": "Контент",
+    "ftAbout": "О нас",
+    "ftBottom": "© 2025–2026 thailandaddict.com — Таиланд без ошибок · Обновлено в мае 2026",
+    "ftAff": "⚡ ThailandAddict — партнёр по affiliate-программам Agoda, Booking.com и Trip.com — мы можем получать комиссию с бронирований по ссылкам на сайте, без дополнительных затрат для тебя.",
+    "mbarBook": "🔴 Забронировать на Agoda",
+    "mbarAll": "Смотреть все отзывы",
+    "rvAgoda": "Скидки для участников",
+    "rvBooking": "Актуальная доступность",
+    "rvTrip": "Сравнить · оплата позже",
+    "rvFrom": "От",
+    "rvRef": "справочно · нажми, чтобы увидеть актуальную цену",
+    "imgBook": "🛏️ Проверить наличие",
+    "tsLabel": "Последняя проверка: ",
+    "locale": "ru-RU",
+    "twSuffix": "— Обзор | ThailandAddict"
+  },
+  ko: {
+    "navDest": "여행지",
+    "navAbout": "소개",
+    "navCta": "호텔 찾기",
+    "mmHome": "홈",
+    "mmContact": "문의하기",
+    "bcHome": "홈",
+    "bcTaiwan": "태국",
+    "heroMore": "+ 사진 전체 보기",
+    "qiType": "숙소 유형",
+    "qiScore": "리뷰 평점",
+    "qiPrice": "최저가",
+    "qiRooms": "객실",
+    "qiBook": "지금 예약하기 →",
+    "qiWish": "🔖 여행 계획에 저장",
+    "qiWishSaved": "✓ 저장됨",
+    "secReview": "리뷰",
+    "bylineName": "ThailandAddict 편집팀 작성",
+    "bylineBadge": "✓ 사실 확인 완료",
+    "bylineText": "저희 팀은 호텔 리뷰 및 여행 사이트 운영 경력 10년 이상으로, Booking &amp; Agoda의 실제 투숙객 리뷰 수백 건을 바탕으로 위치, 가격, 객실 정보를 직접 확인하여 이 리뷰를 작성했습니다. · ",
+    "bylineLink": "리뷰 작성 방법 보기 →",
+    "secGallery": "갤러리 · 호텔 &amp; 주변 사진",
+    "galleryMore": "사진 전체 보기",
+    "secBody": "상세 리뷰",
+    "secRating": "저희 평점",
+    "ratingOut": "10점 만점",
+    "secGuest": "투숙객 리뷰 요약",
+    "prCount": "수백 건의 리뷰",
+    "prPros": "✦ 장점",
+    "prCons": "◎ 참고할 점",
+    "secHonest": "솔직한 평가",
+    "htTitle": "이런 분들에게 <em>딱 맞는</em> 숙소예요...",
+    "htChecksLbl": "💡 예약 전 확인하세요",
+    "htChecksSub": "일부 여행객에게는 아래 3가지가 중요할 수 있어요 — 내 여행 스타일에 맞는지 확인해 보세요 (해결 방법도 함께 안내합니다).",
+    "pwLbl": "예상 가격 · 3개 사이트 비교",
+    "pwPer": "/ 1박",
+    "pwFromSuffix": " · 예상 최저가 기준",
+    "pwCtaH": "⚖️ 3개 사이트 비교 후 최저가로 예약",
+    "pwCtaDirect": "🔗 이 숙소 예약 방법",
+    "pwCheck": "가격 확인하기 →",
+    "btnFacebook": "페이스북으로 예약",
+    "btnDirect": "숙소에 직접 예약 문의",
+    "secTips": "여행 팁",
+    "sideInfo": "호텔 정보",
+    "sideLoc": "위치 &amp; 오시는 길",
+    "mapAlt": "호텔 주변 지도",
+    "sideNearby": "주변 명소",
+    "ftDesc": "전 세계 호텔과 여행지를 전문가가 직접 검증한 실제 가격과 예약 링크로 소개합니다. 숨겨진 광고 없음.",
+    "ftDest": "여행지",
+    "ftContent": "콘텐츠",
+    "ftAbout": "소개",
+    "ftBottom": "© 2025–2026 thailandaddict.com — Thailand, Done Right · 2026년 5월 최종 업데이트",
+    "ftAff": "⚡ ThailandAddict는 Agoda, Booking.com, Trip.com의 제휴 파트너입니다 — 사이트 내 링크를 통해 예약하시면 저희가 수수료를 받을 수 있으며, 고객님께는 추가 비용이 발생하지 않습니다.",
+    "mbarBook": "🔴 Agoda로 예약",
+    "mbarAll": "모든 리뷰 보기",
+    "rvAgoda": "회원 특가",
+    "rvBooking": "실시간 예약 가능 객실",
+    "rvTrip": "비교 · 나중에 결제",
+    "rvFrom": "최저가",
+    "rvRef": "참고 가격 · 실시간 가격은 클릭 확인",
+    "imgBook": "🛏️ 예약 가능 여부 확인",
+    "tsLabel": "최종 확인일: ",
+    "locale": "ko-KR",
+    "twSuffix": "— 리뷰 | ThailandAddict"
+  },
+  ja: {
+    "navDest": "旅行先",
+    "navAbout": "サイトについて",
+    "navCta": "ホテルを探す",
+    "mmHome": "ホーム",
+    "mmContact": "お問い合わせ",
+    "bcHome": "ホーム",
+    "bcTaiwan": "タイ",
+    "heroMore": "+ 写真をすべて見る",
+    "qiType": "タイプ",
+    "qiScore": "レビュースコア",
+    "qiPrice": "料金目安",
+    "qiRooms": "客室数",
+    "qiBook": "今すぐ予約 →",
+    "qiWish": "🔖 プランに保存",
+    "qiWishSaved": "✓ 保存済み",
+    "secReview": "レビュー",
+    "bylineName": "ThailandAddict編集チームによるレビュー",
+    "bylineBadge": "✓ ファクトチェック済み",
+    "bylineText": "私たちのチームはホテルレビューと旅行サイト運営に10年以上の経験があります — このレビューはBooking&amp;Agodaにある実際の宿泊者レビュー数百件に加え、立地・料金・客室情報の自社チェックをもとに作成しています。· ",
+    "bylineLink": "レビューの評価方法を見る →",
+    "secGallery": "ギャラリー · ホテル&amp;周辺エリアの写真",
+    "galleryMore": "写真をすべて見る",
+    "secBody": "詳しいレビュー",
+    "secRating": "評価スコア",
+    "ratingOut": "10点満点中",
+    "secGuest": "宿泊者レビューまとめ",
+    "prCount": "数百件のレビュー",
+    "prPros": "✦ 良い点",
+    "prCons": "◎ 注意したい点",
+    "secHonest": "率直な評価",
+    "htTitle": "こんな方に<em>ぴったり</em>です...",
+    "htChecksLbl": "💡 予約前にチェック",
+    "htChecksSub": "旅行者によってはこの3点が気になることも — ご自身の旅に合うか確認してください（対処法もあわせてご紹介）。",
+    "pwLbl": "料金目安 · 3サイトを比較",
+    "pwPer": "/ 泊",
+    "pwFromSuffix": " · 目安の最安料金",
+    "pwCtaH": "⚖️ 3サイトを比較して一番安い所で予約",
+    "pwCtaDirect": "🔗 この宿の予約方法",
+    "pwCheck": "料金を見る →",
+    "btnFacebook": "Facebookから予約",
+    "btnDirect": "宿に直接予約",
+    "secTips": "現地情報のコツ",
+    "sideInfo": "ホテル情報",
+    "sideLoc": "アクセス&amp;行き方",
+    "mapAlt": "ホテル周辺エリアの地図",
+    "sideNearby": "周辺スポット",
+    "ftDesc": "世界中のホテル・旅行先レビューを専門家がお届け — 実際の料金と直接予約リンク付き。隠れた広告はありません。",
+    "ftDest": "旅行先",
+    "ftContent": "コンテンツ",
+    "ftAbout": "サイトについて",
+    "ftBottom": "© 2025–2026 thailandaddict.com — Thailand, Done Right · 2026年5月更新",
+    "ftAff": "⚡ ThailandAddictはAgoda、Booking.com、Trip.comのアフィリエイトパートナーです — サイト内リンクからの予約により、お客様に追加費用なしで当サイトが手数料を得る場合があります。",
+    "mbarBook": "🔴 Agodaで予約",
+    "mbarAll": "レビューをすべて見る",
+    "rvAgoda": "会員限定特典",
+    "rvBooking": "最新の空室状況",
+    "rvTrip": "比較 · 後払いOK",
+    "rvFrom": "料金目安",
+    "rvRef": "参考価格 · タップで最新料金を確認",
+    "imgBook": "🛏️ 空室状況を確認",
+    "tsLabel": "最終確認日: ",
+    "locale": "ja-JP",
+    "twSuffix": "— レビュー | ThailandAddict"
+  },
+  hi: {
+    "navDest": "गंतव्य",
+    "navAbout": "हमारे बारे में",
+    "navCta": "होटल खोजें",
+    "mmHome": "होम",
+    "mmContact": "संपर्क करें",
+    "bcHome": "होम",
+    "bcTaiwan": "थाईलैंड",
+    "heroMore": "+ सभी फ़ोटो देखें",
+    "qiType": "प्रकार",
+    "qiScore": "रिव्यू स्कोर",
+    "qiPrice": "शुरुआती कीमत",
+    "qiRooms": "कमरे",
+    "qiBook": "अभी बुक करें →",
+    "qiWish": "🔖 प्लान में सेव करें",
+    "qiWishSaved": "✓ सेव हो गया",
+    "secReview": "रिव्यू",
+    "bylineName": "ThailandAddict एडिटोरियल टीम द्वारा समीक्षित",
+    "bylineBadge": "✓ तथ्य-जाँचित",
+    "bylineText": "हमारी टीम को होटल रिव्यू लिखने और ट्रैवल साइट्स चलाने का 10+ साल का अनुभव है — यह रिव्यू Booking और Agoda पर मौजूद सैकड़ों असली गेस्ट रिव्यू, साथ ही लोकेशन, कीमत और कमरे की जानकारी की हमारी अपनी जाँच पर आधारित है। · ",
+    "bylineLink": "हमारी रिव्यू पद्धति →",
+    "secGallery": "गैलरी · होटल और आसपास की फ़ोटो",
+    "galleryMore": "सभी फ़ोटो",
+    "secBody": "हमारा पूरा रिव्यू",
+    "secRating": "हमारी रेटिंग",
+    "ratingOut": "10 में से",
+    "secGuest": "गेस्ट रिव्यू सारांश",
+    "prCount": "सैकड़ों रिव्यू",
+    "prPros": "✦ फ़ायदे",
+    "prCons": "◎ ध्यान देने योग्य बातें",
+    "secHonest": "ईमानदार राय",
+    "htTitle": "यह जगह <em>बिल्कुल सही</em> है अगर...",
+    "htChecksLbl": "💡 बुक करने से पहले जाँच लें",
+    "htChecksSub": "ये 3 बातें कुछ यात्रियों के लिए मायने रखती हैं — देख लें कि ये आपकी ट्रिप के लिए ठीक हैं (हमने उपाय भी बताया है)।",
+    "pwLbl": "अनुमानित कीमत · 3 साइटों की तुलना करें",
+    "pwPer": "/ रात",
+    "pwFromSuffix": " · अनुमानित शुरुआती कीमत",
+    "pwCtaH": "⚖️ 3 साइटों की तुलना करें — फिर सबसे सस्ती बुक करें",
+    "pwCtaDirect": "🔗 यह स्टे कैसे बुक करें",
+    "pwCheck": "कीमत देखें →",
+    "btnFacebook": "Facebook के ज़रिए बुक करें",
+    "btnDirect": "सीधे स्टे से बुक करें",
+    "secTips": "इनसाइडर टिप्स",
+    "sideInfo": "होटल जानकारी",
+    "sideLoc": "लोकेशन और पहुँचने का तरीका",
+    "mapAlt": "होटल क्षेत्र का नक़्शा",
+    "sideNearby": "आसपास",
+    "ftDesc": "दुनिया भर के होटल और गंतव्य रिव्यू, विशेषज्ञों द्वारा — असली कीमतों और सीधे बुकिंग लिंक के साथ। कोई छिपे हुए विज्ञापन नहीं।",
+    "ftDest": "गंतव्य",
+    "ftContent": "कंटेंट",
+    "ftAbout": "हमारे बारे में",
+    "ftBottom": "© 2025–2026 thailandaddict.com — Thailand, Done Right · आख़िरी अपडेट मई 2026",
+    "ftAff": "⚡ ThailandAddict, Agoda, Booking.com और Trip.com का एक एफ़िलिएट पार्टनर है — जब आप साइट पर दिए गए लिंक से बुक करते हैं तो हमें कमीशन मिल सकता है, इसमें आपको कोई अतिरिक्त लागत नहीं होती।",
+    "mbarBook": "🔴 Agoda के ज़रिए बुक करें",
+    "mbarAll": "सभी रिव्यू देखें",
+    "rvAgoda": "मेंबर डील्स",
+    "rvBooking": "ताज़ा उपलब्धता",
+    "rvTrip": "तुलना करें · बाद में भुगतान करें",
+    "rvFrom": "शुरुआती कीमत",
+    "rvRef": "संदर्भ · लाइव कीमत के लिए टैप करें",
+    "imgBook": "🛏️ उपलब्धता जाँचें",
+    "tsLabel": "आख़िरी बार जाँचा गया: ",
+    "locale": "hi-IN",
+    "twSuffix": "— रिव्यू | ThailandAddict"
+  },
+  he: {
+    "navDest": "יעדים",
+    "navAbout": "אודות",
+    "navCta": "מצאו מלון",
+    "mmHome": "בית",
+    "mmContact": "צור קשר",
+    "bcHome": "בית",
+    "bcTaiwan": "תאילנד",
+    "heroMore": "+ לצפייה בכל התמונות",
+    "qiType": "סוג",
+    "qiScore": "ציון ביקורות",
+    "qiPrice": "החל מ",
+    "qiRooms": "חדרים",
+    "qiBook": "הזמינו עכשיו ←",
+    "qiWish": "🔖 שמירה לתוכנית",
+    "qiWishSaved": "✓ נשמר",
+    "secReview": "ביקורת",
+    "bylineName": "נכתב על ידי צוות העריכה של ThailandAddict",
+    "bylineBadge": "✓ נבדק עובדתית",
+    "bylineText": "לצוות שלנו ניסיון של 10+ שנים בכתיבת ביקורות מלונות וניהול אתרי תיירות — הביקורת מבוססת על מאות ביקורות אמיתיות של אורחים באתרי Booking ו-Agoda, יחד עם בדיקות משלנו למיקום, מחיר ופרטי החדרים. · ",
+    "bylineLink": "שיטת הביקורת שלנו ←",
+    "secGallery": "גלריה · תמונות מלון וסביבה",
+    "galleryMore": "כל התמונות",
+    "secBody": "הביקורת המלאה שלנו",
+    "secRating": "הדירוג שלנו",
+    "ratingOut": "מתוך 10",
+    "secGuest": "סיכום ביקורות אורחים",
+    "prCount": "מאות ביקורות",
+    "prPros": "✦ יתרונות",
+    "prCons": "◎ דברים לשים לב אליהם",
+    "secHonest": "חוות דעת כנה",
+    "htTitle": "המקום הזה <em>מתאים במיוחד</em> אם...",
+    "htChecksLbl": "💡 לבדוק לפני ההזמנה",
+    "htChecksSub": "3 הנקודות האלה חשובות לחלק מהנוסעים — ודאו שהן מתאימות לטיול שלכם (הוספנו גם פתרון לכל אחת).",
+    "pwLbl": "מחיר משוער · השוואה בין 3 אתרים",
+    "pwPer": "/ ללילה",
+    "pwFromSuffix": " · מחיר התחלתי משוער",
+    "pwCtaH": "⚖️ השוו בין 3 אתרים — והזמינו במחיר הזול ביותר",
+    "pwCtaDirect": "🔗 איך להזמין את השהות הזו",
+    "pwCheck": "בדקו מחיר ←",
+    "btnFacebook": "הזמינו דרך פייסבוק",
+    "btnDirect": "הזמינו ישירות מול המקום",
+    "secTips": "טיפים פנימיים",
+    "sideInfo": "מידע על המלון",
+    "sideLoc": "מיקום והגעה",
+    "mapAlt": "מפת אזור המלון",
+    "sideNearby": "בסביבה",
+    "ftDesc": "ביקורות מלונות ויעדים מכל העולם, מאת מומחים — עם מחירים אמיתיים וקישורי הזמנה ישירים. בלי פרסומות נסתרות.",
+    "ftDest": "יעדים",
+    "ftContent": "תוכן",
+    "ftAbout": "אודות",
+    "ftBottom": "© 2025–2026 thailandaddict.com — תאילנד, כמו שצריך · עודכן לאחרונה מאי 2026",
+    "ftAff": "⚡ ThailandAddict הוא שותף שיווק שותפים של Agoda,‏ Booking.com ו-Trip.com — ייתכן שנרוויח עמלה כשאתם מזמינים דרך קישורים באתר, ללא עלות נוספת עבורכם.",
+    "mbarBook": "🔴 הזמינו דרך Agoda",
+    "mbarAll": "צפייה בכל הביקורות",
+    "rvAgoda": "מבצעים לחברים",
+    "rvBooking": "זמינות עדכנית",
+    "rvTrip": "השוואה · תשלום מאוחר יותר",
+    "rvFrom": "החל מ",
+    "rvRef": "לצורך התייחסות · הקישו למחיר בזמן אמת",
+    "imgBook": "🛏️ בדקו זמינות",
+    "tsLabel": "נבדק לאחרונה: ",
+    "locale": "he-IL",
+    "twSuffix": "— ביקורת | ThailandAddict"
+  },
+  ar: {
+    "navDest": "الوجهات",
+    "navAbout": "عن الموقع",
+    "navCta": "ابحث عن فندق",
+    "mmHome": "الرئيسية",
+    "mmContact": "تواصل معنا",
+    "bcHome": "الرئيسية",
+    "bcTaiwan": "تايلاند",
+    "heroMore": "+ عرض كل الصور",
+    "qiType": "النوع",
+    "qiScore": "تقييم النزلاء",
+    "qiPrice": "يبدأ من",
+    "qiRooms": "الغرف",
+    "qiBook": "احجز الآن ←",
+    "qiWish": "🔖 حفظ في الخطة",
+    "qiWishSaved": "✓ تم الحفظ",
+    "secReview": "المراجعة",
+    "bylineName": "بمراجعة فريق تحرير ThailandAddict",
+    "bylineBadge": "✓ تم التحقق من الحقائق",
+    "bylineText": "يتمتع فريقنا بخبرة تزيد عن 10 سنوات في مراجعة الفنادق وإدارة مواقع السفر — تعتمد هذه المراجعة على مئات التقييمات الحقيقية للنزلاء على Booking &amp; Agoda، إلى جانب تحققنا الخاص من الموقع والأسعار وتفاصيل الغرف. · ",
+    "bylineLink": "منهجيتنا في المراجعة ←",
+    "secGallery": "معرض الصور · صور الفندق والمنطقة",
+    "galleryMore": "كل الصور",
+    "secBody": "مراجعتنا الكاملة",
+    "secRating": "تقييمنا",
+    "ratingOut": "من 10",
+    "secGuest": "ملخص تقييمات النزلاء",
+    "prCount": "مئات التقييمات",
+    "prPros": "✦ الإيجابيات",
+    "prCons": "◎ أشياء يجب ملاحظتها",
+    "secHonest": "رأينا الصريح",
+    "htTitle": "هذا المكان <em>خيار ممتاز</em> إذا كنت...",
+    "htChecksLbl": "💡 تحقق قبل الحجز",
+    "htChecksSub": "هذه النقاط الثلاث مهمة لبعض المسافرين — تأكد من أنها تناسب رحلتك (أضفنا لك الحل البديل).",
+    "pwLbl": "السعر التقريبي · قارن بين 3 مواقع",
+    "pwPer": "/ الليلة",
+    "pwFromSuffix": " · السعر التقريبي الابتدائي",
+    "pwCtaH": "⚖️ قارن بين 3 مواقع — ثم احجز الأرخص",
+    "pwCtaDirect": "🔗 كيفية حجز هذا المكان",
+    "pwCheck": "تحقق من السعر ←",
+    "btnFacebook": "احجز عبر فيسبوك",
+    "btnDirect": "احجز مباشرة من مكان الإقامة",
+    "secTips": "نصائح داخلية",
+    "sideInfo": "معلومات الفندق",
+    "sideLoc": "الموقع وكيفية الوصول",
+    "mapAlt": "خريطة منطقة الفندق",
+    "sideNearby": "بالقرب من هنا",
+    "ftDesc": "مراجعات فنادق ووجهات حول العالم، بقلم خبراء — بأسعار حقيقية وروابط حجز مباشرة. بلا إعلانات خفية.",
+    "ftDest": "الوجهات",
+    "ftContent": "المحتوى",
+    "ftAbout": "عن الموقع",
+    "ftBottom": "© 2025–2026 thailandaddict.com — تايلاند، بالطريقة الصحيحة · آخر تحديث مايو 2026",
+    "ftAff": "⚡ ThailandAddict شريك تسويق بالعمولة مع Agoda وBooking.com وTrip.com — قد نحصل على عمولة عند الحجز عبر روابط الموقع، دون أي تكلفة إضافية عليك.",
+    "mbarBook": "🔴 احجز عبر Agoda",
+    "mbarAll": "عرض كل التقييمات",
+    "rvAgoda": "عروض للأعضاء",
+    "rvBooking": "أحدث التوفر",
+    "rvTrip": "قارن · ادفع لاحقًا",
+    "rvFrom": "يبدأ من",
+    "rvRef": "سعر إرشادي · اضغط لمعرفة السعر الحالي",
+    "imgBook": "🛏️ تحقق من التوفر",
+    "tsLabel": "آخر تحقق: ",
+    "locale": "ar-SA",
+    "twSuffix": "— مراجعة | ThailandAddict"
   },
 }[lang];
 
 const ratingCountText = isEn
   ? `Based on ${data.ratingCount}+ reviews`
-  : isRu
-  ? `На основе ${data.ratingCount}+ отзывов`
   : `รวม ${data.ratingCount}+ รีวิว`;
-const guestH2 = isEn ? 'Summary from <em>Booking &amp; Agoda</em>' : isRu ? 'Обзор отзывов на <em>Booking &amp; Agoda</em>' : 'สรุปจาก <em>Booking &amp; Agoda</em>';
+const guestH2 = isEn ? 'Summary from <em>Booking &amp; Agoda</em>' : 'สรุปจาก <em>Booking &amp; Agoda</em>';
 
 // ── Interleave the review's own photos through the body, so the long review
 // text isn't a wall of words. We reuse the images the review already ships
@@ -262,7 +776,7 @@ const schema = {
       '@type': 'Review', '@id': `${url}#review`,
       itemReviewed: { '@id': `${url}#hotel` },
       reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
-      author: { '@type': 'Organization', name: 'ThailandAddict Editorial', url: SITE },
+      author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: today, dateModified: today,
     }] : []),
@@ -279,14 +793,14 @@ const schema = {
       '@type': 'WebPage', '@id': url, url, name: data.title,
       description: data.metaDesc, inLanguage: lang, isPartOf: { '@id': SITE },
       datePublished: today, dateModified: today,
-      ...((data as any).quickAnswerHtml ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } } : {}),
+      ...(qaHtml ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } } : {}),
     },
   ],
 };
 const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='58' font-weight='bold' fill='white' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E";
 ---
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} dir={isRtl ? 'rtl' : 'ltr'}>
 <head>
 <meta charset="UTF-8" />
 <Analytics />
@@ -296,9 +810,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta name="keywords" content={data.keywords} />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
 <link rel="canonical" href={url} />
-<link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
-<link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />
-{ruExists && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
+{LOCS.map((l) => <link rel="alternate" hreflang={l} href={`${SITE}${l === 'th' ? '' : '/' + l}/${data.slug}`} />)}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta property="og:title" content={data.ogTitle} />
 <meta property="og:description" content={data.ogDesc} />
@@ -306,26 +818,30 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ThailandAddict" />
 <meta property="og:image" content={imgAbs} />
-<meta property="og:locale" content={isEn ? 'en_US' : isRu ? 'ru_RU' : 'th_TH'} />
+<meta property="og:locale" content={OG_LOCALE[lang] || 'th_TH'} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={`${data.name} ${S.twSuffix}`} />
 <meta name="twitter:description" content={data.twDesc} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href={IMG_BASE} crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" /></noscript>
 <link rel="icon" type="image/svg+xml" href={favSvg} />
-<link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />
+<link rel="preload" as="image" href={hasWebp(data.heroImg) ? asset(webpOf(data.heroImg)) : asset(data.heroImg)} fetchpriority="high" />
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 <style>
-.lang-sw{display:inline-flex;align-items:center;border-radius:999px;overflow:hidden;border:1.5px solid #06B6D4;font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
-.lang-sw a,.lang-sw .dis{padding:5px 9px;text-decoration:none;line-height:1.5;}
-.lang-sw a{color:#06B6D4;background:#ffffff;transition:background .15s;}
-.lang-sw a:hover{background:#f1fbfd;}
-.lang-sw a.on{background:#06B6D4;color:#fff;}
-.lang-sw a.on:hover{background:#0891b2;}
-.lang-sw .dis{color:#94a3b8;background:#f1fbfd;cursor:not-allowed;}
-.mm-lang{margin:10px 0 4px;font-size:13px;align-self:flex-start;flex-wrap:wrap;}
-.mm-lang a,.mm-lang .dis{padding:8px 13px;}
+/* language flag-bar (circular SVG flags; active enlarged) — same component as ArticleLayout/hub pages */
+.flagbar{display:inline-flex;align-items:center;flex-wrap:wrap;gap:3px;background:#f1fbfd;border:1px solid #e6eef2;border-radius:30px;padding:4px 6px;max-width:272px}
+.flagbar a{display:block;width:24px;height:24px;border-radius:50%;overflow:hidden;opacity:.7;transition:transform .16s,opacity .16s;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.flagbar a:hover{opacity:1;transform:scale(1.12)}
+.flagbar a.on{opacity:1;transform:scale(1.2);box-shadow:0 0 0 2px #fff,0 3px 9px rgba(15,40,70,.22);position:relative;z-index:1}
+.flg{width:100%;height:100%;background-size:cover;background-position:center;display:block}
+.flg-th{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjQTUxOTMxIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48cGF0aCBmaWxsPSIjRjRGNUY4IiBkPSJNMCAxMDBoOTAwdjQwMEgweiIvPjxwYXRoIGZpbGw9IiMyRDJBNEEiIGQ9Ik0wIDIwMGg5MDB2MjAwSDB6Ii8+PC9zdmc+")}.flg-en{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIj48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYiI+PHBhdGggZD0iTTMwIDE1aDMwdjE1enYxNUgwekgwVjB6VjBoMzB6Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiIGZpbGw9IiMwMTIxNjkiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgY2xpcC1wYXRoPSJ1cmwoI2IpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPjwvc3ZnPg==")}.flg-zh{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCI+PHBhdGggZmlsbD0iI0VFMUMyNSIgZD0iTTAgMGg5MDB2NjAwSDAiLz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgzIDAgMCAzIDE1MCAxNTApIj48cGF0aCBpZD0iYSIgZmlsbD0iI0ZGMCIgZD0ibTAtMzAgMTcuNjM0IDU0LjI3LTQ2LjE2Ni0zMy41NGg1Ny4wNjRsLTQ2LjE2NiAzMy41NFoiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoMjMuMDM2IDIuNzg0IDc2Ni4wODIpIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoNDUuODcgMzguMjAxIDQ4NS4zOTYpIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoNjkuOTQ1IDI5Ljg5MiAzNjIuMzI4KSIvPjx1c2UgeGxpbms6aHJlZj0iI2EiIHRyYW5zZm9ybT0icm90YXRlKDIwLjY2IC01OTAuNjYgOTU3Ljk1NSkiLz48L3N2Zz4=")}.flg-ru{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDl2M0gweiIvPjxwYXRoIGZpbGw9IiNkNTJiMWUiIGQ9Ik0wIDNoOXYzSDB6Ii8+PHBhdGggZmlsbD0iIzAwMzlhNiIgZD0iTTAgMmg5djJIMHoiLz48L3N2Zz4=")}.flg-ko{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSItNzIgLTQ4IDE0NCA5NiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTS03Mi00OHY5Nkg3MnYtOTZ6Ii8+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiPjxwYXRoIGQ9Ik0tMzQuOTQ2LTM3LjcyLTQ4LjI2LTE3Ljc1bTQuOTkyIDMuMzI4IDEzLjMxMy0xOS45N200Ljk5MiAzLjMyOS0xMy4zMTIgMTkuOTY5bTYzLjIzNiA0Mi4xNTcgNi4xMDEtOS4xNTJtMS4xMS0xLjY2NCA2LjEwMS05LjE1M200Ljk5MyAzLjMyOC02LjEwMiA5LjE1M20tMS4xMSAxLjY2NC02LjEwMSA5LjE1Mm00Ljk5MiAzLjMyOSA2LjEwMi05LjE1M20xLjExLTEuNjY0IDYuMS05LjE1M00tNDguMjU5IDE3Ljc1bDEzLjMxMyAxOS45N200Ljk5Mi0zLjMyOS02LjEwMi05LjE1Mm0tMS4xMDktMS42NjQtNi4xMDItOS4xNTNtNC45OTMtMy4zMjggMTMuMzEyIDE5Ljk3bTYzLjIzNi00Mi4xNTgtNi4xMDEtOS4xNTNtLTEuMTEtMS42NjQtNi4xMDEtOS4xNTJtNC45OTItMy4zMjggMTMuMzEzIDE5Ljk2OW00Ljk5Mi0zLjMyOC02LjEwMi05LjE1M20tMS4xMS0xLjY2NC02LjEtOS4xNTMiLz48L2c+PHBhdGggZmlsbD0iI2NkMmUzYSIgZD0iTTkuOTg1IDYuNjU2QTE4IDE4IDAgMSAxLTE5Ljk3LTEzLjMxM2EyNCAyNCAwIDEgMSAzOS45MzggMjYuNjI2Ii8+PHBhdGggZmlsbD0iIzAwNDdhMCIgZD0iTTAgMGExMiAxMiAwIDEgMSAxOS45NyAxMy4zMTMgMjQgMjQgMCAxIDEtMzkuOTQtMjYuNjI2QTEyIDEyIDAgMSAwIDAgMCIvPjwvc3ZnPg==")}.flg-ja{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48Y2lyY2xlIGZpbGw9IiNiYzAwMmQiIGN4PSI0NTAiIGN5PSIzMDAiIHI9IjE4MCIvPjwvc3ZnPg==")}.flg-hi{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzA3MDM4RCIgdmlld0JveD0iLTQ1IC0zMCA5MCA2MCI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTS00NS0zMGg5MHY2MGgtOTB6Ii8+PHBhdGggZmlsbD0iI0ZGNjgyMCIgZD0iTS00NS0zMGg5MHYyMGgtOTB6Ii8+PHBhdGggZmlsbD0iIzA0NkEzOCIgZD0iTS00NSAxMGg5MHYyMGgtOTB6Ii8+PGNpcmNsZSByPSI5LjI1Ii8+PGNpcmNsZSByPSI4IiBmaWxsPSIjRkZGIi8+PGNpcmNsZSByPSIxLjYiLz48ZyBpZD0iZCI+PGcgaWQ9ImMiPjxnIGlkPSJiIj48ZyBpZD0iYSI+PHBhdGggZD0ibTAtOCAuMyA0LjgxNEwwLS44MDJsLS4zLTIuMzg0eiIvPjxjaXJjbGUgY3k9Ii04IiByPSIuMzUiIHRyYW5zZm9ybT0icm90YXRlKDcuNSkiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJzY2FsZSgtMSkiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYiIgdHJhbnNmb3JtPSJyb3RhdGUoMTUpIi8+PC9nPjx1c2UgeGxpbms6aHJlZj0iI2MiIHRyYW5zZm9ybT0icm90YXRlKDMwKSIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNkIiB0cmFuc2Zvcm09InJvdGF0ZSg2MCkiLz48dXNlIHhsaW5rOmhyZWY9IiNkIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+PC9zdmc+")}.flg-he{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAwIiBoZWlnaHQ9IjgwMCI+PHBhdGggZD0iTTAgMGgxMTAwdjgwMEgwWiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDc1aDExMDB2MTI1SDBaTTAgNjAwaDExMDB2MTI1SDBaIiBmaWxsPSIjMDAzOGI4Ii8+PHBhdGggZD0iTTQyMy44MTYgNDcyLjg1M2gyNTIuMzY4TDU1MCAyNTQuMjk1Wk01NTAgNTQ1LjcwNWwxMjYuMTg0LTIxOC41NThINDIzLjgxNloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMzhiOCIgc3Ryb2tlLXdpZHRoPSIyNy41Ii8+PC9zdmc+")}.flg-ar{background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCA2MDBoOTAwVjBIMHoiIGZpbGw9IiMwMDU0MzAiLz48cGF0aCBkPSJNNjc1IDIzOC4zMjRjLS4wNjMtMTAuNTQtNC4xNTItMzguOTMxLTUuMTktNDguNDU1LTEuMDM2LTkuNTI1LTIuMDgtMTguMTY1LTEuODI4LTIwLjE4OS4yNDctMS45NTIgMy4yNTIgMi43MTUgNC44NCAzLjA5Mi44MjItLjE2NC40NTUtMy4xMTItMS4wMzgtNS42My0xLjAxLTEuNzA5LTQuNDU2LTguMS02LjU0Ni0xMS44NDYtLjk4My0xLjc3My0xLjIwMy0yLjgtMS42NzYtMy4wMTktLjQ3MS0uMjE3LTQuMjc2IDcuNDU4LTMuODYgOC4zMSAxLjAzOCAxLjU2IDEuNzUgMi4zMDQgMS45MTIgNS4wNTkuMTY0IDIuNzU1IDEuNTg5IDIyLjQyNyAzLjQwNSAzNy4zMzggMS4zNjcgMTEuMjQ5IDQuMzY2IDM1LjQ4NCA0LjQ3MyA1MC41NTIuMDMgNC45MTUtLjUxNSA5LjYtMS4xNyAxMS41NTgtMS42NzkgMy4wNzQtNC4zMDMgNS44NDctMTQuMDc2IDExLjU2NS0xMC45ODYgNi40My0yNS42NDMgMTEuNzgxLTMxLjk0MyAxNS4zNjItMy45MTcgMi4yMzQtMi42MTkgMi41MzIuNzkyIDEuNTU1IDMuNDAxLS45NzggMjAuOTkyLTQuMTEgMjkuNTM4LTcuNzIxIDguMDIyLTMuMzk5IDEzLjIzLTkuMDg0IDE3LjE4Mi0xNy4zNzggNC44ODEtMTAuMjU0IDUuMjUzLTE4Ljk1NSA1LjE4NS0zMC4xNTNNNjQwLjk4NyAxNTguMjYxYy44NS0uMzI5IDcuODgtLjY5MSA5Ljc3NC0uMzAxLTEuMjQ0IDEuNzc4LTkuNjc1IDUuNzEzLTkuNzEgNi40MzUuMjMuNDg2IDUuODIzLS45IDcuNTg3LTEuNjcgMS4xNTMtLjY5MyAxLjkyMy0xLjc2NyAyLjc3Ny0yLjY1OCAyLjAxNi0yLjMyIDQuNDA3LTYuNjIyIDMuODA1LTcuMTYyLS45NzgtLjg3MS0xMC41NjItLjMyOS0xMS44MjUtLjE1LS44NDYuMTIyLTIuOTk0IDMuOTcyLTMuMzg4IDQuOTYtLjM4Ni45ODcuMTMxLjg3NS45OC41NDYiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNjU1LjM1IDIyMC43MzNhMjkuNTc3IDI5LjU3NyAwIDAgMC0uMTY3LTE3LjMyNWMtMi4wNDktNi41MjYtNy4xMzgtMTAuNTA0LTEwLjgwOC0xMi41NDNsLS42NTUgNi4yODNzNS4xNDcgMi41NTggOC42NjYgOC45OThjMi4yMyA0LjA4NSAzLjE1OCA5Ljg2MSAxLjM5NyAxNi4zLS4yOTMgMS41OTkuODUuNzE4IDEuNTY3LTEuNzE0TTYwMC45IDI1Mi4yNGEyNi42NiAyNi42NiAwIDAgMC0uMTQ4LTE1LjZjLTEuODQ2LTUuODc3LTYuNDI5LTkuNDYtOS43MzUtMTEuMjlsLS41OTEgNS42NTZzNC42MzQgMi4zMDQgNy44MDMgOC4wOThjMi4wMSAzLjY3NSAyLjg0NCA4Ljg4NCAxLjI2MyAxNC42OC0uMjYzIDEuNDM0Ljc2NC42NDQgMS40MDgtMS41NDRNNDExLjg2MiAxNjYuNjkxYzIuMTIgMy44NzcgMyA5LjM2OCAxLjMzMiAxNS40ODMtLjI4IDEuNTE3LjguNjg0IDEuNDg3LTEuNjI1YTI4LjE0MyAyOC4xNDMgMCAwIDAtLjE2NC0xNi40NTljLTEuOTQ4LTYuMjAxLTYuNzgyLTkuOTc3LTEwLjI3LTExLjkxbC0uNjE1IDUuOTY3czQuODg5IDIuNDI4IDguMjMgOC41NDRNMjg0LjI1IDE2OC42OTdjMS43OCA0LjE3NCAxLjkgOS44MDktLjk3NSAxNS43NDUtLjU1OSAxLjQ5MS44MDIuNzg1IDEuOTQ1LTEuNDQ2IDIuMzMzLTQuNTYxIDMuNjQzLTEwLjI3IDIuNDYtMTYuNTc1LTEuMjE0LTYuNDgzLTYuMDg0LTEwLjkwMi05LjczLTEzLjI5NWwtMS42NTQgNS45MjNzNS4xNDYgMy4wNyA3Ljk1NCA5LjY0OCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0zMTkuNTI2IDI2MS45ODNjMi4yNjMtNC4yIDMuMjA1LTcuMDI1IDQuMjEtMTIgLjg4LTQuMzc1LjkzNy05LjQzLjYyLTE0LjU3NiA2Ljc3LTIuNzYgMTQuODQtNy4zNDEgMTcuNTUxLTcuNjc4LTEuODU0IDYuMzY3IDIuNTcyIDEzLjIzNyAxMS41MTMgMTIuMzQuNjg0IDcuMiAxLjI3IDEzLjUyNCAxLjYyNyAxNy4yNzQuNzI4IDcuNjg5LjYxOSAxNy4zNzguNTk3IDE5LjA2Mi0uMDMgMS42OTEgMS4xOTQgMS4zNzIgMi40NTEtMi4zOTYgMS42NzYtNS4wNDUgMi4xOTQtMTguMjE4IDEuNTg2LTI2LjkzLS4xNDUtMi4xNzgtLjM5Mi01LjExOC0uNjktOC40NjggNS43OTYtMi42ODIgNi43Ni03Ljg1OCA4LjkyNi0xMC4wNjQgMS45NTYgNi44NSAxMi43MiA3Ljc4IDE2LjA0MyA2LjMxMyA0LjEyLTEuODIgNS40Ny01LjA5NSA2LjUzLTEyLjY5NSAxLjA2My03LjU5Ny0yLjAzMi0xMC42NTYtMy4xMzktMTEuNDg0LS4xMS45Mi0yLjgwNSA5Ljg0OC0yLjgwNSA5Ljg0OHMyLjU1NiAyLjcgMi42ODUgNC4wMjdjLTIuMDgyIDEuODg0LTYuNDczIDItMTAuMTYuOC0zLjY5LTEuMi00LjgyLTMuNDA4LTQuNjAxLTQuODkuMjEzLTEuNDg2IDEuNjAyLTIuODM5IDEuNjQ5LTQuNjUuMDQtMS44MS0uODI3LTEuMjg2LTIuMzA0LjMxNy0xLjQ3NiAxLjYwNi0yLjQzIDMuMDUtNC40NzMgNi40OTYtMS42NyAyLjgxOC00LjM4MiA2LjI1Ny05LjE2NSA3LjI0LS43ODktOC4yNzYtMS42OS0xNy4wODEtMi4yOTItMjIuNjEyLS4zMTUtMi45Mi0zLjQ2Mi0yOC4xNTMtMy42ODctMzAuOTc2LS4xOTUtMi40Ni0uNTU5LTUuMzU5LS40OTktNi43MjEuMDYtMS4wODQuNzQtLjY1NCAxLjc5Mi40OCAxLjA1NCAxLjEzMyAyLjg5OCAzLjEwOCAzLjIxNSAyLjk1NCAxLjA3NC0uNTI3LS4wMjQtMy44MDctMS40My02Ljc0NC0xLjQwMi0yLjk0NS02LjE5LTE0LjU2NC03LjE5NS0xNS4wNDMtLjUxOC0uMjQzLTMuNzUgNi45MDktMy45NDEgOC4zMTcuNS44OCAxLjgxIDIuMjY2IDEuODU3IDYuMjA3LjAxNiAxLjA5OS43MjMgMTEuNDYxIDEuNzAzIDIxLjI2Ljg1OCA4LjY1MiAxLjk5NCAxNi44NjMgMi4xMDQgMTcuODE3Ljc4IDYuNjA1IDEuNzI4IDE1LjkxNCAyLjYzIDI1LjA2Ni01LjE5MS0uOTg4LTYuNTcyLTQuNDExLTYuNDU3LTYuMzY0LjEzMi0yLjIwMyAxLjEyNi00LjY5LjY1LTUuMjUyLTEtLjYtNi45NSAyLjcyNS0xNS4yNDYgNi4yOThhMTU2Ljc5OSAxNTYuNzk5IDAgMCAxLTcuNzM4IDMuMWMtLjcyMy02LjIzOC0xLjY3Ni0xMi4xNjktMi4wNi0xNi43MDRsLS4wNDYtLjUwNGM1LjQ1Ni0uMzUyIDkuOTIzLTMuMTA3IDExLjk1Ni01LjczIDIuNTM5LTMuMjggNC4zMTQtMTAuMDMgNC40ODYtMTUuMi4xNzMtNS4xNzctNC4wMDQtMTQuNjQtNC45OTgtMTcuNjQ5LTEuMDAzLTMuMDEtMS41Mi01LjA5OC0xLjYwOC02LjEzOC0uMDktMS4wNDEgMi4yNTcgMS4yMDUgMy43MzMgMS42NDYgMSAuMi42NTUtMS45NjYtLjU2Ny0zLjQ1Mi0xLjIxMy0xLjQ4Mi03Ljc3Ni0xMS40NDEtOC4yMzYtMTAuNzQzLS4yODIuNDEtMi45MTIgNy43MzctMy4wODQgOC44NTkgMS4wMzUuNjg0IDIuMjQ2IDIuNTY4IDIuMzMgNC4zNzMuMDg4IDEuODA2IDEuNTM0IDkuNzQ1IDMuMTM3IDE0LjE1NyAxLjYwOCA0LjQxMSA1LjAzMSAxMi44NzQgNS4yNDggMTUuMjAyLTIuNDQ2IDEuNzI0LTguMDE1IDQuNjQ0LTEzLjUyMyA0LjQ3LS45NDItNy43Mi0yLjEzNy0xNi42ODQtMi43NzUtMjMuMDMzLS4yNDYtMi40NTQtLjI2My01LjA3Mi0uMjI0LTYuNDQuMDMtMS4wODQuODEtLjkzNCAxLjg4NC4xOCAxLjA4IDEuMTE0IDIuNzM0IDIuNzM1IDMuMDczIDIuNjE4Ljc0LS4yNDUuMDk5LTIuNzA0LTEuMzY2LTUuNjI0cy03LjI5LTE1LjI3LTguMzEtMTUuNzMxYy0uNTE4LS4yMzYtMy4xMjYgNi43LTMuMjkgOC4xMTYuNTIuODc2IDEuODU0IDIuMjMxIDEuOTg1IDYuMTcxLjEwNSAzLjEzOCAxLjYzMyAxOC41MTUgMi45NDIgMzIuMDU4LTUuNDUtMi44MTgtNy4zMS02Ljg0Ny03Ljk4NC0xMy42MTEtLjQ3MS00LjcxNi0uNTE4LTEzLjQwMi0yLjItMjAuNjY4LS45NDctNC4xMDctMi45NDQtOC4yOC01LjMxLTEwLjQ5Ni0uNTY1IDEuMzY1LTMuMDg1IDkuNzQ0LTMuMDg1IDkuNzQ0LjgyMiAyLjQwNiAzLjM3NyAxMC41MDcgMy4yOSAxNy41MjctLjA4NSA3LjAyLS42MzggMTMuODgzLTguNTA1IDE4LjYxLTcuODYxIDQuNzMxLTE5LjY1MyAyLjg1LTIyLjU2NS00LjUzLTIuOTExLTcuMzg0IDMuNTYxLTI1Ljg5OSAzLjQ3Ni0zMC4yNy0uMDg3LTQuMzctLjg2OC00Ljk3My0yLjY5NS00LjI1MS0xLjgyNC43MjEtNS41NTggNC45MzUtOC43NzMgMTEuNzktMy4yMTYgNi44Ni00LjY0NiAxNS4zNTctNi40NzMgMjEuMTMzLTEuODIxIDUuNzc3LTQuNzM4IDExLjYzLTkuMjUyIDExLjMwNS00LjUxNC0uMzE5LTYuOTQ0LTQuNDUtOC4zMzMtMTAuNDIzLTEuMzkxLTUuOTgtLjU0LTEzLjg1My0uMTYxLTE1Ljg3Ljk0Mi01LjA1Ni0xLjI0LTQuMDItMi41NzggMy45MTctLjgyNyA0Ljg5NS0xLjY0OSAxMi43MTIgMS4yNjMgMjAuODk1IDIuOTA2IDguMTgyIDcuODYxIDExLjIzMyAxMi4yMDMgMTAuMTg4IDQuMzQ0LTEuMDQxIDguMTYyLTExLjIzIDkuNTEtMTUuODA1IDEuMzQ1LTQuNTY5IDcuMzYyLTI0Ljg2IDEwLjc3LTI1Ljg1OS40NzYgMi4yODctMi42NDkgOS42NTktMy42NDkgMTguMjgyLS45OTcgOC42MjMgMS4zMjkgMjAuMjA2IDEyLjI3NCAyMi4yMSAxMC45NDUgMi4wMDUgMTguMzcxLTUuMDk0IDIxLjA2NC0xMC4wMjIgMi42OTUtNC45MzUgMy45NTItMTAuMTEgNC4yNTYtMTIuNzE1LjM1IDYuNjE1IDQuODY1IDE2Ljk0NCAxMy42MzMgMTkuODlsLjkwMy4yNmMuNTQgNS40MTUgMS40MiAxMi40ODMgMi4yMjcgMTkuOTA1YTgyLjg2MSA4Mi44NjEgMCAwIDEtNS4xNDQgMS40MTNjLS4yMTktLjcxMS0uNDYtMS40MDgtLjc1My0yLjA0OC0yLjY3Ni01Ljc1Ny03LjEwNS0xMS4wNjItMTMuMjQzLTEwLjY5NS02LjI3LjM3Mi0xMy4xMDcgOC43NC0xMi44MDggMTQuODUuMTk3IDQuMTEgMi40NiA3LjQ4NCAxMC42ODggOC4zNDcgMy43NTguMzk4IDcuNzQ4LS4wMiAxMS44Ny0uOTIuNTgxIDEuNy45NDggMy4zOS45OSA0LjkyOS0yLjYwOCAzLjA0OS0yNC4xODQgMTkuMzIyLTQwLjMzOSAyMC44ODctMTYuMTU1IDEuNTYzLTIxLjA4Mi02LjkwNi0yMS4yNDQtMTUuNDA3LS4xMi02LjQ2OCAzLjc2OS0xMi45MjMgNi41MDItMTcuMzkgMy45MTItMi44NjIgNy4xMjItNi40NCA5LjE0OS05LjIuNTUuMzQgMS4wNzQuNjUzIDEuNTcyLjk0NCAxLjkzMSAxLjEyMiAyLjcwMSAyLjc5OSAyLjcwMSAyLjc5OS4zNTYtLjU0NyAyLjAxNi0zLjUzNiAxLjM2Ny00Ljk5Ny0uMjk5LS4zNi0xLjc1OS0xLjI1OC0zLjUxNC0yLjMyNSAxLjg0My00LjU5MyAxLjgxOC05LjE4LS41Ny0xMC4yLTIuNjctMS4xMzctNi4xNTggMi4wMjMtNy42NjEgMy45NWE1LjEyIDUuMTIgMCAwIDAtMS4wODUgMy4wOTVjLS4wMTEgMS4yMjguNTY3IDIuMzM3IDEuOTk3IDMuMzI1IDEuNDI0Ljk3MyAyLjc0NyAxLjg1NCAzLjk5IDIuNjQ5LTMuNTMgMy43MDctMTEuODczIDkuMTQtMTYuOTc5IDEyLjMzLS4xODktLjQ2OC0uOTM3LjAyNi0xLjk0MiAxLjIxbC0xLjM4My44NTRjLTQuMDczIDIuNDkyLTEzLjg0IDcuOTY1LTE1Ljc2IDkuMzA0LTEuOTI0IDEuMzQzLS43MTggMS4xIDAgLjggMS4zNTUtLjczMSAzLjEzNS0xLjYxOCA1LjEzNS0yLjU5NSAyLjgzMi0xLjM4NSA2LjEyNy0yLjk1MyA5LjM0OC00LjUyNmE0Ny42NCA0Ny42NCAwIDAgMC0yLjgxMyA1LjU2N2MtMy44NDMgOS4wNzMtMTAuMDU1IDI3Ljg3OSAzLjM4MyAzOS4xOTQgMTIuODU3IDEwLjgzMSAzNC45NTYgNi43MSA1My4yODMtNC41NDYgMTguMzMtMTEuMjU5IDIyLjI4OC0xNS4yMTcgMjUuMTUzLTE5LjMxbS01OS43NTUtNDQuNzMyYy0uNjM2LS40NjktLjcyNC0xLjA5NC0uMjA2LTEuNTMuNjYtLjU2MiAxLjUwNC0xLjA5NCAyLjQ2My0xLjI3MyAyLjAzMi0uMzc4IDIuODQzIDEuOTU3IDIuMDI3IDUuNTk0LTEuNTQ1LS45NDUtMy4xMzQtMS45MzgtNC4yODQtMi43OTFtNDIuMDM5IDE1LjMzOWMtOS4zMzIuMDQzLTkuNzYyLTEuNjUxLTkuNTg3LTIuNzM1LjE3My0xLjA3OSAzLjA3OS00LjA0IDYuNzY2LTIuMDg3IDEuNTU4LjgyOCAzLjMxNCAyLjU2IDQuOTM4IDQuNzM2LS43MTcuMDUzLTEuNDI0LjA4LTIuMTE3LjA4Nm0tMjguNTgyIDQ5LjA3NWMtMTcuNjMyIDQuODEyLTM0LjgzLTIuNjQzLTM1Ljg3MS0xNy40MDUtLjc5Ny0xMS4yNzIgMy4zMTQtMTkuNzY1IDUuOTY1LTI0LjU1MiAyLjUyOS0xLjI1IDQuOTE3LTIuNDY2IDYuODkyLTMuNTU1LTQuNjE1IDcuNDMzLTcuMzE2IDE3LjM4Ny01LjUxMSAyNS44MiAyLjA0MyA5LjU1MyAxMC4zNTQgMTUuMzQ0IDI0LjQyNCAxMy40NzUgMTMuOTMxLTEuODQ2IDMyLjc2OC0xNS4wOTUgMzguMTA5LTIwLjA5MiAxLjYyNy0xLjgwMyAyLjctMy40MjkgNC4xNjMtNi43NDEuNjAzLTEuMzYgMS40NS0zLjE1NSAxLjc2NC01LjE4NC4yMDYtMS4zMjIuMzE1LTIuNzM1LjM0LTQuMTczYTEwMi4zNzggMTAyLjM3OCAwIDAgMCA0LjkzMy0xLjYyNGMuNTYyIDYuMDQ4Ljk3NSAxMi4wMSAxIDE3LjE2NS04LjY4IDEwLjE4LTI4LjU3NyAyMi4wNTItNDYuMjA4IDI2Ljg2Nk01ODEuNjI1IDI0Mi45NTVjLS41OTctOS44NzYtMi4wMzgtMjcuNzUzLTIuODQzLTM2LjgyMS0uNzEyLTguMDcxLTIuMTEyLTE5LjEzMy0zLjEzNi0yOC44N2E1Mi4xMjQgNTIuMTI0IDAgMCAxLS4yNTgtNi4xNjRjLjAzLTEuMDc4IDEuMTEtLjY2MyAyLjE4OS40NDZzMi43NjYgMi41MDIgMy4wODQgMi4zMzJjMS4wNTQtLjU0Ny0uMjA4LTMuMjUxLTEuNjktNi4xNjEtMS40ODItMi45MTUtNy4zNTctMTQuOTcyLTguMzc5LTE1LjQzLS41Mi0uMjMzLTMuMjczIDYuOTktMy40MzIgOC40MDUuNTI2Ljg3MSAxLjg3IDIuMjIxIDIuMDE2IDYuMTYxLjE0OCAzLjk0MyAyLjE0IDIyLjA3IDMuNTc3IDM2LjczLjk5NyAxMC4xOTEgMi4yODUgMjYuODE5IDMuMjIxIDM5LjM1Ny0uMDQ2LjAyLjg4NSAxMS45Mi45ODYgMTMuMjU3LjU3NiA3LjY5OS4yNzcgMTcuMzg1LjIyIDE5LjA2Ny0uMDY0IDEuNjg5IDEuMTcyIDEuMzk1IDIuNDk4LTIuMzUzIDEuMzUtMy44MjcgMi4xMi0xMi4zNyAyLjIyNC0yMC4wODV6TTUzMS41NjMgMjA4LjM4Yy0xLjgwOC41NTItNC42NDYtMS4zNi00LjQzLTUuMzY5LjE5OC0zLjYyMSAxLjc0OC03LjAxMiAyLjM0NS05LjE1Mi44MjItMi45NTMuODI3LTUuOC4xMzItNC4xODYtMS41NjcgMy42MDYtNC40ODQgMTAuNTc4LTUuMDg3IDE1LjMwOS0uNjA1IDQuNzMuOTI5IDcuNzggMy4wMTMgOC44MiAyLjU5NyAxLjMwNCA0LjQ2Ny0uNzY1IDUuNzMzLTMuODE0IDEuMjE2LTIuOTIuOTg2LTYuMzI4LjE0Mi01LjUyNi0uNzA2LjgzOS0uOTcgMy42NDctMS44NDggMy45MThNNTA1LjU3NSAyMjIuOTUyYy45NTktMi41NDcgMS4xODMtNS4wNDQuNDQ2LTMuNjc0LTEuNjYyIDMuMDctNC43NzYgOS01LjY4OSAxMy4xMi0uOTA5IDQuMTIuMTk1IDYuOTA5IDEuOTQ4IDcuOTY1IDIuMTg2IDEuMzIyIDMuOTg1LS4zNzIgNS4zNDctMi45NjggMS4zLTIuNDg0IDEuMzY2LTUuNS41NjctNC44NDctLjY5LjY4OS0xLjE0OCAzLjEzNy0xLjkzNyAzLjMxNy0xLjY0LjM2Mi0zLjk4LTEuNTEyLTMuNDczLTUuMDI3LjQ2LTMuMTY1IDIuMDk1LTYuMDQ0IDIuNzkxLTcuODg2TTQyOS45IDI3Ni42OTdjMS42MDItMi42IDIuNC01LjI5NyAxLjI4Ny0zLjkzNS0yLjQ4MSAzLjA0NC03LjE3OSA4Ljk1Mi05LjA3NCAxMy4yODUtMS44OSA0LjMzMy0xLjI4OCA3LjU4Ny4zOTcgOS4wNjkgMi4xIDEuODQ4IDQuNDQzLjMyOSA2LjQ4OS0yLjI1MiAxLjk2NC0yLjQ3NCAyLjY5OC01Ljc1NiAxLjY3LTUuMTk2LS45LjYzLTEuOTMgMy4yMjEtMi44MzcgMy4yNy0xLjg2NS4wOS00LjAxOC0yLjM5NC0yLjY5OC02LjEzNyAxLjE5NC0zLjM3OCAzLjYwNy02LjIyIDQuNzY2LTguMTAzTTU2Mi41NzUgMjAwLjc5OGMtMS44MzguNDYtNC41NTUtMS41OTgtNC4xLTUuNTkyLjQxMy0zLjYwNCAyLjE2OS02LjkwOCAyLjg5LTkuMDEgMS4wMDItMi45MSAxLjE3NC01Ljc0OS4zODMtNC4xNzktMS43NzUgMy41MjUtNS4xMDYgMTAuMzMyLTUuOTk2IDE1LjAyNy0uODkgNC42OTMuNDU1IDcuODE1IDIuNDc2IDguOTYzIDIuNTIgMS40MjggNC41MDMtLjUzNyA1Ljk1NS0zLjUyIDEuMzg5LTIuODUyIDEuMzY3LTYuMjY2LjQ3MS01LjUwNi0uNzUzLjgwNS0xLjE4MyAzLjU5NC0yLjA3OSAzLjgxN001NjIuMDEzIDI0OS43OTFjMi41MTQgMS40MjkgNC41MDgtLjUzNyA1Ljk1NC0zLjUyIDEuMzg2LTIuODUxIDEuMzY3LTYuMjY1LjQ3Ny01LjUwNS0uNzU5LjgtMS4xODkgMy41OTMtMi4wODUgMy44MTYtMS44MzguNDU4LTQuNTYtMS41OTgtNC4xLTUuNTkxLjQxNC0zLjYwNCAyLjE2Ny02LjkxMSAyLjg5LTkuMDEgMS0yLjkxIDEuMTcyLTUuNzU0LjM4My00LjE4LTEuNzggMy41MjYtNS4xMDUgMTAuMzMzLTUuOTk2IDE1LjAyMy0uODkgNC42OTguNDU1IDcuODIgMi40NzcgOC45NjdNNTk0LjE1IDE4Ny4yMDhjMS4yMS0zLjUyIDEuNDE5LTYuOTU3LjQ2LTUuMDU1LTIuMTUzIDQuMjY0LTYuMTggMTIuNS03LjI1OCAxOC4xODUtMS4wNzQgNS42OC41NTYgOS40NTYgMy4wMDIgMTAuODQ2IDMuMDQzIDEuNzI3IDUuNDUtLjY1IDcuMjA2LTQuMjU3IDEuNjc0LTMuNDUxIDEuNjUtNy41ODcuNTctNi42NjItLjkxMi45Ny0xLjQzNSA0LjM0My0yLjUyIDQuNjE0LTIuMjE5LjU1Ny01LjUxNC0xLjkzMy00Ljk1OC02Ljc2NC41MDEtNC4zNjEgMi42MjQtOC4zNiAzLjQ5OC0xMC45MDciIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzM3LjMyIDI0OC4wOTNjMS45OC00LjI5IDIuNjk4LTguNTg1IDEuMjQtNi4yOTktMy4yNjEgNS4xMTgtOS40MDUgMTUuMDI4LTExLjUwMyAyMi4wNDgtMi4xMDEgNy4wMjItLjU0NSAxMS45NTUgMi4zNDQgMTMuOTc4IDMuNjA1IDIuNTEzIDYuOTQ0LS4yMTIgOS42Mi00LjU0NSAyLjU2MS00LjE1NiAzLjA3LTkuMzYgMS41OTQtOC4zMi0xLjI3NCAxLjExNS0yLjM3NSA1LjMwNC0zLjc3MiA1LjUyNC0yLjg3LjQ1LTYuNjgzLTMuMDQ5LTUuMzUyLTkuMDYzIDEuMjA1LTUuNDI3IDQuNC0xMC4yMTkgNS44MjktMTMuMzIzTTYxNC42MjUgMjkwLjYyNWMxLjUxNy0xLjI0MyAxNC43MTQtOC4zNTIgMTcuMTQ0LTkuNzk1IDAgMCAyLjQ4NC00LjA1MiAxLjc0LTQuNDgzLS43NDktLjQzLTUuNTY3IDMuOTUtOC41NjMgNC4wNzItMyAuMTIyLTcuMTA1LTIuMDgxLTcuMjM3LTMuODg3LjM5LTEuMzYyIDMuOTk3LTMuNDA5IDUuMy0zLjQ5MiAxLjMwNC0uMDc2IDEuMDkzIDIuODkyIDEuNTI5IDMuMjU0LjQzNS4zNTcgMi4xNy0yLjA0OSAyLjM4OC0zLjA1MS4yMTQtMSAuMDM2LTUuMTktMi4zNS00LjU5LTMuNzc3Ljk1Ni05LjQ3NCA3Ljk2LTEwLjEyNCAxMC4xNjMtLjY1NCAyLjIwOSAyLjg2NiA0LjEzIDUuNDM1IDUuMTc3LS4yMi4wOC0yLjEzNyAxLjAwMi0zLjM1IDIuMjAzIDAgMC0xLjMwNCAxLjQ2MS0xLjkxMiA0LjQyOU01NjkuNjI1IDI5OS40M2MxLjUxNy0xLjI0MyAxNC43MTQtOC4zNDcgMTcuMTQ0LTkuNzk1IDAgMCAyLjQ5LTQuMDUyIDEuNzQtNC40ODMtLjc0OS0uNDMtNS41NjcgMy45NS04LjU2MyA0LjA3Mi0zIC4xMjItNy4xMDUtMi4wODEtNy4yMzctMy44ODcuMzktMS4zNjIgMy45OTctMy40MDkgNS4zLTMuNDg3IDEuMzA0LS4wODEgMS4wOTMgMi44ODQgMS41MjkgMy4yNDQuNDM1LjM2MiAyLjE3LTIuMDQ0IDIuMzg4LTMuMDQ2LjIxNC0xIC4wMy01LjE5LTIuMzUtNC41OS0zLjc3Ny45Ni05LjQ3NCA3Ljk2LTEwLjEyNCAxMC4xNjgtLjY1NCAyLjIwNCAyLjg2NiA0LjEyNiA1LjQzIDUuMTcyLS4yMTQuMDgtMi4xMzIgMS0zLjM0NSAyLjIwMyAwIDAtMS4zMDQgMS40NjEtMS45MTIgNC40MjlNNDY4LjI2MyAxNzIuMDJjMS4xODMgMS4zNzUgOC45MzQgMTEuMjI0IDE1LjAwNyAxNy40MTUgNi4wNyA2LjE5NyAxNi40NzUgMTYuMjI2IDI0LjEyIDIzLjA5OWEyOTQuOTMyIDI5NC45MzIgMCAwIDEgNC42NDYgNC4yNzdjMS45MjggMTQuODA0IDQuMTU4IDMzLjY0MyA1LjA5NCA0MS40MzMuOTIzIDcuNjcgMS4wNiAxNy4zNTcgMS4wOCAxOS4wNDMuMDE2IDEuNjkgMS4yMzIgMS4zNDUgMi4zODgtMi40NDYgMS41NS01LjA4OCAxLjcyOC0xOC4yNjEuOTA3LTI2Ljk2My0uNTEtNS4zNzMtMS43MTItMTUuNDQtMi44NzYtMjQuNzIxIDQuNTE0IDQuNDYgOC43NzggOC44ODQgMTEuNjUyIDEyLjE5NiA1LjI4MyA2LjA4IDkuNzI5IDEwLjY2NyAxMi40MzggMTcuMjAzIDEuOTE3IDQuNjI0IDEuNzIzIDguMzA0IDIuNTA5IDkuMDMuNjguNjI4IDEuNDMtNC45MDUuNTkxLTEwLjI3MS0xLjM1OC04LjcxNC0zLjIyLTEyLjQwOS0xNC40MDctMjQuODUtNC4yNjgtNC43NTctOS4yOTEtOS43MjgtMTQuMjAyLTE0LjM3NS0uMTktMS40MzMtLjM2Mi0yLjc2LS41MTgtMy45MzgtLjM4OS0yLjkxLTQuMTgtMjguMDY2LTQuNDc4LTMwLjg4NS0uMjU1LTIuNDU0LS43MDItNS4zNDMtLjY2Ni02LjcwOC4wMjctMS4wODcuNzE4LS42NjQgMS44MDIuNDQ2IDEuMDggMS4xMDYgMi45NyAzLjA0MyAzLjI5IDIuODc0IDEuMDU3LS41NDctLjEyLTMuNzk2LTEuNjAyLTYuNzExLTEuNDc3LTIuOTEtNi41NjMtMTQuNDIyLTcuNTg1LTE0Ljg3OC0uNTE4LS4yMzMtMy41NjYgNi45ODctMy43MjIgOC40LjUyOC44NzEgMS44NyAyLjIyOSAyLjAxNiA2LjE2NC4wNCAxLjA5OSAxLjAxNiAxMS40NDYgMi4yNCAyMS4yMTYgMS4wODUgOC42MzMgMi40MjcgMTYuODIgMi41NjcgMTcuNzY4bC4wMDUuMDczYy01LjA2NC00LjYxOS05LjUyNi04LjU0Mi0xMi4yMzItMTEuMDA2LTYuMzI4LTUuNzUtMjAuMzAyLTE5LjM5OC0yMC44NjQtMjEuNDQyLS4xMjYtLjY0NS45NTktLjI0OCAyLjk1My4wNzEgMi4wMDIuMzIyIDMuNzgyIDEuMDAzIDMuNDYyLjAyLS4xNDUtLjQ2My0uOTEyLTEuNjA3LTIuODIxLTIuNzg4LTEuOTEyLTEuMTgyLTYuODEtNC4yNDYtMTAuNDUzLTYuNDE0LTMuNjUtMi4xNjUtNS40NTktMy45ODEtNi4yMTItMy40NjItLjM3Mi4yNTYtLjA0IDcuNjczLjE3OCA4LjU5OC45MTIuMDc4IDIuNTE1IDEuMTUyIDMuNjkyIDIuNTMyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQ3OC4yMzcgMTU4LjY4MWMxLjQ5OS0uMzI5IDguNTk4LS4xNSAxMS4xNzYuMzkzLTEuMDguNzUtOC4zNDMgNC40MTktOS43NzkgNS4yOTMtMS40MjcuODc2LTEuNzg4IDEuMzgyLTEuMDcgMS4yOTYgMi4wODEtLjU3NyA2Ljc3My0xLjI5NiA5LjAyMi0yLjQ2OSAyLjEyLS45OTMgNS43MzMtNS44MzUgNy4xMzgtNy42NCAxLjM5Ny0xLjgwNiAxLjM5Ny0yLjcwNyAxLjA0LTMuMTkxLTEuNDM0LS43OC0xMC42ODctMS41NjMtMTUuMTQ5LS40NTYtMS4yMzUuODM4LTMuNjUxIDUuMzAzLTQuMDA3IDYuMjMyLS4zNTYuOTM1LjEzMS44NzEgMS42My41NDJNNTE3LjcyNSAxNTguMWMxLjIxLS4yNjYgNi45MzMtLjEyMiA5LjAwNi4zMTQtLjg2OC42MDUtNi43MTkgMy41NjMtNy44NzUgNC4yNzItMS4xNTguNzAyLTEuNDQ2IDEuMTEyLS44NjggMS4wNDEgMS42NzktLjQ2IDUuNDYyLTEuMDQgNy4yNzItMS45OSAxLjcwNy0uOCA0LjYxOC00LjcwMyA1Ljc1LTYuMTU0IDEuMTI1LTEuNDU5IDEuMTI1LTIuMTgzLjgzOC0yLjU3LTEuMTUtLjYzNi04LjYxLTEuMjY0LTEyLjIwNi0uMzctLjk5Ny42NzMtMi45MzkgNC4yNzItMy4yMjYgNS4wMjEtLjI5My43NS4xMDQuNzAyIDEuMzA5LjQzNk01NDkuODI1IDE1Ny42ODhjMS4yMDUtLjI2NiA2LjkyNy0uMTIyIDkgLjMxNC0uODYyLjYwNS02LjcxNiAzLjU2My03Ljg3NCA0LjI2Ny0xLjE1My43MDYtMS40NDEgMS4xMTYtLjg2MyAxLjA0NiAxLjY3OS0uNDYxIDUuNzU1LTEuMDQ2IDcuNTY1LTEuOTkxIDEuNzEtLjggMy43MzQtNC43MDMgNC44NjUtNi4xNTkgMS4xMzEtMS40NTMgMS4xMzEtMi4xODMuODM4LTIuNTY1LTEuMTUtLjYzNi04LjAyMy0xLjI2NC0xMS42MTQtLjM3NS0uOTk3LjY3OS0yLjk0NCA0LjI3Ny0zLjIzMiA1LjAyN3MuMTA0LjcwMSAxLjMxNS40MzVNNTI5LjggMTczLjMyMWMtMS45IDIuOTk0LjQ4MiA1LjQxIDEuMzUgNy44MjgtMS4xNzIgMS4wNzEtMi45NzQuMDk0LTMuNTc3LS44NDYtMS4yODItMS45MjctLjg1Mi01Ljg1NS0yLjM2MS02LjQ2LS4zODYgMS4wNjEtLjYzOCAyLjIzOS0uNjM4IDIuMjM5czEuMTQ4IDIuNjg2Ljg2IDQuNDY0Yy0uMTg0IDEuMDc0LTEuMTMxIDIuMzI4LTIuMzgzIDIuMzUzLTMuMzM2LjA4LTEuNjkzLTQuODU3LTIuOTgtNy42NTYtLjI2My42ODQtLjQ1MiAxLjQxOS0uNzU5IDIuMDYuMjM2LjcyOS4zNjQgMS43NTIuNDAzIDIuMzQyLjA3NiAxLjE3Mi0uMDE3IDIuNDM2LjE4MyAzLjQzNi4yNzcgMS40MTYgMS4wNjMgMi4zNTUgMi4yNjMgMi40NDYgMi40OTIuMTk4IDMuNjI5LTEuODIgNC4wMDQtMy40NzcuNDMgMS42OSAzLjcyNSAzLjU1IDUuMzQ3IDEuNDc3IDIuMTQ3LTIuNzM1LjQzLTUuMDc4LS42NzEtNy42NS0uNzk0LTEuOTAyLS41NjQtMy4xNS0xLjA0MS0yLjU1Nk00MzYuMTYyIDE2NS4zODJjLjE3MyAxLjIzMS44MDYgMi4wNzIgMS44MzggMi4xOTkgMi4xMzEuMjcgMy4yMS0xLjQyNCAzLjYxMy0yLjgzMi4yODIgMS40NzIgMy4wMzggMy4yMDQgNC41MzYgMS40ODcgMS45OC0yLjI3Mi42MDgtNC4zNTgtLjIxOS02LjYyLS41OTItMS42NzYtLjMzNy0yLjc0LS43NzUtMi4yNDYtMS43OCAyLjQ5Ny4xNjEgNC42ODIuNzk0IDYuODAyLTEuMDYzLjg3MS0yLjU2Ni0uMDQzLTMuMDQzLS44NzEtMS4wMTMtMS43MTUtLjQ2LTUuMDgtMS43MjYtNS42NjUtLjM4My45MDEtLjY1NCAxLjkwMi0uNjU0IDEuOTAycy44NTcgMi4zNjIuNTIzIDMuODhjLS4yMDUuOTE5LTEuMDggMS45Ni0yLjE2NCAxLjkzMi0yLjg3My0uMDY0LTEuMjI0LTQuMjUyLTIuMjA1LTYuNzExLS4yNTUuNTc1LS40NTUgMS4yMDUtLjc1MyAxLjczNy4xNzMuNjQzLjIzNSAxLjUyNC4yMzUgMi4wMzkuMDIyIDEuMDEyLS4xMiAyLjA5MSAwIDIuOTY3TTUwNC4xNSAyODEuMzYyYy4zMi0uNTA5IDEuMDI3LTEuOTA2Ljg1LTIuODYxcy0xLjM0OS00LjkzOC0zLjYyLTUuOTM2Yy0yLjI1Ni0uOTk4LTMuOTY1IDEuMDk0LTUuMDQ3IDQuMDA0bC0uNzUtLjAxOGMtLjE3OS40My0uNDAzIDEuMDc0LS41ODIgMi4yMzYtLjI1MiAxLjY3OS0uNzI4IDIuNzYtMy42MDcgNS4zNzQtMi40MjEgMi4xODgtMTAuMjY2IDcuNDQzLTE1LjM1IDkuOTEyLTUuMDg5IDIuNDc0LTguNzUxIDQuNjA5LTEwLjEwMSA1LjI1Ny0xLjM0NS42MzgtLjk1NC44NzYuMzkxLjQ3NCAxLjM0Mi0uNCA4LjA5Ny0yLjU3NiAxMC43OS0zLjY4NSAyLjY4Ny0xLjExNyA1Ljk3My0yLjk1MyA5LjkzNC01LjUyMyA0LjQwNS0yLjg1NyA3LjAzNy01LjcxMyA3LjkyMi04LjI0Ni42My0xLjgwNS43OTEtMi41MjcuNzkxLTIuNTI3czEuNjU1Ljk3NyA0LjQ2MiAxLjYxOGMyLjc5Ny42NDMgMy41OTEuNDM2IDMuOTE3LS4wNzhtLTMuNzk2LTUuNjZjMS4yNDYuNDczIDIuMDA1IDEuODMgMi4yMyAyLjY1NC0xLjQzLjAzMi00LjA2My0uNjk0LTUuMTgzLTEuMi42NzQtMS4zMDUgMS44NDYtMS44NyAyLjk1My0xLjQ1NCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik00NzQuMzM4IDI4NC4xNjRjLTMuOTA2LS41NDItMTMuNzQ4LTIuMDM5LTE2LjE1Ni03Ljc1MiAyLjAyMi0yLjk0OCAxMS4zMzItNi42OCAyMi45OTUtMTAuMTczIDExLjY2My0zLjQ4NCAyMy44NS04LjAwNyAyNy4xMjUtMTAuMTkuNzE4LS4yNDMgMi4xMDYtLjE3IDIuMTA2LS4xNy41ODctMS42ODkgMy41MTUtNy42MiAzLjY5OC04Ljg2LTMuMjYuMTg0LTIzLjM1IDEuNjYtMzIuMjc0IDIuMTQtOC45My40OC0yNi4xMjYuMzY0LTMxLjg1Ni4zIDMuNTE0LTIuNTI3IDExLjg1NS03LjQ2IDIzLjc3NS0xMS42NjkgMS41NDUtLjU0NyAyLjk3NS0xLjA0IDQuMzA5LTEuNDg2Ljk5MSAxLjc2NyAxLjcyOCAzLjUxNSAxLjg4MiA1LjAzNy43NTgtLjc4IDEuMzI4LTMuMzY2IDEuMTM2LTYuMDIgNi45NS0yLjIxOCAxMC41My0yLjk1MyAxMi4wNzQtMy4zNy45NzUtMS4yNjQgMi43MDQtNi4zNzUgMi45NjEtMTAuMDktMS4wMzgtMS44OTEtNC4yOS00LjI0Ny03LjE4Mi02LjI3LTMuOTg1LTIuNzgzLTguMjgzLTUuMjEtMTIuNTcyLTQuMTQ4LTUuODY0IDEuNDM4LTcuMDQgMTIuMjExLTUuNjczIDE0LjQ5Ni40MzYuNzIxIDEuNDY4IDIgMi42ODcgMy41NzgtNC4yODQgMS42ODQtOC43NjUgMy42NjQtMTIuNzE0IDUuNzQ2LTguNzk4IDQuNjM0LTE4LjYyIDkuNzA0LTIxLjQ4NiAxNC41NzlsLS44MjEuNGMtLjIzLjQ2MS0yLjA0NCA4LjAwNS0yLjMwNyA4LjgxOCAxLjgzLS4wNjMgMTUuNDkyLS4wMzggMjUuMDA4LS4zMzQgOS41MS0uMzA0IDE3LjgyNi0uNjA2IDIxLjA4My0uNjA2LTQuODI0IDEuMTQzLTE3LjQ2NSA1Ljg0LTIxLjEgOC42MDMtMy42MzQgMi43Ny01LjkxOSA2Ljk4Mi01Ljk3OSAxNC4yMDItMy4zODgtMS4zMjctOS42ODUtNC4zNTgtMTUuMDUxLTExLjYxNi01Ljk4Mi04LjA4OS00Ljc0NC0xNi40MDgtNy4xMzgtMjcuMzI1LTMuNDc5LTE1Ljg0My0xMC45MDctMjkuMjItMTUuNTMzLTMzLjMxMS0xLjU1OSA1LjU5MS0xLjc1OSA5LjgwNS0xLjc1OSA5LjgwNXM1Ljc5NiAxMi44MTQgOC43MyAyMC45OTRjMi45MzMgOC4xODIgNS40NCAxNi4yNDMgNS4zMTYgMTguMDQ4LTIuNDE2IDUuMjk4LTE2LjcxNiAxNi4zOTUtMjguNjM0IDIyLjg5LTExLjMwMiA2LjE2LTIxLjI1OCA2LjgyMy0yNC43ODYgMi40MzctLjY5My0uODU2LTEuMTY0LTEuODY5LTEuNDMtMy4wMTYgMS41MzQtLjcxNyAzLjA3My0xLjQzOSA0LjY1MS0yLjE2IDEwLjE2Mi00LjYzIDI4LjIxLTE0LjM3NCAzMi40MzktMTkuNDg3IDQuNTYzLTYuMTk3IDQuNS0xNC45MjEgMS44MjQtMTkuOTE1LTIuNjY1LTQuOTkyLTYuODQ1LTEwLjc3LTcuMTctMTIuODE0LS4yNTUtLjk2NSAyLjcxNC4zOTIgNC40NjcuNDg0Ljg0OS0uMDY0LjQyNC0xLjIwNi0xLjM5Ny0zLjAxMi0xLjQ1Ny0xLjQzOC03LjA5Mi02LjEwNS05LjI0NS03LjkyNi0uNTQtLjQ2My0uOTQyLS4yNzYtMS4wNTEuMjEzLS40MiAxLjg2NC0xLjI3NyA1Ljg1NS0xLjYwOCA3LjgyNWwuMjMuOTkzYy42MTkuMzY3IDEuMzMxLjc4IDEuNjc2IDEuODEuNDg4IDEuNDYxIDIuMTk0IDUuNTM5IDQuOTkgMTAuNjg1IDIuODAzIDUuMTQzIDYuODUxIDEwLjgyIDcuMjQ4IDEzLjY4Ny0zLjI5MiA0LjE5OS0xOS44OTQgMTMuMTQtMzYuMDY1IDIwLjUxIDEtMy4xIDIuNTc3LTYuNjA0IDQuNjctMTAuNDk3LjU5NC0uNjU4IDEuMTM3LTEuNDcgMS42NC0yLjM4OCAxLjYxNC0yLjk0NyAxLjc3LTYuNTUxLjc5Mi01Ljc4OS0uODM4LjgwOC0xLjQ0IDMuNzMzLTIuNCAzLjkzLTEuOTYzLjQwMy00LjcxOS0xLjg4OS00LjAyNi02LjA4LjYyOC0zLjc4IDIuNjUtNy4xOTQgMy41MjMtOS4zOCAxLjIxLTMuMDI0IDEuNTQyLTYuMDEyLjYyNC00LjM4Ni0yLjA2MiAzLjYzMS01LjkzMiAxMC42NjctNy4xMjEgMTUuNTgyLTEuMTgzIDQuOTA4LjA3NCA4LjI2MyAyLjE0NyA5LjU2Mi43NzUuNDk0IDEuNTE4LjY0OSAyLjIyNC41NTItMS40MTggMi43LTMuMTcxIDYuMDEyLTQuNDUgOS45NjMtNi41MDMgMi45MS0xMi44MyA1LjUxLTE4LjA2OCA3LjM4NC0xOC44MjUgNi43NC0zMi4yNDEgMTAuNzEtNDEuNjI1IDEzLjY1OGwtLjM2Ny4xNjRjLjY5LTIuMjMuNTk3LTQuMTM1LS4xNDMtMy41NjMtLjgzOC44MTMtMS40MzggMy43MzgtMi4zOTYgMy45My0xLjk2NC40MDMtNC43Mi0xLjg4Ni00LjAzLTYuMDguNjMtMy43OCAyLjY1Mi03LjE5IDMuNTI2LTkuMzc3IDEuMjA1LTMuMDIxIDEuNTM5LTYuMDE1LjYyNC00LjM4Ni0yLjA2NSAzLjYzMS01LjkzMyAxMC42NjYtNy4xMjEgMTUuNTc5LTEuMTg3IDQuOTEuMDcgOC4yNjYgMi4xNDEgOS41NjcgMi41OCAxLjYyMSA0Ljc4LS4zNjcgNi40NjctMy40NDFsLjU5Mi0xLjI2NGMuNTg2IDAgMS41NzUtLjEzNyAzLjA1MS0uNDY2IDQuMy0uOTY3IDE1LjA1Mi0yLjUyNyAyOS44MzQtNC40NTQgMTAuOTQ2LTEuNDI0IDE4LjUwMy00LjQzIDI1LjgwOC03Ljc3NWEyOS44OSAyOS44OSAwIDAgMC0uMDA2IDIuNDhjLjM5OCAxMC4wMyA2Ljk3MSAxMi44NjIgMTUuOTYxIDEwLjk4NSA4LjY3Mi0xLjgyIDIwLjc2NS05Ljc3MyAyOC4wMTMtMTUuMTM2IDcuNTU3LTUuNTkyIDExLjkxNy0xMC41ODggMTMuMDMtMTIuMzMgMi4wMTUtNC4yNzMgMi41NjktOC45OTMgMi43MDYtMTEuMjIuNjYgNi4xMzQgMS4xOTQgMTQuNjIzIDYuOTk1IDIxLjkwNCA1LjM0MSA2LjcgMTYuMjg3IDE2LjA1IDM2Ljg3NCAxNi4zMDYuMDY4LTIuNDQ5LS45MTMtMTAuMDk0LS45MTMtMTAuMDk0bS0xLjM2LTYyLjE1NmMyLjk0Ni0zLjMwNyA5LjIzNS0xLjE0NCAxMy45NTUgMy4wNS0yLjQxOS41NjctNS43MDMgMS41NzctOS4zMjcgMi44NzEtMi4xNTMtMi41OTYtNC41NTUtNS4wOTgtNC42MjktNS45Mk0zNTcuMjM2IDE3Ni42NjNjMS4zMzctLjYxIDUuNDI2LTIuNDUgOS44MzQtNS4wMTcgNC4zOTgtMi41NSA4LjUzMi01LjY0IDEwLjU1My03LjY5NC43NzUtLjc4NyAxLjQ2Ni0xLjQwMyAxLjkwNy0yLjEzNSAxLjMyLjU0NyAyLjIzIDEuMTE1IDIuNzk2IDEuMzM4Ljg1Mi4zMjkgMS45ODkuODAyIDIuNzI4LTEuNjI0LjczNy0yLjQyMy0uMjQtMy45ODgtMS42ODEtNS44NTctMS4yMi0xLjU2OC0zLjE1My0zLjkyMy00LjcyMy00LjUwOC0xLjMzLS40OTktMS45NjQgMi40NzQtMS43NiAyLjRoLjg5bC4xNzIuMDg0Yy0xLjgzMy45MjUtMy4yNTEgMy44MDItMy4zOTQgNC44MTItLjE0NSAxLjEuMDYzIDEuOTEgMi42OTMgMi41ODZsMS4wNTcuMzExYy0yLjE5NCAyLjU5OC02LjI4MyA1LjI4NS05LjA3IDcuMTktMy45NTIgMi43MS05LjU2MSA2LjA5NS0xMS4xNTggNy4wNzMtMS41OTcuOTcyLTEuNDYzIDEuMjc5LS44NDQgMS4wNG0yMy43NTQtMTkuMDg5LjE0Mi0xLjI5OWMxLjg0OSAyLjEwNyAzLjIyMSA0LjYxNCAzLjA4NCA0Ljk2OS0uODQ5LjA2OC0xLjkwNi0uNzE3LTMuNzU1LTEuNTA3YTE1Ljg4IDE1Ljg4IDAgMCAwIC41MjktMi4xNjNtLTUuMzA5LjAwM2MtLjAxLS4zOTUuNzAxLTEuNDk0IDIuMjA4LTIuMDk1IDEuNTA0LS42MDUgMi4xNyAxLjA4NCAyLjMgMy4xNGwtLjQ0Ni44MjQtMS4zNTYtLjQ2OWMtMS40MzUtLjQyLTIuNDA1LS42NTgtMi43MDYtMS40IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQ1NS44MTMgMjE2LjMyNmMyLjE2OS0xLjQzMyA4LjEzMi01LjczOCAxMS41MTUtOC41NiAyLjM1Mi0xLjk2IDUuMTE2LTQuODQ2IDYuOTkyLTcuMjg4YTg5Ljc3NSA4OS43NzUgMCAwIDAgMy4yNzYgMi4wMjZjMS45MjkgMS4xMjcgMi43MDQgMi43OTkgMi43MDQgMi43OTkuMzU2LS41NDcgMi4wMTYtMy41NCAxLjM2Ny00Ljk5Ny0uMzktLjQ3Ni0yLjc2MS0xLjg2MS01LjE4NS0zLjM0NSAxLjIzLTIuNzYgMi45MjItNy41MzQuNDk4LTkuMjA1LTIuMDczLTEuNDE5LTUuNTcxLjkyOS03LjE5IDMuOTc1LTEuMzM3IDIuNTIzLTEuNTEgNC42NjMgMS4wNCA2LjQxNS43MTguNDk0IDEuNDA2Ljk2IDIuMDggMS40MDMtMi41NzIgMi44MTQtNy4zMSA2Ljk3Ny0xMC42ODMgOS44MS00LjE4OCAzLjUwNS04LjE0OCA2Ljk0Mi04LjgzOSA3Ljc2MmwtLjIuMzJjLS45MTQtMi41NDgtLjY2NS00LjEyLTEuMzQ0LTMuMjc1LTIuOTM0IDQuNjAxLjc0MiA4LjMzIDIuMDc5IDEyLjA1Mi0xLjgwOCAxLjY0LTQuNTc3LjEzNC01LjUwNi0xLjMwMi0xLjk3OC0yLjk3My0xLjMxNy05LjAxLTMuNjMyLTkuOTQ1LS41OTcgMS42MzEtLjk4NiAzLjQ0Ny0uOTg2IDMuNDQ3czEuNzYxIDQuMTM1IDEuMzE1IDYuODY1Yy0uMjc3IDEuNjUyLTEuNzQgMy41ODQtMy42NiAzLjYxNy01LjEzOC4xMzEtMi42MDUtNy40Ny00LjU4OC0xMS43NzYtLjQwMiAxLjA1Ni0uNjkgMi4xODUtMS4xNzIgMy4xNjMuMzY0IDEuMTMyLjU2NCAyLjcwMi42MTYgMy42MTEuMTMyIDEuODA2LS4wMTYgMy43NDMuMjg4IDUuMjkzLjQyNCAyLjE3OCAxLjYzNSAzLjYyNiAzLjQ4NCAzLjc2IDMuODMyLjMxMiA1LjU4Mi0yLjgwMyA2LjE2My01LjM0My42NiAyLjU5OCA1LjczNiA1LjQ1NSA4LjIzIDIuMjcgMy4zMDctNC4yMTIuNjYtNy44MTgtMS4wMy0xMS43OGwtLjE5OS0uNTEzYy4yMzYuMDgzIDEuMTItLjMwNCAyLjU2Ny0xLjI1OW0xNC45ODgtMjMuNzEzYzEuMjctMi4zNTggMy45NDctMi41NTggNC43NS0xLjMyMi42MzcuOTgyLjY5IDIuOS0uMjcgNC45MjMtMi4zNi0xLjQ4Mi00LjQ2Ny0yLjkzMy00LjQ4LTMuNjAxIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTM3Mi4xNjEgMjAxLjMzNGMtNC41MTQtLjMyLTYuOTQzLTQuNDU1LTguMzMyLTEwLjQyOS0xLjM5MS01Ljk3NC0uNTQtMTMuODUyLS4xNjItMTUuODcuMzc4LTIuMDE2LTEuNzUtLjk3NS0yLjU3NyAzLjkyLS44MjIgNC44OS0xLjY0OSAxMi43MSAxLjI2MyAyMC44OTcgMi45MDYgOC4xNzcgNy44NiAxMS4yMjkgMTIuMjAyIDEwLjE4MyA0LjM0Mi0xLjA0IDguMTYzLTExLjIyOSA5LjUxLTE1LjggMS4zNDUtNC41NzMgNy4zNjMtMjMuMjI0IDEwLjc3LTI0LjIyNy40NzcgMi4yODctMi42NDggOC4wMjItMy42NDggMTYuNjQ1LS45OTQgOC42MjMuNzM3IDE5LjkzMyAxMS42ODIgMjEuOTM5IDEwLjk0NSAyLjAwOCAxOC4zNzEtNS4wOTMgMjEuMDY0LTEwLjAyOSAyLjY5NS00LjkyOCAzLjk1Mi0xMC4xMSA0LjI1Ni0xMi43MTIuMzUgNi42MTcgNC44NjUgMTYuOTQ5IDEzLjYzMiAxOS44OTQgOC40NzIgMi44NDcgMTQuOTQ1LjI0IDE3LjgwNC0zLjQ0OSAyLjU0LTMuMjc3IDQuNjA4LTEwLjAyNiA0Ljc4Ni0xNS4yMDIuMTcyLTUuMTcxLTQuMjk4LTE0LjYzNS01LjI5OC0xNy42NDgtMS4wMDItMy4wMDYtMS41Mi01LjA5My0xLjYwOC02LjEzNC0uMDg1LTEuMDQgMi4yNjMgMS4yMDYgMy43NCAxLjY0Ni45OTkuMi42NDgtMS45NjUtLjU2OC0zLjQ1Mi0xLjIxMy0xLjQ4MS03Ljc4Mi0xMS40NC04LjI0Mi0xMC43NDctLjI4Mi40MTUtMi45MTEgNy43NDItMy4wODQgOC44NjMgMS4wNDEuNjg0IDIuMjQ2IDIuNTY4IDIuMzM3IDQuMzc0LjA4MiAxLjgwNSAxLjgyMSA5Ljc0NSAzLjQyOSAxNC4xNTZzNC43MzMgMTIuODc1IDQuOTUyIDE1LjIwMmMtMy4xMjUgMi4yMDMtMTAuMTY1IDUuMDA3LTE2Ljg1IDIuMTY1LTYuNjg3LTIuODUxLTguODItNi45ODItOS41NTctMTQuMzYxLS40NzEtNC43MTUtLjUxOC0xMy40MDItMi4yLTIwLjY2NC0uOTQ3LTQuMTA2LTIuOTQ0LTguMjc5LTUuMzE2LTEwLjQ5NS0uNTYgMS4zNi0zLjA3OSA5Ljc0NS0zLjA3OSA5Ljc0NS44MjIgMi40MDYgMy4zNzcgMTAuNTA3IDMuMjk1IDE3LjUyNy0uMDkgNy4wMTUtLjY0NCAxMy44OC04LjUxIDE4LjYxLTcuODYxIDQuNzMxLTE5LjA2MSAyLjg0Ny0yMS45NzMtNC41MzUtMi45MTItNy4zOCAzLjU2LTIzLjk4MiAzLjQ3Ni0yOC4zNTMtLjA4OC00LjM3LS44NzQtNC45NzYtMi42OTUtNC4yNTItMS44MjUuNzIyLTUuNTY0IDQuOTM2LTguNzc0IDExLjc5MS0zLjIxNSA2Ljg2LTQuNjQyIDEzLjcxNi02LjQ3MiAxOS40OTItMS44MjIgNS43NzYtNC43MzkgMTEuNjI5LTkuMjUzIDExLjMxTTI0MS4wOTUgMTc1Ljc0OGM1LjU1NS0uNDAzIDEwLjI1LTQuNjE1IDExLjQ2My01LjczNCAxLjIxNi0xLjEyNyAxLjg3LTIuODA2IDEtMi4xNjgtNi40MjYgNS43MzYtMTUuMDI0IDUuODk4LTE1LjUwNiA0LjkzNC4yMTktLjk2MyAyLjQ4MS0yLjUyOCA1Ljc4Mi00LjczMSAyLjAwNS0xLjM0IDMuNzkxLTIuNTk2IDUuMTI4LTQuMzc2bC4zNjQuMDYzYzIuNDQ2LjUzNyA1LjI3IDEuNjA2IDYuMTMzLjc1IDEuNDA1LTEuMzg1IDEuNTkxLTMuNjU0LjA2OC02LjEtMS4yODctMi4wNzctNC4yOS00LjAxLTYuODk3LTUuNDA1LTIuNjAyLTEuMzg4LTMuMTA2LjgyOC0zLjQ0IDEuNjE4LS4zMi43MzctLjE5IDEuMzY1LjM2MSAxLjM4LS44MzggMS4xNDMtMS40MzUgMi42MTQtMS42NTQgMy44My0uMTQyLjc4NS0uMDI3IDEuNDI4LjI5MyAxLjk1Ny4wOTMuMTUuNTc1Ljc0IDEuNDg3IDEuMDg5bDEuMTMyLjM1MmMtMS45NDggMS43OTgtNC4xOTEgMy4yMDYtNS4zNjkgMy45MTgtMi4xMjUgMS4yODQtNC42NDUgMy41My01LjQyNiA1Ljg1Mi0uNzgzIDIuMzMtLjQ4IDMuMTczIDUuMDgxIDIuNzdtOS44Mi0xNi4zODQuMjEzLTEuMTg1di0uNzZjMS43NjEgMS4yODEgNC41NzcgMy43MDcgNC40MDUgNS4xNjEtMS4xMTUtLjI1My0zLjI0LS43MDItNS4yNi0xLjIyLjI1OC0uNjA2LjQ2OS0xLjI3LjY0Mi0xLjk5Nm0tNS4yMjEuMzdjLTEuMjk2LTEuMDM0LS4wMzMtMi4wNjQgMS4xMTUtMi43MjggMS40ODItLjg1NiAyLjM1LS4xNSAzLjEwOSAyLjA5N2E5LjA5NiA5LjA5NiAwIDAgMS0xLjA3NyAxLjg2OWMtMS4xNTMtLjM1Ny0yLjc3Ny0uOTMtMy4xNDctMS4yMzhNMjU3Ljc2IDIzOC40ODFjLTEuNTk3IDEuMzg1LTIuMjE2IDUuODkzLTEuODkgNi4xNjQuMzIzLjI3MSA1LjMxNCAxLjk1NSA2LjA5NCAyLjMybC4zNTctMS4zNThjMi4zNzcgMi4xMzUgNS4wMTIgMTIuNzg3IDUuNTk4IDEyLjgxNy41ODYuMDI4IDEuNDM2LTEuMjA1IDEuOTkyLTQuMDM0LjUxMi0yLjYyNCAxLjAyNC02LjU0OSAxLjU1OC05Ljc0NS40OTktMi45MjUgMS4yNzQtNC41OTkgMy4wMzItNC45MzMgMS43NjEtLjMzIDMuMDY1IDEuOTI3IDMuNTIgMy40NjIgMCAwIDEuMjM1LTIuOTUgMS40OTgtNC43ODQtLjI5My0uOTY1LTMuMDMyLTQuNjAxLTUuMjc4LTMuMzk4LTIuMjQ5IDEuMjA1LTMuNjU3IDYuMzA4LTQuMTExIDkuNDk5LS40NTggMy4xODUtLjgwOCA3LjEzNi0xLjM2MiA3Ljc3LS41OC0yLjcyLTIuNDQtNy41ODgtNC42ODYtMTAuMzIzLTIuNTI2LTMuMDY0LTUuNDc4LTQuMTg5LTYuMzIyLTMuNDU3TTIzNi40NzEgMjMzLjAzNmMyLjA4NS0uNTcyIDYuNzc3LTEuMjkxIDkuMDIzLTIuNDY0IDIuMTE3LS45OTIgNS43My01LjgzNCA3LjEzMi03LjY0IDEuNC0xLjgwNiAxLjQwMy0yLjcxMiAxLjA0Ny0zLjE5LTEuNDMzLS43ODYtMTAuNjg4LTEuNTYzLTE1LjE1My0uNDU3LTEuMjMzLjgzMy0zLjY0NiA1LjI5OC00LjAwMiA2LjIzMy0uMzYxLjkyOS4xMzIuODcgMS42MjcuNTQxIDEuNDk5LS4zMzQgOC42MDEtLjE1NCAxMS4xNy4zODgtMS4wNy43NTUtOC4zMzUgNC40MjQtOS43NyA1LjI5OC0xLjQzLjg3LTEuNzkxIDEuMzgyLTEuMDc0IDEuMjkxTTY2Ni43ODcgMjU4Ljg4NWMtLjIxMy01LjQxMi0yLjg2NS0xMy43Mi0xMi45NDQtMjYuNDY5LTMuNDc5LTQuNDAxLTguMzc0LTEwLjEzLTEzLjUzNy0xNS45OTctLjE0Mi0yLS4yODUtMy44MjktLjQxMy01LjQtLjY3Ny04LjA3NS0yLjk3LTI0LjU1LTMuOTU2LTM0LjI5LS4yNC0yLjQ1Ny0uMjYtNS4wNy0uMjI0LTYuNDM1LjAzNS0xLjA4NC44MTYtLjk0IDEuODkuMTc0IDEuMDczIDEuMTEyIDIuNzI4IDIuNzM1IDMuMDczIDIuNjI0LjczNC0uMjUzLjA5Ni0yLjcxMi0xLjM3LTUuNjI3LTEuNDYyLTIuOTItNi45OTItMTQuNzI5LTguMDA5LTE1LjE4Ny0uNTIzLS4yMzMtMy4xMyA2LjctMy4yOTIgOC4xMTkuNTE4Ljg3MSAxLjg1NCAyLjIyNiAxLjk4MyA2LjE2OS4xMzcgMy45NCAyLjUxNCAyNy4yMTMgMy44ODEgNDEuODc4bC4wNzQuODE4Yy03LjcxOC04LjYxNy0xNC45ODgtMTYuNDc1LTE3Ljk3OS0xOS42NjEtLjUxOC0uNTUyLTEuMDg3LTEuMTgtMS43MDEtMS44NTQtLjQ4OC0zLjkyMy0uOTM3LTcuNjYtMS4yNDYtMTAuNzQ4YTUyLjc5MyA1Mi43OTMgMCAwIDEtLjIyNS02LjQzNGMuMDI1LTEuMDgyLjgxLS45MzUgMS44ODUuMTggMS4wNzkgMS4xMTEgMi43MjggMi43MzQgMy4wNzMgMi42MTguNzM0LS4yNDguMDk2LTIuNzA3LTEuMzcyLTUuNjI3LTEuNDYtMi45Mi03LjIyNi0xNS04LjI0OC0xNS40NTgtLjUxNy0uMjMzLTMuMjQ2IDcuMjUzLTMuNDA3IDguNjYuNTIzLjg3NyAxLjg1NyAyLjIzMiAxLjk4OCA2LjE3NS4wNTIgMS42NzQuNDg4IDYuNzQ5IDEuMDY5IDEzLjE1My01LjExNy02LjA4LTEwLjEyNy0xMi40NDctMTAuNDgzLTEzLjc0LS4xMjYtLjYzOS45NTYtLjI0NiAyLjk1OC4wNzggMS45OTQuMzE5IDMuODY1LjkyIDMuNTQ1LS4wNjgtLjE1LS40NTktLjkxMi0xLjYwNC0yLjgyMi0yLjc4OS0xLjkxMS0xLjE4Mi02LjgwOS00LjI0Ny0xMC40NTItNi40MS0zLjY1MS0yLjE2NC01LjQ1OS0zLjk4NS02LjIxMi0zLjQ2Ni0uMzczLjI1Ni0uMDQxIDcuNjc4LjE3MyA4LjU5Ny45MTcuMDg0IDIuNjEzLjc2NSAzLjY5MiAyLjIwOSAxLjA5IDEuNDQzIDguMDcgMTEuMjI4IDEzLjU4OCAxNy44NDZhOTc2LjE0MyA5NzYuMTQzIDAgMCAwIDYuOTg4IDguMjY1Yy41NyA2LjA5NiAxLjE2NyAxMi4zOTQgMS42NiAxNy42NTYgMS4xMiAxMi4wMDQgNS4xNDYgNDMuNjYyIDUuMTg1IDUzLjk1LTIuOTcyIDIuNzktOS4wNSA2LjY3OS0xNS4zMDQgNi43Ni02LjI1My4wNzgtOS42ODItMS41NjgtMTIuMjAyLTYuMjE3LS43NzgtMS40NDEtMS41MDEtMi44OS0yLjIxOS00LjIwMS0xLjcwMy0zLjExOC01LjUwNS00Ljg2OC05LjE3LTQuMDFsLS41NTkuMTUtLjk5Ny40NzljLTIuNDgyIDEuMjk5LTUuMDQ4IDMuNDc3LTcuNTU3IDYuODU1LTQuMzM5IDUuODYtNy4xMSAxMi4yMTYtMTAuMzIgMTcuNzIyLTMuMzQ1IDUuNzMzLTUuOTEyIDkuNTgtMTEuNzc5IDguNjYtNC4xMy0uNjQ4LTcuMjY3LTQuMTktOS4yLTguNTQ5IDUuNDMxLTMuNzU4IDkuMzc1LTguNjYgMTIuMjYtMTUuNDU1IDMuNzU1LTguODMgNS4wOTQtMTguNzg1IDQuNzYtMjkuOTc5LS4zMi0xMC41MzUtNS4xMjItMzUuMzItNi4zOS00NC44MTgtMS4yNjYtOS41MDQtMy4wODQtMTcuMzA0LTIuODczLTE5LjMzMy4xOTctMS45NTcgMy4zMTQgMi42NTIgNC45MSAyLjk5Ni44MTctLjE4Mi4zNzktMy4xMjItMS4xNzItNS42MDctMS4wNTEtMS42ODktNC4zODItOS4zNzItNi41NjItMTMuMDc3LTEuMDI1LTEuNzUzLTEuMjcxLTIuNzY4LTEuNzQ4LTIuOTc2LS40NzEtLjIxNS00LjEgNy41MzctMy42NjIgOC4zOCAxLjA3NCAxLjUzNSAxLjgwOCAyLjI2NyAyLjAzMiA1LjAxNy4yMyAyLjc1IDIuNzE3IDIyLjkzOCA0Ljg5MiAzNy44MDYgMS42MzggMTEuMjE5IDUuMjU3IDMxLjU5NyA1LjcyMiA0Ni42Ni4xNTQgNC45MTUtLjU0OCA4LjQ0My0xLjE1NiAxMC40MTMtMS41NjEgMy4wMTktNC4xMDYgNi4zNzItMTMuMDQ2IDEyLjczNi0xLjM4LTguOTkzLjEyLTE2LjI5OS0xLjE4OS0xNi45NzUtMS40NzYuMTYtMS43MTIgNC4zNS0xLjg3OSA5LjUyMi0uMDgyIDIuMzg4LjAyMiA1LjY5NS40NzEgOS4yNDgtMTAuOTggNy4zNC0yNS40ODcgMTQuMDIyLTMyLjI5OSAxNy41OS0zLjk5NiAyLjA5Ny0yLjU1NSAyLjU4Ni44MjcgMS41NCAzLjM4My0xLjA1MSAyMS45NzMtNS45MjYgMzEuODk3LTExLjE0NWwxLjA2OC0uNTkzYy41MDQgMS43NSAxLjExNSAzLjQ0NCAxLjg2NiA1LjAwNyAzLjMzOCA2LjkzOSA4LjExIDExLjA1OSAxMy4yNzkgMTAuNjU2IDQuMzQ3LS4zMzQgNy41LTQuOTg2IDEwLjI1LTEwLjUzNSAyLjc4LTUuNjE2IDcuNDc3LTE2LjI4MyAxMi4wODQtMjAuMjUxIDEuNzctMS41MyAzLjYtMi43NCA1LjM4LTMuNDY3IDAgMCAzLjE0Ny0xLjA1MSA2LjA0Mi44NCAxLjAzOC42ODQgMS44MTMgMS42NTcgMi4zMDQgMi43NDYgMS4xNDIgMi41IDIuNDkyIDUuNjggNS4yNTMgOC4zNDQgNC44NjUgNC42ODUgMTIuNjg3IDMuNzE4IDE4LjU1NS45OTMgNS44NTgtMi43MjggOC44NS02Ljk4MiAxMC4xNTMtMTIuMDM3IDIuMjI0LTguNjQ4IDEuODY4LTE3LjUwOSAxLjQ0NC0yNS4zOC0uNDktOC45ODItMS45MjYtMTguMTYyLTIuNzQyLTI3Ljg5LS4yNjMtMy4xMjctLjc3NS03LjQ3Ny0xLjM2NC0xMi4xOTUgNS43MTQgNi41OTQgMTEuNjQ2IDEzLjI4NyAxNS4yNDYgMTYuOTQ3IDEuMjQgMS4yNjMgMi41NSAyLjY2NiAzLjg5NSA0LjE0OCAxLjA3MyAxNC43MjMgMi4xMDYgMzMuMTQ3IDIuNjUxIDQwLjg3OC41NCA3LjcwNC4xOTIgMTcuMzg4LjEyOSAxOS4wNzItLjA2NiAxLjY4NC44NyAxLjM5NSAyLjIxNi0yLjM0MyAxLjgwMi01LjAxNyAyLjkzMy0xOC4xNzMgMi41MzktMjYuODk3LS4yMzYtNS4xODQtLjc1My0xNC42MzQtMS4zMTItMjMuNTc0YTQwMi42NDkgNDAyLjY0OSAwIDAgMSAxMS4zODMgMTQuMTgyYzQuODcgNi4zNzYgOS4zNDMgMTMuOTU4IDEwLjkwNyAxOC42ODkgMS41NjIgNC43MzUgMS43MzQgNi4xMzggMi4wMzggNi45ODJzMS42NS0yLjYxMSAxLjQzNi04LjAyM001ODQuNTUgNDM5LjAxM2MtLjQ0LTEuMjU5LTEuNzg3LTIuMTgyLTMuMzk4LTIuMTgycy0yLjk1NS45MjMtMy4zOTggMi4xODJINTYyLjVhMTMuNjQ1IDEzLjY0NSAwIDAgMSAuNDc2LTUuMDVsMzEuNDkzLS4wMTkuODc3IDEuNDc4YTE1LjcyMiAxNS43MjIgMCAwIDAgMi45NTIgMy41OXptMjAuODQ4LTE0LjYzNWgtMzcuODQ1YzIuOTA5LTIuMSA0LjQzNC01LjE2MiA0LjAyNS04LjI2MS0uMjYxLTEuOTUzLTIuMTk2LTMuNDEyLTQuNTU1LTMuNjFoLTEuMTg1Yy0yLjg3LjI4LTQuOTUxIDIuMzQ5LTQuNjQ4IDQuNjJsLjExNS44NzQuMTQgMS4zNDRhMTMuNjMxIDEzLjYzMSAwIDAgMS0uNDcgNS4wMzNIMjgxLjIzNmM0LjE1NCA2LjA0NCAxMS43MjggOS43NSAxOS45MDYgOS43NDRsMjU1LjI2Ni0uMTU3Yy0yLjkyIDIuMTAyLTQuNDUgNS4xNy00LjAzOCA4LjI3NS4zMDIgMi4yNzIgMi44NyAzLjg5IDUuNzQgMy42MSAyLjg2Ny0uMjggNC45NDgtMi4zNDkgNC42NDktNC42MjRsLS4xMTYtLjg3aDE1LjAwMmMuMjY0IDEuNDY0IDEuNzI2IDIuNTg3IDMuNTA3IDIuNTg3czMuMjQ0LTEuMTIzIDMuNTEtMi41ODhoMTUuMjZ2LS4wMzVjMy4xODcgMi4yNiA3LjIzNiAzLjU2IDExLjUyIDMuNTYgNC4wMyAwIDcuMjk1LTIuOCA3LjI5NS02LjI1NXYtMS44MDhjMC02LjMxNi01Ljk3LTExLjQ0LTEzLjMzOC0xMS40NCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==")}
+@media(max-width:600px){.flagbar{max-width:134px;gap:2px}.flagbar a{width:22px;height:22px}}
+html[dir="rtl"] .flagbar{flex-direction:row-reverse}
+.mm-lang{margin:10px 0 4px;align-self:flex-start}
 /* FAQ section — placed after main review body, before footer */
 .rv-faq{background:linear-gradient(180deg,#ffffff 0%,#f1fbfd 100%);padding:54px 24px 60px;border-top:1px solid #e6eef2}
 .rv-faq-wrap{max-width:880px;margin:0 auto}
@@ -364,20 +880,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <div class="nav-mid">
     <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
     <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
-    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : isRu ? 'Планировать поездку' : 'วางแผนทริป'}</a>
+    <a href="/trip" style="font-weight:700">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
     <a href={link('about.html')}>{S.navAbout}</a>
   </div>
   <div class="nav-r">
-    <span class="lang-sw">
-      <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th" aria-label="ภาษาไทย">TH</a>
-      <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en" aria-label="English">EN</a>
-      {ruExists
-        ? <a href={`${SITE}/ru/${data.slug}`} class={isRu ? 'on' : ''} hreflang="ru" aria-label="Русский">RU</a>
-        : <span class="dis" title="เร็วๆ นี้ · Coming soon">RU</span>}
-      <span class="dis" title="เร็วๆ นี้ · Coming soon">中文</span>
-      <span class="dis" title="เร็วๆ นี้ · Coming soon">ES</span>
-      <span class="dis" title="เร็วๆ นี้ · Coming soon">FR</span>
-    </span>
+    <div class="flagbar" role="navigation" aria-label="Language">{LOCS.map((l) => <a href={locHref(l)} class={l === lang ? 'on' : ''} title={LANGNAME[l] || l} aria-label={LANGNAME[l] || l}><span class={`flg flg-${l}`}></span></a>)}</div>
     <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
     <button class="hb" id="hb">☰</button>
   </div>
@@ -390,22 +897,10 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <a href={link('/')}>{S.mmHome}</a>
   <a href={link(data.regionHref ?? 'country-thailand.html')}>{S.navDest}</a>
   <a href={link(data.parentHref)}>{data.navReviewLabel}</a>
-  <a href="/trip">{isEn ? 'Plan trip' : isRu ? 'Планировать поездку' : 'วางแผนทริป'}</a>
+  <a href="/trip">{isEn ? 'Plan trip' : 'วางแผนทริป'}</a>
   <a href={link('about.html')}>{S.navAbout}</a>
   <a href={link('contact.html')}>{S.mmContact}</a>
-  <span class="lang-sw mm-lang">
-    <a href={`${SITE}/${data.slug}`} class={lang === 'th' ? 'on' : ''} hreflang="th">🇹🇭 ไทย</a>
-    <a href={`${SITE}/en/${data.slug}`} class={isEn ? 'on' : ''} hreflang="en">🇬🇧 English</a>
-    {ruExists
-      ? <a href={`${SITE}/ru/${data.slug}`} class={isRu ? 'on' : ''} hreflang="ru">🇷🇺 Русский</a>
-      : <span class="dis">🇷🇺 Русский</span>}
-    <span class="dis">🇨🇳 中文</span>
-    <span class="dis">🇰🇷 한국어</span>
-    <span class="dis">🇯🇵 日本語</span>
-    <span class="dis">🇮🇱 עברית</span>
-    <span class="dis">🇸🇦 العربية</span>
-    <span class="dis">🇮🇳 हिन्दी</span>
-  </span>
+  <div class="flagbar mm-lang" role="navigation" aria-label="Language">{LOCS.map((l) => <a href={locHref(l)} class={l === lang ? 'on' : ''} title={LANGNAME[l] || l} aria-label={LANGNAME[l] || l}><span class={`flg flg-${l}`}></span></a>)}</div>
   <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.navCta}</button>
 </div>
 <div class="breadcrumb"><a href={link('/')}>{S.bcHome}</a> › <a href={link(data.crumbCityHref ?? 'country-thailand.html')}>{data.crumbCityName ?? S.bcTaiwan}</a> › <a href={link(data.parentHref)}>{data.parentShort}</a> › <span>{data.name}</span></div>
@@ -415,7 +910,14 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   <div class="hero-grid">
     <div class="hero-main">
       <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;width:100%;height:100%;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      {hasWebp(data.heroImg) ? (
+        <picture>
+          <source srcset={asset(webpOf(data.heroImg))} type="image/webp" />
+          <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
       <div class="hero-main-ov"></div>
       <div class="hero-badges">
         <span class="htag mid">{data.badgeMid}</span>
@@ -430,12 +932,24 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     </div>
     <div class="hero-sub">
       <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      {hasWebp(data.heroSub1) ? (
+        <picture><source srcset={asset(webpOf(data.heroSub1))} type="image/webp" />
+          <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroSub1)} alt={data.galleryAlts[0]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
     </div>
     <div class="hero-sub-2" style="position:relative;">
-      <a href={goB(data.heroSub2Href)} target="_blank" rel="noopener" style="display:block;position:absolute;inset:0;z-index:2;"></a>
-      <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
-      <button class="hero-more-btn">{S.heroMore}</button>
+      <a href={goB(data.heroSub2Href)} target="_blank" rel="noopener nofollow sponsored" style="display:block;position:absolute;inset:0;z-index:2;"></a>
+      {hasWebp(data.heroSub2) ? (
+        <picture><source srcset={asset(webpOf(data.heroSub2))} type="image/webp" />
+          <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        </picture>
+      ) : (
+        <img src={asset(data.heroSub2)} alt={data.galleryAlts[1]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+      )}
+      <button class="hero-more-btn" style="position:relative;z-index:3;" onclick="var g=document.querySelector('.gallery');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});">{S.heroMore}</button>
     </div>
   </div>
 </div>
@@ -476,16 +990,16 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 
   <div class="fade-up" style="margin-bottom:36px;">
     <div class="sec-label">{S.secReview}</div>
-    <div class="update-chip" set:html={UPDATE_CHIP[lang]}></div>
+    <div class="update-chip" set:html={updateChipHtml}></div>
     <h1 class="sec-title" set:html={data.h1}></h1>
     <p class="review-intro" set:html={data.intro}></p>
   </div>
 
-  {(data as any).quickAnswerHtml && (
+  {qaHtml && (
     <aside class="quick-answer rv">
-      <span class="qa-eyebrow">{isEn ? 'Quick answer' : isRu ? 'Короткий ответ' : 'คำตอบสั้น ๆ'}</span>
+      <span class="qa-eyebrow">{isEn ? 'Quick answer' : 'คำตอบสั้น ๆ'}</span>
       {(data as any).quickAnswerH2 && <h2>{(data as any).quickAnswerH2}</h2>}
-      <div class="qa-body" set:html={(data as any).quickAnswerHtml}></div>
+      <div class="qa-body" set:html={qaHtml}></div>
     </aside>
   )}
   <style>
@@ -497,9 +1011,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   </style>
 
   <div class="fade-up byline">
-    <div class="byline-av">T</div>
+    <div class="byline-av">{hasEditor && String(_ed.image || '').trim()
+      ? <img src={asset(_ed.image)} alt={_edName} loading="lazy" onerror="this.replaceWith(document.createTextNode((this.alt||'T').charAt(0)))" />
+      : (hasEditor ? (_edName.trim()[0] || 'T') : 'T')}</div>
     <div>
-      <div class="byline-name">{S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
+      <div class="byline-name">{hasEditor ? bylineName : S.bylineName} <span class="byline-badge">{S.bylineBadge}</span></div>
       <div class="byline-text"><Fragment set:html={S.bylineText} /><a href={link('editorial-policy.html')}>{S.bylineLink}</a></div>
     </div>
   </div>
@@ -509,12 +1025,24 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
     <div class="sec-label" set:html={S.secGallery}></div>
     <div class="gal-main">
       <div class="gp main-gp">
-        <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        {hasWebp(data.heroImg) ? (
+          <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" />
+            <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          </picture>
+        ) : (
+          <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+        )}
         <a href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
       </div>
       {data.gallery.map((g, i) => (
         <div class="gp">
-          <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          {hasWebp(g) ? (
+            <picture><source srcset={asset(webpOf(g))} type="image/webp" />
+              <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+            </picture>
+          ) : (
+            <img src={asset(g)} alt={data.galleryAlts[i]} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
+          )}
           <a href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name} style="position:absolute;inset:0;z-index:2;"></a>
         </div>
       ))}
@@ -537,7 +1065,7 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
               <figure class="rv-body-fig">
                 <div class="rv-body-imgwrap">
                   <img class="rv-body-img" src={asset(blk.src)} alt={blk.alt} loading="lazy" onerror="this.closest('.rv-body-fig').style.display='none'" />
-                  <a class="rv-body-book" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name}><span>{S.imgBook}</span></a>
+                  <a class="rv-body-book" href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored" aria-label={data.name}><span>{S.imgBook}</span></a>
                 </div>
                 {blk.alt ? <figcaption>{blk.alt}</figcaption> : null}
               </figure>
@@ -647,11 +1175,11 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
         </div>
       ))}
     </div>
-    <div class="pw-cta-h">{S.pwCtaH}</div>
+    <div class="pw-cta-h">{hasRealOTA ? S.pwCtaH : S.pwCtaDirect}</div>
     <div class="pw-btns">
-      <button class="pw-btn agoda" data-href={data.bookingAgoda}><span class="pw-brand"><span class="pw-mark r">a</span>Agoda</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn booking" data-href={data.bookingBooking}><span class="pw-brand"><span class="pw-mark sq">B.</span>Booking.com</span><small>{S.pwCheck}</small></button>
-      <button class="pw-btn trip" data-href={data.bookingTrip}><span class="pw-brand"><span class="pw-mark sq">t</span>Trip.com</span><small>{S.pwCheck}</small></button>
+      {bookButtons(data).map((b) => (
+        <button class={`pw-btn ${b.cls}`} data-href={b.href}><span class="pw-brand"><span class={b.markCls}>{b.mark}</span>{b.brand}</span><small>{S.pwCheck}</small></button>
+      ))}
     </div>
     <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
   </div>
@@ -743,21 +1271,25 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
   })} />
 )}
 
-<!-- Article Footer -->
+<!-- Article Footer (prev/next are optional — render placeholders keep the share row centred) -->
 <div class="art-footer">
-  <a class="af-link" href={link(data.prevHref)}>
-    <div class="af-lbl">{data.prevLabel}</div>
-    <div class="af-nm">{data.prevName}</div>
-  </a>
+  {data.prevHref ? (
+    <a class="af-link" href={link(data.prevHref)}>
+      <div class="af-lbl">{data.prevLabel}</div>
+      <div class="af-nm">{data.prevName}</div>
+    </a>
+  ) : <span class="af-link" aria-hidden="true"></span>}
   <div class="share-row">
-    <button class="share-btn">f</button>
-    <button class="share-btn">𝕏</button>
-    <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href)">🔗</button>
+    <button class="share-btn" title="แชร์ Facebook" aria-label="แชร์ Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','noopener')">f</button>
+    <button class="share-btn" title="แชร์ X" aria-label="แชร์ X" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href),'_blank','noopener')">𝕏</button>
+    <button class="share-btn" title="คัดลอกลิงก์" aria-label="คัดลอกลิงก์" onclick="var b=this;navigator.clipboard.writeText(location.href).then(function(){var o=b.textContent;b.textContent='✓';setTimeout(function(){b.textContent=o},1500)})">🔗</button>
   </div>
-  <a class="af-link af-r" href={link(data.nextHref)}>
-    <div class="af-lbl">{data.nextLabel}</div>
-    <div class="af-nm">{data.nextName}</div>
-  </a>
+  {data.nextHref ? (
+    <a class="af-link af-r" href={link(data.nextHref)}>
+      <div class="af-lbl">{data.nextLabel}</div>
+      <div class="af-nm">{data.nextName}</div>
+    </a>
+  ) : <span class="af-link af-r" aria-hidden="true"></span>}
 </div>
 
 <footer class="footer">
@@ -801,9 +1333,9 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <div class="rvbar">
   <div class="rv-price">💰 <span class="rv-pf">{S.rvFrom}</span> <b>{data.qiPrice}</b><span class="rv-pu"> {data.qiPriceUnit}</span><span class="rv-ref">{S.rvRef}</span></div>
   <div class="rv-cards">
-    <a class="rv-card rv-ag" href={data.bookingAgoda} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
-    <a class="rv-card rv-bk" href={data.bookingBooking} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
-    <a class="rv-card rv-tp" href={data.bookingTrip} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
+    <a class="rv-card rv-ag" href={goB(data.bookingAgoda)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">a</span><span class="rv-tx"><b>Agoda</b><small>{S.rvAgoda} →</small></span></a>
+    <a class="rv-card rv-bk" href={goB(data.bookingBooking)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">B.</span><span class="rv-tx"><b>Booking.com</b><small>{S.rvBooking} →</small></span></a>
+    <a class="rv-card rv-tp" href={goB(data.bookingTrip)} target="_blank" rel="noopener nofollow sponsored"><span class="rv-mark">T</span><span class="rv-tx"><b>Trip.com</b><small>{S.rvTrip} →</small></span></a>
   </div>
 </div>
 

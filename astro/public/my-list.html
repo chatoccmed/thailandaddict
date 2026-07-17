@@ -48,7 +48,7 @@
   function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function render(){
     var l=get();
-    if(!l.length){el.outerHTML='<div class="empty">ยังไม่มีรายการที่บันทึก<br><br>กดปุ่ม <b>♡ บันทึก</b> ในหน้ารีวิวโรงแรม แล้วกลับมาดูที่นี่<br><br><a href="/">เลือกที่พัก →</a></div>';return}
+    if(!l.length){el.outerHTML='<div class="empty">ยังไม่มีรายการที่บันทึก<br><br>กดปุ่ม <b>🔖 เก็บลงแผน</b> ในหน้ารีวิว/ที่พัก แล้วกลับมาดูที่นี่<br><br><a href="/">เลือกที่พัก →</a></div>';return}
     el.innerHTML=l.map(function(x){return '<div class="card">'+(x.img?'<img src="'+esc(x.img)+'" alt="'+esc(x.name)+'" onerror="this.style.opacity=0">':'')+'<div class="cbody"><div class="cname">'+esc(x.name)+'</div><div class="crow"><a class="view" href="'+esc(x.url)+'">ดูรีวิว →</a><button class="rm" data-slug="'+esc(x.slug)+'">ลบ</button></div></div></div>'}).join('');
     el.querySelectorAll('.rm').forEach(function(b){b.addEventListener('click',function(){localStorage.setItem(KEY,JSON.stringify(get().filter(function(x){return x.slug!==b.dataset.slug})));render()})});
   }

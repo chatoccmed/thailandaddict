@@ -85,7 +85,7 @@ function buildExperiences({ cityTh, cityEn, slug, titleTh, isItinerary, enMode }
     href: klook(`${cityEn} day trip`) });
   items.push({ emoji: '🌎', provider: 'GetYourGuide',
     label: enMode ? `${cityEn} activities (GetYourGuide)` : `กิจกรรม ${cityTh} (GetYourGuide)`,
-    note: enMode ? 'Global tour marketplace' : 'อีกหนึ่งเจ้าระดับโลก เทียบราคาได้',
+    note: enMode ? 'Global tour marketplace' : 'อีกหนึ่งเจ้าชั้นนำ เทียบราคาได้',
     href: gyg(`${cityEn}`) });
 
   const title = isItinerary

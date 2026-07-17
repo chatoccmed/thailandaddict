@@ -9,5 +9,9 @@
     "binding": "ASSETS"
   },
   "ai": { "binding": "AI" },
-  "kv_namespaces": [{ "binding": "TRIPS", "id": "fc95757f7ce54294a1b9af14f8f69c2f" }]
+  "kv_namespaces": [{ "binding": "TRIPS", "id": "fc95757f7ce54294a1b9af14f8f69c2f" }],
+  "ratelimits": [
+    { "name": "RL_PLAN", "namespace_id": "2001", "simple": { "limit": 15, "period": 60 } },
+    { "name": "RL_WRITE", "namespace_id": "2002", "simple": { "limit": 40, "period": 60 } }
+  ]
 }

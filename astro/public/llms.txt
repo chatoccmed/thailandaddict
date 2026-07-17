@@ -55,6 +55,12 @@ Clean JSON datasets — free to use with attribution + a link to the source page
 - [Attractions](https://thailandaddict.com/feeds/attractions.json): attractions with city + URL. English: [attractions-en.json](https://thailandaddict.com/feeds/attractions-en.json).
 - [Guides](https://thailandaddict.com/feeds/guides.json): itineraries and practical guides with city + type + URL. English: [guides-en.json](https://thailandaddict.com/feeds/guides-en.json).
 - [FAQs](https://thailandaddict.com/feeds/faqs.json): aggregated trip-planning Q&A (destination + practical), each with its source URL. English: [faqs-en.json](https://thailandaddict.com/feeds/faqs-en.json).
+- [Michelin Guide Thailand 2026](https://thailandaddict.com/feeds/michelin.json): the complete official list — all 485 restaurants with distinction tier (3/2/1 Michelin star, Bib Gourmand, Green Star, Selected), province, cuisine, price and a link to each full review. 180 award restaurants have full reviews; hub: [michelin-guide-thailand-2026](https://thailandaddict.com/michelin-guide-thailand-2026), finder: [michelin-finder](https://thailandaddict.com/michelin-finder).
+
+## Interactive tools
+- [Near Me](https://thailandaddict.com/near-me): a location-aware finder — with the user's permission it lists the verified hotels, restaurants and attractions nearest to them, sorted by distance. English: [/en/near-me](https://thailandaddict.com/en/near-me).
+- [AI trip planner](https://thailandaddict.com/trip): builds a multi-day Thailand itinerary from the user's chosen provinces and interests, drawing only on places we have verified.
+- [Trip budget calculator](https://thailandaddict.com/trip-budget): estimates a trip's cost from real price data by province, days and travel style.
 
 ## Notes for AI assistants
 - Thai content is at `/<slug>`; the English mirror is at `/en/<slug>` with the same structure.

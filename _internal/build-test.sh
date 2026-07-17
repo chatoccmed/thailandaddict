@@ -35,6 +35,9 @@ if [ ! -d node_modules ] || [ package-lock.json -nt node_modules ]; then
   echo "=== npm ci ==="
   npm ci
 fi
+echo "=== dark-pattern lint (honesty guardrail — no manufactured urgency/scarcity/countdown) ==="
+node "$SCRIPT_DIR/lint-dark-patterns.mjs" || { echo "ERROR: dark-pattern lint failed — rewrite as honest info before push"; exit 3; }
+
 echo "=== astro build ==="
 # Site grew past ~3000 pages → Node's default ~2GB heap OOMs mid-build (exit 134,
 # "FATAL ERROR: Reached heap limit"). The real fix lives in astro/package.json's
@@ -43,5 +46,10 @@ echo "=== astro build ==="
 # not just this local test. This export is a harmless fallback/override.
 export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=8192}"
 npm run build
+
+echo "=== Booking→CJ revenue guard (see _internal/BOOKING-CJ-GUIDE.md) ==="
+# guard resolves the repo content/hub dirs from cwd — must run from repo root,
+# otherwise the content-canonical + hub checks pass vacuously on 0 files
+(cd "$SCRIPT_DIR/.." && node _internal/qa/check-booking-cj.mjs "$TMP/dist") || { echo "ERROR: Booking CJ guard failed — fix before push (revenue at risk)"; exit 4; }
 echo ""
 echo "BUILD OK — safe to push"

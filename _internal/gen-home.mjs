@@ -86,6 +86,34 @@ const STATS = {
   articles: floorPlus(articles.length),
 };
 
+// ── activity / theme guides (best-*) → homepage cards, auto-derived from content each build so the
+//    homepage surfaces new guides automatically (no hand-editing). EN reads the articles-en twin. ──
+const esc = s => String(s || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\\/g, '').replace(/'/g, '’').replace(/\s+/g, ' ').trim();
+function guideCards(loc) {
+  const dir = path.join(ROOT, 'astro/src/content', loc === 'en' ? 'articles-en' : 'articles');
+  if (!fs.existsSync(dir)) return [];
+  const files = fs.readdirSync(dir).filter(f => (f.startsWith('best-') || f.startsWith('kids-family-')) && f.endsWith('.json') && f !== 'best-of-thailand-2026.json');
+  // kids/family guide first (owner-priority group), then the pure-activity guides, then the rest
+  const ACT_FIRST = ['best-kids-activities', 'best-beaches', 'best-temples', 'best-national-parks', 'best-waterfalls', 'best-viewpoints', 'best-markets', 'best-caves', 'best-elephant', 'kids-family-central', 'kids-family-north', 'kids-family-northeast', 'kids-family-east', 'kids-family-west', 'kids-family-south'];
+  const rank = f => { const i = ACT_FIRST.findIndex(p => f.startsWith(p)); return i < 0 ? 99 : i; };
+  files.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+  const cards = [];
+  for (const f of files) {
+    try {
+      const o = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+      if (!o.heroImg || !o.h1) continue;
+      cards.push({ h: o.slug || f.slice(0, -5), img: o.heroImg, e: o.heroEmoji || '📍', ti: esc(o.h1), l: esc(o.eyebrow) });
+    } catch {}
+  }
+  return cards;
+}
+// ACTS card = the .dest scroll card (emoji flag) · ARTS card = the .acard "Top Picks" grid (badge)
+const actCard = c => `{h:'${c.h}',img:'${c.img}',e:'${c.e}',ti:'${c.ti}',l:'${c.l}'}`;
+const GUIDE_BADGE = { th: 'ไกด์เที่ยว', en: 'Guide' };
+const artCard = (c, big, loc) => `{${big ? 'big:1,' : ''}h:'${c.h}',img:'${c.img}',l:'${c.l}',ti:'${c.ti}',bd:'${GUIDE_BADGE[loc]}'}`;
+const artsLiteral = loc => { const g = guideCards(loc); return '[\n' + g.slice(0, 5).map((c, i) => ' ' + artCard(c, i === 0, loc)).join(',\n') + '\n]'; };
+const actsLiteral = loc => '[' + guideCards(loc).map(actCard).join(',') + ']';
+
 // ── inject into a file ──
 function inject(file, loc) {
   let h = fs.readFileSync(file, 'utf8');
@@ -96,6 +124,9 @@ function inject(file, loc) {
   for (const [k, v] of Object.entries(STATS)) {
     h = h.replace(new RegExp(`(<div class="n" data-stat="${k}">)[^<]*(</div>)`), `$1${v}$2`);
   }
+  // 3) featured "Top Picks" (ARTS) + activity guides (ACTS) — auto-derived from the best-* guides
+  if (/\/\*GEN:ARTS\*\//.test(h)) h = h.replace(/\/\*GEN:ARTS\*\/[\s\S]*?\/\*GEN:ARTS-END\*\//, `/*GEN:ARTS*/${artsLiteral(loc)}/*GEN:ARTS-END*/`);
+  if (/\/\*GEN:ACTS\*\//.test(h)) h = h.replace(/\/\*GEN:ACTS\*\/[\s\S]*?\/\*GEN:ACTS-END\*\//, `/*GEN:ACTS*/${actsLiteral(loc)}/*GEN:ACTS-END*/`);
   fs.writeFileSync(file, h);
   console.log(`[${loc}] ${path.relative(ROOT, file)} · PROV ${PV.length} provinces · stats ${STATS.provinces}/${STATS.reviews}/${STATS.articles}`);
 }

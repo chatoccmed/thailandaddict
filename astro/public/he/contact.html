@@ -113,7 +113,7 @@ img{display:block;max-width:100%}
 .fsubmit:hover{transform:translateY(-2px)}
 .fnote{font-size:12.5px;color:var(--sub);margin-top:14px}
 </style>
-<link rel="alternate" hreflang="th" href="https://thailandaddict.com/contact"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/contact"><link rel="alternate" hreflang="zh-Hans" href="https://thailandaddict.com/zh/contact"><link rel="alternate" hreflang="ru" href="https://thailandaddict.com/ru/contact"><link rel="alternate" hreflang="ar" href="https://thailandaddict.com/ar/contact"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/contact"><link rel="alternate" hreflang="hi" href="https://thailandaddict.com/hi/contact"><link rel="alternate" hreflang="ja" href="https://thailandaddict.com/ja/contact"><link rel="alternate" hreflang="ko" href="https://thailandaddict.com/ko/contact"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/en/contact"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700;900&amp;display=swap" rel="stylesheet"><style id="lsw-css">
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/contact"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/contact"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/contact"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/en/contact"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;500;700;900&amp;display=swap" rel="stylesheet"><style id="lsw-css">
 .lang-switch{position:relative;font-family:Outfit,'Noto Sans Thai',sans-serif}
 .lang-btn{display:inline-flex;align-items:center;gap:4px;font:inherit;font-weight:700;font-size:13px;color:var(--ink,#0F172A);background:var(--bl-lt,#f1fbfd);border:1.5px solid var(--bdr,#e6eef2);border-radius:999px;padding:6px 12px;cursor:pointer}
 .lang-caret{font-size:10px}
@@ -179,14 +179,15 @@ html[dir="rtl"] .thero::before{right:auto;left:-60px}
   <div class="formcard">
     <h3>מלאו את הטופס</h3>
     <p class="fhint">אנחנו משתדלים להגיב לכל הודעה תוך 48 שעות בימי עסקים.</p>
-    <form action="mailto:hello@thailandaddict.com" method="post" enctype="text/plain">
+    <form id="contactForm" novalidate="">
       <div class="cgrid">
         <div class="frow"><label for="name">שם</label><input id="name" name="name" type="text" placeholder="שמכם" required=""></div>
         <div class="frow"><label for="email">אימייל</label><input id="email" name="email" type="email" placeholder="you@example.com" required=""></div>
       </div>
       <div class="frow"><label for="subject">נושא</label><input id="subject" name="subject" type="text" placeholder="על מה מדובר?"></div>
       <div class="frow"><label for="message">הודעה</label><textarea id="message" name="message" placeholder="כתבו את ההודעה כאן..." required=""></textarea></div>
-      <button class="fsubmit" type="submit">שליחת הודעה ←</button>
+      <button class="fsubmit" type="submit" id="cfSubmit">שליחת הודעה ←</button>
+      <p class="fmsg" id="cfMsg" role="status" aria-live="polite" style="display:none;margin-top:12px;font-size:14px;font-weight:600"></p>
       <p class="fnote">או שלחו לנו מייל ישירות אל <a href="mailto:hello@thailandaddict.com">hello@thailandaddict.com</a></p>
     </form>
   </div>
@@ -243,6 +244,23 @@ html[dir="rtl"] .thero::before{right:auto;left:-60px}
 </footer>
 <script>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
+(function(){
+  var f=document.getElementById('contactForm'); if(!f) return;
+  var btn=document.getElementById('cfSubmit'), msg=document.getElementById('cfMsg');
+  function show(t,ok){msg.style.display='block';msg.textContent=t;msg.style.color=ok?'#0891b2':'#e11d48';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(f.email.value||'').trim(), message=(f.message.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){show('Please enter a valid email',false);f.email.focus();return;}
+    if(message.length<2){show('Please write a message',false);f.message.focus();return;}
+    btn.disabled=true; var label=btn.textContent; btn.textContent='Sending…';
+    fetch('/api/contact',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:f.name.value,email:email,subject:f.subject.value,message:message})})
+      .then(function(r){return r.json().catch(function(){return{ok:false};});})
+      .then(function(d){ if(d&&d.ok){f.reset();show('Message sent ✓ We aim to reply within 48 hours',true);} else {show(d&&d.error==='rate_limited'?'Too many requests — please try again shortly':'Could not send — please retry, or email hello@thailandaddict.com',false);} })
+      .catch(function(){show('Could not send — please retry, or email hello@thailandaddict.com',false);})
+      .finally(function(){btn.disabled=false; btn.textContent=label;});
+  });
+})();
 </script>
 
 

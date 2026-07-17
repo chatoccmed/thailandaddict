@@ -29,7 +29,8 @@ const STAY_MAP = (A && A.stayMap) || [];
 const STAY_CTA = (A && A.stayCta) || null;
 const RAIL = (A && A.rail) || null;
 const RELATED_IN = (A && A.related) || null;
-log(`cfg: city=${CITY} · prov=${PROV} · display=${DISPLAY} · rail=${RAIL ? RAIL.length : 0} · stayCta=${STAY_CTA ? (STAY_CTA.links || []).length : 0}`);
+const AVOID = (A && A.avoid) || '';
+log(`cfg: city=${CITY} · prov=${PROV} · display=${DISPLAY} · rail=${RAIL ? RAIL.length : 0} · stayCta=${STAY_CTA ? (STAY_CTA.links || []).length : 0}${AVOID ? ` · avoid=${AVOID.slice(0,60)}` : ''}`);
 
 const RULES = `กฎคุณภาพ (LOCKED):
 - โทน v2-clean "เพื่อนเล่าให้เพื่อนฟัง" จริงใจ · ห้าม slang อ่ะ/ปะ/แหละ/ล่ะ · ห้ามคำ AI ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน
@@ -87,7 +88,7 @@ phase('Plan')
 const plan = await agent(`วิจัยและคัดเลือก **10 ร้านอาหารยอดนิยมที่สุดในจังหวัด${PROV}** (คนพูดถึงจริง รีวิวเยอะ เปิดอยู่ปัจจุบัน — ผสมหลากหลาย: อาหารพื้นเมือง/ของขึ้นชื่อ/ร้านในตำนาน/คาเฟ่-ร้านดัง)
 ค้นจาก: Google Maps + รีวิว, Wongnai, เพจ FB ร้าน, YouTube รีวิวอาหาร${PROV}
 แต่ละร้าน: ชื่อจริง, slug (kebab a-z0-9- ไม่ซ้ำ), ย่าน (ชัด), เมนูเด่น, ประเภท, ทำไมดัง (อ้างแหล่ง), แหล่ง
-${RULES}
+${RULES}${AVOID ? `\n⚠️ ห้ามเลือกร้าน/สถานที่เหล่านี้เด็ดขาด (ถูกใช้ในหน้าอื่นของย่านเดียวกันแล้ว ห้ามซ้ำข้ามหน้า): ${AVOID}` : ''}
 คืนตาม schema (10 ร้าน เรียงดัง/ไอคอนิกสุดลงไป)`,
   { label:'plan:restaurants', phase:'Plan', schema:PLAN_SCHEMA })
 

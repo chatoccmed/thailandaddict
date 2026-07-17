@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "review-pimalai-resort-spa-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://pimalai.com/wp-content/uploads/2024/10/Bayfront-Deluxe-2.png",
+        "kind": "view"
+      },
+      {
+        "url": "https://pimalai.com/wp-content/uploads/2024/10/Beachside-Pavilion-Suite-One1.png",
+        "kind": "beach"
+      },
+      {
+        "url": "https://pimalai.com/wp-content/uploads/2024/10/Deluxe-1.png",
+        "kind": "room"
+      },
+      {
+        "url": "https://pimalai.com/wp-content/uploads/2024/10/Pavilion-Suite-One-Bedroom-Garden-view1.png",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Pimalai Resort & Spa (pimalai.com)",
+    "sourceUrl": "https://pimalai.com/room-and-suite/",
+    "notes": "Fetched the official site pimalai.com. Confirmed direct .png image URLs on /room-and-suite/: Bayfront Deluxe (Andaman bay view), Beachside Pavilion Suite (direct beach access/sea view), Deluxe room, and Pavilion Suite garden-view — all real photos seen in the fetched page HTML. The homepage (/) also returned direct image URLs but with ambiguous filenames (Mask-Group-1..26, Pimalai-At-Glance) whose subjects (pool/exterior/beach) I could not verify from filename alone, so I did not include them rather than guess. Candidate pool/facilities pages (/swimming-pool/, /facilities-and-activities/) returned 404. All returned URLs are from the hotel's OWN official website and are creditable; no Trip.com needed. Floor-plan .jpg images were excluded (diagrams, not photos)."
+  },
+  {
+    "slug": "review-layana-resort-spa-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.layanaresort.com/wp-content/uploads/2017/09/acc-slide2.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.layanaresort.com/wp-content/uploads/2025/12/LYRS-DlxPav-04-1-scaled.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.layanaresort.com/wp-content/uploads/2023/10/Layana-Beach-Villa-6.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://www.layanaresort.com/wp-content/uploads/2024/10/Ocean-Deluxe-Villa-1.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Layana Resort & Spa (layanaresort.com)",
+    "sourceUrl": "https://www.layanaresort.com/adults-only-hotel/",
+    "notes": "All four are direct .jpg URLs actually seen in the fetched official-site HTML (accommodation page https://www.layanaresort.com/adults-only-hotel/), not lazy-loaded placeholders. acc-slide2.jpg = resort hero/exterior slide; LYRS-DlxPav-04-1-scaled.jpg = Deluxe Pavilion room; Layana-Beach-Villa-6.jpg = beachfront villa; Ocean-Deluxe-Villa-1.jpg = ocean-view villa. Homepage yielded fewer usable property shots (mostly logos/award icons + a sunset and Sundowner Cruise promo), so all selected images come from the official accommodation page. No Trip.com fetch needed. No facebook/fbcdn or third-party-blog URLs used."
+  },
+  {
+    "slug": "review-the-houben-hotel-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://thehouben.com/wp-content/uploads/2023/11/thehouben_pool.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://thehouben.com/wp-content/uploads/2023/11/room-houben-home.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://thehouben.com/wp-content/uploads/2023/11/thehouben_1.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://thehouben.com/wp-content/uploads/2023/11/thehouben_2.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ The Houben Hotel (thehouben.com)",
+    "sourceUrl": "https://thehouben.com/",
+    "notes": "Photos pulled from the hotel's OWN official site thehouben.com (WordPress uploads). All 4 URLs verified live via curl: HTTP 200, content-type image/jpeg, sizes 111-245KB (real photos, not placeholders). thehouben_pool.jpg = signature red clifftop infinity pool; room-houben-home.jpg = sea-view guest room; thehouben_1.jpg and thehouben_2.jpg = property/villa exterior + Andaman sea view. Additional confirmed-live official images available if needed: thehouben_pool2.jpg (124KB) and thehouben_04.jpg (124KB). Trip.com hotel page (detail-1513003) was NOT fetchable — returned HTTP 418 (bot block), so no Trip.com images returned. No facebook/fbcdn/scontent, review-blog, or listing-thumbnail URLs used."
+  },
+  {
+    "slug": "review-rawi-warin-resort-spa-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://7space.sgp1.digitaloceanspaces.com/13U3/1598408300.79084147628d91980f7ea482ef244e87.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://7space.sgp1.cdn.digitaloceanspaces.com/13U3/1748558209.4ae06b38caf66e450615ed82b41f3daa.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://7space.sgp1.cdn.digitaloceanspaces.com/13U3/1598234916.300f06637597cab1e419e4349c748663.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://7space.sgp1.digitaloceanspaces.com/13U3/1709075475.45ab87aa0353843faaeeb544e7bbed75.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Rawi Warin Resort &amp; Spa (rawiwarin.com)",
+    "sourceUrl": "https://rawiwarin.com/en/portfolio/accommodation",
+    "notes": "All 4 URLs are real photos scraped from the hotel's OWN official website (rawiwarin.com home + /en/portfolio/accommodation). Images are hosted on the site's DigitalOcean Spaces CDN (7space.sgp1[.cdn].digitaloceanspaces.com/13U3/...). Verified live via curl: each returns HTTP 200, content-type image/jpeg, full-resolution (0.8-7.3 MB). Selection: (1) hero exterior/pool/bay shot from homepage; (2) Deluxe Seaview room; (3) Beachfront Pool Villa; (4) resort grounds/view. No facebook/fbcdn/scontent, no Trip.com thumbnails, no review-blog/stock URLs used. Both .digitaloceanspaces.com and .cdn.digitaloceanspaces.com host variants resolve; kept as-is exactly as seen in page src. Trip.com detail page not needed since the official site returned rich, directly-downloadable images. The room image (item 2) is very large at ~4.2 MB and the homepage view image ~1.2 MB — may want to resize/compress via sharp before self-hosting on R2."
+  },
+  {
+    "slug": "review-srilanta-resort-spa-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://static.wixstatic.com/media/7ced46_301be692867a4af98cb8c2a58b4e6bb7~mv2.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/7ced46_5323b848b7384ca98b5407d695bbf58a~mv2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/7ced46_aef169bfac7c41abaf3b2e382280a982~mv2.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/7ced46_110c861fc381403e9be68b5f36dcd764~mv2.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ SriLanta Resort & Spa (srilantaresort.com)",
+    "sourceUrl": "https://www.srilantaresort.com/villas-rooms-koh-lanta-srilanta",
+    "notes": "Official site (Wix-hosted) rendered fully via WebFetch and exposed many real direct .jpg image URLs. Returned 4 full-size gallery images (w_960 transform, base file is .jpg) actually seen on the fetched official page — these are the resort's own photos and are creditable to the official website. Trip.com hotel page (tripUrl 710613) blocked WebFetch with HTTP 418 (bot protection), so no Trip.com images could be confirmed. The 4 large gallery images were unlabeled on the page, so kind (hero/room/pool/view) is a best-guess assignment; all are genuine resort photos. Additional real room-type thumbnails exist on the page but only at tiny w_147 sizes, so the larger gallery images were preferred. Avoided all facebook/fbcdn, review-blog, and aggregator-thumbnail sources per instructions."
+  },
+  {
+    "slug": "review-southern-lanta-resort-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.southernlanta.com/images/1359.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.southernlanta.com/images/1708.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://www.southernlanta.com/images/1880.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.southernlanta.com/images/1700.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Southern Lanta Resort",
+    "sourceUrl": "https://www.southernlanta.com/accommodations",
+    "notes": "Hotel = \"Southern Lanta Resort\" (slug review-southern-lanta-resort-koh-lanta-krabi), photoSourceUrl https://www.southernlanta.com/accommodations. WebFetched the official site's accommodations page and pulled the carousel image URLs (pattern /images/NNNN.jpg), then curl-verified each returns HTTP 206 image/jpeg (not placeholders) and visually inspected them by downloading. All 4 chosen are genuine photos OF this resort from its OWN official website (creditable): 1359.jpg = row of green-roof garden bungalows (hero/exterior); 1708.jpg = beachfront villa row with brick path leading to the sea (beach/grounds); 1880.jpg = modern villa living/kitchen interior (room); 1700.jpg = round jacuzzi tub with beachfront window view (view). Other confirmed-real options not returned to stay within 4: 1737.jpg (bungalow terrace w/ sea), 1287.jpg (green-roof bungalow row), 1911.jpg (Thai-silk twin bedroom). 1573.png is the resort logo (skipped); the /asset_theme20/ PNGs are UI arrow/SHA-plus icons (skipped). No lazy-load/base64 issue — real direct URLs were present in the HTML. No Trip.com fetch needed since the official site provided enough. Avoided all facebook/fbcdn/agoda/booking/tripadvisor/stock sources per instructions."
+  },
+  {
+    "slug": "review-lanta-castaway-beach-resort-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.lantacastaway.com/images/home/progressive/bg-04.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.lantacastaway.com/images/accommodation/beachcomber-11-640x480.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.lantacastaway.com/images/accommodation/sea-breeze-09-640x480.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://www.lantacastaway.com/images/accommodation/cozy-casa-09-640x480.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Lanta Castaway Beach Resort",
+    "sourceUrl": "https://www.lantacastaway.com/bungalows.php",
+    "notes": "All 4 URLs are REAL, directly-downloadable JPEGs from the hotel's OWN official site (lantacastaway.com), each verified via curl (HTTP 200, content-type image/jpeg): the 3 accommodation images (beachcomber / sea-breeze / cozy-casa bungalows, 640x480) come from bungalows.php, and bg-04.jpg is a hero beach/resort scenery shot from the homepage progressive slider (index.php), verified 281KB image/jpeg. No pool image with a confirmable direct filename was found; substituted a homepage hero beach shot for variety. No third-party/blog/facebook URLs used. Additional confirmed room images available if needed: cozy-casa-11, tropical-daze-16/14/17, sea-breeze-08/10, beachcomber-08/10 (all 640x480 on the same official path)."
+  },
+  {
+    "slug": "review-klong-jark-bungalows-koh-lanta-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://klongjark.com/images/outside/klongjark16.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://klongjark.com/images/bungalow/bungalow07.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://klongjark.com/images/bungalow/bungalow01.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://klongjark.com/images/outside/kj01.jpg",
+        "kind": "beach"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Klong Jark Bungalows (klongjark.com)",
+    "sourceUrl": "https://www.klongjark.com/",
+    "notes": "All 4 URLs are direct .jpg files pulled from the hotel's OWN official website (klongjark.com), confirmed real (HTTP 200, image/jpeg, 79KB-191KB each) via curl. The site is a Joomla/Quix build: the homepage exposes clean direct paths under /images/outside/ (exterior + beachfront), /images/bungalow/ (rooms), /images/restaurant/ and /images/info/ (food/seafood, not selected). Selected: klongjark16.jpg (exterior/grounds, largest at 191KB) as hero; bungalow07.jpg + bungalow01.jpg as rooms; kj01.jpg as beach/view. This is a rustic budget property with NO pool (guests swim in the sea), so no pool photo exists. Trip.com hotel page (ko-lanta-hotel-detail-6649270) was BLOCKED (HTTP 418 bot-protection) via WebFetch, so no Trip.com images sourced — not needed, official-site photos are richer and creditable. Avoided all facebook/fbcdn and third-party review-blog images per instructions. Many more real photos available on the official site if needed (klongjark08/11/15/19.jpg, more bungalow0x.jpg, seafood-at-klongjark-restaurant-0x.jpg)."
+  }
+]

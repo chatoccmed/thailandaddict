@@ -2,20 +2,30 @@
 # https://developers.cloudflare.com/pages/configuration/headers/
 
 # ── Global headers (ทุกหน้า) ──
+# Cache-Control อยู่ตรงนี้ด้วย เพราะหน้าเสิร์ฟแบบ clean-URL (ไม่มี .html) — ถ้าพึ่งกฎ /*.html
+# อย่างเดียวจะไม่ match แล้วได้ max-age=0. asset ที่มีนามสกุลเจาะจงด้านล่าง (.css/.js/.webp/.json)
+# มีกฎเฉพาะที่ specific กว่า → override ค่านี้เสมอ
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  Content-Security-Policy: object-src 'none'; base-uri 'self'; frame-ancestors 'self'
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
-# ── HTML pages — cache 1 ชั่วโมง (เพื่อให้ update บ่อยได้) ──
+# ── HTML pages (คำขอที่มี .html ตรง ๆ) ──
 /*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: text/html; charset=utf-8
+# (JSON feeds/search-index inherit Cache-Control from the /* rule above — no separate /*.json
+#  rule, otherwise both match and Cloudflare emits a duplicated Cache-Control header)
 
-# ── Homepage ── cache 30 นาที ──
+# ── Homepage ── cache 30 นาที ── (the site serves clean URLs, so the homepage is "/" not "/index.html";
+#    the /index.html rule below never matched a real request — the "/" rule is the one that actually applies)
+/
+  Cache-Control: public, max-age=1800, stale-while-revalidate=3600
 /index.html
   Cache-Control: public, max-age=1800, stale-while-revalidate=3600
 

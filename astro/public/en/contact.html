@@ -156,14 +156,15 @@ img{display:block;max-width:100%}
   <div class="formcard">
     <h3>Fill out the form</h3>
     <p class="fhint">We try to reply to every message within 48 hours on business days.</p>
-    <form action="mailto:hello@thailandaddict.com" method="post" enctype="text/plain">
+    <form id="contactForm" novalidate>
       <div class="cgrid">
         <div class="frow"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
         <div class="frow"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
       </div>
       <div class="frow"><label for="subject">Subject</label><input id="subject" name="subject" type="text" placeholder="What's this about?"></div>
       <div class="frow"><label for="message">Message</label><textarea id="message" name="message" placeholder="Write your message here..." required></textarea></div>
-      <button class="fsubmit" type="submit">Send message →</button>
+      <button class="fsubmit" type="submit" id="cfSubmit">Send message →</button>
+      <p class="fmsg" id="cfMsg" role="status" aria-live="polite" style="display:none;margin-top:12px;font-size:14px;font-weight:600"></p>
       <p class="fnote">Or email us directly at <a href="mailto:hello@thailandaddict.com">hello@thailandaddict.com</a></p>
     </form>
   </div>
@@ -220,6 +221,23 @@ img{display:block;max-width:100%}
 </footer>
 <script>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
+(function(){
+  var f=document.getElementById('contactForm'); if(!f) return;
+  var btn=document.getElementById('cfSubmit'), msg=document.getElementById('cfMsg');
+  function show(t,ok){msg.style.display='block';msg.textContent=t;msg.style.color=ok?'#0891b2':'#e11d48';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(f.email.value||'').trim(), message=(f.message.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){show('Please enter a valid email',false);f.email.focus();return;}
+    if(message.length<2){show('Please write a message',false);f.message.focus();return;}
+    btn.disabled=true; var label=btn.textContent; btn.textContent='Sending…';
+    fetch('/api/contact',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:f.name.value,email:email,subject:f.subject.value,message:message})})
+      .then(function(r){return r.json().catch(function(){return{ok:false};});})
+      .then(function(d){ if(d&&d.ok){f.reset();show('Message sent ✓ We aim to reply within 48 hours',true);} else {show(d&&d.error==='rate_limited'?'Too many requests — please try again shortly':'Could not send — please retry, or email hello@thailandaddict.com',false);} })
+      .catch(function(){show('Could not send — please retry, or email hello@thailandaddict.com',false);})
+      .finally(function(){btn.disabled=false; btn.textContent=label;});
+  });
+})();
 </script>
 </body>
 </html>

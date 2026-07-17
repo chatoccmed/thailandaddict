@@ -1,0 +1,16 @@
+{
+  "locales": [
+    { "code": "th", "label": "ไทย", "englishLabel": "Thai", "dir": "ltr", "flag": "🇹🇭", "tier": 1, "hreflang": "th" },
+    { "code": "en", "label": "English", "englishLabel": "English", "dir": "ltr", "flag": "🇬🇧", "tier": 1, "hreflang": "en" },
+    { "code": "zh", "label": "中文", "englishLabel": "Chinese", "dir": "ltr", "flag": "🇨🇳", "tier": 1, "hreflang": "zh", "fontFamily": "'Noto Sans SC', sans-serif" },
+    { "code": "ru", "label": "Русский", "englishLabel": "Russian", "dir": "ltr", "flag": "🇷🇺", "tier": 1, "hreflang": "ru", "fontFamily": "'Noto Sans', sans-serif" },
+    { "code": "ko", "label": "한국어", "englishLabel": "Korean", "dir": "ltr", "flag": "🇰🇷", "tier": 1, "hreflang": "ko", "fontFamily": "'Noto Sans KR', sans-serif" },
+    { "code": "ja", "label": "日本語", "englishLabel": "Japanese", "dir": "ltr", "flag": "🇯🇵", "tier": 1, "hreflang": "ja", "fontFamily": "'Noto Sans JP', sans-serif" },
+    { "code": "he", "label": "עברית", "englishLabel": "Hebrew", "dir": "rtl", "flag": "🇮🇱", "tier": 1, "hreflang": "he", "fontFamily": "'Noto Sans Hebrew', sans-serif" },
+    { "code": "ar", "label": "العربية", "englishLabel": "Arabic", "dir": "rtl", "flag": "🇸🇦", "tier": 1, "hreflang": "ar", "fontFamily": "'Noto Sans Arabic', 'Cairo', sans-serif" },
+    { "code": "hi", "label": "हिन्दी", "englishLabel": "Hindi", "dir": "ltr", "flag": "🇮🇳", "tier": 1, "hreflang": "hi", "fontFamily": "'Noto Sans Devanagari', sans-serif" }
+  ],
+  "defaultLocale": "th",
+  "fallbackOrder": ["en", "th"],
+  "note": "Tier-1 pages (homepage + tourism-city pages) render all 9 locales. Tier-2 pages (everything else) render th+en only. See _internal/I18N-AND-TOURISM-CITY-PLAN.md for the full architecture. Translations not yet available for a locale fall back to en, then th — never a broken page."
+}

@@ -17,6 +17,10 @@ const IDENTICAL_KEYS = new Set([
   'href', 'icon', 'id', 'embedUrl', 'videoId',
 ]);
 const isUrlish = v => typeof v === 'string' && (/^https?:\/\//.test(v) || /^\/[\w-]/.test(v) || /\.html(\?|#|$)/.test(v) || /\.(jpe?g|png|webp|avif|gif|svg)$/i.test(v) || /^\d{4}-\d{2}-\d{2}$/.test(v));
+// URLs sometimes carry a literal Thai filename on the TH side (e.g. Wikimedia Commons File: links from the
+// image-splice pipeline) that the EN twin must percent-encode to satisfy the zero-raw-Thai rule — same
+// destination, different string. Treat those as identical too.
+const sameUrl = (a, b) => { if (a === b) return true; try { return decodeURIComponent(a) === decodeURIComponent(b); } catch { return false; } };
 
 // deep structural parity: same keys + array lengths; numbers/booleans/links/dates byte-identical
 function walkKeyed(th, en, p, key, errs) {
@@ -40,7 +44,7 @@ function walkKeyed(th, en, p, key, errs) {
   }
   if (tt === 'number' || tt === 'boolean') { if (th !== en) errs.push(`${p}: ${tt} ${JSON.stringify(th)}→${JSON.stringify(en)}`); return; }
   if (tt === 'string') {
-    if (IDENTICAL_KEYS.has(key) || isUrlish(th)) { if (th !== en) errs.push(`${p}: must stay identical ("${String(th).slice(0,40)}" → "${String(en).slice(0,40)}")`); }
+    if (IDENTICAL_KEYS.has(key) || isUrlish(th)) { if (!sameUrl(th, en)) errs.push(`${p}: must stay identical ("${String(th).slice(0,40)}" → "${String(en).slice(0,40)}")`); }
   }
 }
 
@@ -54,9 +58,14 @@ function validate(file) {
   try { th = JSON.parse(fs.readFileSync(thp, 'utf8')); } catch (e) { return { file, ok: false, errs: ['TH parse: ' + e.message] }; }
   try { en = JSON.parse(enText); } catch (e) { return { file, ok: false, errs: ['EN parse: ' + e.message] }; }
   // 1) zero raw Thai anywhere in EN (proper nouns must be romanized; URL-encoded Thai in hrefs is ASCII so fine)
+  //    EXCEPTION (owner policy 2026-07-02): the ฿ (baht) symbol and the word "ฟรี" (free) are accepted in EN text
+  //    — ฿ is an internationally-read currency mark — so they are stripped before this scan. Without this, ~1.5k
+  //    pre-existing ฿-price strings failed and drowned out genuine untranslated-Thai misses. (New twins should
+  //    still prefer "THB"/"free" per _internal/en-twin-spec.md rule E; this only relaxes the validator's alarm.)
+  const ALLOWED_TH = /฿|ฟรี/g;
   const thaiHits = [];
   (function scan(o, p) {
-    if (typeof o === 'string') { if (THAI.test(o) && !IDENTICAL_KEYS.has(p.split('.').pop())) thaiHits.push(`${p}: "${o.slice(0, 50)}"`); }
+    if (typeof o === 'string') { if (THAI.test(o.replace(ALLOWED_TH, '')) && !IDENTICAL_KEYS.has(p.split('.').pop())) thaiHits.push(`${p}: "${o.slice(0, 50)}"`); }
     else if (Array.isArray(o)) o.forEach((v, i) => scan(v, `${p}[${i}]`));
     else if (o && typeof o === 'object') for (const k of Object.keys(o)) scan(o[k], `${p}.${k}`);
   })(en, '$');

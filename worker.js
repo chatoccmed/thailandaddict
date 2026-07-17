@@ -26,19 +26,45 @@ export default {
     const url = new URL(request.url);
     try {
       if (url.pathname === '/go/b') return bookingGo(url);
-      if (url.pathname === '/api/plan' && request.method === 'POST') return await handlePlan(request, env);
+      // Abuse guard on the write/compute endpoints. /api/plan burns Workers-AI neurons per call and the
+      // others write KV unauthenticated, so an unmetered loop is a denial-of-wallet vector. Backed by
+      // Cloudflare's native Rate Limiting bindings (RL_PLAN / RL_WRITE — accurate, unlike a KV counter
+      // whose edge read-caching lets bursts slip through). Limits live in wrangler.jsonc; fails OPEN so a
+      // binding hiccup never blocks real visitors.
+      if (url.pathname === '/api/plan' && request.method === 'POST') {
+        if (!await allow(env.RL_PLAN, request, 'plan')) return tooMany();
+        return await handlePlan(request, env);
+      }
       if (url.pathname === '/api/plan') return json({ ok: false, error: 'POST only' }, 405);
-      if (url.pathname === '/api/suggest') return await handleSuggest(request, env);
-      if (url.pathname === '/api/trips' && request.method === 'POST') return await saveTrip(request, env);
+      if (url.pathname === '/api/suggest') {
+        if (!await allow(env.RL_WRITE, request, 'suggest')) return tooMany();
+        return await handleSuggest(request, env);
+      }
+      if (url.pathname === '/api/trips' && request.method === 'POST') {
+        if (!await allow(env.RL_WRITE, request, 'trips')) return tooMany();
+        return await saveTrip(request, env);
+      }
       const cm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)\/(vote|suggest)$/i);
-      if (cm && request.method === 'POST') return await collabAction(request, env, cm[1], cm[2].toLowerCase());
+      if (cm && request.method === 'POST') {
+        if (!await allow(env.RL_WRITE, request, 'collab')) return tooMany();
+        return await collabAction(request, env, cm[1], cm[2].toLowerCase());
+      }
       const tm = url.pathname.match(/^\/api\/trips\/([a-z0-9]+)$/i);
       if (tm) return await getTrip(tm[1], env);
-      if (url.pathname === '/api/email' && request.method === 'POST') return await saveEmail(request, env);
+      if (url.pathname === '/api/email' && request.method === 'POST') {
+        if (!await allow(env.RL_WRITE, request, 'email')) return tooMany();
+        return await saveEmail(request, env);
+      }
+      if (url.pathname === '/api/contact' && request.method === 'POST') {
+        if (!await allow(env.RL_WRITE, request, 'contact')) return tooMany();
+        return await saveContact(request, env);
+      }
       const sm = url.pathname.match(/^\/t\/([a-z0-9]+)$/i);
       if (sm) return await serveSharedTrip(request, env, sm[1]);
     } catch (e) {
-      return json({ ok: false, error: String(e && e.message || e) }, 500);
+      // don't leak internal error detail (stack/messages) to clients; expose it only under ?debug
+      const dbg = url.searchParams.has('debug');
+      return json({ ok: false, error: 'server_error', ...(dbg ? { detail: String(e && e.message || e) } : {}) }, 500);
     }
     // all other paths → static assets (also yields the 404 page for unknown routes)
     return env.ASSETS.fetch(request);
@@ -57,7 +83,7 @@ async function handlePlan(request, env) {
 
   // 2. load feeds once → candidates (gap-fill) + an index to enrich SAVED items with real img/price/hours
   const feeds = targets.size ? await loadFeeds(request, env) : { hotels: [], attractions: [], restaurants: [] };
-  const idx = buildIndex(feeds);
+  const idx = getIndex(feeds);
   saved.forEach(s => { const e = idx[normName(s.name)]; if (e) { s.img = s.img || e.img; s.price = s.price || e.price; s.hours = s.hours || e.hours; s.htype = s.htype || e.htype; s.loc = s.loc || e.loc; s.agoda = s.agoda || e.agoda; if (s.lat == null) { s.lat = e.lat; s.lng = e.lng; } } });
   const candidates = buildCandidates(feeds, targets, saved, prefs);
   const hotelPicks = pickHotels(feeds, targets, saved, prefs);  // style-matched hotel options for the UI section
@@ -127,7 +153,17 @@ async function handleSuggest(request, env) {
 }
 
 // ---- feeds ----
+// The three feeds total ~2.4 MB and were fetched + JSON.parsed on EVERY /api/plan and /api/suggest call.
+// Cache them at module scope per warm isolate (10 min) — the feeds only change on deploy, so this cuts
+// ~2.4 MB of fetch+parse off the hot path without risking staleness beyond a rebuild cycle.
+let _feedsCache = null, _feedsAt = 0;
+const FEEDS_TTL_MS = 10 * 60 * 1000;
+// Cache the derived name→data index alongside the feeds so /api/plan doesn't rebuild it (~4.9k items)
+// on every request. Identity-keyed: recomputes only when loadFeeds returns a different feeds object.
+let _idxCache = null, _idxSrc = null;
+function getIndex(feeds) { if (_idxCache && _idxSrc === feeds) return _idxCache; _idxCache = buildIndex(feeds); _idxSrc = feeds; return _idxCache; }
 async function loadFeeds(request, env) {
+  if (_feedsCache && (Date.now() - _feedsAt) < FEEDS_TTL_MS) return _feedsCache;
   const get = async (name) => {
     try {
       const r = await env.ASSETS.fetch(new Request(new URL('/feeds/' + name + '.json', request.url)));
@@ -137,7 +173,9 @@ async function loadFeeds(request, env) {
     } catch { return []; }
   };
   const [hotels, attractions, restaurants] = await Promise.all([get('hotels'), get('attractions'), get('restaurants')]);
-  return { hotels, attractions, restaurants };
+  const feeds = { hotels, attractions, restaurants };
+  if (hotels.length || attractions.length || restaurants.length) { _feedsCache = feeds; _feedsAt = Date.now(); }  // don't cache an all-empty fetch failure
+  return feeds;
 }
 // name -> real {img,price,hours} so SAVED items (which only carry name/url) get enriched too
 function buildIndex(feeds) {
@@ -407,19 +445,77 @@ function strip(s) { return String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+
 function normName(s) { return strip(s).replace(/\s+/g, '').toLowerCase(); }
 function clean(u) { return String(u || '').trim(); }
 function withTimeout(promise, ms) { return Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), ms))]); }
+// Security headers for Worker-generated responses. The static _headers file (X-Frame-Options/nosniff/…)
+// only applies to assets served directly — dynamic responses (json(), serveSharedTrip) bypass it entirely.
+const SEC_HEADERS = { 'x-content-type-options': 'nosniff', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'strict-origin-when-cross-origin', 'content-security-policy': "object-src 'none'; base-uri 'self'; frame-ancestors 'self'" };
 function json(obj, status = 200) {
-  return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
+  return new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...SEC_HEADERS } });
 }
+
+// ---- abuse guard (Cloudflare native Rate Limiting binding, per-IP) ----
+// `rl` is a Rate Limiting binding (env.RL_PLAN / env.RL_WRITE, configured in wrangler.jsonc). Its .limit()
+// is an accurate distributed counter — unlike a KV counter, whose edge read-caching (~60s) lets bursts
+// slip through. Keyed by bucket:IP so each endpoint-group throttles independently. Fails OPEN if the
+// binding is missing or errors, so a platform hiccup never locks out real visitors.
+async function allow(rl, request, bucket) {
+  try {
+    if (!rl || typeof rl.limit !== 'function') return true;
+    const ip = request.headers.get('CF-Connecting-IP') || 'anon';
+    const { success } = await rl.limit({ key: `${bucket}:${ip}` });
+    return success !== false;
+  } catch { return true; }
+}
+function tooMany() { return json({ ok: false, error: 'rate_limited', message: 'มีคำขอถี่เกินไป ลองใหม่อีกครั้งในอีกสักครู่' }, 429); }
 
 // ---- shareable trips + lead-gen (Workers KV) ----
 const TRIP_TTL = 60 * 60 * 24 * 365;   // 1 year
 function genId() { return crypto.randomUUID().replace(/-/g, '').slice(0, 12); }
 function escAttr(s) { return String(s || '').replace(/[<>"&]/g, c => ({ '<': '&lt;', '>': '&gt;', '"': '&quot;', '&': '&amp;' }[c])); }
+// Strict email allowlist. The old /^[^@\s]+@[^@\s]+\.[^@\s]+$/ accepted shell/CSV-dangerous chars
+// (" $ ; ` = …) in the local part, so a "malicious address" signed up via the public newsletter/contact
+// form became a stored command-injection payload for the operator's export-emails.mjs (and a CSV formula).
+// This charset covers all real-world addresses while rejecting every dangerous character at the boundary.
+const EMAIL_RE = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+// Sanitize a client-submitted trip before it is persisted and later re-served to OTHER users via /t/:id.
+// The shared-trip renderer (trip.html) interpolates day.day / prefs counts / item.type RAW (no escaping),
+// and drops item/hotel urls straight into href — so a malicious itin becomes stored XSS. We coerce the
+// numeric/enum fields and strip non-http(s) url schemes here, at the trust boundary, for every field the
+// page can render. (Text fields like name/title/note are escaped client-side, so they stay as-is.)
+const SAFE_TYPES = ['stay', 'eat', 'see'];
+function safeUrl(u) {
+  const s = String(u || '').trim();
+  if (!s) return '';
+  // allow only absolute https(?) or a same-site root-relative path; reject //protocol-relative (off-site
+  // redirect) and any script-ish scheme (javascript:/data:/vbscript: never match the allowlist anyway)
+  if (!/^(https?:\/\/|\/(?!\/))/i.test(s)) return '';
+  // Reject raw HTML-attribute-breakout / whitespace chars. The shared-trip renderer (trip.html) drops these
+  // URLs straight into an href attribute; a real booking URL never contains an unencoded " ' < > ` \ or
+  // whitespace, but a stored-XSS payload needs one to break out. Rejecting here kills the attack at the
+  // trust boundary even if the client fails to escape. (See the stored-XSS fix — trip.html also esc()s these.)
+  if (/["'<>`\s\\]/.test(s)) return '';
+  return s.slice(0, 400);
+}
+function sanitizePick(h) { return h && typeof h === 'object' ? { ...h, url: safeUrl(h.url), agoda: safeUrl(h.agoda) } : h; }
+function sanitizePicks(arr) { return (Array.isArray(arr) ? arr : []).slice(0, 60).map(sanitizePick); }
+function sanitizeItin(itin) {
+  const days = (Array.isArray(itin.days) ? itin.days : []).slice(0, 40).map((d, i) => {
+    const day = { ...d, day: clampNum(d.day, 1, 999, i + 1) };
+    day.items = (Array.isArray(d.items) ? d.items : []).slice(0, 40).map(it => ({ ...it, type: SAFE_TYPES.includes(it.type) ? it.type : 'see', url: safeUrl(it.url) }));
+    if (d.hotel && typeof d.hotel === 'object') day.hotel = sanitizePick(d.hotel);
+    return day;
+  });
+  return { ...itin, days };
+}
+function sanitizeStoredPrefs(p) {
+  p = (p && typeof p === 'object') ? p : {};
+  return { ...p, days: clampNum(p.days, 0, 999, 0), nights: clampNum(p.nights, 0, 999, 0), pax: clampNum(p.pax, 0, 999, 0) };
+}
 
 async function saveTrip(request, env) {
   const body = await request.json().catch(() => null);
   if (!body || !body.itin || !Array.isArray(body.itin.days) || !body.itin.days.length) return json({ ok: false, error: 'bad trip' }, 400);
-  const rec = JSON.stringify({ v: 1, itin: body.itin, prefs: body.prefs || {}, hotelPicks: body.hotelPicks || [], swapPool: body.swapPool || {}, ts: Date.now() });
+  const rec = JSON.stringify({ v: 1, itin: sanitizeItin(body.itin), prefs: sanitizeStoredPrefs(body.prefs), hotelPicks: sanitizePicks(body.hotelPicks), swapPool: { stay: sanitizePicks(body.swapPool && body.swapPool.stay), see: sanitizePicks(body.swapPool && body.swapPool.see), eat: sanitizePicks(body.swapPool && body.swapPool.eat) }, ts: Date.now() });
   if (rec.length > 200000) return json({ ok: false, error: 'too large' }, 413);
   const id = genId();
   await env.TRIPS.put('trip:' + id, rec, { expirationTtl: TRIP_TTL });
@@ -443,6 +539,8 @@ async function collabAction(request, env, id, action) {
   if (action === 'vote') {
     const k = String(body.key || '').slice(0, 80);
     if (!k) return json({ ok: false, error: 'no key' }, 400);
+    // cap distinct vote keys so an unauthenticated caller can't inflate the shared record unbounded
+    if (!(k in rec.collab.votes) && Object.keys(rec.collab.votes).length >= 200) return json({ ok: false, error: 'too many' }, 429);
     rec.collab.votes[k] = (rec.collab.votes[k] || 0) + 1;
     await env.TRIPS.put(key, JSON.stringify(rec), { expirationTtl: TRIP_TTL });
     return json({ ok: true, count: rec.collab.votes[k] });
@@ -461,18 +559,40 @@ async function collabAction(request, env, id, action) {
 async function saveEmail(request, env) {
   const body = await request.json().catch(() => null);
   const email = body && String(body.email || '').trim().toLowerCase();
-  if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
+  if (!email || !EMAIL_RE.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
   await env.TRIPS.put('email:' + email, JSON.stringify({ email, tripId: String(body.tripId || '').slice(0, 20), province: String(body.province || '').slice(0, 60), ts: Date.now() }));
   return json({ ok: true });
 }
 
+// Contact-form submissions → KV (the form used to be a mailto: link, which silently lost messages on any
+// device without a configured mail client). Keyed with a unique suffix so multiple messages never collide.
+async function saveContact(request, env) {
+  const body = await request.json().catch(() => null);
+  const email = body && String(body.email || '').trim().toLowerCase();
+  const message = body && String(body.message || '').trim();
+  if (!email || !EMAIL_RE.test(email) || email.length > 120) return json({ ok: false, error: 'bad email' }, 400);
+  if (!message || message.length < 2) return json({ ok: false, error: 'no message' }, 400);
+  const rec = { name: String(body.name || '').slice(0, 80), email, subject: String(body.subject || '').slice(0, 160), message: message.slice(0, 4000), ts: Date.now() };
+  await env.TRIPS.put('contact:' + email + ':' + genId(), JSON.stringify(rec));
+  return json({ ok: true });
+}
+
 // serve the shared-trip page: inject per-trip og tags + the trip id so the static planner auto-loads it
+let _tripTpl = null, _tripTplAt = 0;
 async function serveSharedTrip(request, env, id) {
-  let html = await (await env.ASSETS.fetch(new Request(new URL('/trip', request.url)))).text();
+  // cache the /trip HTML template per warm isolate (it only changes on deploy) rather than re-fetching and
+  // reading its ~85 KB on every /t/:id hit; per-request og injection still happens below on the cached copy
+  if (!_tripTpl || (Date.now() - _tripTplAt) > FEEDS_TTL_MS) {
+    _tripTpl = await (await env.ASSETS.fetch(new Request(new URL('/trip', request.url)))).text();
+    _tripTplAt = Date.now();
+  }
+  let html = _tripTpl;
   let title = 'แผนการเดินทางของฉัน', desc = 'แผนเที่ยวไทยที่จัดโดย Thailandaddict';
   const rec = await env.TRIPS.get('trip:' + id);
   if (rec) { try { const t = JSON.parse(rec); if (t.itin && t.itin.title) title = t.itin.title; const p = t.prefs || {}; const provs = (p.provinces || []).join(' · '); desc = [provs, p.days ? p.days + ' วัน ' + (p.nights || '') + ' คืน' : '', 'จัดโดย Thailandaddict'].filter(Boolean).join(' · '); } catch (e) {} }
   const og = `<meta property="og:type" content="article"><meta property="og:title" content="${escAttr(title)}"><meta property="og:description" content="${escAttr(desc)}"><meta property="og:image" content="https://thailandaddict.com/images/heroes/chiang-mai.jpg"><meta name="twitter:card" content="summary_large_image"><script>window.__TRIP_ID__=${JSON.stringify(id)};</script>`;
-  html = html.replace('</head>', og + '</head>');
-  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
+  // function replacement so a `$` in the (escAttr'd) title/desc can't be read as a $-pattern (e.g. $&, $1)
+  html = html.replace('</head>', () => og + '</head>');
+  // frame-ancestors 'self' = clickjacking defense on this cross-user page; SEC_HEADERS adds nosniff/frame-options.
+  return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', ...SEC_HEADERS } });
 }

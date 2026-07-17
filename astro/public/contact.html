@@ -153,14 +153,15 @@ img{display:block;max-width:100%}
   <div class="formcard">
     <h3>กรอกแบบฟอร์ม</h3>
     <p class="fhint">เราพยายามตอบทุกข้อความภายใน 48 ชั่วโมงในวันทำการ</p>
-    <form action="mailto:hello@thailandaddict.com" method="post" enctype="text/plain">
+    <form id="contactForm" novalidate>
       <div class="cgrid">
         <div class="frow"><label for="name">ชื่อ</label><input id="name" name="name" type="text" placeholder="ชื่อของคุณ" required></div>
         <div class="frow"><label for="email">อีเมล</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
       </div>
       <div class="frow"><label for="subject">หัวข้อ</label><input id="subject" name="subject" type="text" placeholder="เรื่องที่ต้องการติดต่อ"></div>
       <div class="frow"><label for="message">ข้อความ</label><textarea id="message" name="message" placeholder="เขียนข้อความของคุณที่นี่..." required></textarea></div>
-      <button class="fsubmit" type="submit">ส่งข้อความ →</button>
+      <button class="fsubmit" type="submit" id="cfSubmit">ส่งข้อความ →</button>
+      <p class="fmsg" id="cfMsg" role="status" aria-live="polite" style="display:none;margin-top:12px;font-size:14px;font-weight:600"></p>
       <p class="fnote">หรือส่งอีเมลตรงถึง <a href="mailto:hello@thailandaddict.com">hello@thailandaddict.com</a></p>
     </form>
   </div>
@@ -217,6 +218,23 @@ img{display:block;max-width:100%}
 </footer>
 <script>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
+(function(){
+  var f=document.getElementById('contactForm'); if(!f) return;
+  var btn=document.getElementById('cfSubmit'), msg=document.getElementById('cfMsg');
+  function show(t,ok){msg.style.display='block';msg.textContent=t;msg.style.color=ok?'#0891b2':'#e11d48';}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=(f.email.value||'').trim(), message=(f.message.value||'').trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){show('กรุณากรอกอีเมลให้ถูกต้อง',false);f.email.focus();return;}
+    if(message.length<2){show('กรุณาเขียนข้อความ',false);f.message.focus();return;}
+    btn.disabled=true; var label=btn.textContent; btn.textContent='กำลังส่ง…';
+    fetch('/api/contact',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:f.name.value,email:email,subject:f.subject.value,message:message})})
+      .then(function(r){return r.json().catch(function(){return{ok:false};});})
+      .then(function(d){ if(d&&d.ok){f.reset();show('ส่งข้อความเรียบร้อย ✓ เราจะตอบกลับภายใน 48 ชั่วโมง',true);} else {show(d&&d.error==='rate_limited'?'ส่งถี่เกินไป ลองใหม่อีกสักครู่':'ส่งไม่สำเร็จ ลองใหม่ หรืออีเมลตรงถึง hello@thailandaddict.com',false);} })
+      .catch(function(){show('ส่งไม่สำเร็จ ลองใหม่ หรืออีเมลตรงถึง hello@thailandaddict.com',false);})
+      .finally(function(){btn.disabled=false; btn.textContent=label;});
+  });
+})();
 </script>
 </body>
 </html>

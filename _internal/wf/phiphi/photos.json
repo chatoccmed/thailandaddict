@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "review-saii-phi-phi-island-village-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.saiihotels.com/wp-content/uploads/2025/05/SPP-home-1.webp",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.saiihotels.com/wp-content/uploads/2025/05/saii-phiphi-villa-hillside-pool-villa-006.webp",
+        "kind": "pool"
+      },
+      {
+        "url": "https://www.saiihotels.com/wp-content/uploads/2025/05/SPP-deluxe-garden-bungalow-3.webp",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.saiihotels.com/wp-content/uploads/2025/07/SPP-Oceanview-Hillside-Pool-Villa-1.webp",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ SAii Phi Phi Island Village (saiihotels.com)",
+    "sourceUrl": "https://www.saiihotels.com/phiphiisland-village/",
+    "notes": "All 4 URLs are real .webp files pulled directly from the hotel's OWN official website (saiihotels.com, the SAii brand under S Hotels & Resorts), confirmed via curl: HTTP 200, content-type image/webp, sizes 134KB-670KB. No lazy-load placeholders or Facebook/fbcdn/scontent URLs used. Selected: SPP-home-1 (hero beach/resort exterior), hillside-pool-villa-006 (private pool villa), deluxe-garden-bungalow-3 (guest room/bungalow interior), Oceanview-Hillside-Pool-Villa-1 (sea/ocean view). Additional confirmed-working official images available if needed: SPP-Deluxe-Sea-View-Villa-01.webp, saii-phiphi-rooms-beachfront-junior-suite-004.webp, SPP-home-5.webp. Did not need Trip.com fallback since the official site yielded ample creditable photos."
+  },
+  {
+    "slug": "review-phi-phi-holiday-resort-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://cdn-5fb63503c1ac1813b0e89473.closte.com/wp-content/uploads/2026/03/Resort-Beachfront-view-web-1.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://cdn-5fb63503c1ac1813b0e89473.closte.com/wp-content/uploads/2022/11/pp-holiday-resort-beachfront-premier-pool-slide01.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://cdn-5fb63503c1ac1813b0e89473.closte.com/wp-content/uploads/2020/12/Garden-Bungalow1.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://cdn-5fb63503c1ac1813b0e89473.closte.com/wp-content/uploads/2026/03/home-slide01.jpg",
+        "kind": "hero"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Phi Phi Holiday Resort",
+    "sourceUrl": "https://www.phiphiholidayresort.com/",
+    "notes": "Hotel = \"Phi Phi Holiday Resort\" (formerly Holiday Inn Resort Phi Phi Island), Laem Tong Bay, Koh Phi Phi Don. All 4 URLs are real, direct .jpg files seen in the official-site HTML (homepage + /accommodation/ pages), served from the hotel's own CDN (closte.com WordPress uploads). Beachfront view, beachfront-premier pool, Garden Bungalow room, and homepage hero slider. Trip.com detail page was blocked with HTTP 418; /facilities/ returned 404. No facebook/fbcdn/stock URLs used. Additional room/pool images available on the same official site if more are needed (e.g. Ocean-Sunset-Studio1.jpg, Coral-Premier-sea-view-studio-img07.jpg)."
+  },
+  {
+    "slug": "review-phi-phi-island-cabana-hotel-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://ak-d.tripcdn.com/images/220k12000000rnuw9DDE5_Z_1280_853_R50_Q90.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0202c120008xsab62E553_Z_1280_853_R50_Q90.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0225c120009zqg6ym9B8A_Z_1280_853_R50_Q90.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/200i090000003kqwt7627_Z_1280_853_R50_Q90.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: Trip.com",
+    "sourceUrl": "https://us.trip.com/hotels/phi-phi-islands-hotel-detail-999144/phi-phi-island-cabana-hotel/",
+    "notes": "Official site skipped by design: research.json notes warn the phiphiisland-cabana.com domain resolved to a compromised/spam page, and photoSourceUrl points to TripAdvisor (a review blog the task says to avoid). WebFetch was blocked (403/418/teapot) on both the official domain and Trip.com, so I fetched the Trip.com hotel page via curl with a browser UA (HTTP 200, 433KB HTML) and extracted real ak-d.tripcdn.com gallery URLs. I downloaded and visually verified each of the 4 returned images at 1280x853: (1) hotel entrance with the on-site name sign reading 'Phi Phi Island Cabana Hotel' in Thai+English — confirms the gallery is THIS property; (2) large outdoor pool over Loh Dalum with the low-rise resort buildings at dusk (the highlighted standout pool); (3) aerial of the resort straddling the isthmus between Ton Sai and Loh Dalum bays with the limestone-cliff backdrop; (4) private in-room jacuzzi on a balcony overlooking the turquoise bay and karst cliffs. All are direct .jpg files on Trip.com's CDN (ak-d.tripcdn.com), no facebook/fbcdn/scontent, no third-party review-blog or listing-thumbnail URLs. A gorgeous infinity-pool sea-view shot (0222e120009m8i3p2EBDE) was also confirmed real but omitted to keep category variety; one candidate (0584e12000sm81uscEBDA) looked like an off-brand/distorted banquet hall and was excluded. Note the Trip.com images carry a faint '携程旅行 Ctrip' watermark in the lower-right corner."
+  },
+  {
+    "slug": "review-phi-phi-the-beach-resort-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://phiphithebeach.com/img/slides/slide_1.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://phiphithebeach.com/img/rooms2022/03/02.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://phiphithebeach.com/img/home/gallery01.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://phiphithebeach.com/img/slides/slide_3.jpg",
+        "kind": "beach"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Phi Phi The Beach Resort (phiphithebeach.com)",
+    "sourceUrl": "https://phiphithebeach.com/",
+    "notes": "All 4 URLs are from the hotel's OWN official website (phiphithebeach.com) and were confirmed real via curl: HTTP 200, content-type image/jpeg, sizes 88KB-482KB. slide_1/slide_3 are hero slideshow shots (resort/beach/sea view), rooms2022/03/02.jpg is a villa room interior, gallery01.jpg is a home-gallery scenic shot. Trip.com detail page (712354) returned HTTP 418 to WebFetch and was not usable, so all images come from the official site (creditable, preferred). Additional verified official-site images available if needed: img/slides/slide_2.jpg, img/home/gallery02-08.jpg, img/rooms2022/01/02.jpg, img/rooms2022/02/08.jpg. No facebook/fbcdn/stock/third-party URLs used."
+  },
+  {
+    "slug": "review-pp-princess-resort-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://static.wixstatic.com/media/87d95c_476637976b2d4c37b6c7c7beba7dc2a8~mv2.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/87d95c_6aa33645441745baa26774fad92caed9~mv2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/82a761_fd5570a8693144e4b367ce7c6affc1b2~mv2.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://static.wixstatic.com/media/82a761_9a852dd087d2410aa5bc9bf101f9408b~mv2.jpg",
+        "kind": "pool"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ PP Princess Resort (ppprincess.com)",
+    "sourceUrl": "https://www.ppprincess.com/",
+    "notes": "Photos taken from the hotel's OFFICIAL Wix site ppprincess.com (host static.wixstatic.com), which rendered real property photos: a pool, a pool villa/room, a beachfront dinner setup, and a poolside day scene. On the page these were served as heavily downscaled/blurred thumbnails (w_147, blur_2); I stripped the Wix /v1/fill transform to the base media file so each URL serves the same real photo at full original resolution as a direct .jpg. The last two (82a761_… filenames 463037177_… / 461515828_…) are the resort's own Instagram photos re-hosted on their official site, still creditable to the official site. Trip.com hotel page (detail-1526369) returned HTTP 418 (bot-blocked) so no Trip.com images were confirmable. No facebook/fbcdn/scontent URLs used. Media IDs were actually seen in the fetched official-site HTML; only the Wix resize/blur transform suffix was removed (not invented IDs). Recommend downloading and self-hosting to R2 per site policy; verify each renders before publishing."
+  },
+  {
+    "slug": "review-phi-phi-bayview-premier-resort-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.phiphibayviews.com/assets/images/slideshow/img_011.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.phiphibayviews.com/assets/images/slideshow/img_01.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://www.phiphibayviews.com/assets/images/slideshow/img_02.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://www.phiphibayviews.com/assets/images/slideshow/img_03.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Phi Phi Bayview Premier Resort (phiphibayviews.com)",
+    "sourceUrl": "https://www.phiphibayviews.com/",
+    "notes": "Hotel = \"Phi Phi Bayview & Premier Resort\", photoSourceUrl = https://www.phiphibayviews.com/ (officialUrl/website both null in research.json). Fetched the official homepage; it uses a slideshow of full-size hotel photos referenced as relative paths (assets/images/slideshow/img_0*.jpg), not lazy-loaded base64. Verified via curl: img_01.jpg (380KB), img_011.jpg (398KB), img_02.jpg (421KB), img_03.jpg (725KB) all return HTTP 200 — real, large, direct JPEG files hosted on the hotel's own domain (creditable). img_04/img_05 return 404. gallery.html and rooms.html both 404 (site is a simple single-page-ish structure), so no additional gallery pages to mine. No Trip.com fetch needed since the official site yielded 4 good direct images. kind labels (hero/beach/pool/view) are best-guess from the slideshow context; all are genuine resort photos from the official site."
+  },
+  {
+    "slug": "review-viking-nature-resort-phi-phi-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://s3.amazonaws.com/xcaliber/images/38/l/e942445d-a352-4190-91d6-5e366d3a95fb_slide_02.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://s3.amazonaws.com/xcaliber/images/38/l/d0aa44dc-aa76-4a09-8591-72639ef5327e_slide_01.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://s3.amazonaws.com/xcaliber/images/38/l/64b0b18b-7035-4f75-8123-68d28b6c2714_banner_2.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://s3.amazonaws.com/xcaliber/images/38/l/9529bd8b-bd84-4ee9-a3ac-76da657ddedd_slide_03.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Viking Nature Resort (vikingnaturesresort.com)",
+    "sourceUrl": "http://vikingnaturesresort.com/",
+    "notes": "The official site (vikingnaturesresort.com) is an AngularJS template that lazy-loads its gallery from its Xcaliber booking-engine API, so the raw HTML only had layout/decoration images (logo, bg_body backgrounds). I resolved the real photos by fetching the site's own API endpoint (https://www.myxcaliber.com/api/public/hotel/website?id=38, WebInfo.id=38 hard-coded in js/xcaliber-theme.js) which returns the banner filenames; the site renders them via the template s3.amazonaws.com/xcaliber/images/38/l/<file>. All 4 URLs were verified with curl (HTTP 200, image/jpeg, 52-89KB each) AND visually inspected — they are genuine, distinct photos of THIS resort: (1) treehouse hammock at sunset over Phi Phi karst bays, (2) the resort's private Loh Moo Dee beach with a large yellow \"VIKING\" sign facing Phi Phi Ley, (3) an individually-decorated bungalow bedroom (mosquito net + Thai ikat textiles), (4) a bungalow balcony with sea view. These are the hotel's own official-website images (creditable). Trip.com page returned HTTP 418 (bot-blocked) so was not used. No facebook/fbcdn/agoda/booking sources used. The resort is rustic/no-pool, so no pool photo. Other real images available if more needed: slide_04/05/06, banner_3 (gallery), and 6 facility slides (slide_07..12), all under the same /38/l/ path."
+  },
+  {
+    "slug": "review-paradise-pearl-bungalows-phi-phi-krabi",
+    "found": true,
+    "images": [
+      {
+        "url": "https://phiphiparadisepearl.com/images/130x1920x920.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://phiphiparadisepearl.com/images/127x1920x920.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://phiphiparadisepearl.com/images/260x800x600.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://phiphiparadisepearl.com/images/257x800x600.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Paradise Pearl Bungalows (phiphiparadisepearl.com)",
+    "sourceUrl": "https://phiphiparadisepearl.com/",
+    "notes": "Hotel = Paradise Pearl Bungalows (Long Beach / Hat Yao, Koh Phi Phi). Photos pulled from the hotel's OWN official website (phiphiparadisepearl.com). The site serves images via a resize path /images/{id}x{w}x{h}.jpg. All 4 URLs were verified with curl: HTTP 200, content-type image/jpeg, real byte sizes (82KB-835KB). The two 1920x920 files are homepage hero/slider shots (beach/exterior/pool); the two 800x600 files are bungalow accommodation photos from the beachfront-bungalow accommodations page. No Facebook/fbcdn, no third-party review-blog or booking-listing thumbnails used. Trip.com page (detail-2197038) was available as a fallback but not needed since the official site yielded creditable direct images."
+  }
+]

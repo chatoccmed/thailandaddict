@@ -2,62 +2,135 @@
 // ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
-const { data, lang = 'th', hasEn = true }: { data: any; lang?: 'th' | 'en' | 'ru'; hasEn?: boolean } = Astro.props;
-const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent((data.slug || 'page').slice(0, 60)) : u);
-const EN_ARTICLES = new Set(Object.keys(import.meta.glob('../content/articles-en/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
-const enExists = hasEn && (lang === 'en' || EN_ARTICLES.has(data.slug));
-const RU_ARTICLES = new Set(Object.keys(import.meta.glob('../content/articles-ru/*.json')).map((p) => p.split('/').pop()!.replace('.json', '')));
-const ruExists = lang === 'ru' || RU_ARTICLES.has(data.slug);
-const isEn = lang === 'en';
-// 3-way helper for scattered inline strings — usage: tr(english, thai, russian). ru falls back to english when omitted.
-const tr = (en: string, th: string, ru?: string) => (lang === 'en' ? en : lang === 'ru' ? (ru ?? en) : th);
+import editorial from '../data/editorial.json';
+import webpManifest from '../data/webp-manifest.json';
+const { data, lang = 'th', hasEn = true, availableLocales }: {
+  data: any;
+  lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
+  hasEn?: boolean;
+  availableLocales?: string[];
+} = Astro.props;
+const isTh = lang === 'th';
+const pfx = isTh ? '' : `/${lang}`;               // URL locale prefix: '' | /en | /zh | /ru
+const isRtl = lang === 'he' || lang === 'ar';     // right-to-left locales
+// Language switcher — the locales this page actually exists in (routes pass availableLocales; default th/en).
+const LOCS = (availableLocales && availableLocales.length) ? availableLocales : (hasEn ? ['th', 'en'] : ['th']);
+const LOCLBL: Record<string, string> = { th: 'ไทย', en: 'EN', zh: '中文', ru: 'Рус', ko: '한국', ja: '日本', hi: 'हिं', he: 'עב', ar: 'ع' };
+const LANGNAME: Record<string, string> = { th: 'ไทย', en: 'English', zh: '中文', ru: 'Русский', ko: '한국어', ja: '日本語', hi: 'हिन्दी', he: 'עברית', ar: 'العربية' };
+const locHref = (l: string) => (l === 'th' ? `/${data.slug}` : `/${l}/${data.slug}`);
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
-const LOCALE_PREFIX = lang === 'en' ? '/en' : lang === 'ru' ? '/ru' : '';
-const link = (href: string) => (/^https?:\/\//.test(href) ? goB(href) : (`${LOCALE_PREFIX}/${href}`).replace(/\/+/g, '/'));
+const link = (href: string) => {
+  // absolute URLs pass straight through — except booking.com, which must still earn via the /go/b CJ route
+  // (belt-and-braces: no entry routes a booking.com URL through link() today, but nothing should silently bypass CJ).
+  if (/^(https?:)?\/\//.test(href) || href.startsWith('#')) return goB(href);
+  const c = href.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
+  return `${pfx}/${c}`.replace(/\/+/g, '/');
+};
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
-const S_EN = { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
+// Booking.com (Thailand publishers) pays ONLY via CJ. Rather than baking the CJ pid/ad-id into every page,
+// booking.com links are routed through the /go/b worker route, which 302s to the CJ click URL — so the
+// affiliate ids live in ONE place (worker.js) and a CJ format change is a 10-line edit, not a site-wide rebuild.
+// sid = locale + page slug → per-page revenue attribution in CJ Reports. Non-booking.com URLs pass through untouched.
+const cjSid = ((isTh ? '' : lang + '-') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
+const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent(cjSid) : u);
+// Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
+// _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
+const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);
+const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+const STRINGS: Record<string, any> = {
+  en: { home: 'Home', th: 'Thailand', nav: ['Destinations','Stays','See','Eat','About'], cta: 'Find a hotel', faqH: 'FAQ', relH: 'Related', ftTag: 'Thailand, Done Right',
       priceLabel: 'Approx. price', sigLabel: 'Signature', mustLabel: 'Must-try', stayDefault: 'Stay nearby', mapLabel: 'View map', fbLabel: 'Facebook page',
       hoursL: 'Hours', halalL: 'Halal', vegL: 'Veg options', enMenuL: 'English menu', spiceL: 'Spice', usdL: '≈',
       mapTitle: 'All restaurants on the map', mapSub: 'Tap a pin for the spot + nearby stays', mapStay: 'Stays near here', railH: 'Where to stay nearby', railFoodH: 'Food tours & classes', railFoodSub: 'Guided tastings & hands-on classes · via Klook', railFoodAll: 'See all experiences', quickAnswerEyebrow: 'Quick answer',
       copyTitle: 'Copyright & Image Takedown Policy', copyA: 'Thailandaddict is created to review and share travel experiences. Where an image is sourced from elsewhere, we credit the source. If you are the copyright owner and prefer that your image not appear on this site, please ', copyLink: 'contact us', copyB: ' and we will gladly remove the image or correct the information.',
       ftDesc: 'A Thailand travel guide from real travelers — honest reviews of stays, things to do and food across the country.', ftDestH: 'Destinations', ftThai: '🇹🇭 Explore Thailand', ftContentH: 'Content', ftEat: 'Where to eat', ftSee: 'Things to do', ftStay: 'Where to stay', ftAboutH: 'About', ftAboutUs: 'About us', ftEditorial: 'Editorial Policy', ftContact: 'Contact', ftPrivacy: 'Privacy', ftCopy: '© 2026 thailandaddict.com — Thailand, done right',
-      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ', durationL: 'Duration', bookL: 'Book on ', prosL: 'Highlights from reviews', consL: 'Worth noting', writtenL: 'Written', factCheckL: 'Fact-checked',
-      zoomHint: '🔍 Tap to zoom', prevImg: 'Previous photo', nextImg: 'Next photo', picTab: '🖼️ Photos', mapTab: '🗺️ Map', embedFoot: '🖼️ Tap a photo to zoom in-page · map / social embedded from the source (copyright-safe)',
-      save: 'Save to plan', saveSm: 'Save', savedFull: 'Saved', savedSm: '✓ Saved', saveEatAria: 'Save this place to your trip plan', lbClose: 'Close', lbPrev: 'Previous', lbNext: 'Next',
-      fabAria: 'My trip plan', fabLabel: 'My plan', viewPlan: 'View my trip →', thisPlace: 'this place', toastAdded: '✓ Saved “{n}” to your plan ({c} saved)', toastRemoved: 'Removed “{n}” from your plan' };
-const S_TH = { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
+      updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ',
+      durationL: 'Duration', bookL: 'Book on ', prosL: 'Highlights from reviews', consL: 'Worth noting',
+      writtenL: 'Written', factCheckL: 'Fact-checked', byLabel: 'By ', byTeam: 'ThailandAddict Editorial Team' },
+  th: { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
       priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน',
       hoursL: 'เวลาเปิด', halalL: 'ฮาลาล', vegL: 'มีเมนูเจ/มังสวิรัติ', enMenuL: 'เมนูอังกฤษ', spiceL: 'ความเผ็ด', usdL: '≈',
       mapTitle: 'แผนที่ร้านทั้งหมด', mapSub: 'แตะหมุดเพื่อดูร้าน + ที่พักย่านนั้น', mapStay: 'ที่พักย่านนี้', railH: 'รีวิวที่พักน่าสนใจแถวนี้', railFoodH: 'ฟู้ดทัวร์ & คลาสทำอาหาร', railFoodSub: 'มีไกด์พาไป / ลงมือทำเอง · จองผ่าน Klook', railFoodAll: 'ดูประสบการณ์ทั้งหมด', quickAnswerEyebrow: 'คำตอบสั้น ๆ',
       copyTitle: 'นโยบายลิขสิทธิ์และการแจ้งลบภาพ', copyA: 'เว็บไซต์ Thailandaddict จัดทำขึ้นเพื่อรีวิวและแบ่งปันประสบการณ์ หากภาพใดนำมาจากแหล่งข้อมูลอื่น เราได้ระบุแหล่งที่มาไว้แล้ว หากท่านเป็นเจ้าของลิขสิทธิ์และไม่ประสงค์ให้ปรากฏภาพบนเว็บไซต์ โปรด', copyLink: 'ติดต่อเรา', copyB: 'ได้ทันที ทางเรายินดีดำเนินการลบภาพหรือแก้ไขข้อมูลให้ถูกต้องครับ',
       ftDesc: 'คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ', ftDestH: 'จุดหมาย', ftThai: '🇹🇭 เที่ยวไทย', ftContentH: 'คอนเทนต์', ftEat: 'ที่กิน', ftSee: 'ที่เที่ยว', ftStay: 'ที่พัก', ftAboutH: 'เกี่ยวกับ', ftAboutUs: 'เกี่ยวกับเรา', ftEditorial: 'นโยบายบรรณาธิการ', ftContact: 'ติดต่อ', ftPrivacy: 'ความเป็นส่วนตัว', ftCopy: '© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง',
-      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ', durationL: 'ระยะเวลา', bookL: 'จองบน ', prosL: 'จุดเด่นจากรีวิว', consL: 'ข้อสังเกต', writtenL: 'เขียนเมื่อ', factCheckL: 'ตรวจสอบข้อมูลล่าสุด',
-      zoomHint: '🔍 แตะเพื่อซูม', prevImg: 'รูปก่อนหน้า', nextImg: 'รูปถัดไป', picTab: '🖼️ รูป', mapTab: '🗺️ แผนที่', embedFoot: '🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)',
-      save: 'เก็บลงแผน', saveSm: 'เก็บแผน', savedFull: 'เก็บแล้ว', savedSm: '✓ เก็บแล้ว', saveEatAria: 'เก็บร้านนี้ลงแผนการเดินทาง', lbClose: 'ปิด', lbPrev: 'ก่อนหน้า', lbNext: 'ถัดไป',
-      fabAria: 'แผนการเดินทางของฉัน', fabLabel: 'แผนของฉัน', viewPlan: 'ดูแผนเที่ยว →', thisPlace: 'ร้านนี้', toastAdded: '✓ เก็บ “{n}” ลงแผนแล้ว ({c} ที่)', toastRemoved: 'เอา “{n}” ออกจากแผนแล้ว' };
-const S_RU = { home: 'Главная', th: 'Таиланд', nav: ['Направления','Отели','Развлечения','Еда','О нас'], cta: 'Найти отель', faqH: 'Вопросы и ответы', relH: 'Читайте также', ftTag: 'Thailand, Done Right',
-      priceLabel: 'Примерная цена', sigLabel: 'Фирменное блюдо', mustLabel: 'Обязательно попробуйте', stayDefault: 'Отели поблизости', mapLabel: 'Смотреть на карте', fbLabel: 'Страница в Facebook',
-      hoursL: 'Часы работы', halalL: 'Халяль', vegL: 'Вегетарианские блюда', enMenuL: 'Меню на английском', spiceL: 'Острота', usdL: '≈',
-      mapTitle: 'Все рестораны на карте', mapSub: 'Нажмите на метку, чтобы увидеть заведение и отели рядом', mapStay: 'Отели поблизости', railH: 'Где остановиться рядом', railFoodH: 'Гастрономические туры и мастер-классы', railFoodSub: 'Дегустации с гидом и мастер-классы · через Klook', railFoodAll: 'Смотреть все впечатления', quickAnswerEyebrow: 'Короткий ответ',
-      copyTitle: 'Политика авторских прав и удаления изображений', copyA: 'Thailandaddict создан для того, чтобы делиться впечатлениями от путешествий и честными обзорами. Если изображение взято из другого источника, мы указываем его происхождение. Если вы являетесь правообладателем и не хотите, чтобы ваше изображение отображалось на этом сайте, пожалуйста, ', copyLink: 'свяжитесь с нами', copyB: ', и мы с радостью удалим изображение или исправим информацию.',
-      ftDesc: 'Гид по Таиланду от реальных путешественников — честные обзоры отелей, развлечений и еды по всей стране.', ftDestH: 'Направления', ftThai: '🇹🇭 Исследовать Таиланд', ftContentH: 'Контент', ftEat: 'Где поесть', ftSee: 'Чем заняться', ftStay: 'Где остановиться', ftAboutH: 'О нас', ftAboutUs: 'О нас', ftEditorial: 'Редакционная политика', ftContact: 'Контакты', ftPrivacy: 'Конфиденциальность', ftCopy: '© 2026 thailandaddict.com — Таиланд без прикрас',
-      updatedL: 'Обновлено', freshL: 'Последняя проверка', freshNote: ' · детали и часы работы могут измениться — уточняйте на месте перед визитом', fType: 'Тип', fAll: 'Все', fZone: 'Район', fPrice: 'Цена', fVeg: '🥗 Вег.', fHalal: '🕌 Халяль', fCountTpl: 'Показано {s}/{t} мест', bestForL: '👍 Лучше всего для', reviewsL: 'отзывов', nearL: 'Ближайшее: ', durationL: 'Продолжительность', bookL: 'Забронировать на ', prosL: 'Плюсы из отзывов', consL: 'Стоит учесть', writtenL: 'Написано', factCheckL: 'Проверено',
-      zoomHint: '🔍 Нажмите, чтобы увеличить', prevImg: 'Предыдущее фото', nextImg: 'Следующее фото', picTab: '🖼️ Фото', mapTab: '🗺️ Карта', embedFoot: '🖼️ Нажмите на фото, чтобы увеличить · карта / соцсети встроены из источника (без нарушения авторских прав)',
-      save: 'Сохранить в план', saveSm: 'Сохранить', savedFull: 'Сохранено', savedSm: '✓ Сохранено', saveEatAria: 'Сохранить это место в план поездки', lbClose: 'Закрыть', lbPrev: 'Назад', lbNext: 'Далее',
-      fabAria: 'Мой план поездки', fabLabel: 'Мой план', viewPlan: 'Смотреть мой план →', thisPlace: 'это место', toastAdded: '✓ «{n}» сохранено в план ({c})', toastRemoved: '«{n}» удалено из плана' };
-const S = { en: S_EN, th: S_TH, ru: S_RU }[lang] ?? S_TH;
+      updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ',
+      durationL: 'ระยะเวลา', bookL: 'จองบน ', prosL: 'จุดเด่นจากรีวิว', consL: 'ข้อสังเกต',
+      writtenL: 'เขียนเมื่อ', factCheckL: 'ตรวจสอบข้อมูลล่าสุด', byLabel: 'เขียนโดย ', byTeam: 'ทีมบรรณาธิการ ThailandAddict' },
+  zh: { home: '首页', th: '泰国', nav: ['目的地','住宿','景点','美食','关于'], cta: '查找酒店', faqH: '常见问题', relH: '相关阅读', ftTag: 'Thailand, Done Right',
+      priceLabel: '大致价格', sigLabel: '招牌', mustLabel: '必点', stayDefault: '附近住宿', mapLabel: '查看地图', fbLabel: 'Facebook 主页',
+      hoursL: '营业时间', halalL: '清真', vegL: '素食选择', enMenuL: '英文菜单', spiceL: '辣度', usdL: '≈',
+      mapTitle: '所有餐厅地图', mapSub: '点击图钉查看餐厅和附近住宿', mapStay: '附近住宿', railH: '附近推荐住宿', railFoodH: '美食之旅与烹饪课', railFoodSub: '有导览／亲手体验 · 通过 Klook 预订', railFoodAll: '查看所有体验', quickAnswerEyebrow: '快速解答',
+      copyTitle: '版权与图片撤除政策', copyA: 'Thailandaddict 旨在分享旅行体验与评测。若图片来自其他来源，我们已注明出处。如果您是版权所有者，不希望图片出现在本站，请', copyLink: '联系我们', copyB: '，我们会尽快删除图片或更正信息。',
+      ftDesc: '来自真实旅行者的泰国旅行指南 — 诚实评测全国的住宿、景点与美食。', ftDestH: '目的地', ftThai: '🇹🇭 探索泰国', ftContentH: '内容', ftEat: '美食', ftSee: '景点', ftStay: '住宿', ftAboutH: '关于', ftAboutUs: '关于我们', ftEditorial: '编辑方针', ftContact: '联系', ftPrivacy: '隐私', ftCopy: '© 2026 thailandaddict.com — 用心玩转泰国',
+      updatedL: '更新于', freshL: '最近核对', freshNote: ' · 详情与营业时间可能变动，出行前请再次确认', fType: '类型', fAll: '全部', fZone: '区域', fPrice: '价格', fVeg: '🥗 素食', fHalal: '🕌 清真', fCountTpl: '显示 {s}/{t} 个地点', bestForL: '👍 最适合', reviewsL: '条评价', nearL: '最近：',
+      durationL: '时长', bookL: '预订平台：', prosL: '评价亮点', consL: '注意事项',
+      writtenL: '撰写于', factCheckL: '事实核查', byLabel: '作者：', byTeam: 'ThailandAddict 编辑团队' },
+  ru: { home: 'Главная', th: 'Таиланд', nav: ['Направления','Отели','Развлечения','Еда','О нас'], cta: 'Найти отель', faqH: 'Частые вопросы', relH: 'Похожее', ftTag: 'Thailand, Done Right',
+      priceLabel: 'Примерная цена', sigLabel: 'Фирменное блюдо', mustLabel: 'Обязательно попробуйте', stayDefault: 'Жильё поблизости', mapLabel: 'Открыть карту', fbLabel: 'Страница в Facebook',
+      hoursL: 'Часы работы', halalL: 'Халяль', vegL: 'Веган/вегетарианские блюда', enMenuL: 'Меню на английском', spiceL: 'Острота', usdL: '≈',
+      mapTitle: 'Все рестораны на карте', mapSub: 'Нажмите на метку — ресторан и жильё рядом', mapStay: 'Жильё рядом', railH: 'Где остановиться поблизости', railFoodH: 'Гастротуры и кулинарные классы', railFoodSub: 'С гидом или своими руками · через Klook', railFoodAll: 'Все впечатления', quickAnswerEyebrow: 'Кратко',
+      copyTitle: 'Авторские права и удаление изображений', copyA: 'Thailandaddict создан, чтобы делиться впечатлениями о путешествиях. Если изображение взято из другого источника, мы указываем его. Если вы правообладатель и не хотите, чтобы оно было на сайте, ', copyLink: 'свяжитесь с нами', copyB: ' — мы удалим изображение или исправим информацию.',
+      ftDesc: 'Путеводитель по Таиланду от настоящих путешественников — честные обзоры жилья, развлечений и еды по всей стране.', ftDestH: 'Направления', ftThai: '🇹🇭 Исследуйте Таиланд', ftContentH: 'Контент', ftEat: 'Где поесть', ftSee: 'Чем заняться', ftStay: 'Где остановиться', ftAboutH: 'О нас', ftAboutUs: 'О нас', ftEditorial: 'Редакционная политика', ftContact: 'Контакты', ftPrivacy: 'Конфиденциальность', ftCopy: '© 2026 thailandaddict.com — Таиланд по-настоящему',
+      updatedL: 'Обновлено', freshL: 'Последняя проверка', freshNote: ' · детали и часы работы могут меняться — уточняйте на месте', fType: 'Тип', fAll: 'Все', fZone: 'Район', fPrice: 'Цена', fVeg: '🥗 Вег', fHalal: '🕌 Халяль', fCountTpl: 'Показано {s}/{t} мест', bestForL: '👍 Лучше всего для', reviewsL: 'отзывов', nearL: 'Ближайшее: ',
+      durationL: 'Продолжительность', bookL: 'Забронировать на ', prosL: 'Плюсы из отзывов', consL: 'Стоит учесть',
+      writtenL: 'Написано', factCheckL: 'Проверено', byLabel: 'Автор: ', byTeam: 'Редакция ThailandAddict' },
+  ko: { home: '홈', th: '태국', nav: ['여행지','숙소','볼거리','먹거리','소개'], cta: '호텔 찾기', faqH: '자주 묻는 질문', relH: '관련 글', ftTag: 'Thailand, Done Right',
+      priceLabel: '대략 가격', sigLabel: '대표 메뉴', mustLabel: '꼭 먹어보기', stayDefault: '근처 숙소', mapLabel: '지도 보기', fbLabel: '페이스북 페이지',
+      hoursL: '영업시간', halalL: '할랄', vegL: '채식 옵션', enMenuL: '영어 메뉴', spiceL: '맵기', usdL: '≈',
+      mapTitle: '전체 식당 지도', mapSub: '핀을 누르면 식당과 근처 숙소가 나와요', mapStay: '근처 숙소', railH: '근처 추천 숙소', railFoodH: '푸드 투어 & 쿠킹 클래스', railFoodSub: '가이드 투어 / 직접 체험 · Klook 예약', railFoodAll: '모든 체험 보기', quickAnswerEyebrow: '빠른 답변',
+      copyTitle: '저작권 및 이미지 삭제 정책', copyA: 'Thailandaddict는 여행 경험을 공유하기 위해 만들어졌습니다. 다른 출처의 이미지는 출처를 표기합니다. 저작권자이며 이미지 게재를 원치 않으시면 ', copyLink: '문의해 주세요', copyB: '. 이미지를 삭제하거나 정보를 수정하겠습니다.',
+      ftDesc: '실제 여행자들이 만든 태국 여행 가이드 — 숙소, 볼거리, 먹거리 솔직 리뷰.', ftDestH: '여행지', ftThai: '🇹🇭 태국 여행', ftContentH: '콘텐츠', ftEat: '먹거리', ftSee: '볼거리', ftStay: '숙소', ftAboutH: '소개', ftAboutUs: '소개', ftEditorial: '편집 방침', ftContact: '문의', ftPrivacy: '개인정보', ftCopy: '© 2026 thailandaddict.com — 제대로 즐기는 태국',
+      updatedL: '업데이트', freshL: '최근 확인', freshNote: ' · 세부 정보와 영업시간은 바뀔 수 있으니 방문 전 확인하세요', fType: '종류', fAll: '전체', fZone: '지역', fPrice: '가격', fVeg: '🥗 채식', fHalal: '🕌 할랄', fCountTpl: '{s}/{t}곳 표시', bestForL: '👍 이런 분께', reviewsL: '리뷰', nearL: '가장 가까운 곳: ',
+      durationL: '소요 시간', bookL: '예약하기: ', prosL: '리뷰에서 좋았던 점', consL: '참고할 점',
+      writtenL: '작성일', factCheckL: '사실 확인', byLabel: '작성: ', byTeam: 'ThailandAddict 편집팀' },
+  ja: { home: 'ホーム', th: 'タイ', nav: ['行き先','宿泊','観光','グルメ','About'], cta: 'ホテルを探す', faqH: 'よくある質問', relH: '関連記事', ftTag: 'Thailand, Done Right',
+      priceLabel: 'おおよその料金', sigLabel: '看板メニュー', mustLabel: '必食', stayDefault: '近くの宿', mapLabel: '地図を見る', fbLabel: 'Facebookページ',
+      hoursL: '営業時間', halalL: 'ハラル', vegL: 'ベジ対応', enMenuL: '英語メニュー', spiceL: '辛さ', usdL: '≈',
+      mapTitle: '全店舗マップ', mapSub: 'ピンをタップで店舗と周辺の宿を表示', mapStay: '周辺の宿', railH: '近くのおすすめ宿', railFoodH: 'フードツアー＆料理教室', railFoodSub: 'ガイド付き／自分で体験 · Klookで予約', railFoodAll: 'すべての体験を見る', quickAnswerEyebrow: 'かんたん回答',
+      copyTitle: '著作権と画像削除ポリシー', copyA: 'Thailandaddictは旅の体験を共有するために作られています。他所からの画像は出典を明記しています。著作権者で掲載を望まない場合は', copyLink: 'お問い合わせ', copyB: 'ください。画像の削除や情報の修正を行います。',
+      ftDesc: '本物の旅行者によるタイ旅行ガイド — 宿・観光・グルメの正直なレビュー。', ftDestH: '行き先', ftThai: '🇹🇭 タイを旅する', ftContentH: 'コンテンツ', ftEat: 'グルメ', ftSee: '観光', ftStay: '宿泊', ftAboutH: 'About', ftAboutUs: '運営者について', ftEditorial: '編集方針', ftContact: 'お問い合わせ', ftPrivacy: 'プライバシー', ftCopy: '© 2026 thailandaddict.com — タイを、ちゃんと',
+      updatedL: '更新', freshL: '最終確認', freshNote: ' · 詳細や営業時間は変わることがあります。訪問前にご確認ください', fType: 'ジャンル', fAll: 'すべて', fZone: 'エリア', fPrice: '価格', fVeg: '🥗 ベジ', fHalal: '🕌 ハラル', fCountTpl: '{s}/{t}件を表示', bestForL: '👍 おすすめ', reviewsL: '件のレビュー', nearL: '最寄り: ',
+      durationL: '所要時間', bookL: '予約する: ', prosL: 'レビューの良い点', consL: '注意点',
+      writtenL: '執筆', factCheckL: 'ファクトチェック', byLabel: '執筆: ', byTeam: 'ThailandAddict 編集部' },
+  hi: { home: 'होम', th: 'थाईलैंड', nav: ['गंतव्य','ठहरने की जगह','घूमने की जगह','खाना','परिचय'], cta: 'होटल खोजें', faqH: 'सामान्य प्रश्न', relH: 'संबंधित लेख', ftTag: 'Thailand, Done Right',
+      priceLabel: 'अनुमानित कीमत', sigLabel: 'सिग्नेचर डिश', mustLabel: 'ज़रूर आज़माएँ', stayDefault: 'पास ठहरने की जगह', mapLabel: 'मानचित्र देखें', fbLabel: 'फेसबुक पेज',
+      hoursL: 'खुलने का समय', halalL: 'हलाल', vegL: 'शाकाहारी विकल्प', enMenuL: 'अंग्रेज़ी मेन्यू', spiceL: 'तीखापन', usdL: '≈',
+      mapTitle: 'सभी रेस्तराँ मानचित्र पर', mapSub: 'पिन दबाएँ — रेस्तराँ और पास ठहरने की जगह', mapStay: 'पास ठहरने की जगह', railH: 'पास ठहरने की सुझाई जगहें', railFoodH: 'फ़ूड टूर और कुकिंग क्लास', railFoodSub: 'गाइडेड / खुद बनाएँ · Klook से बुक करें', railFoodAll: 'सभी अनुभव देखें', quickAnswerEyebrow: 'त्वरित उत्तर',
+      copyTitle: 'कॉपीराइट और छवि हटाने की नीति', copyA: 'Thailandaddict यात्रा अनुभव साझा करने के लिए बनाया गया है। जहाँ छवि किसी अन्य स्रोत से है, हम स्रोत का उल्लेख करते हैं। यदि आप कॉपीराइट स्वामी हैं और नहीं चाहते कि छवि यहाँ दिखे, तो ', copyLink: 'हमसे संपर्क करें', copyB: ' — हम छवि हटा देंगे या जानकारी ठीक कर देंगे।',
+      ftDesc: 'असली यात्रियों द्वारा थाईलैंड यात्रा गाइड — ठहरने, घूमने और खाने की ईमानदार समीक्षाएँ।', ftDestH: 'गंतव्य', ftThai: '🇹🇭 थाईलैंड घूमें', ftContentH: 'सामग्री', ftEat: 'कहाँ खाएँ', ftSee: 'क्या करें', ftStay: 'कहाँ ठहरें', ftAboutH: 'परिचय', ftAboutUs: 'हमारे बारे में', ftEditorial: 'संपादकीय नीति', ftContact: 'संपर्क', ftPrivacy: 'गोपनीयता', ftCopy: '© 2026 thailandaddict.com — थाईलैंड, सही तरीके से',
+      updatedL: 'अपडेटेड', freshL: 'आख़िरी जाँच', freshNote: ' · जानकारी और समय बदल सकते हैं — जाने से पहले जाँच लें', fType: 'प्रकार', fAll: 'सभी', fZone: 'क्षेत्र', fPrice: 'कीमत', fVeg: '🥗 शाकाहारी', fHalal: '🕌 हलाल', fCountTpl: '{s}/{t} जगहें दिखा रहे हैं', bestForL: '👍 इनके लिए बेहतरीन', reviewsL: 'समीक्षाएँ', nearL: 'सबसे पास: ',
+      durationL: 'अवधि', bookL: 'बुक करें: ', prosL: 'समीक्षाओं की ख़ास बातें', consL: 'ध्यान देने योग्य',
+      writtenL: 'लिखा गया', factCheckL: 'तथ्य-जाँच', byLabel: 'लेखक: ', byTeam: 'ThailandAddict संपादकीय टीम' },
+  he: { home: 'בית', th: 'תאילנד', nav: ['יעדים','לינה','אטרקציות','אוכל','אודות'], cta: 'מצא מלון', faqH: 'שאלות נפוצות', relH: 'קשור', ftTag: 'Thailand, Done Right',
+      priceLabel: 'מחיר משוער', sigLabel: 'מנת דגל', mustLabel: 'חובה לטעום', stayDefault: 'לינה בקרבת מקום', mapLabel: 'הצג מפה', fbLabel: 'עמוד פייסבוק',
+      hoursL: 'שעות פתיחה', halalL: 'חלאל', vegL: 'אפשרויות צמחוניות', enMenuL: 'תפריט באנגלית', spiceL: 'חריפות', usdL: '≈',
+      mapTitle: 'כל המסעדות על המפה', mapSub: 'הקש על סיכה למסעדה וללינה בסביבה', mapStay: 'לינה בקרבת מקום', railH: 'לינה מומלצת בסביבה', railFoodH: 'סיורי אוכל וסדנאות בישול', railFoodSub: 'עם מדריך / התנסות עצמית · הזמנה דרך Klook', railFoodAll: 'כל החוויות', quickAnswerEyebrow: 'תשובה מהירה',
+      copyTitle: 'זכויות יוצרים ומדיניות הסרת תמונות', copyA: 'Thailandaddict נוצר כדי לשתף חוויות טיול. כאשר תמונה מגיעה ממקור אחר, אנו מציינים את המקור. אם אתם בעלי הזכויות ואינכם רוצים שהתמונה תופיע כאן, ', copyLink: 'צרו קשר', copyB: ' ונשמח להסיר את התמונה או לתקן את המידע.',
+      ftDesc: 'מדריך טיולים לתאילנד ממטיילים אמיתיים — ביקורות כנות על לינה, אטרקציות ואוכל.', ftDestH: 'יעדים', ftThai: '🇹🇭 לגלות את תאילנד', ftContentH: 'תוכן', ftEat: 'איפה לאכול', ftSee: 'מה לעשות', ftStay: 'איפה לישון', ftAboutH: 'אודות', ftAboutUs: 'עלינו', ftEditorial: 'מדיניות מערכת', ftContact: 'צור קשר', ftPrivacy: 'פרטיות', ftCopy: '© 2026 thailandaddict.com — תאילנד כמו שצריך',
+      updatedL: 'עודכן', freshL: 'נבדק לאחרונה', freshNote: ' · פרטים ושעות עשויים להשתנות — בדקו לפני שאתם יוצאים', fType: 'סוג', fAll: 'הכול', fZone: 'אזור', fPrice: 'מחיר', fVeg: '🥗 צמחוני', fHalal: '🕌 חלאל', fCountTpl: 'מציג {s}/{t} מקומות', bestForL: '👍 מתאים במיוחד ל', reviewsL: 'ביקורות', nearL: 'הקרוב ביותר: ',
+      durationL: 'משך', bookL: 'להזמנה ב־', prosL: 'נקודות חזקות מהביקורות', consL: 'כדאי לשים לב',
+      writtenL: 'נכתב', factCheckL: 'נבדק עובדתית', byLabel: 'מאת ', byTeam: 'מערכת ThailandAddict' },
+  ar: { home: 'الرئيسية', th: 'تايلاند', nav: ['الوجهات','الإقامة','المعالم','الطعام','عن الموقع'], cta: 'ابحث عن فندق', faqH: 'الأسئلة الشائعة', relH: 'ذات صلة', ftTag: 'Thailand, Done Right',
+      priceLabel: 'السعر التقريبي', sigLabel: 'الطبق المميز', mustLabel: 'يجب تجربته', stayDefault: 'إقامة قريبة', mapLabel: 'عرض الخريطة', fbLabel: 'صفحة فيسبوك',
+      hoursL: 'ساعات العمل', halalL: 'حلال', vegL: 'خيارات نباتية', enMenuL: 'قائمة بالإنجليزية', spiceL: 'الحرارة', usdL: '≈',
+      mapTitle: 'جميع المطاعم على الخريطة', mapSub: 'اضغط على الدبوس لعرض المطعم والإقامة القريبة', mapStay: 'إقامة قريبة', railH: 'أماكن إقامة موصى بها قريبة', railFoodH: 'جولات الطعام ودروس الطبخ', railFoodSub: 'مع مرشد / تجربة بنفسك · الحجز عبر Klook', railFoodAll: 'جميع التجارب', quickAnswerEyebrow: 'إجابة سريعة',
+      copyTitle: 'حقوق النشر وسياسة إزالة الصور', copyA: 'أُنشئ Thailandaddict لمشاركة تجارب السفر. عندما تكون الصورة من مصدر آخر، نذكر المصدر. إذا كنت صاحب الحقوق ولا ترغب في ظهور الصورة هنا، ', copyLink: 'تواصل معنا', copyB: ' وسنقوم بإزالة الصورة أو تصحيح المعلومات.',
+      ftDesc: 'دليل السفر إلى تايلاند من مسافرين حقيقيين — مراجعات صادقة للإقامة والأنشطة والطعام.', ftDestH: 'الوجهات', ftThai: '🇹🇭 اكتشف تايلاند', ftContentH: 'المحتوى', ftEat: 'أين تأكل', ftSee: 'ماذا تفعل', ftStay: 'أين تقيم', ftAboutH: 'عن الموقع', ftAboutUs: 'من نحن', ftEditorial: 'سياسة التحرير', ftContact: 'اتصل بنا', ftPrivacy: 'الخصوصية', ftCopy: '© 2026 thailandaddict.com — تايلاند بالشكل الصحيح',
+      updatedL: 'تم التحديث', freshL: 'آخر مراجعة', freshNote: ' · قد تتغير التفاصيل وساعات العمل — تحقق قبل الذهاب', fType: 'النوع', fAll: 'الكل', fZone: 'المنطقة', fPrice: 'السعر', fVeg: '🥗 نباتي', fHalal: '🕌 حلال', fCountTpl: 'عرض {s}/{t} مكان', bestForL: '👍 الأفضل لـ', reviewsL: 'مراجعة', nearL: 'الأقرب: ',
+      durationL: 'المدة', bookL: 'احجز عبر ', prosL: 'أبرز ما جاء في المراجعات', consL: 'أمور تستحق الانتباه',
+      writtenL: 'كُتب في', factCheckL: 'تم التحقق من الحقائق', byLabel: 'بقلم ', byTeam: 'فريق تحرير ThailandAddict' },
+};
+const S = STRINGS[lang] || STRINGS.en;
 
-const canonical = `${SITE}${LOCALE_PREFIX}/${data.slug}`;
+const canonical = `${SITE}${pfx}/${data.slug}`;
 // Freshness: every article shows a "Last updated" date. Use the article's own modifiedDate when set,
 // else the site-wide freshness-pass date (the whole content base was audited/refreshed on this date).
 const SITE_UPDATED = '2026-06-21';
 const updated = data.modifiedDate || SITE_UPDATED;
 const published = data.publishedDate || updated;
-const factChecked = (data as any).factCheckedDate || '';
-// EEAT byline: always show an editorial byline, even without a named author (matches RoundupLayout's pattern — no fabricated bio).
-const byName = (data as any).author?.name || (lang === 'ru' ? 'Редакция ThailandAddict' : (isEn ? 'ThailandAddict Editorial Team' : 'ทีมบรรณาธิการ ThailandAddict'));
-const byLabel = lang === 'ru' ? 'Автор: ' : (isEn ? 'By ' : 'เขียนโดย ');
+// Real audit date only — never a fabricated "verified" stamp (must come from the entry's own factCheckedDate).
+const factChecked = data.factCheckedDate || '';
 const faq = data.faq ?? [];
 const strip = (s) => (s || '').replace(/<[^>]+>/g, '').trim();
 const realLib = (s) => (s && s.indexOf('/_lib/') === -1) ? s : '';
@@ -65,27 +138,67 @@ const comma = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : n);
 const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
 const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
 const EN_MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const RU_MON = ['янв.','февр.','март','апр.','май','июнь','июль','авг.','сент.','окт.','нояб.','дек.'];
-const fmtDate = (iso) => { const p = String(iso || '').split('-'); const MON = lang === 'en' ? EN_MON : lang === 'ru' ? RU_MON : TH_MON; return p.length === 3 ? `${parseInt(p[2],10)} ${MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
+const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? (!isTh ? `${parseInt(p[2],10)} ${EN_MON[parseInt(p[1],10)-1]} ${p[0]}` : `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}`) : (iso || ''); };
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
-// Activity mode: same rich card engine, but the "places" are bookable activities/tours (not restaurants).
-// Swap the food-flavoured labels + schema type so nothing reads "ร้าน".
+// Attraction-ranking pages (top10-attractions-*) reuse the restaurant block structure for temples/landmarks,
+// so their ItemList must emit TouristAttraction (not Restaurant) items — otherwise a temple gets Restaurant schema.
+const isAttractionList = isResto && /^top10-attractions-/.test(data.slug);
+// Activity mode (type: activity | activity-ranking | activity-compare): the same rich card engine, but each
+// "place" is a bookable experience (tour / ticket / class) rather than a restaurant. Swap the food-flavoured
+// labels + schema type so nothing reads "ร้าน", and supply the wide book-button copy (no card sets bookLabel).
 const isActivity = isResto && /^activity/.test(data.type || '');
-if (isActivity) {
-  S.fCountTpl = tr('Showing {s}/{t} activities', 'แสดง {s}/{t} กิจกรรม', 'Показано {s}/{t} мероприятий');
-  S.freshNote = tr(' · prices and schedules can change — check with the operator before booking', ' · ราคาและรอบอาจเปลี่ยน ตรวจสอบกับผู้ให้บริการก่อนจอง', ' · цены и расписание могут измениться — уточняйте у организатора перед бронированием');
-  S.saveAria = tr('Save this activity to your plan', 'เก็บกิจกรรมนี้ลงแผนการเดินทาง', 'Сохранить это мероприятие в план поездки');
-  S.bookWideL = tr('Book this activity on Klook', 'จองกิจกรรมนี้บน Klook', 'Забронировать на Klook');
-  S.bookSub = tr('Compare prices · instant confirmation', 'เทียบราคา · ยืนยันที่นั่งทันที', 'Сравните цены · мгновенное подтверждение');
-  S.stayWideL = tr('Find hotels nearby', 'ดูที่พักใกล้ ๆ', 'Найти отели поблизости');
-}
+const ACT: Record<string, any> = {
+  en: { fCountTpl: 'Showing {s}/{t} activities', freshNote: ' · prices and schedules can change — check with the operator before booking',
+        bookSub: 'Compare prices · instant confirmation', stayWide: 'Find hotels nearby', bookWide: (p: string) => `Book this activity on ${p}`, scrollAll: (n: number) => `Explore all ${n}` },
+  th: { fCountTpl: 'แสดง {s}/{t} กิจกรรม', freshNote: ' · ราคาและรอบอาจเปลี่ยน ตรวจสอบกับผู้ให้บริการก่อนจอง',
+        bookSub: 'เทียบราคา · ยืนยันที่นั่งทันที', stayWide: 'ดูที่พักใกล้ ๆ', bookWide: (p: string) => `จองกิจกรรมนี้บน ${p}`, scrollAll: (n: number) => `เลื่อนดูทั้ง ${n} กิจกรรม` },
+  zh: { fCountTpl: '显示 {s}/{t} 个活动', freshNote: ' · 价格与场次可能变动，预订前请与营运方确认',
+        bookSub: '比较价格 · 即时确认', stayWide: '查找附近住宿', bookWide: (p: string) => `在 ${p} 预订此活动`, scrollAll: (n: number) => `浏览全部 ${n} 项活动` },
+  ru: { fCountTpl: 'Показано {s}/{t} мероприятий', freshNote: ' · цены и расписание могут измениться — уточняйте у организатора перед бронированием',
+        bookSub: 'Сравните цены · мгновенное подтверждение', stayWide: 'Найти отели поблизости', bookWide: (p: string) => `Забронировать на ${p}`, scrollAll: (n: number) => `Смотреть все ${n}` },
+  ko: { fCountTpl: '{s}/{t}개 액티비티 표시', freshNote: ' · 가격과 일정은 바뀔 수 있으니 예약 전 운영사에 확인하세요',
+        bookSub: '가격 비교 · 즉시 확정', stayWide: '근처 숙소 찾기', bookWide: (p: string) => `${p}에서 예약하기`, scrollAll: (n: number) => `${n}개 모두 보기` },
+  ja: { fCountTpl: '{s}/{t}件のアクティビティを表示', freshNote: ' · 料金や催行時間は変わることがあります。予約前に主催者にご確認ください',
+        bookSub: '料金を比較 · 即時確定', stayWide: '近くの宿を探す', bookWide: (p: string) => `${p}で予約する`, scrollAll: (n: number) => `${n}件すべて見る` },
+  hi: { fCountTpl: '{s}/{t} गतिविधियाँ दिखा रहे हैं', freshNote: ' · कीमतें और समय बदल सकते हैं — बुकिंग से पहले ऑपरेटर से जाँच लें',
+        bookSub: 'कीमतों की तुलना करें · तुरंत पुष्टि', stayWide: 'पास होटल खोजें', bookWide: (p: string) => `${p} पर यह गतिविधि बुक करें`, scrollAll: (n: number) => `सभी ${n} गतिविधियाँ देखें` },
+  he: { fCountTpl: 'מציג {s}/{t} חוויות', freshNote: ' · מחירים ולוחות זמנים עשויים להשתנות — בדקו מול המפעיל לפני ההזמנה',
+        bookSub: 'השוו מחירים · אישור מיידי', stayWide: 'מצאו מלונות בסביבה', bookWide: (p: string) => `להזמין את החוויה ב־${p}`, scrollAll: (n: number) => `לכל ${n} החוויות` },
+  ar: { fCountTpl: 'عرض {s}/{t} نشاط', freshNote: ' · قد تتغير الأسعار والمواعيد — تحقق مع المشغّل قبل الحجز',
+        bookSub: 'قارن الأسعار · تأكيد فوري', stayWide: 'ابحث عن فنادق قريبة', bookWide: (p: string) => `احجز هذا النشاط عبر ${p}`, scrollAll: (n: number) => `استعرض كل ${n} نشاط` },
+};
+const A = ACT[lang] || ACT.en;
+if (isActivity) { S.fCountTpl = A.fCountTpl; S.freshNote = A.freshNote; }
+// Wide book button label — data never carries bookLabel today, so fall back to the activity copy, then the generic "Book on <provider>".
+const bookWideL = (b: any) => b.bookLabel || (isActivity ? A.bookWide(b.bookProvider || 'Klook') : (S.bookL + (b.bookProvider || 'Klook')));
 // ── Quick-answer (AEO): promote a leading "Short answer / คำตอบสั้น" paragraph into the styled QA box.
 const QA_RE = /^\s*<strong>\s*(?:คำตอบสั้น|Short answer)/i;
 const _blocks = data.blocks ?? [];
 const _leadQA = !(data as any).quickAnswerHtml && !isResto && _blocks[0] && _blocks[0].kind === 'p' && QA_RE.test(_blocks[0].html || '');
-const quickAnswerHtml = (data as any).quickAnswerHtml || (_leadQA ? _blocks[0].html : '');
+// Derive a "#1 pick" answer from the first ranked/restaurant block when there's no hand-written one (AEO + Speakable coverage).
+const _pickBlk = (!(data as any).quickAnswerHtml && !_leadQA) ? _blocks.find((b) => b.kind === 'ranked' || b.kind === 'restaurant') : null;
+let _derivedQA = '';
+if (_pickBlk) {
+  const _isRes = _pickBlk.kind === 'restaurant';
+  const _p = _isRes ? _pickBlk : (((_pickBlk as any).items || []).find((x) => String(x.rank) === '1') || ((_pickBlk as any).items || [])[0]);
+  if (_p && _p.name) {
+    let _price = String(_p.price || _p.priceRange || '').split(/\s+[·(]/)[0].trim();
+    if (_price.length > 30) _price = '';
+    let _ex = [];
+    if (_isRes) {
+      _ex = [_p.cuisine, _p.area].filter(Boolean).map((s) => String(s).replace(/<[^>]+>/g, '').trim())
+        .filter(Boolean).map((s) => s.length > 44 ? s.slice(0, 44).trim() + '…' : s).slice(0, 2);
+    } else {
+      const _bl = String(_p.blurb || '').replace(/<[^>]+>/g, '').trim();
+      if (_bl) _ex = [_bl.length > 90 ? _bl.slice(0, 90).replace(/\s+\S*$/, '') + '…' : _bl];
+    }
+    const _lead = !isTh ? 'Our #1 pick is' : 'อันดับ 1 คือ';
+    _derivedQA = `${_lead} <strong>${_p.name}</strong>${_price ? ` (${_price})` : ''}${_ex.length ? ` · ${_ex.join(' · ')}` : ''}`;
+  }
+}
+const quickAnswerHtml = (data as any).quickAnswerHtml || (_leadQA ? _blocks[0].html : '') || _derivedQA;
 const bodyBlocks = _leadQA ? _blocks.slice(1) : _blocks;
 // ── HowTo schema — only for genuinely procedural pages (transport routes, getting-around, visa/eSIM/safety
 // how-tos), built from the article's own h2 sections. Never where-to-stay / comparisons / listicles / attractions.
@@ -116,7 +229,7 @@ const showHowTo = howtoSteps.length >= 2;
 const geoRestos = restos.filter((b) => typeof b.lat === 'number' && typeof b.lng === 'number');
 const haversineKm = (a, b) => { const R = 6371, toR = (d) => d * Math.PI / 180, dLa = toR(b.lat - a.lat), dLo = toR(b.lng - a.lng); const x = Math.sin(dLa/2)**2 + Math.cos(toR(a.lat)) * Math.cos(toR(b.lat)) * Math.sin(dLo/2)**2; return 2 * R * Math.asin(Math.sqrt(x)); };
 const nearestOf = (b) => { let best = null, bd = Infinity; for (const o of geoRestos) { if (o.rank === b.rank) continue; const d = haversineKm(b, o); if (d < bd) { bd = d; best = o; } } return best ? { name: strip(best.name), km: bd } : null; };
-const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${tr('m', 'ม.', 'м')}` : `~${km.toFixed(1)} ${tr('km', 'กม.', 'км')}`);
+const distLabel = (km) => (km < 1 ? `~${Math.max(50, Math.round(km * 1000 / 50) * 50)} ${!isTh ? 'm' : 'ม.'}` : `~${km.toFixed(1)} ${!isTh ? 'km' : 'กม.'}`);
 const mapPins = geoRestos.map((b) => { const nr = nearestOf(b); return { rank: b.rank, name: strip(b.name), lat: b.lat, lng: b.lng, stayHref: b.stayHref ? link(b.stayHref) : '', stayLabel: b.stayLabel || S.mapStay, near: nr ? `${nr.name} · ${distLabel(nr.km)}` : '' }; });
 const showMap = isResto && mapPins.length >= 3;
 // v3 filters: zone / food-type / price-tier axes + diet toggles. Each group is conditional on data.
@@ -131,24 +244,37 @@ const showFilters = isResto && (zones.length >= 2 || types.length >= 2 || prices
 const railItems = (data.rail && data.rail.length ? data.rail : []);
 const foodBlock = isResto ? (data.blocks.find((b) => b.kind === 'foodexp') || null) : null;
 const hasRail = isResto && (railItems.length > 0 || !!foodBlock);
+// EEAT — named editor (gated: falls back to Organization author until editorial.json holds a real name).
+const _ed = (editorial as any).editor || {};
+const hasEditor = !!String(_ed.name || _ed.nameEn || '').trim();
+const _edName = (!isTh ? (_ed.nameEn || _ed.name) : (_ed.name || _ed.nameEn)) || '';
+const _edRole = (!isTh ? (_ed.roleEn || _ed.role) : (_ed.role || _ed.roleEn)) || '';
+const authorNode: any = hasEditor
+  ? { '@type': 'Person', name: _edName, jobTitle: _edRole, url: `${SITE}${pfx}/about`, worksFor: { '@id': `${SITE}/#org` },
+      ...(String(_ed.image || '').trim() ? { image: asset(_ed.image) } : {}),
+      ...(Array.isArray(_ed.sameAs) && _ed.sameAs.length ? { sameAs: _ed.sameAs } : {}) }
+  : { '@type': 'Organization', name: 'ThailandAddict' };
+// Visible EEAT byline — a real named editor when editorial.json has one, else the honest editorial-team
+// attribution (never a fabricated personal byline).
+const byName = data.author?.name || (hasEditor ? _edName : S.byTeam);
 const jsonld = {
   '@context': 'https://schema.org', '@graph': [
     { '@type': 'Article', headline: data.title, description: data.metaDesc, inLanguage: lang,
-      author: { '@type': 'Organization', name: 'ThailandAddict' },
+      author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: published, dateModified: updated,
       ...((data.heroImg || data.image) ? { image: asset(data.heroImg || data.image) } : {}),
       mainEntityOfPage: canonical },
     { '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${LOCALE_PREFIX ? LOCALE_PREFIX + '/' : '/'}` },
-      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${LOCALE_PREFIX}/country-thailand` },
-      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${LOCALE_PREFIX}/${data.crumbCityHref.replace(/\.html$/, '')}` },
+      { '@type': 'ListItem', position: 1, name: S.home, item: `${SITE}${pfx}/` },
+      { '@type': 'ListItem', position: 2, name: S.th, item: `${SITE}${pfx}/country-thailand` },
+      { '@type': 'ListItem', position: 3, name: data.crumbCity, item: `${SITE}${pfx}/${data.crumbCityHref.replace(/\.html$/, '')}` },
       { '@type': 'ListItem', position: 4, name: data.title, item: canonical } ] },
     // Honest ItemList + Restaurant graph (no fabricated ratings) → rich results + AI answer-engine citations.
     ...(isResto ? [{ '@type': 'ItemList', name: strip(data.title), numberOfItems: restos.length,
       itemListElement: restos.map((b) => ({ '@type': 'ListItem', position: Number(b.rank),
-        item: { '@type': isActivity ? 'TouristAttraction' : 'Restaurant', name: strip(b.name),
-          ...(b.cuisine ? { servesCuisine: strip(b.cuisine) } : {}),
+        item: { '@type': (isAttractionList || isActivity) ? 'TouristAttraction' : 'Restaurant', name: strip(b.name),
+          ...(b.cuisine && !isAttractionList && !isActivity ? { servesCuisine: strip(b.cuisine) } : {}),
           ...(b.priceRange ? { priceRange: strip(b.priceRange) } : {}),
           ...(b.lat && b.lng ? { geo: { '@type': 'GeoCoordinates', latitude: b.lat, longitude: b.lng } } : {}),
           ...(b.area ? { address: { '@type': 'PostalAddress', addressLocality: strip(b.area), addressRegion: data.crumbCity, addressCountry: 'TH' } } : {}),
@@ -173,7 +299,7 @@ const jsonld = {
 const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2306B6D4'/%3E%3Ctext x='50' y='68' font-family='Outfit,sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E";
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={isRtl ? 'rtl' : 'ltr'}>
 <head>
 <meta charset="UTF-8" />
 <Analytics />
@@ -190,15 +316,23 @@ const favSvg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vie
 <meta property="og:url" content={canonical} />
 {(data.image || data.heroImg) && <meta property="og:image" content={asset(data.image || data.heroImg)} />}
 {data.heroImg && <link rel="preload" as="image" href={asset(data.heroImg)} fetchpriority="high" />}
-<meta property="og:locale" content={lang === 'en' ? 'en_US' : lang === 'ru' ? 'ru_RU' : 'th_TH'} />
+<meta property="og:locale" content={({th:'th_TH',en:'en_US',zh:'zh_CN',ru:'ru_RU',ko:'ko_KR',ja:'ja_JP',hi:'hi_IN',he:'he_IL',ar:'ar_AR'} as Record<string,string>)[lang]} />
 <link rel="alternate" hreflang="th" href={`${SITE}/${data.slug}`} />
-{enExists && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
-{ruExists && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
+{hasEn && <link rel="alternate" hreflang="en" href={`${SITE}/en/${data.slug}`} />}
+{lang === 'zh' && <link rel="alternate" hreflang="zh" href={`${SITE}/zh/${data.slug}`} />}
+{lang === 'ru' && <link rel="alternate" hreflang="ru" href={`${SITE}/ru/${data.slug}`} />}
+{lang === 'ko' && <link rel="alternate" hreflang="ko" href={`${SITE}/ko/${data.slug}`} />}
+{lang === 'ja' && <link rel="alternate" hreflang="ja" href={`${SITE}/ja/${data.slug}`} />}
+{lang === 'hi' && <link rel="alternate" hreflang="hi" href={`${SITE}/hi/${data.slug}`} />}
+{lang === 'he' && <link rel="alternate" hreflang="he" href={`${SITE}/he/${data.slug}`} />}
+{lang === 'ar' && <link rel="alternate" hreflang="ar" href={`${SITE}/ar/${data.slug}`} />}
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <meta name="theme-color" content="#06B6D4" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href={IMG_BASE} crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
 {showMap && <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />}
 <style>
@@ -217,7 +351,34 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .nmid{display:flex;gap:6px}@media(max-width:820px){.nmid{display:none}}
 .nmid a{font-family:'Outfit';font-size:14px;font-weight:600;color:var(--sub);padding:8px 13px;border-radius:999px}.nmid a:hover{color:var(--teal);background:var(--soft)}
 .nr{display:flex;align-items:center;gap:12px}
-.lang{font-family:'Outfit';font-size:12px;font-weight:700;background:var(--soft);border-radius:999px;display:inline-flex;padding:2px}
+/* language flag-bar (circular SVG flags; active enlarged) — shows only the locales this page exists in */
+.flagbar{display:inline-flex;align-items:center;flex-wrap:wrap;gap:3px;background:var(--soft);border:1px solid var(--bdr);border-radius:30px;padding:4px 6px;max-width:272px}
+.flagbar a{display:block;width:24px;height:24px;border-radius:50%;overflow:hidden;opacity:.7;transition:transform .16s,opacity .16s;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.flagbar a:hover{opacity:1;transform:scale(1.12)}
+.flagbar a.on{opacity:1;transform:scale(1.2);box-shadow:0 0 0 2px #fff,0 3px 9px rgba(15,40,70,.22);position:relative;z-index:1}
+.flg{width:100%;height:100%;background-size:cover;background-position:center;display:block}
+.flg-th{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjQTUxOTMxIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48cGF0aCBmaWxsPSIjRjRGNUY4IiBkPSJNMCAxMDBoOTAwdjQwMEgweiIvPjxwYXRoIGZpbGw9IiMyRDJBNEEiIGQ9Ik0wIDIwMGg5MDB2MjAwSDB6Ii8+PC9zdmc+")}
+.flg-en{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIj48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYiI+PHBhdGggZD0iTTMwIDE1aDMwdjE1enYxNUgwekgwVjB6VjBoMzB6Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiIGZpbGw9IiMwMTIxNjkiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgY2xpcC1wYXRoPSJ1cmwoI2IpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPjwvc3ZnPg==")}
+.flg-zh{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCI+PHBhdGggZmlsbD0iI0VFMUMyNSIgZD0iTTAgMGg5MDB2NjAwSDAiLz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgzIDAgMCAzIDE1MCAxNTApIj48cGF0aCBpZD0iYSIgZmlsbD0iI0ZGMCIgZD0ibTAtMzAgMTcuNjM0IDU0LjI3LTQ2LjE2Ni0zMy41NGg1Ny4wNjRsLTQ2LjE2NiAzMy41NFoiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoMjMuMDM2IDIuNzg0IDc2Ni4wODIpIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoNDUuODcgMzguMjAxIDQ4NS4zOTYpIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJyb3RhdGUoNjkuOTQ1IDI5Ljg5MiAzNjIuMzI4KSIvPjx1c2UgeGxpbms6aHJlZj0iI2EiIHRyYW5zZm9ybT0icm90YXRlKDIwLjY2IC01OTAuNjYgOTU3Ljk1NSkiLz48L3N2Zz4=")}
+.flg-ru{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDYiIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDl2M0gweiIvPjxwYXRoIGZpbGw9IiNkNTJiMWUiIGQ9Ik0wIDNoOXYzSDB6Ii8+PHBhdGggZmlsbD0iIzAwMzlhNiIgZD0iTTAgMmg5djJIMHoiLz48L3N2Zz4=")}
+.flg-ko{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSItNzIgLTQ4IDE0NCA5NiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTS03Mi00OHY5Nkg3MnYtOTZ6Ii8+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjQiPjxwYXRoIGQ9Ik0tMzQuOTQ2LTM3LjcyLTQ4LjI2LTE3Ljc1bTQuOTkyIDMuMzI4IDEzLjMxMy0xOS45N200Ljk5MiAzLjMyOS0xMy4zMTIgMTkuOTY5bTYzLjIzNiA0Mi4xNTcgNi4xMDEtOS4xNTJtMS4xMS0xLjY2NCA2LjEwMS05LjE1M200Ljk5MyAzLjMyOC02LjEwMiA5LjE1M20tMS4xMSAxLjY2NC02LjEwMSA5LjE1Mm00Ljk5MiAzLjMyOSA2LjEwMi05LjE1M20xLjExLTEuNjY0IDYuMS05LjE1M00tNDguMjU5IDE3Ljc1bDEzLjMxMyAxOS45N200Ljk5Mi0zLjMyOS02LjEwMi05LjE1Mm0tMS4xMDktMS42NjQtNi4xMDItOS4xNTNtNC45OTMtMy4zMjggMTMuMzEyIDE5Ljk3bTYzLjIzNi00Mi4xNTgtNi4xMDEtOS4xNTNtLTEuMTEtMS42NjQtNi4xMDEtOS4xNTJtNC45OTItMy4zMjggMTMuMzEzIDE5Ljk2OW00Ljk5Mi0zLjMyOC02LjEwMi05LjE1M20tMS4xMS0xLjY2NC02LjEtOS4xNTMiLz48L2c+PHBhdGggZmlsbD0iI2NkMmUzYSIgZD0iTTkuOTg1IDYuNjU2QTE4IDE4IDAgMSAxLTE5Ljk3LTEzLjMxM2EyNCAyNCAwIDEgMSAzOS45MzggMjYuNjI2Ii8+PHBhdGggZmlsbD0iIzAwNDdhMCIgZD0iTTAgMGExMiAxMiAwIDEgMSAxOS45NyAxMy4zMTMgMjQgMjQgMCAxIDEtMzkuOTQtMjYuNjI2QTEyIDEyIDAgMSAwIDAgMCIvPjwvc3ZnPg==")}
+.flg-ja{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48Y2lyY2xlIGZpbGw9IiNiYzAwMmQiIGN4PSI0NTAiIGN5PSIzMDAiIHI9IjE4MCIvPjwvc3ZnPg==")}
+.flg-hi{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCIgZmlsbD0iIzA3MDM4RCIgdmlld0JveD0iLTQ1IC0zMCA5MCA2MCI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTS00NS0zMGg5MHY2MGgtOTB6Ii8+PHBhdGggZmlsbD0iI0ZGNjgyMCIgZD0iTS00NS0zMGg5MHYyMGgtOTB6Ii8+PHBhdGggZmlsbD0iIzA0NkEzOCIgZD0iTS00NSAxMGg5MHYyMGgtOTB6Ii8+PGNpcmNsZSByPSI5LjI1Ii8+PGNpcmNsZSByPSI4IiBmaWxsPSIjRkZGIi8+PGNpcmNsZSByPSIxLjYiLz48ZyBpZD0iZCI+PGcgaWQ9ImMiPjxnIGlkPSJiIj48ZyBpZD0iYSI+PHBhdGggZD0ibTAtOCAuMyA0LjgxNEwwLS44MDJsLS4zLTIuMzg0eiIvPjxjaXJjbGUgY3k9Ii04IiByPSIuMzUiIHRyYW5zZm9ybT0icm90YXRlKDcuNSkiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJzY2FsZSgtMSkiLz48L2c+PHVzZSB4bGluazpocmVmPSIjYiIgdHJhbnNmb3JtPSJyb3RhdGUoMTUpIi8+PC9nPjx1c2UgeGxpbms6aHJlZj0iI2MiIHRyYW5zZm9ybT0icm90YXRlKDMwKSIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNkIiB0cmFuc2Zvcm09InJvdGF0ZSg2MCkiLz48dXNlIHhsaW5rOmhyZWY9IiNkIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+PC9zdmc+")}
+.flg-he{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTAwIiBoZWlnaHQ9IjgwMCI+PHBhdGggZD0iTTAgMGgxMTAwdjgwMEgwWiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDc1aDExMDB2MTI1SDBaTTAgNjAwaDExMDB2MTI1SDBaIiBmaWxsPSIjMDAzOGI4Ii8+PHBhdGggZD0iTTQyMy44MTYgNDcyLjg1M2gyNTIuMzY4TDU1MCAyNTQuMjk1Wk01NTAgNTQ1LjcwNWwxMjYuMTg0LTIxOC41NThINDIzLjgxNloiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMzhiOCIgc3Ryb2tlLXdpZHRoPSIyNy41Ii8+PC9zdmc+")}
+.flg-ar{background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCA2MDBoOTAwVjBIMHoiIGZpbGw9IiMwMDU0MzAiLz48cGF0aCBkPSJNNjc1IDIzOC4zMjRjLS4wNjMtMTAuNTQtNC4xNTItMzguOTMxLTUuMTktNDguNDU1LTEuMDM2LTkuNTI1LTIuMDgtMTguMTY1LTEuODI4LTIwLjE4OS4yNDctMS45NTIgMy4yNTIgMi43MTUgNC44NCAzLjA5Mi44MjItLjE2NC40NTUtMy4xMTItMS4wMzgtNS42My0xLjAxLTEuNzA5LTQuNDU2LTguMS02LjU0Ni0xMS44NDYtLjk4My0xLjc3My0xLjIwMy0yLjgtMS42NzYtMy4wMTktLjQ3MS0uMjE3LTQuMjc2IDcuNDU4LTMuODYgOC4zMSAxLjAzOCAxLjU2IDEuNzUgMi4zMDQgMS45MTIgNS4wNTkuMTY0IDIuNzU1IDEuNTg5IDIyLjQyNyAzLjQwNSAzNy4zMzggMS4zNjcgMTEuMjQ5IDQuMzY2IDM1LjQ4NCA0LjQ3MyA1MC41NTIuMDMgNC45MTUtLjUxNSA5LjYtMS4xNyAxMS41NTgtMS42NzkgMy4wNzQtNC4zMDMgNS44NDctMTQuMDc2IDExLjU2NS0xMC45ODYgNi40My0yNS42NDMgMTEuNzgxLTMxLjk0MyAxNS4zNjItMy45MTcgMi4yMzQtMi42MTkgMi41MzIuNzkyIDEuNTU1IDMuNDAxLS45NzggMjAuOTkyLTQuMTEgMjkuNTM4LTcuNzIxIDguMDIyLTMuMzk5IDEzLjIzLTkuMDg0IDE3LjE4Mi0xNy4zNzggNC44ODEtMTAuMjU0IDUuMjUzLTE4Ljk1NSA1LjE4NS0zMC4xNTNNNjQwLjk4NyAxNTguMjYxYy44NS0uMzI5IDcuODgtLjY5MSA5Ljc3NC0uMzAxLTEuMjQ0IDEuNzc4LTkuNjc1IDUuNzEzLTkuNzEgNi40MzUuMjMuNDg2IDUuODIzLS45IDcuNTg3LTEuNjcgMS4xNTMtLjY5MyAxLjkyMy0xLjc2NyAyLjc3Ny0yLjY1OCAyLjAxNi0yLjMyIDQuNDA3LTYuNjIyIDMuODA1LTcuMTYyLS45NzgtLjg3MS0xMC41NjItLjMyOS0xMS44MjUtLjE1LS44NDYuMTIyLTIuOTk0IDMuOTcyLTMuMzg4IDQuOTYtLjM4Ni45ODcuMTMxLjg3NS45OC41NDYiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNjU1LjM1IDIyMC43MzNhMjkuNTc3IDI5LjU3NyAwIDAgMC0uMTY3LTE3LjMyNWMtMi4wNDktNi41MjYtNy4xMzgtMTAuNTA0LTEwLjgwOC0xMi41NDNsLS42NTUgNi4yODNzNS4xNDcgMi41NTggOC42NjYgOC45OThjMi4yMyA0LjA4NSAzLjE1OCA5Ljg2MSAxLjM5NyAxNi4zLS4yOTMgMS41OTkuODUuNzE4IDEuNTY3LTEuNzE0TTYwMC45IDI1Mi4yNGEyNi42NiAyNi42NiAwIDAgMC0uMTQ4LTE1LjZjLTEuODQ2LTUuODc3LTYuNDI5LTkuNDYtOS43MzUtMTEuMjlsLS41OTEgNS42NTZzNC42MzQgMi4zMDQgNy44MDMgOC4wOThjMi4wMSAzLjY3NSAyLjg0NCA4Ljg4NCAxLjI2MyAxNC42OC0uMjYzIDEuNDM0Ljc2NC42NDQgMS40MDgtMS41NDRNNDExLjg2MiAxNjYuNjkxYzIuMTIgMy44NzcgMyA5LjM2OCAxLjMzMiAxNS40ODMtLjI4IDEuNTE3LjguNjg0IDEuNDg3LTEuNjI1YTI4LjE0MyAyOC4xNDMgMCAwIDAtLjE2NC0xNi40NTljLTEuOTQ4LTYuMjAxLTYuNzgyLTkuOTc3LTEwLjI3LTExLjkxbC0uNjE1IDUuOTY3czQuODg5IDIuNDI4IDguMjMgOC41NDRNMjg0LjI1IDE2OC42OTdjMS43OCA0LjE3NCAxLjkgOS44MDktLjk3NSAxNS43NDUtLjU1OSAxLjQ5MS44MDIuNzg1IDEuOTQ1LTEuNDQ2IDIuMzMzLTQuNTYxIDMuNjQzLTEwLjI3IDIuNDYtMTYuNTc1LTEuMjE0LTYuNDgzLTYuMDg0LTEwLjkwMi05LjczLTEzLjI5NWwtMS42NTQgNS45MjNzNS4xNDYgMy4wNyA3Ljk1NCA5LjY0OCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0zMTkuNTI2IDI2MS45ODNjMi4yNjMtNC4yIDMuMjA1LTcuMDI1IDQuMjEtMTIgLjg4LTQuMzc1LjkzNy05LjQzLjYyLTE0LjU3NiA2Ljc3LTIuNzYgMTQuODQtNy4zNDEgMTcuNTUxLTcuNjc4LTEuODU0IDYuMzY3IDIuNTcyIDEzLjIzNyAxMS41MTMgMTIuMzQuNjg0IDcuMiAxLjI3IDEzLjUyNCAxLjYyNyAxNy4yNzQuNzI4IDcuNjg5LjYxOSAxNy4zNzguNTk3IDE5LjA2Mi0uMDMgMS42OTEgMS4xOTQgMS4zNzIgMi40NTEtMi4zOTYgMS42NzYtNS4wNDUgMi4xOTQtMTguMjE4IDEuNTg2LTI2LjkzLS4xNDUtMi4xNzgtLjM5Mi01LjExOC0uNjktOC40NjggNS43OTYtMi42ODIgNi43Ni03Ljg1OCA4LjkyNi0xMC4wNjQgMS45NTYgNi44NSAxMi43MiA3Ljc4IDE2LjA0MyA2LjMxMyA0LjEyLTEuODIgNS40Ny01LjA5NSA2LjUzLTEyLjY5NSAxLjA2My03LjU5Ny0yLjAzMi0xMC42NTYtMy4xMzktMTEuNDg0LS4xMS45Mi0yLjgwNSA5Ljg0OC0yLjgwNSA5Ljg0OHMyLjU1NiAyLjcgMi42ODUgNC4wMjdjLTIuMDgyIDEuODg0LTYuNDczIDItMTAuMTYuOC0zLjY5LTEuMi00LjgyLTMuNDA4LTQuNjAxLTQuODkuMjEzLTEuNDg2IDEuNjAyLTIuODM5IDEuNjQ5LTQuNjUuMDQtMS44MS0uODI3LTEuMjg2LTIuMzA0LjMxNy0xLjQ3NiAxLjYwNi0yLjQzIDMuMDUtNC40NzMgNi40OTYtMS42NyAyLjgxOC00LjM4MiA2LjI1Ny05LjE2NSA3LjI0LS43ODktOC4yNzYtMS42OS0xNy4wODEtMi4yOTItMjIuNjEyLS4zMTUtMi45Mi0zLjQ2Mi0yOC4xNTMtMy42ODctMzAuOTc2LS4xOTUtMi40Ni0uNTU5LTUuMzU5LS40OTktNi43MjEuMDYtMS4wODQuNzQtLjY1NCAxLjc5Mi40OCAxLjA1NCAxLjEzMyAyLjg5OCAzLjEwOCAzLjIxNSAyLjk1NCAxLjA3NC0uNTI3LS4wMjQtMy44MDctMS40My02Ljc0NC0xLjQwMi0yLjk0NS02LjE5LTE0LjU2NC03LjE5NS0xNS4wNDMtLjUxOC0uMjQzLTMuNzUgNi45MDktMy45NDEgOC4zMTcuNS44OCAxLjgxIDIuMjY2IDEuODU3IDYuMjA3LjAxNiAxLjA5OS43MjMgMTEuNDYxIDEuNzAzIDIxLjI2Ljg1OCA4LjY1MiAxLjk5NCAxNi44NjMgMi4xMDQgMTcuODE3Ljc4IDYuNjA1IDEuNzI4IDE1LjkxNCAyLjYzIDI1LjA2Ni01LjE5MS0uOTg4LTYuNTcyLTQuNDExLTYuNDU3LTYuMzY0LjEzMi0yLjIwMyAxLjEyNi00LjY5LjY1LTUuMjUyLTEtLjYtNi45NSAyLjcyNS0xNS4yNDYgNi4yOThhMTU2Ljc5OSAxNTYuNzk5IDAgMCAxLTcuNzM4IDMuMWMtLjcyMy02LjIzOC0xLjY3Ni0xMi4xNjktMi4wNi0xNi43MDRsLS4wNDYtLjUwNGM1LjQ1Ni0uMzUyIDkuOTIzLTMuMTA3IDExLjk1Ni01LjczIDIuNTM5LTMuMjggNC4zMTQtMTAuMDMgNC40ODYtMTUuMi4xNzMtNS4xNzctNC4wMDQtMTQuNjQtNC45OTgtMTcuNjQ5LTEuMDAzLTMuMDEtMS41Mi01LjA5OC0xLjYwOC02LjEzOC0uMDktMS4wNDEgMi4yNTcgMS4yMDUgMy43MzMgMS42NDYgMSAuMi42NTUtMS45NjYtLjU2Ny0zLjQ1Mi0xLjIxMy0xLjQ4Mi03Ljc3Ni0xMS40NDEtOC4yMzYtMTAuNzQzLS4yODIuNDEtMi45MTIgNy43MzctMy4wODQgOC44NTkgMS4wMzUuNjg0IDIuMjQ2IDIuNTY4IDIuMzMgNC4zNzMuMDg4IDEuODA2IDEuNTM0IDkuNzQ1IDMuMTM3IDE0LjE1NyAxLjYwOCA0LjQxMSA1LjAzMSAxMi44NzQgNS4yNDggMTUuMjAyLTIuNDQ2IDEuNzI0LTguMDE1IDQuNjQ0LTEzLjUyMyA0LjQ3LS45NDItNy43Mi0yLjEzNy0xNi42ODQtMi43NzUtMjMuMDMzLS4yNDYtMi40NTQtLjI2My01LjA3Mi0uMjI0LTYuNDQuMDMtMS4wODQuODEtLjkzNCAxLjg4NC4xOCAxLjA4IDEuMTE0IDIuNzM0IDIuNzM1IDMuMDczIDIuNjE4Ljc0LS4yNDUuMDk5LTIuNzA0LTEuMzY2LTUuNjI0cy03LjI5LTE1LjI3LTguMzEtMTUuNzMxYy0uNTE4LS4yMzYtMy4xMjYgNi43LTMuMjkgOC4xMTYuNTIuODc2IDEuODU0IDIuMjMxIDEuOTg1IDYuMTcxLjEwNSAzLjEzOCAxLjYzMyAxOC41MTUgMi45NDIgMzIuMDU4LTUuNDUtMi44MTgtNy4zMS02Ljg0Ny03Ljk4NC0xMy42MTEtLjQ3MS00LjcxNi0uNTE4LTEzLjQwMi0yLjItMjAuNjY4LS45NDctNC4xMDctMi45NDQtOC4yOC01LjMxLTEwLjQ5Ni0uNTY1IDEuMzY1LTMuMDg1IDkuNzQ0LTMuMDg1IDkuNzQ0LjgyMiAyLjQwNiAzLjM3NyAxMC41MDcgMy4yOSAxNy41MjctLjA4NSA3LjAyLS42MzggMTMuODgzLTguNTA1IDE4LjYxLTcuODYxIDQuNzMxLTE5LjY1MyAyLjg1LTIyLjU2NS00LjUzLTIuOTExLTcuMzg0IDMuNTYxLTI1Ljg5OSAzLjQ3Ni0zMC4yNy0uMDg3LTQuMzctLjg2OC00Ljk3My0yLjY5NS00LjI1MS0xLjgyNC43MjEtNS41NTggNC45MzUtOC43NzMgMTEuNzktMy4yMTYgNi44Ni00LjY0NiAxNS4zNTctNi40NzMgMjEuMTMzLTEuODIxIDUuNzc3LTQuNzM4IDExLjYzLTkuMjUyIDExLjMwNS00LjUxNC0uMzE5LTYuOTQ0LTQuNDUtOC4zMzMtMTAuNDIzLTEuMzkxLTUuOTgtLjU0LTEzLjg1My0uMTYxLTE1Ljg3Ljk0Mi01LjA1Ni0xLjI0LTQuMDItMi41NzggMy45MTctLjgyNyA0Ljg5NS0xLjY0OSAxMi43MTIgMS4yNjMgMjAuODk1IDIuOTA2IDguMTgyIDcuODYxIDExLjIzMyAxMi4yMDMgMTAuMTg4IDQuMzQ0LTEuMDQxIDguMTYyLTExLjIzIDkuNTEtMTUuODA1IDEuMzQ1LTQuNTY5IDcuMzYyLTI0Ljg2IDEwLjc3LTI1Ljg1OS40NzYgMi4yODctMi42NDkgOS42NTktMy42NDkgMTguMjgyLS45OTcgOC42MjMgMS4zMjkgMjAuMjA2IDEyLjI3NCAyMi4yMSAxMC45NDUgMi4wMDUgMTguMzcxLTUuMDk0IDIxLjA2NC0xMC4wMjIgMi42OTUtNC45MzUgMy45NTItMTAuMTEgNC4yNTYtMTIuNzE1LjM1IDYuNjE1IDQuODY1IDE2Ljk0NCAxMy42MzMgMTkuODlsLjkwMy4yNmMuNTQgNS40MTUgMS40MiAxMi40ODMgMi4yMjcgMTkuOTA1YTgyLjg2MSA4Mi44NjEgMCAwIDEtNS4xNDQgMS40MTNjLS4yMTktLjcxMS0uNDYtMS40MDgtLjc1My0yLjA0OC0yLjY3Ni01Ljc1Ny03LjEwNS0xMS4wNjItMTMuMjQzLTEwLjY5NS02LjI3LjM3Mi0xMy4xMDcgOC43NC0xMi44MDggMTQuODUuMTk3IDQuMTEgMi40NiA3LjQ4NCAxMC42ODggOC4zNDcgMy43NTguMzk4IDcuNzQ4LS4wMiAxMS44Ny0uOTIuNTgxIDEuNy45NDggMy4zOS45OSA0LjkyOS0yLjYwOCAzLjA0OS0yNC4xODQgMTkuMzIyLTQwLjMzOSAyMC44ODctMTYuMTU1IDEuNTYzLTIxLjA4Mi02LjkwNi0yMS4yNDQtMTUuNDA3LS4xMi02LjQ2OCAzLjc2OS0xMi45MjMgNi41MDItMTcuMzkgMy45MTItMi44NjIgNy4xMjItNi40NCA5LjE0OS05LjIuNTUuMzQgMS4wNzQuNjUzIDEuNTcyLjk0NCAxLjkzMSAxLjEyMiAyLjcwMSAyLjc5OSAyLjcwMSAyLjc5OS4zNTYtLjU0NyAyLjAxNi0zLjUzNiAxLjM2Ny00Ljk5Ny0uMjk5LS4zNi0xLjc1OS0xLjI1OC0zLjUxNC0yLjMyNSAxLjg0My00LjU5MyAxLjgxOC05LjE4LS41Ny0xMC4yLTIuNjctMS4xMzctNi4xNTggMi4wMjMtNy42NjEgMy45NWE1LjEyIDUuMTIgMCAwIDAtMS4wODUgMy4wOTVjLS4wMTEgMS4yMjguNTY3IDIuMzM3IDEuOTk3IDMuMzI1IDEuNDI0Ljk3MyAyLjc0NyAxLjg1NCAzLjk5IDIuNjQ5LTMuNTMgMy43MDctMTEuODczIDkuMTQtMTYuOTc5IDEyLjMzLS4xODktLjQ2OC0uOTM3LjAyNi0xLjk0MiAxLjIxbC0xLjM4My44NTRjLTQuMDczIDIuNDkyLTEzLjg0IDcuOTY1LTE1Ljc2IDkuMzA0LTEuOTI0IDEuMzQzLS43MTggMS4xIDAgLjggMS4zNTUtLjczMSAzLjEzNS0xLjYxOCA1LjEzNS0yLjU5NSAyLjgzMi0xLjM4NSA2LjEyNy0yLjk1MyA5LjM0OC00LjUyNmE0Ny42NCA0Ny42NCAwIDAgMC0yLjgxMyA1LjU2N2MtMy44NDMgOS4wNzMtMTAuMDU1IDI3Ljg3OSAzLjM4MyAzOS4xOTQgMTIuODU3IDEwLjgzMSAzNC45NTYgNi43MSA1My4yODMtNC41NDYgMTguMzMtMTEuMjU5IDIyLjI4OC0xNS4yMTcgMjUuMTUzLTE5LjMxbS01OS43NTUtNDQuNzMyYy0uNjM2LS40NjktLjcyNC0xLjA5NC0uMjA2LTEuNTMuNjYtLjU2MiAxLjUwNC0xLjA5NCAyLjQ2My0xLjI3MyAyLjAzMi0uMzc4IDIuODQzIDEuOTU3IDIuMDI3IDUuNTk0LTEuNTQ1LS45NDUtMy4xMzQtMS45MzgtNC4yODQtMi43OTFtNDIuMDM5IDE1LjMzOWMtOS4zMzIuMDQzLTkuNzYyLTEuNjUxLTkuNTg3LTIuNzM1LjE3My0xLjA3OSAzLjA3OS00LjA0IDYuNzY2LTIuMDg3IDEuNTU4LjgyOCAzLjMxNCAyLjU2IDQuOTM4IDQuNzM2LS43MTcuMDUzLTEuNDI0LjA4LTIuMTE3LjA4Nm0tMjguNTgyIDQ5LjA3NWMtMTcuNjMyIDQuODEyLTM0LjgzLTIuNjQzLTM1Ljg3MS0xNy40MDUtLjc5Ny0xMS4yNzIgMy4zMTQtMTkuNzY1IDUuOTY1LTI0LjU1MiAyLjUyOS0xLjI1IDQuOTE3LTIuNDY2IDYuODkyLTMuNTU1LTQuNjE1IDcuNDMzLTcuMzE2IDE3LjM4Ny01LjUxMSAyNS44MiAyLjA0MyA5LjU1MyAxMC4zNTQgMTUuMzQ0IDI0LjQyNCAxMy40NzUgMTMuOTMxLTEuODQ2IDMyLjc2OC0xNS4wOTUgMzguMTA5LTIwLjA5MiAxLjYyNy0xLjgwMyAyLjctMy40MjkgNC4xNjMtNi43NDEuNjAzLTEuMzYgMS40NS0zLjE1NSAxLjc2NC01LjE4NC4yMDYtMS4zMjIuMzE1LTIuNzM1LjM0LTQuMTczYTEwMi4zNzggMTAyLjM3OCAwIDAgMCA0LjkzMy0xLjYyNGMuNTYyIDYuMDQ4Ljk3NSAxMi4wMSAxIDE3LjE2NS04LjY4IDEwLjE4LTI4LjU3NyAyMi4wNTItNDYuMjA4IDI2Ljg2Nk01ODEuNjI1IDI0Mi45NTVjLS41OTctOS44NzYtMi4wMzgtMjcuNzUzLTIuODQzLTM2LjgyMS0uNzEyLTguMDcxLTIuMTEyLTE5LjEzMy0zLjEzNi0yOC44N2E1Mi4xMjQgNTIuMTI0IDAgMCAxLS4yNTgtNi4xNjRjLjAzLTEuMDc4IDEuMTEtLjY2MyAyLjE4OS40NDZzMi43NjYgMi41MDIgMy4wODQgMi4zMzJjMS4wNTQtLjU0Ny0uMjA4LTMuMjUxLTEuNjktNi4xNjEtMS40ODItMi45MTUtNy4zNTctMTQuOTcyLTguMzc5LTE1LjQzLS41Mi0uMjMzLTMuMjczIDYuOTktMy40MzIgOC40MDUuNTI2Ljg3MSAxLjg3IDIuMjIxIDIuMDE2IDYuMTYxLjE0OCAzLjk0MyAyLjE0IDIyLjA3IDMuNTc3IDM2LjczLjk5NyAxMC4xOTEgMi4yODUgMjYuODE5IDMuMjIxIDM5LjM1Ny0uMDQ2LjAyLjg4NSAxMS45Mi45ODYgMTMuMjU3LjU3NiA3LjY5OS4yNzcgMTcuMzg1LjIyIDE5LjA2Ny0uMDY0IDEuNjg5IDEuMTcyIDEuMzk1IDIuNDk4LTIuMzUzIDEuMzUtMy44MjcgMi4xMi0xMi4zNyAyLjIyNC0yMC4wODV6TTUzMS41NjMgMjA4LjM4Yy0xLjgwOC41NTItNC42NDYtMS4zNi00LjQzLTUuMzY5LjE5OC0zLjYyMSAxLjc0OC03LjAxMiAyLjM0NS05LjE1Mi44MjItMi45NTMuODI3LTUuOC4xMzItNC4xODYtMS41NjcgMy42MDYtNC40ODQgMTAuNTc4LTUuMDg3IDE1LjMwOS0uNjA1IDQuNzMuOTI5IDcuNzggMy4wMTMgOC44MiAyLjU5NyAxLjMwNCA0LjQ2Ny0uNzY1IDUuNzMzLTMuODE0IDEuMjE2LTIuOTIuOTg2LTYuMzI4LjE0Mi01LjUyNi0uNzA2LjgzOS0uOTcgMy42NDctMS44NDggMy45MThNNTA1LjU3NSAyMjIuOTUyYy45NTktMi41NDcgMS4xODMtNS4wNDQuNDQ2LTMuNjc0LTEuNjYyIDMuMDctNC43NzYgOS01LjY4OSAxMy4xMi0uOTA5IDQuMTIuMTk1IDYuOTA5IDEuOTQ4IDcuOTY1IDIuMTg2IDEuMzIyIDMuOTg1LS4zNzIgNS4zNDctMi45NjggMS4zLTIuNDg0IDEuMzY2LTUuNS41NjctNC44NDctLjY5LjY4OS0xLjE0OCAzLjEzNy0xLjkzNyAzLjMxNy0xLjY0LjM2Mi0zLjk4LTEuNTEyLTMuNDczLTUuMDI3LjQ2LTMuMTY1IDIuMDk1LTYuMDQ0IDIuNzkxLTcuODg2TTQyOS45IDI3Ni42OTdjMS42MDItMi42IDIuNC01LjI5NyAxLjI4Ny0zLjkzNS0yLjQ4MSAzLjA0NC03LjE3OSA4Ljk1Mi05LjA3NCAxMy4yODUtMS44OSA0LjMzMy0xLjI4OCA3LjU4Ny4zOTcgOS4wNjkgMi4xIDEuODQ4IDQuNDQzLjMyOSA2LjQ4OS0yLjI1MiAxLjk2NC0yLjQ3NCAyLjY5OC01Ljc1NiAxLjY3LTUuMTk2LS45LjYzLTEuOTMgMy4yMjEtMi44MzcgMy4yNy0xLjg2NS4wOS00LjAxOC0yLjM5NC0yLjY5OC02LjEzNyAxLjE5NC0zLjM3OCAzLjYwNy02LjIyIDQuNzY2LTguMTAzTTU2Mi41NzUgMjAwLjc5OGMtMS44MzguNDYtNC41NTUtMS41OTgtNC4xLTUuNTkyLjQxMy0zLjYwNCAyLjE2OS02LjkwOCAyLjg5LTkuMDEgMS4wMDItMi45MSAxLjE3NC01Ljc0OS4zODMtNC4xNzktMS43NzUgMy41MjUtNS4xMDYgMTAuMzMyLTUuOTk2IDE1LjAyNy0uODkgNC42OTMuNDU1IDcuODE1IDIuNDc2IDguOTYzIDIuNTIgMS40MjggNC41MDMtLjUzNyA1Ljk1NS0zLjUyIDEuMzg5LTIuODUyIDEuMzY3LTYuMjY2LjQ3MS01LjUwNi0uNzUzLjgwNS0xLjE4MyAzLjU5NC0yLjA3OSAzLjgxN001NjIuMDEzIDI0OS43OTFjMi41MTQgMS40MjkgNC41MDgtLjUzNyA1Ljk1NC0zLjUyIDEuMzg2LTIuODUxIDEuMzY3LTYuMjY1LjQ3Ny01LjUwNS0uNzU5LjgtMS4xODkgMy41OTMtMi4wODUgMy44MTYtMS44MzguNDU4LTQuNTYtMS41OTgtNC4xLTUuNTkxLjQxNC0zLjYwNCAyLjE2Ny02LjkxMSAyLjg5LTkuMDEgMS0yLjkxIDEuMTcyLTUuNzU0LjM4My00LjE4LTEuNzggMy41MjYtNS4xMDUgMTAuMzMzLTUuOTk2IDE1LjAyMy0uODkgNC42OTguNDU1IDcuODIgMi40NzcgOC45NjdNNTk0LjE1IDE4Ny4yMDhjMS4yMS0zLjUyIDEuNDE5LTYuOTU3LjQ2LTUuMDU1LTIuMTUzIDQuMjY0LTYuMTggMTIuNS03LjI1OCAxOC4xODUtMS4wNzQgNS42OC41NTYgOS40NTYgMy4wMDIgMTAuODQ2IDMuMDQzIDEuNzI3IDUuNDUtLjY1IDcuMjA2LTQuMjU3IDEuNjc0LTMuNDUxIDEuNjUtNy41ODcuNTctNi42NjItLjkxMi45Ny0xLjQzNSA0LjM0My0yLjUyIDQuNjE0LTIuMjE5LjU1Ny01LjUxNC0xLjkzMy00Ljk1OC02Ljc2NC41MDEtNC4zNjEgMi42MjQtOC4zNiAzLjQ5OC0xMC45MDciIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMzM3LjMyIDI0OC4wOTNjMS45OC00LjI5IDIuNjk4LTguNTg1IDEuMjQtNi4yOTktMy4yNjEgNS4xMTgtOS40MDUgMTUuMDI4LTExLjUwMyAyMi4wNDgtMi4xMDEgNy4wMjItLjU0NSAxMS45NTUgMi4zNDQgMTMuOTc4IDMuNjA1IDIuNTEzIDYuOTQ0LS4yMTIgOS42Mi00LjU0NSAyLjU2MS00LjE1NiAzLjA3LTkuMzYgMS41OTQtOC4zMi0xLjI3NCAxLjExNS0yLjM3NSA1LjMwNC0zLjc3MiA1LjUyNC0yLjg3LjQ1LTYuNjgzLTMuMDQ5LTUuMzUyLTkuMDYzIDEuMjA1LTUuNDI3IDQuNC0xMC4yMTkgNS44MjktMTMuMzIzTTYxNC42MjUgMjkwLjYyNWMxLjUxNy0xLjI0MyAxNC43MTQtOC4zNTIgMTcuMTQ0LTkuNzk1IDAgMCAyLjQ4NC00LjA1MiAxLjc0LTQuNDgzLS43NDktLjQzLTUuNTY3IDMuOTUtOC41NjMgNC4wNzItMyAuMTIyLTcuMTA1LTIuMDgxLTcuMjM3LTMuODg3LjM5LTEuMzYyIDMuOTk3LTMuNDA5IDUuMy0zLjQ5MiAxLjMwNC0uMDc2IDEuMDkzIDIuODkyIDEuNTI5IDMuMjU0LjQzNS4zNTcgMi4xNy0yLjA0OSAyLjM4OC0zLjA1MS4yMTQtMSAuMDM2LTUuMTktMi4zNS00LjU5LTMuNzc3Ljk1Ni05LjQ3NCA3Ljk2LTEwLjEyNCAxMC4xNjMtLjY1NCAyLjIwOSAyLjg2NiA0LjEzIDUuNDM1IDUuMTc3LS4yMi4wOC0yLjEzNyAxLjAwMi0zLjM1IDIuMjAzIDAgMC0xLjMwNCAxLjQ2MS0xLjkxMiA0LjQyOU01NjkuNjI1IDI5OS40M2MxLjUxNy0xLjI0MyAxNC43MTQtOC4zNDcgMTcuMTQ0LTkuNzk1IDAgMCAyLjQ5LTQuMDUyIDEuNzQtNC40ODMtLjc0OS0uNDMtNS41NjcgMy45NS04LjU2MyA0LjA3Mi0zIC4xMjItNy4xMDUtMi4wODEtNy4yMzctMy44ODcuMzktMS4zNjIgMy45OTctMy40MDkgNS4zLTMuNDg3IDEuMzA0LS4wODEgMS4wOTMgMi44ODQgMS41MjkgMy4yNDQuNDM1LjM2MiAyLjE3LTIuMDQ0IDIuMzg4LTMuMDQ2LjIxNC0xIC4wMy01LjE5LTIuMzUtNC41OS0zLjc3Ny45Ni05LjQ3NCA3Ljk2LTEwLjEyNCAxMC4xNjgtLjY1NCAyLjIwNCAyLjg2NiA0LjEyNiA1LjQzIDUuMTcyLS4yMTQuMDgtMi4xMzIgMS0zLjM0NSAyLjIwMyAwIDAtMS4zMDQgMS40NjEtMS45MTIgNC40MjlNNDY4LjI2MyAxNzIuMDJjMS4xODMgMS4zNzUgOC45MzQgMTEuMjI0IDE1LjAwNyAxNy40MTUgNi4wNyA2LjE5NyAxNi40NzUgMTYuMjI2IDI0LjEyIDIzLjA5OWEyOTQuOTMyIDI5NC45MzIgMCAwIDEgNC42NDYgNC4yNzdjMS45MjggMTQuODA0IDQuMTU4IDMzLjY0MyA1LjA5NCA0MS40MzMuOTIzIDcuNjcgMS4wNiAxNy4zNTcgMS4wOCAxOS4wNDMuMDE2IDEuNjkgMS4yMzIgMS4zNDUgMi4zODgtMi40NDYgMS41NS01LjA4OCAxLjcyOC0xOC4yNjEuOTA3LTI2Ljk2My0uNTEtNS4zNzMtMS43MTItMTUuNDQtMi44NzYtMjQuNzIxIDQuNTE0IDQuNDYgOC43NzggOC44ODQgMTEuNjUyIDEyLjE5NiA1LjI4MyA2LjA4IDkuNzI5IDEwLjY2NyAxMi40MzggMTcuMjAzIDEuOTE3IDQuNjI0IDEuNzIzIDguMzA0IDIuNTA5IDkuMDMuNjguNjI4IDEuNDMtNC45MDUuNTkxLTEwLjI3MS0xLjM1OC04LjcxNC0zLjIyLTEyLjQwOS0xNC40MDctMjQuODUtNC4yNjgtNC43NTctOS4yOTEtOS43MjgtMTQuMjAyLTE0LjM3NS0uMTktMS40MzMtLjM2Mi0yLjc2LS41MTgtMy45MzgtLjM4OS0yLjkxLTQuMTgtMjguMDY2LTQuNDc4LTMwLjg4NS0uMjU1LTIuNDU0LS43MDItNS4zNDMtLjY2Ni02LjcwOC4wMjctMS4wODcuNzE4LS42NjQgMS44MDIuNDQ2IDEuMDggMS4xMDYgMi45NyAzLjA0MyAzLjI5IDIuODc0IDEuMDU3LS41NDctLjEyLTMuNzk2LTEuNjAyLTYuNzExLTEuNDc3LTIuOTEtNi41NjMtMTQuNDIyLTcuNTg1LTE0Ljg3OC0uNTE4LS4yMzMtMy41NjYgNi45ODctMy43MjIgOC40LjUyOC44NzEgMS44NyAyLjIyOSAyLjAxNiA2LjE2NC4wNCAxLjA5OSAxLjAxNiAxMS40NDYgMi4yNCAyMS4yMTYgMS4wODUgOC42MzMgMi40MjcgMTYuODIgMi41NjcgMTcuNzY4bC4wMDUuMDczYy01LjA2NC00LjYxOS05LjUyNi04LjU0Mi0xMi4yMzItMTEuMDA2LTYuMzI4LTUuNzUtMjAuMzAyLTE5LjM5OC0yMC44NjQtMjEuNDQyLS4xMjYtLjY0NS45NTktLjI0OCAyLjk1My4wNzEgMi4wMDIuMzIyIDMuNzgyIDEuMDAzIDMuNDYyLjAyLS4xNDUtLjQ2My0uOTEyLTEuNjA3LTIuODIxLTIuNzg4LTEuOTEyLTEuMTgyLTYuODEtNC4yNDYtMTAuNDUzLTYuNDE0LTMuNjUtMi4xNjUtNS40NTktMy45ODEtNi4yMTItMy40NjItLjM3Mi4yNTYtLjA0IDcuNjczLjE3OCA4LjU5OC45MTIuMDc4IDIuNTE1IDEuMTUyIDMuNjkyIDIuNTMyIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQ3OC4yMzcgMTU4LjY4MWMxLjQ5OS0uMzI5IDguNTk4LS4xNSAxMS4xNzYuMzkzLTEuMDguNzUtOC4zNDMgNC40MTktOS43NzkgNS4yOTMtMS40MjcuODc2LTEuNzg4IDEuMzgyLTEuMDcgMS4yOTYgMi4wODEtLjU3NyA2Ljc3My0xLjI5NiA5LjAyMi0yLjQ2OSAyLjEyLS45OTMgNS43MzMtNS44MzUgNy4xMzgtNy42NCAxLjM5Ny0xLjgwNiAxLjM5Ny0yLjcwNyAxLjA0LTMuMTkxLTEuNDM0LS43OC0xMC42ODctMS41NjMtMTUuMTQ5LS40NTYtMS4yMzUuODM4LTMuNjUxIDUuMzAzLTQuMDA3IDYuMjMyLS4zNTYuOTM1LjEzMS44NzEgMS42My41NDJNNTE3LjcyNSAxNTguMWMxLjIxLS4yNjYgNi45MzMtLjEyMiA5LjAwNi4zMTQtLjg2OC42MDUtNi43MTkgMy41NjMtNy44NzUgNC4yNzItMS4xNTguNzAyLTEuNDQ2IDEuMTEyLS44NjggMS4wNDEgMS42NzktLjQ2IDUuNDYyLTEuMDQgNy4yNzItMS45OSAxLjcwNy0uOCA0LjYxOC00LjcwMyA1Ljc1LTYuMTU0IDEuMTI1LTEuNDU5IDEuMTI1LTIuMTgzLjgzOC0yLjU3LTEuMTUtLjYzNi04LjYxLTEuMjY0LTEyLjIwNi0uMzctLjk5Ny42NzMtMi45MzkgNC4yNzItMy4yMjYgNS4wMjEtLjI5My43NS4xMDQuNzAyIDEuMzA5LjQzNk01NDkuODI1IDE1Ny42ODhjMS4yMDUtLjI2NiA2LjkyNy0uMTIyIDkgLjMxNC0uODYyLjYwNS02LjcxNiAzLjU2My03Ljg3NCA0LjI2Ny0xLjE1My43MDYtMS40NDEgMS4xMTYtLjg2MyAxLjA0NiAxLjY3OS0uNDYxIDUuNzU1LTEuMDQ2IDcuNTY1LTEuOTkxIDEuNzEtLjggMy43MzQtNC43MDMgNC44NjUtNi4xNTkgMS4xMzEtMS40NTMgMS4xMzEtMi4xODMuODM4LTIuNTY1LTEuMTUtLjYzNi04LjAyMy0xLjI2NC0xMS42MTQtLjM3NS0uOTk3LjY3OS0yLjk0NCA0LjI3Ny0zLjIzMiA1LjAyN3MuMTA0LjcwMSAxLjMxNS40MzVNNTI5LjggMTczLjMyMWMtMS45IDIuOTk0LjQ4MiA1LjQxIDEuMzUgNy44MjgtMS4xNzIgMS4wNzEtMi45NzQuMDk0LTMuNTc3LS44NDYtMS4yODItMS45MjctLjg1Mi01Ljg1NS0yLjM2MS02LjQ2LS4zODYgMS4wNjEtLjYzOCAyLjIzOS0uNjM4IDIuMjM5czEuMTQ4IDIuNjg2Ljg2IDQuNDY0Yy0uMTg0IDEuMDc0LTEuMTMxIDIuMzI4LTIuMzgzIDIuMzUzLTMuMzM2LjA4LTEuNjkzLTQuODU3LTIuOTgtNy42NTYtLjI2My42ODQtLjQ1MiAxLjQxOS0uNzU5IDIuMDYuMjM2LjcyOS4zNjQgMS43NTIuNDAzIDIuMzQyLjA3NiAxLjE3Mi0uMDE3IDIuNDM2LjE4MyAzLjQzNi4yNzcgMS40MTYgMS4wNjMgMi4zNTUgMi4yNjMgMi40NDYgMi40OTIuMTk4IDMuNjI5LTEuODIgNC4wMDQtMy40NzcuNDMgMS42OSAzLjcyNSAzLjU1IDUuMzQ3IDEuNDc3IDIuMTQ3LTIuNzM1LjQzLTUuMDc4LS42NzEtNy42NS0uNzk0LTEuOTAyLS41NjQtMy4xNS0xLjA0MS0yLjU1Nk00MzYuMTYyIDE2NS4zODJjLjE3MyAxLjIzMS44MDYgMi4wNzIgMS44MzggMi4xOTkgMi4xMzEuMjcgMy4yMS0xLjQyNCAzLjYxMy0yLjgzMi4yODIgMS40NzIgMy4wMzggMy4yMDQgNC41MzYgMS40ODcgMS45OC0yLjI3Mi42MDgtNC4zNTgtLjIxOS02LjYyLS41OTItMS42NzYtLjMzNy0yLjc0LS43NzUtMi4yNDYtMS43OCAyLjQ5Ny4xNjEgNC42ODIuNzk0IDYuODAyLTEuMDYzLjg3MS0yLjU2Ni0uMDQzLTMuMDQzLS44NzEtMS4wMTMtMS43MTUtLjQ2LTUuMDgtMS43MjYtNS42NjUtLjM4My45MDEtLjY1NCAxLjkwMi0uNjU0IDEuOTAycy44NTcgMi4zNjIuNTIzIDMuODhjLS4yMDUuOTE5LTEuMDggMS45Ni0yLjE2NCAxLjkzMi0yLjg3My0uMDY0LTEuMjI0LTQuMjUyLTIuMjA1LTYuNzExLS4yNTUuNTc1LS40NTUgMS4yMDUtLjc1MyAxLjczNy4xNzMuNjQzLjIzNSAxLjUyNC4yMzUgMi4wMzkuMDIyIDEuMDEyLS4xMiAyLjA5MSAwIDIuOTY3TTUwNC4xNSAyODEuMzYyYy4zMi0uNTA5IDEuMDI3LTEuOTA2Ljg1LTIuODYxcy0xLjM0OS00LjkzOC0zLjYyLTUuOTM2Yy0yLjI1Ni0uOTk4LTMuOTY1IDEuMDk0LTUuMDQ3IDQuMDA0bC0uNzUtLjAxOGMtLjE3OS40My0uNDAzIDEuMDc0LS41ODIgMi4yMzYtLjI1MiAxLjY3OS0uNzI4IDIuNzYtMy42MDcgNS4zNzQtMi40MjEgMi4xODgtMTAuMjY2IDcuNDQzLTE1LjM1IDkuOTEyLTUuMDg5IDIuNDc0LTguNzUxIDQuNjA5LTEwLjEwMSA1LjI1Ny0xLjM0NS42MzgtLjk1NC44NzYuMzkxLjQ3NCAxLjM0Mi0uNCA4LjA5Ny0yLjU3NiAxMC43OS0zLjY4NSAyLjY4Ny0xLjExNyA1Ljk3My0yLjk1MyA5LjkzNC01LjUyMyA0LjQwNS0yLjg1NyA3LjAzNy01LjcxMyA3LjkyMi04LjI0Ni42My0xLjgwNS43OTEtMi41MjcuNzkxLTIuNTI3czEuNjU1Ljk3NyA0LjQ2MiAxLjYxOGMyLjc5Ny42NDMgMy41OTEuNDM2IDMuOTE3LS4wNzhtLTMuNzk2LTUuNjZjMS4yNDYuNDczIDIuMDA1IDEuODMgMi4yMyAyLjY1NC0xLjQzLjAzMi00LjA2My0uNjk0LTUuMTgzLTEuMi42NzQtMS4zMDUgMS44NDYtMS44NyAyLjk1My0xLjQ1NCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik00NzQuMzM4IDI4NC4xNjRjLTMuOTA2LS41NDItMTMuNzQ4LTIuMDM5LTE2LjE1Ni03Ljc1MiAyLjAyMi0yLjk0OCAxMS4zMzItNi42OCAyMi45OTUtMTAuMTczIDExLjY2My0zLjQ4NCAyMy44NS04LjAwNyAyNy4xMjUtMTAuMTkuNzE4LS4yNDMgMi4xMDYtLjE3IDIuMTA2LS4xNy41ODctMS42ODkgMy41MTUtNy42MiAzLjY5OC04Ljg2LTMuMjYuMTg0LTIzLjM1IDEuNjYtMzIuMjc0IDIuMTQtOC45My40OC0yNi4xMjYuMzY0LTMxLjg1Ni4zIDMuNTE0LTIuNTI3IDExLjg1NS03LjQ2IDIzLjc3NS0xMS42NjkgMS41NDUtLjU0NyAyLjk3NS0xLjA0IDQuMzA5LTEuNDg2Ljk5MSAxLjc2NyAxLjcyOCAzLjUxNSAxLjg4MiA1LjAzNy43NTgtLjc4IDEuMzI4LTMuMzY2IDEuMTM2LTYuMDIgNi45NS0yLjIxOCAxMC41My0yLjk1MyAxMi4wNzQtMy4zNy45NzUtMS4yNjQgMi43MDQtNi4zNzUgMi45NjEtMTAuMDktMS4wMzgtMS44OTEtNC4yOS00LjI0Ny03LjE4Mi02LjI3LTMuOTg1LTIuNzgzLTguMjgzLTUuMjEtMTIuNTcyLTQuMTQ4LTUuODY0IDEuNDM4LTcuMDQgMTIuMjExLTUuNjczIDE0LjQ5Ni40MzYuNzIxIDEuNDY4IDIgMi42ODcgMy41NzgtNC4yODQgMS42ODQtOC43NjUgMy42NjQtMTIuNzE0IDUuNzQ2LTguNzk4IDQuNjM0LTE4LjYyIDkuNzA0LTIxLjQ4NiAxNC41NzlsLS44MjEuNGMtLjIzLjQ2MS0yLjA0NCA4LjAwNS0yLjMwNyA4LjgxOCAxLjgzLS4wNjMgMTUuNDkyLS4wMzggMjUuMDA4LS4zMzQgOS41MS0uMzA0IDE3LjgyNi0uNjA2IDIxLjA4My0uNjA2LTQuODI0IDEuMTQzLTE3LjQ2NSA1Ljg0LTIxLjEgOC42MDMtMy42MzQgMi43Ny01LjkxOSA2Ljk4Mi01Ljk3OSAxNC4yMDItMy4zODgtMS4zMjctOS42ODUtNC4zNTgtMTUuMDUxLTExLjYxNi01Ljk4Mi04LjA4OS00Ljc0NC0xNi40MDgtNy4xMzgtMjcuMzI1LTMuNDc5LTE1Ljg0My0xMC45MDctMjkuMjItMTUuNTMzLTMzLjMxMS0xLjU1OSA1LjU5MS0xLjc1OSA5LjgwNS0xLjc1OSA5LjgwNXM1Ljc5NiAxMi44MTQgOC43MyAyMC45OTRjMi45MzMgOC4xODIgNS40NCAxNi4yNDMgNS4zMTYgMTguMDQ4LTIuNDE2IDUuMjk4LTE2LjcxNiAxNi4zOTUtMjguNjM0IDIyLjg5LTExLjMwMiA2LjE2LTIxLjI1OCA2LjgyMy0yNC43ODYgMi40MzctLjY5My0uODU2LTEuMTY0LTEuODY5LTEuNDMtMy4wMTYgMS41MzQtLjcxNyAzLjA3My0xLjQzOSA0LjY1MS0yLjE2IDEwLjE2Mi00LjYzIDI4LjIxLTE0LjM3NCAzMi40MzktMTkuNDg3IDQuNTYzLTYuMTk3IDQuNS0xNC45MjEgMS44MjQtMTkuOTE1LTIuNjY1LTQuOTkyLTYuODQ1LTEwLjc3LTcuMTctMTIuODE0LS4yNTUtLjk2NSAyLjcxNC4zOTIgNC40NjcuNDg0Ljg0OS0uMDY0LjQyNC0xLjIwNi0xLjM5Ny0zLjAxMi0xLjQ1Ny0xLjQzOC03LjA5Mi02LjEwNS05LjI0NS03LjkyNi0uNTQtLjQ2My0uOTQyLS4yNzYtMS4wNTEuMjEzLS40MiAxLjg2NC0xLjI3NyA1Ljg1NS0xLjYwOCA3LjgyNWwuMjMuOTkzYy42MTkuMzY3IDEuMzMxLjc4IDEuNjc2IDEuODEuNDg4IDEuNDYxIDIuMTk0IDUuNTM5IDQuOTkgMTAuNjg1IDIuODAzIDUuMTQzIDYuODUxIDEwLjgyIDcuMjQ4IDEzLjY4Ny0zLjI5MiA0LjE5OS0xOS44OTQgMTMuMTQtMzYuMDY1IDIwLjUxIDEtMy4xIDIuNTc3LTYuNjA0IDQuNjctMTAuNDk3LjU5NC0uNjU4IDEuMTM3LTEuNDcgMS42NC0yLjM4OCAxLjYxNC0yLjk0NyAxLjc3LTYuNTUxLjc5Mi01Ljc4OS0uODM4LjgwOC0xLjQ0IDMuNzMzLTIuNCAzLjkzLTEuOTYzLjQwMy00LjcxOS0xLjg4OS00LjAyNi02LjA4LjYyOC0zLjc4IDIuNjUtNy4xOTQgMy41MjMtOS4zOCAxLjIxLTMuMDI0IDEuNTQyLTYuMDEyLjYyNC00LjM4Ni0yLjA2MiAzLjYzMS01LjkzMiAxMC42NjctNy4xMjEgMTUuNTgyLTEuMTgzIDQuOTA4LjA3NCA4LjI2MyAyLjE0NyA5LjU2Mi43NzUuNDk0IDEuNTE4LjY0OSAyLjIyNC41NTItMS40MTggMi43LTMuMTcxIDYuMDEyLTQuNDUgOS45NjMtNi41MDMgMi45MS0xMi44MyA1LjUxLTE4LjA2OCA3LjM4NC0xOC44MjUgNi43NC0zMi4yNDEgMTAuNzEtNDEuNjI1IDEzLjY1OGwtLjM2Ny4xNjRjLjY5LTIuMjMuNTk3LTQuMTM1LS4xNDMtMy41NjMtLjgzOC44MTMtMS40MzggMy43MzgtMi4zOTYgMy45My0xLjk2NC40MDMtNC43Mi0xLjg4Ni00LjAzLTYuMDguNjMtMy43OCAyLjY1Mi03LjE5IDMuNTI2LTkuMzc3IDEuMjA1LTMuMDIxIDEuNTM5LTYuMDE1LjYyNC00LjM4Ni0yLjA2NSAzLjYzMS01LjkzMyAxMC42NjYtNy4xMjEgMTUuNTc5LTEuMTg3IDQuOTEuMDcgOC4yNjYgMi4xNDEgOS41NjcgMi41OCAxLjYyMSA0Ljc4LS4zNjcgNi40NjctMy40NDFsLjU5Mi0xLjI2NGMuNTg2IDAgMS41NzUtLjEzNyAzLjA1MS0uNDY2IDQuMy0uOTY3IDE1LjA1Mi0yLjUyNyAyOS44MzQtNC40NTQgMTAuOTQ2LTEuNDI0IDE4LjUwMy00LjQzIDI1LjgwOC03Ljc3NWEyOS44OSAyOS44OSAwIDAgMC0uMDA2IDIuNDhjLjM5OCAxMC4wMyA2Ljk3MSAxMi44NjIgMTUuOTYxIDEwLjk4NSA4LjY3Mi0xLjgyIDIwLjc2NS05Ljc3MyAyOC4wMTMtMTUuMTM2IDcuNTU3LTUuNTkyIDExLjkxNy0xMC41ODggMTMuMDMtMTIuMzMgMi4wMTUtNC4yNzMgMi41NjktOC45OTMgMi43MDYtMTEuMjIuNjYgNi4xMzQgMS4xOTQgMTQuNjIzIDYuOTk1IDIxLjkwNCA1LjM0MSA2LjcgMTYuMjg3IDE2LjA1IDM2Ljg3NCAxNi4zMDYuMDY4LTIuNDQ5LS45MTMtMTAuMDk0LS45MTMtMTAuMDk0bS0xLjM2LTYyLjE1NmMyLjk0Ni0zLjMwNyA5LjIzNS0xLjE0NCAxMy45NTUgMy4wNS0yLjQxOS41NjctNS43MDMgMS41NzctOS4zMjcgMi44NzEtMi4xNTMtMi41OTYtNC41NTUtNS4wOTgtNC42MjktNS45Mk0zNTcuMjM2IDE3Ni42NjNjMS4zMzctLjYxIDUuNDI2LTIuNDUgOS44MzQtNS4wMTcgNC4zOTgtMi41NSA4LjUzMi01LjY0IDEwLjU1My03LjY5NC43NzUtLjc4NyAxLjQ2Ni0xLjQwMyAxLjkwNy0yLjEzNSAxLjMyLjU0NyAyLjIzIDEuMTE1IDIuNzk2IDEuMzM4Ljg1Mi4zMjkgMS45ODkuODAyIDIuNzI4LTEuNjI0LjczNy0yLjQyMy0uMjQtMy45ODgtMS42ODEtNS44NTctMS4yMi0xLjU2OC0zLjE1My0zLjkyMy00LjcyMy00LjUwOC0xLjMzLS40OTktMS45NjQgMi40NzQtMS43NiAyLjRoLjg5bC4xNzIuMDg0Yy0xLjgzMy45MjUtMy4yNTEgMy44MDItMy4zOTQgNC44MTItLjE0NSAxLjEuMDYzIDEuOTEgMi42OTMgMi41ODZsMS4wNTcuMzExYy0yLjE5NCAyLjU5OC02LjI4MyA1LjI4NS05LjA3IDcuMTktMy45NTIgMi43MS05LjU2MSA2LjA5NS0xMS4xNTggNy4wNzMtMS41OTcuOTcyLTEuNDYzIDEuMjc5LS44NDQgMS4wNG0yMy43NTQtMTkuMDg5LjE0Mi0xLjI5OWMxLjg0OSAyLjEwNyAzLjIyMSA0LjYxNCAzLjA4NCA0Ljk2OS0uODQ5LjA2OC0xLjkwNi0uNzE3LTMuNzU1LTEuNTA3YTE1Ljg4IDE1Ljg4IDAgMCAwIC41MjktMi4xNjNtLTUuMzA5LjAwM2MtLjAxLS4zOTUuNzAxLTEuNDk0IDIuMjA4LTIuMDk1IDEuNTA0LS42MDUgMi4xNyAxLjA4NCAyLjMgMy4xNGwtLjQ0Ni44MjQtMS4zNTYtLjQ2OWMtMS40MzUtLjQyLTIuNDA1LS42NTgtMi43MDYtMS40IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQ1NS44MTMgMjE2LjMyNmMyLjE2OS0xLjQzMyA4LjEzMi01LjczOCAxMS41MTUtOC41NiAyLjM1Mi0xLjk2IDUuMTE2LTQuODQ2IDYuOTkyLTcuMjg4YTg5Ljc3NSA4OS43NzUgMCAwIDAgMy4yNzYgMi4wMjZjMS45MjkgMS4xMjcgMi43MDQgMi43OTkgMi43MDQgMi43OTkuMzU2LS41NDcgMi4wMTYtMy41NCAxLjM2Ny00Ljk5Ny0uMzktLjQ3Ni0yLjc2MS0xLjg2MS01LjE4NS0zLjM0NSAxLjIzLTIuNzYgMi45MjItNy41MzQuNDk4LTkuMjA1LTIuMDczLTEuNDE5LTUuNTcxLjkyOS03LjE5IDMuOTc1LTEuMzM3IDIuNTIzLTEuNTEgNC42NjMgMS4wNCA2LjQxNS43MTguNDk0IDEuNDA2Ljk2IDIuMDggMS40MDMtMi41NzIgMi44MTQtNy4zMSA2Ljk3Ny0xMC42ODMgOS44MS00LjE4OCAzLjUwNS04LjE0OCA2Ljk0Mi04LjgzOSA3Ljc2MmwtLjIuMzJjLS45MTQtMi41NDgtLjY2NS00LjEyLTEuMzQ0LTMuMjc1LTIuOTM0IDQuNjAxLjc0MiA4LjMzIDIuMDc5IDEyLjA1Mi0xLjgwOCAxLjY0LTQuNTc3LjEzNC01LjUwNi0xLjMwMi0xLjk3OC0yLjk3My0xLjMxNy05LjAxLTMuNjMyLTkuOTQ1LS41OTcgMS42MzEtLjk4NiAzLjQ0Ny0uOTg2IDMuNDQ3czEuNzYxIDQuMTM1IDEuMzE1IDYuODY1Yy0uMjc3IDEuNjUyLTEuNzQgMy41ODQtMy42NiAzLjYxNy01LjEzOC4xMzEtMi42MDUtNy40Ny00LjU4OC0xMS43NzYtLjQwMiAxLjA1Ni0uNjkgMi4xODUtMS4xNzIgMy4xNjMuMzY0IDEuMTMyLjU2NCAyLjcwMi42MTYgMy42MTEuMTMyIDEuODA2LS4wMTYgMy43NDMuMjg4IDUuMjkzLjQyNCAyLjE3OCAxLjYzNSAzLjYyNiAzLjQ4NCAzLjc2IDMuODMyLjMxMiA1LjU4Mi0yLjgwMyA2LjE2My01LjM0My42NiAyLjU5OCA1LjczNiA1LjQ1NSA4LjIzIDIuMjcgMy4zMDctNC4yMTIuNjYtNy44MTgtMS4wMy0xMS43OGwtLjE5OS0uNTEzYy4yMzYuMDgzIDEuMTItLjMwNCAyLjU2Ny0xLjI1OW0xNC45ODgtMjMuNzEzYzEuMjctMi4zNTggMy45NDctMi41NTggNC43NS0xLjMyMi42MzcuOTgyLjY5IDIuOS0uMjcgNC45MjMtMi4zNi0xLjQ4Mi00LjQ2Ny0yLjkzMy00LjQ4LTMuNjAxIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTM3Mi4xNjEgMjAxLjMzNGMtNC41MTQtLjMyLTYuOTQzLTQuNDU1LTguMzMyLTEwLjQyOS0xLjM5MS01Ljk3NC0uNTQtMTMuODUyLS4xNjItMTUuODcuMzc4LTIuMDE2LTEuNzUtLjk3NS0yLjU3NyAzLjkyLS44MjIgNC44OS0xLjY0OSAxMi43MSAxLjI2MyAyMC44OTcgMi45MDYgOC4xNzcgNy44NiAxMS4yMjkgMTIuMjAyIDEwLjE4MyA0LjM0Mi0xLjA0IDguMTYzLTExLjIyOSA5LjUxLTE1LjggMS4zNDUtNC41NzMgNy4zNjMtMjMuMjI0IDEwLjc3LTI0LjIyNy40NzcgMi4yODctMi42NDggOC4wMjItMy42NDggMTYuNjQ1LS45OTQgOC42MjMuNzM3IDE5LjkzMyAxMS42ODIgMjEuOTM5IDEwLjk0NSAyLjAwOCAxOC4zNzEtNS4wOTMgMjEuMDY0LTEwLjAyOSAyLjY5NS00LjkyOCAzLjk1Mi0xMC4xMSA0LjI1Ni0xMi43MTIuMzUgNi42MTcgNC44NjUgMTYuOTQ5IDEzLjYzMiAxOS44OTQgOC40NzIgMi44NDcgMTQuOTQ1LjI0IDE3LjgwNC0zLjQ0OSAyLjU0LTMuMjc3IDQuNjA4LTEwLjAyNiA0Ljc4Ni0xNS4yMDIuMTcyLTUuMTcxLTQuMjk4LTE0LjYzNS01LjI5OC0xNy42NDgtMS4wMDItMy4wMDYtMS41Mi01LjA5My0xLjYwOC02LjEzNC0uMDg1LTEuMDQgMi4yNjMgMS4yMDYgMy43NCAxLjY0Ni45OTkuMi42NDgtMS45NjUtLjU2OC0zLjQ1Mi0xLjIxMy0xLjQ4MS03Ljc4Mi0xMS40NC04LjI0Mi0xMC43NDctLjI4Mi40MTUtMi45MTEgNy43NDItMy4wODQgOC44NjMgMS4wNDEuNjg0IDIuMjQ2IDIuNTY4IDIuMzM3IDQuMzc0LjA4MiAxLjgwNSAxLjgyMSA5Ljc0NSAzLjQyOSAxNC4xNTZzNC43MzMgMTIuODc1IDQuOTUyIDE1LjIwMmMtMy4xMjUgMi4yMDMtMTAuMTY1IDUuMDA3LTE2Ljg1IDIuMTY1LTYuNjg3LTIuODUxLTguODItNi45ODItOS41NTctMTQuMzYxLS40NzEtNC43MTUtLjUxOC0xMy40MDItMi4yLTIwLjY2NC0uOTQ3LTQuMTA2LTIuOTQ0LTguMjc5LTUuMzE2LTEwLjQ5NS0uNTYgMS4zNi0zLjA3OSA5Ljc0NS0zLjA3OSA5Ljc0NS44MjIgMi40MDYgMy4zNzcgMTAuNTA3IDMuMjk1IDE3LjUyNy0uMDkgNy4wMTUtLjY0NCAxMy44OC04LjUxIDE4LjYxLTcuODYxIDQuNzMxLTE5LjA2MSAyLjg0Ny0yMS45NzMtNC41MzUtMi45MTItNy4zOCAzLjU2LTIzLjk4MiAzLjQ3Ni0yOC4zNTMtLjA4OC00LjM3LS44NzQtNC45NzYtMi42OTUtNC4yNTItMS44MjUuNzIyLTUuNTY0IDQuOTM2LTguNzc0IDExLjc5MS0zLjIxNSA2Ljg2LTQuNjQyIDEzLjcxNi02LjQ3MiAxOS40OTItMS44MjIgNS43NzYtNC43MzkgMTEuNjI5LTkuMjUzIDExLjMxTTI0MS4wOTUgMTc1Ljc0OGM1LjU1NS0uNDAzIDEwLjI1LTQuNjE1IDExLjQ2My01LjczNCAxLjIxNi0xLjEyNyAxLjg3LTIuODA2IDEtMi4xNjgtNi40MjYgNS43MzYtMTUuMDI0IDUuODk4LTE1LjUwNiA0LjkzNC4yMTktLjk2MyAyLjQ4MS0yLjUyOCA1Ljc4Mi00LjczMSAyLjAwNS0xLjM0IDMuNzkxLTIuNTk2IDUuMTI4LTQuMzc2bC4zNjQuMDYzYzIuNDQ2LjUzNyA1LjI3IDEuNjA2IDYuMTMzLjc1IDEuNDA1LTEuMzg1IDEuNTkxLTMuNjU0LjA2OC02LjEtMS4yODctMi4wNzctNC4yOS00LjAxLTYuODk3LTUuNDA1LTIuNjAyLTEuMzg4LTMuMTA2LjgyOC0zLjQ0IDEuNjE4LS4zMi43MzctLjE5IDEuMzY1LjM2MSAxLjM4LS44MzggMS4xNDMtMS40MzUgMi42MTQtMS42NTQgMy44My0uMTQyLjc4NS0uMDI3IDEuNDI4LjI5MyAxLjk1Ny4wOTMuMTUuNTc1Ljc0IDEuNDg3IDEuMDg5bDEuMTMyLjM1MmMtMS45NDggMS43OTgtNC4xOTEgMy4yMDYtNS4zNjkgMy45MTgtMi4xMjUgMS4yODQtNC42NDUgMy41My01LjQyNiA1Ljg1Mi0uNzgzIDIuMzMtLjQ4IDMuMTczIDUuMDgxIDIuNzdtOS44Mi0xNi4zODQuMjEzLTEuMTg1di0uNzZjMS43NjEgMS4yODEgNC41NzcgMy43MDcgNC40MDUgNS4xNjEtMS4xMTUtLjI1My0zLjI0LS43MDItNS4yNi0xLjIyLjI1OC0uNjA2LjQ2OS0xLjI3LjY0Mi0xLjk5Nm0tNS4yMjEuMzdjLTEuMjk2LTEuMDM0LS4wMzMtMi4wNjQgMS4xMTUtMi43MjggMS40ODItLjg1NiAyLjM1LS4xNSAzLjEwOSAyLjA5N2E5LjA5NiA5LjA5NiAwIDAgMS0xLjA3NyAxLjg2OWMtMS4xNTMtLjM1Ny0yLjc3Ny0uOTMtMy4xNDctMS4yMzhNMjU3Ljc2IDIzOC40ODFjLTEuNTk3IDEuMzg1LTIuMjE2IDUuODkzLTEuODkgNi4xNjQuMzIzLjI3MSA1LjMxNCAxLjk1NSA2LjA5NCAyLjMybC4zNTctMS4zNThjMi4zNzcgMi4xMzUgNS4wMTIgMTIuNzg3IDUuNTk4IDEyLjgxNy41ODYuMDI4IDEuNDM2LTEuMjA1IDEuOTkyLTQuMDM0LjUxMi0yLjYyNCAxLjAyNC02LjU0OSAxLjU1OC05Ljc0NS40OTktMi45MjUgMS4yNzQtNC41OTkgMy4wMzItNC45MzMgMS43NjEtLjMzIDMuMDY1IDEuOTI3IDMuNTIgMy40NjIgMCAwIDEuMjM1LTIuOTUgMS40OTgtNC43ODQtLjI5My0uOTY1LTMuMDMyLTQuNjAxLTUuMjc4LTMuMzk4LTIuMjQ5IDEuMjA1LTMuNjU3IDYuMzA4LTQuMTExIDkuNDk5LS40NTggMy4xODUtLjgwOCA3LjEzNi0xLjM2MiA3Ljc3LS41OC0yLjcyLTIuNDQtNy41ODgtNC42ODYtMTAuMzIzLTIuNTI2LTMuMDY0LTUuNDc4LTQuMTg5LTYuMzIyLTMuNDU3TTIzNi40NzEgMjMzLjAzNmMyLjA4NS0uNTcyIDYuNzc3LTEuMjkxIDkuMDIzLTIuNDY0IDIuMTE3LS45OTIgNS43My01LjgzNCA3LjEzMi03LjY0IDEuNC0xLjgwNiAxLjQwMy0yLjcxMiAxLjA0Ny0zLjE5LTEuNDMzLS43ODYtMTAuNjg4LTEuNTYzLTE1LjE1My0uNDU3LTEuMjMzLjgzMy0zLjY0NiA1LjI5OC00LjAwMiA2LjIzMy0uMzYxLjkyOS4xMzIuODcgMS42MjcuNTQxIDEuNDk5LS4zMzQgOC42MDEtLjE1NCAxMS4xNy4zODgtMS4wNy43NTUtOC4zMzUgNC40MjQtOS43NyA1LjI5OC0xLjQzLjg3LTEuNzkxIDEuMzgyLTEuMDc0IDEuMjkxTTY2Ni43ODcgMjU4Ljg4NWMtLjIxMy01LjQxMi0yLjg2NS0xMy43Mi0xMi45NDQtMjYuNDY5LTMuNDc5LTQuNDAxLTguMzc0LTEwLjEzLTEzLjUzNy0xNS45OTctLjE0Mi0yLS4yODUtMy44MjktLjQxMy01LjQtLjY3Ny04LjA3NS0yLjk3LTI0LjU1LTMuOTU2LTM0LjI5LS4yNC0yLjQ1Ny0uMjYtNS4wNy0uMjI0LTYuNDM1LjAzNS0xLjA4NC44MTYtLjk0IDEuODkuMTc0IDEuMDczIDEuMTEyIDIuNzI4IDIuNzM1IDMuMDczIDIuNjI0LjczNC0uMjUzLjA5Ni0yLjcxMi0xLjM3LTUuNjI3LTEuNDYyLTIuOTItNi45OTItMTQuNzI5LTguMDA5LTE1LjE4Ny0uNTIzLS4yMzMtMy4xMyA2LjctMy4yOTIgOC4xMTkuNTE4Ljg3MSAxLjg1NCAyLjIyNiAxLjk4MyA2LjE2OS4xMzcgMy45NCAyLjUxNCAyNy4yMTMgMy44ODEgNDEuODc4bC4wNzQuODE4Yy03LjcxOC04LjYxNy0xNC45ODgtMTYuNDc1LTE3Ljk3OS0xOS42NjEtLjUxOC0uNTUyLTEuMDg3LTEuMTgtMS43MDEtMS44NTQtLjQ4OC0zLjkyMy0uOTM3LTcuNjYtMS4yNDYtMTAuNzQ4YTUyLjc5MyA1Mi43OTMgMCAwIDEtLjIyNS02LjQzNGMuMDI1LTEuMDgyLjgxLS45MzUgMS44ODUuMTggMS4wNzkgMS4xMTEgMi43MjggMi43MzQgMy4wNzMgMi42MTguNzM0LS4yNDguMDk2LTIuNzA3LTEuMzcyLTUuNjI3LTEuNDYtMi45Mi03LjIyNi0xNS04LjI0OC0xNS40NTgtLjUxNy0uMjMzLTMuMjQ2IDcuMjUzLTMuNDA3IDguNjYuNTIzLjg3NyAxLjg1NyAyLjIzMiAxLjk4OCA2LjE3NS4wNTIgMS42NzQuNDg4IDYuNzQ5IDEuMDY5IDEzLjE1My01LjExNy02LjA4LTEwLjEyNy0xMi40NDctMTAuNDgzLTEzLjc0LS4xMjYtLjYzOS45NTYtLjI0NiAyLjk1OC4wNzggMS45OTQuMzE5IDMuODY1LjkyIDMuNTQ1LS4wNjgtLjE1LS40NTktLjkxMi0xLjYwNC0yLjgyMi0yLjc4OS0xLjkxMS0xLjE4Mi02LjgwOS00LjI0Ny0xMC40NTItNi40MS0zLjY1MS0yLjE2NC01LjQ1OS0zLjk4NS02LjIxMi0zLjQ2Ni0uMzczLjI1Ni0uMDQxIDcuNjc4LjE3MyA4LjU5Ny45MTcuMDg0IDIuNjEzLjc2NSAzLjY5MiAyLjIwOSAxLjA5IDEuNDQzIDguMDcgMTEuMjI4IDEzLjU4OCAxNy44NDZhOTc2LjE0MyA5NzYuMTQzIDAgMCAwIDYuOTg4IDguMjY1Yy41NyA2LjA5NiAxLjE2NyAxMi4zOTQgMS42NiAxNy42NTYgMS4xMiAxMi4wMDQgNS4xNDYgNDMuNjYyIDUuMTg1IDUzLjk1LTIuOTcyIDIuNzktOS4wNSA2LjY3OS0xNS4zMDQgNi43Ni02LjI1My4wNzgtOS42ODItMS41NjgtMTIuMjAyLTYuMjE3LS43NzgtMS40NDEtMS41MDEtMi44OS0yLjIxOS00LjIwMS0xLjcwMy0zLjExOC01LjUwNS00Ljg2OC05LjE3LTQuMDFsLS41NTkuMTUtLjk5Ny40NzljLTIuNDgyIDEuMjk5LTUuMDQ4IDMuNDc3LTcuNTU3IDYuODU1LTQuMzM5IDUuODYtNy4xMSAxMi4yMTYtMTAuMzIgMTcuNzIyLTMuMzQ1IDUuNzMzLTUuOTEyIDkuNTgtMTEuNzc5IDguNjYtNC4xMy0uNjQ4LTcuMjY3LTQuMTktOS4yLTguNTQ5IDUuNDMxLTMuNzU4IDkuMzc1LTguNjYgMTIuMjYtMTUuNDU1IDMuNzU1LTguODMgNS4wOTQtMTguNzg1IDQuNzYtMjkuOTc5LS4zMi0xMC41MzUtNS4xMjItMzUuMzItNi4zOS00NC44MTgtMS4yNjYtOS41MDQtMy4wODQtMTcuMzA0LTIuODczLTE5LjMzMy4xOTctMS45NTcgMy4zMTQgMi42NTIgNC45MSAyLjk5Ni44MTctLjE4Mi4zNzktMy4xMjItMS4xNzItNS42MDctMS4wNTEtMS42ODktNC4zODItOS4zNzItNi41NjItMTMuMDc3LTEuMDI1LTEuNzUzLTEuMjcxLTIuNzY4LTEuNzQ4LTIuOTc2LS40NzEtLjIxNS00LjEgNy41MzctMy42NjIgOC4zOCAxLjA3NCAxLjUzNSAxLjgwOCAyLjI2NyAyLjAzMiA1LjAxNy4yMyAyLjc1IDIuNzE3IDIyLjkzOCA0Ljg5MiAzNy44MDYgMS42MzggMTEuMjE5IDUuMjU3IDMxLjU5NyA1LjcyMiA0Ni42Ni4xNTQgNC45MTUtLjU0OCA4LjQ0My0xLjE1NiAxMC40MTMtMS41NjEgMy4wMTktNC4xMDYgNi4zNzItMTMuMDQ2IDEyLjczNi0xLjM4LTguOTkzLjEyLTE2LjI5OS0xLjE4OS0xNi45NzUtMS40NzYuMTYtMS43MTIgNC4zNS0xLjg3OSA5LjUyMi0uMDgyIDIuMzg4LjAyMiA1LjY5NS40NzEgOS4yNDgtMTAuOTggNy4zNC0yNS40ODcgMTQuMDIyLTMyLjI5OSAxNy41OS0zLjk5NiAyLjA5Ny0yLjU1NSAyLjU4Ni44MjcgMS41NCAzLjM4My0xLjA1MSAyMS45NzMtNS45MjYgMzEuODk3LTExLjE0NWwxLjA2OC0uNTkzYy41MDQgMS43NSAxLjExNSAzLjQ0NCAxLjg2NiA1LjAwNyAzLjMzOCA2LjkzOSA4LjExIDExLjA1OSAxMy4yNzkgMTAuNjU2IDQuMzQ3LS4zMzQgNy41LTQuOTg2IDEwLjI1LTEwLjUzNSAyLjc4LTUuNjE2IDcuNDc3LTE2LjI4MyAxMi4wODQtMjAuMjUxIDEuNzctMS41MyAzLjYtMi43NCA1LjM4LTMuNDY3IDAgMCAzLjE0Ny0xLjA1MSA2LjA0Mi44NCAxLjAzOC42ODQgMS44MTMgMS42NTcgMi4zMDQgMi43NDYgMS4xNDIgMi41IDIuNDkyIDUuNjggNS4yNTMgOC4zNDQgNC44NjUgNC42ODUgMTIuNjg3IDMuNzE4IDE4LjU1NS45OTMgNS44NTgtMi43MjggOC44NS02Ljk4MiAxMC4xNTMtMTIuMDM3IDIuMjI0LTguNjQ4IDEuODY4LTE3LjUwOSAxLjQ0NC0yNS4zOC0uNDktOC45ODItMS45MjYtMTguMTYyLTIuNzQyLTI3Ljg5LS4yNjMtMy4xMjctLjc3NS03LjQ3Ny0xLjM2NC0xMi4xOTUgNS43MTQgNi41OTQgMTEuNjQ2IDEzLjI4NyAxNS4yNDYgMTYuOTQ3IDEuMjQgMS4yNjMgMi41NSAyLjY2NiAzLjg5NSA0LjE0OCAxLjA3MyAxNC43MjMgMi4xMDYgMzMuMTQ3IDIuNjUxIDQwLjg3OC41NCA3LjcwNC4xOTIgMTcuMzg4LjEyOSAxOS4wNzItLjA2NiAxLjY4NC44NyAxLjM5NSAyLjIxNi0yLjM0MyAxLjgwMi01LjAxNyAyLjkzMy0xOC4xNzMgMi41MzktMjYuODk3LS4yMzYtNS4xODQtLjc1My0xNC42MzQtMS4zMTItMjMuNTc0YTQwMi42NDkgNDAyLjY0OSAwIDAgMSAxMS4zODMgMTQuMTgyYzQuODcgNi4zNzYgOS4zNDMgMTMuOTU4IDEwLjkwNyAxOC42ODkgMS41NjIgNC43MzUgMS43MzQgNi4xMzggMi4wMzggNi45ODJzMS42NS0yLjYxMSAxLjQzNi04LjAyM001ODQuNTUgNDM5LjAxM2MtLjQ0LTEuMjU5LTEuNzg3LTIuMTgyLTMuMzk4LTIuMTgycy0yLjk1NS45MjMtMy4zOTggMi4xODJINTYyLjVhMTMuNjQ1IDEzLjY0NSAwIDAgMSAuNDc2LTUuMDVsMzEuNDkzLS4wMTkuODc3IDEuNDc4YTE1LjcyMiAxNS43MjIgMCAwIDAgMi45NTIgMy41OXptMjAuODQ4LTE0LjYzNWgtMzcuODQ1YzIuOTA5LTIuMSA0LjQzNC01LjE2MiA0LjAyNS04LjI2MS0uMjYxLTEuOTUzLTIuMTk2LTMuNDEyLTQuNTU1LTMuNjFoLTEuMTg1Yy0yLjg3LjI4LTQuOTUxIDIuMzQ5LTQuNjQ4IDQuNjJsLjExNS44NzQuMTQgMS4zNDRhMTMuNjMxIDEzLjYzMSAwIDAgMS0uNDcgNS4wMzNIMjgxLjIzNmM0LjE1NCA2LjA0NCAxMS43MjggOS43NSAxOS45MDYgOS43NDRsMjU1LjI2Ni0uMTU3Yy0yLjkyIDIuMTAyLTQuNDUgNS4xNy00LjAzOCA4LjI3NS4zMDIgMi4yNzIgMi44NyAzLjg5IDUuNzQgMy42MSAyLjg2Ny0uMjggNC45NDgtMi4zNDkgNC42NDktNC42MjRsLS4xMTYtLjg3aDE1LjAwMmMuMjY0IDEuNDY0IDEuNzI2IDIuNTg3IDMuNTA3IDIuNTg3czMuMjQ0LTEuMTIzIDMuNTEtMi41ODhoMTUuMjZ2LS4wMzVjMy4xODcgMi4yNiA3LjIzNiAzLjU2IDExLjUyIDMuNTYgNC4wMyAwIDcuMjk1LTIuOCA3LjI5NS02LjI1NXYtMS44MDhjMC02LjMxNi01Ljk3LTExLjQ0LTEzLjMzOC0xMS40NCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==")}
+@media(max-width:600px){.flagbar{max-width:134px;gap:2px}.flagbar a{width:22px;height:22px}}
+html[dir="rtl"] .flagbar{flex-direction:row-reverse}
+/* RTL (he/ar) — mirror text flow + accent borders + slide-in menu for the article-page components. */
+html[dir="rtl"] .crumb,html[dir="rtl"] p,html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] li,html[dir="rtl"] td,html[dir="rtl"] th,html[dir="rtl"] .intro,html[dir="rtl"] .lead,html[dir="rtl"] .day h3,html[dir="rtl"] .cd h3,html[dir="rtl"] .cd p,html[dir="rtl"] .faq summary{text-align:right}
+html[dir="rtl"] ul,html[dir="rtl"] ol{padding-right:1.1em;padding-left:0}
+/* left accent borders → right in RTL */
+html[dir="rtl"] .quick-answer{border-left:1px solid #cbeef5;border-right:5px solid #06B6D4}
+html[dir="rtl"] .day{border-left:1px solid var(--bdr);border-right:5px solid var(--teal)}
+/* FAQ +/– marker floats right in LTR → float left in RTL */
+html[dir="rtl"] .faq summary::after{float:left}
+/* mobile menu slides in from the left in RTL (from the right in LTR) */
+html[dir="rtl"] .mm{transform:translateX(-100%)}
+html[dir="rtl"] .mm.open{transform:translateX(0)}
 .lang a{padding:5px 10px;color:var(--teal);border-radius:999px}.lang a.on{background:var(--teal);color:#fff}
 .cta{font-family:'Outfit';font-size:13px;font-weight:800;background:linear-gradient(135deg,var(--coral),var(--coral-dk));color:#fff;padding:11px 20px;border-radius:999px;box-shadow:0 10px 22px rgba(244,63,94,.32);border:none;cursor:pointer}@media(max-width:820px){.cta{display:none}}
 .hb{display:none;background:none;border:none;font-size:24px;color:var(--ink);cursor:pointer}@media(max-width:820px){.hb{display:block}}
@@ -328,6 +489,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-sig{display:flex;gap:9px;align-items:flex-start;background:var(--soft);border-left:4px solid var(--teal);border-radius:0 12px 12px 0;padding:10px 14px;margin-bottom:15px;font-size:13.5px;line-height:1.6;color:#1e293b}
 .resto-sig b{font-family:'Outfit';color:var(--teal-dk);font-weight:800}
 .resto-desc{font-size:15px;color:#1e293b;line-height:1.8}.resto-desc strong{color:var(--ink);font-weight:700}.resto-desc p{margin:0 0 12px}.resto-desc p:last-child{margin-bottom:0}
+/* bookable-activity card: tip · review pros/cons · full-width book button (type:'activity*' cards) */
 .resto-cardtip{display:flex;gap:10px;align-items:flex-start;margin:0 24px 4px;padding:14px 18px;background:#fffbeb;border:1px solid #fde68a;border-radius:14px}
 .resto-cardtip .rct-i{font-size:18px;flex-shrink:0}.resto-cardtip .rct-b{font-size:14px;line-height:1.7;color:#78350f}.resto-cardtip b{color:#92400e}
 .resto-pc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 4px;padding:0 24px 24px}@media(max-width:620px){.resto-pc{grid-template-columns:1fr}}
@@ -335,6 +497,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-pc .pc-pro{background:#ecfdf5;border:1px solid #a7f3d0}.resto-pc .pc-con{background:#fff7ed;border:1px solid #fed7aa}
 .resto-pc .pc-h{font-family:'Outfit';font-weight:800;font-size:12.5px;margin-bottom:8px}.resto-pc .pc-pro .pc-h{color:#047857}.resto-pc .pc-con .pc-h{color:#c2410c}
 .resto-pc ul{margin:0;padding-left:18px}.resto-pc li{font-size:13.5px;line-height:1.7;color:#1e293b;margin-bottom:4px}
+html[dir="rtl"] .resto-pc ul{padding-right:18px;padding-left:0}
 .resto-book{display:flex;gap:12px;flex-wrap:wrap;padding:4px 24px 24px}
 .resto-pc + .resto-book,.resto-cardtip + .resto-book{margin-top:-8px}
 .resto-book .bk{display:flex;align-items:center;gap:13px;text-decoration:none;border-radius:16px;padding:15px 20px;font-family:'Outfit',sans-serif;transition:transform .14s ease,box-shadow .14s ease}
@@ -347,6 +510,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .resto-book .kl-main small{font-size:12.5px;line-height:1.45;opacity:.94;font-weight:500}
 .resto-book .kl-arr{font-size:23px;font-weight:800;flex-shrink:0;transition:transform .14s ease}
 .resto-book .bk-klook:hover .kl-arr{transform:translateX(4px)}
+html[dir="rtl"] .resto-book .kl-arr{transform:scaleX(-1)}
+html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) translateX(4px)}
 .resto-book .bk-stay{flex:1 1 200px;justify-content:center;background:#ecfeff;border:1.5px solid #a5f3fc;color:#0e7490;font-weight:800;font-size:14.5px}
 .resto-book .bk-stay:hover{background:#cffafe;border-color:#67e8f9}
 .resto-book .bks-i{font-size:17px}
@@ -545,13 +710,13 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     <a href={link('country-thailand.html#hotels')}>{S.nav[1]}</a>
     <a href={link('country-thailand.html#see')}>{S.nav[2]}</a>
     <a href={link('country-thailand.html#eat')}>{S.nav[3]}</a>
-    <a href="/trip" style="font-weight:700">{tr('Plan trip', 'วางแผนทริป', 'Планировать поездку')}</a>
-    <a href={link('plan-your-trip.html')}>{tr('Plan Trip', 'เตรียมตัว', 'Подготовка')}</a>
+    <a href="/trip" style="font-weight:700">{!isTh ? 'Plan trip' : 'วางแผนทริป'}</a>
+    <a href={link('plan-your-trip.html')}>{!isTh ? 'Plan Trip' : 'เตรียมตัว'}</a>
     <a href={link('about.html')}>{S.nav[4]}</a>
   </div>
   <div class="nr">
-    <span class="lang"><a href={`/${data.slug}`} class={isEn || lang === 'ru' ? '' : 'on'}>TH</a>{enExists && <a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a>}{ruExists && <a href={`/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''}>RU</a>}</span>
-    <a href={link('search.html')} aria-label={tr('Search', 'ค้นหา', 'Поиск')} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
+    <div class="flagbar" role="navigation" aria-label="Language">{LOCS.map((l) => <a href={locHref(l)} class={l === lang ? 'on' : ''} title={LANGNAME[l] || l} aria-label={LANGNAME[l] || l}><span class={`flg flg-${l}`}></span></a>)}</div>
+    <a href={link('search.html')} aria-label={!isTh ? 'Search' : 'ค้นหา'} style="font-size:17px;padding:6px 9px;line-height:1">🔎</a>
     <button class="cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">{S.cta}</button>
     <button class="hb" id="hb">☰</button>
   </div>
@@ -559,12 +724,11 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <div class="mm" id="mm">
   <div class="mm-top"><a href={link('/')} class="logo">Thailand<em>Addict</em></a><button class="mm-x" id="mmx">✕</button></div>
   <a href={link('/')}>{S.home}</a>
-  <a href="/trip">{tr('Plan trip', 'วางแผนทริป', 'Планировать поездку')}</a>
+  <a href="/trip">{!isTh ? 'Plan trip' : 'วางแผนทริป'}</a>
   <a href={link('country-thailand.html')}>{S.nav[0]}</a>
   <a href={link(data.crumbCityHref)}>{data.crumbCity}</a>
-  <a href={link('plan-your-trip.html')}>{tr('🧭 Plan Your Trip', '🧭 เตรียมตัวเที่ยว', '🧭 Подготовка к поездке')}</a>
-  <a href={link('search.html')}>{tr('🔎 Search', '🔎 ค้นหา', '🔎 Поиск')}</a>
-  <span class="lang" style="margin:10px 0"><a href={`/${data.slug}`} class={isEn || lang === 'ru' ? '' : 'on'}>TH</a>{enExists && <a href={`/en/${data.slug}`} class={isEn ? 'on' : ''}>EN</a>}{ruExists && <a href={`/ru/${data.slug}`} class={lang === 'ru' ? 'on' : ''}>RU</a>}</span>
+  <a href={link('plan-your-trip.html')}>{!isTh ? '🧭 Plan Your Trip' : '🧭 เตรียมตัวเที่ยว'}</a>
+  <a href={link('search.html')}>{!isTh ? '🔎 Search' : '🔎 ค้นหา'}</a>
   <a href={link('about.html')}>{S.nav[4]}</a>
 </div>
 
@@ -579,7 +743,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       {data.chips && data.chips.length > 0 &&
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div>
-    <a class="rhero-scroll" href="#r1"><span>{isActivity ? tr(`Explore all ${restos.length}`, `เลื่อนดูทั้ง ${restos.length} กิจกรรม`, `Смотреть все ${restos.length}`) : tr('Explore all 10', 'เลื่อนดูทั้ง 10 ร้าน', 'Смотреть все 10')}</span><em>↓</em></a>
+    <a class="rhero-scroll" href="#r1"><span>{isActivity ? A.scrollAll(restos.length) : (!isTh ? 'Explore all 10' : 'เลื่อนดูทั้ง 10 ร้าน')}</span><em>↓</em></a>
     {data.heroCredit && <span class="rhero-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener">{data.heroCredit}</a> : data.heroCredit}</span>}
   </section>
 ) : (
@@ -592,8 +756,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
         <div class="chips">{data.chips.map((c) => <span class="chip" set:html={c} />)}</div>}
     </div></section>
     {data.heroImg && (data.heroCredit
-      ? <figure class="heroimg-fig"><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" /><figcaption class="heroimg-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener" set:html={data.heroCredit} /> : <span set:html={data.heroCredit} />}</figcaption></figure>
-      : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />)}
+      ? <figure class="heroimg-fig">{hasWebp(data.heroImg) ? <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" /><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" /></picture> : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.closest('figure')?.remove()" />}<figcaption class="heroimg-cred">{data.heroCreditHref ? <a href={data.heroCreditHref} target="_blank" rel="nofollow noopener" set:html={data.heroCredit} /> : <span set:html={data.heroCredit} />}</figcaption></figure>
+      : hasWebp(data.heroImg) ? <picture><source srcset={asset(webpOf(data.heroImg))} type="image/webp" /><img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" /></picture> : <img class="heroimg" src={asset(data.heroImg)} alt={data.h1.replace(/<[^>]+>/g,' ')} onerror="this.remove()" />)}
   </>
 )}
 {isResto &&
@@ -627,7 +791,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 
 <article class="body"><div class={hasRail ? 'wrap rgrid' : 'wrap'}>
   <div class="rmain">
-  <p class="byline">✍️ {byLabel}{byName}</p>
+  <p class="byline">✍️ {S.byLabel}{byName}</p>
   {isResto ? (
     factChecked
       ? <p class="rfresh">📝 {S.writtenL} {fmtDate(published)} · ✅ {S.factCheckL} {fmtDate(factChecked)}{S.freshNote}</p>
@@ -696,15 +860,15 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type={isActivity ? 'activity' : 'eat'} data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label={isActivity ? (S.saveAria || S.saveEatAria) : S.saveEatAria}><span class="rs-ico">🔖</span> <span class="rs-label">{S.save}</span><span class="rs-label-sm">{S.saveSm}</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type={isActivity ? 'activity' : 'eat'} data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เก็บร้านนี้ลงแผนการเดินทาง"><span class="rs-ico">🔖</span> <span class="rs-label">เก็บลงแผน</span><span class="rs-label-sm">เก็บแผน</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
           {(b.igPost || b.fbPage || b.libImg || !b.img) ? (
             <div class="resto-embed">
               <div class="re-tabs">
-                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>{S.picTab}</button>}
-                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>{S.mapTab}</button>
+                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>🖼️ รูป</button>}
+                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
                 {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 IG</button>}
                 {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 FB</button>}
               </div>
@@ -717,26 +881,26 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
                           <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={b.alt || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
                         ))}
                       </div>
-                      <button class="re-cbtn re-cprev" type="button" aria-label={S.prevImg}>‹</button>
-                      <button class="re-cbtn re-cnext" type="button" aria-label={S.nextImg}>›</button>
+                      <button class="re-cbtn re-cprev" type="button" aria-label="รูปก่อนหน้า">‹</button>
+                      <button class="re-cbtn re-cnext" type="button" aria-label="รูปถัดไป">›</button>
                       <span class="re-ccount">1/{b.gallery.length + 1}</span>
-                      <span class="re-zoomhint">{S.zoomHint}</span>
+                      <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
                     </div>
                   ) : (
-                    <Fragment><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">{S.zoomHint}</span></Fragment>
+                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
                   )}
                 </div>}
-                <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=${lang === 'ru' ? 'ru' : isEn ? 'en' : 'th'}&output=embed`}></iframe>
+                <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
                 {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
                 {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
               </div>
-              <div class="re-foot">{S.embedFoot}</div>
+              <div class="re-foot">🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)</div>
             </div>
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
-                <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />
-                <span class="re-zoomhint">{S.zoomHint}</span>
+                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
+                <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
               {b.gallery && b.gallery.length > 0 && (
@@ -752,6 +916,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           <div class="resto-side">
             {b.duration && <div class="resto-price"><span class="pl">{S.durationL}</span><span class="pv" set:html={b.duration} /></div>}
             {b.priceRange && <div class="resto-price"><span class="pl">{S.priceLabel}</span><span class="pv" set:html={b.priceRange} /></div>}
+            {/* when the card has a book button, the stay link moves into the wide .resto-book row below — don't render it twice */}
             {((b.stayHref && !b.bookHref) || b.mapHref || b.fbHref) &&
               <div class="resto-act">{b.stayHref && !b.bookHref && <a class="rbtn stay" href={link(b.stayHref)} set:html={'🏨 ' + (b.stayLabel || S.stayDefault)} />}{b.mapHref && <a class="rbtn map" href={b.mapHref} target="_blank" rel="nofollow noopener">{'📍 ' + S.mapLabel}</a>}{b.fbHref && <a class="rbtn fb" href={b.fbHref} target="_blank" rel="nofollow noopener">{S.fbLabel}</a>}</div>}
           </div>
@@ -784,11 +949,11 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
       {b.bookHref &&
         <div class="resto-book">
           <a class="bk bk-klook" href={goB(b.bookHref)} target="_blank" rel="nofollow noopener sponsored">
-            <span class="kl-badge">klook</span>
-            <span class="kl-main"><b set:html={b.bookLabel || S.bookWideL || (S.bookL + (b.bookProvider || 'Klook'))} /><small set:html={S.bookSub || ''} /></span>
+            <span class="kl-badge">{(b.bookProvider || 'Klook').toLowerCase()}</span>
+            <span class="kl-main"><b set:html={bookWideL(b)} />{isActivity && <small set:html={A.bookSub} />}</span>
             <span class="kl-arr">→</span>
           </a>
-          {b.stayHref && <a class="bk bk-stay" href={link(b.stayHref)}><span class="bks-i">🏨</span><span class="bks-t" set:html={b.stayLabel || S.stayWideL || S.stayDefault} /></a>}
+          {b.stayHref && <a class="bk bk-stay" href={link(b.stayHref)}><span class="bks-i">🏨</span><span class="bks-t" set:html={b.stayLabel || (isActivity ? A.stayWide : S.stayDefault)} /></a>}
         </div>}
     </section> :
     b.kind === 'embed' ? <section class="resembed" style="margin:28px 0;padding:18px;border:1px solid #e6eef2;border-radius:18px;background:#f6fdff">
@@ -839,7 +1004,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? tr('See all activities', 'ดูกิจกรรมทั้งหมด', 'Смотреть все мероприятия')} />}
+      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (!isTh ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
     </section> :
     b.kind === 'localtips' ? <section class="localtips">
       <h3 class="lt-h">💡 <span set:html={b.title} /></h3>
@@ -904,7 +1069,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 </div></article>
 
 {isResto && (
-  <script is:inline define:vars={{ TW: { save: S.save, saveSm: S.saveSm, savedFull: S.savedFull, savedSm: S.savedSm, lbClose: S.lbClose, lbPrev: S.lbPrev, lbNext: S.lbNext } }}>
+  <script is:inline>
   (function () {
     // photo gallery — swap main image + credit on thumbnail click
     document.addEventListener('click', function (e) {
@@ -934,7 +1099,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     });
     // in-page lightbox — tap any photo to zoom WITHOUT leaving the page (no IG/FB bounce)
     var ov = document.createElement('div'); ov.className = 'lbx-ov';
-    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="' + TW.lbClose + '">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="' + TW.lbPrev + '">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="' + TW.lbNext + '">›</button>';
+    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="ปิด">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="ก่อนหน้า">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="ถัดไป">›</button>';
     document.body.appendChild(ov);
     var ovImg = ov.querySelector('.lbx-img'), ovCap = ov.querySelector('.lbx-cap'), ovCred = ov.querySelector('.lbx-cred'), ovCount = ov.querySelector('.lbx-count');
     var ovPrev = ov.querySelector('.lbx-prev'), ovNext = ov.querySelector('.lbx-next');
@@ -970,7 +1135,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? TW.savedFull : TW.save; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? TW.savedSm : TW.saveSm; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? 'เก็บแล้ว' : 'เก็บลงแผน'; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? '✓ เก็บแล้ว' : 'เก็บแผน'; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
@@ -1049,8 +1214,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 <script is:inline>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
 </script>
-<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label={S.fabAria} style="display:none">🧳<span class="tf-l">{S.fabLabel}</span><b id="taTripN">0</b></a>
-<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">{S.viewPlan}</a></div>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">ดูแผนเที่ยว →</a></div>
 <style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
 .ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
 .ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
@@ -1068,7 +1233,7 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .lbx-close{top:16px;right:16px;width:42px;height:42px;font-size:20px}
 .lbx-count{position:absolute;top:22px;left:18px;color:#cbd5e1;font-size:13px}
 </style>
-<script is:inline define:vars={{ TWT: { thisPlace: S.thisPlace, toastAdded: S.toastAdded, toastRemoved: S.toastRemoved } }}>(function(){
+<script>(function(){
   var KEY='ta_wishlist';
   function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
   var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN');
@@ -1077,8 +1242,8 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
   var toast=document.getElementById('taPlanToast'),tHide;
   window.taPlanToast=function(added,name,count){
     if(!toast)return;
-    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||TWT.thisPlace);
-    toast.querySelector('.tpt-msg').textContent=added?TWT.toastAdded.replace('{n}',nm).replace('{c}',count):TWT.toastRemoved.replace('{n}',nm);
+    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||'ร้านนี้');
+    toast.querySelector('.tpt-msg').textContent=added?('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)'):('เอา “'+nm+'” ออกจากแผนแล้ว');
     toast.querySelector('.tpt-link').style.display=read().length?'inline-block':'none';
     toast.classList.add('show');clearTimeout(tHide);
     tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);

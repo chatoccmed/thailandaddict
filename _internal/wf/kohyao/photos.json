@@ -1,0 +1,148 @@
+[
+  {
+    "slug": "review-six-senses-yao-noi-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "https://ak-d.tripcdn.com/images/0202112000skgs6kw3320_W_1280_853_R5_Q70.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0203a12000skgs26v799A_W_1280_853_R5_Q70.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0200g12000skj9lws5760_W_1280_853_R5_Q70.jpg",
+        "kind": "view"
+      },
+      {
+        "url": "https://ak-d.tripcdn.com/images/0200p12000skgs6dsB6A5_W_1280_853_R5_Q70.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: Trip.com",
+    "sourceUrl": "https://us.trip.com/hotels/ko-yao-noi-hotel-detail-1517876/six-senses-yao-noi/",
+    "notes": "Hotel: Six Senses Yao Noi (Koh Yao Noi, Phang Nga Bay). The OFFICIAL site (photoSourceUrl https://www.sixsenses.com/en/hotels-resorts/asia-the-pacific/thailand/yao-noi/) is CDN/Cloudflare-blocked — WebFetch returned 403 and curl with a browser UA also got HTTP 403 (457-byte block page), so no official-site images could be confirmed. Trip.com hotel page returned 418 to WebFetch but curl (browser UA) got a full HTTP 200 (517KB) with real gallery images on ak-d.tripcdn.com. I downloaded and visually confirmed all 4 chosen images are genuine photos of THIS resort: (1) infinity pool overlooking Phang Nga Bay limestone karsts, (2) thatched villa interior looking out to the bay, (3) sea/karst view framed by palms and jungle, (4) the resort's signature open-air wooden outdoor shower. All are direct .jpg at 1280x853 and download as valid image/jpeg (HTTP 200). I skipped two other gallery images that were guest food snapshots rather than hotel/room imagery. No facebook/fbcdn/scontent or third-party-blog URLs used."
+  },
+  {
+    "slug": "review-treehouse-villas-koh-yao-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.treehouse-villas.com/wp-content/uploads/2021/11/hero-treehouse-villa-600x400.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.treehouse-villas.com/wp-content/uploads/2021/11/beachfront-600x400.jpg",
+        "kind": "beach"
+      },
+      {
+        "url": "https://www.treehouse-villas.com/wp-content/uploads/2021/11/hilltop-pool-villa-600x400.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://www.treehouse-villas.com/wp-content/uploads/2025/01/TreeHouse-Villas_Landscape-5-600x400.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ TreeHouse Villas Koh Yao (treehouse-villas.com)",
+    "sourceUrl": "https://www.treehouse-villas.com/",
+    "notes": "Fetched the hotel's official website (treehouse-villas.com). All 4 URLs are real WordPress-uploaded photos actually present in the page HTML (img src / featured images), not invented. Selected: (1) hero-treehouse-villa = signature lofted TreeHouse pool villa; (2) beachfront = Beachfront Pool Villa / private beach; (3) hilltop-pool-villa = Hilltop 3-BR pool villa; (4) Landscape-5 = resort/bay view. Other confirmed real photos available if needed: 06-TreeHouse-Villas_Hero-shot-600x600.jpg, 1-Clubhouse-2-600x400.jpg, The-Original-TreeHouse-Villas-Koh-Yao-1..4-600x600.jpg, and a webp (2025/05/16.webp). No facebook/fbcdn/scontent, no OTA thumbnails, no stock/review-blog sources used. Trip.com page not needed since official images were directly confirmed."
+  },
+  {
+    "slug": "review-anantara-koh-yao-yai-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "https://assets.anantara.com/image/upload/q_auto,f_auto,c_limit,w_1920/media/minor/anantara/images/anantara-koh-yao-yai-resort-and-villas/01_homepage/anantara_koh_yao_yai_resort_villas_homepage_01_1920x700.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://assets.anantara.com/image/upload/q_auto,f_auto,c_limit,w_1045/media/minor/anantara/images/anantara-koh-yao-yai-resort-and-villas/02_accommodation/one-bedroom-beachfront-pool-villa/anantara_koh_yao_yai_beach_pool_villas_exteriors.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://assets.anantara.com/image/upload/q_auto,f_auto,c_limit,w_1045/media/minor/anantara/images/anantara-koh-yao-yai-resort-and-villas/02_accommodation/family-suite/anantara_koh_yao_yai_sea_view_family_suite_interior_exterior_view.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://assets.anantara.com/image/upload/q_auto,f_auto,c_limit,w_1045/media/minor/anantara/images/anantara-koh-yao-yai-resort-and-villas/01_homepage/anantara_koh_yao_yai_resort_and_villas_main_home_page_may_25_944-x-510.png",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Anantara Koh Yao Yai Resort & Villas",
+    "sourceUrl": "https://www.anantara.com/en/koh-yao-yai-phuket",
+    "notes": "WebFetch was blocked on both the official site (403) and Trip.com (418), matching the research.json notes. I retrieved the official page via curl with a browser User-Agent (HTTP 200, 237KB) and extracted real image URLs from the HTML. All 4 chosen URLs are from the hotel's OWN official Anantara Cloudinary CDN (assets.anantara.com) and were re-verified as directly downloadable (HTTP 200, content-type image/jpeg, 56-131KB each). Selected: hero/exterior (homepage_01_1920x700), one-bedroom beachfront pool villa exterior (pool), sea-view family suite interior/exterior (room), and the main homepage bay-view shot (view/.png). No facebook/fbcdn/scontent or third-party review-blog URLs used. Higher-res w_1920 exists for the hero; room/villa/homepage-main images max out around w_1045 on the CDN."
+  },
+  {
+    "slug": "review-koyao-bay-pavilions-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.koyaobay.com/wp-content/uploads/Koh-Yao-Noi-Beach-Suite-16.jpg",
+        "kind": "room"
+      },
+      {
+        "url": "https://www.koyaobay.com/wp-content/uploads/0Q7B9163.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.koyaobay.com/wp-content/uploads/Koh-Yao-Noi-Villa-Yanat-04.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://www.koyaobay.com/wp-content/uploads/koyao-villa-rice-field-3.jpg",
+        "kind": "view"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Koyao Bay Pavilions (koyaobay.com)",
+    "sourceUrl": "https://www.koyaobay.com/",
+    "notes": "All 4 URLs are direct .jpg files seen verbatim in the HTML source of the hotel's OFFICIAL website koyaobay.com (WordPress /wp-content/uploads/). Sources fetched: the Beach Pavilion Suite room page (photoSourceUrl) yielded Koh-Yao-Noi-Beach-Suite-16.jpg (room); the villas index page /villas-koh-yao-noi/ yielded 0Q7B9163.jpg (hero/resort), Koh-Yao-Noi-Villa-Yanat-04.jpg (pool villa), and koyao-villa-rice-field-3.jpg (villa + rice-field/karst view). The homepage lazy-loads (SVG-placeholder data URIs) so it exposed only one real webp; the /gallery/ page timed out (60s). Additional confirmed room images available if needed: Koh-Yao-Noi-Beach-Suite-25.jpg, Koh-Yao-Noi-Beach-Suite-04.jpg, plus villa shots Villa-Ingfah-Koyao-Bay-Pavilions-112.jpg, Koh-Yao-Noi-Villa-Taara-07.jpg, Koh-Yao-Noi-Villa-Champa-11.jpg, Koh-Yao-Noi-Villa-Mai-Pai-1.jpg. No facebook/fbcdn, no third-party listing thumbnails, no invented URLs."
+  },
+  {
+    "slug": "review-koh-yao-yai-village-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "https://www.kohyaoyaivillage.com/wp-content/uploads/2021/11/oba18bab69ba5ad139ec841078890219f_32589614_210108_327_1280x720_acf_cropped.jpg",
+        "kind": "hero"
+      },
+      {
+        "url": "https://www.kohyaoyaivillage.com/wp-content/uploads/2025/09/DSCF4667-1-1280x720.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "https://www.kohyaoyaivillage.com/wp-content/uploads/2026/01/KohYaoYaiVillage-7-edit-1280x720.webp",
+        "kind": "view"
+      },
+      {
+        "url": "https://www.kohyaoyaivillage.com/wp-content/uploads/2021/08/5-2-1280x720.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: เว็บไซต์ทางการ Koh Yao Yai Village (kohyaoyaivillage.com)",
+    "sourceUrl": "https://www.kohyaoyaivillage.com/",
+    "notes": "All 4 URLs are real direct image files seen in the official-site HTML fetch (kohyaoyaivillage.com, WordPress uploads). Selected: hero/exterior (2021 homepage crop), the One Bedroom Beachfront Pool Villa (pool), the One Bedroom Seaview Pool Villa (sea view, .webp), and the Deluxe Villa (room). No lazy-load/base64 placeholders detected; page served real src URLs. Trip.com page not needed — official site provided ample creditable photos. Larger 1280x720 variants chosen over the 1024x768 duplicates."
+  },
+  {
+    "slug": "review-thiwson-beach-resort-koh-yao-yai-phang-nga",
+    "found": true,
+    "images": [
+      {
+        "url": "http://www.thiwsonbeach.com/S__6594611.jpg",
+        "kind": "pool"
+      },
+      {
+        "url": "http://www.thiwsonbeach.com/S__6594607.jpg",
+        "kind": "other"
+      },
+      {
+        "url": "http://www.thiwsonbeach.com/S__6594609.jpg",
+        "kind": "room"
+      }
+    ],
+    "credit": "ภาพ: Trip.com",
+    "sourceUrl": "https://www.trip.com/hotels/ko-yao-yai-hotel-detail-1709352/thiwson-beach-resort/",
+    "notes": "WebFetch failed on both sources (official site = TLS 'unable to verify first certificate'; Trip.com = HTTP 418), so I fetched the official homepage HTML via curl -k. Extracted 3 real, direct JPEG photos of the resort (all HTTP 200, image/jpeg), verified by viewing each: S__6594611.jpg (960x578) = the freeform pool with orange-roofed bungalows, palms and green hillside behind (best hero); S__6594607.jpg (960x720) = wooden bungalow exterior with veranda/topiary garden (exterior — mapped kind 'other' since schema hero/room/pool/view/beach best-fit); S__6594609.jpg (960x720) = wooden room interior, mosquito-net four-poster bed, garden-view French doors (room). All three are actual photographs, not placeholders. Note: the official site has an invalid TLS cert, so these URLs need curl -k (or http) to self-host; downstream fetch-to-R2 should use --insecure. Two banner strips (thiwson-beach-resort-banner.jpg 1000x163, link-banner.jpg) exist but are thin header graphics, not usable photos. Trip.com page (trip.com/hotels/ko-yao-yai-hotel-detail-1709352) was not accessible (418) so no Trip.com images returned. No facebook/fbcdn/stock URLs used."
+  }
+]

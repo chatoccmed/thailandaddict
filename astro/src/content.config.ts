@@ -61,7 +61,7 @@ const reviewSchema = z.object({
   // intro
   h1: z.string(),                   // may contain <em>
   intro: z.string(),                // may contain <strong>
-  // gallery (3 secondary images; main = heroImg)
+  // gallery (up to 3 secondary images; main = heroImg)
   gallery: z.array(z.string()).min(1).max(3),   // deduped: hotels with <3 unique photos keep only unique ones
   galleryAlts: z.array(z.string()).min(1).max(3),
   // review body — ordered blocks
@@ -90,13 +90,14 @@ const reviewSchema = z.object({
   nearby: z.array(z.object({ n: z.string(), d: z.string() })),
   relatedTitle: z.string(),
   related: z.array(z.object({ href: z.string(), img: z.string(), name: z.string(), loc: z.string(), price: z.string() })),
-  // article footer prev / next
-  prevHref: z.string(),
-  prevLabel: z.string(),
-  prevName: z.string(),
-  nextHref: z.string(),
-  nextLabel: z.string(),
-  nextName: z.string(),
+  // article footer prev / next — optional: some reviews legitimately have no neighbour
+  // (their old prev/next targets never existed; integrity audit 2026-07-07 removed those dead trios)
+  prevHref: z.string().optional(),
+  prevLabel: z.string().optional(),
+  prevName: z.string().optional(),
+  nextHref: z.string().optional(),
+  nextLabel: z.string().optional(),
+  nextName: z.string().optional(),
   // FAQ — optional · back-compat with existing reviews.
   // When present, ReviewLayout renders a FAQ accordion + FAQPage JSON-LD for SEO.
   faqTitle: z.string().optional(),
@@ -109,6 +110,8 @@ const reviewSchema = z.object({
   tags: z.array(z.string()).optional(),
   lat: z.number().optional(),
   lng: z.number().optional(),
+  // Honest per-file freshness stamp (optional · back-compat) — a real per-review date beats one hardcoded constant repeated across all reviews.
+  modifiedDate: z.string().optional(),
 });
 
 // Shared schema for roundup ("Top N" list) JSON files.
@@ -218,15 +221,30 @@ const roundupsEn = defineCollection({
   schema: roundupSchema,
 });
 
-// Russian collections (served under /ru/).
-const reviewsRu = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ru' }),
+// Simplified-Chinese collections (served under /zh/ — Tier-1 i18n expansion, _internal/I18N-AND-TOURISM-CITY-PLAN.md).
+const reviewsZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-zh' }),
   schema: reviewSchema,
 });
-const roundupsRu = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ru' }),
+const roundupsZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-zh' }),
   schema: roundupSchema,
 });
+
+// Remaining Tier-1 locales (served under /ru/ /ko/ /ja/ /hi/ /he/ /ar/) — reviews/roundups for the
+// 30 curated tourism-city hotel roundups + their linked individual hotel reviews only (not site-wide).
+const reviewsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ru' }), schema: reviewSchema });
+const roundupsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ru' }), schema: roundupSchema });
+const reviewsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ko' }), schema: reviewSchema });
+const roundupsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ko' }), schema: roundupSchema });
+const reviewsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ja' }), schema: reviewSchema });
+const roundupsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ja' }), schema: roundupSchema });
+const reviewsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-hi' }), schema: reviewSchema });
+const roundupsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-hi' }), schema: roundupSchema });
+const reviewsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-he' }), schema: reviewSchema });
+const roundupsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-he' }), schema: roundupSchema });
+const reviewsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ar' }), schema: reviewSchema });
+const roundupsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ar' }), schema: roundupSchema });
 
 // Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
 // One layout (ArticleLayout) renders all of them from a typed list of content blocks.
@@ -353,9 +371,37 @@ const articlesEn = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-en' }),
   schema: articleSchema,
 });
+const articlesZh = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-zh' }),
+  schema: articleSchema,
+});
 const articlesRu = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/articles-ru' }),
   schema: articleSchema,
 });
+const articlesKo = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ko' }),
+  schema: articleSchema,
+});
+const articlesJa = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ja' }),
+  schema: articleSchema,
+});
+const articlesHi = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-hi' }),
+  schema: articleSchema,
+});
+const articlesHe = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-he' }),
+  schema: articleSchema,
+});
+const articlesAr = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ar' }),
+  schema: articleSchema,
+});
 
-export const collections = { reviews, roundups, reviewsEn, roundupsEn, reviewsRu, roundupsRu, articles, articlesEn, articlesRu };
+export const collections = {
+  reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn,
+  reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa, articlesHi, articlesHe, articlesAr,
+  reviewsRu, roundupsRu, reviewsKo, roundupsKo, reviewsJa, roundupsJa, reviewsHi, roundupsHi, reviewsHe, roundupsHe, reviewsAr, roundupsAr,
+};

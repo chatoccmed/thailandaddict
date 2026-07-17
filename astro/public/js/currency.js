@@ -57,7 +57,8 @@
 
     function buildBar() {
       if (document.getElementById('cv-bar')) return;
-      var liftMobile = !!document.querySelector('.mbar, .mbarx');   // roundup pages have a mobile booking bar
+      var rvBar = !!document.querySelector('.rvbar');               // review pages have a taller fixed booking bar (~110px)
+      var liftMobile = rvBar || !!document.querySelector('.mbar, .mbarx');   // roundup/review pages have a mobile booking bar to clear
       var hasFab = !!document.querySelector('#taTripFab, .ta-tripfab'); // trip FAB sits bottom-right → put currency bottom-left to avoid overlap
       var sidePos = hasFab ? 'left:14px' : 'right:14px';
       var css = '#cv-bar{position:fixed;' + sidePos + ';bottom:16px;z-index:120;display:inline-flex;align-items:center;gap:2px;'
@@ -67,7 +68,7 @@
         + '#cv-bar button{border:0;background:none;color:#0891b2;padding:5px 9px;border-radius:999px;cursor:pointer;font:inherit;line-height:1.4}'
         + '#cv-bar button:hover{background:rgba(6,182,212,.10)}'
         + '#cv-bar button.on{background:#06B6D4;color:#fff}'
-        + (liftMobile ? '@media(max-width:760px){#cv-bar{bottom:72px}}' : '');
+        + (liftMobile ? '@media(max-width:760px){#cv-bar{bottom:' + (rvBar ? '124px' : '72px') + '}}' : '');
       var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
       var bar = document.createElement('div');
       bar.id = 'cv-bar'; bar.setAttribute('title', NOTE);

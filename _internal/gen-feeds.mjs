@@ -32,7 +32,7 @@ function collect(suffix, urlBase) {
 
   // 2) restaurants — from eat-ranking articles (restaurant blocks)
   const restaurants = [];
-  for (const f of C('articles' + suffix)) { try { const a = read('articles' + suffix, f); if (a.type !== 'eat-ranking') continue; if (a.slug && a.slug.startsWith('top10-attractions-')) continue; /* attraction rankings mistyped eat-ranking — exclude from restaurants feed (source untouched) */ for (const b of (a.blocks || [])) { if (b.kind !== 'restaurant') continue; const rtags = deriveRestaurantTags({ foodType: b.foodType, halal: b.halal, veg: b.veg, englishMenu: b.englishMenu, priceRange: b.priceRange, name: b.name }); restaurants.push({ name: strip(b.name), province: a.crumbCity, foodType: b.foodType, rating: typeof b.rating === 'number' ? b.rating : undefined, ratingCount: typeof b.ratingCount === 'number' ? b.ratingCount : undefined, price: b.priceRange || undefined, hours: b.hours || undefined, img: asset(b.libImg || b.img || '') || undefined, tags: rtags.length ? rtags : undefined, lat: typeof b.lat === 'number' ? b.lat : undefined, lng: typeof b.lng === 'number' ? b.lng : undefined, url: `${U(a.slug)}#r${b.rank}`, listUrl: U(a.slug) }); } } catch {} }
+  for (const f of C('articles' + suffix)) { try { const a = read('articles' + suffix, f); if (a.type !== 'eat-ranking') continue; if (a.slug && a.slug.startsWith('top10-attractions-')) continue; /* attraction rankings mistyped eat-ranking — exclude from restaurants feed (source untouched) */ if (a.slug && a.slug.startsWith('michelin-')) continue; /* michelin ranking hubs are curated roundups linking to the michelin-<slug> single reviews (the primary source) — skip to avoid dup/leaderboard-card noise */ for (const b of (a.blocks || [])) { if (b.kind !== 'restaurant') continue; const rtags = deriveRestaurantTags({ foodType: b.foodType, halal: b.halal, veg: b.veg, englishMenu: b.englishMenu, priceRange: b.priceRange, name: b.name }); restaurants.push({ name: strip(b.name), province: a.crumbCity, foodType: b.foodType, rating: typeof b.rating === 'number' ? b.rating : undefined, ratingCount: typeof b.ratingCount === 'number' ? b.ratingCount : undefined, price: b.priceRange || undefined, hours: b.hours || undefined, img: asset(b.libImg || b.img || '') || undefined, tags: rtags.length ? rtags : undefined, lat: typeof b.lat === 'number' ? b.lat : undefined, lng: typeof b.lng === 'number' ? b.lng : undefined, url: `${U(a.slug)}#r${b.rank}`, listUrl: U(a.slug) }); } } catch {} }
 
   // 3) attractions + 4) guides — from articles by type
   const attractions = [], guides = [];
@@ -68,6 +68,24 @@ write('attractions-en.json', { ...meta('attractions', 'en', en.attractions.lengt
 write('guides-en.json', { ...meta('guides', 'en', en.guides.length), items: en.guides });
 write('faqs-en.json', { ...meta('faqs', 'en', en.faqs.length), items: en.faqs });
 
+// --- Michelin Guide Thailand 2026 feed (485 restaurants, all tiers) — regenerated each build. ---
+let michelinCount = 0;
+try {
+  const D = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/michelin-2026/michelin-2026.json'), 'utf8'));
+  const U = slug => `${SITE}/${slug}`;   // root (TH) review URL
+  const norm = s => String(s || '').toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9฀-๿]/g, '');
+  // map normalized name -> single article {slug, img, price}
+  const singleBy = new Map();
+  for (const f of C('articles')) { if (!/^michelin-/.test(f)) continue; try { const a = read('articles', f); const rc = (a.blocks || []).find(b => b.kind === 'restaurant'); if (!rc) continue; const put = k => { if (k && k.length >= 3 && !singleBy.has(k)) singleBy.set(k, { slug: a.slug, img: asset(a.heroImg) || undefined, price: rc.priceRange || undefined, credit: a.heroCredit || undefined }); }; put(norm(rc.name)); put(norm(a.h1)); } catch {} }
+  const M = [];
+  for (const [arr, tier] of [['threeStar', '3-star'], ['twoStar', '2-star'], ['oneStar', '1-star'], ['bibGourmand', 'bib'], ['selected', 'selected']]) {
+    for (const r of (D[arr] || [])) { const hit = singleBy.get(norm(r.name)) || singleBy.get(norm(r.nameThai)); M.push({ name: strip(r.name), nameThai: r.nameThai || undefined, tier, province: r.province || r.city || undefined, cuisine: r.cuisine || undefined, greenStar: r.greenStar || undefined, review: hit ? U(hit.slug) : undefined, img: hit && hit.img, price: hit && hit.price, michelin: r.url || undefined }); }
+  }
+  michelinCount = M.length;
+  write('michelin.json', { ...meta('michelin', 'th', michelinCount), edition: D.edition || 'Thailand 2026', announced: D.announced || undefined, counts: { threeStar: (D.threeStar || []).length, twoStar: (D.twoStar || []).length, oneStar: (D.oneStar || []).length, bib: (D.bibGourmand || []).length, greenStar: (D.greenStar || []).length, selected: (D.selected || []).length }, items: M });
+  console.log(`feed michelin: ${michelinCount} restaurants (${M.filter(x => x.review).length} with reviews)`);
+} catch (e) { console.log('feed michelin: skipped (' + (e && e.message) + ')'); }
+
 write('index.json', {
   site: SITE, name: 'ThailandAddict data feeds', updated: UPDATED,
   note: 'Machine-readable Thailand travel data. Free to use with attribution + a link to the source page. Each feed and item carries a lang (th/en) and a url to its source page.',
@@ -82,6 +100,7 @@ write('index.json', {
     { type: 'attractions', lang: 'en', url: `${SITE}/feeds/attractions-en.json`, count: en.attractions.length },
     { type: 'guides', lang: 'en', url: `${SITE}/feeds/guides-en.json`, count: en.guides.length },
     { type: 'faqs', lang: 'en', url: `${SITE}/feeds/faqs-en.json`, count: en.faqs.length },
+    { type: 'michelin', lang: 'th', url: `${SITE}/feeds/michelin.json`, count: michelinCount },
   ],
 });
 console.log(`feeds TH: hotels ${th.hotels.length} · restaurants ${th.restaurants.length} · attractions ${th.attractions.length} · guides ${th.guides.length} · faqs ${th.faqs.length}`);

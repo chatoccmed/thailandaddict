@@ -72,6 +72,10 @@ bash _internal/build-test.sh                        # BUILD OK (ยืนยั�
 ```bash
 cd /c/Users/Imac/Thailandaddict/thailandaddict
 export PATH="$HOME/nodejs:$PATH"
+rm -rf astro/.astro astro/node_modules/.astro astro/dist   # ⚠️ MUST clear the Astro content-layer cache first — a plain
+                                                    #    `npm run build` can reuse a STALE data-store and silently drop newly
+                                                    #    added content-collection entries from dist (green build, pages 404 live).
+                                                    #    This is what deploy.ps1 does; skipping it reproduces the partial-dist bug.
 cd astro && npm install && npm run build && cd ..   # → astro/dist (รวม public/)
 npx wrangler login                                   # เปิด browser auth (เจ้าของอนุมัติ) — หรือใช้ CLOUDFLARE_API_TOKEN
 npx wrangler deploy                                  # อ่าน wrangler.jsonc → อัป astro/dist เป็น Worker "thailandaddict"
