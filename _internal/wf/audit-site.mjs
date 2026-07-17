@@ -35,8 +35,12 @@ try {
 function isValidInternal(href) {
   let p = href.split('#')[0].split('?')[0];
   if (p === '' || p === '/') return true;
+  // worker.js routes (not static files): /go/b = Booking→CJ redirect, /api/* = plan/write endpoints.
+  // These are served by the Worker, so there is no dist file — don't count them as dead links.
+  if (p === '/go/b' || p.startsWith('/go/') || p.startsWith('/api/')) return true;
   p = p.replace(/^\//, '').replace(/\/$/, '');
   if (p === '') return true;
+  if (p === 'go/b' || p.startsWith('go/') || p.startsWith('api/')) return true;
   if (fileSet.has(p)) return true;                    // exact file (asset or .html)
   if (fileSet.has(p + '.html')) return true;          // clean URL
   if (fileSet.has(p + '/index.html')) return true;    // dir index (en/, zh/)

@@ -71,16 +71,32 @@ function processStrings(doc, tr, collector){
   }
 }
 
-// rewrite absolute /en/… links to /<loc>/… ; leave shared root assets (/images, /js, /data…) alone
-function rewriteUrls(doc, loc){
+// rewrite absolute /en/… links to /<loc>/… ; leave shared root assets (/images, /js, /data…) alone.
+// Also fix BARE relative page links (href="foo" / "foo.html" / "foo#x"): the EN source uses them because
+// they resolve same-dir (/en/foo works on an /en/ page), but copied verbatim into /<loc>/ they resolve to
+// /<loc>/foo and 404 when no localized version exists. Point them at the localized page if it exists, else
+// the /en/ version, else the TH root — mirroring gen-hubs' cleanLinks(). `avail` = slugs present in /<loc>/.
+const BARE_LINK = /^[a-z0-9][\w-]*(?:\.html)?(?:[#?].*)?$/i;   // e.g. near-me, top10-hotels-krabi.html, city-phuket#see
+function rewriteUrls(doc, loc, avail){
   const pfx = prefix(loc);
   for(const n of walk(doc)){
     if(!n.tagName) continue;
     for(const a of (n.attrs||[])){
       if((a.name==='href'||a.name==='src'||a.name==='action') && a.value){
-        if(a.value.startsWith('/en/')) a.value = pfx + a.value.slice(4);
-        else if(a.value===`${SITE}/en/`) a.value = `${SITE}${pfx}`;
-        else if(a.value.startsWith(`${SITE}/en/`)) a.value = `${SITE}${pfx}` + a.value.slice((SITE+'/en/').length);
+        const v = a.value;
+        if(v.startsWith('/en/')) a.value = pfx + v.slice(4);
+        else if(v===`${SITE}/en/`) a.value = `${SITE}${pfx}`;
+        else if(v.startsWith(`${SITE}/en/`)) a.value = `${SITE}${pfx}` + v.slice((SITE+'/en/').length);
+        else if(a.name==='href' && avail && BARE_LINK.test(v)){
+          // A bare link on the EN source already resolves to /en/<slug> (that's why it works on the EN page),
+          // so /en/<slug> is the known-good target. Upgrade to the in-locale page only when one exists.
+          // (prefix() already ends in '/', so no extra slash.) Genuinely-dead-on-EN targets stay dead but
+          // consistent with EN — that's a separate content gap, not a localize bug.
+          const base = v.split(/[#?]/)[0];              // strip #hash / ?query
+          const tail = v.slice(base.length);
+          const slug = base.replace(/\.html$/,'');
+          a.value = avail.has(slug) ? `${pfx}${slug}${tail}` : `/en/${slug}${tail}`;
+        }
       }
     }
   }
@@ -158,13 +174,13 @@ function hreflangSet(slug, builtCodes){
   return links.join('');
 }
 
-function localizeDoc(html, loc, cleanSlug, fileSlug, builtCodes, tr){
+function localizeDoc(html, loc, cleanSlug, fileSlug, builtCodes, tr, avail){
   const doc = parse(html);
   const htmlEl = el(doc,'html');
   setAttr(htmlEl,'lang', LOCALE_MAP[loc].htmlLang);
   setAttr(htmlEl,'dir', LOCALE_MAP[loc].dir);
   processStrings(doc, tr, null);
-  rewriteUrls(doc, loc);
+  rewriteUrls(doc, loc, avail);
   // head meta rewrites (canonical/og:url use the clean, extension-less URL)
   const canon = find(doc, n=>n.tagName==='link' && getAttr(n,'rel')==='canonical');
   if(canon) setAttr(canon,'href', `${SITE}${prefix(loc)}${cleanSlug}`);
@@ -215,11 +231,18 @@ for(const loc of locs){
   const tr = s => { if(tm[s]!=null){hit++; return tm[s];} miss++; return s; };
   const outDir = path.join(PUB, loc);
   fs.mkdirSync(outDir,{recursive:true});
+  // avail = slugs that have a page in /<loc>/ → the pages this run localizes PLUS whatever gen-hubs already
+  // wrote there (the 30 tourism-city pages). Bare relative links resolve against this to stay in-locale when
+  // a localized version exists, and fall back to /en/ otherwise.
+  const avail = new Set([
+    ...files.map(f => f.replace(/\.html$/,'')),
+    ...(fs.existsSync(outDir) ? fs.readdirSync(outDir).filter(x=>x.endsWith('.html')).map(x=>x.replace(/\.html$/,'')) : []),
+  ]);
   for(const f of files){
     const fileSlug  = f==='index.html' ? '' : f;
     const cleanSlug = f==='index.html' ? '' : f.replace(/\.html$/,'');
     const html = fs.readFileSync(path.join(ENDIR,f),'utf8');
-    const out = localizeDoc(html, loc, cleanSlug, fileSlug, locs, tr);
+    const out = localizeDoc(html, loc, cleanSlug, fileSlug, locs, tr, avail);
     fs.writeFileSync(path.join(outDir,f), out);
   }
   console.log(`[${loc}] ${files.length} pages → astro/public/${loc}/ · tm hits:${hit} misses(→en):${miss}`);
