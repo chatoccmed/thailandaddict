@@ -1,25 +1,37 @@
 # CLAUDE.md — thailandaddict.com
 
-แบรนด์ **เที่ยวไทยเฉพาะทาง** (9 ภาษา ชั้น hub · TH+EN ชั้นบทความ) บน Astro static → Cloudflare
+แบรนด์ **เที่ยวไทยเฉพาะทาง** (9 ภาษา ชั้น hub · 9 ภาษาบางส่วนชั้นเนื้อหา) บน Astro static → Cloudflare
 Scaffold ยกสถาปัตยกรรมมาจาก wherebest (repo `tourlogy`) แล้ว rebrand
 
 > อ่าน `thailandaddict-handoff.md` สำหรับบริบทและการตัดสินใจยุคแรกเริ่ม (เอกสารนี้เขียนตอน scaffold ยังว่างเปล่า — ดูสถานะปัจจุบันด้านล่างแทน)
 
 ---
 
-## 📊 สถานะปัจจุบัน (อัปเดต 2026-07-11 — ใช้แทน "งานต่อไป" เดิมที่ล้าสมัยแล้ว)
+## ⚠️ ทำงานหลายเครื่องพร้อมกัน — อ่านก่อนเริ่ม
 
-**เนื้อหา:** รีวิวโรงแรม 2,212 หน้า (TH+EN ครบ) · hotel roundup 272 หน้า (TH+EN ครบ) · บทความ 4,079 หน้า (TH+EN ครบ 100%) — ครอบคลุมทั้ง 77 จังหวัด รวมคลัสเตอร์ Klook (กิจกรรม/ทัวร์จองได้) 357 บทความต่อภาษา
-**หน้า hub:** `city-*.html` 89 หน้า (77 จังหวัด + 12 เมืองท่องเที่ยว/เกาะ) · `area-bangkok-*.html` 33 ย่าน กทม. · `region-*.html` 6 ภาค · `activities-*.html` 84 หน้า (auto-gen จาก Klook cluster)
-**ภาษา (ชั้น hub 226 หน้า):** th/en/zh/ru/ar/he/hi/ja/ko ครบ 100% ทั้ง 9 ภาษา (223/226 หน้าต่อภาษา, deploy แล้ว) — **ชั้นบทความ/รีวิว/roundup ยังเป็น TH+EN เท่านั้น** (แปลอีก 7 ภาษาที่เหลือ = งานใหญ่ถัดไป ดู `_internal/I18N-FULL-SITE-PLAN.md`)
-**รวมทั้งเว็บ:** ~15,100 หน้า live, deploy จาก account `chatmaliwan` (ดู [[cloudflare-deploy-account]])
-**212 posts เดิม:** ย้าย/ตัดสินใจแล้ว 195/209 (อีก 14 ตั้งใจข้าม — cache อยู่ที่ `_internal/migration/oldposts/`, WP REST API เดิมปิดไปแล้ว)
+repo นี้มีหลายเครื่อง/หลาย session push เข้า `origin/main` **ตลอดเวลา** เคยปล่อยให้แยกสายกัน 3 สัปดาห์ (2026-06-28 → 07-17) จนกลายเป็น 243 vs 37 commits, 643 conflicts และ**งานซ้ำที่ต้องทิ้ง 4 ก้อน** (แปล EN ชุดเดียวกัน 43 ไฟล์, ลบคำ AI ชุดเดียวกัน, i18n ชั้น hub คนละสถาปัตยกรรม, บั๊กอักษรไทยปนใน he/ar/hi ที่ต่างคนต่างเขียนสคริปต์แก้)
+- **`git fetch origin && git merge origin/main` ทุกครั้งก่อนเริ่มงาน และ push ให้ไวที่สุดหลังงานเสร็จ**
+- ก่อนจอง/เริ่มงานใหญ่ ดู `_internal/ACTIVE-WORK-CLAIMS.md`
+- ⚠️ โฟลเดอร์นี้ถูก **OneDrive + Google Drive sync** ล็อกไฟล์ระหว่าง git operation ใหญ่ → `git merge/reset/checkout` อาจล้มกลางคันด้วย `Invalid argument`/`UNKNOWN` **ให้ย้ำคำสั่งเดิมซ้ำ 2-3 รอบ ผ่านเอง** (อย่าตกใจ ไม่ใช่ repo พัง — HEAD กับ git objects ปลอดภัยเสมอ)
 
-**งานถัดไปที่ยังไม่ทำ** (ดู memory `site-quality-audit-2026-07` สำหรับรายละเอียดเต็ม 18 ข้อ):
-- Phase 2 i18n: แปลเนื้อหาบทความ/รีวิว/roundup เป็น 7 ภาษาที่เหลือ (ตอนนี้มีแค่ TH/EN) — ต้องสร้าง language-shard workers ก่อนเพราะจะทะลุ 20,000 ไฟล์/worker
-- ไม่มี cornerstone/pillar content (ไม่มีหน้า "เริ่มต้นเที่ยวไทย" หรือ decision tool)
-- Byline ผู้เขียนจริง, GA4 ID จริง (ยังเป็น placeholder), alt text รูปหน้า "-compared" (~43% ว่าง)
-- เส้นทางเดินทางระหว่างเมืองบางเส้นยังขาด (มีแค่ 11 เส้นทางทั้งเว็บ)
+## 📊 สถานะปัจจุบัน (อัปเดต 2026-07-17 หลัง merge ใหญ่ — นับจากไฟล์จริง ไม่ใช่ประมาณ)
+
+**เนื้อหา:** รีวิวโรงแรม 2,401 (TH+EN ครบ) · roundup 397 (TH+EN ครบ) · บทความ 4,407 (TH+EN ครบ) — ครบ 77 จังหวัด + 33 ย่าน กทม. + เกาะ/โซน (เกาะเต่า/ลันตา/พีพี/ไร่เลย์/เกาะยาว/เขาสก) รวมคลัสเตอร์ Klook (กิจกรรม/ทัวร์จองได้)
+**หน้า hub:** `city-*` 89 · `area-bangkok-*` 33 · `region-*` 6 · `activities-*` 84 · + destinations/near-me/michelin-finder/trip/search
+**ภาษา — 2 ชั้น คนละกลไก (สำคัญ):**
+- **ชั้น hub:** th 228 · en 225 · zh/ru/ko/ja/hi/he/ar ภาษาละ 223 หน้า
+  - 30 หน้าเมืองหลัก = `gen-hubs.mjs` สร้างตรงจาก `_internal/province-data-<loc>/` (คำแปลอยู่ใน**ข้อมูล** → regenerate กี่ครั้งก็ไม่หาย)
+  - อีก 193 หน้า = `_internal/i18n/localize.mjs` + `tm.<loc>.json` (22k คีย์/ภาษา) แปลง DOM ของหน้า EN (คำแปลผูกกับ**สตริง EN** → **EN เปลี่ยนเมื่อไหร่ coverage ร่วงเงียบๆ**)
+- **ชั้นเนื้อหา:** zh 393 ไฟล์ · ru/ko/ja/hi/he/ar ภาษาละ 384 (รีวิว ~342 + roundup 30 + บทความ ~12) — route `pages/<loc>/[slug].astro` ครบ 7 ภาษา
+**รวมทั้งเว็บ:** build ได้ **17,107 หน้า** · deploy จาก account `chatmaliwan` (ดู [[cloudflare-deploy-account]])
+**212 posts เดิม:** ย้าย/ตัดสินใจแล้ว 195/209 (อีก 14 ตั้งใจข้าม — cache อยู่ที่ `_internal/migration/oldposts/`)
+
+**งานถัดไปที่ยังไม่ทำ:**
+- **แปล delta 2,560 สตริง** ที่ localize.mjs รายงาน `misses(→en)` หลัง merge (สตริงใหม่จาก expert-hub/near-me) — ตอนนี้หน้า 193×7 แปล ~96% ที่เหลือ fallback เป็น EN
+- **คำ AI ต้องห้ามเหลือ ~53 จุด** ในรีวิวที่ origin เพิ่มเข้ามา (`ตอบโจทย์`/`ครบครัน`/`โดดเด่น`/`สุดยอด`/`ระดับโลก`) — ของเดิมเคลียร์ 0 แล้ว · ระวังคำว่า **"ลงตัว" ที่กลายเป็นคำฟุ่มเฟือยตัวใหม่ (1,481 ครั้ง)**
+- **รูปแผนที่ placeholder ตัวเดียวใช้ซ้ำ 717 รีวิว** (`images/gallery/220t180000014yxfw73B0.webp`) — ควรใส่รูปจริงรายโรงแรม
+- ดีไซน์ premium (`premium.css`/`proto3.css`) **ไม่ได้อยู่บน production แล้ว** — deploy ของเครื่องอื่นทับหายไป (merge นี้ใส่กลับใน layout แล้ว แต่หน้าแรกยังเป็นของ origin)
+- Byline ผู้เขียนจริง, GA4 ID จริง (ยัง placeholder), alt text หน้า "-compared" (~43% ว่าง), cornerstone/pillar content
 
 ---
 
@@ -27,12 +39,12 @@ Scaffold ยกสถาปัตยกรรมมาจาก wherebest (repo 
 - **Astro static build** · `build: { format: 'file' }` · `trailingSlash: 'never'` → flat `.html`, clean URL
 - **Content collections** (`astro/src/content.config.ts`):
   - `reviews` / `articles` / `roundups` (TH, source of truth)
-  - `reviews-en` / `articles-en` / `roundups-en` (เสิร์ฟใต้ `/en/`) — ครบ 100% กับ TH แล้ว
+  - `reviews-en` / `articles-en` / `roundups-en` (ใต้ `/en/`) ครบ 100% · และ `-zh/-ru/-ko/-ja/-hi/-he/-ar` (ใต้ `/<loc>/`) บางส่วน — ดูสถานะด้านบน
   - แต่ละ entry = ไฟล์ JSON 1 ไฟล์ ตาม schema → render ผ่าน `src/pages/[slug].astro` (TH) / `src/pages/en/[slug].astro` (EN) + Layout
 - **Layouts**: `ReviewLayout.astro` (รีวิวโรงแรมเดี่ยว) · `RoundupLayout.astro` (Top N) · `ArticleLayout.astro` (บทความทุกประเภท รวม Klook activity cluster — reuse eat-ranking render engine เมื่อมี `restaurant` block)
 - **public/** = static HTML hub pages (city/area/region/country/activities/index + ภาษาอื่นใน `public/<lang>/`) + assets (images, css, js) เสิร์ฟตรง ไม่ผ่าน Astro content collection
 - **i18n hub layer**: `_internal/i18n/localize.mjs` เดิน DOM ของหน้า EN แล้วแทนที่ข้อความผ่าน translation-memory (`_internal/i18n/tm.<lang>.json`) — เขียนหน้าใหม่ที่ `astro/public/<lang>/`. `_internal/i18n/tm-tool.mjs` = chunk/merge tool สำหรับแปลทีละก้อน
-- **Deploy**: Cloudflare อ่าน `astro/dist` (ดู `wrangler.jsonc`) · build = `cd astro && npm install && npm run build` (รัน `prebuild.mjs` ก่อนเสมอ — แต่รันแค่ `gen-home.mjs`/`gen-sitemap.mjs`/`gen-search-index.mjs`/`gen-home-index.mjs`/`gen-feeds.mjs` เท่านั้น · **`gen-hubs.mjs` ไม่ได้อยู่ใน prebuild ต้องรันเองก่อน build ทุกครั้งที่แก้ข้อมูลรีวิว/บทความที่กระทบหน้า hub** — `node _internal/gen-hubs.mjs`)
+- **Deploy**: Cloudflare อ่าน `astro/dist` (ดู `wrangler.jsonc`) · build = `cd astro && npm install && npm run build` (รัน `prebuild.mjs` ก่อนเสมอ = gen-hubs → gen-home → gen-sitemap → gen-search-index → gen-home-index → gen-feeds → gen-near-me · **`gen-hubs.mjs` อยู่ใน prebuild แล้ว** (รันเป็นตัวแรก) ไม่ต้องรันเองอีก)
 
 ## โครงไฟล์
 ```
@@ -40,12 +52,13 @@ astro/
   src/content.config.ts        schema (reviews/roundups/articles × TH+EN) · default addressCountry 'TH'
   src/content/{reviews,roundups,articles}/           *.json (TH, source)
   src/content/{reviews,roundups,articles}-en/         *.json (EN, ครบ 100%)
+  src/content/{reviews,roundups,articles}-{zh,ru,ko,ja,hi,he,ar}/  *.json (บางส่วน — ชั้นเนื้อหา)
   src/layouts/{ReviewLayout,RoundupLayout,ArticleLayout}.astro
   src/styles/{review,roundup}.css
-  src/pages/[slug].astro · src/pages/en/[slug].astro
+  src/pages/[slug].astro · src/pages/en/[slug].astro · src/pages/{zh,ru,ko,ja,hi,he,ar}/[slug].astro
   public/                      index.html, city-*.html, area-bangkok-*.html, region-*.html,
                                 activities-*.html, sitemap.xml, robots.txt, images/
-  public/<lang>/               zh, ru, ar, he, hi, ja, ko — hub-layer mirror (226 หน้า/ภาษา)
+  public/<lang>/               zh, ru, ar, he, hi, ja, ko — hub-layer mirror (223 หน้า/ภาษา)
 _internal/
   gen-hubs.mjs                 auto-gen hub pages (city/area/region/activities) — locale-aware
   gen-sitemap.mjs              sitemap.xml (ครบ 9 ภาษา + hreflang)
@@ -60,8 +73,8 @@ _internal/
 - **Node v24** อยู่ที่ `~/nodejs` — bash: `export PATH="$HOME/nodejs:$PATH"` ก่อน (PowerShell ไม่โหลด PATH นี้)
 - **Python ใช้ไม่ได้** → ใช้ Node / PowerShell แทน
 - clean build (กัน stale cache): `rm -rf astro/.astro astro/node_modules/.astro` ก่อนเสมอเวลา build ใหญ่
-- production build script ตั้ง `--max-old-space-size=8192` ไว้แล้ว (`astro/package.json`) — ที่สเกลปัจจุบัน (~15,100 หน้า) ยังไม่ OOM แต่เคยเจอตอน ~13k+ หน้าถ้า Windows commit-memory ตึง (ดู memory `attraction-rollout-pipeline`)
-- pre-push check: `bash _internal/build-test.sh`
+- production build script ตั้ง `--max-old-space-size=8192` ไว้แล้ว (`astro/package.json`) — ที่สเกลปัจจุบัน (~17,100 หน้า) ยังไม่ OOM แต่เคยเจอตอน ~13k+ หน้าถ้า Windows commit-memory ตึง (ดู memory `attraction-rollout-pipeline`)
+- pre-push check: `bash _internal/build-test.sh` — รัน **dark-pattern lint** (ห้ามสร้างความเร่งรีบ/ของใกล้หมดปลอม) + **Booking→CJ revenue guard** (`_internal/qa/check-booking-cj.mjs` — พิสูจน์ว่า wrapper ทำงานจริง: ต้องเจอลิงก์ที่ wrap แล้ว ≥4,000 และลิงก์ booking.com ดิบ = 0) ทั้งคู่ต้องผ่านก่อน push
 
 ## มาตรฐานเนื้อหา (ยกจาก wherebest — LOCKED)
 - **โทน v2-clean**: เพื่อนเล่าให้เพื่อน · ห้าม slang `อ่ะ/ปะ/แหละ/ล่ะ` · ห้ามคำ AI `ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน`
@@ -78,6 +91,8 @@ _internal/
 ## Affiliate IDs
 - Agoda `cid=1965862` · Trip.com `Allianceid=6861268&SID=312919111` · Klook `aid=121442`
 - **Booking.com** ผ่าน CJ (Commission Junction) — PID `101809619` + deep-link ad `17293139` — เส้นทาง `/go/b?u=<encoded booking url>&sid=<slug>` → worker.js 302 ไปยัง CJ tracking link (ดูรายละเอียดเต็มใน memory `booking-cj-affiliate`, ⚠️ อย่าใช้ PID `101763824` — เป็นของเว็บอื่น)
+  - **LOCKED: id อยู่ใน `worker.js` ที่เดียวเท่านั้น** — ห้ามฝัง CJ link ตรงใน HTML/layout อีก (เคยมีแบบ `cjB()` + ad `17289009` ฝังใน 13k ไฟล์ · merge 2026-07-17 ถอดออกหมดแล้ว) เปลี่ยน CJ = แก้ worker 10 บรรทัด + deploy 30 วิ ไม่ต้อง rebuild 17k หน้า
+  - ⚠️ ad `17289009` ที่เครื่องอื่นเคยใช้ ยังไม่ยืนยันว่าอันไหน track ถูก — **เช็ค CJ dashboard ว่า ad ไหนมี click จริง** ถ้าผิดแก้ที่ `CJ_BOOKING.adid` ใน worker.js จุดเดียว
 - **GetYourGuide** — โค้ดมี placeholder `__GYG_PARTNER_ID__` ค้างอยู่ใน 6,538 ไฟล์ (owner ตัดสินใจแล้วว่ายังไม่รีบแก้ ณ 2026-07-11 — ไม่ต้องถามซ้ำ)
 
 ## Skills / Agents (`.claude/`)

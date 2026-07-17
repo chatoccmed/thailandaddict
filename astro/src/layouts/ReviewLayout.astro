@@ -26,6 +26,8 @@ const base = `${SITE}${pfx}`;
 const url = `${base}/${data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 // Prefer a real per-review date over the shared fallback — every review otherwise showed the identical stamp.
+// NOTE: this fallback is a SITE date, not a per-hotel check date. It may format a stamp, but it must never be
+// used to assert that THIS review was re-checked — see `_modDate` below, which gates every such claim.
 const today = (data as any).modifiedDate || '2026-05-17';
 // Honest static "last checked" stamp from the content date (was a live new Date() clock that falsely implied a real-time price check).
 const _tdParts = today.split('-');
@@ -778,7 +780,7 @@ const schema = {
       reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
       author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
-      datePublished: today, dateModified: today,
+      datePublished: today, ...(_modDate ? { dateModified: _modDate } : {}),
     }] : []),
     {
       '@type': 'BreadcrumbList',
@@ -792,7 +794,7 @@ const schema = {
     {
       '@type': 'WebPage', '@id': url, url, name: data.title,
       description: data.metaDesc, inLanguage: lang, isPartOf: { '@id': SITE },
-      datePublished: today, dateModified: today,
+      datePublished: today, ...(_modDate ? { dateModified: _modDate } : {}),
       ...(qaHtml ? { speakable: { '@type': 'SpeakableSpecification', cssSelector: ['.qa-body'] } } : {}),
     },
   ],
@@ -872,6 +874,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 </style>
 <!-- ad/monetization tag removed — add ThailandAddict's own here later -->
 <link rel="stylesheet" href="/css/premium.css">
+<script src="/js/premium-motion.js" defer></script>
 </head>
 <body>
 
@@ -1181,7 +1184,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
         <button class={`pw-btn ${b.cls}`} data-href={b.href}><span class="pw-brand"><span class={b.markCls}>{b.mark}</span>{b.brand}</span><small>{S.pwCheck}</small></button>
       ))}
     </div>
-    <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>
+    {_modDate && <div class="pw-ts" id="price-ts">{S.tsLabel}{priceTs}</div>}
   </div>
 
   <!-- Tips -->

@@ -47,7 +47,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'A Thailand travel guide from real travelers — honest reviews of stays, things to do and food across the country.', ftDestH: 'Destinations', ftThai: '🇹🇭 Explore Thailand', ftContentH: 'Content', ftEat: 'Where to eat', ftSee: 'Things to do', ftStay: 'Where to stay', ftAboutH: 'About', ftAboutUs: 'About us', ftEditorial: 'Editorial Policy', ftContact: 'Contact', ftPrivacy: 'Privacy', ftCopy: '© 2026 thailandaddict.com — Thailand, done right',
       updatedL: 'Updated', freshL: 'Last checked', freshNote: ' · details and hours can change — check the venue before you go', fType: 'Type', fAll: 'All', fZone: 'Area', fPrice: 'Price', fVeg: '🥗 Veg', fHalal: '🕌 Halal', fCountTpl: 'Showing {s}/{t} places', bestForL: '👍 Best for', reviewsL: 'reviews', nearL: 'Nearest: ',
       durationL: 'Duration', bookL: 'Book on ', prosL: 'Highlights from reviews', consL: 'Worth noting',
-      writtenL: 'Written', factCheckL: 'Fact-checked', byLabel: 'By ', byTeam: 'ThailandAddict Editorial Team' },
+      writtenL: 'Written', factCheckL: 'Fact-checked', byLabel: 'By ', byTeam: 'ThailandAddict Editorial Team',
+      zoomHint: '🔍 Tap to zoom', prevImg: 'Previous photo', nextImg: 'Next photo', picTab: '🖼️ Photos', mapTab: '🗺️ Map', embedFoot: '🖼️ Tap a photo to zoom in-page · map / social embedded from the source (copyright-safe)',
+      save: 'Save to plan', saveSm: 'Save', savedFull: 'Saved', savedSm: '✓ Saved', saveEatAria: 'Save this place to your trip plan', lbClose: 'Close', lbPrev: 'Previous', lbNext: 'Next',
+      fabAria: 'My trip plan', fabLabel: 'My plan', viewPlan: 'View my trip →', thisPlace: 'this place', toastAdded: '✓ Saved “{n}” to your plan ({c} saved)', toastRemoved: 'Removed “{n}” from your plan' },
   th: { home: 'หน้าแรก', th: 'ประเทศไทย', nav: ['จุดหมาย','ที่พัก','ที่เที่ยว','ของกิน','เกี่ยวกับเรา'], cta: 'ค้นหาที่พัก', faqH: 'คำถามที่พบบ่อย', relH: 'อ่านต่อ', ftTag: 'Thailand, Done Right',
       priceLabel: 'ราคาโดยประมาณ', sigLabel: 'ซิกเนเจอร์', mustLabel: 'ต้องลอง', stayDefault: 'ที่พักใกล้ร้านนี้', mapLabel: 'ดูแผนที่', fbLabel: 'เพจร้าน',
       hoursL: 'เวลาเปิด', halalL: 'ฮาลาล', vegL: 'มีเมนูเจ/มังสวิรัติ', enMenuL: 'เมนูอังกฤษ', spiceL: 'ความเผ็ด', usdL: '≈',
@@ -56,7 +59,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'คู่มือเที่ยวไทยจากคนเที่ยวจริง รีวิวที่พัก ที่เที่ยว และของกินทั่วประเทศ', ftDestH: 'จุดหมาย', ftThai: '🇹🇭 เที่ยวไทย', ftContentH: 'คอนเทนต์', ftEat: 'ที่กิน', ftSee: 'ที่เที่ยว', ftStay: 'ที่พัก', ftAboutH: 'เกี่ยวกับ', ftAboutUs: 'เกี่ยวกับเรา', ftEditorial: 'นโยบายบรรณาธิการ', ftContact: 'ติดต่อ', ftPrivacy: 'ความเป็นส่วนตัว', ftCopy: '© 2026 thailandaddict.com — เที่ยวไทยแบบรู้จริง',
       updatedL: 'อัปเดตล่าสุด', freshL: 'ตรวจสอบล่าสุด', freshNote: ' · ข้อมูลร้าน/เวลาเปิดอาจเปลี่ยน เช็กกับเพจร้านก่อนไปอีกที', fType: 'ประเภท', fAll: 'ทั้งหมด', fZone: 'ย่าน', fPrice: 'ราคา', fVeg: '🥗 มังสวิรัติ', fHalal: '🕌 ฮาลาล', fCountTpl: 'แสดง {s}/{t} ร้าน', bestForL: '👍 เหมาะสุดสำหรับ', reviewsL: 'รีวิว', nearL: 'ร้านใกล้สุด: ',
       durationL: 'ระยะเวลา', bookL: 'จองบน ', prosL: 'จุดเด่นจากรีวิว', consL: 'ข้อสังเกต',
-      writtenL: 'เขียนเมื่อ', factCheckL: 'ตรวจสอบข้อมูลล่าสุด', byLabel: 'เขียนโดย ', byTeam: 'ทีมบรรณาธิการ ThailandAddict' },
+      writtenL: 'เขียนเมื่อ', factCheckL: 'ตรวจสอบข้อมูลล่าสุด', byLabel: 'เขียนโดย ', byTeam: 'ทีมบรรณาธิการ ThailandAddict',
+      zoomHint: '🔍 แตะเพื่อซูม', prevImg: 'รูปก่อนหน้า', nextImg: 'รูปถัดไป', picTab: '🖼️ รูป', mapTab: '🗺️ แผนที่', embedFoot: '🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)',
+      save: 'เก็บลงแผน', saveSm: 'เก็บแผน', savedFull: 'เก็บแล้ว', savedSm: '✓ เก็บแล้ว', saveEatAria: 'เก็บร้านนี้ลงแผนการเดินทาง', lbClose: 'ปิด', lbPrev: 'ก่อนหน้า', lbNext: 'ถัดไป',
+      fabAria: 'แผนการเดินทางของฉัน', fabLabel: 'แผนของฉัน', viewPlan: 'ดูแผนเที่ยว →', thisPlace: 'ร้านนี้', toastAdded: '✓ เก็บ “{n}” ลงแผนแล้ว ({c} ที่)', toastRemoved: 'เอา “{n}” ออกจากแผนแล้ว' },
   zh: { home: '首页', th: '泰国', nav: ['目的地','住宿','景点','美食','关于'], cta: '查找酒店', faqH: '常见问题', relH: '相关阅读', ftTag: 'Thailand, Done Right',
       priceLabel: '大致价格', sigLabel: '招牌', mustLabel: '必点', stayDefault: '附近住宿', mapLabel: '查看地图', fbLabel: 'Facebook 主页',
       hoursL: '营业时间', halalL: '清真', vegL: '素食选择', enMenuL: '英文菜单', spiceL: '辣度', usdL: '≈',
@@ -65,7 +71,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: '来自真实旅行者的泰国旅行指南 — 诚实评测全国的住宿、景点与美食。', ftDestH: '目的地', ftThai: '🇹🇭 探索泰国', ftContentH: '内容', ftEat: '美食', ftSee: '景点', ftStay: '住宿', ftAboutH: '关于', ftAboutUs: '关于我们', ftEditorial: '编辑方针', ftContact: '联系', ftPrivacy: '隐私', ftCopy: '© 2026 thailandaddict.com — 用心玩转泰国',
       updatedL: '更新于', freshL: '最近核对', freshNote: ' · 详情与营业时间可能变动，出行前请再次确认', fType: '类型', fAll: '全部', fZone: '区域', fPrice: '价格', fVeg: '🥗 素食', fHalal: '🕌 清真', fCountTpl: '显示 {s}/{t} 个地点', bestForL: '👍 最适合', reviewsL: '条评价', nearL: '最近：',
       durationL: '时长', bookL: '预订平台：', prosL: '评价亮点', consL: '注意事项',
-      writtenL: '撰写于', factCheckL: '事实核查', byLabel: '作者：', byTeam: 'ThailandAddict 编辑团队' },
+      writtenL: '撰写于', factCheckL: '事实核查', byLabel: '作者：', byTeam: 'ThailandAddict 编辑团队',
+      zoomHint: '🔍 点击放大', prevImg: '上一张照片', nextImg: '下一张照片', picTab: '🖼️ 照片', mapTab: '🗺️ 地图', embedFoot: '🖼️ 点击照片即可在页内放大 · 地图 / 社交内容由来源嵌入（版权合规）',
+      save: '加入行程', saveSm: '收藏', savedFull: '已加入', savedSm: '✓ 已加入', saveEatAria: '把这个地点加入我的行程', lbClose: '关闭', lbPrev: '上一张', lbNext: '下一张',
+      fabAria: '我的行程', fabLabel: '我的行程', viewPlan: '查看我的行程 →', thisPlace: '这个地点', toastAdded: '✓ 已把“{n}”加入行程（已收藏 {c} 个）', toastRemoved: '已把“{n}”移出行程' },
   ru: { home: 'Главная', th: 'Таиланд', nav: ['Направления','Отели','Развлечения','Еда','О нас'], cta: 'Найти отель', faqH: 'Частые вопросы', relH: 'Похожее', ftTag: 'Thailand, Done Right',
       priceLabel: 'Примерная цена', sigLabel: 'Фирменное блюдо', mustLabel: 'Обязательно попробуйте', stayDefault: 'Жильё поблизости', mapLabel: 'Открыть карту', fbLabel: 'Страница в Facebook',
       hoursL: 'Часы работы', halalL: 'Халяль', vegL: 'Веган/вегетарианские блюда', enMenuL: 'Меню на английском', spiceL: 'Острота', usdL: '≈',
@@ -74,7 +83,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'Путеводитель по Таиланду от настоящих путешественников — честные обзоры жилья, развлечений и еды по всей стране.', ftDestH: 'Направления', ftThai: '🇹🇭 Исследуйте Таиланд', ftContentH: 'Контент', ftEat: 'Где поесть', ftSee: 'Чем заняться', ftStay: 'Где остановиться', ftAboutH: 'О нас', ftAboutUs: 'О нас', ftEditorial: 'Редакционная политика', ftContact: 'Контакты', ftPrivacy: 'Конфиденциальность', ftCopy: '© 2026 thailandaddict.com — Таиланд по-настоящему',
       updatedL: 'Обновлено', freshL: 'Последняя проверка', freshNote: ' · детали и часы работы могут меняться — уточняйте на месте', fType: 'Тип', fAll: 'Все', fZone: 'Район', fPrice: 'Цена', fVeg: '🥗 Вег', fHalal: '🕌 Халяль', fCountTpl: 'Показано {s}/{t} мест', bestForL: '👍 Лучше всего для', reviewsL: 'отзывов', nearL: 'Ближайшее: ',
       durationL: 'Продолжительность', bookL: 'Забронировать на ', prosL: 'Плюсы из отзывов', consL: 'Стоит учесть',
-      writtenL: 'Написано', factCheckL: 'Проверено', byLabel: 'Автор: ', byTeam: 'Редакция ThailandAddict' },
+      writtenL: 'Написано', factCheckL: 'Проверено', byLabel: 'Автор: ', byTeam: 'Редакция ThailandAddict',
+      zoomHint: '🔍 Нажмите, чтобы увеличить', prevImg: 'Предыдущее фото', nextImg: 'Следующее фото', picTab: '🖼️ Фото', mapTab: '🗺️ Карта', embedFoot: '🖼️ Нажмите на фото, чтобы увеличить · карта / соцсети встроены из источника (без нарушения авторских прав)',
+      save: 'Сохранить в план', saveSm: 'Сохранить', savedFull: 'Сохранено', savedSm: '✓ Сохранено', saveEatAria: 'Сохранить это место в план поездки', lbClose: 'Закрыть', lbPrev: 'Назад', lbNext: 'Далее',
+      fabAria: 'Мой план поездки', fabLabel: 'Мой план', viewPlan: 'Смотреть мой план →', thisPlace: 'это место', toastAdded: '✓ «{n}» сохранено в план ({c})', toastRemoved: '«{n}» удалено из плана' },
   ko: { home: '홈', th: '태국', nav: ['여행지','숙소','볼거리','먹거리','소개'], cta: '호텔 찾기', faqH: '자주 묻는 질문', relH: '관련 글', ftTag: 'Thailand, Done Right',
       priceLabel: '대략 가격', sigLabel: '대표 메뉴', mustLabel: '꼭 먹어보기', stayDefault: '근처 숙소', mapLabel: '지도 보기', fbLabel: '페이스북 페이지',
       hoursL: '영업시간', halalL: '할랄', vegL: '채식 옵션', enMenuL: '영어 메뉴', spiceL: '맵기', usdL: '≈',
@@ -83,7 +95,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: '실제 여행자들이 만든 태국 여행 가이드 — 숙소, 볼거리, 먹거리 솔직 리뷰.', ftDestH: '여행지', ftThai: '🇹🇭 태국 여행', ftContentH: '콘텐츠', ftEat: '먹거리', ftSee: '볼거리', ftStay: '숙소', ftAboutH: '소개', ftAboutUs: '소개', ftEditorial: '편집 방침', ftContact: '문의', ftPrivacy: '개인정보', ftCopy: '© 2026 thailandaddict.com — 제대로 즐기는 태국',
       updatedL: '업데이트', freshL: '최근 확인', freshNote: ' · 세부 정보와 영업시간은 바뀔 수 있으니 방문 전 확인하세요', fType: '종류', fAll: '전체', fZone: '지역', fPrice: '가격', fVeg: '🥗 채식', fHalal: '🕌 할랄', fCountTpl: '{s}/{t}곳 표시', bestForL: '👍 이런 분께', reviewsL: '리뷰', nearL: '가장 가까운 곳: ',
       durationL: '소요 시간', bookL: '예약하기: ', prosL: '리뷰에서 좋았던 점', consL: '참고할 점',
-      writtenL: '작성일', factCheckL: '사실 확인', byLabel: '작성: ', byTeam: 'ThailandAddict 편집팀' },
+      writtenL: '작성일', factCheckL: '사실 확인', byLabel: '작성: ', byTeam: 'ThailandAddict 편집팀',
+      zoomHint: '🔍 탭하면 확대', prevImg: '이전 사진', nextImg: '다음 사진', picTab: '🖼️ 사진', mapTab: '🗺️ 지도', embedFoot: '🖼️ 사진을 탭하면 페이지에서 바로 확대돼요 · 지도 / 소셜은 원본 출처에서 임베드 (저작권 문제 없음)',
+      save: '일정에 저장', saveSm: '저장', savedFull: '저장됨', savedSm: '✓ 저장됨', saveEatAria: '이 장소를 여행 일정에 저장', lbClose: '닫기', lbPrev: '이전', lbNext: '다음',
+      fabAria: '내 여행 일정', fabLabel: '내 일정', viewPlan: '내 일정 보기 →', thisPlace: '이 장소', toastAdded: '✓ “{n}” 일정에 저장했어요 ({c}곳)', toastRemoved: '“{n}” 일정에서 뺐어요' },
   ja: { home: 'ホーム', th: 'タイ', nav: ['行き先','宿泊','観光','グルメ','About'], cta: 'ホテルを探す', faqH: 'よくある質問', relH: '関連記事', ftTag: 'Thailand, Done Right',
       priceLabel: 'おおよその料金', sigLabel: '看板メニュー', mustLabel: '必食', stayDefault: '近くの宿', mapLabel: '地図を見る', fbLabel: 'Facebookページ',
       hoursL: '営業時間', halalL: 'ハラル', vegL: 'ベジ対応', enMenuL: '英語メニュー', spiceL: '辛さ', usdL: '≈',
@@ -92,7 +107,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: '本物の旅行者によるタイ旅行ガイド — 宿・観光・グルメの正直なレビュー。', ftDestH: '行き先', ftThai: '🇹🇭 タイを旅する', ftContentH: 'コンテンツ', ftEat: 'グルメ', ftSee: '観光', ftStay: '宿泊', ftAboutH: 'About', ftAboutUs: '運営者について', ftEditorial: '編集方針', ftContact: 'お問い合わせ', ftPrivacy: 'プライバシー', ftCopy: '© 2026 thailandaddict.com — タイを、ちゃんと',
       updatedL: '更新', freshL: '最終確認', freshNote: ' · 詳細や営業時間は変わることがあります。訪問前にご確認ください', fType: 'ジャンル', fAll: 'すべて', fZone: 'エリア', fPrice: '価格', fVeg: '🥗 ベジ', fHalal: '🕌 ハラル', fCountTpl: '{s}/{t}件を表示', bestForL: '👍 おすすめ', reviewsL: '件のレビュー', nearL: '最寄り: ',
       durationL: '所要時間', bookL: '予約する: ', prosL: 'レビューの良い点', consL: '注意点',
-      writtenL: '執筆', factCheckL: 'ファクトチェック', byLabel: '執筆: ', byTeam: 'ThailandAddict 編集部' },
+      writtenL: '執筆', factCheckL: 'ファクトチェック', byLabel: '執筆: ', byTeam: 'ThailandAddict 編集部',
+      zoomHint: '🔍 タップで拡大', prevImg: '前の写真', nextImg: '次の写真', picTab: '🖼️ 写真', mapTab: '🗺️ 地図', embedFoot: '🖼️ 写真をタップするとページ内で拡大 · 地図 / SNSは提供元から埋め込み（著作権に配慮）',
+      save: 'プランに保存', saveSm: '保存', savedFull: '保存済み', savedSm: '✓ 保存済み', saveEatAria: 'このスポットを旅のプランに保存', lbClose: '閉じる', lbPrev: '前へ', lbNext: '次へ',
+      fabAria: '私の旅プラン', fabLabel: 'マイプラン', viewPlan: 'プランを見る →', thisPlace: 'このスポット', toastAdded: '✓「{n}」をプランに保存しました（{c}件）', toastRemoved: '「{n}」をプランから削除しました' },
   hi: { home: 'होम', th: 'थाईलैंड', nav: ['गंतव्य','ठहरने की जगह','घूमने की जगह','खाना','परिचय'], cta: 'होटल खोजें', faqH: 'सामान्य प्रश्न', relH: 'संबंधित लेख', ftTag: 'Thailand, Done Right',
       priceLabel: 'अनुमानित कीमत', sigLabel: 'सिग्नेचर डिश', mustLabel: 'ज़रूर आज़माएँ', stayDefault: 'पास ठहरने की जगह', mapLabel: 'मानचित्र देखें', fbLabel: 'फेसबुक पेज',
       hoursL: 'खुलने का समय', halalL: 'हलाल', vegL: 'शाकाहारी विकल्प', enMenuL: 'अंग्रेज़ी मेन्यू', spiceL: 'तीखापन', usdL: '≈',
@@ -101,7 +119,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'असली यात्रियों द्वारा थाईलैंड यात्रा गाइड — ठहरने, घूमने और खाने की ईमानदार समीक्षाएँ।', ftDestH: 'गंतव्य', ftThai: '🇹🇭 थाईलैंड घूमें', ftContentH: 'सामग्री', ftEat: 'कहाँ खाएँ', ftSee: 'क्या करें', ftStay: 'कहाँ ठहरें', ftAboutH: 'परिचय', ftAboutUs: 'हमारे बारे में', ftEditorial: 'संपादकीय नीति', ftContact: 'संपर्क', ftPrivacy: 'गोपनीयता', ftCopy: '© 2026 thailandaddict.com — थाईलैंड, सही तरीके से',
       updatedL: 'अपडेटेड', freshL: 'आख़िरी जाँच', freshNote: ' · जानकारी और समय बदल सकते हैं — जाने से पहले जाँच लें', fType: 'प्रकार', fAll: 'सभी', fZone: 'क्षेत्र', fPrice: 'कीमत', fVeg: '🥗 शाकाहारी', fHalal: '🕌 हलाल', fCountTpl: '{s}/{t} जगहें दिखा रहे हैं', bestForL: '👍 इनके लिए बेहतरीन', reviewsL: 'समीक्षाएँ', nearL: 'सबसे पास: ',
       durationL: 'अवधि', bookL: 'बुक करें: ', prosL: 'समीक्षाओं की ख़ास बातें', consL: 'ध्यान देने योग्य',
-      writtenL: 'लिखा गया', factCheckL: 'तथ्य-जाँच', byLabel: 'लेखक: ', byTeam: 'ThailandAddict संपादकीय टीम' },
+      writtenL: 'लिखा गया', factCheckL: 'तथ्य-जाँच', byLabel: 'लेखक: ', byTeam: 'ThailandAddict संपादकीय टीम',
+      zoomHint: '🔍 ज़ूम के लिए टैप करें', prevImg: 'पिछली तस्वीर', nextImg: 'अगली तस्वीर', picTab: '🖼️ तस्वीरें', mapTab: '🗺️ मानचित्र', embedFoot: '🖼️ तस्वीर पर टैप करें और इसी पेज पर ज़ूम करें · मानचित्र / सोशल मूल स्रोत से एम्बेड (कॉपीराइट सुरक्षित)',
+      save: 'प्लान में सेव करें', saveSm: 'सेव', savedFull: 'सेव हो गया', savedSm: '✓ सेव हो गया', saveEatAria: 'इस जगह को अपने ट्रिप प्लान में सेव करें', lbClose: 'बंद करें', lbPrev: 'पिछला', lbNext: 'अगला',
+      fabAria: 'मेरा ट्रिप प्लान', fabLabel: 'मेरा प्लान', viewPlan: 'मेरा प्लान देखें →', thisPlace: 'यह जगह', toastAdded: '✓ “{n}” आपके प्लान में सेव हो गया ({c} सेव)', toastRemoved: '“{n}” को प्लान से हटा दिया' },
   he: { home: 'בית', th: 'תאילנד', nav: ['יעדים','לינה','אטרקציות','אוכל','אודות'], cta: 'מצא מלון', faqH: 'שאלות נפוצות', relH: 'קשור', ftTag: 'Thailand, Done Right',
       priceLabel: 'מחיר משוער', sigLabel: 'מנת דגל', mustLabel: 'חובה לטעום', stayDefault: 'לינה בקרבת מקום', mapLabel: 'הצג מפה', fbLabel: 'עמוד פייסבוק',
       hoursL: 'שעות פתיחה', halalL: 'חלאל', vegL: 'אפשרויות צמחוניות', enMenuL: 'תפריט באנגלית', spiceL: 'חריפות', usdL: '≈',
@@ -110,7 +131,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'מדריך טיולים לתאילנד ממטיילים אמיתיים — ביקורות כנות על לינה, אטרקציות ואוכל.', ftDestH: 'יעדים', ftThai: '🇹🇭 לגלות את תאילנד', ftContentH: 'תוכן', ftEat: 'איפה לאכול', ftSee: 'מה לעשות', ftStay: 'איפה לישון', ftAboutH: 'אודות', ftAboutUs: 'עלינו', ftEditorial: 'מדיניות מערכת', ftContact: 'צור קשר', ftPrivacy: 'פרטיות', ftCopy: '© 2026 thailandaddict.com — תאילנד כמו שצריך',
       updatedL: 'עודכן', freshL: 'נבדק לאחרונה', freshNote: ' · פרטים ושעות עשויים להשתנות — בדקו לפני שאתם יוצאים', fType: 'סוג', fAll: 'הכול', fZone: 'אזור', fPrice: 'מחיר', fVeg: '🥗 צמחוני', fHalal: '🕌 חלאל', fCountTpl: 'מציג {s}/{t} מקומות', bestForL: '👍 מתאים במיוחד ל', reviewsL: 'ביקורות', nearL: 'הקרוב ביותר: ',
       durationL: 'משך', bookL: 'להזמנה ב־', prosL: 'נקודות חזקות מהביקורות', consL: 'כדאי לשים לב',
-      writtenL: 'נכתב', factCheckL: 'נבדק עובדתית', byLabel: 'מאת ', byTeam: 'מערכת ThailandAddict' },
+      writtenL: 'נכתב', factCheckL: 'נבדק עובדתית', byLabel: 'מאת ', byTeam: 'מערכת ThailandAddict',
+      zoomHint: '🔍 הקישו להגדלה', prevImg: 'התמונה הקודמת', nextImg: 'התמונה הבאה', picTab: '🖼️ תמונות', mapTab: '🗺️ מפה', embedFoot: '🖼️ הקישו על תמונה להגדלה בתוך העמוד · מפה / רשתות חברתיות מוטמעות מהמקור (ללא הפרת זכויות יוצרים)',
+      save: 'שמירה לתכנון', saveSm: 'שמירה', savedFull: 'נשמר', savedSm: '✓ נשמר', saveEatAria: 'שמרו את המקום הזה לתכנון הטיול', lbClose: 'סגירה', lbPrev: 'הקודם', lbNext: 'הבא',
+      fabAria: 'תכנון הטיול שלי', fabLabel: 'התוכנית שלי', viewPlan: 'לתוכנית שלי →', thisPlace: 'המקום הזה', toastAdded: '✓ “{n}” נשמר לתוכנית ({c} שמורים)', toastRemoved: '“{n}” הוסר מהתוכנית' },
   ar: { home: 'الرئيسية', th: 'تايلاند', nav: ['الوجهات','الإقامة','المعالم','الطعام','عن الموقع'], cta: 'ابحث عن فندق', faqH: 'الأسئلة الشائعة', relH: 'ذات صلة', ftTag: 'Thailand, Done Right',
       priceLabel: 'السعر التقريبي', sigLabel: 'الطبق المميز', mustLabel: 'يجب تجربته', stayDefault: 'إقامة قريبة', mapLabel: 'عرض الخريطة', fbLabel: 'صفحة فيسبوك',
       hoursL: 'ساعات العمل', halalL: 'حلال', vegL: 'خيارات نباتية', enMenuL: 'قائمة بالإنجليزية', spiceL: 'الحرارة', usdL: '≈',
@@ -119,7 +143,10 @@ const STRINGS: Record<string, any> = {
       ftDesc: 'دليل السفر إلى تايلاند من مسافرين حقيقيين — مراجعات صادقة للإقامة والأنشطة والطعام.', ftDestH: 'الوجهات', ftThai: '🇹🇭 اكتشف تايلاند', ftContentH: 'المحتوى', ftEat: 'أين تأكل', ftSee: 'ماذا تفعل', ftStay: 'أين تقيم', ftAboutH: 'عن الموقع', ftAboutUs: 'من نحن', ftEditorial: 'سياسة التحرير', ftContact: 'اتصل بنا', ftPrivacy: 'الخصوصية', ftCopy: '© 2026 thailandaddict.com — تايلاند بالشكل الصحيح',
       updatedL: 'تم التحديث', freshL: 'آخر مراجعة', freshNote: ' · قد تتغير التفاصيل وساعات العمل — تحقق قبل الذهاب', fType: 'النوع', fAll: 'الكل', fZone: 'المنطقة', fPrice: 'السعر', fVeg: '🥗 نباتي', fHalal: '🕌 حلال', fCountTpl: 'عرض {s}/{t} مكان', bestForL: '👍 الأفضل لـ', reviewsL: 'مراجعة', nearL: 'الأقرب: ',
       durationL: 'المدة', bookL: 'احجز عبر ', prosL: 'أبرز ما جاء في المراجعات', consL: 'أمور تستحق الانتباه',
-      writtenL: 'كُتب في', factCheckL: 'تم التحقق من الحقائق', byLabel: 'بقلم ', byTeam: 'فريق تحرير ThailandAddict' },
+      writtenL: 'كُتب في', factCheckL: 'تم التحقق من الحقائق', byLabel: 'بقلم ', byTeam: 'فريق تحرير ThailandAddict',
+      zoomHint: '🔍 اضغط للتكبير', prevImg: 'الصورة السابقة', nextImg: 'الصورة التالية', picTab: '🖼️ الصور', mapTab: '🗺️ الخريطة', embedFoot: '🖼️ اضغط على الصورة لتكبيرها داخل الصفحة · الخريطة / وسائل التواصل مضمّنة من المصدر (دون مخالفة حقوق النشر)',
+      save: 'حفظ في الخطة', saveSm: 'حفظ', savedFull: 'تم الحفظ', savedSm: '✓ تم الحفظ', saveEatAria: 'احفظ هذا المكان في خطة رحلتك', lbClose: 'إغلاق', lbPrev: 'السابق', lbNext: 'التالي',
+      fabAria: 'خطة رحلتي', fabLabel: 'خطتي', viewPlan: 'عرض خطتي →', thisPlace: 'هذا المكان', toastAdded: '✓ تم حفظ “{n}” في خطتك ({c} محفوظة)', toastRemoved: 'تمت إزالة “{n}” من خطتك' },
 };
 const S = STRINGS[lang] || STRINGS.en;
 
@@ -151,22 +178,31 @@ const isAttractionList = isResto && /^top10-attractions-/.test(data.slug);
 const isActivity = isResto && /^activity/.test(data.type || '');
 const ACT: Record<string, any> = {
   en: { fCountTpl: 'Showing {s}/{t} activities', freshNote: ' · prices and schedules can change — check with the operator before booking',
+        saveAria: 'Save this activity to your plan',
         bookSub: 'Compare prices · instant confirmation', stayWide: 'Find hotels nearby', bookWide: (p: string) => `Book this activity on ${p}`, scrollAll: (n: number) => `Explore all ${n}` },
   th: { fCountTpl: 'แสดง {s}/{t} กิจกรรม', freshNote: ' · ราคาและรอบอาจเปลี่ยน ตรวจสอบกับผู้ให้บริการก่อนจอง',
+        saveAria: 'เก็บกิจกรรมนี้ลงแผนการเดินทาง',
         bookSub: 'เทียบราคา · ยืนยันที่นั่งทันที', stayWide: 'ดูที่พักใกล้ ๆ', bookWide: (p: string) => `จองกิจกรรมนี้บน ${p}`, scrollAll: (n: number) => `เลื่อนดูทั้ง ${n} กิจกรรม` },
   zh: { fCountTpl: '显示 {s}/{t} 个活动', freshNote: ' · 价格与场次可能变动，预订前请与营运方确认',
+        saveAria: '把这个活动加入我的行程',
         bookSub: '比较价格 · 即时确认', stayWide: '查找附近住宿', bookWide: (p: string) => `在 ${p} 预订此活动`, scrollAll: (n: number) => `浏览全部 ${n} 项活动` },
   ru: { fCountTpl: 'Показано {s}/{t} мероприятий', freshNote: ' · цены и расписание могут измениться — уточняйте у организатора перед бронированием',
+        saveAria: 'Сохранить это мероприятие в план поездки',
         bookSub: 'Сравните цены · мгновенное подтверждение', stayWide: 'Найти отели поблизости', bookWide: (p: string) => `Забронировать на ${p}`, scrollAll: (n: number) => `Смотреть все ${n}` },
   ko: { fCountTpl: '{s}/{t}개 액티비티 표시', freshNote: ' · 가격과 일정은 바뀔 수 있으니 예약 전 운영사에 확인하세요',
+        saveAria: '이 액티비티를 여행 일정에 저장',
         bookSub: '가격 비교 · 즉시 확정', stayWide: '근처 숙소 찾기', bookWide: (p: string) => `${p}에서 예약하기`, scrollAll: (n: number) => `${n}개 모두 보기` },
   ja: { fCountTpl: '{s}/{t}件のアクティビティを表示', freshNote: ' · 料金や催行時間は変わることがあります。予約前に主催者にご確認ください',
+        saveAria: 'このアクティビティを旅のプランに保存',
         bookSub: '料金を比較 · 即時確定', stayWide: '近くの宿を探す', bookWide: (p: string) => `${p}で予約する`, scrollAll: (n: number) => `${n}件すべて見る` },
   hi: { fCountTpl: '{s}/{t} गतिविधियाँ दिखा रहे हैं', freshNote: ' · कीमतें और समय बदल सकते हैं — बुकिंग से पहले ऑपरेटर से जाँच लें',
+        saveAria: 'इस गतिविधि को अपने ट्रिप प्लान में सेव करें',
         bookSub: 'कीमतों की तुलना करें · तुरंत पुष्टि', stayWide: 'पास होटल खोजें', bookWide: (p: string) => `${p} पर यह गतिविधि बुक करें`, scrollAll: (n: number) => `सभी ${n} गतिविधियाँ देखें` },
   he: { fCountTpl: 'מציג {s}/{t} חוויות', freshNote: ' · מחירים ולוחות זמנים עשויים להשתנות — בדקו מול המפעיל לפני ההזמנה',
+        saveAria: 'שמרו את החוויה הזו לתכנון הטיול',
         bookSub: 'השוו מחירים · אישור מיידי', stayWide: 'מצאו מלונות בסביבה', bookWide: (p: string) => `להזמין את החוויה ב־${p}`, scrollAll: (n: number) => `לכל ${n} החוויות` },
   ar: { fCountTpl: 'عرض {s}/{t} نشاط', freshNote: ' · قد تتغير الأسعار والمواعيد — تحقق مع المشغّل قبل الحجز',
+        saveAria: 'احفظ هذا النشاط في خطة رحلتك',
         bookSub: 'قارن الأسعار · تأكيد فوري', stayWide: 'ابحث عن فنادق قريبة', bookWide: (p: string) => `احجز هذا النشاط عبر ${p}`, scrollAll: (n: number) => `استعرض كل ${n} نشاط` },
 };
 const A = ACT[lang] || ACT.en;
@@ -860,15 +896,15 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
                 : b.score && <span class="resto-score" set:html={'⭐ ' + b.score} />}
             </div>}
         </div>
-        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type={isActivity ? 'activity' : 'eat'} data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label="เก็บร้านนี้ลงแผนการเดินทาง"><span class="rs-ico">🔖</span> <span class="rs-label">เก็บลงแผน</span><span class="rs-label-sm">เก็บแผน</span></button>
+        <button class="resto-save" type="button" data-slug={`${data.slug}-r${b.rank}`} data-name={strip(b.name)} data-type={isActivity ? 'activity' : 'eat'} data-city={data.cluster} data-url={`${link(data.slug + '.html')}#r${b.rank}`} data-img={b.libImg || ''} aria-label={isActivity ? (A.saveAria || S.saveEatAria) : S.saveEatAria}><span class="rs-ico">🔖</span> <span class="rs-label">{S.save}</span><span class="rs-label-sm">{S.saveSm}</span></button>
       </div>
       <div class="resto-body">
         <div class="resto-media">
           {(b.igPost || b.fbPage || b.libImg || !b.img) ? (
             <div class="resto-embed">
               <div class="re-tabs">
-                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>🖼️ รูป</button>}
-                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>🗺️ แผนที่</button>
+                {realLib(b.libImg) && <button class="re-tab on" type="button" data-pane={`emb${b.rank}-pic`}>{S.picTab}</button>}
+                <button class={realLib(b.libImg) ? 're-tab' : 're-tab on'} type="button" data-pane={`emb${b.rank}-map`}>{S.mapTab}</button>
                 {b.igPost && <button class="re-tab" type="button" data-pane={`emb${b.rank}-ig`}>📷 IG</button>}
                 {b.fbPage && <button class="re-tab" type="button" data-pane={`emb${b.rank}-fb`}>📘 FB</button>}
               </div>
@@ -881,26 +917,26 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
                           <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={b.alt || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
                         ))}
                       </div>
-                      <button class="re-cbtn re-cprev" type="button" aria-label="รูปก่อนหน้า">‹</button>
-                      <button class="re-cbtn re-cnext" type="button" aria-label="รูปถัดไป">›</button>
+                      <button class="re-cbtn re-cprev" type="button" aria-label={S.prevImg}>‹</button>
+                      <button class="re-cbtn re-cnext" type="button" aria-label={S.nextImg}>›</button>
                       <span class="re-ccount">1/{b.gallery.length + 1}</span>
-                      <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
+                      <span class="re-zoomhint">{S.zoomHint}</span>
                     </div>
                   ) : (
-                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">🔍 แตะเพื่อซูม</span></Fragment>
+                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">{S.zoomHint}</span></Fragment>
                   )}
                 </div>}
                 <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
                 {b.igPost && <iframe id={`emb${b.rank}-ig`} class="re-pane" loading="lazy" title="Instagram" scrolling="no" frameborder="0" data-src={`https://www.instagram.com/p/${b.igPost}/embed/`}></iframe>}
                 {b.fbPage && <iframe id={`emb${b.rank}-fb`} class="re-pane" loading="lazy" title="Facebook" scrolling="no" frameborder="0" allowfullscreen data-src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(b.fbPage)}&tabs=timeline&width=500&height=540&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false`}></iframe>}
               </div>
-              <div class="re-foot">🖼️ แตะรูปเพื่อซูมในหน้า · แผนที่ / โซเชียลฝังจากต้นทาง (ถูกลิขสิทธิ์)</div>
+              <div class="re-foot">{S.embedFoot}</div>
             </div>
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
                 {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
-                <span class="re-zoomhint">🔍 แตะเพื่อซูม</span>
+                <span class="re-zoomhint">{S.zoomHint}</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
               {b.gallery && b.gallery.length > 0 && (
@@ -1069,7 +1105,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
 </div></article>
 
 {isResto && (
-  <script is:inline>
+  <script is:inline define:vars={{ TW: { save: S.save, saveSm: S.saveSm, savedFull: S.savedFull, savedSm: S.savedSm, lbClose: S.lbClose, lbPrev: S.lbPrev, lbNext: S.lbNext } }}>
   (function () {
     // photo gallery — swap main image + credit on thumbnail click
     document.addEventListener('click', function (e) {
@@ -1099,7 +1135,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
     });
     // in-page lightbox — tap any photo to zoom WITHOUT leaving the page (no IG/FB bounce)
     var ov = document.createElement('div'); ov.className = 'lbx-ov';
-    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="ปิด">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="ก่อนหน้า">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="ถัดไป">›</button>';
+    ov.innerHTML = '<span class="lbx-count"></span><button class="lbx-btn lbx-close" type="button" aria-label="' + TW.lbClose + '">✕</button><button class="lbx-btn lbx-prev" type="button" aria-label="' + TW.lbPrev + '">‹</button><img class="lbx-img" alt=""><div class="lbx-cap"></div><div class="lbx-cred"></div><button class="lbx-btn lbx-next" type="button" aria-label="' + TW.lbNext + '">›</button>';
     document.body.appendChild(ov);
     var ovImg = ov.querySelector('.lbx-img'), ovCap = ov.querySelector('.lbx-cap'), ovCred = ov.querySelector('.lbx-cred'), ovCount = ov.querySelector('.lbx-count');
     var ovPrev = ov.querySelector('.lbx-prev'), ovNext = ov.querySelector('.lbx-next');
@@ -1135,7 +1171,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
     document.querySelectorAll('.resto-save').forEach(function (btn) {
       var KEY = 'ta_wishlist', slug = btn.getAttribute('data-slug');
       function get(){ try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? 'เก็บแล้ว' : 'เก็บลงแผน'; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? '✓ เก็บแล้ว' : 'เก็บแผน'; }
+      function render(){ var on = get().some(function (x) { return x.slug === slug; }); btn.classList.toggle('saved', on); btn.querySelector('.rs-ico').textContent = on ? '✓' : '🔖'; btn.querySelector('.rs-label').textContent = on ? TW.savedFull : TW.save; var sm = btn.querySelector('.rs-label-sm'); if (sm) sm.textContent = on ? TW.savedSm : TW.saveSm; }
       render();
       btn.addEventListener('click', function () {
         var l = get(), i = -1; for (var k = 0; k < l.length; k++) { if (l[k].slug === slug) { i = k; break; } }
@@ -1214,8 +1250,8 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
 <script is:inline>
 (function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb&&mm&&mmx){hb.addEventListener('click',function(){mm.classList.add('open')});mmx.addEventListener('click',function(){mm.classList.remove('open')});}})();
 </script>
-<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
-<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">ดูแผนเที่ยว →</a></div>
+<a href="/trip" class="ta-tripfab" id="taTripFab" aria-label={S.fabAria} style="display:none">🧳<span class="tf-l">{S.fabLabel}</span><b id="taTripN">0</b></a>
+<div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link">{S.viewPlan}</a></div>
 <style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
 .ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
 .ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
@@ -1233,7 +1269,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
 .lbx-close{top:16px;right:16px;width:42px;height:42px;font-size:20px}
 .lbx-count{position:absolute;top:22px;left:18px;color:#cbd5e1;font-size:13px}
 </style>
-<script>(function(){
+<script is:inline define:vars={{ TWT: { thisPlace: S.thisPlace, toastAdded: S.toastAdded, toastRemoved: S.toastRemoved } }}>(function(){
   var KEY='ta_wishlist';
   function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
   var fab=document.getElementById('taTripFab'),nEl=document.getElementById('taTripN');
@@ -1242,8 +1278,8 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
   var toast=document.getElementById('taPlanToast'),tHide;
   window.taPlanToast=function(added,name,count){
     if(!toast)return;
-    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||'ร้านนี้');
-    toast.querySelector('.tpt-msg').textContent=added?('✓ เก็บ “'+nm+'” ลงแผนแล้ว ('+count+' ที่)'):('เอา “'+nm+'” ออกจากแผนแล้ว');
+    var nm=(name&&name.length>22)?name.slice(0,22)+'…':(name||TWT.thisPlace);
+    toast.querySelector('.tpt-msg').textContent=added?TWT.toastAdded.replace('{n}',nm).replace('{c}',count):TWT.toastRemoved.replace('{n}',nm);
     toast.querySelector('.tpt-link').style.display=read().length?'inline-block':'none';
     toast.classList.add('show');clearTimeout(tHide);
     tHide=setTimeout(function(){toast.classList.remove('show')},added?3800:2600);
