@@ -196,7 +196,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
 
 /* -- resting depth + hover lift + brand glow -- */
 .hotel-entry,           /* roundup card */
-.resto.resto,                 /* article resto/attraction/activity card */
+.resto.resto.resto,                 /* article resto/attraction/activity card */
 .rrail-card,            /* article sticky-rail hotel card */
 .foodexp-card,          /* article food-experience card */
 .hcard,                 /* hub hotel card */
@@ -220,7 +220,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
    cinematic photo grade + legibility scrim; the shine-sweep lives on
    BUTTONS only (self-contained, safe to clip). */
 
-.hotel-entry:hover,.resto.resto:hover,.rrail-card:hover,.foodexp-card:hover,
+.hotel-entry:hover,.resto.resto.resto:hover,.rrail-card:hover,.foodexp-card:hover,
 .hcard:hover,.dcard:hover,.ep-card:hover,.hcc:hover,.ahub-card:hover,
 .gp:hover,.side-card:hover,.related-a:hover{
   transform:translateY(-6px);
@@ -244,7 +244,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   transition:filter .4s ease, transform .5s cubic-bezier(.22,.61,.36,1);
 }
 .hotel-entry:hover .img-wrap img,
-.resto.resto:hover .resto-mainimg,.resto.resto:hover .re-zoom,
+.resto.resto.resto:hover .resto-mainimg,.resto.resto.resto:hover .re-zoom,
 .rrail-card:hover img,.foodexp-card:hover .foodexp-thumb,
 .hcard:hover .hc-img img,.dcard:hover .dphoto img,
 .ep-card:hover .ep-img img,.hcc:hover > img,.ahub-card:hover .ahub-ph img,
@@ -366,7 +366,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.42) 50%,transparent 62%);
   background-size:220% 100%;background-position:125% 0;
 }
-.resto.resto:hover .resto-imgwrap::after,.hcard:hover .hc-img::after,.dcard:hover .dphoto::after,
+.resto.resto.resto:hover .resto-imgwrap::after,.hcard:hover .hc-img::after,.dcard:hover .dphoto::after,
 .ep-card:hover .ep-img::after,.gp:hover::after{
   animation:taImgShine .85s cubic-bezier(.25,.6,.3,1) 1;
 }
@@ -402,7 +402,7 @@ html.mjs .page-h1.mrdy-host.mrdy .word-mask:nth-child(3) .word{transition-delay:
   .qa-cta::after,.mbar a::after,.affcard a::after{display:none!important}
 
   /* freeze card lift + photo grade transitions */
-  .hotel-entry,.resto.resto,.rrail-card,.foodexp-card,.hcard,.dcard,.ep-card,
+  .hotel-entry,.resto.resto.resto,.rrail-card,.foodexp-card,.hcard,.dcard,.ep-card,
   .hcc,.ahub-card,.gp,.side-card,.related-a{transition:none!important}
 }
 
