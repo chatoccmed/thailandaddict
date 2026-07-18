@@ -112,6 +112,7 @@ for (const f of htmlFiles) {
     if (!u) return;
     u = u.trim();
     if (u.startsWith('data:')) return;
+    if (RUNTIME_HREF.test(u)) return;                 // src built by inline JS — not a file to check
     // local existence
     if (!/^https?:\/\//.test(u)) {
       const p = u.split('?')[0].replace(/^\//, '');

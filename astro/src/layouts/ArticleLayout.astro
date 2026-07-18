@@ -5,6 +5,7 @@ import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
 import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
+import { stampAffiliate } from '../lib/affiliate';
 const { data, lang = 'th', hasEn = true, availableLocales }: {
   data: any;
   lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
@@ -45,7 +46,11 @@ const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE
 // affiliate ids live in ONE place (worker.js) and a CJ format change is a 10-line edit, not a site-wide rebuild.
 // sid = locale + page slug → per-page revenue attribution in CJ Reports. Non-booking.com URLs pass through untouched.
 const cjSid = ((isTh ? '' : lang + '-') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
-const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent(cjSid) : u);
+// Every outbound link goes through here: tag OTA urls first, then route Booking.com through CJ.
+const goB = (u: string) => {
+  const t = stampAffiliate(u);
+  return t && String(t).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(t) + '&sid=' + encodeURIComponent(cjSid) : t;
+};
 // Serve a webp twin when one exists (pilot: top 150 most-referenced images site-wide — see
 // _internal/DEVELOPMENT-PLAN-v4-revenue.md). Gated on the manifest so unconverted images render exactly as before.
 const hasWebp = (p: string) => !!(p && (webpManifest as Record<string, number>)[String(p).replace(/^\//, '')]);

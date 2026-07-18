@@ -33,9 +33,11 @@ repo นี้มีหลายเครื่อง/หลาย session push 
   3. **content layer** (3 layout): `link()` 3-way ผ่าน `localizedSlugSet()` ใน `lib/locales.ts` — in-locale twin→`/<loc>/` · EN page→`/en/` · **`ROOT_ONLY_SLUGS` (trip/my-list/font-compare)→root** · strip locale prefix รับทั้ง `/en/x` และ `en/x` (กัน `/en/en/`)
   4. **prose ใน content-<loc> JSON:** raw `<a href>` ที่ set:html เข้าไม่ถึง link() → rewrite เป็น absolute (1,015 จุด)
   5. **structured href:** card/CTA (`it.href`/`c.href`/`ctaHref`) wrap ผ่าน `link()` — เดิมบางตัวใช้ `goB()` ซึ่งผ่านเฉพาะ booking.com เลยปล่อย internal เป็น bare
-  - ⚠️ **รักษาไว้:** เพิ่มหน้า root-only ใหม่ → ใส่ใน `ROOT_ONLY_SLUGS` · แก้ layout link() แล้วรัน audit ซ้ำเสมอ (filter JS template literal ออกก่อนอ่านตัวเลข)
+  - ⚠️ **รักษาไว้:** เพิ่มหน้า root-only ใหม่ → ใส่ใน `ROOT_ONLY_SLUGS` · แก้ layout link() แล้วรัน audit ซ้ำเสมอ
+  - ✅ **audit-site.mjs กรอง href ที่ JS ประกอบตอน runtime (`'<a href="' + it.href`, `${...}`) เองแล้ว** — ตัวเลข "dead internal links" อ่านตรงได้เลย ไม่ต้อง filter มืออีก (เดิมมี phantom 5,952)
 - **คำ "ลงตัว" 1,436 ครั้ง (39% ของรีวิว)** — คำไทยถูกต้อง ไม่ใช่คำต้องห้าม แต่กลายเป็น template crutch · จะ de-cliché ไหม = judgment call ของเจ้าของ (คำ AI ต้องห้ามจริง = 0 แล้ว)
-- **รูปแผนที่ placeholder ตัวเดียวใช้ซ้ำ 717 รีวิว** (`images/gallery/220t180000014yxfw73B0.webp`) — ควรใส่รูปจริงรายโรงแรม
+- **✅ รูปแผนที่ placeholder = 0 (จาก 717 ไฟล์ · 2026-07-18, deploy 3c816c7f)** — 60 รีวิวที่ไม่มีรูปแผนที่จริง เลิกโชว์รูปปลอม แล้วทำ **ที่อยู่ (`mapAddr`) เป็นลิงก์ไป lat/lng จริงบน Google Maps** แทน · `mapImg` เป็น optional ใน schema แล้ว · รีวิวที่มีรูปจริง 2,341 ตัว (6,490 หน้า) ไม่เปลี่ยน
+  - ⚠️ **รักษาไว้:** รีวิวใหม่ที่ไม่มีรูปแผนที่รายโรงแรม → **อย่าใส่ `mapImg` เลย** (ปล่อยว่าง = ได้ลิงก์แผนที่จริงอัตโนมัติ) ห้ามยืมรูปแผนที่ของโรงแรมอื่นมาใส่
 - Byline ผู้เขียนจริง, GA4 ID จริง (ยัง placeholder), cornerstone/pillar content
 - ⚠️ **audit-site.mjs รู้จัก `/go/b` `/api/*` เป็น worker route แล้ว** (ไม่นับเป็น dead) — ถ้าเพิ่ม worker route ใหม่ อัปเดต isValidInternal ด้วย
 
@@ -96,9 +98,12 @@ _internal/
 
 ## Affiliate IDs
 - Agoda `cid=1965862` · Trip.com `Allianceid=6861268&SID=312919111` · Klook `aid=121442`
+- **LOCKED: id อยู่ที่ `astro/src/lib/affiliate.ts` ที่เดียว** — `stampAffiliate()` ติด param ให้ URL ของ Agoda/Trip/Klook **ตอน render** ผ่าน `goB()` ในทั้ง 3 layout → URL เปล่าในข้อมูลถูกติดตราอัตโนมัติ (เดิม id ฝังอยู่ในข้อมูลอย่างเดียว ทำให้ `heroSub2Href` รั่วออกแบบไม่มี id: Agoda 4 + Trip 78 · แก้แล้ว 2026-07-18)
+  - URL ที่มี param อยู่แล้วจะไม่ถูกทับ (แคมเปญเฉพาะกิจชนะ default)
 - **Booking.com** ผ่าน CJ (Commission Junction) — PID `101809619` + deep-link ad `17293139` — เส้นทาง `/go/b?u=<encoded booking url>&sid=<slug>` → worker.js 302 ไปยัง CJ tracking link (ดูรายละเอียดเต็มใน memory `booking-cj-affiliate`, ⚠️ อย่าใช้ PID `101763824` — เป็นของเว็บอื่น)
   - **LOCKED: id อยู่ใน `worker.js` ที่เดียวเท่านั้น** — ห้ามฝัง CJ link ตรงใน HTML/layout อีก (เคยมีแบบ `cjB()` + ad `17289009` ฝังใน 13k ไฟล์ · merge 2026-07-17 ถอดออกหมดแล้ว) เปลี่ยน CJ = แก้ worker 10 บรรทัด + deploy 30 วิ ไม่ต้อง rebuild 17k หน้า
   - ⚠️ ad `17289009` ที่เครื่องอื่นเคยใช้ ยังไม่ยืนยันว่าอันไหน track ถูก — **เช็ค CJ dashboard ว่า ad ไหนมี click จริง** ถ้าผิดแก้ที่ `CJ_BOOKING.adid` ใน worker.js จุดเดียว
+  - ✅ 2026-07-18: หน้าแรกทั้ง 9 ภาษายังมี CJ link ฝังตรงใน HTML (ad `17289009` ตกค้างจาก merge) — เปลี่ยนเป็น `/go/b?u=…&sid=home|<loc>-home` แล้ว · `17289009` เหลือ 0 ใน public/
 - **GetYourGuide** — โค้ดมี placeholder `__GYG_PARTNER_ID__` ค้างอยู่ใน 6,538 ไฟล์ (owner ตัดสินใจแล้วว่ายังไม่รีบแก้ ณ 2026-07-11 — ไม่ต้องถามซ้ำ)
 
 ## Skills / Agents (`.claude/`)

@@ -5,6 +5,7 @@ import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
 import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
+import { stampAffiliate } from '../lib/affiliate';
 
 interface Props {
   data: CollectionEntry<'reviews'>['data'];
@@ -95,7 +96,11 @@ const webpOf = (p: string) => p.replace(/\.(jpg|jpeg|png)$/i, '.webp');
 // worker.js validates the destination host (open-redirect guard) and 302s to the CJ click URL.
 // sid = locale + page slug → CJ Reports "Performance by SID" shows exactly which page earned each booking.
 const cjSid = ((isTh ? '' : lang + '-') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
-const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent(cjSid) : u);
+// Every outbound link goes through here: tag OTA urls first, then route Booking.com through CJ.
+const goB = (u: string) => {
+  const t = stampAffiliate(u);
+  return t && String(t).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(t) + '&sid=' + encodeURIComponent(cjSid) : t;
+};
 
 // Domain-aware booking buttons (honesty-first): the label must match where the link actually goes.
 // A minority of rural stays are not on any OTA and carry their real channel (Facebook page / own site /

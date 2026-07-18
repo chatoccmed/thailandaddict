@@ -2,6 +2,7 @@
 import '../styles/roundup.css';
 import type { CollectionEntry } from 'astro:content';
 import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
+import { stampAffiliate } from '../lib/affiliate';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
@@ -80,7 +81,11 @@ const link = (h: string) => {
 // in exactly ONE place (worker.js): a CJ change is a 10-line worker edit, not a site-wide page rebuild.
 // sid = locale + page slug → per-page revenue attribution in CJ Reports.
 const cjSid = ((isTh ? '' : lang + '-') + String(data.slug || 'site')).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 60);
-const goB = (u: string) => (u && String(u).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + encodeURIComponent(cjSid) : u);
+// Every outbound link goes through here: tag OTA urls first, then route Booking.com through CJ.
+const goB = (u: string) => {
+  const t = stampAffiliate(u);
+  return t && String(t).includes('booking.com') ? '/go/b?u=' + encodeURIComponent(t) + '&sid=' + encodeURIComponent(cjSid) : t;
+};
 
 // Domain-aware booking buttons (honesty-first): the label must match where the link actually goes.
 // Rural stays not on any OTA carry their real booking channel (Facebook page / own site / Tripadvisor)
