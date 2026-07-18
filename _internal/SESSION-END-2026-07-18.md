@@ -11,7 +11,7 @@
 | Banned AI words | 10 → **0** site-wide | 4c6f19b1 |
 | i18n delta | 496 hub strings × 7 langs → **99.87%** coverage | 4c6f19b1 |
 | tourist-cities broken links | 91 vs/best-of pages → destinations | 62e73b16 |
-| **Site-wide dead-link audit** | **84,907 real dead → 126 (99.85% ↓)** | f728ae77 |
+| **Site-wide dead-link audit** | **84,907 real dead → 0** | f728ae77 → a7a6bbf5 |
 | Premium design restore + push | proto3 (silently un-deployed by another machine) restored + surgical premium finish | ffd4e9b0b, deployed earlier |
 
 ## The dead-link audit (the big one)
@@ -33,4 +33,6 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 - **Audit metric traps:** `localize.mjs` prints per-occurrence misses not unique; audit-site counts worker routes + JS template literals as dead — filter before believing the number.
 
 ## Next (see ACTIVE-WORK-CLAIMS.md)
-Closable residual: wrap the remaining structured `href={x.href}` sites (staycta/guides) in ArticleLayout through link() to close more of the 126. Owner-gated: byline/GA4, map placeholder ×717, "ลงตัว" de-cliché, cornerstone content.
+Dead links are at **0** — nothing left there. To keep them there: add any new root-only page to `ROOT_ONLY_SLUGS` (lib/locales.ts), and re-run `node _internal/wf/audit-site.mjs` after touching a layout's `link()` or `localize.mjs` (filter JS template literals out of the count before reading it).
+
+Remaining backlog is all owner-gated: real bylines, real GA4 id, the map-placeholder image reused across 717 reviews, whether to de-cliché "ลงตัว" (1,436×, a legitimate Thai word — not a banned one), and cornerstone/pillar content.
