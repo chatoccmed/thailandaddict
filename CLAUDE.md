@@ -27,8 +27,13 @@ repo นี้มีหลายเครื่อง/หลาย session push 
 **212 posts เดิม:** ย้าย/ตัดสินใจแล้ว 195/209 (อีก 14 ตั้งใจข้าม — cache อยู่ที่ `_internal/migration/oldposts/`)
 
 **งานถัดไปที่ยังไม่ทำ:**
-- **🟢 ลิงก์เสียทั้งเว็บ: 84,907 → 126 (99.85% ลด, deploy แล้ว)** ผ่าน 4 commit (2026-07-18): hub-layer `localize.mjs rewriteUrls` (45k), content-layer `link()` 3-way ทั้ง 3 layout + `localizedSlugSet()`/`localizedSlugSet('en')` ใน `lib/locales.ts` (in-locale twin→/<loc>/ · EN page→/en/ · root-only→/), prose rewrite ใน content-<loc> JSON (1,015), structured card href wrap (it.href/c.href/cta). **audit-site.mjs รู้จัก /go/b /api/* worker route แล้ว.**
-  - **67 ที่เหลือ (2026-07-18 อัปเดต — diminishing returns):** (1) **`/en/trip` root-only ×49** — หน้า EN link `trip` → /en/trip (ตาย, ควร /trip). แก้ต้องให้ EN link() มี enSlugs/root check = แตะทุก EN page 6,800 หน้า เสี่ยง (pre-existing, ไม่ใช่ regression); (2) **`/<loc>/thailand-travel-budget` ×14** — หน้า hub `trip-budget` (localize-gen): `localize.mjs rewriteUrls` แปลง /en/X → /<loc>/X โดยไม่เช็ค avail → /ar/thailand-travel-budget 404. **fix สะอาด:** เพิ่ม avail check ที่ /en/-rewrite (บรรทัด `a.value.startsWith('/en/')`) เหมือน bare-link แล้ว re-localize+build; (3) content gap: `top10-hotels-pattaya-beachfront/jomtien`, `review-dusit-thani-beach-resort-krabi` (หน้าไม่มี/rename). **แก้แล้วรอบนี้:** staycta/foodexp CTA (goB→link, commit 03504c54) + /en/en/ double-prefix (strip regex optional-slash, commit 2166d08b)
+- **✅ ลิงก์เสียทั้งเว็บ = 0 (จาก 84,907 · 2026-07-18, deploy a7a6bbf5)** — audit เต็มเว็บ (`node _internal/wf/audit-site.mjs`) ปิดครบทุกชั้น:
+  1. **audit tool:** สอน `isValidInternal` ว่า `/go/b` `/api/*` = worker route ไม่ใช่ไฟล์ (−38,627 false pos) — เพิ่ม worker route ใหม่ต้องอัปเดตด้วย
+  2. **hub layer** (`localize.mjs`): bare relative → `/<loc>/` ถ้ามี twin ไม่งั้น `/en/` (−45,000) · และ `/en/X`→`/<loc>/X` เช็ค avail ก่อน (avail รวม hub + content-<loc> แล้ว)
+  3. **content layer** (3 layout): `link()` 3-way ผ่าน `localizedSlugSet()` ใน `lib/locales.ts` — in-locale twin→`/<loc>/` · EN page→`/en/` · **`ROOT_ONLY_SLUGS` (trip/my-list/font-compare)→root** · strip locale prefix รับทั้ง `/en/x` และ `en/x` (กัน `/en/en/`)
+  4. **prose ใน content-<loc> JSON:** raw `<a href>` ที่ set:html เข้าไม่ถึง link() → rewrite เป็น absolute (1,015 จุด)
+  5. **structured href:** card/CTA (`it.href`/`c.href`/`ctaHref`) wrap ผ่าน `link()` — เดิมบางตัวใช้ `goB()` ซึ่งผ่านเฉพาะ booking.com เลยปล่อย internal เป็น bare
+  - ⚠️ **รักษาไว้:** เพิ่มหน้า root-only ใหม่ → ใส่ใน `ROOT_ONLY_SLUGS` · แก้ layout link() แล้วรัน audit ซ้ำเสมอ (filter JS template literal ออกก่อนอ่านตัวเลข)
 - **คำ "ลงตัว" 1,436 ครั้ง (39% ของรีวิว)** — คำไทยถูกต้อง ไม่ใช่คำต้องห้าม แต่กลายเป็น template crutch · จะ de-cliché ไหม = judgment call ของเจ้าของ (คำ AI ต้องห้ามจริง = 0 แล้ว)
 - **รูปแผนที่ placeholder ตัวเดียวใช้ซ้ำ 717 รีวิว** (`images/gallery/220t180000014yxfw73B0.webp`) — ควรใส่รูปจริงรายโรงแรม
 - Byline ผู้เขียนจริง, GA4 ID จริง (ยัง placeholder), cornerstone/pillar content

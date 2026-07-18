@@ -21,7 +21,7 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 2. **hub layer** — localized pages (activities-*/area-*/region-* × 7 langs) had bare relative links (`href="near-me"` → `/zh/near-me` 404). Fixed `localize.mjs rewriteUrls` to route bare links /<loc>/ (twin exists) else /en/ (−45,000).
 3. **content layer** — `ArticleLayout/ReviewLayout/RoundupLayout` `link()` blindly prepended the locale prefix → 404 on cross-links. New `localizedSlugSet()` in `lib/locales.ts` + **3-way routing** (in-locale twin → /<loc>/, EN page → /en/, root-only like /trip → /). Also: raw `<a href>` baked into translated prose (bypasses link()) rewritten in content-<loc> JSON (1,015 links); structured card hrefs (it.href/c.href/cta) wrapped through link().
 
-**126 residual (documented in CLAUDE.md, NOT fixed — diminishing returns):** EN-page routing (`/en/trip` root-only ×49, `/en/en/*` double-prefix ×56); a few structured hrefs (staycta-btn, guides) still bypassing link(); ~3 genuinely-missing pages (thailand-travel-budget, top10-hotels-pattaya-beachfront, review-dusit-thani-beach-resort-krabi).
+**Finished to ZERO** — the residual (EN root-only /trip, /en/en/ double-prefix, staycta/foodexp CTAs, localize /en/-rewrite, 4 stale content refs) was all closed in follow-up passes. Site-wide real dead internal links: **0**.
 
 ## Commits this session (chatoccmed, 2026-07-18)
 `367cf8939` merge · `3b2e764d5` merge-regression fixes · `4dcff898d` banned words · `767b78680` i18n delta · `11a45bd6a` tourist-cities · `6890c5eba` hub bare-links · `0c8e89b69` content link() · `cfcd9dce3` content 3-way+prose+card · plus cache/design/doc commits.
