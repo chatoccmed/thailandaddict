@@ -11,6 +11,8 @@
 - งานถัดไป (ยังไม่เริ่ม): i18n Tier-1 อีก 7 ภาษา (zh·ru·ko·ja·he·ar·hi) ยัง 0 หน้า — ดู `_internal/I18N-AND-TOURISM-CITY-PLAN.md`
 
 ## 🟢 ACTIVE
+- **[2026-07-18 · Imac · autonomous run] 🟡 dead-link residual + quality backlog** — big merge + site-wide dead-link audit DONE (84,907→126, deployed f728ae77 · see `SESSION-END-2026-07-18.md`). **Now closing the 126 residual:** wrapping remaining structured `href={x.href}` render sites (staycta-btn/guides) in the 3 layouts through link(). ⚠️ touches `astro/src/layouts/*.astro` + `lib/locales.ts` — coordinate. Does NOT touch content/chonburi (other session owns that). Deploying periodically.
+
 - **[2026-06-27 · Bangkok ย่าน megaproject — มี 2 loop วิ่งพร้อมกัน]**
     - **loop A (central core) ✅ COMPLETE = 14 ย่าน LIVE (2026-06-27):** sukhumvit · silom-sathorn · thong-lo · ari · khao-san · chinatown · samyan · siam-pratunam · chidlom · ratchathewi · rama9 · sai-tai · talat-phlu · **pinklao** (#14 last, Version pending) — all 5 dims × TH+EN. **STOPPED** — no clean ย่าน left for loop A (remaining = loop-B's east/north/SE or charoen-krung/saphan-taksin riverside+silom-overlaps; ratchada→rama9, ploenchit→chidlom, victory-monument→ratchathewi were folded). loop B owns north/east/SE (mochit/bangna/srinakarin/ladprao/bang-sue/bang-khen/kaset/chaeng-watthana) + Sukhumvit-east/riverside/phrom/on-nut.
     - **loop B (this session · Imac):** ✅ samyan + phrom-phong + riverside + on-nut + mochit-chatuchak + bangna + srinakarin (Version 5f237b4b) DONE+LIVE = **7 ย่าน (prior session)** · ถัดไป bang-sue/bang-khen/kaset/chaeng-watthana (loop B owns north/east/SE; loop A COMPLETE)
