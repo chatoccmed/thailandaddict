@@ -1,7 +1,7 @@
 ---
 import '../styles/roundup.css';
 import type { CollectionEntry } from 'astro:content';
-import { localizedSlugSet } from '../lib/locales';
+import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
@@ -68,6 +68,7 @@ const link = (h: string) => {
   let p = h.replace(/\.html$/, '');
   for (const l of ALL_LOCS) p = p.replace(new RegExp(`^/${l}/`), '/');
   if (!p.startsWith('/')) p = '/' + p;
+  if (ROOT_ONLY_SLUGS.has(p.slice(1).split(/[#?]/)[0])) return p;   // /trip etc. — root only, never locale-prefixed
   if (lang === 'en') return pfx + p;                          // pfx = /en
   const slug = p.slice(1).split(/[#?]/)[0];                   // in-locale page only if it exists, else /en
   return (localSlugs && localSlugs.has(slug) ? pfx : (enSlugs && enSlugs.has(slug) ? '/en' : '')) + p;

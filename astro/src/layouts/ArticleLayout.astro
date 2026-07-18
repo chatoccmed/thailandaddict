@@ -4,7 +4,7 @@
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
-import { localizedSlugSet } from '../lib/locales';
+import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
 const { data, lang = 'th', hasEn = true, availableLocales }: {
   data: any;
   lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
@@ -32,6 +32,7 @@ const link = (href: string) => {
   // normalise: strip any existing locale prefix (with OR without a leading slash — some content stores
   // "en/top10-hotels-x" which otherwise became /en/en/…) + .html, then re-prefix for this locale
   const c = href.replace(/\.html$/, '').replace(/^\/?(?:en|zh|ru|ko|ja|hi|he|ar)\//, '/').replace(/^\//, '');
+  if (ROOT_ONLY_SLUGS.has(c.split(/[#?]/)[0])) return `/${c}`.replace(/\/+/g, '/');   // /trip etc. — root only
   if (isTh) return `/${c}`.replace(/\/+/g, '/');
   if (lang === 'en') return `/en/${c}`.replace(/\/+/g, '/');
   const slug = c.split(/[#?]/)[0];                            // 3-way: in-locale twin → /<loc>/, EN page → /en/, root-only → /
