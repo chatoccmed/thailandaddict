@@ -935,6 +935,16 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
         <img src={asset(data.heroImg)} alt={data.name} style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" onerror="this.style.opacity='0'" />
       )}
       <div class="hero-main-ov"></div>
+      {/* 44 reviews carry a photo credit for a hero image taken from the hotel's own site or an OTA.
+          The data was authored to be shown and never was — ArticleLayout has rendered its equivalent
+          all along. Sits above the whole-tile booking link so the credit stays clickable. */}
+      {data.heroCredit && (
+        <span style="position:absolute;bottom:8px;left:14px;z-index:3;font-size:10px;color:rgba(255,255,255,.72);text-shadow:0 1px 2px rgba(0,0,0,.5);">
+          {data.heroCreditHref
+            ? <a href={goB(data.heroCreditHref)} target="_blank" rel="nofollow noopener" style="color:rgba(255,255,255,.72);text-decoration:underline;" set:html={data.heroCredit} />
+            : <span set:html={data.heroCredit} />}
+        </span>
+      )}
       <div class="hero-badges">
         <span class="htag mid">{data.badgeMid}</span>
         <span class="htag loc">{data.badgeLoc}</span>

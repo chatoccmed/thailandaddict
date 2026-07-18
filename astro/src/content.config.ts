@@ -43,6 +43,11 @@ const reviewSchema = z.object({
   countryGuideLabel: z.string().optional(),
   // hero
   heroImg: z.string(),
+  // 44 reviews carry a credit for a hero photo taken from the hotel's own site or an OTA. The fields
+  // were only ever declared on the article schema, so zod silently stripped them here and the
+  // attribution never reached the page. Declared so ReviewLayout can show it, as ArticleLayout does.
+  heroCredit: z.string().optional(),
+  heroCreditHref: z.string().optional(),
   heroSub1: z.string(),
   heroSub2: z.string(),
   heroSub2Href: z.string(),
