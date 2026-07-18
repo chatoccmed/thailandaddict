@@ -32,7 +32,14 @@ try {
   }
 } catch {}
 
+// An href built at runtime by inline JS (`'<a href="' + it.href + '">'`, template literals,
+// `${...}` interpolation) is not a link to a file — the browser never sees this string. The
+// scanner reads raw HTML, so it picks these up out of <script> blocks. Skip them, otherwise
+// every run reports thousands of phantom dead links that have to be filtered by hand.
+const RUNTIME_HREF = /[${}`\[\]]|['"]\s*\+|\+\s*['"]/;
+
 function isValidInternal(href) {
+  if (RUNTIME_HREF.test(href)) return true;
   let p = href.split('#')[0].split('?')[0];
   if (p === '' || p === '/') return true;
   // worker.js routes (not static files): /go/b = Booking→CJ redirect, /api/* = plan/write endpoints.

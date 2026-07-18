@@ -85,7 +85,9 @@ const reviewSchema = z.object({
   tips: z.array(z.object({ icon: z.string(), title: z.string(), body: z.string() })).length(4),
   // sidebar
   info: z.array(z.object({ k: z.string(), v: z.string() })),
-  mapImg: z.string(),
+  // optional: a per-hotel map image. When absent the layout links the address to the real coordinates
+  // instead — better than showing a shared placeholder map that isn't this hotel's location.
+  mapImg: z.string().optional(),
   mapAddr: z.string(),
   nearby: z.array(z.object({ n: z.string(), d: z.string() })),
   relatedTitle: z.string(),
