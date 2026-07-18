@@ -84,7 +84,17 @@ function rewriteUrls(doc, loc, avail){
     for(const a of (n.attrs||[])){
       if((a.name==='href'||a.name==='src'||a.name==='action') && a.value){
         const v = a.value;
-        if(v.startsWith('/en/')) a.value = pfx + v.slice(4);
+        // /en/<slug> → /<loc>/<slug>, but ONLY when that slug really has a localized page. The EN hub
+        // pages link to plenty of EN-only content (e.g. /en/thailand-travel-budget); rewriting those blindly
+        // produced /<loc>/thailand-travel-budget → 404. avail covers hub + localized content, so an
+        // unknown slug correctly stays on /en/.
+        if(v.startsWith('/en/')){
+          if(a.name === 'href' && avail){
+            const rest = v.slice(4);
+            const slug = rest.split(/[#?]/)[0].replace(/\.html$/,'');
+            a.value = avail.has(slug) ? (pfx + rest) : v;
+          } else a.value = pfx + v.slice(4);
+        }
         else if(v===`${SITE}/en/`) a.value = `${SITE}${pfx}`;
         else if(v.startsWith(`${SITE}/en/`)) a.value = `${SITE}${pfx}` + v.slice((SITE+'/en/').length);
         else if(a.name==='href' && avail && BARE_LINK.test(v)){
@@ -237,6 +247,12 @@ for(const loc of locs){
   const avail = new Set([
     ...files.map(f => f.replace(/\.html$/,'')),
     ...(fs.existsSync(outDir) ? fs.readdirSync(outDir).filter(x=>x.endsWith('.html')).map(x=>x.replace(/\.html$/,'')) : []),
+    // ...plus localized CONTENT (reviews/roundups/articles-<loc>) — Astro renders those to /<loc>/<slug>
+    // too. Without them avail is hub-only, and an /en/ link to a translated review would be left on /en/.
+    ...['reviews','roundups','articles'].flatMap(k => {
+      const d = path.join(ROOT, 'astro/src/content', `${k}-${loc}`);
+      return fs.existsSync(d) ? fs.readdirSync(d).filter(x=>x.endsWith('.json')).map(x=>x.replace(/\.json$/,'')) : [];
+    }),
   ]);
   for(const f of files){
     const fileSlug  = f==='index.html' ? '' : f;
