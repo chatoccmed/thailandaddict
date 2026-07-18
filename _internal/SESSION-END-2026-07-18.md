@@ -45,6 +45,8 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 | **Unlabelled gallery buttons** — 3,610 content photos with `alt=""` | **3,610 → 0.** The venue gallery thumbs are `<button><img alt=""></button>`; the img alt is what gives the button its accessible name, so screen readers read a row of anonymous "button"s. Now named after the venue and numbered. | `f1888253` |
 | **Alt that said nothing** — 398 images whose alt was only "(ภาพประกอบ)" / "(illustrative photo)" | **398 → 0.** `realAlt()` treats a bare marker as absent so the venue-name fallback wins; the marker appended to a real description is untouched. | `dca8b82f` |
 
+| **Chinese named the wrong province** | Nan (น่าน) and Lamphun (ลำพูน) were both written **南邦 — which is Lampang**, so `zh/activities-nan` and `zh/activities-lampang` shipped byte-identical titles. "Pak Nam Pran" had become 北南邦, not a place. Fixed to the forms this TM already used correctly (Nan 楠府 / 楠府市区 / 楠河, Lamphun 南奔); real Lampang references were checked against the EN source and left. Also settled 楠府 (118×) vs 难府 (25×) on one form. Regenerating picked up newer EN copy: **−443 English words across the other six locales**, plus 8 zh strings that had no translation. | `e2087b62` |
+
 **Deliberately left as `alt=""`:** 972 hub card photos. Each sits inside an `<a>` whose visible title already names the link — filling the alt would make a screen reader announce it twice. Verified 0 of them sit outside a labelled card. An alt audit that flags these is wrong, not the markup.
 
 **Audit now reads clean end to end:** 19,125 pages · 0 dead links · agoda 0 missing-cid · trip 0 bad · booking 0 plain · klook 0 bad · 0 missing images. Only remaining flag is 2 orphans (`font-compare` = dev page, `my-list` = app page) — both intentional.
@@ -55,6 +57,23 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 
 ## Next (see ACTIVE-WORK-CLAIMS.md)
 Dead links are at **0** — nothing left there. To keep them there: add any new root-only page to `ROOT_ONLY_SLUGS` (lib/locales.ts), and re-run `node _internal/wf/audit-site.mjs` after touching a layout's `link()` or `localize.mjs` (filter JS template literals out of the count before reading it).
+
+### ⚠️ ต้องให้เจ้าของตัดสิน — โรงแรมเดียวกันถูกลง 2 slug (8 คู่)
+
+A structural audit of all 19,125 pages (h1 / title / description / canonical / lang / dir — everything else came back clean, including `lang` and RTL `dir` correct on every page) turned up **16 pages that are 8 hotels published twice**, under both their tourist-city slug and their province slug:
+
+| เก็บไว้ (แนะนำ) | ตัวซ้ำ | ลิงก์เข้า (city / province) |
+|---|---|---|
+| `review-baan-pai-riverside-pai` | `…-mae-hong-son` | 98 / 67 |
+| `review-bundhaya-resort-koh-lipe` | `…-satun` | 76 / 23 |
+| `review-centara-hotel-hat-yai` | `…-songkhla` | 72 / 19 |
+| `review-u-khao-yai` | `…-nakhon-ratchasima` | 91 / 105 ⚠️ |
+| `review-common-grounds-pai` | `…-mae-hong-son` | 29 / 45 ⚠️ |
+| `review-sala-samui-chaweng-beach-resort-samui` | `…-surat-thani` | 86 / 107 ⚠️ |
+| `review-na-nirand-chiang-mai` | `…-romantic-boutique-resort-chiang-mai` | 60 / 8 |
+| `review-chala-number-6-chiang-mai` | `review-chala-number6-chiang-mai` | 6 / 4 (สะกด slug ต่างกันเฉยๆ · เนื้อหาเหมือนกันทุก byte) |
+
+Same hotel each time — identical name and address; they differ only in `cluster` and the hub they hang off. **Nothing was changed**, because both variants of every pair are linked from real pages and listed in the sitemap, so deleting either would re-break internal links (currently 0), and on the three marked ⚠️ the inbound-link count and the tourist-city convention point at different winners. Owner picks the surviving slug per pair; then the loser gets a 301 and its internal links repoint. The safer interim step, if you want the SEO cannibalization stopped before deciding, is to point the duplicate's canonical at the keeper — that changes no URLs and is one data field.
 
 Remaining backlog is all **owner-gated** — everything that could be fixed without a decision has been:
 - **real bylines** — needs the actual author names/credentials
