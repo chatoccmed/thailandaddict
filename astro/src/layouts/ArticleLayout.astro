@@ -177,6 +177,10 @@ const published = data.publishedDate || updated;
 const factChecked = data.factCheckedDate || '';
 const faq = data.faq ?? [];
 const strip = (s) => (s || '').replace(/<[^>]+>/g, '').trim();
+// "(ภาพประกอบ)" / "(illustrative photo)" on its own says nothing about the picture — treat it as no
+// alt at all so the caller's fallback (the venue name) wins. The same marker appended to a real
+// description is left alone: "รถเช่าขนาดเล็ก (ภาพประกอบ)" is still a description.
+const realAlt = (s) => (/^\(\s*(?:ภาพประกอบ|illustrative(?:\s+photo)?)\s*\)$/i.test(strip(s)) ? '' : s);
 const realLib = (s) => (s && s.indexOf('/_lib/') === -1) ? s : '';
 const comma = (n) => (typeof n === 'number' ? n.toLocaleString('en-US') : n);
 const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
@@ -931,7 +935,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
                     <div class="re-car">
                       <div class="re-track">
                         {[{ src: b.libImg, credit: b.libCredit, href: b.libCreditHref }, ...b.gallery].map((g) => (
-                          <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={b.alt || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
+                          <figure class="re-cslide"><img class="re-zoom" src={asset(g.src)} alt={realAlt(b.alt) || b.name} loading="lazy" data-full={asset(g.src)} data-cap={strip(b.name)} data-cred={g.credit || ''} data-href={g.href || g.creditHref || ''} onerror="this.closest('.re-cslide')?.remove()" />{g.credit && <span class="re-piccred">{(g.href || g.creditHref) ? <a href={g.href || g.creditHref} target="_blank" rel="nofollow noopener" set:html={g.credit} /> : <span set:html={g.credit} />}</span>}</figure>
                         ))}
                       </div>
                       <button class="re-cbtn re-cprev" type="button" aria-label={S.prevImg}>‹</button>
@@ -940,7 +944,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
                       <span class="re-zoomhint">{S.zoomHint}</span>
                     </div>
                   ) : (
-                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={b.alt || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">{S.zoomHint}</span></Fragment>
+                    <Fragment>{hasWebp(b.libImg) ? <picture><source srcset={asset(webpOf(b.libImg))} type="image/webp" /><img class="re-zoom" src={asset(b.libImg)} alt={realAlt(b.alt) || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} /></picture> : <img class="re-zoom" src={asset(b.libImg)} alt={realAlt(b.alt) || b.name} loading="lazy" data-full={asset(b.libImg)} data-cap={strip(b.name)} data-cred={b.libCredit || ''} data-href={b.libCreditHref || ''} />}{b.libCredit && <span class="re-piccred">{b.libCreditHref ? <a href={b.libCreditHref} target="_blank" rel="nofollow noopener" set:html={b.libCredit} /> : <span set:html={b.libCredit} />}</span>}<span class="re-zoomhint">{S.zoomHint}</span></Fragment>
                   )}
                 </div>}
                 <iframe id={`emb${b.rank}-map`} class={realLib(b.libImg) ? 're-pane' : 're-pane on'} loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Maps" data-src={`https://maps.google.com/maps?q=${encodeURIComponent(b.name + ' ' + (data.crumbCity || ''))}&z=15&hl=th&output=embed`}></iframe>
@@ -952,7 +956,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
-                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
+                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={realAlt(b.alt) || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={realAlt(b.alt) || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
                 <span class="re-zoomhint">{S.zoomHint}</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
@@ -962,7 +966,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
                       made these read as an unlabelled "button". Number them so they're tellable apart. */}
                   <button class="resto-thumb on" type="button" data-full={asset(b.img)} data-credit={b.credit || ''} data-href={b.creditHref || ''}><img src={asset(b.img)} alt={`${strip(b.name)} 1`} loading="lazy" /></button>
                   {b.gallery.map((g, gi) => (
-                    <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={g.alt || `${strip(b.name)} ${gi + 2}`} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
+                    <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={realAlt(g.alt) || `${strip(b.name)} ${gi + 2}`} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
                   ))}
                 </div>
               )}
