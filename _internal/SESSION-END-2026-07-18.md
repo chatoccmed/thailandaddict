@@ -41,6 +41,12 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 | **CJ id baked into HTML** — all 9 homepages carried a hardcoded CJ link with the legacy ad `17289009` | **9 → 0.** Now `/go/b?u=…&sid=home`, so the id lives only in worker.js as CLAUDE.md locks it. Verified live: `/go/b` 302s to `…click-101809619-17293139`. | `b18491f7` |
 | **Audit false positives** | Hrefs and img srcs that inline JS assembles at runtime (`'<a href="' + it.href`) were counted as broken files — 5,952 phantom dead links + 11 phantom missing images every run, filtered by hand each time. `audit-site.mjs` skips them now, so the printed numbers are readable as-is. | — |
 
+| **Images with no alt at all** — 181 across the site | **181 → 0.** `ReviewLayout` read alt out of `galleryAlts` by index, so a review whose array was shorter than its image count rendered `<img>` with the attribute dropped entirely (62 reviews × locales). Falls back to the hotel name, already localized per collection. `resto-mainimg` likewise. | `f1888253` |
+| **Unlabelled gallery buttons** — 3,610 content photos with `alt=""` | **3,610 → 0.** The venue gallery thumbs are `<button><img alt=""></button>`; the img alt is what gives the button its accessible name, so screen readers read a row of anonymous "button"s. Now named after the venue and numbered. | `f1888253` |
+| **Alt that said nothing** — 398 images whose alt was only "(ภาพประกอบ)" / "(illustrative photo)" | **398 → 0.** `realAlt()` treats a bare marker as absent so the venue-name fallback wins; the marker appended to a real description is untouched. | `dca8b82f` |
+
+**Deliberately left as `alt=""`:** 972 hub card photos. Each sits inside an `<a>` whose visible title already names the link — filling the alt would make a screen reader announce it twice. Verified 0 of them sit outside a labelled card. An alt audit that flags these is wrong, not the markup.
+
 **Audit now reads clean end to end:** 19,125 pages · 0 dead links · agoda 0 missing-cid · trip 0 bad · booking 0 plain · klook 0 bad · 0 missing images. Only remaining flag is 2 orphans (`font-compare` = dev page, `my-list` = app page) — both intentional.
 
 **Rules this added (also in CLAUDE.md):**
