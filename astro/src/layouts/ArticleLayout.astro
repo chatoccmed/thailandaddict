@@ -16,6 +16,7 @@ const pfx = isTh ? '' : `/${lang}`;               // URL locale prefix: '' | /en
 // slugs with an in-locale page — link() routes to /<loc>/ only when the target exists there, else /en/
 // (a bare cross-link like "getting-around-thailand" has no /<loc>/ twin → must go /en/, not /ar/…404).
 const localSlugs = (!isTh && lang !== 'en') ? await localizedSlugSet(lang) : null;
+const enSlugs = localSlugs ? await localizedSlugSet('en') : null;   // to tell /en/ pages from root-only ones (/trip)
 const isRtl = lang === 'he' || lang === 'ar';     // right-to-left locales
 // Language switcher — the locales this page actually exists in (routes pass availableLocales; default th/en).
 const LOCS = (availableLocales && availableLocales.length) ? availableLocales : (hasEn ? ['th', 'en'] : ['th']);
@@ -32,8 +33,9 @@ const link = (href: string) => {
   const c = href.replace(/\.html$/, '').replace(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\//, '/').replace(/^\//, '');
   if (isTh) return `/${c}`.replace(/\/+/g, '/');
   if (lang === 'en') return `/en/${c}`.replace(/\/+/g, '/');
-  const slug = c.split(/[#?]/)[0];                            // in-locale page only if it exists, else /en
-  return `${localSlugs && localSlugs.has(slug) ? pfx : '/en'}/${c}`.replace(/\/+/g, '/');
+  const slug = c.split(/[#?]/)[0];                            // 3-way: in-locale twin → /<loc>/, EN page → /en/, root-only → /
+  const p = localSlugs && localSlugs.has(slug) ? pfx : (enSlugs && enSlugs.has(slug) ? '/en' : '');
+  return `${p}/${c}`.replace(/\/+/g, '/');
 };
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 // Booking.com (Thailand publishers) pays ONLY via CJ. Rather than baking the CJ pid/ad-id into every page,
@@ -1062,7 +1064,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
     b.kind === 'tip' ? <div class="tip">{b.title && <h4 set:html={b.title} />}<p set:html={b.html} /></div> :
     b.kind === 'ranked' ? <div class="ranked">{b.items.map((it) => (
       <div class="rk"><div class="n">{it.rank}</div><div>
-        <h3>{it.href ? <a href={it.href} set:html={it.name} /> : <span set:html={it.name} />}</h3>
+        <h3>{it.href ? <a href={link(it.href)} set:html={it.name} /> : <span set:html={it.name} />}</h3>
         {it.meta && <div class="m" set:html={it.meta} />}
         <p set:html={it.blurb} />
         {it.tags && it.tags.length > 0 && <div class="tags">{it.tags.map((t) => <span class="tag" set:html={t} />)}</div>}
@@ -1070,11 +1072,11 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
       </div></div>))}</div> :
     b.kind === 'cards' ? <div class="cards">{b.items.map((c) => (
       c.href
-        ? <a class="cd" href={c.href}>{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></a>
+        ? <a class="cd" href={link(c.href)}>{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></a>
         : <div class="cd">{c.tag && <span class="tag" set:html={c.tag} />}<h3 set:html={c.name} /><p set:html={c.blurb} /></div>))}</div> :
     b.kind === 'day' ? <div class="day"><div class="dl" set:html={b.label} />{b.title && <h3 set:html={b.title} />}
       {b.items.map((s) => <div class="step"><div class="tm" set:html={s.time ?? ''} /><div class="ac">{<span set:html={s.activity} />}{s.note && <small set:html={s.note} />}</div></div>)}</div> :
-    b.kind === 'cta' ? <div class="ctaband"><p set:html={b.text} />{/^https?:/.test(b.href) ? <a href={goB(b.href)} target="_blank" rel="sponsored nofollow noopener" set:html={b.label ?? S.cta} /> : <a href={b.href} set:html={b.label ?? S.cta} />}</div> :
+    b.kind === 'cta' ? <div class="ctaband"><p set:html={b.text} />{/^https?:/.test(b.href) ? <a href={goB(b.href)} target="_blank" rel="sponsored nofollow noopener" set:html={b.label ?? S.cta} /> : <a href={link(b.href)} set:html={b.label ?? S.cta} />}</div> :
     null
   ))}
   </div>

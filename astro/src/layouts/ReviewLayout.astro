@@ -19,6 +19,7 @@ const pfx = isTh ? '' : `/${lang}`;
 // slugs that have an in-locale page (localized content + hub) — link() routes to /<loc>/ only when the
 // target exists there, else /en/ (avoids /<loc>/<slug> 404s for TH/EN-only cross-links). null for th/en.
 const localSlugs = (!isTh && lang !== 'en') ? await localizedSlugSet(lang) : null;
+const enSlugs = localSlugs ? await localizedSlugSet('en') : null;   // /en/ pages vs root-only (/trip)
 const LOCS = (availableLocales && availableLocales.length) ? availableLocales : (isTh ? ['th', 'en'] : ['th', 'en']);
 const OG_LOCALE: Record<string, string> = { th: 'th_TH', en: 'en_US', zh: 'zh_CN', ru: 'ru_RU', ko: 'ko_KR', ja: 'ja_JP', hi: 'hi_IN', he: 'he_IL', ar: 'ar_AR' };
 const LANGNAME: Record<string, string> = { th: 'ไทย', en: 'English', zh: '中文', ru: 'Русский', ko: '한국어', ja: '日本語', hi: 'हिन्दी', he: 'עברית', ar: 'العربية' };
@@ -75,7 +76,7 @@ const link = (h: string) => {
   if (!p.startsWith('/')) p = '/' + p;
   if (lang === 'en') return pfx + p;                          // pfx = /en
   const slug = p.slice(1).split(/[#?]/)[0];                   // in-locale page only if it exists, else /en
-  return (localSlugs && localSlugs.has(slug) ? pfx : '/en') + p;
+  return (localSlugs && localSlugs.has(slug) ? pfx : (enSlugs && enSlugs.has(slug) ? '/en' : '')) + p;
 };
 
 // Asset (image) helper: force a root-absolute path so images resolve
