@@ -28,8 +28,13 @@ Klook search "top result" is often wrong. Real misses caught: FantaSea → Mahan
 | chonburi | 2/8 (Klook-thin, non-tourist) | +zoo 4.6 | 6e59c464a |
 | phuket | 8/10 | (already had) | a87ce0411 |
 | bangkok | 7/10 | +2 new, refresh Safari 4.1→4.6 | d502545b8 |
+| krabi | 10/10 (first full house) | +Rok-Haa 4.8 | 9b6a5aaa0 |
 
-**Next queue (tourist-first):** krabi · samui · pattaya · chiang-mai · ayutthaya · kanchanaburi · chiang-rai · huahin · koh-lipe · koh-phangan · … then mass provinces (few Klook matches — mostly stay on search links).
+**Next queue (tourist-first):** samui · pattaya · chiang-mai · ayutthaya · kanchanaburi · chiang-rai · huahin · koh-lipe · koh-phangan · … then mass provinces (few Klook matches — mostly stay on search links).
+
+### 🚀 Deploys
+- **2026-07-18 11:26** — version `648b3412`, account chatmaliwan/46cdce4b. Shipped chonburi/phuket/bangkok upgrades + all committed work. Verified live: `activity/14913?aid=121442` renders on thailandaddict.com, /go/b worker redirect = 302, KV TRIPS attached. Krabi committed after this deploy → ships on the next one.
+- **Deploy under a concurrent session:** it also builds/deploys. Wait for `astro/dist` to go quiet (`find dist -newermt '-25 seconds'` = 0) before `npx wrangler deploy` from repo root, or you ship a half-written dist. Both sessions' committed content ships together. Images serve from R2 (IMG_BASE), so a sparse local `dist/images` is normal and harmless.
 
 ### Also done this session (activity category)
 - 84 hero pages: all now carry the mid-article hotel `staycta` (was missing on 29). commit 9cfa300ba.
