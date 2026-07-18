@@ -29,8 +29,9 @@ const link = (href: string) => {
   // absolute URLs pass straight through — except booking.com, which must still earn via the /go/b CJ route
   // (belt-and-braces: no entry routes a booking.com URL through link() today, but nothing should silently bypass CJ).
   if (/^(https?:)?\/\//.test(href) || href.startsWith('#')) return goB(href);
-  // normalise: strip any existing locale prefix + .html, then re-prefix for this locale
-  const c = href.replace(/\.html$/, '').replace(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\//, '/').replace(/^\//, '');
+  // normalise: strip any existing locale prefix (with OR without a leading slash — some content stores
+  // "en/top10-hotels-x" which otherwise became /en/en/…) + .html, then re-prefix for this locale
+  const c = href.replace(/\.html$/, '').replace(/^\/?(?:en|zh|ru|ko|ja|hi|he|ar)\//, '/').replace(/^\//, '');
   if (isTh) return `/${c}`.replace(/\/+/g, '/');
   if (lang === 'en') return `/en/${c}`.replace(/\/+/g, '/');
   const slug = c.split(/[#?]/)[0];                            // 3-way: in-locale twin → /<loc>/, EN page → /en/, root-only → /
