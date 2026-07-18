@@ -1029,28 +1029,28 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
         <h3 set:html={b.title} />
         {b.text && <p set:html={b.text} />}
         <div class="staycta-links">{b.links.map((l) => <a href={link(l.href)}><span class="ll" set:html={l.label} />{l.note && <small set:html={l.note} />}</a>)}</div>
-        {b.ctaHref && <a class="staycta-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
+        {b.ctaHref && <a class="staycta-btn" href={link(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ค้นหาที่พัก'} />}
       </div>
     </section> :
     b.kind === 'foodexp' ? <section class="foodexp">
       <div class="foodexp-head"><span class="foodexp-ic">🍢</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
       <div class="foodexp-grid">{b.items.map((it) => (
-        <a class="foodexp-card" href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
+        <a class="foodexp-card" href={link(it.href)} target="_blank" rel="sponsored nofollow noopener">
           {it.img ? <img class="foodexp-thumb" src={asset(it.img)} alt={strip(it.label)} loading="lazy" onerror="this.style.display='none'" /> : <span class="foodexp-emoji">{it.emoji ?? '🥢'}</span>}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
+      {b.ctaHref && <a class="foodexp-btn" href={link(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? 'ดูทั้งหมด'} />}
     </section> :
     b.kind === 'experiences' ? <section class="foodexp exp">
       <div class="foodexp-head"><span class="foodexp-ic">🎟️</span><div><h3 set:html={b.title} />{b.text && <p set:html={b.text} />}</div></div>
       <div class="foodexp-grid">{b.items.map((it) => (
-        <a class="foodexp-card" href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
+        <a class="foodexp-card" href={link(it.href)} target="_blank" rel="sponsored nofollow noopener">
           {it.img ? <img class="foodexp-thumb" src={asset(it.img)} alt={strip(it.label)} loading="lazy" onerror="this.style.display='none'" /> : <span class="foodexp-emoji">{it.emoji ?? '🎟️'}</span>}
           <span class="foodexp-body"><span class="foodexp-label" set:html={it.label} />{it.note && <small set:html={it.note} />}</span>
           {it.provider && <span class="foodexp-prov" set:html={it.provider} />}
         </a>))}</div>
-      {b.ctaHref && <a class="foodexp-btn" href={goB(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (!isTh ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
+      {b.ctaHref && <a class="foodexp-btn" href={link(b.ctaHref)} target="_blank" rel="sponsored nofollow noopener" set:html={b.ctaLabel ?? (!isTh ? 'See all activities' : 'ดูกิจกรรมทั้งหมด')} />}
     </section> :
     b.kind === 'localtips' ? <section class="localtips">
       <h3 class="lt-h">💡 <span set:html={b.title} /></h3>
@@ -1098,7 +1098,7 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
           <div class="rrail-h">🍢 {S.railFoodH}</div>
           <p class="rrail-fsub">{S.railFoodSub}</p>
           {foodBlock.items.map((it, i) => (
-            <a class={`rrail-fcard c${i % 4}`} href={goB(it.href)} target="_blank" rel="sponsored nofollow noopener">
+            <a class={`rrail-fcard c${i % 4}`} href={link(it.href)} target="_blank" rel="sponsored nofollow noopener">
               <span class="rrail-ficon">{it.emoji ?? '🥢'}</span>
               <span class="rrail-fbody">
                 <span class="rrail-ftitle" set:html={it.label} />
