@@ -11,6 +11,7 @@
 - งานถัดไป (ยังไม่เริ่ม): i18n Tier-1 อีก 7 ภาษา (zh·ru·ko·ja·he·ar·hi) ยัง 0 หน้า — ดู `_internal/I18N-AND-TOURISM-CITY-PLAN.md`
 
 ## 🟢 ACTIVE
+- **[2026-07-18 · Imac · autonomous run · รอบ 2] ✅ DONE — ปิดของที่ audit ค้าง: รูปแผนที่ปลอม 717→0 (deploy `3c816c7f`) · ลิงก์ OTA ไม่มี affiliate id 82→0 + CJ ad เก่าฝังในหน้าแรก 9→0 (deploy `b18491f7`) · audit อ่านตรงได้แล้วทุกบรรทัด (0 dead / 0 affiliate bad / 0 img missing). งานที่เหลือ = owner-gated ล้วน (byline, GA4 id, "ลงตัว", cornerstone, รูปแผนที่จริง) — ดู SESSION-END-2026-07-18.md. ไม่ถือ claim
 - **[2026-07-18 · Imac · autonomous run] ✅ DONE — dead-link audit **84,907 → 0**, deployed a7a6bbf5. Closed every layer (audit worker-routes, hub localize, content link() 3-way + ROOT_ONLY, prose rewrite, structured card/CTA hrefs, 4 stale content refs). See CLAUDE.md + SESSION-END-2026-07-18.md. No claim held.
 
 - **[2026-06-27 · Bangkok ย่าน megaproject — มี 2 loop วิ่งพร้อมกัน]**

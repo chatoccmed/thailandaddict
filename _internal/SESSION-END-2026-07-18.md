@@ -32,7 +32,27 @@ Ran `_internal/wf/audit-site.mjs` (scans every dist HTML). Started at 90,859 fla
 - **Astro scopes `<style>` by attribute** → a layout's `.x{}` beats a plain stylesheet's `.x` — premium.css was inert; `.x.x` or the render-time fix wins.
 - **Audit metric traps:** `localize.mjs` prints per-occurrence misses not unique; audit-site counts worker routes + JS template literals as dead — filter before believing the number.
 
+## Continued run — honesty + revenue leaks (same day, after the audit hit zero)
+
+| Work | Result | Deploy |
+|---|---|---|
+| **Map placeholder** — one stand-in map image reused as `mapImg` on 60 hotels (717 files with twins) | **717 → 0.** `mapImg` now optional; those 60 have real lat/lng, so the address links to the true coordinates instead of showing a map that isn't the hotel. The 2,341 reviews with a real map image are untouched (6,490 pages still render the thumb). 3 hotels also had the placeholder as heroSub1/2 in the 7 localized copies only — resynced from TH. | `3c816c7f` |
+| **OTA links earning nothing** — 78 Trip.com + 4 Agoda | **82 → 0.** Root cause: partner ids lived *only* inside the urls stored in booking fields, so any url arriving via another field (`heroSub2Href`, the hero photo's `rel="sponsored"` click target) went out bare. New `astro/src/lib/affiliate.ts` stamps ids at render time via `goB()` in all 3 layouts → bare OTA urls are monetized by construction. | `b18491f7` |
+| **CJ id baked into HTML** — all 9 homepages carried a hardcoded CJ link with the legacy ad `17289009` | **9 → 0.** Now `/go/b?u=…&sid=home`, so the id lives only in worker.js as CLAUDE.md locks it. Verified live: `/go/b` 302s to `…click-101809619-17293139`. | `b18491f7` |
+| **Audit false positives** | Hrefs and img srcs that inline JS assembles at runtime (`'<a href="' + it.href`) were counted as broken files — 5,952 phantom dead links + 11 phantom missing images every run, filtered by hand each time. `audit-site.mjs` skips them now, so the printed numbers are readable as-is. | — |
+
+**Audit now reads clean end to end:** 19,125 pages · 0 dead links · agoda 0 missing-cid · trip 0 bad · booking 0 plain · klook 0 bad · 0 missing images. Only remaining flag is 2 orphans (`font-compare` = dev page, `my-list` = app page) — both intentional.
+
+**Rules this added (also in CLAUDE.md):**
+- A new review with no real per-hotel map image → **omit `mapImg` entirely**; never borrow another hotel's map. Omitting it yields the real-coordinates link automatically.
+- Partner ids belong in `lib/affiliate.ts`, never pasted into content urls. Never embed a CJ link in HTML.
+
 ## Next (see ACTIVE-WORK-CLAIMS.md)
 Dead links are at **0** — nothing left there. To keep them there: add any new root-only page to `ROOT_ONLY_SLUGS` (lib/locales.ts), and re-run `node _internal/wf/audit-site.mjs` after touching a layout's `link()` or `localize.mjs` (filter JS template literals out of the count before reading it).
 
-Remaining backlog is all owner-gated: real bylines, real GA4 id, the map-placeholder image reused across 717 reviews, whether to de-cliché "ลงตัว" (1,436×, a legitimate Thai word — not a banned one), and cornerstone/pillar content.
+Remaining backlog is all **owner-gated** — everything that could be fixed without a decision has been:
+- **real bylines** — needs the actual author names/credentials
+- **real GA4 id** — still a placeholder; needs the property id
+- **de-cliché "ลงตัว"** (1,436×, 39% of reviews) — a correct Thai word, not a banned one, but it reads as a template crutch. Rewriting is a taste call.
+- **cornerstone / pillar content** — a content strategy decision, not a defect
+- **real per-hotel map images** for the 60 hotels that now show a coordinates link — would need a static-map API key or sourced images
