@@ -1,6 +1,7 @@
 ---
 import '../styles/roundup.css';
 import type { CollectionEntry } from 'astro:content';
+import { localizedSlugSet } from '../lib/locales';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
@@ -20,6 +21,8 @@ const isTh = lang === 'th';
 const isEn = !isTh;   // legacy flag: "not Thai" — chrome text not covered by a language-specific S block falls back to English (established site convention)
 const isRtl = lang === 'he' || lang === 'ar';
 const pfx = isTh ? '' : `/${lang}`;
+// slugs with an in-locale page — link() routes to /<loc>/ only when the target exists there, else /en/.
+const localSlugs = (!isTh && lang !== 'en') ? await localizedSlugSet(lang) : null;
 const LOCS = (availableLocales && availableLocales.length) ? availableLocales : ['th', 'en'];
 const OG_LOCALE: Record<string, string> = { th: 'th_TH', en: 'en_US', zh: 'zh_CN', ru: 'ru_RU', ko: 'ko_KR', ja: 'ja_JP', hi: 'hi_IN', he: 'he_IL', ar: 'ar_AR' };
 const LANGNAME: Record<string, string> = { th: 'ไทย', en: 'English', zh: '中文', ru: 'Русский', ko: '한국어', ja: '日本語', hi: 'हिन्दी', he: 'עברית', ar: 'العربية' };
@@ -64,7 +67,9 @@ const link = (h: string) => {
   let p = h.replace(/\.html$/, '');
   for (const l of ALL_LOCS) p = p.replace(new RegExp(`^/${l}/`), '/');
   if (!p.startsWith('/')) p = '/' + p;
-  return pfx + p;
+  if (lang === 'en') return pfx + p;                          // pfx = /en
+  const slug = p.slice(1).split(/[#?]/)[0];                   // in-locale page only if it exists, else /en
+  return (localSlugs && localSlugs.has(slug) ? pfx : '/en') + p;
 };
 
 // Booking.com (Thailand publishers) pays ONLY via CJ (Commission Junction) — the legacy ?aid= programme

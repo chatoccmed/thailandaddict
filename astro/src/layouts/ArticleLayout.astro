@@ -4,6 +4,7 @@
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
+import { localizedSlugSet } from '../lib/locales';
 const { data, lang = 'th', hasEn = true, availableLocales }: {
   data: any;
   lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
@@ -12,6 +13,9 @@ const { data, lang = 'th', hasEn = true, availableLocales }: {
 } = Astro.props;
 const isTh = lang === 'th';
 const pfx = isTh ? '' : `/${lang}`;               // URL locale prefix: '' | /en | /zh | /ru
+// slugs with an in-locale page — link() routes to /<loc>/ only when the target exists there, else /en/
+// (a bare cross-link like "getting-around-thailand" has no /<loc>/ twin → must go /en/, not /ar/…404).
+const localSlugs = (!isTh && lang !== 'en') ? await localizedSlugSet(lang) : null;
 const isRtl = lang === 'he' || lang === 'ar';     // right-to-left locales
 // Language switcher — the locales this page actually exists in (routes pass availableLocales; default th/en).
 const LOCS = (availableLocales && availableLocales.length) ? availableLocales : (hasEn ? ['th', 'en'] : ['th']);
@@ -24,8 +28,12 @@ const link = (href: string) => {
   // absolute URLs pass straight through — except booking.com, which must still earn via the /go/b CJ route
   // (belt-and-braces: no entry routes a booking.com URL through link() today, but nothing should silently bypass CJ).
   if (/^(https?:)?\/\//.test(href) || href.startsWith('#')) return goB(href);
-  const c = href.replace(/\.html$/, '');   // clean URL — no .html→extensionless 307 redirect
-  return `${pfx}/${c}`.replace(/\/+/g, '/');
+  // normalise: strip any existing locale prefix + .html, then re-prefix for this locale
+  const c = href.replace(/\.html$/, '').replace(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\//, '/').replace(/^\//, '');
+  if (isTh) return `/${c}`.replace(/\/+/g, '/');
+  if (lang === 'en') return `/en/${c}`.replace(/\/+/g, '/');
+  const slug = c.split(/[#?]/)[0];                            // in-locale page only if it exists, else /en
+  return `${localSlugs && localSlugs.has(slug) ? pfx : '/en'}/${c}`.replace(/\/+/g, '/');
 };
 const asset = (p: string) => (!p ? p : (/^(https?:)?\/\//.test(p) ? p : IMG_BASE + (p.startsWith('/') ? p : `/${p}`)));
 // Booking.com (Thailand publishers) pays ONLY via CJ. Rather than baking the CJ pid/ad-id into every page,
