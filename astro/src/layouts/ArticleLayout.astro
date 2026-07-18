@@ -952,15 +952,17 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
           ) : (
             <Fragment>
               <div class="resto-imgwrap">
-                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
+                {hasWebp(b.img) ? <picture><source srcset={asset(webpOf(b.img))} type="image/webp" /><img class="resto-mainimg" src={asset(b.img)} alt={b.alt || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" /></picture> : <img class="resto-mainimg" src={asset(b.img)} alt={b.alt || strip(b.name)} loading="lazy" data-full={asset(b.img)} onerror="this.style.visibility='hidden'" />}
                 <span class="re-zoomhint">{S.zoomHint}</span>
                 {b.credit && <span class="resto-cred">{b.creditHref ? <a href={b.creditHref} target="_blank" rel="nofollow noopener" set:html={'📷 ' + b.credit} /> : <span set:html={'📷 ' + b.credit} />}</span>}
               </div>
               {b.gallery && b.gallery.length > 0 && (
                 <div class="resto-thumbs">
-                  <button class="resto-thumb on" type="button" data-full={asset(b.img)} data-credit={b.credit || ''} data-href={b.creditHref || ''}><img src={asset(b.img)} alt="" loading="lazy" /></button>
-                  {b.gallery.map((g) => (
-                    <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={g.alt || ''} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
+                  {/* The thumb's alt is what names the button for a screen reader — leaving it empty
+                      made these read as an unlabelled "button". Number them so they're tellable apart. */}
+                  <button class="resto-thumb on" type="button" data-full={asset(b.img)} data-credit={b.credit || ''} data-href={b.creditHref || ''}><img src={asset(b.img)} alt={`${strip(b.name)} 1`} loading="lazy" /></button>
+                  {b.gallery.map((g, gi) => (
+                    <button class="resto-thumb" type="button" data-full={asset(g.src)} data-credit={g.credit || ''} data-href={g.creditHref || ''}><img src={asset(g.src)} alt={g.alt || `${strip(b.name)} ${gi + 2}`} loading="lazy" onerror="this.closest('.resto-thumb').remove()" /></button>
                   ))}
                 </div>
               )}
