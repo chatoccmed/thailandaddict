@@ -29,7 +29,7 @@ const locHref = (l: string) => (l === 'th' ? `/${data.slug}` : `/${l}/${data.slu
 const SITE = 'https://thailandaddict.com';
 const IMG_BASE = import.meta.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';   // R2 public bucket (override via PUBLIC_IMG_BASE env)
 const base = `${SITE}${pfx}`;
-const url = `${base}/${data.slug}`;
+const url = `${base}/${(data as any).canonicalSlug || data.slug}`;
 const imgAbs = `${IMG_BASE || SITE}/${data.image}`;
 // Prefer a real per-review date over the shared fallback — every review otherwise showed the identical stamp.
 // NOTE: this fallback is a SITE date, not a per-hotel check date. It may format a stamp, but it must never be
