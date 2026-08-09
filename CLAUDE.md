@@ -40,7 +40,7 @@ repo นี้มีหลายเครื่อง/หลาย session push 
 - **✅ รูปแผนที่ placeholder = 0 (จาก 717 ไฟล์ · 2026-07-18, deploy 3c816c7f)** — 60 รีวิวที่ไม่มีรูปแผนที่จริง เลิกโชว์รูปปลอม แล้วทำ **ที่อยู่ (`mapAddr`) เป็นลิงก์ไป lat/lng จริงบน Google Maps** แทน · `mapImg` เป็น optional ใน schema แล้ว · รีวิวที่มีรูปจริง 2,341 ตัว (6,490 หน้า) ไม่เปลี่ยน
   - ⚠️ **รักษาไว้:** รีวิวใหม่ที่ไม่มีรูปแผนที่รายโรงแรม → **อย่าใส่ `mapImg` เลย** (ปล่อยว่าง = ได้ลิงก์แผนที่จริงอัตโนมัติ) ห้ามยืมรูปแผนที่ของโรงแรมอื่นมาใส่
 - **✅ GA4 ใช้งานจริง (2026-08-09)** — Measurement ID จริง `G-JDXCTEMMFB` ใส่ครบ 4 จุด (`Analytics.astro`, `gen-hubs.mjs`, หน้าแรก 9 ภาษา, `trip.html`/`trip-budget.html` × 9 ภาษา) ยืนยันแล้วผ่าน GA realtime report เห็น active users จริง
-- **✅ Byline สุจริต (2026-07-16)** — ทุก layout (Review/Article/Roundup) มี byline คนเขียนแบบ generic ที่ไม่โกหก ("ทีมบรรณาธิการ ThailandAddict") เพราะไม่มีข้อมูลนักเขียนจริงรายคน — **ยังไม่มี real named author** ถ้าจะทำต้องมีข้อมูลจริงมาก่อน (ไม่ปั้น persona ปลอม)
+- **✅ Byline จริง (อัปเดต 2026-08-09)** — มี real named editor แล้ว: **"Doctor Chat"** (บรรณาธิการบริหารและผู้ก่อตั้ง) — ข้อมูลจริงอยู่ที่ `astro/src/data/editorial.json` (ชื่อ/role/bio/รูป, มี comment กำกับ "REAL owner-editor... NEVER put a fabricated person here") ดึงเข้า Person schema + byline ทุกหน้า Review/Article/Roundup อัตโนมัติผ่าน `ArticleLayout.astro`'s `hasEditor`/`_edName` — ถ้าไฟล์เนื้อหามี `data.author.name` เอง จะ override ชื่อนี้ ไม่งั้น fallback มาที่ Doctor Chat (ไม่ใช่ "ทีมบรรณาธิการ ThailandAddict" generic แบบเดิมอีกแล้ว)
 - cornerstone/pillar content — ยังไม่เริ่ม (ดูรายละเอียดด้านล่าง)
 - ⚠️ **audit-site.mjs รู้จัก `/go/b` `/api/*` เป็น worker route แล้ว** (ไม่นับเป็น dead) — ถ้าเพิ่ม worker route ใหม่ อัปเดต isValidInternal ด้วย
 

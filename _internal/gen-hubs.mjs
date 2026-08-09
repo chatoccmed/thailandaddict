@@ -113,7 +113,7 @@ const NEW_LOCS = ['zh','ru','ko','ja','hi','he','ar'];
 const RTL_LOCS = new Set(['he','ar']);
 const OG_LOCALE = {th:'th_TH',en:'en_US',zh:'zh_CN',ru:'ru_RU',ko:'ko_KR',ja:'ja_JP',hi:'hi_IN',he:'he_IL',ar:'ar_AR'};
 const LANG_LABEL = {th:'ไทย',en:'English',zh:'中文',ru:'Русский',ko:'한국어',ja:'日本語',hi:'हिन्दी',he:'עברית',ar:'العربية'};
-const PILLAR_SLUGS = ['first-time-thailand','thailand-7-day-itinerary','thailand-10-day-itinerary','thailand-2-week-itinerary','thailand-3-week-itinerary','thailand-1-month-itinerary','northern-thailand-itinerary','southern-thailand-itinerary','thailand-with-kids-itinerary','thailand-honeymoon-itinerary','songkran-guide','yi-peng-lantern-festival'];
+const PILLAR_SLUGS = ['first-time-thailand','where-to-go-thailand','thailand-7-day-itinerary','thailand-10-day-itinerary','thailand-2-week-itinerary','thailand-3-week-itinerary','thailand-1-month-itinerary','northern-thailand-itinerary','southern-thailand-itinerary','thailand-with-kids-itinerary','thailand-honeymoon-itinerary','songkran-guide','yi-peng-lantern-festival'];
 const TOURISM = [...new Set([...TOPDEST, ...DESTINATIONS.map(d=>d[0])])];
 const REGION_OF = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([sl,,r])=>[sl,r]));
 const CHROME = {};
@@ -1098,6 +1098,7 @@ ${dst.length?`<section class="sec" style="padding-top:0"><div class="inner"><div
 // Ready-made itinerary cluster (surfaced at the top of the Plan Your Trip hub — the international funnel-top).
 const ITINERARIES = [
   ['first-time-thailand','🧭','มาไทยครั้งแรก','First time in Thailand','วางแผนก่อนจอง — กี่วัน ภาคไหน วีซ่า งบ','Plan before you book — days, regions, visa, budget'],
+  ['where-to-go-thailand','🗺️','ไปไหนดีในไทย','Where to go in Thailand','เทียบ 10 ปลายทางตามสไตล์ทริป','Compare 10 destinations by trip style'],
   ['thailand-7-day-itinerary','🗓️','เที่ยวไทย 7 วัน','Thailand in 7 days','สัปดาห์เดียวแบบกระชับ','The efficient week'],
   ['thailand-10-day-itinerary','🗺️','เที่ยวไทย 10 วัน','Thailand in 10 days','เส้นทางคลาสสิกของมือใหม่','The classic first-timer route'],
   ['thailand-2-week-itinerary','🧳','เที่ยวไทย 2 อาทิตย์','Thailand in 2 weeks','เมือง เหนือ สองชายฝั่ง','City, north & two coasts'],
