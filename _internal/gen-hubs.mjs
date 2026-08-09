@@ -12,9 +12,8 @@ const PVCOORDS = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT
 // verified Wikidata QID + Wikipedia sameAs per province (sidecar from _internal/fetch-wikidata.mjs)
 const WIKIDATA = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/province-wikidata.json'), 'utf8')); } catch { return {}; } })();
 
-// GA4 scaffold for the 77 city/region hubs (Wave-0). Set GA_ID to the real "G-XXXXXXXXXX"
-// (same value as astro/src/components/Analytics.astro) — emits nothing until configured.
-const GA_ID = 'G-XXXXXXXXXX';
+// GA4 for the 77 city/region hubs — same Measurement ID as astro/src/components/Analytics.astro
+const GA_ID = 'G-JDXCTEMMFB';
 const GA_HEAD = (/^G-[A-Z0-9]{8,}$/.test(GA_ID) && !GA_ID.includes('XXXX'))
   ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});</script>`
   : '';

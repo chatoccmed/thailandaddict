@@ -1,12 +1,10 @@
 ---
 /**
- * GA4 + Search Console scaffold (Wave-0). Shared across all Astro layouts.
- *
- * 👉 TO GO LIVE: set GA_ID to your real GA4 Measurement ID (looks like "G-ABCD1234XY").
- *    While it stays the placeholder, NOTHING is emitted — safe to ship un-configured.
- *    Also mirrored in _internal/gen-hubs.mjs (city hubs) — update GA_ID there too.
+ * GA4 + Search Console. Shared across all Astro layouts (reviews/articles/roundups).
+ * Same Measurement ID as _internal/gen-hubs.mjs (city hubs) and the standalone
+ * homepage/trip static HTML files — update all of them together if this ever changes.
  */
-const GA_ID = 'G-XXXXXXXXXX'; // ← replace with real ID, then rebuild
+const GA_ID = 'G-JDXCTEMMFB';
 const SC_VERIFY = '';          // ← optional: Search Console <meta> verification token
 const enabled = /^G-[A-Z0-9]{8,}$/.test(GA_ID) && !GA_ID.includes('XXXX');
 ---
