@@ -31,6 +31,10 @@ const SROUTE = {
   'suvarnabhumi-airport-to-bangkok': { th: '✈️ สนามบินสุวรรณภูมิ → ในเมือง', en: '✈️ Suvarnabhumi → city' },
   'bangkok-bts-mrt-guide': { th: '🚇 BTS & MRT กรุงเทพ', en: '🚇 Bangkok BTS & MRT' },
   'chiang-mai-to-pai': { th: '🚐 เชียงใหม่ → ปาย', en: '🚐 Chiang Mai → Pai' },
+  'chiang-mai-to-chiang-rai': { th: '🚐 เชียงใหม่ → เชียงราย', en: '🚐 Chiang Mai → Chiang Rai' },
+  'bangkok-to-hua-hin': { th: '🚐 กรุงเทพ → หัวหิน', en: '🚐 Bangkok → Hua Hin' },
+  'bangkok-to-kanchanaburi': { th: '🚆 กรุงเทพ → กาญจนบุรี', en: '🚆 Bangkok → Kanchanaburi' },
+  'krabi-to-koh-lanta': { th: '⛴️ กระบี่ → เกาะลันตา', en: '⛴️ Krabi → Koh Lanta' },
 };
 const RORDER = Object.keys(SROUTE);
 
@@ -235,6 +239,9 @@ const ROUTES = [
 },
 {
   slug:'suvarnabhumi-airport-to-bangkok', emoji:'✈️', hero:'bangkok',
+  heroImgOverride:'images/guide-suvarnabhumi-airport.jpg',
+  heroCredit:'Mattes / Wikimedia Commons (CC BY-SA 3.0)',
+  heroCreditHref:'https://commons.wikimedia.org/wiki/File:Suvarnabhumi_Airport_-_main_building_seen_from_the_PAX_multi-storey_car_park.JPG',
   subTh:'รถไฟฟ้าแอร์พอร์ต แท็กซี่ Grab บัส', subEn:'Airport Rail Link, taxi, Grab, bus',
   quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> จากสนามบินสุวรรณภูมิเข้าเมืองกรุงเทพ วิธีถูกและเลี่ยงรถติดที่สุดคือรถไฟฟ้าแอร์พอร์ตเรลลิงก์ ถึงพญาไทราว 30 นาที แล้วต่อ BTS/MRT ส่วนแท็กซี่มิเตอร์หรือ Grab สะดวกถ้ามีสัมภาระเยอะ ใช้เวลาราว 30–60 นาทีแล้วแต่จราจร',
     en:'<strong>Short answer:</strong> From Suvarnabhumi into Bangkok, the cheapest, traffic-proof option is the Airport Rail Link — about 30 minutes to Phaya Thai, then connect to the BTS/MRT. A metered taxi or Grab is convenient with lots of luggage, taking around 30–60 minutes depending on traffic.' },
@@ -302,6 +309,94 @@ const ROUTES = [
   ],
   relCities:[['city-chiang-mai.html','เชียงใหม่','Chiang Mai'],['city-pai.html','ปาย','Pai']],
 },
+{
+  slug:'chiang-mai-to-chiang-rai', emoji:'🚐', hero:'chiang-rai',
+  subTh:'รถตู้ รถบัส เช่ารถ เวลา ราคา', subEn:'minivan, bus, self-drive, time & cost',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> เชียงใหม่กับเชียงรายห่างกันราว 200 กม. วิธีนิยมสุดคือรถตู้จากสถานีอาเขต ใช้เวลาราว 3 ชั่วโมง รถบัสธรรมดาช้ากว่าเล็กน้อยแต่ถูกกว่า ไม่มีเที่ยวบินตรงเพราะระยะทางใกล้และทางรถสะดวกกว่า ถ้าเช่ารถขับเองแวะดอยแม่สลองหรือแม่ขะจานได้ระหว่างทาง',
+    en:'<strong>Short answer:</strong> Chiang Mai and Chiang Rai are about 200km apart. The most popular way is a minivan from Arcade station, about 3 hours. An ordinary bus is a bit slower but cheaper. There is no direct flight, since the distance is short and the road is convenient. Self-driving lets you stop at Doi Mae Salong or Mae Khachan along the way.' },
+  options:[
+    { mode:{th:'รถตู้',en:'Minivan'}, dur:{th:'~3 ชม.',en:'~3h'}, cost:'฿', note:{th:'ถี่สุด ออกจากสถานีอาเขต',en:'Most frequent; from Arcade station'} },
+    { mode:{th:'รถบัสธรรมดา',en:'Ordinary bus'}, dur:{th:'~3.5–4 ชม.',en:'~3.5–4h'}, cost:'฿', note:{th:'ถูกกว่ารถตู้ นั่งสบายกว่า',en:'Cheaper than a minivan; roomier'} },
+    { mode:{th:'เช่ารถขับเอง',en:'Self-drive rental'}, dur:{th:'~3 ชม.',en:'~3h'}, cost:'฿฿', note:{th:'แวะดอยแม่สลอง/แม่ขะจานได้',en:'Can stop at Doi Mae Salong / Mae Khachan'} },
+  ],
+  choose:{ th:'รถตู้จากอาเขตคุ้มและสะดวกสุดสำหรับคนส่วนใหญ่ ถี่ทั้งวันและถึงตรงเวลา ถ้าอยากแวะจุดชมวิวหรือไร่ชาระหว่างทาง เช่ารถขับเองจะยืดหยุ่นกว่ามาก แต่ต้องมั่นใจเรื่องขับทางภูเขา',
+    en:'The minivan from Arcade is best value and easiest for most people — frequent and reliable. If you want to stop at viewpoints or tea plantations along the way, a self-drive rental is far more flexible, but only if you are comfortable with mountain roads.' },
+  faq:[
+    { q:{th:'เชียงใหม่ไปเชียงรายนั่งรถนานแค่ไหน?',en:'How long is the drive from Chiang Mai to Chiang Rai?'},
+      a:{th:'รถตู้ใช้เวลาราว 3 ชั่วโมง ส่วนรถบัสธรรมดาราว 3.5–4 ชั่วโมง ระยะทางประมาณ 200 กม. ถนนส่วนใหญ่เป็นทางหลวงสภาพดี',
+        en:'A minivan takes about 3 hours, an ordinary bus around 3.5–4 hours. The distance is roughly 200km, mostly on well-maintained highway.'} },
+    { q:{th:'มีเที่ยวบินตรงเชียงใหม่-เชียงรายไหม?',en:'Is there a direct flight between Chiang Mai and Chiang Rai?'},
+      a:{th:'ปกติไม่มีเที่ยวบินพาณิชย์ตรงเส้นนี้ เพราะระยะทางใกล้และรถตู้/รถบัสสะดวกและถี่กว่ามาก การเดินทางทางบกจึงเป็นทางเลือกหลัก',
+        en:'There is normally no direct commercial flight on this route, since the distance is short and minivans/buses are far more convenient and frequent. Overland travel is the standard option.'} },
+  ],
+  relCities:[['city-chiang-mai.html','เชียงใหม่','Chiang Mai'],['city-chiang-rai.html','เชียงราย','Chiang Rai']],
+},
+{
+  slug:'bangkok-to-hua-hin', emoji:'🚐', hero:'huahin',
+  subTh:'รถตู้ รถบัส รถไฟ เวลา ราคา', subEn:'minivan, bus, train, time & cost',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> หัวหินอยู่ใกล้กรุงเทพ เดินทางง่าย วิธีนิยมสุดคือรถตู้หรือรถบัสจากสถานีขนส่งสายใต้ใหม่ ใช้เวลาราว 3 ชั่วโมง รถไฟช้ากว่าราว 4 ชั่วโมงแต่บรรยากาศดี ไม่จำเป็นต้องบินเพราะใกล้เกินไป',
+    en:'<strong>Short answer:</strong> Hua Hin is close to Bangkok and easy to reach. The most popular way is a minivan or bus from the Southern Bus Terminal, about 3 hours. The train is slower at around 4 hours but scenic. No need to fly — it is too close.' },
+  options:[
+    { mode:{th:'รถตู้/รถบัส',en:'Minivan / bus'}, dur:{th:'~3 ชม.',en:'~3h'}, cost:'฿', note:{th:'ออกจากสายใต้ใหม่ ถี่ทั้งวัน',en:'From the Southern Bus Terminal; frequent all day'} },
+    { mode:{th:'รถไฟ',en:'Train'}, dur:{th:'~4 ชม.',en:'~4h'}, cost:'฿', note:{th:'ช้ากว่าแต่บรรยากาศดี ผ่านเพชรบุรี',en:'Slower but scenic; passes through Phetchaburi'} },
+    { mode:{th:'รถส่วนตัว/แท็กซี่เหมา',en:'Private car / taxi charter'}, dur:{th:'~2.5–3 ชม.',en:'~2.5–3h'}, cost:'฿฿฿', note:{th:'สะดวกสุดถ้ามากันหลายคน',en:'Most convenient for a group'} },
+  ],
+  choose:{ th:'รถตู้หรือรถบัสจากสายใต้ใหม่คุ้มและง่ายสุดสำหรับคนส่วนใหญ่ ถ้าอยากได้ประสบการณ์รถไฟไทยและไม่รีบ เลือกรถไฟได้ ส่วนคนมากันหลายคนหรือมีสัมภาระเยอะ เหมารถส่วนตัวส่งถึงที่พักจะสบายกว่า',
+    en:'The minivan or bus from the Southern Bus Terminal is best value and easiest for most people. If you want the Thai-train experience and are not in a hurry, take the train. Traveling as a group or with lots of luggage, a private car charter to your hotel is more comfortable.' },
+  faq:[
+    { q:{th:'กรุงเทพไปหัวหินนั่งรถนานแค่ไหน?',en:'How long is the drive from Bangkok to Hua Hin?'},
+      a:{th:'รถตู้หรือรถบัสใช้เวลาราว 3 ชั่วโมงจากสถานีขนส่งสายใต้ใหม่ ขึ้นกับสภาพจราจร ช่วงวันหยุดยาวอาจใช้เวลานานกว่านี้',
+        en:'A minivan or bus from the Southern Bus Terminal takes about 3 hours, depending on traffic — long weekends can take longer.'} },
+    { q:{th:'นั่งรถไฟไปหัวหินดีไหม?',en:'Is the train to Hua Hin worth it?'},
+      a:{th:'ดีถ้าไม่รีบและอยากได้บรรยากาศ รถไฟช้ากว่ารถตู้ราวหนึ่งชั่วโมง แต่ราคาถูกและได้ชมวิวชนบทผ่านเพชรบุรี',
+        en:'Yes if you are not in a hurry and want the atmosphere. The train is about an hour slower than a minivan, but cheap and scenic through the Phetchaburi countryside.'} },
+  ],
+  relCities:[['city-bangkok.html','กรุงเทพ','Bangkok'],['city-huahin.html','หัวหิน','Hua Hin']],
+},
+{
+  slug:'bangkok-to-kanchanaburi', emoji:'🚆', hero:'kanchanaburi',
+  subTh:'รถตู้ รถบัส รถไฟสายมรณะ เวลา ราคา', subEn:'minivan, bus, Death Railway train, time & cost',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> กาญจนบุรีเที่ยวเดย์ทริปหรือค้างคืนจากกรุงเทพได้สบาย วิธีเร็วสุดคือรถตู้หรือรถบัสจากสายใต้ใหม่ ใช้เวลาราว 2–2.5 ชั่วโมง ส่วนรถไฟสายมรณะช้ากว่าแต่เป็นประสบการณ์ประวัติศาสตร์ ผ่านสะพานข้ามแม่น้ำแคว',
+    en:'<strong>Short answer:</strong> Kanchanaburi works well as a day trip or overnight from Bangkok. The fastest way is a minivan or bus from the Southern Bus Terminal, about 2–2.5 hours. The historic Death Railway train is slower but a genuine experience, crossing the Bridge over the River Kwai.' },
+  options:[
+    { mode:{th:'รถตู้/รถบัส',en:'Minivan / bus'}, dur:{th:'~2–2.5 ชม.',en:'~2–2.5h'}, cost:'฿', note:{th:'ออกจากสายใต้ใหม่ ถี่ทั้งวัน',en:'From the Southern Bus Terminal; frequent all day'} },
+    { mode:{th:'รถไฟสายมรณะ',en:'Death Railway train'}, dur:{th:'~2.5–3 ชม.',en:'~2.5–3h'}, cost:'฿', note:{th:'ประสบการณ์ประวัติศาสตร์ ผ่านสะพานแม่น้ำแคว',en:'Historic experience; crosses the River Kwai bridge'} },
+    { mode:{th:'ทัวร์เดย์ทริป',en:'Day tour'}, dur:{th:'เต็มวัน',en:'Full day'}, cost:'฿฿–฿฿฿', note:{th:'รวมไกด์ + สุสานทหาร + น้ำตก',en:'Includes guide, war cemetery and waterfalls'} },
+  ],
+  choose:{ th:'อยากถึงเร็วและประหยัด รถตู้จากสายใต้ใหม่คุ้มสุด ถ้าอยากได้ประสบการณ์รถไฟสายมรณะและเห็นสะพานข้ามแม่น้ำแคว เผื่อเวลาให้รถไฟช้ากว่าปกติ ส่วนคนอยากสบายไม่ต้องจัดการเอง จองทัวร์เต็มวันที่รวมจุดสำคัญไว้ครบ',
+    en:'To arrive fast and cheap, the minivan from the Southern Bus Terminal is best value. For the Death Railway experience and the Bridge over the River Kwai, allow extra time as the train runs slower than usual. If you prefer everything arranged for you, book a full-day tour covering the main sites.' },
+  faq:[
+    { q:{th:'กรุงเทพไปกาญจนบุรีนั่งรถนานแค่ไหน?',en:'How long is the drive from Bangkok to Kanchanaburi?'},
+      a:{th:'รถตู้หรือรถบัสจากสายใต้ใหม่ใช้เวลาราว 2–2.5 ชั่วโมง ส่วนรถไฟสายมรณะใช้เวลานานกว่าราว 2.5–3 ชั่วโมงแต่เป็นเส้นทางประวัติศาสตร์',
+        en:'A minivan or bus from the Southern Bus Terminal takes about 2–2.5 hours. The Death Railway train takes a bit longer, around 2.5–3 hours, but it is a historic route.'} },
+    { q:{th:'กาญจนบุรีเที่ยวเดย์ทริปจากกรุงเทพได้ไหม?',en:'Can I do Kanchanaburi as a day trip from Bangkok?'},
+      a:{th:'ได้ ระยะทางใกล้และเดินทางง่าย ออกเช้ากลับเย็นเที่ยวสะพานข้ามแม่น้ำแควและสุสานทหารได้ แต่ถ้าอยากไปน้ำตกไทรโยคหรือเอราวัณด้วย ค้างคืนหนึ่งคืนจะสบายกว่า',
+        en:'Yes, it is close and easy to reach. Leave in the morning and return in the evening to see the River Kwai bridge and the war cemetery. If you also want Sai Yok or Erawan waterfalls, staying one night is more comfortable.'} },
+  ],
+  relCities:[['city-bangkok.html','กรุงเทพ','Bangkok'],['city-kanchanaburi.html','กาญจนบุรี','Kanchanaburi']],
+},
+{
+  slug:'krabi-to-koh-lanta', emoji:'⛴️', hero:'krabi',
+  subTh:'รถตู้ เรือข้ามฟาก สปีดโบ๊ท เวลา ราคา', subEn:'minivan, car ferry, speedboat, time & cost',
+  quick:{ th:'<strong>คำตอบสั้น ๆ:</strong> จากกระบี่ไปเกาะลันตานั่งรถตู้ต่อเรือข้ามฟากได้ทั้งปี ใช้เวลาราว 1.5–2 ชั่วโมงรวมรอเรือ ส่วนสปีดโบ๊ทเร็วกว่าเล็กน้อยแต่วิ่งเฉพาะช่วงไฮซีซั่น (พ.ย.–เม.ย.) ถ้ามากันหลายคนเหมารถส่วนตัวส่งถึงที่พักก็สะดวกดี',
+    en:'<strong>Short answer:</strong> From Krabi to Koh Lanta, a minivan plus car ferry runs year-round, taking about 1.5–2 hours including the crossing. A speedboat is a bit faster but only runs in high season (Nov–Apr). Traveling as a group, a private car charter to your hotel is also convenient.' },
+  options:[
+    { mode:{th:'รถตู้ + เรือข้ามฟาก',en:'Minivan + car ferry'}, dur:{th:'~1.5–2 ชม.',en:'~1.5–2h'}, cost:'฿', note:{th:'วิ่งทั้งปี รวมรอเรือข้ามฟาก',en:'Runs year-round; includes ferry wait'} },
+    { mode:{th:'สปีดโบ๊ท (ไฮซีซั่น)',en:'Speedboat (high season)'}, dur:{th:'~1–1.5 ชม.',en:'~1–1.5h'}, cost:'฿฿', note:{th:'เร็วกว่า วิ่งเฉพาะ พ.ย.–เม.ย.',en:'Faster; only runs Nov–Apr'} },
+    { mode:{th:'รถส่วนตัว/แท็กซี่เหมา',en:'Private car / taxi charter'}, dur:{th:'~2 ชม.',en:'~2h'}, cost:'฿฿฿', note:{th:'ส่งถึงที่พัก รวมค่าเรือข้ามฟากแล้ว',en:'Door-to-door; ferry crossing included'} },
+  ],
+  choose:{ th:'ช่วงนอกไฮซีซั่นรถตู้ต่อเรือข้ามฟากเป็นทางเลือกหลักและวิ่งทั้งปี ถ้าไปช่วงพ.ย.–เม.ย.และอยากประหยัดเวลา สปีดโบ๊ทเร็วกว่าเล็กน้อย ส่วนคนมากันหลายคนหรือมีเด็กเล็ก เหมารถส่วนตัวสะดวกสุดเพราะไม่ต้องต่อรถหลายทอด',
+    en:'Outside high season, the minivan plus car ferry is the main option and runs year-round. If traveling Nov–Apr and want to save time, the speedboat is a bit faster. Traveling as a group or with young kids, a private car charter is easiest since there is no need to switch vehicles.' },
+  faq:[
+    { q:{th:'กระบี่ไปเกาะลันตาใช้เวลานานแค่ไหน?',en:'How long is Krabi to Koh Lanta?'},
+      a:{th:'รถตู้ต่อเรือข้ามฟากใช้เวลาราว 1.5–2 ชั่วโมงรวมรอเรือ ส่วนสปีดโบ๊ทช่วงไฮซีซั่นเร็วกว่าเล็กน้อยราว 1–1.5 ชั่วโมง',
+        en:'A minivan plus car ferry takes about 1.5–2 hours including the wait. A high-season speedboat is a bit faster, around 1–1.5 hours.'} },
+    { q:{th:'ไปเกาะลันตาช่วงหน้าฝนได้ไหม?',en:'Can I visit Koh Lanta in the rainy season?'},
+      a:{th:'ได้ รถตู้ต่อเรือข้ามฟากวิ่งทั้งปี แต่สปีดโบ๊ทมักหยุดวิ่งช่วงพ.ค.–ต.ค. และที่พักบางแห่งบนเกาะปิดปรับปรุงตามฤดู ควรเช็กก่อนจอง',
+        en:'Yes — the minivan-plus-ferry route runs year-round, though speedboats usually stop running May–Oct, and some accommodation on the island closes seasonally. Check before booking.'} },
+  ],
+  relCities:[['city-krabi.html','กระบี่','Krabi']],
+},
 ];
 
 // ---- builder ----
@@ -329,24 +424,35 @@ function buildArticle(route, loc) {
     route.slug === 'bangkok-bts-mrt-guide' ? 'รถไฟฟ้ากรุงเทพ' : 'เส้นทางนี้',
     'this route');
   const isMetro = route.slug === 'bangkok-bts-mrt-guide';
+  const isAirport = route.slug === 'suvarnabhumi-airport-to-bangkok';
   const title = loc === 'en'
     ? (isMetro ? `Bangkok BTS & MRT Guide 2026 — Lines, Fares & How to Ride | ThailandAddict`
+        : isAirport ? `Suvarnabhumi Airport to Bangkok 2026 — ${route.subEn} | ThailandAddict`
         : `How to Get from ${route.relCities[0][2]} to ${route.relCities[route.relCities.length - 1][2]} 2026 — ${route.subEn} | ThailandAddict`)
     : (isMetro ? `รถไฟฟ้า BTS & MRT กรุงเทพ 2026 — เส้นทาง บัตรโดยสาร วิธีใช้ | ThailandAddict`
+        : isAirport ? `สนามบินสุวรรณภูมิเข้าเมืองกรุงเทพ 2026 — ${route.subTh} | ThailandAddict`
         : `${route.relCities[0][1]}ไป${route.relCities[route.relCities.length - 1][1]} ไปยังไงดี 2026 — ${route.subTh} | ThailandAddict`);
   const h1 = loc === 'en'
-    ? (isMetro ? `Bangkok BTS & MRT<br>rider’s guide` : `How to get from<br>${route.relCities[0][2]} to ${route.relCities[route.relCities.length - 1][2]}`)
-    : (isMetro ? `รถไฟฟ้า BTS & MRT<br>กรุงเทพ` : `${route.relCities[0][1]} ไป ${route.relCities[route.relCities.length - 1][1]}<br>ไปยังไงดี`);
+    ? (isMetro ? `Bangkok BTS & MRT<br>rider’s guide`
+        : isAirport ? `Suvarnabhumi Airport<br>to Bangkok`
+        : `How to get from<br>${route.relCities[0][2]} to ${route.relCities[route.relCities.length - 1][2]}`)
+    : (isMetro ? `รถไฟฟ้า BTS & MRT<br>กรุงเทพ`
+        : isAirport ? `สนามบินสุวรรณภูมิ<br>เข้าเมืองกรุงเทพ`
+        : `${route.relCities[0][1]} ไป ${route.relCities[route.relCities.length - 1][1]}<br>ไปยังไงดี`);
   const metaDesc = loc === 'en'
     ? (isMetro ? `How to ride Bangkok’s BTS Skytrain and MRT metro — the lines, where they go, fares and tickets, plus how to connect to the Chao Phraya river boats.`
+        : isAirport ? `The best ways to get from Suvarnabhumi Airport into Bangkok — ${route.subEn}, how long each takes, what it costs and which to choose.`
         : `The best ways to travel from ${route.relCities[0][2]} to ${route.relCities[route.relCities.length - 1][2]} — ${route.subEn}, how long each takes, what it costs and which to choose, with live booking on 12Go.`)
     : (isMetro ? `วิธีใช้รถไฟฟ้า BTS และ MRT ในกรุงเทพ เส้นทางสายต่าง ๆ ค่าโดยสาร การซื้อตั๋ว และการต่อเรือด่วนเจ้าพระยา เที่ยวกรุงเทพแบบเลี่ยงรถติด`
+        : isAirport ? `จากสนามบินสุวรรณภูมิเข้าเมืองกรุงเทพยังไงดี เทียบ${route.subTh} ใช้เวลาเท่าไหร่ ราคาประมาณไหน และเลือกแบบไหนดี`
         : `${route.relCities[0][1]}ไป${route.relCities[route.relCities.length - 1][1]}ไปยังไงดี เทียบ${route.subTh} ใช้เวลาเท่าไหร่ ราคาประมาณไหน และเลือกแบบไหนดี พร้อมจองตั๋วบน 12Go`);
   const eyebrow = loc === 'en' ? 'Getting around' : 'การเดินทาง';
   const intro = loc === 'en'
     ? (isMetro ? `Bangkok’s traffic is legendary, but its rail network makes the city easy to explore. Here is how the BTS and MRT work, where they go, and how to ride them like a local.`
+        : isAirport ? `One of the first questions on landing: how do you actually get from Suvarnabhumi into Bangkok? Here are your options compared, with the honest pick for most travelers.`
         : `One of the most-asked questions for this trip: how do you actually get from ${route.relCities[0][2]} to ${route.relCities[route.relCities.length - 1][2]}? Here are your options compared, with the honest pick for most travelers.`)
     : (isMetro ? `รถติดเป็นเรื่องคู่กรุงเทพ แต่รถไฟฟ้าทำให้เที่ยวเมืองนี้ง่ายขึ้นเยอะ บทความนี้สรุปว่า BTS กับ MRT มีสายอะไรบ้าง ไปไหนได้ และใช้ยังไงให้คล่องเหมือนคนกรุง`
+        : isAirport ? `หนึ่งในคำถามแรก ๆ ตอนลงเครื่องคือ จากสนามบินสุวรรณภูมิเข้าเมืองกรุงเทพยังไงดี บทความนี้เทียบทุกตัวเลือกให้ พร้อมคำแนะนำตรง ๆ ว่าส่วนใหญ่ควรเลือกแบบไหน`
         : `หนึ่งในคำถามที่คนถามบ่อยสุดของทริปนี้คือ ${route.relCities[0][1]}ไป${route.relCities[route.relCities.length - 1][1]} ไปยังไงดี บทความนี้เทียบทุกตัวเลือกให้ พร้อมคำแนะนำตรง ๆ ว่าส่วนใหญ่ควรเลือกแบบไหน`);
   const chips = loc === 'en'
     ? [`${route.options[0].dur.en} ${route.options[0].mode.en.toLowerCase()}`, 'Compare every option', 'Book online ahead']
@@ -364,19 +470,21 @@ function buildArticle(route, loc) {
     { kind: 'cta', text: cta[loc].text, href: cta[loc].href, label: cta[loc].label },
   ];
   const rel = relatedFor(route)[loc];
+  const heroImg = route.heroImgOverride || `/images/heroes/${route.hero}.jpg`;
   return {
     slug: route.slug, type: 'prep', cluster: 'thailand',
     title, metaDesc, keywords: undefined,
     ogTitle: title.split(' | ')[0], ogDesc: metaDesc,
-    image: `/images/heroes/${route.hero}.jpg`,
+    image: heroImg,
     crumbCity: loc === 'en' ? 'Getting Around' : 'การเดินทาง', crumbCityHref: CRUMB_HREF,
     regionLabel: '🇹🇭 Thailand', regionHref: 'country-thailand.html',
-    eyebrow, h1, heroEmoji: route.emoji, heroImg: `/images/heroes/${route.hero}.jpg`,
+    eyebrow, h1, heroEmoji: route.emoji, heroImg,
     intro, chips, readTime: loc === 'en' ? '5 min read' : '5 นาที',
     publishedDate: DATE, modifiedDate: DATE,
     blocks,
     faq: route.faq.map((f) => ({ q: f.q[loc], a: f.a[loc] })),
     related: rel,
+    heroCredit: route.heroCredit, heroCreditHref: route.heroCreditHref,
   };
 }
 

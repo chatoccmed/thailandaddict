@@ -1128,6 +1128,10 @@ function planHub(){
     ['suvarnabhumi-airport-to-bangkok','✈️','สนามบินสุวรรณภูมิ → ในเมือง','Suvarnabhumi → city'],
     ['bangkok-bts-mrt-guide','🚇','รถไฟฟ้า BTS & MRT กรุงเทพ','Bangkok BTS & MRT'],
     ['chiang-mai-to-pai','🚐','เชียงใหม่ → ปาย','Chiang Mai → Pai'],
+    ['chiang-mai-to-chiang-rai','🚐','เชียงใหม่ → เชียงราย','Chiang Mai → Chiang Rai'],
+    ['bangkok-to-hua-hin','🚐','กรุงเทพ → หัวหิน','Bangkok → Hua Hin'],
+    ['bangkok-to-kanchanaburi','🚆','กรุงเทพ → กาญจนบุรี','Bangkok → Kanchanaburi'],
+    ['krabi-to-koh-lanta','⛴️','กระบี่ → เกาะลันตา','Krabi → Koh Lanta'],
   ];
   const cards = G.map(([s,emo,th,en,bth,ben,cth,cen])=>{const im=guideImg(s);return `<a class="dcard" href="${s}.html"><div class="dphoto">${im?`<img src="${im}" alt="" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${emo}</span></div><div class="dbody"><h3>${tx(th,en)}</h3><p style="font-size:12.5px;color:var(--sub);margin-top:3px;line-height:1.55">${esc(tx(bth,ben))}</p><span class="go">${tx(cth||'อ่านคู่มือ →',cen||'Read the guide →')}</span></div></a>`;}).join('');
   const routeCards = R.map(([s,emo,th,en])=>{const im=guideImg(s);return `<a class="dcard" href="${s}.html"><div class="dphoto">${im?`<img src="${im}" alt="" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${emo}</span></div><div class="dbody"><h3>${tx(th,en)}</h3><span class="go">${tx('ไปยังไงดี →','How to get there →')}</span></div></a>`;}).join('');
