@@ -58,6 +58,7 @@ const DESTINATIONS = [
 ];
 // National prep/persona guides — shared by planHub + countryHub (de-orphan). [slug,emoji,th,en,thDesc,enDesc,(ctaTh),(ctaEn)]
 const NAT_GUIDES = [
+    ['thailand-national-parks-guide','🌲','ค่าเข้าอุทยานแห่งชาติ','National park fees','เขาใหญ่ ดอยอินทนนท์ เอราวัณ เขาสก ภูกระดึง ตะรุเตา','Khao Yai, Doi Inthanon, Erawan, Khao Sok, Phu Kradueng, Tarutao'],
     ['thailand-visa-guide','🛂','วีซ่า & การเข้าเมือง','Visa & entry','ใครได้ยกเว้นวีซ่า อยู่ได้กี่วัน + บัตร TDAC','Who’s visa-free, how long + the TDAC card'],
     ['thailand-esim-internet','📶','ซิม & อินเทอร์เน็ต','eSIM & internet','eSIM กับซิมสนามบิน แบบไหนคุ้ม','eSIM vs airport SIM — which wins'],
     ['getting-around-thailand','🚌','การเดินทางในไทย','Getting around','เครื่องบิน รถไฟ เรือ BTS Grab มอเตอร์ไซค์','Flights, trains, ferries, BTS, Grab, bikes'],
