@@ -33,3 +33,19 @@ Owner chose "ship TH/EN now, do the 7-lang hubs as a separate pass."
   themselves inconsistent — some romanized, some translated), then run localize.mjs for all 7 locales on
   the 33 area hubs. Underlying content articles are TH+EN only, so cards link to /en/ regardless — the
   translations are card-title-only. Do 1 language at a time (rate limits) and --collect fresh first.
+
+## UPDATE 2026-08-24 (same session): 7-language hub refresh — DONE
+Owner said continue ("ทำต่อ", ultracode on). Completed the deferred pass:
+- Translated the 123 newly-surfaced strings into zh/ru/ko/ja/hi/he/ar via a 14-agent workflow
+  (7 translate → 7 verify, pipelined). Each translator got that locale's existing hood-name
+  conventions + template examples from its TM, so titles stay house-consistent.
+- Merged into each tm.<loc>.json (+123 keys each: 121 translated + ไทย/English passthrough).
+- Cross-script contamination scan caught 5 subtle stray-Thai-char bugs the verify agents missed
+  (hi "Chidlom" had Thai ด mixed into Devanagari; he "Kaset-Nawamin" had Thai า/ม in Hebrew) —
+  fixed deterministically (Thai→target-script char map). Final scan: 0 stray-script chars across
+  all 121×7 entries.
+- Ran localize.mjs for all 7 locales on the 33 area-bangkok hubs → misses(→en): 0 for every
+  locale (zero English leakage). Verified: 0 real Thai letters in 231 files (only ฿ currency),
+  plan/see/eat cards translated, plan cards fall back to /en/<slug> (no localized content twin),
+  he/ar dir=rtl intact.
+This item is now CLOSED. Content-layer articles for these 7 languages remain TH+EN-only by design.
