@@ -41,7 +41,8 @@ repo นี้มีหลายเครื่อง/หลาย session push 
   - ⚠️ **รักษาไว้:** รีวิวใหม่ที่ไม่มีรูปแผนที่รายโรงแรม → **อย่าใส่ `mapImg` เลย** (ปล่อยว่าง = ได้ลิงก์แผนที่จริงอัตโนมัติ) ห้ามยืมรูปแผนที่ของโรงแรมอื่นมาใส่
 - **✅ GA4 ใช้งานจริง (2026-08-09)** — Measurement ID จริง `G-JDXCTEMMFB` ใส่ครบ 4 จุด (`Analytics.astro`, `gen-hubs.mjs`, หน้าแรก 9 ภาษา, `trip.html`/`trip-budget.html` × 9 ภาษา) ยืนยันแล้วผ่าน GA realtime report เห็น active users จริง
 - **✅ Byline จริง (อัปเดต 2026-08-09)** — มี real named editor แล้ว: **"Doctor Chat"** (บรรณาธิการบริหารและผู้ก่อตั้ง) — ข้อมูลจริงอยู่ที่ `astro/src/data/editorial.json` (ชื่อ/role/bio/รูป, มี comment กำกับ "REAL owner-editor... NEVER put a fabricated person here") ดึงเข้า Person schema + byline ทุกหน้า Review/Article/Roundup อัตโนมัติผ่าน `ArticleLayout.astro`'s `hasEditor`/`_edName` — ถ้าไฟล์เนื้อหามี `data.author.name` เอง จะ override ชื่อนี้ ไม่งั้น fallback มาที่ Doctor Chat (ไม่ใช่ "ทีมบรรณาธิการ ThailandAddict" generic แบบเดิมอีกแล้ว)
-- cornerstone/pillar content — ยังไม่เริ่ม (ดูรายละเอียดด้านล่าง)
+- **✅ cornerstone/pillar content (2026-08-09)** — `first-time-thailand.json` (มีอยู่แล้วจากก่อนหน้า) + `where-to-go-thailand.json` (เทียบ 10 จุดหมายตาม 8 สไตล์ทริป, สร้างใหม่) ทั้งคู่ TH+EN โปรโมทจริงจากหน้าแรกทั้ง 9 ภาษา (section "เริ่มต้นตรงนี้") ไม่ใช่แค่ฝังลึกใน `plan-your-trip.html` เหมือนเดิม
+- **✅ ย่าน กทม. ทั้ง 33 มีแท็บ "แผนเที่ยว" จริงแล้ว (2026-08-25)** — เดิมทุกย่านมีแต่ข้อความ "กำลังจัดทำ"; ตอนนี้ทุกย่านมี `<area>-half-day-plan.json` (TH+EN) สร้างจากสถานที่จริงในไฟล์ top10 เดิมของย่านนั้น ไม่ได้เขียนขึ้นใหม่ · แก้บั๊ก `hoodHub()` ที่ See/Eat/Plan tab ไม่เคยเรียก `artCards()` มาก่อนด้วย (บทความเก่าก็โดน orphan จากหน้า hub ตัวเอง)
 - ⚠️ **audit-site.mjs รู้จัก `/go/b` `/api/*` เป็น worker route แล้ว** (ไม่นับเป็น dead) — ถ้าเพิ่ม worker route ใหม่ อัปเดต isValidInternal ด้วย
 
 ---
