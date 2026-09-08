@@ -1067,7 +1067,16 @@
     border-inline-start: 1px solid rgb(255 255 255 / .28);
   }
 
-  /* Static, informational chip. */
+  /* Static, informational chip.
+
+     LEADING: 1.4 was measured on 2026-09-09 and is BELOW the ≥1.75 Thai body
+     floor (blueprint §3.5) on 72 elements of the homepage alone. A chip is
+     white-space:nowrap so leading never wraps a line here — what a 1.4 box
+     really does is squeeze the tone-mark stack (ปิ๊ · เพื่อ · ก๊วยเตี๋ยว)
+     against the padding box, which is the exact defect the rule exists to
+     prevent. The leading is now stated per language, with the same values the
+     shell already uses for body text, rather than one hard number that
+     silently undercuts the Thai floor. Do not put a single value back. */
   .ta-chip {
     padding-block: var(--sp-1);
     padding-inline: var(--sp-3);
@@ -1076,9 +1085,13 @@
     background: var(--surface-2);
     color: var(--text-muted);
     font-size: var(--step--2);
-    line-height: 1.4;
+    line-height: 1.6;
     white-space: nowrap;
   }
+  /* (0,2,0) beats .ta-chip's (0,1,0), so this holds wherever a chip lands —
+     including inside a heading, whose 1.32 the chip must NOT inherit. */
+  :lang(th) .ta-chip { line-height: 1.85; }
+  :lang(he) .ta-chip, :lang(ar) .ta-chip { line-height: 1.8; }
   .ta-chip-trip { background: var(--trip-soft); border-color: var(--trip-line); color: var(--trip); }
   .ta-chip-award {
     background: var(--mango-100); border-color: var(--mango-300);

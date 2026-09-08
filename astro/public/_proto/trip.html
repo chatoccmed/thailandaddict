@@ -28,7 +28,7 @@
 <!-- THE shell. One file, one cache entry, one place to change the whole site.
      Written relative (not "/css/…") so the prototype renders identically from
      file:// on the owner's machine and from /_proto/ when it is served. -->
-<link rel="stylesheet" href="../css/shell.5f167b89.css">
+<link rel="stylesheet" href="../css/shell.1207a1be.css">
 
 <!-- Incoming view-transition direction. MUST be a parser-blocking inline
      script in <head>: pagereveal fires before any deferred script runs, so a
@@ -1136,8 +1136,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var SRC_E = { label: '10 ร้านอาหารยอดนิยมกระบี่', href: E_URL, date: 'มิ.ย. 2026' };
 
   /* Images are referenced relative so the prototype renders from file:// too;
-     the saved record keeps the production-absolute path. */
-  function img(p) { return p ? ('../' + p.replace(/^\//, '')) : ''; }
+     the saved record keeps the production-absolute path.
+     An already-absolute URL (this page's own seeded POI table is full of R2
+     URLs, and every data-img the homepage writes is one) must pass through
+     untouched — prefixing it produced "../https://pub-…" and a broken thumb. */
+  function img(p) {
+    if (!p) return '';
+    p = String(p);
+    return /^(?:https?:)?\/\//.test(p) ? p : ('../' + p.replace(/^\//, ''));
+  }
 
   var POI = [
     /* --- stays: astro/src/content/reviews/review-*.json --------------- */

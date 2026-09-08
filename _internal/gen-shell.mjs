@@ -264,6 +264,31 @@ if (existsSync(SW)) {
   }
 }
 
+/* --- Keep every prototype page in step ------------------------------------
+   The hashed filenames are written into each /_proto page's <head> at build
+   time. sw.js was already synced here; the HTML was not, so a shell change
+   re-hashed the CSS and left ~14 pages pointing at a file that no longer
+   exists — an unstyled page, and no error anywhere that says so. Rewriting
+   both from the same run is what makes the hash a build detail again.
+   The generators (e.g. gen-proto-home.mjs) read shell-manifest.json directly,
+   so a regenerated page is already correct; this catches the ones that are
+   not regenerated in the same pass. Silent no-op once /_proto/ is deleted. */
+const PROTO = path.join(ROOT, 'astro/public/_proto');
+if (existsSync(PROTO)) {
+  const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? walk(path.join(d, e.name))
+      : (e.name.endsWith('.html') ? [path.join(d, e.name)] : []));
+  let touched = 0;
+  for (const f of walk(PROTO)) {
+    const before = readFileSync(f, 'utf8');
+    const after = before
+      .replace(/shell\.[0-9a-f]{8}\.css/g, cssName)
+      .replace(/shell\.[0-9a-f]{8}\.js/g, jsName);
+    if (after !== before) { writeFileSync(f, after, 'utf8'); touched++; }
+  }
+  if (touched) console.log('  synced ' + touched + ' prototype page(s) in astro/public/_proto to ' + cssName + ' + ' + jsName);
+}
+
 /* --- Stale hashes -------------------------------------------------------- */
 const stalePattern = /^shell\.[0-9a-f]{8}\.(css|js)$/;
 const stale = [];

@@ -10,9 +10,23 @@ document.addEventListener('DOMContentLoaded', function () {
   var fmt = function (s, map) {
     return String(s).replace(/%[a-z]+/g, function (k) { return (k in map) ? map[k] : k; });
   };
-  var img = function (p) { return p ? (R2 + String(p).replace(/^\//, '')) : ''; };
+  /* A saved record's img may already be a fully-qualified URL (every data-img
+     this page writes is, so the thumbnail survives on /trip in production where
+     images/hotels|food|cm|gallery are R2-only). Pass those through untouched;
+     only bare keys get the R2 prefix. */
+  var img = function (p) {
+    if (!p) return '';
+    p = String(p);
+    return /^(?:https?:)?\/\//.test(p) ? p : (R2 + p.replace(/^\//, ''));
+  };
   var $ = function (s, r) { return (r || D).querySelector(s); };
   var $$ = function (s, r) { return [].slice.call((r || D).querySelectorAll(s)); };
+
+  /* Read live, not once: the OS preference can flip mid-session and a cached
+     boolean would keep animating for someone who just turned motion off. */
+  var reduceMotion = function () {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  };
 
   /* ── seed the POI cache from this page's own markup ─────────────────────
      so anything saved here resolves to a real name, photo and coordinates on
@@ -35,6 +49,27 @@ document.addEventListener('DOMContentLoaded', function () {
   var deckTabs = $$('[data-deck-tab]');
   var planSel = $('[data-plan-dest]');
 
+  /* ── the fold showcase follows the destination ───────────────────────────
+     The default panel's rows are already in the HTML (so the block is whole
+     with scripting off); this swaps in another panel's rows from TA_HOME.fold,
+     which was rendered at build time from the same content files. No fetch, no
+     second set of facts, and nothing here writes storage. */
+  var showLead = null, showRail = $('[data-show-rail]'), showLabel = $('[data-show-label]');
+  var showBox = $('[data-foldshow]');
+  if (showBox) showLead = $('.ta-fshow-lead', showBox);
+
+  function renderShow(slug) {
+    var f = H.fold && H.fold[slug];
+    if (!f || !showBox || !showRail) return;
+    if (showLead) {
+      showLead.outerHTML = f.lead;
+      showLead = $('.ta-fshow-lead', showBox);
+    }
+    showRail.innerHTML = f.rail;
+    if (showLabel && C.showLabel) showLabel.textContent = fmt(C.showLabel, { '%p': f.name });
+    showRail.scrollLeft = 0;
+  }
+
   function selectPanel(slug, push) {
     var found = false;
     deckTabs.forEach(function (a) {
@@ -50,8 +85,19 @@ document.addEventListener('DOMContentLoaded', function () {
       var opt = $$('option[data-hub="' + slug + '"]', planSel)[0];
       if (opt) { planSel.value = opt.value; refreshSubmit(); }
     }
+    renderShow(slug);
     if (push && history.replaceState) history.replaceState(null, '', '#deck-' + slug);
     syncAddControls();
+  }
+
+  /* The reverse wiring: picking a destination in the planner moves the deck
+     and the showcase to it when that destination has a panel. Without this the
+     select could say เชียงใหม่ while the photograph below it was still กระบี่. */
+  function syncFromSelect() {
+    var opt = currentOpt();
+    if (!opt) return;
+    var hub = opt.getAttribute('data-hub');
+    if (hub && H.fold && H.fold[hub] && D.getElementById('deck-' + hub)) selectPanel(hub, false);
   }
 
   /* ══════════════════════ 2 · ONE ADD MECHANIC, DAY-SCOPED ═════════════
@@ -241,7 +287,11 @@ document.addEventListener('DOMContentLoaded', function () {
       history.replaceState(null, '', '?d=' + encodeURIComponent(itSlug) + '&n=' + encodeURIComponent(tier) + '#taPlanDeck');
     }
     if (window.matchMedia && !window.matchMedia('(min-width: 1024px)').matches) {
-      deckBox.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      /* scroll-behavior:auto from the reduced-motion block in shell.css does
+         NOT override an explicit behavior option — the argument wins — so the
+         preference has to be read here or the page still animates a ~900 px
+         scroll for someone who asked it not to. */
+      deckBox.scrollIntoView({ block: 'start', behavior: reduceMotion() ? 'auto' : 'smooth' });
     }
   }
 
@@ -339,8 +389,8 @@ document.addEventListener('DOMContentLoaded', function () {
       thumbs(list, $('[data-saves-thumbs]'));
       /* the province of the saves preselects the planner */
       if (planSel && names[0]) {
-        var o = $$('option[data-hub="' + names[0] + '"]', planSel)[0];
-        if (o) planSel.value = o.value;
+        var o = $('option[data-hub="' + names[0] + '"]', planSel)[0];
+        if (o) { planSel.value = o.value; syncFromSelect(); }
       }
     }
 
@@ -464,8 +514,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var slug = el.getAttribute('data-plan-chip'), tr2 = el.getAttribute('data-plan-tier');
       if (H.plans[slug + '|' + tr2]) {
         ev.preventDefault();
-        var o2 = planSel && $$('option[value="' + slug + '"]', planSel)[0];
-        if (o2) { planSel.value = slug; }
+        var o2 = planSel && $('option[value="' + slug + '"]', planSel)[0];
+        if (o2) { planSel.value = slug; syncFromSelect(); }
         var rr = $('[data-plan-nights] input[data-tier="' + tr2 + '"]');
         if (rr) rr.checked = true;
         answer(slug, tr2, o2 ? o2.textContent : slug, el.getAttribute('href'));
@@ -507,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function () {
     el = ev.target.closest && ev.target.closest('[data-pick-dest]');
     if (el) {
       ev.preventDefault();
-      if (planSel) { planSel.value = el.getAttribute('data-pick-dest'); refreshSubmit(); }
+      if (planSel) { planSel.value = el.getAttribute('data-pick-dest'); refreshSubmit(); syncFromSelect(); }
       var dl2 = D.getElementById('taDest');
       if (dl2 && TA.sheet) TA.sheet.close(dl2);
       var opt4 = currentOpt();
@@ -580,7 +630,7 @@ document.addEventListener('DOMContentLoaded', function () {
        because a 77-row native picker with no search is a worse experience than
        the same 77 links with one. ────────────────────────────────────────── */
   if (planSel) {
-    planSel.addEventListener('change', refreshSubmit);
+    planSel.addEventListener('change', function () { refreshSubmit(); syncFromSelect(); });
     planSel.addEventListener('mousedown', function (ev) {
       if (window.matchMedia && window.matchMedia('(min-width: 1024px)').matches) return;
       ev.preventDefault();
@@ -613,6 +663,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var o = planSel && $$('option[value="' + slug + '"]', planSel)[0];
       if (o) {
         planSel.value = slug;
+        syncFromSelect();
         var rr = $('[data-plan-nights] input[data-tier="' + tier + '"]');
         if (rr) rr.checked = true;
         renderPlan(slug + '|' + tier, o.textContent) || renderPlan(slug + '|3d2n', o.textContent);

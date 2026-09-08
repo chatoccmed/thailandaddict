@@ -21,8 +21,25 @@ const EDITOR = rd(path.join(ROOT, 'astro/src/data/editorial.json')).editor;
 const esc = (s) => String(s == null ? '' : s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const nfmt = (n) => Number(n).toLocaleString('en-US');
-const r2 = (p) => p ? (R2 + '/' + String(p).replace(/^\//, '')) : '';
+/* Idempotent: an already-absolute URL passes through untouched, so a caller can
+   r2() a value of unknown provenance without ever producing "r2.dev/https://".
+   Every image key on this page must leave the generator absolute, because the
+   directories they live in (images/hotels|cm|food|gallery) are NOT in the deploy
+   bundle - they exist only on R2. */
+const r2 = (p) => {
+  const v = String(p == null ? '' : p);
+  if (!v) return '';
+  if (v.slice(0, 4) === 'http' || v.slice(0, 2) === '//') return v;
+  return R2 + '/' + (v[0] === '/' ? v.slice(1) : v);
+};
 const J = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
+
+/* Locale prefix for every internal content URL. Every page this homepage links
+   to has a real EN twin on disk, so an English reader must never be dropped
+   onto a Thai page. /api/* and /go/* are worker routes and stay unprefixed,
+   and an href that is already localised is left alone. */
+const P = (lang, u) => (lang === 'en' && typeof u === 'string' && u.charAt(0) === '/'
+  && !/^\/(en\/|api\/|go\/)/.test(u)) ? '/en' + u : u;
 
 /* ───────────────────────── region + destination tables ───────────────────── */
 const HUBS = (() => {
@@ -88,8 +105,14 @@ function stays(prov, lang, n) {
   return rd(p).entries.slice(0, n).map((e, i) => ({
     name: e.name, score: e.score, rev: e.revCount, price: e.priceBig,
     img: e.img || (th[i] && th[i].img) || '',
-    url: '/' + String(e.reviewUrl || '').replace(/\.html$/, ''),
-    zone: String(e.mrtTag || '').replace(/^📍\s*/, ''), type: e.type, agoda: e.agodaUrl
+    url: P(lang, '/' + String(e.reviewUrl || '').replace(/\.html$/, '')),
+    /* The zone string is a whole sentence in the source
+       ("คาบสมุทรพระนาง · หาดไร่เลย์ · ไปได้ทางเรือเท่านั้น"). A card eyebrow is a
+       location, and that one wrapped to three lines and made one rail card
+       55px taller than its neighbours. Keep the first segment, which is the
+       zone; the rest is in the review, where it belongs. */
+    zone: String(e.mrtTag || '').replace(/^📍\s*/, '').split(' · ')[0],
+    type: e.type, agoda: e.agodaUrl
   }));
 }
 function artBlocks(slug, lang, n, needPhoto) {
@@ -118,7 +141,7 @@ function artBlocks(slug, lang, n, needPhoto) {
       credit: got.cr && got.cr.credit ? got.cr.credit : '',
       creditHref: got.cr && got.cr.creditHref ? got.cr.creditHref : '',
       alt: (got.cr && got.cr.alt) || '',
-      kindLabel: b.foodType || b.cuisine, href: '/' + slug + '#r' + b.rank
+      kindLabel: b.foodType || b.cuisine, href: P(lang, '/' + slug + '#r' + b.rank)
     };
   });
 }
@@ -172,14 +195,14 @@ function panelData(p, lang) {
     for (const [hood, rank] of p.seePool) {
       const all = artBlocks('top10-attractions-' + hood, lang, 30, false);
       const hit = all.find(b => b.rank === rank);
-      if (hit && isReal(hit.img)) see.push(Object.assign({}, hit, { hood, href: '/top10-attractions-' + hood + '#r' + rank }));
+      if (hit && isReal(hit.img)) see.push(Object.assign({}, hit, { hood, href: P(lang, '/top10-attractions-' + hood + '#r' + rank) }));
     }
   }
   return {
     stay, eat, see,
-    stayHref: '/top10-hotels-' + p.slug,
-    eatHref: '/' + p.eatArt,
-    seeHref: p.seeArt ? '/' + p.seeArt : '/city-bangkok',
+    stayHref: P(lang, '/top10-hotels-' + p.slug),
+    eatHref: P(lang, '/' + p.eatArt),
+    seeHref: P(lang, p.seeArt ? '/' + p.seeArt : '/city-bangkok'),
     eatDate: artDate(p.eatArt, lang),
     seeDate: p.seeArt ? artDate(p.seeArt, lang) : artDate('top10-attractions-riverside', lang),
     hotelCount: countHotelReviews(p.slug)
@@ -203,12 +226,16 @@ function planData(lang) {
     const hub = HUBS.byslug[ALIAS[d] || d];
     const st = stays(hub ? hub.slug : d, lang, 1)[0] || null;
     out[d + '|' + t] = {
-      href: '/' + d + '-' + t + '-itinerary',
+      href: P(lang, '/' + d + '-' + t + '-itinerary'),
       dest: hub ? (lang === 'th' ? hub.th : hub.en) : d,
       slug: hub ? hub.slug : d,
       title: String(j.h1 || '').replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim(),
       src: String(j.title || '').split('|')[0].replace(/\s+—.*$/, '').trim(),
-      stay: st && { name: st.name, url: st.url, img: st.img, price: st.price, rev: st.rev, agoda: st.agoda },
+      /* Absolute, never the bare content key. This object is handed to
+         TA.poi.putAll() when a plan is adopted, and /trip renders a stored
+         img verbatim: a bare images/hotels/... key resolves to a path that
+         ships only on R2, so the saved thumbnail 404s there in production. */
+      stay: st && { name: st.name, url: st.url, img: r2(st.img), price: st.price, rev: st.rev, agoda: st.agoda },
       days: (j.blocks || []).filter(b => b.kind === 'day').map(b => ({
         label: b.label, title: b.title,
         items: (b.items || []).map(i => ({ t: i.time, a: i.activity }))
@@ -270,8 +297,17 @@ const T = {
     slotEyebrow: 'จัดทริปเอง ใน 2 แตะ',
     lWhere: 'ไปไหน', phWhere: 'เลือกจุดหมาย', lNights: 'กี่วัน',
     tier: { '1-day': '1 วัน', '2d1n': '2 วัน 1 คืน', '3d2n': '3 วัน 2 คืน', '4plus': '4 วัน+' },
+    /* One row of four chips only fits if the visible word is the day count.
+       The nights ride along as screen-reader text, so the accessible name is
+       still the full tier and nothing is hidden from anybody. */
+    tierShort: { '1-day': '1 วัน', '2d1n': '2 วัน', '3d2n': '3 วัน', '4plus': '4 วัน+' },
+    tierSr: { '1-day': '', '2d1n': ' 1 คืน', '3d2n': ' 2 คืน', '4plus': '' },
     submit: 'ดูแผนเลย',
-    fine: 'แผนมาจากคู่มือที่เราเขียนเอง ไม่ใช่ AI แต่งขึ้น · ทริปเก็บในเบราว์เซอร์นี้ ไม่ต้องสมัคร',
+    fine: 'แผนมาจากคู่มือที่เราเขียนเอง ไม่ใช่ AI แต่งขึ้น',
+    showH2: 'ที่พัก ที่กิน ที่เที่ยว ที่เรารีวิวเอง',
+    showLabel: (p) => 'ที่พัก ที่กิน ที่เที่ยว ใน' + p,
+    showMore: 'ดูทั้งหมด →',
+    kStay: 'ที่พัก', kEat: 'ที่กิน', kSee: 'ที่เที่ยว',
     noJsEscape: 'หรือดูจุดหมายทั้งหมด →',
     sheetTitle: 'เลือกจุดหมาย', sheetPh: 'พิมพ์ชื่อจังหวัดหรือเกาะ',
     sheetPop: 'ยอดนิยม', sheetByRegion: 'ตามภาค', close: 'ปิด', noMatch: 'ไม่พบจุดหมายที่ค้นหา',
@@ -338,8 +374,14 @@ const T = {
     slotEyebrow: 'Build your own trip in two taps',
     lWhere: 'Where to', phWhere: 'Choose a destination', lNights: 'How long',
     tier: { '1-day': '1 day', '2d1n': '2 days, 1 night', '3d2n': '3 days, 2 nights', '4plus': '4 days+' },
+    tierShort: { '1-day': '1 day', '2d1n': '2 days', '3d2n': '3 days', '4plus': '4 days+' },
+    tierSr: { '1-day': '', '2d1n': ', 1 night', '3d2n': ', 2 nights', '4plus': '' },
     submit: 'Show me the plan',
-    fine: 'Written by us, not an AI · your trip stays in this browser, no account needed',
+    fine: 'Plans come from guides we wrote, not from an AI',
+    showH2: 'Stays, food and places we reviewed ourselves',
+    showLabel: (p) => 'Stay, eat and explore in ' + p,
+    showMore: 'See all →',
+    kStay: 'Stay', kEat: 'Eat', kSee: 'See',
     noJsEscape: 'Or browse every destination →',
     sheetTitle: 'Choose a destination', sheetPh: 'Type a province or island',
     sheetPop: 'Popular', sheetByRegion: 'By region', close: 'Close', noMatch: 'No destination matches that',
@@ -401,15 +443,26 @@ const SRC_RE = /(Agoda|Booking\.com|Booking|Trip\.com|Wongnai|Google|TripAdvisor
 /* Never composite two sources into one number. A revCount string that names
    exactly one source AND leads with it gets a big score; anything else is
    rendered verbatim as a source line with no headline number. */
+/* The headline number, but ONLY when the revCount string names exactly one
+   source and leads with it. Returns '' when the number cannot be attributed —
+   e.g. top10-hotels-phuket entry 1 carries score "9.4" while its own revCount
+   reads "Agoda 9.1 · Booking 9.0 · 379 รีวิว": 9.4 belongs to no named source,
+   so it is neither printed nor handed to the save record. */
+function attributableScore(revCount) {
+  const s = String(revCount || '').trim();
+  if (!s) return null;
+  const hits = s.match(SRC_RE) || [];
+  const lead = /^(Agoda|Booking\.com|Booking|Trip\.com|Wongnai|Google|Klook)\s+([0-9]+(?:\.[0-9]+)?)\s*(?:·\s*)?(.*)$/.exec(s);
+  if (hits.length === 1 && lead) return { num: lead[2], src: lead[1], tail: lead[3].trim() };
+  return null;
+}
 function scoreMarkup(revCount, t) {
   const s = String(revCount || '').trim();
   if (!s) return '';
-  const hits = s.match(SRC_RE) || [];
-  const lead = /^(Agoda|Booking\.com|Booking|Trip\.com|Wongnai|Google|Klook)\s+([0-9]+(?:\.[0-9]+)?)\s*(?:·\s*)?(.*)$/.exec(s);
-  if (hits.length === 1 && lead) {
-    const tail = lead[3].trim();
-    return '<span class="ta-score"><b>' + esc(lead[2]) + '</b> <span class="ta-score-src">'
-      + esc(lead[1] + (tail ? ' · ' + tail : '')) + '</span></span>';
+  const a = attributableScore(s);
+  if (a) {
+    return '<span class="ta-score"><b>' + esc(a.num) + '</b> <span class="ta-score-src">'
+      + esc(a.src + (a.tail ? ' · ' + a.tail : '')) + '</span></span>';
   }
   return '<span class="ta-score-src">' + esc(s) + '</span>';
 }
@@ -454,10 +507,42 @@ function saveBtn(o, t, extra) {
     + '<span class="ta-save-on">' + esc(t.saveOn) + '</span></button>';
 }
 
+/* Card art. The originals are full-size photographs served from R2 (they are
+   excluded from the deploy bundle by .assetsignore); painting them into a
+   264 CSS px card cost 526 KB on first view alone and put the page at 651 KB
+   against a 500 KB budget — measured 2026-09-09 over the wire, because the
+   Resource Timing API reports cross-origin R2 responses as 0 bytes and hides
+   this entirely. _internal/shell/build/gen-proto-cards.mjs pre-crops each one
+   to 3:2 under images/_cards (which IS bundled), so the width/height below are
+   the real intrinsic dimensions rather than a decorative guess.
+   sizes is measured, not assumed: the card renders at 264 px inside a 375 px
+   viewport (70vw), so a phone at DPR 2 needs 528 px and picks the 560.
+   If a derivative is missing the card falls back to the R2 original, which is
+   heavy but never broken. */
+const CARD_W = 560, CARD_H = 373;
+const cardBase = (rel) =>
+  'images/_cards/' + String(rel).replace(/^\//, '').replace(/^images\//, '').replace(/\.[a-z0-9]+$/i, '');
+
+function cardArt(img, alt, t) {
+  const base = cardBase(img);
+  const disk = path.join(ROOT, 'astro/public', base);
+  if (!img || !ex(disk + '-560.webp') || !ex(disk + '-560.jpg')) {
+    return '<img src="' + esc(r2(img)) + '" alt="' + esc(alt) + '" loading="lazy" decoding="async">';
+  }
+  const u = t.up + '../' + base;   /* site root, not /_proto/ — see build() */
+  return '<picture>'
+    + '<source type="image/webp" srcset="' + esc(u) + '-560.webp 560w'
+    + (ex(disk + '-880.webp') ? ', ' + esc(u) + '-880.webp 880w' : '')
+    + '" sizes="(max-width: 1023px) 70vw, 360px">'
+    + '<img src="' + esc(u) + '-560.jpg" alt="' + esc(alt) + '"'
+    + ' width="' + CARD_W + '" height="' + CARD_H + '" loading="lazy" decoding="async">'
+    + '</picture>';
+}
+
 function photoCard(o, t) {
   return '<article class="ta-card">'
     + '<a class="ta-media ta-r-3-2" href="' + esc(o.url) + '" data-vt-hero>'
-    + '<img src="' + esc(r2(o.img)) + '" alt="' + esc(o.alt) + '" width="800" height="533" loading="lazy" decoding="async">'
+    + cardArt(o.img, o.alt, t)
     + '</a>'
     + '<div class="ta-card-body">'
     + '<span class="eyebrow">' + esc(o.eyebrow) + '</span>'
@@ -494,39 +579,179 @@ function eatTile(o, t) {
     + '</div></div></article>';
 }
 
+/* ────────────────────────── the fold showcase ────────────────────────────
+   ONE full-width photograph of a real reviewed place, carrying its name, its
+   score, the SOURCE of that score and its price — plus a rail of five more
+   across all three of ที่พัก / ที่กิน / ที่เที่ยว. Read from the same panel data
+   the deck below uses, so there is no second set of facts to keep true.
+
+   Measured 2026-09-09, before this existed: the first photograph of a real
+   place sat at y=1134 on a 375x812 phone whose fold is at 755. The visitor's
+   entire first screen was a heading and a form. */
+function foldArt(img, alt, root, lead) {
+  const base = cardBase(img);
+  const disk = path.join(ROOT, 'astro/public', base);
+  if (!img || !ex(disk + '-560.webp') || !ex(disk + '-560.jpg')) {
+    /* An R2 original is heavy but never broken; it is also never reached for
+       any row this page actually ships — gen-proto-cards has a derivative for
+       every one of them. */
+    return '<img src="' + esc(r2(img)) + '" alt="' + esc(alt) + '"'
+      + (lead ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
+  }
+  const u = root + base;
+  const big = ex(disk + '-880.webp');
+  /* sizes is measured, not assumed. Lead: full wrap width, which is
+     100vw - 2rem below 1024px and a 400px-min grid column above it. Rail card:
+     min(46%, 168px) of the wrap. */
+  const sizes = lead
+    ? '(max-width: 1023px) calc(100vw - 2rem), 560px'
+    : '(max-width: 1023px) 46vw, 200px';
+  return '<picture>'
+    + '<source type="image/webp" srcset="' + esc(u) + '-560.webp 560w'
+    + (big ? ', ' + esc(u) + '-880.webp 880w' : '')
+    + '" sizes="' + sizes + '">'
+    + '<img src="' + esc(u) + '-560.jpg" alt="' + esc(alt) + '"'
+    + ' width="' + CARD_W + '" height="' + CARD_H + '"'
+    /* The lead photograph is the first thing on the page that is worth
+       looking at; it is never lazy and never low priority. */
+    + (lead ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">'
+    + '</picture>';
+}
+
+/* Normalised showcase rows. Order is deliberate: the lead is the #1-ranked
+   stay (the only row type that carries BOTH an attributed score and a price),
+   then see · eat · stay · see · eat so all three categories are in the rail
+   and the two visible rail slots on a phone are a sight and a restaurant. */
+function foldRows(p, lang, t) {
+  const d = p.data, pn = lang === 'th' ? p.hub.th : p.hub.en, prov = p.hub.slug;
+  const stayRow = (s) => {
+    const a = attributableScore(s.rev);
+    return {
+      kind: 'stay', kindLabel: t.kStay, zone: s.zone || s.type || pn,
+      name: s.name, url: s.url, img: s.img, alt: s.name + ' — ' + pn,
+      meta: (a ? '<b>' + esc(a.num) + '</b> ' + esc(a.src + (a.tail ? ' · ' + a.tail : '')) : esc(String(s.rev || '')))
+        + (s.price ? ' · ' + esc(t.priceFrom) + ' ' + esc(s.price) + ' ' + esc(t.perNight) : '')
+    };
+  };
+  const seeRow = (s) => ({
+    kind: 'see', kindLabel: t.kSee, zone: s.zone || s.area || pn,
+    name: s.name, url: s.href, img: s.img, alt: s.alt || (s.name + ' — ' + pn),
+    meta: (s.rating && s.src)
+      ? '<b>' + esc(Number(s.rating).toFixed(1)) + '</b> ' + esc(s.src + (s.count ? ' · ' + nfmt(s.count) + ' ' + t.reviewsWord : ''))
+      : esc(s.price || '')
+  });
+  const eatRow = (e) => ({
+    kind: 'eat', kindLabel: t.kEat, zone: e.zone || e.area || pn,
+    name: e.name, url: e.href, img: '', alt: '',
+    meta: (e.rating && e.src)
+      ? '<b>' + esc(Number(e.rating).toFixed(1)) + '</b> ' + esc(e.src + (e.count ? ' · ' + nfmt(e.count) + ' ' + t.reviewsWord : ''))
+      : '',
+    /* 99.8% of restaurant blocks carry real hours; the ones that do not say so
+       out loud rather than showing a confident blank. */
+    sub: [e.price, e.hours].filter(Boolean).join(' · ') || t.unknownHours
+  });
+  const rail = [];
+  if (d.see[0]) rail.push(seeRow(d.see[0]));
+  if (d.eat[0]) rail.push(eatRow(d.eat[0]));
+  if (d.stay[1]) rail.push(stayRow(d.stay[1]));
+  if (d.see[1]) rail.push(seeRow(d.see[1]));
+  if (d.eat[1]) rail.push(eatRow(d.eat[1]));
+  return { prov, name: pn, lead: d.stay[0] ? stayRow(d.stay[0]) : (d.see[0] ? seeRow(d.see[0]) : null), rail };
+}
+
+/* WHY THE FACTS ARE NOT ON THE PHOTOGRAPH.
+   The first build put name + score + source + price inside .ta-scrim-body.
+   Measured on the rendered page: the scrim band is 55% of a 192px image =
+   106px, and its easing puts .72 ink only at the very bottom — .28 at 42% up
+   and .08 at 68% up. A three-line block is 124px, so its top two lines sat on
+   0–28% ink. On the Krabi photograph that happens to be dark foliage and it
+   reads; on a bright sky (Phuket, Samui) the same block is white-on-white.
+   The 55% cap is a design-system rule, not a suggestion, and a text-shadow
+   would be papering over it. So the shell's scrim keeps doing the one job it
+   is built for — a short caption over an image — and every figure the visitor
+   is asked to trust sits on the page's own surface at full contrast. The photo
+   is also not darkened at all, which is the better-looking outcome anyway. */
+function foldLeadHtml(o, root) {
+  if (!o) return '';
+  /* ONE anchor for the whole card, not an anchor on the photo plus a second
+     one on the title. A 24px title link is the most common way a page fails
+     the 44px floor; wrapping the card makes the target the card. */
+  return '<a class="ta-fshow-lead" href="' + esc(o.url) + '" data-vt-hero>'
+    + '<span class="ta-media ta-r-16-9">'
+    + foldArt(o.img, o.alt, root, true)
+    /* A solid ink pill, not scrim text: legible over any photograph by
+       construction rather than by luck. */
+    + '<span class="ta-fshow-badge">' + esc(o.kindLabel) + ' · ' + esc(o.zone) + '</span>'
+    + '</span>'
+    + '<h3 class="ta-fshow-name">' + esc(o.name) + '</h3>'
+    + '<span class="ta-fshow-meta">' + o.meta + '</span>'
+    + '</a>';
+}
+
+function foldCardHtml(o, root) {
+  if (o.kind === 'eat') {
+    return '<a class="ta-fcard ta-fcard-eat" href="' + esc(o.url) + '">'
+      + '<span class="eyebrow">' + esc(o.kindLabel) + ' · ' + esc(o.zone) + '</span>'
+      + '<span class="ta-fcard-name ta-clamp-2">' + esc(o.name) + '</span>'
+      + (o.meta ? '<span class="ta-fcard-meta">' + o.meta + '</span>' : '')
+      + '<span class="ta-fcard-sub ta-clamp-2">' + esc(o.sub || '') + '</span>'
+      + '</a>';
+  }
+  return '<a class="ta-fcard" href="' + esc(o.url) + '" data-vt-hero>'
+    + '<span class="ta-media ta-r-3-2">' + foldArt(o.img, o.alt, root, false) + '</span>'
+    + '<span class="eyebrow">' + esc(o.kindLabel) + ' · ' + esc(o.zone) + '</span>'
+    + '<span class="ta-fcard-name ta-clamp-1">' + esc(o.name) + '</span>'
+    + (o.meta ? '<span class="ta-fcard-meta ta-clamp-2">' + o.meta + '</span>' : '')
+    + '</a>';
+}
+
 /* ───────────────────────────── the page itself ───────────────────────────── */
 function build(lang) {
   const t = T[lang];
   const up = t.up;
+  /* `up` reaches /_proto/ (''  from _proto/home.html, '../' from _proto/en/).
+     Site-root assets — /css, /js, /images — are one level ABOVE that, which is
+     why the <head> writes ../css and ../../css. Anything under /images must use
+     this prefix, not `up`: measured 2026-09-09, every _cards path on both pages
+     resolved to /_proto/images/_cards/… and returned 404. They are lazy and far
+     below the fold, so nothing in the console or the network panel showed it. */
+  const root = t.up + '../';
   const NAME = (h) => lang === 'th' ? h.th : h.en;
   const RN = (k) => lang === 'th' ? HUBS.REG[k].th : HUBS.REG[k].en;
   const RI = (k) => lang === 'th' ? HUBS.REG[k].intro : HUBS.REG[k].intro_en;
   const plans = planData(lang);
   const panels = PANELS.map(p => ({ def: p, hub: HUBS.byslug[p.slug], data: panelData(p, lang) }));
 
-  /* ---- destination <select>, six optgroups, 77 real options -------------- */
+  /* ---- destination <select>, six optgroups, 77 real options --------------
+     The default deck panel is preselected, so the select, the submit label,
+     the showcase and the deck all name the same real destination on first
+     paint and the visitor is never looking at an unprimed machine. */
+  const DEFAULT_DEST = panels[0].hub.slug;
   const optgroups = REGION_ORDER.map(r => {
     const opts = SELECTABLE.filter(d => d.hub.region === r)
       .sort((a, b) => NAME(a.hub).localeCompare(NAME(b.hub), lang))
       .map(d => '<option value="' + esc(d.it) + '" data-hub="' + esc(d.hub.slug) + '"'
+        + (d.hub.slug === DEFAULT_DEST ? ' selected' : '')
         + (d.tiers['1-day'] ? ' data-p1="' + esc(d.tiers['1-day']) + '"' : '')
         + (d.tiers['2d1n'] ? ' data-p2="' + esc(d.tiers['2d1n']) + '"' : '')
         + ' data-p3="' + esc(d.tiers['3d2n']) + '">' + esc(NAME(d.hub)) + '</option>').join('');
     return '<optgroup label="' + esc(RN(r)) + '">' + opts + '</optgroup>';
   }).join('');
 
-  /* ---- duration chips ---------------------------------------------------- */
+  /* ---- duration chips: one row of four ----------------------------------- */
   const nightChips = [['1-day', '1'], ['2d1n', '2'], ['3d2n', '3'], ['4plus', '4']]
     .map(([k, v]) => '<li><label class="ta-fac ta-fac-radio">'
       + '<input type="radio" name="n" value="' + v + '" data-tier="' + k + '"' + (k === '3d2n' ? ' checked' : '') + '>'
-      + '<span>' + esc(t.tier[k]) + '</span></label></li>').join('');
+      + '<span>' + esc(t.tierShort[k])
+      + (t.tierSr[k] ? '<span class="ta-sr">' + esc(t.tierSr[k]) + '</span>' : '')
+      + '</span></label></li>').join('');
 
   /* ---- one-tap plan chips ------------------------------------------------ */
   const chips = CHIPS.map(([d, tier]) => {
     const p = plans[d + '|' + tier];
     const hub = HUBS.byslug[ALIAS[d] || d];
     const label = NAME(hub) + ' · ' + t.tier[tier];
-    return '<li><a class="ta-btn ta-btn-ghost" href="' + esc(p ? p.href : '/' + d + '-' + tier + '-itinerary') + '"'
+    return '<li><a class="ta-btn ta-btn-ghost" href="' + esc(p ? p.href : P(lang, '/' + d + '-' + tier + '-itinerary')) + '"'
       + ' data-plan-chip="' + esc(d) + '" data-plan-tier="' + esc(tier) + '">' + esc(label) + '</a></li>';
   }).join('');
 
@@ -551,8 +776,21 @@ function build(lang) {
         + '<span class="ta-chip">' + esc(t.priceFrom) + ' <span class="ta-num">' + esc(s.price) + '</span> ' + esc(t.perNight)
         + '<span class="ta-checked">' + esc(t.approx) + '</span></span>',
       save: {
-        id: 's:' + s.url.replace(/^\/review-/, ''), kind: 'stay', name: s.name, url: s.url,
-        img: s.img, province: prov, score: s.score, price: String(s.price).replace(/[^0-9]/g, ''), dur: 0
+        /* The POI id must be locale-independent: ta.trip.v1 is ONE document per
+           browser shared by every locale (see trip.html), so deriving the id
+           from the localised URL made the same hotel "s:rayavadee-krabi" in Thai
+           and "s:/en/review-rayavadee-krabi" in English — the save button read
+           unsaved after a language switch and the stay could enter one trip
+           twice. Strip the locale segment before building the id. */
+        id: 's:' + s.url.replace(/^\/(?:[a-z]{2}\/)?review-/, ''), kind: 'stay', name: s.name, url: s.url,
+        /* data-img is stored verbatim in ta.saves.v3 and re-rendered on /trip and
+           in the resume card, so it must be a URL that resolves in production.
+           images/hotels/** is excluded from the deploy bundle by .assetsignore
+           and lives only on R2 — a bare path would 404 for every reader. */
+        img: r2(s.img), province: prov,
+        /* only a score the page is willing to print with its source named */
+        score: (attributableScore(s.rev) || {}).num || '',
+        price: String(s.price).replace(/[^0-9]/g, ''), dur: 0
       }
     }, t)).join('');
 
@@ -563,7 +801,8 @@ function build(lang) {
         + (e.price ? '<span class="ta-chip"><span class="ta-num">' + esc(e.price) + '</span></span>' : ''),
       save: {
         id: 'e:' + prov + '-resto--' + e.rank, kind: 'eat', name: e.name, url: e.href,
-        img: isReal(e.img) ? e.img : '', province: prov, score: e.rating, lat: e.lat, lng: e.lng, dur: 75
+        img: isReal(e.img) ? r2(e.img) : '', province: prov,
+        score: (e.rating && e.src) ? e.rating : '', lat: e.lat, lng: e.lng, dur: 75
       }
     }, t)).join('');
 
@@ -578,8 +817,8 @@ function build(lang) {
       flagClass: s.hours ? 'ta-flag-ok' : 'ta-flag-unknown',
       save: {
         id: prov === 'krabi' && KRABI_ATTR_ID[s.rank] && !s.hood ? KRABI_ATTR_ID[s.rank] : 'a:' + prov + '-attr--' + s.rank,
-        kind: 'see', name: s.name, url: s.href, img: s.img, province: prov,
-        score: s.rating, lat: s.lat, lng: s.lng, dur: 90
+        kind: 'see', name: s.name, url: s.href, img: r2(s.img), province: prov,
+        score: (s.rating && s.src) ? s.rating : '', lat: s.lat, lng: s.lng, dur: 90
       }
     }, t)).join('');
 
@@ -609,8 +848,8 @@ function build(lang) {
     if (!ex(p)) return '';
     const j = rd(p);
     const hub = HUBS.byslug[ALIAS[d] || d];
-    const href = '/' + d + '-' + tier + '-itinerary';
-    const card = up + 'images/_cards/cm/' + d + '-' + tier + '-itinerary-560';
+    const href = P(lang, '/' + d + '-' + tier + '-itinerary');
+    const card = root + 'images/_cards/cm/' + d + '-' + tier + '-itinerary-560';
     const nDays = (j.blocks || []).filter(b => b.kind === 'day').length;
     return '<article class="ta-card">'
       + '<a class="ta-media ta-r-3-2" href="' + href + '" data-vt-hero>'
@@ -630,13 +869,21 @@ function build(lang) {
     const provs = HUBS.all.filter(h => h.region === r && h.prov);
     const dests = HUBS.all.filter(h => h.region === r && !h.prov);
     const links = [...provs, ...dests]
-      .map(h => '<li><a href="/city-' + h.slug + '">' + esc(NAME(h)) + '</a></li>').join('');
+      .map(h => '<li><a href="' + P(lang, '/city-' + h.slug) + '">' + esc(NAME(h)) + '</a></li>').join('');
     return '<article class="ta-card">'
       + '<div class="ta-card-body">'
-      + '<h3 class="ta-card-title"><a href="/region-' + HUBS.REG[r].slug + '">' + esc(RN(r)) + '</a></h3>'
+      + '<h3 class="ta-card-title"><a href="' + P(lang, '/region-' + HUBS.REG[r].slug) + '">' + esc(RN(r)) + '</a></h3>'
       + '<p class="ta-fine">' + esc(t.regionCount(provs.length, dests.length)) + '</p>'
-      + '<p class="ta-fine ta-clamp-3">' + esc(RI(r)) + '</p>'
-      + '<details class="ta-region-list"' + (r === 'n' ? ' open' : '') + '>'
+      /* clamp-2, not clamp-3: six region intros at three lines each is 168px of
+         a page that was three times its own budget, and the clamp is CSS —
+         the full sentence stays in the DOM for a crawler either way. */
+      + '<p class="ta-fine ta-clamp-2">' + esc(RI(r)) + '</p>'
+      /* All six closed. One open card among five closed ones read as a
+         rendering fault, and the open northern list alone was 336px of
+         wrapped pills on a phone. The 89 destination anchors are in the DOM
+         either way — <details> hides them from the reader, never from a
+         crawler or from TA.segmentQuery in the destination sheet. */
+      + '<details class="ta-region-list">'
       + '<summary><svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg> ' + esc(t.regionOpen) + '</summary>'
       + '<ul class="ta-region-links">' + links + '</ul></details>'
       + '</div></article>';
@@ -650,7 +897,7 @@ function build(lang) {
   }).join('');
 
   const pills = PILLS.map(([slug, th, en]) =>
-    '<li><a class="ta-btn ta-btn-ghost" href="/' + slug + '">' + esc(lang === 'th' ? th : en) + '</a></li>').join('');
+    '<li><a class="ta-btn ta-btn-ghost" href="' + P(lang, '/' + slug) + '">' + esc(lang === 'th' ? th : en) + '</a></li>').join('');
 
   /* ---- JSON-LD ----------------------------------------------------------- */
   const site = 'https://thailandaddict.com/';
@@ -696,7 +943,7 @@ function build(lang) {
       itemListElement: GUIDES.map(([d, tier], i) => ({
         '@type': 'ListItem', position: i + 1,
         name: (HUBS.byslug[ALIAS[d] || d] ? NAME(HUBS.byslug[ALIAS[d] || d]) : d) + ' · ' + t.tier[tier],
-        url: site + d + '-' + tier + '-itinerary'
+        url: site + P(lang, '/' + d + '-' + tier + '-itinerary').slice(1)
       }))
     },
     {
@@ -719,15 +966,41 @@ function build(lang) {
     ld.push({ '@context': 'https://schema.org', '@type': 'Organization', name: 'ThailandAddict', url: site });
   }
 
+  /* ---- fold showcase ------------------------------------------------------
+     Rendered statically for the default panel so it is complete with scripting
+     off; the same rows for all six panels ride along in TA_HOME.fold so a tab
+     tap re-renders it without a fetch and without a second copy of the facts. */
+  const showAll = panels.map(p => foldRows(p, lang, t));
+  /* The rail ends in a real link into the deck — the "see all" that used to
+     cost a 44px row of its own in the section head. */
+  /* No data-deck-tab here on purpose: the delegated handler would preventDefault
+     and re-select the panel that is already selected, so the tap would do
+     nothing visible. A bare hash anchor scrolls to the panel — and the deck and
+     the showcase are always on the same destination, so the target is always
+     the visible panel. Works identically with scripting off. */
+  const moreTile = (slug) => '<a class="ta-fcard ta-fcard-more" href="#deck-' + esc(slug) + '">'
+    + '<svg class="ta-ic i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>'
+    + '<span>' + esc(t.showMore.replace(/\s*→$/, '')) + '</span></a>';
+  const railHtml = (s) => s.rail.map(o => foldCardHtml(o, root)).join('') + moreTile(s.prov);
+  const show0 = showAll[0];
+  const foldLead = foldLeadHtml(show0.lead, root);
+  const foldRail = railHtml(show0);
+  const foldData = {};
+  for (const s of showAll) {
+    foldData[s.prov] = { name: s.name, lead: foldLeadHtml(s.lead, root), rail: railHtml(s) };
+  }
+
   /* ---- page --------------------------------------------------------------- */
-  return PAGE({ t, lang, up, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
-    guideCards, regionCards, popChips, pills, ld, plans, panels, NAME });
+  return PAGE({ t, lang, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+    guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
+    foldLead, foldRail, foldData });
 }
 
 /* ────────────────────────────── page template ───────────────────────────── */
 function PAGE(x) {
-  const { t, lang, up, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
-    guideCards, regionCards, popChips, pills, ld, plans, panels, NAME } = x;
+  const { t, lang, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+    guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
+    foldLead, foldRail, foldData } = x;
 
   const SPRITE = fs.readFileSync(path.join(ROOT, '_internal/shell/build/sprite.svg'), 'utf8').trim();
   const CSS = fs.readFileSync(path.join(ROOT, '_internal/shell/build/home.page.css'), 'utf8').trim();
@@ -753,12 +1026,18 @@ function PAGE(x) {
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
 <meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
 
-<link rel="manifest" href="manifest.${t.lang}.webmanifest">
+<!-- The manifests live in /_proto/, so the EN page one level down needs the up
+     prefix. Without it /_proto/en/manifest.en.webmanifest 404s (2026-09-09). --><link rel="manifest" href="${up}manifest.${t.lang}.webmanifest">
 <!-- No <link rel="icon">: astro/public/favicon.svg and astro/public/icons/ do
      not exist yet, and a 404 in the console during an owner demo is worse than
      no icon. Add both once gen-shell has emitted them. -->
 
-<link rel="stylesheet" href="${up}../css/shell.5f167b89.css">
+<!-- Hashed names come from astro/src/data/shell-manifest.json, never typed
+     here. They were hard-coded and drifted: gen-shell re-hashes on every shell
+     edit, and a stale name is a 404 that shows up as an unstyled page with
+     nothing in the console to say why. gen-shell also rewrites these across
+     /_proto now, for the pages it does not regenerate. -->
+<link rel="stylesheet" href="${up}..${SHELL.css}">
 
 <!-- Incoming view-transition direction. MUST be a parser-blocking inline
      script in <head>: pagereveal fires before any deferred script runs. -->
@@ -798,7 +1077,7 @@ try {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="${up}../js/shell.2029c422.js" defer></script>
+<script src="${up}..${SHELL.js}" defer></script>
 
 <style>
 ${CSS}
@@ -845,47 +1124,54 @@ ${SPRITE}
     <div class="ta-fold">
       <div class="ta-fold-ask">
 
-        <!-- 2. LCP is text. No hero image on this page. -->
+        <!-- 2. LCP is text. The photograph below is a real reviewed place, not
+             a decorative header, so it never competes with the heading. -->
         <h1 class="ta-h1">${esc(t.h1)}</h1>
-        <p class="ta-lead">${esc(t.lead)}</p>
 
         <!-- 3. THE PLANNER SLOT — one height-reserved box, three states.
              Which one paints is decided by :root[data-trip] before first paint,
-             so CLS is 0 and there is never an empty app screen. -->
+             so CLS is 0 and there is never an empty app screen.
+             Compressed from 418px to ~220px on 2026-09-09: the two stacked
+             field labels, the eyebrow that repeated the h2, the second row of
+             duration chips and the two-line fine print between them cost 200px
+             of the first screen and said nothing the controls do not. -->
         <section class="ta-planslot" id="taPlanSlot" aria-labelledby="h-plan">
           <h2 class="ta-sr" id="h-plan">${esc(t.slotEyebrow)}</h2>
 
           <!-- ── STATE C · first-timer ─────────────────────────────────── -->
           <form class="ta-plan-form" data-plan-form method="get" action="/destinations">
-            <p class="eyebrow">${esc(t.slotEyebrow)}</p>
 
-            <div class="ta-plan-field">
+            <div class="ta-plan-select">
+              <svg class="ta-ic ta-ic-20 ta-plan-pin" aria-hidden="true"><use href="#i-map-pin"></use></svg>
               <label class="ta-plan-label" for="planDest">${esc(t.lWhere)}</label>
-              <div class="ta-plan-select">
-                <select id="planDest" name="d" data-plan-dest required>
-                  <option value="" disabled selected>${esc(t.phWhere)}</option>
-                  ${optgroups}
-                </select>
-                <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-chevron"></use></svg>
-              </div>
+              <!-- Preselected, not a placeholder. The default deck panel, the
+                   showcase rail and the submit button all name the same real
+                   destination from first paint, so the button reads
+                   "${esc(t.tier['3d2n'])}" for a real place instead of a generic
+                   verb — and the visitor can see the machine works before
+                   touching anything. The choice is one tap away and the button
+                   always says out loud which destination it will use. -->
+              <select id="planDest" name="d" data-plan-dest required>
+                <option value="" disabled>${esc(t.phWhere)}</option>
+                ${optgroups}
+              </select>
+              <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-chevron"></use></svg>
             </div>
 
-            <div class="ta-plan-field">
-              <span class="ta-plan-label" id="lblNights">${esc(t.lNights)}</span>
-              <ul class="ta-chip-row ta-plan-nights" aria-labelledby="lblNights" data-plan-nights>
-                ${nightChips}
-              </ul>
-            </div>
+            <span class="ta-sr" id="lblNights">${esc(t.lNights)}</span>
+            <ul class="ta-chip-row ta-plan-nights" aria-labelledby="lblNights" data-plan-nights>
+              ${nightChips}
+            </ul>
 
             <p class="ta-flag ta-flag-unknown ta-plan-miss" data-plan-miss hidden></p>
 
             <button class="ta-btn ta-btn-primary ta-plan-go" type="submit" data-plan-submit>${esc(t.submit)}</button>
             <p class="ta-fine">${esc(t.fine)}</p>
-            <a class="ta-plan-escape" href="/destinations">${esc(t.noJsEscape)}</a>
+            <a class="ta-plan-escape" href="${P(lang,'/destinations')}">${esc(t.noJsEscape)}</a>
           </form>
 
           <!-- ── STATE B · saves but no days ───────────────────────────── -->
-          <div class="ta-plan-resume" data-plan-saves hidden>
+          <div class="ta-plan-resume" data-plan-saves>
             <p class="eyebrow">${esc(t.myTrip)}</p>
             <p class="ta-plan-resume-lead" data-saves-lead></p>
             <ul class="ta-plan-thumbs" data-saves-thumbs></ul>
@@ -897,7 +1183,7 @@ ${SPRITE}
           </div>
 
           <!-- ── STATE A · a real trip exists ──────────────────────────── -->
-          <div class="ta-plan-resume" data-plan-trip hidden>
+          <div class="ta-plan-resume" data-plan-trip>
             <p class="eyebrow">${esc(t.myTrip)}</p>
             <h3 class="ta-plan-trip-title" data-trip-title></h3>
             <p class="ta-fine" data-trip-meta></p>
@@ -917,18 +1203,43 @@ ${SPRITE}
 
       </div>
 
-      <!-- The in-place answer. Rendered by JS from a real published itinerary.
-           On a phone it lands directly under the planner; on desktop the grid
-           moves it into the second column, beside the question. -->
-      <div class="ta-fold-answer" id="taPlanDeck" data-plan-deck hidden></div>
+      <!-- One column on desktop, plain flow on a phone. Before this the right
+           column held only the plan deck, which is hidden until submit — so
+           half of the desktop fold was blank at rest. -->
+      <div class="ta-fold-right">
+
+        <!-- The in-place answer. Rendered by JS from a real published
+             itinerary. On a phone it lands directly under the planner; on
+             desktop it takes the second column, beside the question. -->
+        <div class="ta-fold-answer" id="taPlanDeck" data-plan-deck hidden></div>
+
+        <!-- 3b. THE SHOWCASE — the reason this page was redone.
+             One full-width photograph of a real reviewed place with its name,
+             score, score source and price, then a rail of five more across
+             ที่พัก · ที่กิน · ที่เที่ยว. Everything here is read from
+             astro/src/content at build time. It follows whichever destination
+             the planner and the deck are on, and it is fully rendered with
+             scripting off. -->
+        <section class="ta-foldshow" aria-labelledby="h-show" data-foldshow>
+          <h2 class="ta-sr" id="h-show">${esc(t.showH2)}</h2>
+          <!-- No 44px "see all" control in this head: on a 22px eyebrow row it
+               costs the fold 22px for a jump the rail's own last tile already
+               offers. -->
+          <p class="eyebrow ta-foldshow-head" data-show-label>${esc(t.showLabel(NAME(panels[0].hub)))}</p>
+          ${foldLead}
+          <div class="ta-fshow-rail ta-chip-scroll" data-show-rail>
+            ${foldRail}
+          </div>
+        </section>
+      </div>
 
       <!-- 4. Six real published plans, one tap each. Present in every state,
            so a first-timer is never looking at an empty app. -->
       <nav class="ta-planchips" aria-label="${esc(t.chipsEyebrow)}">
-        <p class="eyebrow">${esc(t.chipsEyebrow)}</p>
         <ul class="ta-chip-scroll">
           ${chips}
         </ul>
+        <p class="ta-fine">${esc(t.localOnly)}</p>
       </nav>
     </div>
 
@@ -939,7 +1250,7 @@ ${SPRITE}
     <section class="ta-sec ta-deck" id="deck" aria-labelledby="h-deck">
       <div class="ta-sec-head">
         <h2 id="h-deck">${esc(t.deckH2)}</h2>
-        <a class="ta-sec-more" href="/destinations">${esc(t.deckAll)}</a>
+        <a class="ta-sec-more" href="${P(lang,'/destinations')}">${esc(t.deckAll)}</a>
       </div>
 
       <div class="ta-tablist" role="tablist" aria-label="${esc(t.deckH2)}">
@@ -974,16 +1285,19 @@ ${SPRITE}
     <section class="ta-sec ta-answer" aria-labelledby="h-answer">
       <div class="ta-sec-head"><h2 id="h-answer">${esc(t.answerH2)}</h2></div>
       <p class="ta-answer-body">${esc(t.answerP)}</p>
-      <a class="ta-sec-more" href="/first-time-thailand">${esc(t.answerMore)}</a>
+      <a class="ta-sec-more" href="${P(lang,'/first-time-thailand')}">${esc(t.answerMore)}</a>
     </section>
 
     <!-- ══════════════════════════ 9. READY-MADE PLANS ═══════════════════════ -->
     <section class="ta-sec" aria-labelledby="h-guides">
       <div class="ta-sec-head">
         <h2 id="h-guides">${esc(t.guidesH2)}</h2>
-        <a class="ta-sec-more" href="/plan-your-trip">${esc(t.readMore)}</a>
+        <a class="ta-sec-more" href="${P(lang,'/plan-your-trip')}">${esc(t.readMore)}</a>
       </div>
-      <div class="ta-grid ta-guides">
+      <!-- A rail on a phone, a 4-up grid from 1024px — .ta-scroll-cards does
+           both, and it is what the deck's shelves use. As a one-column .ta-grid
+           these eight cards were 4,657px, 39% of a 12,010px page. -->
+      <div class="ta-scroll-cards ta-chip-scroll ta-guides">
         ${guideCards}
       </div>
     </section>
@@ -994,7 +1308,7 @@ ${SPRITE}
     <section class="ta-sec" aria-labelledby="h-regions">
       <div class="ta-sec-head">
         <h2 id="h-regions">${esc(t.regionsH2)}</h2>
-        <a class="ta-sec-more" href="/destinations">${esc(t.regionsAll)}</a>
+        <a class="ta-sec-more" href="${P(lang,'/destinations')}">${esc(t.regionsAll)}</a>
       </div>
       <div class="ta-grid ta-regions" id="taRegions">
         ${regionCards}
@@ -1018,13 +1332,13 @@ ${SPRITE}
       <div class="ta-sec-head"><h2 id="h-editor">${esc(t.editorH2)}</h2></div>
       <article class="ta-card ta-card-editorial ta-editor">
         <span class="ta-media ta-r-1-1">
-          <picture><source type="image/webp" srcset="${up}images/_cards/team/doctor-chat-avatar-560.webp"><img src="${up}images/_cards/team/doctor-chat-avatar-560.jpg" alt="${esc(EDITOR.name)} ${esc(lang === 'th' ? EDITOR.role : EDITOR.roleEn)}" width="400" height="400" loading="lazy" decoding="async"></picture>
+          <picture><source type="image/webp" srcset="${root}images/_cards/team/doctor-chat-avatar-560.webp"><img src="${root}images/_cards/team/doctor-chat-avatar-560.jpg" alt="${esc(EDITOR.name)} ${esc(lang === 'th' ? EDITOR.role : EDITOR.roleEn)}" width="400" height="400" loading="lazy" decoding="async"></picture>
         </span>
         <div class="ta-editor-body">
           <span class="eyebrow">${esc(t.editorEyebrow)}</span>
           <h3 class="ta-editor-name">${esc(EDITOR.name)}</h3>
           <p class="ta-fine">${esc(lang === 'th' ? EDITOR.bio : EDITOR.bioEn)}</p>
-          <a class="ta-sec-more" href="/about">${esc(t.editorMore)}</a>
+          <a class="ta-sec-more" href="${P(lang,'/about')}">${esc(t.editorMore)}</a>
         </div>
       </article>
     </section>
@@ -1047,11 +1361,11 @@ ${SPRITE}
       <p class="ta-foot-tag">${esc(t.footTag)}</p>
       <p class="ta-fine">${esc(t.footDesc)}</p>
       <ul class="ta-foot-links">
-        <li><a href="/about">${esc(t.footAbout)}</a></li>
-        <li><a href="/destinations">${esc(t.footDest)}</a></li>
+        <li><a href="${P(lang,'/about')}">${esc(t.footAbout)}</a></li>
+        <li><a href="${P(lang,'/destinations')}">${esc(t.footDest)}</a></li>
         <li><a href="trip">${esc(t.footTrip)}</a></li>
         <li><a href="search">${esc(t.footSearch)}</a></li>
-        <li><a href="/near-me">${esc(t.footNear)}</a></li>
+        <li><a href="${P(lang,'/near-me')}">${esc(t.footNear)}</a></li>
         <li><a href="${t.otherHref}" hreflang="${lang === 'th' ? 'en' : 'th'}">${esc(t.otherLabel)}</a></li>
       </ul>
       <p class="ta-fine">${esc(t.protoNote)}</p>
@@ -1119,7 +1433,7 @@ ${SPRITE}
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
     <span>${esc(t.moreTrip)}</span>
   </a>
-  <a href="/near-me">
+  <a href="${P(lang,'/near-me')}">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>${esc(t.moreNear)}</span>
   </a>
@@ -1183,6 +1497,11 @@ window.TA_HOME = {
   lang: ${J(lang)},
   plans: ${J(plans)},
   panels: ${J(panels.map(p => ({ slug: p.hub.slug, name: NAME(p.hub) })))},
+  /* Every panel's showcase rows, rendered at build time from the same content
+     files the deck reads. Switching destination re-renders from this — no
+     fetch, no second copy of the facts, and the default panel is already in
+     the HTML so the block is complete with scripting off. */
+  fold: ${J(foldData)},
   copy: ${J({
     loading: lang === 'th' ? 'กำลังจัดแผน…' : 'Building the plan…',
     restart: lang === 'th' ? 'เริ่มใหม่' : 'Start over',
@@ -1195,6 +1514,7 @@ window.TA_HOME = {
     hr: lang === 'th' ? ' ชม.' : ' hr', min: lang === 'th' ? ' นาที' : ' min',
     stayRow: lang === 'th' ? 'ค้างคืน' : 'Overnight',
     savedList: lang === 'th' ? 'ที่บันทึกไว้' : 'Saved',
+    showLabel: lang === 'th' ? 'ที่พัก ที่กิน ที่เที่ยว ใน%p' : 'Stay, eat and explore in %p',
     dayN: lang === 'th' ? 'วันที่ %n' : 'Day %n',
     addDay: lang === 'th' ? 'เพิ่มเข้าวันที่ %n' : 'Add to day %n',
     saveOff: lang === 'th' ? 'เก็บไว้ก่อน' : 'Keep this',

@@ -7,26 +7,51 @@
      One column on a phone, source order = visual order. From 1024px it
      becomes two columns and the plan deck lands beside the question, so the
      answer arrives with no scroll and no jump. That costs one grid rule. */
-  .ta-fold { padding-block: var(--sp-3) 0; }
-  /* --step-3, not --step-4: at 375px the h1 is the difference between the
-     six one-tap plans landing above the fold and landing below it. */
-  .ta-h1 { font-size: var(--step-3); margin-block: 0 var(--sp-2); }
-  .ta-lead { color: var(--text-muted); margin-block: 0 var(--sp-2); max-inline-size: 46ch; }
+  .ta-fold { padding-block: var(--sp-1) 0; }
+  /* --step-2 on a phone, --step-3 from 700px. Measured 2026-09-09: at 375px
+     --step-3 costs 80px for two lines of Thai and pushes the first photograph
+     of a real place to y=1134 — below the fold, which was this page's worst
+     quality. --step-2 costs 63px for the same two lines and buys the showcase
+     rail its last visible row. Desktop keeps the bigger headline, where the
+     column is wide enough for it to cost nothing. */
+  .ta-h1 { font-size: var(--step-2); margin-block: 0 var(--sp-2); text-wrap: balance; }
+  /* The shell's `:lang(en){line-height:1.6}` is a pseudo-class and outranks its
+     own `h1{line-height:1.14}` type selector, so an English h1 renders with
+     BODY leading. Measured 2026-09-09: the EN h1 was 112px for three lines
+     where the Thai one is 67px for two, and that 45px pushed the EN lead card's
+     price line to within 20px of the fold. Heading leading, stated for the
+     heading, and only where the defect is. */
+  :lang(en).ta-h1 { line-height: 1.2; }
+  @media (min-width: 700px) { .ta-h1 { font-size: var(--step-3); } }
 
   @media (min-width: 1024px) {
-    /* Identical DOM and source order — grid only. The deck sits beside the
-       question, so the answer arrives with no scroll and no jump. */
+    /* Identical DOM and source order — grid only. The showcase sits beside the
+       question, so the fold is never a lone form, and the plan deck lands in
+       the same column when it renders. */
     .ta-fold {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(380px, 1fr);
-      grid-template-areas: 'ask answer' 'chips answer';
+      grid-template-columns: minmax(0, 1.15fr) minmax(400px, 1fr);
+      grid-template-areas: 'ask right' 'chips right';
+      /* `auto 1fr`, not `auto auto`: the right column spans both rows, so with
+         two auto rows the browser shares its surplus height between them and
+         the plan chips floated ~140px below the planner they belong to. */
+      grid-template-rows: auto 1fr;
       gap: var(--sp-3) var(--sp-6);
       align-items: start;
     }
     .ta-fold-ask { grid-area: ask; }
-    .ta-fold-answer { grid-area: answer; }
+    /* One column, two things, DOM order preserved — so the right column is
+       never empty at rest. Before this it held only [data-plan-deck], which is
+       hidden until submit: the desktop fold shipped a blank half-screen.
+       Deliberately NOT sticky: a rendered three-day plan is taller than the
+       viewport, and a sticky box taller than its scrollport pins its top and
+       makes its own bottom unreachable. */
+    .ta-fold-right { grid-area: right; }
     .ta-planchips { grid-area: chips; }
-    .ta-fold-answer:not([hidden]) { position: sticky; inset-block-start: calc(var(--topbar-h) + var(--sp-4)); }
+    /* When the answer renders it takes the column and the showcase steps
+       aside — two photo blocks stacked in a sticky column would overflow the
+       viewport and the plan is what the visitor just asked for. */
+    .ta-fold-right:has(> [data-plan-deck]:not([hidden])) > .ta-foldshow { display: none; }
   }
 
   /* ── 2. THE PLANNER SLOT ───────────────────────────────────────────────
@@ -35,8 +60,13 @@
      the wrong state and CLS stays 0. With scripting off, no attribute is set
      and the form — the correct default — is what renders. */
   .ta-planslot {
-    min-block-size: 290px;
-    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+    /* Was 290px of reserved height for a 418px-tall form. The zero-CLS
+       mechanism is the pre-paint :root[data-trip] attribute, not the reserve;
+       the reserve only covers the case where that heuristic guesses wrong, so
+       it is now sized to the form it actually holds instead of padding the
+       fold out by 70px. */
+    min-block-size: 224px;
+    padding: var(--sp-3) var(--sp-4);
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
     background: var(--surface-2);
@@ -44,8 +74,17 @@
   }
   :root[data-trip="saves"] .ta-planslot [data-plan-form],
   :root[data-trip="has"]   .ta-planslot [data-plan-form] { display: none; }
-  :root[data-trip="saves"] .ta-planslot [data-plan-saves][hidden] { display: block; }
-  :root[data-trip="has"]   .ta-planslot [data-plan-trip][hidden]  { display: block; }
+  /* The two resume cards must NOT carry the `hidden` attribute: shell.css sets
+     [hidden]{display:none!important} inside @layer shell, and among important
+     declarations an EARLIER layer wins — so no rule in @layer page, !important
+     or not, can ever reveal them again. They are hidden here by a normal
+     page-layer declaration instead, which the state rules below simply
+     override. Still zero-flash (data-trip is set pre-paint) and still correct
+     with JS off, where data-trip is absent and both cards stay hidden. */
+  .ta-planslot [data-plan-saves],
+  .ta-planslot [data-plan-trip] { display: none; }
+  :root[data-trip="saves"] .ta-planslot [data-plan-saves] { display: flex; }
+  :root[data-trip="has"]   .ta-planslot [data-plan-trip]  { display: flex; }
   /* A session-dismissed resume card falls back to the form, never to nothing. */
   .ta-planslot.is-dismissed [data-plan-trip],
   .ta-planslot.is-dismissed [data-plan-saves] { display: none !important; }
@@ -53,21 +92,44 @@
 
   .ta-plan-form { display: flex; flex-direction: column; gap: var(--sp-2); }
   .ta-plan-form > .ta-fine { margin: 0; }
-  .ta-plan-form .eyebrow { margin: 0; }
-  .ta-plan-field { display: flex; flex-direction: column; gap: var(--sp-1); }
-  .ta-plan-label { font-weight: 600; font-size: var(--step--1); color: var(--text-2); }
 
+  /* THE FIELD LABEL LIVES INSIDE THE FIELD.
+     Two stacked label rows ("ไปไหน", "กี่วัน") plus an eyebrow cost 92px of the
+     fold and told the visitor nothing the controls do not already say. The
+     destination label is now a real <label for> parked on the field's top
+     line — the affordance survives, the 92px does not — and the duration chips
+     carry their own words, so their label is screen-reader only. */
   .ta-plan-select { position: relative; display: flex; align-items: center; }
+  .ta-plan-label {
+    position: absolute;
+    inset-block-start: 5px;
+    inset-inline-start: 42px;
+    z-index: 1;
+    font-weight: 600;
+    font-size: var(--step--2);
+    /* 1.32 + .06em is the shell's own sanctioned treatment for Thai display
+       text (headings); a four-character field label is chrome, not body copy,
+       and the ≥1.75 body floor would make this 24px tall and collide with the
+       select's own value. The padding is what keeps tone marks off the cap. */
+    line-height: 1.32;
+    padding-block-start: .06em;
+    color: var(--text-muted);
+    /* the tap must reach the <select> under it — shell.js upgrades its
+       mousedown into the destination sheet */
+    pointer-events: none;
+  }
   .ta-plan-select select {
     inline-size: 100%;
-    min-block-size: 56px;
-    padding-inline: var(--sp-3) var(--sp-8);
+    min-block-size: 58px;
+    padding-block: var(--sp-4) 0;
+    padding-inline: 42px var(--sp-8);
     border: 1px solid var(--border-control);
     border-radius: var(--r-md);
     background: var(--surface);
     color: var(--text);
     font: inherit;
     font-size: var(--step-0);
+    font-weight: 600;
     appearance: none;
   }
   .ta-plan-select select:focus-visible { outline: var(--focus); outline-offset: 2px; }
@@ -78,25 +140,49 @@
     pointer-events: none;
     color: var(--text-muted);
   }
+  .ta-plan-select > .ta-plan-pin {
+    position: absolute;
+    inset-inline-start: var(--sp-3);
+    rotate: none;
+    pointer-events: none;
+    color: var(--accent);
+  }
 
-/* 2x2, not a scroll rail: four durations is a whole choice, and hiding one
-     of four options behind a horizontal scroll to save 50px is a bad trade. */
+  /* One row of four, not 2x2. Every option is still visible and still a whole
+     choice — the row only fits because the visible word is the day count and
+     the nights ride along as screen-reader text, which is what the tier
+     actually is ("3 วัน 2 คืน" = a 3-day plan). Saves 52px of fold. */
   .ta-plan-nights {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--sp-2);
     margin: 0;
     padding: 0;
   }
   .ta-plan-nights > li { display: flex; }
-  .ta-plan-nights .ta-fac { inline-size: 100%; justify-content: center; min-block-size: 44px; }
-  @media (min-width: 480px) { .ta-plan-nights { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .ta-plan-nights .ta-fac {
+    inline-size: 100%;
+    justify-content: center;
+    min-block-size: 44px;
+    padding-inline: var(--sp-2);
+    font-size: var(--step--1);
+    white-space: nowrap;
+  }
   .ta-fac-radio { position: relative; cursor: pointer; }
   .ta-fac-radio input {
     position: absolute;
-    inset: 0;
-    inline-size: 100%;
-    block-size: 100%;
+    /* The containing block of an absolutely positioned child is the PADDING
+       box, so inset:0 stops one border-width short on every edge. The label is
+       exactly 44px, which left the real radio at 42px — under the floor. Thai
+       hid it: :lang(th) adds the 1.0625em size bump, so the TH label grows to
+       46.6px and its input clears 44 by accident. The EN twin measured 42px on
+       all four chips (2026-09-09). Cover the border box so the control the
+       gate measures is the control the finger actually hits. */
+    /* 1px is .ta-fac's border-width in shell.css, not a new spacing value. */
+    inset-block: -1px;
+    inset-inline: -1px;
+    inline-size: calc(100% + 2px);
+    block-size: calc(100% + 2px);
     margin: 0;
     opacity: 0;
     cursor: pointer;
@@ -159,12 +245,134 @@
   }
   .ta-plan-again > summary::-webkit-details-marker { display: none; }
 
+  /* ── 2b. THE FOLD SHOWCASE ─────────────────────────────────────────────
+     THE POINT OF THIS PAGE, AND THE REASON IT WAS REDONE.
+     Measured 2026-09-09 at 375x812: the first photograph of a real place sat
+     at y=1134, the fold is at 755, so a first-time visitor saw a heading and a
+     form and nothing else. Three reviewers independently named it the page's
+     worst quality and it is the exact opposite of what the owner asked for.
+     This block puts one full-width photograph of a real reviewed place — with
+     its name, its score, the source of that score and its price — plus a rail
+     of five more across ที่พัก / ที่กิน / ที่เที่ยว, entirely above the fold.
+     Every row is read from astro/src/content at build time; the rail follows
+     whichever destination the planner and the deck are on. */
+  .ta-foldshow { margin-block-start: var(--sp-2); }
+  .ta-foldshow-head { display: block; margin-block: 0 var(--sp-2); }
+
+  .ta-fshow-lead { display: block; margin: 0; color: inherit; text-decoration: none; }
+  .ta-fshow-lead > .ta-media { border-radius: var(--r-lg); display: block; }
+  /* Solid ink, not a gradient: this pill has to be readable over a bright sky
+     as well as over foliage. .78 ink under white clears 4.5:1 against the
+     brightest photograph in the set. */
+  .ta-fshow-badge {
+    position: absolute;
+    inset-block-start: var(--sp-2);
+    inset-inline-start: var(--sp-2);
+    z-index: 1;
+    max-inline-size: calc(100% - var(--sp-6));
+    padding-block: 3px;
+    padding-inline: var(--sp-3);
+    border-radius: var(--r-full);
+    background: rgb(28 20 14 / .78);
+    color: #FFFFFF;
+    font-size: var(--step--2);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* --step-1, the same size the deck's own card titles use: this is the
+     largest card on the page, not a second h1. */
+  .ta-fshow-name { margin-block: var(--sp-1) 2px; font-size: var(--step-1); }
+  .ta-fshow-lead:hover .ta-fshow-name { color: var(--accent); text-decoration: underline; }
+  /* No line-height here, and none on the three rail text spans below. The
+     shell states leading per language (1.85 Thai, 1.6 Latin); a page-level
+     number would undercut the ≥1.75 Thai floor exactly the way .ta-chip's 1.4
+     did, and this is the fix for that, not a second instance of it. */
+  .ta-fshow-meta {
+    display: block;
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--text-2);
+  }
+  .ta-fshow-meta b {
+    font-family: var(--font-display);
+    font-size: var(--step-0);
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ta-fshow-rail { gap: var(--sp-3); margin-block-start: var(--sp-2); padding-block-end: var(--sp-2); }
+  .ta-fshow-rail > * { inline-size: min(46%, 168px); flex: none; }
+  .ta-fcard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    color: inherit;
+    text-decoration: none;
+  }
+  .ta-fcard > .ta-media { margin-block-end: var(--sp-1); }
+  /* One line. A rail lives or dies on its cards being the same height, and
+     "เมืองกระบี่ ริมแม่น้ำ" wraps at 168px. */
+  .ta-fcard .eyebrow {
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    padding-block: .14em;
+  }
+  /* The rail's own "see all" — a real link into the deck, and the last card is
+     always a scroll cue rather than a hard stop. */
+  .ta-fcard-more {
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+    border: 1px dashed var(--border-control);
+    border-radius: var(--r-md);
+    color: var(--accent);
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-align: center;
+  }
+  .ta-fcard-more:hover { border-color: var(--accent); background: var(--accent-quiet); }
+  .ta-fcard-name { font-weight: 600; font-size: var(--step--1); padding-block: .12em; }
+  .ta-fcard-meta { font-size: var(--step--2); color: var(--text-muted); }
+  .ta-fcard-meta b { color: var(--text); font-variant-numeric: tabular-nums; }
+  .ta-fcard:hover .ta-fcard-name { color: var(--accent); text-decoration: underline; }
+
+  /* No photograph, and no stock photograph either — 22 of 1,100 restaurant
+     blocks on this site carry a real image. The eat card fills the same slot
+     with the dense line the data really supports, in the same sand + editorial
+     rule the deck's eat tiles use, so the rail reads as one deliberate system
+     rather than a card with a missing picture. */
+  .ta-fcard-eat {
+    justify-content: center;
+    gap: var(--sp-1);
+    padding: var(--sp-3);
+    border: 1px solid var(--border);
+    border-inline-start: 3px solid var(--editorial);
+    border-radius: var(--r-md);
+    background: var(--sand-100);
+  }
+  .ta-fcard-eat .ta-fcard-name { font-size: var(--step-0); }
+  .ta-fcard-sub { font-size: var(--step--2); color: var(--text-muted); padding-block: .12em; }
+
+  @media (min-width: 1024px) {
+    .ta-fshow-rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
+    .ta-fshow-rail > * { inline-size: auto; }
+  }
+
   /* ── 3. PLAN CHIPS ─────────────────────────────────────────────────────
      Six real published itineraries. One tap each, present in every state, so a
-     first-time visitor is never looking at an empty app. */
-  .ta-planchips { margin-block-start: var(--sp-3); }
-  .ta-planchips .eyebrow { display: block; margin-block-end: var(--sp-1); }
+     first-time visitor is never looking at an empty app. The eyebrow that used
+     to head them is gone: six links reading "กระบี่ · 3 วัน 2 คืน" do not need
+     a line of prose to explain that they are plans. */
+  .ta-planchips { margin-block-start: var(--sp-4); }
   .ta-planchips ul { list-style: none; margin: 0; padding: 0; }
+  .ta-planchips > .ta-fine { margin-block: var(--sp-2) 0; }
 
   /* ── 4. THE ANSWER, RENDERED IN PLACE ─────────────────────────────────
      Kit day-board markup verbatim, so this deck and /trip are visibly the
@@ -201,7 +409,16 @@
     margin-block: var(--sp-3);
   }
   .ta-deck-strip-label { font-size: var(--step--1); color: var(--text-muted); flex: none; }
-  .ta-deck-days { flex: 1 1 12rem; min-inline-size: 0; }
+  /* MEASURED CAUSE of the ~13px drop, 2026-09-09: the label sat at y=978 while
+     the tab text sat at y=957–1001. `align-items:center` was doing its job —
+     it was centring against the tablist's MARGIN box. .ta-tablist ships
+     `margin-block-end: var(--sp-5)` in the shell, for the normal case where a
+     tablist sits directly above its panels; here it is an inline row with a
+     label beside it, so that 24px stretched the flex line to 69px and pushed
+     the 28px label to (69-28)/2 = 20.5px down from the top. Removing the
+     margin the strip does not want brings both text centres to y=979 and takes
+     26px off the strip at the same time. */
+  .ta-deck-days { flex: 1 1 12rem; min-inline-size: 0; margin-block-end: 0; }
   .ta-shelf + .ta-shelf { margin-block-start: var(--sp-5); }
   .ta-shelf .ta-sec-head { margin-block-end: var(--sp-2); }
   .ta-shelf h3 { font-size: var(--step-1); margin: 0; }
@@ -225,6 +442,20 @@
 
   .ta-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
   .ta-card-foot .ta-save { margin-inline-start: auto; }
+
+  /* A rail card's eyebrow is a location, not a sentence. Rayavadee's zone
+     string is "คาบสมุทรพระนาง · หาดไร่เลย์ · ไปได้ทางเรือเท่านั้น", which wrapped
+     to three lines and made one card 55px taller than its neighbours in a rail
+     where equal height is the whole point. The generator now emits only the
+     first segment; this is the belt for the rows where even that is long. */
+  .ta-scroll-cards .eyebrow {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    padding-block: .14em;
+  }
 
   /* ── 6. THE EAT TILE ───────────────────────────────────────────────────
      Deliberately typographic. Only 22 of 1,100 restaurant blocks on this site
@@ -265,9 +496,34 @@
      element at the bottom edge collides with the tab bar. */
   .ta-plandock[hidden] { display: none; }
 
+  /* shell.css pins .ta-badge as an absolute superscript (inset-inline-end:-8px)
+     for the tab-bar icon and the rail toggle, both of which are positioned
+     ancestors. The dock heading is not, so the badge resolved against the
+     INITIAL containing block and landed at x=383 on a 375px viewport — the
+     entire 8px of horizontal overflow measured in the returning-visitor state
+     on 2026-09-09. A first-time visitor never sees it: the dock is hidden until
+     the first save, which is why the default-state pass came back clean.
+     In a heading the count is inline text, not an overlay. */
+  .ta-plandock .ta-sec-head .ta-badge {
+    position: static;
+    display: inline-grid;
+    vertical-align: middle;
+    margin-inline-start: var(--sp-1);
+  }
+
   /* ── 8. THE REST ───────────────────────────────────────────────────────── */
   .ta-pills ul, .ta-guides, .ta-regions { list-style: none; }
   .ta-pills ul { margin: 0; padding: 0; }
+
+  /* The eight ready-made plans were the single largest thing on this page:
+     4,657px at 375px, 39% of a 12,010px document, because a .ta-grid falls to
+     one column on a phone and eight 538px cards stack. Every other shelf on
+     this page is a rail; these are now one too, which is also why the deck and
+     the plans finally read as the same component. .ta-scroll-cards already
+     turns back into a 4-up grid at 1024px, so the desktop layout is unchanged.
+     4,657px → ~600px. */
+  .ta-guides > .ta-card { display: flex; flex-direction: column; }
+  .ta-guides .ta-card-body { flex: 1 1 auto; }
   .ta-sec-more {
     display: inline-flex;
     align-items: center;
@@ -382,7 +638,13 @@
   .ta-foot-links a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    /* Both axes, not just the block one. A two-syllable label
+       ("search", "near me") measured 35-41px wide, so the target passed a
+       height-only check and still failed a 44x44 one. The list already wraps,
+       so widening the short labels costs nothing visually. */
     min-block-size: 44px;
+    min-inline-size: 44px;
     color: var(--text-2);
     font-size: var(--step--1);
   }
