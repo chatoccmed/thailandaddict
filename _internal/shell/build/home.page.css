@@ -1,0 +1,410 @@
+/* Page layer only. Every number below is a shell token — no new colour,
+   spacing, radius, shadow or motion value is introduced, and no shell token is
+   overridden. Zero physical direction properties. */
+@layer page {
+
+  /* ── 1. THE FOLD ───────────────────────────────────────────────────────
+     One column on a phone, source order = visual order. From 1024px it
+     becomes two columns and the plan deck lands beside the question, so the
+     answer arrives with no scroll and no jump. That costs one grid rule. */
+  .ta-fold { padding-block: var(--sp-3) 0; }
+  /* --step-3, not --step-4: at 375px the h1 is the difference between the
+     six one-tap plans landing above the fold and landing below it. */
+  .ta-h1 { font-size: var(--step-3); margin-block: 0 var(--sp-2); }
+  .ta-lead { color: var(--text-muted); margin-block: 0 var(--sp-2); max-inline-size: 46ch; }
+
+  @media (min-width: 1024px) {
+    /* Identical DOM and source order — grid only. The deck sits beside the
+       question, so the answer arrives with no scroll and no jump. */
+    .ta-fold {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(380px, 1fr);
+      grid-template-areas: 'ask answer' 'chips answer';
+      gap: var(--sp-3) var(--sp-6);
+      align-items: start;
+    }
+    .ta-fold-ask { grid-area: ask; }
+    .ta-fold-answer { grid-area: answer; }
+    .ta-planchips { grid-area: chips; }
+    .ta-fold-answer:not([hidden]) { position: sticky; inset-block-start: calc(var(--topbar-h) + var(--sp-4)); }
+  }
+
+  /* ── 2. THE PLANNER SLOT ───────────────────────────────────────────────
+     One box, three states, one reserved height. Which state paints is decided
+     by :root[data-trip] in <head> before first paint, so there is no flash of
+     the wrong state and CLS stays 0. With scripting off, no attribute is set
+     and the form — the correct default — is what renders. */
+  .ta-planslot {
+    min-block-size: 290px;
+    padding: var(--sp-3) var(--sp-4) var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--surface-2);
+    box-shadow: var(--elev-1);
+  }
+  :root[data-trip="saves"] .ta-planslot [data-plan-form],
+  :root[data-trip="has"]   .ta-planslot [data-plan-form] { display: none; }
+  :root[data-trip="saves"] .ta-planslot [data-plan-saves][hidden] { display: block; }
+  :root[data-trip="has"]   .ta-planslot [data-plan-trip][hidden]  { display: block; }
+  /* A session-dismissed resume card falls back to the form, never to nothing. */
+  .ta-planslot.is-dismissed [data-plan-trip],
+  .ta-planslot.is-dismissed [data-plan-saves] { display: none !important; }
+  .ta-planslot.is-dismissed [data-plan-form] { display: flex !important; }
+
+  .ta-plan-form { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .ta-plan-form > .ta-fine { margin: 0; }
+  .ta-plan-form .eyebrow { margin: 0; }
+  .ta-plan-field { display: flex; flex-direction: column; gap: var(--sp-1); }
+  .ta-plan-label { font-weight: 600; font-size: var(--step--1); color: var(--text-2); }
+
+  .ta-plan-select { position: relative; display: flex; align-items: center; }
+  .ta-plan-select select {
+    inline-size: 100%;
+    min-block-size: 56px;
+    padding-inline: var(--sp-3) var(--sp-8);
+    border: 1px solid var(--border-control);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: var(--step-0);
+    appearance: none;
+  }
+  .ta-plan-select select:focus-visible { outline: var(--focus); outline-offset: 2px; }
+  .ta-plan-select > .ta-ic {
+    position: absolute;
+    inset-inline-end: var(--sp-3);
+    rotate: 90deg;
+    pointer-events: none;
+    color: var(--text-muted);
+  }
+
+/* 2x2, not a scroll rail: four durations is a whole choice, and hiding one
+     of four options behind a horizontal scroll to save 50px is a bad trade. */
+  .ta-plan-nights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+  }
+  .ta-plan-nights > li { display: flex; }
+  .ta-plan-nights .ta-fac { inline-size: 100%; justify-content: center; min-block-size: 44px; }
+  @media (min-width: 480px) { .ta-plan-nights { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .ta-fac-radio { position: relative; cursor: pointer; }
+  .ta-fac-radio input {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .ta-fac-radio:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-quiet);
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .ta-fac-radio:has(input:focus-visible) { outline: var(--focus); outline-offset: 2px; }
+
+  .ta-plan-go { min-block-size: 48px; inline-size: 100%; }
+  .ta-plan-miss { margin-block: 0; }
+  .ta-plan-escape {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    color: var(--accent);
+    font-size: var(--step--1);
+  }
+  /* With scripting on, the browse escape is redundant chrome — the sheet and
+     the deck below already do that job. */
+  :root[data-js] .ta-plan-escape { display: none; }
+
+  .ta-plan-resume { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .ta-plan-resume-lead { margin: 0; font-weight: 600; font-size: var(--step-1); }
+  .ta-plan-trip-title { margin: 0; font-size: var(--step-2); }
+  .ta-plan-thumbs {
+    display: flex;
+    gap: var(--sp-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ta-plan-thumbs li {
+    inline-size: 56px;
+    block-size: 56px;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    background: var(--sand-200);
+  }
+  .ta-plan-thumbs img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .ta-plan-thumbs .ta-plan-more {
+    display: grid;
+    place-items: center;
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .ta-plan-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+  .ta-plan-again > summary {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    color: var(--accent);
+    font-size: var(--step--1);
+    cursor: pointer;
+    list-style: none;
+  }
+  .ta-plan-again > summary::-webkit-details-marker { display: none; }
+
+  /* ── 3. PLAN CHIPS ─────────────────────────────────────────────────────
+     Six real published itineraries. One tap each, present in every state, so a
+     first-time visitor is never looking at an empty app. */
+  .ta-planchips { margin-block-start: var(--sp-3); }
+  .ta-planchips .eyebrow { display: block; margin-block-end: var(--sp-1); }
+  .ta-planchips ul { list-style: none; margin: 0; padding: 0; }
+
+  /* ── 4. THE ANSWER, RENDERED IN PLACE ─────────────────────────────────
+     Kit day-board markup verbatim, so this deck and /trip are visibly the
+     same object rather than two designs of the same idea. */
+  .ta-plan-deck {
+    margin-block-start: var(--sp-4);
+    padding: var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--surface-2);
+  }
+  .ta-plan-deck[hidden] { display: none; }
+  .ta-plan-deck-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--sp-2);
+    margin-block-end: var(--sp-3);
+  }
+  .ta-plan-deck-head h3 { margin: 0; font-size: var(--step-2); flex: 1 1 100%; }
+  @media (min-width: 480px) { .ta-plan-deck-head h3 { flex: 1 1 12rem; } }
+  .ta-plan-deck .ta-day + .ta-day { margin-block-start: var(--sp-4); }
+  .ta-plan-deck-foot { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block-start: var(--sp-4); }
+  .ta-plan-deck-src { margin-block: var(--sp-3) 0; font-size: var(--step--1); }
+  .ta-plan-busy { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+  /* ── 5. THE DECK ───────────────────────────────────────────────────────── */
+  .ta-deck-intro { margin-block: 0 var(--sp-3); color: var(--text-muted); font-size: var(--step--1); }
+  .ta-deck-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-block: var(--sp-3);
+  }
+  .ta-deck-strip-label { font-size: var(--step--1); color: var(--text-muted); flex: none; }
+  .ta-deck-days { flex: 1 1 12rem; min-inline-size: 0; }
+  .ta-shelf + .ta-shelf { margin-block-start: var(--sp-5); }
+  .ta-shelf .ta-sec-head { margin-block-end: var(--sp-2); }
+  .ta-shelf h3 { font-size: var(--step-1); margin: 0; }
+  .ta-shelf-date { margin: 0; color: var(--text-muted); }
+  .ta-deck-panel[hidden] { display: none; }
+
+  /* 78% card width on mobile: the partial next card is the strongest scroll
+     affordance there is. Reuses the shell's .ta-chip-scroll mechanics. */
+  .ta-scroll-cards { gap: var(--sp-4); padding-block-end: var(--sp-3); }
+  .ta-scroll-cards > .ta-card { inline-size: min(78%, 300px); flex: none; }
+  .ta-scroll-cards .ta-card-body { flex: 1 1 auto; align-content: space-between; }
+  @media (min-width: 700px) { .ta-scroll-cards > .ta-card { inline-size: 288px; } }
+  @media (min-width: 1024px) {
+    .ta-scroll-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      overflow: visible;
+    }
+    .ta-scroll-cards > .ta-card { inline-size: auto; }
+  }
+
+  .ta-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+  .ta-card-foot .ta-save { margin-inline-start: auto; }
+
+  /* ── 6. THE EAT TILE ───────────────────────────────────────────────────
+     Deliberately typographic. Only 22 of 1,100 restaurant blocks on this site
+     carry a real photograph and 299 sit on stock library images. A stock
+     noodle picture above a named restaurant is a small lie, and not telling
+     them is the entire position of this site. What is shown instead is what
+     the data really supports: 99.8% have hours, 99.2% coordinates, 89% a
+     rating with its source named. */
+  .ta-eat-tile {
+    background: var(--sand-100);
+    border-inline-start: 3px solid var(--editorial);
+  }
+  .ta-eat-tile .ta-card-title { font-size: var(--step-2); }
+  .ta-eat-hours {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+  .ta-eat-hours .ta-ic { flex: none; }
+
+  /* Photo credit stays a real link to the source and still clears the 44px
+     floor — a 17px inline link is the single most common target failure. */
+  .ta-card-credit {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    margin: 0;
+    font-size: var(--step--2);
+    color: var(--text-muted);
+  }
+  .ta-card-credit a { display: inline-flex; align-items: center; min-block-size: 44px; color: inherit; }
+
+  /* ── 7. PLAN DOCK ──────────────────────────────────────────────────────
+     0px until the first save, then inline. Never floating: a second fixed
+     element at the bottom edge collides with the tab bar. */
+  .ta-plandock[hidden] { display: none; }
+
+  /* ── 8. THE REST ───────────────────────────────────────────────────────── */
+  .ta-pills ul, .ta-guides, .ta-regions { list-style: none; }
+  .ta-pills ul { margin: 0; padding: 0; }
+  .ta-sec-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    min-block-size: 44px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ta-sec-more:hover { text-decoration: underline; }
+
+  .ta-answer-body { max-inline-size: 62ch; }
+
+  .ta-regions {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    align-items: start;
+  }
+  .ta-regions .ta-card-body { gap: var(--sp-2); padding: var(--sp-3); }
+  .ta-region-list { position: relative; z-index: 1; }
+  .ta-region-list > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 44px;
+    color: var(--accent);
+    font-size: var(--step--1);
+    cursor: pointer;
+    list-style: none;
+  }
+  .ta-region-list > summary::-webkit-details-marker { display: none; }
+  .ta-region-list > summary > .ta-ic { transition: rotate var(--dur-1) var(--ease-ui); }
+  .ta-region-list[open] > summary > .ta-ic { rotate: 90deg; }
+  .ta-region-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    list-style: none;
+    margin-block: var(--sp-2) 0;
+    padding: 0;
+  }
+  .ta-region-links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding-inline: var(--sp-3);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    color: var(--text);
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+  .ta-region-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Final values on first paint. No count-up: a first-time visitor forming a
+     trust judgement must not read a wrong number for three seconds. */
+  .ta-stats {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    margin: 0 0 var(--sp-3);
+  }
+  .ta-stats > div { border-inline-start: 3px solid var(--trip-line); padding-inline-start: var(--sp-3); }
+  .ta-stats dt { color: var(--text-muted); font-size: var(--step--1); }
+  .ta-stats dd {
+    margin-inline: 0;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+
+  .ta-editor { display: flex; align-items: flex-start; gap: var(--sp-3); flex-wrap: wrap; padding: var(--sp-3); }
+  .ta-editor .ta-media { inline-size: 56px; flex: none; border-radius: var(--r-full); }
+  .ta-editor-body { flex: 1 1 14rem; min-inline-size: 0; }
+  .ta-editor-name { margin-block: 0 var(--sp-1); font-size: var(--step-1); }
+
+  .ta-news-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    max-inline-size: 34rem;
+    margin-block-start: var(--sp-3);
+  }
+  .ta-news-form input {
+    flex: 1 1 14rem;
+    min-inline-size: 0;
+    min-block-size: 48px;
+    padding-inline: var(--sp-3);
+    border: 1px solid var(--border-control);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+  }
+  .ta-news-form input:focus-visible { outline: var(--focus); outline-offset: 2px; }
+  .ta-news-form .ta-btn { flex: none; min-block-size: 48px; }
+
+  .ta-foot {
+    margin-block-start: var(--sp-7);
+    padding-block: var(--sp-5);
+    border-block-start: 1px solid var(--border);
+  }
+  .ta-foot-tag { margin-block: 0 var(--sp-1); font-family: var(--font-display); font-weight: 700; }
+  .ta-foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1) var(--sp-3);
+    margin-block: var(--sp-3);
+    padding: 0;
+    list-style: none;
+  }
+  .ta-foot-links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    color: var(--text-2);
+    font-size: var(--step--1);
+  }
+
+  .ta-dest-search {
+    inline-size: 100%;
+    min-block-size: 48px;
+    margin-block-end: var(--sp-3);
+    padding-inline: var(--sp-3);
+    border: 1px solid var(--border-control);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+  }
+  .ta-dest-search:focus-visible { outline: var(--focus); outline-offset: 2px; }
+  [data-dest-regions] .ta-region-list { margin-block-end: var(--sp-2); }
+  [data-dest-regions] .ta-region-links a { cursor: pointer; }
+
+  /* Reduced motion: nothing here animates anyway, but the chevron rotation is
+     a transition and must stop. */
+  @media (prefers-reduced-motion: reduce) {
+    .ta-region-list > summary > .ta-ic { transition: none; }
+  }
+}
