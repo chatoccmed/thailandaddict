@@ -1,0 +1,1289 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>Explore · ThailandAddict prototype</title>
+<meta name="description" content="Prototype of the ThailandAddict Explore screen — search, categories, ready-made itineraries and destinations across Thailand, with whatever you have saved to your trip.">
+<link rel="canonical" href="https://thailandaddict.com/_proto/en/home.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="manifest" href="../manifest.en.webmanifest">
+<!-- No <link rel="icon"> / apple-touch-icon yet: astro/public/favicon.svg and
+     astro/public/icons/ do not exist, and a 404 in the console during an
+     owner demo is worse than no icon. Add both once gen-shell has emitted them. -->
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Written relative (not "/css/…") so the prototype renders identically from
+     file:// on the owner's machine and from /_proto/ when it is served. -->
+<link rel="stylesheet" href="../../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs, so a
+     module would arrive too late and the transition would play backwards. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+/* Marks that scripting is alive, so the resume card can show a skeleton while
+   it hydrates and the no-JS empty state can stay put when it is not. */
+document.documentElement.setAttribute('data-js', '');
+</script>
+
+<!-- Speculation Rules: the highest ROI-per-line item available, and absent
+     from Klook, Agoda, Booking and Traveloka.
+     eagerness:"moderate" (200 ms hover / pointerdown), NEVER "immediate" —
+     on an 18k-page site immediate burns a Thai traveller's mobile data.
+     Chrome caps non-immediate speculation at 2 prerenders FIFO. -->
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[
+    {"href_matches":"/*"},
+    {"not":{"href_matches":"/api/*"}},
+    {"not":{"href_matches":"/go/*"}},
+    {"not":{"href_matches":"/_proto/*"}},
+    {"not":{"selector_matches":".no-prerender, a[target=_blank], a[rel~=sponsored], a[rel~=nofollow]"}}
+  ]},"eagerness":"moderate"}],
+ "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
+</script>
+
+<script src="../../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties; zero new colour,
+   spacing, radius or motion values — every number below is a shell token. */
+@layer page {
+
+  /* ---- 1. SEARCH HERO (§5.1 module 1) ---------------------------------
+     No hero image behind it: a 286 KB photo to decorate a search box is an
+     app-shell failure, and it makes LCP text. */
+  .ta-hero-search { padding-block: var(--sp-5) var(--sp-2); }
+  .ta-hero-search h1 { font-size: var(--step-3); margin-block-end: var(--sp-2); }
+  .ta-hero-lead { color: var(--text-muted); margin-block: 0 var(--sp-4); }
+
+  .ta-hero-form {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    inline-size: min(100%, 640px);
+    padding-inline: var(--sp-4) var(--sp-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-full);
+    background: var(--surface-2);
+    box-shadow: var(--elev-1);
+  }
+  .ta-hero-form > .ta-ic { color: var(--text-muted); flex: none; }
+  .ta-hero-form input {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    min-block-size: 52px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: var(--step-0);
+  }
+  .ta-hero-form .ta-btn { flex: none; }
+
+  /* ---- 2. CATEGORY PILLS (§5.1 module 2) -------------------------------
+     Every pill is a real <a> to a page that actually exists. */
+  .ta-pills { margin-block-start: var(--sp-4); }
+  .ta-pills ul { list-style: none; margin: 0; padding: 0; }
+
+  /* ---- 3. CONTINUE PLANNING (§5.1 module 3) ---------------------------
+     A neutral statement of state. Never loss-framed, never a countdown. */
+  .ta-resume-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--surface-2);
+  }
+  .ta-resume-card[hidden] { display: none; }
+  .ta-resume-body { flex: 1 1 15rem; min-inline-size: 0; }
+  .ta-resume-lead { margin-block: 0 var(--sp-1); font-weight: 600; font-size: var(--step-1); }
+  .ta-resume-body p:last-child { margin-block-end: 0; }
+  .ta-resume-thumbs { display: flex; gap: var(--sp-2); flex: none; margin: 0; padding: 0; list-style: none; }
+  .ta-resume-thumbs li { inline-size: 64px; }
+  .ta-resume-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+  .ta-resume-skel-line { inline-size: 11rem; max-inline-size: 100%; }
+  .ta-resume-skel-line-2 { inline-size: 16rem; max-inline-size: 100%; }
+  /* With scripting off the skeleton never appears and the empty state is the
+     first and only paint. */
+  :root:not([data-js]) [data-resume-skel] { display: none; }
+  :root[data-js] [data-resume-empty] { display: none; }
+  :root[data-js] [data-resume-empty].is-on { display: flex; }
+  :root[data-js] [data-resume-skel].is-off { display: none; }
+
+  /* ---- 4/5/6. SCROLL-SNAP CARD RAILS ----------------------------------
+     78% card width on mobile: the partial next card is the strongest scroll
+     affordance there is. Reuses the shell's .ta-chip-scroll mechanics. */
+  .ta-scroll-cards { gap: var(--sp-4); padding-block-end: var(--sp-3); list-style: none; margin: 0; padding-inline: 0; }
+  .ta-scroll-cards > li { inline-size: min(78%, 300px); }
+  .ta-scroll-cards > li > .ta-card { block-size: 100%; }
+  .ta-scroll-cards .ta-card-body { flex: 1 1 auto; align-content: space-between; }
+  @media (min-width: 700px) { .ta-scroll-cards > li { inline-size: 288px; } }
+
+  .ta-sec-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    min-block-size: 44px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ta-sec-more:hover { text-decoration: underline; }
+
+  /* Photo credit stays a real link to the source, and still clears the 44px
+     floor — a 17px inline link is the single most common target failure. */
+  .ta-card-credit {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    margin-block: 0;
+    font-size: var(--step--2);
+    color: var(--text-muted);
+  }
+  .ta-card-credit a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding-inline-start: var(--sp-1);
+    color: inherit;
+  }
+
+  /* ---- 7. REGION CARDS (§5.1 module 6) --------------------------------
+     77 provinces collapse to 6 cards. Every province stays in the DOM inside
+     <details>, so it is crawlable and readable by an AI answer engine.
+     Two-up on a phone and image-free: this module exists to delete ~5,000 px
+     of scroll and ~1.3 MB of province photos, not to add six more. */
+  .ta-regions {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 158px), 1fr));
+    align-items: start;
+  }
+  @media (min-width: 700px) {
+    .ta-regions { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  }
+  .ta-regions .ta-card-body { gap: var(--sp-2); padding: var(--sp-3); }
+  .ta-regions .ta-card-title { font-size: var(--step-0); }
+  .ta-region-list { position: relative; z-index: 1; }
+  .ta-region-list > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 44px;
+    color: var(--accent);
+    font-size: var(--step--1);
+    cursor: pointer;
+    list-style: none;
+  }
+  .ta-region-list > summary::-webkit-details-marker { display: none; }
+  .ta-region-list > summary > .ta-ic { transition: rotate var(--dur-2) var(--ease-ui); }
+  .ta-region-list[open] > summary > .ta-ic { rotate: 90deg; }
+  .ta-region-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    list-style: none;
+    margin-block: var(--sp-2) 0;
+    padding: 0;
+  }
+  .ta-region-links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding-inline: var(--sp-3);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    color: var(--text);
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+  .ta-region-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---- 8. STATIC NUMBERS + EDITOR --------------------------------------
+     Final values on first paint. No count-up: a first-time visitor forming a
+     trust judgement must not read a wrong number for three seconds. */
+  .ta-stats {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    margin: 0;
+  }
+  .ta-stats > div { border-inline-start: 3px solid var(--trip-line); padding-inline-start: var(--sp-3); }
+  .ta-stats dt { color: var(--text-muted); font-size: var(--step--1); }
+  .ta-stats dd {
+    margin-inline: 0;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+
+  .ta-editor { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; padding: var(--sp-3); }
+  .ta-editor .ta-media { inline-size: 56px; flex: none; border-radius: var(--r-full); }
+  .ta-editor-body { flex: 1 1 10rem; min-inline-size: 0; }
+  .ta-editor-body p { margin-block-end: 0; }
+  .ta-editor-name { margin-block: 0 var(--sp-1); font-size: var(--step-1); }
+
+  .ta-proto-note { margin-block-start: var(--sp-6); }
+}
+</style>
+</head>
+<body>
+<a class="ta-skip" href="#main">Skip to main content</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="home">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="Main menu">
+    <a href="home" aria-current="page">Explore</a>
+    <a href="krabi">Destinations</a>
+    <a href="trip">Trip <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">Search</label>
+    <input id="q-desk" type="search" name="q" placeholder="Stays, restaurants, destinations">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>English</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <p class="ta-proto-flag"><b>Prototype</b> for review — not linked from the live site, and every page carries noindex, nofollow</p>
+  <div class="ta-wrap">
+
+    <!-- ============================================================ 1. HERO -->
+    <section class="ta-hero-search" aria-labelledby="h-hero">
+      <h1 id="h-hero">Stays, food and things to do across Thailand — saved straight into a trip</h1>
+      <p class="ta-hero-lead">Reviews of hotels, restaurants and places to go all over Thailand. Save the ones you like, then build them into your own trip. No account needed.</p>
+
+      <form class="ta-hero-form" action="search" method="get" role="search">
+        <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+        <label class="ta-sr" for="q-hero">Search stays, restaurants or destinations</label>
+        <input id="q-hero" type="search" name="q" placeholder="Krabi · Chiang Mai · MICHELIN">
+        <button class="ta-btn ta-btn-primary" type="submit">Search</button>
+      </form>
+
+      <!-- =========================================================== 2. PILLS -->
+      <nav class="ta-pills" aria-label="Popular categories">
+        <ul class="ta-chip-scroll">
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-beaches-thailand">Beaches</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-quiet-islands-thailand">Quiet islands</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-cafe-hopping-thailand">Cafés</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-viewpoints-mountains-thailand">Viewpoints</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-historic-old-towns-thailand">Old towns</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/michelin-guide-thailand-2026">MICHELIN</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/bars-50-best-bangkok">50 Best Bars</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/thailand-diving">Diving</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-islands-snorkeling-thailand">Snorkelling</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/family-travel-thailand">With kids</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-kids-activities-thailand">Kids activities</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-of-thailand-2026">Best of Thailand 2026</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- ================================================== 3. CONTINUE PLANNING -->
+    <section class="ta-sec ta-resume" id="taResume" aria-labelledby="h-resume">
+      <div class="ta-sec-head">
+        <h2 id="h-resume">Continue planning</h2>
+        <a class="ta-sec-more" href="trip">Open your trip
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <!-- Skeleton: shown only while scripting hydrates the real state. -->
+      <div class="ta-resume-card" data-resume-skel aria-hidden="true">
+        <ul class="ta-resume-thumbs">
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+        </ul>
+        <div class="ta-resume-body">
+          <div class="ta-skel ta-skel-text ta-resume-skel-line"></div>
+          <div class="ta-skel ta-skel-text ta-resume-skel-line-2"></div>
+        </div>
+      </div>
+
+      <!-- Real empty state. This is what a first-time reader, and anyone with
+           scripting off, actually sees. -->
+      <div class="ta-resume-card" data-resume-empty>
+        <div class="ta-resume-body">
+          <p class="ta-resume-lead">Nothing saved yet</p>
+          <p class="ta-fine">Tap <b>🔖 Add to trip</b> on any card on this page and it will be waiting here, ready to arrange into days on the trip screen. No account needed — it stays on your own device.</p>
+        </div>
+        <div class="ta-resume-actions">
+          <a class="ta-btn ta-btn-ghost" href="krabi">Look at a destination first</a>
+        </div>
+      </div>
+
+      <!-- Live state, rendered from ta.trip.v1 + ta.saves.v3. -->
+      <div class="ta-resume-card" data-resume-live hidden>
+        <ul class="ta-resume-thumbs" data-resume-thumbs></ul>
+        <div class="ta-resume-body">
+          <p class="ta-resume-lead" data-resume-lead></p>
+          <p class="ta-fine" data-resume-sub>Arrange them into days on the trip screen.</p>
+        </div>
+        <div class="ta-resume-actions">
+          <a class="ta-btn ta-btn-primary" href="trip">Open plan</a>
+          <button class="ta-btn ta-btn-quiet" type="button" data-resume-dismiss>Hide for now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 4. GUIDES -->
+    <section class="ta-sec ta-guides" aria-labelledby="h-guides">
+      <div class="ta-sec-head">
+        <h2 id="h-guides">Ready-made itineraries</h2>
+        <a class="ta-sec-more" href="/en/country-thailand">All destinations
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/krabi-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/krabi-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/krabi-3d2n-itinerary-560.jpg" alt="Limestone cliffs and sea in Krabi, from the 3-day itinerary" width="560" height="372" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Krabi itinerary</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/krabi-3d2n-itinerary">Krabi in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">11 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Railay · Four Islands tour</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/chiang-mai-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/chiang-mai-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/chiang-mai-3d2n-itinerary-560.jpg" alt="Chiang Mai old city and surrounding mountains, from the 3-day itinerary" width="560" height="431" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Chiang Mai trip plan</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/chiang-mai-3d2n-itinerary">Chiang Mai in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">10 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Old City · mountains · cafés</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/bangkok-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/bangkok-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/bangkok-3d2n-itinerary-560.jpg" alt="Bangkok old city and rooftops, from the 3-day itinerary" width="560" height="374" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Bangkok itinerary</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/bangkok-3d2n-itinerary">Bangkok in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">13 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Old city · markets · rooftops</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/phuket-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/phuket-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/phuket-3d2n-itinerary-560.jpg" alt="Phuket old town and beaches, from the 3-day itinerary" width="560" height="399" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Phuket itinerary</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/phuket-3d2n-itinerary">Phuket in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">11 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Old Town · Phi Phi · Phang Nga Bay</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/pai-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/pai-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/pai-3d2n-itinerary-560.jpg" alt="The Pai valley in Mae Hong Son, from the 3-day itinerary" width="560" height="197" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Pai travel plan</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/pai-3d2n-itinerary">Pai in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">11 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Waterfalls · bamboo bridge · Big Buddha</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/samui-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/samui-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/samui-3d2n-itinerary-560.jpg" alt="Koh Samui beaches, from the 3-day itinerary" width="560" height="315" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Koh Samui itinerary</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/samui-3d2n-itinerary">Koh Samui in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">11 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Two coasts · Big Buddha · Ang Thong</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/ayutthaya-2d1n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/ayutthaya-2d1n-itinerary-560.webp"><img src="../../images/_cards/cm/ayutthaya-2d1n-itinerary-560.jpg" alt="Old temple ruins in Ayutthaya, from the 2-day itinerary" width="560" height="351" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Ayutthaya travel plan</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/ayutthaya-2d1n-itinerary">Ayutthaya in 2 days, 1 night</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">2 days</span><span class="ta-chip">9 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Old temples · floating market · boat trip</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/kanchanaburi-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/cm/kanchanaburi-3d2n-itinerary-560.webp"><img src="../../images/_cards/cm/kanchanaburi-3d2n-itinerary-560.jpg" alt="River and waterfalls in Kanchanaburi, from the 3-day itinerary" width="560" height="315" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Kanchanaburi itinerary</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/kanchanaburi-3d2n-itinerary">Kanchanaburi in 3 days, 2 nights</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 days</span><span class="ta-chip">9 min read</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">Erawan Waterfall · Death Railway · raft stay</span></div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================================================ 5. MICHELIN + 50 BEST -->
+    <section class="ta-sec" aria-labelledby="h-eat">
+      <div class="ta-sec-head">
+        <h2 id="h-eat">MICHELIN &amp; Asia&rsquo;s 50 Best</h2>
+        <a class="ta-sec-more" href="/en/michelin-guide-thailand-2026">See the full list
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/michelin-sorn" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/food/michelin/michelin-sorn-1-560.webp">
+                <img src="../../images/_cards/food/michelin/michelin-sorn-1-560.jpg" alt="Southern Thai cooking at Sorn, Bangkok" width="560" height="840" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/michelin-sorn">Sorn</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Three MICHELIN Stars 2026</span>
+                <span class="ta-chip"><span class="ta-num">THB 7,800++</span></span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://sornfinesouthern.com/" rel="noopener nofollow" target="_blank">sornfinesouthern.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-sorn" data-poi-id="e:michelin-sorn"
+                        data-kind="eat" data-name="Sorn" data-url="/en/michelin-sorn"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-sorn-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/michelin-suhring" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/food/michelin/michelin-suhring-1-560.webp">
+                <img src="../../images/_cards/food/michelin/michelin-suhring-1-560.jpg" alt="The dining room at Sühring, Bangkok" width="560" height="447" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/michelin-suhring">Sühring</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Three MICHELIN Stars 2026</span>
+                <span class="ta-chip"><span class="ta-num">THB 7,800</span></span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://restaurantsuhring.com/" rel="noopener nofollow" target="_blank">restaurantsuhring.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-suhring" data-poi-id="e:michelin-suhring"
+                        data-kind="eat" data-name="Sühring" data-url="/en/michelin-suhring"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-suhring-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/michelin-cote-by-mauro-colagreco" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/food/michelin/michelin-cote-by-mauro-colagreco-1-560.webp"><img src="../../images/_cards/food/michelin/michelin-cote-by-mauro-colagreco-1-560.jpg" alt="Côte by Mauro Colagreco at Capella Bangkok" width="560" height="312" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/michelin-cote-by-mauro-colagreco">Côte by Mauro Colagreco</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Two MICHELIN Stars 2026</span>
+                <span class="ta-chip"><span class="ta-num">THB 7,800</span></span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://capellahotels.com/en/capella-bangkok/dining/cote-by-mauro-colagreco" rel="noopener nofollow" target="_blank">capellahotels.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-cote-by-mauro-colagreco" data-poi-id="e:michelin-cote-by-mauro-colagreco"
+                        data-kind="eat" data-name="Côte by Mauro Colagreco" data-url="/en/michelin-cote-by-mauro-colagreco"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-cote-by-mauro-colagreco-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/michelin-jay-fai" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/food/michelin/michelin-jay-fai-1-560.webp"><img src="../../images/_cards/food/michelin/michelin-jay-fai-1-560.jpg" alt="Crab omelette at Jay Fai, Bangkok" width="560" height="560" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/michelin-jay-fai">Jay Fai</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 One MICHELIN Star 2026</span>
+                <span class="ta-chip"><span class="ta-num">THB 600–1,000</span></span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://www.instagram.com/jayfaibangkok/p/Bpmfp-AnrJQ/" rel="noopener nofollow" target="_blank">the restaurant&rsquo;s Instagram</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-jay-fai" data-poi-id="e:michelin-jay-fai"
+                        data-kind="eat" data-name="Jay Fai" data-url="/en/michelin-jay-fai"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-jay-fai-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/bar-bar-us" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/food/bars/bar-bar-us-560.webp"><img src="../../images/_cards/food/bars/bar-bar-us-560.jpg" alt="Bar Us in Ari, Bangkok" width="560" height="361" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Ari · Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/bar-bar-us">Bar Us</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Asia&rsquo;s 50 Best Bars 2026 · No.6</span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://www.theworlds50best.com/bars/the-list/bar-us.html" rel="noopener nofollow" target="_blank">theworlds50best.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:bar-bar-us" data-poi-id="e:bar-bar-us"
+                        data-kind="eat" data-name="Bar Us" data-url="/en/bar-bar-us"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/bars/bar-bar-us.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/bar-bkk-social-club" data-vt-hero>
+              <picture><source type="image/webp" srcset="../../images/_cards/food/bars/bar-bkk-social-club-560.webp"><img src="../../images/_cards/food/bars/bar-bkk-social-club-560.jpg" alt="BKK Social Club at the Four Seasons, Bangkok" width="560" height="361" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Ratchaprasong · Bangkok</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/en/bar-bkk-social-club">BKK Social Club</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Asia&rsquo;s 50 Best Bars 2026 · No.20</span>
+              </p>
+              <p class="ta-card-credit">Photo: <a href="https://www.theworlds50best.com/bars/asia/the-list/bkk-social-club.html" rel="noopener nofollow" target="_blank">theworlds50best.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:bar-bkk-social-club" data-poi-id="e:bar-bkk-social-club"
+                        data-kind="eat" data-name="BKK Social Club" data-url="/en/bar-bkk-social-club"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/bars/bar-bkk-social-club.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">Add to trip</span>
+                  <span class="ta-save-on">Saved</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ====================================================== 6. DESTINATIONS -->
+    <section class="ta-sec" aria-labelledby="h-dest">
+      <div class="ta-sec-head">
+        <h2 id="h-dest">Popular destinations</h2>
+        <a class="ta-sec-more" href="/en/destinations">All cities
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="krabi" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/krabi-560.webp">
+                <img src="../../images/_cards/heroes/krabi-560.jpg" alt="Limestone cliffs and emerald water in Krabi" width="560" height="299" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">South · Andaman</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="krabi">Krabi</a></h3>
+              <p class="ta-fine ta-clamp-2">Andaman limestone cliffs, white-sand beaches, clear islands, rock climbing at Railay, and emerald-green water</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-bangkok" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/bangkok-560.webp">
+                <img src="../../images/_cards/heroes/bangkok-560.jpg" alt="The Bangkok skyline and temples" width="560" height="433" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Central</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-bangkok">Bangkok</a></h3>
+              <p class="ta-fine ta-clamp-2">The capital where old temples, high-rises, and street food share the same soi</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-chiang-mai" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/chiang-mai-560.webp">
+                <img src="../../images/_cards/heroes/chiang-mai-560.jpg" alt="Temples and the old city of Chiang Mai in its valley" width="560" height="372" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">North</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-chiang-mai">Chiang Mai</a></h3>
+              <p class="ta-fine ta-clamp-2">An old town in the valley that&rsquo;s easy to stay in longer than planned</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-phuket" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/phuket-560.webp">
+                <img src="../../images/_cards/heroes/phuket-560.jpg" alt="Beach and Andaman sea in Phuket" width="560" height="123" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">South · Andaman</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-phuket">Phuket</a></h3>
+              <p class="ta-fine ta-clamp-2">A big Andaman island with white-sand beaches, a Sino-Portuguese old town, and Hokkien food</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-samui" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/samui-560.webp">
+                <img src="../../images/_cards/heroes/samui-560.jpg" alt="Sand and the Gulf of Thailand at Koh Samui" width="560" height="420" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">South · Gulf</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-samui">Koh Samui</a></h3>
+              <p class="ta-fine ta-clamp-2">The big Gulf island — Chaweng and Lamai beaches, the Big Buddha, Hin Ta Hin Yai rocks, Bophut fishing village, and Ang Thong</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-pai" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/pai-560.webp">
+                <img src="../../images/_cards/heroes/pai-560.jpg" alt="Rice fields and hills around Pai, Mae Hong Son" width="560" height="197" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">North · Mae Hong Son</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-pai">Pai</a></h3>
+              <p class="ta-fine ta-clamp-2">A small town in a Mae Hong Son valley — sea of fog, rice-field cafes, a walking street, Pai Canyon, and a historic WWII bridge</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-ayutthaya" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/ayutthaya-560.webp">
+                <img src="../../images/_cards/heroes/ayutthaya-560.jpg" alt="Temple ruins on the island of Ayutthaya" width="560" height="420" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">Central</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-ayutthaya">Ayutthaya</a></h3>
+              <p class="ta-fine ta-clamp-2">A former royal capital and World Heritage city — wander old temple ruins and cycle the island</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/en/city-koh-lipe" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../../images/_cards/heroes/koh-lipe-560.webp">
+                <img src="../../images/_cards/heroes/koh-lipe-560.jpg" alt="White sand and clear water at Koh Lipe, Satun" width="560" height="373" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">South · Satun</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/en/city-koh-lipe">Koh Lipe</a></h3>
+              <p class="ta-fine ta-clamp-2">A clear-water island in the Tarutao archipelago, Satun — powder-white sand, snorkeling over coral, and emerald-green water around the nearby islands</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- =========================================================== 7. REGIONS -->
+    <section class="ta-sec" aria-labelledby="h-regions">
+      <div class="ta-sec-head">
+        <h2 id="h-regions">Browse by region</h2>
+        <a class="ta-sec-more" href="/en/country-thailand">All 77 provinces
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <div class="ta-grid ta-regions">
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-north">Northern Thailand</a></h3>
+            <p class="ta-fine ta-clamp-3">17 provinces · Mountains, mist, old towns, cafés and northern food</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-chiang-mai">Chiang Mai</a></li>
+                <li><a href="/en/city-chiang-rai">Chiang Rai</a></li>
+                <li><a href="/en/city-lamphun">Lamphun</a></li>
+                <li><a href="/en/city-lampang">Lampang</a></li>
+                <li><a href="/en/city-mae-hong-son">Mae Hong Son</a></li>
+                <li><a href="/en/city-phayao">Phayao</a></li>
+                <li><a href="/en/city-phrae">Phrae</a></li>
+                <li><a href="/en/city-nan">Nan</a></li>
+                <li><a href="/en/city-uttaradit">Uttaradit</a></li>
+                <li><a href="/en/city-sukhothai">Sukhothai</a></li>
+                <li><a href="/en/city-phitsanulok">Phitsanulok</a></li>
+                <li><a href="/en/city-phetchabun">Phetchabun</a></li>
+                <li><a href="/en/city-tak">Tak</a></li>
+                <li><a href="/en/city-kamphaeng-phet">Kamphaeng Phet</a></li>
+                <li><a href="/en/city-phichit">Phichit</a></li>
+                <li><a href="/en/city-nakhon-sawan">Nakhon Sawan</a></li>
+                <li><a href="/en/city-uthai-thani">Uthai Thani</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-isan">Isan (Northeast)</a></h3>
+            <p class="ta-fine ta-clamp-3">20 provinces · A high plateau with lively culture, bold flavours and Mekong-side nature</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-nakhon-ratchasima">Nakhon Ratchasima</a></li>
+                <li><a href="/en/city-buriram">Buriram</a></li>
+                <li><a href="/en/city-surin">Surin</a></li>
+                <li><a href="/en/city-sisaket">Sisaket</a></li>
+                <li><a href="/en/city-ubon-ratchathani">Ubon Ratchathani</a></li>
+                <li><a href="/en/city-yasothon">Yasothon</a></li>
+                <li><a href="/en/city-chaiyaphum">Chaiyaphum</a></li>
+                <li><a href="/en/city-amnat-charoen">Amnat Charoen</a></li>
+                <li><a href="/en/city-nong-bua-lamphu">Nong Bua Lamphu</a></li>
+                <li><a href="/en/city-khon-kaen">Khon Kaen</a></li>
+                <li><a href="/en/city-udon-thani">Udon Thani</a></li>
+                <li><a href="/en/city-loei">Loei</a></li>
+                <li><a href="/en/city-nong-khai">Nong Khai</a></li>
+                <li><a href="/en/city-maha-sarakham">Maha Sarakham</a></li>
+                <li><a href="/en/city-roi-et">Roi Et</a></li>
+                <li><a href="/en/city-kalasin">Kalasin</a></li>
+                <li><a href="/en/city-sakon-nakhon">Sakon Nakhon</a></li>
+                <li><a href="/en/city-nakhon-phanom">Nakhon Phanom</a></li>
+                <li><a href="/en/city-mukdahan">Mukdahan</a></li>
+                <li><a href="/en/city-bueng-kan">Bueng Kan</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-central">Central Thailand</a></h3>
+            <p class="ta-fine ta-clamp-3">15 provinces · Bangkok and its surrounds — Ayutthaya history and floating markets</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-bangkok">Bangkok</a></li>
+                <li><a href="/en/city-nonthaburi">Nonthaburi</a></li>
+                <li><a href="/en/city-pathum-thani">Pathum Thani</a></li>
+                <li><a href="/en/city-samut-prakan">Samut Prakan</a></li>
+                <li><a href="/en/city-samut-sakhon">Samut Sakhon</a></li>
+                <li><a href="/en/city-samut-songkhram">Samut Songkhram</a></li>
+                <li><a href="/en/city-nakhon-pathom">Nakhon Pathom</a></li>
+                <li><a href="/en/city-ayutthaya">Ayutthaya</a></li>
+                <li><a href="/en/city-ang-thong">Ang Thong</a></li>
+                <li><a href="/en/city-lopburi">Lopburi</a></li>
+                <li><a href="/en/city-sing-buri">Sing Buri</a></li>
+                <li><a href="/en/city-chai-nat">Chai Nat</a></li>
+                <li><a href="/en/city-saraburi">Saraburi</a></li>
+                <li><a href="/en/city-suphan-buri">Suphan Buri</a></li>
+                <li><a href="/en/city-nakhon-nayok">Nakhon Nayok</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-east">Eastern Thailand</a></h3>
+            <p class="ta-fine ta-clamp-3">7 provinces · The eastern seaboard — Koh Chang, fruit orchards and seaside towns near Bangkok</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-chonburi">Chonburi</a></li>
+                <li><a href="/en/city-rayong">Rayong</a></li>
+                <li><a href="/en/city-chanthaburi">Chanthaburi</a></li>
+                <li><a href="/en/city-trat">Trat</a></li>
+                <li><a href="/en/city-chachoengsao">Chachoengsao</a></li>
+                <li><a href="/en/city-prachinburi">Prachinburi</a></li>
+                <li><a href="/en/city-sa-kaeo">Sa Kaeo</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-west">Western Thailand</a></h3>
+            <p class="ta-fine ta-clamp-3">4 provinces · Hua Hin, Pranburi and Kanchanaburi — waterfalls, nature and a coast near Bangkok</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-kanchanaburi">Kanchanaburi</a></li>
+                <li><a href="/en/city-ratchaburi">Ratchaburi</a></li>
+                <li><a href="/en/city-phetchaburi">Phetchaburi</a></li>
+                <li><a href="/en/city-prachuap-khiri-khan">Prachuap Khiri Khan</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/en/region-south">Southern Thailand</a></h3>
+            <p class="ta-fine ta-clamp-3">14 provinces · The Andaman and the Gulf — white-sand beaches, islands and fiery southern food</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                See the provinces
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/en/city-chumphon">Chumphon</a></li>
+                <li><a href="/en/city-ranong">Ranong</a></li>
+                <li><a href="/en/city-surat-thani">Surat Thani</a></li>
+                <li><a href="/en/city-nakhon-si-thammarat">Nakhon Si Thammarat</a></li>
+                <li><a href="/en/city-krabi">Krabi</a></li>
+                <li><a href="/en/city-phang-nga">Phang Nga</a></li>
+                <li><a href="/en/city-phuket">Phuket</a></li>
+                <li><a href="/en/city-phatthalung">Phatthalung</a></li>
+                <li><a href="/en/city-trang">Trang</a></li>
+                <li><a href="/en/city-satun">Satun</a></li>
+                <li><a href="/en/city-songkhla">Songkhla</a></li>
+                <li><a href="/en/city-pattani">Pattani</a></li>
+                <li><a href="/en/city-yala">Yala</a></li>
+                <li><a href="/en/city-narathiwat">Narathiwat</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== 8. NUMBERS + THE EDITOR -->
+    <section class="ta-sec" aria-labelledby="h-about">
+      <div class="ta-sec-head">
+        <h2 id="h-about">What is on this site</h2>
+      </div>
+
+      <dl class="ta-stats">
+        <div><dt>Individual stay reviews</dt><dd>2,401</dd></div>
+        <div><dt>Ranked roundups</dt><dd>397</dd></div>
+        <div><dt>Guides and articles</dt><dd>4,447</dd></div>
+        <div><dt>Provinces</dt><dd>77</dd></div>
+      </dl>
+      <p class="ta-fine ta-proto-note">Counted from the Thai content files in the repository on 8 Sep 2026 · the site runs in 9 languages</p>
+
+      <article class="ta-card ta-card-editorial ta-editor">
+        <span class="ta-media ta-r-1-1">
+          <picture><source type="image/webp" srcset="../../images/_cards/team/doctor-chat-avatar-560.webp"><img src="../../images/_cards/team/doctor-chat-avatar-560.jpg" alt="Doctor Chat, Editor-in-Chief and founder of Thailandaddict" width="400" height="400" loading="lazy" decoding="async"></picture>
+        </span>
+        <div class="ta-editor-body">
+          <span class="eyebrow">Editor</span>
+          <h3 class="ta-editor-name">Doctor Chat</h3>
+          <p class="ta-fine ta-clamp-3">A doctor and lifelong traveler who has explored dozens of countries worldwide. Founder of Thailandaddict, built to bring the best places to stay, eat and explore across Thailand together in one trustworthy place.</p>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="Your trip">
+  <button class="ta-rail-toggle" type="button" data-rail-toggle
+          aria-expanded="false" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">Your trip</span>
+  </button>
+
+  <div class="ta-rail-body" id="taRailBody">
+    <p class="ta-fine" data-trip-count-label>0 items in your trip</p>
+    <ul class="ta-day-list" data-rail-list></ul>
+    <p class="ta-fine" data-rail-empty>Nothing yet — tap 🔖 on any card to start.</p>
+    <a class="ta-btn ta-btn-quiet" href="trip">Open your trip</a>
+  </div>
+</aside>
+
+<nav class="ta-tabbar" aria-label="Main">
+  <a class="ta-tab" href="home" data-tab="explore" aria-current="page">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Explore</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Places</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Search</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>Trip</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>More</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">Display</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>Theme</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>System</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>Language</span>
+  </button>
+
+  <hr>
+
+  <a href="trip">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span>My trip</span>
+  </a>
+  <a href="/en/near-me">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Near me</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>Install as an app</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="../home" hreflang="th">ไทย</a>
+  <a href="home" hreflang="en" aria-current="true">English</a>
+</div>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* Page script. No inline on* handlers anywhere — one listener, delegated,
+   exactly like shell.js. Runs on DOMContentLoaded so the deferred shell.js
+   has already defined window.TA. */
+document.addEventListener('DOMContentLoaded', function () {
+  var TA = window.TA;
+  if (!TA) return;
+
+  /* Images are referenced relative so the prototype renders from file:// too;
+     the saved record keeps the production-absolute path. */
+  var IMG_BASE = '../../';
+  var PROV = {
+    bangkok: 'Bangkok', krabi: 'Krabi', 'chiang-mai': 'Chiang Mai', phuket: 'Phuket',
+    samui: 'Koh Samui', pai: 'Pai', ayutthaya: 'Ayutthaya', 'koh-lipe': 'Koh Lipe'
+  };
+
+  function resolveImg(p) {
+    if (!p) return '';
+    return p.charAt(0) === '/' ? IMG_BASE + p.slice(1) : p;
+  }
+
+  /* Seed the POI cache from this page's real content, so anything saved here
+     resolves to a real name and photo on the trip page too. */
+  var seed = [];
+  var btns = document.querySelectorAll('[data-save]');
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    seed.push({
+      id: b.getAttribute('data-poi-id') || b.getAttribute('data-id'),
+      name: b.getAttribute('data-name') || '',
+      url: b.getAttribute('data-url') || '',
+      img: b.getAttribute('data-img') || '',
+      kind: b.getAttribute('data-kind') || '',
+      province: b.getAttribute('data-province') || ''
+    });
+  }
+  if (TA.poi && TA.poi.putAll) TA.poi.putAll(seed);
+
+  /* ---- continue-planning card ---------------------------------------- */
+  var sec = document.getElementById('taResume');
+  var skel = sec.querySelector('[data-resume-skel]');
+  var empty = sec.querySelector('[data-resume-empty]');
+  var live = sec.querySelector('[data-resume-live]');
+  var thumbs = sec.querySelector('[data-resume-thumbs]');
+  var lead = sec.querySelector('[data-resume-lead]');
+  var dismissBtn = sec.querySelector('[data-resume-dismiss]');
+  var railList = document.querySelector('[data-rail-list]');
+  var railEmpty = document.querySelector('[data-rail-empty]');
+
+  var DISMISS_KEY = 'ta.proto.resumeDismissed';
+  function dismissed() {
+    try { return sessionStorage.getItem(DISMISS_KEY) === '1'; } catch (e) { return false; }
+  }
+
+  /* Everything the trip currently holds, newest first, hydrated through the
+     POI cache. Nothing here is invented: if a record has no photo we render
+     no photo. */
+  function collect() {
+    var out = [], seen = {}, i, j;
+    var saves = TA.saves.list();
+    for (i = saves.length - 1; i >= 0; i--) {
+      if (seen[saves[i].id]) continue;
+      seen[saves[i].id] = 1;
+      out.push(saves[i]);
+    }
+    var tr = TA.trip.get();
+    for (i = 0; i < tr.saves.length; i++) {
+      var p = TA.poi.get(tr.saves[i].poiId);
+      if (p && !seen[p.id]) { seen[p.id] = 1; out.push(p); }
+    }
+    for (i = 0; i < tr.days.length; i++) {
+      var items = tr.days[i].items || [];
+      for (j = 0; j < items.length; j++) {
+        var q = TA.poi.get(items[j].poiId);
+        if (q && !seen[q.id]) { seen[q.id] = 1; out.push(q); }
+      }
+    }
+    return out;
+  }
+
+  function provinceClause(list) {
+    var names = [], seen = {}, i;
+    for (i = 0; i < list.length; i++) {
+      var s = list[i].province;
+      if (!s || seen[s]) continue;
+      seen[s] = 1;
+      names.push(PROV[s] || s);
+    }
+    if (names.length === 1) return ' in ' + names[0];
+    if (names.length > 1) return ' across ' + names.length + ' provinces';
+    return '';
+  }
+
+  function render() {
+    var list = collect();
+    var n = list.length;
+
+    if (skel) { skel.hidden = true; skel.classList.add('is-off'); }
+
+    if (railList) {
+      railList.textContent = '';
+      for (var k = 0; k < Math.min(n, 6); k++) {
+        var li = document.createElement('li');
+        li.className = 'ta-poi';
+
+        var th = document.createElement('span');
+        th.className = 'ta-poi-thumb';
+        var tsrc = resolveImg(list[k].img);
+        if (tsrc) {
+          var timg = document.createElement('img');
+          timg.src = tsrc; timg.alt = ''; timg.width = 56; timg.height = 56;
+          timg.loading = 'lazy'; timg.decoding = 'async';
+          th.appendChild(timg);
+        }
+        li.appendChild(th);
+
+        var nm = document.createElement('span');
+        nm.className = 'ta-poi-main';
+        var t1 = document.createElement('span');
+        t1.className = 'ta-poi-name ta-clamp-1';
+        t1.textContent = list[k].name || '';
+        nm.appendChild(t1);
+        var t2 = document.createElement('span');
+        t2.className = 'ta-poi-sub ta-clamp-1';
+        t2.textContent = PROV[list[k].province] || list[k].province || '';
+        nm.appendChild(t2);
+        li.appendChild(nm);
+
+        railList.appendChild(li);
+      }
+      if (railEmpty) railEmpty.hidden = n > 0;
+    }
+
+    if (!n || dismissed()) {
+      live.hidden = true;
+      empty.hidden = false;
+      empty.classList.add('is-on');
+      return;
+    }
+
+    empty.hidden = true;
+    empty.classList.remove('is-on');
+
+    thumbs.textContent = '';
+    for (var i = 0; i < Math.min(n, 3); i++) {
+      var src = resolveImg(list[i].img);
+      if (!src) continue;
+      var li2 = document.createElement('li');
+      var wrap = document.createElement('span');
+      wrap.className = 'ta-media ta-r-1-1';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.width = 64;
+      img.height = 64;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      wrap.appendChild(img);
+      li2.appendChild(wrap);
+      thumbs.appendChild(li2);
+    }
+
+    lead.textContent = n + (n === 1 ? ' place saved' : ' places saved') + provinceClause(list);
+    live.hidden = false;
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function () {
+      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (e) {}
+      render();
+    });
+  }
+
+  if (TA.on) {
+    TA.on('change', render);
+    TA.on('saves', render);
+    TA.on('trip', render);
+  }
+
+  if (TA.whenActive) TA.whenActive(render); else render();
+});
+</script>
+</body>
+</html>

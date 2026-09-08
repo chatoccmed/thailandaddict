@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>ต้นแบบ Andaman Deck — Thailandaddict</title>
+<meta name="description" content="หน้าเริ่มต้นของต้นแบบดีไซน์ใหม่ Thailandaddict (Andaman Deck) — เปิดต้นแบบทั้ง 7 หน้า เทียบชุดสี A/B/C บนการ์ดรีวิวใบเดียวกัน สลับธีมสว่าง–มืด ติดตั้งลงหน้าจอโฮม และเปิดบนมือถือด้วย QR">
+<link rel="canonical" href="https://thailandaddict.com/_proto/index.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Document-relative so the prototype also renders when the owner opens the
+     file directly from disk; resolves to /css/… once served. -->
+<link rel="stylesheet" href="../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+</script>
+
+<script src="../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties, zero new tokens.
+   Everything here is composition of the shell's own vocabulary. */
+@layer page {
+
+  /* h1 emphasis: never synthesised italic — Thai has no italic and the
+     browser would slant the glyphs. Editorial colour instead. */
+  h1 em, h2 em { font-style: normal; color: var(--editorial); }
+
+  /* SHELL DEFECT WORKAROUND (same one krabi.html documents).
+     shell.css sizes card images with `.ta-media > img`, a DIRECT-child
+     selector, but PROTO-KIT §7's own card markup wraps the image in
+     <picture>. The img is then a grandchild, so inline-size / block-size /
+     object-fit / hover / transition all miss it. Measured here before the
+     rule: this exact Phulay Bay image laid out at 4000x2250 inside its box
+     and pushed the page to 6,367px tall. The upstream fix is to change that
+     selector to `.ta-media img` in shell.css during Phase 2. */
+  .ta-media > picture { display: block; inline-size: 100%; block-size: 100%; }
+  .ta-media picture > img {
+    inline-size: 100%; block-size: 100%; object-fit: cover; display: block;
+    transition: scale var(--dur-3) var(--ease-ui);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    a:hover > .ta-media picture > img, .ta-card:hover .ta-media picture > img { scale: 1.04; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ta-media picture > img { transition: none; }
+    a:hover > .ta-media picture > img, .ta-card:hover .ta-media picture > img { scale: 1; }
+  }
+
+  .lx-lede {
+    font-size: var(--step-1);
+    color: var(--text-2);
+    max-inline-size: 62ch;
+    margin-block: var(--sp-4) 0;
+  }
+
+  .lx-sec { margin-block-start: var(--sp-8); }
+  .lx-sec > h2 { font-size: var(--step-2); margin-block: 0 var(--sp-2); }
+  .lx-sec > p  { max-inline-size: 66ch; }
+
+  .lx-kicker {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step--2);
+    letter-spacing: .08em;             /* Latin only — never applied to Thai */
+    text-transform: uppercase;
+    color: var(--editorial);
+    margin-block-end: var(--sp-1);
+  }
+
+  /* --- ordered "what to look at" list ---------------------------------- */
+  .lx-steps { counter-reset: lx; list-style: none; padding: 0; margin-block: var(--sp-4) 0; display: grid; gap: var(--sp-3); }
+  .lx-steps li {
+    counter-increment: lx;
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: var(--sp-3);
+    align-items: start;
+    max-inline-size: 68ch;
+  }
+  .lx-steps li::before {
+    content: counter(lx);
+    font-family: var(--font-display);
+    font-variant-numeric: tabular-nums;
+    inline-size: 2rem; block-size: 2rem;
+    display: grid; place-items: center;
+    border-radius: 999px;
+    background: var(--accent-quiet);
+    color: var(--accent);
+    font-size: var(--step--1);
+  }
+
+  /* --- the 7-page launcher grid ---------------------------------------- */
+  .lx-pages {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+    margin-block-start: var(--sp-5);
+    padding: 0; list-style: none;
+  }
+  .lx-page {
+    display: flex; flex-direction: column; gap: var(--sp-2);
+    padding: var(--sp-4);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg, 14px);
+    box-shadow: var(--elev-1);
+  }
+  .lx-page h3 { margin: 0; font-size: var(--step-0); }
+  .lx-page p  { margin: 0; font-size: var(--step--1); color: var(--text-muted); }
+  .lx-page-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block-start: auto; padding-block-start: var(--sp-2); }
+  .lx-page-links .ta-btn { flex: 1 1 auto; justify-content: center; }
+
+  /* --- palette comparison ---------------------------------------------- */
+  .lx-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+    gap: var(--sp-3);
+    margin-block: var(--sp-4);
+    padding: 0; list-style: none;
+  }
+  .lx-swatches li { display: grid; gap: var(--sp-1); }
+  .lx-sw {
+    block-size: 3rem;
+    border-radius: var(--r-md, 10px);
+    border: 1px solid var(--border-strong);
+  }
+  .lx-sw-surface   { background: var(--surface); }
+  .lx-sw-accent    { background: var(--accent); }
+  .lx-sw-editorial { background: var(--editorial); }
+  .lx-sw-highlight { background: var(--highlight); }
+  .lx-sw-text      { background: var(--text); }
+  .lx-sw-name { font-size: var(--step--2); }
+  .lx-sw-hex  { font-size: var(--step--2); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  .lx-compare {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    align-items: start;
+    margin-block-start: var(--sp-4);
+  }
+  .lx-verdict { display: grid; gap: var(--sp-3); }
+  .lx-verdict dl { margin: 0; display: grid; gap: var(--sp-3); }
+  .lx-verdict dt { font-weight: 600; }
+  .lx-verdict dd { margin: 0; color: var(--text-muted); font-size: var(--step--1); }
+
+  /* --- install / QR / offline panels ------------------------------------ */
+  .lx-panels {
+    display: grid; gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+    margin-block-start: var(--sp-4);
+  }
+  .lx-panel {
+    padding: var(--sp-4);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg, 14px);
+    display: grid; gap: var(--sp-3);
+    align-content: start;
+  }
+  .lx-panel h3 { margin: 0; font-size: var(--step-0); display: flex; align-items: center; gap: var(--sp-2); }
+  .lx-panel[data-you="1"] { border-color: var(--accent); box-shadow: var(--elev-2); }
+  .lx-you {
+    font-size: var(--step--2);
+    background: var(--accent-quiet); color: var(--accent);
+    padding: 2px var(--sp-2); border-radius: 999px;
+  }
+  .lx-ol { margin: 0; padding-inline-start: 1.4em; display: grid; gap: var(--sp-2); font-size: var(--step--1); }
+  .lx-ol li { padding-block: 2px; }
+  .lx-inline-ic { vertical-align: -.22em; color: var(--accent); }
+
+  .lx-qr-wrap { display: grid; gap: var(--sp-3); justify-items: start; }
+  .lx-qr {
+    inline-size: min(100%, 15rem);
+    aspect-ratio: 1;
+    background: #FFFFFF;               /* a QR must be read on white, always */
+    padding: var(--sp-3);
+    border-radius: var(--r-md, 10px);
+    border: 1px solid var(--border-strong);
+  }
+  .lx-qr svg { inline-size: 100%; block-size: auto; display: block; }
+  .lx-qr-url {
+    font-size: var(--step--2);
+    color: var(--text-muted);
+    overflow-wrap: anywhere;
+    max-inline-size: 40ch;
+  }
+  .lx-field { display: grid; gap: var(--sp-2); }
+  .lx-field label { font-size: var(--step--1); }
+  .lx-field input {
+    min-block-size: 44px;
+    padding: var(--sp-2) var(--sp-3);
+    font: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md, 10px);
+    inline-size: 100%;
+  }
+  .lx-field input:focus-visible { outline: var(--focus); outline-offset: 2px; }
+
+  .lx-state { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--step--1); color: var(--text-muted); }
+  .lx-dot { inline-size: 10px; block-size: 10px; border-radius: 999px; background: var(--flag-unknown); flex: none; }
+  [data-sw="on"]  .lx-dot { background: var(--flag-ok); }
+  [data-sw="off"] .lx-dot { background: var(--flag-unknown); }
+  [data-sw="err"] .lx-dot { background: var(--flag-stop); }
+  .lx-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+
+  /* --- honest inventory -------------------------------------------------- */
+  .lx-truth {
+    display: grid; gap: var(--sp-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    margin-block-start: var(--sp-4);
+  }
+  .lx-truth ul { margin: 0; padding-inline-start: 1.2em; display: grid; gap: var(--sp-2); }
+  .lx-truth li { padding-block: 2px; max-inline-size: 60ch; }
+  .lx-truth h3 {
+    margin-block: 0 var(--sp-3);
+    font-size: var(--step-0);
+    padding-inline-start: var(--sp-3);
+    border-inline-start: 3px solid var(--accent);
+  }
+  .lx-truth-stub h3 { border-inline-start-color: var(--flag-warn); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lx-page { transition: box-shadow .18s var(--ease-ui, ease), border-color .18s var(--ease-ui, ease); }
+  }
+  .lx-page:hover { border-color: var(--border-strong); box-shadow: var(--elev-2); }
+}
+</style>
+</head>
+<body>
+
+<a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<g id="ta-i" fill="none" stroke="currentColor" stroke-width="1.5"
+   stroke-linecap="round" stroke-linejoin="round"></g>
+</defs>
+
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/>
+</symbol>
+
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/>
+</symbol>
+
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/>
+  <circle cx="12" cy="10.3" r="2.4"/>
+</symbol>
+
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/>
+  <path d="M8 3v4M16 3v4M3.5 10h17"/>
+</symbol>
+
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m9.25 5 7 7-7 7"/>
+</symbol>
+
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 12h15.5M13.5 6l6 6-6 6"/>
+</symbol>
+
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/>
+  <path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/>
+</symbol>
+
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 7h16M4 12h16M4 17h16"/>
+</symbol>
+
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m6 6 12 12M18 6 6 18"/>
+</symbol>
+
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 4.75v14.5M4.75 12h14.5"/>
+</symbol>
+
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m4.75 12.5 4.75 4.75L19.25 6.75"/>
+</symbol>
+
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/>
+</symbol>
+
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/>
+</symbol>
+
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 7h16M7 12h10M10 17h4"/>
+</symbol>
+
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/>
+  <path d="m9 10.7 6-3.4M9 13.3l6 3.4"/>
+</symbol>
+
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/>
+</symbol>
+
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="4"/>
+  <path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/>
+</symbol>
+
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/>
+</symbol>
+
+<!-- The real iOS share glyph (box open at the top, arrow rising out of it).
+     Drawn to the same monoline spec as the owned set: 1.5px stroke at 24px,
+     round caps and joins, stroke:currentColor, fill:none. It is a factual
+     depiction of a system control, which is why it is a glyph and not emoji. -->
+<symbol id="i-ios-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3.25v11.25"/>
+  <path d="M8.4 6.85 12 3.25l3.6 3.6"/>
+  <path d="M8 9.75H6.5A2.25 2.25 0 0 0 4.25 12v6.5A2.25 2.25 0 0 0 6.5 20.75h11A2.25 2.25 0 0 0 19.75 18.5V12A2.25 2.25 0 0 0 17.5 9.75H16"/>
+</symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="index">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="index" aria-current="page">เริ่มที่นี่</a>
+    <a href="home">สำรวจ</a>
+    <a href="trip">ทริป <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">ค้นหา</label>
+    <input id="q-desk" type="search" name="q" placeholder="ที่พัก ร้านอาหาร จุดหมาย">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ไทย</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <div class="ta-wrap">
+
+    <p class="ta-proto-flag">หน้า <b>ต้นแบบ</b> ทั้งชุด — ยังไม่ลิงก์จากเว็บจริง ไม่อยู่ใน sitemap และตั้ง noindex, nofollow ทุกหน้า</p>
+
+    <span class="lx-kicker">Prototype · Phase 1</span>
+    <h1>ต้นแบบดีไซน์ใหม่ <em>Andaman Deck</em></h1>
+
+    <p class="lx-lede">
+      นี่คือหน้าเริ่มต้นของต้นแบบ ไม่ใช่เว็บจริง เว็บจริงยังทำงานอยู่ตามปกติและยังไม่ถูกแตะต้องเลยแม้แต่หน้าเดียว
+      ทุกอย่างในต้นแบบอยู่ในโฟลเดอร์ <code>/_proto/</code> โฟลเดอร์เดียว ลบทิ้งได้ใน commit เดียวถ้าไม่ชอบ
+    </p>
+
+    <p class="ta-note">
+      ต้นแบบใช้ข้อมูลจริงทั้งหมด ชื่อโรงแรม คะแนน ราคา รูป และลิงก์จอง ดึงมาจากไฟล์เนื้อหาจริงของเว็บ
+      ไม่มีการแต่งตัวเลขขึ้นมาเพื่อให้ดูดี และไม่มีข้อความเร่งให้รีบจองแบบที่เว็บจองทั่วไปชอบใส่
+    </p>
+
+    <!-- ================= WHAT TO LOOK AT ================= -->
+    <section class="lx-sec" aria-labelledby="lx-look">
+      <h2 id="lx-look">ดูอะไรก่อนดี</h2>
+      <p>ถ้ามีเวลาสิบนาที ลองไล่ตามนี้ครับ แต่ละข้อคือการตัดสินใจที่อยากให้คุณเห็นด้วยตาก่อนจะลงมือทำทั้งเว็บ</p>
+
+      <ol class="lx-steps">
+        <li><span>กด <b>A / B / C</b> ในหัวข้อ “เลือกชุดสี” ด้านล่าง แล้วดูการ์ดรีวิวใบเดิมเปลี่ยนสีทันที นี่คือการตัดสินใจที่ใหญ่ที่สุดและย้อนยาก</span></li>
+        <li><span>เปิด <b>หน้ารีวิว</b> บนมือถือ แล้วสังเกตแถบราคาล่างจอ ปุ่มจองไม่ถูกแถบเมนูทับอีกแล้ว</span></li>
+        <li><span>กด 🔖 ในหน้าไหนก็ได้ แล้วเปลี่ยนไปหน้าอื่น ตัวเลขบนแท็บ “ทริป” ต้องเดินตามไปทุกหน้า นี่คือของจริง ไม่ใช่ภาพนิ่ง</span></li>
+        <li><span>เปิด <b>หน้าทริป</b> แล้วลองย้ายรายการข้ามวัน ทั้งด้วยการลาก และด้วยเมนู ⋮ เมนูมีไว้เพื่อคนที่ลากไม่ได้</span></li>
+        <li><span>เปิด <b>หน้าพิสูจน์ RTL และโหมดมืด</b> เพื่อดูว่าภาษาฮีบรู/อาหรับสลับด้านได้ทั้งหน้า รวมถึงตัวเนื้อความ ไม่ใช่แค่เมนู</span></li>
+      </ol>
+    </section>
+
+    <!-- ================= THE SEVEN PAGES ================= -->
+    <section class="lx-sec" aria-labelledby="lx-pages">
+      <h2 id="lx-pages">เปิดต้นแบบทั้ง 7 หน้า</h2>
+      <p>ทุกหน้ามีทั้งภาษาไทยและอังกฤษ ใช้เชลล์ตัวเดียวกัน ไฟล์ CSS เดียวกัน และไฟล์ JS เดียวกัน</p>
+
+      <ul class="lx-pages">
+        <li class="lx-page">
+          <h3>สำรวจ (หน้าแรก)</h3>
+          <p>ช่องค้นหา หมวดเที่ยว แผนพร้อมใช้ และจุดหมายทั่วไทย</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="home">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/home" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>จุดหมาย — กระบี่</h3>
+          <p>ที่พัก 66 การ์ดจากข้อมูลจริง กรองตามย่านและงบ พร้อมที่กิน ที่เที่ยว และแผนเที่ยว</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="krabi">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/krabi" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>รีวิวโรงแรม — Rayavadee</h3>
+          <p>หน้ารีวิวเดี่ยว แถบราคาติดขอบล่าง และปุ่มเพิ่มเข้าทริปแบบเลือกวันได้</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="review">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/review" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>อันดับ — 10 โรงแรมอ่าวนาง</h3>
+          <p>ตารางเทียบราคาสามเว็บ ตัวกรอง และการ์ดเรียงอันดับ</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="roundup">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/roundup" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>ค้นหา</h3>
+          <p>ค้นหาแบบพิมพ์ไปเห็นผลไป ตัดคำไทยด้วย Intl.Segmenter และแผ่นค้นหาเต็มจอบนมือถือ</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="search">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/search" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>ที่บันทึกไว้</h3>
+          <p>ทุกอย่างที่กด 🔖 ไว้ แยกตามจังหวัด จัดเข้าวันได้ และส่งออกเป็นไฟล์ได้</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="saved">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/saved" hreflang="en">English</a>
+          </div>
+        </li>
+
+        <li class="lx-page">
+          <h3>ทริปของคุณ</h3>
+          <p>บอร์ดรายวัน ลากจัดลำดับหรือใช้เมนู แผนที่จากพิกัดจริง และส่งออกไป Google Maps หรือปฏิทิน</p>
+          <div class="lx-page-links">
+            <a class="ta-btn ta-btn-primary" href="trip">ไทย</a>
+            <a class="ta-btn ta-btn-quiet" href="en/trip" hreflang="en">English</a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= PALETTE ================= -->
+    <section class="lx-sec" aria-labelledby="lx-palette">
+      <h2 id="lx-palette">เลือกชุดสี — กดแล้วดูการ์ดใบเดียวกันเปลี่ยนทันที</h2>
+      <p>
+        การ์ดข้างล่างเป็นโรงแรมจริง ข้อมูลจริง รูปจริง ใบเดียวกันทั้งสามชุดสี
+        เปลี่ยนแค่ค่าสีในไฟล์โทเคน ไม่ได้ออกแบบใหม่ ถ้าเปลี่ยนใจภายหลังคือแก้ประมาณ 30 บรรทัด
+      </p>
+
+      <div class="ta-chip-row" data-palette-group role="group" aria-label="ชุดสี">
+        <button class="ta-fac" type="button" data-palette="a" aria-pressed="true">A · Andaman Deck</button>
+        <button class="ta-fac" type="button" data-palette="b" aria-pressed="false">B · Monsoon Ink</button>
+        <button class="ta-fac" type="button" data-palette="c" aria-pressed="false">C · Night Market</button>
+      </div>
+
+      <ul class="lx-swatches" aria-label="ค่าสีที่ใช้จริงในชุดสีที่เลือก">
+        <li><span class="lx-sw lx-sw-surface" aria-hidden="true"></span><span class="lx-sw-name">พื้นหน้า</span><code class="lx-sw-hex" data-hex="--surface">—</code></li>
+        <li><span class="lx-sw lx-sw-accent" aria-hidden="true"></span><span class="lx-sw-name">สีหลัก · ปุ่ม/ลิงก์</span><code class="lx-sw-hex" data-hex="--accent">—</code></li>
+        <li><span class="lx-sw lx-sw-editorial" aria-hidden="true"></span><span class="lx-sw-name">สีบรรณาธิการ</span><code class="lx-sw-hex" data-hex="--editorial">—</code></li>
+        <li><span class="lx-sw lx-sw-highlight" aria-hidden="true"></span><span class="lx-sw-name">สีของหายาก</span><code class="lx-sw-hex" data-hex="--highlight">—</code></li>
+        <li><span class="lx-sw lx-sw-text" aria-hidden="true"></span><span class="lx-sw-name">สีตัวอักษร</span><code class="lx-sw-hex" data-hex="--text">—</code></li>
+      </ul>
+
+      <div class="lx-compare">
+        <div>
+          <!-- REAL DATA. Source: astro/src/content/reviews/review-phulay-bay-ritz-carlton-reserve-krabi.json
+               name · score 9.7 (booking) · 9.4 (agoda) · priceRange ฿22,000 · image · modifiedDate 2026-07-11
+               Identical to the card the hub prototype renders, so the comparison
+               is of colour only and nothing else moves. -->
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="review" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="../images/_cards/hotels/krabi-phulaybay-1-560.webp"><img src="../images/_cards/hotels/krabi-phulaybay-1-560.jpg" alt="" width="560" height="315" loading="lazy" decoding="async"></picture></a>
+            <div class="ta-card-body">
+              <span class="eyebrow">คลองม่วง–ทับแขก · กระบี่</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="review">Phulay Bay, a Ritz-Carlton Reserve</a></h3>
+              <p class="ta-card-meta"><span class="ta-score"><b class="ta-num">9.7</b> <span class="ta-score-src">Booking.com</span></span> <span class="ta-score"><b class="ta-num">9.4</b> <span class="ta-score-src">Agoda</span></span><span class="ta-chip">จาก <span class="ta-num">฿22,000</span> / คืน</span></p>
+              <p class="ta-card-meta"><span class="ta-clamp-1">หนองทะเล · เมืองกระบี่</span></p>
+              <p class="ta-card-meta"><span class="ta-checked">ตรวจสอบราคา 2026-07-11</span></p>
+              <div class="ta-card-foot">
+                <a class="ta-btn ta-btn-quiet" href="review">อ่านรีวิวเต็ม</a>
+                <button class="ta-save" type="button" aria-pressed="false" data-save
+                  data-id="s:phulay-bay-ritz-carlton-reserve-krabi" data-poi-id="s:phulay-bay-ritz-carlton-reserve-krabi" data-kind="stay"
+                  data-name="Phulay Bay, a Ritz-Carlton Reserve" data-url="review" data-img="images/hotels/krabi-phulaybay-1.jpg"
+                  data-province="krabi" data-lat="8.0841" data-lng="98.7389" data-score="9.7" data-price-from="22000"
+                  data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+              <p class="ta-fine">Ritz-Carlton Reserve · 54 วิลลาและพาวิลเลียน · บัตเลอร์ส่วนตัว · หนองทะเล กระบี่</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="lx-verdict">
+          <p class="ta-note"><b>แนะนำ A · Andaman Deck</b> — เป็นทางเลือกเดียวที่รักษาการจดจำแบรนด์ไว้ได้ทั้งหมด ทั้งลิงก์แอฟฟิลิเอตที่ใช้งานอยู่ราว 11,400 ลิงก์ หน้าที่ถูกจัดทำดัชนีราว 13,000 หน้า และสีเขียวน้ำทะเลที่เว็บใช้มาตลอด</p>
+
+          <dl>
+            <dt>A · Andaman Deck</dt>
+            <dd>สีเดิมของแบรนด์ แต่ลดความสว่างลงจนตัวหนังสือขาวอ่านได้จริงบนปุ่ม (7.51:1) และเพิ่มโทนกระดาษอุ่นที่ชุดสีเดิมไม่มีเลย</dd>
+
+            <dt>B · Monsoon Ink</dt>
+            <dd>สวยและต่างจากใครในตลาด แต่ทิ้งการจดจำแบรนด์ทั้งหมด และทำให้รูปอาหารกับรูปทะเลแบนลง ซึ่งเป็นรูปเกือบทั้งเว็บ</dd>
+
+            <dt>C · Night Market</dt>
+            <dd>เหมาะเป็น <b>โหมดมืด</b> ของ A มากกว่าจะเป็นชุดหลัก เพราะหน้าเนื้อหาที่มีรูปเยอะราว 13,000 หน้าจะดูขุ่นถ้าตั้งมืดเป็นค่าเริ่มต้น</dd>
+          </dl>
+
+          <p class="ta-fine">
+            หมายเหตุ: C ตั้งค่ามาให้เป็นโหมดมืดตั้งแต่แรก ถ้าอยากเห็นเวอร์ชันสว่างของ C ให้กดปุ่ม “สว่าง” ในหัวข้อธีมด้านล่าง
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= THEME ================= -->
+    <section class="lx-sec" aria-labelledby="lx-theme">
+      <h2 id="lx-theme">ธีมสว่าง มืด หรือตามเครื่อง</h2>
+      <p>
+        เลือกไว้แล้วจำข้ามหน้าและข้ามการเปิดใหม่ เก็บไว้ในเครื่องคุณเอง
+        ค่าเริ่มต้นคือ “ตามระบบ” ซึ่งหมายถึงเดินตามการตั้งค่าของโทรศัพท์หรือคอมพิวเตอร์
+      </p>
+
+      <div class="ta-chip-row" role="group" aria-label="ธีม">
+        <button class="ta-fac" type="button" data-theme-set="system" aria-pressed="false">ตามระบบ</button>
+        <button class="ta-fac" type="button" data-theme-set="light" aria-pressed="false">สว่าง</button>
+        <button class="ta-fac" type="button" data-theme-set="dark" aria-pressed="false">มืด</button>
+      </div>
+
+      <p class="ta-fine">ตอนนี้แสดงผลเป็น <b data-theme-resolved>—</b></p>
+    </section>
+
+    <!-- ================= INSTALL ================= -->
+    <section class="lx-sec" aria-labelledby="lx-install">
+      <h2 id="lx-install">ติดตั้งลงหน้าจอโฮม</h2>
+      <p>
+        ติดตั้งแล้วต้นแบบจะเปิดเต็มจอเหมือนแอป ไม่มีแถบที่อยู่เว็บ
+        เป็นแค่ทางลัดบนหน้าจอ ไม่ได้ลงโปรแกรมอะไรในเครื่อง และลบทิ้งได้เหมือนลบไอคอนธรรมดา
+      </p>
+
+      <div class="lx-panels">
+        <div class="lx-panel" data-os="ios">
+          <h3>
+            <svg class="ta-ic ta-ic-20 lx-inline-ic" aria-hidden="true"><use href="#i-ios-share"></use></svg>
+            iPhone และ iPad (Safari)
+            <span class="lx-you" data-os-badge hidden>อุปกรณ์ของคุณ</span>
+          </h3>
+          <ol class="lx-ol">
+            <li>เปิดหน้านี้ใน <b>Safari</b> (Chrome บน iOS ติดตั้งไม่ได้)</li>
+            <li>กดปุ่มแชร์ <svg class="ta-ic ta-ic-16 lx-inline-ic" aria-hidden="true"><use href="#i-ios-share"></use></svg> ที่แถบล่างของ Safari — รูปกล่องเปิดฝาบนมีลูกศรพุ่งขึ้น</li>
+            <li>เลื่อนลงหาคำว่า <b>Add to Home Screen</b> หรือ <b>เพิ่มไปยังหน้าจอโฮม</b></li>
+            <li>กด <b>Add</b> แล้วไอคอนจะไปอยู่บนหน้าจอโฮม</li>
+          </ol>
+          <p class="ta-fine">iOS ไม่ยอมให้เว็บขึ้นปุ่มติดตั้งเอง จึงต้องทำสี่ขั้นนี้ด้วยมือ ไม่ใช่ข้อผิดพลาดของต้นแบบ</p>
+        </div>
+
+        <div class="lx-panel" data-os="android">
+          <h3>
+            <svg class="ta-ic ta-ic-20 lx-inline-ic" aria-hidden="true"><use href="#i-download"></use></svg>
+            Android และ Chrome บนคอมพิวเตอร์
+            <span class="lx-you" data-os-badge hidden>อุปกรณ์ของคุณ</span>
+          </h3>
+          <p>ถ้าเบราว์เซอร์รองรับ ปุ่มด้านล่างจะกดได้ ถ้ากดไม่ได้แปลว่าเบราว์เซอร์นี้ยังไม่เสนอให้ติดตั้ง</p>
+          <div class="lx-actions">
+            <button class="ta-btn ta-btn-primary" type="button" data-install hidden>
+              <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+              ติดตั้งเป็นแอป
+            </button>
+            <span class="lx-state" data-install-state>
+              <span class="lx-dot" aria-hidden="true"></span>
+              <span data-install-label>กำลังตรวจสอบ</span>
+            </span>
+          </div>
+          <p class="ta-fine">อีกทางคือเมนูสามจุดของ Chrome แล้วเลือก “ติดตั้งแอป” หรือ “เพิ่มลงในหน้าจอหลัก”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= QR ================= -->
+    <section class="lx-sec" aria-labelledby="lx-qr">
+      <h2 id="lx-qr">เปิดบนมือถือ</h2>
+      <p>
+        สแกน QR นี้ด้วยกล้องมือถือ ต้นแบบออกแบบมาสำหรับมือถือก่อน ดูบนจอเล็กจะเห็นภาพจริงที่สุด
+        QR นี้วาดขึ้นในหน้านี้เอง ไม่ได้เรียกบริการภายนอกและไม่มีข้อมูลอะไรออกไปข้างนอก
+      </p>
+
+      <div class="lx-panels">
+        <div class="lx-panel">
+          <div class="lx-qr-wrap">
+            <div class="lx-qr" data-qr role="img" aria-label="รหัส QR สำหรับเปิดต้นแบบบนมือถือ"></div>
+            <p class="lx-qr-url">ลิงก์ในรหัส: <span data-qr-url>—</span></p>
+          </div>
+        </div>
+
+        <div class="lx-panel">
+          <div class="lx-field">
+            <label for="lx-url">ถ้าทดสอบผ่านเครื่องตัวเอง ใส่ที่อยู่ในวงแลนแล้วกดสร้างใหม่</label>
+            <input id="lx-url" type="url" inputmode="url" spellcheck="false"
+                   placeholder="http://192.168.1.10:4321/_proto/index.html">
+          </div>
+          <div class="lx-actions">
+            <button class="ta-btn ta-btn-primary" type="button" data-act="qr-make">สร้าง QR ใหม่</button>
+            <button class="ta-btn ta-btn-quiet" type="button" data-act="qr-reset">กลับค่าเดิม</button>
+          </div>
+          <p class="ta-fine" data-qr-note>มือถือกับคอมพิวเตอร์ต้องอยู่ในวายฟายวงเดียวกัน</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= OFFLINE / SW ================= -->
+    <section class="lx-sec" aria-labelledby="lx-offline">
+      <h2 id="lx-offline">ใช้งานตอนไม่มีเน็ต</h2>
+      <p>
+        ต้นแบบติดตั้งตัวช่วยเล็ก ๆ ไว้เก็บหน้าที่คุณเปิดไปแล้ว เพื่อให้เปิดซ้ำได้ตอนเน็ตหลุด
+        มันทำงานเฉพาะในโฟลเดอร์ <code>/_proto/</code> เท่านั้น แตะหน้าเว็บจริงอีกหมื่นแปดพันหน้าไม่ได้เลย
+        และหน้า HTML จะลองต่อเน็ตก่อนเสมอ รอไม่เกินสามวินาทีจึงค่อยหยิบของที่เก็บไว้มาใช้
+      </p>
+
+      <div class="lx-panels">
+        <div class="lx-panel" data-sw-panel>
+          <h3>สถานะตอนนี้</h3>
+          <p class="lx-state">
+            <span class="lx-dot" aria-hidden="true"></span>
+            <span data-sw-label>กำลังตรวจสอบ</span>
+          </p>
+          <div class="lx-actions">
+            <a class="ta-btn ta-btn-quiet" href="offline">ดูหน้าที่จะขึ้นตอนไม่มีเน็ต</a>
+            <button class="ta-btn ta-btn-ghost" type="button" data-act="sw-kill">ปิดและล้างของที่เก็บไว้</button>
+          </div>
+          <p class="ta-fine">
+            ปุ่มปิดจะถอนตัวช่วยออกและลบแคชทั้งหมดทันที
+            นอกจากนี้ยังมีสวิตช์ฉุกเฉินอีกชั้นที่ไฟล์ <code>/_proto/sw-kill.txt</code> — เปลี่ยนข้อความในไฟล์เป็นคำว่า kill แล้วดีพลอย เครื่องทุกเครื่องที่เคยเปิดต้นแบบจะถอนตัวเองเมื่อเปิดครั้งถัดไป
+          </p>
+        </div>
+
+        <div class="lx-panel">
+          <h3>หน้าพิสูจน์ RTL และโหมดมืด</h3>
+          <p>
+            หน้านี้เอาต้นแบบจริงมาใส่กรอบเทียบกัน ทั้งแบบอ่านซ้ายไปขวา แบบอ่านขวาไปซ้ายอย่างภาษาฮีบรู และแบบโหมดมืด
+            เพื่อพิสูจน์ว่าเนื้อความสลับด้านตามไปด้วย ไม่ใช่แค่เมนู
+          </p>
+          <div class="lx-actions">
+            <a class="ta-btn ta-btn-primary" href="dark-rtl">
+              เปิดหน้าพิสูจน์
+              <svg class="ta-ic ta-ic-20 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HONEST INVENTORY ================= -->
+    <section class="lx-sec" aria-labelledby="lx-truth">
+      <h2 id="lx-truth">อะไรจริง อะไรยังเป็นของจำลอง</h2>
+      <p>เขียนไว้ให้ครบ เพราะถ้าไม่บอก ต้นแบบจะดูเสร็จกว่าความจริงเสมอ</p>
+
+      <div class="lx-truth">
+        <div>
+          <h3>ของจริงในต้นแบบนี้</h3>
+          <ul>
+            <li>ชื่อ คะแนน ราคา รูป และลิงก์จอง ทุกตัวมาจากไฟล์เนื้อหาจริงใน <code>astro/src/content/</code> และข้อมูลจังหวัดจริงใน <code>_internal/province-data/</code></li>
+            <li>หน้ากระบี่มีการ์ดที่พัก 66 ใบและปุ่มบันทึก 74 ปุ่ม (นับจากหน้าที่โหลดจริง) ทุกใบเป็นโรงแรมที่เรารีวิวไว้จริง</li>
+            <li>หน้าอันดับมีตารางเทียบราคาจริง 10 แถว หน้าทริปมีบอร์ด 3 วัน</li>
+            <li>ลิงก์แอฟฟิลิเอตของจริง Agoda <code>cid=1965862</code> · Booking ผ่านเส้นทาง <code>/go/b</code> ของ worker · Trip.com <code>Allianceid=6861268</code></li>
+            <li>ปุ่ม 🔖 ตัวเลขบนแท็บทริป และข้อความแจ้งเตือน ทำงานจริงข้ามทุกหน้า เก็บใน localStorage ของเครื่องคุณ</li>
+            <li>บอร์ดรายวันย้ายรายการได้จริง ทั้งลากและผ่านเมนู ⋮ และคำนวณระยะทางสดจากพิกัดจริง</li>
+            <li>แผนที่ในหน้าทริปเป็นแผนที่จริงจาก OpenStreetMap โหลดเมื่อคุณกดเท่านั้น</li>
+            <li>ค้นหาใช้ดัชนีจริง 460 รายการ แบ่งเป็นจุดหมาย 95 · ที่พัก 130 · ที่กิน 75 · ไกด์ 95 · อันดับ 65</li>
+            <li>ส่งออกทริปเป็นไฟล์ JSON ไฟล์ปฏิทิน และเปิดใน Google Maps ได้จริง</li>
+          </ul>
+        </div>
+
+        <div class="lx-truth-stub">
+          <h3>ยังเป็นของจำลอง หรือยังไม่มี</h3>
+          <ul>
+            <li>ไม่มีฝั่งเซิร์ฟเวอร์เลย ไม่มีบัญชีผู้ใช้ ไม่มีการซิงก์ข้ามเครื่อง ทุกอย่างอยู่ในเครื่องที่คุณเปิด</li>
+            <li>ดัชนีค้นหา 460 รายการเป็นชุดย่อย ไม่ใช่ทั้งเว็บที่มีราว 18,100 หน้า</li>
+            <li>ทั้งเจ็ดหน้าเป็นไฟล์ HTML เขียนมือ ยังไม่ได้ผูกเข้ากับตัวสร้างหน้าจริง (<code>gen-hubs.mjs</code> และเลย์เอาต์ทั้งสามตัว) การผูกคือเฟส 2</li>
+            <li>ต้นแบบมีแค่ไทยกับอังกฤษ อีกเจ็ดภาษายังไม่ได้ทำในชุดนี้</li>
+            <li>ฟอนต์ Sarabun และ Outfit ชี้ไปที่ <code>img.thailandaddict.com</code> ซึ่งยัง<b>ไม่มีอยู่จริง</b> (โดเมนย่อยยังไม่ถูกสร้าง) ตอนนี้จึงตกไปใช้ฟอนต์ของเครื่องอัตโนมัติ ต้องอัปโหลดไฟล์ฟอนต์ก่อนโรลเอาต์</li>
+            <li>ลิงก์บางลิงก์ในเมนู เช่น “ใกล้ฉัน” ยังชี้กลับไปหน้าเว็บจริง เพราะยังไม่ได้ทำหน้าต้นแบบของมัน</li>
+            <li>ยังไม่มีปุ่ม “บันทึกไว้ใช้ออฟไลน์” ที่โหลดรีวิวกับรูปทั้งทริปมาเก็บล่วงหน้า อันนั้นอยู่ในเฟสถัดไป</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="ta-note">
+        สิ่งที่ต้นแบบนี้ตั้งใจไม่ทำ และจะไม่ทำตลอดไป คือข้อความเร่งให้รีบ ตัวเลขคนกำลังดูอยู่ นาฬิกานับถอยหลัง ส่วนลดปลอม และวันที่ตรวจสอบที่ไม่ได้ตรวจจริง
+        ทุกวันที่ที่เห็นในต้นแบบมาจากฟิลด์วันที่จริงในไฟล์เนื้อหา
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="home" data-tab="explore">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>สำรวจ</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>จุดหมาย</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>ค้นหา</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>ทริป</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>เมนู</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">การแสดงผล</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>ธีม</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>ตามระบบ</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ภาษา</span>
+  </button>
+
+  <hr>
+
+  <a href="saved">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span>ที่บันทึกไว้</span>
+  </a>
+  <a href="dark-rtl">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>หน้าพิสูจน์ RTL และโหมดมืด</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>ติดตั้งเป็นแอป</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="index" hreflang="th" aria-current="true">ไทย</a>
+  <a href="en/home" hreflang="en">English</a>
+</div>
+
+<!-- ==========================================================================
+     QR encoder — byte mode, ECC level M, versions 1-6. No dependencies, no
+     network, no canvas: it emits one <path> of SVG rectangles.
+     Validated before shipping against two independent references:
+       · Reed-Solomon output vs the ISO/IEC 18004 worked example ("01234567",
+         version 1-M) — exact byte match.
+       · Format-information BCH vs the published level-M table, masks 0-7.
+       · Six round-trips decoded by jsQR, including a UTF-8 Thai string.
+     ====================================================================== -->
+<script>
+(function (W) {
+  'use strict';
+
+  /* [total codewords, ec codewords per block, blocks] — ECC level M only. */
+  var VER = { 1: [26, 10, 1], 2: [44, 16, 1], 3: [70, 26, 1], 4: [100, 18, 2], 5: [134, 24, 2], 6: [172, 16, 4] };
+  var REMAINDER = { 1: 0, 2: 7, 3: 7, 4: 7, 5: 7, 6: 7 };
+
+  var EXP = new Uint8Array(512), LOG = new Uint8Array(256);
+  (function () {
+    var x = 1;
+    for (var i = 0; i < 255; i++) { EXP[i] = x; LOG[x] = i; x <<= 1; if (x & 0x100) x ^= 0x11D; }
+    for (var j = 255; j < 512; j++) EXP[j] = EXP[j - 255];
+  })();
+  function gmul(a, b) { return (a === 0 || b === 0) ? 0 : EXP[LOG[a] + LOG[b]]; }
+
+  function rsGen(deg) {
+    var g = [1];
+    for (var i = 0; i < deg; i++) {
+      var ng = new Array(g.length + 1);
+      for (var z = 0; z < ng.length; z++) ng[z] = 0;
+      for (var j = 0; j < g.length; j++) { ng[j] ^= g[j]; ng[j + 1] ^= gmul(g[j], EXP[i]); }
+      g = ng;
+    }
+    return g;
+  }
+  function rsRemainder(data, deg) {
+    var gen = rsGen(deg), rem = [], i, j;
+    for (i = 0; i < deg; i++) rem.push(0);
+    for (i = 0; i < data.length; i++) {
+      var factor = data[i] ^ rem[0];
+      rem.shift(); rem.push(0);
+      for (j = 0; j < deg; j++) rem[j] ^= gmul(gen[j + 1], factor);
+    }
+    return rem;
+  }
+
+  function utf8(str) {
+    if (W.TextEncoder) return Array.prototype.slice.call(new TextEncoder().encode(str));
+    var s = unescape(encodeURIComponent(str)), out = [];
+    for (var i = 0; i < s.length; i++) out.push(s.charCodeAt(i) & 0xff);
+    return out;
+  }
+
+  function encode(text) {
+    var bytes = utf8(text), ver = 0, i;
+    for (i = 1; i <= 6; i++) {
+      var tt = VER[i];
+      if (tt[0] - tt[1] * tt[2] - 2 >= bytes.length) { ver = i; break; }
+    }
+    if (!ver) throw new Error('too-long');
+
+    var t = VER[ver], ecPer = t[1], blocks = t[2], dataCw = t[0] - ecPer * blocks;
+    var bits = [];
+    function push(val, n) { for (var k = n - 1; k >= 0; k--) bits.push((val >>> k) & 1); }
+    push(4, 4); push(bytes.length, 8);
+    for (i = 0; i < bytes.length; i++) push(bytes[i], 8);
+    var cap = dataCw * 8;
+    for (i = 0; i < 4 && bits.length < cap; i++) bits.push(0);
+    while (bits.length % 8 !== 0) bits.push(0);
+    var pads = [0xEC, 0x11], pi = 0;
+    while (bits.length < cap) push(pads[pi++ % 2], 8);
+
+    var cw = [];
+    for (i = 0; i < bits.length; i += 8) {
+      var v = 0; for (var q = 0; q < 8; q++) v = (v << 1) | bits[i + q];
+      cw.push(v);
+    }
+
+    var shortLen = Math.floor(dataCw / blocks), numLong = dataCw % blocks;
+    var dataBlocks = [], ecBlocks = [], off = 0;
+    for (i = 0; i < blocks; i++) {
+      var len = shortLen + (i >= blocks - numLong ? 1 : 0);
+      var blk = cw.slice(off, off + len); off += len;
+      dataBlocks.push(blk); ecBlocks.push(rsRemainder(blk, ecPer));
+    }
+
+    var out = [], maxData = shortLen + (numLong ? 1 : 0), c, d;
+    for (c = 0; c < maxData; c++) for (d = 0; d < blocks; d++) if (c < dataBlocks[d].length) out.push(dataBlocks[d][c]);
+    for (c = 0; c < ecPer; c++) for (d = 0; d < blocks; d++) out.push(ecBlocks[d][c]);
+    return { version: ver, codewords: out };
+  }
+
+  function build(text) {
+    var enc = encode(text), ver = enc.version, size = ver * 4 + 17;
+    var mod = [], fn = [], x, y, i, j;
+    for (y = 0; y < size; y++) {
+      var r1 = [], r2 = [];
+      for (x = 0; x < size; x++) { r1.push(false); r2.push(false); }
+      mod.push(r1); fn.push(r2);
+    }
+    function setFn(px, py, dark) {
+      if (px < 0 || py < 0 || px >= size || py >= size) return;
+      mod[py][px] = dark; fn[py][px] = true;
+    }
+
+    for (i = 0; i < size; i++) { setFn(6, i, i % 2 === 0); setFn(i, 6, i % 2 === 0); }
+
+    function finder(cx, cy) {
+      for (var dy = -4; dy <= 4; dy++) for (var dx = -4; dx <= 4; dx++) {
+        var dist = Math.max(Math.abs(dx), Math.abs(dy));
+        setFn(cx + dx, cy + dy, dist !== 2 && dist !== 4);
+      }
+    }
+    finder(3, 3); finder(size - 4, 3); finder(3, size - 4);
+
+    if (ver >= 2) {
+      var p = size - 7;
+      for (var ay = -2; ay <= 2; ay++) for (var ax = -2; ax <= 2; ax++)
+        setFn(p + ax, p + ay, Math.max(Math.abs(ax), Math.abs(ay)) !== 1);
+    }
+
+    function drawFormat(mask) {
+      var data = (0 << 3) | mask, rem = data, k;
+      for (k = 0; k < 10; k++) rem = (rem << 1) ^ ((rem >>> 9) * 0x537);
+      var bits = ((data << 10) | rem) ^ 0x5412;
+      function bit(n) { return ((bits >>> n) & 1) === 1; }
+      for (k = 0; k <= 5; k++) setFn(8, k, bit(k));
+      setFn(8, 7, bit(6)); setFn(8, 8, bit(7)); setFn(7, 8, bit(8));
+      for (k = 9; k < 15; k++) setFn(14 - k, 8, bit(k));
+      for (k = 0; k < 8; k++) setFn(size - 1 - k, 8, bit(k));
+      for (k = 8; k < 15; k++) setFn(8, size - 15 + k, bit(k));
+      setFn(8, size - 8, true);
+    }
+    drawFormat(0);   /* reserve the format areas before data placement */
+
+    var cwArr = enc.codewords, bi = 0, totalBits = cwArr.length * 8 + (REMAINDER[ver] || 0);
+    for (var right = size - 1; right >= 1; right -= 2) {
+      if (right === 6) right = 5;
+      for (var vert = 0; vert < size; vert++) {
+        for (j = 0; j < 2; j++) {
+          var cx2 = right - j;
+          var upward = ((right + 1) & 2) === 0;
+          var cy2 = upward ? size - 1 - vert : vert;
+          if (!fn[cy2][cx2] && bi < totalBits) {
+            mod[cy2][cx2] = bi < cwArr.length * 8
+              ? ((cwArr[bi >>> 3] >>> (7 - (bi & 7))) & 1) === 1
+              : false;
+            bi++;
+          }
+        }
+      }
+    }
+
+    function maskFn(m, mx, my) {
+      switch (m) {
+        case 0: return (mx + my) % 2 === 0;
+        case 1: return my % 2 === 0;
+        case 2: return mx % 3 === 0;
+        case 3: return (mx + my) % 3 === 0;
+        case 4: return (Math.floor(mx / 3) + Math.floor(my / 2)) % 2 === 0;
+        case 5: return (mx * my) % 2 + (mx * my) % 3 === 0;
+        case 6: return ((mx * my) % 2 + (mx * my) % 3) % 2 === 0;
+        default: return ((mx + my) % 2 + (mx * my) % 3) % 2 === 0;
+      }
+    }
+    function applyMask(m) {
+      for (var my = 0; my < size; my++) for (var mx = 0; mx < size; mx++)
+        if (!fn[my][mx] && maskFn(m, mx, my)) mod[my][mx] = !mod[my][mx];
+    }
+
+    var P1 = [true, false, true, true, true, false, true, false, false, false, false];
+    var P2 = [false, false, false, false, true, false, true, true, true, false, true];
+    function hits(get, n, pat) {
+      var c = 0;
+      for (var s = 0; s + 11 <= n; s++) {
+        var ok = true;
+        for (var k = 0; k < 11; k++) if (get(s + k) !== pat[k]) { ok = false; break; }
+        if (ok) c++;
+      }
+      return c;
+    }
+    function penalty() {
+      var s = 0, px, py, run, last;
+      for (py = 0; py < size; py++) {
+        run = 1; last = mod[py][0];
+        for (px = 1; px < size; px++) {
+          if (mod[py][px] === last) { run++; if (run === 5) s += 3; else if (run > 5) s += 1; }
+          else { last = mod[py][px]; run = 1; }
+        }
+      }
+      for (px = 0; px < size; px++) {
+        run = 1; last = mod[0][px];
+        for (py = 1; py < size; py++) {
+          if (mod[py][px] === last) { run++; if (run === 5) s += 3; else if (run > 5) s += 1; }
+          else { last = mod[py][px]; run = 1; }
+        }
+      }
+      for (py = 0; py < size - 1; py++) for (px = 0; px < size - 1; px++) {
+        var v = mod[py][px];
+        if (v === mod[py][px + 1] && v === mod[py + 1][px] && v === mod[py + 1][px + 1]) s += 3;
+      }
+      for (py = 0; py < size; py++) {
+        (function (yy) {
+          var g = function (n) { return mod[yy][n]; };
+          s += 40 * (hits(g, size, P1) + hits(g, size, P2));
+        })(py);
+      }
+      for (px = 0; px < size; px++) {
+        (function (xx) {
+          var g = function (n) { return mod[n][xx]; };
+          s += 40 * (hits(g, size, P1) + hits(g, size, P2));
+        })(px);
+      }
+      var dark = 0;
+      for (py = 0; py < size; py++) for (px = 0; px < size; px++) if (mod[py][px]) dark++;
+      s += 10 * Math.floor(Math.abs(dark * 100 / (size * size) - 50) / 5);
+      return s;
+    }
+
+    var best = 0, bestScore = Infinity;
+    for (var m = 0; m < 8; m++) {
+      applyMask(m); drawFormat(m);
+      var sc = penalty();
+      if (sc < bestScore) { bestScore = sc; best = m; }
+      applyMask(m);
+    }
+    applyMask(best); drawFormat(best);
+    return { size: size, modules: mod };
+  }
+
+  /* Emits an <svg> element. Quiet zone is 4 modules on every side — a QR
+     without it is unreadable by half the scanners on the market. */
+  function svg(text) {
+    var q = build(text), n = q.size, QZ = 4, total = n + QZ * 2, d = '', x, y;
+    for (y = 0; y < n; y++) for (x = 0; x < n; x++)
+      if (q.modules[y][x]) d += 'M' + (x + QZ) + ' ' + (y + QZ) + 'h1v1h-1z';
+    var NS = 'http://www.w3.org/2000/svg';
+    var el = document.createElementNS(NS, 'svg');
+    el.setAttribute('viewBox', '0 0 ' + total + ' ' + total);
+    el.setAttribute('shape-rendering', 'crispEdges');
+    var bg = document.createElementNS(NS, 'rect');
+    bg.setAttribute('width', String(total)); bg.setAttribute('height', String(total)); bg.setAttribute('fill', '#FFFFFF');
+    var fg = document.createElementNS(NS, 'path');
+    fg.setAttribute('d', d); fg.setAttribute('fill', '#000000');
+    el.appendChild(bg); el.appendChild(fg);
+    return el;
+  }
+
+  W.taQR = { svg: svg, build: build };
+})(window);
+</script>
+
+<!-- ==========================================================================
+     Launcher behaviour. One delegated listener, zero inline on* handlers —
+     the same rule the shell follows, and what keeps a strict script-src CSP
+     reachable later.
+     ====================================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var D = document;
+
+  /* ---------- colour resolution ------------------------------------------
+     Tokens are authored in oklch for Option A and in hex for B and C. Painting
+     each one into a 1x1 canvas and reading the pixel back gives the sRGB the
+     screen actually shows, so all three palettes are compared in the same
+     units instead of in whatever syntax they happened to be written in. */
+  var probe = D.createElement('canvas');
+  probe.width = probe.height = 1;
+  var pctx = probe.getContext('2d', { willReadFrequently: true });
+  function resolve(css) {
+    if (!css) return null;
+    try {
+      pctx.clearRect(0, 0, 1, 1);
+      pctx.fillStyle = '#000';
+      pctx.fillStyle = css;
+      pctx.fillRect(0, 0, 1, 1);
+      var d = pctx.getImageData(0, 0, 1, 1).data;
+      return { r: d[0], g: d[1], b: d[2], a: d[3] };
+    } catch (e) { return null; }
+  }
+  function hexOf(css) {
+    var c = resolve(css);
+    if (!c) return null;
+    return '#' + [c.r, c.g, c.b].map(function (n) { return ('0' + n.toString(16)).slice(-2); }).join('').toUpperCase();
+  }
+  function lumOf(css) {
+    var c = resolve(css);
+    if (!c) return null;
+    return (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) / 255;
+  }
+
+  /* ---------- palette: show the resolved hex of the live tokens ---------- */
+  var hexEls = D.querySelectorAll('[data-hex]');
+  function paintHex() {
+    var cs = getComputedStyle(D.documentElement);
+    for (var i = 0; i < hexEls.length; i++) {
+      var raw = cs.getPropertyValue(hexEls[i].getAttribute('data-hex')).trim();
+      hexEls[i].textContent = hexOf(raw) || raw || '—';
+    }
+  }
+  paintHex();
+  function repaint() { setTimeout(function () { paintHex(); paintResolved(); }, 0); }
+  if (window.TA && TA.on) {
+    TA.on('palette', repaint);
+    TA.on('theme', repaint);
+  }
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', repaint);
+
+  /* ---------- theme: report what is actually being rendered ------------- */
+  var resolvedEl = D.querySelector('[data-theme-resolved]');
+  function paintResolved() {
+    if (!resolvedEl) return;
+    /* MEASURED, not assumed. TA.theme.resolved() reports the theme setting,
+       which is not the same question: palette C is dark-by-default whatever
+       the theme says, and reporting "light" over a dark page is a small lie. */
+    var lum = lumOf(getComputedStyle(D.body).backgroundColor);
+    var shown = lum === null ? '—' : (lum < 0.5 ? 'โหมดมืด' : 'โหมดสว่าง');
+    var set = window.TA && TA.theme ? TA.theme.get() : 'system';
+    var setWord = set === 'dark' ? 'มืด' : set === 'light' ? 'สว่าง' : 'ตามระบบ';
+    resolvedEl.textContent = shown + ' (ตั้งค่าไว้: ' + setWord + ')';
+  }
+  paintResolved();
+
+  /* ---------- install: unhide EVERY install row, not just the first ----- */
+  var installLabel = D.querySelector('[data-install-label]');
+  var installState = D.querySelector('[data-install-state]');
+  function installSays(word, state) {
+    if (installLabel) installLabel.textContent = word;
+    if (installState) installState.setAttribute('data-sw', state);
+  }
+  var standalone = matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (standalone) installSays('เปิดอยู่ในโหมดแอปแล้ว', 'on');
+  else installSays('เบราว์เซอร์นี้ยังไม่เสนอให้ติดตั้ง', 'off');
+
+  function unhideInstall() {
+    var rows = D.querySelectorAll('[data-install]');
+    for (var i = 0; i < rows.length; i++) rows[i].hidden = false;
+    installSays('พร้อมติดตั้ง กดปุ่มได้เลย', 'on');
+  }
+  if (window.TA && TA.on) TA.on('installable', unhideInstall);
+  /* beforeinstallprompt may already have fired before this script ran. */
+  addEventListener('beforeinstallprompt', unhideInstall);
+  addEventListener('appinstalled', function () {
+    var rows = D.querySelectorAll('[data-install]');
+    for (var i = 0; i < rows.length; i++) rows[i].hidden = true;
+    installSays('ติดตั้งแล้ว', 'on');
+  });
+
+  /* ---------- which walkthrough is yours -------------------------------- */
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPad|iPhone|iPod/.test(ua)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var mine = D.querySelector('.lx-panel[data-os="' + (isIOS ? 'ios' : 'android') + '"]');
+  if (mine) {
+    mine.setAttribute('data-you', '1');
+    var badge = mine.querySelector('[data-os-badge]');
+    if (badge) badge.hidden = false;
+  }
+
+  /* ---------- QR -------------------------------------------------------- */
+  var qrHost = D.querySelector('[data-qr]');
+  var qrUrlEl = D.querySelector('[data-qr-url]');
+  var qrNote = D.querySelector('[data-qr-note]');
+  var urlInput = D.getElementById('lx-url');
+
+  function defaultUrl() {
+    /* Opened from disk there is no useful URL to encode, so fall back to the
+       real published path rather than a file:// address nothing can open. */
+    if (location.protocol === 'file:') return 'https://thailandaddict.com/_proto/index.html';
+    return location.origin + location.pathname;
+  }
+  function drawQR(text) {
+    if (!qrHost) return;
+    while (qrHost.firstChild) qrHost.removeChild(qrHost.firstChild);
+    try {
+      qrHost.appendChild(window.taQR.svg(text));
+      if (qrUrlEl) qrUrlEl.textContent = text;
+    } catch (e) {
+      var p = D.createElement('p');
+      p.className = 'ta-flag ta-flag-unknown';
+      p.textContent = 'ที่อยู่ยาวเกินกว่าที่รหัสนี้จะเก็บได้ ลองใช้ที่อยู่ที่สั้นลง';
+      qrHost.appendChild(p);
+      if (qrUrlEl) qrUrlEl.textContent = text;
+    }
+  }
+  drawQR(defaultUrl());
+  if (qrNote && location.protocol === 'file:') {
+    qrNote.textContent = 'ตอนนี้เปิดไฟล์จากเครื่องโดยตรง รหัสจึงชี้ไปที่ที่อยู่จริงบนเว็บ';
+  }
+
+  /* ---------- service worker -------------------------------------------- */
+  var swPanel = D.querySelector('[data-sw-panel]');
+  var swLabel = D.querySelector('[data-sw-label]');
+  function swSays(word, state) {
+    if (swLabel) swLabel.textContent = word;
+    if (swPanel) swPanel.setAttribute('data-sw', state);
+  }
+
+  if (!('serviceWorker' in navigator)) {
+    swSays('เบราว์เซอร์นี้ไม่รองรับการเก็บหน้าไว้ใช้ออฟไลน์', 'off');
+  } else if (location.protocol === 'file:') {
+    swSays('เปิดจากไฟล์ในเครื่องโดยตรง จึงยังใช้โหมดออฟไลน์ไม่ได้ — ต้องเปิดผ่าน http หรือ https', 'off');
+  } else {
+    navigator.serviceWorker.register('sw.js', { scope: './' }).then(function (reg) {
+      swSays('เปิดอยู่ · ทำงานเฉพาะใน /_proto/ เท่านั้น', 'on');
+      /* Ask the worker to re-read the kill files on every visit, so flipping
+         sw-kill.txt to "kill" takes effect on the next page load. */
+      if (reg.active) reg.active.postMessage({ type: 'ta-sw-check-kill' });
+    }).catch(function (err) {
+      swSays('ติดตั้งไม่สำเร็จ: ' + (err && err.message ? err.message : 'ไม่ทราบสาเหตุ'), 'err');
+    });
+  }
+
+  /* ---------- one delegated listener for every page action -------------- */
+  D.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-act]');
+    if (!el) return;
+    var act = el.getAttribute('data-act');
+
+    if (act === 'qr-make') {
+      ev.preventDefault();
+      var v = (urlInput && urlInput.value || '').trim();
+      drawQR(v || defaultUrl());
+      return;
+    }
+    if (act === 'qr-reset') {
+      ev.preventDefault();
+      if (urlInput) urlInput.value = '';
+      drawQR(defaultUrl());
+      return;
+    }
+    if (act === 'sw-kill') {
+      ev.preventDefault();
+      if (!('serviceWorker' in navigator)) return;
+      swSays('กำลังปิดและล้าง…', 'off');
+      /* NOTE — deliberately no { type: 'ta-sw-kill-now' } postMessage here.
+         That message makes the worker's selfDestruct() renavigate every open
+         client, i.e. THIS page; index.html registers the worker on load, so the
+         forced reload silently reinstalled it and the button appeared to do
+         nothing (measured: registration + a fresh ta-proto-shell-* cache back
+         within ~2 s of the click). Unregistering and clearing the caches from
+         the page does the whole job and leaves the reader where they are, so
+         "โหลดหน้านี้ใหม่เพื่อเปิดอีกครั้ง" below stays literally true.
+         The worker's own kill paths (sw-kill.txt, sw-kill.js) still renavigate,
+         which is right: there the reader must be pulled off a broken worker. */
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        var jobs = [];
+        for (var i = 0; i < regs.length; i++) jobs.push(regs[i].unregister());
+        return Promise.all(jobs);
+      }).then(function () {
+        if (!window.caches) return null;
+        return caches.keys().then(function (names) {
+          var jobs = [];
+          for (var i = 0; i < names.length; i++) if (names[i].indexOf('ta-proto') === 0) jobs.push(caches.delete(names[i]));
+          return Promise.all(jobs);
+        });
+      }).then(function () {
+        swSays('ปิดแล้ว และล้างของที่เก็บไว้หมดแล้ว — โหลดหน้านี้ใหม่เพื่อเปิดอีกครั้ง', 'off');
+        if (window.TA && TA.toast) TA.toast('ถอน service worker และล้างแคชเรียบร้อย');
+      }).catch(function (e) {
+        swSays('ล้างไม่สำเร็จ: ' + (e && e.message ? e.message : 'ไม่ทราบสาเหตุ'), 'err');
+      });
+    }
+  });
+
+  if (urlInput) {
+    urlInput.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      drawQR((urlInput.value || '').trim() || defaultUrl());
+    });
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2466 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>Your trip · ThailandAddict prototype</title>
+<meta name="description" content="The ThailandAddict trip planner prototype — a day board you can reorder by drag or by menu, a map built from real coordinates, distances derived at render, and export to Google Maps, calendar or print.">
+<link rel="canonical" href="https://thailandaddict.com/_proto/en/trip.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="manifest" href="../manifest.en.webmanifest">
+<!-- No <link rel="icon"> / apple-touch-icon yet: astro/public/favicon.svg and
+     astro/public/icons/ do not exist in this repo, and a prototype must not
+     ship a 404. -->
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Written relative (not "/css/…") so the prototype renders identically from
+     file:// on the owner's machine and from /_proto/ when it is served. -->
+<link rel="stylesheet" href="../../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs, so a
+     module would arrive too late and the transition would play backwards. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+/* Marks that scripting is alive. The static board below is the no-JS truth;
+   with JS the same board is re-rendered from ta.trip.v1 and becomes editable. */
+document.documentElement.setAttribute('data-js', '');
+</script>
+
+<!-- Speculation Rules: the highest ROI-per-line item available, and absent
+     from Klook, Agoda, Booking and Traveloka.
+     eagerness:"moderate" (200 ms hover / pointerdown), NEVER "immediate" —
+     on an 18k-page site immediate burns a Thai traveller's mobile data.
+     Chrome caps non-immediate speculation at 2 prerenders FIFO. -->
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[
+    {"href_matches":"/*"},
+    {"not":{"href_matches":"/api/*"}},
+    {"not":{"href_matches":"/go/*"}},
+    {"not":{"href_matches":"/_proto/*"}},
+    {"not":{"selector_matches":".no-prerender, a[target=_blank], a[rel~=sponsored], a[rel~=nofollow]"}}
+  ]},"eagerness":"moderate"}],
+ "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
+</script>
+
+<!-- With scripting off, every tab panel must stay visible: the board, the
+     saved tray and the export list are all real content, not a JS feature. -->
+<noscript><style>@layer tokens{ [role="tabpanel"][hidden]{ display:block !important } }</style></noscript>
+
+<script src="../../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties; zero new colour,
+   spacing, radius or motion values — every number below is a shell token. */
+@layer page {
+
+
+  /* ---- SHELL GAP SHIM (delete once shell.css is regenerated) ------------
+     shell.css §3.6 lists .ta-tab/.ta-chip/.ta-btn/.ta-save/.ta-fac/.ta-icon-btn/
+     .lang-menu a/.ta-more a/.ta-more button for the 44px floor, but not
+     .ta-skip. Under :lang(th) the 1.85 line-height carries it over 44 anyway;
+     under :lang(en) it measures 41.8px and fails the target-size check. The
+     real fix is one selector in _internal/shell/shell.css — this shim keeps
+     both prototype twins identical until that file is regenerated. */
+  .ta-skip { min-block-size: 44px; display: inline-flex; align-items: center; }
+
+  /* ---- progressive enhancement switches -------------------------------- */
+  :root:not([data-js]) .js-only { display: none !important; }
+  :root[data-js] .nojs-only { display: none !important; }
+
+  /* ---- 1. TRIP HEADER --------------------------------------------------- */
+  .tp-head { margin-block: var(--sp-5) var(--sp-4); }
+  .tp-head h1 { font-size: var(--step-3); margin-block: 0 var(--sp-2); }
+  .tp-head-meta {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+    margin-block-end: var(--sp-3);
+  }
+  .tp-title-form { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+  .tp-field {
+    display: flex; flex-direction: column; gap: var(--sp-1);
+    font-size: var(--step--2); color: var(--text-muted);
+  }
+  .tp-field input, .tp-field select {
+    min-block-size: 44px;
+    padding-block: var(--sp-2); padding-inline: var(--sp-3);
+    border: 1px solid var(--border-strong); border-radius: var(--r-md);
+    background: var(--surface-2); color: var(--text);
+    font: inherit; font-size: var(--step--1);
+    text-align: start;
+  }
+
+  /* Grounded trust line — the differentiator, and true here. */
+  .tp-grounded {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--trip-line); border-radius: var(--r-md);
+    background: var(--trip-soft); color: var(--trip);
+    font-size: var(--step--1);
+    text-align: start;
+  }
+  .tp-grounded a { color: inherit; }
+
+  /* ---- 2. SUMMARY STRIP ------------------------------------------------- */
+  .tp-sum {
+    display: grid; gap: var(--sp-3);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    margin-block: var(--sp-4);
+  }
+  .tp-sum > div {
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    background: var(--surface-2);
+    text-align: start;
+  }
+  .tp-sum dt { font-size: var(--step--2); color: var(--text-muted); padding-block: .1em; }
+  .tp-sum dd { margin: 0; font-size: var(--step-1); font-family: var(--font-display); font-weight: 800; padding-block: .06em; }
+  .tp-sum small { display: block; font-size: var(--step--2); color: var(--text-muted); font-weight: 400; font-family: var(--font-body); padding-block: .1em; }
+
+  /* ---- 3. TWO-PANE LAYOUT (desktop) ------------------------------------- */
+  .tp-panes { display: grid; gap: var(--sp-5); align-items: start; }
+  @media (min-width: 1100px) {
+    .tp-panes { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .tp-mapcol { position: sticky; inset-block-start: calc(var(--topbar-h) + var(--safe-t) + var(--sp-4)); }
+  }
+
+  /* ---- 4. MAP ----------------------------------------------------------- */
+  .tp-mapbox { position: relative; }
+  .tp-map-live {
+    inline-size: 100%; block-size: 380px;
+    border: 1px solid var(--border); border-radius: var(--r-md);
+    background: var(--surface-3);
+    overflow: hidden;
+  }
+  @media (min-width: 1100px) { .tp-map-live { block-size: 60svh; } }
+  /* OSM tiles are a light basemap; on the night theme they are toned down
+     rather than inverted, so roads and coastline stay readable. */
+  :root[data-theme="dark"] .tp-map-live .leaflet-tile-pane { filter: brightness(.72) contrast(1.05) saturate(.85); }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tp-map-live .leaflet-tile-pane { filter: brightness(.72) contrast(1.05) saturate(.85); }
+  }
+
+  .tp-map-legend {
+    display: flex; flex-wrap: wrap; gap: var(--sp-3);
+    margin-block-start: var(--sp-2);
+    font-size: var(--step--2); color: var(--text-muted);
+  }
+  .tp-swatch {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+  }
+  .tp-swatch i {
+    inline-size: 12px; block-size: 12px; border-radius: var(--r-full);
+    border: 2px solid var(--surface-2); box-shadow: var(--elev-1);
+    display: inline-block; flex: none;
+  }
+  .tp-d1 { background: var(--trip); }
+  .tp-d2 { background: var(--editorial); }
+  .tp-d3 { background: var(--highlight); }
+  .tp-dloose { background: var(--sand-400); }
+
+  /* Honest list of everything the map cannot show. Never a guessed pin. */
+  .tp-nogeo { margin-block-start: var(--sp-3); }
+  .tp-nogeo ul { list-style: none; margin: var(--sp-2) 0 0; padding: 0; }
+  .tp-nogeo li { padding-block: var(--sp-1); font-size: var(--step--2); color: var(--text-muted); text-align: start; }
+
+  .tp-coords { font-variant-numeric: tabular-nums; unicode-bidi: isolate; }
+
+  /* ---- 5. BOARD --------------------------------------------------------- */
+  /* One day per row on every width: a horizontal board hides days 3+ behind a
+     scroll on the exact screen where the whole plan has to be readable. */
+  .tp-board { display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
+  @media (min-width: 1024px) { .tp-board { grid-auto-flow: row; } }
+
+  .tp-day-stay {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    border: 1px dashed var(--trip-line); border-radius: var(--r-md);
+    background: var(--trip-soft);
+    font-size: var(--step--2);
+    text-align: start;
+  }
+  .tp-day-stay a { color: var(--trip); font-weight: 600; }
+
+  .tp-item { list-style: none; }
+  .tp-item.is-dragging { opacity: .45; }
+  .tp-item.is-flash { background: var(--trip-soft); border-radius: var(--r-md); }
+  /* thumb · body · menu — plus the drag handle column where it is shown */
+  .tp-item .ta-poi { grid-template-columns: 56px minmax(0, 1fr) auto; }
+  @media (min-width: 1024px) and (pointer: fine) {
+    .tp-item .tp-editable { grid-template-columns: auto 56px minmax(0, 1fr) auto; }
+  }
+
+  /* The 44px floor applies to the row's real link, so the clamp has to live on
+     the anchor (a clamp needs -webkit-box on the box that owns the height). */
+  .ta-poi-name > a { display: -webkit-box; min-block-size: 44px; align-content: center; color: inherit; }
+  .ta-poi-name > a:hover { color: var(--accent); }
+  .tp-drag {
+    min-block-size: 44px; min-inline-size: 44px;
+    display: none; place-items: center;
+    border: 0; background: transparent; color: var(--text-muted);
+    border-radius: var(--r-full); cursor: grab; font: inherit;
+  }
+  @media (min-width: 1024px) and (pointer: fine) { .tp-drag { display: grid; } }
+  .tp-drag:hover { background: var(--surface-3); color: var(--text); }
+  .tp-dot { display: block; inline-size: 16px; block-size: 16px; }
+
+  .tp-idx {
+    display: inline-grid; place-items: center;
+    inline-size: 20px; block-size: 20px; border-radius: var(--r-full);
+    background: var(--trip); color: var(--trip-fg);
+    font-family: var(--font-display); font-size: 11px; font-weight: 800;
+    flex: none; margin-inline-end: var(--sp-2);
+  }
+  .tp-namerow { display: flex; align-items: center; gap: 0; min-inline-size: 0; }
+  .tp-namerow > .ta-poi-name { min-inline-size: 0; }
+
+  /* Rail day rows */
+  .tp-rail-day { padding-block: var(--sp-2); border-block-end: 1px solid var(--border); }
+  .tp-rail-day > a { display: block; min-block-size: 44px; align-content: center; color: var(--text); text-decoration: none; font-weight: 600; font-size: var(--step--1); }
+  .tp-rail-day > a:hover { color: var(--accent); }
+  .tp-gap-3 { margin-block-start: var(--sp-3); }
+  .tp-gap-4 { margin-block-start: var(--sp-4); }
+  .tp-gap-2 { margin-block-start: var(--sp-2); }
+  .tp-row-2 { margin-block: var(--sp-2); }
+  .tp-row-3 { margin-block: var(--sp-3); }
+  /* One compact facts line. The score always names its source; we never
+     average across sources into a composite. */
+  .tp-facts {
+    display: block; font-size: var(--step--2); color: var(--text-muted);
+    padding-block: .1em; margin-block-start: var(--sp-1);
+  }
+  .tp-facts b { font-family: var(--font-display); color: var(--text); }
+  /* Provenance is plain text, not a second link: the item name above it is
+     already the link to the source, and a 44px control per row would add
+     ~60px of height to every stop for no new destination. */
+  .tp-src { display: block; font-size: var(--step--2); color: var(--text-muted); padding-block: .1em; }
+  /* Standalone links carry the 44px floor themselves; they are controls, not
+     words inside a sentence. */
+  .tp-nogeo a, .tp-day-stay a, .tp-mapcol .ta-fine a, .ta-map-note a {
+    display: inline-flex; align-items: center; min-block-size: 44px; color: var(--accent);
+  }
+
+  .ta-day-list > .tp-item + .tp-item { border-block-start: 1px solid var(--border); }
+  .ta-day-list.is-over { background: var(--trip-soft); border-radius: var(--r-md); }
+
+  /* ---- 6. TRAYS --------------------------------------------------------- */
+  .tp-tray {
+    padding: var(--sp-3);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    background: var(--surface-2);
+    margin-block-end: var(--sp-4);
+  }
+  .tp-tray-locked { border-color: var(--mango-300); background: var(--mango-100); }
+  :root[data-theme="dark"] .tp-tray-locked { background: var(--surface-3); }
+  .tp-tray h3 { margin: 0 0 var(--sp-2); font-size: var(--step-0); }
+  .tp-tray-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+
+  /* ---- 7. EXPORT -------------------------------------------------------- */
+  .tp-exp { display: grid; gap: var(--sp-3); }
+  .tp-exp-row {
+    display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center;
+    padding-block: var(--sp-2);
+  }
+  .tp-exp-row + .tp-exp-row { border-block-start: 1px solid var(--border); }
+  .tp-exp-row > p { margin: 0; flex: 1 1 14rem; font-size: var(--step--1); color: var(--text-muted); text-align: start; }
+  .tp-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+
+  .tp-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block: var(--sp-4); }
+
+  textarea.tp-io {
+    inline-size: 100%; min-block-size: 8rem;
+    padding: var(--sp-3);
+    border: 1px solid var(--border-strong); border-radius: var(--r-md);
+    background: var(--surface); color: var(--text);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: var(--step--2);
+    text-align: start;
+  }
+
+  /* ---- 8. PRINT — a genuinely good A4 page, one day per page ------------ */
+  .tp-print { display: none; }
+
+  @media print {
+    @page { size: A4; margin: 14mm; }
+
+    .ta-topbar, .ta-tabbar, .ta-rail, .ta-skip, .ta-toast,
+    .tp-mapcol, .tp-actions, .ta-tablist, .tp-exp, .tp-drag,
+    .ta-poi-menu, .ta-day-add, .ta-sheet, .tp-noprint { display: none !important; }
+
+    body { padding: 0; background: #fff; color: #000; }
+    .ta-main { padding-block-start: 0; }
+    .ta-wrap { inline-size: 100%; }
+    [role="tabpanel"][hidden] { display: block !important; }
+    .tp-panes { display: block; }
+
+    .ta-day {
+      break-inside: avoid;
+      break-after: page;
+      border: 0; padding: 0;
+      margin-block-end: 0;
+    }
+    .ta-day:last-of-type { break-after: auto; }
+    .ta-day-head { border-block-end: 1px solid #000; }
+    .ta-poi-thumb, .tp-idx { display: none; }
+    .ta-poi { grid-template-columns: 1fr; gap: var(--sp-1); }
+    .ta-leg { padding-inline-start: 0; color: #444; }
+
+    .tp-print { display: block; font-size: 10pt; line-height: 1.6; color: #222; }
+    .tp-print b { font-weight: 600; }
+    .tp-print .tp-print-url { word-break: break-all; font-size: 8.5pt; color: #444; }
+    .tp-item { border-block-end: 1px solid #ddd; padding-block: 6pt; }
+    .tp-print-head { display: block !important; margin-block-end: 8pt; font-size: 9pt; color: #444; }
+  }
+  .tp-print-head { display: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="ta-skip" href="#main">Skip to main content</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.75v14.5M4.75 12h14.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.75 12.5 4.75 4.75L19.25 6.75"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/><path d="m9 10.7 6-3.4M9 13.3l6 3.4"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="home">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="Main menu">
+    <a href="home">Explore</a>
+    <a href="krabi">Places</a>
+    <a href="trip" aria-current="page">Trip <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">Search</label>
+    <input id="q-desk" type="search" name="q" placeholder="Stays, restaurants, destinations">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>EN</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <div class="ta-wrap">
+
+    <p class="ta-proto-flag tp-noprint">Prototype — not linked from the live site and not in any sitemap</p>
+
+    <!-- ================= TRIP HEADER ================= -->
+    <section class="tp-head">
+      <span class="eyebrow">Your trip</span>
+      <h1 id="tpTitleText">Krabi in 3 days</h1>
+
+      <div class="tp-head-meta">
+        <span class="ta-chip ta-chip-trip" id="tpProvChip">Provinces in this trip: Krabi</span>
+        <span class="ta-chip" id="tpPaxChip">2 adults</span>
+        <span class="ta-chip" id="tpDateChip">No dates set — the first day is simply “Day 1”</span>
+      </div>
+
+      <form class="tp-title-form js-only" id="tpPrefs" novalidate>
+        <label class="tp-field">
+          <span>Trip name</span>
+          <input type="text" id="tpTitle" name="title" value="Krabi in 3 days" autocomplete="off">
+        </label>
+        <label class="tp-field">
+          <span>Start date (optional)</span>
+          <input type="date" id="tpStart" name="start">
+        </label>
+        <label class="tp-field">
+          <span>Adults</span>
+          <select id="tpPax" name="pax">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </label>
+      </form>
+
+      <p class="tp-grounded" id="tpGrounded">
+        <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-check"></use></svg>
+        <span>Every stop here comes from a review or guide we wrote ourselves — <b>12 of 12 stops</b>. Tap a name to read the source.</span>
+      </p>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <dl class="tp-sum" id="tpSum">
+      <div>
+        <dt>Stops planned</dt>
+        <dd><span class="ta-num">12</span> stops</dd>
+        <small>across 3 days</small>
+      </div>
+      <div>
+        <dt>Total distance</dt>
+        <dd><span class="ta-num">111.7</span> km</dd>
+        <small>estimate (straight line × road factor)</small>
+      </div>
+      <div>
+        <dt>Time on the road</dt>
+        <dd>~<span class="ta-num">2</span> h <span class="ta-num">49</span>m</dd>
+        <small>estimate · boat waits not included</small>
+      </div>
+      <div>
+        <dt>Food and entry</dt>
+        <dd>about <span class="ta-num">฿1,121–2,800</span></dd>
+        <small>per person · excludes stays, flights and local transport</small>
+      </div>
+      <div>
+        <dt>Stays, 2 nights</dt>
+        <dd>From <span class="ta-num">฿14,800</span></dd>
+        <small>per room · the from-price recorded in our own reviews</small>
+      </div>
+    </dl>
+
+    <!-- ================= SEGMENTED CONTROL ================= -->
+    <div class="ta-tablist" role="tablist" aria-label="Trip views">
+      <a role="tab" href="#p-days" id="tab-days" aria-controls="p-days" aria-selected="true">Day plan <span class="ta-fac-count" data-count-days>12</span></a>
+      <a role="tab" href="#p-saved" id="tab-saved" aria-controls="p-saved" aria-selected="false" tabindex="-1">Saved <span class="ta-fac-count" data-count-saved>4</span></a>
+      <a role="tab" href="#p-export" id="tab-export" aria-controls="p-export" aria-selected="false" tabindex="-1">Use it</a>
+    </div>
+
+    <!-- ================= PANEL: DAYS ================= -->
+    <section role="tabpanel" id="p-days" aria-labelledby="tab-days" tabindex="0">
+      <div class="tp-panes">
+
+        <!-- ---- LIST ---- -->
+        <div class="tp-listcol">
+          <p class="ta-flag ta-flag-unknown tp-noprint js-only" id="tpDragHint">
+            Drag a card to reorder it, or press the ⋮ button on any stop and choose “Move up / Move down / Move to day…” — the same works from the keyboard or by voice control (Alt + Up/Down arrow).
+          </p>
+
+          <p class="tp-print-head">
+            Krabi in 3 days · planned on thailandaddict.com · times and distances are estimates
+          </p>
+
+          <div class="tp-board" id="tpBoard">
+
+            <!-- ---------- DAY 1 (static = the no-JS truth; JS re-renders it) ---------- -->
+            <section class="ta-day" id="day-d1">
+              <header class="ta-day-head">
+                <h2 class="ta-day-title">Day 1</h2>
+                <span class="ta-chip">Krabi Town</span>
+                <p class="ta-day-roll">5 stops · 15.3 km · travel ~27 min · time at stops ~7 h 15 min · food and entry about ฿391–1,000 per person</p>
+                <p class="ta-flag ta-flag-ok">The stops today sit sensibly close — furthest apart ~7.6 km</p>
+                <p class="tp-day-stay">
+                  <span>Tonight you stay at</span>
+                  <a href="/en/review-the-chill-at-krabi-hotel-krabi">The Chill at Krabi Hotel</a>
+                  <span class="ta-score"><b>9.2</b> <span class="ta-score-src">Booking · 56 reviews</span></span>
+                  <span class="ta-chip">From <span class="ta-num">฿900</span> / night</span>
+                  <span class="ta-flag ta-flag-unknown">No coordinates on file yet — see the address in the review</span>
+                </p>
+              </header>
+
+              <ul class="ta-day-list">
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/wat-tham-suea.jpg" alt="Wat Tham Suea, Krabi" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r3">Wat Tham Suea (Tiger Cave Temple)</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Krabi Noi · about 2 h</span>
+                      <span class="ta-flag ta-flag-ok">Open 05:00–18:00 daily</span>
+                      <span class="tp-facts">Free (donation box) · <b>4.3</b> Wongnai · 42 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Wat Tham Suea (Tiger Cave Temple)</b> — วัดถ้ำเสือ · Krabi Noi (outside town)<br>
+                    Open 05:00–18:00 daily · Free (donation box) · coordinates <span class="tp-coords">8.12612, 98.92332</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.12612,98.92332</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~5–10 min · 5.5 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r1">Kotung</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">Eat · Krabi Town · about 1 h</span>
+                      <span class="ta-flag ta-flag-ok">Open 11:00–22:00 daily</span>
+                      <span class="tp-facts">฿120–250 per dish · <b>4.5</b> Google · 861 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular restaurants · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Kotung</b> — โกตุง (Kotung) · Maharaj Road, Krabi Town<br>
+                    Open 11:00–22:00 daily · ฿120–250 per dish · coordinates <span class="tp-coords">8.097937, 98.899776</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.097937,98.899776</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~5–10 min · 5.3 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r1-0.jpg" alt="Black Crab Square on the Krabi riverfront" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r1">Black Crab Square (Black Crab Monument)</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Krabi Town, riverside · about 45 min</span>
+                      <span class="ta-flag ta-flag-ok">Open daily, any time (public square)</span>
+                      <span class="tp-facts">Free · <b>4.5</b> Google · 3,033 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Black Crab Square (Black Crab Monument)</b> — ลานปูดำ (อนุสาวรีย์ปูดำ) · Krabi Town, riverside<br>
+                    Open daily, any time · Free · coordinates <span class="tp-coords">8.067209, 98.917135</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.067209,98.917135</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~2–7 min · 1.6 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r2-0.jpg" alt="Khao Khanab Nam at the Krabi river mouth" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r2">Khao Khanab Nam</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Krabi river mouth · about 2 h</span>
+                      <span class="ta-flag ta-flag-ok">Open daily (best mid-morning to noon)</span>
+                      <span class="tp-facts">Free entry (boat ~฿170–500) · <b>4.5</b> Google · 621 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Khao Khanab Nam</b> — เขาขนาบน้ำ · Krabi river mouth<br>
+                    Open daily · Free entry (boat ~฿170–500) · coordinates <span class="tp-coords">8.077401, 98.920637</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.077401,98.920637</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~5–10 min · 2.9 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r7">Baitoey Seafood</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">Eat · Old Town, Krabi riverside · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-ok">Open 10:00–22:00 daily</span>
+                      <span class="tp-facts">฿101–250 per person · <b>4.5</b> Google · 1,170 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular restaurants · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Baitoey Seafood</b> — ใบเตย (Baitoey Seafood) · Kongka Road on the Krabi riverfront<br>
+                    Open 10:00–22:00 daily · ฿101–250 per person · coordinates <span class="tp-coords">8.057999, 98.91981</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.057999,98.91981</span>
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+            <!-- ---------- DAY 2 ---------- -->
+            <section class="ta-day" id="day-d2">
+              <header class="ta-day-head">
+                <h2 class="ta-day-title">Day 2</h2>
+                <span class="ta-chip">Ao Nang · Railay</span>
+                <p class="ta-day-roll">4 stops · 10.5 km · travel ~20 min · time at stops ~8 h 30 min · food and entry about ฿450–950 per person</p>
+                <p class="ta-flag ta-flag-ok">The stops today sit sensibly close — furthest apart ~5.6 km</p>
+                <p class="tp-day-stay">
+                  <span>Tonight you stay at</span>
+                  <a href="/en/review-rayavadee-krabi">Rayavadee</a>
+                  <span class="ta-score"><b>9.4</b> <span class="ta-score-src">Booking · 812 reviews</span></span>
+                  <span class="ta-chip">From <span class="ta-num">฿13,900</span> / night</span>
+                  <span class="ta-flag ta-flag-unknown">No coordinates on file yet — see the address in the review</span>
+                </p>
+              </header>
+
+              <ul class="ta-day-list">
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r4-0.jpg" alt="Railay Beach, Krabi" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r4">Railay Beach</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Railay Peninsula · about 4 h</span>
+                      <span class="ta-flag ta-flag-ok">Open daily (boat access only)</span>
+                      <span class="tp-facts">Free entry (boat ~฿100–150 per person) · <b>4.5</b> Google</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Railay Beach</b> — หาดไร่เลย์ (Railay Beach) · Railay Peninsula<br>
+                    Boat access only · Free entry (boat ~฿100–150 per person) · coordinates <span class="tp-coords">8.012616, 98.837196</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.012616,98.837196</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~5–10 min · 4.5 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r3">Lae Lay Grill</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">Eat · Ao Nang · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-warn">Closed Wednesdays — this trip has no dates yet; set a start date and we will check it for you</span>
+                      <span class="tp-facts">฿250–500 per person · <b>4.4</b> Google · 1,619 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular restaurants · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Lae Lay Grill</b> — Lae Lay Grill (แล เล กริลล์) · Ao Nang<br>
+                    Open 11:00–22:00 daily (closed Wednesdays) · ฿250–500 per person · coordinates <span class="tp-coords">8.038371, 98.821625</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.038371,98.821625</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~5–10 min · 3.8 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r9-0.jpg" alt="Nopparat Thara Beach, Krabi" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r9">Nopparat Thara Beach</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Ao Nang · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-ok">Open 24 hours, daily</span>
+                      <span class="tp-facts">Free entry (national park fee applies only for island trips) · <b>4.5</b> Google · 815 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Nopparat Thara Beach</b> — หาดนพรัตน์ธารา · Ao Nang<br>
+                    Open 24 hours, daily · Free entry · coordinates <span class="tp-coords">8.043653, 98.796833</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.043653,98.796833</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~2–7 min · 2.2 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r6">Ao Nang Landmark Night Market</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Ao Nang · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-ok">Open daily, roughly 16:00–23:00 (busiest after 18:00)</span>
+                      <span class="tp-facts">Free entry · budget ฿100–300 · <b>4.4</b> Google · 7,270 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Ao Nang Landmark Night Market</b> — อ่าวนางแลนด์มาร์ค · Ao Nang<br>
+                    Open roughly 16:00–23:00 · Free entry · budget ฿100–300 · coordinates <span class="tp-coords">8.042572, 98.8115</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.042572,98.8115</span>
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+            <!-- ---------- DAY 3 ---------- -->
+            <section class="ta-day" id="day-d3">
+              <header class="ta-day-head">
+                <h2 class="ta-day-title">Day 3</h2>
+                <span class="ta-chip">Khlong Thom · Khaothong</span>
+                <p class="ta-day-roll">3 stops · 85.9 km · travel ~2 h 3 min · time at stops ~7 h · food and entry about ฿280–850 per person</p>
+                <p class="ta-flag ta-flag-stop">The stops today are far apart — furthest ~63 km (the Emerald Pool ↔ Khaothong Hill) allow for time in the car, or move a stop to another day</p>
+              </header>
+
+              <ul class="ta-day-list">
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r5-0.jpg" alt="Emerald Pool, Khlong Thom, Krabi" width="56" height="56" loading="lazy" decoding="async"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r5">Emerald Pool and Hot Springs, Khlong Thom</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">See · Khlong Thom · about 4 h</span>
+                      <span class="ta-flag ta-flag-ok">Open 08:30–16:30 daily</span>
+                      <span class="tp-facts">฿20–200 · <b>4.3</b> Google · 13,705 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular attractions · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Emerald Pool and Hot Springs, Khlong Thom</b> — สระมรกตและน้ำตกร้อน คลองท่อม<br>
+                    Open 08:30–16:30 daily · ฿20–200 · coordinates <span class="tp-coords">7.925077, 99.268151</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=7.925077,99.268151</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~70–110 min · 62.4 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r4">Ruenmai</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">Eat · Sai Thai (on the way to Ao Nang) · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-ok">Open 10:30–15:00 and 17:00–21:00 daily</span>
+                      <span class="tp-facts">฿200–400 per person · <b>4.7</b> Google · 1,692 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular restaurants · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Ruenmai</b> — ร้านอาหารเรือนไม้ (Ruenmai) · Sai Thai (on the way to Ao Nang)<br>
+                    Open 10:30–15:00 and 17:00–21:00 · ฿200–400 per person · coordinates <span class="tp-coords">8.0880795, 98.8823363</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.0880795,98.8823363</span>
+                  </p>
+                </li>
+
+                <li class="ta-leg"><span>~25–40 min · 23.5 km · drive</span> <span class="ta-leg-method">estimate (straight line)</span></li>
+
+                <li class="tp-item">
+                  <div class="ta-poi">
+                    <span class="ta-poi-thumb"></span>
+                    <span class="ta-poi-main">
+                      <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r8">Khaothong Hill</a></span>
+                      <span class="ta-poi-sub ta-clamp-2">Eat · Khaothong · about 1 h 30 min</span>
+                      <span class="ta-flag ta-flag-ok">Open 11:00–20:00 daily</span>
+                      <span class="tp-facts">฿60–250 per person · <b>4.6</b> Google · 5,779 reviews</span>
+                      <span class="tp-src">from Krabi’s 10 most popular restaurants · updated June 2026</span>
+                    </span>
+                  </div>
+                  <p class="tp-print">
+                    <b>Khaothong Hill</b> — เขาทองฮิลล์ (Khaothong Hill) · Khaothong<br>
+                    Open 11:00–20:00 daily · ฿60–250 per person · coordinates <span class="tp-coords">8.173019, 98.749279</span><br>
+                    <span class="tp-print-url">https://www.google.com/maps/search/?api=1&amp;query=8.173019,98.749279</span>
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+          </div><!-- /#tpBoard -->
+
+          <div class="tp-actions tp-noprint js-only">
+            <button class="ta-btn ta-btn-ghost" type="button" id="tpAddDay">＋ Add a day</button>
+            <button class="ta-btn ta-btn-ghost" type="button" data-sheet="taManage">Manage trip</button>
+          </div>
+        </div><!-- /.tp-listcol -->
+
+        <!-- ---- MAP ---- -->
+        <div class="tp-mapcol tp-noprint">
+          <div class="ta-sec-head">
+            <h2>Map</h2>
+            <span class="ta-fine" id="tpGeoCount">Real coordinates for 12 of 14 stops</span>
+          </div>
+
+          <div class="tp-mapbox">
+            <!-- Leaflet sits behind an explicit button: it costs ~200 KB plus a
+                 tile context, and a map is not why most readers open this page. -->
+            <div class="ta-map" id="tpMapPlaceholder">
+              <p class="ta-map-note">The interactive map pulls data from an outside map provider, so it only loads when you ask for it.</p>
+              <button class="ta-btn ta-btn-primary js-only" type="button" id="tpShowMap">Show map</button>
+              <p class="ta-map-note nojs-only">JavaScript is off — the real coordinates for every stop are listed below; tap one to open it in Google Maps.</p>
+            </div>
+            <div class="tp-map-live" id="tpMap" dir="ltr" hidden></div>
+          </div>
+
+          <ul class="tp-map-legend">
+            <li class="tp-swatch"><i class="tp-d1"></i> Day 1</li>
+            <li class="tp-swatch"><i class="tp-d2"></i> Day 2</li>
+            <li class="tp-swatch"><i class="tp-d3"></i> Day 3</li>
+            <li class="tp-swatch"><i class="tp-dloose"></i> Saved, not yet on a day</li>
+          </ul>
+
+          <div class="tp-nogeo" id="tpNoGeo">
+            <p class="ta-flag ta-flag-unknown">Two items have no coordinates on file — we do not guess a position</p>
+            <ul>
+              <li>The Chill at Krabi Hotel — stay for night 1 · see the address in the <a href="/en/review-the-chill-at-krabi-hotel-krabi">review</a></li>
+              <li>Rayavadee — stay for night 2 · see the address in the <a href="/en/review-rayavadee-krabi">review</a></li>
+            </ul>
+          </div>
+
+          <p class="ta-fine tp-gap-3">
+            Every coordinate comes from our own guides — <a href="/en/top10-attractions-krabi">Krabi’s 10 most popular attractions</a>
+            and <a href="/en/top10-popular-restaurants-krabi">Krabi’s 10 most popular restaurants</a> · updated June 2026
+          </p>
+        </div>
+
+      </div><!-- /.tp-panes -->
+    </section>
+
+    <!-- ================= PANEL: SAVED ================= -->
+    <section role="tabpanel" id="p-saved" aria-labelledby="tab-saved" tabindex="0" hidden>
+
+      <div class="tp-tray" id="tpTrayIn">
+        <h2 class="ta-day-title">Saved inside this trip’s provinces</h2>
+        <p class="ta-fine">Already in Krabi but not on a day yet — use “Add to a day…” to place it</p>
+        <ul class="ta-day-list" id="tpTrayInList">
+          <li class="tp-item">
+            <div class="ta-poi">
+              <span class="ta-poi-thumb"></span>
+              <span class="ta-poi-main">
+                <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r10">May &amp; Mark's House</a></span>
+                <span class="ta-poi-sub ta-clamp-2">Eat · Krabi Town · Open 08:00–21:00 daily</span>
+                <span class="tp-facts">฿100–250 per person · <b>4.4</b> Google · 1,016 reviews</span>
+              </span>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="ta-poi">
+              <span class="ta-poi-thumb"></span>
+              <span class="ta-poi-main">
+                <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-popular-restaurants-krabi#r6">Ko Joi</a></span>
+                <span class="ta-poi-sub ta-clamp-2">Eat · Nuea Khlong · Open 06:00–18:00 daily (Nuea Khlong branch)</span>
+                <span class="tp-facts">฿30–220 per set · <b>4.0</b> Wongnai · 202 reviews</span>
+              </span>
+            </div>
+          </li>
+          <li class="tp-item">
+            <div class="ta-poi">
+              <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r7-0.jpg" alt="Wat Mahathat Wachira Mongkol, Krabi" width="56" height="56" loading="lazy" decoding="async"></span>
+              <span class="ta-poi-main">
+                <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/top10-attractions-krabi#r7">Wat Mahathat Wachira Mongkol (Wat Bang Thong)</a></span>
+                <span class="ta-poi-sub ta-clamp-2">See · Ao Luek · Open 08:00–18:00 daily</span>
+                <span class="tp-facts">Free for Thais / ~฿50 for foreign visitors · <b>4.7</b> Google · 5,203 reviews</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Province lock: saved items outside the trip's provinces are SHOWN,
+           never silently inserted into a day. §6.4 fix ② -->
+      <div class="tp-tray tp-tray-locked" id="tpTrayOut">
+        <h2 class="ta-day-title">Saved, but not part of this trip <span id="tpOutCount">(1)</span></h2>
+        <p class="ta-fine">This trip is scoped to <b>Krabi</b> — the items below are in another province, so we never drop them into a day on your behalf</p>
+        <ul class="ta-day-list" id="tpTrayOutList">
+          <li class="tp-item">
+            <div class="ta-poi">
+              <span class="ta-poi-thumb"><img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg" alt="137 Pillars House Chiang Mai" width="56" height="56" loading="lazy" decoding="async"></span>
+              <span class="ta-poi-main">
+                <span class="ta-poi-name"><a class="ta-clamp-2" href="/en/review-137-pillars-house-chiang-mai">137 Pillars House</a></span>
+                <span class="ta-poi-sub ta-clamp-2">Stay · Chiang Mai · Ping River, Wat Gate</span>
+                <span class="ta-flag ta-flag-warn">In Chiang Mai — about 1,100 km from Krabi</span>
+                      <span class="tp-facts">From ฿18,000 / night · <b>9.5</b> Booking · 51 reviews</span>
+                      <span class="tp-src">from our review</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <p class="tp-tray-row js-only tp-gap-3">
+          <button class="ta-btn ta-btn-ghost" type="button" data-add-province="chiang-mai">Add Chiang Mai to this trip</button>
+        </p>
+      </div>
+
+      <div class="tp-tray js-only" id="tpTrayOrphan" hidden>
+        <h2 class="ta-day-title">Older items we could not match yet</h2>
+        <p class="ta-fine">From an earlier list — we never delete them, we just do not know which place they are yet</p>
+        <ul class="ta-day-list" id="tpTrayOrphanList"></ul>
+      </div>
+    </section>
+
+    <!-- ================= PANEL: EXPORT ================= -->
+    <section role="tabpanel" id="p-export" aria-labelledby="tab-export" tabindex="0" hidden>
+      <p class="ta-note">Everything on this tab is free, with no sign-up and no email gate — printing and offline use included.</p>
+
+      <div class="tp-exp">
+
+        <div class="tp-exp-row">
+          <p><b>Open the route in Google Maps</b><br>
+            One link per day, split into legs of at most 3 waypoints on mobile and 9 on desktop — a longer URL fails silently.</p>
+          <div class="tp-links" id="tpMapLinks">
+            <a class="ta-btn ta-btn-ghost no-prerender" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/dir/?api=1&amp;origin=8.12612,98.92332&amp;destination=8.057999,98.91981&amp;waypoints=8.097937,98.899776%7C8.067209,98.917135%7C8.077401,98.920637&amp;travelmode=driving">Day 1 (5 stops)</a>
+            <a class="ta-btn ta-btn-ghost no-prerender" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/dir/?api=1&amp;origin=8.012616,98.837196&amp;destination=8.042572,98.8115&amp;waypoints=8.038371,98.821625%7C8.043653,98.796833&amp;travelmode=driving">Day 2 (4 stops)</a>
+            <a class="ta-btn ta-btn-ghost no-prerender" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/dir/?api=1&amp;origin=7.925077,99.268151&amp;destination=8.173019,98.749279&amp;waypoints=8.0880795,98.8823363&amp;travelmode=driving">Day 3 (3 stops)</a>
+          </div>
+        </div>
+
+        <div class="tp-exp-row js-only">
+          <p><b>Calendar file (.ics)</b><br>
+            <span id="tpIcsNote">This trip has no dates yet — set a start date above and we will build the file in the plan’s real order.</span></p>
+          <div class="tp-links">
+            <button class="ta-btn ta-btn-ghost" type="button" id="tpIcs" aria-disabled="true">Download .ics</button>
+          </div>
+        </div>
+
+        <div class="tp-exp-row js-only">
+          <p><b>Copy as text</b><br>
+            For forwarding into a chat — names, opening hours, distances and map links in one message.</p>
+          <div class="tp-links">
+            <button class="ta-btn ta-btn-ghost" type="button" id="tpCopy">Copy the whole plan</button>
+          </div>
+        </div>
+
+        <div class="tp-exp-row">
+          <p><b>Print / save as PDF</b><br>
+            A real A4 page, one day per sheet, with Thai and English names, opening hours, coordinates and map links — no navigation, no ads.</p>
+          <div class="tp-links">
+            <button class="ta-btn ta-btn-ghost js-only" type="button" id="tpPrint">Print this plan</button>
+            <span class="ta-fine nojs-only">Use your browser’s own print command</span>
+          </div>
+        </div>
+
+        <div class="tp-exp-row js-only">
+          <p><b>Back up as a JSON file</b><br>
+            This trip lives in this browser only — nobody else can see it and we do not keep it on a server. Download a copy before you clear your cache.</p>
+          <div class="tp-links">
+            <button class="ta-btn ta-btn-ghost" type="button" id="tpExport">Download the trip file</button>
+            <button class="ta-btn ta-btn-ghost" type="button" data-sheet="taImport">Import a trip file</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="Your trip" data-open>
+  <button class="ta-rail-toggle" type="button" data-rail-toggle
+          aria-expanded="true" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">Your trip</span>
+  </button>
+
+  <div class="ta-rail-body" id="taRailBody">
+    <p class="ta-fine" data-trip-count-label>0 items in your trip</p>
+
+    <div class="ta-tablist" role="tablist" aria-label="Jump to a day" id="tpRailTabs">
+      <a role="tab" href="#day-d1" id="rt-1" aria-controls="day-d1" aria-selected="true">Day 1</a>
+      <a role="tab" href="#day-d2" id="rt-2" aria-controls="day-d2" aria-selected="false" tabindex="-1">Day 2</a>
+      <a role="tab" href="#day-d3" id="rt-3" aria-controls="day-d3" aria-selected="false" tabindex="-1">Day 3</a>
+    </div>
+
+    <ul class="ta-day-list" data-rail-list></ul>
+
+    <div class="ta-rail-drop">Drop a card here to take it off its day and keep it for later</div>
+
+    <p class="tp-gap-4">
+      <a class="ta-btn ta-btn-quiet ta-btn-block" href="#p-export">Export / print</a>
+    </p>
+  </div>
+</aside>
+
+<nav class="ta-tabbar" aria-label="Main">
+  <a class="ta-tab" href="home" data-tab="explore">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Explore</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Places</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Search</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip" aria-current="page">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>Trip</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>More</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">Display</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>Theme</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>System</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>Language</span>
+  </button>
+
+  <hr>
+
+  <a href="trip">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span>My trip</span>
+  </a>
+  <a href="/en/near-me">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Near me</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>Install as an app</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="../trip" hreflang="th">ไทย</a>
+  <a href="trip" hreflang="en" aria-current="true">English</a>
+</div>
+
+<!-- ================= SHEETS ================= -->
+
+<dialog class="ta-sheet" id="taItemMenu" aria-labelledby="taItemMenuTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taItemMenuTitle">Options for this stop</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body" id="taItemMenuBody"></div>
+</dialog>
+
+<dialog class="ta-sheet" id="taAddPoi" aria-labelledby="taAddPoiTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taAddPoiTitle">Add a stop to this day</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body" id="taAddPoiBody"></div>
+</dialog>
+
+<dialog class="ta-sheet" id="taManage" aria-labelledby="taManageTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taManageTitle">Manage trip</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="ta-fine">This trip lives in this browser only. Nobody else can see it, and we do not keep it on a server.</p>
+    <p class="tp-gap-4">
+      <button class="ta-btn ta-btn-ghost ta-btn-block" type="button" id="tpSeed">Reload the sample “Krabi in 3 days”</button>
+    </p>
+    <p class="tp-gap-3">
+      <button class="ta-btn ta-btn-ghost ta-btn-block" type="button" id="tpReset">Start an empty trip (clear everything)</button>
+    </p>
+    <p class="ta-flag ta-flag-warn tp-gap-3" id="tpResetWarn" hidden>
+      Clearing cannot be undone unless you have downloaded a backup file
+    </p>
+    <p class="tp-gap-2" id="tpResetConfirmRow" hidden>
+      <button class="ta-btn ta-btn-primary" type="button" id="tpResetConfirm">Yes, clear the trip</button>
+      <button class="ta-btn ta-btn-ghost" type="button" id="tpResetCancel">Cancel</button>
+    </p>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="taImport" aria-labelledby="taImportTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taImportTitle">Import a trip file</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="ta-fine">Paste the contents of a downloaded JSON file and press Import — the current trip will be replaced.</p>
+    <label class="ta-sr" for="tpImportText">Trip file contents</label>
+    <textarea class="tp-io" id="tpImportText" spellcheck="false"></textarea>
+    <p class="ta-flag ta-flag-stop" id="tpImportErr" hidden></p>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>Cancel</button>
+    <button class="ta-btn ta-btn-primary" type="button" id="tpImportGo">Import</button>
+  </div>
+</dialog>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* ==========================================================================
+   TRIP PLANNER — prototype page script.
+   No inline on* handlers anywhere; every listener is delegated or attached
+   here, exactly like shell.js. Runs on DOMContentLoaded so the deferred
+   shell.js has already defined window.TA.
+
+   Every value in POI[] below is copied from a real file in this repo:
+     astro/src/content/articles/top10-attractions-krabi.json      (lat/lng/hours/price/rating)
+     astro/src/content/articles/top10-popular-restaurants-krabi.json
+     astro/src/content/reviews/review-*.json                      (score/ratingCount/qiPrice/heroImg)
+   Nothing here is invented. Where a field does not exist in the source it is
+   null, and the UI renders the unknown state rather than a guess.
+   ====================================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  var D = document, W = window, TA = W.TA;
+  if (!TA) return;
+
+  var LANG = 'en';
+  var A_URL = '/en/top10-attractions-krabi.html';
+  var E_URL = '/en/top10-popular-restaurants-krabi.html';
+  var SRC_A = { label: 'Krabi’s 10 most popular attractions', href: A_URL, date: 'June 2026' };
+  var SRC_E = { label: 'Krabi’s 10 most popular restaurants', href: E_URL, date: 'June 2026' };
+
+  /* Images are referenced relative so the prototype renders from file:// too;
+     the saved record keeps the production-absolute path. */
+  function img(p) { return p ? ('../../' + p.replace(/^\//, '')) : ''; }
+
+  var POI = [
+    /* --- stays: astro/src/content/reviews/review-*.json --------------- */
+    { id: 's:the-chill-at-krabi-hotel-krabi', kind: 'stay',
+      name: 'The Chill at Krabi Hotel', nameEn: 'The Chill at Krabi Hotel',
+      url: '/en/review-the-chill-at-krabi-hotel-krabi.html',
+      img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-thechill-1.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Pak Nam · Krabi Town',
+      lat: null, lng: null, hours: null, closedDays: [],
+      priceText: 'From ฿900 / night', costMin: null, costMax: null,
+      score: 9.2, scoreSrc: 'Booking', ratingCount: 56, durMin: null,
+      src: { label: 'our review', href: '/en/review-the-chill-at-krabi-hotel-krabi.html', date: null } },
+
+    { id: 's:rayavadee-krabi', kind: 'stay',
+      name: 'Rayavadee', nameEn: 'Rayavadee',
+      url: '/en/review-rayavadee-krabi.html',
+      img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Railay headland · Phra Nang beach',
+      lat: null, lng: null, hours: null, closedDays: [],
+      priceText: 'From ฿13,900 / night', costMin: null, costMax: null,
+      score: 9.4, scoreSrc: 'Booking', ratingCount: 812, durMin: null,
+      src: { label: 'our review', href: '/en/review-rayavadee-krabi.html', date: null } },
+
+    { id: 's:banyan-tree-krabi', kind: 'stay',
+      name: 'Banyan Tree Krabi', nameEn: 'Banyan Tree Krabi',
+      url: '/en/review-banyan-tree-krabi.html',
+      img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-banyantree-1.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Tubkaek Beach · Nong Thale',
+      lat: 8.1461, lng: 98.7355, hours: null, closedDays: [],
+      priceText: 'From ฿13,000 / night', costMin: null, costMax: null,
+      score: 9.3, scoreSrc: 'Booking', ratingCount: 213, durMin: null,
+      src: { label: 'our review', href: '/en/review-banyan-tree-krabi.html', date: null } },
+
+    { id: 's:whalecome-aonang-resort-krabi', kind: 'stay',
+      name: 'Whalecome Aonang Resort', nameEn: 'Whalecome Aonang Resort',
+      url: '/en/review-whalecome-aonang-resort-krabi.html',
+      img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-whalecome-1.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Ao Nang Soi 6',
+      lat: null, lng: null, hours: null, closedDays: [],
+      priceText: 'From ฿900 / night', costMin: null, costMax: null,
+      score: 9.3, scoreSrc: 'Booking', ratingCount: 168, durMin: null,
+      src: { label: 'our review', href: '/en/review-whalecome-aonang-resort-krabi.html', date: null } },
+
+    { id: 's:137-pillars-house-chiang-mai', kind: 'stay',
+      name: '137 Pillars House', nameEn: '137 Pillars House',
+      url: '/en/review-137-pillars-house-chiang-mai.html',
+      img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg',
+      province: 'chiang-mai', provinceTh: 'Chiang Mai', zone: 'Ping River · Wat Gate',
+      lat: null, lng: null, hours: null, closedDays: [],
+      priceText: 'From ฿18,000 / night', costMin: null, costMax: null,
+      score: 9.5, scoreSrc: 'Booking', ratingCount: 51, durMin: null,
+      src: { label: 'our review', href: '/en/review-137-pillars-house-chiang-mai.html', date: null } },
+
+    /* --- attractions: top10-attractions-krabi.json -------------------- */
+    { id: 'a:krabi-lan-poo-dam', kind: 'see', rank: 1,
+      name: 'Black Crab Square (Black Crab Monument)', nameEn: 'ลานปูดำ (อนุสาวรีย์ปูดำ)',
+      url: A_URL + '#r1', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r1-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Town, riverside',
+      lat: 8.067209, lng: 98.917135,
+      hours: 'Open daily, any time (public square)', closedDays: [],
+      priceText: 'Free', costMin: 0, costMax: 0,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 3033, durMin: 45, src: SRC_A },
+
+    { id: 'a:krabi-khao-khanab-nam', kind: 'see', rank: 2,
+      name: 'Khao Khanab Nam', nameEn: 'เขาขนาบน้ำ',
+      url: A_URL + '#r2', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r2-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi river mouth',
+      lat: 8.077401, lng: 98.920637,
+      hours: 'Open daily (best mid-morning to noon)', closedDays: [],
+      priceText: 'Free entry (boat ~฿170–500)', costMin: 170, costMax: 500,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 621, durMin: 120, src: SRC_A },
+
+    { id: 'a:krabi-wat-tham-suea', kind: 'see', rank: 3,
+      name: 'Wat Tham Suea (Tiger Cave Temple)', nameEn: 'วัดถ้ำเสือ',
+      url: A_URL + '#r3', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/wat-tham-suea.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Noi (outside town)',
+      lat: 8.12612, lng: 98.92332,
+      hours: '05:00–18:00 daily', closedDays: [],
+      priceText: 'Free (donation box)', costMin: 0, costMax: 0,
+      score: 4.3, scoreSrc: 'Wongnai', ratingCount: 42, durMin: 120, src: SRC_A },
+
+    { id: 'a:krabi-railay-beach', kind: 'see', rank: 4,
+      name: 'Railay Beach', nameEn: 'หาดไร่เลย์ (Railay Beach)',
+      url: A_URL + '#r4', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r4-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Railay Peninsula',
+      lat: 8.012616, lng: 98.837196,
+      hours: 'Open daily (boat access only)', closedDays: [],
+      priceText: 'Free entry (boat ~฿100–150 per person)', costMin: 100, costMax: 150,
+      score: 4.5, scoreSrc: 'Google', ratingCount: null, durMin: 240, src: SRC_A },
+
+    { id: 'a:krabi-emerald-pool', kind: 'see', rank: 5,
+      name: 'Emerald Pool and Hot Springs, Khlong Thom', nameEn: 'สระมรกตและน้ำตกร้อน คลองท่อม',
+      url: A_URL + '#r5', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r5-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Khlong Thom',
+      lat: 7.925077, lng: 99.268151,
+      hours: '08:30–16:30 daily', closedDays: [],
+      priceText: '฿20–200', costMin: 20, costMax: 200,
+      score: 4.3, scoreSrc: 'Google', ratingCount: 13705, durMin: 240, src: SRC_A },
+
+    { id: 'a:krabi-ao-nang-landmark', kind: 'see', rank: 6,
+      name: 'Ao Nang Landmark Night Market', nameEn: 'อ่าวนางแลนด์มาร์ค',
+      url: A_URL + '#r6', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Ao Nang',
+      lat: 8.042572, lng: 98.8115,
+      hours: 'Open daily, roughly 16:00–23:00 (busiest after 18:00)', closedDays: [],
+      priceText: 'Free entry · budget ฿100–300', costMin: 100, costMax: 300,
+      score: 4.4, scoreSrc: 'Google', ratingCount: 7270, durMin: 90, src: SRC_A },
+
+    { id: 'a:krabi-wat-bang-thong', kind: 'see', rank: 7,
+      name: 'Wat Mahathat Wachira Mongkol (Wat Bang Thong)', nameEn: 'วัดมหาธาตุวชิรมงคล (วัดบางโทง)',
+      url: A_URL + '#r7', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r7-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Ao Luek',
+      lat: 8.526655, lng: 98.719938,
+      hours: '08:00–18:00 daily', closedDays: [],
+      priceText: 'Free for Thais / ~฿50 for foreign visitors', costMin: 0, costMax: 50,
+      score: 4.7, scoreSrc: 'Google', ratingCount: 5203, durMin: 90, src: SRC_A },
+
+    { id: 'a:krabi-walking-street', kind: 'see', rank: 8,
+      name: 'Krabi Walking Street', nameEn: 'ถนนคนเดินกระบี่',
+      url: A_URL + '#r8', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-walking-street.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Town',
+      lat: 8.0639, lng: 98.9159,
+      /* Fri–Sun only: closedDays uses JS getDay() — 1 Mon … 4 Thu */
+      hours: 'Fri–Sun 17:00–22:00', closedDays: [1, 2, 3, 4],
+      priceText: 'Free entry · budget ฿100–200', costMin: 100, costMax: 200,
+      score: 3.8, scoreSrc: 'Wongnai', ratingCount: 20, durMin: 90, src: SRC_A },
+
+    { id: 'a:krabi-nopparat-thara', kind: 'see', rank: 9,
+      name: 'Nopparat Thara Beach', nameEn: 'หาดนพรัตน์ธารา',
+      url: A_URL + '#r9', img: 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/krabi/krabi-r9-0.jpg',
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Ao Nang',
+      lat: 8.043653, lng: 98.796833,
+      hours: 'Open 24 hours, daily', closedDays: [],
+      priceText: 'Free entry (national park fee applies only for island trips)', costMin: 0, costMax: 0,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 815, durMin: 90, src: SRC_A },
+
+    { id: 'a:krabi-vogue', kind: 'see', rank: 10,
+      name: 'Vogue Krabi', nameEn: 'ห้างโวค กระบี่ (Vogue Krabi)',
+      url: A_URL + '#r10', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Old Town',
+      lat: 8.064364, lng: 98.915466,
+      hours: '10:00–21:00 daily', closedDays: [],
+      priceText: 'Free entry (food budget ฿50–150)', costMin: 50, costMax: 150,
+      score: 3.9, scoreSrc: 'Google', ratingCount: 1988, durMin: 60, src: SRC_A },
+
+    /* --- restaurants: top10-popular-restaurants-krabi.json ------------ */
+    { id: 'e:krabi-resto--1', kind: 'eat', rank: 1,
+      name: 'Kotung', nameEn: 'โกตุง (Kotung)',
+      url: E_URL + '#r1', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Town',
+      lat: 8.097937, lng: 98.899776,
+      hours: '11:00–22:00 daily', closedDays: [],
+      priceText: '฿120–250 per dish', costMin: 120, costMax: 250,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 861, durMin: 60, src: SRC_E },
+
+    { id: 'e:krabi-resto--2', kind: 'eat', rank: 2,
+      name: 'Nong Joke', nameEn: 'ร้านน้องโจ๊ก (Nong Joke)',
+      url: E_URL + '#r2', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Sai Thai',
+      lat: 8.0504182, lng: 98.9165851,
+      hours: '11:00–14:00 and 16:00–21:00 daily', closedDays: [],
+      priceText: '฿200–400 per person', costMin: 200, costMax: 400,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 1572, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--3', kind: 'eat', rank: 3,
+      name: 'Lae Lay Grill', nameEn: 'Lae Lay Grill (แล เล กริลล์)',
+      url: E_URL + '#r3', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Ao Nang',
+      lat: 8.038371, lng: 98.821625,
+      hours: '11:00–22:00 daily (closed Wednesdays)', closedDays: [3],
+      priceText: '฿250–500 per person', costMin: 250, costMax: 500,
+      score: 4.4, scoreSrc: 'Google', ratingCount: 1619, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--4', kind: 'eat', rank: 4,
+      name: 'Ruenmai', nameEn: 'ร้านอาหารเรือนไม้ (Ruenmai)',
+      url: E_URL + '#r4', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Sai Thai (on the way to Ao Nang)',
+      lat: 8.0880795, lng: 98.8823363,
+      hours: '10:30–15:00 and 17:00–21:00 daily', closedDays: [],
+      priceText: '฿200–400 per person', costMin: 200, costMax: 400,
+      score: 4.7, scoreSrc: 'Google', ratingCount: 1692, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--5', kind: 'eat', rank: 5,
+      name: 'Poo Dam', nameEn: 'ปูดำ (Poo Dam)',
+      url: E_URL + '#r5', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Town (Paknam–Maharaj)',
+      lat: 8.075809, lng: 98.909247,
+      hours: '11:30–22:00 daily (Fri–Sun to 22:30)', closedDays: [],
+      priceText: '฿250–500 per person', costMin: 250, costMax: 500,
+      score: 4.3, scoreSrc: 'Google', ratingCount: 1020, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--6', kind: 'eat', rank: 6,
+      name: 'Ko Joi', nameEn: 'ขนมจีนโกจ้อย (Ko Joi)',
+      url: E_URL + '#r6', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Nuea Khlong',
+      lat: 8.0103, lng: 99.1233,
+      hours: '06:00–18:00 daily (Nuea Khlong branch) · town branch 12:00–19:30', closedDays: [],
+      priceText: '฿30–220 per set', costMin: 30, costMax: 220,
+      score: 4.0, scoreSrc: 'Wongnai', ratingCount: 202, durMin: 60, src: SRC_E },
+
+    { id: 'e:krabi-resto--7', kind: 'eat', rank: 7,
+      name: 'Baitoey Seafood', nameEn: 'ใบเตย (Baitoey Seafood)',
+      url: E_URL + '#r7', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Old Town / Krabi riverside',
+      lat: 8.057999, lng: 98.91981,
+      hours: '10:00–22:00 daily', closedDays: [],
+      priceText: '฿101–250 per person', costMin: 101, costMax: 250,
+      score: 4.5, scoreSrc: 'Google', ratingCount: 1170, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--8', kind: 'eat', rank: 8,
+      name: 'Khaothong Hill', nameEn: 'เขาทองฮิลล์ (Khaothong Hill)',
+      url: E_URL + '#r8', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Khaothong',
+      lat: 8.173019, lng: 98.749279,
+      hours: '11:00–20:00 daily', closedDays: [],
+      priceText: '฿60–250 per person', costMin: 60, costMax: 250,
+      score: 4.6, scoreSrc: 'Google', ratingCount: 5779, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--9', kind: 'eat', rank: 9,
+      name: 'Krua Dan Tai', nameEn: 'ครัวแดนใต้ (Krua Dan Tai)',
+      url: E_URL + '#r9', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Saladan (Koh Lanta)',
+      lat: 7.630595, lng: 99.033364,
+      hours: '11:00–22:00 daily', closedDays: [],
+      priceText: '฿250–500 per person', costMin: 250, costMax: 500,
+      score: 4.4, scoreSrc: 'Google', ratingCount: 578, durMin: 90, src: SRC_E },
+
+    { id: 'e:krabi-resto--10', kind: 'eat', rank: 10,
+      name: "May & Mark's House", nameEn: "May & Mark's House",
+      url: E_URL + '#r10', img: null,
+      province: 'krabi', provinceTh: 'Krabi', zone: 'Krabi Town',
+      lat: 8.06509, lng: 98.916037,
+      hours: '08:00–21:00 daily', closedDays: [],
+      priceText: '฿100–250 per person', costMin: 100, costMax: 250,
+      score: 4.4, scoreSrc: 'Google', ratingCount: 1016, durMin: 60, src: SRC_E }
+  ];
+
+  var byId = {};
+  POI.forEach(function (p) { byId[p.id] = p; });
+  TA.poi.putAll(POI);
+
+  /* ---------------------------------------------------------------------
+     The seeded 3-day Krabi trip — the same content as the static HTML above.
+     --------------------------------------------------------------------- */
+  function seedTrip() {
+    return {
+      v: 3, id: 'local', rev: 0,
+      title: 'Krabi in 3 days', startDate: null,
+      pax: { adults: 2, kids: 0 }, currency: 'THB',
+      prefs: { provinces: ['krabi'], days: 3, pace: 'balanced', interests: ['beach', 'food'],
+               transport: 'rental car / private driver', kids: false, elderly: false, lang: LANG },
+      lists: [
+        { id: 'inbox', name: 'Saved', color: 'sand' },
+        { id: 'eat', name: 'Want to eat', color: 'coral' },
+        { id: 'stay', name: 'Stay', color: 'mango' }
+      ],
+      saves: [
+        { poiId: 'e:krabi-resto--10', listId: 'eat', note: '', savedAt: null },
+        { poiId: 'e:krabi-resto--6', listId: 'eat', note: '', savedAt: null },
+        { poiId: 'a:krabi-wat-bang-thong', listId: 'inbox', note: '', savedAt: null },
+        { poiId: 's:137-pillars-house-chiang-mai', listId: 'stay', note: '', savedAt: null }
+      ],
+      days: [
+        { id: 'd1', date: null, label: 'Day 1', zone: 'Krabi Town',
+          stayPoiId: 's:the-chill-at-krabi-hotel-krabi', note: '', items: [
+            { id: 'i1', poiId: 'a:krabi-wat-tham-suea', kind: 'see', start: null, durMin: 120, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i2', poiId: 'e:krabi-resto--1', kind: 'eat', start: null, durMin: 60, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i3', poiId: 'a:krabi-lan-poo-dam', kind: 'see', start: null, durMin: 45, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i4', poiId: 'a:krabi-khao-khanab-nam', kind: 'see', start: null, durMin: 120, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i5', poiId: 'e:krabi-resto--7', kind: 'eat', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' }
+          ] },
+        { id: 'd2', date: null, label: 'Day 2', zone: 'Ao Nang · Railay',
+          stayPoiId: 's:rayavadee-krabi', note: '', items: [
+            { id: 'i6', poiId: 'a:krabi-railay-beach', kind: 'see', start: null, durMin: 240, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i7', poiId: 'e:krabi-resto--3', kind: 'eat', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i8', poiId: 'a:krabi-nopparat-thara', kind: 'see', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i9', poiId: 'a:krabi-ao-nang-landmark', kind: 'see', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' }
+          ] },
+        { id: 'd3', date: null, label: 'Day 3', zone: 'Khlong Thom · Khaothong',
+          stayPoiId: null, note: '', items: [
+            { id: 'i10', poiId: 'a:krabi-emerald-pool', kind: 'see', start: null, durMin: 240, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i11', poiId: 'e:krabi-resto--4', kind: 'eat', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' },
+            { id: 'i12', poiId: 'e:krabi-resto--8', kind: 'eat', start: null, durMin: 90, pinned: false, cost: null, source: 'guide', note: '' }
+          ] }
+      ],
+      unscheduled: [], _orphans: [], budgetCap: null, updatedAt: null
+    };
+  }
+
+  var tr0 = TA.trip.get();
+  if (!tr0.days.length && !tr0.saves.length) TA.trip.import(JSON.stringify(seedTrip()));
+
+  /* shell.js owns every write to ta.trip.v1. setTitle is the public call that
+     persists + fires the change event, so prefs edits go through it. */
+  function persist() { TA.trip.setTitle(TA.trip.get().title); }
+
+  /* ------------------------------ helpers ------------------------------ */
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function num(n) { return Number(n).toLocaleString('en-US'); }
+  function hm(min) {
+    min = Math.round(min);
+    var h = Math.floor(min / 60), m = min % 60;
+    if (!h) return m + ' min';
+    return h + ' h' + (m ? ' ' + m + ' min' : '');
+  }
+  var KIND = { stay: 'Stay', eat: 'Eat', see: 'See' };
+  var DAY_TH = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  function hav(a, b) {
+    var R = 6371, rad = Math.PI / 180;
+    var dLat = (b.lat - a.lat) * rad, dLng = (b.lng - a.lng) * rad;
+    var s = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    return R * 2 * Math.atan2(Math.sqrt(s), Math.sqrt(1 - s));
+  }
+
+  /* Geo sanity (§6.4 fix ⑤). Derived on every render, never stored. */
+  function geoSanity(day) {
+    var pts = (day.items || []).map(function (it) { return byId[it.poiId]; })
+      .filter(function (p) { return p && typeof p.lat === 'number'; });
+    if (pts.length < 2) return null;
+    var max = 0, a = null, b = null;
+    for (var i = 0; i < pts.length; i++) for (var j = i + 1; j < pts.length; j++) {
+      var d = hav(pts[i], pts[j]);
+      if (d > max) { max = d; a = pts[i]; b = pts[j]; }
+    }
+    var km = Math.round(max);
+    if (max > 60) return { level: 'stop', km: km, a: a, b: b,
+      text: 'The stops today are far apart — furthest ~' + km + ' km (' + a.name + ' ↔ ' + b.name + ') allow for time in the car, or move a stop to another day' };
+    if (max > 30) return { level: 'warn', km: km, a: a, b: b,
+      text: 'A long driving day — furthest ~' + km + ' km (' + a.name + ' ↔ ' + b.name + ')' };
+    return { level: 'ok', km: Math.round(max * 10) / 10, a: a, b: b,
+      text: 'The stops today sit sensibly close — furthest apart ~' + (Math.round(max * 10) / 10) + ' km' };
+  }
+
+  /* The date for day N, or null while startDate is unset (§6.1.2 invariant 2). */
+  function dayDate(dayIndex) {
+    var s = TA.trip.get().startDate;
+    if (!s) return null;
+    var d = new Date(s + 'T00:00:00');
+    if (isNaN(d.getTime())) return null;
+    d.setDate(d.getDate() + dayIndex);
+    return d;
+  }
+
+  /* Feasibility (§6.2 S5). Only asserts what the source data actually says. */
+  function feasibility(poi, dayIndex) {
+    if (!poi) return null;
+    if (!poi.hours) return { level: 'unknown', text: 'Opening hours not confirmed — check before you go' };
+    var closed = poi.closedDays || [];
+    if (closed.length) {
+      var d = dayDate(dayIndex);
+      var closedLabel = closed.length > 2
+        ? 'Open on certain days only (' + poi.hours + ')'
+        : 'Closed ' + closed.map(function (n) { return DAY_TH[n]; }).join(' and ');
+      if (!d) return { level: 'warn', text: closedLabel + ' — this trip has no dates yet — set a start date and we will check it for you' };
+      if (closed.indexOf(d.getDay()) >= 0) {
+        return { level: 'stop', text: 'day' + DAY_TH[d.getDay()] + ' is a closing day — ' + poi.hours };
+      }
+      return { level: 'ok', text: 'Open ' + poi.hours };
+    }
+    return { level: 'ok', text: 'Open ' + poi.hours };
+  }
+
+  function poiThumb(p) {
+    if (p && p.img) {
+      return '<span class="ta-poi-thumb"><img src="' + esc(img(p.img)) + '" alt="' + esc(p.name) +
+        '" width="56" height="56" loading="lazy" decoding="async"></span>';
+    }
+    /* No photo in the source data. An honest empty tile, never a borrowed one. */
+    return '<span class="ta-poi-thumb"></span>';
+  }
+
+  function mapUrl(p) {
+    return 'https://www.google.com/maps/search/?api=1&query=' + p.lat + ',' + p.lng;
+  }
+
+
+  /* The trip document is ONE document per browser, shared by every locale, so
+     a day created on the Thai page arrives here labelled "วันที่ 2" and zoned
+     "อ่าวนาง · ไร่เลย์". A generated label is presentation, not user content:
+     re-derive it. A label the reader typed themselves is left exactly alone. */
+  var GEN_DAY = /^(?:วันที่|Day)\s*\d+$/;
+  function dayLabel(day, i) {
+    return GEN_DAY.test(day && day.label || '') ? ('Day ' + (i + 1)) : (day && day.label) || '';
+  }
+  var ZONE_I18N = {
+    'เมืองกระบี่': 'Krabi Town',
+    'อ่าวนาง · ไร่เลย์': 'Ao Nang · Railay',
+    'คลองท่อม · เขาทอง': 'Khlong Thom · Khaothong'
+  };
+  function zoneLabel(z) { return z ? (ZONE_I18N[z] || z) : ''; }
+
+  function dayIndexOf(dayId) {
+    var d = TA.trip.get().days;
+    for (var i = 0; i < d.length; i++) if (d[i].id === dayId) return i;
+    return 0;
+  }
+
+  /* ------------------------------ RENDER ------------------------------- */
+  var board = D.getElementById('tpBoard');
+
+  function renderDay(day, dayIndex) {
+    var items = day.items || [];
+    var legs = TA.trip.legs(day.id);
+    var stay = day.stayPoiId ? byId[day.stayPoiId] : null;
+
+    var km = 0, travel = 0, stayMin = 0, cMin = 0, cMax = 0, unknownLegs = 0;
+    legs.forEach(function (L) {
+      if (L.method === 'unknown') { unknownLegs++; return; }
+      km += L.km; travel += (L.minMin + L.minMax) / 2;
+    });
+    items.forEach(function (it) {
+      var p = byId[it.poiId];
+      stayMin += (it.durMin || (p && p.durMin) || 0);
+      if (p && p.costMin != null) { cMin += p.costMin; cMax += p.costMax; }
+    });
+
+    var d = dayDate(dayIndex);
+    var dateLabel = d
+      ? ' · ' + DAY_TH[d.getDay()] + ' ' + d.getDate() + '/' + (d.getMonth() + 1)
+      : '';
+
+    var roll = items.length + ' stops · ' + (Math.round(km * 10) / 10) + ' km · travel ~' +
+      hm(travel) + ' · time at stops ~' + hm(stayMin);
+    if (cMax > 0) roll += ' · food and entry about ฿' + num(cMin) + '–' + num(cMax) + ' per person';
+    if (unknownLegs) roll += ' · plus ' + unknownLegs + ' more legs with an unknown distance';
+
+    var geo = geoSanity(day);
+
+    var h = '';
+    h += '<section class="ta-day" id="day-' + esc(day.id) + '" data-day="' + esc(day.id) + '">';
+    h += '<header class="ta-day-head">';
+    h += '<h2 class="ta-day-title">' + esc(dayLabel(day, dayIndex)) + esc(dateLabel) + '</h2>';
+    if (day.zone) h += '<span class="ta-chip">' + esc(zoneLabel(day.zone)) + '</span>';
+    h += '<p class="ta-day-roll">' + esc(roll) + '</p>';
+    if (geo) h += '<p class="ta-flag ta-flag-' + geo.level + '">' + esc(geo.text) + '</p>';
+    if (stay) {
+      h += '<p class="tp-day-stay"><span>Tonight you stay at</span>' +
+        '<a href="' + esc(stay.url) + '">' + esc(stay.name) + '</a>';
+      if (stay.score) h += '<span class="ta-score"><b>' + stay.score + '</b> <span class="ta-score-src">' +
+        esc(stay.scoreSrc) + (stay.ratingCount ? ' · ' + num(stay.ratingCount) + ' reviews' : '') + '</span></span>';
+      if (stay.priceText) h += '<span class="ta-chip">' + esc(stay.priceText) + '</span>';
+      if (typeof stay.lat !== 'number') h += '<span class="ta-flag ta-flag-unknown">No coordinates on file yet — see the address in the review</span>';
+      h += '</p>';
+    }
+    h += '</header>';
+
+    h += '<ul class="ta-day-list" data-drop-day="' + esc(day.id) + '">';
+    if (!items.length) {
+      h += '<li><p class="ta-fine">Nothing on this day yet — use “＋ Add a stop here” below</p></li>';
+    }
+    items.forEach(function (it, i) {
+      var p = byId[it.poiId] || TA.poi.get(it.poiId) || { name: it.poiId, kind: it.kind };
+      var f = feasibility(p, dayIndex);
+      var dur = it.durMin || p.durMin;
+
+      h += '<li class="tp-item" draggable="true" data-item-id="' + esc(it.id) + '" data-day="' + esc(day.id) +
+           '" data-poi-id="' + esc(it.poiId) + '" tabindex="0">';
+      h += '<div class="ta-poi tp-editable" data-in-trip>';
+      h += '<span class="tp-drag" aria-hidden="true"><svg class="ta-ic ta-ic-20"><use href="#i-menu"></use></svg></span>';
+      h += poiThumb(p);
+      h += '<span class="ta-poi-main">';
+      h += '<span class="tp-namerow"><span class="tp-idx">' + (i + 1) + '</span>' +
+           '<span class="ta-poi-name"><a class="ta-clamp-2" href="' + esc(p.url || '#') + '">' + esc(p.name) + '</a></span></span>';
+      h += '<span class="ta-poi-sub ta-clamp-2">' + esc(KIND[p.kind] || '') +
+           (p.zone ? ' · ' + esc(p.zone) : '') + (dur ? ' · about ' + esc(hm(dur)) : '') + '</span>';
+      if (f) h += '<span class="ta-flag ta-flag-' + f.level + '">' + esc(f.text) + '</span>';
+      var facts = [];
+      if (p.priceText) facts.push(esc(p.priceText));
+      if (p.score) facts.push('<b>' + p.score + '</b> ' + esc(p.scoreSrc) +
+        (p.ratingCount ? ' · ' + num(p.ratingCount) + ' reviews' : ''));
+      if (facts.length) h += '<span class="tp-facts">' + facts.join(' · ') + '</span>';
+      if (p.src) h += '<span class="tp-src">from ' + esc(p.src.label) +
+        (p.src.date ? ' · updated ' + esc(p.src.date) : '') + '</span>';
+      h += '</span>';
+      h += '<button class="ta-poi-menu" type="button" data-sheet="taItemMenu" data-item="' + esc(it.id) +
+           '" aria-label="Options for ' + esc(p.name) + '">⋮</button>';
+      h += '</div>';
+
+      /* Print-only address block: Thai + English name, hours, coordinates. */
+      h += '<p class="tp-print"><b>' + esc(p.name) + '</b>' +
+           (p.nameEn && p.nameEn !== p.name ? ' — ' + esc(p.nameEn) : '') +
+           (p.zone ? ' · ' + esc(p.zone) : '') + '<br>' +
+           (p.hours ? esc(p.hours) : 'Opening hours not confirmed') +
+           (p.priceText ? ' · ' + esc(p.priceText) : '') +
+           (typeof p.lat === 'number' ? ' · coordinates <span class="tp-coords">' + p.lat + ', ' + p.lng + '</span>' : ' · no coordinates on file') +
+           (typeof p.lat === 'number' ? '<br><span class="tp-print-url">' + esc(mapUrl(p)) + '</span>' : '') +
+           '</p>';
+      h += '</li>';
+
+      var L = legs[i];
+      if (L) {
+        if (L.method === 'unknown') {
+          h += '<li class="ta-leg"><span>Distance not known</span> <span class="ta-leg-method">one of these stops has no coordinates</span></li>';
+        } else {
+          h += '<li class="ta-leg"><span>~' + L.minMin + '–' + L.minMax + ' min · ' + L.km + ' km · ' +
+            (L.mode === 'walk' ? 'walk' : 'drive') + '</span> <span class="ta-leg-method">estimate (straight line)</span></li>';
+        }
+      }
+    });
+    h += '</ul>';
+    h += '<button class="ta-day-add tp-noprint" type="button" data-sheet="taAddPoi" data-day="' + esc(day.id) + '">＋ Add a stop here</button>';
+    h += '</section>';
+    return h;
+  }
+
+  function render() {
+    var tr = TA.trip.get();
+
+    board.innerHTML = tr.days.map(renderDay).join('') ||
+      '<p class="ta-note">This trip is empty — open “Manage trip” to load the sample, or press 🔖 on any page to start collecting</p>';
+
+    renderHeader(tr);
+    renderSummary(tr);
+    renderTrays(tr);
+    renderRail(tr);
+    renderMapSide(tr);
+    renderExport(tr);
+    if (mapReady) drawMarkers();
+  }
+
+  function renderHeader(tr) {
+    var provNames = (tr.prefs.provinces || []).map(function (s) {
+      var hit = POI.filter(function (p) { return p.province === s; })[0];
+      return hit ? hit.provinceTh : s;
+    });
+    D.getElementById('tpTitleText').textContent = tr.title || 'Your trip';
+    D.getElementById('tpProvChip').textContent = 'Provinces in this trip: ' + (provNames.join(' · ') || 'none chosen yet');
+    D.getElementById('tpPaxChip').textContent = (tr.pax.adults || 1) + ' adult' + ((tr.pax.adults || 1) > 1 ? 's' : '');
+    D.getElementById('tpDateChip').textContent = tr.startDate
+      ? 'Starts ' + tr.startDate
+      : 'No dates set — the first day is simply “Day 1”';
+
+    var total = 0, linked = 0;
+    tr.days.forEach(function (day) {
+      (day.items || []).forEach(function (it) {
+        total++;
+        var p = byId[it.poiId];
+        if (p && p.url) linked++;
+      });
+    });
+    D.getElementById('tpGrounded').innerHTML =
+      '<svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-check"></use></svg>' +
+      '<span>Every stop here comes from a review or guide we wrote ourselves — <b>' + linked + ' of ' + total +
+      ' stops</b>. Tap a name to read the source.</span>';
+
+    var titleInput = D.getElementById('tpTitle');
+    if (titleInput && D.activeElement !== titleInput) titleInput.value = tr.title || '';
+    var startInput = D.getElementById('tpStart');
+    if (startInput && D.activeElement !== startInput) startInput.value = tr.startDate || '';
+    var paxSel = D.getElementById('tpPax');
+    if (paxSel && D.activeElement !== paxSel) paxSel.value = String(tr.pax.adults || 2);
+  }
+
+  function renderSummary(tr) {
+    var stops = 0, km = 0, travel = 0, cMin = 0, cMax = 0, stayCost = 0, nights = 0;
+    tr.days.forEach(function (day) {
+      stops += (day.items || []).length;
+      TA.trip.legs(day.id).forEach(function (L) {
+        if (L.method === 'unknown') return;
+        km += L.km; travel += (L.minMin + L.minMax) / 2;
+      });
+      (day.items || []).forEach(function (it) {
+        var p = byId[it.poiId];
+        if (p && p.costMin != null) { cMin += p.costMin; cMax += p.costMax; }
+      });
+      if (day.stayPoiId) {
+        var s = byId[day.stayPoiId];
+        nights++;
+        if (s && s.priceText) {
+          var m = s.priceText.replace(/,/g, '').match(/(\d+)/);
+          if (m) stayCost += parseInt(m[1], 10);
+        }
+      }
+    });
+
+    var sum = D.getElementById('tpSum');
+    var h = '';
+    h += '<div><dt>Stops planned</dt><dd><span class="ta-num">' + stops + '</span> stops</dd><small>across ' + tr.days.length + ' days</small></div>';
+    h += '<div><dt>Total distance</dt><dd><span class="ta-num">' + (Math.round(km * 10) / 10) + '</span> km</dd><small>estimate (straight line × road factor)</small></div>';
+    h += '<div><dt>Time on the road</dt><dd>~' + esc(hm(travel)) + '</dd><small>estimate · boat waits not included</small></div>';
+    h += '<div><dt>Food and entry</dt><dd>about <span class="ta-num">฿' + num(cMin) + '–' + num(cMax) +
+         '</span></dd><small>per person · excludes stays, flights and local transport</small></div>';
+    if (nights) {
+      h += '<div><dt>Stays, ' + nights + ' night' + (nights > 1 ? 's' : '') + '</dt><dd>From <span class="ta-num">฿' + num(stayCost) +
+           '</span></dd><small>per room · the from-price recorded in our own reviews</small></div>';
+    }
+    sum.innerHTML = h;
+
+    D.querySelector('[data-count-days]').textContent = String(stops);
+    D.querySelector('[data-count-saved]').textContent = String((tr.saves || []).length + (tr.unscheduled || []).length);
+  }
+
+  function trayRow(save, inScope) {
+    var p = byId[save.poiId] || TA.poi.get(save.poiId);
+    if (!p) return '';
+    var h = '<li class="tp-item" data-poi-id="' + esc(p.id) + '">';
+    h += '<div class="ta-poi">';
+    h += poiThumb(p);
+    h += '<span class="ta-poi-main">';
+    h += '<span class="ta-poi-name"><a class="ta-clamp-2" href="' + esc(p.url || '#') + '">' + esc(p.name) + '</a></span>';
+    h += '<span class="ta-poi-sub ta-clamp-2">' + esc(KIND[p.kind] || '') + ' · ' + esc(p.provinceTh || p.province || '') +
+         (p.zone ? ' · ' + esc(p.zone) : '') + '</span>';
+    if (!inScope) {
+      h += '<span class="ta-flag ta-flag-warn">In ' + esc(p.provinceTh || p.province) + ' — outside the scope of this trip</span>';
+    } else if (p.hours) {
+      h += '<span class="ta-flag ta-flag-ok">Open ' + esc(p.hours) + '</span>';
+    } else {
+      h += '<span class="ta-flag ta-flag-unknown">Opening hours not confirmed — check before you go</span>';
+    }
+    var tf = [];
+    if (p.priceText) tf.push(esc(p.priceText));
+    if (p.score) tf.push('<b>' + p.score + '</b> ' + esc(p.scoreSrc) +
+      (p.ratingCount ? ' · ' + num(p.ratingCount) + ' reviews' : ''));
+    if (tf.length) h += '<span class="tp-facts">' + tf.join(' · ') + '</span>';
+    h += '</span>';
+    if (inScope) {
+      h += '<button class="ta-poi-menu" type="button" data-tray-poi="' + esc(p.id) +
+           '" aria-label="Add ' + esc(p.name) + ' to a day">＋</button>';
+    }
+    h += '</div></li>';
+    return h;
+  }
+
+  function renderTrays(tr) {
+    var scope = tr.prefs.provinces || [];
+    var inList = [], outList = [];
+    (tr.saves || []).forEach(function (s) {
+      var p = byId[s.poiId] || TA.poi.get(s.poiId);
+      if (!p) return;
+      if (scope.indexOf(p.province) >= 0) inList.push(s); else outList.push(s);
+    });
+
+    D.getElementById('tpTrayInList').innerHTML =
+      inList.map(function (s) { return trayRow(s, true); }).join('') ||
+      '<li><p class="ta-fine">Nothing saved in this province yet</p></li>';
+
+    var outHost = D.getElementById('tpTrayOut');
+    D.getElementById('tpOutCount').textContent = '(' + outList.length + ')';
+    outHost.hidden = outList.length === 0;
+    D.getElementById('tpTrayOutList').innerHTML =
+      outList.map(function (s) { return trayRow(s, false); }).join('');
+
+    var provs = {};
+    outList.forEach(function (s) {
+      var p = byId[s.poiId] || TA.poi.get(s.poiId);
+      if (p) provs[p.province] = p.provinceTh || p.province;
+    });
+    var row = outHost.querySelector('.tp-tray-row');
+    if (row) {
+      row.innerHTML = Object.keys(provs).map(function (k) {
+        return '<button class="ta-btn ta-btn-ghost" type="button" data-add-province="' + esc(k) +
+          '">Add ' + esc(provs[k]) + ' to this trip</button>';
+      }).join('');
+    }
+
+    var orphanHost = D.getElementById('tpTrayOrphan');
+    var orphans = tr._orphans || [];
+    orphanHost.hidden = orphans.length === 0;
+    D.getElementById('tpTrayOrphanList').innerHTML = orphans.map(function (o) {
+      return '<li class="tp-item"><div class="ta-poi"><span class="ta-poi-thumb"></span>' +
+        '<span class="ta-poi-main"><span class="ta-poi-name ta-clamp-2">' + esc(o.name || o.slug || '—') + '</span>' +
+        '<span class="ta-flag ta-flag-unknown">Not matched to a place on file — kept for you, not deleted</span></span></div></li>';
+    }).join('');
+  }
+
+  function renderRail(tr) {
+    var host = D.querySelector('[data-rail-list]');
+    if (!host) return;
+    var h = '';
+    tr.days.forEach(function (day, i) {
+      var legs = TA.trip.legs(day.id), km = 0;
+      legs.forEach(function (L) { if (L.method !== 'unknown') km += L.km; });
+      var g = geoSanity(day);
+      h += '<li class="tp-rail-day">' +
+        '<a href="#day-' + esc(day.id) + '">' + esc(dayLabel(day, i)) + '</a>' +
+        '<span class="ta-poi-sub">' + (day.items || []).length + ' stops · ' + (Math.round(km * 10) / 10) + ' km' +
+        (day.zone ? ' · ' + esc(zoneLabel(day.zone)) : '') + '</span>' +
+        (g && g.level !== 'ok' ? '<span class="ta-flag ta-flag-' + g.level + '">far apart ~' + g.km + ' km</span>' : '') +
+        '</li>';
+    });
+    host.innerHTML = h;
+
+    var tabs = D.getElementById('tpRailTabs');
+    if (tabs) {
+      tabs.innerHTML = tr.days.map(function (day, i) {
+        return '<a role="tab" href="#day-' + esc(day.id) + '" aria-controls="day-' + esc(day.id) +
+          '" aria-selected="' + (i === 0 ? 'true' : 'false') + '"' + (i === 0 ? '' : ' tabindex="-1"') + '>' +
+          esc(dayLabel(day, i)) + '</a>';
+      }).join('');
+    }
+  }
+
+  /* ------------------------------ MAP ---------------------------------- */
+  var DAY_COLOR = ['#0F6E72', '#C8462F', '#E0A32E', '#7A6FA8', '#3F7D3A'];
+  var mapObj = null, mapReady = false, markerLayer = null, markerByItem = {};
+
+  function geoStats(tr) {
+    var withGeo = 0, without = [];
+    tr.days.forEach(function (day, di) {
+      if (day.stayPoiId) {
+        var s = byId[day.stayPoiId];
+        if (s && typeof s.lat === 'number') withGeo++;
+        else if (s) without.push({ p: s, why: dayLabel(day, di) + ' · stay' });
+      }
+      (day.items || []).forEach(function (it) {
+        var p = byId[it.poiId];
+        if (p && typeof p.lat === 'number') withGeo++;
+        else if (p) without.push({ p: p, why: dayLabel(day, di) });
+      });
+    });
+    return { withGeo: withGeo, without: without, total: withGeo + without.length };
+  }
+
+  function renderMapSide(tr) {
+    var st = geoStats(tr);
+    D.getElementById('tpGeoCount').textContent = 'Real coordinates for ' + st.withGeo + ' of ' + st.total + ' stops';
+
+    var host = D.getElementById('tpNoGeo');
+    if (!st.without.length) { host.innerHTML = ''; return; }
+    host.innerHTML = '<p class="ta-flag ta-flag-unknown">No coordinates on file for ' + st.without.length +
+      ' item(s) — we do not guess a position</p><ul>' +
+      st.without.map(function (o) {
+        return '<li>' + esc(o.p.name) + ' — ' + esc(o.why) + ' · see the address in the <a href="' + esc(o.p.url) + '">reviews</a></li>';
+      }).join('') + '</ul>';
+  }
+
+  function loadLeaflet(cb) {
+    if (W.L) { cb(); return; }
+    var l = D.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+    D.head.appendChild(l);
+    var s = D.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    s.onload = function () { cb(); };
+    s.onerror = function () { cb(new Error('leaflet')); };
+    D.body.appendChild(s);
+  }
+
+  function drawMarkers() {
+    if (!mapObj || !W.L) return;
+    if (markerLayer) markerLayer.remove();
+    markerLayer = W.L.layerGroup().addTo(mapObj);
+    markerByItem = {};
+
+    var tr = TA.trip.get(), bounds = [];
+
+    tr.days.forEach(function (day, di) {
+      (day.items || []).forEach(function (it, ii) {
+        var p = byId[it.poiId];
+        if (!p || typeof p.lat !== 'number') return;
+        var color = DAY_COLOR[di % DAY_COLOR.length];
+        var m = W.L.circleMarker([p.lat, p.lng], {
+          radius: 9, color: '#fff', weight: 2, fillColor: color, fillOpacity: 1
+        }).addTo(markerLayer);
+        m.bindPopup('<b>' + esc(p.name) + '</b><br>' + esc(dayLabel(day, di)) + ' · stop ' + (ii + 1) +
+          '<br><a href="' + esc(p.url) + '">Read the source</a>');
+        m.on('click', function () { flashItem(it.id); });
+        markerByItem[it.id] = m;
+        bounds.push([p.lat, p.lng]);
+      });
+    });
+
+    (tr.saves || []).forEach(function (s) {
+      var p = byId[s.poiId];
+      if (!p || typeof p.lat !== 'number') return;
+      var m = W.L.circleMarker([p.lat, p.lng], {
+        radius: 7, color: '#fff', weight: 2, fillColor: '#B7AFA3', fillOpacity: .85
+      }).addTo(markerLayer);
+      m.bindPopup('<b>' + esc(p.name) + '</b><br>Saved, not yet on a day<br><a href="' + esc(p.url) + '">Read the source</a>');
+      bounds.push([p.lat, p.lng]);
+    });
+
+    if (bounds.length) mapObj.fitBounds(bounds, { padding: [28, 28], maxZoom: 12 });
+  }
+
+  function flashItem(itemId) {
+    var el = D.querySelector('[data-item-id="' + itemId + '"]');
+    if (!el) return;
+    el.scrollIntoView({ block: 'center', behavior: 'auto' });
+    el.classList.add('is-flash');
+    W.setTimeout(function () { el.classList.remove('is-flash'); }, 1200);
+  }
+
+  var showMapBtn = D.getElementById('tpShowMap');
+  if (showMapBtn) showMapBtn.addEventListener('click', function () {
+    showMapBtn.disabled = true;
+    showMapBtn.textContent = 'Loading the map…';
+    loadLeaflet(function (err) {
+      var ph = D.getElementById('tpMapPlaceholder');
+      if (err || !W.L) {
+        ph.innerHTML = '<p class="ta-map-note ta-flag ta-flag-unknown">The map failed to load — use the coordinate list below instead</p>';
+        return;
+      }
+      ph.hidden = true;
+      var el = D.getElementById('tpMap');
+      el.hidden = false;
+      mapObj = W.L.map(el, { scrollWheelZoom: false });
+      /* Standard OSM tiles: CartoDB's basemaps now stamp "API KEY REQUIRED"
+         across every tile without a key — the live homepage still points at
+         them and shows the same watermark. */
+      W.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { attribution: '© OpenStreetMap contributors', maxZoom: 18 }).addTo(mapObj);
+      mapReady = true;
+      drawMarkers();
+    });
+  });
+
+  /* Hovering a row enlarges its pin (desktop pointing devices only). */
+  D.addEventListener('pointerover', function (ev) {
+    if (!mapReady) return;
+    var li = ev.target.closest && ev.target.closest('[data-item-id]');
+    if (!li) return;
+    var m = markerByItem[li.getAttribute('data-item-id')];
+    if (m && m.setRadius) m.setRadius(13);
+  });
+  D.addEventListener('pointerout', function (ev) {
+    if (!mapReady) return;
+    var li = ev.target.closest && ev.target.closest('[data-item-id]');
+    if (!li) return;
+    var m = markerByItem[li.getAttribute('data-item-id')];
+    if (m && m.setRadius) m.setRadius(9);
+  });
+
+  /* ------------------------------ EXPORT -------------------------------- */
+  /* Google Maps directions, chunked. <=3 waypoints on a mobile UA, <=9 on
+     desktop, and always under 2,048 characters — a longer URL fails silently. */
+  function isMobileUA() {
+    if (W.navigator.userAgentData && typeof W.navigator.userAgentData.mobile === 'boolean') {
+      return W.navigator.userAgentData.mobile;
+    }
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(W.navigator.userAgent || '');
+  }
+
+  function dirUrl(pts) {
+    var o = pts[0], d = pts[pts.length - 1], mid = pts.slice(1, -1);
+    var u = 'https://www.google.com/maps/dir/?api=1&origin=' + o.lat + ',' + o.lng +
+      '&destination=' + d.lat + ',' + d.lng;
+    if (mid.length) u += '&waypoints=' + mid.map(function (p) { return p.lat + ',' + p.lng; }).join('%7C');
+    return u + '&travelmode=driving';
+  }
+
+  function chunkDay(day) {
+    var pts = (day.items || []).map(function (it) { return byId[it.poiId]; })
+      .filter(function (p) { return p && typeof p.lat === 'number'; });
+    if (pts.length < 2) return [];
+    var maxWp = isMobileUA() ? 3 : 9;
+    var per = maxWp + 2;                 /* origin + waypoints + destination */
+    var out = [], i = 0;
+    while (i < pts.length - 1) {
+      var slice = pts.slice(i, i + per);
+      var u = dirUrl(slice);
+      while (u.length > 2048 && slice.length > 2) { slice = slice.slice(0, -1); u = dirUrl(slice); }
+      out.push({ url: u, from: slice[0], to: slice[slice.length - 1], n: slice.length });
+      i += slice.length - 1;             /* overlap by one so the route is continuous */
+    }
+    return out;
+  }
+
+  function renderExport(tr) {
+    var host = D.getElementById('tpMapLinks');
+    var h = '';
+    tr.days.forEach(function (day, di) {
+      var chunks = chunkDay(day);
+      if (!chunks.length) {
+        h += '<span class="ta-fine">' + esc(dayLabel(day, di)) + ' — not enough geocoded stops to build a route</span>';
+        return;
+      }
+      chunks.forEach(function (c, i) {
+        h += '<a class="ta-btn ta-btn-ghost no-prerender" target="_blank" rel="noopener" href="' + esc(c.url) + '">' +
+          esc(dayLabel(day, di)) + (chunks.length > 1 ? ' · leg ' + (i + 1) + '/' + chunks.length : '') +
+          ' (' + c.n + ' stops)</a>';
+      });
+    });
+    host.innerHTML = h;
+
+    var icsBtn = D.getElementById('tpIcs');
+    var icsNote = D.getElementById('tpIcsNote');
+    if (tr.startDate) {
+      icsBtn.removeAttribute('aria-disabled');
+      icsNote.textContent = 'Built from the start date ' + tr.startDate + ', in the plan’s real order. Times are estimates you can adjust in your own calendar.';
+    } else {
+      icsBtn.setAttribute('aria-disabled', 'true');
+      icsNote.textContent = 'This trip has no dates yet — set a start date above and we will build the file in the plan’s real order.';
+    }
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function icsStamp(d) {
+    return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) + 'T' +
+      pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + '00Z';
+  }
+  function icsEsc(s) { return String(s || '').replace(/[\\;,]/g, function (m) { return '\\' + m; }).replace(/\n/g, '\\n'); }
+
+  function buildIcs() {
+    var tr = TA.trip.get();
+    if (!tr.startDate) return null;
+    var L = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//thailandaddict//trip-proto//TH', 'CALSCALE:GREGORIAN'];
+    tr.days.forEach(function (day, di) {
+      var base = new Date(tr.startDate + 'T00:00:00');
+      base.setDate(base.getDate() + di);
+      base.setHours(9, 0, 0, 0);          /* first stop at 09:00 unless start is set */
+      var cursor = new Date(base);
+      var legs = TA.trip.legs(day.id);
+
+      if (day.stayPoiId) {
+        var s = byId[day.stayPoiId];
+        if (s) {
+          var ci = new Date(base); ci.setHours(15, 0, 0, 0);
+          var co = new Date(ci); co.setHours(16, 0, 0, 0);
+          L.push('BEGIN:VEVENT', 'UID:' + day.id + '-stay@thailandaddict',
+            'DTSTAMP:' + icsStamp(new Date()), 'DTSTART:' + icsStamp(ci), 'DTEND:' + icsStamp(co),
+            'SUMMARY:' + icsEsc('Check in: ' + s.name),
+            'DESCRIPTION:' + icsEsc((s.priceText || '') + ' · ' + (s.zone || '') + ' · confirm the real check-in time in the review'),
+            'END:VEVENT');
+        }
+      }
+
+      (day.items || []).forEach(function (it, ii) {
+        var p = byId[it.poiId];
+        if (!p) return;
+        var dur = it.durMin || p.durMin || 60;
+        var start = new Date(cursor);
+        var end = new Date(cursor.getTime() + dur * 60000);
+        L.push('BEGIN:VEVENT', 'UID:' + it.id + '@thailandaddict',
+          'DTSTAMP:' + icsStamp(new Date()), 'DTSTART:' + icsStamp(start), 'DTEND:' + icsStamp(end),
+          'SUMMARY:' + icsEsc(p.name),
+          'DESCRIPTION:' + icsEsc((p.hours ? 'Hours ' + p.hours + ' · ' : 'Opening hours not confirmed · ') +
+            (p.priceText || '') + ' · times in this file are estimates · source ' +
+            (p.src ? p.src.label : '') + ' https://thailandaddict.com' + (p.url && p.url.charAt(0) === '/' ? p.url : '')));
+        if (typeof p.lat === 'number') {
+          L.push('GEO:' + p.lat + ';' + p.lng, 'LOCATION:' + icsEsc(p.name + ' · ' + (p.zone || '')));
+        }
+        L.push('END:VEVENT');
+        cursor = end;
+        var leg = legs[ii];
+        if (leg && leg.method !== 'unknown') cursor = new Date(cursor.getTime() + leg.minMax * 60000);
+      });
+    });
+    L.push('END:VCALENDAR');
+    return L.join('\r\n');
+  }
+
+  function download(name, mime, text) {
+    var blob = new Blob([text], { type: mime });
+    var url = URL.createObjectURL(blob);
+    var a = D.createElement('a');
+    a.href = url; a.download = name;
+    D.body.appendChild(a); a.click(); D.body.removeChild(a);
+    W.setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+  }
+
+  D.getElementById('tpIcs').addEventListener('click', function () {
+    var ics = buildIcs();
+    if (!ics) { TA.toast('Set a start date first and this button will build the file'); return; }
+    download('thailandaddict-trip.ics', 'text/calendar;charset=utf-8', ics);
+    TA.toast('Calendar file downloaded');
+  });
+
+  function asText() {
+    var tr = TA.trip.get();
+    var out = [tr.title || 'Your trip'];
+    if (tr.startDate) out.push('Starts ' + tr.startDate);
+    out.push('');
+    tr.days.forEach(function (day, di) {
+      out.push('— ' + dayLabel(day, di) + (day.zone ? ' · ' + zoneLabel(day.zone) : '') + ' —');
+      if (day.stayPoiId && byId[day.stayPoiId]) {
+        var s = byId[day.stayPoiId];
+        out.push('Stay: ' + s.name + ' (' + (s.priceText || '') + ')');
+      }
+      var legs = TA.trip.legs(day.id);
+      (day.items || []).forEach(function (it, ii) {
+        var p = byId[it.poiId];
+        if (!p) return;
+        out.push((ii + 1) + '. ' + p.name + (p.hours ? ' · ' + p.hours : ' · Opening hours not confirmed') +
+          (p.priceText ? ' · ' + p.priceText : ''));
+        if (typeof p.lat === 'number') out.push('   ' + mapUrl(p));
+        var L = legs[ii];
+        if (L && L.method !== 'unknown') out.push('   ↓ ~' + L.minMin + '–' + L.minMax + ' min · ' + L.km + ' km (about)');
+        else if (L) out.push('   ↓ Distance not known');
+      });
+      out.push('');
+    });
+    out.push('Distances and times are straight-line estimates · data from thailandaddict.com');
+    return out.join('\n');
+  }
+
+  D.getElementById('tpCopy').addEventListener('click', function () {
+    var text = asText();
+    if (W.navigator.clipboard && W.navigator.clipboard.writeText) {
+      W.navigator.clipboard.writeText(text).then(function () { TA.toast('Plan copied'); },
+        function () { TA.toast('Copy failed — try the download button instead'); });
+    } else {
+      download('thailandaddict-trip.txt', 'text/plain;charset=utf-8', text);
+    }
+  });
+
+  D.getElementById('tpPrint').addEventListener('click', function () { W.print(); });
+
+  D.getElementById('tpExport').addEventListener('click', function () {
+    download('thailandaddict-trip.json', 'application/json', TA.trip.export());
+    TA.toast('Trip file downloaded');
+  });
+
+  D.getElementById('tpImportGo').addEventListener('click', function () {
+    var err = D.getElementById('tpImportErr');
+    var res = TA.trip.import(D.getElementById('tpImportText').value);
+    if (!res.ok) { err.hidden = false; err.textContent = res.error; return; }
+    err.hidden = true;
+    TA.sheet.close(D.getElementById('taImport'));
+    render();
+    TA.toast('Trip imported');
+  });
+
+  /* ------------------------------ SHEETS -------------------------------- */
+  /* shell.js opens the dialog; we fill it for the item that was tapped. */
+  D.addEventListener('click', function (ev) {
+    var t = ev.target;
+
+    var opener = t.closest && t.closest('[data-sheet="taItemMenu"]');
+    if (opener) { fillItemMenu(opener.getAttribute('data-item')); return; }
+
+    var addOpener = t.closest && t.closest('[data-sheet="taAddPoi"]');
+    if (addOpener) { fillAddPoi(addOpener.getAttribute('data-day')); return; }
+
+    /* Tray "+" — the same sheet, but the POI is fixed and the day is chosen. */
+    var trayBtn = t.closest && t.closest('[data-tray-poi]');
+    if (trayBtn) {
+      ev.preventDefault();
+      fillTrayDayPicker(trayBtn.getAttribute('data-tray-poi'));
+      TA.sheet.open(D.getElementById('taAddPoi'), trayBtn);
+      return;
+    }
+
+    var prov = t.closest && t.closest('[data-add-province]');
+    if (prov) {
+      ev.preventDefault();
+      var code = prov.getAttribute('data-add-province');
+      var tr = TA.trip.get();
+      if (tr.prefs.provinces.indexOf(code) < 0) tr.prefs.provinces.push(code);
+      persist();
+      render();
+      TA.toast('Province added — your saved items are now inside this trip’s scope');
+      return;
+    }
+  });
+
+  /* shell.js handles data-move; we close the sheet and re-render after it. */
+  D.addEventListener('click', function (ev) {
+    var m = ev.target.closest && ev.target.closest('[data-move]');
+    if (!m) return;
+    var dlg = m.closest('dialog');
+    if (dlg && TA.sheet) TA.sheet.close(dlg);
+  });
+
+  function fillItemMenu(itemId) {
+    var tr = TA.trip.get(), found = null, foundDay = null, idx = -1;
+    tr.days.forEach(function (day) {
+      (day.items || []).forEach(function (it, i) {
+        if (it.id === itemId) { found = it; foundDay = day; idx = i; }
+      });
+    });
+    var body = D.getElementById('taItemMenuBody');
+    if (!found) { body.innerHTML = ''; return; }
+    var p = byId[found.poiId] || { name: found.poiId };
+    D.getElementById('taItemMenuTitle').textContent = p.name;
+
+    var h = '<p class="ta-fine">' + esc(dayLabel(foundDay, dayIndexOf(foundDay.id))) + ' · stop ' + (idx + 1) + ' of ' + foundDay.items.length + '</p>';
+    h += '<p class="tp-row-3">';
+    h += '<button class="ta-btn ta-btn-ghost" type="button" data-move="up" data-item="' + esc(itemId) + '"' +
+         (idx === 0 ? ' disabled' : '') + '>Move up</button> ';
+    h += '<button class="ta-btn ta-btn-ghost" type="button" data-move="down" data-item="' + esc(itemId) + '"' +
+         (idx === foundDay.items.length - 1 ? ' disabled' : '') + '>Move down</button>';
+    h += '</p>';
+    tr.days.forEach(function (day, di) {
+      if (day.id === foundDay.id) return;
+      h += '<p class="tp-row-2"><button class="ta-btn ta-btn-ghost ta-btn-block" type="button" ' +
+        'data-move="day" data-item="' + esc(itemId) + '" data-to-day="' + esc(day.id) + '">Move to ' + esc(dayLabel(day, di)) + '</button></p>';
+    });
+    h += '<p class="tp-row-3"><button class="ta-btn ta-btn-ghost ta-btn-block" type="button" ' +
+      'data-move="remove" data-item="' + esc(itemId) + '">Take off this day (keep it in Saved)</button></p>';
+    if (p.url) h += '<p><a class="ta-btn ta-btn-quiet ta-btn-block" href="' + esc(p.url) + '">Open the source page</a></p>';
+    body.innerHTML = h;
+  }
+
+  function poiPickRow(p, dayId) {
+    return '<p class="tp-row-2"><button class="ta-btn ta-btn-ghost ta-btn-block" type="button" ' +
+      'data-add-day="' + esc(dayId) + '" data-poi-id="' + esc(p.id) + '" data-id="' + esc(p.id) + '" ' +
+      'data-kind="' + esc(p.kind) + '" data-name="' + esc(p.name) + '" data-url="' + esc(p.url) + '" ' +
+      (p.img ? 'data-img="' + esc(p.img) + '" ' : '') +
+      'data-province="' + esc(p.province) + '" ' +
+      (typeof p.lat === 'number' ? 'data-lat="' + p.lat + '" data-lng="' + p.lng + '" ' : '') +
+      (p.durMin ? 'data-dur="' + p.durMin + '" ' : '') +
+      'data-source="library" data-trip-href="trip">' +
+      esc(p.name) + ' — ' + esc(KIND[p.kind] || '') + (p.zone ? ' · ' + esc(p.zone) : '') + '</button></p>';
+  }
+
+  function fillAddPoi(dayId) {
+    var tr = TA.trip.get();
+    var used = {};
+    tr.days.forEach(function (d) { (d.items || []).forEach(function (it) { used[it.poiId] = 1; }); });
+    var scope = tr.prefs.provinces || [];
+    var day = tr.days.filter(function (d) { return d.id === dayId; })[0];
+
+    D.getElementById('taAddPoiTitle').textContent = 'Add a stop to ' + (day ? dayLabel(day, dayIndexOf(dayId)) : 'this trip');
+
+    var saved = (tr.saves || []).map(function (s) { return byId[s.poiId]; })
+      .filter(function (p) { return p && !used[p.id] && scope.indexOf(p.province) >= 0; });
+    var lib = POI.filter(function (p) {
+      return !used[p.id] && scope.indexOf(p.province) >= 0 && p.kind !== 'stay' &&
+        !saved.some(function (s) { return s.id === p.id; });
+    });
+
+    var h = '';
+    if (saved.length) {
+      h += '<h3 class="ta-day-title">From your saved list</h3>';
+      h += saved.map(function (p) { return poiPickRow(p, dayId); }).join('');
+    }
+    h += '<h3 class="ta-day-title tp-gap-4">From our Krabi guides</h3>';
+    h += lib.length
+      ? lib.map(function (p) { return poiPickRow(p, dayId); }).join('')
+      : '<p class="ta-fine">Everything in our Krabi guides is already in this plan — we cover ' + POI.filter(function (p) { return p.province === 'krabi'; }).length + ' places in this province</p>';
+    D.getElementById('taAddPoiBody').innerHTML = h;
+  }
+
+  function fillTrayDayPicker(poiId) {
+    var tr = TA.trip.get(), p = byId[poiId];
+    if (!p) return;
+    D.getElementById('taAddPoiTitle').textContent = 'Add ' + p.name + ' to which day';
+    D.getElementById('taAddPoiBody').innerHTML = tr.days.map(function (day, di) {
+      return '<p class="tp-row-2"><button class="ta-btn ta-btn-ghost ta-btn-block" type="button" ' +
+        'data-add-day="' + esc(day.id) + '" data-poi-id="' + esc(p.id) + '" data-id="' + esc(p.id) + '" ' +
+        'data-kind="' + esc(p.kind) + '" data-name="' + esc(p.name) + '" data-url="' + esc(p.url) + '" ' +
+        (p.img ? 'data-img="' + esc(p.img) + '" ' : '') +
+        'data-province="' + esc(p.province) + '" ' +
+        (typeof p.lat === 'number' ? 'data-lat="' + p.lat + '" data-lng="' + p.lng + '" ' : '') +
+        (p.durMin ? 'data-dur="' + p.durMin + '" ' : '') +
+        'data-source="saved" data-trip-href="trip">' + esc(dayLabel(day, di)) +
+        (day.zone ? ' · ' + esc(zoneLabel(day.zone)) : '') + '</button></p>';
+    }).join('');
+  }
+
+  /* ------------------------------ PREFS --------------------------------- */
+  var titleEl = D.getElementById('tpTitle');
+  titleEl.addEventListener('change', function () { TA.trip.setTitle(titleEl.value); render(); });
+  var startEl = D.getElementById('tpStart');
+  startEl.addEventListener('change', function () { TA.trip.setStartDate(startEl.value || null); render(); });
+  var paxEl = D.getElementById('tpPax');
+  paxEl.addEventListener('change', function () {
+    TA.trip.get().pax.adults = parseInt(paxEl.value, 10) || 1;
+    persist(); render();
+  });
+  D.getElementById('tpPrefs').addEventListener('submit', function (ev) { ev.preventDefault(); });
+
+  D.getElementById('tpAddDay').addEventListener('click', function () {
+    var tr = TA.trip.get();
+    TA.trip.addDay('Day ' + (tr.days.length + 1), null);
+    render();
+    TA.toast('Day added');
+  });
+
+  /* ------------------------------ MANAGE -------------------------------- */
+  D.getElementById('tpSeed').addEventListener('click', function () {
+    TA.trip.import(JSON.stringify(seedTrip()));
+    render();
+    TA.sheet.close(D.getElementById('taManage'));
+    TA.toast('Sample Krabi 3-day trip loaded');
+  });
+  D.getElementById('tpReset').addEventListener('click', function () {
+    D.getElementById('tpResetWarn').hidden = false;
+    D.getElementById('tpResetConfirmRow').hidden = false;
+  });
+  D.getElementById('tpResetCancel').addEventListener('click', function () {
+    D.getElementById('tpResetWarn').hidden = true;
+    D.getElementById('tpResetConfirmRow').hidden = true;
+  });
+  D.getElementById('tpResetConfirm').addEventListener('click', function () {
+    TA.trip.reset();
+    if (TA.saves && TA.saves.clear) TA.saves.clear();
+    D.getElementById('tpResetWarn').hidden = true;
+    D.getElementById('tpResetConfirmRow').hidden = true;
+    TA.sheet.close(D.getElementById('taManage'));
+    render();
+    TA.nav.syncBadge();
+    TA.toast('Trip cleared — open “Manage trip” to load the sample again');
+  });
+
+  /* ------------------------------ REORDER ------------------------------- */
+  /* Move-to ships FIRST (the ⋮ sheet above, handled by shell.js). Drag is the
+     second path, and Alt+Arrow is the third — WCAG 2.5.7 requires that
+     dragging never be the only way. */
+  var dragId = null;
+
+  board.addEventListener('dragstart', function (ev) {
+    var li = ev.target.closest && ev.target.closest('[data-item-id]');
+    if (!li) return;
+    dragId = li.getAttribute('data-item-id');
+    li.classList.add('is-dragging');
+    try { ev.dataTransfer.setData('text/plain', dragId); ev.dataTransfer.effectAllowed = 'move'; } catch (e) {}
+  });
+  board.addEventListener('dragend', function (ev) {
+    var li = ev.target.closest && ev.target.closest('[data-item-id]');
+    if (li) li.classList.remove('is-dragging');
+    dragId = null;
+    [].forEach.call(D.querySelectorAll('.is-over'), function (n) { n.classList.remove('is-over'); });
+  });
+  board.addEventListener('dragover', function (ev) {
+    var list = ev.target.closest && ev.target.closest('[data-drop-day]');
+    if (!list || !dragId) return;
+    ev.preventDefault();
+    try { ev.dataTransfer.dropEffect = 'move'; } catch (e) {}
+    list.classList.add('is-over');
+  });
+  board.addEventListener('dragleave', function (ev) {
+    var list = ev.target.closest && ev.target.closest('[data-drop-day]');
+    if (list && !list.contains(ev.relatedTarget)) list.classList.remove('is-over');
+  });
+  board.addEventListener('drop', function (ev) {
+    var list = ev.target.closest && ev.target.closest('[data-drop-day]');
+    if (!list || !dragId) return;
+    ev.preventDefault();
+    list.classList.remove('is-over');
+    var dayId = list.getAttribute('data-drop-day');
+    var rows = [].slice.call(list.querySelectorAll('[data-item-id]'));
+    var index = rows.length;
+    for (var i = 0; i < rows.length; i++) {
+      var r = rows[i].getBoundingClientRect();
+      if (ev.clientY < r.top + r.height / 2) { index = i; break; }
+    }
+    TA.trip.move(dragId, dayId, index);
+    dragId = null;
+    render();
+    TA.toast('Order updated');
+  });
+
+  board.addEventListener('keydown', function (ev) {
+    if (!ev.altKey) return;
+    if (ev.key !== 'ArrowUp' && ev.key !== 'ArrowDown') return;
+    var li = ev.target.closest && ev.target.closest('[data-item-id]');
+    if (!li) return;
+    ev.preventDefault();
+    var id = li.getAttribute('data-item-id');
+    TA.trip.nudge(id, ev.key === 'ArrowUp' ? 'up' : 'down');
+    render();
+    var again = D.querySelector('[data-item-id="' + id + '"]');
+    if (again) again.focus();
+    TA.toast(ev.key === 'ArrowUp' ? 'Moved up' : 'Moved down');
+  });
+
+  /* ------------------------------ TABS ---------------------------------- */
+  /* Real ARIA tabs: roving tabindex, Arrow/Home/End, hash-synced. Panels
+     never leave the DOM. */
+  var list = D.querySelector('.ta-wrap > .ta-tablist[role="tablist"]');
+  var tabs = list ? [].slice.call(list.querySelectorAll('[role="tab"]')) : [];
+  var panels = tabs.map(function (t) { return D.getElementById(t.getAttribute('aria-controls')); });
+
+  function select(i, opts) {
+    opts = opts || {};
+    tabs.forEach(function (t, j) {
+      var on = i === j;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
+      if (panels[j]) panels[j].hidden = !on;
+    });
+    if (opts.focus && tabs[i]) tabs[i].focus();
+    if (mapReady && mapObj && i === 0) W.setTimeout(function () { mapObj.invalidateSize(); }, 60);
+  }
+  function indexOfHash(h) {
+    for (var i = 0; i < panels.length; i++) if (panels[i] && '#' + panels[i].id === h) return i;
+    return -1;
+  }
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      select(i);
+      try { history.pushState(null, '', tab.getAttribute('href')); } catch (e) {}
+    });
+    tab.addEventListener('keydown', function (ev) {
+      var k = ev.key, n = -1, last = tabs.length - 1;
+      var rtl = D.documentElement.getAttribute('dir') === 'rtl';
+      if (k === 'ArrowRight') n = rtl ? i - 1 : i + 1;
+      else if (k === 'ArrowLeft') n = rtl ? i + 1 : i - 1;
+      else if (k === 'Home') n = 0;
+      else if (k === 'End') n = last;
+      else if (k === 'ArrowDown') { if (panels[i]) { ev.preventDefault(); panels[i].focus(); } return; }
+      else return;
+      ev.preventDefault();
+      if (n < 0) n = last; if (n > last) n = 0;
+      select(n, { focus: true });
+      try { history.replaceState(null, '', tabs[n].getAttribute('href')); } catch (e) {}
+    });
+  });
+  D.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#p-"]');
+    if (!a || a.getAttribute('role') === 'tab') return;
+    var i = indexOfHash(a.getAttribute('href'));
+    if (i < 0) return;
+    ev.preventDefault();
+    select(i);
+    try { history.pushState(null, '', a.getAttribute('href')); } catch (e) {}
+  });
+  W.addEventListener('popstate', function () {
+    var i = indexOfHash(location.hash);
+    select(i < 0 ? 0 : i);
+  });
+  (function () {
+    var i = indexOfHash(location.hash);
+    if (i > 0) select(i);
+  })();
+
+  /* ------------------------------ WIRE UP ------------------------------- */
+  TA.on('trip', function () { render(); });
+  TA.on('render', function () { render(); });
+  render();
+  TA.nav.syncBadge();
+  TA.nav.syncSaves();
+});
+</script>
+</body>
+</html>

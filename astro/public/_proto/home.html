@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>สำรวจ · ต้นแบบ ThailandAddict</title>
+<meta name="description" content="ต้นแบบหน้าสำรวจ (Explore) ของ ThailandAddict — ค้นหา หมวดเที่ยว แผนพร้อมใช้ และจุดหมายทั่วไทย พร้อมทริปที่บันทึกไว้">
+<link rel="canonical" href="https://thailandaddict.com/_proto/home.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="manifest" href="manifest.th.webmanifest">
+<!-- No <link rel="icon"> / apple-touch-icon yet: astro/public/favicon.svg and
+     astro/public/icons/ do not exist, and a 404 in the console during an
+     owner demo is worse than no icon. Add both once gen-shell has emitted them. -->
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Written relative (not "/css/…") so the prototype renders identically from
+     file:// on the owner's machine and from /_proto/ when it is served. -->
+<link rel="stylesheet" href="../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs, so a
+     module would arrive too late and the transition would play backwards. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+/* Marks that scripting is alive, so the resume card can show a skeleton while
+   it hydrates and the no-JS empty state can stay put when it is not. */
+document.documentElement.setAttribute('data-js', '');
+</script>
+
+<!-- Speculation Rules: the highest ROI-per-line item available, and absent
+     from Klook, Agoda, Booking and Traveloka.
+     eagerness:"moderate" (200 ms hover / pointerdown), NEVER "immediate" —
+     on an 18k-page site immediate burns a Thai traveller's mobile data.
+     Chrome caps non-immediate speculation at 2 prerenders FIFO. -->
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[
+    {"href_matches":"/*"},
+    {"not":{"href_matches":"/api/*"}},
+    {"not":{"href_matches":"/go/*"}},
+    {"not":{"href_matches":"/_proto/*"}},
+    {"not":{"selector_matches":".no-prerender, a[target=_blank], a[rel~=sponsored], a[rel~=nofollow]"}}
+  ]},"eagerness":"moderate"}],
+ "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
+</script>
+
+<script src="../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties; zero new colour,
+   spacing, radius or motion values — every number below is a shell token. */
+@layer page {
+
+  /* ---- 1. SEARCH HERO (§5.1 module 1) ---------------------------------
+     No hero image behind it: a 286 KB photo to decorate a search box is an
+     app-shell failure, and it makes LCP text. */
+  .ta-hero-search { padding-block: var(--sp-5) var(--sp-2); }
+  .ta-hero-search h1 { font-size: var(--step-3); margin-block-end: var(--sp-2); }
+  .ta-hero-lead { color: var(--text-muted); margin-block: 0 var(--sp-4); }
+
+  .ta-hero-form {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    inline-size: min(100%, 640px);
+    padding-inline: var(--sp-4) var(--sp-2);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-full);
+    background: var(--surface-2);
+    box-shadow: var(--elev-1);
+  }
+  .ta-hero-form > .ta-ic { color: var(--text-muted); flex: none; }
+  .ta-hero-form input {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    min-block-size: 52px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: var(--step-0);
+  }
+  .ta-hero-form .ta-btn { flex: none; }
+
+  /* ---- 2. CATEGORY PILLS (§5.1 module 2) -------------------------------
+     Every pill is a real <a> to a page that actually exists. */
+  .ta-pills { margin-block-start: var(--sp-4); }
+  .ta-pills ul { list-style: none; margin: 0; padding: 0; }
+
+  /* ---- 3. CONTINUE PLANNING (§5.1 module 3) ---------------------------
+     A neutral statement of state. Never loss-framed, never a countdown. */
+  .ta-resume-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    background: var(--surface-2);
+  }
+  .ta-resume-card[hidden] { display: none; }
+  .ta-resume-body { flex: 1 1 15rem; min-inline-size: 0; }
+  .ta-resume-lead { margin-block: 0 var(--sp-1); font-weight: 600; font-size: var(--step-1); }
+  .ta-resume-body p:last-child { margin-block-end: 0; }
+  .ta-resume-thumbs { display: flex; gap: var(--sp-2); flex: none; margin: 0; padding: 0; list-style: none; }
+  .ta-resume-thumbs li { inline-size: 64px; }
+  .ta-resume-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+  .ta-resume-skel-line { inline-size: 11rem; max-inline-size: 100%; }
+  .ta-resume-skel-line-2 { inline-size: 16rem; max-inline-size: 100%; }
+  /* With scripting off the skeleton never appears and the empty state is the
+     first and only paint. */
+  :root:not([data-js]) [data-resume-skel] { display: none; }
+  :root[data-js] [data-resume-empty] { display: none; }
+  :root[data-js] [data-resume-empty].is-on { display: flex; }
+  :root[data-js] [data-resume-skel].is-off { display: none; }
+
+  /* ---- 4/5/6. SCROLL-SNAP CARD RAILS ----------------------------------
+     78% card width on mobile: the partial next card is the strongest scroll
+     affordance there is. Reuses the shell's .ta-chip-scroll mechanics. */
+  .ta-scroll-cards { gap: var(--sp-4); padding-block-end: var(--sp-3); list-style: none; margin: 0; padding-inline: 0; }
+  .ta-scroll-cards > li { inline-size: min(78%, 300px); }
+  .ta-scroll-cards > li > .ta-card { block-size: 100%; }
+  .ta-scroll-cards .ta-card-body { flex: 1 1 auto; align-content: space-between; }
+  @media (min-width: 700px) { .ta-scroll-cards > li { inline-size: 288px; } }
+
+  .ta-sec-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    min-block-size: 44px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .ta-sec-more:hover { text-decoration: underline; }
+  /* Photo credit stays a real link to the source, and still clears the 44px
+     floor — a 17px inline link is the single most common target failure. */
+  .ta-card-credit {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    margin-block: 0;
+    font-size: var(--step--2);
+    color: var(--text-muted);
+  }
+  .ta-card-credit a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding-inline-start: var(--sp-1);
+    color: inherit;
+  }
+
+  /* ---- 7. REGION CARDS (§5.1 module 6) --------------------------------
+     77 provinces collapse to 6 cards. Every province stays in the DOM inside
+     <details>, so it is crawlable and readable by an AI answer engine. */
+  /* Two-up on a phone and image-free: this module exists to delete ~5,000 px
+     of scroll and ~1.3 MB of province photos, not to add six more. */
+  .ta-regions {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 158px), 1fr));
+    align-items: start;
+  }
+  @media (min-width: 700px) {
+    .ta-regions { grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+  }
+  .ta-regions .ta-card-body { gap: var(--sp-2); padding: var(--sp-3); }
+  .ta-regions .ta-card-title { font-size: var(--step-0); }
+  .ta-region-list { position: relative; z-index: 1; }
+  .ta-region-list > summary {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    min-block-size: 44px;
+    color: var(--accent);
+    font-size: var(--step--1);
+    cursor: pointer;
+    list-style: none;
+  }
+  .ta-region-list > summary::-webkit-details-marker { display: none; }
+  .ta-region-list > summary > .ta-ic { transition: rotate var(--dur-2) var(--ease-ui); }
+  .ta-region-list[open] > summary > .ta-ic { rotate: 90deg; }
+  .ta-region-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-1);
+    list-style: none;
+    margin-block: var(--sp-2) 0;
+    padding: 0;
+  }
+  .ta-region-links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding-inline: var(--sp-3);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    color: var(--text);
+    font-size: var(--step--1);
+    text-decoration: none;
+  }
+  .ta-region-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---- 8. STATIC NUMBERS + EDITOR --------------------------------------
+     Final values on first paint. No count-up: a first-time visitor forming a
+     trust judgement must not read a wrong number for three seconds. */
+  .ta-stats {
+    display: grid;
+    gap: var(--sp-4);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+    margin: 0;
+  }
+  .ta-stats > div { border-inline-start: 3px solid var(--trip-line); padding-inline-start: var(--sp-3); }
+  .ta-stats dt { color: var(--text-muted); font-size: var(--step--1); }
+  .ta-stats dd {
+    margin-inline: 0;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+  }
+
+  .ta-editor { display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap; padding: var(--sp-3); }
+  .ta-editor .ta-media { inline-size: 56px; flex: none; border-radius: var(--r-full); }
+  .ta-editor-body { flex: 1 1 10rem; min-inline-size: 0; }
+  .ta-editor-body p { margin-block-end: 0; }
+  .ta-editor-name { margin-block: 0 var(--sp-1); font-size: var(--step-1); }
+
+  .ta-proto-note { margin-block-start: var(--sp-6); }
+}
+</style>
+</head>
+<body>
+<a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="home">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="home" aria-current="page">สำรวจ</a>
+    <a href="krabi">จุดหมาย</a>
+    <a href="trip">ทริป <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">ค้นหา</label>
+    <input id="q-desk" type="search" name="q" placeholder="ที่พัก ร้านอาหาร จุดหมาย">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ไทย</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <p class="ta-proto-flag">หน้า <b>ต้นแบบ</b> สำหรับรีวิวก่อนตัดสินใจ — ยังไม่ลิงก์จากเว็บจริง และตั้ง noindex, nofollow ทุกหน้า</p>
+  <div class="ta-wrap">
+
+    <!-- ============================================================ 1. HERO -->
+    <section class="ta-hero-search" aria-labelledby="h-hero">
+      <h1 id="h-hero">ที่พัก ที่กิน ที่เที่ยว ทั่วไทย — เก็บใส่ทริปได้เลย</h1>
+      <p class="ta-hero-lead">รีวิวที่พัก ร้านอาหาร และที่เที่ยวทั่วไทย — บันทึกที่ถูกใจไว้ แล้วจัดเป็นทริปของคุณเองได้เลย ไม่ต้องสมัครสมาชิก</p>
+
+      <form class="ta-hero-form" action="search" method="get" role="search">
+        <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+        <label class="ta-sr" for="q-hero">ค้นหาที่พัก ร้านอาหาร หรือจุดหมาย</label>
+        <input id="q-hero" type="search" name="q" placeholder="กระบี่ · เชียงใหม่ · ร้านมิชลิน">
+        <button class="ta-btn ta-btn-primary" type="submit">ค้นหา</button>
+      </form>
+
+      <!-- =========================================================== 2. PILLS -->
+      <nav class="ta-pills" aria-label="หมวดที่คนค้นบ่อย">
+        <ul class="ta-chip-scroll">
+          <li><a class="ta-btn ta-btn-ghost" href="/best-beaches-thailand">หาดสวย</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-quiet-islands-thailand">เกาะเงียบ</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-cafe-hopping-thailand">คาเฟ่</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-viewpoints-mountains-thailand">จุดชมวิว</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-historic-old-towns-thailand">เมืองเก่า</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/michelin-guide-thailand-2026">ร้านมิชลิน</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/bars-50-best-bangkok">บาร์ 50 Best</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/thailand-diving">ดำน้ำ</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-islands-snorkeling-thailand">ดำน้ำตื้น</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/family-travel-thailand">เที่ยวกับเด็ก</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-kids-activities-thailand">กิจกรรมเด็ก</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/best-of-thailand-2026">ที่สุดของไทย 2026</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- ================================================== 3. CONTINUE PLANNING -->
+    <section class="ta-sec ta-resume" id="taResume" aria-labelledby="h-resume">
+      <div class="ta-sec-head">
+        <h2 id="h-resume">วางแผนต่อ</h2>
+        <a class="ta-sec-more" href="trip">เปิดหน้าทริป
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <!-- Skeleton: shown only while scripting hydrates the real state. -->
+      <div class="ta-resume-card" data-resume-skel aria-hidden="true">
+        <ul class="ta-resume-thumbs">
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+          <li><div class="ta-skel ta-r-1-1"></div></li>
+        </ul>
+        <div class="ta-resume-body">
+          <div class="ta-skel ta-skel-text ta-resume-skel-line"></div>
+          <div class="ta-skel ta-skel-text ta-resume-skel-line-2"></div>
+        </div>
+      </div>
+
+      <!-- Real empty state. This is what a first-time reader, and anyone with
+           scripting off, actually sees. -->
+      <div class="ta-resume-card" data-resume-empty>
+        <div class="ta-resume-body">
+          <p class="ta-resume-lead">ยังไม่มีที่บันทึกไว้</p>
+          <p class="ta-fine">กดปุ่ม <b>🔖 เพิ่มเข้าทริป</b> ที่การ์ดไหนก็ได้ในหน้านี้ แล้วรายการจะมารออยู่ตรงนี้ พร้อมให้จัดเป็นวัน ๆ ในหน้าทริป ไม่ต้องสมัครสมาชิก และเก็บไว้ในเครื่องคุณเอง</p>
+        </div>
+        <div class="ta-resume-actions">
+          <a class="ta-btn ta-btn-ghost" href="krabi">ลองดูจุดหมายสักที่</a>
+        </div>
+      </div>
+
+      <!-- Live state, rendered from ta.trip.v1 + ta.saves.v3. -->
+      <div class="ta-resume-card" data-resume-live hidden>
+        <ul class="ta-resume-thumbs" data-resume-thumbs></ul>
+        <div class="ta-resume-body">
+          <p class="ta-resume-lead" data-resume-lead></p>
+          <p class="ta-fine" data-resume-sub>จัดเป็นวัน ๆ ต่อได้ในหน้าทริป</p>
+        </div>
+        <div class="ta-resume-actions">
+          <a class="ta-btn ta-btn-primary" href="trip">เปิดแผน</a>
+          <button class="ta-btn ta-btn-quiet" type="button" data-resume-dismiss>ซ่อนไว้ก่อน</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 4. GUIDES -->
+    <section class="ta-sec ta-guides" aria-labelledby="h-guides">
+      <div class="ta-sec-head">
+        <h2 id="h-guides">แผนพร้อมใช้</h2>
+        <a class="ta-sec-more" href="/country-thailand">ดูทุกจุดหมาย
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/krabi-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/krabi-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/krabi-3d2n-itinerary-560.jpg" alt="เขาหินปูนและทะเลกระบี่ในแผนเที่ยว 3 วัน 2 คืน" width="560" height="372" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แผนเที่ยวกระบี่</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/krabi-3d2n-itinerary">แผนเที่ยวกระบี่ 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 11 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">เรลเลย์ · ทัวร์สี่เกาะ</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/chiang-mai-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/chiang-mai-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/chiang-mai-3d2n-itinerary-560.jpg" alt="เมืองเก่าเชียงใหม่และดอยรอบเมืองในแผนเที่ยว 3 วัน 2 คืน" width="560" height="431" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวเชียงใหม่</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/chiang-mai-3d2n-itinerary">เที่ยวเชียงใหม่ 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 10 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">เมือง · ธรรมชาติ · คาเฟ่</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/bangkok-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/bangkok-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/bangkok-3d2n-itinerary-560.jpg" alt="กรุงเทพฯ ในแผนเที่ยว 3 วัน 2 คืน เมืองเก่าและรูฟท็อป" width="560" height="374" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวกรุงเทพ</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/bangkok-3d2n-itinerary">กรุงเทพ 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 13 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">เมืองเก่า · ตลาด · รูฟท็อป</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/phuket-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/phuket-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/phuket-3d2n-itinerary-560.jpg" alt="ภูเก็ตในแผนเที่ยว 3 วัน 2 คืน เมืองเก่าและหาด" width="560" height="399" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวภูเก็ต</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/phuket-3d2n-itinerary">แผนเที่ยวภูเก็ต 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 11 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">เมืองเก่า · หาด · ทัวร์เกาะ</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/pai-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/pai-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/pai-3d2n-itinerary-560.jpg" alt="หุบเขาปายในแผนเที่ยว 3 วัน 2 คืน" width="560" height="197" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวปาย</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/pai-3d2n-itinerary">เที่ยวปาย 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 11 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">น้ำตก · สะพานไม้ไผ่ · พระใหญ่</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/samui-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/samui-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/samui-3d2n-itinerary-560.jpg" alt="เกาะสมุยในแผนเที่ยว 3 วัน 2 คืน" width="560" height="315" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวเกาะสมุย</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/samui-3d2n-itinerary">แผนเที่ยวเกาะสมุย 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 11 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">หาด · พระใหญ่ · อ่างทอง</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/ayutthaya-2d1n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/ayutthaya-2d1n-itinerary-560.webp"><img src="../images/_cards/cm/ayutthaya-2d1n-itinerary-560.jpg" alt="วัดเก่าอยุธยาในแผนเที่ยว 2 วัน 1 คืน" width="560" height="351" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แพลนเที่ยวอยุธยา</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/ayutthaya-2d1n-itinerary">เที่ยวอยุธยา 2 วัน 1 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">2 วัน 1 คืน</span><span class="ta-chip">อ่าน 9 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">เมืองเก่า · ตลาดน้ำ · ล่องเรือ</span></div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/kanchanaburi-3d2n-itinerary" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/cm/kanchanaburi-3d2n-itinerary-560.webp"><img src="../images/_cards/cm/kanchanaburi-3d2n-itinerary-560.jpg" alt="แม่น้ำและน้ำตกกาญจนบุรีในแผนเที่ยว 3 วัน 2 คืน" width="560" height="315" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">แผนเที่ยวกาญจนบุรี</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/kanchanaburi-3d2n-itinerary">แผนเที่ยวกาญจนบุรี 3 วัน 2 คืน</a></h3>
+              <p class="ta-card-meta"><span class="ta-chip">3 วัน 2 คืน</span><span class="ta-chip">อ่าน 9 นาที</span></p>
+              <div class="ta-card-foot"><span class="ta-fine">น้ำตก · ประวัติศาสตร์ · นอนแพ</span></div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================================================ 5. MICHELIN + 50 BEST -->
+    <section class="ta-sec" aria-labelledby="h-eat">
+      <div class="ta-sec-head">
+        <h2 id="h-eat">มิชลิน &amp; Asia&rsquo;s 50 Best</h2>
+        <a class="ta-sec-more" href="/michelin-guide-thailand-2026">ดูลิสต์เต็ม
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/michelin-sorn" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/food/michelin/michelin-sorn-1-560.webp">
+                <img src="../images/_cards/food/michelin/michelin-sorn-1-560.jpg" alt="อาหารใต้ที่ร้าน Sorn กรุงเทพฯ" width="560" height="840" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/michelin-sorn">Sorn</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 สามดาวมิชลิน 2026</span>
+                <span class="ta-chip"><span class="ta-num">฿7,800++</span></span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://sornfinesouthern.com/" rel="noopener nofollow" target="_blank">sornfinesouthern.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-sorn" data-poi-id="e:michelin-sorn"
+                        data-kind="eat" data-name="Sorn" data-url="/michelin-sorn"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-sorn-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/michelin-suhring" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/food/michelin/michelin-suhring-1-560.webp">
+                <img src="../images/_cards/food/michelin/michelin-suhring-1-560.jpg" alt="ห้องอาหาร Sühring กรุงเทพฯ" width="560" height="447" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/michelin-suhring">Sühring</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 สามดาวมิชลิน 2026</span>
+                <span class="ta-chip"><span class="ta-num">฿7,800</span></span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://restaurantsuhring.com/" rel="noopener nofollow" target="_blank">restaurantsuhring.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-suhring" data-poi-id="e:michelin-suhring"
+                        data-kind="eat" data-name="Sühring" data-url="/michelin-suhring"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-suhring-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/michelin-cote-by-mauro-colagreco" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/food/michelin/michelin-cote-by-mauro-colagreco-1-560.webp"><img src="../images/_cards/food/michelin/michelin-cote-by-mauro-colagreco-1-560.jpg" alt="ห้องอาหาร Côte by Mauro Colagreco ที่ Capella Bangkok" width="560" height="312" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/michelin-cote-by-mauro-colagreco">Côte by Mauro Colagreco</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 สองดาวมิชลิน 2026</span>
+                <span class="ta-chip"><span class="ta-num">฿7,800</span></span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://capellahotels.com/en/capella-bangkok/dining/cote-by-mauro-colagreco" rel="noopener nofollow" target="_blank">capellahotels.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-cote-by-mauro-colagreco" data-poi-id="e:michelin-cote-by-mauro-colagreco"
+                        data-kind="eat" data-name="Côte by Mauro Colagreco" data-url="/michelin-cote-by-mauro-colagreco"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-cote-by-mauro-colagreco-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/michelin-jay-fai" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/food/michelin/michelin-jay-fai-1-560.webp"><img src="../images/_cards/food/michelin/michelin-jay-fai-1-560.jpg" alt="ไข่เจียวปูร้านเจ๊ไฝ กรุงเทพฯ" width="560" height="560" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/michelin-jay-fai">Jay Fai (เจ๊ไฝ)</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 หนึ่งดาวมิชลิน 2026</span>
+                <span class="ta-chip"><span class="ta-num">฿600–1,000</span></span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://www.instagram.com/jayfaibangkok/p/Bpmfp-AnrJQ/" rel="noopener nofollow" target="_blank">อินสตาแกรมทางการร้านเจ๊ไฝ</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:michelin-jay-fai" data-poi-id="e:michelin-jay-fai"
+                        data-kind="eat" data-name="Jay Fai" data-url="/michelin-jay-fai"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/michelin/michelin-jay-fai-1.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/bar-bar-us" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/food/bars/bar-bar-us-560.webp"><img src="../images/_cards/food/bars/bar-bar-us-560.jpg" alt="บาร์ Bar Us ย่านอารีย์ กรุงเทพฯ" width="560" height="361" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">อารีย์ · กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/bar-bar-us">Bar Us</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Asia&rsquo;s 50 Best Bars 2026 · อันดับ 6</span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://www.theworlds50best.com/bars/the-list/bar-us.html" rel="noopener nofollow" target="_blank">theworlds50best.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:bar-bar-us" data-poi-id="e:bar-bar-us"
+                        data-kind="eat" data-name="Bar Us" data-url="/bar-bar-us"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/bars/bar-bar-us.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/bar-bkk-social-club" data-vt-hero>
+              <picture><source type="image/webp" srcset="../images/_cards/food/bars/bar-bkk-social-club-560.webp"><img src="../images/_cards/food/bars/bar-bkk-social-club-560.jpg" alt="บาร์ BKK Social Club โรงแรมโฟร์ซีซั่นส์ กรุงเทพฯ" width="560" height="361" loading="lazy" decoding="async"></picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ราชประสงค์ · กรุงเทพมหานคร</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-2" href="/bar-bkk-social-club">BKK Social Club</a></h3>
+              <p class="ta-card-meta">
+                <span class="ta-chip ta-chip-award">🏅 Asia&rsquo;s 50 Best Bars 2026 · อันดับ 20</span>
+              </p>
+              <p class="ta-card-credit">ภาพ: <a href="https://www.theworlds50best.com/bars/asia/the-list/bkk-social-club.html" rel="noopener nofollow" target="_blank">theworlds50best.com</a></p>
+              <div class="ta-card-foot">
+                <button class="ta-save" type="button" aria-pressed="false"
+                        data-save data-id="e:bar-bkk-social-club" data-poi-id="e:bar-bkk-social-club"
+                        data-kind="eat" data-name="BKK Social Club" data-url="/bar-bkk-social-club"
+                        data-img="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/food/bars/bar-bkk-social-club.jpg"
+                        data-province="bangkok" data-trip-href="trip">
+                  <span aria-hidden="true">🔖</span>
+                  <span class="ta-save-off">เพิ่มเข้าทริป</span>
+                  <span class="ta-save-on">บันทึกแล้ว</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ====================================================== 6. DESTINATIONS -->
+    <section class="ta-sec" aria-labelledby="h-dest">
+      <div class="ta-sec-head">
+        <h2 id="h-dest">เมืองท่องเที่ยวยอดนิยม</h2>
+        <a class="ta-sec-more" href="/destinations">ดูทุกเมือง
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <ul class="ta-chip-scroll ta-scroll-cards">
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="krabi" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/krabi-560.webp">
+                <img src="../images/_cards/heroes/krabi-560.jpg" alt="เขาหินปูนและน้ำทะเลสีเขียวมรกตที่กระบี่" width="560" height="299" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคใต้ · อันดามัน</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="krabi">กระบี่</a></h3>
+              <p class="ta-fine ta-clamp-2">เมืองเขาหินปูนริมอันดามัน หาดทรายขาว เกาะใส ปีนผาเรลเลย์ และน้ำใสเขียวมรกต</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-bangkok" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/bangkok-560.webp">
+                <img src="../images/_cards/heroes/bangkok-560.jpg" alt="เส้นขอบฟ้าและวัดในกรุงเทพมหานคร" width="560" height="433" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคกลาง</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-bangkok">กรุงเทพมหานคร</a></h3>
+              <p class="ta-fine ta-clamp-2">เมืองหลวงที่มีทั้งวัดเก่า ตึกสูง และสตรีทฟู้ดในซอยเดียวกัน</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-chiang-mai" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/chiang-mai-560.webp">
+                <img src="../images/_cards/heroes/chiang-mai-560.jpg" alt="วัดและเมืองเก่าเชียงใหม่ในหุบเขา" width="560" height="372" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคเหนือ</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-chiang-mai">เชียงใหม่</a></h3>
+              <p class="ta-fine ta-clamp-2">เมืองเก่าในหุบเขา ที่อยู่ได้นานกว่าที่คิด</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-phuket" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/phuket-560.webp">
+                <img src="../images/_cards/heroes/phuket-560.jpg" alt="หาดและทะเลอันดามันที่ภูเก็ต" width="560" height="123" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคใต้ · อันดามัน</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-phuket">ภูเก็ต</a></h3>
+              <p class="ta-fine ta-clamp-2">เกาะใหญ่ฝั่งอันดามัน หาดทรายขาว ย่านเมืองเก่าชิโน-โปรตุกีส และอาหารฮกเกี้ยน</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-samui" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/samui-560.webp">
+                <img src="../images/_cards/heroes/samui-560.jpg" alt="หาดทรายและทะเลอ่าวไทยที่เกาะสมุย" width="560" height="420" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคใต้ · อ่าวไทย</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-samui">เกาะสมุย</a></h3>
+              <p class="ta-fine ta-clamp-2">เกาะใหญ่อ่าวไทย หาดเฉวง-ละไม พระใหญ่ หินตาหินยาย หมู่บ้านประมงบ่อผุด และอ่างทอง</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-pai" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/pai-560.webp">
+                <img src="../images/_cards/heroes/pai-560.jpg" alt="ทุ่งนาและหุบเขาที่ปาย แม่ฮ่องสอน" width="560" height="197" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคเหนือ · แม่ฮ่องสอน</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-pai">ปาย</a></h3>
+              <p class="ta-fine ta-clamp-2">เมืองเล็กในหุบเขาแม่ฮ่องสอน ทะเลหมอก คาเฟ่ริมนา ถนนคนเดิน ปายแคนยอน และสะพานประวัติศาสตร์</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-ayutthaya" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/ayutthaya-560.webp">
+                <img src="../images/_cards/heroes/ayutthaya-560.jpg" alt="วัดร้างในเกาะเมืองพระนครศรีอยุธยา" width="560" height="420" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคกลาง</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-ayutthaya">พระนครศรีอยุธยา</a></h3>
+              <p class="ta-fine ta-clamp-2">ราชธานีเก่ามรดกโลก เดินดูวัดร้าง ปั่นจักรยานในเกาะเมือง</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="ta-card">
+            <a class="ta-media ta-r-3-2" href="/city-koh-lipe" data-vt-hero>
+              <picture>
+                <source type="image/webp" srcset="../images/_cards/heroes/koh-lipe-560.webp">
+                <img src="../images/_cards/heroes/koh-lipe-560.jpg" alt="หาดทรายขาวและน้ำใสที่เกาะหลีเป๊ะ สตูล" width="560" height="373" loading="lazy" decoding="async">
+              </picture>
+            </a>
+            <div class="ta-card-body">
+              <span class="eyebrow">ภาคใต้ · สตูล</span>
+              <h3 class="ta-card-title"><a class="ta-clamp-1" href="/city-koh-lipe">เกาะหลีเป๊ะ</a></h3>
+              <p class="ta-fine ta-clamp-2">เกาะน้ำใสในหมู่เกาะตะรุเตา สตูล หาดทรายขาวละเอียด ดำน้ำดูปะการัง และเกาะรอบ ๆ น้ำเขียวมรกต</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- =========================================================== 7. REGIONS -->
+    <section class="ta-sec" aria-labelledby="h-regions">
+      <div class="ta-sec-head">
+        <h2 id="h-regions">เลือกตามภาค</h2>
+        <a class="ta-sec-more" href="/country-thailand">ดูทั้ง 77 จังหวัด
+          <svg class="ta-ic ta-ic-16 i-arrow" aria-hidden="true"><use href="#i-arrow"></use></svg>
+        </a>
+      </div>
+
+      <div class="ta-grid ta-regions">
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-north">ภาคเหนือ</a></h3>
+            <p class="ta-fine ta-clamp-3">17 จังหวัด · ดอย หมอก เมืองเก่า คาเฟ่ และอาหารเหนือ</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-chiang-mai">เชียงใหม่</a></li>
+                <li><a href="/city-chiang-rai">เชียงราย</a></li>
+                <li><a href="/city-lamphun">ลำพูน</a></li>
+                <li><a href="/city-lampang">ลำปาง</a></li>
+                <li><a href="/city-mae-hong-son">แม่ฮ่องสอน</a></li>
+                <li><a href="/city-phayao">พะเยา</a></li>
+                <li><a href="/city-phrae">แพร่</a></li>
+                <li><a href="/city-nan">น่าน</a></li>
+                <li><a href="/city-uttaradit">อุตรดิตถ์</a></li>
+                <li><a href="/city-sukhothai">สุโขทัย</a></li>
+                <li><a href="/city-phitsanulok">พิษณุโลก</a></li>
+                <li><a href="/city-phetchabun">เพชรบูรณ์</a></li>
+                <li><a href="/city-tak">ตาก</a></li>
+                <li><a href="/city-kamphaeng-phet">กำแพงเพชร</a></li>
+                <li><a href="/city-phichit">พิจิตร</a></li>
+                <li><a href="/city-nakhon-sawan">นครสวรรค์</a></li>
+                <li><a href="/city-uthai-thani">อุทัยธานี</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-isan">ภาคอีสาน</a></h3>
+            <p class="ta-fine ta-clamp-3">20 จังหวัด · ที่ราบสูง วัฒนธรรมสนุก อาหารรสจัด และธรรมชาติริมโขง</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-nakhon-ratchasima">นครราชสีมา</a></li>
+                <li><a href="/city-buriram">บุรีรัมย์</a></li>
+                <li><a href="/city-surin">สุรินทร์</a></li>
+                <li><a href="/city-sisaket">ศรีสะเกษ</a></li>
+                <li><a href="/city-ubon-ratchathani">อุบลราชธานี</a></li>
+                <li><a href="/city-yasothon">ยโสธร</a></li>
+                <li><a href="/city-chaiyaphum">ชัยภูมิ</a></li>
+                <li><a href="/city-amnat-charoen">อำนาจเจริญ</a></li>
+                <li><a href="/city-nong-bua-lamphu">หนองบัวลำภู</a></li>
+                <li><a href="/city-khon-kaen">ขอนแก่น</a></li>
+                <li><a href="/city-udon-thani">อุดรธานี</a></li>
+                <li><a href="/city-loei">เลย</a></li>
+                <li><a href="/city-nong-khai">หนองคาย</a></li>
+                <li><a href="/city-maha-sarakham">มหาสารคาม</a></li>
+                <li><a href="/city-roi-et">ร้อยเอ็ด</a></li>
+                <li><a href="/city-kalasin">กาฬสินธุ์</a></li>
+                <li><a href="/city-sakon-nakhon">สกลนคร</a></li>
+                <li><a href="/city-nakhon-phanom">นครพนม</a></li>
+                <li><a href="/city-mukdahan">มุกดาหาร</a></li>
+                <li><a href="/city-bueng-kan">บึงกาฬ</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-central">ภาคกลาง</a></h3>
+            <p class="ta-fine ta-clamp-3">15 จังหวัด · กรุงเทพและเมืองรอบ ๆ ประวัติศาสตร์อยุธยา ตลาดน้ำ</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-bangkok">กรุงเทพมหานคร</a></li>
+                <li><a href="/city-nonthaburi">นนทบุรี</a></li>
+                <li><a href="/city-pathum-thani">ปทุมธานี</a></li>
+                <li><a href="/city-samut-prakan">สมุทรปราการ</a></li>
+                <li><a href="/city-samut-sakhon">สมุทรสาคร</a></li>
+                <li><a href="/city-samut-songkhram">สมุทรสงคราม</a></li>
+                <li><a href="/city-nakhon-pathom">นครปฐม</a></li>
+                <li><a href="/city-ayutthaya">พระนครศรีอยุธยา</a></li>
+                <li><a href="/city-ang-thong">อ่างทอง</a></li>
+                <li><a href="/city-lopburi">ลพบุรี</a></li>
+                <li><a href="/city-sing-buri">สิงห์บุรี</a></li>
+                <li><a href="/city-chai-nat">ชัยนาท</a></li>
+                <li><a href="/city-saraburi">สระบุรี</a></li>
+                <li><a href="/city-suphan-buri">สุพรรณบุรี</a></li>
+                <li><a href="/city-nakhon-nayok">นครนายก</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-east">ภาคตะวันออก</a></h3>
+            <p class="ta-fine ta-clamp-3">7 จังหวัด · ทะเลตะวันออก เกาะช้าง ผลไม้ และเมืองริมทะเลใกล้กรุง</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-chonburi">ชลบุรี</a></li>
+                <li><a href="/city-rayong">ระยอง</a></li>
+                <li><a href="/city-chanthaburi">จันทบุรี</a></li>
+                <li><a href="/city-trat">ตราด</a></li>
+                <li><a href="/city-chachoengsao">ฉะเชิงเทรา</a></li>
+                <li><a href="/city-prachinburi">ปราจีนบุรี</a></li>
+                <li><a href="/city-sa-kaeo">สระแก้ว</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-west">ภาคตะวันตก</a></h3>
+            <p class="ta-fine ta-clamp-3">4 จังหวัด · หัวหิน ปราณบุรี กาญจน์ — น้ำตก ธรรมชาติ และทะเลใกล้กรุงเทพ</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-kanchanaburi">กาญจนบุรี</a></li>
+                <li><a href="/city-ratchaburi">ราชบุรี</a></li>
+                <li><a href="/city-phetchaburi">เพชรบุรี</a></li>
+                <li><a href="/city-prachuap-khiri-khan">ประจวบคีรีขันธ์</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <div class="ta-card-body">
+            <h3 class="ta-card-title"><a href="/region-south">ภาคใต้</a></h3>
+            <p class="ta-fine ta-clamp-3">14 จังหวัด · อันดามันและอ่าวไทย หาดทรายขาว เกาะสวย และอาหารใต้รสจัดจ้าน</p>
+            <details class="ta-region-list">
+              <summary>
+                <svg class="ta-ic ta-ic-16 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                ดูรายชื่อจังหวัด
+              </summary>
+              <ul class="ta-region-links">
+                <li><a href="/city-chumphon">ชุมพร</a></li>
+                <li><a href="/city-ranong">ระนอง</a></li>
+                <li><a href="/city-surat-thani">สุราษฎร์ธานี</a></li>
+                <li><a href="/city-nakhon-si-thammarat">นครศรีธรรมราช</a></li>
+                <li><a href="/city-krabi">กระบี่</a></li>
+                <li><a href="/city-phang-nga">พังงา</a></li>
+                <li><a href="/city-phuket">ภูเก็ต</a></li>
+                <li><a href="/city-phatthalung">พัทลุง</a></li>
+                <li><a href="/city-trang">ตรัง</a></li>
+                <li><a href="/city-satun">สตูล</a></li>
+                <li><a href="/city-songkhla">สงขลา</a></li>
+                <li><a href="/city-pattani">ปัตตานี</a></li>
+                <li><a href="/city-yala">ยะลา</a></li>
+                <li><a href="/city-narathiwat">นราธิวาส</a></li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== 8. NUMBERS + THE EDITOR -->
+    <section class="ta-sec" aria-labelledby="h-about">
+      <div class="ta-sec-head">
+        <h2 id="h-about">เว็บนี้มีอะไรบ้าง</h2>
+      </div>
+
+      <dl class="ta-stats">
+        <div><dt>รีวิวที่พักรายแห่ง</dt><dd>2,401</dd></div>
+        <div><dt>บทความจัดอันดับ</dt><dd>397</dd></div>
+        <div><dt>คู่มือและบทความ</dt><dd>4,447</dd></div>
+        <div><dt>จังหวัด</dt><dd>77</dd></div>
+      </dl>
+      <p class="ta-fine ta-proto-note">นับจากไฟล์เนื้อหาไทยในระบบ ตรวจนับ 8 ก.ย. 2026 · เว็บมี 9 ภาษา</p>
+
+      <article class="ta-card ta-card-editorial ta-editor">
+        <span class="ta-media ta-r-1-1">
+          <picture><source type="image/webp" srcset="../images/_cards/team/doctor-chat-avatar-560.webp"><img src="../images/_cards/team/doctor-chat-avatar-560.jpg" alt="Doctor Chat บรรณาธิการบริหารและผู้ก่อตั้ง Thailandaddict" width="400" height="400" loading="lazy" decoding="async"></picture>
+        </span>
+        <div class="ta-editor-body">
+          <span class="eyebrow">บรรณาธิการ</span>
+          <h3 class="ta-editor-name">Doctor Chat</h3>
+          <p class="ta-fine ta-clamp-3">หมอผู้รักการเดินทาง เที่ยวมาแล้วหลายสิบประเทศทั่วโลก ผู้ก่อตั้ง Thailandaddict ที่ตั้งใจรวมที่พัก ที่กิน ที่เที่ยวทั่วไทยแบบครบและเชื่อถือได้ในที่เดียว</p>
+        </div>
+      </article>
+
+    </section>
+
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="ทริปของคุณ">
+  <button class="ta-rail-toggle" type="button" data-rail-toggle
+          aria-expanded="false" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">ทริปของคุณ</span>
+  </button>
+
+  <div class="ta-rail-body" id="taRailBody">
+    <p class="ta-fine" data-trip-count-label>ในทริปของคุณ 0 รายการ</p>
+    <ul class="ta-day-list" data-rail-list></ul>
+    <p class="ta-fine" data-rail-empty>ยังไม่มีรายการ — กด 🔖 ที่การ์ดไหนก็ได้เพื่อเริ่ม</p>
+    <a class="ta-btn ta-btn-quiet" href="trip">เปิดหน้าทริป</a>
+  </div>
+</aside>
+
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="home" data-tab="explore" aria-current="page">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>สำรวจ</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>จุดหมาย</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>ค้นหา</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>ทริป</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>เมนู</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">การแสดงผล</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>ธีม</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>ตามระบบ</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ภาษา</span>
+  </button>
+
+  <hr>
+
+  <a href="trip">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span>ทริปของฉัน</span>
+  </a>
+  <a href="/near-me">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>ใกล้ฉัน</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>ติดตั้งเป็นแอป</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="home" hreflang="th" aria-current="true">ไทย</a>
+  <a href="en/home" hreflang="en">English</a>
+</div>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* Page script. No inline on* handlers anywhere — one listener, delegated,
+   exactly like shell.js. Runs on DOMContentLoaded so the deferred shell.js
+   has already defined window.TA. */
+document.addEventListener('DOMContentLoaded', function () {
+  var TA = window.TA;
+  if (!TA) return;
+
+  /* Images are referenced relative so the prototype renders from file:// too;
+     the saved record keeps the production-absolute path. */
+  var IMG_BASE = '../';
+  var PROV = {
+    bangkok: 'กรุงเทพฯ', krabi: 'กระบี่', 'chiang-mai': 'เชียงใหม่', phuket: 'ภูเก็ต',
+    samui: 'เกาะสมุย', pai: 'ปาย', ayutthaya: 'พระนครศรีอยุธยา', 'koh-lipe': 'เกาะหลีเป๊ะ'
+  };
+
+  function resolveImg(p) {
+    if (!p) return '';
+    return p.charAt(0) === '/' ? IMG_BASE + p.slice(1) : p;
+  }
+
+  /* Seed the POI cache from this page's real content, so anything saved here
+     resolves to a real name and photo on the trip page too. */
+  var seed = [];
+  var btns = document.querySelectorAll('[data-save]');
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    seed.push({
+      id: b.getAttribute('data-poi-id') || b.getAttribute('data-id'),
+      name: b.getAttribute('data-name') || '',
+      url: b.getAttribute('data-url') || '',
+      img: b.getAttribute('data-img') || '',
+      kind: b.getAttribute('data-kind') || '',
+      province: b.getAttribute('data-province') || ''
+    });
+  }
+  if (TA.poi && TA.poi.putAll) TA.poi.putAll(seed);
+
+  /* ---- continue-planning card ---------------------------------------- */
+  var sec = document.getElementById('taResume');
+  var skel = sec.querySelector('[data-resume-skel]');
+  var empty = sec.querySelector('[data-resume-empty]');
+  var live = sec.querySelector('[data-resume-live]');
+  var thumbs = sec.querySelector('[data-resume-thumbs]');
+  var lead = sec.querySelector('[data-resume-lead]');
+  var dismissBtn = sec.querySelector('[data-resume-dismiss]');
+  var railList = document.querySelector('[data-rail-list]');
+  var railEmpty = document.querySelector('[data-rail-empty]');
+
+  var DISMISS_KEY = 'ta.proto.resumeDismissed';
+  function dismissed() {
+    try { return sessionStorage.getItem(DISMISS_KEY) === '1'; } catch (e) { return false; }
+  }
+
+  /* Everything the trip currently holds, newest first, hydrated through the
+     POI cache. Nothing here is invented: if a record has no photo we render
+     no photo. */
+  function collect() {
+    var out = [], seen = {}, i, j;
+    var saves = TA.saves.list();
+    for (i = saves.length - 1; i >= 0; i--) {
+      if (seen[saves[i].id]) continue;
+      seen[saves[i].id] = 1;
+      out.push(saves[i]);
+    }
+    var tr = TA.trip.get();
+    for (i = 0; i < tr.saves.length; i++) {
+      var p = TA.poi.get(tr.saves[i].poiId);
+      if (p && !seen[p.id]) { seen[p.id] = 1; out.push(p); }
+    }
+    for (i = 0; i < tr.days.length; i++) {
+      var items = tr.days[i].items || [];
+      for (j = 0; j < items.length; j++) {
+        var q = TA.poi.get(items[j].poiId);
+        if (q && !seen[q.id]) { seen[q.id] = 1; out.push(q); }
+      }
+    }
+    return out;
+  }
+
+  function provinceClause(list) {
+    var names = [], seen = {}, i;
+    for (i = 0; i < list.length; i++) {
+      var s = list[i].province;
+      if (!s || seen[s]) continue;
+      seen[s] = 1;
+      names.push(PROV[s] || s);
+    }
+    if (names.length === 1) return ' ใน' + names[0];
+    if (names.length > 1) return ' ใน ' + names.length + ' จังหวัด';
+    return '';
+  }
+
+  function render() {
+    var list = collect();
+    var n = list.length;
+
+    if (skel) { skel.hidden = true; skel.classList.add('is-off'); }
+
+    if (railList) {
+      railList.textContent = '';
+      for (var k = 0; k < Math.min(n, 6); k++) {
+        var li = document.createElement('li');
+        li.className = 'ta-poi';
+
+        var th = document.createElement('span');
+        th.className = 'ta-poi-thumb';
+        var tsrc = resolveImg(list[k].img);
+        if (tsrc) {
+          var timg = document.createElement('img');
+          timg.src = tsrc; timg.alt = ''; timg.width = 56; timg.height = 56;
+          timg.loading = 'lazy'; timg.decoding = 'async';
+          th.appendChild(timg);
+        }
+        li.appendChild(th);
+
+        var nm = document.createElement('span');
+        nm.className = 'ta-poi-main';
+        var t1 = document.createElement('span');
+        t1.className = 'ta-poi-name ta-clamp-1';
+        t1.textContent = list[k].name || '';
+        nm.appendChild(t1);
+        var t2 = document.createElement('span');
+        t2.className = 'ta-poi-sub ta-clamp-1';
+        t2.textContent = PROV[list[k].province] || list[k].province || '';
+        nm.appendChild(t2);
+        li.appendChild(nm);
+
+        railList.appendChild(li);
+      }
+      if (railEmpty) railEmpty.hidden = n > 0;
+    }
+
+    if (!n || dismissed()) {
+      live.hidden = true;
+      empty.hidden = false;
+      empty.classList.add('is-on');
+      return;
+    }
+
+    empty.hidden = true;
+    empty.classList.remove('is-on');
+
+    thumbs.textContent = '';
+    for (var i = 0; i < Math.min(n, 3); i++) {
+      var src = resolveImg(list[i].img);
+      if (!src) continue;
+      var li2 = document.createElement('li');
+      var wrap = document.createElement('span');
+      wrap.className = 'ta-media ta-r-1-1';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = '';
+      img.width = 64;
+      img.height = 64;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      wrap.appendChild(img);
+      li2.appendChild(wrap);
+      thumbs.appendChild(li2);
+    }
+
+    lead.textContent = 'บันทึกไว้ ' + n + ' ที่' + provinceClause(list);
+    live.hidden = false;
+  }
+
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function () {
+      try { sessionStorage.setItem(DISMISS_KEY, '1'); } catch (e) {}
+      render();
+    });
+  }
+
+  if (TA.on) {
+    TA.on('change', render);
+    TA.on('saves', render);
+    TA.on('trip', render);
+  }
+
+  if (TA.whenActive) TA.whenActive(render); else render();
+});
+</script>
+</body>
+</html>

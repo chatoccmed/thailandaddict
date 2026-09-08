@@ -1,0 +1,1831 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>ที่บันทึกไว้ · ต้นแบบ ThailandAddict</title>
+<meta name="description" content="ต้นแบบหน้า 'ที่บันทึกไว้' ของ ThailandAddict — ดูรายการที่กด 🔖 ไว้ทั้งหมด แยกตามจังหวัด จัดเข้าวันที่ ส่งออกและนำเข้าเป็นไฟล์ JSON">
+<link rel="canonical" href="https://thailandaddict.com/_proto/saved.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="manifest" href="manifest.th.webmanifest">
+<!-- No <link rel="icon"> / apple-touch-icon yet: astro/public/favicon.svg and
+     astro/public/icons/ do not exist, and a 404 in the console during an
+     owner demo is worse than no icon. Add both once gen-shell has emitted them. -->
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Written relative (not "/css/…") so the prototype renders identically from
+     file:// on the owner's machine and from /_proto/ when it is served. -->
+<link rel="stylesheet" href="../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs, so a
+     module would arrive too late and the transition would play backwards. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+/* Marks that scripting is alive. The saved list itself lives in this
+   browser's localStorage, so with no JS we say so instead of rendering an
+   empty page that looks broken. If shell.js fails to load, the page script
+   removes this attribute again and the no-JS copy comes back. */
+document.documentElement.setAttribute('data-js', '');
+</script>
+
+<!-- Speculation Rules: the highest ROI-per-line item available, and absent
+     from Klook, Agoda, Booking and Traveloka.
+     eagerness:"moderate" (200 ms hover / pointerdown), NEVER "immediate" —
+     on an 18k-page site immediate burns a Thai traveller's mobile data.
+     Chrome caps non-immediate speculation at 2 prerenders FIFO. -->
+<script type="speculationrules">
+{"prerender":[{"where":{"and":[
+    {"href_matches":"/*"},
+    {"not":{"href_matches":"/api/*"}},
+    {"not":{"href_matches":"/go/*"}},
+    {"not":{"href_matches":"/_proto/*"}},
+    {"not":{"selector_matches":".no-prerender, a[target=_blank], a[rel~=sponsored], a[rel~=nofollow]"}}
+  ]},"eagerness":"moderate"}],
+ "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
+</script>
+
+<script src="../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties; zero new colour,
+   spacing, radius or motion values — every number below is a shell token. */
+@layer page {
+
+  /* ---- progressive enhancement gates -------------------------------- */
+  :root[data-js] [data-nojs] { display: none; }
+  :root:not([data-js]) [data-js-only] { display: none; }
+
+  /* ---- 1. HEAD ------------------------------------------------------ */
+  .sv-head { padding-block: var(--sp-5) var(--sp-3); }
+  .sv-head h1 { font-size: var(--step-3); margin-block: 0 var(--sp-2); }
+  .sv-lead { margin-block: 0 var(--sp-3); font-size: var(--step--1); color: var(--text-muted); }
+  .sv-privacy { margin-block: 0; max-inline-size: 62ch; }
+
+  /* ---- 2. TOOLBAR --------------------------------------------------- */
+  .sv-bar { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block-end: var(--sp-4); }
+
+  /* ---- 3. FILTERS --------------------------------------------------- */
+  .sv-filters { display: flex; flex-direction: column; gap: var(--sp-3); margin-block-end: var(--sp-5); }
+  .sv-filter-label {
+    display: block; font-size: var(--step--2); color: var(--text-muted);
+    margin-block-end: var(--sp-2);
+  }
+
+  /* ---- 4. BULK BAR --------------------------------------------------- */
+  .sv-bulk {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    border: 1px solid var(--trip-line);
+    background: var(--trip-soft);
+    border-radius: var(--r-md);
+    margin-block-end: var(--sp-4);
+  }
+  .sv-bulk-count { font-size: var(--step--1); font-weight: 600; color: var(--trip); }
+  .sv-spacer { flex: 1 1 auto; }
+
+  /* ---- 5. PROVINCE GROUPS + ROWS ------------------------------------- */
+  .sv-group { margin-block-end: var(--sp-6); }
+  .sv-group-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--sp-3); border-block-end: 1px solid var(--border);
+  }
+  .sv-group-head h3 { margin: 0; font-size: var(--step-0); padding-block: .12em; }
+  .sv-group-count { font-size: var(--step--1); font-weight: 400; color: var(--text-muted); }
+
+  .sv-list { list-style: none; margin: 0; padding: 0; }
+  .sv-list > li + li { border-block-start: 1px solid var(--border); }
+  .sv-list:not([data-select]) .sv-pick { display: none; }
+  .sv-list[data-select] .ta-poi { grid-template-columns: 44px 56px 1fr auto; }
+
+  .sv-pick { min-block-size: 44px; min-inline-size: 44px; display: grid; place-items: center; cursor: pointer; }
+
+  /* Checkbox and radio: the CONTROL itself is the 44 px target, not just the
+     label around it — a 20 px native box is 20 px of tappable area no matter
+     how tall its label is. The mark stays 20 px; only the hit box grows. */
+  .sv-pick input, .sv-radio input {
+    appearance: none; -webkit-appearance: none;
+    inline-size: 44px; block-size: 44px; margin: 0; padding: 0;
+    display: grid; place-items: center;
+    background: transparent; border: 0; cursor: pointer; flex: none;
+  }
+  .sv-pick input::before, .sv-radio input::before {
+    content: ''; grid-area: 1 / 1;
+    inline-size: 20px; block-size: 20px;
+    border: 2px solid var(--border-strong);
+    background: var(--surface-2);
+  }
+  .sv-pick input::before { border-radius: var(--r-xs); }
+  .sv-radio input::before { border-radius: var(--r-full); }
+  .sv-pick input:checked::before { background: var(--accent); border-color: var(--accent); }
+  .sv-radio input:checked::before {
+    background: var(--accent); border-color: var(--accent);
+    box-shadow: inset 0 0 0 3px var(--surface-2);
+  }
+  .sv-pick input::after {
+    content: ''; grid-area: 1 / 1;
+    inline-size: 10px; block-size: 5px;
+    border-inline-start: 2px solid var(--accent-fg);
+    border-block-end: 2px solid var(--accent-fg);
+    rotate: -45deg; translate: 0 -1px; opacity: 0;
+  }
+  .sv-pick input:checked::after { opacity: 1; }
+
+  a.ta-poi-main {
+    display: flex; flex-direction: column; justify-content: center; gap: 2px;
+    min-block-size: 44px; text-decoration: none; color: inherit;
+  }
+  a.ta-poi-main:hover .ta-poi-name { color: var(--accent); }
+  .sv-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); }
+  .sv-factrow { margin-block: 0 var(--sp-2); padding-inline-start: calc(56px + var(--sp-3)); }
+  .sv-list[data-select] .sv-factrow { padding-inline-start: calc(44px + 56px + 2 * var(--sp-3)); }
+  .sv-acts { display: flex; align-items: center; gap: var(--sp-1); }
+  .sv-unknown { color: var(--flag-unknown); font-weight: 500; }
+
+  /* kind tint — derived from the functional aliases, no new colour values */
+  .sv-kind[data-kind="stay"] {
+    background: var(--trip-soft); border-color: var(--trip-line); color: var(--trip);
+  }
+  .sv-kind[data-kind="eat"] {
+    background: color-mix(in oklab, var(--editorial) 10%, var(--surface-2));
+    border-color: color-mix(in oklab, var(--editorial) 30%, var(--surface-2));
+    color: var(--editorial);
+  }
+  .sv-kind[data-kind="see"] {
+    background: var(--surface-3); border-color: var(--border-strong); color: var(--text-muted);
+  }
+
+  /* ---- 6. EMPTY STATE ------------------------------------------------ */
+  .sv-empty { text-align: center; padding-block: var(--sp-6); }
+  .sv-empty h3 { font-size: var(--step-1); margin-block: 0 var(--sp-2); }
+  .sv-empty p { margin-inline: auto; max-inline-size: 46ch; }
+  .sv-empty-acts {
+    display: flex; flex-wrap: wrap; gap: var(--sp-2);
+    justify-content: center; margin-block-start: var(--sp-4);
+  }
+
+  /* ---- 7. PROVINCE MAP ----------------------------------------------- */
+  .sv-mapwrap { display: grid; gap: var(--sp-5); align-items: start; }
+  @media (min-width: 720px) {
+    .sv-mapwrap { grid-template-columns: minmax(0, 260px) minmax(0, 1fr); }
+  }
+  .sv-map { inline-size: 100%; block-size: auto; max-block-size: 420px; display: block; }
+  .sv-dot { fill: var(--border); stroke: var(--surface); stroke-width: 2; }
+  .sv-dot[data-saved] { fill: var(--trip); }
+  .sv-legend {
+    display: flex; flex-wrap: wrap; gap: var(--sp-4);
+    font-size: var(--step--2); color: var(--text-muted); margin-block: var(--sp-3);
+  }
+  .sv-legend > span { display: inline-flex; align-items: center; gap: var(--sp-2); }
+  .sv-swatch { inline-size: 10px; block-size: 10px; border-radius: var(--r-full); background: var(--border); flex: none; }
+  .sv-swatch[data-on] { background: var(--trip); }
+
+  /* ---- 8. DAY BOARD --------------------------------------------------- */
+  .sv-board-foot { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block-start: var(--sp-4); }
+  .ta-day[data-loose] { background: var(--surface-3); border-style: dashed; }
+  .sv-dayacts { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-block-start: var(--sp-2); }
+
+  /* ---- 9. SHEET FIELDS ------------------------------------------------ */
+  .sv-field { display: flex; flex-direction: column; gap: var(--sp-2); margin-block-end: var(--sp-5); }
+  .sv-field > label { font-size: var(--step--1); font-weight: 600; }
+  .sv-ta {
+    inline-size: 100%; min-block-size: 7lh; resize: vertical;
+    font: inherit; font-size: var(--step--2);
+    border: 1px solid var(--border-strong); border-radius: var(--r-md);
+    padding: var(--sp-3); background: var(--surface-2); color: var(--text);
+  }
+  .sv-file {
+    min-block-size: 44px; inline-size: 100%;
+    font: inherit; font-size: var(--step--1);
+    border: 1px solid var(--border-strong); border-radius: var(--r-md);
+    padding: var(--sp-2) var(--sp-3); background: var(--surface-2); color: var(--text);
+  }
+  .sv-radio { display: flex; align-items: center; gap: var(--sp-2); min-block-size: 44px; font-size: var(--step--1); cursor: pointer; }
+  .sv-daylist { display: flex; flex-direction: column; gap: var(--sp-2); }
+  .sv-daylist .ta-btn { inline-size: 100%; justify-content: start; }
+  .sv-sheet-note { font-size: var(--step--2); color: var(--text-muted); margin-block: 0 var(--sp-4); }
+}
+</style>
+</head>
+<body>
+
+<a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.75v14.5M4.75 12h14.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.75 12.5 4.75 4.75L19.25 6.75"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/><path d="m9 10.7 6-3.4M9 13.3l6 3.4"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="home">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="home">สำรวจ</a>
+    <a href="krabi">จุดหมาย</a>
+    <a href="trip">ทริป <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">ค้นหา</label>
+    <input id="q-desk" type="search" name="q" placeholder="ที่พัก ร้านอาหาร จุดหมาย">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ไทย</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <p class="ta-proto-flag">หน้า <b>ต้นแบบ</b> สำหรับรีวิวก่อนตัดสินใจ — ยังไม่ลิงก์จากเว็บจริง และตั้ง noindex, nofollow ทุกหน้า</p>
+  <div class="ta-wrap">
+
+    <header class="sv-head">
+      <h1>ที่บันทึกไว้</h1>
+      <p class="sv-lead" data-sv-summary>รายการที่คุณกด 🔖 ไว้ จะมารวมอยู่ที่นี่ — จัดกลุ่มตามจังหวัด และจัดเข้าวันได้</p>
+      <p class="ta-fine sv-privacy">รายการนี้เก็บไว้ในเบราว์เซอร์นี้เท่านั้น — ไม่มีใครเห็น และเราไม่ได้เก็บไว้ที่เซิร์ฟเวอร์จนกว่าคุณจะกดแชร์</p>
+    </header>
+
+    <!-- SEGMENTED CONTROL — real ARIA tabs, real #hash anchors, both panels
+         stay in the DOM (§9 of the kit). -->
+    <div class="ta-tablist" role="tablist" aria-label="มุมมองของรายการที่บันทึกไว้">
+      <a role="tab" href="#p-all" id="tab-all" aria-controls="p-all" aria-selected="true">บันทึกไว้ <span class="ta-fac-count" data-sv-count-all>0</span></a>
+      <a role="tab" href="#p-days" id="tab-days" aria-controls="p-days" aria-selected="false" tabindex="-1">แผนรายวัน <span class="ta-fac-count" data-sv-count-days>0</span></a>
+    </div>
+
+    <!-- TOOLBAR — always present, so the affordance exists before the first save -->
+    <div class="sv-bar">
+      <button class="ta-btn ta-btn-ghost" type="button" data-sv-selectmode aria-pressed="false" data-js-only>เลือกหลายรายการ</button>
+      <button class="ta-btn ta-btn-ghost" type="button" data-sheet="svExport" data-js-only>ส่งออก JSON</button>
+      <button class="ta-btn ta-btn-ghost" type="button" data-sheet="svImport" data-js-only>นำเข้า JSON</button>
+      <span class="sv-spacer"></span>
+      <button class="ta-btn ta-btn-quiet" type="button" data-sv-undo hidden>เลิกทำ</button>
+    </div>
+
+    <!-- ============================================================ PANEL 1 -->
+    <section role="tabpanel" id="p-all" aria-labelledby="tab-all" tabindex="0">
+
+      <p class="ta-note" data-nojs>
+        รายการที่บันทึกไว้เก็บอยู่ในเบราว์เซอร์ของคุณ ต้องเปิด JavaScript ถึงจะอ่านออกมาแสดงได้
+        — ส่วนแผนที่ 77 จังหวัดด้านล่างและเมนูทั้งหมดยังใช้งานได้ตามปกติ
+      </p>
+
+      <!-- honest empty state -->
+      <div class="sv-empty" data-sv-empty hidden>
+        <h3>ยังไม่มีอะไรบันทึกไว้</h3>
+        <p>กดปุ่ม 🔖 ที่การ์ดไหนก็ได้ — ที่พัก ร้านอาหาร หรือที่เที่ยว — แล้วรายการจะมารออยู่ที่นี่ ไม่ต้องสมัครสมาชิก และไม่ต้องกรอกอีเมล</p>
+        <div class="sv-empty-acts">
+          <a class="ta-btn ta-btn-primary" href="krabi">ลองกด 🔖 ที่หน้ากระบี่</a>
+          <a class="ta-btn ta-btn-ghost" href="home">เปิดหน้าสำรวจ</a>
+          <a class="ta-btn ta-btn-ghost" href="search">ค้นหา</a>
+          <button class="ta-btn ta-btn-quiet" type="button" data-sheet="svImport" data-js-only>นำเข้าไฟล์ที่เคยส่งออก</button>
+        </div>
+      </div>
+
+      <!-- filters (province + kind) -->
+      <div class="sv-filters" data-sv-filters hidden>
+        <div>
+          <span class="sv-filter-label" id="lb-prov">จังหวัด</span>
+          <ul class="ta-chip-row" data-sv-provfilter aria-labelledby="lb-prov"></ul>
+        </div>
+        <div>
+          <span class="sv-filter-label" id="lb-kind">ประเภท</span>
+          <ul class="ta-chip-row" data-sv-kindfilter aria-labelledby="lb-kind"></ul>
+        </div>
+      </div>
+
+      <!-- bulk actions -->
+      <div class="sv-bulk" data-sv-bulk hidden role="group" aria-label="ทำกับรายการที่เลือก">
+        <span class="sv-bulk-count" data-sv-selcount>เลือกแล้ว 0 รายการ</span>
+        <button class="ta-btn ta-btn-ghost" type="button" data-sv-selectall>เลือกทั้งหมดที่เห็น</button>
+        <button class="ta-btn ta-btn-ghost" type="button" data-sv-selectnone>ล้างการเลือก</button>
+        <span class="sv-spacer"></span>
+        <button class="ta-btn ta-btn-primary" type="button" data-sv-bulkday>เพิ่มเข้าวัน…</button>
+        <button class="ta-btn ta-btn-ghost" type="button" data-sv-bulkremove>เอาออกจากรายการ</button>
+      </div>
+
+      <div data-sv-groups></div>
+    </section>
+
+    <!-- ============================================================ PANEL 2 -->
+    <section role="tabpanel" id="p-days" aria-labelledby="tab-days" tabindex="0" hidden>
+      <p class="ta-fine" data-sv-dayslead>จัดรายการที่บันทึกไว้ลงในแต่ละวัน ย้ายขึ้นลงหรือย้ายข้ามวันได้ทั้งหมดด้วยปุ่ม ไม่ต้องลาก</p>
+      <div class="ta-board" data-sv-board></div>
+      <div class="sv-board-foot">
+        <button class="ta-btn ta-btn-primary" type="button" data-sv-addday>เพิ่มวัน</button>
+        <a class="ta-btn ta-btn-quiet" href="trip">เปิดหน้าทริปเต็ม</a>
+      </div>
+    </section>
+
+    <!-- ================================================== PROVINCE OVERVIEW -->
+    <section class="ta-sec" aria-labelledby="h-map">
+      <div class="ta-sec-head">
+        <h2 id="h-map" data-sv-maptitle>แผนที่จังหวัดที่เก็บไว้</h2>
+      </div>
+
+      <div class="sv-mapwrap">
+        <div>
+          <!-- 77 จุด = 77 จังหวัด วางตามพิกัดจริงจาก _internal/province-coords.json
+               ไม่ใช่รูปร่างเขตจังหวัด และไม่มีตัวเลขไหนถูกแต่งขึ้น -->
+          <svg class="sv-map" viewBox="0 0 714 1392" role="img" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<circle class="sv-dot" data-p="chiang-mai" cx="120.3" cy="134.0" r="11"/>
+<circle class="sv-dot" data-p="chiang-rai" cx="204.1" cy="22.0" r="11"/>
+<circle class="sv-dot" data-p="lamphun" cx="123.3" cy="155.0" r="11"/>
+<circle class="sv-dot" data-p="lampang" cx="170.0" cy="184.0" r="11"/>
+<circle class="sv-dot" data-p="mae-hong-son" cx="22.0" cy="83.0" r="11"/>
+<circle class="sv-dot" data-p="phayao" cx="209.9" cy="96.0" r="11"/>
+<circle class="sv-dot" data-p="phrae" cx="233.3" cy="199.0" r="11"/>
+<circle class="sv-dot" data-p="nan" cx="294.6" cy="135.0" r="11"/>
+<circle class="sv-dot" data-p="uttaradit" cx="229.4" cy="251.0" r="11"/>
+<circle class="sv-dot" data-p="sukhothai" cx="202.1" cy="312.0" r="11"/>
+<circle class="sv-dot" data-p="phitsanulok" cx="246.0" cy="331.0" r="11"/>
+<circle class="sv-dot" data-p="phetchabun" cx="332.6" cy="371.0" r="11"/>
+<circle class="sv-dot" data-p="tak" cx="134.9" cy="326.0" r="11"/>
+<circle class="sv-dot" data-p="kamphaeng-phet" cx="172.9" cy="365.0" r="11"/>
+<circle class="sv-dot" data-p="phichit" cx="253.7" cy="369.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-sawan" cx="233.3" cy="443.0" r="11"/>
+<circle class="sv-dot" data-p="uthai-thani" cx="221.6" cy="475.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-ratchasima" cx="424.1" cy="516.0" r="11"/>
+<circle class="sv-dot" data-p="buriram" cx="521.5" cy="514.0" r="11"/>
+<circle class="sv-dot" data-p="surin" cx="559.5" cy="525.0" r="11"/>
+<circle class="sv-dot" data-p="sisaket" cx="640.3" cy="501.0" r="11"/>
+<circle class="sv-dot" data-p="ubon-ratchathani" cx="691.9" cy="489.0" r="11"/>
+<circle class="sv-dot" data-p="yasothon" cx="623.7" cy="434.0" r="11"/>
+<circle class="sv-dot" data-p="chaiyaphum" cx="417.3" cy="432.0" r="11"/>
+<circle class="sv-dot" data-p="amnat-charoen" cx="670.5" cy="427.0" r="11"/>
+<circle class="sv-dot" data-p="nong-bua-lamphu" cx="457.2" cy="293.0" r="11"/>
+<circle class="sv-dot" data-p="khon-kaen" cx="495.2" cy="369.0" r="11"/>
+<circle class="sv-dot" data-p="udon-thani" cx="491.3" cy="272.0" r="11"/>
+<circle class="sv-dot" data-p="loei" cx="388.1" cy="264.0" r="11"/>
+<circle class="sv-dot" data-p="nong-khai" cx="486.5" cy="225.0" r="11"/>
+<circle class="sv-dot" data-p="maha-sarakham" cx="541.0" cy="395.0" r="11"/>
+<circle class="sv-dot" data-p="roi-et" cx="575.1" cy="408.0" r="11"/>
+<circle class="sv-dot" data-p="kalasin" cx="561.4" cy="370.0" r="11"/>
+<circle class="sv-dot" data-p="sakon-nakhon" cx="623.7" cy="297.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-phanom" cx="685.1" cy="274.0" r="11"/>
+<circle class="sv-dot" data-p="mukdahan" cx="679.2" cy="359.0" r="11"/>
+<circle class="sv-dot" data-p="bueng-kan" cx="575.1" cy="177.0" r="11"/>
+<circle class="sv-dot" data-p="bangkok" cx="268.3" cy="638.0" r="11"/>
+<circle class="sv-dot" data-p="nonthaburi" cx="269.3" cy="627.0" r="11"/>
+<circle class="sv-dot" data-p="pathum-thani" cx="271.3" cy="611.0" r="11"/>
+<circle class="sv-dot" data-p="samut-prakan" cx="278.1" cy="653.0" r="11"/>
+<circle class="sv-dot" data-p="samut-sakhon" cx="246.0" cy="658.0" r="11"/>
+<circle class="sv-dot" data-p="samut-songkhram" cx="219.7" cy="672.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-pathom" cx="225.5" cy="631.0" r="11"/>
+<circle class="sv-dot" data-p="ayutthaya" cx="276.1" cy="578.0" r="11"/>
+<circle class="sv-dot" data-p="ang-thong" cx="263.5" cy="554.0" r="11"/>
+<circle class="sv-dot" data-p="lopburi" cx="283.0" cy="533.0" r="11"/>
+<circle class="sv-dot" data-p="sing-buri" cx="258.6" cy="524.0" r="11"/>
+<circle class="sv-dot" data-p="chai-nat" cx="232.3" cy="494.0" r="11"/>
+<circle class="sv-dot" data-p="saraburi" cx="308.3" cy="560.0" r="11"/>
+<circle class="sv-dot" data-p="suphan-buri" cx="231.3" cy="566.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-nayok" cx="337.5" cy="592.0" r="11"/>
+<circle class="sv-dot" data-p="chonburi" cx="315.1" cy="677.0" r="11"/>
+<circle class="sv-dot" data-p="rayong" cx="344.3" cy="745.0" r="11"/>
+<circle class="sv-dot" data-p="chanthaburi" cx="424.1" cy="752.0" r="11"/>
+<circle class="sv-dot" data-p="trat" cx="464.1" cy="789.0" r="11"/>
+<circle class="sv-dot" data-p="chachoengsao" cx="323.8" cy="644.0" r="11"/>
+<circle class="sv-dot" data-p="prachinburi" cx="353.1" cy="608.0" r="11"/>
+<circle class="sv-dot" data-p="sa-kaeo" cx="421.2" cy="632.0" r="11"/>
+<circle class="sv-dot" data-p="kanchanaburi" cx="173.9" cy="611.0" r="11"/>
+<circle class="sv-dot" data-p="ratchaburi" cx="201.2" cy="659.0" r="11"/>
+<circle class="sv-dot" data-p="phetchaburi" cx="213.8" cy="702.0" r="11"/>
+<circle class="sv-dot" data-p="prachuap-khiri-khan" cx="215.8" cy="756.0" r="11"/>
+<circle class="sv-dot" data-p="chumphon" cx="139.8" cy="964.0" r="11"/>
+<circle class="sv-dot" data-p="ranong" cx="87.2" cy="1017.0" r="11"/>
+<circle class="sv-dot" data-p="surat-thani" cx="154.4" cy="1099.0" r="11"/>
+<circle class="sv-dot" data-p="nakhon-si-thammarat" cx="215.8" cy="1170.0" r="11"/>
+<circle class="sv-dot" data-p="krabi" cx="113.5" cy="1204.0" r="11"/>
+<circle class="sv-dot" data-p="phang-nga" cx="76.5" cy="1168.0" r="11"/>
+<circle class="sv-dot" data-p="phuket" cx="62.9" cy="1225.0" r="11"/>
+<circle class="sv-dot" data-p="phatthalung" cx="227.5" cy="1251.0" r="11"/>
+<circle class="sv-dot" data-p="trang" cx="181.7" cy="1257.0" r="11"/>
+<circle class="sv-dot" data-p="satun" cx="226.5" cy="1351.0" r="11"/>
+<circle class="sv-dot" data-p="songkhla" cx="278.1" cy="1293.0" r="11"/>
+<circle class="sv-dot" data-p="pattani" cx="341.4" cy="1326.0" r="11"/>
+<circle class="sv-dot" data-p="yala" cx="344.3" cy="1359.0" r="11"/>
+<circle class="sv-dot" data-p="narathiwat" cx="396.9" cy="1370.0" r="11"/>
+          </svg>
+          <p class="ta-fine">จุดวางตามพิกัดจริงของแต่ละจังหวัด (ไม่ใช่รูปร่างเขตจังหวัด)</p>
+        </div>
+
+        <div>
+          <p data-sv-provcount>ยังไม่มีจังหวัดที่บันทึกไว้ — แผนที่แสดงครบทั้ง 77 จังหวัดไว้ให้ดูก่อน</p>
+          <p class="sv-legend">
+            <span><i class="sv-swatch" data-on aria-hidden="true"></i> จังหวัดที่คุณบันทึกไว้แล้ว</span>
+            <span><i class="sv-swatch" aria-hidden="true"></i> ยังไม่ได้บันทึก</span>
+          </p>
+          <ul class="ta-chip-row" data-sv-provchips></ul>
+
+          <div class="ta-map" data-sv-pinmap>
+            <p class="ta-map-note">แผนที่รายจุดจะแสดงเมื่อรายการที่บันทึกไว้มีพิกัดครบ — ตอนนี้ยังไม่มีพิกัดติดมากับรายการที่บันทึก จึงแสดงเป็นภาพรวมรายจังหวัดแทน</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== DATA MANAGEMENT -->
+    <section class="ta-sec" aria-labelledby="h-data">
+      <div class="ta-sec-head">
+        <h2 id="h-data">ข้อมูลของคุณ</h2>
+      </div>
+      <p class="ta-fine sv-privacy">
+        รายการทั้งหมดอยู่ในเบราว์เซอร์เครื่องนี้ ถ้าล้างข้อมูลเบราว์เซอร์หรือเปลี่ยนเครื่อง รายการจะหายไป
+        — ส่งออกเป็นไฟล์ JSON เก็บไว้ก่อนได้ แล้วนำเข้ากลับเมื่อไหร่ก็ได้
+      </p>
+      <div class="sv-bar">
+        <button class="ta-btn ta-btn-ghost" type="button" data-sheet="svExport" data-js-only>ส่งออกเป็นไฟล์ JSON</button>
+        <button class="ta-btn ta-btn-ghost" type="button" data-sheet="svImport" data-js-only>นำเข้าจากไฟล์ JSON</button>
+        <button class="ta-btn ta-btn-quiet" type="button" data-sv-clearall data-js-only>ล้างรายการทั้งหมด</button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="ทริปของคุณ" data-open>
+  <button class="ta-rail-toggle" type="button" data-rail-toggle
+          aria-expanded="true" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">ทริปของคุณ</span>
+  </button>
+
+  <div class="ta-rail-body" id="taRailBody">
+    <p class="ta-fine" data-trip-count-label>ในทริปของคุณ 0 รายการ</p>
+    <ul class="ta-day-list" data-sv-raillist></ul>
+    <p class="ta-fine" data-sv-railempty>ยังไม่มีรายการ — กด 🔖 ที่การ์ดไหนก็ได้เพื่อเริ่ม</p>
+    <a class="ta-btn ta-btn-quiet" href="trip">เปิดหน้าทริป</a>
+  </div>
+</aside>
+
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="home" data-tab="explore">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>สำรวจ</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>จุดหมาย</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>ค้นหา</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>ทริป</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>เมนู</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">การแสดงผล</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>ธีม</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>ตามระบบ</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ภาษา</span>
+  </button>
+
+  <hr>
+
+  <a href="saved" aria-current="page">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span>ที่บันทึกไว้</span>
+  </a>
+  <a href="trip">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-calendar"></use></svg>
+    <span>ทริปของฉัน</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>ติดตั้งเป็นแอป</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="saved" hreflang="th" aria-current="true">ไทย</a>
+  <a href="en/saved" hreflang="en">English</a>
+</div>
+
+<!-- ========================================================== SHEETS -->
+
+<dialog class="ta-sheet" id="svDayPicker" aria-labelledby="svDayPickerTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svDayPickerTitle">เพิ่มเข้าวันไหน</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="sv-sheet-note" data-sv-picktarget></p>
+    <div class="sv-daylist" data-sv-daylist></div>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ปิด</button>
+    <button class="ta-btn ta-btn-primary" type="button" data-sv-newday>เพิ่มวันใหม่แล้วใส่ตรงนั้น</button>
+  </div>
+</dialog>
+
+<!-- Move-to BEFORE drag (WCAG 2.5.7): drag-only reordering excludes
+     speech-control, switch and low-dexterity users, and on a narrow phone a
+     menu is faster than dragging across a 7-day board. -->
+<dialog class="ta-sheet" id="svItemMenu" aria-labelledby="svItemMenuTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svItemMenuTitle">ตัวเลือกของรายการนี้</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="sv-sheet-note" data-sv-itemtarget></p>
+    <div class="sv-daylist">
+      <button class="ta-btn ta-btn-ghost" type="button" data-move="up" data-item="">เลื่อนขึ้น</button>
+      <button class="ta-btn ta-btn-ghost" type="button" data-move="down" data-item="">เลื่อนลง</button>
+      <button class="ta-btn ta-btn-ghost" type="button" data-sv-moveday="">ย้ายไปวันอื่น…</button>
+      <button class="ta-btn ta-btn-ghost" type="button" data-move="remove" data-item="">เอาออกจากวันนี้ (กลับไปอยู่ในรายการที่บันทึกไว้)</button>
+    </div>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ปิด</button>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="svAddPoi" aria-labelledby="svAddPoiTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svAddPoiTitle">เพิ่มจากรายการที่บันทึกไว้</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="sv-sheet-note" data-sv-addpoitarget></p>
+    <ul class="sv-list" data-sv-addpoilist></ul>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ปิด</button>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="svExport" aria-labelledby="svExportTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svExportTitle">ส่งออกรายการเป็น JSON</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="sv-sheet-note">ไฟล์นี้มีทั้งรายการที่บันทึกไว้และการจัดวันของคุณ เก็บไว้ในเครื่อง ส่งต่อให้ตัวเอง หรือย้ายไปเบราว์เซอร์อื่นก็ได้</p>
+    <div class="sv-field">
+      <label for="sv-export-text">ข้อความ JSON</label>
+      <textarea class="sv-ta" id="sv-export-text" readonly spellcheck="false" data-sv-exporttext></textarea>
+    </div>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sv-copy>คัดลอกข้อความ</button>
+    <button class="ta-btn ta-btn-primary" type="button" data-sv-download>ดาวน์โหลดไฟล์</button>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="svImport" aria-labelledby="svImportTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svImportTitle">นำเข้ารายการจาก JSON</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <form method="dialog" data-sv-importform>
+    <div class="ta-sheet-body">
+      <div class="sv-field">
+        <label for="sv-import-file">เลือกไฟล์ที่เคยส่งออก</label>
+        <input class="sv-file" id="sv-import-file" type="file" accept="application/json,.json" data-sv-file>
+      </div>
+      <div class="sv-field">
+        <label for="sv-import-text">หรือวางข้อความ JSON ตรงนี้</label>
+        <textarea class="sv-ta" id="sv-import-text" spellcheck="false" data-sv-importtext placeholder='{"saves":[…]}'></textarea>
+      </div>
+      <fieldset class="sv-field">
+        <legend class="sv-filter-label">นำเข้าแบบไหน</legend>
+        <label class="sv-radio"><input type="radio" name="sv-import-mode" value="merge" checked> รวมกับรายการเดิม (ไม่ทับของที่มีอยู่)</label>
+        <label class="sv-radio"><input type="radio" name="sv-import-mode" value="replace"> แทนที่ทั้งหมดด้วยไฟล์นี้</label>
+      </fieldset>
+      <p class="ta-flag ta-flag-unknown" data-sv-importmsg hidden></p>
+    </div>
+    <div class="ta-sheet-foot">
+      <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ยกเลิก</button>
+      <button class="ta-btn ta-btn-primary" type="submit" data-sv-doimport>นำเข้า</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="ta-sheet" id="svConfirm" aria-labelledby="svConfirmTitle" data-no-light-dismiss>
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="svConfirmTitle">ยืนยัน</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p data-sv-confirmtext></p>
+    <p class="ta-fine">กด "เลิกทำ" ที่แถบด้านบนเพื่อเรียกคืนได้ทันทีหลังจากนี้</p>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ยกเลิก</button>
+    <button class="ta-btn ta-btn-primary" type="button" data-sv-confirmok>ยืนยัน</button>
+  </div>
+</dialog>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* =========================================================================
+   SAVED — page script (blueprint §5.7)
+
+   No inline on* handlers anywhere: one delegated listener, exactly like
+   shell.js. Every record rendered here comes out of the shared TA.saves /
+   TA.trip store that every other prototype page writes to — this page
+   invents nothing, and shows an honest empty state when the store is empty.
+   ====================================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var D = document, R = D.documentElement;
+  var TA = window.TA;
+
+  /* If the shell failed to load we are NOT enhanced. Put the no-JS copy back
+     rather than leaving a blank page that looks broken. */
+  if (!TA || !TA.saves) { R.removeAttribute('data-js'); return; }
+
+  var LANG = (R.lang || 'th').slice(0, 2);
+  var TH = LANG === 'th';
+  function t(th, en) { return TH ? th : en; }
+
+  /* Images are referenced relative so the prototype renders from file:// too;
+     the saved record keeps the production-absolute path. */
+  var IMG_BASE = '../';
+  var HUB_BASE = '../';
+
+  /* ---------------------------------------------------------------- data
+     77 provinces with their REAL coordinates, read out of
+     _internal/province-coords.json, and their Thai/English names out of
+     _internal/gen-hubs.mjs. Nothing here is guessed. */
+  var PROV_ROWS = [
+['chiang-mai','เชียงใหม่','Chiang Mai','n',18.79,98.98],
+['chiang-rai','เชียงราย','Chiang Rai','n',19.91,99.84],
+['lamphun','ลำพูน','Lamphun','n',18.58,99.01],
+['lampang','ลำปาง','Lampang','n',18.29,99.49],
+['mae-hong-son','แม่ฮ่องสอน','Mae Hong Son','n',19.3,97.97],
+['phayao','พะเยา','Phayao','n',19.17,99.9],
+['phrae','แพร่','Phrae','n',18.14,100.14],
+['nan','น่าน','Nan','n',18.78,100.77],
+['uttaradit','อุตรดิตถ์','Uttaradit','n',17.62,100.1],
+['sukhothai','สุโขทัย','Sukhothai','n',17.01,99.82],
+['phitsanulok','พิษณุโลก','Phitsanulok','n',16.82,100.27],
+['phetchabun','เพชรบูรณ์','Phetchabun','n',16.42,101.16],
+['tak','ตาก','Tak','n',16.87,99.13],
+['kamphaeng-phet','กำแพงเพชร','Kamphaeng Phet','n',16.48,99.52],
+['phichit','พิจิตร','Phichit','n',16.44,100.35],
+['nakhon-sawan','นครสวรรค์','Nakhon Sawan','n',15.7,100.14],
+['uthai-thani','อุทัยธานี','Uthai Thani','n',15.38,100.02],
+['nakhon-ratchasima','นครราชสีมา','Nakhon Ratchasima','ne',14.97,102.1],
+['buriram','บุรีรัมย์','Buriram','ne',14.99,103.1],
+['surin','สุรินทร์','Surin','ne',14.88,103.49],
+['sisaket','ศรีสะเกษ','Sisaket','ne',15.12,104.32],
+['ubon-ratchathani','อุบลราชธานี','Ubon Ratchathani','ne',15.24,104.85],
+['yasothon','ยโสธร','Yasothon','ne',15.79,104.15],
+['chaiyaphum','ชัยภูมิ','Chaiyaphum','ne',15.81,102.03],
+['amnat-charoen','อำนาจเจริญ','Amnat Charoen','ne',15.86,104.63],
+['nong-bua-lamphu','หนองบัวลำภู','Nong Bua Lamphu','ne',17.2,102.44],
+['khon-kaen','ขอนแก่น','Khon Kaen','ne',16.44,102.83],
+['udon-thani','อุดรธานี','Udon Thani','ne',17.41,102.79],
+['loei','เลย','Loei','ne',17.49,101.73],
+['nong-khai','หนองคาย','Nong Khai','ne',17.88,102.74],
+['maha-sarakham','มหาสารคาม','Maha Sarakham','ne',16.18,103.3],
+['roi-et','ร้อยเอ็ด','Roi Et','ne',16.05,103.65],
+['kalasin','กาฬสินธุ์','Kalasin','ne',16.43,103.51],
+['sakon-nakhon','สกลนคร','Sakon Nakhon','ne',17.16,104.15],
+['nakhon-phanom','นครพนม','Nakhon Phanom','ne',17.39,104.78],
+['mukdahan','มุกดาหาร','Mukdahan','ne',16.54,104.72],
+['bueng-kan','บึงกาฬ','Bueng Kan','ne',18.36,103.65],
+['bangkok','กรุงเทพมหานคร','Bangkok','c',13.75,100.5],
+['nonthaburi','นนทบุรี','Nonthaburi','c',13.86,100.51],
+['pathum-thani','ปทุมธานี','Pathum Thani','c',14.02,100.53],
+['samut-prakan','สมุทรปราการ','Samut Prakan','c',13.6,100.6],
+['samut-sakhon','สมุทรสาคร','Samut Sakhon','c',13.55,100.27],
+['samut-songkhram','สมุทรสงคราม','Samut Songkhram','c',13.41,100],
+['nakhon-pathom','นครปฐม','Nakhon Pathom','c',13.82,100.06],
+['ayutthaya','พระนครศรีอยุธยา','Ayutthaya','c',14.35,100.58],
+['ang-thong','อ่างทอง','Ang Thong','c',14.59,100.45],
+['lopburi','ลพบุรี','Lopburi','c',14.8,100.65],
+['sing-buri','สิงห์บุรี','Sing Buri','c',14.89,100.4],
+['chai-nat','ชัยนาท','Chai Nat','c',15.19,100.13],
+['saraburi','สระบุรี','Saraburi','c',14.53,100.91],
+['suphan-buri','สุพรรณบุรี','Suphan Buri','c',14.47,100.12],
+['nakhon-nayok','นครนายก','Nakhon Nayok','c',14.21,101.21],
+['chonburi','ชลบุรี','Chonburi','e',13.36,100.98],
+['rayong','ระยอง','Rayong','e',12.68,101.28],
+['chanthaburi','จันทบุรี','Chanthaburi','e',12.61,102.1],
+['trat','ตราด','Trat','e',12.24,102.51],
+['chachoengsao','ฉะเชิงเทรา','Chachoengsao','e',13.69,101.07],
+['prachinburi','ปราจีนบุรี','Prachinburi','e',14.05,101.37],
+['sa-kaeo','สระแก้ว','Sa Kaeo','e',13.81,102.07],
+['kanchanaburi','กาญจนบุรี','Kanchanaburi','w',14.02,99.53],
+['ratchaburi','ราชบุรี','Ratchaburi','w',13.54,99.81],
+['phetchaburi','เพชรบุรี','Phetchaburi','w',13.11,99.94],
+['prachuap-khiri-khan','ประจวบคีรีขันธ์','Prachuap Khiri Khan','w',12.57,99.96],
+['chumphon','ชุมพร','Chumphon','s',10.49,99.18],
+['ranong','ระนอง','Ranong','s',9.96,98.64],
+['surat-thani','สุราษฎร์ธานี','Surat Thani','s',9.14,99.33],
+['nakhon-si-thammarat','นครศรีธรรมราช','Nakhon Si Thammarat','s',8.43,99.96],
+['krabi','กระบี่','Krabi','s',8.09,98.91],
+['phang-nga','พังงา','Phang Nga','s',8.45,98.53],
+['phuket','ภูเก็ต','Phuket','s',7.88,98.39],
+['phatthalung','พัทลุง','Phatthalung','s',7.62,100.08],
+['trang','ตรัง','Trang','s',7.56,99.61],
+['satun','สตูล','Satun','s',6.62,100.07],
+['songkhla','สงขลา','Songkhla','s',7.2,100.6],
+['pattani','ปัตตานี','Pattani','s',6.87,101.25],
+['yala','ยะลา','Yala','s',6.54,101.28],
+['narathiwat','นราธิวาส','Narathiwat','s',6.43,101.82]
+  ];
+  /* Islands and tourism towns get their own hub but sit inside a province.
+     The parent is used for the 77-province map only; the label stays the
+     island's own name. */
+  var DEST_ROWS = [
+['koh-phangan','เกาะพะงัน','Koh Phangan','s'],
+['hat-yai','หาดใหญ่','Hat Yai','s'],
+['samui','เกาะสมุย','Koh Samui','s'],
+['pai','ปาย','Pai','n'],
+['pattaya','พัทยา','Pattaya','e'],
+['huahin','หัวหิน','Hua Hin','w'],
+['khao-yai','เขาใหญ่','Khao Yai','ne'],
+['koh-chang','เกาะช้าง','Koh Chang','e'],
+['koh-lipe','เกาะหลีเป๊ะ','Koh Lipe','s'],
+['koh-kood','เกาะกูด','Koh Kood','e'],
+['koh-mak','เกาะหมาก','Koh Mak','e'],
+['koh-larn','เกาะล้าน','Koh Larn','e']
+  ];
+  var DEST_PARENT = {
+    'koh-phangan': 'surat-thani', 'samui': 'surat-thani', 'hat-yai': 'songkhla',
+    'pai': 'mae-hong-son', 'pattaya': 'chonburi', 'huahin': 'prachuap-khiri-khan',
+    'khao-yai': 'nakhon-ratchasima', 'koh-chang': 'trat', 'koh-kood': 'trat',
+    'koh-mak': 'trat', 'koh-larn': 'chonburi', 'koh-lipe': 'satun'
+  };
+
+  var PROV = {}, i, j;
+  for (i = 0; i < PROV_ROWS.length; i++) {
+    PROV[PROV_ROWS[i][0]] = { th: PROV_ROWS[i][1], en: PROV_ROWS[i][2] };
+  }
+  for (i = 0; i < DEST_ROWS.length; i++) {
+    PROV[DEST_ROWS[i][0]] = { th: DEST_ROWS[i][1], en: DEST_ROWS[i][2], dest: true };
+  }
+
+  function provLabel(slug) {
+    if (!slug) return t('ไม่ได้ระบุจังหวัด', 'No province recorded');
+    var p = PROV[slug];
+    if (p) return TH ? p.th : p.en;
+    return slug;                      /* unknown slug: show it, do not invent */
+  }
+  function provParent(slug) { return DEST_PARENT[slug] || slug; }
+
+  var KIND = {
+    stay: { th: 'ที่พัก', en: 'Stay' },
+    eat:  { th: 'ร้านอาหาร', en: 'Eat' },
+    see:  { th: 'ที่เที่ยว', en: 'See' }
+  };
+  function kindLabel(k) {
+    var v = KIND[k];
+    return v ? (TH ? v.th : v.en) : t('อื่น ๆ', 'Other');
+  }
+
+  /* ---------------------------------------------------------------- refs */
+  function q(sel, root) { return (root || D).querySelector(sel); }
+  function qa(sel, root) { return [].slice.call((root || D).querySelectorAll(sel)); }
+
+  var elSummary   = q('[data-sv-summary]');
+  var elGroups    = q('[data-sv-groups]');
+  var elEmpty     = q('[data-sv-empty]');
+  var elFilters   = q('[data-sv-filters]');
+  var elProvFil   = q('[data-sv-provfilter]');
+  var elKindFil   = q('[data-sv-kindfilter]');
+  var elBulk      = q('[data-sv-bulk]');
+  var elSelCount  = q('[data-sv-selcount]');
+  var elBoard     = q('[data-sv-board]');
+  var elCountAll  = q('[data-sv-count-all]');
+  var elCountDays = q('[data-sv-count-days]');
+  var elProvCount = q('[data-sv-provcount]');
+  var elProvChips = q('[data-sv-provchips]');
+  var elMapTitle  = q('[data-sv-maptitle]');
+  var elRailList  = q('[data-sv-raillist]');
+  var elRailEmpty = q('[data-sv-railempty]');
+  var elUndo      = q('[data-sv-undo]');
+
+  /* ---------------------------------------------------------------- state */
+  var state = {
+    selecting: false,
+    sel: {},                 /* id -> true */
+    prov: 'all',
+    kind: 'all',
+    pickFor: null,           /* id being assigned, or 'bulk'          */
+    addPoiDay: null,         /* day being filled from the saved list  */
+    confirm: null            /* pending confirmed action              */
+  };
+  var undoBuffer = null;     /* array of removed save records         */
+
+  /* ------------------------------------------------------------- helpers */
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  function num(n) { return Number(n).toLocaleString(TH ? 'th-TH' : 'en-US'); }
+  /* Save records come from several pages and two conventions: some store
+     "/images/…" (site-absolute), some "images/…" (bare). Both mean the same
+     file, so normalise once — otherwise a real photo renders as a hole. */
+  function resolveImg(p) {
+    if (!p) return '';
+    if (/^(https?:|data:|blob:)/.test(p)) return p;
+    return IMG_BASE + p.replace(/^\/+/, '');
+  }
+  function hubHref(slug) {
+    if (slug === 'krabi') return 'krabi';        /* the prototype hub */
+    return PROV[slug] ? HUB_BASE + 'city-' + slug + '.html' : '';
+  }
+  function dateLabel(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return '';
+    try {
+      return d.toLocaleDateString(TH ? 'th-TH' : 'en-GB',
+        { day: 'numeric', month: 'short', year: 'numeric' });
+    } catch (e) { return iso.slice(0, 10); }
+  }
+
+  /* Every scheduled poiId, mapped to the day that holds it. */
+  function scheduledMap() {
+    var tr = TA.trip.get(), map = {}, d, it;
+    for (d = 0; d < tr.days.length; d++) {
+      var items = tr.days[d].items || [];
+      for (it = 0; it < items.length; it++) {
+        map[items[it].poiId] = { day: tr.days[d], item: items[it], index: it };
+      }
+    }
+    return map;
+  }
+  function scheduledCount() {
+    var tr = TA.trip.get(), n = 0;
+    for (var d = 0; d < tr.days.length; d++) n += (tr.days[d].items || []).length;
+    return n;
+  }
+
+  /* Saves, newest first. */
+  function allSaves() {
+    return TA.saves.list().sort(function (a, b) {
+      return String(b.addedAt || '').localeCompare(String(a.addedAt || ''));
+    });
+  }
+  function visibleSaves() {
+    return allSaves().filter(function (s) {
+      if (state.prov !== 'all' && (s.province || '') !== state.prov) return false;
+      if (state.kind !== 'all' && (s.kind || '') !== state.kind) return false;
+      return true;
+    });
+  }
+
+  /* ------------------------------------------------------------ row markup */
+  function rowHtml(s, sched, opts) {
+    opts = opts || {};
+    var img = resolveImg(s.img);
+    var sub = [];
+    sub.push(provLabel(s.province));
+    sub.push(kindLabel(s.kind));
+    if (sched) sub.push(sched.day.label);
+
+    var thumb = img
+      ? '<span class="ta-poi-thumb"><img src="' + esc(img) + '" alt="" width="56" height="56" loading="lazy" decoding="async"></span>'
+      : '<span class="ta-poi-thumb"></span>';
+
+    var main = '<span class="ta-poi-name ta-clamp-1">' + esc(s.name || s.id) + '</span>' +
+               '<span class="ta-poi-sub ta-clamp-1">' + esc(sub.join(' · ')) + '</span>';
+    var mainEl = s.url
+      ? '<a class="ta-poi-main" href="' + esc(s.url) + '">' + main + '</a>'
+      : '<span class="ta-poi-main">' + main + '</span>';
+
+    var acts;
+    if (opts.mode === 'addpoi') {
+      acts = '<span class="sv-acts"><button class="ta-btn ta-btn-primary" type="button" ' +
+             'data-sv-addhere="' + esc(s.id) + '">' + t('ใส่วันนี้', 'Add here') + '</button></span>';
+    } else {
+      acts = '<span class="sv-acts">' +
+        '<button class="ta-poi-menu" type="button" data-sv-pick="' + esc(s.id) + '" ' +
+          'aria-label="' + esc(t('จัดวันให้ ', 'Choose a day for ') + (s.name || '')) + '">' +
+          '<svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-calendar"></use></svg></button>' +
+        '<button class="ta-poi-menu" type="button" data-sv-remove="' + esc(s.id) + '" ' +
+          'aria-label="' + esc(t('เอา ', 'Remove ') + (s.name || '') + t(' ออกจากรายการ', ' from your saves')) + '">' +
+          '<svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-close"></use></svg></button>' +
+        '</span>';
+    }
+
+    var checked = state.sel[s.id] ? ' checked' : '';
+    var pick = '<label class="sv-pick"><span class="ta-sr">' +
+      esc(t('เลือก ', 'Select ') + (s.name || '')) + '</span>' +
+      '<input type="checkbox" data-sv-check="' + esc(s.id) + '"' + checked + '></label>';
+
+    var facts = opts.mode === 'addpoi' ? '' : factsHtml(s);
+    return '<li><div class="ta-poi">' + pick + thumb + mainEl + acts + '</div>' + facts + '</li>';
+  }
+
+  /* Everything under the name that is a real, checkable fact from the record.
+     A saved record carries no score SOURCE, and this site never prints a
+     score without naming where it came from — so no score is rendered here;
+     the row links back to the review, which does name it. */
+  function factsHtml(s) {
+    var bits = [];
+    if (s.priceFrom || s.priceFrom === 0) {
+      bits.push('<span class="ta-chip"><span class="ta-num">฿' + num(s.priceFrom) + '</span> ' +
+        esc(t('ราคาเริ่มต้นตอนที่บันทึก', 'starting price when saved')) + '</span>');
+    }
+    var when = dateLabel(s.addedAt);
+    if (when) {
+      bits.push('<span class="ta-fine">' + esc(t('บันทึกเมื่อ ', 'Saved on ') + when) + '</span>');
+    }
+    if (!bits.length) return '';
+    return '<p class="sv-meta sv-factrow">' + bits.join('') + '</p>';
+  }
+
+  /* --------------------------------------------------------------- render */
+  function render() {
+    var saves = allSaves();
+    var sched = scheduledMap();
+    var nSched = scheduledCount();
+
+    if (elCountAll) elCountAll.textContent = num(saves.length);
+    if (elCountDays) elCountDays.textContent = num(nSched);
+
+    /* by province */
+    var provCounts = {};
+    for (var i2 = 0; i2 < saves.length; i2++) {
+      var p = saves[i2].province || '';
+      provCounts[p] = (provCounts[p] || 0) + 1;
+    }
+    var provs = Object.keys(provCounts);
+
+    /* summary line — exact counts, no rounding, no invented totals */
+    if (elSummary) {
+      if (!saves.length) {
+        elSummary.textContent = t('ยังไม่มีรายการที่บันทึกไว้ในเบราว์เซอร์นี้',
+                                  'Nothing saved in this browser yet');
+      } else {
+        var parts = [t('บันทึกไว้ ', 'Saved ') + num(saves.length) + t(' รายการ', ' items')];
+        parts.push(num(provs.length) + t(' จังหวัด/จุดหมาย', ' provinces or destinations'));
+        parts.push(t('จัดวันแล้ว ', 'Scheduled ') + num(nSched));
+        elSummary.textContent = parts.join(' · ');
+      }
+    }
+
+    if (elEmpty) elEmpty.hidden = saves.length > 0;
+    if (elFilters) elFilters.hidden = saves.length === 0;
+    if (elBulk) elBulk.hidden = !(state.selecting && saves.length);
+
+    renderFilters(saves, provCounts);
+    renderGroups(saves, sched);
+    renderBoard(sched);
+    renderMap(provCounts);
+    renderRail(saves, sched);
+    renderSelCount();
+  }
+
+  function renderFilters(saves, provCounts) {
+    if (!elProvFil || !elKindFil) return;
+    var html = '<li><button class="ta-fac" type="button" data-sv-prov="all" aria-pressed="' +
+      (state.prov === 'all') + '">' + t('ทุกจังหวัด', 'All provinces') +
+      ' <span class="ta-fac-count">' + num(saves.length) + '</span></button></li>';
+
+    Object.keys(provCounts).sort(function (a, b) {
+      return provCounts[b] - provCounts[a] || provLabel(a).localeCompare(provLabel(b));
+    }).forEach(function (slug) {
+      html += '<li><button class="ta-fac" type="button" data-sv-prov="' + esc(slug) + '" aria-pressed="' +
+        (state.prov === slug) + '">' + esc(provLabel(slug)) +
+        ' <span class="ta-fac-count">' + num(provCounts[slug]) + '</span></button></li>';
+    });
+    elProvFil.innerHTML = html;
+
+    /* Kind chips: zero-count options are DISABLED and greyed, never hidden. */
+    var kc = { stay: 0, eat: 0, see: 0 };
+    saves.forEach(function (s) { if (kc[s.kind] !== undefined) kc[s.kind]++; });
+    var kh = '<li><button class="ta-fac" type="button" data-sv-kind="all" aria-pressed="' +
+      (state.kind === 'all') + '">' + t('ทุกประเภท', 'All types') +
+      ' <span class="ta-fac-count">' + num(saves.length) + '</span></button></li>';
+    ['stay', 'eat', 'see'].forEach(function (k) {
+      kh += '<li><button class="ta-fac" type="button" data-sv-kind="' + k + '" aria-pressed="' +
+        (state.kind === k) + '"' + (kc[k] ? '' : ' disabled') + '>' + esc(kindLabel(k)) +
+        ' <span class="ta-fac-count">' + num(kc[k]) + '</span></button></li>';
+    });
+    elKindFil.innerHTML = kh;
+  }
+
+  function renderGroups(saves, sched) {
+    if (!elGroups) return;
+    if (!saves.length) { elGroups.innerHTML = ''; return; }
+
+    var vis = visibleSaves();
+    if (!vis.length) {
+      elGroups.innerHTML = '<p class="ta-note">' +
+        t('ไม่มีรายการที่ตรงกับตัวกรองนี้ — ลองกด “ทุกจังหวัด” หรือ “ทุกประเภท”',
+          'Nothing matches this filter — try “All provinces” or “All types”') + '</p>';
+      return;
+    }
+
+    var groups = {};
+    vis.forEach(function (s) {
+      var p = s.province || '';
+      (groups[p] = groups[p] || []).push(s);
+    });
+
+    var order = Object.keys(groups).sort(function (a, b) {
+      return groups[b].length - groups[a].length || provLabel(a).localeCompare(provLabel(b));
+    });
+
+    var html = '';
+    order.forEach(function (slug) {
+      var rows = groups[slug];
+      var href = hubHref(slug);
+      html += '<section class="sv-group">' +
+        '<div class="sv-group-head">' +
+          '<h3>' + esc(provLabel(slug)) +
+            ' <span class="sv-group-count">' + num(rows.length) + t(' รายการ', ' saved') + '</span></h3>' +
+          (href ? '<a class="ta-btn ta-btn-quiet" href="' + esc(href) + '">' +
+                    t('เปิดหน้าจุดหมาย', 'Open destination') + '</a>' : '') +
+        '</div>' +
+        '<ul class="sv-list"' + (state.selecting ? ' data-select' : '') + '>';
+      rows.forEach(function (s) {
+        html += rowHtml(s, sched[s.id] || null);
+      });
+      html += '</ul></section>';
+    });
+    elGroups.innerHTML = html;
+  }
+
+  function renderBoard(sched) {
+    if (!elBoard) return;
+    var tr = TA.trip.get();
+    var saves = allSaves();
+    var html = '';
+
+    tr.days.forEach(function (day) {
+      var items = day.items || [];
+      var legs = TA.trip.legs(day.id);
+      var anyUnknown = legs.some(function (l) { return l.method === 'unknown'; });
+
+      html += '<section class="ta-day" id="' + esc(day.id) + '">' +
+        '<header class="ta-day-head">' +
+          '<h3 class="ta-day-title">' + esc(day.label) + '</h3>' +
+          '<p class="ta-day-roll">' + num(items.length) + t(' จุด', ' places') + '</p>' +
+          (anyUnknown ? '<p class="ta-flag ta-flag-unknown">' +
+            t('ยังไม่ทราบระยะทางระหว่างจุด — รายการที่บันทึกไว้ยังไม่มีพิกัด',
+              'Distances not known — saved records carry no coordinates yet') + '</p>' : '') +
+        '</header><ul class="ta-day-list">';
+
+      if (!items.length) {
+        html += '<li class="ta-fine">' + t('ยังไม่มีอะไรในวันนี้', 'Nothing in this day yet') + '</li>';
+      }
+
+      items.forEach(function (it, idx) {
+        var poi = TA.poi.get(it.poiId) || {};
+        var img = resolveImg(poi.img);
+        /* An item scheduled from another page in an earlier session has no
+           name in this browser: TA.poi is an in-memory cache and the POI
+           index (gen-poi.mjs) does not exist yet. We say we do not know
+           rather than printing the raw id as if it were a name. */
+        var known = !!(poi.name && poi.name !== it.poiId);
+        var nameHtml = known
+          ? '<span class="ta-poi-name ta-clamp-1">' + esc(poi.name) + '</span>'
+          : '<span class="ta-poi-name ta-clamp-1 sv-unknown">' + t('ยังไม่ทราบชื่อรายการนี้', 'Name not known in this browser') + '</span>';
+        var subHtml = known
+          ? '<span class="ta-poi-sub ta-clamp-1">' + esc([provLabel(poi.province), kindLabel(it.kind || poi.kind)].join(' · ')) + '</span>'
+          : '<span class="ta-poi-sub ta-clamp-1">' + esc(t('จัดวันไว้จากหน้าอื่น · ', 'Scheduled from another page · ') + it.poiId) + '</span>';
+        html += '<li><div class="ta-poi" data-in-trip>' +
+          (img ? '<span class="ta-poi-thumb"><img src="' + esc(img) + '" alt="" width="56" height="56" loading="lazy" decoding="async"></span>'
+               : '<span class="ta-poi-thumb"></span>') +
+          '<span class="ta-poi-main">' + nameHtml + subHtml + '</span>' +
+          /* ONE ⋮ per row (kit §11): four inline buttons crush the name
+             column to three characters on a 375 px phone, and the sheet
+             ships Move-to before drag for WCAG 2.5.7 anyway. */
+          '<span class="sv-acts">' +
+            '<button class="ta-poi-menu" type="button" data-sv-itemmenu="' + esc(it.id) + '" ' +
+              'data-idx="' + idx + '" data-last="' + (items.length - 1) + '" ' +
+              'aria-label="' + esc(t('ตัวเลือกสำหรับ ', 'Options for ') +
+                                    (known ? poi.name : it.poiId)) + '">&#8942;</button>' +
+          '</span>' +
+        '</div></li>';
+      });
+
+      html += '</ul>' +
+        '<button class="ta-day-add" type="button" data-sv-fill="' + esc(day.id) + '">' +
+          t('＋ เพิ่มจากรายการที่บันทึกไว้', '＋ Add from your saves') + '</button>' +
+        '<div class="sv-dayacts">' +
+          '<button class="ta-btn ta-btn-quiet" type="button" data-sv-dropday="' + esc(day.id) + '">' +
+            t('ลบวันนี้', 'Delete this day') + '</button>' +
+        '</div>' +
+      '</section>';
+    });
+
+    /* The loose column — everything the trip knows about that is not in a
+       day yet. That is this browser's saves PLUS anything the trip document
+       is holding loose (the trip inbox and the fallback list a deleted day
+       leaves behind), so an item can never quietly disappear from view just
+       because it was last touched on another page. */
+    var loose = saves.filter(function (s) { return !sched[s.id]; });
+    var seenLoose = {};
+    loose.forEach(function (s) { seenLoose[s.id] = 1; });
+    var trLoose = TA.trip.get();
+    [].concat(trLoose.saves || [], trLoose.unscheduled || []).forEach(function (row) {
+      var pid = row && (row.poiId || row.id);
+      if (!pid || seenLoose[pid] || sched[pid]) return;
+      seenLoose[pid] = 1;
+      var known = TA.poi.get(pid);
+      loose.push(known && known.name
+        ? { id: pid, name: known.name, img: known.img, province: known.province, kind: known.kind }
+        : { id: pid, name: '', img: '', province: '', kind: '', unknown: true });
+    });
+
+    html += '<section class="ta-day" data-loose>' +
+      '<header class="ta-day-head">' +
+        '<h3 class="ta-day-title">' + t('ยังไม่ได้จัดวัน', 'Not scheduled yet') + '</h3>' +
+        '<p class="ta-day-roll">' + num(loose.length) + t(' รายการ', ' items') + '</p>' +
+      '</header><ul class="ta-day-list">';
+    if (!loose.length) {
+      html += '<li class="ta-fine">' + (saves.length
+        ? t('จัดครบทุกรายการแล้ว', 'Everything is scheduled')
+        : t('ยังไม่มีรายการที่บันทึกไว้', 'Nothing saved yet')) + '</li>';
+    }
+    loose.forEach(function (s) {
+      var img = resolveImg(s.img);
+      var nm = s.unknown
+        ? '<span class="ta-poi-name ta-clamp-1 sv-unknown">' + t('ยังไม่ทราบชื่อรายการนี้', 'Name not known in this browser') + '</span>'
+        : '<span class="ta-poi-name ta-clamp-1">' + esc(s.name || s.id) + '</span>';
+      var sb = s.unknown
+        ? '<span class="ta-poi-sub ta-clamp-1">' + esc(t('อยู่ในทริปแต่ยังไม่ได้จัดวัน · ', 'In the trip but not scheduled · ') + s.id) + '</span>'
+        : '<span class="ta-poi-sub ta-clamp-1">' + esc([provLabel(s.province), kindLabel(s.kind)].join(' · ')) + '</span>';
+      html += '<li><div class="ta-poi">' +
+        (img ? '<span class="ta-poi-thumb"><img src="' + esc(img) + '" alt="" width="56" height="56" loading="lazy" decoding="async"></span>'
+             : '<span class="ta-poi-thumb"></span>') +
+        '<span class="ta-poi-main">' + nm + sb + '</span>' +
+        '<span class="sv-acts"><button class="ta-poi-menu" type="button" data-sv-pick="' + esc(s.id) + '" ' +
+          'aria-label="' + esc(t('จัดวันให้ ', 'Choose a day for ') + (s.name || '')) + '">' +
+          '<svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-calendar"></use></svg></button></span>' +
+      '</div></li>';
+    });
+    html += '</ul></section>';
+
+    elBoard.innerHTML = html;
+  }
+
+  function renderMap(provCounts) {
+    var parents = {};
+    Object.keys(provCounts).forEach(function (slug) {
+      if (!slug) return;
+      var par = provParent(slug);
+      parents[par] = (parents[par] || 0) + provCounts[slug];
+    });
+
+    qa('.sv-dot').forEach(function (dot) {
+      var slug = dot.getAttribute('data-p');
+      if (parents[slug]) {
+        dot.setAttribute('data-saved', '');
+        dot.setAttribute('r', '15');
+        /* SVG has no z-index: paint order is document order, so a saved dot
+           is moved last or a neighbouring province can sit on top of it. */
+        if (dot.parentNode) dot.parentNode.appendChild(dot);
+      } else {
+        dot.removeAttribute('data-saved');
+        dot.setAttribute('r', '11');
+      }
+    });
+
+    var n = Object.keys(parents).length;
+    if (elMapTitle) {
+      elMapTitle.textContent = n
+        ? t('เก็บไว้แล้ว ', 'Saved in ') + num(n) + t(' จังหวัด', ' provinces')
+        : t('แผนที่ 77 จังหวัด', 'The 77 provinces');
+    }
+    if (elProvCount) {
+      elProvCount.textContent = n
+        ? t('มีรายการที่บันทึกไว้ใน ', 'You have saves in ') + num(n) +
+          t(' จาก 77 จังหวัด', ' of the 77 provinces')
+        : t('ยังไม่มีจังหวัดที่บันทึกไว้ — แผนที่แสดงครบทั้ง 77 จังหวัดไว้ให้ดูก่อน',
+            'No provinces saved yet — the map shows all 77 so you can see the shape of the country');
+    }
+    if (elProvChips) {
+      elProvChips.innerHTML = Object.keys(parents).sort(function (a, b) {
+        return parents[b] - parents[a] || provLabel(a).localeCompare(provLabel(b));
+      }).map(function (slug) {
+        var href = hubHref(slug);
+        var label = esc(provLabel(slug)) + ' <span class="ta-fac-count">' + num(parents[slug]) + '</span>';
+        return '<li>' + (href
+          ? '<a class="ta-chip" href="' + esc(href) + '">' + label + '</a>'
+          : '<span class="ta-chip">' + label + '</span>') + '</li>';
+      }).join('');
+    }
+  }
+
+  function renderRail(saves, sched) {
+    if (!elRailList) return;
+    var rows = saves.slice(0, 8).map(function (s) {
+      var where = sched[s.id] ? sched[s.id].day.label : t('ยังไม่ได้จัดวัน', 'Not scheduled');
+      return '<li><div class="ta-poi">' +
+        '<span class="ta-poi-thumb">' + (s.img
+          ? '<img src="' + esc(resolveImg(s.img)) + '" alt="" width="56" height="56" loading="lazy" decoding="async">'
+          : '') + '</span>' +
+        '<span class="ta-poi-main">' +
+          '<span class="ta-poi-name ta-clamp-1">' + esc(s.name || s.id) + '</span>' +
+          '<span class="ta-poi-sub ta-clamp-1">' + esc(where) + '</span>' +
+        '</span><span></span></div></li>';
+    }).join('');
+    elRailList.innerHTML = rows;
+    /* The shell's count label counts saves + everything in the trip, so an
+       empty save list next to "16 items in your trip" reads as a
+       contradiction. Say which is which instead. */
+    if (elRailEmpty) {
+      var nSchedNow = scheduledCount();
+      elRailEmpty.hidden = saves.length > 0;
+      elRailEmpty.textContent = nSchedNow
+        ? t('ยังไม่มีรายการที่บันทึกไว้ — แต่มี ' + nSchedNow + ' รายการอยู่ในแผนรายวันแล้ว',
+            'Nothing in your saves — but ' + nSchedNow + ' items are already scheduled by day')
+        : t('ยังไม่มีรายการ — กด 🔖 ที่การ์ดไหนก็ได้เพื่อเริ่ม',
+            'Nothing here yet — press 🔖 on any card to start');
+    }
+  }
+
+  function renderSelCount() {
+    if (!elSelCount) return;
+    var n = Object.keys(state.sel).length;
+    elSelCount.textContent = t('เลือกแล้ว ', 'Selected ') + num(n) + t(' รายการ', '');
+  }
+
+  /* ----------------------------------------------------------- day picker */
+  function openDayPicker(forWhat, label) {
+    state.pickFor = forWhat;
+    var tr = TA.trip.get();
+    var target = q('[data-sv-picktarget]');
+    if (target) target.textContent = label || '';
+    var list = q('[data-sv-daylist]');
+    if (list) {
+      list.innerHTML = tr.days.length
+        ? tr.days.map(function (d) {
+            return '<button class="ta-btn ta-btn-ghost" type="button" data-sv-day="' + esc(d.id) + '">' +
+              esc(d.label) + ' <span class="ta-fac-count">' + num((d.items || []).length) + '</span></button>';
+          }).join('')
+        : '<p class="ta-fine">' + t('ยังไม่มีวันในทริป กด “เพิ่มวันใหม่” ด้านล่างได้เลย',
+                                    'No days yet — use “Add a new day” below') + '</p>';
+    }
+    var dlg = D.getElementById('svDayPicker');
+    if (dlg && TA.sheet) TA.sheet.open(dlg);
+  }
+
+  function assignToDay(ids, dayId) {
+    var names = [];
+    ids.forEach(function (id) {
+      var s = TA.saves.get(id);
+      if (!s) return;
+      TA.poi.put({ id: s.id, name: s.name, url: s.url, img: s.img, kind: s.kind, province: s.province });
+      if (TA.trip.hasPoi(s.id)) return;         /* already somewhere in the trip */
+      TA.trip.addToDay(s.id, dayId, { kind: s.kind });
+      names.push(s.name || s.id);
+    });
+    var day = TA.trip.get().days.filter(function (d) { return d.id === dayId; })[0];
+    var where = day ? day.label : t('ทริปของคุณ', 'your trip');
+    if (names.length) {
+      TA.toast(names.length === 1
+        ? t('เพิ่ม ' + names[0] + ' ใน ' + where + ' แล้ว', 'Added ' + names[0] + ' to ' + where)
+        : t('เพิ่ม ' + names.length + ' รายการใน ' + where + ' แล้ว', 'Added ' + names.length + ' items to ' + where),
+        { href: 'trip', linkText: t('ดูทริป', 'View trip') });
+    } else {
+      TA.toast(t('รายการที่เลือกอยู่ในทริปอยู่แล้ว', 'Those items are already in your trip'));
+    }
+    TA.nav.syncBadge();
+    render();
+  }
+
+  /* -------------------------------------------------------------- export */
+  function exportPayload() {
+    return JSON.stringify({
+      app: 'thailandaddict',
+      kind: 'saved-set',
+      v: 1,
+      exportedAt: new Date().toISOString(),
+      saves: TA.saves.list(),
+      trip: TA.trip.get()
+    }, null, 2);
+  }
+
+  function importPayload(raw, mode) {
+    var data;
+    try { data = JSON.parse(raw); }
+    catch (e) { return { ok: false, msg: t('อ่านไฟล์ไม่ออก — ไม่ใช่ JSON ที่ถูกต้อง', 'Could not read that — it is not valid JSON') }; }
+
+    var saves = Array.isArray(data) ? data : (Array.isArray(data.saves) ? data.saves : null);
+    var trip = (data && data.trip && Array.isArray(data.trip.days)) ? data.trip
+             : (data && Array.isArray(data.days) ? data : null);
+    if (!saves && !trip) {
+      return { ok: false, msg: t('ไฟล์นี้ไม่มีรายการที่บันทึกไว้', 'This file has no saved items in it') };
+    }
+
+    var added = 0, skipped = 0;
+    if (mode === 'replace') {
+      TA.saves.clear();
+      if (trip) TA.trip.import(trip);
+    }
+    (saves || []).forEach(function (s) {
+      if (!s || !(s.id || s.poiId)) { skipped++; return; }
+      if (TA.saves.has(s.id || s.poiId)) { skipped++; return; }
+      if (TA.saves.add(s)) added++;
+    });
+    if (mode !== 'replace' && trip && !TA.trip.get().days.length) TA.trip.import(trip);
+
+    TA.nav.syncBadge();
+    render();
+    return {
+      ok: true,
+      msg: t('นำเข้าแล้ว ' + added + ' รายการ' + (skipped ? ' · ข้ามที่ซ้ำหรือไม่สมบูรณ์ ' + skipped : ''),
+             'Imported ' + added + ' items' + (skipped ? ' · skipped ' + skipped + ' duplicate or incomplete' : ''))
+    };
+  }
+
+  /* ------------------------------------------------------------- removals */
+  function removeIds(ids) {
+    undoBuffer = [];
+    ids.forEach(function (id) {
+      var s = TA.saves.get(id);
+      if (!s) return;
+      undoBuffer.push(s);
+      TA.saves.remove(id);
+      delete state.sel[id];
+    });
+    if (elUndo) {
+      elUndo.hidden = !undoBuffer.length;
+      elUndo.textContent = t('เลิกทำ — คืน ', 'Undo — restore ') + num(undoBuffer.length) + t(' รายการ', '');
+    }
+    TA.nav.syncBadge();
+    render();
+    TA.toast(t('เอาออกแล้ว ' + undoBuffer.length + ' รายการ', 'Removed ' + undoBuffer.length + ' items'));
+  }
+
+  function askConfirm(text, fn) {
+    state.confirm = fn;
+    var el = q('[data-sv-confirmtext]');
+    if (el) el.textContent = text;
+    var dlg = D.getElementById('svConfirm');
+    if (dlg && TA.sheet) TA.sheet.open(dlg);
+  }
+
+  /* =====================================================================
+     TABS — real ARIA tabs: roving tabindex, Arrow/Home/End, hash-synced.
+     Panels never leave the DOM.
+     ================================================================== */
+  var tablist = q('.ta-tablist[role="tablist"]');
+  var tabs = tablist ? qa('[role="tab"]', tablist) : [];
+  var panels = tabs.map(function (tb) { return D.getElementById(tb.getAttribute('aria-controls')); });
+
+  function selectTab(idx, opts) {
+    opts = opts || {};
+    tabs.forEach(function (tb, k) {
+      var on = k === idx;
+      tb.setAttribute('aria-selected', on ? 'true' : 'false');
+      tb.tabIndex = on ? 0 : -1;
+      if (panels[k]) panels[k].hidden = !on;
+    });
+    if (opts.focus && tabs[idx]) tabs[idx].focus();
+  }
+  function indexOfHash(h) {
+    for (var k = 0; k < panels.length; k++) if (panels[k] && '#' + panels[k].id === h) return k;
+    return -1;
+  }
+  tabs.forEach(function (tb, idx) {
+    tb.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      selectTab(idx);
+      try { history.pushState(null, '', tb.getAttribute('href')); } catch (e) {}
+    });
+    tb.addEventListener('keydown', function (ev) {
+      var k = ev.key, n = -1, last = tabs.length - 1;
+      var rtl = R.getAttribute('dir') === 'rtl';
+      if (k === 'ArrowRight') n = rtl ? idx - 1 : idx + 1;
+      else if (k === 'ArrowLeft') n = rtl ? idx + 1 : idx - 1;
+      else if (k === 'Home') n = 0;
+      else if (k === 'End') n = last;
+      else if (k === 'ArrowDown') { if (panels[idx]) { ev.preventDefault(); panels[idx].focus(); } return; }
+      else return;
+      ev.preventDefault();
+      if (n < 0) n = last; if (n > last) n = 0;
+      selectTab(n, { focus: true });
+      try { history.replaceState(null, '', tabs[n].getAttribute('href')); } catch (e) {}
+    });
+  });
+  addEventListener('popstate', function () {
+    var k = indexOfHash(location.hash);
+    if (k > -1) selectTab(k);
+  });
+  (function () {
+    var k = indexOfHash(location.hash);
+    if (k > -1) selectTab(k);
+  })();
+
+  /* =====================================================================
+     ONE delegated click listener for everything this page owns.
+     ================================================================== */
+  D.addEventListener('click', function (ev) {
+    /* "เอาออกจากวันนี้" is handled by shell.js (data-move="remove"); this
+       page only closes the sheet behind it. Up/down deliberately leave the
+       sheet open so a second nudge does not cost two more taps. */
+    var mv = ev.target.closest && ev.target.closest('#svItemMenu [data-move="remove"]');
+    if (mv) {
+      var mvHost = D.getElementById('svItemMenu');
+      if (mvHost && TA.sheet) TA.sheet.close(mvHost);
+      /* no return — shell.js still needs to see this click */
+    }
+
+    var el = ev.target.closest ? ev.target.closest('[data-sv-selectmode],[data-sv-prov],[data-sv-kind],' +
+      '[data-sv-pick],[data-sv-remove],[data-sv-selectall],[data-sv-selectnone],[data-sv-bulkday],' +
+      '[data-sv-bulkremove],[data-sv-day],[data-sv-newday],[data-sv-addday],[data-sv-fill],' +
+      '[data-sv-addhere],[data-sv-moveday],[data-sv-itemmenu],[data-sv-dropday],[data-sv-copy],[data-sv-download],' +
+      '[data-sv-confirmok],[data-sv-undo],[data-sv-clearall]') : null;
+    if (!el) return;
+
+    /* --- select mode ------------------------------------------------- */
+    if (el.hasAttribute('data-sv-selectmode')) {
+      state.selecting = !state.selecting;
+      el.setAttribute('aria-pressed', state.selecting ? 'true' : 'false');
+      el.textContent = state.selecting ? t('เลิกเลือก', 'Done selecting') : t('เลือกหลายรายการ', 'Select several');
+      if (!state.selecting) state.sel = {};
+      render();
+      return;
+    }
+
+    /* --- filters ------------------------------------------------------ */
+    if (el.hasAttribute('data-sv-prov')) { state.prov = el.getAttribute('data-sv-prov'); render(); return; }
+    if (el.hasAttribute('data-sv-kind')) { state.kind = el.getAttribute('data-sv-kind'); render(); return; }
+
+    /* --- single item: choose a day ------------------------------------ */
+    if (el.hasAttribute('data-sv-pick')) {
+      var pid = el.getAttribute('data-sv-pick');
+      var ps = TA.saves.get(pid);
+      openDayPicker(pid, t('จัดวันให้ ', 'Choose a day for ') + (ps ? ps.name : pid));
+      return;
+    }
+
+    /* --- the ⋮ menu for one scheduled item ---------------------------- */
+    if (el.hasAttribute('data-sv-itemmenu')) {
+      var itemId = el.getAttribute('data-sv-itemmenu');
+      var idx = parseInt(el.getAttribute('data-idx'), 10);
+      var last = parseInt(el.getAttribute('data-last'), 10);
+      var row = el.closest('.ta-poi');
+      var nameEl = row && row.querySelector('.ta-poi-name');
+      var tgt2 = q('[data-sv-itemtarget]');
+      if (tgt2) tgt2.textContent = nameEl ? nameEl.textContent : '';
+      var menu = D.getElementById('svItemMenu');
+      if (menu) {
+        qa('[data-move],[data-sv-moveday]', menu).forEach(function (b) {
+          if (b.hasAttribute('data-move')) b.setAttribute('data-item', itemId);
+          else b.setAttribute('data-sv-moveday', itemId);
+        });
+        var up = q('[data-move="up"]', menu), dn = q('[data-move="down"]', menu);
+        if (up) up.disabled = idx === 0;
+        if (dn) dn.disabled = idx === last;
+        if (TA.sheet) TA.sheet.open(menu, el);
+      }
+      return;
+    }
+
+    /* --- move a scheduled item to another day ------------------------- */
+    if (el.hasAttribute('data-sv-moveday')) {
+      var menuHost = D.getElementById('svItemMenu');
+      if (menuHost && menuHost.open && TA.sheet) TA.sheet.close(menuHost);
+      openDayPicker('move:' + el.getAttribute('data-sv-moveday'), t('ย้ายไปวันไหน', 'Move to which day'));
+      return;
+    }
+
+    /* --- day chosen in the picker ------------------------------------- */
+    if (el.hasAttribute('data-sv-day')) {
+      var dayId = el.getAttribute('data-sv-day');
+      if (state.pickFor === 'bulk') {
+        assignToDay(Object.keys(state.sel), dayId);
+      } else if (state.pickFor && state.pickFor.indexOf('move:') === 0) {
+        TA.trip.move(state.pickFor.slice(5), dayId);
+        TA.nav.syncBadge();
+        render();
+      } else if (state.pickFor) {
+        assignToDay([state.pickFor], dayId);
+      }
+      state.pickFor = null;
+      var dlg1 = D.getElementById('svDayPicker');
+      if (dlg1 && TA.sheet) TA.sheet.close(dlg1);
+      return;
+    }
+
+    /* --- new day from inside the picker ------------------------------- */
+    if (el.hasAttribute('data-sv-newday')) {
+      var nd = TA.trip.addDay();
+      if (state.pickFor === 'bulk') assignToDay(Object.keys(state.sel), nd.id);
+      else if (state.pickFor && state.pickFor.indexOf('move:') === 0) { TA.trip.move(state.pickFor.slice(5), nd.id); render(); }
+      else if (state.pickFor) assignToDay([state.pickFor], nd.id);
+      else render();
+      state.pickFor = null;
+      var dlg2 = D.getElementById('svDayPicker');
+      if (dlg2 && TA.sheet) TA.sheet.close(dlg2);
+      return;
+    }
+
+    /* --- add a day from the board ------------------------------------- */
+    if (el.hasAttribute('data-sv-addday')) {
+      var day = TA.trip.addDay();
+      TA.nav.syncBadge();
+      render();
+      TA.toast(t('เพิ่ม ' + day.label + ' แล้ว', 'Added ' + day.label));
+      return;
+    }
+
+    /* --- fill a day from the saved list ------------------------------- */
+    if (el.hasAttribute('data-sv-fill')) {
+      state.addPoiDay = el.getAttribute('data-sv-fill');
+      var sched = scheduledMap();
+      var loose = allSaves().filter(function (s) { return !sched[s.id]; });
+      var dayObj = TA.trip.get().days.filter(function (d) { return d.id === state.addPoiDay; })[0];
+      var tgt = q('[data-sv-addpoitarget]');
+      if (tgt) tgt.textContent = dayObj
+        ? t('เลือกรายการที่จะใส่ใน ', 'Pick what goes into ') + dayObj.label
+        : '';
+      var lst = q('[data-sv-addpoilist]');
+      if (lst) {
+        lst.innerHTML = loose.length
+          ? loose.map(function (s) { return rowHtml(s, null, { mode: 'addpoi' }); }).join('')
+          : '<li class="ta-fine">' + t('ไม่มีรายการที่ยังไม่ได้จัดวัน', 'Nothing left unscheduled') + '</li>';
+      }
+      var dlg3 = D.getElementById('svAddPoi');
+      if (dlg3 && TA.sheet) TA.sheet.open(dlg3);
+      return;
+    }
+
+    if (el.hasAttribute('data-sv-addhere')) {
+      assignToDay([el.getAttribute('data-sv-addhere')], state.addPoiDay);
+      var dlg4 = D.getElementById('svAddPoi');
+      if (dlg4 && TA.sheet) TA.sheet.close(dlg4);
+      return;
+    }
+
+    /* --- delete a day (items fall back to unscheduled, never deleted) -- */
+    if (el.hasAttribute('data-sv-dropday')) {
+      var did = el.getAttribute('data-sv-dropday');
+      var dobj = TA.trip.get().days.filter(function (d) { return d.id === did; })[0];
+      askConfirm(
+        t('ลบ ' + (dobj ? dobj.label : '') + ' ใช่ไหม รายการข้างในจะกลับไปอยู่ที่ “ยังไม่ได้จัดวัน” ไม่ได้ถูกลบทิ้ง',
+          'Delete ' + (dobj ? dobj.label : '') + '? Everything in it goes back to “Not scheduled yet” — nothing is deleted.'),
+        function () { TA.trip.removeDay(did); TA.nav.syncBadge(); render(); }
+      );
+      return;
+    }
+
+    /* --- single remove ------------------------------------------------ */
+    if (el.hasAttribute('data-sv-remove')) {
+      var rid = el.getAttribute('data-sv-remove');
+      var rs = TA.saves.get(rid);
+      askConfirm(
+        t('เอา ' + (rs ? rs.name : '') + ' ออกจากรายการที่บันทึกไว้ใช่ไหม',
+          'Remove ' + (rs ? rs.name : '') + ' from your saves?'),
+        function () { removeIds([rid]); }
+      );
+      return;
+    }
+
+    /* --- bulk --------------------------------------------------------- */
+    if (el.hasAttribute('data-sv-selectall')) {
+      visibleSaves().forEach(function (s) { state.sel[s.id] = true; });
+      render();
+      return;
+    }
+    if (el.hasAttribute('data-sv-selectnone')) { state.sel = {}; render(); return; }
+
+    if (el.hasAttribute('data-sv-bulkday')) {
+      var nsel = Object.keys(state.sel).length;
+      if (!nsel) { TA.toast(t('ยังไม่ได้เลือกรายการ', 'Nothing selected yet')); return; }
+      openDayPicker('bulk', t('จัดวันให้ ' + nsel + ' รายการที่เลือก', 'Choose a day for ' + nsel + ' selected items'));
+      return;
+    }
+    if (el.hasAttribute('data-sv-bulkremove')) {
+      var ids = Object.keys(state.sel);
+      if (!ids.length) { TA.toast(t('ยังไม่ได้เลือกรายการ', 'Nothing selected yet')); return; }
+      askConfirm(
+        t('เอา ' + ids.length + ' รายการที่เลือกออกใช่ไหม', 'Remove the ' + ids.length + ' selected items?'),
+        function () { removeIds(ids); }
+      );
+      return;
+    }
+    if (el.hasAttribute('data-sv-clearall')) {
+      var all = TA.saves.list().map(function (s) { return s.id; });
+      if (!all.length) { TA.toast(t('ยังไม่มีรายการที่บันทึกไว้', 'Nothing saved yet')); return; }
+      askConfirm(
+        t('ล้างรายการที่บันทึกไว้ทั้ง ' + all.length + ' รายการใช่ไหม',
+          'Clear all ' + all.length + ' saved items?'),
+        function () { removeIds(all); }
+      );
+      return;
+    }
+
+    /* --- undo --------------------------------------------------------- */
+    if (el.hasAttribute('data-sv-undo')) {
+      if (!undoBuffer || !undoBuffer.length) return;
+      undoBuffer.forEach(function (s) { TA.saves.add(s); });
+      TA.toast(t('คืนแล้ว ' + undoBuffer.length + ' รายการ', 'Restored ' + undoBuffer.length + ' items'));
+      undoBuffer = null;
+      el.hidden = true;
+      TA.nav.syncBadge();
+      render();
+      return;
+    }
+
+    /* --- confirm ------------------------------------------------------ */
+    if (el.hasAttribute('data-sv-confirmok')) {
+      var fn = state.confirm;
+      state.confirm = null;
+      var dlg5 = D.getElementById('svConfirm');
+      if (dlg5 && TA.sheet) TA.sheet.close(dlg5);
+      if (typeof fn === 'function') fn();
+      return;
+    }
+
+    /* --- export ------------------------------------------------------- */
+    if (el.hasAttribute('data-sv-copy')) {
+      var ta = q('[data-sv-exporttext]');
+      if (!ta) return;
+      ta.focus(); ta.select();
+      var done = false;
+      try { done = D.execCommand('copy'); } catch (e) { done = false; }
+      if (!done && navigator.clipboard) {
+        navigator.clipboard.writeText(ta.value).then(function () {
+          TA.toast(t('คัดลอกแล้ว', 'Copied'));
+        }, function () {
+          TA.toast(t('คัดลอกอัตโนมัติไม่ได้ — กด Ctrl/Cmd+C เองได้เลย', 'Could not copy automatically — press Ctrl/Cmd+C'));
+        });
+        return;
+      }
+      TA.toast(done ? t('คัดลอกแล้ว', 'Copied')
+                    : t('คัดลอกอัตโนมัติไม่ได้ — กด Ctrl/Cmd+C เองได้เลย', 'Could not copy automatically — press Ctrl/Cmd+C'));
+      return;
+    }
+
+    if (el.hasAttribute('data-sv-download')) {
+      var payload = exportPayload();
+      try {
+        var blob = new Blob([payload], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = D.createElement('a');
+        a.href = url;
+        a.download = 'thailandaddict-saved-' + new Date().toISOString().slice(0, 10) + '.json';
+        D.body.appendChild(a);
+        a.click();
+        D.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      } catch (e) {
+        TA.toast(t('ดาวน์โหลดไม่ได้ในหน้านี้ — คัดลอกข้อความไปเก็บแทนได้',
+                   'Download is blocked here — copy the text instead'));
+      }
+      return;
+    }
+  });
+
+  /* checkbox selection */
+  D.addEventListener('change', function (ev) {
+    var cb = ev.target.closest && ev.target.closest('[data-sv-check]');
+    if (cb) {
+      var id = cb.getAttribute('data-sv-check');
+      if (cb.checked) state.sel[id] = true; else delete state.sel[id];
+      renderSelCount();
+      return;
+    }
+    var f = ev.target.closest && ev.target.closest('[data-sv-file]');
+    if (f && f.files && f.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var box = q('[data-sv-importtext]');
+        if (box) box.value = String(reader.result || '');
+        var msg = q('[data-sv-importmsg]');
+        if (msg) {
+          msg.hidden = false;
+          msg.textContent = t('อ่านไฟล์แล้ว กด “นำเข้า” เพื่อยืนยัน', 'File read — press “Import” to confirm');
+        }
+      };
+      reader.readAsText(f.files[0]);
+    }
+  });
+
+  /* import submit */
+  var importForm = q('[data-sv-importform]');
+  if (importForm) {
+    importForm.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var box = q('[data-sv-importtext]');
+      var mode = (q('input[name="sv-import-mode"]:checked') || {}).value || 'merge';
+      var msg = q('[data-sv-importmsg]');
+      var res = importPayload(box ? box.value : '', mode);
+      if (msg) { msg.hidden = false; msg.textContent = res.msg; }
+      if (res.ok) {
+        TA.toast(res.msg);
+        var dlg = D.getElementById('svImport');
+        if (dlg && TA.sheet) TA.sheet.close(dlg);
+      }
+    });
+  }
+
+  /* fill the export textarea whenever the sheet is opened */
+  var exportDlg = D.getElementById('svExport');
+  if (exportDlg) {
+    exportDlg.addEventListener('toggle', function () {
+      var ta = q('[data-sv-exporttext]');
+      if (ta && exportDlg.open) ta.value = exportPayload();
+    });
+    /* <dialog> fires no toggle in every engine yet — cover the click path too */
+    D.addEventListener('click', function (ev) {
+      var opener = ev.target.closest && ev.target.closest('[data-sheet="svExport"]');
+      if (!opener) return;
+      var ta = q('[data-sv-exporttext]');
+      if (ta) ta.value = exportPayload();
+    });
+  }
+
+  /* re-render whenever the shared store changes, wherever the change came
+     from — this page, the tab bar, or another prototype page in this tab. */
+  TA.on('saves', render);
+  TA.on('trip', render);
+  TA.on('render', render);
+  addEventListener('pageshow', render);
+
+  render();
+});
+</script>
+</body>
+</html>

@@ -1310,7 +1310,13 @@ function genAll(loc, outDir){
     const revDirLoc = path.join(ROOT, 'astro/src/content/reviews-'+loc);
     const roundupSlugs = fs.existsSync(roundDirLoc) ? fs.readdirSync(roundDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
     const reviewSlugs = fs.existsSync(revDirLoc) ? fs.readdirSync(revDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
-    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS, ...roundupSlugs, ...reviewSlugs]);
+    // Plan-B deep-content articles (attraction/food/eat-ranking/itinerary/prep/guide) — same
+    // exists-iff-translated / fallback-to-/en/ rule as roundups/reviews above. Without this, every
+    // dcard linking to a translated article (e.g. krabi-seafood) still fell back to /en/ because
+    // AVAIL never listed plain article slugs, even once the translated file existed on disk.
+    const artDirLoc = path.join(ROOT, 'astro/src/content/articles-'+loc);
+    const articleSlugs = fs.existsSync(artDirLoc) ? fs.readdirSync(artDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
+    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS, ...roundupSlugs, ...reviewSlugs, ...articleSlugs]);
     let n=0;
     for(const sl of cities){ const d=readData(sl); if(!d) continue; fs.writeFileSync(path.join(outDir,`city-${sl}.html`), provinceHub(sl, TH[sl]||sl, REGION_OF[sl], d)); n++; }
     console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · tourism-cities:${n} · roundups:${roundupSlugs.length} · reviews:${reviewSlugs.length}`);

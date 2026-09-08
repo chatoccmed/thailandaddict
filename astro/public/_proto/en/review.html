@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="rl-page" style="--cta-h:72px">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the CTA sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>Review prototype — Rayavadee Krabi | Thailandaddict</title>
+<meta name="description" content="Hotel review prototype (Andaman Deck) — Rayavadee, a luxury resort on the Railay headland-Phra Nang beach, Krabi. Reachable by longtail boat only. From approx. ฿13,900/night. Scores 9.4 on Booking.com.">
+<link rel="canonical" href="https://thailandaddict.com/_proto/en/review.html">
+
+<!-- theme-color, light + dark. data-shell/data-color let TA.theme override
+     them when the reader makes an explicit choice. -->
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="../manifest.en.webmanifest">
+<link rel="preconnect" href="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev" crossorigin>
+
+<!-- THE shell. One file, one cache entry, one place to change the whole site.
+     Document-relative so the prototype also renders when the owner opens the
+     file directly from disk; resolves to /css/… once served. -->
+<link rel="stylesheet" href="../../css/shell.5f167b89.css">
+
+<!-- Incoming view-transition direction. MUST be a parser-blocking inline
+     script in <head>: pagereveal fires before any deferred script runs. -->
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+</script>
+
+<script src="../../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties, zero new tokens.
+   Everything here is composition of the shell's own vocabulary. */
+@layer page {
+
+  /* h1 emphasis: never synthesised italic — the Thai twin has no italic and
+     the browser would slant the glyphs. Editorial colour instead, both twins. */
+  h1 em, h2 em { font-style: normal; color: var(--editorial); }
+
+  .rl-crumb { font-size: var(--step--2); color: var(--text-muted); padding-block-start: var(--sp-2); }
+  /* Every crumb clears the 44px floor without becoming a button. */
+  .rl-crumb a { color: inherit; display: inline-flex; align-items: center; min-block-size: 44px; }
+  .rl-crumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--sp-2); }
+  .rl-crumb li { display: flex; align-items: center; gap: var(--sp-2); }
+  .rl-crumb li + li::before { content: '\203A'; color: var(--border-strong); }
+
+  /* Same floor for every other in-text link this page authors. */
+  .rl-credit a, .ta-sec-more, .ta-rail-drop a { display: inline-flex; align-items: center; min-block-size: 44px; }
+
+  /* --- 1. DECISION HERO (§5.3 item 1) ----------------------------------- */
+  .rl-hero { display: grid; gap: var(--sp-5); margin-block: var(--sp-4) var(--sp-6); }
+  @media (min-width: 900px) {
+    .rl-hero { grid-template-columns: minmax(0, 1.55fr) minmax(320px, 1fr); gap: var(--sp-6); align-items: start; }
+  }
+  .rl-hero-fig { margin: 0; min-inline-size: 0; }
+  .rl-hero-fig .ta-media { border-radius: var(--r-lg); }
+  .rl-credit { margin-block-start: var(--sp-2); font-size: var(--step--2); color: var(--text-muted); }
+  .rl-hero-body { display: flex; flex-direction: column; gap: var(--sp-2); align-items: start; min-inline-size: 0; }
+  .rl-hero-body h1 { margin: 0; font-size: var(--step-4); }
+  .rl-verdict { margin: 0; font-size: var(--step-0); }
+  .rl-metarow { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+  .rl-price { font-size: var(--step-1); font-family: var(--font-display); }
+  .rl-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-block-start: var(--sp-2); }
+
+  /* --- 2. BYLINE -------------------------------------------------------- */
+  .rl-byline { display: flex; align-items: center; gap: var(--sp-3); font-size: var(--step--2); color: var(--text-muted); }
+  .rl-byline img { inline-size: 36px; block-size: 36px; border-radius: var(--r-full); object-fit: cover; }
+
+  /* --- 3. GALLERY MOSAIC (§5.3 item 6) ---------------------------------- */
+  .rl-gal { display: grid; gap: var(--sp-2); grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; }
+  @media (min-width: 700px) {
+    .rl-gal { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .rl-gal > li:first-child { grid-column: span 2; grid-row: span 2; }
+  }
+  .rl-gal a { display: block; border-radius: var(--r-md); overflow: hidden; position: relative; }
+  .rl-gal .ta-media { border-radius: var(--r-md); block-size: 100%; }
+  .rl-gal-cap { display: block; font-size: var(--step--2); color: var(--text-muted); margin-block-start: var(--sp-3); }
+
+  /* --- 4. LIGHTBOX ------------------------------------------------------ */
+  .rl-lb {
+    inset: 0; margin: 0; padding: 0; border: 0;
+    inline-size: 100%; max-inline-size: 100%;
+    block-size: 100%; max-block-size: 100%;
+    background: var(--night-950); color: var(--sand-200);
+    display: none; grid-template-rows: auto minmax(0, 1fr) auto;
+    border-radius: 0; translate: none; opacity: 1;
+  }
+  .rl-lb[open] { display: grid; translate: none; opacity: 1; }
+  .rl-lb::backdrop { background: rgb(8 17 19 / .92); }
+  .rl-lb-head { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-4); padding-block-start: calc(var(--sp-2) + var(--safe-t)); }
+  .rl-lb-count { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: var(--step--1); }
+  .rl-lb-stage { display: grid; place-items: center; padding-inline: var(--sp-2); min-block-size: 0; }
+  .rl-lb-stage img { max-block-size: 100%; max-inline-size: 100%; object-fit: contain; }
+  .rl-lb-foot { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4) calc(var(--sp-4) + var(--safe-b)); }
+  .rl-lb-alt { flex: 1 1 auto; font-size: var(--step--2); color: var(--sand-400); text-align: start; }
+  .rl-lb .ta-btn { background: var(--night-800); color: var(--sand-200); }
+  .rl-lb .ta-icon-btn { color: var(--sand-200); min-block-size: 44px; min-inline-size: 44px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; }
+
+  /* --- 5. RATING BARS (§5.3 item 8) ------------------------------------- */
+  .rl-scorehead { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-block-end: var(--sp-4); }
+  .rl-score-big { font-family: var(--font-display); font-weight: 800; font-size: var(--step-4); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .rl-bars { display: grid; gap: var(--sp-3); margin: 0; padding: 0; list-style: none; }
+  .rl-bar { display: grid; grid-template-columns: minmax(6rem, auto) minmax(0, 1fr) 2.6rem; gap: var(--sp-3); align-items: center; }
+  .rl-bar-lbl { font-size: var(--step--1); color: var(--text-muted); }
+  .rl-track { block-size: 8px; border-radius: var(--r-full); background: var(--surface-3); overflow: hidden; }
+  .rl-fill { block-size: 100%; border-radius: var(--r-full); background: var(--accent); }
+  .rl-bar-v { font-family: var(--font-display); font-variant-numeric: tabular-nums; font-size: var(--step--1); text-align: end; }
+
+  /* --- 6. PROS / CONS (§5.3 item 4) ------------------------------------- */
+  .rl-pc { display: grid; gap: var(--sp-4); }
+  @media (min-width: 760px) { .rl-pc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .rl-pc-box { padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-2); }
+  .rl-pc-box h3 { margin: 0 0 var(--sp-3); font-size: var(--step-0); }
+  .rl-pc-list { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sp-3); }
+  .rl-pc-list li { display: grid; grid-template-columns: 10px minmax(0, 1fr); gap: var(--sp-3); font-size: var(--step--1); align-items: start; }
+  .rl-pc-list li::before { content: ''; inline-size: 8px; block-size: 8px; border-radius: var(--r-full); background: currentColor; margin-block-start: .5em; }
+  .rl-pros { color: var(--flag-ok); }
+  .rl-cons { color: var(--flag-warn); }
+  .rl-pc-list li span { color: var(--text); }
+  .rl-checks { display: grid; gap: var(--sp-3); margin-block-start: var(--sp-4); }
+
+  /* --- 7. PROSE --------------------------------------------------------- */
+  .rl-prose > * { margin-block: 0 var(--sp-4); }
+  .rl-prose blockquote {
+    margin: var(--sp-5) 0; padding: var(--sp-4);
+    border-inline-start: 3px solid var(--editorial);
+    background: var(--surface-3);
+    border-start-end-radius: var(--r-md); border-end-end-radius: var(--r-md);
+    font-size: var(--step-1);
+  }
+
+  /* --- 8. ROOMS --------------------------------------------------------- */
+  .rl-rooms td.rl-roomdesc { white-space: normal; min-inline-size: 15rem; }
+
+  /* --- 9. PRICE WIDGET (§5.3 item 9) — real <a>, never <button data-href> */
+  .rl-ota { display: grid; gap: var(--sp-3); }
+  @media (min-width: 620px) { .rl-ota { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .rl-ota .ta-btn { justify-content: center; text-align: center; }
+  .rl-aff { margin-block-start: var(--sp-3); font-size: var(--step--2); color: var(--text-muted); }
+
+  /* --- 10. NEARBY / LOCATION ------------------------------------------- */
+  .rl-near { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--sp-2); }
+  .rl-near li { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); justify-content: space-between; padding-block: var(--sp-2); border-block-end: 1px solid var(--border); font-size: var(--step--1); }
+  .rl-near li:last-child { border-block-end: 0; }
+  .rl-near b { font-weight: 600; }
+  .rl-near span { color: var(--text-muted); }
+
+  /* --- 11. TIPS --------------------------------------------------------- */
+  .rl-tips { display: grid; gap: var(--sp-4); }
+  @media (min-width: 760px) { .rl-tips { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .rl-tip { padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-2); }
+  .rl-tip h3 { margin: 0 0 var(--sp-2); font-size: var(--step-0); }
+  .rl-tip p { margin: 0; font-size: var(--step--1); }
+
+  /* --- 12. FAQ ---------------------------------------------------------- */
+  .rl-faq { display: grid; gap: var(--sp-2); }
+  .rl-faq details { border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-2); }
+  .rl-faq summary { min-block-size: 44px; padding: var(--sp-3) var(--sp-4); cursor: pointer; font-weight: 600; font-size: var(--step--1); }
+  .rl-faq summary::marker { color: var(--accent); }
+  .rl-faq .rl-faq-a { padding: 0 var(--sp-4) var(--sp-4); margin: 0; font-size: var(--step--1); }
+
+  /* --- 13. PREV / NEXT -------------------------------------------------- */
+  .rl-pn { display: grid; gap: var(--sp-3); margin-block: var(--sp-6); }
+  @media (min-width: 620px) { .rl-pn { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .rl-pn a { display: flex; flex-direction: column; gap: var(--sp-1); padding: var(--sp-4); border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface-2); text-decoration: none; min-block-size: 44px; }
+  .rl-pn small { color: var(--text-muted); }
+
+  /* --- 14. DAY PICKER --------------------------------------------------- */
+  .rl-daylist { margin: 0 0 var(--sp-3); padding: 0; list-style: none; display: grid; gap: var(--sp-2); }
+  .rl-daylist .ta-btn { inline-size: 100%; justify-content: start; text-align: start; }
+
+  /* --- 15. STICKY CTA fit at 375 (§4.3) --------------------------------- */
+  .ta-cta .ta-btn { padding-inline: var(--sp-4); }
+  .ta-cta .ta-save { padding-inline: var(--sp-3); }
+  /* Chrome, not prose: the shell itself runs 1.25 on .ta-tab and 1.3 on
+     .ta-btn. The tone-mark padding stays, so the Thai twin is not sheared,
+     and the bar lands on the --cta-h that <html> reserves. */
+  .ta-cta-name, .ta-cta-price {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    line-height: 1.4; padding-block: .12em;
+  }
+  @media (max-width: 420px) {
+    .ta-cta { padding-inline: var(--sp-3); gap: var(--sp-2); }
+    .ta-cta .ta-btn { padding-inline: var(--sp-2); }
+    .ta-cta .ta-save { padding-inline: var(--sp-2); }
+  }
+  /* .ta-icon-btn's -10px phantom hit area is for BARE icon buttons. Inside
+     the CTA the save carries a word and is already over the 44px floor, and
+     an invisible box reaching toward the booking button is the exact bug
+     class this page exists to remove. Clamp it to the button's own box. */
+  .ta-cta .ta-save.ta-icon-btn::after { inset: 0; }
+}
+</style>
+</head>
+<body>
+
+<a class="ta-skip" href="#main">Skip to main content</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.75v14.5M4.75 12h14.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.75 12.5 4.75 4.75L19.25 6.75"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/><path d="m9 10.7 6-3.4M9 13.3l6 3.4"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="home">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="Main menu">
+    <a href="home">Explore</a>
+    <a href="krabi">Destinations</a>
+    <a href="trip">Trip <span class="ta-badge" data-count="0">0</span></a>
+  </nav>
+
+  <form class="ta-search-desk" action="search" method="get" role="search">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
+    <label class="ta-sr" for="q-desk">Search</label>
+    <input id="q-desk" type="search" name="q" placeholder="Stays, restaurants, destinations">
+  </form>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="Language / ภาษา">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>English</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <div class="ta-wrap">
+
+    <nav class="rl-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="home">Home</a></li>
+        <li><a href="krabi">Krabi</a></li>
+        <li><a href="krabi">10 Best Hotels in Krabi</a></li>
+        <li aria-current="page">Rayavadee</li>
+      </ol>
+    </nav>
+
+    <!-- ===================================================================
+         1. DECISION HERO — §5.3 item 1
+         =================================================================== -->
+    <div class="rl-hero">
+      <figure class="rl-hero-fig">
+        <div class="ta-media ta-r-3-2">
+          <picture>
+            <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.webp">
+            <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.jpg"
+                 alt="Rayavadee on the Railay headland-Phra Nang beach, Krabi, with limestone cliffs and white sand"
+                 width="1600" height="687" fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+        <figcaption class="rl-credit">Photo: official Rayavadee website (<a href="https://www.rayavadee.com/en/" rel="noopener nofollow" target="_blank">rayavadee.com</a>)</figcaption>
+      </figure>
+
+      <div class="rl-hero-body">
+        <span class="eyebrow">Railay headland · Phra Nang beach · Krabi</span>
+
+        <h1>Rayavadee — the luxury resort on the tip of Railay <em>wrapped by beaches on 3 sides</em>, reachable by boat only</h1>
+
+        <p class="rl-verdict">Rayavadee is <strong>the luxury resort holding the best location in Railay</strong> — the headland tip, wrapped by 3 beaches, reachable by boat, Thai-style pavilions set in gardens, excellent service, and The Grotto restaurant in a cave. But accept that it's very expensive, food inside the resort is pricey, you get there by boat, and the surrounding beaches are busy during the day.</p>
+
+        <p class="rl-metarow">
+          <span class="ta-score"><b>9.4</b> <span class="ta-score-src">Booking.com</span></span>
+          <span class="ta-chip ta-chip-award">🏅 #1 in Railay · TripAdvisor</span>
+        </p>
+
+        <p class="rl-price">from <span class="ta-num">฿13,900</span> / night</p>
+        <p class="ta-flag ta-flag-unknown">Prices shown are estimates — tap a link for live pricing and availability</p>
+
+        <div class="rl-actions">
+          <a class="ta-btn ta-btn-primary ota no-prerender"
+             href="https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"
+             rel="sponsored noopener nofollow" target="_blank">Check prices on Agoda</a>
+
+          <!-- Split add-to-day (§5.3 item 5, PROTO-KIT §8):
+               primary tap = zero-decision save to the trip inbox;
+               chevron    = pick a specific day of the current trip. -->
+          <div class="ta-split">
+            <button class="ta-btn ta-btn-primary" type="button"
+                    data-add-day="inbox"
+                    data-poi-id="s:rayavadee-krabi" data-kind="stay" data-name="Rayavadee"
+                    data-url="review" data-img="images/hotels/rayavadee-krabi-1.jpg"
+                    data-province="krabi" data-score="9.4" data-price-from="13900"
+                    data-trip-href="trip">
+              🔖 Add to trip
+            </button>
+            <button class="ta-btn ta-btn-primary" type="button"
+                    data-sheet="taDayPicker" aria-label="Choose which day to add Rayavadee to">
+              <svg class="ta-ic ta-ic-20 i-chevron" aria-hidden="true"><use href="#i-chevron"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="rl-byline">
+      <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/team/doctor-chat-avatar.jpg"
+           alt="" width="36" height="36" loading="lazy" decoding="async">
+      <span>Reviewed by <strong>Doctor Chat</strong> · Editor-in-Chief &amp; Founder — compiled from real guest reviews on Booking and Agoda</span>
+    </p>
+
+    <!-- ===================================================================
+         2. AT A GLANCE — §5.3 item 3. Fields with no verified value are
+         omitted, never rendered as "–".
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>At a glance</h2></div>
+      <dl class="ta-glance" id="at-a-glance">
+        <dt>Type</dt>       <dd>Luxury Resort 5★ · SHA Extra Plus</dd>
+        <dt>Highlight</dt>  <dd>Tip of Railay wrapped by 3 beaches · The Grotto in a cave</dd>
+        <dt>Rooms</dt>      <dd>94 pavilions + 7 villas</dd>
+        <dt>Access</dt>     <dd>By longtail boat from Ao Nang Pier only</dd>
+        <dt>Location</dt>   <dd>Railay headland-Phra Nang beach</dd>
+        <dt>Check-in</dt>   <dd>14:00 · Check-out 12:00</dd>
+        <dt>Wi-Fi</dt>      <dd>Free in all rooms</dd>
+        <dt>Pool</dt>       <dd>Yes</dd>
+        <dt>Spa</dt>        <dd>Yes</dd>
+        <dt>Pets</dt>       <dd>Not allowed</dd>
+      </dl>
+    </section>
+
+    <!-- ===================================================================
+         3. GALLERY + LIGHTBOX — §5.3 item 6
+         Each cell is a real <a> to the full image: with JS off it still
+         opens the photo. shell.js upgrades it into the lightbox.
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Photos of the resort</h2></div>
+      <ul class="rl-gal" id="rlGallery">
+        <li>
+          <a href="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.jpg"
+             data-sheet="taLightbox" data-lb="0" aria-label="View photo 1 of 4 — Rayavadee on the Railay headland">
+            <span class="ta-media ta-r-3-2">
+              <picture>
+                <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.webp">
+                <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-1.jpg"
+                     alt="Rayavadee on the Railay headland-Phra Nang beach, Krabi, with limestone cliffs and white sand"
+                     width="1600" height="687" loading="lazy" decoding="async">
+              </picture>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-2.jpg"
+             data-sheet="taLightbox" data-lb="1" aria-label="View photo 2 of 4 — two-storey Thai-style pavilions">
+            <span class="ta-media ta-r-3-2">
+              <picture>
+                <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-2.webp">
+                <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-2.jpg"
+                     alt="Two-storey Thai-style pavilions of Rayavadee set in tropical gardens on the Railay headland"
+                     width="1600" height="687" loading="lazy" decoding="async">
+              </picture>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-3.jpg"
+             data-sheet="taLightbox" data-lb="2" aria-label="View photo 3 of 4 — The Grotto restaurant in a cave">
+            <span class="ta-media ta-r-3-2">
+              <picture>
+                <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-3.webp">
+                <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-3.jpg"
+                     alt="The Grotto restaurant inside a natural cave by Phra Nang beach at Rayavadee"
+                     width="800" height="800" loading="lazy" decoding="async">
+              </picture>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-4.jpg"
+             data-sheet="taLightbox" data-lb="3" aria-label="View photo 4 of 4 — the pool and white-sand beach">
+            <span class="ta-media ta-r-3-2">
+              <picture>
+                <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-4.webp">
+                <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/rayavadee-krabi-4.jpg"
+                     alt="The swimming pool and white-sand beach ringed by limestone cliffs at Rayavadee Krabi"
+                     width="800" height="800" loading="lazy" decoding="async">
+              </picture>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <small class="rl-gal-cap">All photos from the official Rayavadee website (rayavadee.com) — we hold 4 real photos for this stay.</small>
+    </section>
+
+    <!-- ===================================================================
+         4. SCORE + SUB-SCORE BARS — §5.3 item 8.
+         Never average across sources into an invented composite.
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Scores from real guests</h2></div>
+
+      <p class="rl-scorehead">
+        <span class="rl-score-big">9.4</span>
+        <span class="ta-chip">out of 10 · Booking.com</span>
+        <span class="ta-chip">from 812+ reviews</span>
+      </p>
+
+      <h3 class="ta-sr">Sub-scores by category</h3>
+      <ul class="rl-bars">
+        <li class="rl-bar"><span class="rl-bar-lbl">Location</span>
+          <span class="rl-track" role="img" aria-label="Location 9.7 out of 10"><span class="rl-fill" style="inline-size:97%"></span></span>
+          <span class="rl-bar-v">9.7</span></li>
+        <li class="rl-bar"><span class="rl-bar-lbl">Service</span>
+          <span class="rl-track" role="img" aria-label="Service 9.5 out of 10"><span class="rl-fill" style="inline-size:95%"></span></span>
+          <span class="rl-bar-v">9.5</span></li>
+        <li class="rl-bar"><span class="rl-bar-lbl">Cleanliness</span>
+          <span class="rl-track" role="img" aria-label="Cleanliness 9.4 out of 10"><span class="rl-fill" style="inline-size:94%"></span></span>
+          <span class="rl-bar-v">9.4</span></li>
+        <li class="rl-bar"><span class="rl-bar-lbl">Rooms</span>
+          <span class="rl-track" role="img" aria-label="Rooms 9.2 out of 10"><span class="rl-fill" style="inline-size:92%"></span></span>
+          <span class="rl-bar-v">9.2</span></li>
+        <li class="rl-bar"><span class="rl-bar-lbl">Food</span>
+          <span class="rl-track" role="img" aria-label="Food 9.0 out of 10"><span class="rl-fill" style="inline-size:90%"></span></span>
+          <span class="rl-bar-v">9.0</span></li>
+        <li class="rl-bar"><span class="rl-bar-lbl">Value</span>
+          <span class="rl-track" role="img" aria-label="Value 8.3 out of 10"><span class="rl-fill" style="inline-size:83%"></span></span>
+          <span class="rl-bar-v">8.3</span></li>
+      </ul>
+
+      <div class="ta-compare-wrap" style="margin-block-start:var(--sp-5)">
+        <table class="ta-compare">
+          <caption>Scores by source — we never average them into a single number</caption>
+          <thead>
+            <tr><th scope="col">Source</th><th scope="col">Score</th><th scope="col">Note</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Booking.com</th>
+              <td><span class="ta-num">9.4</span> / 10</td>
+              <td>Couples give it <span class="ta-num">9.6</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Agoda</th>
+              <td colspan="2"><span class="ta-flag ta-flag-unknown">We hold no Agoda score for this stay — only pros and cautions from its reviews</span></td>
+            </tr>
+            <tr>
+              <th scope="row">TripAdvisor</th>
+              <td colspan="2">#1 in Railay (a ranking, not a score)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         5. PROS / CONS — §5.3 item 4. Moved above the prose on purpose:
+         cons are the one thing an OTA structurally cannot publish.
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>What's good, and what to know</h2></div>
+
+      <div class="rl-pc">
+        <div class="rl-pc-box">
+          <h3>What reviews praise · Booking.com</h3>
+          <ul class="rl-pc-list rl-pros">
+            <li><span>Tip-of-Railay location wrapped by 3 beaches, reachable by boat, quiet and private atmosphere</span></li>
+            <li><span>Spacious two-storey Thai-style pavilions set in tropical gardens</span></li>
+            <li><span>Warm, attentive, genuinely friendly service that guests mention again and again</span></li>
+            <li><span>The Grotto restaurant in a cave by Phra Nang beach, beautiful pool, direct access to famous beaches</span></li>
+          </ul>
+        </div>
+
+        <div class="rl-pc-box">
+          <h3>What to know · Booking.com</h3>
+          <ul class="rl-pc-list rl-cons">
+            <li><span>Very expensive, one of the highest-priced resorts in Krabi</span></li>
+            <li><span>Food and drink prices inside the resort run high</span></li>
+            <li><span>Reachable by boat only, so hauling luggage can get wet or awkward</span></li>
+          </ul>
+        </div>
+
+        <div class="rl-pc-box">
+          <h3>What reviews praise · Agoda</h3>
+          <ul class="rl-pc-list rl-pros">
+            <li><span>Direct access to Railay and Phra Nang beaches, beautiful nature all around</span></li>
+            <li><span>Spacious rooms as pavilions set in gardens, high privacy</span></li>
+            <li><span>Good breakfast, several restaurants, with The Grotto in a cave as the highlight</span></li>
+            <li><span>High-end service, attentive and caring staff</span></li>
+          </ul>
+        </div>
+
+        <div class="rl-pc-box">
+          <h3>What to know · Agoda</h3>
+          <ul class="rl-pc-list rl-cons">
+            <li><span>The surrounding beaches get plenty of day-trippers during the middle of the day</span></li>
+            <li><span>Some monkeys in the area are bold, prone to snatching food and belongings</span></li>
+            <li><span>A few pavilions are starting to show their age</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-block:var(--sp-5) var(--sp-3)">Think twice if this is you</h3>
+      <div class="rl-checks">
+        <p class="ta-note"><strong>If your budget is tight</strong> — Rayavadee is one of the most expensive resorts in Krabi, starting in the mid-teens of thousands with villas far higher → Railay still has more affordable places to choose from in the same area.</p>
+        <p class="ta-note"><strong>If you're worried about getting there</strong> — it's reachable by longtail boat only, and hauling luggage can get wet or awkward → if you want somewhere cars can reach directly, look at the Ao Nang side instead.</p>
+        <p class="ta-note"><strong>If you want a quiet private beach all day</strong> — the surrounding beaches are public, with plenty of day-trippers during the middle of the day → head out to walk the beach early morning or evening when it's quieter.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         6. THE REVIEW ITSELF
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>The full review</h2></div>
+      <div class="rl-prose ta-prose">
+        <p>If you've ever seen those photos of Railay's towering limestone cliffs and white-sand beaches and wished you could actually stay right there — <strong>Rayavadee</strong> is the place sitting in the middle of that picture. This 5-star luxury resort occupies the very tip of the Railay headland, wrapped by beaches on three sides (Railay West, Railay East and Phra Nang), and it's <strong>reachable by longtail boat only</strong>.</p>
+
+        <p>What sets Rayavadee apart from other resorts in Krabi is its <strong>location</strong>. It occupies the very tip of the Railay headland, wrapped by white-sand beaches on three sides — Railay West, Railay East and Phra Nang — with towering limestone cliffs as a backdrop. The headland has no road access; cars can't reach it, so <strong>the only way in is by longtail boat</strong> from Ao Nang Pier. It's precisely this hard-to-reach quality that keeps the atmosphere quiet and makes you feel cut off from the outside world — the reason so many reviews call a stay here a once-in-a-lifetime experience.</p>
+
+        <p>Rooms are <strong>two-storey Thai-style pavilions</strong> scattered through lush tropical gardens. They start with the Deluxe Pavilion for two, moving up to the very spacious Terrace Pavilion at around 115 sqm. For maximum privacy there's the Pool Pavilion with a private plunge pool, and the 167 sqm Family Pavilion with Pool that sleeps four, ideal for families. The design leans into Thai character mixed with luxury, all set amid nature. Most reviews praise the generous space and the calm, though some note that a few pavilions are starting to show their age.</p>
+
+        <blockquote>"You take a longtail boat in, and the moment you step onto the sand and see the cliffs and sea all around, it feels like another world — worth every baht we saved up for."</blockquote>
+
+        <p>On the beaches and pool. Rayavadee gives you direct access to some of Thailand's most famous beaches — step out of the resort and you're at Phra Nang, Railay West and Railay East. The resort's own pool is beautiful and blends into the surrounding gardens. All around there's nature and wildlife to spot — birds, monkeys and big old trees. This is the atmosphere so many people come to Railay for, and here you get it within walking distance of your room.</p>
+
+        <p>The dining highlight is <strong>The Grotto</strong> — a restaurant set inside a natural limestone cave right by Phra Nang beach. Having dinner in a cave with the sea in front of you is one of the images reviews mention most often. Beyond that, the resort has several restaurants and a breakfast many guests rate highly. Service overall is another thing guests bring up again and again — staff are warm, attentive and genuinely friendly, not just polite for form's sake.</p>
+
+        <p>Now for the things worth being straight about before you book. The first and biggest is <strong>price</strong> — Rayavadee is one of the most expensive resorts in Krabi, starting in the mid-teens of thousands per night, with villas far higher. The second is that <strong>food and drink prices inside the resort run high</strong>, enough that some reviews suggest walking out to cheaper restaurants in Railay for some meals. These two points are worth budgeting for.</p>
+
+        <p>Another thing to know concerns getting there and privacy. Because it's reachable by boat only, <strong>hauling your luggage on and off the boat can get wet or awkward</strong>, especially at high or low tide or when the sea is rough — go in prepared for that. And although the resort itself is private, <strong>the beaches around it are public, and day-trippers come in numbers during the middle of the day</strong>, especially at Phra Nang and Railay West. If you want an empty beach, head out early morning or in the evening when it's quieter.</p>
+
+        <p>Another thing reviews warn about often is the <strong>monkeys</strong>. There are monkeys living around the resort, and some are fairly bold, prone to snatching food and belongings. Don't leave food or valuables out on your balcony or by the beach, and shut your doors and windows properly when you leave the room. It's just the nature of a spot tucked into forested cliffs by the sea — not a fault of the resort itself, but good to know so you can be careful.</p>
+
+        <p>In short, Rayavadee suits <strong>people who are set on coming to Railay for a special, high-end stay</strong> — a honeymoon, an anniversary, or a trip where you'll pay for top-tier location and service. Its 9.4 on Booking (9.6 from couples) and #1 ranking in Railay on TripAdvisor reflect that most guests come away genuinely impressed. But if your budget is tight, or you can't accept getting there by boat and the resort's food prices, Railay still has plenty of more affordable places to choose from in the same area.</p>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         7. ROOMS
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Rooms and starting prices</h2></div>
+      <div class="ta-compare-wrap">
+        <table class="ta-compare rl-rooms">
+          <caption>Starting price per night — estimates that move with the season, check live prices at the links below</caption>
+          <thead>
+            <tr><th scope="col">Room</th><th scope="col">From</th><th scope="col">Details</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Deluxe Pavilion</th><td><span class="ta-num">฿13,900</span></td><td class="rl-roomdesc">Thai-style pavilion for 2 · set in tropical gardens</td></tr>
+            <tr><th scope="row">Terrace Pavilion</th><td><span class="ta-num">฿16,500</span></td><td class="rl-roomdesc">About 115 sqm · two storeys, spacious, with a terrace</td></tr>
+            <tr><th scope="row">Pool Pavilion</th><td><span class="ta-num">฿23,500</span></td><td class="rl-roomdesc">With a private plunge pool · high privacy</td></tr>
+            <tr><th scope="row">Family Pavilion with Pool</th><td><span class="ta-num">฿32,600</span></td><td class="rl-roomdesc">About 167 sqm · sleeps 4 · ideal for families</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         8. PRICE WIDGET — §5.3 item 9. Real <a rel="sponsored …">, never a
+         <button data-href>. This is the block the old FAB used to cover.
+         =================================================================== -->
+    <section class="ta-sec" id="book">
+      <div class="ta-sec-head"><h2>Compare prices across 3 platforms</h2></div>
+      <div class="rl-ota">
+        <a class="ta-btn ta-btn-primary ota no-prerender" id="otaAgoda"
+           href="https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"
+           rel="sponsored noopener nofollow" target="_blank">Check prices on Agoda</a>
+        <a class="ta-btn ta-btn-ghost ota no-prerender" id="otaBooking"
+           href="/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&amp;sid=review-rayavadee-krabi"
+           rel="sponsored noopener nofollow" target="_blank">Check prices on Booking.com</a>
+        <a class="ta-btn ta-btn-ghost ota no-prerender" id="otaTrip"
+           href="https://us.trip.com/hotels/krabi-hotel-detail-710566/rayavadee/?Allianceid=6861268&amp;SID=312919111"
+           rel="sponsored noopener nofollow" target="_blank">Check prices on Trip.com</a>
+      </div>
+      <p class="rl-aff">ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on the site, at no extra cost to you.</p>
+    </section>
+
+    <!-- ===================================================================
+         9. LOCATION + NEARBY — §5.3 item 10.
+         No coordinates in this review's data, so NO map is drawn and the
+         hotel photo previously captioned "map of the hotel area" is not used.
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Location and getting there</h2></div>
+
+      <div class="ta-map">
+        <p class="ta-map-note">We hold no coordinates for this stay — a map appears once real coordinates exist. For now, use the address and the distances below.</p>
+      </div>
+
+      <p style="margin-block-start:var(--sp-4)"><strong>Address</strong> — 214 Moo 2, Tambon Ao Nang, Mueang Krabi 81180 (Railay headland-Phra Nang beach)</p>
+
+      <h3 style="margin-block:var(--sp-5) var(--sp-3)">Distance from key points</h3>
+      <ul class="rl-near">
+        <li><b>Phra Nang Beach</b> <span>next to the resort</span></li>
+        <li><b>Railay West Beach</b> <span>~walkable</span></li>
+        <li><b>Railay East Beach</b> <span>~walkable</span></li>
+        <li><b>Princess Cave (Phra Nang Cave)</b> <span>~5 min walk</span></li>
+        <li><b>Ao Nang Pier (boat departure point)</b> <span>~15 min by boat</span></li>
+        <li><b>Krabi Airport (KBV)</b> <span>~45 min by car + boat</span></li>
+      </ul>
+      <p class="ta-flag ta-flag-unknown" style="margin-block-start:var(--sp-3)">These times are estimates from the property's own information, not distances computed from coordinates.</p>
+    </section>
+
+    <!-- ===================================================================
+         10. TIPS
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Tips before you go</h2></div>
+      <div class="rl-tips">
+        <div class="rl-tip"><h3>Allow time for the boat and luggage</h3><p>It's reachable by longtail boat from Ao Nang Pier only · at low tide or in rough seas you may have to wade a little, so pack a waterproof bag and shoes that slip off easily.</p></div>
+        <div class="rl-tip"><h3>Walk the beach at dawn and dusk</h3><p>Phra Nang and Railay West get plenty of day-trippers during the middle of the day · head out at first light or near sunset for an emptier beach and prettier light.</p></div>
+        <div class="rl-tip"><h3>Watch out for snatching monkeys</h3><p>There are monkeys around the resort, and some are bold · don't leave food or valuables out on the balcony or by the beach, and shut doors and windows properly when you leave the room.</p></div>
+        <div class="rl-tip"><h3>Eat at Railay restaurants sometimes</h3><p>Food and drink inside the resort are pricey · walking out to restaurants in Railay for some meals is far cheaper and gives you a different atmosphere.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         11. NEARBY HOTELS
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Nearby hotels in Krabi</h2><a class="ta-sec-more" href="krabi">See all</a></div>
+      <div class="ta-grid">
+
+        <article class="ta-card">
+          <a class="ta-media ta-r-3-2" href="krabi">
+            <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-sandsea-1.jpg"
+                 alt="Sand Sea Resort, Railay Beach, Krabi" width="740" height="465" loading="lazy" decoding="async">
+          </a>
+          <div class="ta-card-body">
+            <span class="eyebrow">Railay Beach · Krabi</span>
+            <h3 class="ta-card-title"><a class="ta-clamp-2" href="krabi">Sand Sea Resort</a></h3>
+            <p class="ta-card-meta"><span class="ta-chip">from <span class="ta-num">฿3,500</span> / night</span></p>
+            <div class="ta-card-foot">
+              <a class="ta-btn ta-btn-quiet" href="krabi">Read the full review</a>
+              <button class="ta-save" type="button" aria-pressed="false" data-save
+                      data-id="s:sand-sea-resort-krabi" data-poi-id="s:sand-sea-resort-krabi" data-kind="stay"
+                      data-name="Sand Sea Resort" data-url="krabi"
+                      data-img="images/hotels/krabi-sandsea-1.jpg" data-province="krabi"
+                      data-price-from="3500" data-trip-href="trip">
+                <span aria-hidden="true">🔖</span>
+                <span class="ta-save-off">Add to trip</span>
+                <span class="ta-save-on">Saved</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <a class="ta-media ta-r-3-2" href="krabi">
+            <picture>
+              <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-panan-1.webp">
+              <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-panan-1.jpg"
+                   alt="Panan Krabi Resort, Ao Nang, Krabi" width="960" height="660" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="ta-card-body">
+            <span class="eyebrow">Ao Nang · Krabi</span>
+            <h3 class="ta-card-title"><a class="ta-clamp-2" href="krabi">Panan Krabi Resort</a></h3>
+            <p class="ta-card-meta"><span class="ta-chip">from <span class="ta-num">฿2,800</span> / night</span></p>
+            <div class="ta-card-foot">
+              <a class="ta-btn ta-btn-quiet" href="krabi">Read the full review</a>
+              <button class="ta-save" type="button" aria-pressed="false" data-save
+                      data-id="s:panan-krabi-resort-krabi" data-poi-id="s:panan-krabi-resort-krabi" data-kind="stay"
+                      data-name="Panan Krabi Resort" data-url="krabi"
+                      data-img="images/hotels/krabi-panan-1.jpg" data-province="krabi"
+                      data-price-from="2800" data-trip-href="trip">
+                <span aria-hidden="true">🔖</span>
+                <span class="ta-save-off">Add to trip</span>
+                <span class="ta-save-on">Saved</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ta-card">
+          <a class="ta-media ta-r-3-2" href="krabi">
+            <picture>
+              <source type="image/webp" srcset="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-krabiresort-1.webp">
+              <img src="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-krabiresort-1.jpg"
+                   alt="Krabi Resort, Ao Nang, Krabi" width="1500" height="1000" loading="lazy" decoding="async">
+            </picture>
+          </a>
+          <div class="ta-card-body">
+            <span class="eyebrow">Ao Nang · Krabi</span>
+            <h3 class="ta-card-title"><a class="ta-clamp-2" href="krabi">Krabi Resort</a></h3>
+            <p class="ta-card-meta"><span class="ta-chip">from <span class="ta-num">฿2,500</span> / night</span></p>
+            <div class="ta-card-foot">
+              <a class="ta-btn ta-btn-quiet" href="krabi">Read the full review</a>
+              <button class="ta-save" type="button" aria-pressed="false" data-save
+                      data-id="s:krabi-resort-krabi" data-poi-id="s:krabi-resort-krabi" data-kind="stay"
+                      data-name="Krabi Resort" data-url="krabi"
+                      data-img="images/hotels/krabi-krabiresort-1.jpg" data-province="krabi"
+                      data-price-from="2500" data-trip-href="trip">
+                <span aria-hidden="true">🔖</span>
+                <span class="ta-save-off">Add to trip</span>
+                <span class="ta-save-on">Saved</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         12. FAQ — real <details>, content in the initial HTML
+         =================================================================== -->
+    <section class="ta-sec">
+      <div class="ta-sec-head"><h2>Frequently asked questions — Rayavadee Krabi</h2></div>
+      <div class="rl-faq">
+        <details open>
+          <summary>Where is Rayavadee and how do I get there?</summary>
+          <p class="rl-faq-a">It's on the <strong>Railay headland-Phra Nang beach in Mueang Krabi district</strong> · the headland has no road access, so cars can't reach it · it's <strong>reachable by longtail boat from Ao Nang Pier only</strong>, about 15 minutes by boat · from Krabi Airport it's roughly 30–40 minutes by car to the pier, then the boat.</p>
+        </details>
+        <details>
+          <summary>Why is Rayavadee reachable only by boat?</summary>
+          <p class="rl-faq-a">Because the resort sits on the <strong>Railay headland, wrapped by limestone cliffs and the sea on three sides</strong>, with no connecting road · the only way is by longtail boat · this hard-to-reach quality keeps the atmosphere quiet and private, but it also means hauling luggage on and off the boat can be awkward and may get wet at high or low tide.</p>
+        </details>
+        <details>
+          <summary>How much does Rayavadee cost and what rooms are there?</summary>
+          <p class="rl-faq-a">From around <strong>฿13,900/night</strong> for a Deluxe Pavilion (2 people) · Terrace Pavilion (~115 sqm) around ฿16,500 · Pool Pavilion with a private pool around ฿23,500 · Family Pavilion with Pool (167 sqm, 4 people) around ฿32,600 · it's one of the highest-priced resorts in Krabi, prices move with the season, so compare across platforms before booking.</p>
+        </details>
+        <details>
+          <summary>Who is Rayavadee best for?</summary>
+          <p class="rl-faq-a">It's ideal for <strong>people set on coming to Railay for a special luxury stay</strong> — a honeymoon, an anniversary, or a trip where you'll pay for top-tier location and service · couples score it as high as 9.6 on Booking · it's less suited to those on a tight budget, or anyone who can't accept getting there by boat and the resort's fairly high food prices.</p>
+        </details>
+        <details>
+          <summary>What is The Grotto?</summary>
+          <p class="rl-faq-a">The Grotto is <strong>Rayavadee's restaurant set inside a natural limestone cave by Phra Nang beach</strong> · it's the highlight reviews mention most often, because you get to eat a meal in a cave with the sea in front of you · the resort also has other restaurants and a breakfast many guests rate highly.</p>
+        </details>
+        <details>
+          <summary>When is the best time to visit Railay-Krabi?</summary>
+          <p class="rl-faq-a">The <strong>high season, November–March</strong>, has clear seas and good weather, best for swimming, rock climbing and beach days · the rainy season (May–October) is cheaper and less crowded, but the sea can be choppy and boat travel may be affected, so check the forecast before you go.</p>
+        </details>
+      </div>
+    </section>
+
+    <nav class="rl-pn" aria-label="Previous and next review">
+      <a href="krabi"><small>← Previous</small><span>Sand Sea Resort</span></a>
+      <a href="krabi"><small>Next →</small><span>Panan Krabi Resort</span></a>
+    </nav>
+
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="Your trip">
+  <button class="ta-rail-toggle" type="button" data-rail-toggle
+          aria-expanded="false" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">Your trip</span>
+  </button>
+
+  <div class="ta-rail-body" id="taRailBody">
+    <p class="ta-fine" data-trip-count-label>0 items in your trip</p>
+    <ul class="ta-day-list" data-rail-list></ul>
+    <div class="ta-rail-drop">Open <a href="trip">Trip</a> to arrange days and order</div>
+  </div>
+</aside>
+
+<!-- The tab bar ships in the markup and points at the other prototype pages,
+     but .rl-page suppresses it here: on a review page .ta-cta owns the bottom
+     edge and the FAB is deleted (§4.3). That is the fix being demonstrated. -->
+<nav class="ta-tabbar" aria-label="Main">
+  <a class="ta-tab" href="home" data-tab="explore">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Explore</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Places</span>
+  </a>
+  <a class="ta-tab" href="search" data-sheet="taSearch" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>Search</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>Trip</span>
+  </a>
+  <button class="ta-tab ta-more-trigger" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>More</span>
+  </button>
+</nav>
+
+<!-- ===================================================================
+     THE BOTTOM EDGE — §4.3. Save is merged in as the secondary action,
+     right next to the booking button. No FAB, no second fixed bar.
+     =================================================================== -->
+<div class="ta-cta" data-autohide>
+  <div class="ta-cta-text">
+    <div class="ta-cta-name ta-clamp-1">Rayavadee</div>
+    <div class="ta-cta-price">from <span class="ta-num">฿13,900</span> / night</div>
+  </div>
+
+  <button class="ta-save ta-icon-btn" type="button" aria-pressed="false"
+          data-save
+          data-id="s:rayavadee-krabi" data-poi-id="s:rayavadee-krabi" data-kind="stay"
+          data-name="Rayavadee" data-url="review"
+          data-img="images/hotels/rayavadee-krabi-1.jpg" data-province="krabi"
+          data-score="9.4" data-price-from="13900" data-trip-href="trip">
+    <span aria-hidden="true">🔖</span>
+    <span class="ta-save-off">Save</span>
+    <span class="ta-save-on">Saved</span>
+  </button>
+
+  <a class="ta-btn ta-btn-primary ota no-prerender" id="ctaAgoda"
+     href="https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"
+     rel="sponsored noopener nofollow" target="_blank">Prices · Agoda</a>
+</div>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">Prototype</p>
+  <a href="home"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg><span>Home</span></a>
+  <a href="krabi"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg><span>Krabi</span></a>
+  <a href="search"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg><span>Search</span></a>
+  <a href="roundup"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-star"></use></svg><span>Top 10 Ao Nang</span></a>
+  <a href="trip"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg><span>Your trip</span></a>
+
+  <hr>
+
+  <p class="ta-more-label">Display</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>Theme</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>System</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>Language</span>
+  </button>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>Install as an app</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="../review" hreflang="th">ไทย</a>
+  <a href="review" hreflang="en" aria-current="true">English</a>
+</div>
+
+<!-- ===================================================================
+     SPLIT ADD-TO-DAY — the day picker
+     =================================================================== -->
+<dialog class="ta-sheet" id="taDayPicker" aria-labelledby="taDayPickerTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taDayPickerTitle">Add Rayavadee to which day?</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <p class="ta-fine" data-daypicker-empty>Your trip has no days yet — add it unscheduled for now and arrange days later on the trip page.</p>
+    <ul class="rl-daylist" data-daypicker-list></ul>
+    <button class="ta-btn ta-btn-ghost ta-btn-block" type="button" data-daypicker-new>
+      <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-plus"></use></svg>
+      Create a new day and add it there
+    </button>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>Cancel</button>
+    <button class="ta-btn ta-btn-primary" type="button"
+            data-add-day="inbox"
+            data-poi-id="s:rayavadee-krabi" data-kind="stay" data-name="Rayavadee"
+            data-url="review" data-img="images/hotels/rayavadee-krabi-1.jpg"
+            data-province="krabi" data-score="9.4" data-price-from="13900"
+            data-trip-href="trip">Add unscheduled</button>
+  </div>
+</dialog>
+
+<!-- ===================================================================
+     LIGHTBOX — Back closes it (sheet.js close-request chain)
+     =================================================================== -->
+<dialog class="rl-lb" id="taLightbox" aria-label="Photos of Rayavadee">
+  <div class="rl-lb-head">
+    <span class="rl-lb-count" data-lb-count>1 / 4</span>
+    <span class="ta-topbar-spacer"></span>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close photo">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="rl-lb-stage">
+    <img data-lb-img alt="" decoding="async">
+  </div>
+  <div class="rl-lb-foot">
+    <button class="ta-btn" type="button" data-lb-prev aria-label="Previous photo">←</button>
+    <span class="rl-lb-alt" data-lb-alt></span>
+    <button class="ta-btn" type="button" data-lb-next aria-label="Next photo">→</button>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="taSearch" aria-label="Search">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title">Search</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <form action="search" method="get" role="search">
+      <label class="ta-sr" for="q-sheet">Search</label>
+      <input id="q-sheet" type="search" name="q" placeholder="Stays, restaurants, destinations"
+             style="inline-size:100%;min-block-size:44px;padding-inline:var(--sp-4);border:1px solid var(--border-strong);border-radius:var(--r-md);background:var(--surface);color:var(--text);font:inherit">
+    </form>
+  </div>
+</dialog>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+/* Page enhancements. No inline on* handlers anywhere — one delegated
+   listener, exactly like shell.js. Everything below is optional: the page's
+   content, links and booking buttons all work with this script removed. */
+(function () {
+  'use strict';
+  var D = document;
+
+  /* --- POI cache seed, from this page's real content JSON --------------
+     No lat/lng: review-rayavadee-krabi.json carries no coordinates, so we
+     do not invent any. TA.trip.legs() will report "unknown" and the page
+     renders the honest unknown state rather than a guessed distance. */
+  function seed() {
+    if (!window.TA || !TA.poi) return;
+    TA.poi.putAll([
+      { id: 's:rayavadee-krabi', name: 'Rayavadee', url: 'review',
+        img: 'images/hotels/rayavadee-krabi-1.jpg', kind: 'stay', province: 'krabi' },
+      { id: 's:sand-sea-resort-krabi', name: 'Sand Sea Resort', url: 'krabi',
+        img: 'images/hotels/krabi-sandsea-1.jpg', kind: 'stay', province: 'krabi' },
+      { id: 's:panan-krabi-resort-krabi', name: 'Panan Krabi Resort', url: 'krabi',
+        img: 'images/hotels/krabi-panan-1.jpg', kind: 'stay', province: 'krabi' },
+      { id: 's:krabi-resort-krabi', name: 'Krabi Resort', url: 'krabi',
+        img: 'images/hotels/krabi-krabiresort-1.jpg', kind: 'stay', province: 'krabi' }
+    ]);
+  }
+
+  /* --- Lightbox -------------------------------------------------------- */
+  var shots = [];
+  var at = 0;
+
+  function collect() {
+    shots = [];
+    var links = D.querySelectorAll('#rlGallery a[data-lb]');
+    for (var i = 0; i < links.length; i++) {
+      var img = links[i].querySelector('img');
+      shots.push({ src: links[i].getAttribute('href'), alt: img ? img.getAttribute('alt') : '' });
+    }
+  }
+
+  function paint() {
+    if (!shots.length) return;
+    if (at < 0) at = shots.length - 1;
+    if (at >= shots.length) at = 0;
+    var img = D.querySelector('[data-lb-img]');
+    var cnt = D.querySelector('[data-lb-count]');
+    var alt = D.querySelector('[data-lb-alt]');
+    if (img) { img.src = shots[at].src; img.alt = shots[at].alt; }
+    if (cnt) cnt.textContent = (at + 1) + ' / ' + shots.length;
+    if (alt) alt.textContent = shots[at].alt;
+  }
+
+  /* --- Day picker ------------------------------------------------------ */
+  var POI = {
+    'data-poi-id': 's:rayavadee-krabi', 'data-kind': 'stay', 'data-name': 'Rayavadee',
+    'data-url': 'review', 'data-img': 'images/hotels/rayavadee-krabi-1.jpg',
+    'data-province': 'krabi', 'data-score': '9.4', 'data-price-from': '13900',
+    'data-trip-href': 'trip'
+  };
+
+  function dayRow(day) {
+    var li = D.createElement('li');
+    var b = D.createElement('button');
+    b.type = 'button';
+    b.className = 'ta-btn ta-btn-ghost';
+    b.setAttribute('data-add-day', day.id);
+    for (var k in POI) if (Object.prototype.hasOwnProperty.call(POI, k)) b.setAttribute(k, POI[k]);
+    var n = (day.items && day.items.length) || 0;
+    b.textContent = day.label + ' · ' + n + (n === 1 ? ' item' : ' items');
+    li.appendChild(b);
+    return li;
+  }
+
+  function fillDays() {
+    if (!window.TA || !TA.trip) return;
+    var list = D.querySelector('[data-daypicker-list]');
+    var empty = D.querySelector('[data-daypicker-empty]');
+    if (!list) return;
+    var days = (TA.trip.get() || {}).days || [];
+    list.textContent = '';
+    for (var i = 0; i < days.length; i++) list.appendChild(dayRow(days[i]));
+    if (empty) empty.hidden = days.length > 0;
+  }
+
+  /* --- One delegated listener ------------------------------------------ */
+  D.addEventListener('click', function (ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return;
+
+    var shot = t.closest('#rlGallery a[data-lb]');
+    if (shot) { collect(); at = parseInt(shot.getAttribute('data-lb'), 10) || 0; paint(); return; }
+
+    if (t.closest('[data-lb-prev]')) { at -= 1; paint(); return; }
+    if (t.closest('[data-lb-next]')) { at += 1; paint(); return; }
+
+    if (t.closest('[data-daypicker-new]')) {
+      if (!window.TA || !TA.trip) return;
+      var day = TA.trip.addDay();
+      TA.trip.addToDay('s:rayavadee-krabi', day.id, { kind: 'stay', source: 'review-proto' });
+      if (TA.nav) { TA.nav.syncBadge(); TA.nav.syncSaves(); }
+      TA.toast('Added Rayavadee to ' + day.label, { href: 'trip' });
+      var dlg = D.getElementById('taDayPicker');
+      if (dlg && TA.sheet) TA.sheet.close(dlg);
+      return;
+    }
+  });
+
+  /* Arrow keys inside the lightbox. */
+  D.addEventListener('keydown', function (ev) {
+    var lb = D.getElementById('taLightbox');
+    if (!lb || !lb.open) return;
+    if (ev.key === 'ArrowLeft') { at -= 1; paint(); }
+    else if (ev.key === 'ArrowRight') { at += 1; paint(); }
+  });
+
+  D.addEventListener('ta:sheet-open', function (ev) {
+    if (ev.target && ev.target.id === 'taDayPicker') fillDays();
+  });
+
+  function boot() {
+    seed();
+    collect();
+    if (window.TA && TA.on) TA.on('trip', fillDays);
+  }
+
+  if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+</body>
+</html>

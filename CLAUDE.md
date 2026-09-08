@@ -114,7 +114,18 @@ _internal/
 - skills: `thailandaddict-activity-ranking` · `thailandaddict-klook-province` · `thailandaddict-restaurant-ranking` · `tourlogy-city-content` · `tourlogy-city-roundup-checklist`
 - agents: roundup-builder · hotel-reviewer · food-writer · attraction-writer · quality-auditor (งานเขียน = Opus)
 
-## 🎨 Design system — "Vibrant Island Pop" (Direction C · LOCKED)
+## 🎨 Design system — "Andaman Deck" (owner เลือก 2026-09-08 · กำลังโรลเอาต์)
+> **⚠️ อ่านก่อน:** ชุดสี "Vibrant Island Pop" ด้านล่าง **ถูกแทนที่แล้ว** owner เลือกทิศทาง **A · Andaman Deck** + ใช้ค่า **Night Market เป็นโหมดมืด** (2026-09-08)
+> - **แหล่งความจริงเดียว** = `_internal/shell/tokens.css` → `_internal/gen-shell.mjs` → `astro/public/css/shell.<contenthash>.css` (ต้อง content-hash เพราะ `_headers` ตั้ง `/*.css` immutable 1 ปี)
+> - สเปกเต็ม = `_internal/REDESIGN-BLUEPRINT-2026-09.md` §2 (ทางเลือก) · §3 (design system) · §4 (app shell) · §5 (รายหน้า) · §6 (planner)
+> - **กฎที่สำคัญที่สุด:** `teal-700 #075E65` เป็นพื้นทึบ = "อยู่ในทริปแล้ว" **เท่านั้น** · **coral = งานบรรณาธิการ ห้ามเป็นปุ่ม** · mango = ของหายาก (Michelin/รางวัล) ~1% ของพิกเซล
+> - โหมดมืดใช้สีเน้น**ขั้น 300** (`#80C5C9`) ไม่ใช่ teal-700 · ความสูงของชั้นวัดด้วยความสว่าง ไม่ใช่เงา
+> - typography: **คง Sarabun** + Outfit · ทิ้ง Fraunces/Noto Sans Thai · self-host woff2 บน R2 · `฿ U+20BF` ต้องอยู่ใน **Latin** subset · **ห้าม letter-spacing ภาษาไทย** · Thai line-height ≥ 1.75 · ทุก line-clamp ต้องมี `padding-block`
+> - prototype (Phase 1) อยู่ที่ `astro/public/_proto/` — noindex, ไม่ลิงก์จากเว็บ, ลบได้ใน commit เดียว
+>
+> ↓ ด้านล่างนี้เก็บไว้เป็นประวัติของชุดสีเดิม (ยังเป็นสิ่งที่ production เสิร์ฟอยู่จนกว่าจะโรลเอาต์เสร็จ) ↓
+
+### (ประวัติ) "Vibrant Island Pop" — ชุดสีเดิม
 เอกลักษณ์เฉพาะ thailandaddict (ฉีกจาก wherebest blue/orange · owner เลือก C) — ใช้**ทุกหน้า** ทั้ง hub + layout รีวิว/roundup/บทความ
 - **Palette:** teal `#06B6D4` (+dk `#0891b2`) · coral `#FB7185` (+dk `#f43f5e`) · mango `#FBBF24` · ink `#0F172A` · sub `#64748b` · bg ขาว `#ffffff` · soft section `#f1fbfd` · border `#e6eef2`
 - **Fonts:** Outfit 800/900 (display/หัวข้อ/ชื่อโรงแรม/rank/คะแนน — sans หนา ไม่ใช่ serif) · Sarabun (body ไทย) · Outfit (UI/ปุ่ม/label)

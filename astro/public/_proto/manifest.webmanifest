@@ -1,0 +1,27 @@
+{
+  "id": "/_proto/index.html",
+  "name": "Thailandaddict — ต้นแบบ Andaman Deck",
+  "short_name": "TA ต้นแบบ",
+  "description": "ต้นแบบดีไซน์ใหม่ของ thailandaddict.com (Andaman Deck) — ไม่ใช่เว็บจริง ไม่ถูกจัดทำดัชนี",
+  "lang": "th",
+  "dir": "ltr",
+  "start_url": "/_proto/index.html",
+  "scope": "/_proto/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "theme_color": "#FBFAF7",
+  "background_color": "#FBFAF7",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    { "src": "/_proto/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/_proto/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/_proto/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/_proto/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "ทริปของฉัน", "short_name": "ทริป", "url": "/_proto/trip.html" },
+    { "name": "ค้นหา", "short_name": "ค้นหา", "url": "/_proto/search.html" },
+    { "name": "ที่บันทึกไว้", "short_name": "บันทึกไว้", "url": "/_proto/saved.html" }
+  ]
+}

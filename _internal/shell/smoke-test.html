@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Shell smoke test</title>
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)" data-shell data-color="#081113">
+<link rel="stylesheet" href="/css/shell.710afd97.css">
+<script>
+addEventListener('pagereveal', function (e) {
+  if (!e.viewTransition) return;
+  var t = 'forwards';
+  try {
+    var a = window.navigation && navigation.activation;
+    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
+      t = a.from.index > a.entry.index ? 'back' : 'forwards';
+    }
+  } catch (err) {}
+  e.viewTransition.types.add(t);
+});
+</script>
+<script src="/js/shell.467b869a.js" defer></script>
+</head>
+<body>
+<a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/></symbol>
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/><circle cx="12" cy="10.3" r="2.4"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9.25 5 7 7-7 7"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="/"><svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg><span>Thailandaddict</span></a>
+  <span class="ta-topbar-spacer"></span>
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="/_proto/_smoke.html" aria-current="page">สำรวจ</a>
+    <a href="/country-thailand.html">จุดหมาย</a>
+  </nav>
+  <button class="ta-icon-btn lang-trigger" type="button" popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg><span>ไทย</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <div class="ta-wrap">
+    <h1>สมอกเทสต์เชลล์ — ก๊วยเตี๋ยว เพื่อ ปิ๊ ญ์</h1>
+    <p class="ta-clamp-2">ทดสอบการตัดบรรทัดกับวรรณยุกต์ไทย ก๊วยเตี๋ยว เพื่อ ปิ๊ ญ์ ก๊วยเตี๋ยว เพื่อ ปิ๊ ญ์ ก๊วยเตี๋ยว เพื่อ ปิ๊ ญ์ ก๊วยเตี๋ยว เพื่อ ปิ๊ ญ์</p>
+
+    <div class="ta-chip-row" data-palette-group role="group" aria-label="ชุดสี">
+      <button class="ta-fac" type="button" data-palette="a" aria-pressed="true">A</button>
+      <button class="ta-fac" type="button" data-palette="b" aria-pressed="false">B</button>
+      <button class="ta-fac" type="button" data-palette="c" aria-pressed="false">C</button>
+    </div>
+
+    <div class="ta-grid" style="margin-block:2rem">
+      <article class="ta-card">
+        <div class="ta-media ta-r-3-2"></div>
+        <div class="ta-card-body">
+          <span class="eyebrow">ไร่เลย์ · กระบี่</span>
+          <h3 class="ta-card-title"><a class="ta-clamp-2" href="#x">Rayavadee</a></h3>
+          <p class="ta-card-meta"><span class="ta-score"><b>9.4</b> <span class="ta-score-src">Booking · 1,204 รีวิว</span></span></p>
+          <div class="ta-card-foot">
+            <button class="ta-btn ta-btn-quiet" type="button" data-sheet="taFilter">ตัวกรอง</button>
+            <button class="ta-save" type="button" aria-pressed="false" data-save
+              data-id="s:rayavadee-krabi" data-poi-id="s:rayavadee-krabi" data-kind="stay"
+              data-name="Rayavadee" data-url="/review-rayavadee-krabi" data-province="krabi"
+              data-lat="8.0104" data-lng="98.8375" data-score="9.4" data-price-from="13900">
+              <span aria-hidden="true">🔖</span>
+              <span class="ta-save-off">เพิ่มเข้าทริป</span>
+              <span class="ta-save-on">บันทึกแล้ว</span>
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <button class="ta-btn ta-btn-ghost" type="button" data-theme-set="cycle">ธีม: <span data-theme-label>ตามระบบ</span></button>
+    <p style="block-size:1200px"></p>
+  </div>
+</main>
+
+<aside class="ta-rail" aria-label="ทริปของคุณ">
+  <button class="ta-rail-toggle" type="button" data-rail-toggle aria-expanded="false" aria-controls="taRailBody">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+    <span class="ta-badge" data-count="0">0</span>
+    <span class="ta-rail-label">ทริปของคุณ</span>
+  </button>
+  <div class="ta-rail-body" id="taRailBody"><p class="ta-fine" data-trip-count-label>ในทริปของคุณ 0 รายการ</p></div>
+</aside>
+
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="/_proto/_smoke.html" data-tab="explore" aria-current="page"><svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg><span>สำรวจ</span></a>
+  <a class="ta-tab" href="/country-thailand.html" data-tab="places"><svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg><span>จุดหมาย</span></a>
+  <a class="ta-tab" href="/search" data-sheet="taSearch" data-tab="search"><svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg><span>ค้นหา</span></a>
+  <a class="ta-tab" href="/trip" data-tab="trip"><span class="ta-tab-ic"><svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg><b class="ta-badge" data-count="0">0</b></span><span>ทริป</span></a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more"><svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg><span>เมนู</span></button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">การแสดงผล</p>
+  <button type="button" data-theme-set="cycle"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg><span>ธีม</span><span class="ta-topbar-spacer"></span><span data-theme-label>ตามระบบ</span></button>
+  <button type="button" popovertarget="taLang"><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg><span>ภาษา</span></button>
+  <hr>
+  <button type="button" data-install hidden><svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg><span>ติดตั้งเป็นแอป</span></button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="#th" hreflang="th" aria-current="true">ไทย</a>
+  <a href="#en" hreflang="en">English</a>
+  <a href="#he" hreflang="he">עברית</a>
+</div>
+
+<dialog class="ta-sheet" id="taFilter" aria-labelledby="taFilterTitle">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title" id="taFilterTitle">ตัวกรอง</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด"><svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg></button>
+  </div>
+  <div class="ta-sheet-body">
+    <ul class="ta-chip-row">
+      <li><button class="ta-fac" type="button" aria-pressed="true">ไร่เลย์ <span class="ta-fac-count">12</span></button></li>
+      <li><button class="ta-fac" type="button" aria-pressed="false" disabled>เกาะปอดะ <span class="ta-fac-count">0</span></button></li>
+    </ul>
+  </div>
+  <div class="ta-sheet-foot">
+    <button class="ta-btn ta-btn-ghost" type="button" data-sheet-close>ล้างทั้งหมด</button>
+    <button class="ta-btn ta-btn-primary" type="button" data-sheet-close>แสดง 41 ที่พัก</button>
+  </div>
+</dialog>
+
+<dialog class="ta-sheet" id="taSearch" aria-label="ค้นหา">
+  <div class="ta-sheet-head"><h2 class="ta-sheet-title">ค้นหา</h2>
+  <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด"><svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg></button></div>
+  <div class="ta-sheet-body"><form action="/search" method="get" role="search"><input type="search" name="q" placeholder="ค้นหา"></form></div>
+</dialog>
+</body>
+</html>

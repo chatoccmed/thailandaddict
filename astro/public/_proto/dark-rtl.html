@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="th" dir="ltr">
+<head>
+<meta charset="utf-8">
+
+<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
+     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
+     home indicator. Never add maximum-scale or user-scalable=no. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- PROTOTYPE ONLY -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>พิสูจน์ RTL และโหมดมืด — ต้นแบบ Thailandaddict</title>
+<meta name="description" content="หน้าพิสูจน์ว่าเชลล์ Andaman Deck สลับด้านซ้ายขวาได้ทั้งหน้า รวมถึงตัวเนื้อความ และแสดงผลโหมดมืดได้จริง โดยเอาต้นแบบจริงมาใส่กรอบเทียบกัน">
+<link rel="canonical" href="https://thailandaddict.com/_proto/dark-rtl.html">
+
+<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- THE shell. Document-relative so the prototype also renders from disk. -->
+<link rel="stylesheet" href="../css/shell.5f167b89.css">
+
+<script src="../js/shell.2029c422.js" defer></script>
+
+<style>
+/* Page layer only. Zero physical direction properties, zero new tokens. */
+@layer page {
+
+  h1 em, h2 em { font-style: normal; color: var(--editorial); }
+
+  .pf-lede { font-size: var(--step-1); color: var(--text-2); max-inline-size: 64ch; margin-block: var(--sp-4) 0; }
+
+  .pf-sec { margin-block-start: var(--sp-8); }
+  .pf-sec > h2 { font-size: var(--step-2); margin-block: 0 var(--sp-2); }
+
+  .pf-controls {
+    display: flex; flex-wrap: wrap; gap: var(--sp-3);
+    align-items: center;
+    margin-block: var(--sp-4);
+  }
+
+  /* Frames sit in a rail so three phone widths stay side by side on a desktop
+     and scroll horizontally on a phone, rather than squashing to nothing. */
+  .pf-rail {
+    display: flex;
+    gap: var(--sp-4);
+    overflow-x: auto;
+    padding-block-end: var(--sp-3);
+    scroll-snap-type: x proximity;
+    overscroll-behavior-inline: contain;
+  }
+  .pf-frame {
+    flex: 0 0 auto;
+    inline-size: 390px;
+    max-inline-size: 92vw;
+    scroll-snap-align: start;
+    display: grid;
+    gap: var(--sp-2);
+  }
+  .pf-frame > iframe {
+    inline-size: 100%;
+    block-size: 720px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-lg, 14px);
+    background: var(--surface-2);
+    display: block;
+    color-scheme: light dark;
+  }
+  .pf-cap { display: grid; gap: var(--sp-1); }
+  .pf-cap b { font-size: var(--step-0); }
+  .pf-cap span { font-size: var(--step--2); color: var(--text-muted); }
+
+  /* Result marks are sprite icons, not dingbats — the owned monoline set is
+     the only glyph vocabulary on this site, and colour never carries the
+     meaning on its own (every row also states the check in words). */
+  .pf-audit { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font-size: var(--step--2); }
+  .pf-audit li { display: flex; gap: var(--sp-2); align-items: start; padding-block: 3px; }
+  .pf-audit .ta-ic { flex: none; margin-block-start: .1em; color: var(--flag-unknown); }
+  .pf-audit li[data-r="pass"] .ta-ic { color: var(--flag-ok); }
+  .pf-audit li[data-r="fail"] .ta-ic { color: var(--flag-stop); }
+  .pf-audit .pf-dash { inline-size: 16px; flex: none; text-align: center; color: var(--flag-unknown); }
+
+  .pf-score {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    font-size: var(--step--1);
+    padding: var(--sp-1) var(--sp-3);
+    border-radius: 999px;
+    background: var(--surface-3);
+  }
+  .pf-score[data-all="pass"] { background: var(--trip-soft); color: var(--trip); }
+  .pf-score[data-all="fail"] { background: var(--surface-3); color: var(--flag-stop); }
+
+  .pf-check { margin-block: var(--sp-4) 0; padding-inline-start: 1.2em; display: grid; gap: var(--sp-2); }
+  .pf-check li { padding-block: 2px; max-inline-size: 64ch; }
+
+  .pf-blocked { display: none; }
+  [data-blocked="1"] .pf-blocked { display: block; }
+}
+</style>
+</head>
+<body>
+
+<a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+<svg class="ta-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<g id="ta-i" fill="none" stroke="currentColor" stroke-width="1.5"
+   stroke-linecap="round" stroke-linejoin="round"></g>
+</defs>
+
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.6 15.6 20.5 20.5"/>
+</symbol>
+
+<symbol id="i-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6.25 4.5h11.5a.75.75 0 0 1 .75.75v14.4l-6.5-4.1-6.5 4.1V5.25a.75.75 0 0 1 .75-.75Z"/>
+</symbol>
+
+<symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 21c4.2-4.2 6.5-7.4 6.5-10.5a6.5 6.5 0 1 0-13 0C5.5 13.6 7.8 16.8 12 21Z"/>
+  <circle cx="12" cy="10.3" r="2.4"/>
+</symbol>
+
+<symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m9.25 5 7 7-7 7"/>
+</symbol>
+
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 12h15.5M13.5 6l6 6-6 6"/>
+</symbol>
+
+<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/>
+  <path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/>
+</symbol>
+
+<symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 7h16M4 12h16M4 17h16"/>
+</symbol>
+
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m4.75 12.5 4.75 4.75L19.25 6.75"/>
+</symbol>
+
+<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m6 6 12 12M18 6 6 18"/>
+</symbol>
+
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="4"/>
+  <path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/>
+</symbol>
+
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/>
+</symbol>
+
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/>
+</symbol>
+</svg>
+
+<header class="ta-topbar" id="taTopbar">
+  <a class="ta-topbar-brand" href="index">
+    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>Thailandaddict</span>
+  </a>
+
+  <span class="ta-topbar-spacer"></span>
+
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="index">เริ่มที่นี่</a>
+    <a href="home">สำรวจ</a>
+    <a href="dark-rtl" aria-current="page">RTL และโหมดมืด</a>
+  </nav>
+
+  <button class="ta-icon-btn lang-trigger" type="button"
+          popovertarget="taLang" aria-label="ภาษา / Language">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ไทย</span>
+  </button>
+</header>
+
+<main class="ta-main" id="main">
+  <div class="ta-wrap">
+
+    <p class="ta-proto-flag">หน้า <b>ต้นแบบ</b> — ยังไม่ลิงก์จากเว็บจริง ไม่อยู่ใน sitemap และตั้ง noindex, nofollow ทุกหน้า</p>
+
+    <h1>พิสูจน์ <em>RTL</em> และ <em>โหมดมืด</em></h1>
+
+    <p class="pf-lede">
+      กรอบข้างล่างคือหน้าต้นแบบจริง ไม่ใช่ภาพนิ่ง เปิดไฟล์เดียวกันสามครั้ง
+      แล้วบังคับให้กรอบกลางอ่านจากขวาไปซ้ายอย่างภาษาฮีบรู และกรอบขวาเป็นโหมดมืด
+      ทุกอย่างที่เห็นจึงเป็นผลลัพธ์สด ๆ ของเชลล์ตัวเดียวกัน
+    </p>
+
+    <p class="ta-note">
+      เรื่องที่เคยพลาดซ้ำ ๆ มาตลอดคือ เมนูสลับด้านถูก แต่<b>ตัวเนื้อความไม่สลับตาม</b>
+      เพราะเดิมใช้ค่าซ้ายขวาตายตัวในซีเอสเอส เชลล์ชุดนี้ใช้ค่าเชิงตรรกะทั้งหมด
+      การสลับด้านจึงเกิดขึ้นเองโดยไม่ต้องเขียนกฎ RTL แยก และหน้านี้มีไว้ตรวจว่าจริงตามนั้น
+    </p>
+
+    <div class="pf-controls">
+      <div class="ta-chip-row" role="group" aria-label="ภาษาของหน้าในกรอบ">
+        <button class="ta-fac" type="button" data-src="th" aria-pressed="true">เนื้อหาไทย</button>
+        <button class="ta-fac" type="button" data-src="en" aria-pressed="false">เนื้อหาอังกฤษ</button>
+      </div>
+      <button class="ta-btn ta-btn-quiet" type="button" data-act="recheck">ตรวจซ้ำทุกกรอบ</button>
+      <span class="pf-score" data-total>กำลังโหลดกรอบ…</span>
+    </div>
+
+    <p class="ta-fine">
+      เลือกเนื้อหาอังกฤษได้ถ้าอยากอ่านทิศทางง่ายขึ้น เพราะเราไม่ได้แปลเป็นภาษาฮีบรูจริง
+      หน้านี้พิสูจน์ <b>การสลับด้านของเลย์เอาต์</b> ไม่ใช่คุณภาพการแปล
+    </p>
+
+    <ul class="pf-check">
+      <li>โลโก้ที่มุมบนต้องย้ายไปอยู่อีกฝั่ง และแถบแท็บล่างต้องเรียงกลับด้าน</li>
+      <li>ตัวเนื้อความและหัวข้อต้องชิดขอบฝั่งที่เริ่มอ่าน ไม่ใช่ชิดซ้ายค้างไว้</li>
+      <li>ลูกศรและเชฟรอนต้องหันกลับด้าน ส่วนไอคอนอื่นต้องไม่กลับด้าน</li>
+      <li>เส้นขอบด้านเริ่มของกล่องหมายเหตุต้องย้ายไปอีกฝั่ง เพราะเขียนด้วยค่าเชิงตรรกะ</li>
+      <li>ต้องไม่มีแถบเลื่อนแนวนอนโผล่มา ซึ่งเป็นอาการคลาสสิกของการทำ RTL ไม่ครบ</li>
+      <li>ตัวเลขราคาและชื่อแบรนด์ภาษาอังกฤษต้องไม่สลับตำแหน่งตัวอักษร</li>
+    </ul>
+
+    <p class="ta-flag ta-flag-unknown pf-blocked">
+      เบราว์เซอร์ไม่ยอมให้หน้านี้อ่านข้างในกรอบ จึงบังคับทิศทางและตรวจอัตโนมัติไม่ได้
+      เกิดขึ้นเมื่อเปิดไฟล์จากดิสก์โดยตรง ให้เปิดผ่านเซิร์ฟเวอร์ เช่น <code>http://localhost</code> แล้วลองใหม่
+    </p>
+
+    <!-- ================= REVIEW ================= -->
+    <section class="pf-sec" aria-labelledby="pf-review">
+      <h2 id="pf-review">หน้ารีวิวโรงแรม</h2>
+      <p>หน้าที่มีเนื้อความยาวที่สุด และมีแถบราคาติดขอบล่าง จึงเป็นบททดสอบที่หินที่สุดของการสลับด้าน</p>
+
+      <div class="pf-rail">
+        <div class="pf-frame" data-frame="review-ltr" data-page="review" data-dir="ltr" data-lang="th" data-theme="light">
+          <div class="pf-cap">
+            <b>อ่านซ้ายไปขวา · สว่าง</b>
+            <span>ตัวเทียบ ค่าตั้งต้นของเว็บ</span>
+          </div>
+          <iframe title="ต้นแบบหน้ารีวิว แบบอ่านซ้ายไปขวา โหมดสว่าง" loading="lazy" src="review"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+
+        <div class="pf-frame" data-frame="review-rtl" data-page="review" data-dir="rtl" data-lang="he" data-theme="light">
+          <div class="pf-cap">
+            <b>อ่านขวาไปซ้าย · ฮีบรู</b>
+            <span>บังคับ dir="rtl" และ lang="he" ที่เอกสารในกรอบ</span>
+          </div>
+          <iframe title="ต้นแบบหน้ารีวิว แบบอ่านขวาไปซ้าย ภาษาฮีบรู" loading="lazy" src="review"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+
+        <div class="pf-frame" data-frame="review-dark" data-page="review" data-dir="ltr" data-lang="th" data-theme="dark">
+          <div class="pf-cap">
+            <b>โหมดมืด</b>
+            <span>ค่าชุด Night Market ที่ใช้เป็นโหมดมืดของ Andaman Deck</span>
+          </div>
+          <iframe title="ต้นแบบหน้ารีวิว โหมดมืด" loading="lazy" src="review"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HUB ================= -->
+    <section class="pf-sec" aria-labelledby="pf-hub">
+      <h2 id="pf-hub">หน้าจุดหมาย กระบี่</h2>
+      <p>หน้าที่มีตัวกรอง แท็บ ตาราง และการ์ดจำนวนมาก จึงเห็นการสลับด้านของส่วนประกอบได้ครบที่สุด</p>
+
+      <div class="pf-rail">
+        <div class="pf-frame" data-frame="hub-ltr" data-page="krabi" data-dir="ltr" data-lang="th" data-theme="light">
+          <div class="pf-cap">
+            <b>อ่านซ้ายไปขวา · สว่าง</b>
+            <span>ตัวเทียบ ค่าตั้งต้นของเว็บ</span>
+          </div>
+          <iframe title="ต้นแบบหน้าจุดหมายกระบี่ แบบอ่านซ้ายไปขวา โหมดสว่าง" loading="lazy" src="krabi"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+
+        <div class="pf-frame" data-frame="hub-rtl" data-page="krabi" data-dir="rtl" data-lang="he" data-theme="light">
+          <div class="pf-cap">
+            <b>อ่านขวาไปซ้าย · ฮีบรู</b>
+            <span>บังคับ dir="rtl" และ lang="he" ที่เอกสารในกรอบ</span>
+          </div>
+          <iframe title="ต้นแบบหน้าจุดหมายกระบี่ แบบอ่านขวาไปซ้าย ภาษาฮีบรู" loading="lazy" src="krabi"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+
+        <div class="pf-frame" data-frame="hub-dark" data-page="krabi" data-dir="ltr" data-lang="th" data-theme="dark">
+          <div class="pf-cap">
+            <b>โหมดมืด</b>
+            <span>ค่าชุด Night Market ที่ใช้เป็นโหมดมืดของ Andaman Deck</span>
+          </div>
+          <iframe title="ต้นแบบหน้าจุดหมายกระบี่ โหมดมืด" loading="lazy" src="krabi"></iframe>
+          <ul class="pf-audit" data-audit></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pf-sec" aria-labelledby="pf-how">
+      <h2 id="pf-how">ตรวจอย่างไร</h2>
+      <p>
+        ผลตรวจใต้แต่ละกรอบไม่ใช่คำกล่าวอ้าง แต่วัดจากเอกสารในกรอบจริง ๆ
+        อ่านค่าที่เบราว์เซอร์คำนวณออกมาแล้ว และวัดตำแหน่งจริงของโลโก้กับแท็บ
+      </p>
+      <ul class="pf-check">
+        <li>ทิศทางเอกสาร อ่านจากแอตทริบิวต์ <code>dir</code> ของเอกสารในกรอบ</li>
+        <li>ทิศทางของเนื้อความ อ่านจากค่า <code>direction</code> ที่คำนวณแล้วของส่วนเนื้อหาหลัก ไม่ใช่ของเมนู</li>
+        <li>ตำแหน่งโลโก้ วัดจากกรอบสี่เหลี่ยมจริงเทียบกับกึ่งกลางจอในกรอบ</li>
+        <li>ลำดับแท็บล่าง เทียบพิกัดของแท็บแรกกับแท็บสุดท้าย</li>
+        <li>ค่าเชิงตรรกะ แทรกกล่องทดสอบที่มองไม่เห็นเข้าไปหนึ่งชิ้น อ่านว่าเส้นขอบไปโผล่ฝั่งไหน แล้วลบทิ้งทันที</li>
+        <li>แถบเลื่อนแนวนอน เทียบความกว้างที่เลื่อนได้กับความกว้างที่มองเห็น</li>
+        <li>โหมดมืด คำนวณความสว่างของสีพื้นหลังจริงที่เบราว์เซอร์ใช้</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="home" data-tab="explore">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>สำรวจ</span>
+  </a>
+  <a class="ta-tab" href="krabi" data-tab="places">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>จุดหมาย</span>
+  </a>
+  <a class="ta-tab" href="search" data-tab="search">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
+    <span>ค้นหา</span>
+  </a>
+  <a class="ta-tab" href="trip" data-tab="trip">
+    <span class="ta-tab-ic">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
+      <b class="ta-badge" data-count="0">0</b>
+    </span>
+    <span>ทริป</span>
+  </a>
+  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
+    <span>เมนู</span>
+  </button>
+</nav>
+
+<div id="taMore" popover class="ta-more">
+  <p class="ta-more-label">การแสดงผล</p>
+
+  <button type="button" data-theme-set="cycle">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
+    <span>ธีม</span>
+    <span class="ta-topbar-spacer"></span>
+    <span data-theme-label>ตามระบบ</span>
+  </button>
+
+  <button type="button" popovertarget="taLang">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
+    <span>ภาษา</span>
+  </button>
+
+  <hr>
+
+  <a href="index">
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
+    <span>หน้าเริ่มต้นของต้นแบบ</span>
+  </a>
+
+  <button type="button" data-install hidden>
+    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
+    <span>ติดตั้งเป็นแอป</span>
+  </button>
+</div>
+
+<div id="taLang" popover class="lang-menu">
+  <a href="dark-rtl" hreflang="th" aria-current="true">ไทย</a>
+  <a href="en/home" hreflang="en">English</a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var D = document;
+  var frames = [].slice.call(D.querySelectorAll('.pf-frame'));
+  var totalEl = D.querySelector('[data-total]');
+  var srcLang = 'th';
+
+  function pageSrc(page) { return srcLang === 'en' ? 'en/' + page + '.html' : page + '.html'; }
+
+  /* --- force direction / language / theme inside a same-origin frame ---- */
+  function impose(box) {
+    var f = box.querySelector('iframe');
+    var doc;
+    try { doc = f.contentDocument; } catch (e) { doc = null; }
+    if (!doc || !doc.documentElement) return null;
+    var H = doc.documentElement;
+    H.setAttribute('dir', box.getAttribute('data-dir'));
+    H.setAttribute('lang', box.getAttribute('data-lang'));
+    /* Explicit, never "system": the reference frame must stay light even if
+       the reader's own stored theme is dark, or the comparison means nothing. */
+    H.setAttribute('data-theme', box.getAttribute('data-theme'));
+    return doc;
+  }
+
+  /* --- measurement, not assertion --------------------------------------- */
+  /* Paint the colour into a 1x1 canvas and read the pixel back. Tokens are
+     authored in oklch for Option A and in hex for the others, and a regex over
+     rgb() would silently return null for half of them. */
+  var probe = D.createElement('canvas');
+  probe.width = probe.height = 1;
+  var pctx = probe.getContext('2d', { willReadFrequently: true });
+  function luminance(css) {
+    if (!css) return null;
+    try {
+      pctx.clearRect(0, 0, 1, 1);
+      pctx.fillStyle = '#000';
+      pctx.fillStyle = css;
+      pctx.fillRect(0, 0, 1, 1);
+      var d = pctx.getImageData(0, 0, 1, 1).data;
+      if (d[3] === 0) return null;
+      return (0.2126 * d[0] + 0.7152 * d[1] + 0.0722 * d[2]) / 255;
+    } catch (e) { return null; }
+  }
+
+  function audit(box) {
+    var out = [];
+    var f = box.querySelector('iframe');
+    var win, doc;
+    try { win = f.contentWindow; doc = f.contentDocument; } catch (e) { win = null; doc = null; }
+    if (!win || !doc || !doc.body) return null;
+
+    var wantRtl = box.getAttribute('data-dir') === 'rtl';
+    var wantDark = box.getAttribute('data-theme') === 'dark';
+    var H = doc.documentElement;
+    var cs = function (el) { return win.getComputedStyle(el); };
+    var vw = H.clientWidth || f.clientWidth;
+
+    out.push(['ทิศทางเอกสาร', H.getAttribute('dir') === (wantRtl ? 'rtl' : 'ltr')]);
+
+    var main = doc.querySelector('.ta-main') || doc.body;
+    out.push(['ทิศทางของเนื้อความ', cs(main).direction === (wantRtl ? 'rtl' : 'ltr')]);
+
+    var brand = doc.querySelector('.ta-topbar-brand');
+    if (brand) {
+      var r = brand.getBoundingClientRect();
+      out.push(['ตำแหน่งโลโก้', wantRtl ? (r.right > vw / 2) : (r.left < vw / 2)]);
+    } else out.push(['ตำแหน่งโลโก้', null]);
+
+    /* A review page carries class="rl-page", which deliberately suppresses the
+       tab bar and hands the bottom edge to the sticky price bar. Reporting an
+       absent bar as a failure would be a false alarm, so the bottom edge is
+       measured on whichever component actually owns it. */
+    var tabbar = doc.querySelector('.ta-tabbar');
+    var tabs = tabbar ? tabbar.querySelectorAll('.ta-tab') : [];
+    var tabbarShown = !!(tabbar && tabbar.getBoundingClientRect().height > 0);
+    if (tabbarShown && tabs.length > 1) {
+      var a = tabs[0].getBoundingClientRect().left;
+      var b = tabs[tabs.length - 1].getBoundingClientRect().left;
+      out.push(['ลำดับแท็บล่าง', wantRtl ? (a > b) : (a < b)]);
+    } else {
+      out.push(['ลำดับแท็บล่าง — หน้านี้ซ่อนแถบแท็บไว้ตามกติกาหน้ารีวิว', null]);
+    }
+
+    var cta = doc.querySelector('.ta-cta');
+    if (cta && cta.getBoundingClientRect().height > 0) {
+      var ctaText = cta.querySelector('.ta-cta-text');
+      var ctaBtn = cta.querySelector('.ta-btn');
+      if (ctaText && ctaBtn) {
+        var tl = ctaText.getBoundingClientRect().left;
+        var bl = ctaBtn.getBoundingClientRect().left;
+        out.push(['ลำดับในแถบราคาล่างจอ', wantRtl ? (tl > bl) : (tl < bl)]);
+      }
+    }
+
+    /* Logical-property probe: a hidden .ta-note carries border-inline-start,
+       so which physical side it renders on is the proof. Removed immediately. */
+    try {
+      var probe = doc.createElement('div');
+      probe.className = 'ta-note';
+      probe.setAttribute('aria-hidden', 'true');
+      probe.style.position = 'absolute';
+      probe.style.insetBlockStart = '-9999px';
+      probe.style.visibility = 'hidden';
+      doc.body.appendChild(probe);
+      var pb = cs(probe);
+      var lft = parseFloat(pb.borderLeftWidth) || 0;
+      var rgt = parseFloat(pb.borderRightWidth) || 0;
+      doc.body.removeChild(probe);
+      out.push(['เส้นขอบเชิงตรรกะย้ายฝั่ง', wantRtl ? (rgt > 0 && lft === 0) : (lft > 0 && rgt === 0)]);
+    } catch (e) { out.push(['เส้นขอบเชิงตรรกะย้ายฝั่ง', null]); }
+
+    out.push(['ไม่มีแถบเลื่อนแนวนอน', H.scrollWidth <= H.clientWidth + 1]);
+
+    var lum = luminance(cs(doc.body).backgroundColor);
+    if (lum === null) out.push([wantDark ? 'พื้นหลังมืดจริง' : 'พื้นหลังสว่างจริง', null]);
+    else out.push([wantDark ? 'พื้นหลังมืดจริง' : 'พื้นหลังสว่างจริง', wantDark ? lum < 0.35 : lum > 0.65]);
+
+    return out;
+  }
+
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  function mark(result) {
+    if (result === 'unknown') {
+      var dash = D.createElement('span');
+      dash.className = 'pf-dash';
+      dash.setAttribute('aria-hidden', 'true');
+      dash.textContent = '—';
+      return dash;
+    }
+    var svg = D.createElementNS(SVGNS, 'svg');
+    svg.setAttribute('class', 'ta-ic ta-ic-16');
+    svg.setAttribute('aria-hidden', 'true');
+    var use = D.createElementNS(SVGNS, 'use');
+    use.setAttribute('href', result === 'pass' ? '#i-check' : '#i-close');
+    svg.appendChild(use);
+    return svg;
+  }
+
+  function row(result, text) {
+    var li = D.createElement('li');
+    li.setAttribute('data-r', result);
+    li.appendChild(mark(result));
+    var span = D.createElement('span');
+    /* The word, always — the icon and the colour are the second and third
+       signals, never the only ones. */
+    span.textContent = (result === 'pass' ? 'ผ่าน · ' : result === 'fail' ? 'ไม่ผ่าน · ' : 'ตรวจไม่ได้ · ') + text;
+    li.appendChild(span);
+    return li;
+  }
+
+  function render(box, rows) {
+    var ul = box.querySelector('[data-audit]');
+    while (ul.firstChild) ul.removeChild(ul.firstChild);
+    if (!rows) {
+      ul.appendChild(row('unknown', 'อ่านข้างในกรอบไม่ได้ — ต้องเปิดผ่านเซิร์ฟเวอร์'));
+      D.documentElement.setAttribute('data-blocked', '1');
+      return { pass: 0, fail: 0, unknown: 1 };
+    }
+    var tally = { pass: 0, fail: 0, unknown: 0 };
+    rows.forEach(function (r) {
+      var res = r[1] === null ? 'unknown' : (r[1] ? 'pass' : 'fail');
+      tally[res]++;
+      ul.appendChild(row(res, r[0]));
+    });
+    return tally;
+  }
+
+  function runOne(box) {
+    impose(box);
+    return render(box, audit(box));
+  }
+
+  function runAll() {
+    var pass = 0, fail = 0, unknown = 0, ready = 0;
+    frames.forEach(function (box) {
+      var f = box.querySelector('iframe');
+      /* A lazily-loaded frame that has not entered the viewport yet has no
+         document; report it as pending rather than as a failure. */
+      var has = false;
+      try { has = !!(f.contentDocument && f.contentDocument.body && f.contentDocument.body.childNodes.length); } catch (e) { has = false; }
+      if (!has) return;
+      ready++;
+      var t = runOne(box);
+      pass += t.pass; fail += t.fail; unknown += t.unknown;
+    });
+    if (!totalEl) return;
+    if (!ready) { totalEl.textContent = 'เลื่อนลงไปให้กรอบโหลดก่อน แล้วผลตรวจจะขึ้นเอง'; totalEl.removeAttribute('data-all'); return; }
+    totalEl.textContent = 'ผ่าน ' + pass + ' · ไม่ผ่าน ' + fail + ' · ตรวจไม่ได้ ' + unknown + ' (จาก ' + ready + ' กรอบที่โหลดแล้ว)';
+    totalEl.setAttribute('data-all', fail === 0 && pass > 0 ? 'pass' : 'fail');
+  }
+
+  frames.forEach(function (box) {
+    var f = box.querySelector('iframe');
+    f.addEventListener('load', function () {
+      runOne(box);
+      /* Re-assert once after the framed shell has finished booting, in case it
+         re-applies a stored theme of its own. */
+      setTimeout(function () { runOne(box); runAll(); }, 300);
+      runAll();
+    });
+  });
+
+  D.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-act="recheck"], [data-src]');
+    if (!el) return;
+    ev.preventDefault();
+
+    if (el.hasAttribute('data-src')) {
+      srcLang = el.getAttribute('data-src');
+      var group = el.parentNode.querySelectorAll('[data-src]');
+      for (var i = 0; i < group.length; i++) group[i].setAttribute('aria-pressed', group[i] === el ? 'true' : 'false');
+      frames.forEach(function (box) {
+        box.querySelector('iframe').src = pageSrc(box.getAttribute('data-page'));
+      });
+      if (totalEl) { totalEl.textContent = 'กำลังโหลดกรอบใหม่…'; totalEl.removeAttribute('data-all'); }
+      return;
+    }
+    runAll();
+  });
+
+  runAll();
+});
+</script>
+
+</body>
+</html>

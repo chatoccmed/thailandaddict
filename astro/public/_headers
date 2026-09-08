@@ -38,6 +38,14 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
 
+# ── ต้นแบบดีไซน์ (Phase 1 prototype) — ห้ามจัดทำดัชนีเด็ดขาด ──
+# ทุกหน้าใน /_proto/ มี <meta name="robots" content="noindex, nofollow"> อยู่แล้ว แต่ meta tag
+# ช่วยได้เฉพาะ HTML — ไฟล์ .webmanifest / .json / รูป / sw.js ไม่มีที่ให้ใส่ meta. ส่วน gen-sitemap.mjs
+# อ่านเฉพาะ *.html ชั้นบนสุดของ public/ กับโฟลเดอร์ภาษา จึงไม่เคยหยิบ /_proto/ ไปอยู่ใน sitemap อยู่แล้ว
+# header นี้คือชั้นที่สอง ครอบทุกชนิดไฟล์ในโฟลเดอร์เดียว. ลบโฟลเดอร์ = ลบบล็อกนี้ทิ้งได้เลย
+/_proto/*
+  X-Robots-Tag: noindex, nofollow
+
 # ── immutable ONLY for content-hashed bundles (filename changes when content changes) ──
 # Astro emits hashed CSS/JS under /_astro/ (e.g. _slug_.BTre0zWJ.css) — safe to cache forever.
 # We deliberately do NOT use a /*.css or /*.js wildcard here: those would also catch the
