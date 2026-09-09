@@ -1,0 +1,35 @@
+﻿# Public DNS snapshot of thailandaddict.com - 2026-09-09 20:46
+# PARTIAL: taken from public resolvers, not the authoritative zone export.
+# Proxied records resolve to Cloudflare IPs, and any non-public record is absent.
+# The real backup is the BIND export in step P4, which needs the new API token.
+
+## A
+  104.21.11.116
+  172.67.192.16
+## AAAA
+  2606:4700:3031::ac43:c010
+  2606:4700:3033::6815:b74
+## MX
+  10 mail.thailandaddict.com
+## TXT
+  google-site-verification=RKQnFealCiw74qJ8HFWpNlgVNp18v02d2ba7C7UKpKs
+  v=spf1 a mx ip4:147.50.255.17 ip6:fe80:0:0:0:ca1f:66ff:feec:1efa ~all
+## NS
+  aisha.ns.cloudflare.com
+  greg.ns.cloudflare.com
+## CAA
+  (none)
+## SOA
+  aisha.ns.cloudflare.com
+  aisha.ns.cloudflare.com
+## www
+  AAAA 2606:4700:3031::ac43:c010
+  AAAA 2606:4700:3033::6815:b74
+  A 172.67.192.16
+  A 104.21.11.116
+## mail
+  A 147.50.255.17
+## ftp
+  A 147.50.255.17
+## img
+  (does not resolve)

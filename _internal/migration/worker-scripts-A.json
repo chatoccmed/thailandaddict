@@ -1,0 +1,42 @@
+[
+  {
+    "created_on": "2026-07-04T12:51:21.001604Z",
+    "modified_on": "2026-07-04T13:15:08.625576Z",
+    "id": "ta-preview-glossy",
+    "tag": "40ef68e1bae344f1ae1dc1d52ca7b505",
+    "tags": [],
+    "deployment_id": "",
+    "tail_consumers": null,
+    "logpush": false,
+    "has_assets": true,
+    "has_modules": false,
+    "etag": "",
+    "handlers": [
+      "fetch"
+    ],
+    "last_deployed_from": "",
+    "compatibility_date": "2025-01-01",
+    "usage_model": "standard",
+    "routes": null
+  },
+  {
+    "created_on": "2026-06-03T15:21:43.495539Z",
+    "modified_on": "2026-09-09T10:54:49.573903Z",
+    "id": "thailandaddict",
+    "tag": "b3fa2c2112384334ae7277a099ad006a",
+    "tags": [],
+    "deployment_id": "",
+    "tail_consumers": null,
+    "logpush": false,
+    "has_assets": true,
+    "has_modules": true,
+    "etag": "ec28db8f1803619b83110d6b3f90c52e38b05e1625eb7645241e7fb152033cc2",
+    "handlers": [
+      "fetch"
+    ],
+    "last_deployed_from": "wrangler",
+    "compatibility_date": "2026-05-16",
+    "usage_model": "standard",
+    "routes": null
+  }
+]

@@ -2,6 +2,21 @@
 // Reads _internal/bulk-redirects.csv → fills a redirect list → creates the account redirect rule.
 // Needs CLOUDFLARE_API_TOKEN with Account Filter Lists:Edit + Account Rulesets:Edit (+ in ~/.r2-creds).
 // Run: node _internal/setup-redirects-api.mjs
+//
+// ACCOUNT TARGETING — read this before a Cloudflare account move.
+// Bulk Redirects are an ACCOUNT-level resource (/accounts/{id}/rules/lists and the account
+// http_request_redirect ruleset). They do NOT travel with a zone. Move thailandaddict.com to a
+// different account without re-running this and all 472 legacy WordPress URLs that Google still
+// has indexed start 404-ing silently — /home/ already does.
+//
+// The account id historically came from R2_ACCOUNT_ID in ~/.r2-creds, which is a different
+// resource's id that happens to match. That must keep pointing at the account holding the R2
+// bucket (the image uploader depends on it), so the account for THIS script is overridable:
+//
+//   CF_ACCOUNT_ID=<target account id> CLOUDFLARE_API_TOKEN=<dual-account token> \
+//     node _internal/setup-redirects-api.mjs
+//
+// With no override it behaves exactly as before.
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -9,7 +24,14 @@ import os from 'node:os';
 const cred = Object.fromEntries(fs.readFileSync(path.join(os.homedir(), '.r2-creds'), 'utf8').split(/\r?\n/)
   .filter(l => l.includes('=')).map(l => { const i = l.indexOf('='); return [l.slice(0, i).trim(), l.slice(i + 1).trim()]; }));
 const clean = v => String(v || '').replace(/^[<"'\s]+|[>"'\s]+$/g, '');
-const ACC = clean(cred.R2_ACCOUNT_ID), TOKEN = clean(cred.CLOUDFLARE_API_TOKEN);
+// CF_ACCOUNT_ID wins, then R2_ACCOUNT_ID from ~/.r2-creds (the historical source).
+// CLOUDFLARE_API_TOKEN from the environment wins over the creds file, so a dual-account token
+// can be supplied for one run without editing ~/.r2-creds.
+const ACC = clean(process.env.CF_ACCOUNT_ID || cred.R2_ACCOUNT_ID);
+const TOKEN = clean(process.env.CLOUDFLARE_API_TOKEN || cred.CLOUDFLARE_API_TOKEN);
+if (!ACC) { console.error('No account id: set CF_ACCOUNT_ID or R2_ACCOUNT_ID in ~/.r2-creds'); process.exit(1); }
+if (!TOKEN) { console.error('No API token: set CLOUDFLARE_API_TOKEN'); process.exit(1); }
+console.log(`account ${ACC}${process.env.CF_ACCOUNT_ID ? '  (from CF_ACCOUNT_ID)' : '  (from ~/.r2-creds R2_ACCOUNT_ID)'}`);
 const API = 'https://api.cloudflare.com/client/v4';
 const LIST_NAME = 'thailandaddict';
 
