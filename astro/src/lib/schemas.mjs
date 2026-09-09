@@ -1,5 +1,34 @@
-import { defineCollection, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+// Content validation schemas for thailandaddict.com — plain zod, no Astro content layer.
+//
+// These are the EXACT schemas that lived in `src/content.config.ts` until 2026-09-09, moved out
+// verbatim when content collections were retired (see _internal/BUILD-ROOTCAUSE-2026-09.md §5).
+// Astro no longer validates the JSON at build time, because it no longer reads it: the routes
+// read one file at a time from disk. Validation therefore moved to a prebuild gate —
+// `_internal/qa/validate-content.mjs` safeParses every file against the schema for its directory
+// and fails the build on the first error. Keep this file and the content in step: a schema change
+// here is enforced on the next build, exactly as `content.config.ts` used to enforce it.
+//
+// NOTE ON SHAPE — the one real behavioural difference, measured 2026-09-09 over all 19,530 files:
+//   * DEFAULTS never fired. `addressCountry`, `qiPriceUnit` and `qiCol5Small` are literally present
+//     in every review file, so dropping the .default() changes nothing. (0 occurrences.)
+//   * UNKNOWN KEYS are no longer stripped. 45 stray keys across 27 files survive into the layouts
+//     now: roundup crumbCity/crumbCityHref/regionLabel/regionHref/parentName/parentHref/lang/cluster,
+//     article top-level note/staycta, block-level id (on 'tip'/'p'), __group/__finder/__prov,
+//     area_zone, and href on 'day' items. Grepped: no layout reads any of them, and no layout
+//     iterates data keys generically (no Object.keys/entries/values over data, no {...data} spread
+//     into markup). Output is unchanged.
+//   * TRANSFORMS still run, in content-fs.ts, on purpose. 48,554 fields are numbers on disk that
+//     the schema turned into strings: article ranked items[].rank (42,008), restaurant rank
+//     (6,526), roundup entries[].score (20). Most uses are invisible to the output — Astro renders
+//     a number child through destination.write(n) -> n.toString() — but ArticleLayout serialises
+//     its Leaflet pins with JSON.stringify, where "rank":"1" and "rank":1 are different bytes.
+//     An A/B render caught exactly that, on 5 pages. So applySchemaCoercions() in
+//     src/lib/content-fs.ts reapplies those three transforms at read time. If you add a
+//     .transform() here, decide whether it has to be mirrored there.
+// A .default() added here will NOT be applied at read time — write the value into the content
+// files, or handle the absence in the layout.
+
+import { z } from 'zod';
 
 // Shared schema for hotel-review JSON files (Thai + English share the same shape).
 const reviewSchema = z.object({
@@ -209,51 +238,6 @@ const roundupSchema = z.object({
   jsonLd: z.any().optional(),                 // custom JSON-LD block (Person + ItemList + FAQPage + Hotel + AggregateRating · in addition to template-generated schema)
 });
 
-// Thai collections (served at site root).
-const reviews = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/reviews' }),
-  schema: reviewSchema,
-});
-const roundups = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/roundups' }),
-  schema: roundupSchema,
-});
-
-// English collections (served under /en/).
-const reviewsEn = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-en' }),
-  schema: reviewSchema,
-});
-const roundupsEn = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-en' }),
-  schema: roundupSchema,
-});
-
-// Simplified-Chinese collections (served under /zh/ — Tier-1 i18n expansion, _internal/I18N-AND-TOURISM-CITY-PLAN.md).
-const reviewsZh = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/reviews-zh' }),
-  schema: reviewSchema,
-});
-const roundupsZh = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/roundups-zh' }),
-  schema: roundupSchema,
-});
-
-// Remaining Tier-1 locales (served under /ru/ /ko/ /ja/ /hi/ /he/ /ar/) — reviews/roundups for the
-// 30 curated tourism-city hotel roundups + their linked individual hotel reviews only (not site-wide).
-const reviewsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ru' }), schema: reviewSchema });
-const roundupsRu = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ru' }), schema: roundupSchema });
-const reviewsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ko' }), schema: reviewSchema });
-const roundupsKo = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ko' }), schema: roundupSchema });
-const reviewsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ja' }), schema: reviewSchema });
-const roundupsJa = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ja' }), schema: roundupSchema });
-const reviewsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-hi' }), schema: reviewSchema });
-const roundupsHi = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-hi' }), schema: roundupSchema });
-const reviewsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-he' }), schema: reviewSchema });
-const roundupsHe = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-he' }), schema: roundupSchema });
-const reviewsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/reviews-ar' }), schema: reviewSchema });
-const roundupsAr = defineCollection({ loader: glob({ pattern: '**/*.json', base: './src/content/roundups-ar' }), schema: roundupSchema });
-
 // Flexible "article" schema — powers food / attraction / itinerary / prep / guide pages.
 // One layout (ArticleLayout) renders all of them from a typed list of content blocks.
 const articleBlock = z.discriminatedUnion('kind', [
@@ -371,45 +355,13 @@ const articleSchema = z.object({
   lng: z.number().optional(),
 });
 
-const articles = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles' }),
-  schema: articleSchema,
-});
-const articlesEn = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-en' }),
-  schema: articleSchema,
-});
-const articlesZh = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-zh' }),
-  schema: articleSchema,
-});
-const articlesRu = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ru' }),
-  schema: articleSchema,
-});
-const articlesKo = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ko' }),
-  schema: articleSchema,
-});
-const articlesJa = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ja' }),
-  schema: articleSchema,
-});
-const articlesHi = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-hi' }),
-  schema: articleSchema,
-});
-const articlesHe = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-he' }),
-  schema: articleSchema,
-});
-const articlesAr = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/articles-ar' }),
-  schema: articleSchema,
-});
+// Directory name -> schema. Directory names are used directly ('articles-zh', not 'articlesZh'),
+// matching src/lib/content-fs.ts and the on-disk layout of src/content/.
+export const SCHEMA_BY_DIR = {};
+for (const loc of ['', '-en', '-zh', '-ru', '-ko', '-ja', '-hi', '-he', '-ar']) {
+  SCHEMA_BY_DIR[`reviews${loc}`] = reviewSchema;
+  SCHEMA_BY_DIR[`roundups${loc}`] = roundupSchema;
+  SCHEMA_BY_DIR[`articles${loc}`] = articleSchema;
+}
 
-export const collections = {
-  reviews, roundups, reviewsEn, roundupsEn, articles, articlesEn,
-  reviewsZh, roundupsZh, articlesZh, articlesRu, articlesKo, articlesJa, articlesHi, articlesHe, articlesAr,
-  reviewsRu, roundupsRu, reviewsKo, roundupsKo, reviewsJa, roundupsJa, reviewsHi, roundupsHi, reviewsHe, roundupsHe, reviewsAr, roundupsAr,
-};
+export { reviewSchema, roundupSchema, articleSchema, articleBlock };

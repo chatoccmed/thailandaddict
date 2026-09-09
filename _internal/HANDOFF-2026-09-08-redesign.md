@@ -34,6 +34,13 @@ Works fully with JavaScript disabled. CLS 0 in all three planner states. 244 con
 
 ## ⚠️ THE BINDING CONSTRAINT: this machine can no longer build the full content set
 
+> **SUPERSEDED 2026-09-09.** Content collections were retired and the routes now read one JSON
+> file from disk per page (`astro/src/lib/content-fs.ts`). The full corpus — all 19,530 files,
+> the 2,343 zh/ru/ko translations included — now builds on this box, and the build heap is
+> pinned DOWN to 4096 MB so a regression fails loudly instead of eating the machine. Diagnosis
+> and fix: `_internal/BUILD-ROOTCAUSE-2026-09.md`. **Do not hold files back by commit any more.**
+> The section below is kept as the record of what the failure looked like.
+
 The site builds at **17,187 pages only when the 2,343 zh/ru/ko Plan-B translations are held OUT of the content directory.** With them in, the build fails every time on this 8 GB box. Same command, same heap, same free memory — the only variable is those 2,343 files.
 
 It surfaces as three different-looking failures, which is why it is easy to misdiagnose as a memory-tuning problem:
@@ -56,16 +63,37 @@ Move those files aside, build, then move them back. If `EPERM` appears, delete `
 
 ```bash
 export PATH="$HOME/nodejs:$PATH"
-cd astro && node --max-old-space-size=12288 node_modules/astro/astro.js build
-cd .. && npx wrangler deploy
+cd /c/Users/Imac/Thailandaddict/thailandaddict
+npm run deploy      # = npm run build → npm run verify → npx wrangler deploy
 ```
+
+**`npm run deploy` is the only path to production. Never `npx wrangler deploy` on its own** —
+that skips both gates, and Cloudflare will happily accept a partial dist and put it live over a
+complete one. In June 2026 a green build with zero content pages deployed successfully.
+
+The three root scripts:
+
+| script | what it does |
+|---|---|
+| `npm run build` | `cd astro && npm run build` — prebuild (validate-content → gen-shell → gen-hubs → …) then `astro build` at a deliberate 4096 MB heap |
+| `npm run verify` | `_internal/qa/check-page-coverage.mjs astro/dist` (the FLOOR: every content JSON produced a page over 2,048 bytes, every directory produced at least one, every `public/*.html` snapshot survived) then `_internal/qa/check-file-count.mjs astro/dist` (the CEILING: deployable files under Cloudflare's cap) |
+| `npm run deploy` | build → verify → `npx wrangler deploy`, stopping at the first red gate |
+
+`wrangler` is pinned as a root devDependency (`^4.34.0`, lockfile 4.130.0) so `npx` takes the
+local copy rather than whatever the registry serves that day; ≥ 4.34.0 is also the floor for
+Cloudflare's 100,000-file static-asset limit. A fresh clone needs `npm install` at the root
+first, or `npx` will fetch an unpinned version.
+
+`_internal/deploy.ps1` (non-interactive, reads `CLOUDFLARE_API_TOKEN`, no OAuth prompt) runs the
+same `npm run verify` before uploading, so it is gated identically.
 
 About 17 minutes for the build, about 20 for the deploy. Notes:
 
-- **Close every subagent, preview server and browser tab first.** V8 reserves ~9.2 GB for a 12288 heap and the build fails if commit is short.
+- The build heap is 4096 MB and no longer needs a quiet machine. Do not raise it: it is set below
+  what O(corpus) behaviour would need, so a regression fails in seconds instead of over an hour.
 - **A failed build wipes `astro/dist/`**, leaving nothing to deploy. Production is unaffected — it is served by the already-deployed Worker — but there is no local fallback.
 - Capture the real exit code explicitly. A trailing command in the same shell line masks the build's own status, which produced two false "exit 0" reports.
-- Deploy runs as Cloudflare account `chatmaliwan@gmail.com` via `CLOUDFLARE_API_TOKEN`. GitHub is `chatoccmed` — different systems, deliberately unconnected. Deploy is manual only; CI auto-deploy has been off since June because it once shipped a partial `dist`.
+- Deploy runs as Cloudflare account `chatmaliwan@gmail.com` via `CLOUDFLARE_API_TOKEN`. GitHub is `chatoccmed` — different systems, deliberately unconnected. Deploy is manual only; CI auto-deploy has been off since June because it once shipped a partial `dist`. If CI is ever re-enabled, `npm run verify` goes between its build and deploy steps — that partial dist is exactly what the page-coverage gate now catches.
 
 ## Traps that will bite again
 

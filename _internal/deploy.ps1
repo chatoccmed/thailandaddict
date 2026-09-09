@@ -1,5 +1,7 @@
 # Non-interactive production deploy for thailandaddict.com (Cloudflare Workers).
-# Builds the FULL local Astro dist (every page) then `wrangler deploy` — no browser OAuth, no prompts.
+# Builds the FULL local Astro dist (every page), runs the SAME gates as `npm run verify`, then
+# `wrangler deploy` — no browser OAuth, no prompts. Equivalent to `npm run deploy` from the repo
+# root; this variant exists for the token-based, non-interactive path.
 #
 # AUTH: reads CLOUDFLARE_API_TOKEN. Set it ONCE (persists in your Windows user profile / registry):
 #         setx CLOUDFLARE_API_TOKEN "<your-cloudflare-api-token>"
@@ -38,11 +40,11 @@ $env:CLOUDFLARE_ACCOUNT_ID = $ACCOUNT_ID
 $env:WRANGLER_SEND_METRICS = 'false'
 
 if (-not $SkipBuild) {
-  # CRITICAL: clear the Astro content-layer cache + dist first. A stale .astro/data-store.json makes the
-  # glob() content loader silently SKIP newly-added reviews/roundups, so the build emits a PARTIAL dist and
-  # the new pages 404 on production (this — not OOM — is the real "partial dist" cause). build-test.sh never
-  # hit it because it builds in a fresh repo copy with no cache. Always nuke the cache before a prod build.
-  Write-Host "› Clearing stale Astro cache + dist (prevents partial-dist 404s)…" -ForegroundColor Cyan
+  # Clear dist and the Astro cache before a prod build. The stale-data-store hazard this used to guard
+  # against is gone as of 2026-09-09 — content collections were retired and the routes read JSON from
+  # disk per page (astro/src/lib/content-fs.ts), so there is no content store to go stale. Clearing is
+  # kept because a leftover dist would let deleted pages ship, and because it is cheap.
+  Write-Host "› Clearing astro cache + dist…" -ForegroundColor Cyan
   Remove-Item -Recurse -Force "$repo\astro\.astro", "$repo\astro\node_modules\.astro", "$repo\astro\dist" -ErrorAction SilentlyContinue
   Write-Host "› Building full dist (astro)…" -ForegroundColor Cyan
   Set-Location "$repo\astro"
@@ -50,10 +52,28 @@ if (-not $SkipBuild) {
   if ($LASTEXITCODE -ne 0) { Write-Host "✗ Build failed — NOT deploying." -ForegroundColor Red; exit 1 }
 }
 
-# Sanity: dist must look complete before we ship it (guards against a partial/empty build going live).
-$distPages = (Get-ChildItem "$repo\astro\dist" -Filter *.html -File -ErrorAction SilentlyContinue).Count
-Write-Host "› astro/dist has $distPages top-level .html pages" -ForegroundColor Cyan
-if ($distPages -lt 5000) { Write-Host "✗ dist looks partial ($distPages pages) — refusing to deploy. Run a full build first." -ForegroundColor Red; exit 1 }
+# THE GATES. Identical to `npm run verify`: check-page-coverage (the FLOOR — every content JSON must
+# have produced a real page over 2,048 bytes, and every content directory must have produced at least
+# one) then check-file-count (the CEILING — deployable files under Cloudflare's cap).
+#
+# This replaced a `-lt 5000 top-level .html` heuristic on 2026-09-09. That heuristic counted only the
+# repo ROOT of dist, so it passed a tree with every /zh/, /ru/ and /ko/ page missing — the exact partial
+# deploy it was meant to stop. Do not put a page-count threshold back here; the expected set comes from
+# the content on disk.
+Write-Host "› Verifying dist (page coverage + deployable file count)…" -ForegroundColor Cyan
+Set-Location $repo
+& npm.cmd run verify
+if ($LASTEXITCODE -ne 0) { Write-Host "✗ Verify gate failed — NOT deploying. A partial deploy is worse than no deploy." -ForegroundColor Red; exit 1 }
+
+# wrangler is PINNED as a root devDependency (^4.34.0, lockfile 4.130.0). npx would happily fetch
+# an unpinned latest from the registry if it is missing, which is the thing the pin exists to stop —
+# and >= 4.34.0 is the floor for Cloudflare's 100,000-file static-asset limit. So require it.
+if (-not (Test-Path "$repo
+ode_moduleswranglerpackage.json")) {
+  Write-Host "✗ Pinned wrangler is not installed. Run `npm install` in the repo root first." -ForegroundColor Red
+  Write-Host "  (deploying through an unpinned npx-fetched wrangler is not allowed here)" -ForegroundColor Yellow
+  exit 1
+}
 
 Write-Host "› Deploying to Cloudflare (account $ACCOUNT_ID)…" -ForegroundColor Cyan
 Set-Location $repo

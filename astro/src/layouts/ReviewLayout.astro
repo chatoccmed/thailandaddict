@@ -1,6 +1,5 @@
 ---
 import '../styles/review.css';
-import type { CollectionEntry } from 'astro:content';
 import Analytics from '../components/Analytics.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
@@ -8,7 +7,9 @@ import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
 import { stampAffiliate } from '../lib/affiliate';
 
 interface Props {
-  data: CollectionEntry<'reviews'>['data'];
+  // Raw JSON entry, read from disk by the route (src/lib/content-fs.ts). Shape is enforced before the
+  // build by _internal/qa/validate-content.mjs against reviewSchema in src/lib/schemas.mjs.
+  data: any;
   lang?: 'th' | 'en' | 'zh' | 'ru' | 'ko' | 'ja' | 'hi' | 'he' | 'ar';
   availableLocales?: string[];
 }

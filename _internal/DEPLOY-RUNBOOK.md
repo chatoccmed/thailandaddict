@@ -3,6 +3,36 @@
 > สร้าง 2026-06-21 · เป้าหมาย: เอาเว็บ Astro (11,001 หน้า, TH+EN) ขึ้นแทนเว็บ WordPress เดิมบนโดเมน `thailandaddict.com` โดยไม่เสีย SEO
 > source of truth = โค้ดจริง + Cloudflare dashboard (อย่าเชื่อ doc ถ้าขัดของจริง)
 
+---
+
+## 🚦 คำสั่ง deploy = `npm run deploy` เท่านั้น (อัปเดต 2026-09-09)
+
+```bash
+cd /c/Users/Imac/Thailandaddict/thailandaddict
+export PATH="$HOME/nodejs:$PATH"
+npm run deploy      # = npm run build → npm run verify → npx wrangler deploy
+```
+
+**ห้ามรัน `npx wrangler deploy` เปล่า ๆ อีกต่อไป** — มันข้าม gate ทั้งสองตัว และ Cloudflare
+รับ dist ที่ไม่ครบไปทับของจริงอย่างยินดี (dist บางส่วน = dist ที่ถูกต้องในสายตา Cloudflare)
+ครั้งหนึ่งเดือนมิถุนายน 2026 build เขียว หน้า content เป็นศูนย์ แล้ว deploy สำเร็จมาแล้ว
+
+| script (root `package.json`) | ทำอะไร |
+|---|---|
+| `npm run build` | `cd astro && npm run build` (prebuild → gen-* → astro build) |
+| `npm run verify` | `_internal/qa/check-page-coverage.mjs` (พื้น — ทุกไฟล์ JSON ต้องได้หน้าจริง > 2,048 B) แล้ว `_internal/qa/check-file-count.mjs` (เพดาน — ไฟล์ deploy ต้องไม่เกินลิมิต Cloudflare) |
+| `npm run deploy` | build → verify → `npx wrangler deploy` · **หยุดทันทีถ้า gate ไหนแดง** |
+
+`wrangler` ถูก pin เป็น devDependency ของ root (`^4.34.0`, lock = 4.130.0) — `npx` จึงหยิบตัวใน
+`node_modules` ไม่ใช่เวอร์ชันที่ registry ให้มาวันนั้น (≥ 4.34.0 คือเงื่อนไขของลิมิต static asset 100,000 ไฟล์)
+ถ้า clone ใหม่ ต้อง `npm install` ที่ root ก่อน ไม่งั้น `npx` จะไปโหลดเวอร์ชันสุ่มจาก registry
+
+PowerShell: `powershell -ExecutionPolicy Bypass -File _internal\deploy.ps1` ก็ได้ — มันเรียก
+`npm run verify` ตัวเดียวกันก่อน deploy (และอ่าน `CLOUDFLARE_API_TOKEN` ให้เอง ไม่ต้อง OAuth)
+
+> ⚠️ เอกสารส่วนที่เหลือด้านล่างเขียนไว้ตอน cutover เดือน มิ.ย. 2026 — ทุกที่ที่เขียนว่า
+> `npx wrangler deploy` ให้อ่านเป็น `npm run deploy` แทน
+
 ## 🔴 สถานะปัจจุบัน (ตรวจสด 2026-06-21)
 - `thailandaddict.com` ยังเป็น **WordPress + WooCommerce** (ธีม TravelWP demo · ยังมีทัวร์ demo Rome Colosseum)
 - DNS อยู่ที่ **Hostatom** (nameserver `th33.hostatom.com` / `th34.hostatom.com`) · A record → `147.50.255.17` (เซิร์ฟเวอร์ WP)
@@ -13,7 +43,7 @@
 - **Cloudflare Workers Static Assets** · config = `wrangler.jsonc` (root): `name="thailandaddict"`, `assets.directory="./astro/dist"`, `not_found_handling="404-page"`
 - build: `cd astro && npm install && npm run build` → ออกที่ `astro/dist` (heap 8GB ตั้งใน package.json แล้ว) · `prebuild.mjs` รัน gen-home + gen-sitemap + gen-search-index อัตโนมัติ
 - `astro/public/**` (รวม `_redirects`, `_headers`, `llms.txt`, `robots.txt`, `sitemap.xml`, รูป, hub HTML, `/en/**`) ถูก copy ตรงเข้า `dist/` ตอน build
-- deploy: `npx wrangler deploy` (จาก root) → อัป `astro/dist` เป็น Worker ชื่อ `thailandaddict`
+- deploy: **`npm run deploy`** (จาก root) → build → verify (2 gate) → `npx wrangler deploy` → อัป `astro/dist` เป็น Worker ชื่อ `thailandaddict`
 - ⚠️ Workers custom domain **ต้องให้โดเมนอยู่บน Cloudflare ก่อน** (zone active) — นี่คือเหตุผลที่ต้องย้าย NS
 
 ## 👤 ใครทำอะไร
@@ -23,7 +53,7 @@
 | `_redirects` จาก URL เก่า | ✅ (ทำแล้ว 428 rules) | |
 | สมัคร/ตั้งค่า Cloudflare account | | ✅ |
 | เปลี่ยน nameserver ที่ registrar | | ✅ |
-| `wrangler login` + `wrangler deploy` | (รันให้ได้ถ้ามี API token) | ✅ (อนุมัติ/ให้ token) |
+| `wrangler login` + `npm run deploy` | (รันให้ได้ถ้ามี API token) | ✅ (อนุมัติ/ให้ token) |
 | ผูก custom domain + DNS record | | ✅ (dashboard) |
 | verify หลัง launch (curl) | ✅ | |
 | ส่ง sitemap เข้า Google/Bing | | ✅ |
@@ -72,13 +102,13 @@ bash _internal/build-test.sh                        # BUILD OK (ยืนยั�
 ```bash
 cd /c/Users/Imac/Thailandaddict/thailandaddict
 export PATH="$HOME/nodejs:$PATH"
-rm -rf astro/.astro astro/node_modules/.astro astro/dist   # ⚠️ MUST clear the Astro content-layer cache first — a plain
-                                                    #    `npm run build` can reuse a STALE data-store and silently drop newly
-                                                    #    added content-collection entries from dist (green build, pages 404 live).
-                                                    #    This is what deploy.ps1 does; skipping it reproduces the partial-dist bug.
-cd astro && npm install && npm run build && cd ..   # → astro/dist (รวม public/)
+npm install && (cd astro && npm install)             # ครั้งแรกเท่านั้น (root = wrangler ที่ pin ไว้)
 npx wrangler login                                   # เปิด browser auth (เจ้าของอนุมัติ) — หรือใช้ CLOUDFLARE_API_TOKEN
-npx wrangler deploy                                  # อ่าน wrangler.jsonc → อัป astro/dist เป็น Worker "thailandaddict"
+npm run deploy                                       # build → verify → wrangler deploy · แดงที่ gate = ไม่ deploy
+
+# (2026-09-09) ไม่ต้อง rm -rf astro/.astro อีกแล้ว: content collection ถูกถอดออกทั้งหมด
+# route อ่าน JSON จากดิสก์ตอน render (astro/src/lib/content-fs.ts) จึงไม่มี data-store ให้ค้าง
+# ดู _internal/BUILD-ROOTCAUSE-2026-09.md
 ```
 - ได้ URL ทดสอบ `https://thailandaddict.<account>.workers.dev` (เปิด workers.dev subdomain ใน dashboard ถ้ายังไม่เปิด)
 - **ทดสอบบน workers.dev ก่อน** (เว็บจริงยังไม่กระทบ) — ดู Phase 5
@@ -124,11 +154,11 @@ for f in sitemap.xml robots.txt llms.txt; do curl -s -o /dev/null -w "%{http_cod
 ## ⚠️ จุดเสี่ยงที่ต้องระวัง
 1. **อีเมล @thailandaddict.com** — ถ้ามี ต้อง copy MX/TXT(SPF/DKIM) มา Cloudflare ให้ครบ ไม่งั้นอีเมลล่มตอนย้าย NS
 2. **โดเมน registrar** — ต้องรู้ว่าจดที่ไหนเพื่อเปลี่ยน NS (Hostatom จัดการ DNS อยู่ อาจเป็นที่จดด้วย)
-3. **wrangler auth** — ผมรัน `wrangler deploy` ได้ถ้ามี `CLOUDFLARE_API_TOKEN` (เจ้าของสร้างใน dashboard: My Profile → API Tokens → "Edit Cloudflare Workers") ไม่งั้นเจ้าของรันเองตามคำสั่ง Phase 2
+3. **wrangler auth** — ผมรัน `npm run deploy` ได้ถ้ามี `CLOUDFLARE_API_TOKEN` (เจ้าของสร้างใน dashboard: My Profile → API Tokens → "Edit Cloudflare Workers") ไม่งั้นเจ้าของรันเองตามคำสั่ง Phase 2
 4. **workers.dev limit** — ถ้า assets เยอะมาก deploy ครั้งแรกอาจนาน (อัป ~10k ไฟล์)
 
 ---
 ## สถานะ build (ตรวจสด 2026-06-21)
 - ✅ **build-test = BUILD OK · 11,001 หน้า** · migration audit `errors=0 warns=0` · git clean + synced (origin/main)
 - ✅ `_redirects` 428 rules (209 posts · 0 target พัง) · `llms.txt` · `robots.txt` · `sitemap.xml` 11,211 URLs (auto ทุก build) · `search-index.json` 5,599/locale
-- ✅ Pre-flight (Phase 0) ครบทุกข้อในฝั่ง Claude — เหลือเฉพาะงานเจ้าของ (Cloudflare account · เปลี่ยน NS · wrangler deploy · ผูก custom domain · ส่ง sitemap GSC/Bing)
+- ✅ Pre-flight (Phase 0) ครบทุกข้อในฝั่ง Claude — เหลือเฉพาะงานเจ้าของ (Cloudflare account · เปลี่ยน NS · `npm run deploy` · ผูก custom domain · ส่ง sitemap GSC/Bing)

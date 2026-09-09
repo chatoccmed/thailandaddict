@@ -28,6 +28,13 @@ _scaffold.mjs
 # Logs
 *.log
 npm-debug.log*
-/package.json
-/package-lock.json
+
+# The repo-root package.json / package-lock.json are TRACKED as of 2026-09-09.
+# They were ignored while the root package.json was a scratch holder for a one-off
+# @aws-sdk install. It now holds the only gated path to production —
+#   build -> verify (_internal/qa/check-page-coverage.mjs + check-file-count.mjs) -> wrangler deploy
+# — and the wrangler version pin (^4.34.0; >= 4.34.0 is the floor for Cloudflare's
+# 100,000-file static-asset limit). Ignoring them means a fresh clone has no
+# `npm run deploy` and falls back to bare `wrangler deploy`, which skips both gates.
+# Re-adding `/package.json` here silently un-wires the deploy gate. Do not.
 /astro/public/feeds/

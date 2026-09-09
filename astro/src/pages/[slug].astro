@@ -1,37 +1,38 @@
 ---
-import { getCollection } from 'astro:content';
+// Thai pages, served at the site root. Reads its one entry from disk at render time —
+// content collections were retired 2026-09-09 (_internal/BUILD-ROOTCAUSE-2026-09.md §5).
+// props carry only what is needed to LOCATE the entry; putting `data` back in props
+// re-materialises all 19,530 entries in memory and brings the build ceiling back.
+import { slugsOf, readEntry } from '../lib/content-fs';
 import ReviewLayout from '../layouts/ReviewLayout.astro';
 import RoundupLayout from '../layouts/RoundupLayout.astro';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
 import { extraLocalesBySlug, extraReviewLocalesBySlug, extraRoundupLocalesBySlug } from '../lib/locales';
 
 export async function getStaticPaths() {
-  const reviews = await getCollection('reviews');
-  const roundups = await getCollection('roundups');
-  const articles = await getCollection('articles');
-  const articlesEn = await getCollection('articlesEn');
-  const enArt = new Set(articlesEn.map((r) => r.data.slug));
+  const enArt = new Set(slugsOf('articles-en'));
   const extra = await extraLocalesBySlug();
   const extraRv = await extraReviewLocalesBySlug();
   const extraRd = await extraRoundupLocalesBySlug();
   return [
-    ...reviews.map((r) => ({
-      params: { slug: r.data.slug },
-      props: { kind: 'review' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRv[r.data.slug] || [])] },
+    ...slugsOf('reviews').map((slug) => ({
+      params: { slug },
+      props: { kind: 'review' as const, dir: 'reviews', availableLocales: ['th', 'en', ...(extraRv[slug] || [])] },
     })),
-    ...roundups.map((r) => ({
-      params: { slug: r.data.slug },
-      props: { kind: 'roundup' as const, data: r.data, availableLocales: ['th', 'en', ...(extraRd[r.data.slug] || [])] },
+    ...slugsOf('roundups').map((slug) => ({
+      params: { slug },
+      props: { kind: 'roundup' as const, dir: 'roundups', availableLocales: ['th', 'en', ...(extraRd[slug] || [])] },
     })),
-    ...articles.map((r) => ({
-      params: { slug: r.data.slug },
-      props: { kind: 'article' as const, data: r.data, hasEn: enArt.has(r.data.slug),
-        availableLocales: [...(enArt.has(r.data.slug) ? ['th', 'en'] : ['th']), ...(extra[r.data.slug] || [])] },
+    ...slugsOf('articles').map((slug) => ({
+      params: { slug },
+      props: { kind: 'article' as const, dir: 'articles', hasEn: enArt.has(slug),
+        availableLocales: [...(enArt.has(slug) ? ['th', 'en'] : ['th']), ...(extra[slug] || [])] },
     })),
   ];
 }
 
-const { kind, data, hasEn, availableLocales } = Astro.props;
+const { kind, dir, hasEn, availableLocales } = Astro.props;
+const data = readEntry(dir, Astro.params.slug!);   // one entry live at a time
 ---
 {kind === 'review' ? <ReviewLayout data={data} availableLocales={availableLocales} />
   : kind === 'roundup' ? <RoundupLayout data={data} availableLocales={availableLocales} />

@@ -1,7 +1,13 @@
-import { getCollection } from 'astro:content';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { slugsOf, PROJECT_ROOT } from './content-fs';
+
+// 2026-09-09: this file used getCollection() to read one field — .data.slug — off every entry of
+// 21 collections, and it did it on every call. That was 3 calls × 7 collections × 9 routes = 189
+// whole-collection loads per build, each one running Astro's updateImageReferencesInData traversal
+// over data this site never uses. It now reads directory listings instead (src/lib/content-fs.ts:
+// slug === filename stem, verified across all 19,530 files), and the three extraLocales* maps are
+// memoized in module scope. See _internal/BUILD-ROOTCAUSE-2026-09.md §5.4.
 
 // Pages that exist ONLY at the site root — no /en/ twin, no localized twin. Verified against a full build:
 // dist has 7,435 root pages vs 7,432 under /en/, and exactly these 3 are the difference. link() must never
@@ -18,14 +24,14 @@ const _localizedSlugCache: Record<string, Set<string>> = {};
 export async function localizedSlugSet(loc: string): Promise<Set<string>> {
   if (_localizedSlugCache[loc]) return _localizedSlugCache[loc];
   const s = new Set<string>();
-  const cap = loc.charAt(0).toUpperCase() + loc.slice(1);   // zh -> Zh
   for (const kind of ['reviews', 'roundups', 'articles']) {
-    try {
-      for (const e of (await getCollection((kind + cap) as any)) as any[]) s.add(e.data.slug);
-    } catch { /* collection may not exist for this locale */ }
+    for (const slug of slugsOf(`${kind}-${loc}`)) s.add(slug);   // missing dir → []
   }
   try {
-    const pubDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../public', loc);
+    // Anchored on PROJECT_ROOT, not on this file's own import.meta.url. In a build Rollup moves
+    // this module into dist/chunks/, where '../../public' happens to land on the right directory
+    // by pure coincidence of depth — see the note in content-fs.ts. Do not go back to that.
+    const pubDir = path.join(PROJECT_ROOT, 'public', loc);
     for (const f of fs.readdirSync(pubDir)) if (f.endsWith('.html')) s.add(f.replace(/\.html$/, ''));
   } catch { /* no public/<loc> dir */ }
   _localizedSlugCache[loc] = s;
@@ -33,44 +39,37 @@ export async function localizedSlugSet(loc: string): Promise<Set<string>> {
 }
 
 // Generic version: build a map slug -> extra locales (beyond th/en) that have a translated twin,
-// given the 7 new-locale collection names for a content type (articles/reviews/roundups).
-async function extraLocalesFor(cols: Array<[string, string]>): Promise<Record<string, string[]>> {
+// given the 7 new-locale content directories for a content type (articles/reviews/roundups).
+function extraLocalesFor(dirs: Array<[string, string]>): Record<string, string[]> {
   const m: Record<string, string[]> = {};
-  for (const [loc, col] of cols) {
-    let entries: Array<{ data: { slug: string } }> = [];
-    try {
-      entries = (await getCollection(col as any)) as any;
-    } catch {
-      entries = [];
-    }
-    for (const e of entries) {
-      (m[e.data.slug] ||= []).push(loc);
+  for (const [loc, dir] of dirs) {
+    for (const slug of slugsOf(dir)) {          // missing dir → []
+      (m[slug] ||= []).push(loc);
     }
   }
   return m;
 }
 
+const LOCS = ['zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
+
+// Memoized in module scope: each of these was recomputed on all nine routes (27 rebuilds per build)
+// to produce a map that cannot change during a build.
+let _extraArticles: Record<string, string[]> | null = null;
+let _extraReviews: Record<string, string[]> | null = null;
+let _extraRoundups: Record<string, string[]> | null = null;
+
 // Build a map: article slug -> array of extra locales (beyond th/en) that have a translated twin.
 // Used by the routes to tell ArticleLayout which language-switcher options a page should show,
 // so a page only offers locales that actually exist (no dead switcher links).
 export async function extraLocalesBySlug(): Promise<Record<string, string[]>> {
-  return extraLocalesFor([
-    ['zh', 'articlesZh'], ['ru', 'articlesRu'], ['ko', 'articlesKo'],
-    ['ja', 'articlesJa'], ['hi', 'articlesHi'], ['he', 'articlesHe'], ['ar', 'articlesAr'],
-  ]);
+  return (_extraArticles ||= extraLocalesFor(LOCS.map((l): [string, string] => [l, `articles-${l}`])));
 }
 
 // Same idea for the 30 tourism-city hotel roundups + their linked individual reviews
 // (booking-funnel i18n — not translated site-wide, only for these curated slugs).
 export async function extraReviewLocalesBySlug(): Promise<Record<string, string[]>> {
-  return extraLocalesFor([
-    ['zh', 'reviewsZh'], ['ru', 'reviewsRu'], ['ko', 'reviewsKo'],
-    ['ja', 'reviewsJa'], ['hi', 'reviewsHi'], ['he', 'reviewsHe'], ['ar', 'reviewsAr'],
-  ]);
+  return (_extraReviews ||= extraLocalesFor(LOCS.map((l): [string, string] => [l, `reviews-${l}`])));
 }
 export async function extraRoundupLocalesBySlug(): Promise<Record<string, string[]>> {
-  return extraLocalesFor([
-    ['zh', 'roundupsZh'], ['ru', 'roundupsRu'], ['ko', 'roundupsKo'],
-    ['ja', 'roundupsJa'], ['hi', 'roundupsHi'], ['he', 'roundupsHe'], ['ar', 'roundupsAr'],
-  ]);
+  return (_extraRoundups ||= extraLocalesFor(LOCS.map((l): [string, string] => [l, `roundups-${l}`])));
 }

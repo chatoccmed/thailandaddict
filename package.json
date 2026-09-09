@@ -1,0 +1,13 @@
+{
+  "name": "thailandaddict",
+  "private": true,
+  "description": "Repo-root scripts. `npm run deploy` is the ONLY path to production: it builds, gates, then uploads. Never run `wrangler deploy` on its own — that skips the gates, and a partial dist is a valid dist as far as Cloudflare is concerned.",
+  "scripts": {
+    "build": "cd astro && npm run build",
+    "verify": "node _internal/qa/check-page-coverage.mjs astro/dist && node _internal/qa/check-file-count.mjs astro/dist",
+    "deploy": "npm run build && npm run verify && npx wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.34.0"
+  }
+}
