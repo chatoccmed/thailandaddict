@@ -1,0 +1,249 @@
+/* =============================================================================
+   compat.css — the old-token alias shim
+   Blueprint §2.5 · bundled third, after tokens.css and shell.css
+
+   WHAT THIS IS
+   ------------
+   Three separate colour vocabularies grew in this codebase before there was a
+   design system. This file maps every one of their custom properties onto the
+   Andaman Deck functional aliases, so ~17,000 pages change colour, type and
+   elevation in ONE commit with ZERO markup edits — and so each renderer can
+   then be de-shimmed independently instead of all at once.
+
+   >>> THIS FILE IS DELETED AT THE END OF PHASE 3. <<<
+   Adding a line to it is MIGRATION DEBT, not a fix. The only legitimate edits
+   are (a) a name that already exists in the codebase and was missed, and
+   (b) deletions, as each renderer is de-shimmed. If you are tempted to add a
+   NEW name here, you want a functional alias in tokens.css instead.
+
+   HOW IT TAKES EFFECT
+   -------------------
+   Everything lives in `@layer tokens`, the FIRST layer of
+   `@layer tokens, shell, page, util`. Layer precedence is resolved BEFORE
+   specificity, so:
+
+     - page CSS in @layer page (and any unlayered page CSS) still wins — by
+       design, that is the escape hatch;
+     - and therefore a renderer's own `:root{--bl:#06B6D4; …}` block SHADOWS
+       this file completely for as long as it exists. Nothing here reaches a
+       page until that local `:root` is deleted. That deletion is the actual
+       switch-over, per renderer, and it is what makes the rollout staged
+       instead of a big bang.
+
+   AUDIT — every custom property DEFINED in the four old renderers, found by
+   grepping, not by trusting the blueprint's list:
+
+     _internal/gen-hubs.mjs:326            15 names
+     astro/src/styles/review.css:7         24 names
+     astro/src/styles/roundup.css:7        18 names
+     astro/src/layouts/ArticleLayout.astro:397  10 names
+     astro/public/*.html (~24 hand-written)  +2 names not in any of the above
+     ReviewLayout.astro / RoundupLayout.astro   0 names — they define none and
+       inherit the vocabulary from the stylesheet they import.
+
+   Union: 34 distinct names, and all 34 are mapped below. Two of them — --ink
+   and --paper — collided head-on with tokens.css primitives; that collision
+   and how it was resolved are documented at the foot of this file. Read that
+   before touching either name.
+   ========================================================================== */
+
+@layer tokens {
+
+  :root {
+
+    /* =====================================================================
+       VOCABULARY 1 — the "bl / or" era
+       _internal/gen-hubs.mjs:326 · astro/src/styles/review.css:7 ·
+       astro/src/styles/roundup.css:7 · ~24 hand-written astro/public/*.html
+
+       The three files disagree on several values (noted per line). Routing
+       them all through one alias is not a regression, it is the point: the
+       divergence is unintentional and invisible today.
+       ===================================================================== */
+
+    /* Brand primary — links, active states, primary buttons, the logo <em>.
+       #06B6D4 in all four renderers. */
+    --bl:      var(--accent);
+    --bl-dk:   var(--accent-hover);            /* #0891b2 */
+
+    /* Quiet accent wash: chip fills, table row hover, TOC hover.
+       Three different values today — review #e0f7fc · roundup
+       rgba(6,182,212,.08) · hubs #ecfeff. All three are backgrounds sitting
+       on an opaque ground, so the opaque alias is safe. */
+    --bl-lt:   var(--accent-quiet);
+
+    /* Editorial rose — section eyebrows, CTA buttons, medal accents. */
+    --or:      var(--editorial);               /* #FB7185 */
+    --or-lt:   var(--coral-100);               /* #ffe4e9 / #fff1f3 — background only, verified */
+
+    /* Highlight gold — scores, badges, the medal gradient. */
+    --go:      var(--highlight);               /* #FBBF24 */
+
+    /* --gr is NOT a green. Both stylesheets define it as #06B6D4, byte for
+       byte the same cyan as --bl; the name is a fossil. Mapping it anywhere
+       but --accent would silently split one colour into two. */
+    --gr:      var(--accent);
+    --gr-lt:   var(--accent-quiet);            /* #f1fbfd — .pros-box, .mrt-box fills */
+
+    /* Text ramp. --sub is secondary text (AA); --mut is tertiary/meta text
+       and is deliberately BELOW AA in light, exactly as #94a3b8 was. When a
+       renderer is de-shimmed, any --mut that carries real sentences must
+       move to --text-muted; --mut survives only for hairline meta. */
+    --ink:     var(--text);                    /* #0F172A — body text; 75 uses across the four renderers */
+    --sub:     var(--text-muted);              /* #64748b */
+    --mut:     var(--sand-500);                /* #94a3b8 hubs #9aa7b8 */
+
+    /* Surfaces and hairlines.
+       --bg is the page ground: #f1fbfd in review/roundup, #ffffff in
+       ArticleLayout. Both are "the page", so both become --surface. */
+    --bdr:     var(--border);                  /* #e6eef2 */
+    --bg:      var(--surface);
+    --card:    var(--surface-2);               /* #ffffff */
+
+    /* Radius. Three renderers disagree (--r 18/20px, --r2 24/14/13px); the
+       system caps a content surface at 12px, so both collapse onto the ramp.
+       The only file that USES either is roundup.css (--r x5, --r2 x3, 20px >
+       14px) plus gen-hubs (--r x3); review.css defines both and references
+       neither, so its outlier --r2:24px cannot invert anything. */
+    --r:       var(--r-lg);
+    --r2:      var(--r-md);
+
+    /* Elevation. The old shadows are cyan-tinted and heavy
+       (0 8px 24px rgba(6,182,212,.18)); the system's are ink-tinted hairlines
+       and go flat-to-light in dark mode, which the old ones could not do. */
+    --sh:      var(--elev-1);
+    --sh2:     var(--elev-2);
+
+
+    /* =====================================================================
+       VOCABULARY 1b — the wherebest-era aliases still living in review.css
+       review.css:14-15. Each is already an alias of a Vocabulary-1 name, so
+       each resolves through to the same place. Kept explicit rather than
+       chained, so deleting one line cannot break another.
+       ===================================================================== */
+
+    --rust:    var(--accent);                  /* was var(--bl)  */
+    --gold:    var(--editorial);               /* was var(--or)  */
+    --gold2:   var(--highlight);               /* was var(--go)  */
+    --paper:   var(--surface);                 /* was var(--bg)  */
+    --faint:   var(--border);                  /* was var(--bdr) */
+    --warm:    var(--text-muted);              /* was var(--sub) */
+    --muted:   var(--sand-500);                /* was var(--mut) */
+
+
+    /* =====================================================================
+       VOCABULARY 2 — ArticleLayout.astro:397
+       Also present in 5-8 of the hand-written astro/public/*.html pages.
+       ===================================================================== */
+
+    --teal:    var(--accent);                  /* #06B6D4 — same cyan again */
+    --teal-dk: var(--accent-hover);            /* #0891b2 */
+    --coral:   var(--editorial);               /* #FB7185 */
+    --mango:   var(--highlight);               /* #FBBF24 */
+    --soft:    var(--surface-3);               /* #f1fbfd — nav hover, panel fills */
+
+
+    /* =====================================================================
+       VOCABULARY 3 — names found ONLY in the hand-written astro/public pages
+       Not in the blueprint's list, and not in any of the three renderers.
+       index.html · michelin-finder.html · trip.html · trip-budget.html
+       ===================================================================== */
+
+    --rd:      var(--coral-800);               /* #f43f5e — same value as --or-dk */
+    --shadow:  var(--elev-2);                  /* 0 10px 30px -12px rgba(15,40,70,.18) */
+  }
+
+
+  /* =======================================================================
+     THEME-AWARE CORRECTIONS
+
+     A ramp step (--coral-800, --teal-700 …) is a fixed hex. Only the
+     FUNCTIONAL aliases re-pick per theme. So any old token that maps onto a
+     ramp step is frozen at its light-mode value and breaks on night.
+
+     Two of them are used as `color:` on text — `color:var(--or-dk)` x5 in
+     gen-hubs.mjs, `color:var(--coral-dk)` x6 in ArticleLayout — so freezing
+     them at coral-800 (#712C25) would paint near-black text on the night
+     ground. The blueprint's §2.5 snippet has exactly this bug; these blocks
+     are the fix.
+
+     Same three-block shape as tokens.css §7, so an explicit user choice wins
+     in BOTH directions and the OS setting is only consulted when the reader
+     has not chosen.
+     ==================================================================== */
+
+  :root {
+    --or-dk:    var(--coral-800);   /* #f43f5e -> deepened for ink-on-paper  */
+    --coral-dk: var(--coral-800);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      /* coral-200 #FCCABD: 11.4:1 on night-950, 10.0:1 on night-850.
+         One step brighter than --editorial (coral-300) so the "-dk" token
+         still reads as the emphatic one, which is its whole job. */
+      --or-dk:    var(--coral-200);
+      --coral-dk: var(--coral-200);
+      --rd:       var(--coral-200);
+
+      /* --or-lt is a background wash (3 uses, all `background:`). A light
+         wash on a night ground is a hole in the page; --surface-3 is the
+         system's own tinted panel and tracks the theme. */
+      --or-lt:    var(--surface-3);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --or-dk:    var(--coral-200);
+    --coral-dk: var(--coral-200);
+    --rd:       var(--coral-200);
+    --or-lt:    var(--surface-3);
+  }
+
+  :root[data-theme="light"] {
+    --or-dk:    var(--coral-800);
+    --coral-dk: var(--coral-800);
+    --rd:       var(--coral-800);
+    --or-lt:    var(--coral-100);
+  }
+
+
+  /* =======================================================================
+     THE NAME COLLISION, AND WHY tokens.css MOVED INSTEAD OF THIS FILE
+
+     Two of the 34 old names — --ink and --paper — also existed in tokens.css,
+     as the primitives the aliases are built from:
+
+         --ink: #1C140E;   --text: var(--ink);
+         --paper: #FBFAF7; --surface: var(--paper);
+
+     Mapping them here as `--ink: var(--text)` would have closed a var() cycle:
+     --text resolves to --ink, --ink resolves to --text, both become invalid at
+     computed-value time, and every piece of text on the site falls back to its
+     initial colour.
+
+     Leaving them unmapped was worse, and not obviously so. The primitives are
+     FIXED values — they do not re-pick per theme, that is their job. The old
+     vocabulary writes `color: var(--ink)` 75 times across the four renderers,
+     and those 75 rules reach essentially every page. Unmapped, a reader with
+     the OS set to dark would have got #1C140E text on the #081113 night
+     ground: invisible, site-wide, with nothing in any log to say so.
+
+     So tokens.css renamed its two primitives to --ink-950 and --paper-050
+     (22 lines, all inside _internal/shell/, zero references anywhere else —
+     verified by grep across _proto, smoke-test.html, shell.js and sheet.js),
+     and the old names are mapped here to the theme-aware aliases like every
+     other one. The three shell rules that genuinely need a fixed dark ink on a
+     fixed light fill — .ta-toast, .ta-rank-1, .ta-badge[data-count="0"] — now
+     name --ink-950 explicitly, which is what they always meant.
+
+     STILL A HAZARD, and it must be closed by the layout that owns it:
+     review.css:15 declares `--paper: var(--bg)` UNLAYERED, and unlayered
+     author CSS beats every cascade layer. It no longer touches --surface (the
+     shell reads --paper-050 now), but it does shadow this file's --paper on
+     any page that imports review.css. Deleting review.css's `:root` block is
+     therefore a prerequisite of the review de-shim, not optional cleanup, and
+     it lands in the same commit as the <Shell/> adoption.
+     ==================================================================== */
+
+}

@@ -939,7 +939,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
           The data was authored to be shown and never was — ArticleLayout has rendered its equivalent
           all along. Sits above the whole-tile booking link so the credit stays clickable. */}
       {data.heroCredit && (
-        <span style="position:absolute;bottom:8px;left:14px;z-index:3;font-size:10px;color:rgba(255,255,255,.72);text-shadow:0 1px 2px rgba(0,0,0,.5);">
+        <span style="position:absolute;bottom:8px;inset-inline-start:14px;z-index:3;font-size:10px;color:rgba(255,255,255,.72);text-shadow:0 1px 2px rgba(0,0,0,.5);">
           {data.heroCreditHref
             ? <a href={goB(data.heroCreditHref)} target="_blank" rel="nofollow noopener" style="color:rgba(255,255,255,.72);text-decoration:underline;" set:html={data.heroCredit} />
             : <span set:html={data.heroCredit} />}
@@ -1029,7 +1029,7 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
     </aside>
   )}
   <style>
-    .quick-answer{background:linear-gradient(180deg,#f1fbfd 0%,#ffffff 100%);border:1px solid #cbeef5;border-left:5px solid #06B6D4;border-radius:18px;padding:20px 24px;margin:0 0 30px;box-shadow:0 8px 24px rgba(6,182,212,.10)}
+    .quick-answer{background:linear-gradient(180deg,#f1fbfd 0%,#ffffff 100%);border:1px solid #cbeef5;border-inline-start:5px solid #06B6D4;border-radius:18px;padding:20px 24px;margin:0 0 30px;box-shadow:0 8px 24px rgba(6,182,212,.10)}
     .qa-eyebrow{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#0891b2;font-weight:700;background:#fff;padding:3px 11px;border-radius:999px;border:1px solid #cbeef5;margin-bottom:10px}
     .quick-answer h2{font-family:'Outfit',sans-serif;font-size:21px;font-weight:800;color:#0F172A;line-height:1.25;margin-bottom:10px}
     .qa-body{font-size:15.5px;line-height:1.8;color:#0F172A}
@@ -1418,12 +1418,11 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 </script>
 <a href="/trip" class="ta-tripfab" id="taTripFab" aria-label="แผนการเดินทางของฉัน" style="display:none">🧳<span class="tf-l">แผนของฉัน</span><b id="taTripN">0</b></a>
 <div id="taPlanToast" class="ta-plantoast" role="status" aria-live="polite"><span class="tpt-msg"></span><a href="/trip" class="tpt-link"></a></div>
-<style>.ta-tripfab{position:fixed;right:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;right:14px;bottom:14px}}
-.ta-plantoast{position:fixed;left:50%;bottom:84px;transform:translate(-50%,18px);z-index:9100;display:flex;align-items:center;gap:12px;max-width:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
-.ta-plantoast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+<style>.ta-tripfab{position:fixed;inset-inline-end:16px;bottom:16px;z-index:9000;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;font-family:'Outfit',system-ui,sans-serif;font-weight:800;font-size:14px;padding:12px 17px;border-radius:999px;box-shadow:0 12px 28px -8px rgba(8,145,178,.65);text-decoration:none;transition:transform .15s}.ta-tripfab:hover{transform:translateY(-2px)}.ta-tripfab b{background:rgba(255,255,255,.28);border-radius:999px;padding:1px 9px;font-size:13px;min-width:22px;text-align:center}@media(max-width:560px){.ta-tripfab .tf-l{display:none}.ta-tripfab{padding:13px 15px;inset-inline-end:14px;bottom:14px}}
+.ta-plantoast{position:fixed;inset-inline:var(--sp-3);inset-block-end:calc(var(--floor) + var(--cta-h) + var(--sp-3));margin-inline:auto;transform:translateY(18px);z-index:var(--z-popover);display:flex;align-items:center;gap:12px;max-inline-size:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
+.ta-plantoast.show{opacity:1;visibility:visible;transform:translateY(0)}
 .ta-plantoast .tpt-msg{flex:1;line-height:1.35;min-width:0}
-.ta-plantoast .tpt-link{flex-shrink:0;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;padding:7px 13px;border-radius:999px;white-space:nowrap}
-@media(max-width:560px){.ta-plantoast{bottom:82px;left:12px;right:12px;max-width:none;transform:translateY(18px)}.ta-plantoast.show{transform:translateY(0)}}</style>
+.ta-plantoast .tpt-link{flex-shrink:0;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;text-decoration:none;font-weight:800;font-size:13px;padding:7px 13px;border-radius:999px;white-space:nowrap}</style>
 <script>(function(){
   var KEY='ta_wishlist', EN=(document.documentElement.lang||'').slice(0,2).toLowerCase()==='en';
   function read(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}

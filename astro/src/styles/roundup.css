@@ -229,8 +229,13 @@ tr:hover td{background:var(--bl-lt)}
 .ft-bottom a{color:rgba(255,255,255,.4);transition:color .2s;text-decoration:none}
 .ft-bottom a:hover{color:#fff}
 .ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
-.mbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#ffffff;box-shadow:0 -4px 20px rgba(6,182,212,.12);display:none;gap:10px;padding:10px 14px}
-@media(max-width:760px){.mbar{display:flex}body{padding-bottom:66px}}
+/* Sticky CTA — on the bottom-edge contract (blueprint §4.3). It sits ON the floor
+   the shell's tab bar defines (--floor), never underneath it, and reserves its own
+   height through --cta-h so shell.css's body padding-block-end accounts for it.
+   The old `body{padding-bottom:66px}` was unscoped, so it also padded every review
+   and article page — neither of which has an .mbar — out of the shared bundle. */
+.mbar{position:fixed;inset-block-end:var(--floor,0px);inset-inline:0;z-index:var(--z-cta,900);background:#ffffff;box-shadow:0 -4px 20px rgba(6,182,212,.12);display:none;gap:10px;padding-block:10px;padding-inline:14px}
+@media(max-width:760px){.mbar{display:flex}body.rd-page{--cta-h:66px}}
 .mbar a{flex:1;text-align:center;font-family:'Outfit',sans-serif;font-size:14.75px;font-weight:700;padding:13px;border-radius:12px;text-decoration:none}
 .mbar .m1{background:var(--or);color:#fff}
 .mbar .m2{background:var(--bl-lt);color:var(--bl-dk)}

@@ -6,6 +6,20 @@
    LAYER ORDER FOR THE WHOLE SITE:  @layer tokens, shell, page, util;
    Declared here, once. Page CSS can never out-specify the shell.
 
+   NAMING NOTE — --ink-950 / --paper-050 (blueprint §3.2 calls these --ink and
+   --paper). They are RAMP STEPS: fixed values that do NOT re-pick per theme,
+   which is why .ta-toast, .ta-rank-1 and the zero-count badge can rely on them
+   for a dark-on-light pair in either theme. The bare names --ink and --paper
+   are already taken, site-wide, by the OLD vocabulary, where they mean the
+   theme-dependent body text and page ground — review.css:10,15 · roundup.css:11
+   · ArticleLayout:397 · gen-hubs:326 · all ~24 hand-written pages. Sharing a
+   name would have forced compat.css into `--ink: var(--text)` against
+   `--text: var(--ink)`, a var() cycle that makes BOTH invalid and drops every
+   piece of text on the site to its initial colour. Renaming the two primitives
+   costs 22 lines inside this package and nothing outside it; the alternative
+   was a dark mode where every legacy `color: var(--ink)` painted near-black on
+   the night ground. See _internal/shell/compat.css.
+
    Authoring rules:
    - Every colour is authored in OKLCH with a verified in-gamut sRGB hex
      FALLBACK declared first. Browsers without oklch() keep the hex.
@@ -57,7 +71,7 @@
     --mango-700: #985A0C;  /* measured: 5.29 paper · 5.52 white · 4.98 sand-100 · 4.63 on mango-100 */
 
     /* WARM SAND — the family the old palette lacked entirely */
-    --paper:    #FBFAF7;   /* page ground, NOT #fff */
+    --paper-050:    #FBFAF7;   /* page ground, NOT #fff */
     --sand-100: #F5F3EF;
     --sand-200: #ECE9E4;
     --sand-300: #DEDAD3;
@@ -68,7 +82,7 @@
     --sand-700: #564E48;
     --sand-800: #3A312A;
     --sand-900: #261D17;
-    --ink:      #1C140E;   /* 17.4:1 on paper */
+    --ink-950:      #1C140E;   /* 17.4:1 on paper */
 
     /* NIGHT — hue-tinted, never #000 */
     --night-950: #081113;
@@ -115,9 +129,9 @@
       --mango-600: oklch(66% .135 68);
       --mango-700: oklch(52.8% .115 64);
 
-      --paper:    oklch(98.5% .004 90);
+      --paper-050:    oklch(98.5% .004 90);
       --sand-600: oklch(53.8% .013 66);
-      --ink:      oklch(20% .018 56);
+      --ink-950:      oklch(20% .018 56);
 
       --night-950: oklch(17% .014 215);
     }
@@ -139,12 +153,12 @@
      4. FUNCTIONAL ALIASES — components consume ONLY these (blueprint §3.2)
      --------------------------------------------------------------------- */
   :root {
-    --surface: var(--paper);
+    --surface: var(--paper-050);
     --surface-2: #FFFFFF;
     --surface-3: var(--sand-100);
-    --surface-chrome: color-mix(in oklab, var(--paper) 84%, transparent);
+    --surface-chrome: color-mix(in oklab, var(--paper-050) 84%, transparent);
 
-    --text: var(--ink);
+    --text: var(--ink-950);
     --text-muted: var(--sand-600);
     --text-invert: #FFFFFF;
 
@@ -165,7 +179,7 @@
     --focus: var(--brand-signal);
     /* brand-signal is only 2.33:1 on paper, so the ring is sandwiched in a
        halo whose OUTER edge is what meets the page: 17.4:1 light, 15.8:1 dark. */
-    --focus-halo: var(--ink);
+    --focus-halo: var(--ink-950);
 
     /* PLANNER SEMANTICS
        teal means "in your trip", everywhere, and nothing else uses it as a fill */
@@ -360,19 +374,19 @@
   :root[data-theme="light"] {
     color-scheme: light;
 
-    --surface: var(--paper);
+    --surface: var(--paper-050);
     --surface-2: #FFFFFF;
     --surface-3: var(--sand-100);
-    --surface-chrome: color-mix(in oklab, var(--paper) 84%, transparent);
+    --surface-chrome: color-mix(in oklab, var(--paper-050) 84%, transparent);
 
-    --text: var(--ink);
+    --text: var(--ink-950);
     --text-muted: var(--sand-600);
     --text-invert: #FFFFFF;
 
     --border: var(--sand-300);
     --border-strong: var(--sand-400);
     --border-control: var(--sand-550);
-    --focus-halo: var(--ink);
+    --focus-halo: var(--ink-950);
 
     --accent: var(--teal-700);
     --accent-hover: var(--teal-800);
@@ -418,13 +432,13 @@
      Near-monochrome newsprint. Oxblood accent, rules instead of shadows,
      zero radius on content. Two functional-only hues (moss/ochre).        */
   :root[data-palette="b"] {
-    --paper: #F7F5F0;
+    --paper-050: #F7F5F0;
     --surface: #F7F5F0;
     --surface-2: #FFFFFF;
     --surface-3: #EFEBE3;
     --surface-chrome: color-mix(in oklab, #F7F5F0 84%, transparent);
 
-    --ink: #17150F;
+    --ink-950: #17150F;
     --text: #17150F;
     --text-2: #3A362C;
     --text-muted: #6E695C;
@@ -551,17 +565,17 @@
   /* Option C's light counterpart: Option A's paper ramp, 300-step accents. */
   :root[data-palette="c"][data-theme="light"] {
     color-scheme: light;
-    --surface: var(--paper);
+    --surface: var(--paper-050);
     --surface-2: #FFFFFF;
     --surface-3: var(--sand-100);
-    --surface-chrome: color-mix(in oklab, var(--paper) 84%, transparent);
-    --text: var(--ink);
+    --surface-chrome: color-mix(in oklab, var(--paper-050) 84%, transparent);
+    --text: var(--ink-950);
     --text-muted: var(--sand-600);
     --text-invert: #FFFFFF;
     --border: var(--sand-300);
     --border-strong: var(--sand-400);
     --border-control: var(--sand-550);
-    --focus-halo: var(--ink);
+    --focus-halo: var(--ink-950);
     --accent: var(--teal-700);
     --accent-hover: var(--teal-800);
     --accent-quiet: var(--teal-050);

@@ -24,7 +24,7 @@
 /* --- version ------------------------------------------------------------- */
 /* astro/src/data/shell-manifest.json → "v". Bump the shell, bump every cache
    in one step; a half-updated CSS/JS pair cannot exist. */
-const SHELL_V = '2d6a944e';
+const SHELL_V = '2652cd09';
 const NS = 'ta-proto';
 const C_SHELL = NS + '-shell-' + SHELL_V;
 const C_PAGES = NS + '-pages-' + SHELL_V;
@@ -41,7 +41,7 @@ const OFFLINE_URL = SCOPE_PATH + 'offline';
 /* The shell is two hashed files plus the prototype's own icons. Document paths
    are absolute because the worker's base URL is /_proto/, not the page's. */
 const PRECACHE = [
-  '/css/shell.1207a1be.css',
+  '/css/shell.d3a3e44b.css',
   '/js/shell.2029c422.js',
   SCOPE_PATH + 'offline',
   SCOPE_PATH + 'index',

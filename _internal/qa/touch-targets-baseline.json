@@ -1,0 +1,111 @@
+{
+  "_comment": [
+    "Ratchet baseline for check-touch-targets.mjs.",
+    "Per page-kind and viewport width: how many interactive controls are under 44px,",
+    "how many px of horizontal overflow, how many occluded booking CTAs. The gate",
+    "fails when a number GROWS. Occlusion is not really ratcheted — it is a hard zero",
+    "in the gate regardless of what is written here.",
+    "These numbers describe the site as it is mid-rollout, not as it should be. The",
+    "correct end state is all zeroes. Shrink after each page moves onto the shell:",
+    "  node _internal/qa/check-touch-targets.mjs --update-baseline"
+  ],
+  "generated": "2026-09-09",
+  "docRoot": "astro/dist",
+  "widths": [
+    360,
+    390,
+    430
+  ],
+  "pages": {
+    "review@360": {
+      "small": 47,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "review@390": {
+      "small": 48,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "review@430": {
+      "small": 48,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "roundup@360": {
+      "small": 55,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "roundup@390": {
+      "small": 59,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "roundup@430": {
+      "small": 59,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "article@360": {
+      "small": 29,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "article@390": {
+      "small": 29,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "article@430": {
+      "small": 29,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "hub@360": {
+      "small": 44,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "hub@390": {
+      "small": 44,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "hub@430": {
+      "small": 44,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "homepage@360": {
+      "small": 38,
+      "overflow": 6,
+      "occluded": 0
+    },
+    "homepage@390": {
+      "small": 38,
+      "overflow": 6,
+      "occluded": 0
+    },
+    "homepage@430": {
+      "small": 38,
+      "overflow": 6,
+      "occluded": 0
+    },
+    "planner@360": {
+      "small": 21,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "planner@390": {
+      "small": 21,
+      "overflow": 0,
+      "occluded": 0
+    },
+    "planner@430": {
+      "small": 21,
+      "overflow": 0,
+      "occluded": 0
+    }
+  }
+}

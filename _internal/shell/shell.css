@@ -601,6 +601,21 @@
     }
   }
 
+  /* The same field inside the mobile search sheet (§4.6). It was carrying a
+     42-declaration inline style="" on every prototype page — which is both a
+     copy-paste liability across ~18,000 pages and a strict-CSP blocker. */
+  .ta-sheet form[role="search"] input[type="search"] {
+    inline-size: 100%;
+    min-block-size: 44px;
+    padding-inline: var(--sp-4);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    text-align: start;
+  }
+
 
   /* =========================================================================
      7. BOTTOM TAB BAR (§4.1) — mobile primary navigation
@@ -699,7 +714,7 @@
     font-variant-numeric: tabular-nums;
     line-height: 1;
   }
-  .ta-badge[data-count="0"] { background: var(--sand-400); color: var(--ink); }
+  .ta-badge[data-count="0"] { background: var(--sand-400); color: var(--ink-950); }
 
   @media (min-width: 1024px) { .ta-tabbar { display: none; } }
 
@@ -809,8 +824,8 @@
     padding-block: var(--sp-3);
     padding-inline: var(--sp-4);
     border-radius: var(--r-md);
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--ink-950);
+    color: var(--paper-050);
     box-shadow: var(--elev-3);
     font-size: var(--step--1);
     text-align: start;
@@ -829,11 +844,33 @@
      saved anything), removes the corner pile-up, puts Save adjacent to Book
      where the decision actually happens, and avoids stacking two fixed bars
      (~130px before safe-area) on a 375x812 screen.
-     Set on <html class="rl-page"> together with style="--cta-h:64px".   */
-  .rl-page { --floor: var(--safe-b); }
-  .rl-page .ta-tabbar { display: none; }
-  .rl-page .ta-tripfab { display: none; }
-  .rl-page body { padding-block-end: calc(var(--cta-h) + var(--safe-b) + var(--sp-4)); }
+     Set on <html class="rv-page">. --cta-h comes from review.css, not from a
+     style="" on <html>: the bar is two rows on a phone and one floating pill
+     on a desktop, and an inline custom property cannot be re-picked per
+     breakpoint.
+
+     WHY TWO NAMES. The blueprint calls this hook `rl-page`, but that name was
+     already taken, twice, before the shell existed:
+       astro/src/styles/roundup.css  `.rl-page .hero` and `.rl-page .hero-sub`
+       astro/public/css/premium.css  `.rl-page .quick-answer`, `.stat-pill`,
+                                     and the hero word-mask animation
+     In both of those it means "ROUNDup Layout page", not "review". Astro
+     bundles review.css and roundup.css into ONE stylesheet that every [slug]
+     page links, so putting `rl-page` on a review page's <html> would let
+     `.rl-page .hero{display:flex;height:60vh}` (0,2,0) beat review.css's
+     `.hero{height:86vh}` (0,1,0) and collapse the three-tile hero grid on
+     ~7,200 pages — silently, with nothing in any log. Measured, not guessed.
+     RoundupLayout keeps its `rl-page` on <main> for the same reason.
+
+     So the review exception answers to `rv-page`, and `rl-page` stays for the
+     prototypes and anything else already written against the blueprint's name.
+     Collapse this back to one name once roundup.css and premium.css are
+     de-shimmed onto `.rd-page`, which is the class RoundupLayout already puts
+     on its <body>.                                                        */
+  .rl-page, .rv-page { --floor: var(--safe-b); }
+  .rl-page .ta-tabbar, .rv-page .ta-tabbar { display: none; }
+  .rl-page .ta-tripfab, .rv-page .ta-tripfab { display: none; }
+  .rl-page body, .rv-page body { padding-block-end: calc(var(--cta-h) + var(--safe-b) + var(--sp-4)); }
 
 
   /* =========================================================================
@@ -1255,7 +1292,7 @@
     background: var(--accent); color: var(--accent-fg);
     font-family: var(--font-display); font-weight: 800;
   }
-  .ta-rank-1 { background: var(--highlight); color: var(--ink); }
+  .ta-rank-1 { background: var(--highlight); color: var(--ink-950); }
 
 
   /* =========================================================================
@@ -1570,6 +1607,71 @@
     font-size: var(--step--2);
     text-align: center;
   }
+
+
+  /* =========================================================================
+     20b. SITE FOOTER — the markup contract for chrome.mjs footer(ctx)
+
+     Promoted out of /_proto/home.html's page layer, where it was the last
+     piece of shell chrome still living in a prototype. Three renderers ship
+     three different footers today (.footer/.ft-grid in Review and Roundup,
+     .ft/.ftg in Article); this is the one they collapse onto.
+
+     Sits after </main>, so it is inside the body's --floor padding and never
+     under the tab bar.
+     ====================================================================== */
+
+  .ta-foot {
+    inline-size: min(100% - 2 * var(--sp-4), 1140px);
+    margin-inline: auto;
+    margin-block-start: var(--sp-7);
+    padding-block: var(--sp-5);
+    border-block-start: 1px solid var(--border);
+  }
+  .ta-foot-top {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    /* The brand block takes twice the width of a link column; the columns
+       themselves size to content and share what is left. */
+    .ta-foot-top { grid-template-columns: 2fr repeat(auto-fit, minmax(140px, 1fr)); }
+  }
+  /* min-inline-size:0 — a grid item's default is auto, so one long unbroken
+     word in the tagline (a URL, a brand name) would push the whole footer
+     wider than the page and give the body a horizontal scrollbar. */
+  .ta-foot-brand { min-inline-size: 0; }
+  .ta-foot-tag {
+    margin-block: 0 var(--sp-1);
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  .ta-foot-col h2 {
+    margin-block: 0 var(--sp-2);
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .ta-foot-col ul { margin: 0; padding: 0; list-style: none; }
+  .ta-foot-col a {
+    /* Both axes, not just the block one. A two-syllable label measured
+       35-41px wide, so a height-only check passed while the target still
+       failed 44x44. The column already wraps, so widening costs nothing. */
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    min-inline-size: 44px;
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    text-align: start;
+    /* Chrome, not prose. The bare `a` rule keeps its underline on purpose for
+       links inside body copy; every chrome component in this file turns it off,
+       and a footer link list is chrome. */
+    text-decoration: none;
+  }
+  .ta-foot-col a:hover { color: var(--accent); text-decoration: underline; }
+  .ta-foot-legal { margin-block-start: var(--sp-4); }
 
 
   /* =========================================================================

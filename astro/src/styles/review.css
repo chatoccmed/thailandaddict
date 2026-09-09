@@ -4,15 +4,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+/* PALETTE DE-SHIM, STAGE 1 — blueprint §2.5, _internal/shell/compat.css.
+   The 17 hard-coded values that used to live here are gone. compat.css maps
+   every one of those names onto an Andaman Deck functional alias, and this
+   block was ALREADY DEAD in practice: Astro bundles review.css and roundup.css
+   into one stylesheet (dist/_astro/_slug_.*.css) that every [slug] page links,
+   roundup.css declares the same :root names LATER in it, and last declaration
+   wins between two unlayered rules of equal specificity. Verified in the built
+   bundle before deleting: --r was already 20px here, not 18px.
+   What stays is the wherebest-era alias layer, which nothing else declares.
+   Each alias points at a Vocabulary-1 name, so it keeps resolving through
+   whichever source is still authoritative and NOTHING changes colour until the
+   last local :root (roundup.css) is deleted too — then all of them flip at
+   once, in one commit, which is exactly what §2.5 is for.
+   --paper is deliberately NOT re-declared: zero uses, and it is one of the two
+   names that collided head-on with tokens.css (see compat.css, foot of file). */
 :root{
-  --bl:#06B6D4;--bl-dk:#0891b2;--bl-lt:#e0f7fc;
-  --or:#FB7185;--or-lt:#ffe4e9;--gr:#06B6D4;--go:#FBBF24;
-  --ink:#0F172A;--sub:#64748b;--mut:#94a3b8;
-  --bdr:#e6eef2;--bg:#f1fbfd;--card:#ffffff;
-  --r:18px;--r2:24px;
-  --sh:0 8px 24px rgba(6,182,212,.18);--sh2:0 16px 44px rgba(6,182,212,.22);
   --rust:var(--bl);--gold:var(--or);--gold2:var(--go);
-  --paper:var(--bg);--faint:var(--bdr);--warm:var(--sub);--muted:var(--mut);
+  --faint:var(--bdr);--warm:var(--sub);--muted:var(--mut);
 }
 
 /* ── NAV ── */
@@ -59,27 +68,97 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .ft-bottom a{color:rgba(255,255,255,.4);transition:color .2s;text-decoration:none}
 .ft-bottom a:hover{color:#fff}
 .ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
-/* review-page sticky booking bar — own class (.rvbar) to avoid the roundup.css .mbar bundle clash; shows on BOTH desktop + mobile. White brand cards (logo + name + per-OTA subtitle) matching the in-body price-wall look. */
-.rvbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;box-shadow:0 -5px 22px rgba(6,182,212,.18);display:flex;flex-direction:column;gap:7px;padding:8px 10px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
-@media(min-width:761px){.rvbar{flex-direction:row;align-items:center;gap:16px;left:50%;right:auto;transform:translateX(-50%);bottom:18px;max-width:1080px;width:calc(100% - 48px);border-radius:18px;border:1px solid #e6eef2;padding:11px 18px}
-.rvbar .rv-price{flex:0 0 auto;flex-wrap:nowrap;font-size:12.5px}.rvbar .rv-price b{font-size:17px}.rvbar .rv-price .rv-pu{font-size:12px}.rvbar .rv-price .rv-ref{margin-left:10px}
-.rvbar .rv-cards{flex:1;gap:12px}.rvbar .rv-card{padding:11px 14px;border-radius:12px}.rvbar .rv-card .rv-mark{width:30px;height:30px;font-size:14px}.rvbar .rv-tx b{font-size:14.5px}.rvbar .rv-tx small{font-size:11.5px}}
-.rvbar .rv-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 6px;font-family:'Outfit',sans-serif;font-size:11.5px;color:#0F172A;line-height:1.05;padding:0 2px}
-.rvbar .rv-price .rv-pf{font-weight:700}
-.rvbar .rv-price b{font-size:15px;font-weight:800;color:#06B6D4}
-.rvbar .rv-price .rv-pu{font-size:11px;font-weight:600;color:#64748b}
-.rvbar .rv-price .rv-ref{font-family:'Sarabun',sans-serif;font-size:9.5px;font-weight:500;color:#94a3b8;margin-left:auto}
-.rvbar .rv-cards{display:flex;gap:8px}
-.rvbar .rv-card{flex:1;display:flex;align-items:center;gap:8px;text-decoration:none;border:none;border-radius:12px;padding:10px 10px;min-width:0;color:#fff;transition:transform .15s,box-shadow .2s}
-.rvbar .rv-card:hover{transform:translateY(-2px)}
-.rvbar .rv-mark{width:27px;height:27px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;font-weight:800;font-size:13px;flex-shrink:0}
-.rvbar .rv-tx{display:flex;flex-direction:column;line-height:1.18;min-width:0}
-.rvbar .rv-tx b{font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:800;white-space:nowrap}
-.rvbar .rv-tx small{font-family:'Sarabun',sans-serif;font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rvbar .rv-ag{background:linear-gradient(135deg,#FB7185,#f43f5e);box-shadow:0 3px 12px rgba(244,63,94,.25)}.rvbar .rv-ag .rv-mark{color:#f43f5e}
-.rvbar .rv-bk{background:#06B6D4;box-shadow:0 3px 12px rgba(6,182,212,.28)}.rvbar .rv-bk .rv-mark{color:#06B6D4}
-.rvbar .rv-tp{background:#0F172A;box-shadow:0 3px 12px rgba(15,23,42,.28)}.rvbar .rv-tp .rv-mark{color:#0F172A}
-@media(max-width:480px){.rvbar{gap:6px;padding:8px}.rvbar .rv-card{flex-direction:column;gap:3px;justify-content:center;padding:8px 4px;text-align:center}.rvbar .rv-tx{align-items:center}.rvbar .rv-tx small{display:none}}
+/* ===========================================================================
+   THE BOTTOM EDGE — blueprint §4.3, "the review-page exception"
+
+   Was `.rvbar`, one of FIVE fixed elements fighting for the bottom of the
+   viewport (.rvbar z900 · .ta-tripfab z9000, which sat on top of Trip.com and
+   made it untappable for anyone who had ever saved anything · #cv-bar z120,
+   covered by .rvbar on desktop · .ta-plantoast at a hard-coded bottom:84px).
+
+   Now the container is the shell's own `.ta-cta`, which owns position, the
+   inset, `z-index:var(--z-cta)`, the auto-hide and the view-transition name.
+   `.rv-cta` composes only what goes INSIDE it. `html.rv-page` (set by the
+   layout) suppresses the tab bar and re-bases --floor to the safe area, so
+   there is one bar at the bottom of a review page and no z-index arithmetic.
+   The FAB is deleted outright; Save is merged into this bar instead.
+
+   --cta-h is what body padding, the toast and the currency bar all measure
+   against, so it is declared here rather than as a style="" on <html>: an
+   inline custom property cannot be re-picked per breakpoint, and this bar is
+   two rows on a phone and one floating pill on a desktop.
+
+   Logical properties only — this bar mirrors under dir="rtl" by construction.
+   ======================================================================== */
+.rv-page{--cta-h:116px}
+@media(min-width:761px){.rv-page{--cta-h:96px}}
+@media(max-width:480px){.rv-page{--cta-h:128px}}
+
+.ta-cta.rv-cta{flex-direction:column;align-items:stretch;gap:7px;padding-block:8px;padding-inline:10px}
+.rv-cta .rv-top{display:flex;align-items:center;gap:10px}
+.rv-cta .rv-price{flex:1 1 auto;min-inline-size:0;display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 6px;font-family:'Outfit',sans-serif;font-size:11.5px;color:var(--ink);line-height:1.05;padding-inline:2px}
+.rv-cta .rv-price .rv-pf{font-weight:700}
+.rv-cta .rv-price b{font-size:15px;font-weight:800;color:var(--bl)}
+.rv-cta .rv-price .rv-pu{font-size:11px;font-weight:600;color:var(--sub)}
+.rv-cta .rv-price .rv-ref{font-family:'Sarabun',sans-serif;font-size:9.5px;font-weight:500;color:var(--mut);margin-inline-start:auto}
+/* Save merged into the CTA (§4.3): the FAB is gone, so the bottom edge keeps a
+   save affordance — and it now sits next to Book, where the decision is made. */
+.rv-cta .btn-wish{flex:0 0 auto;padding-block:8px;padding-inline:14px;font-size:12px;min-block-size:44px}
+.rv-cta .rv-cards{display:flex;gap:8px}
+.rv-cta .rv-card{flex:1;display:flex;align-items:center;gap:8px;text-decoration:none;border:none;border-radius:12px;padding:10px;min-inline-size:0;color:#fff;transition:transform .15s,box-shadow .2s}
+.rv-cta .rv-card:hover{transform:translateY(-2px)}
+.rv-cta .rv-mark{inline-size:27px;block-size:27px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;font-weight:800;font-size:13px;flex-shrink:0}
+.rv-cta .rv-tx{display:flex;flex-direction:column;line-height:1.18;min-inline-size:0}
+.rv-cta .rv-tx b{font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:800;white-space:nowrap}
+.rv-cta .rv-tx small{font-family:'Sarabun',sans-serif;font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rv-cta .rv-ag{background:linear-gradient(135deg,#FB7185,#f43f5e);box-shadow:0 3px 12px rgba(244,63,94,.25)}.rv-cta .rv-ag .rv-mark{color:#f43f5e}
+.rv-cta .rv-bk{background:#06B6D4;box-shadow:0 3px 12px rgba(6,182,212,.28)}.rv-cta .rv-bk .rv-mark{color:#06B6D4}
+.rv-cta .rv-tp{background:#0F172A;box-shadow:0 3px 12px rgba(15,23,42,.28)}.rv-cta .rv-tp .rv-mark{color:#0F172A}
+@media(min-width:761px){
+  /* The floating pill. `inset-inline:0` (from .ta-cta) + a definite
+     inline-size + margin-inline:auto centres a fixed box without the
+     `left:50%;transform:translateX(-50%)` this used to need — which was two
+     physical properties and a transform that fought the auto-hide translate. */
+  .ta-cta.rv-cta{flex-direction:row;align-items:center;gap:16px;
+    /* --cta-h is the space RESERVED at the bottom of the page (pill height +
+       the 18px lift + slack), not the pill's own height, so the pill sizes to
+       its content here instead of inheriting the shell's min-block-size. */
+    min-block-size:0;
+    inset-block-end:calc(var(--floor) + 18px);
+    margin-inline:auto;max-inline-size:1080px;inline-size:calc(100% - 48px);
+    border:1px solid var(--bdr);border-radius:18px;padding-block:11px;padding-inline:18px}
+  .rv-cta .rv-top{flex:0 0 auto;gap:12px}
+  .rv-cta .rv-price{flex:0 0 auto;flex-wrap:nowrap;font-size:12.5px}
+  .rv-cta .rv-price b{font-size:17px}
+  .rv-cta .rv-price .rv-pu{font-size:12px}
+  .rv-cta .rv-price .rv-ref{margin-inline-start:10px}
+  .rv-cta .rv-cards{flex:1;gap:12px}
+  .rv-cta .rv-card{padding-block:11px;padding-inline:14px;border-radius:12px}
+  .rv-cta .rv-mark{inline-size:30px;block-size:30px;font-size:14px}
+  .rv-cta .rv-tx b{font-size:14.5px}
+  .rv-cta .rv-tx small{font-size:11.5px}
+}
+@media(min-width:1024px){
+  /* Clear the desktop Trip Rail, which is layout-participating at
+     inset-inline-end:0. Without this the pill's end edge slides under it on a
+     1024-1280px viewport. */
+  .ta-cta.rv-cta{inset-inline:0 var(--rail-w-collapsed)}
+}
+@media(max-width:480px){
+  .ta-cta.rv-cta{gap:6px;padding-inline:8px}
+  .rv-cta .rv-card{flex-direction:column;gap:3px;justify-content:center;padding-block:8px;padding-inline:4px;text-align:center}
+  .rv-cta .rv-tx{align-items:center}
+  .rv-cta .rv-tx small{display:none}
+}
+/* The currency bar is built at runtime by /js/currency.js, which keys its lift
+   off a `.rvbar` that no longer exists — so without this it would sit UNDER
+   the booking bar on 7,200 pages, which is the exact defect §4.3 describes.
+   `html #cv-bar` (0,1,1) outranks the `#cv-bar` (0,1,0) that currency.js
+   injects into <head> at runtime, so source order does not matter. Lifted
+   clear of the toast band as well (--floor + --cta-h + 12px + toast height),
+   so a save toast never covers the currency buttons.
+   currency.js itself moves into the More popover in Phase 3 (§4.3). */
+html #cv-bar{inset-block-end:calc(var(--floor) + var(--cta-h) + 56px)}
 
 /* HERO */
 .hero{position:relative;height:86vh;min-height:520px;overflow:hidden;margin-top:12px;}
@@ -101,15 +180,21 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .hero-sub-2{grid-column:2;grid-row:2;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#0e7490 0%,#06b6d4 42%,#fb7185 100%);min-height:0;}
 .hero-sub-2 img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;transition:transform 6s ease;}
 .hero-sub-2:hover img{transform:scale(1.06);}
-.hero-more-btn{position:absolute;bottom:12px;right:12px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);color:var(--ink);font-size:11px;font-weight:500;padding:7px 14px;border-radius:999px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;}
+/* z-index:3 lifts it over the whole-tile booking overlay (z-index:2). It used
+   to get that z-index from an inline style="position:relative;z-index:3" which
+   ALSO overrode this rule's `position:absolute` — so the control fell back
+   into flow, below a block-size:100% image, inside overflow:hidden, and was
+   invisible on every review page. The z-index moves here and the positioning
+   stays absolute, which restores the control the markup always intended. */
+.hero-more-btn{position:absolute;inset-block-end:12px;inset-inline-end:12px;z-index:3;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);color:var(--ink);font-size:11px;font-weight:500;padding:7px 14px;border-radius:999px;border:none;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-flex;align-items:center;min-block-size:34px;}
 
-.hero-badges{position:absolute;top:22px;left:22px;display:flex;gap:8px;}
+.hero-badges{position:absolute;inset-block-start:22px;inset-inline-start:22px;display:flex;gap:8px;}
 .htag{font-size:9.5px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;padding:5px 12px;border-radius:999px;backdrop-filter:blur(10px);}
 .htag.mid{background:rgba(6,182,212,.28);color:#a5f3fc;border:1px solid rgba(6,182,212,.4);}
 .htag.loc{background:rgba(8,28,24,.55);color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.15);}
-.hero-rating{position:absolute;top:22px;right:22px;background:rgba(8,28,24,.55);backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;}
+.hero-rating{position:absolute;inset-block-start:22px;inset-inline-end:22px;background:rgba(8,28,24,.55);backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;}
 .hero-rating .s{color:var(--gold2);}
-.hero-info{position:absolute;bottom:0;left:0;right:0;padding:26px 26px 24px;}
+.hero-info{position:absolute;inset-block-end:0;inset-inline:0;padding:26px 26px 24px;}
 .hi-loc{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:7px;}
 .hi-name{font-family:'Outfit',sans-serif;font-size:clamp(26px,3.2vw,42px);font-weight:800;color:#fff;line-height:1.08;margin-bottom:4px;}
 .hi-tag{font-size:13px;color:rgba(255,255,255,.5);font-weight:300;}
@@ -117,11 +202,11 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 /* QUICK BAR */
 .quick-bar{background:var(--card);border-bottom:1px solid var(--faint);padding:0 52px;}
 .qi-row{display:flex;align-items:stretch;}
-.qi{display:flex;flex-direction:column;justify-content:center;padding:16px 26px 16px 0;border-right:1px solid var(--faint);margin-right:26px;}
-.qi:last-child{border-right:none;margin-right:0;margin-left:auto;flex-direction:row;align-items:center;gap:10px;}
+.qi{display:flex;flex-direction:column;justify-content:center;padding-block:16px;padding-inline:0 26px;border-inline-end:1px solid var(--faint);margin-inline-end:26px;}
+.qi:last-child{border-inline-end:none;margin-inline-end:0;margin-inline-start:auto;flex-direction:row;align-items:center;gap:10px;}
 .qi-lbl{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
 .qi-val{font-family:'Outfit',sans-serif;font-size:19px;font-weight:800;color:var(--ink);line-height:1;}
-.qi-val small{font-family:'Outfit',sans-serif;font-size:11px;color:var(--muted);font-weight:400;margin-left:2px;}
+.qi-val small{font-family:'Outfit',sans-serif;font-size:11px;color:var(--muted);font-weight:400;margin-inline-start:2px;}
 .btn-book{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#FB7185,#f43f5e);color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:11px 22px;border-radius:12px;border:none;cursor:pointer;box-shadow:0 6px 20px -6px rgba(244,63,94,.45);text-decoration:none;transition:transform .2s,filter .2s;white-space:nowrap;}
 .btn-book:hover{transform:scale(1.04);filter:brightness(1.08);}
 .btn-wish{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1.5px solid var(--faint);color:var(--warm);font-family:'Outfit',sans-serif;font-size:13px;padding:10px 18px;border-radius:12px;cursor:pointer;transition:all .2s;white-space:nowrap;}
@@ -141,7 +226,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .review-intro{font-family:'Sarabun',sans-serif;font-size:17px;line-height:1.84;color:var(--ink);margin-bottom:26px;font-weight:400;}
 .review-intro strong{font-weight:700;}
 .review-body p{font-family:'Sarabun',sans-serif;font-size:15.5px;line-height:1.88;color:#0F172A;margin-bottom:20px;font-weight:400;}
-.pull-quote{border-left:3px solid var(--rust);padding:14px 0 14px 22px;margin:28px 0;background:linear-gradient(to right,rgba(6,182,212,.07),transparent);}
+.pull-quote{border-inline-start:3px solid var(--rust);padding-block:14px;padding-inline:22px 0;margin:28px 0;background:linear-gradient(to right,rgba(6,182,212,.07),transparent);}
 .pull-quote p{font-family:'Outfit',sans-serif;font-size:19px;font-weight:700;font-style:italic;color:var(--rust);line-height:1.5;margin:0;}
 
 /* GALLERY */
@@ -177,7 +262,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .rbar-lbl{font-size:12px;color:var(--muted);width:88px;flex-shrink:0;}
 .rbar-track{flex:1;height:5px;background:var(--faint);border-radius:3px;overflow:hidden;}
 .rbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#06B6D4,#FB7185);transition:width 1.1s ease;}
-.rbar-v{font-size:12px;font-weight:600;color:var(--ink);width:26px;text-align:right;}
+.rbar-v{font-size:12px;font-weight:600;color:var(--ink);inline-size:26px;text-align:end;}
 
 /* PLATFORM REVIEWS */
 .pr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
@@ -201,7 +286,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 
 /* PRICE WIDGET */
 .pw{background:#ffffff;border:1px solid var(--bdr);border-radius:24px;padding:26px;margin:32px 0;position:relative;overflow:hidden;box-shadow:var(--sh2);}
-.pw::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.12),transparent 70%);}
+.pw::before{content:'';position:absolute;inset-block-start:-60px;inset-inline-end:-60px;inline-size:200px;block-size:200px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.12),transparent 70%);}
 .pw-lbl{font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gr);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 .pw-dot{width:7px;height:7px;border-radius:50%;background:#06B6D4;box-shadow:0 0 0 4px rgba(6,182,212,.18);animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
@@ -244,7 +329,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--faint);font-size:13px;}
 .info-row:last-child{border-bottom:none;}
 .ik{color:var(--muted);}
-.iv{color:var(--ink);font-weight:500;text-align:right;max-width:55%;}
+.iv{color:var(--ink);font-weight:500;text-align:end;max-inline-size:55%;}
 .map-thumb{border-radius:12px;overflow:hidden;height:150px;background:var(--faint);margin-top:12px;cursor:pointer;}
 .map-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
 .nearby-list{list-style:none;}
@@ -254,7 +339,9 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .nb-d{color:var(--muted);}
 .related-a{display:flex;gap:11px;align-items:center;padding:9px 0;border-bottom:1px solid var(--faint);cursor:pointer;text-decoration:none;}
 .related-a:last-child{border-bottom:none;}
-.rel-img{width:56px;height:56px;border-radius:12px;object-fit:cover;flex-shrink:0;}
+/* radius 9px, not 12: the inline style that used to sit on this element won,
+   and this keeps the rendering byte-identical after that style was removed. */
+.rel-img{inline-size:56px;block-size:56px;border-radius:9px;object-fit:cover;object-position:center;display:block;flex-shrink:0;}
 .rel-name{font-family:'Outfit',sans-serif;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:2px;line-height:1.25;}
 .rel-loc{font-size:11px;color:var(--muted);}
 .rel-price{font-size:11.5px;color:var(--warm);margin-top:2px;}
@@ -265,7 +352,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 .af-lbl{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
 .af-nm{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--ink);transition:color .2s;}
 .af-link:hover .af-nm{color:var(--rust);}
-.af-r{text-align:right;}
+.af-r{text-align:end;}
 .share-row{display:flex;gap:10px;}
 .share-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--faint);background:transparent;cursor:pointer;font-size:14px;color:var(--warm);transition:all .2s;display:flex;align-items:center;justify-content:center;}
 .share-btn:hover{border-color:var(--rust);color:var(--rust);}
@@ -276,7 +363,7 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
   .breadcrumb{padding:12px 20px 0;}
   .hero-grid{padding:0 16px;grid-template-columns:1fr;}.hero-main{grid-row:1;height:300px;}.hero-sub,.hero-sub-2{display:none;}
   .quick-bar{padding:0 20px;}.qi-row{flex-wrap:wrap;}
-  .qi{padding:12px 18px 12px 0;margin-right:18px;}
+  .qi{padding-block:12px;padding-inline:0 18px;margin-inline-end:18px;}
   .page-body{grid-template-columns:1fr;padding:24px 20px 60px;gap:28px;}
   .gal-main{grid-template-columns:1fr 1fr;grid-template-rows:150px 150px;}.gp.main-gp{grid-row:1;grid-column:1/3;}
   .pr-grid{grid-template-columns:1fr;}
@@ -305,9 +392,74 @@ body{font-family:'Sarabun','Outfit',sans-serif;background:#ffffff;color:#0F172A;
 /* BYLINE */
 .byline{display:flex;gap:14px;align-items:flex-start;background:#e0f7fc;border:1px solid #bae9f2;border-radius:18px;padding:17px 19px;margin-bottom:30px;}
 .byline-av{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#06B6D4,#0891b2);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:23px;flex-shrink:0;overflow:hidden;}
-.byline-av img{width:100%;height:100%;object-fit:cover;}
+.byline-av img{inline-size:100%;block-size:100%;object-fit:cover;}
+/* shell.js swaps a broken <img> for a named .ta-img-fail placeholder (it owns
+   image errors now, replacing the inline onerror handlers). Inside the 46px
+   avatar chip it must not paint its own sand ground or overflow the circle. */
+.byline-av{overflow:hidden;}
+.byline-av .ta-img-fail{background:transparent;color:#fff;font-size:9px;line-height:1.1;padding:2px;}
 .byline-name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#0F172A;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .byline-badge{background:#06B6D4;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;}
 .byline-text{font-family:'Sarabun',sans-serif;font-size:13px;color:#64748b;line-height:1.65;margin-top:5px;}
 .byline-text a{color:#0891b2;font-weight:600;}
 .update-chip{display:inline-flex;align-items:center;gap:7px;background:var(--bl-lt);color:var(--bl-dk);font-family:'Outfit',sans-serif;font-size:11.5px;font-weight:600;padding:6px 13px;border-radius:999px;margin-bottom:13px;}
+
+/* ===========================================================================
+   INLINE-STYLE CONVERSIONS — blueprint Phase 2, ship order "layouts first"
+
+   ReviewLayout.astro carried 43 inline style="" attributes. Baked HTML is the
+   one place a token file cannot reach, so every presentational one is a rule
+   the design system can never restyle. These classes replace them. Only the
+   one genuinely data-driven value stays inline (the rating bar's own width).
+
+   Logical properties throughout: the two that were physical
+   (`bottom/left` on the hero photo credit, `bottom/right` on .hero-more-btn)
+   were also the two that would have painted on the wrong side under dir="rtl".
+   ======================================================================== */
+
+/* The content column inside .page-body's grid. Was a nested <main>; the page's
+   real <main class="ta-main" id="main"> is now the shell's skip-link target,
+   and a document may only have one. min-inline-size:0 keeps long unbroken
+   strings from blowing the 1fr track out. */
+.rv-main{min-inline-size:0}
+/* The review sidebar. Named so it is never confused with the shell Trip Rail,
+   which is also an <aside>. */
+.rv-side{min-inline-size:0}
+
+/* 11x `width:100%;height:100%;object-fit:cover;object-position:center;display:block` */
+.rv-fill{inline-size:100%;block-size:100%;object-fit:cover;object-position:center;display:block}
+
+/* 5x whole-tile booking overlay. inset:0 already implies the 100%/100% that
+   two of them spelled out again. */
+.rv-overlay{position:absolute;inset:0;z-index:2;display:block}
+
+/* Hero photo credit — 44 reviews carry one. Sits above the tile-wide booking
+   link so the credit stays clickable. */
+.rv-credit{position:absolute;inset-block-end:8px;inset-inline-start:14px;z-index:3;font-size:10px;color:rgba(255,255,255,.72);text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.rv-credit a{color:inherit;text-decoration:underline}
+
+/* Quick-info values that opt out of the Outfit display face for Thai prose. */
+.qi-val.qi-val-s{font-size:15px;font-family:'Sarabun',sans-serif}
+.qi-val.qi-val-xs{font-size:14px;font-family:'Sarabun',sans-serif}
+
+/* Section rhythm. Was five separate margin-top/margin-bottom inline styles. */
+.rv-gap-b{margin-block-end:36px}
+.rv-gap-t{margin-block-start:36px}
+.rv-gap-t-s{margin-block-start:32px}
+.rv-gap-t-xs{margin-block-start:16px}
+.sec-title.sec-title-s{font-size:20px}
+
+/* Location card address line + the Google Maps link shown when a review has
+   real coordinates but no per-hotel map image. */
+.rv-mapaddr{font-size:12px;color:var(--muted);margin-block-start:10px;line-height:1.6}
+.rv-mapaddr a{color:var(--teal-dk);font-weight:600}
+
+
+/* World Cup 2026 cross-link card (host-city reviews only). */
+.rv-wc{margin-block-start:34px;background:linear-gradient(135deg,#0891b2 0%,#06B6D4 100%);border-radius:22px;padding:26px 28px;color:#fff}
+.rv-wc-eyebrow{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#FBBF24;margin-block-end:8px}
+.rv-wc h3{font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;margin:0 0 8px;color:#fff;line-height:1.25}
+.rv-wc p{font-size:14.5px;line-height:1.7;margin:0 0 16px;color:rgba(255,255,255,.9);max-inline-size:640px}
+.rv-wc-btns{display:flex;gap:10px;flex-wrap:wrap}
+.rv-wc-btn{display:inline-flex;align-items:center;background:#FB7185;color:#fff;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;padding:12px 22px;border-radius:12px;min-block-size:44px;text-decoration:none}
+.rv-wc-btn.rv-wc-btn2{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.5)}

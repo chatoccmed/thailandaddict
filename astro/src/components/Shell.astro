@@ -1,0 +1,45 @@
+---
+/**
+ * Shell.astro — the layouts' half of the one app shell.
+ * Blueprint §4.0 "one artifact, four consumers".
+ *
+ * It renders NOTHING of its own. Every byte comes from _internal/lib/chrome.mjs,
+ * the same module _internal/gen-hubs.mjs consumes, so the layouts and the 476
+ * hub snapshots cannot drift apart again — that drift is how the audit found
+ * five different navs and four different save writers.
+ *
+ * Imported straight from _internal/ rather than copied into src/: a copy is a
+ * second source of truth, and a second source of truth is the bug.
+ * _internal/qa/check-shell-identity.mjs fails the build if a single literal
+ * chrome tag ever appears below this frontmatter.
+ *
+ * Usage — one component, three positions:
+ *   <Shell part="head"   ctx={ctx} />   inside <head>
+ *   <Shell part="top"    ctx={ctx} />   first thing in <body>
+ *   <Shell part="bottom" ctx={ctx} />   last thing in <body>, after </main>
+ *
+ * ctx is documented in chrome.mjs §3. The minimum is { locale }.
+ *
+ * The hashed filenames come from astro/src/data/shell-manifest.json, read by
+ * chrome.mjs and written by _internal/gen-shell.mjs, which runs first in
+ * prebuild.mjs. Never hard-code a shell URL: /*.css and /*.js are served
+ * immutable for a year, so an unhashed name ships nothing at all to a
+ * returning reader. The manifest is deliberately NOT imported as JSON here —
+ * one reader, in chrome.mjs, for both renderers.
+ *
+ * @type {{ part: 'head'|'top'|'bottom', ctx: Record<string, unknown> }}
+ */
+import { shellHead, shellTop, shellBottom } from '../../../_internal/lib/chrome.mjs';
+
+const { part, ctx } = Astro.props;
+
+const PARTS = { head: shellHead, top: shellTop, bottom: shellBottom };
+const render = PARTS[part];
+
+if (!render) {
+  throw new Error(`Shell.astro: unknown part "${part}" — expected head, top or bottom`);
+}
+
+const html = render(ctx || { locale: 'th' });
+---
+<Fragment set:html={html} />

@@ -25,13 +25,17 @@
    ~18,000 pages at once.
 
    Usage:  node _internal/gen-shell.mjs [--prune] [--check]
-             --prune   delete previously generated shell.<hash>.* files
+             --prune   also delete the PREVIOUS generation, which is otherwise
+                       kept so that HTML still in a reader's cache (max-age
+                       3600 + stale-while-revalidate 86400) does not 404 on
+                       its stylesheet. Everything older than that is deleted
+                       on every run regardless.
              --check   lint and report only; write nothing
    ========================================================================== */
 
 import { createHash } from 'node:crypto';
 import { brotliCompressSync, constants as zc } from 'node:zlib';
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -39,14 +43,25 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const SRC = path.join(HERE, 'shell');
 
-const CSS_SOURCES = ['tokens.css', 'shell.css'];
+/* Order is load-bearing. tokens.css declares `@layer tokens, shell, page, util`
+   in its first rule, so it MUST come first. compat.css comes last: it is the
+   old-token alias shim (§2.5), it lives in @layer tokens too, and being later
+   in the same layer is what lets it be deleted at the end of Phase 3 without
+   touching anything above it. */
+const CSS_SOURCES = ['tokens.css', 'shell.css', 'compat.css'];
 const JS_SOURCES = ['shell.js', 'sheet.js', 'th-segment.js'];
 
 const OUT_CSS_DIR = path.join(ROOT, 'astro', 'public', 'css');
 const OUT_JS_DIR = path.join(ROOT, 'astro', 'public', 'js');
 const OUT_MANIFEST = path.join(ROOT, 'astro', 'src', 'data', 'shell-manifest.json');
 
-const argv = new Set(process.argv.slice(2));
+/* Flags are honoured ONLY when this file is the process entry point.
+   astro/prebuild.mjs imports it as the first of eight generators, and
+   `--check` calls process.exit(0) — inherited from another command's argv that
+   would end the whole prebuild successfully after writing nothing, silently
+   skipping gen-hubs and everything after it. */
+const IS_CLI = /(^|[\\/])gen-shell\.mjs$/.test(process.argv[1] || '');
+const argv = new Set(IS_CLI ? process.argv.slice(2) : []);
 const PRUNE = argv.has('--prune');
 const CHECK_ONLY = argv.has('--check');
 
@@ -289,22 +304,39 @@ if (existsSync(PROTO)) {
   if (touched) console.log('  synced ' + touched + ' prototype page(s) in astro/public/_proto to ' + cssName + ' + ' + jsName);
 }
 
-/* --- Stale hashes -------------------------------------------------------- */
+/* --- Stale hashes ---------------------------------------------------------
+   Two opposing constraints, and one generation of grace resolves both:
+
+   - HTML is served `max-age=3600, stale-while-revalidate=86400`, so for up to
+     a day after a shell change a reader can be holding a cached page that
+     names the PREVIOUS hash. Delete that file and they get an unstyled page,
+     with nothing in any log to say so.
+   - The deploy has ~199 files of headroom against Cloudflare's 20,000 cap, and
+     this script runs on every build. Keeping every generation forever spends
+     that headroom two files at a time until a deploy silently truncates — the
+     exact failure DEPLOY-RUNBOOK.md Phase R documents.
+
+   So: keep the current artifact and the single most recent previous one, and
+   delete everything older, automatically, on every run. `--prune` still means
+   "delete every stale artifact including that previous generation" — use it
+   only when no cached HTML can still be pointing at it.
+   ------------------------------------------------------------------------ */
 const stalePattern = /^shell\.[0-9a-f]{8}\.(css|js)$/;
 const stale = [];
 for (const [dir, keep] of [[OUT_CSS_DIR, cssName], [OUT_JS_DIR, jsName]]) {
-  for (const f of readdirSync(dir)) {
-    if (stalePattern.test(f) && f !== keep) stale.push(path.join(dir, f));
+  const olds = readdirSync(dir)
+    .filter((f) => stalePattern.test(f) && f !== keep)
+    .map((f) => path.join(dir, f))
+    .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs);   /* newest first */
+  const grace = PRUNE ? 0 : 1;
+  for (let i = 0; i < olds.length; i++) {
+    if (i < grace) console.log(`  kept   ${path.relative(ROOT, olds[i])}  (previous generation, for cached HTML)`);
+    else stale.push(olds[i]);
   }
 }
-if (stale.length) {
-  if (PRUNE) {
-    for (const f of stale) { unlinkSync(f); console.log(`  pruned ${path.relative(ROOT, f)}`); }
-  } else {
-    console.log(`\n  ${stale.length} stale shell artifact(s) left in place:`);
-    for (const f of stale) console.log(`    ${path.relative(ROOT, f)}`);
-    console.log('  re-run with --prune to delete them.');
-  }
+for (const f of stale) {
+  unlinkSync(f);
+  console.log(`  pruned ${path.relative(ROOT, f)}`);
 }
 
 console.log('');
