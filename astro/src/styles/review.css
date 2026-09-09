@@ -359,7 +359,15 @@ html #cv-bar{inset-block-end:calc(var(--floor) + var(--cta-h) + 56px)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  header{padding:14px 20px;}.nav{display:none;}
+  /* Removed 2026-09-09: `header{padding:14px 20px}` and `.nav{display:none}`.
+     Both dated from the pre-shell chrome. `.nav` no longer exists — all three
+     layouts now render the shell's <header class="ta-topbar">. The bare
+     `header` selector was the harmful one: it is an UNLAYERED element rule, and
+     unlayered author CSS beats @layer shell, so it silently overrode the
+     topbar's own logical padding at <=900px on every page this stylesheet
+     reaches. Because the [slug] route bundles all three layouts into one
+     stylesheet, it had been overriding article and roundup topbars since Phase
+     2 stage A shipped, not just review pages. */
   .breadcrumb{padding:12px 20px 0;}
   .hero-grid{padding:0 16px;grid-template-columns:1fr;}.hero-main{grid-row:1;height:300px;}.hero-sub,.hero-sub-2{display:none;}
   .quick-bar{padding:0 20px;}.qi-row{flex-wrap:wrap;}
