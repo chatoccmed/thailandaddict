@@ -4,6 +4,11 @@
 // hotel-review cards and article cards. Matches astro/public/index.html.
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
+// The app shell. ONE source of chrome markup for the whole site: this module is
+// what astro/src/components/Shell.astro emits for the three layouts, so the ~660
+// hub snapshots and the ~17,000 layout pages cannot grow a second nav between them.
+import { shellHead, shellTop, shellBottom, dirOf } from './lib/chrome.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..'); // repo root (resolves wherever cloned)
 const PUB = path.join(ROOT, 'astro/public');
@@ -111,9 +116,9 @@ const EN_NAME = {
 };
 // ── 9-language locale infrastructure ──
 const NEW_LOCS = ['zh','ru','ko','ja','hi','he','ar'];
-const RTL_LOCS = new Set(['he','ar']);
+// dir comes from chrome.mjs::dirOf → astro/src/i18n/meta.json. Four renderers used
+// to redeclare `new Set(['he','ar'])` privately; meta.json ends that (chrome.mjs §0).
 const OG_LOCALE = {th:'th_TH',en:'en_US',zh:'zh_CN',ru:'ru_RU',ko:'ko_KR',ja:'ja_JP',hi:'hi_IN',he:'he_IL',ar:'ar_AR'};
-const LANG_LABEL = {th:'ไทย',en:'English',zh:'中文',ru:'Русский',ko:'한국어',ja:'日本語',hi:'हिन्दी',he:'עברית',ar:'العربية'};
 const PILLAR_SLUGS = ['first-time-thailand','where-to-go-thailand','thailand-7-day-itinerary','thailand-10-day-itinerary','thailand-2-week-itinerary','thailand-3-week-itinerary','thailand-1-month-itinerary','northern-thailand-itinerary','southern-thailand-itinerary','thailand-with-kids-itinerary','thailand-honeymoon-itinerary','songkran-guide','yi-peng-lantern-festival'];
 const TOURISM = [...new Set([...TOPDEST, ...DESTINATIONS.map(d=>d[0])])];
 const REGION_OF = Object.fromEntries([...PROVINCES, ...DESTINATIONS].map(([sl,,r])=>[sl,r]));
@@ -134,8 +139,11 @@ for(const l of NEW_LOCS){
     try{ const c=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/province-data-'+l,sl+'.json'),'utf8')); if(c&&c.th) CITY_NAME[l][sl]=c.th; }catch{}
   }
 }
-const FLAG_B64 = {};
-for(const l of ['th','en',...NEW_LOCS]){ try{ FLAG_B64[l]=fs.readFileSync(path.join(ROOT,'astro/public/images/flags',l+'.svg')).toString('base64'); }catch{} }
+// The base64 flag bar is gone (blueprint §4.8): nine 24px targets — under the 44px
+// floor — inlined as data: URIs on 279 pages, ~10.3 MB, degrading to bare letters
+// wherever regional-indicator glyphs are missing. The switcher is chrome.mjs's
+// .lang-menu popover, keyed on language NAMES from meta.json and fed the same
+// availability-driven pageLocales() list. The SVGs remain at images/flags/*.svg.
 let AVAIL = null;   // set per genAll: page-slugs that exist in the current (new) locale
 // which locales a PAGE slug exists in (tourism-city hubs vary by translated data; everything else = th/en)
 function pageLocales(slug){
@@ -181,6 +189,7 @@ const PFX = () => LOC==='th' ? '/' : '/'+LOC+'/';    // home href for current lo
 const ALT = slug => LOC === 'en' ? '/'+slug+'.html' : '/en/'+slug+'.html'; // other-locale URL of this page
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const escAttr = s => esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 // Hub content images (cm/ + hotels/) are served from R2 — same bucket the layouts use — because those dirs are
 // excluded from the Cloudflare static bundle (.assetsignore) to stay under the 20k-file limit. heroes/ + cities/
 // stay in the bundle, so heroSrc / neighbor cards keep plain /images/ paths. Override via PUBLIC_IMG_BASE env.
@@ -319,45 +328,32 @@ function hoodRankGuides(hood){
 }
 
 // ── shared CSS (design system, matches index.html) ──
-const CSS = `<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ===========================================================================
+   PAGE CSS — the hub's own page-level styles, written ONCE to a hashed file
+   Blueprint §2.3
+
+   This used to be a ~30.6 KB \`<style>\` const inlined into EVERY hub snapshot:
+   ~14.5 MB of byte-identical CSS across the corpus, and uncacheable, because an
+   inline <style> is part of the HTML document. It is now
+   astro/public/css/hub.<contenthash>.css, linked from every hub — one download
+   for the whole site.
+
+   CONTENT-HASHED, not "hub.css": astro/public/_headers serves /*.css
+   max-age=31536000, immutable, so an unhashed name ships nothing at all to a
+   returning reader — the trap /js/currency.js is already in.
+
+   WHAT LEFT WITH THE SHELL: the .nav / .mm / .hb / .flagbar / .footer / .mbar
+   rules. That chrome is now _internal/lib/chrome.mjs + shell.<hash>.css, the
+   same pair astro/src/components/Shell.astro emits, so the hubs and the three
+   Astro layouts cannot drift apart again. That drift is how the audit found
+   five different navs.
+   ======================================================================== */
+const PAGE_CSS = `*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Noto Sans Thai','Sarabun',sans-serif;background:#f6fafb;color:#0F172A;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;background-image:radial-gradient(circle at 10% 6%,rgba(6,182,212,.1),transparent 40%),radial-gradient(circle at 92% 3%,rgba(251,113,133,.1),transparent 38%)}
 :root{--bl:#06B6D4;--bl-dk:#0891b2;--bl-lt:#ecfeff;--or:#FB7185;--or-dk:#f43f5e;--or-lt:#fff1f3;--go:#FBBF24;--ink:#0F172A;--sub:#64748b;--mut:#9aa7b8;--bdr:#e6eef2;--r:20px;--r2:13px;--sh:0 6px 22px rgba(15,40,70,.07);--sh2:0 14px 44px rgba(15,40,70,.15)}
 a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit:cover}button{cursor:pointer;font-family:inherit}
 .inner{max-width:1120px;margin:0 auto}
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--bdr)}
-@media(max-width:560px){.nav{padding:0 18px}}
-.logo{font-family:'Fraunces',serif;font-size:25px;font-weight:500;color:var(--ink);letter-spacing:-.5px}.logo em{font-style:normal;font-weight:400;color:var(--bl)}
-.nav-mid{display:flex;gap:26px}@media(max-width:860px){.nav-mid{display:none}}
-.nav-mid a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13.5px;font-weight:600;color:var(--sub)}.nav-mid a:hover{color:var(--bl)}
-.nav-mid .has-drop{position:relative}.nav-mid .has-drop>a::after{content:' ▾';font-size:9px;opacity:.55}
-.nav-mid .drop{position:absolute;top:calc(100% + 8px);left:-14px;min-width:240px;background:#fff;border:1px solid var(--bdr);border-radius:14px;padding:12px;box-shadow:0 16px 40px rgba(15,40,70,.18);opacity:0;visibility:hidden;transform:translateY(-4px);transition:.18s;z-index:1200}
-.nav-mid .has-drop:hover .drop{opacity:1;visibility:visible;transform:translateY(0)}
-.nav-mid .drop a{display:block;font-size:13.5px;color:var(--ink);padding:9px 12px;border-radius:8px;font-weight:500}.nav-mid .drop a:hover{background:var(--bl-lt);color:var(--bl-dk)}
-.nav-mid .drop .h{display:block;font-family:'Outfit',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);padding:8px 12px 3px}
-.nav-r{display:flex;align-items:center;gap:10px}
-.search-box{position:relative}@media(max-width:760px){.search-box{display:none}}
-.search-input{font-family:inherit;font-size:13.5px;width:200px;padding:9px 14px 9px 34px;border-radius:30px;border:1px solid var(--bdr);background:#fff;color:var(--ink);outline:none;transition:.2s}
-.search-input:focus{width:260px;border-color:var(--bl)}
-.search-box::before{content:'🔍';position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.7}
-.search-drop{position:absolute;top:calc(100% + 8px);right:0;width:320px;max-height:380px;overflow-y:auto;background:#fff;border:1px solid var(--bdr);border-radius:14px;box-shadow:0 16px 40px rgba(15,40,70,.18);z-index:1300;display:none}
-.search-drop.show{display:block}.search-drop a{display:block;padding:11px 14px;border-bottom:1px solid var(--bdr)}.search-drop a:hover{background:var(--bl-lt)}
-.search-drop .t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:14px;font-weight:600}.search-drop .c{font-size:11.5px;color:var(--mut)}.search-drop .empty{padding:18px;text-align:center;color:var(--mut);font-size:13px}
-.flagbar{display:inline-flex;align-items:center;gap:3px;background:var(--bl-lt);border:1px solid var(--bdr);border-radius:30px;padding:4px 6px}
-.flagbar a{display:block;width:24px;height:24px;border-radius:50%;overflow:hidden;opacity:.72;transition:transform .16s,opacity .16s;flex:0 0 auto;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
-.flagbar a:hover{opacity:1;transform:scale(1.12)}
-.flagbar a.on{opacity:1;transform:scale(1.2);box-shadow:0 0 0 2px #fff,0 3px 9px rgba(15,40,70,.22);position:relative;z-index:1}
-.flg{width:100%;height:100%;background-size:cover;background-position:center;display:block}
-html[dir="rtl"] .flagbar{flex-direction:row-reverse}
-.flg-th{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iNjAwIj48cGF0aCBmaWxsPSIjQTUxOTMxIiBkPSJNMCAwaDkwMHY2MDBIMHoiLz48cGF0aCBmaWxsPSIjRjRGNUY4IiBkPSJNMCAxMDBoOTAwdjQwMEgweiIvPjxwYXRoIGZpbGw9IiMyRDJBNEEiIGQ9Ik0wIDIwMGg5MDB2MjAwSDB6Ii8+PC9zdmc+")}.flg-en{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MCAzMCIgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIj48Y2xpcFBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiLz48L2NsaXBQYXRoPjxjbGlwUGF0aCBpZD0iYiI+PHBhdGggZD0iTTMwIDE1aDMwdjE1enYxNUgwekgwVjB6VjBoMzB6Ii8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGQ9Ik0wIDB2MzBoNjBWMHoiIGZpbGw9IiMwMTIxNjkiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiLz48cGF0aCBkPSJtMCAwIDYwIDMwbTAtMzBMMCAzMCIgY2xpcC1wYXRoPSJ1cmwoI2IpIiBzdHJva2U9IiNDODEwMkUiIHN0cm9rZS13aWR0aD0iNCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxwYXRoIGQ9Ik0zMCAwdjMwTTAgMTVoNjAiIHN0cm9rZT0iI0M4MTAyRSIgc3Ryb2tlLXdpZHRoPSI2Ii8+PC9nPjwvc3ZnPg==")}
-.nav-cta{background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;padding:10px 20px;border-radius:30px;box-shadow:0 6px 18px rgba(251,113,133,.5)}@media(max-width:860px){.nav-cta{display:none}}
-.hb{display:none;background:none;border:none;color:var(--ink);font-size:24px}@media(max-width:860px){.hb{display:block}}
-.mm{position:fixed;inset:0;z-index:1000;background:#fff;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;padding:24px;overflow-y:auto}.mm.open{transform:translateX(0)}
-.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.mm-x{background:none;border:none;font-size:28px;color:var(--ink)}
-.mm a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:18px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--bdr)}
-.mm-cta{margin-top:22px;background:linear-gradient(135deg,var(--or),var(--go));color:#fff;border:none;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;padding:15px;border-radius:30px}
 /* breadcrumb */
 .crumb{max-width:1120px;margin:0 auto;padding:84px 28px 0;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:12.5px;color:var(--sub)}
 .crumb a:hover{color:var(--bl)}
@@ -470,18 +466,6 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 .shead h2{font-family:'Fraunces',-apple-system,'Noto Sans Thai',serif;font-weight:500;font-size:28px}.shead h2 .em{background:linear-gradient(120deg,var(--bl),var(--or-dk));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .shead a{font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;color:var(--or-dk);background:#fff1f3;padding:8px 16px;border-radius:30px}
 .tagn{position:absolute;left:12px;top:12px;font-family:'Outfit',sans-serif;font-size:18px;z-index:2}
-/* FOOTER */
-.footer{background:var(--ink);padding:52px 28px 100px;margin-top:10px}
-.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;max-width:1120px;margin:0 auto 30px}@media(max-width:680px){.ft-grid{grid-template-columns:1fr 1fr;gap:28px}}
-.ft-logo{font-family:'Fraunces',serif;font-size:25px;font-weight:400;color:#fff;margin-bottom:6px}.ft-logo em{font-style:normal;color:var(--bl)}
-.ft-tag{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--go);margin-bottom:12px}
-.ft-desc{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:16px;max-width:250px}
-.ft-col h4{font-family:'Outfit',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:13px}
-.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.55);margin-bottom:9px}.ft-col a:hover{color:#fff}
-.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);max-width:1120px;margin:0 auto;font-family:'Outfit',sans-serif;font-size:12px;color:rgba(255,255,255,.4)}
-.ft-aff{font-size:11.5px;color:rgba(255,255,255,.35);text-align:center;padding-top:14px;max-width:1120px;margin:0 auto;line-height:1.65}
-.mbar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;box-shadow:0 -4px 20px rgba(15,40,70,.12);display:none;gap:10px;padding:10px 14px}@media(max-width:860px){.mbar{display:flex}}
-.mbar a{flex:1;text-align:center;font-family:'Outfit','Noto Sans Thai',sans-serif;font-size:13px;font-weight:800;padding:13px;border-radius:14px}.mbar .m1{background:linear-gradient(135deg,var(--or),var(--go));color:#fff}.mbar .m2{background:var(--bl-lt);color:var(--bl-dk)}
 /* CITY STATS (overlap hero) */
 .cstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:860px;margin:-44px auto 0;position:relative;z-index:5;padding:0 28px}@media(max-width:560px){.cstats{grid-template-columns:repeat(2,1fr)}}
 .cstat{background:#fff;border:1px solid #eafaff;border-radius:14px;box-shadow:0 12px 30px rgba(6,182,212,.15);padding:18px 12px;text-align:center;position:relative;overflow:hidden}
@@ -546,85 +530,226 @@ html[dir="rtl"] .flagbar{flex-direction:row-reverse}
 .faqit summary{cursor:pointer;list-style:none;padding:16px 20px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:15px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:12px}
 .faqit summary::-webkit-details-marker{display:none}.faqit summary::after{content:'+';font-size:20px;color:var(--bl);font-weight:400;flex-shrink:0}.faqit[open] summary::after{content:'–'}
 .faqit p{padding:0 20px 18px;font-size:14px;color:var(--sub);line-height:1.8}
-</style>`;
 
-const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">`;
+/* ===========================================================================
+   APP-SHELL ADJUSTMENTS (blueprint §4.0 · §4.1 · §4.3)
+   New rules only, therefore LOGICAL PROPERTIES ONLY — these have to mirror for
+   free under dir="rtl" on the he and ar hubs.
+   ======================================================================== */
+/* The old chrome was a 66px position:fixed .nav and every page cleared it with
+   the breadcrumb's 84px block-start padding. shell.css reserves the topbar
+   itself (.ta-main), so that hand-rolled offset now double-counts. */
+.crumb{padding-block-start:12px}
+/* The section tabs stick under the CONDENSED topbar, not under the old bar. */
+.tabwrap{inset-block-start:var(--topbar-h,56px)}
+/* Panel deep links with scripting off: /city-krabi#p-see has to show the See
+   panel even when the tab script never runs. :target is the CSS half of what
+   that script does at runtime, and the reason the in-page anchors now point at
+   the real ids instead of the #see/#eat/#stay that match nothing.
 
-function navHtml(slug){
-  const _locs = pageLocales(slug);
-  const _extra = _locs.filter(l=>l!=='th'&&l!=='en');
-  const _flagcss = _extra.length ? '<style>'+_extra.map(l=>`.flg-${l}{background-image:url("data:image/svg+xml;base64,${FLAG_B64[l]}")}`).join('')+'</style>' : '';
-  const _bar = '<div class="flagbar" role="navigation" aria-label="Language">'+_locs.map(l=>`<a href="/${l==='th'?'':l+'/'}${slug}"${l===LOC?' class="on"':''} title="${LANG_LABEL[l]}" aria-label="${LANG_LABEL[l]}"><span class="flg flg-${l}"></span></a>`).join('')+'</div>';
-  const lbTH = `<button class="lb${LOC==='th'?' active':''}"${LOC==='th'?'':` onclick="location.href='/${slug}.html'"`}>TH</button>`;
-  const lbEN = `<button class="lb${LOC==='en'?' active':''}"${LOC==='en'?'':` onclick="location.href='/en/${slug}.html'"`}>EN</button>`;
-  return `${_flagcss}<nav class="nav">
-  <a href="${PFX()}" class="logo">Thailand<em>Addict</em></a>
-  <div class="nav-mid">
-    <div class="has-drop"><a href="country-thailand.html">${tx('จุดหมาย','Destinations')}</a><div class="drop"><span class="h">${tx('✨ ยอดนิยม','✨ Popular')}</span><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><span class="h">${tx('🇹🇭 6 ภาค','🇹🇭 6 Regions')}</span><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-isan.html">${tx('🌾 ภาคอีสาน','🌾 Isan')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-east.html">${tx('🏝️ ภาคตะวันออก','🏝️ East')}</a><a href="region-west.html">${tx('🌅 ภาคตะวันตก','🌅 West')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">${tx('→ ดูทั้ง 77 จังหวัด','→ All 77 provinces')}</a></div></div>
-    <div class="has-drop"><a href="top10-hotels-chiang-mai.html">${tx('โรงแรม','Hotels')}</a><div class="drop"><span class="h">${tx('จัดอันดับยอดนิยม','Top Rankings')}</span><a href="top10-hotels-chiang-mai.html">Top 10 ${tx('เชียงใหม่','Chiang Mai')}</a><a href="top10-hotels-bangkok.html">Top 10 ${tx('กรุงเทพ','Bangkok')}</a><a href="top10-hotels-phuket.html">Top 10 ${tx('ภูเก็ต','Phuket')}</a><a href="top10-hotels-krabi.html">Top 10 ${tx('กระบี่','Krabi')}</a><a href="top10-hotels-chonburi.html">Top 10 ${tx('พัทยา','Pattaya')}</a><a href="country-thailand.html" style="font-weight:700;color:var(--bl-dk)">${tx('→ โรงแรมทุกจังหวัด','→ Hotels in all provinces')}</a></div></div>
-    <div class="has-drop"><a href="city-chiang-mai.html#see">${tx('ที่เที่ยว','Things to Do')}</a><div class="drop"><span class="h">${tx('ที่เที่ยวยอดนิยม','Top Sights')}</span><a href="city-chiang-mai.html#see">${tx('เชียงใหม่','Chiang Mai')}</a><a href="city-bangkok.html#see">${tx('กรุงเทพ','Bangkok')}</a><a href="city-phuket.html#see">${tx('ภูเก็ต','Phuket')}</a><a href="city-krabi.html#see">${tx('กระบี่','Krabi')}</a><span class="h">${tx('คู่มือเที่ยว','Guides')}</span><a href="best-day-trips-from-bangkok.html">${tx('เที่ยวรอบกรุงเทพ 1 วัน','Day trips from Bangkok')}</a><a href="best-islands-snorkeling-thailand.html">${tx('เกาะดำน้ำน้ำใส','Best snorkeling islands')}</a><a href="best-temple-destinations-thailand.html">${tx('ไหว้พระ–วัดสวย','Best temples')}</a><a href="destinations.html" style="font-weight:700;color:var(--bl-dk)">${tx('→ เมืองท่องเที่ยวทั้งหมด','→ All top cities')}</a></div></div>
-    <div class="has-drop"><a href="city-chiang-mai.html#eat">${tx('ของกิน','Food')}</a><div class="drop"><span class="h">${tx('ของกินเด็ด','Best Eats')}</span><a href="city-chiang-mai.html#eat">${tx('เชียงใหม่','Chiang Mai')}</a><a href="city-bangkok.html#eat">${tx('กรุงเทพ','Bangkok')}</a><a href="city-phuket.html#eat">${tx('ภูเก็ต','Phuket')}</a><a href="city-krabi.html#eat">${tx('กระบี่','Krabi')}</a><span class="h">${tx('คู่มือกิน','Food Guides')}</span><a href="best-cafe-hopping-thailand.html">${tx('คาเฟ่ฮอปปิ้ง','Café hopping')}</a><a href="cooking-classes-bangkok.html">${tx('เรียนทำอาหารไทย','Thai cooking classes')}</a></div></div>
-    <a href="/trip" style="font-weight:700">${tx('วางแผนทริป AI','AI Trip Planner')}</a>
-    <a href="near-me.html" style="color:var(--bl-dk);font-weight:700">${tx('📍 ใกล้ฉัน','📍 Near Me')}</a>
-    <a href="plan-your-trip.html">${tx('เตรียมตัว','Plan Trip')}</a>
-    <a href="about.html">${tx('เกี่ยวกับเรา','About')}</a>
-  </div>
-  <div class="nav-r">
-    ${_bar}
-    <div class="search-box"><input type="text" id="navsearch" class="search-input" placeholder="${tx('ค้นหาจังหวัด...','Search provinces...')}" autocomplete="off"><div class="search-drop" id="navdrop"></div></div>
-    <button class="nav-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">${tx('ค้นหาที่พัก','Find Hotels')}</button>
-    <button class="hb" id="hb">☰</button>
-  </div>
-</nav>
-<div class="mm" id="mm"><div class="mm-top"><span class="logo">Thailand<em>Addict</em></span><button class="mm-x" id="mmx">✕</button></div>
-  <a href="country-thailand.html" style="font-weight:700;color:var(--bl)">${tx('🇹🇭 จุดหมาย · 77 จังหวัด','🇹🇭 Destinations · 77 provinces')}</a><a href="destinations.html">${tx('🔥 เมืองท่องเที่ยว','🔥 Top Cities')}</a><a href="region-north.html">${tx('⛰️ ภาคเหนือ','⛰️ North')}</a><a href="region-central.html">${tx('🏙️ ภาคกลาง','🏙️ Central')}</a><a href="region-south.html">${tx('🌊 ภาคใต้','🌊 South')}</a><a href="top10-hotels-chiang-mai.html" style="font-weight:700;color:var(--bl)">${tx('🏨 โรงแรม · จัดอันดับ','🏨 Hotels · Rankings')}</a><a href="city-chiang-mai.html#see" style="font-weight:700;color:var(--bl)">${tx('🏖️ ที่เที่ยว','🏖️ Things to Do')}</a><a href="city-chiang-mai.html#eat" style="font-weight:700;color:var(--bl)">${tx('🍜 ของกิน','🍜 Food')}</a><a href="/trip" style="font-weight:700;color:var(--bl)">${tx('🤖 วางแผนทริป AI','🤖 AI Trip Planner')}</a><a href="near-me.html" style="font-weight:700;color:var(--bl)">${tx('📍 ใกล้ฉัน','📍 Near Me')}</a><a href="plan-your-trip.html">${tx('🧭 เตรียมตัวเที่ยว','🧭 Plan Your Trip')}</a><a href="about.html">${tx('เกี่ยวกับเรา','About')}</a><a href="contact.html">${tx('ติดต่อ','Contact')}</a>
-  <button class="mm-cta" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">${tx('ค้นหาโรงแรม','Find Hotels')}</button>
-</div>`;
+   BOTH RULES ARE SCOPED TO .cwrap:not(.js-tabs) ON PURPOSE. The tab script
+   writes the new panel id into the URL with history.replaceState, and
+   replaceState does NOT move :target — it stays pinned to whatever the page
+   was loaded with. Unscoped, the second rule then hides the panel the script
+   just activated, so after landing on /city-krabi#p-eat (which is exactly what
+   the footer links and Google's fragment results do) every tab click changed
+   the pill and the URL and nothing else: the panel froze on Eat. The script
+   adds .js-tabs to .cwrap once it has applied the hash, which hands the whole
+   job to it; with scripting off the class never appears and :target still
+   resolves the deep link. */
+.cwrap:not(.js-tabs) .panel:target{display:block}
+.cwrap:not(.js-tabs):has(.panel:target) .panel.active:not(:target){display:none}
+/* Save-to-trip on a card. .ta-save in shell.css owns the look (🔖 plus a WORD,
+   never a bare icon); these rules only place it. */
+.hc-save{margin-block-start:10px;align-self:flex-start}
+.hl-side .ta-save{white-space:nowrap}
+/* The reset at the top of this file (*{margin:0;padding:0}) is why the next two
+   rules exist. This stylesheet is unlayered, so it outranks every rule in
+   @layer shell — including the shell own two structural boxes — and the reset
+   was silently zeroing the bottom-edge contract (§4.3) and the topbar offset,
+   which put the breadcrumb under the fixed topbar and the tab bar on top of the
+   footer. revert-layer hands each property straight back to shell.css, so the
+   contract still lives in ONE file; the calc() before it is the fallback for a
+   browser that does not know revert-layer, and mirrors shell.css by token, not
+   by value. */
+body{padding-block-end:calc(var(--floor) + var(--cta-h) + var(--sp-4));padding-block-end:revert-layer}
+.ta-main{padding-block-start:calc(var(--topbar-rest) + var(--safe-t));padding-block-start:revert-layer}
+/* Two page widgets own a fixed bottom edge and predate the tab bar: #cv-bar,
+   the currency switcher currency.js injects, and .ta-top, the back-to-top
+   button premium-motion.js injects. Both used to sit above the old .mbar; with
+   the shell they have to clear --floor, or they cover the tab bar controls —
+   the currency pills sat exactly on top of Search, Trip and Menu. Both are
+   styled from sheets injected after this one, hence the !important and the
+   body-scoped selector; both use --floor, so they follow the bar. */
+#cv-bar{inset-block-end:calc(var(--floor) + 12px)!important}
+body .ta-top{inset-block-end:calc(var(--floor) + 16px)}
+`;
+
+/* Write the page stylesheet once per run and return its href. Two generations
+   are kept: HTML already in a reader's cache (max-age 3600 +
+   stale-while-revalidate 86400) still asks for the previous name. */
+function writeHubCss(){
+  const hash = crypto.createHash('sha256').update(PAGE_CSS).digest('hex').slice(0,8);
+  const name = `hub.${hash}.css`;
+  const dir = path.join(PUB,'css');
+  fs.mkdirSync(dir,{recursive:true});
+  const out = path.join(dir,name);
+  let existing = null;
+  try{ existing = fs.readFileSync(out,'utf8'); }catch{}
+  if(existing !== PAGE_CSS) fs.writeFileSync(out, PAGE_CSS);
+  return '/css/'+name;
+}
+const HUB_CSS = writeHubCss();
+
+/* Drop stale generations — but ONLY after a full run. Every locale snapshot links
+   the stylesheet by hash, so pruning inside writeHubCss() would delete the file
+   the locales this run did NOT regenerate are still pointing at: `node
+   gen-hubs.mjs th` would leave the other eight locales with a 404 stylesheet and
+   an unstyled page. prebuild.mjs always runs all nine. One previous generation is
+   kept for HTML sitting in a reader's cache (max-age 3600 + swr 86400). */
+function pruneHubCss(){
+  try{
+    const dir = path.join(PUB,'css'), keep = HUB_CSS.split('/').pop();
+    const olds = fs.readdirSync(dir).filter(f=>/^hub\.[0-9a-f]{8}\.css$/.test(f) && f!==keep)
+      .map(f=>({f,t:fs.statSync(path.join(dir,f)).mtimeMs})).sort((a,b)=>b.t-a.t);
+    for(const o of olds.slice(1)) fs.unlinkSync(path.join(dir,o.f));
+  }catch{}
 }
 
-function footerHtml(){ return `<footer class="footer"><div class="ft-grid">
-  <div><div class="ft-logo">Thailand<em>Addict</em></div><div class="ft-tag">Explore Thailand Like a Local</div><p class="ft-desc">${tx('ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง','Life on the road — the best stays, food and sights across Thailand, picked from real reviews.')}</p></div>
-  <div class="ft-col"><h4>${tx('จุดหมาย','Destinations')}</h4><a href="country-thailand.html">${tx('🇹🇭 เที่ยวไทย','🇹🇭 Thailand')}</a><a href="city-chiang-mai.html">${tx('เชียงใหม่','Chiang Mai')}</a><a href="city-bangkok.html">${tx('กรุงเทพ','Bangkok')}</a><a href="city-phuket.html">${tx('ภูเก็ต','Phuket')}</a><a href="city-krabi.html">${tx('กระบี่','Krabi')}</a></div>
-  <div class="ft-col"><h4>${tx('คอนเทนต์','Content')}</h4><a href="city-chiang-mai.html#stay">${tx('โรงแรมเชียงใหม่','Chiang Mai hotels')}</a><a href="city-bangkok.html#eat">${tx('ของกินกรุงเทพ','Bangkok food')}</a><a href="country-thailand.html">${tx('คู่มือเที่ยวไทย','Thailand guide')}</a><a href="plan-your-trip.html">${tx('เตรียมตัวเที่ยว','Plan Your Trip')}</a></div>
-  <div class="ft-col"><h4>${tx('เกี่ยวกับ','About')}</h4><a href="about.html">${tx('เกี่ยวกับเรา','About us')}</a><a href="editorial-policy.html">${tx('นโยบายบรรณาธิการ','Editorial Policy')}</a><a href="contact.html">${tx('ติดต่อ','Contact')}</a><a href="privacy.html">${tx('ความเป็นส่วนตัว','Privacy')}</a></div>
-  </div>
-  <div class="ft-bottom"><span>© 2026 thailandaddict.com${tx(' — ชีวิตติดเที่ยว','')}</span><span>Privacy · Editorial Policy</span></div>
-  <div class="ft-aff">${tx('⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ','⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on this site, at no extra cost to you.')}</div>
-</footer>
-<div class="mbar"><a class="m1" href="country-thailand.html">${tx('🇹🇭 เลือกจังหวัด','🇹🇭 Pick a province')}</a><a class="m2" onclick="window.open('https://www.agoda.com/?cid=1965862','_blank')">${tx('🏨 ค้นหาที่พัก','🏨 Find Hotels')}</a></div>`;
+/* ===========================================================================
+   THE APP SHELL — gen-hubs is the third consumer of chrome.mjs
+   Blueprint §4.0 "one artifact, four consumers"
+
+   Nothing below writes a header, tab bar, rail, footer or icon: every byte of
+   chrome comes from _internal/lib/chrome.mjs, the same module Shell.astro emits
+   for ReviewLayout / RoundupLayout / ArticleLayout. A second copy of that
+   markup is exactly the bug this replaces.
+
+   THIS STAGE MOVES MARKUP, NEVER WORDS. Every string below is an existing tx()
+   pair copied verbatim out of the footerHtml() it replaces, so not one of the
+   2,716 dictionary keys is re-keyed — _internal/qa/check-i18n-keys.mjs fails
+   the build (exit 6) if a single English literal changes.
+   ======================================================================== */
+
+/* Interface strings the hubs never had before the shell did (the save button).
+   Deliberately NOT new tx() pairs: a new English literal has no entry in any of
+   the 7 dictionaries, so it would render as English on every hub in those
+   locales, silently and permanently — and fail check-i18n-keys. These come from
+   astro/src/i18n/ui.<lang>.json, which already carries human-checked copy for
+   all nine locales and which chrome.mjs itself reads for the footer. */
+const UI = {};
+for(const l of ['th','en',...NEW_LOCS]){ try{ UI[l]=JSON.parse(fs.readFileSync(path.join(ROOT,'astro/src/i18n','ui.'+l+'.json'),'utf8')); }catch{ UI[l]=null; } }
+const uiS = (sec,key) => ((UI[LOC]&&UI[LOC][sec]&&UI[LOC][sec][key]) || (UI.en&&UI.en[sec]&&UI.en[sec][key]) || '');
+
+/* Resolve a hub-relative link ("country-thailand.html") the way cleanLinks()
+   resolves an href, but eagerly. The shell puts destinations in action="…" and
+   in ctx fields that cleanLinks() never sees (it only rewrites href="…"), and a
+   bare "search.html" on /zh/city-krabi would resolve to /zh/search.html, which
+   only th and en have. Same availability rule as cleanLinks: in-locale when the
+   slug exists there, /en/ otherwise. */
+function hubHref(p){
+  if(/^(https?:|\/\/|#|mailto:)/.test(p)) return p;
+  const s = String(p).replace(/^\//,'');
+  const m = /^([^#?]*?)(?:\.html)?([#?].*)?$/.exec(s) || [];
+  const sl = m[1] || '', rest = m[2] || '';
+  if(!sl) return PFX();
+  if(LOC==='th') return '/'+sl+rest;
+  if(LOC==='en') return '/en/'+sl+rest;
+  return ((AVAIL && AVAIL.has(sl)) ? '/'+LOC+'/'+sl : '/en/'+sl)+rest;
 }
 
-function commonJs(){
-  const SP_JSON = JSON.stringify([...PROVINCES, ...DESTINATIONS].map(([s,th])=>[s, LOC==='en'?(EN_NAME[s]||th):th]));
-  const verb = tx('เที่ยว','Explore '), all = tx('🔎 ค้นหาทั้งเว็บ','🔎 Search the whole site');
-  const idxUrl = (LOC==='en'?'/en/':'/')+'search-index.json';
-  const BADGE = JSON.stringify({stay:tx('ที่พัก','Stay'),rank:tx('จัดอันดับ','Ranking'),see:tx('ที่เที่ยว','See'),eat:tx('ที่กิน','Eat'),plan:tx('แผน','Plan'),guide:tx('คู่มือ','Guide'),city:tx('เมือง','Place')});
-  return `<script>
-var __SP=${SP_JSON};
-(function(){var hb=document.getElementById('hb'),mm=document.getElementById('mm'),mmx=document.getElementById('mmx');if(hb){hb.onclick=function(){mm.classList.add('open')};mmx.onclick=function(){mm.classList.remove('open')};}
-var ns=document.getElementById('navsearch'),nd=document.getElementById('navdrop');
-if(ns){
-// nav quick-search: bilingual full-index search, index lazy-loaded on first focus/keystroke (0 page-load cost);
-// shows instant province matches (__SP) until the index arrives, then full smart results.
-var IDX_URL=${JSON.stringify(idxUrl)},BADGE=${BADGE},IDX=null,LOADING=false;
-var ALIAS={bkk:'bangkok',cnx:'chiang mai',chiangmai:'chiang mai',hkt:'phuket',kbv:'krabi',huahin:'hua hin'};
-function norm(s){return String(s||'').toLowerCase().replace(/[^\\p{L}\\p{N}\\p{M}]+/gu,' ').replace(/\\s+/g,' ').trim();}
-function expand(n){return n.split(' ').map(function(w){return ALIAS.hasOwnProperty(w)?ALIAS[w]:w;}).join(' ').replace(/\\s+/g,' ').trim();}
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function full(){var v=ns.value.trim();return '<a href="search?q='+encodeURIComponent(v)+'" style="display:block;padding:10px 12px;font-family:Outfit,Noto Sans Thai,sans-serif;font-weight:700;color:var(--bl-dk);border-top:1px solid var(--bdr)">${all} &rarr;</a>';}
-function load(cb){if(IDX){cb&&cb();return;}if(LOADING)return;LOADING=true;fetch(IDX_URL).then(function(r){return r.json();}).then(function(j){IDX=j;cb&&cb();}).catch(function(){LOADING=false;});}
-function blobOf(e){return e[4]||norm((e[0]||'')+' '+(e[3]||''));}
-function fromIndex(q){var qn=expand(norm(q));if(!qn)return[];var toks=qn.split(' ').filter(Boolean),out=[];for(var i=0;i<IDX.length;i++){var e=IDX[i],bl=blobOf(e),ok=true;for(var k=0;k<toks.length;k++){if(bl.indexOf(toks[k])===-1){ok=false;break;}}if(ok)out.push(e);}
-out.sort(function(a,b){function sc(e){var tn=norm(e[0]);return tn.indexOf(qn)===0?0:tn.indexOf(qn)>-1?1:2;}return sc(a)-sc(b);});return out.slice(0,6);}
-function fromSP(q){var lc=q.toLowerCase();return __SP.filter(function(p){return p[1].toLowerCase().indexOf(lc)>-1||p[0].indexOf(lc)>-1;}).slice(0,6).map(function(p){return ['${verb}'+p[1],'city-'+p[0],'city',p[1]];});}
-function draw(rows){nd.innerHTML=(rows.length?rows.map(function(e){return '<a href="'+e[1]+'"><div class="t">'+esc(e[0])+'</div><div class="c">'+(BADGE[e[2]]||'')+(e[3]?' · '+esc(e[3]):'')+'</div></a>';}).join(''):'')+full();nd.classList.add('show');}
-function upd(){var q=ns.value.trim();if(!q){nd.classList.remove('show');return;}if(IDX){draw(fromIndex(q));}else{draw(fromSP(q));load(function(){if(ns.value.trim()===q)draw(fromIndex(q));});}}
-ns.addEventListener('focus',function(){load();});
-ns.addEventListener('input',upd);
-ns.addEventListener('keydown',function(e){if(e.key==='Enter'){var v=ns.value.trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}});
-document.addEventListener('click',function(e){if(!e.target.closest('.search-box'))nd.classList.remove('show');});}})();
-</script>`;
+/* ctx.footer — the SAME copy the old footerHtml() shipped, in the shape
+   chrome.mjs::footer() takes. Dropped in the swap: the duplicate
+   "Privacy · Editorial Policy" strip (the About column already carries both
+   links) and the .mbar mobile bar, whose only destination was the Agoda home
+   page — the weakest possible affiliate click — and whose fixed bottom edge
+   collided with the shell's tab bar. */
+function shellFooter(){
+  return {
+    tagline: 'Explore Thailand Like a Local',
+    blurb: tx('ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง','Life on the road — the best stays, food and sights across Thailand, picked from real reviews.'),
+    columns: [
+      { title: tx('จุดหมาย','Destinations'), links: [
+        { href: hubHref('country-thailand.html'), label: tx('🇹🇭 เที่ยวไทย','🇹🇭 Thailand') },
+        { href: hubHref('city-chiang-mai.html'), label: tx('เชียงใหม่','Chiang Mai') },
+        { href: hubHref('city-bangkok.html'), label: tx('กรุงเทพ','Bangkok') },
+        { href: hubHref('city-phuket.html'), label: tx('ภูเก็ต','Phuket') },
+        { href: hubHref('city-krabi.html'), label: tx('กระบี่','Krabi') },
+      ] },
+      /* These two anchors pointed at #stay and #eat, which are ids on no page —
+         the real ones are p-stay / p-see / p-eat. Fixed here and at every other
+         call site; the tab script and .panel:target both understand them. */
+      { title: tx('คอนเทนต์','Content'), links: [
+        { href: hubHref('city-chiang-mai.html')+'#p-stay', label: tx('โรงแรมเชียงใหม่','Chiang Mai hotels') },
+        { href: hubHref('city-bangkok.html')+'#p-eat', label: tx('ของกินกรุงเทพ','Bangkok food') },
+        { href: hubHref('country-thailand.html'), label: tx('คู่มือเที่ยวไทย','Thailand guide') },
+        { href: hubHref('plan-your-trip.html'), label: tx('เตรียมตัวเที่ยว','Plan Your Trip') },
+      ] },
+      { title: tx('เกี่ยวกับ','About'), links: [
+        { href: hubHref('about.html'), label: tx('เกี่ยวกับเรา','About us') },
+        { href: hubHref('editorial-policy.html'), label: tx('นโยบายบรรณาธิการ','Editorial Policy') },
+        { href: hubHref('contact.html'), label: tx('ติดต่อ','Contact') },
+        { href: hubHref('privacy.html'), label: tx('ความเป็นส่วนตัว','Privacy') },
+      ] },
+    ],
+    legal: tx('⚡ ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ','⚡ ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on this site, at no extra cost to you.'),
+    note: `© 2026 thailandaddict.com${tx(' — ชีวิตติดเที่ยว','')}`,
+  };
+}
+
+/* The ctx chrome.mjs takes (documented in chrome.mjs §3), built from what
+   gen-hubs already knows. `locales` stays availability-driven: pageLocales() is
+   the existing rule (a tourism city exists in a locale iff its translated data
+   file does; everything else is th+en), and the switcher must not regress into
+   "always emit nine". */
+function shellCtx(slug){
+  return {
+    locale: LOC,
+    dir: dirOf(LOC),
+    kind: 'hub',
+    /* A city hub is not one of the five tab destinations; the two index pages
+       are. Nothing else takes aria-current. */
+    tab: (slug==='country-thailand'||slug==='destinations') ? 'places' : slug==='search' ? 'search' : null,
+    path: (LOC==='th'?'/':'/'+LOC+'/')+slug,
+    brand: 'ThailandAddict',
+    locales: pageLocales(slug).map(l=>({ code:l, href:`/${l==='th'?'':l+'/'}${slug}` })),
+    href: {
+      home: PFX(),
+      places: hubHref('country-thailand.html'),
+      search: hubHref('search.html'),
+      trip: '/trip',
+      /* chrome.mjs's default /saved does not exist yet (blueprint §5.7 builds
+         it), so point at the list page that ships today. /trip and /my-list are
+         root-only routes, like ROOT_ONLY_SLUGS in the layouts. */
+      saved: '/my-list',
+      nearMe: hubHref('near-me.html'),
+    },
+    footer: shellFooter(),
+    railHref: '/trip',
+  };
+}
+
+/* 🔖 SAVE — the affordance the hubs did not have at all (blueprint §4.7, FC-5)
+   The hubs are the site's primary SEO landing template and a reader could not
+   save one single thing from one. This writes through the shell's ONE store —
+   TA.saves, localStorage["ta.saves.v3"] — via the delegated [data-save]
+   listener in shell.js: no inline handler (7,299 of those are what blocks a
+   strict script-src CSP) and no fifth wishlist implementation.
+   Bookmark glyph plus a WORD, never a bare icon. */
+function saveBtn(o){
+  const word = uiS('common','saveToTrip').replace(/^🔖\s*/,'');
+  const attrs = [
+    `class="ta-save${o.cls?' '+o.cls:''}"`, 'type="button"', 'aria-pressed="false"', 'data-save',
+    `data-id="${escAttr(o.id)}"`, `data-poi-id="${escAttr(o.id)}"`,
+    `data-kind="${escAttr(o.kind||'stay')}"`, `data-name="${escAttr(o.name)}"`,
+    o.url ? `data-url="${escAttr(o.url)}"` : '',
+    o.img ? `data-img="${escAttr(o.img)}"` : '',
+    o.province ? `data-province="${escAttr(o.province)}"` : '',
+    o.score ? `data-score="${escAttr(o.score)}"` : '',
+    o.priceFrom ? `data-price-from="${escAttr(o.priceFrom)}"` : '',
+    'data-trip-href="/trip"',
+  ].filter(Boolean).join(' ');
+  return `<button ${attrs}><span aria-hidden="true">🔖</span><span class="ta-save-off">${esc(word)}</span><span class="ta-save-on">${esc(uiS('common','saved'))}</span></button>`;
 }
 
 // Strip .html from INTERNAL links so clicks hit the extensionless canonical directly (the Worker
@@ -642,11 +767,18 @@ function cleanLinks(html) {
 function page({ title, desc, slug, jsonld, body, extraJS, image }) {
   const canon = `https://thailandaddict.com/${LOC==='th'?'':LOC+'/'}${slug}`;
   const altTH = `https://thailandaddict.com/${slug}`;
-  const altEN = `https://thailandaddict.com/en/${slug}`;
   const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
+  /* One ctx, three positions — exactly what Shell.astro does with it:
+     shellHead() in <head>, shellTop() first in <body>, shellBottom() last.
+     The viewport meta, both theme-color metas, the hashed shell stylesheet, the
+     pagereveal handler, the speculation rules and shell.js all come from
+     shellHead(); none of them is written here, and the hashed filenames are
+     never hard-coded — they are read from astro/src/data/shell-manifest.json. */
+  const ctx = shellCtx(slug);
   return cleanLinks(`<!doctype html>
-<html lang="${LOC}"${RTL_LOCS.has(LOC)?' dir="rtl"':''}><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${GA_HEAD}
+<html lang="${LOC}" dir="${ctx.dir}"><head>
+<meta charset="UTF-8">${GA_HEAD}
+${shellHead(ctx)}
 <title>${title}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canon}">
@@ -654,16 +786,17 @@ ${pageLocales(slug).map(l=>`<link rel="alternate" hreflang="${l}" href="https://
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canon}"><meta property="og:type" content="website">
-<meta property="og:image" content="${ogImg}"><meta property="og:locale" content="${OG_LOCALE[LOC]||'th_TH'}"><meta name="theme-color" content="#06B6D4">
-${FONTS}
+<meta property="og:image" content="${ogImg}"><meta property="og:locale" content="${OG_LOCALE[LOC]||'th_TH'}">
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
-${CSS}
+<link rel="stylesheet" href="${HUB_CSS}">
 <link rel="stylesheet" href="/css/premium.css">
 </head><body>
-${navHtml(slug)}
+${shellTop(ctx)}
+<main class="ta-main" id="main">
 ${body}
-${footerHtml()}
-${commonJs()}${extraJS||''}
+</main>
+${shellBottom(ctx)}
+${extraJS||''}
 <script src="/js/currency.js" defer></script>
 <script src="/js/premium-motion.js" defer></script>
 </body></html>`);
@@ -769,7 +902,7 @@ function hotelCards(slug){
       bkList.push(`<a class="hbtn ${klass}" href="${href}" target="_blank" rel="nofollow noopener">${label}</a>`);
     }
     const bk=bkList.join('');
-    return `<div class="hcard"><div class="hc-img">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}${sc}</div><div class="hc-body"><div class="hc-name">${esc(h.name)}</div>${stars}<div class="hc-type">${esc(h.type)}</div>${h.loc?`<div class="hc-loc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">${tx('ดูรีวิวเต็ม →','Read full review →')}</a>${bk?`<div class="hbtns">${bk}</div>`:''}</div></div>`;
+    return `<div class="hcard"><div class="hc-img">${h.img?`<img src="${h.img}" alt="${esc(h.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}${sc}</div><div class="hc-body"><div class="hc-name">${esc(h.name)}</div>${stars}<div class="hc-type">${esc(h.type)}</div>${h.loc?`<div class="hc-loc">📍 ${esc(h.loc)}</div>`:''}${price}<a class="hview" href="${h.slug}.html">${tx('ดูรีวิวเต็ม →','Read full review →')}</a>${bk?`<div class="hbtns">${bk}</div>`:''}${saveBtn({id:'s:'+String(h.slug).replace(/^review-/,''),name:h.name,url:hubHref(h.slug+'.html'),img:h.img,province:slug,score:h.score||'',priceFrom:(String(h.price||'').match(/[\d,]+/)||[''])[0].replace(/,/g,''),cls:'hc-save'})}</div></div>`;
   }).join('')+`</div>`;
 }
 
@@ -833,7 +966,21 @@ function provinceHub(slug, th, r, d){
   // stats
   const avg = (REVS[slug]||[]).length ? ((REVS[slug].reduce((s,h)=>s+(h.score||0),0))/(REVS[slug].length)).toFixed(1) : '–';
   const prices = (REVS[slug]||[]).map(h=>{const m=String(h.price).match(/[\d,]+/);return m?+m[0].replace(/,/g,''):0;}).filter(Boolean);
-  const minP = prices.length ? '฿'+Math.min(...prices).toLocaleString() : '–';
+  /* Honest price band (blueprint §5.2.4). The KPI used to be Math.min over every
+     parsed price, which on a 66-review pool means one hostel dorm bed:
+     city-krabi printed "฿150 · ราคาเริ่มต้น/คืน" on a page whose reviewed stays
+     run to ฿22,000. A p10–p90 band over the same numbers says what the tile
+     actually knows — what the reviewed stays cost per night — and it is labelled
+     ui.common.perNight ("/คืน"), which is true of a range as well as of a single
+     number. Under 4 prices is too small a sample for percentiles, so the band
+     degrades to the real min–max, and a single price to itself. */
+  const _sortedP = prices.slice().sort((a,b)=>a-b);
+  const _pct = (a,p) => a[Math.min(a.length-1, Math.max(0, Math.round((a.length-1)*p)))];
+  const _lo = _sortedP.length>=4 ? _pct(_sortedP,0.10) : _sortedP[0];
+  const _hi = _sortedP.length>=4 ? _pct(_sortedP,0.90) : _sortedP[_sortedP.length-1];
+  const priceBand = !_sortedP.length ? '–'
+    : _lo===_hi ? '฿'+_lo.toLocaleString()
+    : '฿'+_lo.toLocaleString()+'–'+_hi.toLocaleString();
   const hls=d.highlights||[], atts=d.attractions||[], foods=d.foodScene||[];
   const intro=stripTags(d.introHtml)||tx(`คู่มือเที่ยว${th} — ที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่`,`A ${nm} travel guide — stays, sights, food and itineraries, picked from the real thing on the ground.`);
   const chips=(hls.slice(0,5).map(h=>`<span class="phchip">📍 ${esc(h.name)}</span>`).join(''))||`<span class="phchip">🗓️ ${esc(best.split(' ').slice(0,5).join(' '))}</span>`;
@@ -848,7 +995,7 @@ function provinceHub(slug, th, r, d){
   const attArts=arts.filter(a=>a.type==='attraction'&&!/-attractions$/.test(a.slug)&&a.heroImg);
   const kindL=tx({nature:'ธรรมชาติ',city:'เมือง',culture:'วัฒนธรรม'},{nature:'Nature',city:'City',culture:'Culture'});
   const epSrc = atts.length ? atts.slice(0,5) : attArts.slice(0,5).map(a=>({name:stripTags(a.title),blurb:'',kind:'city'}));
-  const ep=epSrc.map((a,i)=>{const art=attArts[i]||{};const href=art.slug?`${art.slug}.html`:`city-${slug}.html#see`;const img=art.heroImg||'';const why=a.blurb?`<div class="ep-why">${esc(stripTags(a.blurb).slice(0,80))}</div>`:'';return `<a class="ep-card" href="${href}"><div class="ep-rank">${i+1}</div><div class="ep-img">${img?`<img src="${img}" alt="${esc(a.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="ep-body"><div class="ep-title">${esc(a.name)}</div>${why}<span class="ep-tag">${kindL[a.kind]||tx('ที่เที่ยวแนะนำ','Recommended')}</span></div></a>`;}).join('');
+  const ep=epSrc.map((a,i)=>{const art=attArts[i]||{};const href=art.slug?`${art.slug}.html`:`city-${slug}.html#p-see`;const img=art.heroImg||'';const why=a.blurb?`<div class="ep-why">${esc(stripTags(a.blurb).slice(0,80))}</div>`:'';return `<a class="ep-card" href="${href}"><div class="ep-rank">${i+1}</div><div class="ep-img">${img?`<img src="${img}" alt="${esc(a.name)}" loading="lazy" onerror="this.style.opacity=0">`:''}</div><div class="ep-body"><div class="ep-title">${esc(a.name)}</div>${why}<span class="ep-tag">${kindL[a.kind]||tx('ที่เที่ยวแนะนำ','Recommended')}</span></div></a>`;}).join('');
   // hoods
   const hoods=hls.map((h,i)=>`<div class="hood hg${i%6}"><h4>${esc(h.name)}</h4><p>${esc(stripTags(h.blurb).slice(0,64))}</p></div>`).join('');
   // neighbors cards
@@ -882,7 +1029,7 @@ ${crumb([{t:tx('หน้าแรก','Home'),href:PFX()},{t:tx('ประเ�
   <div class="pherobody"><span class="pheye">${emoji} ${RNAME(r)}</span><h1>${tx(`เที่ยว<em>${th}</em>`,`Explore <em>${nm}</em>`)}</h1><p class="phlead">${esc(tagline)}</p>
   <div class="phchips">${chips}</div></div>
 </div>
-<div class="cstats"><div class="cstat"><div class="n">${cStay}</div><div class="l">${tx('รีวิวที่พัก','Stays reviewed')}</div></div><div class="cstat"><div class="n">${arts.length}</div><div class="l">${tx('บทความเที่ยว','Travel articles')}</div></div><div class="cstat"><div class="n">${avg}</div><div class="l">${tx('คะแนนเฉลี่ย','Avg score')}</div></div><div class="cstat"><div class="n">${minP}</div><div class="l">${tx('ราคาเริ่มต้น/คืน','From /night')}</div></div></div>
+<div class="cstats"><div class="cstat"><div class="n">${cStay}</div><div class="l">${tx('รีวิวที่พัก','Stays reviewed')}</div></div><div class="cstat"><div class="n">${arts.length}</div><div class="l">${tx('บทความเที่ยว','Travel articles')}</div></div><div class="cstat"><div class="n">${avg}</div><div class="l">${tx('คะแนนเฉลี่ย','Avg score')}</div></div><div class="cstat"><div class="n">${priceBand}</div><div class="l">${esc(uiS('common','perNight'))}</div></div></div>
 <div class="updatepill"><span>${tx(`📅 อัปเดต 2026 · เรียบเรียงโดยทีม ThailandAddict · ${cStay} รีวิวจริง · ไม่มีโฆษณาแฝง`,`📅 Updated 2026 · curated by the ThailandAddict team · ${cStay} real reviews · no hidden ads`)}</span></div>
 ${quickAns}
 <div class="section"><div class="introgrid"><div><div class="slbl">${tx(`ทำไมต้องไป${th}`,`Why visit ${nm}`)}</div><h2>${tx(`เที่ยว${th} <em>ให้ครบในที่เดียว</em>`,`${nm} <em>— all in one place</em>`)}</h2><p class="ssub">${esc(intro.slice(0,280))}</p><a class="introbtn" href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div><div class="icards">${introCards}</div></div></div>
@@ -918,7 +1065,7 @@ ${nbCards?`<div class="section"><div class="sh"><div class="slbl">${tx('📍 เ
 ${faqHtml}
 <div class="seo"><div class="seobox"><h2>${tx(`เกี่ยวกับ — เที่ยว${th}`,`About — ${nm}`)}</h2>${d.introHtml||tx(`<p>คู่มือเที่ยว${th} ครบทั้งที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่</p>`,`<p>A complete ${nm} guide — stays, sights, food and itineraries, picked from the real thing on the ground.</p>`)}<p><b>${tx('ช่วงเวลาแนะนำ:','Best time:')}</b> ${esc(best)}</p></div></div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx(`วางแผนเที่ยว${th}`,`Plan your ${nm} trip`)}</h2><p>${tx('ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว','Stays, sights, food and routes — all gathered for you')}</p><a href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div></div>`;
-  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','');if(m[h])act(m[h],true);})();</script>`;
+  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#p-'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','').replace(/^p-/,'');if(m[h])act(m[h],true);var w=document.querySelector('.cwrap');if(w)w.classList.add('js-tabs');})();</script>`;
   return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS,image:heroSrc});
 }
 
@@ -960,7 +1107,7 @@ function hoodHub(hood){
   const jsonld={"@context":"https://schema.org","@graph":[_bc,_place]};
   const stars=(n)=>'★'.repeat(Math.max(0,Math.min(5,Math.round(+n||0))));
   const hotelList=hotels.map((h,i)=>{const bf=en?h.bestForEn:h.bestForTh, why=(en?h.whyEn:h.whyTh)||'';
-    return `<div class="hl-row"><div class="hl-rank">${i+1}</div><div class="hl-main"><div class="hl-top"><h3>${esc(h.name)}</h3><span class="hl-star">${stars(h.star)}</span></div>${bf?`<div class="hl-bf">${esc(bf)}</div>`:''}<p>${esc(why)}</p></div><div class="hl-side">${h.priceFromTHB?`<div class="hl-price"><small>${tx('เริ่มต้น','from')}</small>฿${esc(String(h.priceFromTHB))}</div>`:''}<a class="hl-book" href="${agoda(h.name)}" target="_blank" rel="sponsored nofollow noopener">${tx('เช็คราคา →','Check price →')}</a></div></div>`;}).join('');
+    return `<div class="hl-row"><div class="hl-rank">${i+1}</div><div class="hl-main"><div class="hl-top"><h3>${esc(h.name)}</h3><span class="hl-star">${stars(h.star)}</span></div>${bf?`<div class="hl-bf">${esc(bf)}</div>`:''}<p>${esc(why)}</p></div><div class="hl-side">${h.priceFromTHB?`<div class="hl-price"><small>${tx('เริ่มต้น','from')}</small>฿${esc(String(h.priceFromTHB))}</div>`:''}<a class="hl-book" href="${agoda(h.name)}" target="_blank" rel="sponsored nofollow noopener">${tx('เช็คราคา →','Check price →')}</a>${saveBtn({id:'s:'+String(h.name).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),name:h.name,province:'bangkok',priceFrom:(String(h.priceFromTHB||'').match(/[\d,]+/)||[''])[0].replace(/,/g,'')})}</div></div>`;}).join('');
   const tab=(id,emo,label,count,active)=>`<div class="tab${active?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
   const qa=quick?stripTags(quick).replace(/^[^:：]*[:：]\s*/,''):'';
   // intro icards (4) — mirror the city hub
@@ -1004,7 +1151,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ ${tx('ไฮไ
 <div class="section"><div class="sh"><div class="slbl">🔎 ${tx('ค้นเอง','Search yourself')}</div><h2>${tx(`เทียบราคาที่พัก<em>ย่าน${nm}</em>`,`Compare <em>${nm}</em> stays`)}</h2><p>${tx('เทียบ 3 เว็บจองดังก่อนตัดสินใจ','Compare the 3 big booking sites before you decide')}</p></div>${aff}</div>
 <div class="section" style="padding-top:0"><div class="sh"><div class="slbl">🏘️ ${tx('ย่านอื่น','More areas')}</div><h2>${tx('เลือก<em>ย่านอื่นในกรุงเทพ</em>','Explore <em>other Bangkok areas</em>')}</h2><p>${tx('กรุงเทพมีให้เลือกพักหลายย่าน แต่ละย่านคนละสไตล์','Bangkok has many areas to stay — each a different vibe')}</p></div><a class="introbtn" href="city-bangkok.html">${tx('ดูย่านทั้งหมดในกรุงเทพ →','See all Bangkok areas →')}</a></div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx(`จองที่พักย่าน${nm}`,`Book a stay in ${nm}`)}</h2><p>${tx('เทียบราคาที่พักในย่านนี้ก่อนจอง','Compare stays in this area before you book')}</p><a href="${wts}.html">${tx('ดูที่พักแนะนำ →','See recommended stays →')}</a></div></div>`;
-  const extraJS=`<script>(function(){var t=[].slice.call(document.querySelectorAll('.tab')),p=[].slice.call(document.querySelectorAll('.panel'));function a(id){t.forEach(function(x){x.classList.toggle('active',x.dataset.tab===id)});p.forEach(function(x){x.classList.toggle('active',x.id==='p-'+id)})}t.forEach(function(x){x.addEventListener('click',function(){a(x.dataset.tab);history.replaceState(null,'','#'+x.dataset.tab)})});var h=(location.hash||'').replace('#','').replace('p-','');if(['stay','see','eat','plan','prep'].indexOf(h)>-1)a(h);})();</script>`;
+  const extraJS=`<script>(function(){var t=[].slice.call(document.querySelectorAll('.tab')),p=[].slice.call(document.querySelectorAll('.panel'));function a(id){t.forEach(function(x){x.classList.toggle('active',x.dataset.tab===id)});p.forEach(function(x){x.classList.toggle('active',x.id==='p-'+id)})}t.forEach(function(x){x.addEventListener('click',function(){a(x.dataset.tab);history.replaceState(null,'','#p-'+x.dataset.tab)})});var h=(location.hash||'').replace('#','').replace(/^p-/,'');if(['stay','see','eat','plan','prep'].indexOf(h)>-1)a(h);var w=document.querySelector('.cwrap');if(w)w.classList.add('js-tabs');})();</script>`;
   return page({title:tx(`พักย่าน${nm} กรุงเทพฯ — ที่พัก·ของกินเด่น·ไฮไลท์ห้ามพลาด | ThailandAddict`,`${nm}, Bangkok — Where to Stay, Eat & Top Highlights | ThailandAddict`),desc:tx(`ย่าน${nm} กรุงเทพฯ: คัด ${hotels.length} ที่พักทุกงบ + ของกินเด่น ${foods.length} อย่าง + ไฮไลท์ห้ามพลาด ${highlights.length} จุด`,`${nm}, Bangkok — ${hotels.length} hotels for every budget, ${foods.length} signature eats and ${highlights.length} must-see highlights.`),slug:`area-bangkok-${hood}`,jsonld,body,extraJS,image:heroSrc});
 }
 function provCard(s,th,em,tg){
@@ -1341,3 +1488,4 @@ const want = process.argv.slice(2).filter(a=>['th','en',...NEW_LOCS].includes(a)
 const LOCALES = want.length ? want : ['th','en',...NEW_LOCS];
 const OUT_BASE = process.env.HUBS_OUT || PUB;
 for(const loc of LOCALES) genAll(loc, loc==='th' ? OUT_BASE : path.join(OUT_BASE, loc));
+if(LOCALES.length === 2 + NEW_LOCS.length) pruneHubCss();
