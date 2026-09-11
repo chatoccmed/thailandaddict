@@ -1,17 +1,50 @@
 // HTML localizer — turn a built English page into any locale, keeping structure/images/URLs.
 // "Same layout, translate text only": walks the parsed DOM, swaps visible text + a few attributes
 // via a translation memory (tm.<loc>.json, keyed by the trimmed English string), rewrites <html
-// lang/dir>, hreflang, canonical/og, injects the per-script font + RTL stylesheet, and rebuilds the
-// language switcher so every locale links to the SAME page under its own /prefix/.
+// lang/dir>, hreflang, canonical/og, and re-points the language switcher at the current locale.
 //
 // Usage:
 //   node _internal/i18n/localize.mjs --collect  [file ...]     → dump unique EN strings to strings.json (worklist)
 //   node _internal/i18n/localize.mjs zh ar      [file ...]     → build those locales (default: all /en pages)
 //   (files are paths under astro/public/en, or bare slugs; omit to process the whole /en tree)
+//
+// ── THE APP SHELL (2026-09) ────────────────────────────────────────────────────
+// gen-hubs.mjs now renders its chrome from _internal/lib/chrome.mjs — header,
+// tab bar, trip rail, More sheet, language popover. That chrome arrives here
+// inside the /en/ source page, so a localized hub inherits it for free. Three
+// things had to change for it to arrive CORRECTLY, and one whole pile of code
+// had to go:
+//
+//   1. Chrome words come from chrome.mjs, not from the translation memory.
+//      shellLabelsFor('en') paired with shellLabelsFor(loc) is the exact
+//      English→locale map chrome.mjs itself would have emitted, so /zh/city-krabi
+//      (written by gen-hubs) and /zh/activities-krabi (written here) cannot
+//      disagree about the word for "Destinations". The hub dictionary that
+//      gen-hubs::tx() reads is consulted next, for the footer, before the tm.
+//
+//   2. The language popover is DATA, not prose. Its entries are the nine
+//      language NAMES — translating "English" into 英语 there would be exactly
+//      wrong. That subtree is excluded from translation entirely; only
+//      aria-current moves, onto the locale being written.
+//
+//   3. `/en/` on its own (the brand link, the Explore tab) now resolves to
+//      `/<loc>/`. It used to fall through every branch and stay on /en/.
+//
+// Deleted, not ported: a 13-rule RTL stylesheet whose selectors (.mm,
+// .nav-mid .drop, .search-box, .search-drop, .lang-menu) belonged to the nav
+// this replaced — shell.css is written in logical properties and mirrors by
+// itself, and one of those rules would have fought the shell's own .lang-menu;
+// a hand-rolled .lsw-item switcher plus its CSS and its dropdown script, which
+// hung off a .lang-wrap that survives on 2 of 226 pages; and the Google Fonts
+// link, because the shell subsets by unicode-range and hands CJK/Arabic/Hebrew/
+// Devanagari to the system font — which is what the 210 locale hubs gen-hubs
+// already ships do, and it saves those readers a render-blocking request.
+// All of it still applies to the 9 pages that are not on the shell yet.
 import fs from 'node:fs';
 import path from 'node:path';
 import { parse, parseFragment, serialize } from '../../astro/node_modules/parse5/dist/index.js';
 import { LOCALES, LOCALE_MAP, LOCALE_CODES, prefix } from './locales.mjs';
+import { shellLabelsFor, runtimeStrings } from '../lib/chrome.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const PUB  = path.join(ROOT, 'astro/public');
@@ -32,14 +65,20 @@ const attr = (node, name) => (node.attrs||[]).find(a=>a.name===name);
 const getAttr = (node, name) => { const a=attr(node,name); return a?a.value:undefined; };
 const setAttr = (node, name, val) => { const a=attr(node,name); if(a) a.value=val; else (node.attrs=node.attrs||[]).push({name,value:val}); };
 const hasClass = (node, cls) => (getAttr(node,'class')||'').split(/\s+/).includes(cls);
-function* walk(node){ yield node; for(const c of (node.childNodes||[])) yield* walk(c); }
+// `skip` prunes a whole subtree — used to keep the language popover, whose text
+// IS the nine language names, out of the translator.
+function* walk(node, skip){
+  if(skip && node.tagName && skip(node)) return;
+  yield node;
+  for(const c of (node.childNodes||[])) yield* walk(c, skip);
+}
 const find = (root, pred) => { for(const n of walk(root)) if(n.tagName && pred(n)) return n; return null; };
 const findAll = (root, pred) => { const out=[]; for(const n of walk(root)) if(n.tagName && pred(n)) out.push(n); return out; };
 const el = (root, tag) => find(root, n=>n.tagName===tag);
 
 // collect/translate every visible string in a document; `tr` maps EN→localized (identity in collect mode)
-function processStrings(doc, tr, collector){
-  for(const n of walk(doc)){
+function processStrings(doc, tr, collector, skip){
+  for(const n of walk(doc, skip)){
     // text nodes
     if(n.nodeName==='#text'){
       const parentTag = n.parentNode && n.parentNode.tagName;
@@ -77,9 +116,9 @@ function processStrings(doc, tr, collector){
 // /<loc>/foo and 404 when no localized version exists. Point them at the localized page if it exists, else
 // the /en/ version, else the TH root — mirroring gen-hubs' cleanLinks(). `avail` = slugs present in /<loc>/.
 const BARE_LINK = /^[a-z0-9][\w-]*(?:\.html)?(?:[#?].*)?$/i;   // e.g. near-me, top10-hotels-krabi.html, city-phuket#see
-function rewriteUrls(doc, loc, avail){
+function rewriteUrls(doc, loc, avail, skip){
   const pfx = prefix(loc);
-  for(const n of walk(doc)){
+  for(const n of walk(doc, skip)){
     if(!n.tagName) continue;
     for(const a of (n.attrs||[])){
       if((a.name==='href'||a.name==='src'||a.name==='action') && a.value){
@@ -88,7 +127,12 @@ function rewriteUrls(doc, loc, avail){
         // pages link to plenty of EN-only content (e.g. /en/thailand-travel-budget); rewriting those blindly
         // produced /<loc>/thailand-travel-budget → 404. avail covers hub + localized content, so an
         // unknown slug correctly stays on /en/.
-        if(v.startsWith('/en/')){
+        // "/en/" by itself is the EN home — the shell's brand link and Explore
+        // tab both point at it. It matched none of the branches below (slug ===
+        // '' is never in `avail`), so every localized hub kept a header that
+        // walked the reader back to English.
+        if(v === '/en/' || v === '/en'){ a.value = pfx; }
+        else if(v.startsWith('/en/')){
           if(a.name === 'href' && avail){
             const rest = v.slice(4);
             const slug = rest.split(/[#?]/)[0].replace(/\.html$/,'');
@@ -147,8 +191,10 @@ const SWITCHER_CSS = `<style id="lsw-css">
 </style>`;
 const SWITCHER_JS = `<script>(function(){var s=document.querySelector('.lang-switch');if(!s)return;var b=s.querySelector('.lang-btn');b.addEventListener('click',function(e){e.stopPropagation();s.classList.toggle('open');b.setAttribute('aria-expanded',s.classList.contains('open'))});document.addEventListener('click',function(){s.classList.remove('open');b.setAttribute('aria-expanded','false')})})();</script>`;
 
-// RTL: flip direction, then mirror the handful of physically-positioned rules in the shared CSS
-// (dropdowns, drawer, search icon, corner badges, callout border, decorative blobs).
+// RTL — PRE-SHELL pages only (the ~9 hand-written ones still on the old nav).
+// Flips direction, then mirrors the physically-positioned rules in the old
+// shared CSS: dropdowns, drawer, search icon, corner badges, callout border,
+// decorative blobs.
 const RTL_CSS = `<style id="rtl-css">
 html[dir="rtl"]{direction:rtl}
 html[dir="rtl"] body{text-align:right}
@@ -158,6 +204,25 @@ html[dir="rtl"] .nav-mid .drop{left:auto;right:-14px}
 html[dir="rtl"] .search-box::before{left:auto;right:12px}
 html[dir="rtl"] .search-drop{right:auto;left:0}
 html[dir="rtl"] .lang-menu{inset-inline-end:0;inset-inline-start:auto}
+html[dir="rtl"] .hc-score,html[dir="rtl"] .ahub-tag,html[dir="rtl"] .tagn{left:auto;right:12px}
+html[dir="rtl"] .quickbox{border-left:0;border-right:4px solid #06B6D4}
+html[dir="rtl"] .ctaband::after{right:auto;left:-50px}
+html[dir="rtl"] .thero::before{right:auto;left:-60px}
+</style>`;
+
+// RTL — SHELL pages. Six selectors, all of them the page's own CONTENT.
+// The chrome is gone from this list because shell.css is written in logical
+// properties and mirrors by itself; `html[dir="rtl"]{direction:rtl}` and
+// `body{text-align:right}` are gone because the dir attribute already does
+// both, and unlayered they would outrank every rule in @layer shell. The
+// .lang-menu rule in particular had to go: the shell's popover now owns that
+// class name and positions itself with inset-inline.
+//
+// These ARE physical properties, deliberately: they mirror physical properties
+// in the hub's own inline <style>, which gen-hubs has not moved to logical
+// ones yet. They come back out the day it does. check-rtl.mjs does not gate
+// this file for exactly that reason — see its LEGACY_UNGATED note.
+const RTL_CONTENT_CSS = `<style id="rtl-content">
 html[dir="rtl"] .hc-score,html[dir="rtl"] .ahub-tag,html[dir="rtl"] .tagn{left:auto;right:12px}
 html[dir="rtl"] .quickbox{border-left:0;border-right:4px solid #06B6D4}
 html[dir="rtl"] .ctaband::after{right:auto;left:-50px}
@@ -175,22 +240,69 @@ function appendToHead(doc, html){
   for(const c of frag.childNodes){ c.parentNode=head; head.childNodes.push(c); }
 }
 
-// full hreflang set for a slug across all built locales (+ x-default → en)
+// Full hreflang set for a slug across all built locales, plus x-default.
+//
+// Both values here are chosen to MATCH gen-hubs.mjs::page(), which writes the
+// th and en members of this same cluster: the bare locale code (not the
+// script-qualified "zh-Hans"), and the Thai root as x-default (meta.json
+// defaultLocale). An hreflang cluster only works if every member agrees; when
+// they disagree Google picks one and discards the rest silently.
 function hreflangSet(slug, builtCodes){
   const codes = ['th','en',...builtCodes.filter(c=>c!=='th'&&c!=='en')];
   const uniq = [...new Set(codes)];
-  const links = uniq.map(c=>`<link rel="alternate" hreflang="${LOCALE_MAP[c].htmlLang}" href="${SITE}${prefix(c)}${slug}">`);
-  links.push(`<link rel="alternate" hreflang="x-default" href="${SITE}/en/${slug}">`);
+  const links = uniq.map(c=>`<link rel="alternate" hreflang="${c}" href="${SITE}${prefix(c)}${slug}">`);
+  links.push(`<link rel="alternate" hreflang="x-default" href="${SITE}/${slug}">`);
   return links.join('');
+}
+
+// A page is "on the shell" once chrome.mjs rendered its header. Everything the
+// shell owns keys off this one fact, so there is no list to keep in step as the
+// remaining hand-written pages migrate — they simply start taking the other
+// branch on the day gen-hubs (or a layout) starts emitting a .ta-topbar.
+const isShellPage = doc => !!find(doc, n => n.tagName==='header' && hasClass(n,'ta-topbar'));
+const isLangMenu  = n => getAttr(n,'id')==='taLang';
+
+// Two things in the shell chrome are about WHICH locale this is, so no
+// dictionary can produce them — they have to be re-pointed by hand.
+function retargetShellChrome(doc, loc, L){
+  // 1. The popover lists all nine languages. Exactly one of them is current.
+  const menu = find(doc, isLangMenu);
+  if(menu){
+    for(const a of findAll(menu, n=>n.tagName==='a')){
+      a.attrs = (a.attrs||[]).filter(x=>x.name!=='aria-current');
+      const hl = getAttr(a,'hreflang');
+      if(hl===loc || hl===LOCALE_MAP[loc].htmlLang) setAttr(a,'aria-current','true');
+    }
+  }
+  // 2. The header button shows the CURRENT language's own name — "中文", not
+  //    the translation of the word "English".
+  const btn = find(doc, n => n.tagName==='button' && hasClass(n,'lang-trigger'));
+  if(btn){
+    setAttr(btn,'aria-label', `${L.language} / Language`);
+    const span = find(btn, n=>n.tagName==='span');
+    if(span){
+      for(const c of (span.childNodes||[])) c.parentNode = null;
+      span.childNodes = [{ nodeName:'#text', value: LOCALE_MAP[loc].label, parentNode: span }];
+    }
+  }
 }
 
 function localizeDoc(html, loc, cleanSlug, fileSlug, builtCodes, tr, avail){
   const doc = parse(html);
+  const shell = isShellPage(doc);
   const htmlEl = el(doc,'html');
-  setAttr(htmlEl,'lang', LOCALE_MAP[loc].htmlLang);
+  // Bare code, not the script-qualified tag: gen-hubs writes lang="zh" on the
+  // /en/ and / twins of this very page, and a cluster that calls itself zh from
+  // one member and zh-Hans from another is one Google reconciles by guessing.
+  setAttr(htmlEl,'lang', loc);
   setAttr(htmlEl,'dir', LOCALE_MAP[loc].dir);
-  processStrings(doc, tr, null);
-  rewriteUrls(doc, loc, avail);
+  // The language popover is exempt from BOTH passes. Its text is the nine
+  // language names, and its nine hrefs are already absolute and per-locale —
+  // "/en/city-krabi" there is the link to the English page, not a link that
+  // needs moving to this locale. Rewriting it pointed English at /zh/.
+  processStrings(doc, tr, null, shell ? isLangMenu : null);
+  rewriteUrls(doc, loc, avail, shell ? isLangMenu : null);
+  if(shell) retargetShellChrome(doc, loc, shellLabelsFor(loc));
   // head meta rewrites (canonical/og:url use the clean, extension-less URL)
   const canon = find(doc, n=>n.tagName==='link' && getAttr(n,'rel')==='canonical');
   if(canon) setAttr(canon,'href', `${SITE}${prefix(loc)}${cleanSlug}`);
@@ -202,13 +314,35 @@ function localizeDoc(html, loc, cleanSlug, fileSlug, builtCodes, tr, avail){
   const alts = findAll(doc, n=>n.tagName==='link' && getAttr(n,'rel')==='alternate' && getAttr(n,'hreflang'));
   for(const a of alts){ const p=a.parentNode; p.childNodes = p.childNodes.filter(c=>c!==a); }
   appendToHead(doc, hreflangSet(cleanSlug, builtCodes));
-  // switcher + fonts + css + (rtl)
-  replaceSwitcher(doc, loc, fileSlug);
-  appendToHead(doc, fontLink(loc) + SWITCHER_CSS + (LOCALE_MAP[loc].dir==='rtl' ? RTL_CSS : ''));
-  // switcher JS before </body>
-  const body = el(doc,'body');
-  if(body){ const frag=parseFragment(SWITCHER_JS); for(const c of frag.childNodes){c.parentNode=body; body.childNodes.push(c);} }
-  return serialize(doc);
+  const rtl = LOCALE_MAP[loc].dir==='rtl';
+  if(shell){
+    // The shell brought its own switcher, its own stylesheet and its own font
+    // strategy. Two things it could NOT bring, because the /en/ page it came
+    // from is English: the content-level RTL mirrors, and the runtime-strings
+    // blob — chrome.mjs emits that only for locales that are not th or en, so
+    // there was none on the source page to inherit. Without it shell.js falls
+    // back to English for the theme label, the toasts and the trip count.
+    if(rtl) appendToHead(doc, RTL_CONTENT_CSS);
+    const strings = runtimeStrings({ locale: loc });
+    if(strings){
+      const body = el(doc,'body');
+      const toast = find(doc, n => getAttr(n,'data-shell-toast') !== undefined);
+      const frag = parseFragment(strings);
+      const host = (toast && toast.parentNode) || body;
+      if(host){
+        const at = toast && toast.parentNode ? host.childNodes.indexOf(toast) + 1 : host.childNodes.length;
+        for(const c of frag.childNodes) c.parentNode = host;
+        host.childNodes.splice(at, 0, ...frag.childNodes);
+      }
+    }
+  } else {
+    // Pre-shell page: unchanged behaviour, down to the byte.
+    replaceSwitcher(doc, loc, fileSlug);
+    appendToHead(doc, fontLink(loc) + SWITCHER_CSS + (rtl ? RTL_CSS : ''));
+    const body = el(doc,'body');
+    if(body){ const frag=parseFragment(SWITCHER_JS); for(const c of frag.childNodes){c.parentNode=body; body.childNodes.push(c);} }
+  }
+  return { html: serialize(doc), shell };
 }
 
 // ── driver ──
@@ -235,10 +369,54 @@ if(collect){
 }
 
 if(!locs.length){ console.error('no target locales given (e.g. zh ar)'); process.exit(1); }
-for(const loc of locs){
+
+/* THE LOOKUP CHAIN, highest authority first.
+ *
+ * The translation memory used to be the only source, and for prose it still is
+ * — 22k entries per locale, collected off these very pages and QA'd through the
+ * i18n pipeline. What it is NOT good for is chrome, because the same English
+ * word can be translated one way here and another way by gen-hubs, and the
+ * reader sees both on the same page: /zh/city-krabi comes from gen-hubs,
+ * /zh/activities-krabi comes from this script, and they are one click apart.
+ *
+ *   1. shell   chrome.mjs's own label set — what gen-hubs renders for the
+ *              header, tab bar, rail and More sheet in this locale.
+ *   2. hub     _internal/hub-i18n/<loc>.json — the dictionary gen-hubs::tx()
+ *              reads. Owns the footer and the hub interface copy.
+ *   3. ui      astro/src/i18n/ui.en.json paired with ui.<loc>.json by key path.
+ *   4. tm      everything else: the page's prose.
+ *
+ * A miss returns English, as it always did. The per-source counts are printed
+ * so a regression shows up as a number, not as someone noticing by eye. */
+function buildChain(loc){
+  const enL = shellLabelsFor('en'), locL = shellLabelsFor(loc);
+  const shell = {};
+  for(const k of Object.keys(enL)){
+    if(enL[k] && locL[k] && locL[k] !== enL[k]) shell[enL[k]] = locL[k];
+  }
+  const hub = rdJson(path.join(ROOT,'_internal/hub-i18n',`${loc}.json`));
+  const ui = {};
+  (function pair(a,b){
+    for(const k of Object.keys(a||{})){
+      const va = a[k], vb = (b||{})[k];
+      if(typeof va === 'string'){ if(typeof vb === 'string' && vb && vb !== va) ui[va] = vb; }
+      else if(va && typeof va === 'object') pair(va, vb);
+    }
+  })(rdJson(path.join(ROOT,'astro/src/i18n','ui.en.json')), rdJson(path.join(ROOT,'astro/src/i18n',`ui.${loc}.json`)));
   const tm = rdJson(path.join(I18N,`tm.${loc}.json`));
-  let hit=0, miss=0;
-  const tr = s => { if(tm[s]!=null){hit++; return tm[s];} miss++; return s; };
+  return { shell, hub, ui, tm };
+}
+
+for(const loc of locs){
+  const D = buildChain(loc);
+  const n = { shell:0, hub:0, ui:0, tm:0, miss:0 };
+  const tr = s => {
+    for(const src of ['shell','hub','ui','tm']){
+      const v = D[src][s];
+      if(v != null){ n[src]++; return v; }
+    }
+    n.miss++; return s;
+  };
   const outDir = path.join(PUB, loc);
   fs.mkdirSync(outDir,{recursive:true});
   // avail = slugs that have a page in /<loc>/ → the pages this run localizes PLUS whatever gen-hubs already
@@ -254,12 +432,35 @@ for(const loc of locs){
       return fs.existsSync(d) ? fs.readdirSync(d).filter(x=>x.endsWith('.json')).map(x=>x.replace(/\.json$/,'')) : [];
     }),
   ]);
+  /* HANDS OFF the pages gen-hubs renders in this locale.
+   *
+   * A tourism-city hub with a _internal/province-data-<loc>/<city>.json is
+   * generated straight from TRANSLATED DATA — the words live in the data file,
+   * so regenerating can never lose them. What this script would write instead
+   * is the ENGLISH page run through a translation memory: strictly worse, and
+   * silently so. gen-hubs happens to run first today (it is in prebuild, this
+   * is manual), which is the only reason 210 good pages have survived. That is
+   * an accident of ordering, not a rule, so here is the rule.
+   *
+   * Same predicate as gen-hubs.mjs::pageLocales. */
+  const OWNED = new Set(files.filter(f => {
+    const m = /^city-(.+)\.html$/.exec(f);
+    return m && fs.existsSync(path.join(ROOT, '_internal', `province-data-${loc}`, `${m[1]}.json`));
+  }));
+
+  let onShell = 0;
   for(const f of files){
+    if(OWNED.has(f)) continue;
     const fileSlug  = f==='index.html' ? '' : f;
     const cleanSlug = f==='index.html' ? '' : f.replace(/\.html$/,'');
     const html = fs.readFileSync(path.join(ENDIR,f),'utf8');
     const out = localizeDoc(html, loc, cleanSlug, fileSlug, locs, tr, avail);
-    fs.writeFileSync(path.join(outDir,f), out);
+    if(out.shell) onShell++;
+    fs.writeFileSync(path.join(outDir,f), out.html);
   }
-  console.log(`[${loc}] ${files.length} pages → astro/public/${loc}/ · tm hits:${hit} misses(→en):${miss}`);
+  const hits = n.shell + n.hub + n.ui + n.tm;
+  const pct = hits + n.miss ? ((hits / (hits + n.miss)) * 100).toFixed(1) : '0.0';
+  const wrote = files.length - OWNED.size;
+  console.log(`[${loc}] ${wrote} pages → astro/public/${loc}/ · ${onShell} on the shell, ${wrote - onShell} not · ${OWNED.size} left to gen-hubs`);
+  console.log(`      ${pct}% translated — shell:${n.shell} hub:${n.hub} ui:${n.ui} tm:${n.tm} · miss(→en):${n.miss}`);
 }

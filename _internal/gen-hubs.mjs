@@ -145,11 +145,41 @@ for(const l of NEW_LOCS){
 // .lang-menu popover, keyed on language NAMES from meta.json and fed the same
 // availability-driven pageLocales() list. The SVGs remain at images/flags/*.svg.
 let AVAIL = null;   // set per genAll: page-slugs that exist in the current (new) locale
-// which locales a PAGE slug exists in (tourism-city hubs vary by translated data; everything else = th/en)
+/* Snapshots that already exist under astro/public/<loc>/, read once per locale.
+   gen-hubs writes 30 city hubs per locale itself; the other ~193 hub pages in
+   each locale are written by _internal/i18n/localize.mjs from the /en/ build.
+   Both kinds are committed snapshots, so the directory IS the truth about what
+   a reader can reach — and it is the only thing that knows about localize's
+   output, which gen-hubs never sees otherwise. */
+const LOC_SNAPSHOTS = new Map();
+function localeSnapshots(loc){
+  if(!LOC_SNAPSHOTS.has(loc)){
+    let set = new Set();
+    try{ set = new Set(fs.readdirSync(path.join(PUB, loc)).filter(f=>f.endsWith('.html')).map(f=>f.slice(0,-5))); }catch{}
+    LOC_SNAPSHOTS.set(loc, set);
+  }
+  return LOC_SNAPSHOTS.get(loc);
+}
+/* Which locales a PAGE slug exists in. Availability-driven, never a hard-coded
+   nine — the switcher and the hreflang set both read this, and offering a
+   locale that 404s is worse than not offering it.
+     · a tourism-city hub exists in a locale iff its translated data file does
+       (that is what gen-hubs itself is about to render from), and
+     · ANY hub exists in a locale iff a snapshot for it is already on disk.
+   The second clause is what lets the 193 localize.mjs pages per locale appear
+   in the switcher at all. Before it, every non-city hub advertised exactly
+   th+en on all nine locales, including the seven it was standing on. */
 function pageLocales(slug){
   const m = /^city-(.+)$/.exec(slug);
-  if(m && TOURISM.includes(m[1])){ const locs=['th','en']; for(const l of NEW_LOCS){ try{ if(fs.existsSync(path.join(DATA+'-'+l, m[1]+'.json'))) locs.push(l); }catch{} } return locs; }
-  return ['th','en'];
+  const city = m && TOURISM.includes(m[1]) ? m[1] : null;
+  const locs = ['th','en'];
+  for(const l of NEW_LOCS){
+    let has = false;
+    if(city){ try{ has = fs.existsSync(path.join(DATA+'-'+l, city+'.json')); }catch{} }
+    if(!has) has = localeSnapshots(l).has(slug);
+    if(has) locs.push(l);
+  }
+  return locs;
 }
 let LOC = 'th';                                  // current locale being generated
 // DYN: the current page's dynamic interpolation values (e.g. {nm:'Phuket', cStay:'12'}) — set
@@ -359,7 +389,15 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .crumb a:hover{color:var(--bl)}
 /* PROVINCE HERO */
 .phero{position:relative;max-width:1120px;margin:14px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,40,70,.22);background:linear-gradient(135deg,#0891b2,#22d3ee 50%,#FB7185)}
-.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* Both shapes heroPic() can emit. It wraps the hero in a picture element
+   whenever a webp twin exists, which made the img a GRANDchild — so the old
+   child selector stopped matching, the picture became a plain flex item beside
+   .pherobody, and on 829 destination hubs the hero photo collapsed to a 226px
+   block at the BOTTOM of the hero while the headline was squeezed into a 149px
+   column. The selector, not the markup, was the thing out of date.
+   (No backticks in this block: the whole stylesheet is a JS template literal.) */
+.phero>img,.phero>picture{position:absolute;inset:0;z-index:0}
+.phero>img,.phero>picture>img{width:100%;height:100%;object-fit:cover;display:block}
 .phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.34) 28%,rgba(8,30,55,.7) 100%),linear-gradient(125deg,rgba(6,182,212,.36),rgba(251,113,133,.3) 60%,rgba(251,191,36,.24));z-index:1}
 .pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
 .pheye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12px;letter-spacing:.5px;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);padding:6px 15px;border-radius:30px}
@@ -1347,7 +1385,11 @@ function activityHub(slug, th, r){
 .ahub-blurb{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0;flex:1}
 .ahub-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--sub);font-weight:600}
 .ahub-go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13.5px;color:var(--bl-dk);margin-top:2px}
-.ahub-sell{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:1fr}}
+/* minmax(0,1fr), not 1fr: a bare 1fr track is minmax(auto,1fr), and auto floors
+   the track at the item's min-content width. The Klook/hotel band inside is
+   363px at min-content, so on a 375px phone the track grew past the viewport
+   and every activity hub — 85 slugs x 9 locales — scrolled 16px sideways. */
+.ahub-sell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:minmax(0,1fr)}}
 .ahub-band{border-radius:22px;padding:24px 24px 26px;display:flex;flex-direction:column}
 .ahub-band h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:20px;margin:0 0 4px}
 .ahub-band>p{font-size:13.5px;line-height:1.6;margin:0 0 16px}
@@ -1463,7 +1505,16 @@ function genAll(loc, outDir){
     // AVAIL never listed plain article slugs, even once the translated file existed on disk.
     const artDirLoc = path.join(ROOT, 'astro/src/content/articles-'+loc);
     const articleSlugs = fs.existsSync(artDirLoc) ? fs.readdirSync(artDirLoc).filter(f=>f.endsWith('.json')).map(f=>f.slice(0,-5)) : [];
-    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS, ...roundupSlugs, ...reviewSlugs, ...articleSlugs]);
+    /* ...and every hub snapshot already sitting in astro/public/<loc>/. Those
+       are the ~193 pages localize.mjs writes per locale — country-thailand,
+       search, destinations, near-me, region-*, activities-*, area-bangkok-*,
+       top10-*. They were missing from AVAIL entirely, so hubHref() sent the
+       Destinations tab and the Search form of every localized hub to /en/ even
+       though the locale's own page was right there on disk. Reading the
+       directory is the only way gen-hubs can see localize's output at all.
+       On a brand-new locale the directory is empty and links fall back to /en/,
+       which is correct — they self-heal on the next run, after localize. */
+    AVAIL = new Set([...cities.map(sl=>'city-'+sl), ...PILLAR_SLUGS, ...roundupSlugs, ...reviewSlugs, ...articleSlugs, ...localeSnapshots(loc)]);
     let n=0;
     for(const sl of cities){ const d=readData(sl); if(!d) continue; fs.writeFileSync(path.join(outDir,`city-${sl}.html`), provinceHub(sl, TH[sl]||sl, REGION_OF[sl], d)); n++; }
     console.log(`[${loc}] → ${path.relative(ROOT,outDir)} · tourism-cities:${n} · roundups:${roundupSlugs.length} · reviews:${reviewSlugs.length}`);

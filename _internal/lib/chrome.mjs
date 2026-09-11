@@ -129,11 +129,17 @@ function ui(locale) {
    Only strings that did NOT exist before the shell did. Everything the site
    already translates (nav.*, footer.*) is read from ui.<lang>.json above.
 
-   th and en are complete. The other seven locales fall back to en, per
-   meta.json fallbackOrder ["en","th"]. They are NOT machine-translated here:
-   raw MT is what produced the wave-2 Thai-leak defect, and blueprint 7d is the
-   gate where copy is allowed to change. `missingLabelLocales()` below
-   enumerates exactly what a 7d pass has to supply.
+   th and en are the BUILT-IN pair and live here, because chrome.mjs has to be
+   able to render without reading a dictionary at all. The other seven locales
+   supply the same keys from `ui.<lang>.json` → "shell", which is where the
+   rest of this site's translated copy already lives — one dictionary per
+   locale, one place to review it, no second table to keep in step.
+
+   Fall back order is en, per meta.json fallbackOrder ["en","th"]. A missing key
+   is therefore ENGLISH on every page in that locale, silently and forever,
+   exactly like a tx() miss in gen-hubs — which is why
+   `missingLabelLocales()` below enumerates them per key and
+   _internal/qa/check-i18n-keys.mjs (layer 4) fails the build on any gap.
    ======================================================================== */
 
 const LABELS = {
@@ -185,19 +191,51 @@ const LABELS = {
   },
 };
 
-/** Locales that have their own shell label set. Everything else falls back. */
+/** Locales with a built-in shell label set. The other seven come from ui.json. */
 export const LABEL_LOCALES = Object.keys(LABELS);
 
-/** The keys a Phase-7d i18n pass still has to supply for `locale`. */
+/** The shell labels a locale supplies, from whichever source owns it. */
+function shellLabels(locale) {
+  return LABELS[locale] || (ui(locale).shell || {});
+}
+
+/** Per-locale report of shell keys that would render as English.
+ *  `[]` means every locale in meta.json is complete. Consumed by
+ *  _internal/qa/check-i18n-keys.mjs layer 4 — do not change the shape without
+ *  updating that gate. */
 export function missingLabelLocales() {
+  const keys = Object.keys(LABELS.en);
   return META.locales
     .map((l) => l.code)
-    .filter((c) => !LABELS[c]);
+    .map((code) => {
+      const have = shellLabels(code);
+      const missing = keys.filter((k) => typeof have[k] !== 'string' || !have[k]);
+      /* Runtime strings are th/en-native inside shell.js, so only the other
+         seven have to supply them — but for those seven a gap is the same
+         defect as a missing label, just one that shows up a second later. */
+      if (code !== DEFAULT_LOCALE && code !== 'en') {
+        const rt = ui(code).shellRuntime || {};
+        for (const k of RUNTIME_KEYS) {
+          if (k === 'themeSystem') continue;   // sourced from the label set above
+          if (typeof rt[k] !== 'string' || !rt[k]) missing.push('shellRuntime.' + k);
+        }
+      }
+      return missing.length ? { locale: code, missing } : null;
+    })
+    .filter(Boolean);
 }
 
 function labelsFor(ctx) {
-  const base = LABELS[ctx.locale] || LABELS.en;
-  return Object.assign({}, LABELS.en, base, ctx.labels || {});
+  return Object.assign({}, LABELS.en, shellLabels(ctx.locale), ctx.labels || {});
+}
+
+/** The resolved shell label set for a locale, English-filled.
+ *  Exported for _internal/i18n/localize.mjs, which translates chrome on pages
+ *  it did not render: pairing shellLabelsFor('en') with shellLabelsFor(loc)
+ *  gives it the exact English→locale map this module would have emitted, so a
+ *  localized hub and a generated one say the same words. */
+export function shellLabelsFor(locale) {
+  return Object.assign({}, LABELS.en, shellLabels(locale));
 }
 
 /* ===========================================================================
@@ -707,6 +745,58 @@ export function searchSheet(ctx) {
 </dialog>`;
 }
 
+/* ---------------------------------------------------------------------------
+   RUNTIME STRINGS
+
+   shell.js renders a handful of strings in the BROWSER — the theme label, the
+   trip-count line, the save/remove toasts, the two import errors, the distance
+   band, the three default list names. It has always done that through a
+   two-language `t(th, en)`, so on a fully translated zh/ru/ko/ja/hi/he/ar page
+   they came out in English, a moment after load, inside chrome that was
+   otherwise in the reader's language. A server-rendered label cannot fix it:
+   most of these strings do not exist in the markup until the user acts.
+
+   So the locale's own copy ships with the page, as data. th and en are built
+   into shell.js and get NOTHING — no tag, no bytes — which is why the ~17,400
+   th/en pages pay nothing for this.
+
+   The keys are the contract with shell.js::t(th, en, key) / tf(). `{name}`,
+   `{where}` and `{n}` are substituted by tf(); the th and en literals in
+   shell.js carry the SAME placeholders, so a template can never disagree with
+   its own fallback about how many slots it has.
+   ------------------------------------------------------------------------ */
+export const RUNTIME_KEYS = [
+  'listInbox', 'listEat', 'listStay',
+  'dayLabel',
+  'importBadFile', 'importNotTrip',
+  'distUnknown', 'distEstimate',
+  'viewTrip', 'tripCount',
+  'themeDark', 'themeLight', 'themeSystem',
+  'imgFail',
+  'whereSaved', 'whereTrip',
+  'toastAdded', 'toastSaved', 'toastRemoved',
+];
+
+export function runtimeStrings(ctx) {
+  const loc = ctx && ctx.locale;
+  if (!loc || loc === DEFAULT_LOCALE || loc === 'en') return '';
+  const src = ui(loc).shellRuntime;
+  if (!src) return '';
+  /* themeSystem is ALREADY a shell label — read it from there rather than keep
+     a second copy that can drift out of step with the More sheet above it. */
+  const L = labelsFor(ctx);
+  const out = {};
+  for (const k of RUNTIME_KEYS) {
+    const v = k === 'themeSystem' ? L.themeSystem : src[k];
+    if (typeof v === 'string' && v) out[k] = v;
+  }
+  if (!Object.keys(out).length) return '';
+  /* A literal "</script>" inside the JSON would end the element early.
+     Escaping "<" is the whole fix, and the result is still valid JSON. */
+  const json = JSON.stringify(out).replace(/</g, '\\u003c');
+  return `<script type="application/json" data-ta-strings>${json}<\/script>`;
+}
+
 export function sheetHost(ctx) {
   const c = ctx || { locale: DEFAULT_LOCALE };
   return [
@@ -714,6 +804,7 @@ export function sheetHost(ctx) {
     langMenu(c),
     searchSheet(c),
     '<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>',
+    runtimeStrings(c),
   ].filter(Boolean).join('\n\n');
 }
 

@@ -41,7 +41,35 @@
   var K_LEGACY_WISH = 'ta_wishlist';  /* read-tolerant: the v1 bare array     */
 
   var isTH = (D.documentElement.lang || 'th').slice(0, 2) === 'th';
-  function t(th, en) { return isTH ? th : en; }
+
+  /* Strings this file renders in the browser, in the page's own language.
+     chrome.mjs::runtimeStrings() emits the blob for zh/ru/ko/ja/hi/he/ar only —
+     th and en are the two literals at every call site below, so those pages
+     ship no blob and this resolves to exactly what it always did. A page
+     without the tag (a prototype, an old snapshot) behaves the same way. */
+  var STR = (function () {
+    try {
+      var el = D.querySelector('script[data-ta-strings]');
+      return el ? JSON.parse(el.textContent) : null;
+    } catch (e) { return null; }
+  })();
+
+  function t(th, en, key) {
+    if (isTH) return th;
+    if (key && STR && typeof STR[key] === 'string') return STR[key];
+    return en;
+  }
+
+  /* Same lookup, then {name}/{where}/{n} substitution. The th and en literals
+     carry the same placeholders as the translations, so a template and its own
+     fallback can never disagree about how many slots there are. */
+  function tf(th, en, key, vars) {
+    var s = t(th, en, key);
+    for (var k in vars) {
+      if (Object.prototype.hasOwnProperty.call(vars, k)) s = s.split('{' + k + '}').join(String(vars[k]));
+    }
+    return s;
+  }
 
   /* ==========================================================================
      0. PRERENDER GUARD (§4.4)
@@ -292,9 +320,9 @@
         lang: (D.documentElement.lang || 'th').slice(0, 2)
       },
       lists: [
-        { id: 'inbox', name: t('ที่บันทึกไว้', 'Saved'), color: 'sand' },
-        { id: 'eat', name: t('อยากกิน', 'Want to eat'), color: 'coral' },
-        { id: 'stay', name: t('ที่พัก', 'Stays'), color: 'mango' }
+        { id: 'inbox', name: t('ที่บันทึกไว้', 'Saved', 'listInbox'), color: 'sand' },
+        { id: 'eat', name: t('อยากกิน', 'Want to eat', 'listEat'), color: 'coral' },
+        { id: 'stay', name: t('ที่พัก', 'Stays', 'listStay'), color: 'mango' }
       ],
       saves: [],
       days: [],
@@ -379,7 +407,7 @@
       var day = {
         id: 'd' + (tr.days.length + 1) + '-' + uid(''),
         date: null,
-        label: label || (t('วันที่ ', 'Day ') + (tr.days.length + 1)),
+        label: label || tf('วันที่ {n}', 'Day {n}', 'dayLabel', { n: tr.days.length + 1 }),
         zone: zone || null,
         stayPoiId: null,
         note: '',
@@ -512,9 +540,9 @@
     import: function (json) {
       var data;
       try { data = typeof json === 'string' ? JSON.parse(json) : json; }
-      catch (e) { return { ok: false, error: t('ไฟล์ไม่ถูกต้อง', 'Not a valid file') }; }
+      catch (e) { return { ok: false, error: t('ไฟล์ไม่ถูกต้อง', 'Not a valid file', 'importBadFile') }; }
       if (!data || typeof data !== 'object' || !Array.isArray(data.days)) {
-        return { ok: false, error: t('ไฟล์นี้ไม่ใช่ไฟล์ทริป', 'This is not a trip file') };
+        return { ok: false, error: t('ไฟล์นี้ไม่ใช่ไฟล์ทริป', 'This is not a trip file', 'importNotTrip') };
       }
       tripCache = Object.assign(blankTrip(), data);
       persistTrip();
@@ -566,7 +594,7 @@
       typeof a.lng !== 'number' || typeof b.lng !== 'number') {
       return Object.assign(base, {
         method: 'unknown', km: null, minMin: null, minMax: null, mode: null,
-        label: t('ยังไม่ทราบระยะทาง', 'Distance not known')
+        label: t('ยังไม่ทราบระยะทาง', 'Distance not known', 'distUnknown')
       });
     }
     var prov = (a.province || b.province || (day && day.zone) || '').toLowerCase();
@@ -585,7 +613,7 @@
       minMin: lo,
       minMax: hi,
       mode: walk ? 'walk' : 'drive',
-      label: t('ประมาณ (เส้นตรง)', 'estimate (straight-line)')
+      label: t('ประมาณ (เส้นตรง)', 'estimate (straight-line)', 'distEstimate')
     });
   }
 
@@ -677,7 +705,7 @@
     if (opts.href) {
       var a = D.createElement('a');
       a.href = opts.href;
-      a.textContent = opts.linkText || t('ดูทริป', 'View trip');
+      a.textContent = opts.linkText || t('ดูทริป', 'View trip', 'viewTrip');
       el.appendChild(a);
     }
     el.setAttribute('data-open', '');
@@ -702,7 +730,7 @@
       }
       var labels = D.querySelectorAll('[data-trip-count-label]');
       for (var j = 0; j < labels.length; j++) {
-        labels[j].textContent = t('ในทริปของคุณ ' + n + ' รายการ', n + ' items in your trip');
+        labels[j].textContent = tf('ในทริปของคุณ {n} รายการ', '{n} items in your trip', 'tripCount', { n: n });
       }
       return n;
     },
@@ -824,12 +852,12 @@
       var total = TA.saves.count() + TA.trip.count();
       if (on) {
         TA.toast(
-          t('บันทึก ' + (a.name || '') + ' แล้ว · ' + total + ' รายการในทริป',
-            'Saved ' + (a.name || '') + ' · ' + total + ' in your trip'),
+          tf('บันทึก {name} แล้ว · {n} รายการในทริป', 'Saved {name} · {n} in your trip',
+            'toastSaved', { name: a.name || '', n: total }),
           { href: el.getAttribute('data-trip-href') || '/trip' }
         );
       } else {
-        TA.toast(t('เอา ' + (a.name || '') + ' ออกแล้ว', 'Removed ' + (a.name || '')));
+        TA.toast(tf('เอา {name} ออกแล้ว', 'Removed {name}', 'toastRemoved', { name: a.name || '' }));
       }
       return;
     }
@@ -873,7 +901,7 @@
       if (dayId === 'inbox' || dayId === '') {
         /* Zero-decision path: save to the trip inbox without scheduling. */
         TA.trip.addToList(ad.poiId, el.getAttribute('data-list') || 'inbox');
-        where = t('ที่บันทึกไว้', 'your saved list');
+        where = t('ที่บันทึกไว้', 'your saved list', 'whereSaved');
       } else {
         var item = TA.trip.addToDay(ad.poiId, dayId, {
           kind: ad.kind || undefined,
@@ -881,14 +909,14 @@
           source: el.getAttribute('data-source') || 'manual'
         });
         var placed = item ? findItem(item.id) : null;
-        where = (placed && placed.day.label) || t('ทริปของคุณ', 'your trip');
+        where = (placed && placed.day.label) || t('ทริปของคุณ', 'your trip', 'whereTrip');
       }
       TA.nav.syncBadge();
       TA.nav.syncSaves();
       emit('render', { reason: 'add' });
       TA.toast(
-        t('เพิ่ม ' + (ad.name || '') + ' ใน ' + where + ' แล้ว',
-          'Added ' + (ad.name || '') + ' to ' + where),
+        tf('เพิ่ม {name} ใน {where} แล้ว', 'Added {name} to {where}',
+          'toastAdded', { name: ad.name || '', where: where }),
         { href: el.getAttribute('data-trip-href') || '/trip' }
       );
       var sheetHost = el.closest('dialog');
@@ -985,9 +1013,9 @@
         els[i].setAttribute('data-theme-state', cur);
         var lbl = els[i].querySelector('[data-theme-label]');
         if (lbl) {
-          lbl.textContent = cur === 'dark' ? t('มืด', 'Dark')
-            : cur === 'light' ? t('สว่าง', 'Light')
-              : t('ตามระบบ', 'System');
+          lbl.textContent = cur === 'dark' ? t('มืด', 'Dark', 'themeDark')
+            : cur === 'light' ? t('สว่าง', 'Light', 'themeLight')
+              : t('ตามระบบ', 'System', 'themeSystem');
         }
       } else {
         els[i].setAttribute('aria-pressed', v === cur ? 'true' : 'false');
@@ -1049,7 +1077,7 @@
     el.dataset.taFailed = '1';
     var ph = D.createElement('div');
     ph.className = 'ta-img-fail';
-    ph.textContent = el.getAttribute('alt') || t('ไม่มีรูป', 'No image');
+    ph.textContent = el.getAttribute('alt') || t('ไม่มีรูป', 'No image', 'imgFail');
     if (el.parentNode) el.parentNode.replaceChild(ph, el);
   }, true);
 

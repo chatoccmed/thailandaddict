@@ -42,6 +42,16 @@
      the extractor, so its English text can never be translated. The count is
      pinned to a baseline; growing it fails.
 
+   LAYER 4 · app-shell labels (symbolic keys, ui.<lang>.json → "shell")
+     The header, tab bar, rail, More sheet and language menu are rendered by
+     _internal/lib/chrome.mjs, which resolves its strings through the SAME
+     fall-back-to-English rule as tx(). th and en are built into chrome.mjs;
+     the other seven come from astro/src/i18n/ui.<lang>.json → "shell". A
+     missing key there is English chrome on every page in that locale — which
+     is precisely what shipped on the first 210 localized hubs before the
+     "shell" sections existed. chrome.mjs::missingLabelLocales() is the
+     authority; this layer only turns its answer into an exit code.
+
    This gate is READ-ONLY. It never rewrites _strings.json — regenerating the
    baseline is a deliberate act (`node _internal/hub-i18n/extract-chrome.mjs`)
    that must be accompanied by translating the new keys into all 7 dicts.
@@ -53,7 +63,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
-import { fileURLToPath } from 'node:url';
+import url, { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..');
@@ -449,11 +459,55 @@ function checkLayoutDicts() {
 }
 
 /* ===========================================================================
+   LAYER 4 — app-shell labels
+
+   Read through chrome.mjs rather than re-reading ui.*.json here, so the gate
+   and the renderer can never disagree about where a label comes from or which
+   keys exist. chrome.mjs is ESM and this file is loaded as ESM too, so a plain
+   dynamic import is all it takes.
+   ======================================================================== */
+async function checkShellLabels() {
+  let chrome;
+  try {
+    chrome = await import(url.pathToFileURL(path.join(ROOT, '_internal', 'lib', 'chrome.mjs')).href);
+  } catch (e) {
+    fail('could not load _internal/lib/chrome.mjs', [
+      `  ${e.message}`,
+      '  Every page on the site renders its chrome through that module. If this',
+      '  gate cannot load it, the build cannot either.',
+    ]);
+    return;
+  }
+  if (typeof chrome.missingLabelLocales !== 'function') {
+    fail('chrome.mjs no longer exports missingLabelLocales()', [
+      '  Layer 4 of this gate depends on it. Either restore the export or delete',
+      '  this layer deliberately — do not leave it silently not-checking.',
+    ]);
+    return;
+  }
+  const gaps = chrome.missingLabelLocales();
+  const total = gaps.reduce((a, g) => a + g.missing.length, 0);
+  if (gaps.length) {
+    fail(`app shell: ${total} label(s) missing from ${gaps.length} locale(s)`,
+      gaps.map((g) => `  ${g.locale}: ${g.missing.join(', ')}`).concat([
+        '',
+        '  These render in ENGLISH inside the header, tab bar, trip rail and More',
+        '  sheet of every page in that locale. Add them to',
+        '  astro/src/i18n/ui.<lang>.json under "shell" (th and en are built into',
+        '  chrome.mjs LABELS and belong there, not in the JSON).',
+      ]));
+  } else {
+    console.log('  ✓ app shell: every locale in meta.json supplies a complete "shell" label set');
+  }
+}
+
+/* ===========================================================================
    run
    ======================================================================== */
 console.log('check-i18n-keys — no tx() key may change, no locale may fall back silently');
 checkHubDicts();
 checkLayoutDicts();
+await checkShellLabels();
 
 for (const { headline, detail } of notes) {
   console.log('');

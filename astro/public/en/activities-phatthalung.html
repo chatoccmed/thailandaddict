@@ -33,17 +33,17 @@ addEventListener('pagereveal', function (e) {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="/js/shell.2029c422.js" defer></script>
+<script src="/js/shell.544635d9.js" defer></script>
 <title>Things to Do in Phatthalung — Ranked & Compared Tours & Tickets | ThailandAddict</title>
 <meta name="description" content="Activities, tours and tickets in Phatthalung — ranked and compared from real reviews, with where to book.">
 <link rel="canonical" href="https://thailandaddict.com/en/activities-phatthalung">
-<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-phatthalung"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-phatthalung"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-phatthalung">
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-phatthalung"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-phatthalung"><link rel="alternate" hreflang="zh" href="https://thailandaddict.com/zh/activities-phatthalung"><link rel="alternate" hreflang="ru" href="https://thailandaddict.com/ru/activities-phatthalung"><link rel="alternate" hreflang="ko" href="https://thailandaddict.com/ko/activities-phatthalung"><link rel="alternate" hreflang="ja" href="https://thailandaddict.com/ja/activities-phatthalung"><link rel="alternate" hreflang="hi" href="https://thailandaddict.com/hi/activities-phatthalung"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/activities-phatthalung"><link rel="alternate" hreflang="ar" href="https://thailandaddict.com/ar/activities-phatthalung"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-phatthalung">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="Things to Do in Phatthalung — Ranked &amp; Compared Tours &amp; Tickets | ThailandAddict"><meta property="og:description" content="Activities, tours and tickets in Phatthalung — ranked and compared from real reviews, with where to book.">
 <meta property="og:url" content="https://thailandaddict.com/en/activities-phatthalung"><meta property="og:type" content="website">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Phatthalung_-_local_service_452_at_Phatthalung_Railway_Station_-_Sep_2024.jpg/1280px-Phatthalung_-_local_service_452_at_Phatthalung_Railway_Station_-_Sep_2024.jpg"><meta property="og:locale" content="en_US">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Things to do in Phatthalung","itemListElement":[{"@type":"ListItem","position":1,"name":"10 Best Things to Do in Phatthalung","url":"https://thailandaddict.com/en/top10-activities-phatthalung"},{"@type":"ListItem","position":2,"name":"How to get to Phatthalung","url":"https://thailandaddict.com/en/getting-around-phatthalung"},{"@type":"ListItem","position":3,"name":"What to do in Phatthalung a quick guide","url":"https://thailandaddict.com/en/phatthalung-highlights-compared"},{"@type":"ListItem","position":4,"name":"Thale Noi Phatthalung Review Boat Tour to See Birds, Water Buffalo & Lotus Fields","url":"https://thailandaddict.com/en/thale-noi-phatthalung"}]}</script>
-<link rel="stylesheet" href="/css/hub.9b7b6fb0.css">
+<link rel="stylesheet" href="/css/hub.bc6f7d8c.css">
 <link rel="stylesheet" href="/css/premium.css">
 </head><body>
 <a class="ta-skip" href="#main">Skip to main content</a>
@@ -120,7 +120,11 @@ addEventListener('pagereveal', function (e) {
 .ahub-blurb{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0;flex:1}
 .ahub-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--sub);font-weight:600}
 .ahub-go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13.5px;color:var(--bl-dk);margin-top:2px}
-.ahub-sell{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:1fr}}
+/* minmax(0,1fr), not 1fr: a bare 1fr track is minmax(auto,1fr), and auto floors
+   the track at the item's min-content width. The Klook/hotel band inside is
+   363px at min-content, so on a 375px phone the track grew past the viewport
+   and every activity hub — 85 slugs x 9 locales — scrolled 16px sideways. */
+.ahub-sell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:minmax(0,1fr)}}
 .ahub-band{border-radius:22px;padding:24px 24px 26px;display:flex;flex-direction:column}
 .ahub-band h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:20px;margin:0 0 4px}
 .ahub-band>p{font-size:13.5px;line-height:1.6;margin:0 0 16px}
@@ -266,6 +270,13 @@ addEventListener('pagereveal', function (e) {
 <div id="taLang" popover class="lang-menu">
   <a href="/activities-phatthalung" hreflang="th">ไทย</a>
   <a href="/en/activities-phatthalung" hreflang="en" aria-current="true">English</a>
+  <a href="/zh/activities-phatthalung" hreflang="zh">中文</a>
+  <a href="/ru/activities-phatthalung" hreflang="ru">Русский</a>
+  <a href="/ko/activities-phatthalung" hreflang="ko">한국어</a>
+  <a href="/ja/activities-phatthalung" hreflang="ja">日本語</a>
+  <a href="/hi/activities-phatthalung" hreflang="hi">हिन्दी</a>
+  <a href="/he/activities-phatthalung" hreflang="he">עברית</a>
+  <a href="/ar/activities-phatthalung" hreflang="ar">العربية</a>
 </div>
 
 <dialog class="ta-sheet" id="taSearch" aria-label="Search">

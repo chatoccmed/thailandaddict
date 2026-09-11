@@ -33,17 +33,17 @@ addEventListener('pagereveal', function (e) {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="/js/shell.2029c422.js" defer></script>
+<script src="/js/shell.544635d9.js" defer></script>
 <title>กิจกรรมน่าทำในชัยนาท — จัดอันดับ เปรียบเทียบ ทัวร์ & ตั๋ว | ThailandAddict</title>
 <meta name="description" content="รวมกิจกรรม ทัวร์ และตั๋วในชัยนาท — จัดอันดับและเปรียบเทียบจากรีวิวจริง พร้อมช่องทางจอง">
 <link rel="canonical" href="https://thailandaddict.com/activities-chai-nat">
-<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-chai-nat"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-chai-nat"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-chai-nat">
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-chai-nat"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-chai-nat"><link rel="alternate" hreflang="zh" href="https://thailandaddict.com/zh/activities-chai-nat"><link rel="alternate" hreflang="ru" href="https://thailandaddict.com/ru/activities-chai-nat"><link rel="alternate" hreflang="ko" href="https://thailandaddict.com/ko/activities-chai-nat"><link rel="alternate" hreflang="ja" href="https://thailandaddict.com/ja/activities-chai-nat"><link rel="alternate" hreflang="hi" href="https://thailandaddict.com/hi/activities-chai-nat"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/activities-chai-nat"><link rel="alternate" hreflang="ar" href="https://thailandaddict.com/ar/activities-chai-nat"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-chai-nat">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="กิจกรรมน่าทำในชัยนาท — จัดอันดับ เปรียบเทียบ ทัวร์ &amp; ตั๋ว | ThailandAddict"><meta property="og:description" content="รวมกิจกรรม ทัวร์ และตั๋วในชัยนาท — จัดอันดับและเปรียบเทียบจากรีวิวจริง พร้อมช่องทางจอง">
 <meta property="og:url" content="https://thailandaddict.com/activities-chai-nat"><meta property="og:type" content="website">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Wat_Thamma_Mun_Worawihan.jpg/1280px-Wat_Thamma_Mun_Worawihan.jpg"><meta property="og:locale" content="th_TH">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"กิจกรรมน่าทำในชัยนาท","itemListElement":[{"@type":"ListItem","position":1,"name":"กิจกรรมน่าทำ ใน ชัยนาท","url":"https://thailandaddict.com/top10-activities-chai-nat"},{"@type":"ListItem","position":2,"name":"เที่ยวไหว้พระ ชัยนาท วันเดียว ไปวัดไหนดี","url":"https://thailandaddict.com/chai-nat-temples-viewpoints-compared"},{"@type":"ListItem","position":3,"name":"เที่ยว ชัยนาท เดินทางยังไงดี","url":"https://thailandaddict.com/getting-around-chai-nat"},{"@type":"ListItem","position":4,"name":"รีวิวเขื่อนเจ้าพระยา ชัยนาท เขื่อนทดน้ำแห่งแรกของไทย ริมแม่น้ำเจ้าพระยา","url":"https://thailandaddict.com/chao-phraya-dam-activities-chai-nat"}]}</script>
-<link rel="stylesheet" href="/css/hub.9b7b6fb0.css">
+<link rel="stylesheet" href="/css/hub.bc6f7d8c.css">
 <link rel="stylesheet" href="/css/premium.css">
 </head><body>
 <a class="ta-skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
@@ -120,7 +120,11 @@ addEventListener('pagereveal', function (e) {
 .ahub-blurb{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0;flex:1}
 .ahub-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--sub);font-weight:600}
 .ahub-go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13.5px;color:var(--bl-dk);margin-top:2px}
-.ahub-sell{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:1fr}}
+/* minmax(0,1fr), not 1fr: a bare 1fr track is minmax(auto,1fr), and auto floors
+   the track at the item's min-content width. The Klook/hotel band inside is
+   363px at min-content, so on a 375px phone the track grew past the viewport
+   and every activity hub — 85 slugs x 9 locales — scrolled 16px sideways. */
+.ahub-sell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:minmax(0,1fr)}}
 .ahub-band{border-radius:22px;padding:24px 24px 26px;display:flex;flex-direction:column}
 .ahub-band h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:20px;margin:0 0 4px}
 .ahub-band>p{font-size:13.5px;line-height:1.6;margin:0 0 16px}
@@ -266,6 +270,13 @@ addEventListener('pagereveal', function (e) {
 <div id="taLang" popover class="lang-menu">
   <a href="/activities-chai-nat" hreflang="th" aria-current="true">ไทย</a>
   <a href="/en/activities-chai-nat" hreflang="en">English</a>
+  <a href="/zh/activities-chai-nat" hreflang="zh">中文</a>
+  <a href="/ru/activities-chai-nat" hreflang="ru">Русский</a>
+  <a href="/ko/activities-chai-nat" hreflang="ko">한국어</a>
+  <a href="/ja/activities-chai-nat" hreflang="ja">日本語</a>
+  <a href="/hi/activities-chai-nat" hreflang="hi">हिन्दी</a>
+  <a href="/he/activities-chai-nat" hreflang="he">עברית</a>
+  <a href="/ar/activities-chai-nat" hreflang="ar">العربية</a>
 </div>
 
 <dialog class="ta-sheet" id="taSearch" aria-label="ค้นหา">

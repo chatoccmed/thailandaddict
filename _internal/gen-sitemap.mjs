@@ -17,7 +17,15 @@ const readDate = (coll, slug) => {
 
 // Hub/static pages get the full 9-language treatment (they're the only pages with all locales built);
 // content collections (articles/reviews/roundups) are TH+EN only until article-level translation (Phase 2).
-const HTML_LANG = { zh: 'zh-Hans', ru: 'ru', ko: 'ko', ja: 'ja', he: 'he', ar: 'ar', hi: 'hi' };
+/* The hreflang code per locale. It is the bare code for all nine, including zh
+   — NOT "zh-Hans". Every page on the site emits its own <link rel=alternate>
+   set, and all four generators that write them (gen-hubs.mjs, localize.mjs and
+   the three Astro layouts via Shell) use the bare code. A sitemap that said
+   zh-Hans for the same URL cluster was the one voice out of five disagreeing,
+   and Google resolves a contradictory cluster by dropping it, not by picking a
+   winner. Kept as a map so a locale that really does need a script or region
+   subtag has somewhere to say so. */
+const HTML_LANG = { zh: 'zh', ru: 'ru', ko: 'ko', ja: 'ja', he: 'he', ar: 'ar', hi: 'hi' };
 const HUB_LOCALES = ['en', ...Object.keys(HTML_LANG)];
 
 // 1) content slugs (TH set + which have EN) + per-entry lastmod
@@ -56,7 +64,11 @@ function urlEntry(loc, path_, locales, lastmod) {
   if (locales.size) {
     alts += `\n    <xhtml:link rel="alternate" hreflang="th" href="${esc(BASE + path_.th)}"/>`;
     for (const l of locales) alts += `\n    <xhtml:link rel="alternate" hreflang="${HTML_LANG[l] || l}" href="${esc(BASE + path_[l])}"/>`;
-    alts += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(BASE + (path_.en || path_.th))}"/>`;
+    /* x-default is the TH root, matching gen-hubs.mjs::page() and all three
+       layouts — and meta.json's defaultLocale. This used to prefer /en/, which
+       made every hub cluster carry two different x-defaults depending on
+       whether Google read the page or the sitemap. */
+    alts += `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${esc(BASE + path_.th)}"/>`;
   }
   return `  <url>\n    <loc>${esc(BASE + loc)}</loc>${lm}${alts}\n  </url>`;
 }

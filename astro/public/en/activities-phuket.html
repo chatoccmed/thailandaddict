@@ -33,17 +33,17 @@ addEventListener('pagereveal', function (e) {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="/js/shell.2029c422.js" defer></script>
+<script src="/js/shell.544635d9.js" defer></script>
 <title>Things to Do in Phuket — Ranked & Compared Tours & Tickets | ThailandAddict</title>
 <meta name="description" content="Activities, tours and tickets in Phuket — ranked and compared from real reviews, with where to book.">
 <link rel="canonical" href="https://thailandaddict.com/en/activities-phuket">
-<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-phuket"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-phuket"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-phuket">
+<link rel="alternate" hreflang="th" href="https://thailandaddict.com/activities-phuket"><link rel="alternate" hreflang="en" href="https://thailandaddict.com/en/activities-phuket"><link rel="alternate" hreflang="zh" href="https://thailandaddict.com/zh/activities-phuket"><link rel="alternate" hreflang="ru" href="https://thailandaddict.com/ru/activities-phuket"><link rel="alternate" hreflang="ko" href="https://thailandaddict.com/ko/activities-phuket"><link rel="alternate" hreflang="ja" href="https://thailandaddict.com/ja/activities-phuket"><link rel="alternate" hreflang="hi" href="https://thailandaddict.com/hi/activities-phuket"><link rel="alternate" hreflang="he" href="https://thailandaddict.com/he/activities-phuket"><link rel="alternate" hreflang="ar" href="https://thailandaddict.com/ar/activities-phuket"><link rel="alternate" hreflang="x-default" href="https://thailandaddict.com/activities-phuket">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:title" content="Things to Do in Phuket — Ranked &amp; Compared Tours &amp; Tickets | ThailandAddict"><meta property="og:description" content="Activities, tours and tickets in Phuket — ranked and compared from real reviews, with where to book.">
 <meta property="og:url" content="https://thailandaddict.com/en/activities-phuket"><meta property="og:type" content="website">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Patong_traffic_at_night.jpg/1280px-Patong_traffic_at_night.jpg"><meta property="og:locale" content="en_US">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Things to do in Phuket","itemListElement":[{"@type":"ListItem","position":1,"name":"10 Best Things to Do in Phuket","url":"https://thailandaddict.com/en/top10-activities-phuket"},{"@type":"ListItem","position":2,"name":"Getting Around Phuket","url":"https://thailandaddict.com/en/getting-around-phuket"},{"@type":"ListItem","position":3,"name":"Phuket Thai Cooking Classes Compared in Phuket","url":"https://thailandaddict.com/en/phuket-cooking-classes"},{"@type":"ListItem","position":4,"name":"Ethical Elephant Sanctuaries Compared in Phuket","url":"https://thailandaddict.com/en/phuket-elephant-sanctuaries"},{"@type":"ListItem","position":5,"name":"Is Phuket FantaSea Worth It?","url":"https://thailandaddict.com/en/phuket-fantasea-worth-it"},{"@type":"ListItem","position":6,"name":"Island Tours Around Phuket Compared","url":"https://thailandaddict.com/en/phuket-island-tours-compared"},{"@type":"ListItem","position":7,"name":"Phi Phi Islands Full-Day Tour Review Speedboat from Phuket","url":"https://thailandaddict.com/en/phi-phi-island-tour-phuket"}]}</script>
-<link rel="stylesheet" href="/css/hub.9b7b6fb0.css">
+<link rel="stylesheet" href="/css/hub.bc6f7d8c.css">
 <link rel="stylesheet" href="/css/premium.css">
 </head><body>
 <a class="ta-skip" href="#main">Skip to main content</a>
@@ -120,7 +120,11 @@ addEventListener('pagereveal', function (e) {
 .ahub-blurb{font-size:13.5px;line-height:1.6;color:var(--sub);margin:0;flex:1}
 .ahub-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--sub);font-weight:600}
 .ahub-go{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:13.5px;color:var(--bl-dk);margin-top:2px}
-.ahub-sell{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:1fr}}
+/* minmax(0,1fr), not 1fr: a bare 1fr track is minmax(auto,1fr), and auto floors
+   the track at the item's min-content width. The Klook/hotel band inside is
+   363px at min-content, so on a 375px phone the track grew past the viewport
+   and every activity hub — 85 slugs x 9 locales — scrolled 16px sideways. */
+.ahub-sell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin:36px 0 6px}@media(max-width:760px){.ahub-sell{grid-template-columns:minmax(0,1fr)}}
 .ahub-band{border-radius:22px;padding:24px 24px 26px;display:flex;flex-direction:column}
 .ahub-band h3{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:20px;margin:0 0 4px}
 .ahub-band>p{font-size:13.5px;line-height:1.6;margin:0 0 16px}
@@ -266,6 +270,13 @@ addEventListener('pagereveal', function (e) {
 <div id="taLang" popover class="lang-menu">
   <a href="/activities-phuket" hreflang="th">ไทย</a>
   <a href="/en/activities-phuket" hreflang="en" aria-current="true">English</a>
+  <a href="/zh/activities-phuket" hreflang="zh">中文</a>
+  <a href="/ru/activities-phuket" hreflang="ru">Русский</a>
+  <a href="/ko/activities-phuket" hreflang="ko">한국어</a>
+  <a href="/ja/activities-phuket" hreflang="ja">日本語</a>
+  <a href="/hi/activities-phuket" hreflang="hi">हिन्दी</a>
+  <a href="/he/activities-phuket" hreflang="he">עברית</a>
+  <a href="/ar/activities-phuket" hreflang="ar">العربية</a>
 </div>
 
 <dialog class="ta-sheet" id="taSearch" aria-label="Search">
