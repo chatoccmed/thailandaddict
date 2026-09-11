@@ -1,19 +1,38 @@
 # HANDOFF — Andaman Deck redesign
 
-Last updated 2026-09-10. Paused at the owner's request. `origin/main` = `d7e1b51dd`.
+Last updated 2026-09-11. `origin/main` = `cbaabb6da`.
 
 ## Read this first
 
 | | state |
 |---|---|
 | Phase 1 prototype `/_proto/` | **LIVE** |
-| Planner-first homepage | **LIVE** |
+| Planner-first homepage | **PROTOTYPE ONLY — see the correction below** |
 | Phase 2 — the 3 Astro layouts (~17,187 pages) | **LIVE** (Worker `217fb226`) |
 | Permanent build fix | **LIVE** |
 | Deploy gates (floor + ceiling) | **LIVE** |
-| Phase 2 — destination hubs | **COMMITTED, NOT DEPLOYED** — 570 of ~1,613 pages done |
-| zh/ru/ko translations (2,343 files) | builds fine now; blocked by the 20,000-file account cap |
+| Phase 2 — destination hubs, all 9 locales | **COMMITTED, NOT DEPLOYED** — 1,970 of 2,054 snapshots on the shell |
+| Shell chrome in all 9 languages | **COMMITTED, NOT DEPLOYED** |
+| zh/ru/ko translations (2,343 files) | builds fine; **22,168 files vs a 20,000 hard cap** — this is what blocks the deploy |
 | Cloudflare account move | prep done as far as possible; **blocked on one API token** |
+
+### Correction: the homepage was never migrated
+
+`c8c962649` is titled "planner-first homepage, verified and deployed" and the
+previous handoff recorded it as LIVE. It is not. That commit touched
+`astro/public/_proto/home.html` and `astro/public/_proto/en/home.html` — the
+prototype — and never `astro/public/index.html`. The real homepage still ships
+the pre-shell `class="nav"` chrome and the old `ชีวิตติดเที่ยว` hero;
+`grep -c ta-topbar astro/dist/index.html` returns 0.
+
+The prototype and the spec (`_internal/HOMEPAGE-SPEC-2026-09.md`) are real work
+and the numbers in that commit message are real measurements **of the
+prototype**. What does not exist is the step that puts it at `/`. Owner
+decision 3 is still outstanding.
+
+This is the second time in this project a commit message has described a
+migration that the artefact does not support — see the lesson below. Both were
+caught by one grep against the built HTML.
 
 **Owner decisions already made — do not re-ask:**
 1. Design direction **A "Andaman Deck"**, Night Market values as its dark theme.
@@ -32,7 +51,9 @@ Verify the artefact, never the report. For anything that claims to have edited a
 
 Worker `217fb226`, 17,187 pages, 19,801 deployable files. All three layouts share `shell.d3a3e44b.css`. Verified on the live review page: Trip.com SID x11, CJ Booking x2, h1 x1, JSON-LD x2, base64 x0, FAB x0.
 
-The homepage first screen at 375x812 shows the planner, then a real photograph, a real place name, and its real score and price, without scrolling — in the fresh state. With a saved trip the resume card pushes the score under the tab bar; that is a first-visit claim, not a universal one.
+**The homepage at `/` is NOT part of that** — it is still the pre-shell page. The planner-first first screen described below is `/_proto/home`, not `/`:
+
+> at 375x812 it shows the planner, then a real photograph, a real place name, and its real score and price, without scrolling — in the fresh state. With a saved trip the resume card pushes the score under the tab bar; that is a first-visit claim, not a universal one.
 
 ## The build was fixed at the root, not tuned
 
@@ -68,21 +89,81 @@ npm run deploy      # build -> verify -> wrangler, stopping at the first red gat
 - Build ~9-13 min, deploy ~5-20 min depending on how many files changed.
 - A failed build wipes `astro/dist/`. Production is unaffected — it is served by the deployed Worker — but there is no local fallback.
 
-## NEXT STEP — finish the hubs
+## DONE — the hubs are finished
 
-`d7e1b51dd` migrated the hubs `gen-hubs.mjs` writes. **570 pages are on the shell; 1,043 are not.** The rest are produced by `_internal/i18n/localize.mjs` from the EN pages.
+`cbaabb6da`. **1,970 of 2,054 hub snapshots are on the shell, up from 661.**
+Every locale is at 217 of 226; the remaining 84 are the hand-written pages
+(404, about, contact, editorial-policy, index, michelin-finder, near-me,
+privacy, trip-budget) that no generator owns.
 
-Deploying as-is would leave TH/EN hubs on the new chrome and seven locales' hubs on the old one. **Finish `localize.mjs` first.** It injects its own RTL shims for `.mm` / `.nav-mid .drop` and builds its own `.lsw-item` language switcher — all three are pre-shell constructs that need removing, not porting. `check-snapshots.mjs` fails naming exactly the affected files, which is correct and is your worklist.
+`localize.mjs` was never really the blocker — it reads the built `/en/` pages,
+which have carried the shell since `d7e1b51dd`, so the missing 1,309 pages were
+one re-run away. The blocker was that the chrome would have arrived in
+**English**, as it already had on the 210 locale city hubs `gen-hubs` writes.
+The old nav being replaced was fully translated, so shipping the re-run alone
+would have been a visible regression in seven languages.
 
-What the hub migration already bought, measured on generated HTML:
+Fixed by giving `chrome.mjs` a nine-language source of truth:
 
-- the 644 files gen-hubs writes: **75.1 MB -> 45.9 MB** (-27.87 MB, -38.9%)
-- **7,639 save buttons across 454 pages** — the hubs previously had none at all, on the site's primary SEO landing template
-- honest price bands: `city-krabi` advertised **"จาก ฿150"** from a single hostel dorm bed against real prices spanning 150 to 22,000; it now reads **"฿420–6,000 /คืน"**
-- **9,628 dead `#stay/#see/#eat` anchors -> 0**, now targeting the real `#p-*` ids, working with scripting off
-- the mobile hamburger sat at `left=457` on a 375px viewport — unreachable; the shell tab bar replaces it
+- `astro/src/i18n/ui.<lang>.json` → `"shell"` — the 21 labels the header, tab
+  bar, rail, More sheet and language button render. th and en stay built into
+  `chrome.mjs`.
+- `ui.<lang>.json` → `"shellRuntime"` — the 18 strings `shell.js` renders in
+  the browser. It had a two-language `t(th, en)`, so the theme label, the
+  toasts, the trip count and the import errors came out English a moment after
+  load on an otherwise translated page. `chrome.mjs::runtimeStrings()` ships
+  the locale's copy as a JSON blob; `t(th, en, key)` / `tf()` read it. Emitted
+  only for non-th/en, so ~17,400 th/en pages pay nothing.
+- `check-i18n-keys.mjs` LAYER 4 fails the build on any gap in either set.
 
-Left undone inside the hubs, deliberately: save buttons are only on the two `<div>`-based hotel-card builders (`ep-card`, `dcard`, `hcc` and the activity cards are `<a>` elements and cannot nest a `<button>` without restructuring); the hub hero is squeezed at 375px (pre-existing, blueprint 5.2.1); `cardPic()`/srcset, the real ARIA tablist, the decision router and the faceted filter are Phase 3.
+What else this turned up, all of it pre-existing and all of it now fixed:
+
+- **`.phero>img` had stopped matching.** `heroPic()` wraps the hero in
+  `<picture>` when a webp twin exists, which made the `<img>` a grandchild. The
+  `<picture>` became a plain flex item beside `.pherobody`: on **829
+  destination hubs** the hero photo collapsed to a 226px block at the bottom of
+  the hero and the headline was squeezed into a 149px column on a 375px phone.
+- **All 765 activity hubs scrolled 16px sideways** on a phone, every locale,
+  both directions: `.ahub-sell` used a bare `1fr`, which is `minmax(auto,1fr)`,
+  and `auto` floors the track at the item's 363px min-content.
+- **`gen-hubs` did not know `localize`'s output existed.** `pageLocales()` and
+  `AVAIL` both assumed every non-city hub was th+en, so a localized hub showed
+  a two-entry language switcher while standing on one of the seven it did not
+  list, and its Destinations tab pointed at `/en/country-thailand` with
+  `/zh/country-thailand` right there on disk. Both now read the locale's
+  snapshot directory.
+- **Four generators wrote three hreflang conventions.** `gen-sitemap.mjs` said
+  `zh-Hans` and `x-default → /en/` while the pages said `zh` and
+  `x-default → /`. Aligned on the pages' convention (and `meta.json`'s
+  `defaultLocale`).
+- **`localize` would have clobbered the 30 city hubs per locale** that
+  `gen-hubs` renders from translated *data*, replacing them with the English
+  page run through a translation memory. `gen-hubs` happening to run first
+  (prebuild vs manual) was the only thing preventing it. Now it is a rule.
+
+Verified in a browser at 375px, not read off the source: zh chrome fully
+Chinese **including the theme label after `shell.js` runs**, which is what
+proves the runtime blob; the save toast reads `已保存 Rayavadee · 行程中有 1 项`;
+ar and he mirror with 0px overflow across 15 sampled pages. `check-i18n-keys`,
+`check-shell-identity`, `check-rtl` and `check-snapshots` all pass.
+`_internal/qa/static-server.mjs` serves `astro/public` on :4321 for this kind
+of check.
+
+### NEXT STEP — the deploy is blocked on the file cap, not on the work
+
+Build is clean: **19,530 pages**. But `dist` is **22,168 deployable files
+against Cloudflare's 20,000 hard cap** on the Free plan. The 2,343 restored
+translations are what crosses it. Two ways out, and it is the owner's call:
+
+1. **The account move** (chatoccmed is Paid, cap 100,000) — blocked on one API
+   token, below.
+2. **Pull the 2,343 translations back out**, deploy the hub work at ~19,825
+   files with `TA_MAX_DEPLOY_FILES=19900`, and restore them after the move.
+   The owner explicitly asked for them to go back in, so do not do this without
+   asking.
+
+After that, in order: the homepage (see the correction at the top), then the
+9 hand-written pages per locale, then Phase 3.
 
 ## Blocked on the owner: one API token
 
@@ -157,7 +238,9 @@ Things this session found that the runbook did not know:
 - The focus ring keeps brand `#06B6D4` at ~2:1 on paper, below the 3:1 non-text floor. Deliberate, pending a decision.
 - `/_proto/trip` reads no URL params, so a `?p=&d=` handoff does not work yet.
 - `check-rtl.mjs` scans an explicit filename list, so the content-hashed `hub.<hash>.css` is not covered; it carries 15 pre-existing physical-direction declarations.
-- Shell tab-bar labels fall back to English in some locales.
+- ~~Shell tab-bar labels fall back to English in some locales.~~ Fixed in `cbaabb6da` — all nine locales supply a complete label set and `check-i18n-keys` layer 4 now fails the build on a gap.
+- Activity hubs still have **zero save buttons** — `data-save` count is 0 on `activities-*` in every locale, including EN. The city hubs have 7,639. The activity cards are `<a>` elements, the same restructuring problem the city hubs' `<a>`-based cards have.
+- The stat number on a city hub (`฿270–7,500`) wraps to three lines in a 152px card at 30px type. Cosmetic, all nine locales, pre-existing.
 - Dangling references to the deleted `astro/src/content.config.ts` remain in `CLAUDE.md` and 14 prompt strings under `_internal/wf/`. They should point at `astro/src/lib/schemas.mjs`.
 
 ## Reading order
