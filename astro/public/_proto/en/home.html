@@ -730,6 +730,21 @@ try {
   [data-dest-regions] .ta-region-list { margin-block-end: var(--sp-2); }
   [data-dest-regions] .ta-region-links a { cursor: pointer; }
 
+  /* ── THE TOPIC CHIPS WRAP, THEY DO NOT SCROLL ─────────────────────────
+     This row carries 26 entry points — the 14 activity guides plus the 12
+     pages the homepage it replaces used to link and this one did not. As a
+     .ta-chip-scroll rail it measured 3,535px inside a 375px viewport: nine
+     screen-widths of swiping to reach the last chip, which is not a link
+     anyone follows. Wrapped, it reads as what it is — a topic index.
+     Scoped to .ta-pills, so every other chip rail on the site stays a rail.
+     @layer page wins over @layer shell by order, not by specificity. */
+  .ta-pills .ta-chip-scroll {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+  .ta-pills .ta-chip-scroll > * { flex: 0 1 auto; }
+
   /* ── THE STAY ROW'S BOOKING BUTTONS ───────────────────────────────────
      Three named OTAs, because "no site is cheapest every time" is the site's
      own editorial line and one button quietly contradicts it.
@@ -977,7 +992,7 @@ try {
       <div class="ta-sec-head"><h2 id="h-pills">Browse by what you want to do</h2></div>
       <nav class="ta-pills" aria-label="Browse by what you want to do">
         <ul class="ta-chip-scroll">
-          <li><a class="ta-btn ta-btn-ghost" href="/en/best-beaches-thailand">Best beaches</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-quiet-islands-thailand">Quiet islands</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-cafe-hopping-thailand">Cafés</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-viewpoints-mountains-thailand">Viewpoints</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-historic-old-towns-thailand">Old towns</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-temples-thailand">Temples</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-waterfalls-thailand">Waterfalls</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/thailand-diving">Diving</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-islands-snorkeling-thailand">Snorkelling</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-guide-thailand-2026">Michelin restaurants</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/bars-50-best-bangkok">Asia's 50 Best bars</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/family-travel-thailand">With kids</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-family-beaches-thailand">Family beaches</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-of-thailand-2026">Best of Thailand 2026</a></li>
+          <li><a class="ta-btn ta-btn-ghost" href="/en/best-beaches-thailand">Best beaches</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-quiet-islands-thailand">Quiet islands</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-cafe-hopping-thailand">Cafés</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-viewpoints-mountains-thailand">Viewpoints</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-historic-old-towns-thailand">Old towns</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-temples-thailand">Temples</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-waterfalls-thailand">Waterfalls</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/thailand-diving">Diving</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-islands-snorkeling-thailand">Snorkelling</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-guide-thailand-2026">Michelin restaurants</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/bars-50-best-bangkok">Asia's 50 Best bars</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/family-travel-thailand">With kids</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-family-beaches-thailand">Family beaches</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/best-of-thailand-2026">Best of Thailand 2026</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/where-to-go-thailand">Where to go</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/thailand-10-day-itinerary">10-day itinerary</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/bangkok-attractions">Bangkok attractions</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/krabi-attractions">Krabi attractions</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/phuket-attractions">Phuket attractions</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/chiang-mai-food-guide">Chiang Mai food</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/top10-hotels-chonburi">Pattaya hotels</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-finder">Michelin finder</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-starred-thailand">Michelin-starred</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-bib-gourmand-thailand">Bib Gourmand</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-provinces-ranked">Michelin by province</a></li><li><a class="ta-btn ta-btn-ghost" href="/en/michelin-thailand-how-to-book">Booking a Michelin table</a></li>
         </ul>
       </nav>
     </section>

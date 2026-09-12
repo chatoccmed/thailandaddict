@@ -360,7 +360,30 @@ const PILLS = [
   ['bars-50-best-bangkok', 'บาร์ 50 Best', "Asia's 50 Best bars"],
   ['family-travel-thailand', 'เที่ยวกับเด็ก', 'With kids'],
   ['best-family-beaches-thailand', 'หาดสำหรับครอบครัว', 'Family beaches'],
-  ['best-of-thailand-2026', 'ที่สุดของไทย 2026', 'Best of Thailand 2026']
+  ['best-of-thailand-2026', 'ที่สุดของไทย 2026', 'Best of Thailand 2026'],
+
+  /* ── Carried over from the homepage this page replaces ───────────────────
+     Twelve live, sitemap-listed pages were linked from the old homepage and
+     from nowhere on the new one. Replacing a homepage is not a licence to
+     orphan a content pillar in the same commit, so they are re-linked here.
+     Labels are the pages' own h1 text, shortened — not invented.
+
+     where-to-go-thailand and thailand-10-day-itinerary are the two cornerstone
+     pieces that were written specifically to be promoted FROM the homepage;
+     the five michelin-* pages are a whole cluster whose only homepage entry
+     was the single michelin-guide chip above. */
+  ['where-to-go-thailand', 'เที่ยวไทยที่ไหนดี', 'Where to go'],
+  ['thailand-10-day-itinerary', 'แผนเที่ยวไทย 10 วัน', '10-day itinerary'],
+  ['bangkok-attractions', 'ที่เที่ยวกรุงเทพ', 'Bangkok attractions'],
+  ['krabi-attractions', 'ที่เที่ยวกระบี่', 'Krabi attractions'],
+  ['phuket-attractions', 'ที่เที่ยวภูเก็ต', 'Phuket attractions'],
+  ['chiang-mai-food-guide', 'ของกินเชียงใหม่', 'Chiang Mai food'],
+  ['top10-hotels-chonburi', 'โรงแรมพัทยา', 'Pattaya hotels'],
+  ['michelin-finder', 'ค้นหาร้านมิชลิน', 'Michelin finder'],
+  ['michelin-starred-thailand', 'ร้านดาวมิชลิน', 'Michelin-starred'],
+  ['michelin-bib-gourmand-thailand', 'บิบ กูร์มองด์', 'Bib Gourmand'],
+  ['michelin-provinces-ranked', 'จังหวัดกินมิชลิน', 'Michelin by province'],
+  ['michelin-thailand-how-to-book', 'วิธีจองร้านมิชลิน', 'Booking a Michelin table']
 ];
 
 const STATS = {

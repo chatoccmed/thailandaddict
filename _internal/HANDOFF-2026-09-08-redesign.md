@@ -7,7 +7,8 @@ Last updated 2026-09-11. `origin/main` = `cbaabb6da`.
 | | state |
 |---|---|
 | Phase 1 prototype `/_proto/` | **LIVE** |
-| Planner-first homepage | **PROTOTYPE ONLY — see the correction below** |
+| Planner-first homepage, th + en | **COMMITTED, NOT DEPLOYED** — at `/` and `/en/` since `285f09451` |
+| Planner-first homepage, the other 7 locales | **deliberately not done — see below** |
 | Phase 2 — the 3 Astro layouts (~17,187 pages) | **LIVE** (Worker `217fb226`) |
 | Permanent build fix | **LIVE** |
 | Deploy gates (floor + ceiling) | **LIVE** |
@@ -16,23 +17,73 @@ Last updated 2026-09-11. `origin/main` = `cbaabb6da`.
 | zh/ru/ko translations (2,343 files) | builds fine; **22,168 files vs a 20,000 hard cap** — this is what blocks the deploy |
 | Cloudflare account move | prep done as far as possible; **blocked on one API token** |
 
-### Correction: the homepage was never migrated
+### The homepage: what happened, and what it took
 
-`c8c962649` is titled "planner-first homepage, verified and deployed" and the
-previous handoff recorded it as LIVE. It is not. That commit touched
-`astro/public/_proto/home.html` and `astro/public/_proto/en/home.html` — the
-prototype — and never `astro/public/index.html`. The real homepage still ships
-the pre-shell `class="nav"` chrome and the old `ชีวิตติดเที่ยว` hero;
-`grep -c ta-topbar astro/dist/index.html` returns 0.
+`c8c962649` was titled "planner-first homepage, verified and deployed". It wrote
+`astro/public/_proto/home.html` and `_proto/en/home.html` — the prototype — and
+never touched `astro/public/index.html`. The homepage a reader actually got
+stayed the pre-shell `class="nav"` page. The second time in this project a
+commit message has described a migration the artefact does not support; both
+were caught by one grep against the built HTML.
 
-The prototype and the spec (`_internal/HOMEPAGE-SPEC-2026-09.md`) are real work
-and the numbers in that commit message are real measurements **of the
-prototype**. What does not exist is the step that puts it at `/`. Owner
-decision 3 is still outstanding.
+Fixed in `285f09451`. Measured, same file before and after:
 
-This is the second time in this project a commit message has described a
-migration that the artefact does not support — see the lesson below. Both were
-caught by one grep against the built HTML.
+| | old `/` | new `/` |
+|---|---|---|
+| links | 105 | **427** |
+| unique internal destinations | 11 | **194** |
+| h2 / h3 | 0 / 0 | **17 / 36** |
+| province hub links | 14 | **89** |
+| Agoda (cid) · Booking (/go/b) · Trip (SID) | 4 · 1 · 0 | **12 · 11 · 11** |
+| save buttons | 0 | **80** |
+| JSON-LD blocks | 2 | **7** |
+
+The root cause of the false claim was that `gen-proto-home.mjs` was a manual
+step. **It is in `astro/prebuild.mjs` now**, after gen-hubs and before
+gen-sitemap, and two gates would now catch a repeat:
+
+- `check-page-coverage` asserted only that `dist/index.html` EXISTS — which the
+  old homepage also satisfied. It now asserts the homepage is on the shell,
+  carries a GA4 id, is not `noindex`, and clears a 20,000 B floor. Proven by
+  putting the old homepage back into `dist`: exit 1, naming the missing
+  `.ta-topbar`.
+- `check-snapshots` named `gen-home.mjs` as the homepage's generator. That one
+  only ever injected numbers between markers the new page does not have, so
+  editing the real generator could never mark the homepage stale.
+
+The prototype also had to be de-prototyped: `noindex`, a canonical and a WebPage
+JSON-LD pointing at `/_proto/home.html`, a `/_proto/`-scoped webmanifest, no
+hreflang, no GA4, and 86 bare relative hrefs (`href="home"`, `href="krabi"`).
+And it hand-wrote its own chrome — a sixth copy, already drifted — which is now
+`chrome.mjs`, making the homepage the fourth consumer.
+
+**A regression worth knowing about, found by audit and fixed:** the swap
+orphaned **12 live, sitemap-listed pages** that the old homepage linked and the
+new one did not — the whole `michelin-*` cluster (5), the three `*-attractions`
+guides, `chiang-mai-food-guide`, `top10-hotels-chonburi`, and the two cornerstone
+pieces written specifically to be promoted from the homepage,
+`where-to-go-thailand` and `thailand-10-day-itinerary`. All re-linked in the
+`PILLS` table. Replacing a homepage is not a licence to orphan a content pillar
+in the same commit — check this every time.
+
+### Why the other seven locales' homepages did NOT move
+
+Running `localize.mjs` over the new EN homepage gives **40.4% coverage**. Not
+because the dictionaries are thin: 513 of its 683 unique strings are not UI copy
+at all — they are opening hours, admission prices and review counts read out of
+content data (`"08:00–16:00 (closed 3rd Wed–Thu of the month)"`, `"฿200 for
+foreigners · free for Thais"`). No translation memory should hold those.
+
+Measured before deciding: patch `T.zh` and `L.zh` into `gen-proto-home.mjs` and
+`build('zh')` succeeds — and renders **0 of 11 plans and 0 of 8 guide cards**,
+because the itinerary articles do not exist in zh. A 60%-English homepage is
+worse than the fully-translated old one those readers have now.
+
+So `localize.mjs` skips `index.html` and says which generator owns it, and
+`_internal/homepage-i18n/build.mjs` (the old 127-anchor find-and-replace
+localizer, which hard-fails on the new page) carries a header saying why it is
+superseded. The real fix is a `T` copy table for the seven plus locale
+itinerary content — that is a content job, not a markup one.
 
 **Owner decisions already made — do not re-ask:**
 1. Design direction **A "Andaman Deck"**, Night Market values as its dark theme.
@@ -162,8 +213,29 @@ translations are what crosses it. Two ways out, and it is the owner's call:
    The owner explicitly asked for them to go back in, so do not do this without
    asking.
 
-After that, in order: the homepage (see the correction at the top), then the
-9 hand-written pages per locale, then Phase 3.
+After that, in order: the seven locale homepages (a `T` copy table plus locale
+itinerary content — see above), the 9 hand-written pages per locale, then
+Phase 3.
+
+Three things an audit turned up that are real, verified, and NOT done, each
+needing an owner decision rather than a patch:
+
+- **`astro/public/data/home-index.json` is 1.06 MB that nothing reads.** Not the
+  old homepage, not the new one, not `astro/src`, not `worker.js`. Written every
+  build by `gen-home-index.mjs`. Deleting it is −1 MB and −1 file against the
+  20,000 cap, but it is a delete, so ask first.
+- **Only the default Krabi tab panel gets `ItemList` schema.** The other five
+  province panels are in the DOM with ~60 more cards and no structured data —
+  about 5/6 of the deck's schema value is unclaimed.
+- **The homepage renders zero server-rendered affiliate anchors.** All 12 Agoda,
+  11 Booking and 11 Trip URLs live in the `TA_HOME` blob and become clickable
+  only once the planner renders a plan. The old page had two, both pointing at
+  OTA homepages rather than a hotel — the weakest possible click, and the same
+  kind the hub migration deliberately removed. Deliberate, but say it out loud:
+  a visitor with JS off can browse and read, and books from a review page.
+
+Referenced but absent: `90a3a3c64` points at `C:\Users\Imac\Thailandaddict\CLAUDE.md`
+for machine-local traps. That file does not exist on this machine.
 
 ## Blocked on the owner: one API token
 
