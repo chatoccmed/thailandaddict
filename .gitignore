@@ -38,3 +38,4 @@ npm-debug.log*
 # `npm run deploy` and falls back to bare `wrangler deploy`, which skips both gates.
 # Re-adding `/package.json` here silently un-wires the deploy gate. Do not.
 /astro/public/feeds/
+_internal/.overpass-cache.json

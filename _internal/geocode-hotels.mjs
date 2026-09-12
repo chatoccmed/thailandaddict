@@ -278,6 +278,15 @@ if (APPLY) {
   const per = {};
   for (const [slug, rec] of Object.entries(store)) {
     if (!(rec.lat && rec.lng)) continue;
+    /* precision:'road' stays in the store — it is a true fact about what we
+       found, and it stops the next run re-asking — but it must never become a
+       PIN. The street's midpoint is not the hotel: applying 207 of these put
+       five Hua Hin beachfront resorts on one dot on Phetkasem Road, and
+       _internal/qa/check-coords.mjs now fails the build on exactly that.
+       _internal/geocode-overpass.mjs is the path that upgrades these to a real
+       building; until one succeeds, the page shows a Maps link on the address,
+       which is honest. */
+    if (rec.precision === 'road') { rd++; continue; }
     let touched = false;
     for (const dir of DIRS) {
       const f = path.join(dir, slug + '.json');
@@ -294,12 +303,13 @@ if (APPLY) {
       per[k] = (per[k] || 0) + 1;
       touched = true;
     }
-    if (touched) { if (rec.precision === 'road') rd++; else poi++; }
+    if (touched) poi++;
   }
   const total = Object.values(per).reduce((a, b) => a + b, 0);
   console.log(`applied ${total} coordinate pair(s) across ${Object.keys(per).length} collection(s)`);
   for (const [k, v] of Object.entries(per)) console.log(`  ${k.padEnd(12)} ${v}`);
-  console.log(`\n${poi} hotels pinned on the building · ${rd} on the road (right road and district, not the doorstep)`);
+  console.log(`\n${poi} hotels pinned on the building · ${rd} road-only result(s) held back from the content on purpose`);
+  console.log(`Try to upgrade those: node _internal/geocode-overpass.mjs --report`);
   console.log('Re-run gen-feeds + gen-near-me to fold these into feeds/hotels.json and near-me-index.json.');
   process.exit(0);
 }

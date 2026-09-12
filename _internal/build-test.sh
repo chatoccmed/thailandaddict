@@ -46,6 +46,8 @@
 #   7  check-rtl — a physical direction property would ship
 #   8  check-snapshots — a generated page is older than its generator
 #   9  check-file-count — the deploy would exceed the Cloudflare asset cap
+#  11  check-coords — a wrong or invented map pin would ship
+#  12  check-map-attribution — OSM tiles without the ODbL credit
 #   other = the astro build itself failed
 #   NOTE on 5: the blueprint assigns exit 5 to check-touch-targets and this
 #   script has used 5 for a lock timeout since it was written. Both are kept —
@@ -225,6 +227,10 @@ run_gate rtl 7 "RTL guard — logical CSS properties only (he + ar are live)" --
   node _internal/qa/check-rtl.mjs
 run_gate snapshots 8 "snapshot freshness — no generated page older than its generator" -- \
   node _internal/qa/check-snapshots.mjs
+run_gate coords 11 "coordinate guard — no invented, swapped or road-centre map pins" -- \
+  node _internal/qa/check-coords.mjs
+run_gate mapattr 12 "map attribution — ODbL requires the word 'contributors'" -- \
+  node _internal/qa/check-map-attribution.mjs
 
 echo "=== astro build ==="
 # Site grew past ~3000 pages → Node's default ~2GB heap OOMs mid-build (exit 134,

@@ -88,6 +88,13 @@ _internal/
 - production build script ตั้ง `--max-old-space-size=8192` ไว้แล้ว (`astro/package.json`) — ที่สเกลปัจจุบัน (~17,100 หน้า) ยังไม่ OOM แต่เคยเจอตอน ~13k+ หน้าถ้า Windows commit-memory ตึง (ดู memory `attraction-rollout-pipeline`)
 - pre-push check: `bash _internal/build-test.sh` — รัน **dark-pattern lint** (ห้ามสร้างความเร่งรีบ/ของใกล้หมดปลอม) + **Booking→CJ revenue guard** (`_internal/qa/check-booking-cj.mjs` — พิสูจน์ว่า wrapper ทำงานจริง: ต้องเจอลิงก์ที่ wrap แล้ว ≥4,000 และลิงก์ booking.com ดิบ = 0) ทั้งคู่ต้องผ่านก่อน push
 
+## 🗺️ ข้อมูลแผนที่ (LOCKED · สเปกเต็ม = `_internal/MAP-DATA-POLICY.md`)
+- **ไม่เดาพิกัด** — พินที่ผิดแย่กว่าไม่มีพิน · ไม่มีพิกัด = โชว์ที่อยู่เป็นลิงก์ Google Maps · พิกัดน้อยกว่า 60% = แผนที่ไม่ขึ้น
+- **ห้ามใช้จุดกลางจังหวัด/อำเภอ/ถนนแทนตำแหน่งสถานที่** — `precision:'road'` เก็บไว้ในสโตร์ได้ แต่ห้ามเขียนลงเนื้อหา
+- **ODbL: attribution ต้องมีคำว่า "contributors" + ลิงก์ใบอนุญาต** ไม่ใช่ของประดับ — เคยหลุดไป 1,311 หน้า
+- 2 gate บังคับ: `check-coords.mjs` (exit 11, 8 ข้อ) · `check-map-attribution.mjs` (exit 12) — อยู่ใน `build-test.sh` แล้ว
+- Leaflet + tile OSM self-host ทั้งหมด ไม่มี Google Maps Platform / ไม่มี API key ในสาย build
+
 ## มาตรฐานเนื้อหา (ยกจาก wherebest — LOCKED)
 - **โทน v2-clean**: เพื่อนเล่าให้เพื่อน · ห้าม slang `อ่ะ/ปะ/แหละ/ล่ะ` · ห้ามคำ AI `ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน`
 - **Honesty / EEAT**: "เสียงจากรีวิวจริง" · ห้ามอ้างไปพักเอง · verify โรงแรมว่ามีจริงก่อนเขียน · ห้ามใส่วันที่ "ตรวจสอบแล้ว" ปลอม (ต้องมาจาก `modifiedDate`/`factCheckedDate` จริงเท่านั้น — ดูบทเรียนใน memory `site-quality-audit-2026-07`)
