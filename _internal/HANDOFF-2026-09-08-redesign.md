@@ -2,9 +2,13 @@
 
 Last updated 2026-09-12. `origin/main` = `cf700ea49`.
 
-**🚀 DEPLOYED 2026-09-12 — Worker version `b0bf2fc8`** (b0bf2fc8-42f5-4c88-a404-2d10e00ff29d),
-17,146 pages, 19,784 deployable files. Everything below that said COMMITTED, NOT
-DEPLOYED is now live and verified against production.
+**🚀 DEPLOYED 2026-09-12 — Worker version `783e4793`**, 17,146 pages, 19,786
+deployable files. Everything below that said COMMITTED, NOT DEPLOYED is now live
+and verified against production.
+
+Three deploys that day, in order: `b0bf2fc8` the app shell in nine languages
+plus the planner-first homepage · `35266fda` the topbar-clearance fix on ~6,000
+review and roundup pages · `783e4793` the roundup and province maps.
 
 ## Read this first
 
@@ -104,7 +108,7 @@ Verify the artefact, never the report. For anything that claims to have edited a
 
 ## What is live
 
-Worker `b0bf2fc8`, 17,146 pages, 19,784 deployable files, deployed 2026-09-12.
+Worker `783e4793`, 17,146 pages, 19,786 deployable files, deployed 2026-09-12.
 All three layouts, the hubs and the homepage share `shell.d3a3e44b.css` and
 `shell.544635d9.js`.
 
