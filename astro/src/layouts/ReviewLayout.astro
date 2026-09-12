@@ -1522,6 +1522,18 @@ const shellCtx = {
    the legacy currency bar #cv-bar is still position:fixed at z-index 120 on this
    page and would clip a toast that sits at 80. Blueprint §4.3 moves #cv-bar into
    the More popover in Phase 3 — drop this back to var(--z-toast) then. */
+/* TOPBAR CLEARANCE — the same re-declaration ArticleLayout carries, and for the
+   same reason. This file's Astro reset compiles to an UNLAYERED
+   `*, ::before, ::after { padding: 0 }`, and unlayered author CSS beats every
+   @layer shell rule regardless of specificity, so shell.css's own
+   `.ta-main { padding-block-start: … }` never landed here.
+
+   Measured on production 2026-09-12 before the fix: computed padding 0px, and
+   the breadcrumb plus the "🏆 อันดับ 1" badge row rendered at y=12 and y=68
+   underneath a 72px fixed topbar, on every one of the 4,802 review URLs.
+   ArticleLayout was given this block during the shell migration; Review and
+   Roundup were not. Same tokens, same values, no new number. */
+.ta-main{padding-block-start:calc(var(--topbar-rest) + var(--safe-t))}
 .ta-plantoast{position:fixed;inset-inline:var(--sp-3);inset-block-end:calc(var(--floor) + var(--cta-h) + var(--sp-3));margin-inline:auto;transform:translateY(18px);z-index:var(--z-popover);display:flex;align-items:center;gap:12px;max-inline-size:min(92vw,430px);background:#0F172A;color:#fff;font-family:'Outfit',system-ui,sans-serif;font-size:14px;font-weight:600;padding:12px 16px;border-radius:14px;box-shadow:0 16px 40px -10px rgba(15,23,42,.6);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s}
 .ta-plantoast.show{opacity:1;visibility:visible;transform:translateY(0)}
 .ta-plantoast .tpt-msg{flex:1;line-height:1.35;min-width:0}
