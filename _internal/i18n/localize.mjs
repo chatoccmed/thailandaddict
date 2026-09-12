@@ -448,6 +448,29 @@ for(const loc of locs){
     return m && fs.existsSync(path.join(ROOT, '_internal', `province-data-${loc}`, `${m[1]}.json`));
   }));
 
+  /* ...and the homepage, for a different reason.
+   *
+   * Since 2026-09-12 / and /en/ are the planner-first page, generated whole by
+   * _internal/shell/build/gen-proto-home.mjs. Translating the EN one here gives
+   * 40.4% coverage (measured), because 513 of its 683 unique strings are not UI
+   * copy at all — they are opening hours, admission prices and review counts
+   * lifted out of content data:
+   *
+   *     "08:00–16:00 (closed 3rd Wed–Thu of the month)"
+   *     "฿200 for foreigners · free for Thais"
+   *     "1,099 reviews · riverside, Khlong San side"
+   *
+   * No translation memory should ever hold those. They belong to the locale's
+   * own content files, which is where gen-proto-home reads them from — its `L`
+   * table already maps a locale to articles-<loc>/roundups-<loc>, exactly as
+   * gen-hubs does for the 30 city hubs it owns.
+   *
+   * So the seven locale homepages stay on the previous page until
+   * gen-proto-home learns their copy table, rather than being replaced with a
+   * 60%-English one. Removing this line before that happens is the regression. */
+  const HOME_OWNED = files.includes('index.html');
+  if (HOME_OWNED) OWNED.add('index.html');
+
   let onShell = 0;
   for(const f of files){
     if(OWNED.has(f)) continue;
@@ -461,6 +484,7 @@ for(const loc of locs){
   const hits = n.shell + n.hub + n.ui + n.tm;
   const pct = hits + n.miss ? ((hits / (hits + n.miss)) * 100).toFixed(1) : '0.0';
   const wrote = files.length - OWNED.size;
-  console.log(`[${loc}] ${wrote} pages → astro/public/${loc}/ · ${onShell} on the shell, ${wrote - onShell} not · ${OWNED.size} left to gen-hubs`);
+  const owners = `${OWNED.size - (HOME_OWNED ? 1 : 0)} left to gen-hubs` + (HOME_OWNED ? ', 1 to gen-proto-home' : '');
+  console.log(`[${loc}] ${wrote} pages → astro/public/${loc}/ · ${onShell} on the shell, ${wrote - onShell} not · ${owners}`);
   console.log(`      ${pct}% translated — shell:${n.shell} hub:${n.hub} ui:${n.ui} tm:${n.tm} · miss(→en):${n.miss}`);
 }

@@ -36,7 +36,15 @@ import { fileURLToPath } from 'node:url';
 // Then gen-hubs: it regenerates every city/region/country/destination hub (all locales) from current
 // content, so newly-added roundups/reviews are linked (not orphaned) and downstream gens see fresh hubs.
 // (Was previously a manual-only step — a green build could ship stale hubs with unlinked roundups.)
-for (const mod of ['../_internal/gen-shell.mjs', '../_internal/gen-hubs.mjs', '../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-home-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs']) {
+// gen-proto-home writes the homepage itself — astro/public/index.html and en/index.html, plus the
+// /_proto/ design mirror — from live content: itineraries, roundups, reviews, restaurant and
+// attraction blocks. It runs AFTER gen-hubs because it reads the same content those hubs are built
+// from, and BEFORE gen-sitemap so the sitemap sees the homepage it actually ships.
+// It was a manual-only step, and the cost of that is on the record: the planner-first homepage was
+// committed as "verified and deployed" on 2026-09-09 and reached only /_proto/, because nothing in
+// the build ever wrote the real one. A generator that is not in prebuild is a generator whose output
+// is stale the moment somebody forgets.
+for (const mod of ['../_internal/gen-shell.mjs', '../_internal/gen-hubs.mjs', '../_internal/shell/build/gen-proto-home.mjs', '../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-home-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs']) {
   // The isolated _internal/build-test.sh copy has no _internal/ — skip a genuinely-absent generator so a
   // content-only validation build still passes. But if the generator IS present and throws, let it fail the
   // build: swallowing it shipped a green build with stale/broken home/sitemap/search/feeds/near-me.

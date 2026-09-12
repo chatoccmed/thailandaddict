@@ -246,8 +246,8 @@ document.addEventListener('DOMContentLoaded', function () {
           + '<span class="ta-poi-main">'
           + '<span class="ta-poi-name ta-clamp-1"><a href="' + esc(plan.stay.url) + '">' + esc(plan.stay.name) + '</a></span>'
           + '<span class="ta-poi-sub ta-clamp-2">' + esc(C.stayRow) + ' · ' + esc(plan.stay.rev || '') + '</span>'
+          + ota(plan.stay)
           + '</span>'
-          + (plan.stay.agoda ? '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow" target="_blank" href="' + esc(plan.stay.agoda) + '">Agoda</a>' : '')
           + '</div></li>';
       }
       html += '</ul></section>';
@@ -263,6 +263,22 @@ document.addEventListener('DOMContentLoaded', function () {
     deckBox.innerHTML = html;
     deckBox.hidden = false;
     return true;
+  }
+
+  /* The stay row's booking links. All three OTAs, named, because "no site is
+     cheapest every time" is the site's own editorial line and a single button
+     quietly contradicts it. rel="sponsored noopener nofollow" + .no-prerender
+     on every one: a speculation-rules prerender would fire a click the reader
+     never made and corrupt attribution on cid=1965862 and the CJ feed. */
+  function otaBtn(href, label) {
+    if (!href) return '';
+    return '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow"'
+      + ' target="_blank" href="' + esc(href) + '">' + esc(label) + '</a>';
+  }
+  function ota(stay) {
+    return '<span class="ta-poi-ota">'
+      + otaBtn(stay.agoda, 'Agoda') + otaBtn(stay.booking, 'Booking') + otaBtn(stay.trip, 'Trip.com')
+      + '</span>';
   }
 
   function esc(s) {

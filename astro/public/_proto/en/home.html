@@ -3,36 +3,25 @@
 <head>
 <meta charset="utf-8">
 
-<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
-     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
-     home indicator. Never add maximum-scale or user-scalable=no. -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- PROTOTYPE ONLY -->
 <meta name="robots" content="noindex, nofollow">
-
 <title>Plan a Thailand trip 2026 — stays, food and places we reviewed ourselves | ThailandAddict</title>
 <meta name="description" content="Pick a destination and how many days, and see a real day-by-day plan built from stays, restaurants and sights we reviewed ourselves, across all 77 provinces.">
 <link rel="canonical" href="https://thailandaddict.com/_proto/en/home.html">
+<link rel="manifest" href="../manifest.en.webmanifest">
+
+<!-- viewport, both theme-colors, the hashed shell stylesheet, the pagereveal
+     handler, the speculation rules and shell.js — all of it from
+     _internal/lib/chrome.mjs, the same string Shell.astro and gen-hubs emit.
+     It used to be hand-copied here, including the hashed filenames, which
+     drifted: gen-shell re-hashes on every shell edit and a stale name is a 404
+     that renders as an unstyled page with nothing in the console to say why. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
-<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)" data-shell data-color="#081113">
 
-<!-- The manifests live in /_proto/, so the EN page one level down needs the up
-     prefix. Without it /_proto/en/manifest.en.webmanifest 404s (2026-09-09). --><link rel="manifest" href="../manifest.en.webmanifest">
-<!-- No <link rel="icon">: astro/public/favicon.svg and astro/public/icons/ do
-     not exist yet, and a 404 in the console during an owner demo is worse than
-     no icon. Add both once gen-shell has emitted them. -->
+<link rel="stylesheet" href="/css/shell.d3a3e44b.css">
 
-<!-- Hashed names come from astro/src/data/shell-manifest.json, never typed
-     here. They were hard-coded and drifted: gen-shell re-hashes on every shell
-     edit, and a stale name is a 404 that shows up as an unstyled page with
-     nothing in the console to say why. gen-shell also rewrites these across
-     /_proto now, for the pages it does not regenerate. -->
-<link rel="stylesheet" href="../../css/shell.d3a3e44b.css">
-
-<!-- Incoming view-transition direction. MUST be a parser-blocking inline
-     script in <head>: pagereveal fires before any deferred script runs. -->
 <script>
 addEventListener('pagereveal', function (e) {
   if (!e.viewTransition) return;
@@ -45,17 +34,6 @@ addEventListener('pagereveal', function (e) {
   } catch (err) {}
   e.viewTransition.types.add(t);
 });
-document.documentElement.setAttribute('data-js', '');
-/* ~200 bytes, parser-blocking on purpose: decides which of the three planner
-   states paints FIRST, inside a height-reserved box, so there is no flash and
-   no layout shift. It reads lengths only — it never parses the trip. */
-try {
-  var _t = localStorage.getItem('ta.trip.v1') || '';
-  var _s = localStorage.getItem('ta.saves.v3') || '';
-  var _has = _t.indexOf('"items":[{') > -1 || /"days":\[\s*\{/.test(_t);
-  document.documentElement.setAttribute('data-trip',
-    _has ? 'has' : (_s.indexOf('{') > -1 && _s.length > 8 ? 'saves' : 'none'));
-} catch (e) { document.documentElement.setAttribute('data-trip', 'none'); }
 </script>
 
 <script type="speculationrules">
@@ -69,7 +47,21 @@ try {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="../../js/shell.544635d9.js" defer></script>
+<script src="/js/shell.544635d9.js" defer></script>
+
+<script>
+document.documentElement.setAttribute('data-js', '');
+/* ~200 bytes, parser-blocking on purpose: decides which of the three planner
+   states paints FIRST, inside a height-reserved box, so there is no flash and
+   no layout shift. It reads lengths only — it never parses the trip. */
+try {
+  var _t = localStorage.getItem('ta.trip.v1') || '';
+  var _s = localStorage.getItem('ta.saves.v3') || '';
+  var _has = _t.indexOf('"items":[{') > -1 || /"days":\[\s*\{/.test(_t);
+  document.documentElement.setAttribute('data-trip',
+    _has ? 'has' : (_s.indexOf('{') > -1 && _s.length > 8 ? 'saves' : 'none'));
+} catch (e) { document.documentElement.setAttribute('data-trip', 'none'); }
+</script>
 
 <style>
 /* Page layer only. Every number below is a shell token — no new colour,
@@ -738,6 +730,28 @@ try {
   [data-dest-regions] .ta-region-list { margin-block-end: var(--sp-2); }
   [data-dest-regions] .ta-region-links a { cursor: pointer; }
 
+  /* ── THE STAY ROW'S BOOKING BUTTONS ───────────────────────────────────
+     Three named OTAs, because "no site is cheapest every time" is the site's
+     own editorial line and one button quietly contradicts it.
+
+     They sit INSIDE .ta-poi-main, on their own line under the hotel name,
+     rather than in .ta-poi's third grid column: three 44px targets in that
+     column squeeze the name to nothing at 375px. On their own line each is
+     ~90px wide there, so the 44x44 floor holds without a media query and
+     _internal/qa/check-touch-targets.mjs stays green. */
+  .ta-poi-ota {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-2);
+  }
+  .ta-poi-ota .ta-btn {
+    flex: 1 1 auto;
+    min-inline-size: 44px;
+    padding-inline: var(--sp-3);
+    font-size: var(--step--1);
+  }
+
   /* Reduced motion: nothing here animates anyway, but the chevron rotation is
      a transition and must stop. */
   @media (prefers-reduced-motion: reduce) {
@@ -759,36 +773,39 @@ try {
 <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
-<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
-<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
-<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.75v14.5M4.75 12h14.5"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.75 12.5 4.75 4.75L19.25 6.75"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/><path d="m9 10.7 6-3.4M9 13.3l6 3.4"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
 </svg>
 
 <header class="ta-topbar" id="taTopbar">
-  <a class="ta-topbar-brand" href="home">
+  <a class="ta-topbar-brand" href="/en/">
     <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>Thailandaddict</span>
   </a>
 
   <span class="ta-topbar-spacer"></span>
 
-  <nav class="ta-nav-desk" aria-label="Explore">
-    <a href="home" aria-current="page">Explore</a>
-    <a href="krabi">Destinations</a>
-    <a href="trip">Trip <span class="ta-badge" data-count="0">0</span></a>
+  <nav class="ta-nav-desk" aria-label="Main menu">
+    <a href="/en/" aria-current="page">Explore</a>
+    <a href="/en/country-thailand">Destinations</a>
+    <a href="/trip">Trip <span class="ta-badge" data-count="0">0</span></a>
   </nav>
 
-  <form class="ta-search-desk" action="search" method="get" role="search">
+  <form class="ta-search-desk" action="/en/search" method="get" role="search">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
     <label class="ta-sr" for="q-desk">Search</label>
-    <input id="q-desk" type="search" name="q" placeholder="Stays, restaurants, destinations">
+    <input id="q-desk" type="search" name="q" placeholder="Hotels, restaurants, destinations">
   </form>
 
   <button class="ta-icon-btn lang-trigger" type="button"
-          popovertarget="taLang" aria-label="ภาษา / Language">
+          popovertarget="taLang" aria-label="Language / Language">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
     <span>English</span>
   </button>
@@ -856,7 +873,7 @@ try {
             <ul class="ta-plan-thumbs" data-saves-thumbs></ul>
             <div class="ta-plan-actions">
               <button class="ta-btn ta-btn-primary" type="button" data-make-days>Sort them into days for me</button>
-              <a class="ta-btn ta-btn-quiet" href="trip">Open the plan</a>
+              <a class="ta-btn ta-btn-quiet" href="../trip">Open the plan</a>
             </div>
             <p class="ta-fine">Kept in this browser only — nobody else can see it and we do not store it on a server</p>
           </div>
@@ -868,7 +885,7 @@ try {
             <p class="ta-fine" data-trip-meta></p>
             <ul class="ta-plan-thumbs" data-trip-thumbs></ul>
             <div class="ta-plan-actions">
-              <a class="ta-btn ta-btn-primary" href="trip">Open the plan</a>
+              <a class="ta-btn ta-btn-primary" href="../trip">Open the plan</a>
               <button class="ta-btn ta-btn-quiet" type="button" data-trip-reset>Start a new trip</button>
               <button class="ta-btn ta-btn-ghost" type="button" data-trip-hide>Hide for now</button>
             </div>
@@ -950,7 +967,7 @@ try {
     <section class="ta-sec ta-plandock" data-plandock hidden aria-labelledby="h-dock">
       <div class="ta-sec-head">
         <h2 id="h-dock">In your trip <span class="ta-badge" data-count="0">0</span></h2>
-        <a class="ta-sec-more" href="trip">Open the plan</a>
+        <a class="ta-sec-more" href="../trip">Open the plan</a>
       </div>
       <ul class="ta-day-list" data-dock-list></ul>
     </section>
@@ -1052,23 +1069,51 @@ try {
       </form>
     </section>
 
-    <!-- ══════════════════════════ 14. FOOTER ════════════════════════════════ -->
-    <footer class="ta-foot">
-      <p class="ta-foot-tag">Thailandaddict — Explore Thailand Like a Local</p>
-      <p class="ta-fine">The best places to stay, eat and explore across Thailand</p>
-      <ul class="ta-foot-links">
-        <li><a href="/en/about">About us</a></li>
-        <li><a href="/en/destinations">All destinations</a></li>
-        <li><a href="trip">My trip</a></li>
-        <li><a href="search">Search</a></li>
-        <li><a href="/en/near-me">Near me</a></li>
-        <li><a href="../home" hreflang="th">ไทย</a></li>
-      </ul>
-      <p class="ta-fine">This is a prototype page. It is noindex and is not linked from the live site.</p>
-    </footer>
-
   </div>
 </main>
+
+<!-- ═══ 14. FOOTER · TRIP RAIL · TAB BAR · More · language · toast ═══════════
+     One call, from _internal/lib/chrome.mjs. All five used to be hand-written
+     here, in two languages, from a copy table this file owned — a sixth copy of
+     the markup the redesign exists to collapse into one. The footer that comes
+     back is the site's real three-column one, sourced from ui.<lang>.json, so
+     it carries 11 crawlable links in nine languages instead of 6 in two. -->
+<footer class="ta-foot">
+  <div class="ta-foot-top">
+    <div class="ta-foot-brand">
+      <p class="ta-foot-tag">Thailandaddict — Explore Thailand Like a Local</p>
+      <p class="ta-fine">Hotel reviews and ranked stays, food and things to do — sourced from real guest reviews, all across Thailand.</p>
+    </div>
+    <div class="ta-foot-col">
+      <h2>Destinations</h2>
+      <ul>
+        <li><a href="/en/country-thailand">🇹🇭 Thailand</a></li>
+        <li><a href="/en/destinations">🔥 Top destinations</a></li>
+        <li><a href="/en/region-north">⛰️ North</a></li>
+        <li><a href="/en/region-south">🌊 South</a></li>
+      </ul>
+    </div>
+    <div class="ta-foot-col">
+      <h2>Content</h2>
+      <ul>
+        <li><a href="/en/plan-your-trip">Trip prep</a></li>
+        <li><a href="/trip">AI trip planner</a></li>
+        <li><a href="/en/search">Find a place to stay</a></li>
+      </ul>
+    </div>
+    <div class="ta-foot-col">
+      <h2>About</h2>
+      <ul>
+        <li><a href="/en/about">About us</a></li>
+        <li><a href="/en/editorial-policy">Editorial policy</a></li>
+        <li><a href="/en/contact">Contact us</a></li>
+        <li><a href="/en/privacy">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="ta-fine ta-foot-legal">ThailandAddict is an affiliate partner of Agoda, Booking.com and Trip.com — we may earn a commission when you book through links on this site, at no extra cost to you. Our reviews and rankings are independent of any sponsorship.</p>
+  <p class="ta-fine">© 2025–2026 thailandaddict.com — Thailand, Done Right</p>
+</footer>
 
 <aside class="ta-rail" aria-label="Your trip">
   <button class="ta-rail-toggle" type="button" data-rail-toggle
@@ -1081,39 +1126,40 @@ try {
   <div class="ta-rail-body" id="taRailBody">
     <p class="ta-fine" data-trip-count-label></p>
     <ul class="ta-day-list" data-rail-list></ul>
-    <p class="ta-fine" data-rail-empty>Nothing yet — tap 🔖 on any card to start</p>
-    <a class="ta-btn ta-btn-quiet" href="trip">Open the trip page</a>
+    <p class="ta-fine" data-rail-empty>Nothing saved yet — tap 🔖 on any card to start</p>
+    <a class="ta-btn ta-btn-quiet" href="/trip">Open your trip</a>
   </div>
 </aside>
 
-<nav class="ta-tabbar" aria-label="Explore">
-  <a class="ta-tab" href="home" data-tab="explore" aria-current="page">
+<nav class="ta-tabbar" aria-label="Main">
+  <a class="ta-tab" href="/en/" data-tab="explore" aria-current="page">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
     <span>Explore</span>
   </a>
-  <a class="ta-tab" href="krabi" data-tab="places">
+  <a class="ta-tab" href="/en/country-thailand" data-tab="places">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>Destinations</span>
   </a>
-  <a class="ta-tab" href="search" data-tab="search">
+  <a class="ta-tab" href="/en/search" data-sheet="taSearch" data-tab="search">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
     <span>Search</span>
   </a>
-  <a class="ta-tab" href="trip" data-tab="trip">
+  <a class="ta-tab" href="/trip" data-tab="trip">
     <span class="ta-tab-ic">
       <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
       <b class="ta-badge" data-count="0">0</b>
     </span>
     <span>Trip</span>
   </a>
-  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+  <button class="ta-tab ta-more-trigger" type="button" popovertarget="taMore" data-tab="more">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
-    <span>More</span>
+    <span>Menu</span>
   </button>
 </nav>
 
 <div id="taMore" popover class="ta-more">
   <p class="ta-more-label">Display</p>
+
   <button type="button" data-theme-set="cycle">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
     <span>Theme</span>
@@ -1124,25 +1170,55 @@ try {
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
     <span>Language</span>
   </button>
+
   <hr>
-  <a href="trip">
+
+  <a href="/my-list">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
-    <span>My trip</span>
+    <span>Saved</span>
   </a>
   <a href="/en/near-me">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>Near me</span>
   </a>
+
   <button type="button" data-install hidden>
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
-    <span>Install as an app</span>
+    <span>Install as app</span>
   </button>
 </div>
 
 <div id="taLang" popover class="lang-menu">
-  <a href="../home" hreflang="th">ไทย</a>
-  <a href="home" hreflang="en" aria-current="true">English</a>
+  <a href="/" hreflang="th">ไทย</a>
+  <a href="/en/" hreflang="en" aria-current="true">English</a>
+  <a href="/zh/" hreflang="zh">中文</a>
+  <a href="/ru/" hreflang="ru">Русский</a>
+  <a href="/ko/" hreflang="ko">한국어</a>
+  <a href="/ja/" hreflang="ja">日本語</a>
+  <a href="/hi/" hreflang="hi">हिन्दी</a>
+  <a href="/he/" hreflang="he">עברית</a>
+  <a href="/ar/" hreflang="ar">العربية</a>
 </div>
+
+<dialog class="ta-sheet" id="taSearch" aria-label="Search">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title">Search</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="Close">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <form action="/en/search" method="get" role="search">
+      <label class="ta-sr" for="q-sheet">Search</label>
+      <input id="q-sheet" type="search" name="q" placeholder="Hotels, restaurants, destinations">
+    </form>
+  </div>
+</dialog>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<p class="ta-fine ta-wrap">This is a prototype page. It is noindex and is not linked from the live site.</p>
 
 <!-- Destination sheet. The region list inside it is CLONED from the crawlable
      region block above — one link set, two surfaces, authored once. -->
@@ -1197,7 +1273,7 @@ try {
 <script>
 window.TA_HOME = {
   lang: "en",
-  plans: {"krabi|1-day":{"href":"/en/krabi-1-day-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi in One Day Ao Nang–Railay or the Nature Route","src":"Krabi in One Day 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"Ao Nang–Railay route","title":"Full-day timetable","items":[{"t":"08:30","a":"Breakfast along the Ao Nang beachfront"},{"t":"09:30","a":"Buy a longtail ticket at the Ao Nang pier and cross to Railay"},{"t":"10:00","a":"Walk Phra Nang Beach + climb to the viewpoint / lagoon"},{"t":"12:00","a":"Lunch break + swim at Railay West"},{"t":"14:30","a":"Boat back to Ao Nang, rest / shower at your hotel"},{"t":"17:00","a":"Head out for sunset on Ao Nang Beach"},{"t":"18:30","a":"Seafood dinner on the Ao Nang beachfront"}]},{"label":"Mainland nature route","title":"Full-day timetable","items":[{"t":"06:30","a":"Early start to Wat Tham Suea, climb the 1,237 steps"},{"t":"09:30","a":"Coffee / breakfast break after the climb down"},{"t":"10:30","a":"Drive to Khlong Thom and enter the Emerald Pool"},{"t":"11:30","a":"Soak in the Emerald Pool + walk on to the Blue Pool"},{"t":"14:00","a":"On to the Hot Springs at Khlong Thom for a warm soak"},{"t":"16:00","a":"Drive back to Krabi town / Ao Nang"},{"t":"18:30","a":"Dinner in Krabi town + a riverside walk"}]}]},"krabi|2d1n":{"href":"/en/krabi-2d1n-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi 2 Days 1 Night Ao Nang–Railay–Four Islands Tour","src":"Krabi 2 Days 1 Night 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Ao Nang to Railay","items":[{"t":"11:00","a":"Land at Krabi Airport, transfer to Ao Nang"},{"t":"12:30","a":"Check in around Ao Nang, drop your bags"},{"t":"13:00","a":"Lunch around Ao Nang's main street"},{"t":"14:30","a":"Catch a longtail from Ao Nang Beach to Railay"},{"t":"15:00","a":"Walk Railay West, then on to Phra Nang Cave"},{"t":"16:00","a":"Watch the climbers / hike up to the Railay viewpoint (if you're up for it)"},{"t":"17:30","a":"Boat back to Ao Nang for sunset"},{"t":"19:00","a":"Seafood dinner along Ao Nang Beach"}]},{"label":"Day 2","title":"Four Islands tour, then fly home","items":[{"t":"08:00","a":"Early breakfast at the hotel / check out and pack up"},{"t":"09:00","a":"Tour van picks you up from the hotel to the pier"},{"t":"09:30","a":"Set off, starting at Koh Poda for a swim and photos"},{"t":"11:00","a":"Snorkel over coral around Chicken Island"},{"t":"12:30","a":"Lunch on the island (included in the tour)"},{"t":"14:00","a":"Highlight: walk the \"Talay Waek\" sandbar"},{"t":"15:30","a":"Stop at Railay / one last swim before heading back"},{"t":"16:30","a":"Back at the pier, van drops you at the hotel"},{"t":"18:00","a":"Head to Krabi Airport and fly home"}]}]},"krabi|3d2n":{"href":"/en/krabi-3d2n-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi Itinerary 3 Days, 2 Nights","src":"Krabi 3-Day Itinerary 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Ao Nang to Railay & Phra Nang Cave","items":[{"t":"11:00","a":"Arrive at Krabi airport, transfer to Ao Nang"},{"t":"12:30","a":"Check in around Ao Nang, drop your bags"},{"t":"13:00","a":"Lunch around Ao Nang road"},{"t":"14:30","a":"Catch a longtail from Ao Nang beach to Railay"},{"t":"15:00","a":"Stroll Railay West, on to Phra Nang Cave"},{"t":"16:00","a":"Watch the climbers / hike to the Railay viewpoint–lagoon (if you're up for it)"},{"t":"17:30","a":"Boat back to Ao Nang, catch the sunset"},{"t":"19:00","a":"Seafood dinner on the Ao Nang beachfront"}]},{"label":"Day 2","title":"Four Islands: Poda Island–Separated Sea","items":[{"t":"08:00","a":"Breakfast at the hotel, pack for the boat"},{"t":"09:00","a":"Tour van picks you up from the hotel to the pier"},{"t":"09:30","a":"Set off by boat, starting at Poda Island — swim and photos"},{"t":"11:00","a":"Snorkel the coral around Chicken Island"},{"t":"12:30","a":"Lunch on an island (included in the tour)"},{"t":"14:00","a":"Highlight: walk the \"Separated Sea\" sandbar"},{"t":"15:30","a":"One last swim stop before heading back"},{"t":"16:30","a":"Back at the pier, van drops you at the hotel"},{"t":"19:00","a":"Dinner around Ao Nang, stroll the night street"}]},{"label":"Day 3","title":"Inland nature before flying home","items":[{"t":"07:30","a":"Breakfast, check out, store bags / load the car"},{"t":"09:00","a":"Arrive at Khlong Thom Hot Springs, soak in the natural warm water"},{"t":"10:30","a":"Short forest walk in to the Emerald Pool"},{"t":"12:30","a":"Lunch on the way back toward town"},{"t":"14:00","a":"Tiger Cave Temple — conquer the 1,237 steps (if you're up for it)"},{"t":"16:30","a":"Arrive at Krabi airport, grab gifts, check in"}]}]},"chiang-mai|3d2n":{"href":"/en/chiang-mai-3d2n-itinerary","dest":"Chiang Mai","slug":"chiang-mai","title":"Chiang Mai in 3 Days, 2 Nights Old City + Mountains + Cafes","src":"Chiang Mai 3-Day Itinerary","stay":{"name":"137 Pillars House","url":"/en/review-137-pillars-house-chiang-mai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg","price":"฿18,000","rev":"Trip.com 9.5 · Small Luxury Hotels","agoda":"https://www.agoda.com/137-pillars-house/hotel/chiang-mai-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Old City + Doi Suthep","items":[{"t":"08:30","a":"Start at Wat Phra Singh"},{"t":"09:45","a":"Walk to Wat Chedi Luang"},{"t":"11:30","a":"Lunch — khao soi"},{"t":"13:30","a":"Head up Doi Suthep"},{"t":"14:30","a":"Wat Phra That Doi Suthep"},{"t":"17:30","a":"Back to town, rest / shower"},{"t":"19:00","a":"Walking street (Sat/Sun)"}]},{"label":"Day 2 · Route A","title":"Doi Inthanon (Thailand's highest peak)","items":[{"t":"07:00","a":"Leave town early"},{"t":"09:30","a":"Highest point in Thailand + Ang Ka trail"},{"t":"10:30","a":"Phra Mahathat Naphamethanidon & Naphaphonphumisiri"},{"t":"12:00","a":"Kew Mae Pan (if open for the season)"},{"t":"14:00","a":"Wachirathan / Mae Ya waterfall"},{"t":"16:00","a":"Start the drive back"}]},{"label":"Day 2 · Route B","title":"Mae Rim–Mon Cham (lighter and closer)","items":[{"t":"09:00","a":"Leave town mid-morning"},{"t":"10:00","a":"Queen Sirikit Botanic Garden"},{"t":"12:00","a":"Lunch at a hillside cafe"},{"t":"13:30","a":"Mon Cham viewpoint + flower fields"},{"t":"15:30","a":"Mae Sa Elephant Camp (if you're interested)"},{"t":"17:00","a":"Drive back to town"}]},{"label":"Day 3","title":"Cafes + souvenirs","items":[{"t":"09:00","a":"Pack up, check out"},{"t":"09:30","a":"Morning cafe in Nimman"},{"t":"11:00","a":"Cafe / dessert crawl"},{"t":"12:30","a":"Northern-food lunch"},{"t":"14:00","a":"Souvenirs at Warorot Market (Kad Luang)"},{"t":"15:30","a":"Head to Chiang Mai Airport"}]}]},"phuket|3d2n":{"href":"/en/phuket-3d2n-itinerary","dest":"Phuket","slug":"phuket","title":"Phuket in 3 Days, 2 Nights","src":"Phuket 3 Days 2 Nights 2026","stay":{"name":"The Surin Phuket","url":"/en/review-the-surin-phuket","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/phuket-surin-1.jpg","price":"฿7,500","rev":"Agoda 9.1 · Booking 9.0 · 379 reviews","agoda":"https://www.agoda.com/the-surin-phuket/hotel/phuket-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Morning dim sum · old shophouses · a Michelin southern lunch","items":[{"t":"07:00","a":"Breakfast dim sum at Boonrat Dim Sum"},{"t":"08:30","a":"Wander the Old Town — Thalang Road, Soi Romanee, Sino-Portuguese shophouses"},{"t":"10:30","a":"Café break in the Old Town — Kor Ra Kang or a Thalang Road café"},{"t":"12:00","a":"Southern/Phuket lunch at Tu Kab Khao"},{"t":"14:00","a":"Try the legendary Hokkien mee at Mee Ton Poe"},{"t":"15:30","a":"Back to the hotel to check in, then out for a second round of street art and old shophouses"},{"t":"18:30","a":"Dinner — Raya Restaurant (southern food in an old wooden house) or seafood in town"}]},{"label":"Day 2","title":"Full-day island tour (hotel pickup & drop-off)","items":[{"t":"07:30","a":"Tour van picks you up at the hotel"},{"t":"08:30","a":"Arrive at the pier, listen to the briefing, then board the speedboat"},{"t":"09:30","a":"Route A — Phi Phi: Maya Bay, Pileh Lagoon, snorkelling"},{"t":"09:30","a":"Route B — Phang Nga Bay: James Bond Island, canoeing through caves"},{"t":"12:30","a":"Lunch on an island / on the boat"},{"t":"14:00","a":"Stop at Khai Island / a final snorkel spot, swim off the beach"},{"t":"16:00","a":"Boat heads back to shore"},{"t":"17:30","a":"Dropped back at the hotel, rest, then find dinner nearby"}]},{"label":"Day 3","title":"West-coast beaches · the three-bay viewpoint · Promthep Cape","items":[{"t":"08:30","a":"Breakfast — kopi + Phuket khanom jeen, or old-school coffee"},{"t":"10:00","a":"Swim at Kata or Karon Beach (west coast)"},{"t":"12:30","a":"Seafood lunch around Kata / Rawai"},{"t":"14:30","a":"Karon Viewpoint (the three-bay viewpoint)"},{"t":"15:30","a":"Stop at Wat Chalong (if you have time) to pay respects before Promthep Cape"},{"t":"17:00","a":"Arrive at Promthep Cape and claim a spot for the sunset"},{"t":"18:30","a":"Sunset, then on to Phuket Airport (HKT)"}]}]},"bangkok|2d1n":{"href":"/en/bangkok-2d1n-itinerary","dest":"Bangkok","slug":"bangkok","title":"Bangkok 2 Days 1 Night Old Temples, Street Food, Shopping","src":"Bangkok 2 Days 1 Night 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/en/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · Thailand's oldest hotel","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Rattanakosin + Yaowarat","items":[{"t":"08:30","a":"Start at the Grand Palace + Wat Phra Kaew (Temple of the Emerald Buddha)"},{"t":"10:30","a":"Walk on to Wat Pho (Wat Phra Chetuphon)"},{"t":"12:00","a":"Lunch break + dessert around Tha Tien"},{"t":"13:30","a":"Take the ferry from Tha Tien to Wat Arun"},{"t":"15:00","a":"Head back to the Phra Nakhon side, return to the hotel, shower and change"},{"t":"18:30","a":"Head to Yaowarat and start eating your way through the street food"},{"t":"22:00","a":"Finish with dessert or coffee, then head back"}]},{"label":"Day 2","title":"Shopping (weekend version)","items":[{"t":"09:30","a":"Tackle Chatuchak Weekend Market"},{"t":"12:30","a":"Lunch inside Chatuchak, then drop off your haul"},{"t":"15:00","a":"Take a boat/car to ICONSIAM"},{"t":"18:00","a":"Watch the riverside fountain show + dinner with a river view"},{"t":"20:00","a":"Pick up souvenirs, then head home or move on"}]}]},"bangkok|3d2n":{"href":"/en/bangkok-3d2n-itinerary","dest":"Bangkok","slug":"bangkok","title":"Bangkok in 3 Days, 2 Nights Old City, Cafes, Markets, Rooftops","src":"Bangkok 3 Days 2 Nights 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/en/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · Thailand's oldest hotel","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Rattanakosin — three riverside temples","items":[{"t":"08:30","a":"Start at the Grand Palace + Wat Phra Kaew"},{"t":"10:30","a":"Walk on to Wat Pho (Wat Phra Chetuphon)"},{"t":"12:00","a":"Lunch break + dessert around Tha Tien"},{"t":"13:30","a":"Cross-river ferry from Tha Tien to Wat Arun"},{"t":"15:30","a":"Back to the Phra Nakhon side, wander Tha Tien–Pak Khlong Talat"},{"t":"18:00","a":"Head back, rest, then find a light dinner near your hotel"}]},{"label":"Day 2","title":"Talat Noi–Charoenkrung — cafes + old quarter","items":[{"t":"09:30","a":"Morning coffee at Mother Roaster or a cafe in the Talat Noi alleys"},{"t":"10:30","a":"Wander Talat Noi — street art, Joe Sue Kong shrine, vintage cars"},{"t":"12:30","a":"Lunch in the area — rice congee, noodles, or bagels"},{"t":"14:00","a":"Afternoon cafe — ENVIES, Feng Huang Tea Bar, or The Coffee Store"},{"t":"16:00","a":"Walk along Charoenkrung toward Warehouse 30 / the river"},{"t":"18:30","a":"Riverside dinner, or head back to your hotel"}]},{"label":"Day 3","title":"Market + sunset rooftop","items":[{"t":"10:00","a":"Pick a daytime market based on the day you're there"},{"t":"13:00","a":"Lunch at the market, then back to the hotel to drop off and shower"},{"t":"17:30","a":"Head up to a rooftop bar for sunset"},{"t":"19:30","a":"Come down from the rooftop, head to a night market"},{"t":"22:00","a":"Grab souvenirs to close out the trip, then head back / get ready to travel"}]}]},"ayutthaya|2d1n":{"href":"/en/ayutthaya-2d1n-itinerary","dest":"Ayutthaya","slug":"ayutthaya","title":"Ayutthaya in 2 Days 1 Night Old Temples, Market, Boat Trip","src":"Ayutthaya 2-Day 1-Night Itinerary 2026","stay":{"name":"SALA Ayutthaya","url":"/en/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 reviews","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Old-Town Temples + Wat Chaiwatthanaram at Dusk","items":[{"t":"10:00","a":"Arrive in Ayutthaya, drop your bags, then start at Wat Mahathat"},{"t":"11:15","a":"Walk over to Wat Phra Si Sanphet nearby"},{"t":"12:30","a":"Lunch break — a famous boat-noodle shop in town"},{"t":"14:00","a":"Head to Wat Yai Chai Mongkhon, off the island to the southeast"},{"t":"16:00","a":"End the day at Wat Chaiwatthanaram once the sun softens"},{"t":"18:30","a":"Riverside dinner, then rest"}]},{"label":"Day 2","title":"Ayothaya Floating Market + Boat Trip Around the Island","items":[{"t":"09:30","a":"Explore the Ayothaya Floating Market"},{"t":"11:30","a":"Snack your way through the market and pick up souvenirs"},{"t":"13:00","a":"Board a boat for a trip around the island to pay respects at temples"},{"t":"15:00","a":"Get off the boat and find a riverside café to relax"},{"t":"16:30","a":"Pack up and head back to Bangkok"}]}]},"ayutthaya|3d2n":{"href":"/en/ayutthaya-3d2n-itinerary","dest":"Ayutthaya","slug":"ayutthaya","title":"Ayutthaya in 3 Days, 2 Nights Temples, Palace & Riverside Cafes","src":"Ayutthaya 3 Days 2 Nights","stay":{"name":"SALA Ayutthaya","url":"/en/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 reviews","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Wat Mahathat, Wat Phra Si Sanphet, Wat Lokayasutha, then night-lit ruins","items":[{"t":"08:30","a":"Leave Bangkok by car, van, or train and arrive in Ayutthaya; check in at a guesthouse on the island and drop your bags"},{"t":"10:00","a":"Start at Wat Mahathat to see the Buddha head wrapped in the bodhi tree roots — the image everyone pictures when they think of Ayutthaya"},{"t":"11:30","a":"Walk on to Wat Phra Si Sanphet with its three Sri Lankan-style chedis in a row — once the temple inside the old royal palace grounds"},{"t":"13:00","a":"Break for lunch at Pa Lek Boat Noodles, a Michelin Guide spot in the Tha Wasukri area"},{"t":"15:30","a":"Head to Wat Lokayasutha to see the large open-air reclining Buddha — far less crowded than the temples in the main zone"},{"t":"18:30","a":"If it's a Friday–Sunday night, head back to Wat Mahathat or Wat Chaiwatthanaram to see the ruins lit up after dark"}]},{"label":"Day 2","title":"Wat Chaiwatthanaram, Wat Yai Chai Mongkhon, then cafes by the Chao Phraya","items":[{"t":"08:00","a":"Get to Wat Chaiwatthanaram early — its Khmer-style central prang sits right on the river, and it's the temple where people love to rent Thai costumes for photos"},{"t":"10:30","a":"Drive over to Wat Yai Chai Mongkhon, with its big chedi you can climb for a view all around and a long reclining Buddha along one side"},{"t":"12:30","a":"Have lunch on the mainland, then stop by Mae Pom for roti sai mai — a famous old-school local specialty to take home"},{"t":"14:30","a":"Cross over toward Wat Phutthaisawan and pick a cafe along the Chao Phraya, with riverside chedi views"},{"t":"17:30","a":"Wrap up the day at Baan Pomphet, a cafe and restaurant on a bend in the river with wide sunset views"}]},{"label":"Day 3","title":"Check out, then visit Bang Pa-In before driving back to Bangkok","items":[{"t":"09:00","a":"Check out and grab an easy breakfast around the island before setting off"},{"t":"10:00","a":"Visit Bang Pa-In Palace, taking in the Aisawan Thiphya-Art pavilion in the middle of the pond and the mix of palace buildings in different styles"},{"t":"12:00","a":"Rent a golf cart or walk the palace grounds, stopping at the Withun Thatsana tower you can climb for a view all around"},{"t":"13:30","a":"Have lunch around Bang Pa-In, or head back into town for a meal before getting on the expressway"},{"t":"15:00","a":"Set off back to Bangkok, avoiding the Sunday evening window when traffic tends to clog up heading into the city"}]}]},"pai|3d2n":{"href":"/en/pai-3d2n-itinerary","dest":"Pai","slug":"pai","title":"Pai in 3 Days, 2 Nights Waterfalls, Santichon, Bamboo Bridge, Big Buddha","src":"Pai 3-Day 2-Night Itinerary 2026","stay":{"name":"Reverie Siam Resort","url":"/en/review-reverie-siam-resort-pai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/pai-reverie-siam-1.jpg","price":"฿4,800","rev":"Booking 9.4 · Agoda 9.3 · 305 reviews","agoda":"https://www.agoda.com/reverie-siam-resort/hotel/pai-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Arrive at an easy pace, catch the town at dusk","items":[{"t":"13:00","a":"Arrive in Pai, check in"},{"t":"14:30","a":"Relax at a riverside cafe after the journey"},{"t":"16:30","a":"Climb to the Big Buddha, Wat Phra That Mae Yen"},{"t":"18:30","a":"Pai Walking Street"}]},{"label":"Day 2","title":"A full nature day, starting early for the mist","items":[{"t":"05:30","a":"Head up to Yun Lai viewpoint for the sea of mist"},{"t":"08:00","a":"Santichon Yunnanese-Chinese village"},{"t":"10:30","a":"Pam Bok Waterfall"},{"t":"12:00","a":"Lunch break along the way to the bamboo bridge"},{"t":"13:30","a":"Boon Ko Ku So bamboo bridge"},{"t":"16:00","a":"Pick your finish: Tha Pai Hot Springs or Pai Canyon"}]},{"label":"Day 3","title":"Catch what's left before you leave town","items":[{"t":"08:00","a":"Breakfast or brunch in town"},{"t":"09:30","a":"Tha Pai Memorial Bridge"},{"t":"10:30","a":"Pick up souvenirs, pack your bags"},{"t":"11:30","a":"Set off back to Chiang Mai"}]}]},"chiang-rai|3d2n":{"href":"/en/chiang-rai-3d2n-itinerary","dest":"Chiang Rai","slug":"chiang-rai","title":"Chiang Rai in 3 Days Temples, Mountains & the Golden Triangle","src":"Chiang Rai 3-Day Itinerary 2026","stay":{"name":"Anantara Golden Triangle Elephant Camp & Resort","url":"/en/review-anantara-golden-triangle-elephant-camp-resort-chiang-rai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-rai-anantaragt-1.jpg","price":"฿35,000","rev":"Agoda 9.6 · 44 reviews","agoda":"https://www.agoda.com/anantara-golden-triangle-elephant-camp-resort/hotel/chiang-saen-th.html?cid=1965862"},"days":[{"label":"Day 1","title":"Temples, art and the night bazaar around town","items":[{"t":"09:00","a":"Wat Rong Khun (the White Temple)"},{"t":"11:00","a":"Baan Dam Museum (the Black House)"},{"t":"12:30","a":"Khao soi for lunch"},{"t":"14:00","a":"Wat Rong Suea Ten (the Blue Temple)"},{"t":"15:30","a":"Wat Huay Pla Kang"},{"t":"18:00","a":"Chiang Rai Night Bazaar"}]},{"label":"Day 2","title":"Doi Tung and Mae Fah Luang Garden, then down to the Golden Triangle","items":[{"t":"08:00","a":"Leave town and head up to Doi Tung"},{"t":"09:00","a":"Doi Tung Royal Villa + Mae Fah Luang Garden"},{"t":"12:00","a":"Lunch on the Doi Tung terrace"},{"t":"14:00","a":"Down to the Golden Triangle, Chiang Saen district"},{"t":"15:00","a":"Mekong river boat trip"},{"t":"16:30","a":"Hall of Opium, Golden Triangle Park"},{"t":"18:30","a":"Back into Chiang Rai town"}]},{"label":"Day 3","title":"Tea plantations, a view cafe, then the journey home","items":[{"t":"08:30","a":"Choui Fong Tea Plantation, Mae Chan district"},{"t":"11:00","a":"Singha Park (Boon Rawd Farm)"},{"t":"12:30","a":"Lunch in Singha Park or back in town"},{"t":"14:30","a":"Chiang Rai Identity Hall + souvenirs"},{"t":"16:30","a":"Head home"}]}]}},
+  plans: {"krabi|1-day":{"href":"/en/krabi-1-day-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi in One Day Ao Nang–Railay or the Nature Route","src":"Krabi in One Day 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Ao Nang–Railay route","title":"Full-day timetable","items":[{"t":"08:30","a":"Breakfast along the Ao Nang beachfront"},{"t":"09:30","a":"Buy a longtail ticket at the Ao Nang pier and cross to Railay"},{"t":"10:00","a":"Walk Phra Nang Beach + climb to the viewpoint / lagoon"},{"t":"12:00","a":"Lunch break + swim at Railay West"},{"t":"14:30","a":"Boat back to Ao Nang, rest / shower at your hotel"},{"t":"17:00","a":"Head out for sunset on Ao Nang Beach"},{"t":"18:30","a":"Seafood dinner on the Ao Nang beachfront"}]},{"label":"Mainland nature route","title":"Full-day timetable","items":[{"t":"06:30","a":"Early start to Wat Tham Suea, climb the 1,237 steps"},{"t":"09:30","a":"Coffee / breakfast break after the climb down"},{"t":"10:30","a":"Drive to Khlong Thom and enter the Emerald Pool"},{"t":"11:30","a":"Soak in the Emerald Pool + walk on to the Blue Pool"},{"t":"14:00","a":"On to the Hot Springs at Khlong Thom for a warm soak"},{"t":"16:00","a":"Drive back to Krabi town / Ao Nang"},{"t":"18:30","a":"Dinner in Krabi town + a riverside walk"}]}]},"krabi|2d1n":{"href":"/en/krabi-2d1n-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi 2 Days 1 Night Ao Nang–Railay–Four Islands Tour","src":"Krabi 2 Days 1 Night 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Ao Nang to Railay","items":[{"t":"11:00","a":"Land at Krabi Airport, transfer to Ao Nang"},{"t":"12:30","a":"Check in around Ao Nang, drop your bags"},{"t":"13:00","a":"Lunch around Ao Nang's main street"},{"t":"14:30","a":"Catch a longtail from Ao Nang Beach to Railay"},{"t":"15:00","a":"Walk Railay West, then on to Phra Nang Cave"},{"t":"16:00","a":"Watch the climbers / hike up to the Railay viewpoint (if you're up for it)"},{"t":"17:30","a":"Boat back to Ao Nang for sunset"},{"t":"19:00","a":"Seafood dinner along Ao Nang Beach"}]},{"label":"Day 2","title":"Four Islands tour, then fly home","items":[{"t":"08:00","a":"Early breakfast at the hotel / check out and pack up"},{"t":"09:00","a":"Tour van picks you up from the hotel to the pier"},{"t":"09:30","a":"Set off, starting at Koh Poda for a swim and photos"},{"t":"11:00","a":"Snorkel over coral around Chicken Island"},{"t":"12:30","a":"Lunch on the island (included in the tour)"},{"t":"14:00","a":"Highlight: walk the \"Talay Waek\" sandbar"},{"t":"15:30","a":"Stop at Railay / one last swim before heading back"},{"t":"16:30","a":"Back at the pier, van drops you at the hotel"},{"t":"18:00","a":"Head to Krabi Airport and fly home"}]}]},"krabi|3d2n":{"href":"/en/krabi-3d2n-itinerary","dest":"Krabi","slug":"krabi","title":"Krabi Itinerary 3 Days, 2 Nights","src":"Krabi 3-Day Itinerary 2026","stay":{"name":"Rayavadee","url":"/en/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 reviews","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Ao Nang to Railay & Phra Nang Cave","items":[{"t":"11:00","a":"Arrive at Krabi airport, transfer to Ao Nang"},{"t":"12:30","a":"Check in around Ao Nang, drop your bags"},{"t":"13:00","a":"Lunch around Ao Nang road"},{"t":"14:30","a":"Catch a longtail from Ao Nang beach to Railay"},{"t":"15:00","a":"Stroll Railay West, on to Phra Nang Cave"},{"t":"16:00","a":"Watch the climbers / hike to the Railay viewpoint–lagoon (if you're up for it)"},{"t":"17:30","a":"Boat back to Ao Nang, catch the sunset"},{"t":"19:00","a":"Seafood dinner on the Ao Nang beachfront"}]},{"label":"Day 2","title":"Four Islands: Poda Island–Separated Sea","items":[{"t":"08:00","a":"Breakfast at the hotel, pack for the boat"},{"t":"09:00","a":"Tour van picks you up from the hotel to the pier"},{"t":"09:30","a":"Set off by boat, starting at Poda Island — swim and photos"},{"t":"11:00","a":"Snorkel the coral around Chicken Island"},{"t":"12:30","a":"Lunch on an island (included in the tour)"},{"t":"14:00","a":"Highlight: walk the \"Separated Sea\" sandbar"},{"t":"15:30","a":"One last swim stop before heading back"},{"t":"16:30","a":"Back at the pier, van drops you at the hotel"},{"t":"19:00","a":"Dinner around Ao Nang, stroll the night street"}]},{"label":"Day 3","title":"Inland nature before flying home","items":[{"t":"07:30","a":"Breakfast, check out, store bags / load the car"},{"t":"09:00","a":"Arrive at Khlong Thom Hot Springs, soak in the natural warm water"},{"t":"10:30","a":"Short forest walk in to the Emerald Pool"},{"t":"12:30","a":"Lunch on the way back toward town"},{"t":"14:00","a":"Tiger Cave Temple — conquer the 1,237 steps (if you're up for it)"},{"t":"16:30","a":"Arrive at Krabi airport, grab gifts, check in"}]}]},"chiang-mai|3d2n":{"href":"/en/chiang-mai-3d2n-itinerary","dest":"Chiang Mai","slug":"chiang-mai","title":"Chiang Mai in 3 Days, 2 Nights Old City + Mountains + Cafes","src":"Chiang Mai 3-Day Itinerary","stay":{"name":"137 Pillars House","url":"/en/review-137-pillars-house-chiang-mai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg","price":"฿18,000","rev":"Trip.com 9.5 · Small Luxury Hotels","agoda":"https://www.agoda.com/137-pillars-house/hotel/chiang-mai-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fone-three-seven-pillars-house.html&sid=home","trip":"https://www.trip.com/hotels/chiang-mai-hotel-detail-997882/137-pillars-house/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Old City + Doi Suthep","items":[{"t":"08:30","a":"Start at Wat Phra Singh"},{"t":"09:45","a":"Walk to Wat Chedi Luang"},{"t":"11:30","a":"Lunch — khao soi"},{"t":"13:30","a":"Head up Doi Suthep"},{"t":"14:30","a":"Wat Phra That Doi Suthep"},{"t":"17:30","a":"Back to town, rest / shower"},{"t":"19:00","a":"Walking street (Sat/Sun)"}]},{"label":"Day 2 · Route A","title":"Doi Inthanon (Thailand's highest peak)","items":[{"t":"07:00","a":"Leave town early"},{"t":"09:30","a":"Highest point in Thailand + Ang Ka trail"},{"t":"10:30","a":"Phra Mahathat Naphamethanidon & Naphaphonphumisiri"},{"t":"12:00","a":"Kew Mae Pan (if open for the season)"},{"t":"14:00","a":"Wachirathan / Mae Ya waterfall"},{"t":"16:00","a":"Start the drive back"}]},{"label":"Day 2 · Route B","title":"Mae Rim–Mon Cham (lighter and closer)","items":[{"t":"09:00","a":"Leave town mid-morning"},{"t":"10:00","a":"Queen Sirikit Botanic Garden"},{"t":"12:00","a":"Lunch at a hillside cafe"},{"t":"13:30","a":"Mon Cham viewpoint + flower fields"},{"t":"15:30","a":"Mae Sa Elephant Camp (if you're interested)"},{"t":"17:00","a":"Drive back to town"}]},{"label":"Day 3","title":"Cafes + souvenirs","items":[{"t":"09:00","a":"Pack up, check out"},{"t":"09:30","a":"Morning cafe in Nimman"},{"t":"11:00","a":"Cafe / dessert crawl"},{"t":"12:30","a":"Northern-food lunch"},{"t":"14:00","a":"Souvenirs at Warorot Market (Kad Luang)"},{"t":"15:30","a":"Head to Chiang Mai Airport"}]}]},"phuket|3d2n":{"href":"/en/phuket-3d2n-itinerary","dest":"Phuket","slug":"phuket","title":"Phuket in 3 Days, 2 Nights","src":"Phuket 3 Days 2 Nights 2026","stay":{"name":"The Surin Phuket","url":"/en/review-the-surin-phuket","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/phuket-surin-1.jpg","price":"฿7,500","rev":"Agoda 9.1 · Booking 9.0 · 379 reviews","agoda":"https://www.agoda.com/the-surin-phuket/hotel/phuket-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fthe-surin-phuket.html&sid=home","trip":"https://www.trip.com/hotels/phuket-hotel-detail-1525789/the-surin-phuket/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Morning dim sum · old shophouses · a Michelin southern lunch","items":[{"t":"07:00","a":"Breakfast dim sum at Boonrat Dim Sum"},{"t":"08:30","a":"Wander the Old Town — Thalang Road, Soi Romanee, Sino-Portuguese shophouses"},{"t":"10:30","a":"Café break in the Old Town — Kor Ra Kang or a Thalang Road café"},{"t":"12:00","a":"Southern/Phuket lunch at Tu Kab Khao"},{"t":"14:00","a":"Try the legendary Hokkien mee at Mee Ton Poe"},{"t":"15:30","a":"Back to the hotel to check in, then out for a second round of street art and old shophouses"},{"t":"18:30","a":"Dinner — Raya Restaurant (southern food in an old wooden house) or seafood in town"}]},{"label":"Day 2","title":"Full-day island tour (hotel pickup & drop-off)","items":[{"t":"07:30","a":"Tour van picks you up at the hotel"},{"t":"08:30","a":"Arrive at the pier, listen to the briefing, then board the speedboat"},{"t":"09:30","a":"Route A — Phi Phi: Maya Bay, Pileh Lagoon, snorkelling"},{"t":"09:30","a":"Route B — Phang Nga Bay: James Bond Island, canoeing through caves"},{"t":"12:30","a":"Lunch on an island / on the boat"},{"t":"14:00","a":"Stop at Khai Island / a final snorkel spot, swim off the beach"},{"t":"16:00","a":"Boat heads back to shore"},{"t":"17:30","a":"Dropped back at the hotel, rest, then find dinner nearby"}]},{"label":"Day 3","title":"West-coast beaches · the three-bay viewpoint · Promthep Cape","items":[{"t":"08:30","a":"Breakfast — kopi + Phuket khanom jeen, or old-school coffee"},{"t":"10:00","a":"Swim at Kata or Karon Beach (west coast)"},{"t":"12:30","a":"Seafood lunch around Kata / Rawai"},{"t":"14:30","a":"Karon Viewpoint (the three-bay viewpoint)"},{"t":"15:30","a":"Stop at Wat Chalong (if you have time) to pay respects before Promthep Cape"},{"t":"17:00","a":"Arrive at Promthep Cape and claim a spot for the sunset"},{"t":"18:30","a":"Sunset, then on to Phuket Airport (HKT)"}]}]},"bangkok|2d1n":{"href":"/en/bangkok-2d1n-itinerary","dest":"Bangkok","slug":"bangkok","title":"Bangkok 2 Days 1 Night Old Temples, Street Food, Shopping","src":"Bangkok 2 Days 1 Night 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/en/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · Thailand's oldest hotel","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fmandarin-oriental-bangkok.html&sid=home","trip":"https://www.trip.com/hotels/bangkok-hotel-detail-995162/mandarin-oriental-bangkok/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Rattanakosin + Yaowarat","items":[{"t":"08:30","a":"Start at the Grand Palace + Wat Phra Kaew (Temple of the Emerald Buddha)"},{"t":"10:30","a":"Walk on to Wat Pho (Wat Phra Chetuphon)"},{"t":"12:00","a":"Lunch break + dessert around Tha Tien"},{"t":"13:30","a":"Take the ferry from Tha Tien to Wat Arun"},{"t":"15:00","a":"Head back to the Phra Nakhon side, return to the hotel, shower and change"},{"t":"18:30","a":"Head to Yaowarat and start eating your way through the street food"},{"t":"22:00","a":"Finish with dessert or coffee, then head back"}]},{"label":"Day 2","title":"Shopping (weekend version)","items":[{"t":"09:30","a":"Tackle Chatuchak Weekend Market"},{"t":"12:30","a":"Lunch inside Chatuchak, then drop off your haul"},{"t":"15:00","a":"Take a boat/car to ICONSIAM"},{"t":"18:00","a":"Watch the riverside fountain show + dinner with a river view"},{"t":"20:00","a":"Pick up souvenirs, then head home or move on"}]}]},"bangkok|3d2n":{"href":"/en/bangkok-3d2n-itinerary","dest":"Bangkok","slug":"bangkok","title":"Bangkok in 3 Days, 2 Nights Old City, Cafes, Markets, Rooftops","src":"Bangkok 3 Days 2 Nights 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/en/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · Thailand's oldest hotel","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fmandarin-oriental-bangkok.html&sid=home","trip":"https://www.trip.com/hotels/bangkok-hotel-detail-995162/mandarin-oriental-bangkok/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Rattanakosin — three riverside temples","items":[{"t":"08:30","a":"Start at the Grand Palace + Wat Phra Kaew"},{"t":"10:30","a":"Walk on to Wat Pho (Wat Phra Chetuphon)"},{"t":"12:00","a":"Lunch break + dessert around Tha Tien"},{"t":"13:30","a":"Cross-river ferry from Tha Tien to Wat Arun"},{"t":"15:30","a":"Back to the Phra Nakhon side, wander Tha Tien–Pak Khlong Talat"},{"t":"18:00","a":"Head back, rest, then find a light dinner near your hotel"}]},{"label":"Day 2","title":"Talat Noi–Charoenkrung — cafes + old quarter","items":[{"t":"09:30","a":"Morning coffee at Mother Roaster or a cafe in the Talat Noi alleys"},{"t":"10:30","a":"Wander Talat Noi — street art, Joe Sue Kong shrine, vintage cars"},{"t":"12:30","a":"Lunch in the area — rice congee, noodles, or bagels"},{"t":"14:00","a":"Afternoon cafe — ENVIES, Feng Huang Tea Bar, or The Coffee Store"},{"t":"16:00","a":"Walk along Charoenkrung toward Warehouse 30 / the river"},{"t":"18:30","a":"Riverside dinner, or head back to your hotel"}]},{"label":"Day 3","title":"Market + sunset rooftop","items":[{"t":"10:00","a":"Pick a daytime market based on the day you're there"},{"t":"13:00","a":"Lunch at the market, then back to the hotel to drop off and shower"},{"t":"17:30","a":"Head up to a rooftop bar for sunset"},{"t":"19:30","a":"Come down from the rooftop, head to a night market"},{"t":"22:00","a":"Grab souvenirs to close out the trip, then head back / get ready to travel"}]}]},"ayutthaya|2d1n":{"href":"/en/ayutthaya-2d1n-itinerary","dest":"Ayutthaya","slug":"ayutthaya","title":"Ayutthaya in 2 Days 1 Night Old Temples, Market, Boat Trip","src":"Ayutthaya 2-Day 1-Night Itinerary 2026","stay":{"name":"SALA Ayutthaya","url":"/en/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 reviews","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fsala-ayutthaya.html&sid=home","trip":"https://www.trip.com/hotels/phra-nakhon-si-ayutthaya-hotel-detail-2192480/sala-ayutthaya/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Old-Town Temples + Wat Chaiwatthanaram at Dusk","items":[{"t":"10:00","a":"Arrive in Ayutthaya, drop your bags, then start at Wat Mahathat"},{"t":"11:15","a":"Walk over to Wat Phra Si Sanphet nearby"},{"t":"12:30","a":"Lunch break — a famous boat-noodle shop in town"},{"t":"14:00","a":"Head to Wat Yai Chai Mongkhon, off the island to the southeast"},{"t":"16:00","a":"End the day at Wat Chaiwatthanaram once the sun softens"},{"t":"18:30","a":"Riverside dinner, then rest"}]},{"label":"Day 2","title":"Ayothaya Floating Market + Boat Trip Around the Island","items":[{"t":"09:30","a":"Explore the Ayothaya Floating Market"},{"t":"11:30","a":"Snack your way through the market and pick up souvenirs"},{"t":"13:00","a":"Board a boat for a trip around the island to pay respects at temples"},{"t":"15:00","a":"Get off the boat and find a riverside café to relax"},{"t":"16:30","a":"Pack up and head back to Bangkok"}]}]},"ayutthaya|3d2n":{"href":"/en/ayutthaya-3d2n-itinerary","dest":"Ayutthaya","slug":"ayutthaya","title":"Ayutthaya in 3 Days, 2 Nights Temples, Palace & Riverside Cafes","src":"Ayutthaya 3 Days 2 Nights","stay":{"name":"SALA Ayutthaya","url":"/en/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 reviews","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fsala-ayutthaya.html&sid=home","trip":"https://www.trip.com/hotels/phra-nakhon-si-ayutthaya-hotel-detail-2192480/sala-ayutthaya/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Wat Mahathat, Wat Phra Si Sanphet, Wat Lokayasutha, then night-lit ruins","items":[{"t":"08:30","a":"Leave Bangkok by car, van, or train and arrive in Ayutthaya; check in at a guesthouse on the island and drop your bags"},{"t":"10:00","a":"Start at Wat Mahathat to see the Buddha head wrapped in the bodhi tree roots — the image everyone pictures when they think of Ayutthaya"},{"t":"11:30","a":"Walk on to Wat Phra Si Sanphet with its three Sri Lankan-style chedis in a row — once the temple inside the old royal palace grounds"},{"t":"13:00","a":"Break for lunch at Pa Lek Boat Noodles, a Michelin Guide spot in the Tha Wasukri area"},{"t":"15:30","a":"Head to Wat Lokayasutha to see the large open-air reclining Buddha — far less crowded than the temples in the main zone"},{"t":"18:30","a":"If it's a Friday–Sunday night, head back to Wat Mahathat or Wat Chaiwatthanaram to see the ruins lit up after dark"}]},{"label":"Day 2","title":"Wat Chaiwatthanaram, Wat Yai Chai Mongkhon, then cafes by the Chao Phraya","items":[{"t":"08:00","a":"Get to Wat Chaiwatthanaram early — its Khmer-style central prang sits right on the river, and it's the temple where people love to rent Thai costumes for photos"},{"t":"10:30","a":"Drive over to Wat Yai Chai Mongkhon, with its big chedi you can climb for a view all around and a long reclining Buddha along one side"},{"t":"12:30","a":"Have lunch on the mainland, then stop by Mae Pom for roti sai mai — a famous old-school local specialty to take home"},{"t":"14:30","a":"Cross over toward Wat Phutthaisawan and pick a cafe along the Chao Phraya, with riverside chedi views"},{"t":"17:30","a":"Wrap up the day at Baan Pomphet, a cafe and restaurant on a bend in the river with wide sunset views"}]},{"label":"Day 3","title":"Check out, then visit Bang Pa-In before driving back to Bangkok","items":[{"t":"09:00","a":"Check out and grab an easy breakfast around the island before setting off"},{"t":"10:00","a":"Visit Bang Pa-In Palace, taking in the Aisawan Thiphya-Art pavilion in the middle of the pond and the mix of palace buildings in different styles"},{"t":"12:00","a":"Rent a golf cart or walk the palace grounds, stopping at the Withun Thatsana tower you can climb for a view all around"},{"t":"13:30","a":"Have lunch around Bang Pa-In, or head back into town for a meal before getting on the expressway"},{"t":"15:00","a":"Set off back to Bangkok, avoiding the Sunday evening window when traffic tends to clog up heading into the city"}]}]},"pai|3d2n":{"href":"/en/pai-3d2n-itinerary","dest":"Pai","slug":"pai","title":"Pai in 3 Days, 2 Nights Waterfalls, Santichon, Bamboo Bridge, Big Buddha","src":"Pai 3-Day 2-Night Itinerary 2026","stay":{"name":"Reverie Siam Resort","url":"/en/review-reverie-siam-resort-pai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/pai-reverie-siam-1.jpg","price":"฿4,800","rev":"Booking 9.4 · Agoda 9.3 · 305 reviews","agoda":"https://www.agoda.com/reverie-siam-resort/hotel/pai-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Freverie-siam-resort.html&sid=home","trip":"https://www.trip.com/hotels/pai-hotel-detail-846820/reverie-siam/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Arrive at an easy pace, catch the town at dusk","items":[{"t":"13:00","a":"Arrive in Pai, check in"},{"t":"14:30","a":"Relax at a riverside cafe after the journey"},{"t":"16:30","a":"Climb to the Big Buddha, Wat Phra That Mae Yen"},{"t":"18:30","a":"Pai Walking Street"}]},{"label":"Day 2","title":"A full nature day, starting early for the mist","items":[{"t":"05:30","a":"Head up to Yun Lai viewpoint for the sea of mist"},{"t":"08:00","a":"Santichon Yunnanese-Chinese village"},{"t":"10:30","a":"Pam Bok Waterfall"},{"t":"12:00","a":"Lunch break along the way to the bamboo bridge"},{"t":"13:30","a":"Boon Ko Ku So bamboo bridge"},{"t":"16:00","a":"Pick your finish: Tha Pai Hot Springs or Pai Canyon"}]},{"label":"Day 3","title":"Catch what's left before you leave town","items":[{"t":"08:00","a":"Breakfast or brunch in town"},{"t":"09:30","a":"Tha Pai Memorial Bridge"},{"t":"10:30","a":"Pick up souvenirs, pack your bags"},{"t":"11:30","a":"Set off back to Chiang Mai"}]}]},"chiang-rai|3d2n":{"href":"/en/chiang-rai-3d2n-itinerary","dest":"Chiang Rai","slug":"chiang-rai","title":"Chiang Rai in 3 Days Temples, Mountains & the Golden Triangle","src":"Chiang Rai 3-Day Itinerary 2026","stay":{"name":"Anantara Golden Triangle Elephant Camp & Resort","url":"/en/review-anantara-golden-triangle-elephant-camp-resort-chiang-rai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-rai-anantaragt-1.jpg","price":"฿35,000","rev":"Agoda 9.6 · 44 reviews","agoda":"https://www.agoda.com/anantara-golden-triangle-elephant-camp-resort/hotel/chiang-saen-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fanantara-resort-golden-triangle.html&sid=home","trip":"https://www.trip.com/hotels/chiang-saen-hotel-detail-712413/anantara-golden-triangle-elephant-camp-and-resort/?Allianceid=6861268&SID=312919111"},"days":[{"label":"Day 1","title":"Temples, art and the night bazaar around town","items":[{"t":"09:00","a":"Wat Rong Khun (the White Temple)"},{"t":"11:00","a":"Baan Dam Museum (the Black House)"},{"t":"12:30","a":"Khao soi for lunch"},{"t":"14:00","a":"Wat Rong Suea Ten (the Blue Temple)"},{"t":"15:30","a":"Wat Huay Pla Kang"},{"t":"18:00","a":"Chiang Rai Night Bazaar"}]},{"label":"Day 2","title":"Doi Tung and Mae Fah Luang Garden, then down to the Golden Triangle","items":[{"t":"08:00","a":"Leave town and head up to Doi Tung"},{"t":"09:00","a":"Doi Tung Royal Villa + Mae Fah Luang Garden"},{"t":"12:00","a":"Lunch on the Doi Tung terrace"},{"t":"14:00","a":"Down to the Golden Triangle, Chiang Saen district"},{"t":"15:00","a":"Mekong river boat trip"},{"t":"16:30","a":"Hall of Opium, Golden Triangle Park"},{"t":"18:30","a":"Back into Chiang Rai town"}]},{"label":"Day 3","title":"Tea plantations, a view cafe, then the journey home","items":[{"t":"08:30","a":"Choui Fong Tea Plantation, Mae Chan district"},{"t":"11:00","a":"Singha Park (Boon Rawd Farm)"},{"t":"12:30","a":"Lunch in Singha Park or back in town"},{"t":"14:30","a":"Chiang Rai Identity Hall + souvenirs"},{"t":"16:30","a":"Head home"}]}]}},
   panels: [{"slug":"krabi","name":"Krabi"},{"slug":"chiang-mai","name":"Chiang Mai"},{"slug":"phuket","name":"Phuket"},{"slug":"bangkok","name":"Bangkok"},{"slug":"ayutthaya","name":"Ayutthaya"},{"slug":"chiang-rai","name":"Chiang Rai"}],
   /* Every panel's showcase rows, rendered at build time from the same content
      files the deck reads. Switching destination re-renders from this — no
@@ -1454,8 +1530,8 @@ document.addEventListener('DOMContentLoaded', function () {
           + '<span class="ta-poi-main">'
           + '<span class="ta-poi-name ta-clamp-1"><a href="' + esc(plan.stay.url) + '">' + esc(plan.stay.name) + '</a></span>'
           + '<span class="ta-poi-sub ta-clamp-2">' + esc(C.stayRow) + ' · ' + esc(plan.stay.rev || '') + '</span>'
+          + ota(plan.stay)
           + '</span>'
-          + (plan.stay.agoda ? '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow" target="_blank" href="' + esc(plan.stay.agoda) + '">Agoda</a>' : '')
           + '</div></li>';
       }
       html += '</ul></section>';
@@ -1471,6 +1547,22 @@ document.addEventListener('DOMContentLoaded', function () {
     deckBox.innerHTML = html;
     deckBox.hidden = false;
     return true;
+  }
+
+  /* The stay row's booking links. All three OTAs, named, because "no site is
+     cheapest every time" is the site's own editorial line and a single button
+     quietly contradicts it. rel="sponsored noopener nofollow" + .no-prerender
+     on every one: a speculation-rules prerender would fire a click the reader
+     never made and corrupt attribution on cid=1965862 and the CJ feed. */
+  function otaBtn(href, label) {
+    if (!href) return '';
+    return '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow"'
+      + ' target="_blank" href="' + esc(href) + '">' + esc(label) + '</a>';
+  }
+  function ota(stay) {
+    return '<span class="ta-poi-ota">'
+      + otaBtn(stay.agoda, 'Agoda') + otaBtn(stay.booking, 'Booking') + otaBtn(stay.trip, 'Trip.com')
+      + '</span>';
   }
 
   function esc(s) {

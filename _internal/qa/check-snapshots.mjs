@@ -77,10 +77,14 @@ const OWNERS = [
       'country-thailand.html', 'destinations.html', 'plan-your-trip.html', 'search.html'],
   },
   {
-    /* gen-home injects stat numbers and the province map into an existing file
-       rather than writing it whole, so its output is still "generated" for the
-       purpose of staleness: run it after editing it and the numbers are wrong. */
-    generator: '_internal/gen-home.mjs',
+    /* The homepage is written WHOLE by gen-proto-home, from live content:
+       itineraries, roundups, reviews, restaurant and attraction blocks. It was
+       listed here under gen-home.mjs, which only ever injected stat numbers and
+       the province map between markers — and the new page has no markers, so
+       gen-home is a no-op on it now. Naming the wrong owner meant editing the
+       real generator never marked the homepage stale, which is exactly the
+       failure this gate exists to catch, on the site's most important page. */
+    generator: '_internal/shell/build/gen-proto-home.mjs',
     dirs: ['', 'en'],
     files: ['index.html'],
   },

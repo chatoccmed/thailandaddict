@@ -3,36 +3,25 @@
 <head>
 <meta charset="utf-8">
 
-<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
-     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
-     home indicator. Never add maximum-scale or user-scalable=no. -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<!-- PROTOTYPE ONLY -->
 <meta name="robots" content="noindex, nofollow">
-
 <title>วางแผนเที่ยวไทย 2026 — ที่พัก ที่กิน ที่เที่ยว จากรีวิวที่เราเขียนเอง | ThailandAddict</title>
 <meta name="description" content="เลือกจุดหมายกับจำนวนวัน แล้วดูแผนเที่ยวได้ทันที พร้อมที่พัก ที่กิน ที่เที่ยวจริงจากรีวิวที่เราเขียนเอง ครบ 77 จังหวัด">
 <link rel="canonical" href="https://thailandaddict.com/_proto/home.html">
+<link rel="manifest" href="manifest.th.webmanifest">
+
+<!-- viewport, both theme-colors, the hashed shell stylesheet, the pagereveal
+     handler, the speculation rules and shell.js — all of it from
+     _internal/lib/chrome.mjs, the same string Shell.astro and gen-hubs emit.
+     It used to be hand-copied here, including the hashed filenames, which
+     drifted: gen-shell re-hashes on every shell edit and a stale name is a 404
+     that renders as an unstyled page with nothing in the console to say why. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
-<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
+<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)" data-shell data-color="#081113">
 
-<!-- The manifests live in /_proto/, so the EN page one level down needs the up
-     prefix. Without it /_proto/en/manifest.en.webmanifest 404s (2026-09-09). --><link rel="manifest" href="manifest.th.webmanifest">
-<!-- No <link rel="icon">: astro/public/favicon.svg and astro/public/icons/ do
-     not exist yet, and a 404 in the console during an owner demo is worse than
-     no icon. Add both once gen-shell has emitted them. -->
+<link rel="stylesheet" href="/css/shell.d3a3e44b.css">
 
-<!-- Hashed names come from astro/src/data/shell-manifest.json, never typed
-     here. They were hard-coded and drifted: gen-shell re-hashes on every shell
-     edit, and a stale name is a 404 that shows up as an unstyled page with
-     nothing in the console to say why. gen-shell also rewrites these across
-     /_proto now, for the pages it does not regenerate. -->
-<link rel="stylesheet" href="../css/shell.d3a3e44b.css">
-
-<!-- Incoming view-transition direction. MUST be a parser-blocking inline
-     script in <head>: pagereveal fires before any deferred script runs. -->
 <script>
 addEventListener('pagereveal', function (e) {
   if (!e.viewTransition) return;
@@ -45,17 +34,6 @@ addEventListener('pagereveal', function (e) {
   } catch (err) {}
   e.viewTransition.types.add(t);
 });
-document.documentElement.setAttribute('data-js', '');
-/* ~200 bytes, parser-blocking on purpose: decides which of the three planner
-   states paints FIRST, inside a height-reserved box, so there is no flash and
-   no layout shift. It reads lengths only — it never parses the trip. */
-try {
-  var _t = localStorage.getItem('ta.trip.v1') || '';
-  var _s = localStorage.getItem('ta.saves.v3') || '';
-  var _has = _t.indexOf('"items":[{') > -1 || /"days":\[\s*\{/.test(_t);
-  document.documentElement.setAttribute('data-trip',
-    _has ? 'has' : (_s.indexOf('{') > -1 && _s.length > 8 ? 'saves' : 'none'));
-} catch (e) { document.documentElement.setAttribute('data-trip', 'none'); }
 </script>
 
 <script type="speculationrules">
@@ -69,7 +47,21 @@ try {
  "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
 </script>
 
-<script src="../js/shell.544635d9.js" defer></script>
+<script src="/js/shell.544635d9.js" defer></script>
+
+<script>
+document.documentElement.setAttribute('data-js', '');
+/* ~200 bytes, parser-blocking on purpose: decides which of the three planner
+   states paints FIRST, inside a height-reserved box, so there is no flash and
+   no layout shift. It reads lengths only — it never parses the trip. */
+try {
+  var _t = localStorage.getItem('ta.trip.v1') || '';
+  var _s = localStorage.getItem('ta.saves.v3') || '';
+  var _has = _t.indexOf('"items":[{') > -1 || /"days":\[\s*\{/.test(_t);
+  document.documentElement.setAttribute('data-trip',
+    _has ? 'has' : (_s.indexOf('{') > -1 && _s.length > 8 ? 'saves' : 'none'));
+} catch (e) { document.documentElement.setAttribute('data-trip', 'none'); }
+</script>
 
 <style>
 /* Page layer only. Every number below is a shell token — no new colour,
@@ -738,6 +730,28 @@ try {
   [data-dest-regions] .ta-region-list { margin-block-end: var(--sp-2); }
   [data-dest-regions] .ta-region-links a { cursor: pointer; }
 
+  /* ── THE STAY ROW'S BOOKING BUTTONS ───────────────────────────────────
+     Three named OTAs, because "no site is cheapest every time" is the site's
+     own editorial line and one button quietly contradicts it.
+
+     They sit INSIDE .ta-poi-main, on their own line under the hotel name,
+     rather than in .ta-poi's third grid column: three 44px targets in that
+     column squeeze the name to nothing at 375px. On their own line each is
+     ~90px wide there, so the 44x44 floor holds without a media query and
+     _internal/qa/check-touch-targets.mjs stays green. */
+  .ta-poi-ota {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-2);
+  }
+  .ta-poi-ota .ta-btn {
+    flex: 1 1 auto;
+    min-inline-size: 44px;
+    padding-inline: var(--sp-3);
+    font-size: var(--step--1);
+  }
+
   /* Reduced motion: nothing here animates anyway, but the chevron rotation is
      a transition and must stop. */
   @media (prefers-reduced-motion: reduce) {
@@ -759,29 +773,32 @@ try {
 <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/><path d="M12 3.5c2.3 2.4 3.5 5.3 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.3-3.5-8.5S9.7 5.9 12 3.5Z"/></symbol>
 <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
 <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 6 12 12M18 6 6 18"/></symbol>
-<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
-<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
-<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
-<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
 <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.75v14.5M4.75 12h14.5"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4.75 12.5 4.75 4.75L19.25 6.75"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.75 2.62 5.31 5.86.85-4.24 4.13 1 5.84L12 17.13l-5.24 2.75 1-5.84-4.24-4.13 5.86-.85Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.25V12l3.25 2"/></symbol>
+<symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M7 12h10M10 17h4"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="17.5" cy="6" r="2.75"/><circle cx="6.5" cy="12" r="2.75"/><circle cx="17.5" cy="18" r="2.75"/><path d="m9 10.7 6-3.4M9 13.3l6 3.4"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.75v11M7.75 10.5 12 14.75l4.25-4.25M4.5 19.5h15"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.28 4.28l1.56 1.56M18.16 18.16l1.56 1.56M2.5 12h2.2M19.3 12h2.2M4.28 19.72l1.56-1.56M18.16 5.84l1.56-1.56"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
 </svg>
 
 <header class="ta-topbar" id="taTopbar">
-  <a class="ta-topbar-brand" href="home">
+  <a class="ta-topbar-brand" href="/">
     <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>Thailandaddict</span>
   </a>
 
   <span class="ta-topbar-spacer"></span>
 
-  <nav class="ta-nav-desk" aria-label="สำรวจ">
-    <a href="home" aria-current="page">สำรวจ</a>
-    <a href="krabi">จุดหมาย</a>
-    <a href="trip">ทริป <span class="ta-badge" data-count="0">0</span></a>
+  <nav class="ta-nav-desk" aria-label="เมนูหลัก">
+    <a href="/" aria-current="page">สำรวจ</a>
+    <a href="/country-thailand">จุดหมาย</a>
+    <a href="/trip">ทริป <span class="ta-badge" data-count="0">0</span></a>
   </nav>
 
-  <form class="ta-search-desk" action="search" method="get" role="search">
+  <form class="ta-search-desk" action="/search" method="get" role="search">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
     <label class="ta-sr" for="q-desk">ค้นหา</label>
     <input id="q-desk" type="search" name="q" placeholder="ที่พัก ร้านอาหาร จุดหมาย">
@@ -1052,23 +1069,51 @@ try {
       </form>
     </section>
 
-    <!-- ══════════════════════════ 14. FOOTER ════════════════════════════════ -->
-    <footer class="ta-foot">
-      <p class="ta-foot-tag">Thailandaddict — Explore Thailand Like a Local</p>
-      <p class="ta-fine">ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย</p>
-      <ul class="ta-foot-links">
-        <li><a href="/about">เกี่ยวกับเรา</a></li>
-        <li><a href="/destinations">จุดหมายทั้งหมด</a></li>
-        <li><a href="trip">ทริปของฉัน</a></li>
-        <li><a href="search">ค้นหา</a></li>
-        <li><a href="/near-me">ใกล้ฉัน</a></li>
-        <li><a href="en/home" hreflang="en">English</a></li>
-      </ul>
-      <p class="ta-fine">หน้านี้เป็นต้นแบบ (prototype) ตั้ง noindex ไว้ และไม่ได้ลิงก์จากเว็บจริง</p>
-    </footer>
-
   </div>
 </main>
+
+<!-- ═══ 14. FOOTER · TRIP RAIL · TAB BAR · More · language · toast ═══════════
+     One call, from _internal/lib/chrome.mjs. All five used to be hand-written
+     here, in two languages, from a copy table this file owned — a sixth copy of
+     the markup the redesign exists to collapse into one. The footer that comes
+     back is the site's real three-column one, sourced from ui.<lang>.json, so
+     it carries 11 crawlable links in nine languages instead of 6 in two. -->
+<footer class="ta-foot">
+  <div class="ta-foot-top">
+    <div class="ta-foot-brand">
+      <p class="ta-foot-tag">Thailandaddict — Explore Thailand Like a Local</p>
+      <p class="ta-fine">ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง</p>
+    </div>
+    <div class="ta-foot-col">
+      <h2>จุดหมาย</h2>
+      <ul>
+        <li><a href="/country-thailand">🇹🇭 เที่ยวไทย</a></li>
+        <li><a href="/destinations">🔥 เมืองท่องเที่ยว</a></li>
+        <li><a href="/region-north">⛰️ ภาคเหนือ</a></li>
+        <li><a href="/region-south">🌊 ภาคใต้</a></li>
+      </ul>
+    </div>
+    <div class="ta-foot-col">
+      <h2>คอนเทนต์</h2>
+      <ul>
+        <li><a href="/plan-your-trip">เตรียมตัวเที่ยว</a></li>
+        <li><a href="/trip">วางแผนทริป AI</a></li>
+        <li><a href="/search">ค้นหาที่พัก</a></li>
+      </ul>
+    </div>
+    <div class="ta-foot-col">
+      <h2>เกี่ยวกับ</h2>
+      <ul>
+        <li><a href="/about">เกี่ยวกับเรา</a></li>
+        <li><a href="/editorial-policy">นโยบายบรรณาธิการ</a></li>
+        <li><a href="/contact">ติดต่อเรา</a></li>
+        <li><a href="/privacy">นโยบายความเป็นส่วนตัว</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="ta-fine ta-foot-legal">ThailandAddict เป็น affiliate partner ของ Agoda, Booking.com และ Trip.com — เราอาจได้รับค่าคอมมิชชั่นเมื่อคุณจองผ่านลิงก์ในเว็บ โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับคุณ รีวิวและการจัดอันดับเป็นอิสระจากการสนับสนุนใดๆ</p>
+  <p class="ta-fine">© 2025–2026 thailandaddict.com — Thailand, Done Right</p>
+</footer>
 
 <aside class="ta-rail" aria-label="ทริปของคุณ">
   <button class="ta-rail-toggle" type="button" data-rail-toggle
@@ -1082,31 +1127,31 @@ try {
     <p class="ta-fine" data-trip-count-label></p>
     <ul class="ta-day-list" data-rail-list></ul>
     <p class="ta-fine" data-rail-empty>ยังไม่มีรายการ — กด 🔖 ที่การ์ดไหนก็ได้เพื่อเริ่ม</p>
-    <a class="ta-btn ta-btn-quiet" href="trip">เปิดหน้าทริป</a>
+    <a class="ta-btn ta-btn-quiet" href="/trip">เปิดหน้าทริป</a>
   </div>
 </aside>
 
-<nav class="ta-tabbar" aria-label="สำรวจ">
-  <a class="ta-tab" href="home" data-tab="explore" aria-current="page">
+<nav class="ta-tabbar" aria-label="หลัก">
+  <a class="ta-tab" href="/" data-tab="explore" aria-current="page">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
     <span>สำรวจ</span>
   </a>
-  <a class="ta-tab" href="krabi" data-tab="places">
+  <a class="ta-tab" href="/country-thailand" data-tab="places">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>จุดหมาย</span>
   </a>
-  <a class="ta-tab" href="search" data-tab="search">
+  <a class="ta-tab" href="/search" data-sheet="taSearch" data-tab="search">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
     <span>ค้นหา</span>
   </a>
-  <a class="ta-tab" href="trip" data-tab="trip">
+  <a class="ta-tab" href="/trip" data-tab="trip">
     <span class="ta-tab-ic">
       <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
       <b class="ta-badge" data-count="0">0</b>
     </span>
     <span>ทริป</span>
   </a>
-  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
+  <button class="ta-tab ta-more-trigger" type="button" popovertarget="taMore" data-tab="more">
     <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
     <span>เมนู</span>
   </button>
@@ -1114,6 +1159,7 @@ try {
 
 <div id="taMore" popover class="ta-more">
   <p class="ta-more-label">การแสดงผล</p>
+
   <button type="button" data-theme-set="cycle">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
     <span>ธีม</span>
@@ -1124,15 +1170,18 @@ try {
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
     <span>ภาษา</span>
   </button>
+
   <hr>
-  <a href="trip">
+
+  <a href="/my-list">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
-    <span>ทริปของฉัน</span>
+    <span>ที่บันทึกไว้</span>
   </a>
   <a href="/near-me">
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
     <span>ใกล้ฉัน</span>
   </a>
+
   <button type="button" data-install hidden>
     <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
     <span>ติดตั้งเป็นแอป</span>
@@ -1140,9 +1189,36 @@ try {
 </div>
 
 <div id="taLang" popover class="lang-menu">
-  <a href="home" hreflang="th" aria-current="true">ไทย</a>
-  <a href="en/home" hreflang="en">English</a>
+  <a href="/" hreflang="th" aria-current="true">ไทย</a>
+  <a href="/en/" hreflang="en">English</a>
+  <a href="/zh/" hreflang="zh">中文</a>
+  <a href="/ru/" hreflang="ru">Русский</a>
+  <a href="/ko/" hreflang="ko">한국어</a>
+  <a href="/ja/" hreflang="ja">日本語</a>
+  <a href="/hi/" hreflang="hi">हिन्दी</a>
+  <a href="/he/" hreflang="he">עברית</a>
+  <a href="/ar/" hreflang="ar">العربية</a>
 </div>
+
+<dialog class="ta-sheet" id="taSearch" aria-label="ค้นหา">
+  <div class="ta-sheet-grip" aria-hidden="true"></div>
+  <div class="ta-sheet-head">
+    <h2 class="ta-sheet-title">ค้นหา</h2>
+    <button class="ta-icon-btn" type="button" data-sheet-close aria-label="ปิด">
+      <svg class="ta-ic" aria-hidden="true"><use href="#i-close"></use></svg>
+    </button>
+  </div>
+  <div class="ta-sheet-body">
+    <form action="/search" method="get" role="search">
+      <label class="ta-sr" for="q-sheet">ค้นหา</label>
+      <input id="q-sheet" type="search" name="q" placeholder="ที่พัก ร้านอาหาร จุดหมาย">
+    </form>
+  </div>
+</dialog>
+
+<div class="ta-toast" data-shell-toast role="status" aria-live="polite" aria-atomic="true"></div>
+
+<p class="ta-fine ta-wrap">หน้านี้เป็นต้นแบบ (prototype) ตั้ง noindex ไว้ และไม่ได้ลิงก์จากเว็บจริง</p>
 
 <!-- Destination sheet. The region list inside it is CLONED from the crawlable
      region block above — one link set, two surfaces, authored once. -->
@@ -1197,7 +1273,7 @@ try {
 <script>
 window.TA_HOME = {
   lang: "th",
-  plans: {"krabi|1-day":{"href":"/krabi-1-day-itinerary","dest":"กระบี่","slug":"krabi","title":"เที่ยวกระบี่ 1 วัน อ่าวนาง–เรลเลย์ หรือ สายธรรมชาติ","src":"เที่ยวกระบี่ 1 วัน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"สายอ่าวนาง–เรลเลย์","title":"ตารางเที่ยวทั้งวัน","items":[{"t":"08:30","a":"กินมื้อเช้าแถวหน้าหาดอ่าวนาง"},{"t":"09:30","a":"ซื้อตั๋วเรือหางยาวที่ท่าเรืออ่าวนาง ข้ามไปเรลเลย์"},{"t":"10:00","a":"เดินหาดถ้ำพระนาง + ขึ้นจุดชมวิว/ลากูน"},{"t":"12:00","a":"พักกินกลางวัน + เล่นน้ำหาดไร่เลย์ตะวันตก"},{"t":"14:30","a":"นั่งเรือกลับอ่าวนาง พักผ่อน/อาบน้ำที่พัก"},{"t":"17:00","a":"ออกมาดูพระอาทิตย์ตกหน้าหาดอ่าวนาง"},{"t":"18:30","a":"กินซีฟู้ดมื้อเย็นริมหาดอ่าวนาง"}]},{"label":"สายธรรมชาติบนฝั่ง","title":"ตารางเที่ยวทั้งวัน","items":[{"t":"06:30","a":"ออกแต่เช้าไปวัดถ้ำเสือ พิชิตบันได 1,237 ขั้น"},{"t":"09:30","a":"พักกินกาแฟ/อาหารเช้าหลังลงเขา"},{"t":"10:30","a":"ขับรถไปคลองท่อม เข้าสระมรกต"},{"t":"11:30","a":"แช่น้ำสระมรกต + เดินต่อสระน้ำผุด (Blue Pool)"},{"t":"14:00","a":"ต่อไปน้ำตกร้อน คลองท่อม แช่น้ำอุ่นธรรมชาติ"},{"t":"16:00","a":"ขับกลับเมืองกระบี่/อ่าวนาง"},{"t":"18:30","a":"กินมื้อเย็นในเมืองกระบี่ + เดินเล่นริมเขื่อน"}]}]},"krabi|2d1n":{"href":"/krabi-2d1n-itinerary","dest":"กระบี่","slug":"krabi","title":"กระบี่ 2 วัน 1 คืน อ่าวนาง–เรลเลย์–ทัวร์สี่เกาะ","src":"แผนเที่ยวกระบี่ 2 วัน 1 คืน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"อ่าวนาง สู่ เรลเลย์","items":[{"t":"11:00","a":"ถึงสนามบินกระบี่ นั่งรถเข้าอ่าวนาง"},{"t":"12:30","a":"เช็กอินที่พักย่านอ่าวนาง เก็บกระเป๋า"},{"t":"13:00","a":"กินมื้อเที่ยงแถวถนนอ่าวนาง"},{"t":"14:30","a":"ขึ้นเรือหางยาวจากหาดอ่าวนางไปเรลเลย์"},{"t":"15:00","a":"เดินเล่นเรลเลย์เวสต์ ต่อไปถ้ำพระนาง (Phra Nang)"},{"t":"16:00","a":"ดูคนปีนผา / เดินขึ้นจุดชมวิวเรลเลย์ (ถ้าไหว)"},{"t":"17:30","a":"นั่งเรือกลับอ่าวนาง ดูพระอาทิตย์ตก"},{"t":"19:00","a":"มื้อเย็นซีฟู้ดริมหาดอ่าวนาง"}]},{"label":"วันที่ 2","title":"ทัวร์สี่เกาะ แล้วบินกลับ","items":[{"t":"08:00","a":"กินเช้าเร็วที่พัก / เช็กเอาต์เก็บของ"},{"t":"09:00","a":"รถทัวร์มารับจากที่พักไปท่าเรือ"},{"t":"09:30","a":"ออกเรือ เริ่มที่เกาะปอดะ เล่นน้ำ-ถ่ายรูป"},{"t":"11:00","a":"ดำน้ำตื้นดูปะการังแถวเกาะไก่"},{"t":"12:30","a":"มื้อเที่ยงบนเกาะ (รวมในทัวร์)"},{"t":"14:00","a":"ไฮไลต์: เดินสันทราย \"ทะเลแหวก\""},{"t":"15:30","a":"แวะเรลเลย์/เล่นน้ำจุดสุดท้ายก่อนกลับ"},{"t":"16:30","a":"กลับถึงท่าเรือ รถส่งกลับที่พัก"},{"t":"18:00","a":"เดินทางไปสนามบินกระบี่ บินกลับ"}]}]},"krabi|3d2n":{"href":"/krabi-3d2n-itinerary","dest":"กระบี่","slug":"krabi","title":"แผนเที่ยวกระบี่ 3 วัน 2 คืน","src":"แผนเที่ยวกระบี่ 3 วัน 2 คืน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"อ่าวนาง สู่ เรลเลย์–ถ้ำพระนาง","items":[{"t":"11:00","a":"ถึงสนามบินกระบี่ นั่งรถเข้าอ่าวนาง"},{"t":"12:30","a":"เช็กอินที่พักย่านอ่าวนาง เก็บกระเป๋า"},{"t":"13:00","a":"มื้อเที่ยงแถวถนนอ่าวนาง"},{"t":"14:30","a":"ขึ้นเรือหางยาวจากหาดอ่าวนางไปเรลเลย์"},{"t":"15:00","a":"เดินเล่นเรลเลย์เวสต์ ต่อไปถ้ำพระนาง (Phra Nang)"},{"t":"16:00","a":"ดูคนปีนผา / เดินขึ้นจุดชมวิว–ลากูนเรลเลย์ (ถ้าไหว)"},{"t":"17:30","a":"นั่งเรือกลับอ่าวนาง ดูพระอาทิตย์ตก"},{"t":"19:00","a":"มื้อเย็นซีฟู้ดริมหาดอ่าวนาง"}]},{"label":"วันที่ 2","title":"ทัวร์สี่เกาะ เกาะปอดะ–ทะเลแหวก","items":[{"t":"08:00","a":"กินเช้าที่พัก เตรียมของลงเรือ"},{"t":"09:00","a":"รถทัวร์มารับจากที่พักไปท่าเรือ"},{"t":"09:30","a":"ออกเรือ เริ่มที่เกาะปอดะ เล่นน้ำ–ถ่ายรูป"},{"t":"11:00","a":"ดำน้ำตื้นดูปะการังแถวเกาะไก่"},{"t":"12:30","a":"มื้อเที่ยงบนเกาะ (รวมในทัวร์)"},{"t":"14:00","a":"ไฮไลต์: เดินสันทราย \"ทะเลแหวก\""},{"t":"15:30","a":"เล่นน้ำจุดสุดท้ายก่อนกลับ"},{"t":"16:30","a":"กลับถึงท่าเรือ รถส่งกลับที่พัก"},{"t":"19:00","a":"มื้อเย็นแถวอ่าวนาง เดินเล่นถนนคนเดินกลางคืน"}]},{"label":"วันที่ 3","title":"ธรรมชาติบนบก ก่อนบินกลับ","items":[{"t":"07:30","a":"กินเช้า เช็กเอาต์ ฝากกระเป๋า / ขนขึ้นรถ"},{"t":"09:00","a":"ถึงน้ำตกร้อนคลองท่อม แช่น้ำอุ่นธรรมชาติ"},{"t":"10:30","a":"เดินป่าสั้น ๆ เข้าสระมรกต (Emerald Pool)"},{"t":"12:30","a":"มื้อเที่ยงระหว่างทางกลับเข้าเมือง"},{"t":"14:00","a":"วัดถ้ำเสือ พิชิตบันได 1,237 ขั้น (ถ้าไหว)"},{"t":"16:30","a":"เดินทางถึงสนามบินกระบี่ ซื้อของฝาก เช็กอิน"}]}]},"chiang-mai|3d2n":{"href":"/chiang-mai-3d2n-itinerary","dest":"เชียงใหม่","slug":"chiang-mai","title":"เที่ยวเชียงใหม่ 3 วัน 2 คืน เมือง + ธรรมชาติ + คาเฟ่","src":"เที่ยวเชียงใหม่ 3 วัน 2 คืน","stay":{"name":"137 Pillars House","url":"/review-137-pillars-house-chiang-mai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg","price":"฿18,000","rev":"Trip.com 9.5 · Small Luxury Hotels","agoda":"https://www.agoda.com/137-pillars-house/hotel/chiang-mai-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"เมืองเก่า + ดอยสุเทพ","items":[{"t":"08:30","a":"เริ่มที่วัดพระสิงห์วรมหาวิหาร"},{"t":"09:45","a":"เดินต่อไปวัดเจดีย์หลวงวรวิหาร"},{"t":"11:30","a":"มื้อเที่ยง — ข้าวซอย"},{"t":"13:30","a":"ขึ้นดอยสุเทพ"},{"t":"14:30","a":"วัดพระธาตุดอยสุเทพราชวรวิหาร"},{"t":"17:30","a":"กลับเข้าเมือง พัก/อาบน้ำ"},{"t":"19:00","a":"ถนนคนเดิน (เสาร์/อาทิตย์)"}]},{"label":"วันที่ 2 · สาย A","title":"ดอยอินทนนท์ (ยอดดอยสูงสุดของไทย)","items":[{"t":"07:00","a":"ออกจากเมืองแต่เช้า"},{"t":"09:30","a":"จุดสูงสุดแดนสยาม + เส้นทางอ่างกา"},{"t":"10:30","a":"พระมหาธาตุนภเมทนีดล–นภพลภูมิสิริ"},{"t":"12:00","a":"กิ่วแม่ปาน (ถ้าเปิดฤดู)"},{"t":"14:00","a":"น้ำตกวชิรธาร / น้ำตกแม่ยะ"},{"t":"16:00","a":"เริ่มขับกลับเมือง"}]},{"label":"วันที่ 2 · สาย B","title":"แม่ริม–ม่อนแจ่ม (เบากว่า ใกล้กว่า)","items":[{"t":"09:00","a":"ออกจากเมืองสาย ๆ"},{"t":"10:00","a":"สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์"},{"t":"12:00","a":"มื้อเที่ยงคาเฟ่กลางทุ่ง"},{"t":"13:30","a":"จุดชมวิวม่อนแจ่ม + ทุ่งดอกไม้"},{"t":"15:30","a":"ปางช้างแม่สา (ถ้าสนใจ)"},{"t":"17:00","a":"ขับกลับเมือง"}]},{"label":"วันที่ 3","title":"คาเฟ่ + ของฝาก","items":[{"t":"09:00","a":"เก็บกระเป๋า เช็กเอาต์"},{"t":"09:30","a":"คาเฟ่เช้าย่านนิมมาน"},{"t":"11:00","a":"ตะลอนคาเฟ่/ขนม"},{"t":"12:30","a":"มื้อเที่ยงอาหารเหนือ"},{"t":"14:00","a":"ของฝากที่กาดหลวง (ตลาดวโรรส)"},{"t":"15:30","a":"ไปสนามบินเชียงใหม่"}]}]},"phuket|3d2n":{"href":"/phuket-3d2n-itinerary","dest":"ภูเก็ต","slug":"phuket","title":"แผนเที่ยวภูเก็ต 3 วัน 2 คืน","src":"แผนเที่ยวภูเก็ต 3 วัน 2 คืน 2026","stay":{"name":"The Surin Phuket","url":"/review-the-surin-phuket","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/phuket-surin-1.jpg","price":"฿7,500","rev":"Agoda 9.1 · Booking 9.0 · 379 รีวิว","agoda":"https://www.agoda.com/the-surin-phuket/hotel/phuket-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"ติ่มซำเช้า · เดินตึกเก่า · มื้อใต้มิชลิน","items":[{"t":"07:00","a":"อาหารเช้าติ่มซำที่บุญรัตน์ติ่มซำ (Boonrat Dim Sum)"},{"t":"08:30","a":"เดินเล่นย่านเมืองเก่า — ถนนถลาง ซอยรมณีย์ ตึกชิโน-โปรตุกีส"},{"t":"10:30","a":"พักคาเฟ่ในเมืองเก่า — ก่อระฆัง (Kor Ra Kang) หรือคาเฟ่บนถนนถลาง"},{"t":"12:00","a":"มื้อกลางวันอาหารใต้/ภูเก็ตที่ตู้กับข้าว (Tu Kab Khao)"},{"t":"14:00","a":"ลองหมี่ฮกเกี้ยนตำนาน — หมี่ต้นโพธิ์ (Mee Ton Poe)"},{"t":"15:30","a":"พักโรงแรม เช็กอิน แล้วออกมาถ่ายสตรีทอาร์ต–ตึกเก่ารอบสอง"},{"t":"18:30","a":"มื้อเย็น — ราชา (Raya Restaurant) อาหารใต้ในบ้านไม้เก่า หรือซีฟู้ดในเมือง"}]},{"label":"วันที่ 2","title":"ทัวร์เกาะแบบเต็มวัน (รถรับ–ส่งถึงโรงแรม)","items":[{"t":"07:30","a":"รถทัวร์มารับที่โรงแรม"},{"t":"08:30","a":"ถึงท่าเรือ ฟังบรีฟ แล้วลงเรือสปีดโบ๊ต"},{"t":"09:30","a":"สาย A — เกาะพีพี: อ่าวมาหยา อ่าวปิเละ ดำน้ำตื้น"},{"t":"09:30","a":"สาย B — อ่าวพังงา: เกาะเจมส์บอนด์ พายแคนูลอดถ้ำ"},{"t":"12:30","a":"อาหารกลางวันบนเกาะ/บนเรือ"},{"t":"14:00","a":"แวะเกาะไข่ / จุดดำน้ำสุดท้าย เล่นน้ำชายหาด"},{"t":"16:00","a":"เรือกลับเข้าฝั่ง"},{"t":"17:30","a":"รถส่งกลับถึงโรงแรม พักผ่อน แล้วหามื้อเย็นใกล้ที่พัก"}]},{"label":"วันที่ 3","title":"หาดฝั่งตะวันตก · จุดชมวิวสามอ่าว · แหลมพรหมเทพ","items":[{"t":"08:30","a":"มื้อเช้าโกปี๊ + ขนมจีนภูเก็ต หรือกาแฟโบราณ"},{"t":"10:00","a":"เล่นน้ำหาดกะตะหรือกะรน (ฝั่งตะวันตก)"},{"t":"12:30","a":"มื้อกลางวันซีฟู้ดแถวกะตะ/ราไวย์"},{"t":"14:30","a":"จุดชมวิวสามอ่าว (Karon Viewpoint)"},{"t":"15:30","a":"แวะวัดฉลอง (ถ้ามีเวลา) ไหว้พระก่อนไปแหลมพรหมเทพ"},{"t":"17:00","a":"ถึงแหลมพรหมเทพ จองที่ยืนรอพระอาทิตย์ตก"},{"t":"18:30","a":"พระอาทิตย์ตก แล้วเดินทางสู่สนามบินภูเก็ต (HKT)"}]}]},"bangkok|2d1n":{"href":"/bangkok-2d1n-itinerary","dest":"กรุงเทพมหานคร","slug":"bangkok","title":"กรุงเทพ 2 วัน 1 คืน วัดเก่า ช้อปปิง สตรีทฟู้ด","src":"แผนเที่ยวกรุงเทพ 2 วัน 1 คืน 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · โรงแรมเก่าแก่ที่สุดของไทย","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"รัตนโกสินทร์ + เยาวราช","items":[{"t":"08:30","a":"เริ่มที่พระบรมมหาราชวัง + วัดพระแก้ว"},{"t":"10:30","a":"เดินต่อไปวัดโพธิ์ (วัดพระเชตุพน)"},{"t":"12:00","a":"พักกินเที่ยง + ของหวานแถวท่าเตียน"},{"t":"13:30","a":"ข้ามเรือจากท่าเตียนไปวัดอรุณ"},{"t":"15:00","a":"กลับฝั่งพระนคร พักโรงแรม อาบน้ำเปลี่ยนชุด"},{"t":"18:30","a":"ลงเยาวราช เริ่มเดินกินสตรีทฟู้ด"},{"t":"22:00","a":"ปิดท้ายด้วยของหวานหรือกาแฟ แล้วกลับที่พัก"}]},{"label":"วันที่ 2","title":"ช้อปปิง (เวอร์ชันวันหยุดสุดสัปดาห์)","items":[{"t":"09:30","a":"ลุยตลาดนัดจตุจักร"},{"t":"12:30","a":"กินเที่ยงในจตุจักร แล้วกลับพักของ"},{"t":"15:00","a":"นั่งเรือ/รถไปไอคอนสยาม (ICONSIAM)"},{"t":"18:00","a":"ดูโชว์น้ำพุริมแม่น้ำ + กินเย็นวิวแม่น้ำ"},{"t":"20:00","a":"เก็บของฝากแล้วกลับ/ต่อทริป"}]}]},"bangkok|3d2n":{"href":"/bangkok-3d2n-itinerary","dest":"กรุงเทพมหานคร","slug":"bangkok","title":"กรุงเทพ 3 วัน 2 คืน เมืองเก่า คาเฟ่ ตลาด รูฟท็อป","src":"แผนเที่ยวกรุงเทพ 3 วัน 2 คืน 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · โรงแรมเก่าแก่ที่สุดของไทย","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"รัตนโกสินทร์ — สามวัดริมน้ำ","items":[{"t":"08:30","a":"เริ่มที่พระบรมมหาราชวัง + วัดพระแก้ว"},{"t":"10:30","a":"เดินต่อไปวัดโพธิ์ (วัดพระเชตุพน)"},{"t":"12:00","a":"พักกินเที่ยง + ของหวานแถวท่าเตียน"},{"t":"13:30","a":"ข้ามเรือจากท่าเตียนไปวัดอรุณ"},{"t":"15:30","a":"กลับฝั่งพระนคร เดินเล่นย่านท่าเตียน–ปากคลองตลาด"},{"t":"18:00","a":"กลับที่พัก พัก แล้วหามื้อเย็นเบา ๆ ใกล้ที่พัก"}]},{"label":"วันที่ 2","title":"ตลาดน้อย–เจริญกรุง — คาเฟ่ + ย่านเก่า","items":[{"t":"09:30","a":"คาเฟ่เช้าที่ Mother Roaster หรือร้านกาแฟในตรอกตลาดน้อย"},{"t":"10:30","a":"เดินเล่นตลาดน้อย ถ่ายสตรีทอาร์ต ศาลเจ้าโจวซือกง รถโบราณ"},{"t":"12:30","a":"มื้อเที่ยงในย่าน — ข้าวต้ม ก๋วยเตี๋ยว หรือบาเกิล"},{"t":"14:00","a":"คาเฟ่บ่าย — ENVIES, Feng Huang Tea Bar หรือ The Coffee Store"},{"t":"16:00","a":"เดินเลียบเจริญกรุงไปทาง Warehouse 30 / ริมน้ำ"},{"t":"18:30","a":"มื้อเย็นริมน้ำ หรือกลับพัก"}]},{"label":"วันที่ 3","title":"ตลาด + รูฟท็อปพระอาทิตย์ตก","items":[{"t":"10:00","a":"เลือกตลาดกลางวันตามวันที่คุณอยู่"},{"t":"13:00","a":"กินเที่ยงในตลาด แล้วกลับพักของ–อาบน้ำ"},{"t":"17:30","a":"ขึ้นรูฟท็อปบาร์รับพระอาทิตย์ตก"},{"t":"19:30","a":"ลงจากรูฟท็อป ไปตลาดนัดกลางคืน"},{"t":"22:00","a":"เก็บของฝากปิดทริป แล้วกลับ/เตรียมเดินทาง"}]}]},"ayutthaya|2d1n":{"href":"/ayutthaya-2d1n-itinerary","dest":"พระนครศรีอยุธยา","slug":"ayutthaya","title":"เที่ยวอยุธยา 2 วัน 1 คืน เมืองเก่า ตลาดน้ำ ล่องเรือ","src":"แผนเที่ยวอยุธยา 2 วัน 1 คืน 2026","stay":{"name":"Sala Ayutthaya","url":"/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 รีวิว","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"วัดเมืองเก่า + วัดไชยวัฒนารามตอนเย็น","items":[{"t":"10:00","a":"ถึงอยุธยา เก็บของเข้าที่พัก แล้วเริ่มที่วัดมหาธาตุ"},{"t":"11:15","a":"เดินต่อไปวัดพระศรีสรรเพชญ์ ใกล้ ๆ กัน"},{"t":"12:30","a":"พักกินเที่ยง — ก๋วยเตี๋ยวเรือเจ้าดังในเมือง"},{"t":"14:00","a":"ไปวัดใหญ่ชัยมงคล นอกเกาะฝั่งตะวันออกเฉียงใต้"},{"t":"16:00","a":"ปิดท้ายวันที่วัดไชยวัฒนารามตอนแดดร่ม"},{"t":"18:30","a":"กินเย็นริมน้ำ แล้วพักผ่อน"}]},{"label":"วันที่ 2","title":"ตลาดน้ำอโยธยา + ล่องเรือรอบเกาะไหว้พระ","items":[{"t":"09:30","a":"เที่ยวตลาดน้ำอโยธยา"},{"t":"11:30","a":"ชิมของกินในตลาด เลือกของฝากกลับบ้าน"},{"t":"13:00","a":"ลงเรือล่องรอบเกาะเมืองไหว้พระ"},{"t":"15:00","a":"ขึ้นจากเรือ หาคาเฟ่ริมน้ำนั่งพัก"},{"t":"16:30","a":"เก็บของ เดินทางกลับกรุงเทพ"}]}]},"ayutthaya|3d2n":{"href":"/ayutthaya-3d2n-itinerary","dest":"พระนครศรีอยุธยา","slug":"ayutthaya","title":"เที่ยวอยุธยา 3 วัน 2 คืน วัด วัง คาเฟ่ บางปะอิน","src":"แผนเที่ยวอยุธยา 3 วัน 2 คืน","stay":{"name":"Sala Ayutthaya","url":"/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 รีวิว","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"วัดมหาธาตุ–พระศรีสรรเพชญ์–วัดโลกยสุธา แล้วค่ำดูวัดเปิดไฟ","items":[{"t":"08:30","a":"ออกจากกรุงเทพ ขับรถหรือนั่งรถตู้/รถไฟมาถึงอยุธยา เช็กอินที่พักในเกาะเมืองก่อนเก็บกระเป๋า"},{"t":"10:00","a":"เริ่มที่วัดมหาธาตุ ดูเศียรพระในรากต้นโพธิ์ที่เป็นภาพจำของอยุธยา"},{"t":"11:30","a":"เดินต่อไปวัดพระศรีสรรเพชญ์ เจดีย์ทรงลังกาสามองค์เรียงกัน เคยเป็นวัดในเขตพระราชวังหลวง"},{"t":"13:00","a":"พักกินกลางวัน ก๋วยเตี๋ยวเรือป้าเล็ก ร้านในมิชลินไกด์ ย่านท่าวาสุกรี"},{"t":"15:30","a":"ไปวัดโลกยสุธา ชมพระนอนกลางแจ้งองค์ใหญ่ คนไม่พลุกพล่านเท่าวัดในโซนหลัก"},{"t":"18:30","a":"ถ้าเป็นคืนศุกร์–อาทิตย์ กลับไปวัดมหาธาตุหรือไชยวัฒนารามดูโบราณสถานเปิดไฟกลางคืน"}]},{"label":"วันที่ 2","title":"ไชยวัฒนาราม–วัดใหญ่ชัยมงคล แล้วนั่งคาเฟ่ริมเจ้าพระยา","items":[{"t":"08:00","a":"ไปวัดไชยวัฒนารามตั้งแต่เช้า ปรางค์ประธานทรงขอมริมแม่น้ำ เป็นวัดที่คนนิยมเช่าชุดไทยถ่ายรูป"},{"t":"10:30","a":"ขับไปวัดใหญ่ชัยมงคล เจดีย์ใหญ่ที่ปีนขึ้นไปมองวิวรอบได้ มีพระนอนองค์ยาวด้านข้าง"},{"t":"12:30","a":"กินกลางวันแถบนอกเกาะ แล้วแวะซื้อโรตีสายไหมแม่ป้อม เจ้าเก่าของฝากขึ้นชื่อ"},{"t":"14:30","a":"ข้ามไปฝั่งวัดพุทไธศวรรย์ เลือกนั่งคาเฟ่ริมเจ้าพระยาสักร้าน วิวเจดีย์ริมน้ำ"},{"t":"17:30","a":"ปิดท้ายวันที่บ้านป้อมเพชร คาเฟ่กับร้านอาหารริมโค้งแม่น้ำ ได้วิวกว้างช่วงพระอาทิตย์ตก"}]},{"label":"วันที่ 3","title":"เช็กเอาต์ แล้วออกไปบางปะอินก่อนขับกลับกรุงเทพ","items":[{"t":"09:00","a":"เช็กเอาต์ที่พัก กินมื้อเช้าง่าย ๆ แถวเกาะเมืองก่อนออกเดินทาง"},{"t":"10:00","a":"เข้าชมพระราชวังบางปะอิน เดินชมพระที่นั่งไอศวรรย์ทิพยอาสน์กลางสระน้ำ และหมู่พระที่นั่งสไตล์ผสม"},{"t":"12:00","a":"เช่ารถกอล์ฟหรือเดินชมรอบเขตพระราชวัง แวะหอวิทูรทัศนาที่ปีนขึ้นไปมองวิวรอบได้"},{"t":"13:30","a":"กินกลางวันแถวบางปะอินหรือกลับเข้ามาหาร้านในเมืองก่อนขึ้นทางด่วน"},{"t":"15:00","a":"ออกเดินทางกลับกรุงเทพ เลี่ยงช่วงเย็นวันอาทิตย์ที่รถมักติดขาเข้าเมือง"}]}]},"pai|3d2n":{"href":"/pai-3d2n-itinerary","dest":"ปาย","slug":"pai","title":"เที่ยวปาย 3 วัน 2 คืน น้ำตก สันติชล สะพานไม้ไผ่ พระใหญ่","src":"แผนเที่ยวปาย 3 วัน 2 คืน 2026","stay":{"name":"Reverie Siam Resort","url":"/review-reverie-siam-resort-pai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/pai-reverie-siam-1.jpg","price":"฿4,800","rev":"Booking 9.4 · Agoda 9.3 · 305 รีวิว","agoda":"https://www.agoda.com/reverie-siam-resort/hotel/pai-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"มาถึงแบบสบาย ๆ เก็บวิวเมืองตอนเย็น","items":[{"t":"13:00","a":"ถึงปาย เช็คอินที่พัก"},{"t":"14:30","a":"นั่งคาเฟ่ริมแม่น้ำปาย พักจากการเดินทาง"},{"t":"16:30","a":"ขึ้นพระใหญ่ วัดพระธาตุแม่เย็น"},{"t":"18:30","a":"เดินถนนคนเดินปาย (Walking Street)"}]},{"label":"วันที่ 2","title":"สายธรรมชาติเต็มวัน เริ่มเช้าเก็บหมอก","items":[{"t":"05:30","a":"ขึ้นจุดชมวิวหยุนไหล (Yun Lai) รอทะเลหมอก"},{"t":"08:00","a":"หมู่บ้านจีนยูนนานสันติชล (Santichon)"},{"t":"10:30","a":"น้ำตกปั๊มบก (Pam Bok Waterfall)"},{"t":"12:00","a":"พักมื้อเที่ยงแถวทางไปสะพานไม้ไผ่"},{"t":"13:30","a":"สะพานไม้ไผ่บุญโขกู้โส่ (Boon Ko Ku So)"},{"t":"16:00","a":"เลือกปิดท้าย: น้ำพุร้อนท่าปาย หรือ Pai Canyon"}]},{"label":"วันที่ 3","title":"เก็บที่เหลือก่อนลาเมือง","items":[{"t":"08:00","a":"มื้อเช้าหรือบรันช์ในเมือง"},{"t":"09:30","a":"สะพานประวัติศาสตร์ท่าปาย (Memorial Bridge)"},{"t":"10:30","a":"ซื้อของฝาก เก็บกระเป๋า"},{"t":"11:30","a":"ออกเดินทางกลับเชียงใหม่"}]}]},"chiang-rai|3d2n":{"href":"/chiang-rai-3d2n-itinerary","dest":"เชียงราย","slug":"chiang-rai","title":"เที่ยวเชียงราย 3 วัน 2 คืน วัด ดอย สามเหลี่ยมทองคำ","src":"แผนเที่ยวเชียงราย 3 วัน 2 คืน 2026","stay":{"name":"Anantara Golden Triangle Elephant Camp & Resort","url":"/review-anantara-golden-triangle-elephant-camp-resort-chiang-rai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-rai-anantaragt-1.jpg","price":"฿35,000","rev":"Agoda 9.6 · 44 รีวิว","agoda":"https://www.agoda.com/anantara-golden-triangle-elephant-camp-resort/hotel/chiang-saen-th.html?cid=1965862"},"days":[{"label":"วันที่ 1","title":"วัด งานศิลป์ และไนท์บาซาร์รอบเมือง","items":[{"t":"09:00","a":"วัดร่องขุ่น (วัดขาว)"},{"t":"11:00","a":"พิพิธภัณฑ์บ้านดำ (Baan Dam Museum)"},{"t":"12:30","a":"มื้อกลางวันข้าวซอย"},{"t":"14:00","a":"วัดร่องเสือเต้น (วัดน้ำเงิน)"},{"t":"15:30","a":"วัดห้วยปลากั้ง"},{"t":"18:00","a":"เชียงรายไนท์บาซาร์"}]},{"label":"วันที่ 2","title":"ดอยตุง–สวนแม่ฟ้าหลวง แล้วลงสามเหลี่ยมทองคำ","items":[{"t":"08:00","a":"ออกจากเมืองขึ้นดอยตุง"},{"t":"09:00","a":"พระตำหนักดอยตุง + สวนแม่ฟ้าหลวง"},{"t":"12:00","a":"มื้อกลางวันที่ระเบียงดอยตุง"},{"t":"14:00","a":"ลงสู่สามเหลี่ยมทองคำ อ.เชียงแสน"},{"t":"15:00","a":"ล่องเรือแม่น้ำโขง"},{"t":"16:30","a":"หอฝิ่น อุทยานสามเหลี่ยมทองคำ"},{"t":"18:30","a":"กลับเข้าเมืองเชียงราย"}]},{"label":"วันที่ 3","title":"ไร่ชา คาเฟ่วิว แล้วเดินทางกลับ","items":[{"t":"08:30","a":"ไร่ชาฉุยฟง อ.แม่จัน"},{"t":"11:00","a":"สิงห์ปาร์ค (ไร่บุญรอด)"},{"t":"12:30","a":"มื้อกลางวันในสิงห์ปาร์คหรือกลับเข้าเมือง"},{"t":"14:30","a":"หออัตลักษณ์นครเชียงราย + ของฝาก"},{"t":"16:30","a":"เดินทางกลับ"}]}]}},
+  plans: {"krabi|1-day":{"href":"/krabi-1-day-itinerary","dest":"กระบี่","slug":"krabi","title":"เที่ยวกระบี่ 1 วัน อ่าวนาง–เรลเลย์ หรือ สายธรรมชาติ","src":"เที่ยวกระบี่ 1 วัน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"สายอ่าวนาง–เรลเลย์","title":"ตารางเที่ยวทั้งวัน","items":[{"t":"08:30","a":"กินมื้อเช้าแถวหน้าหาดอ่าวนาง"},{"t":"09:30","a":"ซื้อตั๋วเรือหางยาวที่ท่าเรืออ่าวนาง ข้ามไปเรลเลย์"},{"t":"10:00","a":"เดินหาดถ้ำพระนาง + ขึ้นจุดชมวิว/ลากูน"},{"t":"12:00","a":"พักกินกลางวัน + เล่นน้ำหาดไร่เลย์ตะวันตก"},{"t":"14:30","a":"นั่งเรือกลับอ่าวนาง พักผ่อน/อาบน้ำที่พัก"},{"t":"17:00","a":"ออกมาดูพระอาทิตย์ตกหน้าหาดอ่าวนาง"},{"t":"18:30","a":"กินซีฟู้ดมื้อเย็นริมหาดอ่าวนาง"}]},{"label":"สายธรรมชาติบนฝั่ง","title":"ตารางเที่ยวทั้งวัน","items":[{"t":"06:30","a":"ออกแต่เช้าไปวัดถ้ำเสือ พิชิตบันได 1,237 ขั้น"},{"t":"09:30","a":"พักกินกาแฟ/อาหารเช้าหลังลงเขา"},{"t":"10:30","a":"ขับรถไปคลองท่อม เข้าสระมรกต"},{"t":"11:30","a":"แช่น้ำสระมรกต + เดินต่อสระน้ำผุด (Blue Pool)"},{"t":"14:00","a":"ต่อไปน้ำตกร้อน คลองท่อม แช่น้ำอุ่นธรรมชาติ"},{"t":"16:00","a":"ขับกลับเมืองกระบี่/อ่าวนาง"},{"t":"18:30","a":"กินมื้อเย็นในเมืองกระบี่ + เดินเล่นริมเขื่อน"}]}]},"krabi|2d1n":{"href":"/krabi-2d1n-itinerary","dest":"กระบี่","slug":"krabi","title":"กระบี่ 2 วัน 1 คืน อ่าวนาง–เรลเลย์–ทัวร์สี่เกาะ","src":"แผนเที่ยวกระบี่ 2 วัน 1 คืน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"อ่าวนาง สู่ เรลเลย์","items":[{"t":"11:00","a":"ถึงสนามบินกระบี่ นั่งรถเข้าอ่าวนาง"},{"t":"12:30","a":"เช็กอินที่พักย่านอ่าวนาง เก็บกระเป๋า"},{"t":"13:00","a":"กินมื้อเที่ยงแถวถนนอ่าวนาง"},{"t":"14:30","a":"ขึ้นเรือหางยาวจากหาดอ่าวนางไปเรลเลย์"},{"t":"15:00","a":"เดินเล่นเรลเลย์เวสต์ ต่อไปถ้ำพระนาง (Phra Nang)"},{"t":"16:00","a":"ดูคนปีนผา / เดินขึ้นจุดชมวิวเรลเลย์ (ถ้าไหว)"},{"t":"17:30","a":"นั่งเรือกลับอ่าวนาง ดูพระอาทิตย์ตก"},{"t":"19:00","a":"มื้อเย็นซีฟู้ดริมหาดอ่าวนาง"}]},{"label":"วันที่ 2","title":"ทัวร์สี่เกาะ แล้วบินกลับ","items":[{"t":"08:00","a":"กินเช้าเร็วที่พัก / เช็กเอาต์เก็บของ"},{"t":"09:00","a":"รถทัวร์มารับจากที่พักไปท่าเรือ"},{"t":"09:30","a":"ออกเรือ เริ่มที่เกาะปอดะ เล่นน้ำ-ถ่ายรูป"},{"t":"11:00","a":"ดำน้ำตื้นดูปะการังแถวเกาะไก่"},{"t":"12:30","a":"มื้อเที่ยงบนเกาะ (รวมในทัวร์)"},{"t":"14:00","a":"ไฮไลต์: เดินสันทราย \"ทะเลแหวก\""},{"t":"15:30","a":"แวะเรลเลย์/เล่นน้ำจุดสุดท้ายก่อนกลับ"},{"t":"16:30","a":"กลับถึงท่าเรือ รถส่งกลับที่พัก"},{"t":"18:00","a":"เดินทางไปสนามบินกระบี่ บินกลับ"}]}]},"krabi|3d2n":{"href":"/krabi-3d2n-itinerary","dest":"กระบี่","slug":"krabi","title":"แผนเที่ยวกระบี่ 3 วัน 2 คืน","src":"แผนเที่ยวกระบี่ 3 วัน 2 คืน 2026","stay":{"name":"Rayavadee","url":"/review-rayavadee-krabi","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/krabi-rayavadee-1.jpg","price":"฿16,000","rev":"Agoda 9.4 · 599 รีวิว","agoda":"https://www.agoda.com/rayavadee-hotel/hotel/krabi-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Frayavadee.html&sid=home","trip":"https://www.trip.com/hotels/krabi-hotel-detail-874163/rayavadee/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"อ่าวนาง สู่ เรลเลย์–ถ้ำพระนาง","items":[{"t":"11:00","a":"ถึงสนามบินกระบี่ นั่งรถเข้าอ่าวนาง"},{"t":"12:30","a":"เช็กอินที่พักย่านอ่าวนาง เก็บกระเป๋า"},{"t":"13:00","a":"มื้อเที่ยงแถวถนนอ่าวนาง"},{"t":"14:30","a":"ขึ้นเรือหางยาวจากหาดอ่าวนางไปเรลเลย์"},{"t":"15:00","a":"เดินเล่นเรลเลย์เวสต์ ต่อไปถ้ำพระนาง (Phra Nang)"},{"t":"16:00","a":"ดูคนปีนผา / เดินขึ้นจุดชมวิว–ลากูนเรลเลย์ (ถ้าไหว)"},{"t":"17:30","a":"นั่งเรือกลับอ่าวนาง ดูพระอาทิตย์ตก"},{"t":"19:00","a":"มื้อเย็นซีฟู้ดริมหาดอ่าวนาง"}]},{"label":"วันที่ 2","title":"ทัวร์สี่เกาะ เกาะปอดะ–ทะเลแหวก","items":[{"t":"08:00","a":"กินเช้าที่พัก เตรียมของลงเรือ"},{"t":"09:00","a":"รถทัวร์มารับจากที่พักไปท่าเรือ"},{"t":"09:30","a":"ออกเรือ เริ่มที่เกาะปอดะ เล่นน้ำ–ถ่ายรูป"},{"t":"11:00","a":"ดำน้ำตื้นดูปะการังแถวเกาะไก่"},{"t":"12:30","a":"มื้อเที่ยงบนเกาะ (รวมในทัวร์)"},{"t":"14:00","a":"ไฮไลต์: เดินสันทราย \"ทะเลแหวก\""},{"t":"15:30","a":"เล่นน้ำจุดสุดท้ายก่อนกลับ"},{"t":"16:30","a":"กลับถึงท่าเรือ รถส่งกลับที่พัก"},{"t":"19:00","a":"มื้อเย็นแถวอ่าวนาง เดินเล่นถนนคนเดินกลางคืน"}]},{"label":"วันที่ 3","title":"ธรรมชาติบนบก ก่อนบินกลับ","items":[{"t":"07:30","a":"กินเช้า เช็กเอาต์ ฝากกระเป๋า / ขนขึ้นรถ"},{"t":"09:00","a":"ถึงน้ำตกร้อนคลองท่อม แช่น้ำอุ่นธรรมชาติ"},{"t":"10:30","a":"เดินป่าสั้น ๆ เข้าสระมรกต (Emerald Pool)"},{"t":"12:30","a":"มื้อเที่ยงระหว่างทางกลับเข้าเมือง"},{"t":"14:00","a":"วัดถ้ำเสือ พิชิตบันได 1,237 ขั้น (ถ้าไหว)"},{"t":"16:30","a":"เดินทางถึงสนามบินกระบี่ ซื้อของฝาก เช็กอิน"}]}]},"chiang-mai|3d2n":{"href":"/chiang-mai-3d2n-itinerary","dest":"เชียงใหม่","slug":"chiang-mai","title":"เที่ยวเชียงใหม่ 3 วัน 2 คืน เมือง + ธรรมชาติ + คาเฟ่","src":"เที่ยวเชียงใหม่ 3 วัน 2 คืน","stay":{"name":"137 Pillars House","url":"/review-137-pillars-house-chiang-mai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-mai-137pillars-1.jpg","price":"฿18,000","rev":"Trip.com 9.5 · Small Luxury Hotels","agoda":"https://www.agoda.com/137-pillars-house/hotel/chiang-mai-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fone-three-seven-pillars-house.html&sid=home","trip":"https://www.trip.com/hotels/chiang-mai-hotel-detail-997882/137-pillars-house/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"เมืองเก่า + ดอยสุเทพ","items":[{"t":"08:30","a":"เริ่มที่วัดพระสิงห์วรมหาวิหาร"},{"t":"09:45","a":"เดินต่อไปวัดเจดีย์หลวงวรวิหาร"},{"t":"11:30","a":"มื้อเที่ยง — ข้าวซอย"},{"t":"13:30","a":"ขึ้นดอยสุเทพ"},{"t":"14:30","a":"วัดพระธาตุดอยสุเทพราชวรวิหาร"},{"t":"17:30","a":"กลับเข้าเมือง พัก/อาบน้ำ"},{"t":"19:00","a":"ถนนคนเดิน (เสาร์/อาทิตย์)"}]},{"label":"วันที่ 2 · สาย A","title":"ดอยอินทนนท์ (ยอดดอยสูงสุดของไทย)","items":[{"t":"07:00","a":"ออกจากเมืองแต่เช้า"},{"t":"09:30","a":"จุดสูงสุดแดนสยาม + เส้นทางอ่างกา"},{"t":"10:30","a":"พระมหาธาตุนภเมทนีดล–นภพลภูมิสิริ"},{"t":"12:00","a":"กิ่วแม่ปาน (ถ้าเปิดฤดู)"},{"t":"14:00","a":"น้ำตกวชิรธาร / น้ำตกแม่ยะ"},{"t":"16:00","a":"เริ่มขับกลับเมือง"}]},{"label":"วันที่ 2 · สาย B","title":"แม่ริม–ม่อนแจ่ม (เบากว่า ใกล้กว่า)","items":[{"t":"09:00","a":"ออกจากเมืองสาย ๆ"},{"t":"10:00","a":"สวนพฤกษศาสตร์สมเด็จพระนางเจ้าสิริกิติ์"},{"t":"12:00","a":"มื้อเที่ยงคาเฟ่กลางทุ่ง"},{"t":"13:30","a":"จุดชมวิวม่อนแจ่ม + ทุ่งดอกไม้"},{"t":"15:30","a":"ปางช้างแม่สา (ถ้าสนใจ)"},{"t":"17:00","a":"ขับกลับเมือง"}]},{"label":"วันที่ 3","title":"คาเฟ่ + ของฝาก","items":[{"t":"09:00","a":"เก็บกระเป๋า เช็กเอาต์"},{"t":"09:30","a":"คาเฟ่เช้าย่านนิมมาน"},{"t":"11:00","a":"ตะลอนคาเฟ่/ขนม"},{"t":"12:30","a":"มื้อเที่ยงอาหารเหนือ"},{"t":"14:00","a":"ของฝากที่กาดหลวง (ตลาดวโรรส)"},{"t":"15:30","a":"ไปสนามบินเชียงใหม่"}]}]},"phuket|3d2n":{"href":"/phuket-3d2n-itinerary","dest":"ภูเก็ต","slug":"phuket","title":"แผนเที่ยวภูเก็ต 3 วัน 2 คืน","src":"แผนเที่ยวภูเก็ต 3 วัน 2 คืน 2026","stay":{"name":"The Surin Phuket","url":"/review-the-surin-phuket","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/phuket-surin-1.jpg","price":"฿7,500","rev":"Agoda 9.1 · Booking 9.0 · 379 รีวิว","agoda":"https://www.agoda.com/the-surin-phuket/hotel/phuket-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fthe-surin-phuket.html&sid=home","trip":"https://www.trip.com/hotels/phuket-hotel-detail-1525789/the-surin-phuket/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"ติ่มซำเช้า · เดินตึกเก่า · มื้อใต้มิชลิน","items":[{"t":"07:00","a":"อาหารเช้าติ่มซำที่บุญรัตน์ติ่มซำ (Boonrat Dim Sum)"},{"t":"08:30","a":"เดินเล่นย่านเมืองเก่า — ถนนถลาง ซอยรมณีย์ ตึกชิโน-โปรตุกีส"},{"t":"10:30","a":"พักคาเฟ่ในเมืองเก่า — ก่อระฆัง (Kor Ra Kang) หรือคาเฟ่บนถนนถลาง"},{"t":"12:00","a":"มื้อกลางวันอาหารใต้/ภูเก็ตที่ตู้กับข้าว (Tu Kab Khao)"},{"t":"14:00","a":"ลองหมี่ฮกเกี้ยนตำนาน — หมี่ต้นโพธิ์ (Mee Ton Poe)"},{"t":"15:30","a":"พักโรงแรม เช็กอิน แล้วออกมาถ่ายสตรีทอาร์ต–ตึกเก่ารอบสอง"},{"t":"18:30","a":"มื้อเย็น — ราชา (Raya Restaurant) อาหารใต้ในบ้านไม้เก่า หรือซีฟู้ดในเมือง"}]},{"label":"วันที่ 2","title":"ทัวร์เกาะแบบเต็มวัน (รถรับ–ส่งถึงโรงแรม)","items":[{"t":"07:30","a":"รถทัวร์มารับที่โรงแรม"},{"t":"08:30","a":"ถึงท่าเรือ ฟังบรีฟ แล้วลงเรือสปีดโบ๊ต"},{"t":"09:30","a":"สาย A — เกาะพีพี: อ่าวมาหยา อ่าวปิเละ ดำน้ำตื้น"},{"t":"09:30","a":"สาย B — อ่าวพังงา: เกาะเจมส์บอนด์ พายแคนูลอดถ้ำ"},{"t":"12:30","a":"อาหารกลางวันบนเกาะ/บนเรือ"},{"t":"14:00","a":"แวะเกาะไข่ / จุดดำน้ำสุดท้าย เล่นน้ำชายหาด"},{"t":"16:00","a":"เรือกลับเข้าฝั่ง"},{"t":"17:30","a":"รถส่งกลับถึงโรงแรม พักผ่อน แล้วหามื้อเย็นใกล้ที่พัก"}]},{"label":"วันที่ 3","title":"หาดฝั่งตะวันตก · จุดชมวิวสามอ่าว · แหลมพรหมเทพ","items":[{"t":"08:30","a":"มื้อเช้าโกปี๊ + ขนมจีนภูเก็ต หรือกาแฟโบราณ"},{"t":"10:00","a":"เล่นน้ำหาดกะตะหรือกะรน (ฝั่งตะวันตก)"},{"t":"12:30","a":"มื้อกลางวันซีฟู้ดแถวกะตะ/ราไวย์"},{"t":"14:30","a":"จุดชมวิวสามอ่าว (Karon Viewpoint)"},{"t":"15:30","a":"แวะวัดฉลอง (ถ้ามีเวลา) ไหว้พระก่อนไปแหลมพรหมเทพ"},{"t":"17:00","a":"ถึงแหลมพรหมเทพ จองที่ยืนรอพระอาทิตย์ตก"},{"t":"18:30","a":"พระอาทิตย์ตก แล้วเดินทางสู่สนามบินภูเก็ต (HKT)"}]}]},"bangkok|2d1n":{"href":"/bangkok-2d1n-itinerary","dest":"กรุงเทพมหานคร","slug":"bangkok","title":"กรุงเทพ 2 วัน 1 คืน วัดเก่า ช้อปปิง สตรีทฟู้ด","src":"แผนเที่ยวกรุงเทพ 2 วัน 1 คืน 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · โรงแรมเก่าแก่ที่สุดของไทย","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fmandarin-oriental-bangkok.html&sid=home","trip":"https://www.trip.com/hotels/bangkok-hotel-detail-995162/mandarin-oriental-bangkok/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"รัตนโกสินทร์ + เยาวราช","items":[{"t":"08:30","a":"เริ่มที่พระบรมมหาราชวัง + วัดพระแก้ว"},{"t":"10:30","a":"เดินต่อไปวัดโพธิ์ (วัดพระเชตุพน)"},{"t":"12:00","a":"พักกินเที่ยง + ของหวานแถวท่าเตียน"},{"t":"13:30","a":"ข้ามเรือจากท่าเตียนไปวัดอรุณ"},{"t":"15:00","a":"กลับฝั่งพระนคร พักโรงแรม อาบน้ำเปลี่ยนชุด"},{"t":"18:30","a":"ลงเยาวราช เริ่มเดินกินสตรีทฟู้ด"},{"t":"22:00","a":"ปิดท้ายด้วยของหวานหรือกาแฟ แล้วกลับที่พัก"}]},{"label":"วันที่ 2","title":"ช้อปปิง (เวอร์ชันวันหยุดสุดสัปดาห์)","items":[{"t":"09:30","a":"ลุยตลาดนัดจตุจักร"},{"t":"12:30","a":"กินเที่ยงในจตุจักร แล้วกลับพักของ"},{"t":"15:00","a":"นั่งเรือ/รถไปไอคอนสยาม (ICONSIAM)"},{"t":"18:00","a":"ดูโชว์น้ำพุริมแม่น้ำ + กินเย็นวิวแม่น้ำ"},{"t":"20:00","a":"เก็บของฝากแล้วกลับ/ต่อทริป"}]}]},"bangkok|3d2n":{"href":"/bangkok-3d2n-itinerary","dest":"กรุงเทพมหานคร","slug":"bangkok","title":"กรุงเทพ 3 วัน 2 คืน เมืองเก่า คาเฟ่ ตลาด รูฟท็อป","src":"แผนเที่ยวกรุงเทพ 3 วัน 2 คืน 2026","stay":{"name":"Mandarin Oriental, Bangkok","url":"/review-mandarin-oriental-bangkok","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/bangkok-mandarinoriental-1.jpg","price":"฿16,000","rev":"Agoda/Booking ~9.4 · โรงแรมเก่าแก่ที่สุดของไทย","agoda":"https://www.agoda.com/mandarin-oriental-bangkok_12/hotel/bangkok-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fmandarin-oriental-bangkok.html&sid=home","trip":"https://www.trip.com/hotels/bangkok-hotel-detail-995162/mandarin-oriental-bangkok/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"รัตนโกสินทร์ — สามวัดริมน้ำ","items":[{"t":"08:30","a":"เริ่มที่พระบรมมหาราชวัง + วัดพระแก้ว"},{"t":"10:30","a":"เดินต่อไปวัดโพธิ์ (วัดพระเชตุพน)"},{"t":"12:00","a":"พักกินเที่ยง + ของหวานแถวท่าเตียน"},{"t":"13:30","a":"ข้ามเรือจากท่าเตียนไปวัดอรุณ"},{"t":"15:30","a":"กลับฝั่งพระนคร เดินเล่นย่านท่าเตียน–ปากคลองตลาด"},{"t":"18:00","a":"กลับที่พัก พัก แล้วหามื้อเย็นเบา ๆ ใกล้ที่พัก"}]},{"label":"วันที่ 2","title":"ตลาดน้อย–เจริญกรุง — คาเฟ่ + ย่านเก่า","items":[{"t":"09:30","a":"คาเฟ่เช้าที่ Mother Roaster หรือร้านกาแฟในตรอกตลาดน้อย"},{"t":"10:30","a":"เดินเล่นตลาดน้อย ถ่ายสตรีทอาร์ต ศาลเจ้าโจวซือกง รถโบราณ"},{"t":"12:30","a":"มื้อเที่ยงในย่าน — ข้าวต้ม ก๋วยเตี๋ยว หรือบาเกิล"},{"t":"14:00","a":"คาเฟ่บ่าย — ENVIES, Feng Huang Tea Bar หรือ The Coffee Store"},{"t":"16:00","a":"เดินเลียบเจริญกรุงไปทาง Warehouse 30 / ริมน้ำ"},{"t":"18:30","a":"มื้อเย็นริมน้ำ หรือกลับพัก"}]},{"label":"วันที่ 3","title":"ตลาด + รูฟท็อปพระอาทิตย์ตก","items":[{"t":"10:00","a":"เลือกตลาดกลางวันตามวันที่คุณอยู่"},{"t":"13:00","a":"กินเที่ยงในตลาด แล้วกลับพักของ–อาบน้ำ"},{"t":"17:30","a":"ขึ้นรูฟท็อปบาร์รับพระอาทิตย์ตก"},{"t":"19:30","a":"ลงจากรูฟท็อป ไปตลาดนัดกลางคืน"},{"t":"22:00","a":"เก็บของฝากปิดทริป แล้วกลับ/เตรียมเดินทาง"}]}]},"ayutthaya|2d1n":{"href":"/ayutthaya-2d1n-itinerary","dest":"พระนครศรีอยุธยา","slug":"ayutthaya","title":"เที่ยวอยุธยา 2 วัน 1 คืน เมืองเก่า ตลาดน้ำ ล่องเรือ","src":"แผนเที่ยวอยุธยา 2 วัน 1 คืน 2026","stay":{"name":"Sala Ayutthaya","url":"/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 รีวิว","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fsala-ayutthaya.html&sid=home","trip":"https://www.trip.com/hotels/phra-nakhon-si-ayutthaya-hotel-detail-2192480/sala-ayutthaya/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"วัดเมืองเก่า + วัดไชยวัฒนารามตอนเย็น","items":[{"t":"10:00","a":"ถึงอยุธยา เก็บของเข้าที่พัก แล้วเริ่มที่วัดมหาธาตุ"},{"t":"11:15","a":"เดินต่อไปวัดพระศรีสรรเพชญ์ ใกล้ ๆ กัน"},{"t":"12:30","a":"พักกินเที่ยง — ก๋วยเตี๋ยวเรือเจ้าดังในเมือง"},{"t":"14:00","a":"ไปวัดใหญ่ชัยมงคล นอกเกาะฝั่งตะวันออกเฉียงใต้"},{"t":"16:00","a":"ปิดท้ายวันที่วัดไชยวัฒนารามตอนแดดร่ม"},{"t":"18:30","a":"กินเย็นริมน้ำ แล้วพักผ่อน"}]},{"label":"วันที่ 2","title":"ตลาดน้ำอโยธยา + ล่องเรือรอบเกาะไหว้พระ","items":[{"t":"09:30","a":"เที่ยวตลาดน้ำอโยธยา"},{"t":"11:30","a":"ชิมของกินในตลาด เลือกของฝากกลับบ้าน"},{"t":"13:00","a":"ลงเรือล่องรอบเกาะเมืองไหว้พระ"},{"t":"15:00","a":"ขึ้นจากเรือ หาคาเฟ่ริมน้ำนั่งพัก"},{"t":"16:30","a":"เก็บของ เดินทางกลับกรุงเทพ"}]}]},"ayutthaya|3d2n":{"href":"/ayutthaya-3d2n-itinerary","dest":"พระนครศรีอยุธยา","slug":"ayutthaya","title":"เที่ยวอยุธยา 3 วัน 2 คืน วัด วัง คาเฟ่ บางปะอิน","src":"แผนเที่ยวอยุธยา 3 วัน 2 คืน","stay":{"name":"Sala Ayutthaya","url":"/review-sala-ayutthaya-ayutthaya","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/ayutthaya-sala-1.jpg","price":"฿4,800","rev":"Trip.com 9.3 · Booking 9.2 · 105 รีวิว","agoda":"https://www.agoda.com/sala-ayutthaya/hotel/ayutthaya-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fsala-ayutthaya.html&sid=home","trip":"https://www.trip.com/hotels/phra-nakhon-si-ayutthaya-hotel-detail-2192480/sala-ayutthaya/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"วัดมหาธาตุ–พระศรีสรรเพชญ์–วัดโลกยสุธา แล้วค่ำดูวัดเปิดไฟ","items":[{"t":"08:30","a":"ออกจากกรุงเทพ ขับรถหรือนั่งรถตู้/รถไฟมาถึงอยุธยา เช็กอินที่พักในเกาะเมืองก่อนเก็บกระเป๋า"},{"t":"10:00","a":"เริ่มที่วัดมหาธาตุ ดูเศียรพระในรากต้นโพธิ์ที่เป็นภาพจำของอยุธยา"},{"t":"11:30","a":"เดินต่อไปวัดพระศรีสรรเพชญ์ เจดีย์ทรงลังกาสามองค์เรียงกัน เคยเป็นวัดในเขตพระราชวังหลวง"},{"t":"13:00","a":"พักกินกลางวัน ก๋วยเตี๋ยวเรือป้าเล็ก ร้านในมิชลินไกด์ ย่านท่าวาสุกรี"},{"t":"15:30","a":"ไปวัดโลกยสุธา ชมพระนอนกลางแจ้งองค์ใหญ่ คนไม่พลุกพล่านเท่าวัดในโซนหลัก"},{"t":"18:30","a":"ถ้าเป็นคืนศุกร์–อาทิตย์ กลับไปวัดมหาธาตุหรือไชยวัฒนารามดูโบราณสถานเปิดไฟกลางคืน"}]},{"label":"วันที่ 2","title":"ไชยวัฒนาราม–วัดใหญ่ชัยมงคล แล้วนั่งคาเฟ่ริมเจ้าพระยา","items":[{"t":"08:00","a":"ไปวัดไชยวัฒนารามตั้งแต่เช้า ปรางค์ประธานทรงขอมริมแม่น้ำ เป็นวัดที่คนนิยมเช่าชุดไทยถ่ายรูป"},{"t":"10:30","a":"ขับไปวัดใหญ่ชัยมงคล เจดีย์ใหญ่ที่ปีนขึ้นไปมองวิวรอบได้ มีพระนอนองค์ยาวด้านข้าง"},{"t":"12:30","a":"กินกลางวันแถบนอกเกาะ แล้วแวะซื้อโรตีสายไหมแม่ป้อม เจ้าเก่าของฝากขึ้นชื่อ"},{"t":"14:30","a":"ข้ามไปฝั่งวัดพุทไธศวรรย์ เลือกนั่งคาเฟ่ริมเจ้าพระยาสักร้าน วิวเจดีย์ริมน้ำ"},{"t":"17:30","a":"ปิดท้ายวันที่บ้านป้อมเพชร คาเฟ่กับร้านอาหารริมโค้งแม่น้ำ ได้วิวกว้างช่วงพระอาทิตย์ตก"}]},{"label":"วันที่ 3","title":"เช็กเอาต์ แล้วออกไปบางปะอินก่อนขับกลับกรุงเทพ","items":[{"t":"09:00","a":"เช็กเอาต์ที่พัก กินมื้อเช้าง่าย ๆ แถวเกาะเมืองก่อนออกเดินทาง"},{"t":"10:00","a":"เข้าชมพระราชวังบางปะอิน เดินชมพระที่นั่งไอศวรรย์ทิพยอาสน์กลางสระน้ำ และหมู่พระที่นั่งสไตล์ผสม"},{"t":"12:00","a":"เช่ารถกอล์ฟหรือเดินชมรอบเขตพระราชวัง แวะหอวิทูรทัศนาที่ปีนขึ้นไปมองวิวรอบได้"},{"t":"13:30","a":"กินกลางวันแถวบางปะอินหรือกลับเข้ามาหาร้านในเมืองก่อนขึ้นทางด่วน"},{"t":"15:00","a":"ออกเดินทางกลับกรุงเทพ เลี่ยงช่วงเย็นวันอาทิตย์ที่รถมักติดขาเข้าเมือง"}]}]},"pai|3d2n":{"href":"/pai-3d2n-itinerary","dest":"ปาย","slug":"pai","title":"เที่ยวปาย 3 วัน 2 คืน น้ำตก สันติชล สะพานไม้ไผ่ พระใหญ่","src":"แผนเที่ยวปาย 3 วัน 2 คืน 2026","stay":{"name":"Reverie Siam Resort","url":"/review-reverie-siam-resort-pai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/pai-reverie-siam-1.jpg","price":"฿4,800","rev":"Booking 9.4 · Agoda 9.3 · 305 รีวิว","agoda":"https://www.agoda.com/reverie-siam-resort/hotel/pai-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Freverie-siam-resort.html&sid=home","trip":"https://www.trip.com/hotels/pai-hotel-detail-846820/reverie-siam/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"มาถึงแบบสบาย ๆ เก็บวิวเมืองตอนเย็น","items":[{"t":"13:00","a":"ถึงปาย เช็คอินที่พัก"},{"t":"14:30","a":"นั่งคาเฟ่ริมแม่น้ำปาย พักจากการเดินทาง"},{"t":"16:30","a":"ขึ้นพระใหญ่ วัดพระธาตุแม่เย็น"},{"t":"18:30","a":"เดินถนนคนเดินปาย (Walking Street)"}]},{"label":"วันที่ 2","title":"สายธรรมชาติเต็มวัน เริ่มเช้าเก็บหมอก","items":[{"t":"05:30","a":"ขึ้นจุดชมวิวหยุนไหล (Yun Lai) รอทะเลหมอก"},{"t":"08:00","a":"หมู่บ้านจีนยูนนานสันติชล (Santichon)"},{"t":"10:30","a":"น้ำตกปั๊มบก (Pam Bok Waterfall)"},{"t":"12:00","a":"พักมื้อเที่ยงแถวทางไปสะพานไม้ไผ่"},{"t":"13:30","a":"สะพานไม้ไผ่บุญโขกู้โส่ (Boon Ko Ku So)"},{"t":"16:00","a":"เลือกปิดท้าย: น้ำพุร้อนท่าปาย หรือ Pai Canyon"}]},{"label":"วันที่ 3","title":"เก็บที่เหลือก่อนลาเมือง","items":[{"t":"08:00","a":"มื้อเช้าหรือบรันช์ในเมือง"},{"t":"09:30","a":"สะพานประวัติศาสตร์ท่าปาย (Memorial Bridge)"},{"t":"10:30","a":"ซื้อของฝาก เก็บกระเป๋า"},{"t":"11:30","a":"ออกเดินทางกลับเชียงใหม่"}]}]},"chiang-rai|3d2n":{"href":"/chiang-rai-3d2n-itinerary","dest":"เชียงราย","slug":"chiang-rai","title":"เที่ยวเชียงราย 3 วัน 2 คืน วัด ดอย สามเหลี่ยมทองคำ","src":"แผนเที่ยวเชียงราย 3 วัน 2 คืน 2026","stay":{"name":"Anantara Golden Triangle Elephant Camp & Resort","url":"/review-anantara-golden-triangle-elephant-camp-resort-chiang-rai","img":"https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/hotels/chiang-rai-anantaragt-1.jpg","price":"฿35,000","rev":"Agoda 9.6 · 44 รีวิว","agoda":"https://www.agoda.com/anantara-golden-triangle-elephant-camp-resort/hotel/chiang-saen-th.html?cid=1965862","booking":"/go/b?u=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fth%2Fanantara-resort-golden-triangle.html&sid=home","trip":"https://www.trip.com/hotels/chiang-saen-hotel-detail-712413/anantara-golden-triangle-elephant-camp-and-resort/?Allianceid=6861268&SID=312919111"},"days":[{"label":"วันที่ 1","title":"วัด งานศิลป์ และไนท์บาซาร์รอบเมือง","items":[{"t":"09:00","a":"วัดร่องขุ่น (วัดขาว)"},{"t":"11:00","a":"พิพิธภัณฑ์บ้านดำ (Baan Dam Museum)"},{"t":"12:30","a":"มื้อกลางวันข้าวซอย"},{"t":"14:00","a":"วัดร่องเสือเต้น (วัดน้ำเงิน)"},{"t":"15:30","a":"วัดห้วยปลากั้ง"},{"t":"18:00","a":"เชียงรายไนท์บาซาร์"}]},{"label":"วันที่ 2","title":"ดอยตุง–สวนแม่ฟ้าหลวง แล้วลงสามเหลี่ยมทองคำ","items":[{"t":"08:00","a":"ออกจากเมืองขึ้นดอยตุง"},{"t":"09:00","a":"พระตำหนักดอยตุง + สวนแม่ฟ้าหลวง"},{"t":"12:00","a":"มื้อกลางวันที่ระเบียงดอยตุง"},{"t":"14:00","a":"ลงสู่สามเหลี่ยมทองคำ อ.เชียงแสน"},{"t":"15:00","a":"ล่องเรือแม่น้ำโขง"},{"t":"16:30","a":"หอฝิ่น อุทยานสามเหลี่ยมทองคำ"},{"t":"18:30","a":"กลับเข้าเมืองเชียงราย"}]},{"label":"วันที่ 3","title":"ไร่ชา คาเฟ่วิว แล้วเดินทางกลับ","items":[{"t":"08:30","a":"ไร่ชาฉุยฟง อ.แม่จัน"},{"t":"11:00","a":"สิงห์ปาร์ค (ไร่บุญรอด)"},{"t":"12:30","a":"มื้อกลางวันในสิงห์ปาร์คหรือกลับเข้าเมือง"},{"t":"14:30","a":"หออัตลักษณ์นครเชียงราย + ของฝาก"},{"t":"16:30","a":"เดินทางกลับ"}]}]}},
   panels: [{"slug":"krabi","name":"กระบี่"},{"slug":"chiang-mai","name":"เชียงใหม่"},{"slug":"phuket","name":"ภูเก็ต"},{"slug":"bangkok","name":"กรุงเทพมหานคร"},{"slug":"ayutthaya","name":"พระนครศรีอยุธยา"},{"slug":"chiang-rai","name":"เชียงราย"}],
   /* Every panel's showcase rows, rendered at build time from the same content
      files the deck reads. Switching destination re-renders from this — no
@@ -1454,8 +1530,8 @@ document.addEventListener('DOMContentLoaded', function () {
           + '<span class="ta-poi-main">'
           + '<span class="ta-poi-name ta-clamp-1"><a href="' + esc(plan.stay.url) + '">' + esc(plan.stay.name) + '</a></span>'
           + '<span class="ta-poi-sub ta-clamp-2">' + esc(C.stayRow) + ' · ' + esc(plan.stay.rev || '') + '</span>'
+          + ota(plan.stay)
           + '</span>'
-          + (plan.stay.agoda ? '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow" target="_blank" href="' + esc(plan.stay.agoda) + '">Agoda</a>' : '')
           + '</div></li>';
       }
       html += '</ul></section>';
@@ -1471,6 +1547,22 @@ document.addEventListener('DOMContentLoaded', function () {
     deckBox.innerHTML = html;
     deckBox.hidden = false;
     return true;
+  }
+
+  /* The stay row's booking links. All three OTAs, named, because "no site is
+     cheapest every time" is the site's own editorial line and a single button
+     quietly contradicts it. rel="sponsored noopener nofollow" + .no-prerender
+     on every one: a speculation-rules prerender would fire a click the reader
+     never made and corrupt attribution on cid=1965862 and the CJ feed. */
+  function otaBtn(href, label) {
+    if (!href) return '';
+    return '<a class="ta-btn ta-btn-quiet no-prerender" rel="sponsored noopener nofollow"'
+      + ' target="_blank" href="' + esc(href) + '">' + esc(label) + '</a>';
+  }
+  function ota(stay) {
+    return '<span class="ta-poi-ota">'
+      + otaBtn(stay.agoda, 'Agoda') + otaBtn(stay.booking, 'Booking') + otaBtn(stay.trip, 'Trip.com')
+      + '</span>';
   }
 
   function esc(s) {

@@ -211,7 +211,27 @@ export function measurePageCoverage(distDir, { contentDir = DEFAULT_CONTENT, pub
 
   const snapshots = expectedSnapshots(publicDir);
   const missingSnapshots = snapshots.filter((r) => !fs.existsSync(path.join(distDir, r)));
-  const indexHtml = fs.existsSync(path.join(distDir, 'index.html'));
+  /* THE HOMEPAGE, beyond "the file is there".
+   *
+   * Existence was the only assertion, and existence is what the old homepage
+   * also satisfied for the three days it sat at / while a commit message said
+   * the planner-first page was "verified and deployed". Nothing in the build
+   * disagreed, because nothing in the build looked at what was in the file.
+   *
+   * So: it must be on the app shell, it must carry analytics, and it must not
+   * be a stub. Each check names one thing that has actually gone wrong here —
+   * a page off the shell, a page with no GA4, a truncated generator run. */
+  const homeFile = path.join(distDir, 'index.html');
+  const indexHtml = fs.existsSync(homeFile);
+  const homeIssues = [];
+  if (indexHtml) {
+    const h = fs.readFileSync(homeFile, 'utf8');
+    if (h.length < 20_000) homeIssues.push(`dist/index.html is ${h.length} B — under the 20,000 B floor, so it is a stub or a truncated generator run`);
+    if (!h.includes('ta-topbar')) homeIssues.push('dist/index.html carries no .ta-topbar — the homepage is NOT on the app shell');
+    if (!h.includes('ta-tabbar')) homeIssues.push('dist/index.html carries no .ta-tabbar — the homepage is NOT on the app shell');
+    if (!/G-[A-Z0-9]{8,}/.test(h)) homeIssues.push('dist/index.html has no GA4 measurement id — the site\'s most-visited page would go dark');
+    if (/name="robots"[^>]*noindex/i.test(h)) homeIssues.push('dist/index.html is marked noindex — a prototype head reached the site root');
+  }
 
   const expected = perDir.reduce((n, d) => n + d.expected, 0);
   const found = perDir.reduce((n, d) => n + d.found, 0);
@@ -219,8 +239,8 @@ export function measurePageCoverage(distDir, { contentDir = DEFAULT_CONTENT, pub
   return {
     distDir, contentDir, publicDir,
     perDir, expected, found, missing, emptyDirs, emptyContentDirs,
-    snapshots: snapshots.length, missingSnapshots, indexHtml,
-    ok: missing.length === 0 && missingSnapshots.length === 0 && indexHtml,
+    snapshots: snapshots.length, missingSnapshots, indexHtml, homeIssues,
+    ok: missing.length === 0 && missingSnapshots.length === 0 && indexHtml && homeIssues.length === 0,
   };
 }
 
@@ -270,6 +290,7 @@ export function assertPageCoverage(distDir = DEFAULT_DIST, { log = console.log, 
   lines.push(`  stubs    : ${nStub}   (present but ≤ ${MIN_PAGE_BYTES} bytes)`);
   if (r.missingSnapshots.length) lines.push(`  snapshots: ${r.missingSnapshots.length} of ${r.snapshots} public/*.html files did not reach dist`);
   if (!r.indexHtml) lines.push('  homepage : dist/index.html IS MISSING');
+  for (const m of (r.homeIssues || [])) lines.push('  homepage : ' + m);
   lines.push('');
   lines.push('  WHY THIS MATTERS: deploying this tree REPLACES the live site with it.');
   lines.push('  Cloudflare accepts it happily — a partial dist is a valid dist. Every page');

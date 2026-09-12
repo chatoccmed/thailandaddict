@@ -664,6 +664,28 @@
   [data-dest-regions] .ta-region-list { margin-block-end: var(--sp-2); }
   [data-dest-regions] .ta-region-links a { cursor: pointer; }
 
+  /* ── THE STAY ROW'S BOOKING BUTTONS ───────────────────────────────────
+     Three named OTAs, because "no site is cheapest every time" is the site's
+     own editorial line and one button quietly contradicts it.
+
+     They sit INSIDE .ta-poi-main, on their own line under the hotel name,
+     rather than in .ta-poi's third grid column: three 44px targets in that
+     column squeeze the name to nothing at 375px. On their own line each is
+     ~90px wide there, so the 44x44 floor holds without a media query and
+     _internal/qa/check-touch-targets.mjs stays green. */
+  .ta-poi-ota {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-block-start: var(--sp-2);
+  }
+  .ta-poi-ota .ta-btn {
+    flex: 1 1 auto;
+    min-inline-size: 44px;
+    padding-inline: var(--sp-3);
+    font-size: var(--step--1);
+  }
+
   /* Reduced motion: nothing here animates anyway, but the chevron rotation is
      a transition and must stop. */
   @media (prefers-reduced-motion: reduce) {

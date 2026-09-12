@@ -1,16 +1,38 @@
-/* gen-proto-home.mjs — builds astro/public/_proto/home.html (TH) and
-   astro/public/_proto/en/home.html (EN) from the REAL repo content.
+/* gen-proto-home.mjs — builds the planner-first homepage from the REAL repo
+   content, for the site root and for the /_proto/ design reference.
 
    Every hotel, restaurant, attraction, score, price, photo path, itinerary row
    and affiliate URL on the page is read from astro/src/content/** at build
    time. Nothing is typed by hand, so nothing can be invented.
 
+   TARGETS
+     site   astro/public/index.html · astro/public/en/index.html
+            indexable, canonical https://thailandaddict.com/, root-absolute hrefs
+     proto  astro/public/_proto/home.html · astro/public/_proto/en/home.html
+            noindex, the design reference the blueprint points at
+
+   The two differ ONLY in robots/canonical/hreflang and the note in the footer.
+   Same markup, same data, one code path — the prototype cannot drift away from
+   the thing it is supposed to be a reference for.
+
+   THE CHROME COMES FROM _internal/lib/chrome.mjs
+   Until 2026-09-12 this file hand-wrote its own skip link, sprite, topbar,
+   footer, rail, tab bar, More popover and language menu — a sixth copy of the
+   markup the whole redesign exists to collapse into one, with its own copy
+   table for nav/search/rail strings in two languages. It is now the fourth
+   legitimate consumer of chrome.mjs, alongside Shell.astro, gen-hubs.mjs and
+   localize.mjs, which is also how it gets chrome in all nine languages.
+
    Run:  node _internal/shell/build/gen-proto-home.mjs
 */
 import fs from 'node:fs';
 import path from 'node:path';
+import { shellHead, shellTop, shellBottom, dirOf } from '../../lib/chrome.mjs';
 
-const ROOT = process.cwd();
+/* Resolved from this file, NOT from process.cwd(): prebuild.mjs imports this
+   generator with the working directory at astro/, and a cwd-relative ROOT would
+   have it reading astro/astro/src/content and writing astro/astro/public. */
+const ROOT = path.resolve(import.meta.dirname, '../../..');
 const C = (p) => path.join(ROOT, 'astro/src/content', p);
 const rd = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const ex = (p) => fs.existsSync(p);
@@ -34,12 +56,71 @@ const r2 = (p) => {
 };
 const J = (o) => JSON.stringify(o).replace(/</g, '\\u003c');
 
+/* Booking.com pays only through CJ, and the CJ id lives in worker.js and
+   nowhere else — every booking.com href on the site is the /go/b route, which
+   302s to the tracking link. Same shape as gen-hubs.mjs:213 and
+   RoundupLayout.astro:89, deliberately: three call sites, one URL format. */
+const goB = (u, sid) => (u && String(u).includes('booking.com'))
+  ? '/go/b?u=' + encodeURIComponent(u) + '&sid=' + String(sid || 'home').replace(/[^\w-]/g, '').slice(0, 60)
+  : '';
+
 /* Locale prefix for every internal content URL. Every page this homepage links
    to has a real EN twin on disk, so an English reader must never be dropped
    onto a Thai page. /api/* and /go/* are worker routes and stay unprefixed,
    and an href that is already localised is left alone. */
 const P = (lang, u) => (lang === 'en' && typeof u === 'string' && u.charAt(0) === '/'
   && !/^\/(en\/|api\/|go\/)/.test(u)) ? '/en' + u : u;
+
+/* ── head blocks the two targets do NOT share ──────────────────────────────
+   Everything else in <head> comes from chrome.mjs::shellHead(). These are the
+   handful of tags that are about WHICH URL this document is, which is the only
+   real difference between the site homepage and its /_proto/ mirror. */
+
+/* Same snippet, same id, same guard as gen-hubs.mjs:22. The prototype carried
+   NO analytics, so shipping it at / would have gone dark on the site's single
+   most important page — measured 2026-09-12: index.html has G-JDXCTEMMFB,
+   _proto/home.html does not. */
+const GA_ID = 'G-JDXCTEMMFB';
+const GA_HEAD = (/^G-[A-Z0-9]{8,}$/.test(GA_ID) && !GA_ID.includes('XXXX'))
+  ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});</script>`
+  : '';
+
+const SITE_URL = 'https://thailandaddict.com';
+const OG_LOCALE = { th:'th_TH', en:'en_US', zh:'zh_CN', ru:'ru_RU', ko:'ko_KR', ja:'ja_JP', hi:'hi_IN', he:'he_IL', ar:'ar_AR' };
+const FAVICON = `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2306B6D4'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">`;
+
+/* hreflang: bare locale code, x-default at the Thai root. Identical to
+   gen-hubs.mjs::page(), localize.mjs::hreflangSet() and gen-sitemap.mjs — a
+   cluster only works if every member agrees, and the homepage is the member
+   Google looks at first. All nine are listed because all nine exist on disk. */
+function SITE_HEAD(t, lang) {
+  const canon = SITE_URL + (lang === 'th' ? '/' : '/' + lang + '/');
+  const alts = HOME_LOCALES
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE_URL}${homeHref(l)}">`)
+    .join('')
+    + `<link rel="alternate" hreflang="x-default" href="${SITE_URL}/">`;
+  return `<title>${esc(t.title)}</title>
+<meta name="description" content="${esc(t.desc)}">
+<link rel="canonical" href="${canon}">
+${alts}
+${FAVICON}
+<meta property="og:site_name" content="ThailandAddict"><meta property="og:type" content="website">
+<meta property="og:title" content="${esc(t.title)}"><meta property="og:description" content="${esc(t.desc)}">
+<meta property="og:url" content="${canon}"><meta property="og:locale" content="${OG_LOCALE[lang] || 'th_TH'}">
+<meta property="og:image" content="${SITE_URL}/images/heroes/krabi.jpg">
+<meta name="twitter:card" content="summary_large_image">`;
+}
+
+/* The design reference. noindex twice over — this meta plus the /_proto/*
+   X-Robots-Tag block in astro/public/_headers, because a meta tag only reaches
+   HTML and the folder also holds a webmanifest and a service worker. */
+function PROTO_HEAD(t, up) {
+  return `<meta name="robots" content="noindex, nofollow">
+<title>${esc(t.title)}</title>
+<meta name="description" content="${esc(t.desc)}">
+<link rel="canonical" href="${esc(t.canonical)}">
+<link rel="manifest" href="${up}manifest.${t.lang}.webmanifest">`;
+}
 
 /* ───────────────────────── region + destination tables ───────────────────── */
 const HUBS = (() => {
@@ -112,7 +193,14 @@ function stays(prov, lang, n) {
        55px taller than its neighbours. Keep the first segment, which is the
        zone; the rest is in the review, where it belongs. */
     zone: String(e.mrtTag || '').replace(/^📍\s*/, '').split(' · ')[0],
-    type: e.type, agoda: e.agodaUrl
+    /* All three OTAs, not just Agoda. Every roundup entry carries agodaUrl,
+       bookingUrl and tripUrl; this generator read only the first, so the
+       homepage — the page with the most traffic — offered one of the site's
+       three booking partners. Booking.com goes through the /go/b worker route,
+       never a CJ link in the HTML (CLAUDE.md: the CJ id lives in worker.js and
+       nowhere else, so changing it is a 30-second deploy instead of an 18,000-
+       page rebuild). */
+    type: e.type, agoda: e.agodaUrl, booking: goB(e.bookingUrl, 'home'), trip: e.tripUrl
   }));
 }
 function artBlocks(slug, lang, n, needPhoto) {
@@ -235,7 +323,8 @@ function planData(lang) {
          TA.poi.putAll() when a plan is adopted, and /trip renders a stored
          img verbatim: a bare images/hotels/... key resolves to a path that
          ships only on R2, so the saved thumbnail 404s there in production. */
-      stay: st && { name: st.name, url: st.url, img: r2(st.img), price: st.price, rev: st.rev, agoda: st.agoda },
+      stay: st && { name: st.name, url: st.url, img: r2(st.img), price: st.price, rev: st.rev,
+        agoda: st.agoda, booking: st.booking, trip: st.trip },
       days: (j.blocks || []).filter(b => b.kind === 'day').map(b => ({
         label: b.label, title: b.title,
         items: (b.items || []).map(i => ({ t: i.time, a: i.activity }))
@@ -500,7 +589,7 @@ function saveBtn(o, t, extra) {
     + (o.lat ? ' data-lat="' + o.lat + '" data-lng="' + o.lng + '"' : '')
     + (o.score ? ' data-score="' + esc(o.score) + '"' : '')
     + (o.price ? ' data-price-from="' + esc(o.price) + '"' : '')
-    + ' data-dur="' + (o.dur || 90) + '" data-source="home-deck" data-trip-href="' + t.up + 'trip"'
+    + ' data-dur="' + (o.dur || 90) + '" data-source="home-deck" data-trip-href="' + t.tripHref + '"'
     + (extra || '')
     + '><span aria-hidden="true">🔖</span>'
     + '<span class="ta-save-off">' + esc(t.saveOff) + '</span>'
@@ -529,7 +618,7 @@ function cardArt(img, alt, t) {
   if (!img || !ex(disk + '-560.webp') || !ex(disk + '-560.jpg')) {
     return '<img src="' + esc(r2(img)) + '" alt="' + esc(alt) + '" loading="lazy" decoding="async">';
   }
-  const u = t.up + '../' + base;   /* site root, not /_proto/ — see build() */
+  const u = t.asset + base;   /* site root, not /_proto/ — see build() */
   return '<picture>'
     + '<source type="image/webp" srcset="' + esc(u) + '-560.webp 560w'
     + (ex(disk + '-880.webp') ? ', ' + esc(u) + '-880.webp 880w' : '')
@@ -706,16 +795,125 @@ function foldCardHtml(o, root) {
 }
 
 /* ───────────────────────────── the page itself ───────────────────────────── */
-function build(lang) {
-  const t = T[lang];
-  const up = t.up;
-  /* `up` reaches /_proto/ (''  from _proto/home.html, '../' from _proto/en/).
-     Site-root assets — /css, /js, /images — are one level ABOVE that, which is
-     why the <head> writes ../css and ../../css. Anything under /images must use
-     this prefix, not `up`: measured 2026-09-09, every _cards path on both pages
-     resolved to /_proto/images/_cards/… and returned 404. They are lazy and far
-     below the fold, so nothing in the console or the network panel showed it. */
-  const root = t.up + '../';
+
+/* The nine locales this homepage exists in. It is the homepage: it exists in
+   every locale that has one, which is all nine, so this is the one place on the
+   site where a hard-coded nine is the correct availability answer rather than a
+   lazy one. Everything else must ask whether the page really exists. */
+const HOME_LOCALES = ['th', 'en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
+const homeHref = (l) => (l === 'th' ? '/' : '/' + l + '/');
+/* Locale-prefix a site-root path, for all nine. `P()` above is the th/en-only
+   version this file already had; it stays because it is applied to hrefs that
+   may ALREADY carry a prefix. */
+const LP = (l, p) => (l === 'th' ? p : '/' + l + p);
+
+/* Footer copy for chrome.mjs::footer(), read from astro/src/i18n/ui.<lang>.json
+   — which carries a complete, human-checked footer block in all nine languages
+   and has been sitting unused. Every label here therefore exists in every
+   locale, which is why none of the links is a city name: those live in
+   _internal/province-data-<loc>/ for 30 cities only, and a footer that silently
+   fell back to Thai for the other six locales is the defect this avoids. */
+const UI_HOME = {};
+function uiOf(lang) {
+  if (!(lang in UI_HOME)) {
+    try { UI_HOME[lang] = rd(path.join(ROOT, 'astro/src/i18n', 'ui.' + lang + '.json')); }
+    catch { UI_HOME[lang] = null; }
+  }
+  return UI_HOME[lang];
+}
+function homeFooter(lang) {
+  const s = (sec, key) => {
+    const mine = (uiOf(lang) || {})[sec];
+    if (mine && mine[key]) return mine[key];
+    const en = (uiOf('en') || {})[sec];
+    return (en && en[key]) || '';
+  };
+  const at = (p) => LP(lang, p);
+  return {
+    /* Bare — chrome.mjs::footer() already prefixes ctx.brand and an em dash. */
+    tagline: s('footer', 'tagline'),
+    blurb: s('footer', 'description'),
+    columns: [
+      { title: s('footer', 'colDestinations'), links: [
+        { href: at('/country-thailand'), label: s('footer', 'linkAllThailand') },
+        { href: at('/destinations'), label: s('nav', 'tourismCities') },
+        { href: at('/region-north'), label: s('nav', 'regionNorth') },
+        { href: at('/region-south'), label: s('nav', 'regionSouth') },
+      ] },
+      { title: s('footer', 'colContent'), links: [
+        { href: at('/plan-your-trip'), label: s('footer', 'linkPrepTrip') },
+        { href: '/trip', label: s('nav', 'planTrip') },
+        { href: at('/search'), label: s('nav', 'searchCta') },
+      ] },
+      { title: s('footer', 'colAbout'), links: [
+        { href: at('/about'), label: s('footer', 'linkAboutUs') },
+        { href: at('/editorial-policy'), label: s('footer', 'linkEditorialPolicy') },
+        { href: at('/contact'), label: s('footer', 'linkContact') },
+        { href: at('/privacy'), label: s('footer', 'linkPrivacy') },
+      ] },
+    ],
+    legal: s('footer', 'affiliateDisclosure'),
+    note: s('footer', 'copyright'),
+  };
+}
+
+/* ctx for _internal/lib/chrome.mjs, documented in chrome.mjs §3.
+   `tab:'explore'` because the homepage IS the Explore destination — it is the
+   one page on the site that gets aria-current on that tab. */
+function shellCtx(lang) {
+  const pfx = homeHref(lang);
+  const at = (p) => LP(lang, p);
+  return {
+    locale: lang,
+    dir: dirOf(lang),
+    kind: 'home',
+    tab: 'explore',
+    path: pfx,
+    brand: 'Thailandaddict',
+    locales: HOME_LOCALES.map((l) => ({ code: l, href: homeHref(l) })),
+    href: {
+      home: pfx,
+      /* /country-thailand, not /destinations — the same target gen-hubs gives
+         the Destinations tab on every other page. A tab bar that lands
+         somewhere different depending on which page you tapped it from is not
+         a tab bar. */
+      places: at('/country-thailand'),
+      search: at('/search'),
+      trip: '/trip',
+      /* /saved does not exist yet (blueprint §5.7); /my-list is the list page
+         that ships today, and it is root-only like /trip. */
+      saved: '/my-list',
+      nearMe: at('/near-me'),
+    },
+    footer: homeFooter(lang),
+    railHref: '/trip',
+  };
+}
+
+function build(lang, target) {
+  const isSite = target === 'site';
+  const base = T[lang];
+  /* The two targets differ in exactly one mechanical way: where the document
+     sits. At the site root, / and /en/index.html can both name assets
+     absolutely. The /_proto/ mirror is two and three directories down, so it
+     keeps the relative climb it already had:
+       `up`    reaches /_proto/  ('' from _proto/home.html, '../' from _proto/en/)
+       `asset` reaches the SITE ROOT — one level above that, which is why the
+               prototype writes ../ and ../../.
+     Anything under /images must use `asset`, never `up`: measured 2026-09-09,
+     every _cards path on both prototype pages resolved to
+     /_proto/images/_cards/… and 404'd. They are lazy and far below the fold, so
+     nothing in the console or the network panel showed it. */
+  const asset = isSite ? '/' : base.up + '../';
+  const tripHref = isSite ? '/trip' : base.up + 'trip';
+  /* canonical is the ONE string that differs between the two targets everywhere
+     it is used — <link rel=canonical>, og:url and the WebPage JSON-LD all read
+     it, and a real homepage that told Google its canonical was
+     /_proto/home.html would be worse than not shipping at all. */
+  const canonical = isSite ? SITE_URL + homeHref(lang) : base.canonical;
+  const t = Object.assign({}, base, { asset, tripHref, canonical, site: isSite });
+  const up = base.up;
+  const root = asset;
   const NAME = (h) => lang === 'th' ? h.th : h.en;
   const RN = (k) => lang === 'th' ? HUBS.REG[k].th : HUBS.REG[k].en;
   const RI = (k) => lang === 'th' ? HUBS.REG[k].intro : HUBS.REG[k].intro_en;
@@ -991,14 +1189,14 @@ function build(lang) {
   }
 
   /* ---- page --------------------------------------------------------------- */
-  return PAGE({ t, lang, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+  return PAGE({ t, lang, isSite, ctx: shellCtx(lang), up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
     guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
     foldLead, foldRail, foldData });
 }
 
 /* ────────────────────────────── page template ───────────────────────────── */
 function PAGE(x) {
-  const { t, lang, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+  const { t, lang, isSite, ctx, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
     guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
     foldLead, foldRail, foldData } = x;
 
@@ -1007,52 +1205,21 @@ function PAGE(x) {
   const JS = fs.readFileSync(path.join(ROOT, '_internal/shell/build/home.page.js'), 'utf8').trim();
 
   return `<!doctype html>
-<html lang="${t.lang}" dir="${t.dir}">
+<html lang="${ctx.locale}" dir="${ctx.dir}">
 <head>
 <meta charset="utf-8">
+${isSite ? GA_HEAD : ''}
+${isSite ? SITE_HEAD(t, lang) : PROTO_HEAD(t, up)}
 
-<!-- viewport-fit=cover is a HARD REQUIREMENT: without it every
-     env(safe-area-inset-*) resolves to 0 and the tab bar sits under the
-     home indicator. Never add maximum-scale or user-scalable=no. -->
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- viewport, both theme-colors, the hashed shell stylesheet, the pagereveal
+     handler, the speculation rules and shell.js — all of it from
+     _internal/lib/chrome.mjs, the same string Shell.astro and gen-hubs emit.
+     It used to be hand-copied here, including the hashed filenames, which
+     drifted: gen-shell re-hashes on every shell edit and a stale name is a 404
+     that renders as an unstyled page with nothing in the console to say why. -->
+${shellHead(ctx)}
 
-<!-- PROTOTYPE ONLY -->
-<meta name="robots" content="noindex, nofollow">
-
-<title>${esc(t.title)}</title>
-<meta name="description" content="${esc(t.desc)}">
-<link rel="canonical" href="${esc(t.canonical)}">
-
-<meta name="theme-color" content="#FBFAF7" media="(prefers-color-scheme: light)" data-shell data-color="#FBFAF7">
-<meta name="theme-color" content="#081113" media="(prefers-color-scheme: dark)"  data-shell data-color="#081113">
-
-<!-- The manifests live in /_proto/, so the EN page one level down needs the up
-     prefix. Without it /_proto/en/manifest.en.webmanifest 404s (2026-09-09). --><link rel="manifest" href="${up}manifest.${t.lang}.webmanifest">
-<!-- No <link rel="icon">: astro/public/favicon.svg and astro/public/icons/ do
-     not exist yet, and a 404 in the console during an owner demo is worse than
-     no icon. Add both once gen-shell has emitted them. -->
-
-<!-- Hashed names come from astro/src/data/shell-manifest.json, never typed
-     here. They were hard-coded and drifted: gen-shell re-hashes on every shell
-     edit, and a stale name is a 404 that shows up as an unstyled page with
-     nothing in the console to say why. gen-shell also rewrites these across
-     /_proto now, for the pages it does not regenerate. -->
-<link rel="stylesheet" href="${up}..${SHELL.css}">
-
-<!-- Incoming view-transition direction. MUST be a parser-blocking inline
-     script in <head>: pagereveal fires before any deferred script runs. -->
 <script>
-addEventListener('pagereveal', function (e) {
-  if (!e.viewTransition) return;
-  var t = 'forwards';
-  try {
-    var a = window.navigation && navigation.activation;
-    if (a && a.navigationType === 'traverse' && a.from && a.entry) {
-      t = a.from.index > a.entry.index ? 'back' : 'forwards';
-    }
-  } catch (err) {}
-  e.viewTransition.types.add(t);
-});
 document.documentElement.setAttribute('data-js', '');
 /* ~200 bytes, parser-blocking on purpose: decides which of the three planner
    states paints FIRST, inside a height-reserved box, so there is no flash and
@@ -1066,54 +1233,12 @@ try {
 } catch (e) { document.documentElement.setAttribute('data-trip', 'none'); }
 </script>
 
-<script type="speculationrules">
-{"prerender":[{"where":{"and":[
-    {"href_matches":"/*"},
-    {"not":{"href_matches":"/api/*"}},
-    {"not":{"href_matches":"/go/*"}},
-    {"not":{"href_matches":"/_proto/*"}},
-    {"not":{"selector_matches":".no-prerender, a[target=_blank], a[rel~=sponsored], a[rel~=nofollow]"}}
-  ]},"eagerness":"moderate"}],
- "prefetch":[{"where":{"href_matches":"/*"},"eagerness":"conservative"}]}
-</script>
-
-<script src="${up}..${SHELL.js}" defer></script>
-
 <style>
 ${CSS}
 </style>
 </head>
 <body>
-<a class="ta-skip" href="#main">${esc(t.skip)}</a>
-
-${SPRITE}
-
-<header class="ta-topbar" id="taTopbar">
-  <a class="ta-topbar-brand" href="home">
-    <svg class="ta-ic ta-mark" aria-hidden="true"><use href="#i-map-pin"></use></svg>
-    <span>Thailandaddict</span>
-  </a>
-
-  <span class="ta-topbar-spacer"></span>
-
-  <nav class="ta-nav-desk" aria-label="${esc(t.navExplore)}">
-    <a href="home" aria-current="page">${esc(t.navExplore)}</a>
-    <a href="krabi">${esc(t.navPlaces)}</a>
-    <a href="trip">${esc(t.navTrip)} <span class="ta-badge" data-count="0">0</span></a>
-  </nav>
-
-  <form class="ta-search-desk" action="search" method="get" role="search">
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-search"></use></svg>
-    <label class="ta-sr" for="q-desk">${esc(t.searchLabel)}</label>
-    <input id="q-desk" type="search" name="q" placeholder="${esc(t.searchPh)}">
-  </form>
-
-  <button class="ta-icon-btn lang-trigger" type="button"
-          popovertarget="taLang" aria-label="ภาษา / Language">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-globe"></use></svg>
-    <span>${esc(t.selfLabel)}</span>
-  </button>
-</header>
+${shellTop(ctx)}
 
 <main class="ta-main" id="main">
   <div class="ta-wrap">
@@ -1177,7 +1302,7 @@ ${SPRITE}
             <ul class="ta-plan-thumbs" data-saves-thumbs></ul>
             <div class="ta-plan-actions">
               <button class="ta-btn ta-btn-primary" type="button" data-make-days>${esc(t.makeDays)}</button>
-              <a class="ta-btn ta-btn-quiet" href="trip">${esc(t.resumeOpen)}</a>
+              <a class="ta-btn ta-btn-quiet" href="${t.tripHref}">${esc(t.resumeOpen)}</a>
             </div>
             <p class="ta-fine">${esc(t.localOnly)}</p>
           </div>
@@ -1189,7 +1314,7 @@ ${SPRITE}
             <p class="ta-fine" data-trip-meta></p>
             <ul class="ta-plan-thumbs" data-trip-thumbs></ul>
             <div class="ta-plan-actions">
-              <a class="ta-btn ta-btn-primary" href="trip">${esc(t.resumeOpen)}</a>
+              <a class="ta-btn ta-btn-primary" href="${t.tripHref}">${esc(t.resumeOpen)}</a>
               <button class="ta-btn ta-btn-quiet" type="button" data-trip-reset>${esc(t.resumeNew)}</button>
               <button class="ta-btn ta-btn-ghost" type="button" data-trip-hide>${esc(t.resumeHide)}</button>
             </div>
@@ -1266,7 +1391,7 @@ ${SPRITE}
     <section class="ta-sec ta-plandock" data-plandock hidden aria-labelledby="h-dock">
       <div class="ta-sec-head">
         <h2 id="h-dock">${esc(t.dockH2)} <span class="ta-badge" data-count="0">0</span></h2>
-        <a class="ta-sec-more" href="trip">${esc(t.dockOpen)}</a>
+        <a class="ta-sec-more" href="${t.tripHref}">${esc(t.dockOpen)}</a>
       </div>
       <ul class="ta-day-list" data-dock-list></ul>
     </section>
@@ -1356,97 +1481,18 @@ ${SPRITE}
       </form>
     </section>
 
-    <!-- ══════════════════════════ 14. FOOTER ════════════════════════════════ -->
-    <footer class="ta-foot">
-      <p class="ta-foot-tag">${esc(t.footTag)}</p>
-      <p class="ta-fine">${esc(t.footDesc)}</p>
-      <ul class="ta-foot-links">
-        <li><a href="${P(lang,'/about')}">${esc(t.footAbout)}</a></li>
-        <li><a href="${P(lang,'/destinations')}">${esc(t.footDest)}</a></li>
-        <li><a href="trip">${esc(t.footTrip)}</a></li>
-        <li><a href="search">${esc(t.footSearch)}</a></li>
-        <li><a href="${P(lang,'/near-me')}">${esc(t.footNear)}</a></li>
-        <li><a href="${t.otherHref}" hreflang="${lang === 'th' ? 'en' : 'th'}">${esc(t.otherLabel)}</a></li>
-      </ul>
-      <p class="ta-fine">${esc(t.protoNote)}</p>
-    </footer>
-
   </div>
 </main>
 
-<aside class="ta-rail" aria-label="${esc(t.railTitle)}">
-  <button class="ta-rail-toggle" type="button" data-rail-toggle
-          aria-expanded="false" aria-controls="taRailBody">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
-    <span class="ta-badge" data-count="0">0</span>
-    <span class="ta-rail-label">${esc(t.railTitle)}</span>
-  </button>
-
-  <div class="ta-rail-body" id="taRailBody">
-    <p class="ta-fine" data-trip-count-label></p>
-    <ul class="ta-day-list" data-rail-list></ul>
-    <p class="ta-fine" data-rail-empty>${esc(t.railEmpty)}</p>
-    <a class="ta-btn ta-btn-quiet" href="trip">${esc(t.railOpen)}</a>
-  </div>
-</aside>
-
-<nav class="ta-tabbar" aria-label="${esc(t.navExplore)}">
-  <a class="ta-tab" href="home" data-tab="explore" aria-current="page">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
-    <span>${esc(t.navExplore)}</span>
-  </a>
-  <a class="ta-tab" href="krabi" data-tab="places">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-map-pin"></use></svg>
-    <span>${esc(t.navPlaces)}</span>
-  </a>
-  <a class="ta-tab" href="search" data-tab="search">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-search"></use></svg>
-    <span>${esc(t.navSearch)}</span>
-  </a>
-  <a class="ta-tab" href="trip" data-tab="trip">
-    <span class="ta-tab-ic">
-      <svg class="ta-ic" aria-hidden="true"><use href="#i-bookmark"></use></svg>
-      <b class="ta-badge" data-count="0">0</b>
-    </span>
-    <span>${esc(t.navTrip)}</span>
-  </a>
-  <button class="ta-tab" type="button" popovertarget="taMore" data-tab="more">
-    <svg class="ta-ic" aria-hidden="true"><use href="#i-menu"></use></svg>
-    <span>${esc(t.navMore)}</span>
-  </button>
-</nav>
-
-<div id="taMore" popover class="ta-more">
-  <p class="ta-more-label">${esc(t.moreDisplay)}</p>
-  <button type="button" data-theme-set="cycle">
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-sun"></use></svg>
-    <span>${esc(t.moreTheme)}</span>
-    <span class="ta-topbar-spacer"></span>
-    <span data-theme-label>${esc(t.moreThemeSys)}</span>
-  </button>
-  <button type="button" popovertarget="taLang">
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-globe"></use></svg>
-    <span>${esc(t.moreLang)}</span>
-  </button>
-  <hr>
-  <a href="trip">
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-bookmark"></use></svg>
-    <span>${esc(t.moreTrip)}</span>
-  </a>
-  <a href="${P(lang,'/near-me')}">
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-map-pin"></use></svg>
-    <span>${esc(t.moreNear)}</span>
-  </a>
-  <button type="button" data-install hidden>
-    <svg class="ta-ic ta-ic-20" aria-hidden="true"><use href="#i-download"></use></svg>
-    <span>${esc(t.moreInstall)}</span>
-  </button>
-</div>
-
-<div id="taLang" popover class="lang-menu">
-  <a href="${lang === 'th' ? 'home' : '../home'}" hreflang="th"${lang === 'th' ? ' aria-current="true"' : ''}>ไทย</a>
-  <a href="${lang === 'th' ? 'en/home' : 'home'}" hreflang="en"${lang === 'en' ? ' aria-current="true"' : ''}>English</a>
-</div>
+<!-- ═══ 14. FOOTER · TRIP RAIL · TAB BAR · More · language · toast ═══════════
+     One call, from _internal/lib/chrome.mjs. All five used to be hand-written
+     here, in two languages, from a copy table this file owned — a sixth copy of
+     the markup the redesign exists to collapse into one. The footer that comes
+     back is the site's real three-column one, sourced from ui.<lang>.json, so
+     it carries 11 crawlable links in nine languages instead of 6 in two. -->
+${shellBottom(ctx)}
+${isSite ? '' : `
+<p class="ta-fine ta-wrap">${esc(t.protoNote)}</p>`}
 
 <!-- Destination sheet. The region list inside it is CLONED from the crawlable
      region block above — one link set, two surfaces, authored once. -->
@@ -1543,10 +1589,23 @@ ${JS}
 }
 
 /* ─────────────────────────────────── run ────────────────────────────────── */
-const outTh = path.join(ROOT, 'astro/public/_proto/home.html');
-const outEn = path.join(ROOT, 'astro/public/_proto/en/home.html');
-fs.mkdirSync(path.dirname(outEn), { recursive: true });
-fs.writeFileSync(outTh, build('th'));
-fs.writeFileSync(outEn, build('en'));
-console.log('TH', (fs.statSync(outTh).size / 1024).toFixed(1) + ' KB', '→', outTh);
-console.log('EN', (fs.statSync(outEn).size / 1024).toFixed(1) + ' KB', '→', outEn);
+/* --proto-only exists for the case where the real homepage must not move — a
+   design review, or a bisect. There is no --site-only: the prototype is cheap
+   and letting it go stale is how a reference stops being one. */
+const PROTO_ONLY = process.argv.includes('--proto-only');
+
+const TARGETS = [
+  ...(PROTO_ONLY ? [] : [
+    { target: 'site', lang: 'th', out: 'astro/public/index.html' },
+    { target: 'site', lang: 'en', out: 'astro/public/en/index.html' },
+  ]),
+  { target: 'proto', lang: 'th', out: 'astro/public/_proto/home.html' },
+  { target: 'proto', lang: 'en', out: 'astro/public/_proto/en/home.html' },
+];
+
+for (const { target, lang, out } of TARGETS) {
+  const file = path.join(ROOT, out);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, build(lang, target));
+  console.log(`${target.padEnd(5)} ${lang}  ${(fs.statSync(file).size / 1024).toFixed(1).padStart(7)} KB  → ${out}`);
+}

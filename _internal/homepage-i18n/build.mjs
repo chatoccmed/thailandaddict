@@ -9,6 +9,27 @@
 //   node build.mjs --extract-en      write en.json (base dict, English values) from source
 //   node build.mjs --check           generate 'en' from en.json, diff static body vs source
 //   node build.mjs zh ru ko ja hi he ar   generate those homepages into astro/public/<lang>/index.html
+/* ⚠️ SUPERSEDED 2026-09-12 — DOES NOT RUN AGAINST THE CURRENT HOMEPAGE.
+ *
+ * This localizes the homepage by find-and-replacing 127 exact HTML substrings
+ * lifted from the old astro/public/en/index.html, and throws on the first
+ * anchor it cannot find. Since the homepage became the planner-first page
+ * (_internal/shell/build/gen-proto-home.mjs), 122 of those 127 anchors are
+ * gone, as is the `<script>\n/*GEN:PROV*\/` data block it needs. It fails on
+ * the first one.
+ *
+ * That is not a bug to fix here. Find-and-replace over one locale's HTML was
+ * never going to carry a page whose visible copy is 75% opening hours,
+ * admission prices and review counts read out of content files. The seven
+ * locale homepages are deliberately frozen on the previous design until
+ * gen-proto-home learns their copy table and their content directories —
+ * measured: with T.zh and L.zh patched in it builds, and renders 0 of 11 plans
+ * and 0 of 8 guide cards, because the itinerary articles do not exist in zh.
+ *
+ * Kept, not deleted: the 127-anchor map is the only written-down inventory of
+ * which strings on a homepage are UI copy, and a locale copy table has to
+ * cover all of them. It is not wired into any build step.
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
