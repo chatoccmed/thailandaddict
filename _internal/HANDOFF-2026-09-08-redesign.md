@@ -251,6 +251,59 @@ then put `MAX_DEPLOY_FILES` back to 19,000 so the countdown is visible again.
 **16 files of headroom is all that is left** — the next ~16 pages turn the gate
 red, which is what it is for.
 
+### Maps — what shipped, and what the data will not support
+
+The owner asked whether a province page should carry a map of everything we
+reviewed, and whether a top-10 page should be map + comparison + drill-down.
+Both were right, and two of the three asks already existed: every roundup has
+had a comparison table (13 rows × 7 cols) and a link from each entry to its own
+deep review (12 of 12 on Krabi). The map did not.
+
+**Geocoding was the bottleneck, not the map code.** 377 of 2,401 hotel reviews
+had coordinates. `_internal/geocode-hotels.mjs` (Nominatim, 1 req/s, resumable,
+same method as the 288 attractions already in `place-coords.json`):
+
+```
+hotel reviews with coordinates   377 → 1,285 of 2,401   (15.7% → 53.5%)
+attractions                      290 →   405
+near-me index                  2,095 → 3,120 places
+roundups with a map                0 →   192 of 397   (496 pages, 9 locales)
+province pages with a map          0 →    29 of  89   (149 pages, 9 locales)
+```
+
+**Most of that script is the part that says no.** Of 2,024 hotel lookups, 1,116
+were rejected: 616 no match, 378 whose road query had decayed to `Moo 1` /
+`หมู่ 11` (a village number matches anything in the province — this took out
+Anantara Bophut deliberately, because "somewhere on Koh Samui" is a 25 km
+error), 79 that came back exactly on the province centroid — Nominatim's way of
+saying it found the province, not the address — and ~40 in the wrong province
+entirely, the worst 1,042 km out. Each rejection is recorded with its reason.
+
+**The ≥60% gate is per LAYER, not per page.** All-or-nothing lit 6 of 89
+province pages; per-layer lights 29 and is more honest, because a map carrying
+only the stays, labelled `ที่พัก 45`, omits nothing it claims. The legend names
+exactly which layers are on the map.
+
+**Where the ceiling is.** 425 of 841 attraction lookups returned "no match":
+Nominatim does not carry most Thai attractions under the names we publish. And
+311 of 1,081 `type:'attraction'` articles are theme guides (`-nature`,
+`-temples-culture`) which have no coordinate at all — they are excluded from
+both sides of the ratio, not skipped. So the `ที่เที่ยว` layer stays thin on
+most pages until someone sources those coordinates another way. That is a
+content gap; nothing in the code will close it.
+
+Leaflet is self-hosted now at `/js/leaflet-1.9.4.js` + `/css/leaflet-1.9.4.css`,
+verified byte-identical on download against the SRI hashes ArticleLayout has
+pinned for months, and `.gitattributes` marks them `-text` so EOL normalisation
+cannot break that. Blueprint §945 asked for this; 277 restaurant maps had been
+loading it from unpkg.
+
+**Still on `tile.openstreetmap.org`,** now from ~920 pages rather than 277.
+Their tile policy restricts heavy use, and this is worth a deliberate provider
+decision (MapTiler and Stadia both have free tiers that cover this volume)
+before traffic grows. Tiles are only fetched after a reader presses the button,
+which keeps the volume far below a per-pageview number, but it is not zero.
+
 ### NEXT STEP
 
 1. **The account move.** It is now the only thing standing between the parked
