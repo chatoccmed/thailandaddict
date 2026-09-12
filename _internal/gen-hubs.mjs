@@ -268,28 +268,58 @@ function bookableGuides(slug){
 const ROUNDDIR = path.join(ROOT,'astro/src/content/roundups');
 const hasRoundup = slug => fs.existsSync(path.join(ROUNDDIR, `top10-hotels-${slug}.json`));
 // Build {ARTS,REVS} indexes for a locale (th = root collections, en = -en collections).
+/* Attraction coordinates. gen-feeds.mjs reads this same sidecar the same way;
+   rows are keyed by canonical URL and carry "via":"nominatim". */
+const PLACE_COORDS=(()=>{try{return JSON.parse(fs.readFileSync(path.join(ROOT,"_internal/place-coords.json"),"utf8"))}catch{return {}}})();
+/* Map popups go through innerHTML, so a POI name is stripped of markup here
+   rather than trusted. 60 chars is what fits one popup line. */
+const THEME_GUIDE_HUB=/-(attractions|nature|temples-culture|old-town|rice-fields|weaving-village|night-market|street-food|cafes?|waterfalls|viewpoints|museums|beaches|islands|day-trips?|itinerary|guide|tips|food|shopping|markets|parks)$/;
+const cleanName = (v) => String(v == null ? '' : v).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
+
 function buildIndex(loc){
   const suf = loc==='th' ? '' : '-'+loc;
   const ARTDIR = path.join(ROOT,'astro/src/content/articles'+suf);
   const REVDIR = path.join(ROOT,'astro/src/content/reviews'+suf);
-  const ARTS={}, REVS={};
+  const ARTS={}, REVS={}, POI={}, POITOT={};
+  /* POI — one flat list per cluster of everything on this page that has a real
+     coordinate, for the province map. Three sources, one shape:
+       s  a hotel review, lat/lng now inline in the JSON
+       e  a restaurant block inside an eat-ranking article
+       a  an attraction article, whose coordinate lives in the sidecar
+          _internal/place-coords.json (keyed by canonical URL) exactly as
+          gen-feeds.mjs has read it since 2026-07
+     Built here rather than read from near-me-index.json because that file is
+     written by gen-near-me, which runs LAST in prebuild — gen-hubs is second,
+     so on a clean build it would be reading yesterday's answer. */
+  const bumpTot = (cluster,kind,n) => { if(!cluster||!n) return; const r=(POITOT[cluster] ||= {s:0,e:0,a:0}); r[kind]+=n; };
+  const addPoi = (cluster, row) => { if(cluster && Number.isFinite(row.la) && Number.isFinite(row.ln)) (POI[cluster] ||= []).push(row); };
   if(fs.existsSync(ARTDIR)) for(const f of fs.readdirSync(ARTDIR).filter(x=>x.endsWith('.json'))){
     try{ const a=JSON.parse(fs.readFileSync(path.join(ARTDIR,f),'utf8'));
       // blurb/readTime/nItems drive the activity-hub cards (activityHub); harmless elsewhere.
       const _blurb=String(a.intro||a.metaDesc||'').replace(/<[^>]+>/g,'').trim();
       const _nItems=Array.isArray(a.blocks)?a.blocks.filter(b=>b&&b.kind==='restaurant').length:0;
-      (ARTS[a.cluster] ||= []).push({slug:a.slug,type:a.type,title:(a.h1||a.title||a.slug),heroImg:imgUrl(a.heroImg||''),blurb:_blurb.length>140?_blurb.slice(0,138)+'…':_blurb,readTime:a.readTime||'',nItems:_nItems}); }catch{}
+      (ARTS[a.cluster] ||= []).push({slug:a.slug,type:a.type,title:(a.h1||a.title||a.slug),heroImg:imgUrl(a.heroImg||''),blurb:_blurb.length>140?_blurb.slice(0,138)+'…':_blurb,readTime:a.readTime||'',nItems:_nItems});
+      if(a.type==='attraction' && !THEME_GUIDE_HUB.test(a.slug)) bumpTot(a.cluster,'a',1);
+      if(a.type==='attraction'){ const pc=PLACE_COORDS['https://thailandaddict.com/'+a.slug]; if(pc&&pc.lat) addPoi(a.cluster,{t:'a',n:cleanName(a.h1||a.title||a.slug),la:pc.lat,ln:pc.lng,u:a.slug}); }
+      bumpTot(a.cluster,'e',(Array.isArray(a.blocks)?a.blocks:[]).filter(b=>b&&b.kind==='restaurant').length);
+      for(const b of (Array.isArray(a.blocks)?a.blocks:[])){ if(b&&b.kind==='restaurant'&&Number.isFinite(b.lat)&&Number.isFinite(b.lng)) addPoi(a.cluster,{t:'e',n:cleanName(b.name),la:b.lat,ln:b.lng,u:a.slug+'#r'+b.rank}); }
+    }catch{}
   }
   if(fs.existsSync(REVDIR)) for(const f of fs.readdirSync(REVDIR).filter(x=>x.endsWith('.json'))){
     try{ const r=JSON.parse(fs.readFileSync(path.join(REVDIR,f),'utf8')); const c=r.cluster||(f.match(/-([a-z-]+)\.json$/)||[])[1]||''; if(!c)continue;
-      (REVS[c] ||= []).push({slug:r.slug,name:r.name||r.slug,score:+(r.score||0),star:+(r.starRating||0),type:r.typeFull||r.type||'',price:r.priceRange||r.qiPrice||'',loc:r.hiLoc||r.badgeLoc||r.qiCol5Value||r.addressLocality||'',img:imgUrl(r.heroImg||r.image||''),agoda:r.bookingAgoda||'',booking:r.bookingBooking||'',trip:r.bookingTrip||''}); }catch{}
+      (REVS[c] ||= []).push({slug:r.slug,name:r.name||r.slug,score:+(r.score||0),star:+(r.starRating||0),type:r.typeFull||r.type||'',price:r.priceRange||r.qiPrice||'',loc:r.hiLoc||r.badgeLoc||r.qiCol5Value||r.addressLocality||'',img:imgUrl(r.heroImg||r.image||''),agoda:r.bookingAgoda||'',booking:r.bookingBooking||'',trip:r.bookingTrip||''});
+      bumpTot(c,'s',1);
+      addPoi(c,{t:'s',n:cleanName(r.name||r.slug),la:r.lat,ln:r.lng,u:r.slug});
+    }catch{}
   }
-  return {ARTS,REVS};
+  return {ARTS,REVS,POI,POITOT};
 }
 const IDX = { th: buildIndex('th'), en: buildIndex('en'), zh: buildIndex('zh'), ru: buildIndex('ru'), ko: buildIndex('ko'), ja: buildIndex('ja'), hi: buildIndex('hi'), he: buildIndex('he'), ar: buildIndex('ar') };
 // LOC-aware accessors (used throughout builders)
 const ARTS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).ARTS[k] });
 const REVS = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).REVS[k] });
+const POI  = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).POI[k] });
+const POITOT = new Proxy({}, { get:(_,k)=> (IDX[LOC]||IDX.en).POITOT[k] });
 // roundups collection (hotel Top-N) → indexed by province slug via slug suffix match, locale-aware.
 // Used to surface ranked stays as image cards at the top of the city-hub stay tab.
 // label = clean short title from h1.
@@ -556,6 +586,20 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .budcard{background:var(--bl-lt);border-radius:16px;padding:18px;text-align:center}.budcard .bud-e{font-size:24px}.budcard .bud-nm{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:13px;color:var(--sub);margin:6px 0 4px}.budcard .bud-amt{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--ink)}
 .budnote{font-size:12px;color:var(--mut);margin-top:10px}
 .cmap{width:100%;height:360px;border:1px solid var(--bdr);border-radius:20px;box-shadow:var(--sh)}@media(max-width:640px){.cmap{height:280px}}
+/* The province map. .cmap-canvas keeps the same height as the iframe it
+   replaces, and is reserved before Leaflet exists so revealing it moves
+   nothing below. Logical properties only — he and ar render these pages. */
+.cmap-lite{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:26px 20px;border:1px solid var(--bdr);border-radius:20px;background:linear-gradient(135deg,#ecfeff,#fff 60%,#fff5f7)}
+.cmap-keys{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cmap-key{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12.5px;color:var(--sub)}
+.cmap-key::before{content:'';inline-size:11px;block-size:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.cmap-k-s::before{background:#0891b2}.cmap-k-e::before{background:#f43f5e}.cmap-k-a::before{background:#f59e0b}
+.cmap-go{min-block-size:44px;min-inline-size:44px;padding-inline:24px;border:0;border-radius:30px;cursor:pointer;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--bl),var(--bl-dk))}
+.cmap-hint{font-size:12.5px;color:var(--sub)}
+.cmap-canvas{width:100%;height:360px;border:1px solid var(--bdr);border-radius:20px;overflow:hidden;z-index:0}
+@media(max-width:640px){.cmap-canvas{height:280px}}
+.cpin{background:none!important;border:none!important}
+.cpin span{display:block;inline-size:16px;block-size:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.45)}
 .maplink{display:inline-block;margin-top:12px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:13px;color:var(--bl-dk)}
 .klook{display:flex;align-items:center;justify-content:space-between;gap:22px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1px solid #fed7aa;border-radius:22px;padding:24px 28px;box-shadow:0 10px 28px rgba(255,91,0,.12);margin-top:18px}@media(max-width:640px){.klook{flex-direction:column;text-align:center;padding:24px 20px}}
 .klook .kl-t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:18px;color:#9a3412}.klook p{font-size:13.5px;color:#9a3412;opacity:.82;margin-top:5px;line-height:1.55}
@@ -1054,7 +1098,51 @@ function provinceHub(slug, th, r, d){
   const seasonTable=`<div class="seasgrid">`+_seas.map(s=>`<div class="seascard"><div class="seas-mo">${s[1]} ${s[0]}</div><div class="seas-nm">${s[2]}</div><p>${s[3]}</p></div>`).join('')+`</div>`+(isNorth?`<div class="seas-warn">⚠️ ${tx(`${th}อยู่ภาคเหนือ — ช่วง ก.พ.–เม.ย. อาจมีหมอกควันและฝุ่น PM2.5 สูง ควรเช็กค่าฝุ่นก่อนเดินทางและเลี่ยงกิจกรรมกลางแจ้งหนัก ๆ`,`${nm} is in the North — Feb–Apr can bring seasonal haze (high PM2.5). Check air quality before you go and ease up on strenuous outdoor activities.`)}</div>`:'');
   const _bud=[['🎒',tx('สายประหยัด','Budget'),'฿800–1,500'],['🏨',tx('กลาง ๆ','Mid-range'),'฿1,800–3,500'],['✨',tx('สบายกระเป๋า','Comfort'),'฿4,500+']];
   const budgetBox=`<div class="budgrid">`+_bud.map(b=>`<div class="budcard"><div class="bud-e">${b[0]}</div><div class="bud-nm">${b[1]}</div><div class="bud-amt">${b[2]}</div></div>`).join('')+`</div><p class="budnote">${tx('* ประมาณการต่อคน/วัน รวมที่พัก อาหาร และค่าเที่ยว','* Rough estimate per person/day — stay, food and activities')}</p>`;
-  const mapBox=_co?`<iframe class="cmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=${(_co.lng-0.28).toFixed(3)}%2C${(_co.lat-0.22).toFixed(3)}%2C${(_co.lng+0.28).toFixed(3)}%2C${(_co.lat+0.22).toFixed(3)}&layer=mapnik&marker=${_co.lat}%2C${_co.lng}" title="${esc(nm)} map"></iframe><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=${_co.lat}%2C${_co.lng}" target="_blank" rel="noopener">${tx('เปิดใน Google Maps →','Open in Google Maps →')}</a>`:'';
+  /* THE PROVINCE MAP (blueprint §884).
+     What stood here was an OpenStreetMap iframe centred on the province with a
+     single marker on the province itself — a picture of where the province is,
+     shown to a reader who already knows. It carried NONE of the places we
+     reviewed. This puts them on it.
+
+     The gate is §884's, applied to the POIs this page actually links: at least
+     8 pins AND ≥60% of the page's own stay/eat/see count, because "a map with
+     40% missing pins is worse than no map" — a reader who counts 9 pins under a
+     page claiming 40 places concludes the other 31 were invented. Below the
+     bar the old single-marker iframe stays: it is honest about being an
+     overview, which is all it ever was.
+
+     Lazy, for the same reason as the roundup map: Leaflet is 147 KB plus a
+     tile per viewport square, and most readers of a city hub never open one. */
+  /* THE GATE, PER LAYER — a sharper reading of §884 than "60% of everything".
+     What makes a map dishonest is claiming a category and then omitting part of
+     it: nine pins under a page that says forty places. A map that carries ONLY
+     the stays, labelled "ที่พัก 45 แห่ง", omits nothing it claims. So each
+     layer qualifies on its own — ≥3 candidates and ≥60% of them geocoded — and
+     the legend states exactly which layers are on the map. Measured: the
+     all-or-nothing form lit 6 of 89 province pages; this lights 26, and the
+     ones it leaves dark are dark because their data is genuinely thin.
+
+     Restaurant coverage is the odd one out at one page: restaurant coordinates
+     live inside eat-ranking articles and are patchy per cluster. That is a
+     content gap this gate correctly refuses to paper over. */
+  const _tot=POITOT[slug]||{s:0,e:0,a:0};
+  const _all=(POI[slug]||[]);
+  const _haveBy=_all.reduce((m,p)=>((m[p.t]=(m[p.t]||0)+1),m),{});
+  const _useKinds=['s','e','a'].filter(t=>(_tot[t]||0)>=3 && (_haveBy[t]||0)/(_tot[t]||1)>=0.6);
+  const _pois=_all.filter(p=>_useKinds.includes(p.t));
+  const _mapOk=_useKinds.length>0 && _pois.length>=8;
+  const _mapJson=JSON.stringify(_pois.map(p=>({t:p.t,n:p.n,la:+p.la.toFixed(5),ln:+p.ln.toFixed(5),u:hubHref(p.u)}))).replace(/</g,'\\u003c');
+  const _byKind=_pois.reduce((m,p)=>((m[p.t]=(m[p.t]||0)+1),m),{});
+  const _legend=[['s',tx('ที่พัก','Stays'),_byKind.s||0],['e',tx('ที่กิน','Food'),_byKind.e||0],['a',tx('ที่เที่ยว','Places'),_byKind.a||0]]
+    .filter(x=>x[2]>0).map(x=>'<span class="cmap-key cmap-k-'+x[0]+'">'+x[1]+' '+x[2]+'</span>').join('');
+  const _gmaps=_co?'<a class="maplink" href="https://www.google.com/maps/search/?api=1&query='+_co.lat+'%2C'+_co.lng+'" target="_blank" rel="noopener">'+tx('เปิดใน Google Maps →','Open in Google Maps →')+'</a>':'';
+  const mapBox=_mapOk
+    ? '<div class="cmap-lite" data-cmap-host><p class="cmap-keys">'+_legend+'</p>'
+      +'<button class="cmap-go" type="button" data-cmap-go>'+tx('🗺️ แสดงแผนที่','🗺️ Show the map')+'</button>'
+      +'<p class="cmap-hint">'+tx('%n จุดที่เรารีวิวไว้','%n places we reviewed').replace('%n',String(_pois.length))+'</p></div>'
+      +'<div class="cmap-canvas" id="cmap" hidden></div>'+_gmaps
+      +'<script>window.__CMAP__='+_mapJson+';<\/script>'
+    : (_co?'<iframe class="cmap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox='+(_co.lng-0.28).toFixed(3)+'%2C'+(_co.lat-0.22).toFixed(3)+'%2C'+(_co.lng+0.28).toFixed(3)+'%2C'+(_co.lat+0.22).toFixed(3)+'&layer=mapnik&marker='+_co.lat+'%2C'+_co.lng+'" title="'+esc(nm)+' map"></iframe>'+_gmaps:'');
   const klook=`<a class="klook" href="https://www.klook.com/${LOC==='th'?'th':'en-US'}/search/?query=${encodeURIComponent(nm)}&aid=121442" target="_blank" rel="nofollow noopener sponsored"><div class="kl-l"><div class="kl-t">${tx(`กิจกรรม ทัวร์ และบัตรเข้าชมใน${th}`,`Activities, tours & tickets in ${nm}`)}</div><p>${tx('ทัวร์รายวัน คุกกิ้งคลาส บัตรเข้าสถานที่ และกิจกรรมกลางแจ้ง — จองล่วงหน้าได้ราคาดีกว่า','Day tours, cooking classes, attraction tickets and outdoor activities — book ahead for better prices')}</p></div><span class="kl-b"><span class="kbadge">klook</span><span>${tx('ดูกิจกรรมทั้งหมด →','Browse all →')}</span></span></a>`;
   // link to our generated activity hub when it exists (activityHub() renders iff the cluster has activity* articles).
   // Keeps the 84 activities-*.html pages from being orphans, and never links a page we didn't write.
@@ -1103,7 +1191,16 @@ ${nbCards?`<div class="section"><div class="sh"><div class="slbl">${tx('📍 เ
 ${faqHtml}
 <div class="seo"><div class="seobox"><h2>${tx(`เกี่ยวกับ — เที่ยว${th}`,`About — ${nm}`)}</h2>${d.introHtml||tx(`<p>คู่มือเที่ยว${th} ครบทั้งที่พัก ที่เที่ยว ของกิน และแผนเที่ยว คัดจากของจริงในพื้นที่</p>`,`<p>A complete ${nm} guide — stays, sights, food and itineraries, picked from the real thing on the ground.</p>`)}<p><b>${tx('ช่วงเวลาแนะนำ:','Best time:')}</b> ${esc(best)}</p></div></div>
 <div class="cta-sec"><div class="ctaband"><h2>${tx(`วางแผนเที่ยว${th}`,`Plan your ${nm} trip`)}</h2><p>${tx('ที่พัก ที่เที่ยว ของกิน และแผนเดินทาง — รวบไว้ให้แล้ว','Stays, sights, food and routes — all gathered for you')}</p><a href="top10-hotels-${slug}.html">${tx('เริ่มจากที่พัก →','Start with stays →')}</a></div></div>`;
-  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#p-'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','').replace(/^p-/,'');if(m[h])act(m[h],true);var w=document.querySelector('.cwrap');if(w)w.classList.add('js-tabs');})();</script>`;
+  /* Popup label goes through the chrome dictionary, like every other string in
+     this file — it renders nine locales. (Written without naming the helper:
+     check-i18n-keys scans the whole file for that token, comments included,
+     and a mention here counts as an unparseable call against its baseline.) */
+  const _cmapMore=JSON.stringify(tx('ดูรายละเอียด →','View details →'));
+  const extraJS=`<script>(function(){var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));function act(id,scroll){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.tab===id)});panels.forEach(function(p){p.classList.toggle('active',p.id==='p-'+id)});if(scroll){var w=document.querySelector('.tabwrap');if(w)window.scrollTo({top:w.offsetTop-64,behavior:'smooth'})}}tabs.forEach(function(t){t.addEventListener('click',function(){act(t.dataset.tab,false);history.replaceState(null,'','#p-'+t.dataset.tab)})});var m={hotels:'stay',stay:'stay',see:'see',eat:'eat',plan:'plan',prep:'prep'},h=(location.hash||'').replace('#','').replace(/^p-/,'');if(m[h])act(m[h],true);var w=document.querySelector('.cwrap');if(w)w.classList.add('js-tabs');})();</script>`
+    /* Only where the map actually rendered. Shipping this handler to the 60 of
+       89 provinces below the gate would be ~1.2 KB of script that returns on
+       its first line — 540 pages once the nine locales are counted. */
+    +(_mapOk?`<script>(function(){var host=document.querySelector('[data-cmap-host]'),go=document.querySelector('[data-cmap-go]'),box=document.getElementById('cmap'),pts=window.__CMAP__;if(!host||!go||!box||!pts||!pts.length)return;var C={s:'#0891b2',e:'#f43f5e',a:'#f59e0b'};function load(cb){if(window.L)return cb();var c=document.createElement('link');c.rel='stylesheet';c.href='/css/leaflet-1.9.4.css';document.head.appendChild(c);var j=document.createElement('script');j.src='/js/leaflet-1.9.4.js';j.onload=cb;j.onerror=function(){go.disabled=false};document.head.appendChild(j)}go.addEventListener('click',function(){go.disabled=true;load(function(){if(!window.L)return;host.hidden=true;box.hidden=false;var map=L.map('cmap',{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);var b=[];pts.forEach(function(p){var ic=L.divIcon({className:'cpin',html:'<span style="background:'+(C[p.t]||C.a)+'"></span>',iconSize:[16,16],iconAnchor:[8,8]});var h='<b>'+p.n+'</b>';if(p.u)h+='<br><a href="'+p.u+'">'+${_cmapMore}+'</a>';L.marker([p.la,p.ln],{icon:ic}).addTo(map).bindPopup(h);b.push([p.la,p.ln])});if(b.length)map.fitBounds(b,{padding:[30,30],maxZoom:14})})})})();<\/script>`:'');
   return page({title:tx(`เที่ยว${th} — ที่พัก ที่เที่ยว ของกิน แผนเที่ยว | ThailandAddict ชีวิตติดเที่ยว`,`${nm} Travel Guide — Hotels, Things to Do, Food & Itineraries | ThailandAddict`),desc:tx(`คู่มือเที่ยว${th} — รีวิวที่พักจัดอันดับ ที่กิน ที่เที่ยว และแผนเที่ยว คัดจากของจริงในพื้นที่ พร้อมเทียบราคาที่พัก`,`A ${nm} travel guide — ranked hotel reviews, food, things to do and itineraries, picked from the real thing, with prices compared.`),slug:`city-${slug}`,jsonld,body,extraJS,image:heroSrc});
 }
 

@@ -9,7 +9,15 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .crumb a:hover{color:var(--bl)}
 /* PROVINCE HERO */
 .phero{position:relative;max-width:1120px;margin:14px auto 0;border-radius:28px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end;box-shadow:0 22px 52px rgba(15,40,70,.22);background:linear-gradient(135deg,#0891b2,#22d3ee 50%,#FB7185)}
-.phero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+/* Both shapes heroPic() can emit. It wraps the hero in a picture element
+   whenever a webp twin exists, which made the img a GRANDchild — so the old
+   child selector stopped matching, the picture became a plain flex item beside
+   .pherobody, and on 829 destination hubs the hero photo collapsed to a 226px
+   block at the BOTTOM of the hero while the headline was squeezed into a 149px
+   column. The selector, not the markup, was the thing out of date.
+   (No backticks in this block: the whole stylesheet is a JS template literal.) */
+.phero>img,.phero>picture{position:absolute;inset:0;z-index:0}
+.phero>img,.phero>picture>img{width:100%;height:100%;object-fit:cover;display:block}
 .phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,55,.34) 28%,rgba(8,30,55,.7) 100%),linear-gradient(125deg,rgba(6,182,212,.36),rgba(251,113,133,.3) 60%,rgba(251,191,36,.24));z-index:1}
 .pherobody{position:relative;z-index:2;padding:38px 40px;color:#fff;width:100%}@media(max-width:600px){.pherobody{padding:24px}.phero{min-height:300px}}
 .pheye{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12px;letter-spacing:.5px;background:rgba(255,255,255,.2);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);padding:6px 15px;border-radius:30px}
@@ -168,6 +176,20 @@ a{text-decoration:none;color:inherit}img{display:block;max-width:100%;object-fit
 .budcard{background:var(--bl-lt);border-radius:16px;padding:18px;text-align:center}.budcard .bud-e{font-size:24px}.budcard .bud-nm{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:13px;color:var(--sub);margin:6px 0 4px}.budcard .bud-amt{font-family:'Outfit',sans-serif;font-weight:800;font-size:18px;color:var(--ink)}
 .budnote{font-size:12px;color:var(--mut);margin-top:10px}
 .cmap{width:100%;height:360px;border:1px solid var(--bdr);border-radius:20px;box-shadow:var(--sh)}@media(max-width:640px){.cmap{height:280px}}
+/* The province map. .cmap-canvas keeps the same height as the iframe it
+   replaces, and is reserved before Leaflet exists so revealing it moves
+   nothing below. Logical properties only — he and ar render these pages. */
+.cmap-lite{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;padding:26px 20px;border:1px solid var(--bdr);border-radius:20px;background:linear-gradient(135deg,#ecfeff,#fff 60%,#fff5f7)}
+.cmap-keys{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cmap-key{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:12.5px;color:var(--sub)}
+.cmap-key::before{content:'';inline-size:11px;block-size:11px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.cmap-k-s::before{background:#0891b2}.cmap-k-e::before{background:#f43f5e}.cmap-k-a::before{background:#f59e0b}
+.cmap-go{min-block-size:44px;min-inline-size:44px;padding-inline:24px;border:0;border-radius:30px;cursor:pointer;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--bl),var(--bl-dk))}
+.cmap-hint{font-size:12.5px;color:var(--sub)}
+.cmap-canvas{width:100%;height:360px;border:1px solid var(--bdr);border-radius:20px;overflow:hidden;z-index:0}
+@media(max-width:640px){.cmap-canvas{height:280px}}
+.cpin{background:none!important;border:none!important}
+.cpin span{display:block;inline-size:16px;block-size:16px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.45)}
 .maplink{display:inline-block;margin-top:12px;font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:13px;color:var(--bl-dk)}
 .klook{display:flex;align-items:center;justify-content:space-between;gap:22px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border:1px solid #fed7aa;border-radius:22px;padding:24px 28px;box-shadow:0 10px 28px rgba(255,91,0,.12);margin-top:18px}@media(max-width:640px){.klook{flex-direction:column;text-align:center;padding:24px 20px}}
 .klook .kl-t{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:900;font-size:18px;color:#9a3412}.klook p{font-size:13.5px;color:#9a3412;opacity:.82;margin-top:5px;line-height:1.55}

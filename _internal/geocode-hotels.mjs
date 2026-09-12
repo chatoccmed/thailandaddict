@@ -64,7 +64,37 @@ const PROV_COORDS = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/provin
 const argv = process.argv.slice(2);
 const REPORT_ONLY = argv.includes('--report');
 const APPLY = argv.includes('--apply');
+const ATTRACTIONS = argv.includes('--attractions');
 const LIMIT = (() => { const i = argv.indexOf('--limit'); return i >= 0 ? Number(argv[i + 1]) : Infinity; })();
+
+/* --attractions geocodes the OTHER half of a province map: the 1,081
+   type:'attraction' articles, of which 288 have coordinates and 793 do not.
+   They carry NO address — only an h1, a title and a Thai province name — so
+   the query shapes differ, but the validator is the same one, which is the
+   point of putting this in the same file.
+   It writes into _internal/place-coords.json, the sidecar gen-feeds.mjs
+   already merges for attractions (rows carry "via":"nominatim"), so nothing
+   downstream needs teaching. */
+const ATTR_SIDECAR = path.join(ROOT, '_internal/place-coords.json');
+const ARTICLES = path.join(ROOT, 'astro/src/content/articles');
+const SITE = 'https://thailandaddict.com';
+/* province-coords.json is keyed by english slug; attraction articles name the
+   province in Thai. This inverts _internal/province-data/<slug>.json, which
+   carries the Thai name for each. */
+let THAI_PROVINCE_CACHE = null;
+function thaiProvince(th) {
+  if (!THAI_PROVINCE_CACHE) {
+    THAI_PROVINCE_CACHE = {};
+    const dir = path.join(ROOT, '_internal/province-data');
+    try {
+      for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+        let j; try { j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')); } catch { continue; }
+        if (j && j.th) THAI_PROVINCE_CACHE[String(j.th).trim()] = f.replace(/\.json$/, '');
+      }
+    } catch { /* no match then, and the validator rejects rather than guesses */ }
+  }
+  return THAI_PROVINCE_CACHE[String(th || '').trim()] || null;
+}
 
 /* Sub-destinations that are not provinces. Twelve of them cover all 335 reviews
    whose cluster has no centroid — measured, not guessed. Without this, those
@@ -100,6 +130,56 @@ function km(a, b) {
 }
 
 const readJson = (f, dflt) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { return dflt; } };
+
+/* ── the attraction backlog ─────────────────────────────────────────────── */
+const attrStore = () => readJson(ATTR_SIDECAR, {});
+const attrKey = (slug) => `${SITE}/${slug}`;
+
+/* Not every type:'attraction' article is a place. 311 of the 1,081 are THEME
+   GUIDES for a province — amnat-charoen-nature, -temples-culture, -rice-fields,
+   -old-town — and a guide to the temples of a province has no coordinate, in
+   the same way that a list has no address. Geocoding them would spend 311
+   requests to invent 311 false pins, and it would also poison the coverage
+   ratio the ≥60% gate reads: they belong in neither the numerator nor the
+   denominator. Measured, not assumed — the sample that exposed this returned
+   "no match" for six Amnat Charoen themes in a row. */
+const THEME_GUIDE = /-(attractions|nature|temples-culture|old-town|rice-fields|weaving-village|night-market|street-food|cafes?|waterfalls|viewpoints|museums|beaches|islands|day-trips?|itinerary|guide|tips|food|shopping|markets|parks)$/;
+
+function attractionBacklog() {
+  const have = attrStore();
+  const out = [];
+  for (const f of fs.readdirSync(ARTICLES).filter((x) => x.endsWith('.json'))) {
+    const j = readJson(path.join(ARTICLES, f), null);
+    if (!j || j.type !== 'attraction') continue;
+    const slug = f.replace(/\.json$/, '');
+    if (THEME_GUIDE.test(slug)) continue;
+    if (typeof j.lat === 'number' && typeof j.lng === 'number') continue;
+    const rec = have[attrKey(slug)];
+    if (rec && rec.lat) continue;                      // already in the sidecar
+    const thProv = String(j.crumbCity || '').trim();
+    const prov = thaiProvince(thProv) || j.cluster;
+    out.push({ slug, thProv, prov, centroid: PROV_COORDS[prov] || null,
+      h1: String(j.h1 || j.title || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() });
+  }
+  return out;
+}
+
+/* An attraction article carries no address at all — only a descriptive h1 and a
+   Thai province. The 288 rows already in place-coords.json show what worked:
+   the LEADING words of the h1, and the slug read as words, each scoped to the
+   province. "อภัยภูเบศร ปราจีนบุรี สวนสมุนไพร คาเฟ่ ร้านยา ของฝาก" was found
+   as "อภัยภูเบศร ปราจีนบุรี" — the name is at the front and the tail is the
+   pitch. Three shapes, widest last; the validator decides. */
+function attractionQueries(r) {
+  const words = r.h1.split(' ').filter(Boolean);
+  const p = r.thProv || r.prov;
+  const qs = [];
+  if (words.length >= 2) qs.push({ q: `${words.slice(0, 2).join(' ')}, ${p}, Thailand`, precision: 'poi' });
+  if (words.length >= 3) qs.push({ q: `${words.slice(0, 3).join(' ')}, ${p}, Thailand`, precision: 'poi' });
+  const fromSlug = r.slug.replace(/-/g, ' ').trim();
+  if (fromSlug.length > 4) qs.push({ q: `${fromSlug}, ${p}, Thailand`, precision: 'poi' });
+  return qs;
+}
 
 /* ── the backlog ────────────────────────────────────────────────────────── */
 function backlog() {
@@ -159,8 +239,14 @@ function validate(r, hit) {
 }
 
 /* ── report ─────────────────────────────────────────────────────────────── */
-const store = readJson(SIDECAR, {});
-const todo = backlog().filter((r) => !store[r.slug]);
+/* One run loop, two sources. The hotel side keys its sidecar by review slug;
+   the attraction side writes into place-coords.json, whose rows are keyed by
+   canonical URL because gen-feeds.mjs has read them that way since 2026-07. */
+const store = ATTRACTIONS ? attrStore() : readJson(SIDECAR, {});
+const storeFile = ATTRACTIONS ? ATTR_SIDECAR : SIDECAR;
+const keyOf = (r) => (ATTRACTIONS ? attrKey(r.slug) : r.slug);
+const queriesOf = (r) => (ATTRACTIONS ? attractionQueries(r) : queriesFor(r));
+const todo = (ATTRACTIONS ? attractionBacklog() : backlog()).filter((r) => !store[keyOf(r)]);
 
 function tally() {
   const rows = Object.values(store);
@@ -236,13 +322,13 @@ async function nominatim(q) {
 }
 
 const work = todo.slice(0, LIMIT);
-console.log(`geocode-hotels: ${work.length} of ${todo.length} to look up (1 req/s — about ${Math.ceil(work.length * 1.1 / 60)} min)\n`);
+console.log(`geocode ${ATTRACTIONS ? "attractions" : "hotels"}: ${work.length} of ${todo.length} to look up (1 req/s — about ${Math.ceil(work.length * 1.1 / 60)} min)\n`);
 
 let ok = 0, rej = 0, i = 0;
 for (const r of work) {
   i++;
   let rec = null;
-  for (const { q, precision } of queriesFor(r)) {
+  for (const { q, precision } of queriesOf(r)) {
     let hit;
     try { hit = await nominatim(q); }
     catch (e) {
@@ -254,11 +340,12 @@ for (const r of work) {
     if (v.ok) { rec = { lat: v.lat, lng: v.lng, prov: r.prov, via: 'nominatim', precision, q, distKm: v.distKm }; break; }
     rec = { why: v.why, q };
   }
-  store[r.slug] = rec || { why: 'no query' };
-  if (store[r.slug].lat) ok++; else rej++;
+  const key = keyOf(r);
+  store[key] = rec || { why: 'no query' };
+  if (store[key].lat) ok++; else rej++;
   /* Written every time, not at the end: a 35-minute run must never lose its
      work to one interruption. */
-  fs.writeFileSync(SIDECAR, JSON.stringify(store, null, 1) + '\n');
+  fs.writeFileSync(storeFile, JSON.stringify(store, null, 1) + '\n');
   if (i % 25 === 0 || i === work.length)
     console.log(`  ${String(i).padStart(5)}/${work.length}  accepted ${ok}  rejected ${rej}   ${r.slug.slice(0, 46)}`);
 }
