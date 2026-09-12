@@ -1338,11 +1338,22 @@ const shellCtx = {
       <div class="map-thumb">
         <img src={asset(data.mapImg)} alt={S.mapAlt} class="rv-fill" />
       </div>}
-    {/* No per-hotel map image? Link the address to the real coordinates rather than show a stand-in map. */}
+    {/* No per-hotel map image? Link the address rather than show a stand-in map.
+        Two kinds of link, and the difference is a promise:
+          · with coordinates — query=lat,lng drops a pin, which asserts "it is
+            exactly here", and we only assert that for a verified position.
+          · without — query=<name, address> is a SEARCH, which asserts nothing
+            about position and lets Google answer. 240 reviews lost their
+            coordinate when the road-centre and area pins were removed; before
+            this, their address went back to being plain unclickable text, which
+            is a worse page for no gain in honesty. */}
     <div class="rv-mapaddr">
-      {(!data.mapImg && data.lat && data.lng)
-        ? <a href={`https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`} target="_blank" rel="nofollow noopener">📍 {data.mapAddr}</a>
-        : data.mapAddr}
+      {data.mapImg ? data.mapAddr
+        : data.lat && data.lng
+          ? <a href={`https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`} target="_blank" rel="nofollow noopener">📍 {data.mapAddr}</a>
+          : data.mapAddr
+            ? <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${data.name} ${data.mapAddr}`)}`} target="_blank" rel="nofollow noopener">📍 {data.mapAddr}</a>
+            : data.mapAddr}
     </div>
     <div class="side-title rv-gap-t-xs">{S.sideNearby}</div>
     <ul class="nearby-list">

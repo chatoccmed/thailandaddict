@@ -301,7 +301,14 @@ function buildIndex(loc){
       (ARTS[a.cluster] ||= []).push({slug:a.slug,type:a.type,title:(a.h1||a.title||a.slug),heroImg:imgUrl(a.heroImg||''),blurb:_blurb.length>140?_blurb.slice(0,138)+'…':_blurb,readTime:a.readTime||'',nItems:_nItems});
       if(a.type==='attraction' && !THEME_GUIDE_HUB.test(a.slug)) bumpTot(a.cluster,'a',1);
       if(a.type==='attraction'){ const pc=PLACE_COORDS['https://thailandaddict.com/'+a.slug]; if(pc&&pc.lat) addPoi(a.cluster,{t:'a',n:cleanName(a.h1||a.title||a.slug),la:pc.lat,ln:pc.lng,u:a.slug}); }
-      bumpTot(a.cluster,'e',(Array.isArray(a.blocks)?a.blocks:[]).filter(b=>b&&b.kind==='restaurant').length);
+      /* Denominator = blocks that are PLACES. `kind:'restaurant'` is the
+         layout's generic ranked-item block, and 497 of the 4,809 are not venues
+         at all — Ang Thong's list includes "รถทัวร์จากกรุงเทพฯ ไปอ่างทอง", a bus
+         route. A row that can never have a coordinate held the eat layer's
+         coverage below the 60% gate permanently. A venue block carries a map
+         link; a how-to row does not. This tightens what is measured, it does
+         not loosen the gate. */
+      bumpTot(a.cluster,'e',(Array.isArray(a.blocks)?a.blocks:[]).filter(b=>b&&b.kind==='restaurant'&&b.mapHref).length);
       for(const b of (Array.isArray(a.blocks)?a.blocks:[])){ if(b&&b.kind==='restaurant'&&Number.isFinite(b.lat)&&Number.isFinite(b.lng)) addPoi(a.cluster,{t:'e',n:cleanName(b.name),la:b.lat,ln:b.lng,u:a.slug+'#r'+b.rank}); }
     }catch{}
   }

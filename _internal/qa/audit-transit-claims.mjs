@@ -64,7 +64,11 @@ nwr["railway"~"^(station|halt)$"](${bbox});
 out center tags;
 nwr["public_transport"="station"]["train"="yes"](${bbox});
 out center tags;`;
-  const res = await fetch('https://overpass-api.de/api/interpreter', {
+  /* Same mirror _internal/geocode-poi-overpass.mjs settled on, and for the same
+      measured reason: overpass-api.de, kumi.systems and private.coffee all
+      refuse TCP connections from this machine, and osm.ch is Switzerland only.
+      See the ENDPOINTS note in that file before changing this. */
+  const res = await fetch('https://maps.mail.ru/osm/tools/overpass/api/interpreter', {
     method: 'POST',
     headers: { 'User-Agent': UA, 'Content-Type': 'text/plain' },
     body: ql,
