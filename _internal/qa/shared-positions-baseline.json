@@ -1,0 +1,142 @@
+{
+  "note": "Shared positions that were already live when check-coords rule 9 was widened from hotel reviews to every content coordinate. Each is two or more DIFFERENT venues carrying one position — usually a cafe given the coordinate of the mall it sits in. This is a list to SHRINK: fix a group and remove its entry. Anything not listed here fails the build.",
+  "rule": "check-coords.mjs rule 9 (duplicate-position)",
+  "groups": [
+    {
+      "pos": "10.43814,99.25141",
+      "members": [
+        "articles/top10-attractions-chumphon@blocks.1",
+        "articles/top10-popular-restaurants-chumphon@blocks.3"
+      ]
+    },
+    {
+      "pos": "13.67092,100.61616",
+      "members": [
+        "articles/top10-popular-cafes-bangna@blocks.1",
+        "articles/top10-popular-restaurants-bangna@blocks.11"
+      ]
+    },
+    {
+      "pos": "13.68759,100.64763",
+      "members": [
+        "articles/top10-popular-cafes-srinakarin@blocks.10",
+        "articles/top10-popular-restaurants-srinakarin@blocks.2"
+      ]
+    },
+    {
+      "pos": "13.72140,100.51680",
+      "members": [
+        "articles/top10-attractions-silom-sathorn@blocks.4",
+        "articles/top10-popular-restaurants-saphan-taksin@blocks.7"
+      ]
+    },
+    {
+      "pos": "13.72822,100.53514",
+      "members": [
+        "articles/top10-attractions-silom-sathorn@blocks.8",
+        "articles/top10-popular-restaurants-silom-sathorn@blocks.11"
+      ]
+    },
+    {
+      "pos": "13.73480,100.51150",
+      "members": [
+        "articles/top10-popular-cafes-chinatown@blocks.8",
+        "reviews/review-loftel-22-hostel-bangkok@(root)"
+      ]
+    },
+    {
+      "pos": "13.73513,100.58223",
+      "members": [
+        "articles/top10-attractions-sukhumvit@blocks.8",
+        "articles/top10-attractions-thong-lo@blocks.1",
+        "articles/top10-popular-cafes-sukhumvit@blocks.1",
+        "articles/top10-popular-cafes-thong-lo@blocks.1"
+      ]
+    },
+    {
+      "pos": "13.73561,100.54575",
+      "members": [
+        "articles/bib-gourmand-bangkok@blocks.5",
+        "articles/michelin-saneh-jaan@blocks.1"
+      ]
+    },
+    {
+      "pos": "13.74370,100.54030",
+      "members": [
+        "articles/top10-popular-restaurants-siam-pratunam@blocks.4",
+        "reviews/review-intercontinental-bangkok@(root)"
+      ]
+    },
+    {
+      "pos": "13.74622,100.54708",
+      "members": [
+        "articles/top10-attractions-ploenchit@blocks.1",
+        "articles/top10-attractions-ploenchit@blocks.3"
+      ]
+    },
+    {
+      "pos": "13.74772,100.54030",
+      "members": [
+        "articles/top10-attractions-chidlom@blocks.9",
+        "articles/top10-attractions-siam-pratunam@blocks.10"
+      ]
+    },
+    {
+      "pos": "13.76480,100.53780",
+      "members": [
+        "articles/top10-popular-cafes-victory-monument@blocks.2",
+        "articles/top10-popular-cafes-victory-monument@blocks.9"
+      ]
+    },
+    {
+      "pos": "13.76900,100.57450",
+      "members": [
+        "articles/top10-attractions-ratchada@blocks.1",
+        "articles/top10-attractions-ratchada@blocks.10"
+      ]
+    },
+    {
+      "pos": "13.76930,100.49498",
+      "members": [
+        "articles/top10-attractions-pinklao@blocks.8",
+        "articles/top10-attractions-riverside@blocks.10"
+      ]
+    },
+    {
+      "pos": "13.77204,100.58366",
+      "members": [
+        "articles/top10-popular-cafes-ratchada@blocks.11",
+        "articles/top10-popular-restaurants-rama9@blocks.4"
+      ]
+    },
+    {
+      "pos": "13.81630,100.56150",
+      "members": [
+        "articles/top10-attractions-central-ladprao@blocks.9",
+        "articles/top10-popular-cafes-central-ladprao@blocks.3",
+        "articles/top10-popular-restaurants-central-ladprao@blocks.11"
+      ]
+    },
+    {
+      "pos": "13.81680,100.55600",
+      "members": [
+        "articles/top10-attractions-ladprao@blocks.1",
+        "articles/top10-popular-cafes-central-ladprao@blocks.9"
+      ]
+    },
+    {
+      "pos": "14.47698,100.04658",
+      "members": [
+        "articles/top10-popular-restaurants-suphan-buri@blocks.4",
+        "articles/top10-popular-restaurants-suphan-buri@blocks.8"
+      ]
+    },
+    {
+      "pos": "6.42640,101.82330",
+      "members": [
+        "articles/top10-attractions-narathiwat@blocks.8",
+        "articles/top10-popular-restaurants-narathiwat@blocks.10"
+      ]
+    }
+  ]
+}

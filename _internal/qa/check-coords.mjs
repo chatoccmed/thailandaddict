@@ -39,10 +39,17 @@
      8  derived-artifact   — astro/src/data/review-coords.json is generated from
         disagreement         the content JSON. If it disagrees, something wrote
                              one without the other and the map is stale.
-     9  not a building     — two DIFFERENT hotels at one position, or a
+     9  not a building     — two DIFFERENT venues at one position, or a
                              coordinate that came from a road-only lookup. Both
                              mean the answer was an area, not an address. 238 of
                              those were shipping pins.
+                             This covers EVERY content coordinate, root and
+                             blocks[N] alike. It once read only hotel reviews,
+                             which was 1,064 of 3,940 — the other 73% went
+                             unchecked and real collisions were live. The 19
+                             that widening it found are pre-existing and sit in
+                             shared-positions-baseline.json, printed on every
+                             run; anything new fails.
 
    PRINCIPLE
    ---------
@@ -51,7 +58,8 @@
    instead of a pin — the map gate (≥60% geocoded) then simply declines to
    render. Nothing in this repo may invent a position to fill a hole.
 
-   Usage:  node _internal/qa/check-coords.mjs [--list] [--warnings]
+   Usage:  node _internal/qa/check-coords.mjs [--list] [--warnings] [--json]
+             --update-baseline  re-record the known shared positions (shrink only)
            exit 0 = OK · exit 11 = a bad coordinate would ship
    ========================================================================== */
 
@@ -63,6 +71,10 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..');
 const SHOW_ALL = process.argv.includes('--list');
 const SHOW_WARN = SHOW_ALL || process.argv.includes('--warnings');
+/* --json prints the failures as data so a cleanup script can act on exactly
+   what the gate objects to, rather than re-implementing the rule and drifting
+   from it. Prose output is for humans; this is for the fixer. */
+const AS_JSON = process.argv.includes('--json');
 
 /* Thailand's true extent, plus ~5 km of slack so a coastal resort on a sandbar
    or a border town is not a false positive:
@@ -120,9 +132,29 @@ function km(a, b) {
 const inBox = (lat, lng) => lat >= BBOX.latMin && lat <= BBOX.latMax && lng >= BBOX.lngMin && lng <= BBOX.lngMax;
 const jread = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return null; } };
 
+/* ---------------------------------------------------------------------------
+   The shared-position ratchet. Keyed by position plus the sorted member list,
+   so a baselined group stops being baselined the moment its membership changes
+   — adding a third venue to a known pair is a new defect and must fail.
+   ------------------------------------------------------------------------ */
+const BASELINE_FILE = path.join(HERE, 'shared-positions-baseline.json');
+const UPDATE_BASELINE = process.argv.includes('--update-baseline');
+const memberKey = (rows) => rows.map((r) => `${r.kind}/${r.slug}@${r.at}`).sort().join('|');
+const groupKey = (pos, rows) => `${pos} ${memberKey(rows)}`;
+let baseline = new Set();
+try { baseline = new Set((JSON.parse(fs.readFileSync(BASELINE_FILE, 'utf8')).groups || []).map((g) => `${g.pos} ${g.members.slice().sort().join('|')}`)); } catch { /* no baseline yet */ }
+const baselineSeen = [];
+const baselineRows = [];
+let baselineHit = 0;
+function baselineHas(pos, rows) {
+  const k = groupKey(pos, rows);
+  if (UPDATE_BASELINE) { baselineSeen.push({ pos, members: rows.map((r) => `${r.kind}/${r.slug}@${r.at}`).sort() }); return true; }
+  return baseline.has(k);
+}
+
 const failures = [];   /* blocks the push */
 const warnings = [];   /* printed, counted, does not block */
-const fail = (kind, where, msg, fix) => failures.push({ kind, where, msg, fix });
+const fail = (kind, where, msg, fix, data) => failures.push({ kind, where, msg, fix, ...(data ? { data } : {}) });
 const warn = (kind, where, msg) => warnings.push({ kind, where, msg });
 
 /* ---------------------------------------------------------------------------
@@ -150,6 +182,26 @@ const CLUSTER_PROVINCE = {
   'khao-yai': 'nakhon-ratchasima', huahin: 'prachuap-khiri-khan',
   railay: 'krabi', 'koh-lanta': 'krabi', 'koh-phi-phi': 'krabi',
   'koh-yao': 'phang-nga', 'khao-lak': 'phang-nga',
+  /* The 33 Bangkok district clusters. Without these, centroidOf() returns null
+     for every one of them and the per-province check never runs — 979
+     coordinates in 99 Thai article files (1,958 with the EN twins) fell through
+     to the weak "within 130 km of SOME province centre" fallback instead.
+     Verified: a cluster:"thong-lo" block pinned at 18.79189,99.00404 — Chiang
+     Mai, 583 km away — passed the gate; the same coordinate under
+     cluster:"bangkok" fails at 583 km. A Thonglor restaurant pinned in Chiang
+     Mai would have shipped. */
+  ari: 'bangkok', bangna: 'bangkok', 'central-ladprao': 'bangkok',
+  'charoen-krung': 'bangkok', chidlom: 'bangkok', chinatown: 'bangkok',
+  'khao-san': 'bangkok', 'on-nut': 'bangkok', 'phrom-phong': 'bangkok',
+  pinklao: 'bangkok', ploenchit: 'bangkok', rama9: 'bangkok',
+  ramkhamhaeng: 'bangkok', ratchada: 'bangkok', ratchathewi: 'bangkok',
+  riverside: 'bangkok', 'sai-tai': 'bangkok', samyan: 'bangkok',
+  'saphan-taksin': 'bangkok', 'siam-pratunam': 'bangkok',
+  'silom-sathorn': 'bangkok', srinakarin: 'bangkok', sukhumvit: 'bangkok',
+  'talat-phlu': 'bangkok', 'thong-lo': 'bangkok', 'victory-monument': 'bangkok',
+  bangkapi: 'bangkok', 'chaeng-watthana': 'bangkok', kaset: 'bangkok',
+  ladprao: 'bangkok', 'bang-khen': 'bangkok', 'mochit-chatuchak': 'bangkok',
+  'bang-sue': 'bangkok',
 };
 const centroidOf = (cluster) => PROV[cluster] || PROV[CLUSTER_PROVINCE[cluster]] || null;
 
@@ -298,6 +350,7 @@ const CONTENT = path.join(ROOT, 'astro/src/content');
 /* Thai source of truth, read first so the twins have something to drift from. */
 const truth = new Map();   /* `${kind}:${slug}` → "lat,lng" */
 const truthName = new Map();   /* same key → the venue name, for the duplicate-position test */
+const truthKind = new Map();   /* same key → the block kind, so presentation blocks can be excluded */
 const key5 = (lat, lng) => `${lat.toFixed(5)},${lng.toFixed(5)}`;
 
 let contentOk = 0, twinsChecked = 0;
@@ -321,7 +374,7 @@ for (const kind of ['reviews', 'articles', 'roundups']) {
       const points = [];
       (function walk(o, p) {
         if (!o || typeof o !== 'object') return;
-        if ('lat' in o || 'lng' in o) points.push({ at: p || '(root)', lat: o.lat, lng: o.lng, name: o.name });
+        if ('lat' in o || 'lng' in o) points.push({ at: p || '(root)', lat: o.lat, lng: o.lng, name: o.name, kind: o.kind });
         for (const k of Object.keys(o)) walk(o[k], p ? `${p}.${k}` : k);
       })(j, '');
 
@@ -331,7 +384,7 @@ for (const kind of ['reviews', 'articles', 'roundups']) {
         if (!good) continue;
         contentOk++;
         const tk = `${kind}:${slug}:${pt.at}`;
-        if (isTruth) { truth.set(tk, key5(pt.lat, pt.lng)); truthName.set(tk, pt.name || j.name || slug); }
+        if (isTruth) { truth.set(tk, key5(pt.lat, pt.lng)); truthName.set(tk, pt.name || j.name || slug); truthKind.set(tk, pt.kind); }
         else {
           const want = truth.get(tk);
           if (want) {
@@ -386,27 +439,78 @@ if (!fs.existsSync(RC)) {
   }
 }
 
-/* ── 4. two DIFFERENT hotels, one position ──────────────────────────────── */
+/* ── 4. two DIFFERENT venues, one position ─────────────────────────────── */
 /* Two buildings cannot share a rooftop point to one metre, so an identical
    position means the lookup answered with something that is not a building —
    a road, a soi, a district. That is the substitution this whole gate exists
    to refuse.
+
+   This rule originally read only `reviews:<slug>:(root)` keys, which is 1,064
+   of the 3,940 Thai content coordinates. The other 2,876 — every restaurant,
+   cafe, temple and market pin living in an article's blocks[] — were never
+   checked, and real collisions were shipping: 13.81630,100.56150 was one pin
+   for three different Central Ladprao venues (สวนสมเด็จย่า 84 พรรษา, Cabo's
+   Cafe & Bistro, RATT Cafe), and "Jaan by Khun Jim" shared a position with the
+   different, Michelin-starred "Saneh Jaan". The walker exists so that "a new
+   block type shipping unchecked" cannot happen; this rule was undoing that.
    The complication is that this repo knowingly carries the same hotel under
    more than one slug (8 pairs, listed in _internal/SESSION-END-2026-07-18.md,
    plus near-misses like chala-number-6 / chala-number6 / chalanumber6). Those
    SHOULD share a position — it is one building. So group by position, then
    collapse by name: only a group holding two or more genuinely different
    hotels is a defect. */
-const norm = (s) => String(s || '').toLowerCase()
+/* Editorial names carry a tail, and the tail is not part of the identity. One
+   venue is written "Here Hai — เฮียให้ (วัฒนา)" in one article and
+   "Here Hai (Vadhana) (เฮียให้ …)" in another; "หินสามวาฬ (จุดชมวิว…)" and
+   "หินสามวาฬ — จุดชมวิว…" are the same rock. Strip the pitch after an em-dash
+   or a middot, strip a parenthetical alias, THEN normalise — otherwise 60-odd
+   pairs of the same place read as different venues sharing a pin. Mirrors
+   splitNames() in _internal/geocode-poi-overpass.mjs, which had to learn the
+   same lesson from the same data. */
+const flatten = (s) => String(s || '')
+  /* Strip diacritics before dropping non-ASCII, or "Café" becomes "caf" while
+     "Cafe" stays "cafe" and one venue reads as two: Featherstone Bistro Cafe
+     and Featherstone Bistro Café & Lifestyle are the same Thonglor address. */
+  .normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .toLowerCase()
   .replace(/[^a-z0-9฀-๿]+/g, '')
   .replace(/^(the|hotel|resort)+/, '')
-  .replace(/(hotel|resort|boutique|spa|house|and|thailand)/g, '');
+  .replace(/(hotel|resort|boutique|spa|house|and|thailand|สาขา)/g, '');
+/* EVERY plausible reading of the name, because the same venue is written
+   differently in different articles and the difference is not always a tail.
+   The commonest shape is a straight TH/EN swap: "So Heng Tai (บ้านโซวเฮงไถ่)"
+   in one article, "บ้านโซวเฮงไถ่ (So Heng Tai Mansion)" in another — one
+   house, and neither string's head matches the other's. So compare SETS of
+   variants and treat any intersection as identity. Same idea as splitNames()
+   in _internal/geocode-poi-overpass.mjs. */
+function nameVariants(s) {
+  let t = String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  t = t.split(/\s*[—–|·]\s*/)[0].trim();
+  const out = new Set();
+  const add = (x) => { const f = flatten(x); if (f.length > 2) out.add(f); };
+  add(t);
+  add(t.replace(/\s*[（(].*$/, ''));                     /* head, alias dropped */
+  const paren = t.match(/[（(]\s*([^）)]+)/);
+  if (paren) add(paren[1]);                              /* the alias itself */
+  add(t.replace(/\s*,.*$/, ''));
+  return out;
+}
+const norm = (s) => [...nameVariants(s)][0] || '';
 const seen = new Map();
 for (const [k, v] of truth) {
-  if (!k.startsWith('reviews:') || !k.endsWith(':(root)')) continue;
-  const slug = k.split(':')[1];
+  const [kind, slug, at] = k.split(':');
+  /* Roundups hold no coordinates of their own, so this is reviews + articles:
+     every Thai content coordinate, whether it sits at the document root or in
+     blocks[N].
+     `kind:'embed'` blocks are excluded: an embed carries the coordinate of the
+     venue it embeds a map for, deliberately, so it shares a position with the
+     block above it and is not a second venue. There is exactly one in the
+     repo — top10-popular-restaurants-chiang-mai blocks.6, the map for
+     ต๋องเต็มโต๊ะ in blocks.5 — and without this it reads as a collision. */
+  if (kind !== 'reviews' && kind !== 'articles') continue;
+  if (truthKind.get(k) === 'embed') continue;
   if (!seen.has(v)) seen.set(v, []);
-  seen.get(v).push({ slug, name: truthName.get(k) || slug });
+  seen.get(v).push({ slug, name: truthName.get(k) || slug, at, kind });
 }
 /* Same building or different buildings? Exact normalized equality is not
    enough: "Mayflower Grande Hotel Chiang Mai (Nimman)" and "Mayflower Grande
@@ -426,22 +530,56 @@ const HC_OSM = (() => {
   return m;
 })();
 function sameBuilding(a, b) {
-  const [na, nb] = [norm(a.name), norm(b.name)];
-  if (na && nb && (na === nb || na.startsWith(nb) || nb.startsWith(na))) return true;
-  if (a.slug.startsWith(b.slug) || b.slug.startsWith(a.slug)) return true;
-  const [oa, ob] = [HC_OSM.get(a.slug), HC_OSM.get(b.slug)];
-  return !!(oa && ob && oa === ob);
+  const [va, vb] = [nameVariants(a.name), nameVariants(b.name)];
+  for (const x of va) for (const y of vb) {
+    if (x === y || x.startsWith(y) || y.startsWith(x)) return true;
+  }
+  /* The slug test only means anything for REVIEWS, where the slug names the
+     venue. For an article block the slug names the ARTICLE, so two different
+     venues in one file share it exactly — which would collapse them and hide
+     the defect. That is not hypothetical: Other Café and LIBARY BKK sit at one
+     position in blocks.2 and blocks.9 of top10-popular-cafes-victory-monument,
+     the same file. For articles, identity is the venue's name and nothing else. */
+  if (a.kind === 'reviews' && b.kind === 'reviews') {
+    if (a.slug.startsWith(b.slug) || b.slug.startsWith(a.slug)) return true;
+    const [oa, ob] = [HC_OSM.get(a.slug), HC_OSM.get(b.slug)];
+    if (oa && ob && oa === ob) return true;
+  }
+  return false;
 }
 for (const [pos, rows] of seen) {
   if (rows.length < 2) continue;
   const distinct = [];
   for (const r of rows) if (!distinct.some((d) => sameBuilding(d, r))) distinct.push(r);
+  const where = [...new Set(rows.map((r) => `astro/src/content/${r.kind}`))].join(' + ');
+  const label = (r) => (r.at === '(root)' ? r.slug : `${r.slug}@${r.at} "${String(r.name).slice(0, 28)}"`);
+  /* A RATCHET, the same device check-touch-targets.mjs uses.
+     Extending this rule from hotel reviews to every content coordinate turned
+     up 19 shared positions that were ALREADY live — a cafe carrying the
+     coordinate of the mall it sits in, mostly, plus two hotels sharing a point
+     with a restaurant. None was introduced by this session's geocoding; all
+     predate it (several carry 7 decimal places, which no generator here
+     writes). Deleting 82 coordinates of the owner's existing content is the
+     owner's call, not this gate's, so the known set is recorded in
+     shared-positions-baseline.json and reported every run — and anything NEW
+     fails the build. The baseline is a list to shrink, not a place to hide
+     things: adding to it requires --update-baseline and shows up in review. */
+  /* Order matters: decide whether it is a defect FIRST, and only then consult
+     the ratchet. Checking the baseline first would quietly enrol every
+     one-venue-many-entries group too, and the baseline would stop meaning
+     "known defects" and start meaning "everything we have seen". */
   if (distinct.length < 2) {
-    if (SHOW_WARN) warn('same-hotel-many-slugs', 'astro/src/content/reviews', `${rows.map((r) => r.slug).join(' + ')} share ${pos} — one building, several slugs, so this is fine`);
+    if (SHOW_WARN) warn('one-venue-many-entries', where, `${rows.map(label).join(' + ')} share ${pos} — one place, several entries, so this is fine`);
     continue;
   }
-  fail('duplicate-position', 'astro/src/content/reviews', `${distinct.length} different hotels all at ${pos}`,
-    `${distinct.slice(0, 4).map((r) => r.slug).join(', ')}${distinct.length > 4 ? ', …' : ''} — this position is a road or an area, not a building. Delete it from all of them.`);
+  if (baselineHas(pos, rows)) {
+    baselineHit++;
+    baselineRows.push(`${pos}  ${distinct.map(label).join(' + ')}`);
+    continue;
+  }
+  fail('duplicate-position', where, `${distinct.length} different venues all at ${pos}`,
+    `${distinct.slice(0, 4).map(label).join(', ')}${distinct.length > 4 ? ', …' : ''} — this position is a road or an area, not a building. Delete it from all of them.`,
+    { pos, members: rows.map((r) => ({ kind: r.kind, slug: r.slug, at: r.at, name: r.name })) });
 }
 
 /* ── 5. a road is not an address ─────────────────────────────────────────── */
@@ -465,8 +603,34 @@ for (const [slug, v] of Object.entries(hc)) {
 }
 
 /* ── report ─────────────────────────────────────────────────────────────── */
-console.log(`check-coords: ${storeOk} store · ${contentOk} content (${twinsChecked} twins cross-checked) · ${derivedOk} shipped map points`);
-console.log(`              ${storeEmpty} recorded misses left WITHOUT a coordinate — correct: we do not invent positions`);
+if (!AS_JSON) console.log(`check-coords: ${storeOk} store · ${contentOk} content (${twinsChecked} twins cross-checked) · ${derivedOk} shipped map points`);
+if (!AS_JSON) console.log(`              ${storeEmpty} recorded misses left WITHOUT a coordinate — correct: we do not invent positions`);
+
+if (UPDATE_BASELINE) {
+  const groups = baselineSeen.sort((a, b) => a.pos.localeCompare(b.pos));
+  fs.writeFileSync(BASELINE_FILE, JSON.stringify({
+    note: 'Shared positions that were already live when check-coords rule 9 was widened from hotel reviews to every content coordinate. Each is two or more DIFFERENT venues carrying one position — usually a cafe given the coordinate of the mall it sits in. This is a list to SHRINK: fix a group and remove its entry. Anything not listed here fails the build.',
+    rule: 'check-coords.mjs rule 9 (duplicate-position)',
+    groups,
+  }, null, 2) + '\n');
+  console.log(`wrote ${groups.length} known shared position(s) to ${path.relative(ROOT, BASELINE_FILE)}`);
+  process.exit(0);
+}
+
+if (baselineHit && !AS_JSON) {
+  console.log('');
+  console.log(`  NOTE: ${baselineHit} shared position(s) are in the ratchet and were NOT failed:`);
+  for (const r of (SHOW_ALL ? baselineRows : baselineRows.slice(0, 8))) console.log('    ' + r);
+  if (!SHOW_ALL && baselineRows.length > 8) console.log(`    … ${baselineRows.length - 8} more (--list)`);
+  console.log('    Each is two or more different venues on one pin, already live before');
+  console.log('    this rule reached article blocks. Fix one and delete its entry from');
+  console.log('    _internal/qa/shared-positions-baseline.json — that file should only shrink.');
+}
+
+if (AS_JSON) {
+  process.stdout.write(JSON.stringify({ failures, warnings }, null, 2) + '\n');
+  process.exit(failures.length ? 11 : 0);
+}
 
 if (warnings.length) {
   const byKind = warnings.reduce((m, w) => ((m[w.kind] = (m[w.kind] || 0) + 1), m), {});
