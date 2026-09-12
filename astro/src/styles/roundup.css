@@ -248,3 +248,34 @@ tr:hover td{background:var(--bl-lt)}
   .entry-header{flex-wrap:wrap}
   .btn-main,.btn-sec,.btn-trip,.btn-text{margin:0 14px 7px}
 }
+
+/* ── THE MAP (blueprint §884) ───────────────────────────────────────────────
+   Renders only when ≥60% of the entries have coordinates and there are at
+   least 3 pins — the layout decides, this only dresses it.
+
+   Logical properties throughout: he and ar render this page too, and the map
+   canvas is one of the few blocks on the site where a physical margin would be
+   visible as an off-centre gutter rather than a subtle one. */
+.rmap-sec{margin:26px 0 8px}
+.rmap-lite{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;
+  padding:26px 20px;border:1px solid var(--bdr,#e6eef2);border-radius:20px;
+  background:linear-gradient(135deg,#ecfeff,#fff 60%,#fff5f7)}
+.rmap-zones{font-family:'Outfit','Noto Sans Thai',sans-serif;font-weight:700;font-size:14px;
+  color:var(--sub,#64748b);line-height:1.7;max-width:44ch}
+.rmap-go{min-block-size:44px;padding-inline:24px;font-weight:800;cursor:pointer}
+.rmap-hint{color:var(--sub,#64748b)}
+/* Height reserved before the map exists, so swapping the button for the canvas
+   moves nothing below it. */
+.rmap-canvas{block-size:380px;border-radius:20px;overflow:hidden;border:1px solid var(--bdr,#e6eef2);z-index:0}
+.rmap-note{color:var(--sub,#64748b);margin-block-start:10px;font-size:12.5px;text-align:center}
+@media(max-width:700px){.rmap-canvas{block-size:320px}}
+
+/* Same numbered pin the 277 restaurant maps already use, so a reader who has
+   seen one recognises the other. Copied deliberately rather than shared: the
+   two layouts have no common stylesheet, and inventing a second pin shape
+   would be the actual duplication. */
+.rpin{background:none!important;border:none!important}
+.rpin span{display:flex;align-items:center;justify-content:center;width:38px;height:38px;
+  border-radius:50%;background:#f43f5e;color:#fff;font-family:'Outfit',sans-serif;font-weight:900;
+  font-size:18px;line-height:1;box-shadow:0 4px 12px rgba(0,0,0,.55);border:3px solid #fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.35)}

@@ -11,3 +11,11 @@
 *.pdf   binary
 *.woff  binary
 *.woff2 binary
+
+# Vendored third-party files — preserved byte-for-byte, never EOL-normalised.
+# astro/public/{js,css}/leaflet-1.9.4.* are the exact files unpkg serves, verified
+# on download against the SRI hashes ArticleLayout has pinned since before the
+# redesign. Line-ending normalisation would change those bytes and quietly break
+# that equivalence, which is the whole reason self-hosting them is safe.
+astro/public/js/leaflet-*.js    -text
+astro/public/css/leaflet-*.css  -text

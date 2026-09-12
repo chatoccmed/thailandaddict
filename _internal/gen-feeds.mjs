@@ -54,6 +54,28 @@ const meta = (type, lang, count) => ({ site: SITE, type, lang, updated: UPDATED,
 // --- TH (canonical: full structured data on every kind) ---
 const th = collect('', '');
 write('hotels.json', { ...meta('hotels', 'th', th.hotels.length), items: th.hotels });
+
+/* slug → [lat, lng] for the LAYOUTS.
+   The feeds are public artefacts under astro/public; a layout reads from
+   astro/src. Same numbers, in the shape RoundupLayout can `import` — exactly
+   how it already imports webp-manifest.json. It lives under src/data, so it is
+   never shipped and costs nothing against the 20,000-file deploy cap.
+
+   Why a roundup needs it: its entries name a hotel and link to that hotel's
+   review by slug, but carry no coordinates of their own — measured, 0 of 3,511.
+   The review has them. This is the join, resolved once at build time instead of
+   3,511 file reads spread across 397 layouts.
+
+   5 decimal places is ~1.1 m, which is finer than the data deserves and keeps
+   the file at a few tens of KB. */
+const coordIndex = {};
+for (const h of th.hotels) {
+  if (typeof h.lat !== 'number' || typeof h.lng !== 'number') continue;
+  const slug = String(h.url).replace(/^https?:\/\/[^/]+\//, '').replace(/\.html$/, '');
+  if (slug) coordIndex[slug] = [Math.round(h.lat * 1e5) / 1e5, Math.round(h.lng * 1e5) / 1e5];
+}
+fs.writeFileSync(path.join(ROOT, 'astro/src/data/review-coords.json'), JSON.stringify(coordIndex) + '\n');
+console.log(`review-coords.json: ${Object.keys(coordIndex).length} of ${th.hotels.length} hotel reviews have coordinates (${(100 * Object.keys(coordIndex).length / th.hotels.length).toFixed(1)}%)`);
 write('restaurants.json', { ...meta('restaurants', 'th', th.restaurants.length), items: th.restaurants });
 write('attractions.json', { ...meta('attractions', 'th', th.attractions.length), items: th.attractions });
 write('guides.json', { ...meta('guides', 'th', th.guides.length), items: th.guides });

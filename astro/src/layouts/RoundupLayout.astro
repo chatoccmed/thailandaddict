@@ -6,6 +6,7 @@ import Analytics from '../components/Analytics.astro';
 import Shell from '../components/Shell.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
+import reviewCoords from '../data/review-coords.json';
 // Serve a webp twin when one exists (pilot: top 150 most-referenced images, see _internal/DEVELOPMENT-PLAN-v4-revenue.md).
 // Gated on the manifest so we never request a .webp that doesn't exist on R2 — <picture> falls back to the original if missing anyway,
 // but the manifest avoids a doomed request for the ~14k images not yet converted.
@@ -173,6 +174,10 @@ const S = {
     quickAnswerEyebrow: 'คำตอบสั้นๆ',
     methodologyLabel: 'วิธีการคัดเลือก · ตรวจสอบ · การเปิดเผย',
     wishWord: '🔖 เก็บลงแผน', wishSaved: '✓ เก็บแล้ว',
+    mapTitle: 'ทั้ง %n แห่งอยู่ตรงไหน',
+    mapShow: '🗺️ แสดงแผนที่',
+    mapHint: '%n แห่งบนแผนที่',
+    mapNote: 'หมุดจากที่อยู่ของที่พัก บางแห่งลงระดับถนน ไม่ใช่หน้าประตู',
     sourcesTitle: 'แหล่งอ้างอิง · Sources & Citations',
     aboutAuthorTitle: 'เกี่ยวกับผู้เขียน',
     ftTag: 'Thailand, Done Right',
@@ -197,6 +202,10 @@ const S = {
     quickAnswerEyebrow: 'Quick Answer',
     methodologyLabel: 'How we picked · Verification · Disclosure',
     wishWord: '🔖 Save to plan', wishSaved: '✓ Saved',
+    mapTitle: 'Where all %n of them are',
+    mapShow: '🗺️ Show the map',
+    mapHint: '%n places on the map',
+    mapNote: 'Pins come from each stay’s address; some land on the street rather than the door.',
     sourcesTitle: 'Sources & Citations',
     aboutAuthorTitle: 'About the author',
     ftTag: 'Thailand, Done Right',
@@ -230,6 +239,10 @@ const S = {
     "methodologyLabel": "评选方法 · 核实流程 · 信息披露",
     "wishWord": "🔖 收藏到行程",
     "wishSaved": "✓ 已收藏",
+    "mapTitle": "这 %n 家分别在哪里",
+    "mapShow": "🗺️ 显示地图",
+    "mapHint": "地图上的 %n 家",
+    "mapNote": "定位来自住宿地址，部分只精确到街道，并非门口。",
     "sourcesTitle": "资料来源与引用",
     "aboutAuthorTitle": "关于作者",
     "ftTag": "玩转泰国，恰到好处",
@@ -269,6 +282,10 @@ const S = {
     "methodologyLabel": "Как мы выбираем · Проверка · Раскрытие информации",
     "wishWord": "🔖 Сохранить в план",
     "wishSaved": "✓ Сохранено",
+    "mapTitle": "Где находятся все %n",
+    "mapShow": "🗺️ Показать карту",
+    "mapHint": "%n объектов на карте",
+    "mapNote": "Точки взяты из адресов; некоторые указывают на улицу, а не на вход.",
     "sourcesTitle": "Источники и ссылки",
     "aboutAuthorTitle": "Об авторе",
     "ftTag": "Таиланд без ошибок",
@@ -308,6 +325,10 @@ const S = {
     "methodologyLabel": "선정 기준 · 검증 방법 · 공개 사항",
     "wishWord": "🔖 여행 계획에 저장",
     "wishSaved": "✓ 저장됨",
+    "mapTitle": "%n곳이 어디에 있는지",
+    "mapShow": "🗺️ 지도 보기",
+    "mapHint": "지도에 %n곳",
+    "mapNote": "숙소 주소로 찍은 핀입니다. 일부는 건물 입구가 아니라 도로 기준입니다.",
     "sourcesTitle": "출처 및 참고 자료",
     "aboutAuthorTitle": "작성자 소개",
     "ftTag": "Thailand, Done Right",
@@ -347,6 +368,10 @@ const S = {
     "methodologyLabel": "選定方法 · 確認プロセス · 開示事項",
     "wishWord": "🔖 プランに保存",
     "wishSaved": "✓ 保存済み",
+    "mapTitle": "%n軒はどこにあるか",
+    "mapShow": "🗺️ 地図を表示",
+    "mapHint": "地図に %n軒",
+    "mapNote": "ピンは住所から取得。一部は建物入口ではなく道路上です。",
     "sourcesTitle": "出典・参考情報",
     "aboutAuthorTitle": "執筆者について",
     "ftTag": "Thailand, Done Right",
@@ -386,6 +411,10 @@ const S = {
     "methodologyLabel": "हमने कैसे चुना · सत्यापन · खुलासा",
     "wishWord": "🔖 प्लान में सेव करें",
     "wishSaved": "✓ सेव हो गया",
+    "mapTitle": "ये %n जगहें कहाँ हैं",
+    "mapShow": "🗺️ नक्शा दिखाएं",
+    "mapHint": "नक्शे पर %n जगहें",
+    "mapNote": "पिन पते से लिए गए हैं; कुछ दरवाज़े की जगह सड़क पर हैं।",
     "sourcesTitle": "स्रोत और संदर्भ",
     "aboutAuthorTitle": "लेखक के बारे में",
     "ftTag": "Thailand, Done Right",
@@ -425,6 +454,10 @@ const S = {
     "methodologyLabel": "איך בחרנו · אימות · גילוי נאות",
     "wishWord": "🔖 שמירה לתוכנית",
     "wishSaved": "✓ נשמר",
+    "mapTitle": "איפה נמצאים כל %n",
+    "mapShow": "🗺️ הצגת המפה",
+    "mapHint": "%n מקומות על המפה",
+    "mapNote": "הסימונים נלקחו מהכתובות; חלקם על הרחוב ולא על הכניסה.",
     "sourcesTitle": "מקורות והפניות",
     "aboutAuthorTitle": "על הכותב",
     "ftTag": "תאילנד, כמו שצריך",
@@ -464,6 +497,10 @@ const S = {
     "methodologyLabel": "كيف اخترنا · التحقق · الإفصاح",
     "wishWord": "🔖 حفظ في الخطة",
     "wishSaved": "✓ تم الحفظ",
+    "mapTitle": "أين تقع الـ %n كلها",
+    "mapShow": "🗺️ إظهار الخريطة",
+    "mapHint": "%n أماكن على الخريطة",
+    "mapNote": "المواقع مأخوذة من العناوين؛ بعضها على الشارع لا على المدخل.",
     "sourcesTitle": "المصادر والاستشهادات",
     "aboutAuthorTitle": "عن الكاتب",
     "ftTag": "تايلاند، بالطريقة الصحيحة",
@@ -496,6 +533,55 @@ const wishProvince = cityCrumb ? cityCrumb.name : '';
 // Strip a review href down to the bare slug used as the wishlist key:
 // drop a leading "/" or "/en/" and the trailing ".html".
 const wishSlug = (h: string) => (h || '').replace(/^\/?(?:en\/)?/, '').replace(/\.html$/i, '');
+
+/* ── THE MAP (blueprint §884) ──────────────────────────────────────────────
+   A ranked list answers "which one is best". It does not answer "which of
+   these is near the beach and which is in town", which is the other half of
+   choosing a hotel, and the reason this page needed a map.
+
+   The entries carry no coordinates of their own — 0 of 3,511, measured. They
+   carry a `reviewUrl`, and the review has them, so this is a join: gen-feeds
+   emits src/data/review-coords.json (slug → [lat, lng]) and it is resolved
+   here, once, at build time.
+
+   THE GATE IS THE POINT. Blueprint §884: render only when ≥60% of the
+   cluster's POIs are geocoded, "a map with 40% missing pins is worse than no
+   map" — a reader counts nine pins under a heading that says twelve and
+   concludes the other three do not exist. Plus a floor of 3 pins, matching the
+   rule ArticleLayout has used on 277 restaurant maps since before the
+   redesign. Below either bar, no map and no heading; the page is exactly what
+   it was.
+
+   No tiles, no Leaflet and no 147 KB are requested until the reader asks — the
+   map ships as a button, not as a map. */
+const REVIEW_COORDS = (reviewCoords as Record<string, [number, number]>);
+/* Popup content goes through innerHTML in Leaflet's bindPopup, so the name is
+   stripped of markup here rather than trusted. Entry names are plain text
+   today; that is not a reason to hand one to innerHTML unexamined. */
+const mapText = (v: any) => String(v == null ? '' : v).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const mapPins = (data.entries || [])
+  .map((e: any) => {
+    const c = REVIEW_COORDS[wishSlug(e.reviewUrl)];
+    if (!c) return null;
+    return { rank: e.rank, name: mapText(e.name), lat: c[0], lng: c[1],
+      zone: mapText(String(e.mrtTag || '').replace(/^📍\s*/, '').split(' · ')[0]),
+      price: mapText(e.priceBig), score: e.score || null,
+      href: e.reviewUrl ? link(e.reviewUrl) : '' };
+  })
+  .filter(Boolean) as any[];
+const mapTotal = (data.entries || []).length;
+const mapCoverage = mapTotal ? mapPins.length / mapTotal : 0;
+const showMap = mapPins.length >= 3 && mapCoverage >= 0.6;
+/* `mrtTag` is not a zone field. On some roundups its first segment is a real
+   area ("คาบสมุทรพระนาง", 6 of them across 12 Krabi hotels); on others it is
+   the street address, and the Khao San page produced ten "zones" for ten
+   hotels — "265 ถ.ข้าวสาร" is not a neighbourhood, it is a doorstep.
+   So the list is shown only when it actually groups: at most one area per two
+   hotels. Where it does not, the button stands alone, which is no worse than
+   what the page had. */
+const mapZones = [...new Set(mapPins.map((p: any) => p.zone).filter(Boolean))];
+const showMapZones = mapZones.length >= 2 && mapZones.length <= Math.ceil(mapPins.length / 2);
+const fill = (s: string, n: number, z: number) => String(s).replace('%n', String(n)).replace('%z', String(z));
 
 const itemList = {
   '@type': 'ItemList',
@@ -1043,6 +1129,74 @@ const mbarHref = mbarPick ? goB(mbarPick.agodaUrl) : '';
       {(data as any).compareInsightsTitle && <h2>{(data as any).compareInsightsTitle}</h2>}
       <div class="compare-insights-body" set:html={(data as any).compareInsightsHtml}></div>
     </section>
+  )}
+
+  {showMap && (
+    <section class="rmap-sec" aria-labelledby="rmap-h">
+      <h2 class="compare-title" id="rmap-h">{fill(S.mapTitle, mapPins.length, mapZones.length)}</h2>
+      {/* The button IS the map until someone wants one. Leaflet is 147 KB and a
+          tile request per square of the viewport; shipping that to every reader
+          of 397 roundups to decorate a page most of them scroll past is the
+          trade blueprint §870 refuses. The zone list below is the part that
+          answers the question without any of it. */}
+      <div class="rmap-lite" data-rmap-host>
+        {showMapZones && <p class="rmap-zones">{mapZones.slice(0, 6).join(' · ')}</p>}
+        <button class="ta-btn ta-btn-primary rmap-go" type="button" data-rmap-go>{S.mapShow}</button>
+        <p class="ta-fine rmap-hint">{fill(S.mapHint, mapPins.length, mapZones.length)}</p>
+      </div>
+      <div class="rmap-canvas" id="rmap" hidden></div>
+      <p class="ta-fine rmap-note">{S.mapNote}</p>
+    </section>
+  )}
+
+  {showMap && (
+    <script is:inline define:vars={{ pins: mapPins, readLabel: S.btnText }}>
+      (function () {
+        var host = document.querySelector('[data-rmap-host]');
+        var go = document.querySelector('[data-rmap-go]');
+        var box = document.getElementById('rmap');
+        if (!host || !go || !box) return;
+
+        /* Self-hosted, not unpkg. Blueprint §945 called that out as a
+           fourth-party origin on the critical path; the files under /js and
+           /css are byte-identical to the ones the SRI hashes in ArticleLayout
+           already pin, verified on download. */
+        function load(cb) {
+          if (window.L) return cb();
+          var css = document.createElement('link');
+          css.rel = 'stylesheet'; css.href = '/css/leaflet-1.9.4.css';
+          document.head.appendChild(css);
+          var js = document.createElement('script');
+          js.src = '/js/leaflet-1.9.4.js';
+          js.onload = cb;
+          js.onerror = function () { go.disabled = false; go.textContent = '⚠'; };
+          document.head.appendChild(js);
+        }
+
+        go.addEventListener('click', function () {
+          go.disabled = true;
+          load(function () {
+            if (!window.L) return;
+            host.hidden = true;
+            box.hidden = false;
+            var map = L.map('rmap', { scrollWheelZoom: false });
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+              { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+            var pts = [];
+            pins.forEach(function (p) {
+              var icon = L.divIcon({ className: 'rpin', html: '<span>' + p.rank + '</span>', iconSize: [30, 30], iconAnchor: [15, 15] });
+              var html = '<b>' + p.name + '</b>';
+              if (p.zone) html += '<br><span style="color:#64748b">📍 ' + p.zone + '</span>';
+              if (p.price) html += '<br><span style="color:#64748b">' + p.price + '</span>';
+              if (p.href) html += '<br><a href="' + p.href + '">' + readLabel + '</a>';
+              L.marker([p.lat, p.lng], { icon: icon }).addTo(map).bindPopup(html);
+              pts.push([p.lat, p.lng]);
+            });
+            if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 15 });
+          });
+        });
+      })();
+    </script>
   )}
 
   <div class="compare-section rv">
