@@ -1,20 +1,24 @@
 # HANDOFF — Andaman Deck redesign
 
-Last updated 2026-09-11. `origin/main` = `cbaabb6da`.
+Last updated 2026-09-12. `origin/main` = `cf700ea49`.
+
+**🚀 DEPLOYED 2026-09-12 — Worker version `b0bf2fc8`** (b0bf2fc8-42f5-4c88-a404-2d10e00ff29d),
+17,146 pages, 19,784 deployable files. Everything below that said COMMITTED, NOT
+DEPLOYED is now live and verified against production.
 
 ## Read this first
 
 | | state |
 |---|---|
 | Phase 1 prototype `/_proto/` | **LIVE** |
-| Planner-first homepage, th + en | **COMMITTED, NOT DEPLOYED** — at `/` and `/en/` since `285f09451` |
+| Planner-first homepage, th + en | **LIVE** at `/` and `/en/` |
 | Planner-first homepage, the other 7 locales | **deliberately not done — see below** |
-| Phase 2 — the 3 Astro layouts (~17,187 pages) | **LIVE** (Worker `217fb226`) |
+| Phase 2 — the 3 Astro layouts | **LIVE** |
 | Permanent build fix | **LIVE** |
 | Deploy gates (floor + ceiling) | **LIVE** |
-| Phase 2 — destination hubs, all 9 locales | **COMMITTED, NOT DEPLOYED** — 1,970 of 2,054 snapshots on the shell |
-| Shell chrome in all 9 languages | **COMMITTED, NOT DEPLOYED** |
-| zh/ru/ko translations (2,343 files) | builds fine; **22,168 files vs a 20,000 hard cap** — this is what blocks the deploy |
+| Phase 2 — destination hubs, all 9 locales | **LIVE** — 1,970 of 2,054 snapshots on the shell |
+| Shell chrome in all 9 languages | **LIVE** |
+| zh/ru/ko Plan-B article translations | **PARKED** to fit the cap — 2,384 files, restore command in `5aa03c966` |
 | Cloudflare account move | prep done as far as possible; **blocked on one API token** |
 
 ### The homepage: what happened, and what it took
@@ -100,11 +104,29 @@ Verify the artefact, never the report. For anything that claims to have edited a
 
 ## What is live
 
-Worker `217fb226`, 17,187 pages, 19,801 deployable files. All three layouts share `shell.d3a3e44b.css`. Verified on the live review page: Trip.com SID x11, CJ Booking x2, h1 x1, JSON-LD x2, base64 x0, FAB x0.
+Worker `b0bf2fc8`, 17,146 pages, 19,784 deployable files, deployed 2026-09-12.
+All three layouts, the hubs and the homepage share `shell.d3a3e44b.css` and
+`shell.544635d9.js`.
 
-**The homepage at `/` is NOT part of that** — it is still the pre-shell page. The planner-first first screen described below is `/_proto/home`, not `/`:
+Verified against production after the deploy, not against `dist`:
 
-> at 375x812 it shows the planner, then a real photograph, a real place name, and its real score and price, without scrolling — in the fresh state. With a saved trip the resume card pushes the score under the tab bar; that is a first-visit claim, not a universal one.
+- `/` and `/en/` — planner-first, `.ta-topbar` + `.ta-tabbar`, GA4 present, not
+  `noindex`, canonical correct, 434 crawlable links, 80 save buttons. h1 =
+  "วางแผนเที่ยวไทย จากที่พัก ที่กิน ที่เที่ยว ที่เรารีวิวเอง".
+- `/zh/activities-bangkok` — shell, tab bar 探索 / 目的地 / 搜索 / 行程, runtime
+  strings blob present.
+- `/ar/city-krabi` and `/he/activities-krabi` — shell, `dir="rtl"`, tabs
+  استكشف / الوجهات / بحث / الخطة and גלו / יעדים / חיפוש / תוכנית.
+- `/zh/` — still the OLD homepage, which is the intended state (see above).
+- Parked articles: `/zh/krabi-seafood` 404s, `/en/krabi-seafood` 200s, and the
+  hubs no longer link to the parked ones — **238 in-locale links sampled across
+  ru/ko/ja/ar/he/hi hubs, 0 dead.**
+
+At 375x812 the first screen is: h1 at y=76, the planner at 151, the submit
+button at 287, and a real reviewed hotel's photograph at 429 — Rayavadee, 9.4
+Agoda, 599 reviews, from ฿16,000. At 1280 the fold is two columns and the
+photograph sits beside the planner. Both fresh-state claims; with a saved trip
+the resume card takes that slot.
 
 ## The build was fixed at the root, not tuned
 
@@ -200,22 +222,42 @@ ar and he mirror with 0px overflow across 15 sampled pages. `check-i18n-keys`,
 `_internal/qa/static-server.mjs` serves `astro/public` on :4321 for this kind
 of check.
 
-### NEXT STEP — the deploy is blocked on the file cap, not on the work
+### The file cap, and what it cost to get under it
 
-Build is clean: **19,530 pages**. But `dist` is **22,168 deployable files
-against Cloudflare's 20,000 hard cap** on the Free plan. The 2,343 restored
-translations are what crosses it. Two ways out, and it is the owner's call:
+The owner chose option 2 on 2026-09-12: park the translations, ship the shell.
 
-1. **The account move** (chatoccmed is Paid, cap 100,000) — blocked on one API
-   token, below.
-2. **Pull the 2,343 translations back out**, deploy the hub work at ~19,825
-   files with `TA_MAX_DEPLOY_FILES=19900`, and restore them after the move.
-   The owner explicitly asked for them to go back in, so do not do this without
-   asking.
+`5aa03c966` removed `articles-zh` (890), `articles-ru` (886) and `articles-ko`
+(608) — 2,384 Plan-B city-guide translations. 22,168 → **19,784** deployable,
+216 below the hard cap; 19,530 → 17,146 pages. `cf700ea49` raised
+`MAX_DEPLOY_FILES` 19,000 → 19,800 in its own commit, as that gate asks.
 
-After that, in order: the seven locale homepages (a `T` copy table plus locale
-itinerary content — see above), the 9 hand-written pages per locale, then
-Phase 3.
+**Every `reviews-<loc>` and `roundups-<loc>` stayed** — the booking funnel is
+live in all seven locales. Cutting all 5,040 locale content files would have
+reached 17,128 and taken the funnel with it, 2,656 files further than needed.
+
+Restore, once the account move lifts the cap to 100,000:
+
+```bash
+git checkout 4a4397f08 -- astro/src/content/articles-zh \
+                          astro/src/content/articles-ru \
+                          astro/src/content/articles-ko
+node _internal/gen-hubs.mjs
+node _internal/i18n/localize.mjs zh ru ko ja hi he ar
+node _internal/gen-hubs.mjs
+node _internal/gen-sitemap.mjs
+```
+
+then put `MAX_DEPLOY_FILES` back to 19,000 so the countdown is visible again.
+**16 files of headroom is all that is left** — the next ~16 pages turn the gate
+red, which is what it is for.
+
+### NEXT STEP
+
+1. **The account move.** It is now the only thing standing between the parked
+   translations and readers, and it is still blocked on one API token (below).
+2. The seven locale homepages — a `T` copy table plus locale itinerary content
+   (see above). Content work, not markup.
+3. The 9 hand-written pages per locale, then Phase 3.
 
 Three things an audit turned up that are real, verified, and NOT done, each
 needing an owner decision rather than a patch:
