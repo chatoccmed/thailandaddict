@@ -1181,7 +1181,10 @@ const mbarHref = mbarPick ? goB(mbarPick.agodaUrl) : '';
             box.hidden = false;
             var map = L.map('rmap', { scrollWheelZoom: false });
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-              { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+              /* ODbL requires the word "contributors" and a link to the licence
+                 — it is a condition of use, not decoration. "© OpenStreetMap"
+                 alone does not satisfy it. */
+              { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
             var pts = [];
             pins.forEach(function (p) {
               var icon = L.divIcon({ className: 'rpin', html: '<span>' + p.rank + '</span>', iconSize: [30, 30], iconAnchor: [15, 15] });

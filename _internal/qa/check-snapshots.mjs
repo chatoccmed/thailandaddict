@@ -69,11 +69,52 @@ const SKIP_MTIME = process.env.TA_QA_SKIP_SNAPSHOT_MTIME === '1';
    hide typos rather than surface them).
    ------------------------------------------------------------------------ */
 const LOCALE_DIRS = ['', 'en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
+const NEW_LOCALE_DIRS = ['zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
 const OWNERS = [
   {
+    /* gen-hubs writes EVERY page listed here for th and en. For the seven newer
+       locales its genAll() returns early after the city hubs — read the
+       `if (NEW_LOCS.includes(loc))` branch — so their activities / area /
+       region / country / plan / search pages come from
+       _internal/i18n/localize.mjs instead, and are owned below.
+       Attributing them here made an edit to gen-hubs report 1,197 pages stale
+       that gen-hubs does not write and whose content it cannot affect (none of
+       them carries a map). A gate that cries wolf gets switched off. */
     generator: '_internal/gen-hubs.mjs',
     dirs: LOCALE_DIRS,
-    files: ['city-*.html', 'activities-*.html', 'area-bangkok-*.html', 'region-*.html',
+    files: ['city-*.html'],
+    /* In the seven newer locales gen-hubs writes only the ~30 tourism-city
+       hubs, and only those whose translated data file exists — its own test is
+       `TOURISM.filter(sl => exists(_internal/province-data-<loc>/<sl>.json))`.
+       The other ~59 city pages in those directories are localize.mjs output.
+       This predicate reads the same directory gen-hubs reads, so the two
+       cannot drift; without it 301 localize-owned pages were being measured
+       against the wrong generator. */
+    only: (dir, name) => {
+      if (dir === '' || dir === 'en') return true;
+      const sl = name.replace(/^city-/, '').replace(/\.html$/, '');
+      return fs.existsSync(path.join(ROOT, `_internal/province-data-${dir}`, sl + '.json'));
+    },
+  },
+  {
+    generator: '_internal/i18n/localize.mjs',
+    dirs: NEW_LOCALE_DIRS,
+    files: ['city-*.html'],
+    only: (dir, name) => {
+      const sl = name.replace(/^city-/, '').replace(/\.html$/, '');
+      return !fs.existsSync(path.join(ROOT, `_internal/province-data-${dir}`, sl + '.json'));
+    },
+  },
+  {
+    generator: '_internal/gen-hubs.mjs',
+    dirs: ['', 'en'],
+    files: ['activities-*.html', 'area-bangkok-*.html', 'region-*.html',
+      'country-thailand.html', 'destinations.html', 'plan-your-trip.html', 'search.html'],
+  },
+  {
+    generator: '_internal/i18n/localize.mjs',
+    dirs: NEW_LOCALE_DIRS,
+    files: ['activities-*.html', 'area-bangkok-*.html', 'region-*.html',
       'country-thailand.html', 'destinations.html', 'plan-your-trip.html', 'search.html'],
   },
   {
@@ -151,7 +192,8 @@ if (SKIP_MTIME) {
     for (const rel of allHtml) {
       const parts = rel.split('/');
       const inDir = parts.slice(0, -1).join('/');
-      if (inDir === d && re.test(parts[parts.length - 1])) owned.add(rel);
+      if (inDir === d && re.test(parts[parts.length - 1])
+          && (!o.only || o.only(inDir, parts[parts.length - 1]))) owned.add(rel);
     }
   }
 } else {
@@ -175,6 +217,7 @@ if (SKIP_MTIME) {
       const inDir = parts.slice(0, -1).join('/');
       if (!o.dirs.includes(inDir)) continue;
       if (!res.some(re => re.test(name))) continue;
+      if (o.only && !o.only(inDir, name)) continue;
       owned.add(rel);
       counted++;
       const t = mtime(path.join(PUB, rel));

@@ -667,7 +667,7 @@ document.addEventListener('click',function(e){if(si&&!e.target.closest('.sc-fiel
 function goSearch(){var v=(si.value||'').trim();location.href='search.html'+(v?'?q='+encodeURIComponent(v):'');}
 // map — all 77 provinces, region-coloured pins, clustered
 try{var map=L.map('map',{scrollWheelZoom:false}).setView([13.2,101],5.4);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:18}).addTo(map);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/attributions">CARTO</a>',maxZoom:18}).addTo(map);
 function mpin(c){return L.divIcon({className:'',html:'<span class="mpin" style="background:'+c+'"></span>',iconSize:[16,16],iconAnchor:[8,8]});}
 var grp=(typeof L.markerClusterGroup==='function')?L.markerClusterGroup({maxClusterRadius:26,showCoverageOnHover:false,spiderfyDistanceMultiplier:1.4,disableClusteringAtZoom:8,iconCreateFunction:function(cl){return L.divIcon({html:'<span class="mclu">'+cl.getChildCount()+'</span>',className:'',iconSize:[40,40]});}}):L.layerGroup();
 PROV.forEach(function(p){L.marker([p.lat,p.lng],{icon:mpin(p.c||'#06B6D4'),title:p.n}).bindPopup('<div class="lp"><div class="lp-name">'+p.n+'</div><div class="lp-loc">'+p.r+' · '+p.t+'</div><a class="lp-btn" href="city-'+p.s+'.html">Open guide →</a></div>').addTo(grp);});

@@ -459,7 +459,13 @@ const shellCtx = {
 <link rel="alternate" hreflang="x-default" href={`${SITE}/${data.slug}`} />
 <link rel="preconnect" href={IMG_BASE} crossorigin />
 <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
-{showMap && <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />}
+{/* Self-hosted Leaflet, not unpkg. The files in astro/public/{js,css}/ were
+    SHA-256 verified identical to the two SRI hashes this tag used to carry, so
+    this is the same bytes from our own origin: one less third party able to
+    change what runs on the page, no cross-origin handshake, and it keeps
+    working if unpkg does not. Same version everywhere — the hub and roundup
+    maps already load these paths. */}
+{showMap && <link rel="stylesheet" href="/css/leaflet-1.9.4.css" />}
 <style>
 /* body is excluded on purpose. Astro compiles this reset to
    [data-astro-cid-...]{margin:0;padding:0}, specificity (0,1,0) — which beats a
@@ -838,14 +844,16 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
 {isResto &&
   <nav class="qnav"><div class="qnav-row">{restos.map((r) => <a href={`#r${r.rank}`}><b>{r.rank}</b><span set:html={r.name} /></a>)}</div></nav>}
 
-{showMap && <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>}
+{showMap && <script is:inline src="/js/leaflet-1.9.4.js"></script>}
 {showMap && (
   <script define:vars={{ pins: mapPins, nearL: S.nearL }}>
     (function () {
       function init() {
         if (!window.L || !document.getElementById('rmap')) return;
         var map = L.map('rmap', { scrollWheelZoom: false });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+        /* ODbL requires the word "contributors" and a link to the licence — a
+           condition of use, not decoration. "© OpenStreetMap" alone fails it. */
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
         var pts = [];
         pins.forEach(function (p) {
           var icon = L.divIcon({ className: 'rpin', html: '<span>' + p.rank + '</span>', iconSize: [30, 30], iconAnchor: [15, 15] });
