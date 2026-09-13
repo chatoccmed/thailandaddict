@@ -18,10 +18,13 @@
    HOW THIS ASKS INSTEAD
    ---------------------
    One Overpass request per batch of names, scoped to the cluster's own bounding
-   box, with the names unioned into a single ANCHORED regex — ^(a|b|c)$. So the
-   server does exact matching and returns only real answers, instead of the
-   15,000 Bangkok restaurants that "amenity=restaurant in this box" would
-   return, or the near-misses an unanchored pattern brings back.
+   box, made of EXACT-EQUALITY lookups — nwr["name"="X"], plus name:en,
+   name:th and alt_name — which Overpass answers from its tag index. An
+   earlier version of this header described a unioned regex, ^(a|b|c)$; that
+   shape was measured and retired: without a tag filter it was an unindexed
+   scan that never finished for Bangkok, and with one it repeated the scan per
+   tag until the server refused 47 of 54 requests. Exact equality returned 15
+   elements in 2.0 s where the regex got 10 in 5.5 s.
 
    THE MATCHING RULE, AND WHY IT DIFFERS FROM THE HOTEL UPGRADER
    -------------------------------------------------------------
@@ -61,20 +64,23 @@ const UA = 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; POI coordi
 /* Three public mirrors of the same database, tried in order — rotating on
    failure spreads bulk load rather than hammering one host, which Overpass's
    usage policy asks for and enforces.
-   Order is a measurement, not a preference. Measured on this machine,
-   2026-09-12:
-     maps.mail.ru      OK, 1.4–2.0 s, full planet          ← the only one working
-     overpass-api.de   TCP connect timeout
-     kumi.systems      TCP connect timeout
-     private.coffee    TCP connect timeout
-     osm.jp            expired TLS certificate
-     osm.ch            OK and fast, but SWITZERLAND ONLY — it answers every
-                       Thai query with 0 elements, which looks exactly like
-                       "not in OSM" and silently zeroed a whole probe run
-                       before that was spotted. Never put a regional instance
-                       in this list.
-   Three different hosts failing at the TCP layer while a fourth works is an
-   ISP block, not a ban — this connection already blocks R2's S3 endpoint.
+   Order is a measurement, not a preference.
+     maps.mail.ru      full planet; answered throughout
+     overpass-api.de   the canonical instance
+     kumi.systems      full planet, slower (~13 s a query)
+   On 2026-09-12 overpass-api.de, kumi.systems and private.coffee all refused
+   TCP connections for hours, and an earlier version of this note called that
+   an ISP block. It was not: all three answered again on 09-13. The likelier
+   cause is this repo's own bulk traffic tripping their throttles — which is
+   also why a second, concurrent Overpass job (the transit audit, started
+   mid-pass) cost one attractions run a 504 and 77 dropped connections.
+   ONE OVERPASS JOB AT A TIME.
+   Never add these:
+     osm.ch            fast, but SWITZERLAND ONLY — it answers every Thai query
+                       with 0 elements, which looks exactly like "not in OSM"
+                       and silently zeroed a whole probe run before that was
+                       spotted. A regional instance can never be in this list.
+     osm.jp            expired TLS certificate (2026-09-12)
    Re-measure before reordering. */
 const ENDPOINTS = [
   'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
@@ -130,6 +136,24 @@ const CLUSTER_PROVINCE = {
   'khao-yai': 'nakhon-ratchasima', huahin: 'prachuap-khiri-khan',
   railay: 'krabi', 'koh-lanta': 'krabi', 'koh-phi-phi': 'krabi',
   'koh-yao': 'phang-nga', 'khao-lak': 'phang-nga',
+  /* The 33 Bangkok district clusters. Without these centreOf() returns null and
+     the cluster is skipped as "no province centre to box" — the restaurant pass
+     printed exactly that for bang-khen, bang-sue, chaeng-watthana, kaset,
+     ladprao, mochit-chatuchak and bangkapi, and never asked about them. The
+     same omission in check-coords.mjs let a Thonglor pin placed in Chiang Mai
+     pass the gate. Keep the two tables in step. */
+  ari: 'bangkok', bangna: 'bangkok', 'central-ladprao': 'bangkok',
+  'charoen-krung': 'bangkok', chidlom: 'bangkok', chinatown: 'bangkok',
+  'khao-san': 'bangkok', 'on-nut': 'bangkok', 'phrom-phong': 'bangkok',
+  pinklao: 'bangkok', ploenchit: 'bangkok', rama9: 'bangkok',
+  ramkhamhaeng: 'bangkok', ratchada: 'bangkok', ratchathewi: 'bangkok',
+  riverside: 'bangkok', 'sai-tai': 'bangkok', samyan: 'bangkok',
+  'saphan-taksin': 'bangkok', 'siam-pratunam': 'bangkok',
+  'silom-sathorn': 'bangkok', srinakarin: 'bangkok', sukhumvit: 'bangkok',
+  'talat-phlu': 'bangkok', 'thong-lo': 'bangkok', 'victory-monument': 'bangkok',
+  bangkapi: 'bangkok', 'chaeng-watthana': 'bangkok', kaset: 'bangkok',
+  ladprao: 'bangkok', 'bang-khen': 'bangkok', 'mochit-chatuchak': 'bangkok',
+  'bang-sue': 'bangkok',
 };
 const centreOf = (c) => PROV[c] || PROV[CLUSTER_PROVINCE[c]] || null;
 
@@ -230,11 +254,21 @@ function attractionBacklog() {
     if (Number.isFinite(a.lat) && Number.isFinite(a.lng)) continue;
     const rec = have[`https://thailandaddict.com/${slug}`];
     if (rec && rec.lat) continue;
-    const h1 = String(a.h1 || a.title || '');
+    const h1 = String(a.h1 || a.title || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     const cluster = a.cluster || 'thailand';
+    /* An attraction headline has NO separator to split on — it reads
+       "ดอยขุนตาล อุโมงค์รถไฟยาวที่สุด เดินป่า กางเต็นท์", where only the first
+       word is the place and the rest is the pitch. splitNames() alone therefore
+       asks for the whole sentence and gets nothing: the first probe of this
+       mode returned 0 candidates for 20 places. Thai place names run one to
+       three space-separated tokens (ดอยขุนตาล · น้ำตกปาโจ · ถ้ำเขาฆ้องชัย), so
+       offer each leading prefix and let exact identity pick. The extra asks
+       cost nothing — a prefix that is not a real name simply matches nothing. */
+    const lead = h1.split(' ').filter(Boolean);
+    const prefixes = [1, 2, 3].filter((k) => lead.length >= k).map((k) => lead.slice(0, k).join(' '));
     out.push({
       slug, id: slug,
-      names: [...new Set([...splitNames(h1), slug.replace(/-/g, ' ')])],
+      names: [...new Set([...splitNames(h1), ...prefixes, slug.replace(/-/g, ' ')])],
       cluster, prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
     });
   }

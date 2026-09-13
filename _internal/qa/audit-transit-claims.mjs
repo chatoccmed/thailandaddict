@@ -59,23 +59,46 @@ const minutesFor = (m) => Math.max(1, Math.round(m / 80));
 async function fetchStations() {
   /* Greater Bangkok plus the BTS extensions into Samut Prakan and Nonthaburi. */
   const bbox = '13.45,100.25,14.20,100.95';
-  const ql = `[out:json][timeout:90];
-nwr["railway"~"^(station|halt)$"](${bbox});
-out center tags;
-nwr["public_transport"="station"]["train"="yes"](${bbox});
+  /* Exact equality, not a regex: `["railway"="station"]` is an index lookup,
+     while `["railway"~"^(station|halt)$"]` makes the server test every object
+     in a 90 km box. Same lesson as _internal/geocode-poi-overpass.mjs. */
+  const ql = `[out:json][timeout:120];
+(
+nwr["railway"="station"](${bbox});
+nwr["railway"="halt"](${bbox});
+nwr["public_transport"="station"](${bbox});
+);
 out center tags;`;
-  /* Same mirror _internal/geocode-poi-overpass.mjs settled on, and for the same
-      measured reason: overpass-api.de, kumi.systems and private.coffee all
-      refuse TCP connections from this machine, and osm.ch is Switzerland only.
-      See the ENDPOINTS note in that file before changing this. */
-  const res = await fetch('https://maps.mail.ru/osm/tools/overpass/api/interpreter', {
-    method: 'POST',
-    headers: { 'User-Agent': UA, 'Content-Type': 'text/plain' },
-    body: ql,
-    signal: AbortSignal.timeout(120_000),
-  });
-  if (!res.ok) throw new Error(`Overpass HTTP ${res.status}`);
-  const j = await res.json();
+  /* Rotates across the same full-planet mirrors as
+     _internal/geocode-poi-overpass.mjs — read the ENDPOINTS note there first,
+     including why osm.ch must never be used. Do not run this while a geocoding
+     pass is running: one Overpass job at a time, or the mirrors throttle both
+     (that is exactly how this audit's first run died on a 504). */
+  const MIRRORS = [
+    'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+  ];
+  /* Retry rather than throw. A single 504 killed the first run of this audit
+     outright — and a 504 here usually just means another job of ours is
+     already talking to the same mirror. */
+  let j = null;
+  for (let attempt = 1; attempt <= 5 && !j; attempt++) {
+    try {
+      const res = await fetch(MIRRORS[(attempt - 1) % MIRRORS.length], {
+        method: 'POST',
+        headers: { 'User-Agent': UA, 'Content-Type': 'text/plain' },
+        body: ql,
+        signal: AbortSignal.timeout(180_000),
+      });
+      if (res.ok) { j = await res.json(); break; }
+      console.log(`  attempt ${attempt}: HTTP ${res.status}, backing off`);
+    } catch (e) {
+      console.log(`  attempt ${attempt}: ${e.message}, backing off`);
+    }
+    await new Promise((r) => setTimeout(r, 15_000 * attempt));
+  }
+  if (!j) throw new Error('Overpass would not answer after 5 attempts — try again when no geocoding pass is running');
   const out = [];
   for (const el of j.elements || []) {
     const lat = el.lat ?? el.center?.lat, lng = el.lon ?? el.center?.lon;
