@@ -58,6 +58,13 @@ const PROV_FILE = path.join(ROOT, '_internal/province-coords.json');
 
 const APPLY = process.argv.includes('--apply');
 const ATTRACTIONS = process.argv.includes('--attractions');
+/* --offline never touches the network: an uncached cluster is reported as
+   unasked instead of fetched. It exists so a finished pass can be re-matched
+   and reviewed while another Overpass job is running — one job at a time. */
+const OFFLINE = process.argv.includes('--offline');
+/* --out <file> writes the COMPLETE accepted set as JSON. The console report
+   stops at 40 rows, and a verification pass has to see every one. */
+const OUT = (() => { const i = process.argv.indexOf('--out'); return i > 0 ? process.argv[i + 1] : null; })();
 const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i > 0 ? Number(process.argv[i + 1]) || 0 : 0; })();
 
 const UA = 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; POI coordinate backfill)';
@@ -389,6 +396,7 @@ const unasked = [];   /* clusters whose requests failed — reported, never sile
 for (const cluster of work) {
   const rows = groups.get(cluster);
   if (cache.clusters[cluster]) { cached++; continue; }
+  if (OFFLINE) { unasked.push(cluster); continue; }
   const c = centreOf(cluster);
   const bbox = [
     (c.lat - BOX_DEG).toFixed(3), (c.lng - BOX_DEG).toFixed(3),
@@ -489,6 +497,26 @@ for (const cluster of work) {
       }
     }
     const best = pool[0];
+    /* A polygon's pin is its CENTROID, and for a large-area feature the
+       centroid is nowhere a visitor goes. Review of the first attractions
+       batch caught two that passed every other rule: อ่างเก็บน้ำเขื่อนอุบลรัตน์
+       (natural=water — the middle of a ~400 km² reservoir, for an article about
+       the dam and Phu Phan Kham) and อุทยานแห่งชาติน้ำตกทรายขาว (natural=wood +
+       boundary=national_park — forest, for an article about the waterfall).
+       Deliberately NOT refused: a small water feature that is itself the
+       attraction (สระมรกต carries tourism=attraction), and islands — an article
+       about เกาะสุกร pinned on เกาะสุกร is the honest answer. A node is never
+       refused here; a node is a point somebody chose. */
+    const LARGE_AREA = (t) => !!(t && (
+      t.boundary === 'national_park' || t.boundary === 'protected_area'
+      || t.leisure === 'nature_reserve' || t.landuse === 'reservoir'
+      || t.water === 'reservoir' || t.water === 'lake'
+      || (t.natural === 'water' && !t.tourism && !t.leisure && !t.amenity)
+      || (t.natural === 'wood' && !t.place && !t.tourism && !t.amenity && !t.historic)));
+    if (!String(best.id).startsWith('node/') && LARGE_AREA(best.tags)) {
+      rejected.push({ ...r, why: `"${best.name}" ${best.id} is a large-area polygon (${Object.entries(best.tags).filter(([k]) => !k.startsWith('addr:')).map(([k, v]) => `${k}=${v}`).join(' ')}) — its centroid is not a place anyone visits` });
+      continue;
+    }
     if (best.lat < 5.55 || best.lat > 20.55 || best.lng < 97.30 || best.lng > 105.70) {
       rejected.push({ ...r, why: 'candidate is outside Thailand' }); continue;
     }
@@ -497,7 +525,7 @@ for (const cluster of work) {
     if (Object.values(PROV).some((pc) => km(best, pc) < 0.025)) {
       rejected.push({ ...r, why: 'lands exactly on a province centroid' }); continue;
     }
-    accepted.push({ ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, how: best.how });
+    accepted.push({ ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, how: best.how, tags: best.tags || null });
   }
 }
 
@@ -519,6 +547,15 @@ for (const [k, n] of Object.entries(byWhy).sort((a, b) => b[1] - a[1])) console.
 for (const r of rejected.filter((x) => x.saw).slice(0, 6)) {
   console.log(`  ? ${r.id}`);
   for (const c of r.saw) console.log(`      saw: ${c}`);
+}
+
+if (OUT) {
+  fs.writeFileSync(OUT, JSON.stringify(accepted.map((a) => ({
+    id: a.id, slug: a.slug || null, file: a.file || null, blockIndex: a.blockIndex ?? null, rank: a.rank ?? null,
+    cluster: a.cluster, prov: a.prov, names: a.names, food: a.food ?? null,
+    lat: a.to.lat, lng: a.to.lng, osm: a.osm, osmName: a.osmName, how: a.how, tags: a.tags,
+  })), null, 2) + '\n');
+  console.log('wrote ' + accepted.length + ' accepted row(s) to ' + OUT);
 }
 
 if (!APPLY) { console.log('\nREPORT ONLY — nothing written. Re-run with --apply.'); process.exit(0); }
