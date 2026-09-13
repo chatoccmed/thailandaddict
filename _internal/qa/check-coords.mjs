@@ -145,6 +145,7 @@ let baseline = new Set();
 try { baseline = new Set((JSON.parse(fs.readFileSync(BASELINE_FILE, 'utf8')).groups || []).map((g) => `${g.pos} ${g.members.slice().sort().join('|')}`)); } catch { /* no baseline yet */ }
 const baselineSeen = [];
 const baselineRows = [];
+const baselineData = [];   /* the same groups as structured data, for --json */
 let baselineHit = 0;
 function baselineHas(pos, rows) {
   const k = groupKey(pos, rows);
@@ -575,6 +576,11 @@ for (const [pos, rows] of seen) {
   if (baselineHas(pos, rows)) {
     baselineHit++;
     baselineRows.push(`${pos}  ${distinct.map(label).join(' + ')}`);
+    /* Carried in --json as well as printed. A baselined group is still a
+       defect — it is only exempt from failing the build — so the tool that
+       clears them must be able to see it. Without this, running
+       _internal/drop-shared-positions.mjs after baselining found nothing to do. */
+    baselineData.push({ pos, members: rows.map((r) => ({ kind: r.kind, slug: r.slug, at: r.at, name: r.name })) });
     continue;
   }
   fail('duplicate-position', where, `${distinct.length} different venues all at ${pos}`,
@@ -628,7 +634,7 @@ if (baselineHit && !AS_JSON) {
 }
 
 if (AS_JSON) {
-  process.stdout.write(JSON.stringify({ failures, warnings }, null, 2) + '\n');
+  process.stdout.write(JSON.stringify({ failures, warnings, baselined: baselineData }, null, 2) + '\n');
   process.exit(failures.length ? 11 : 0);
 }
 

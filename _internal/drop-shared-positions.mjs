@@ -42,7 +42,15 @@ try {
   out = e.stdout || '';
 }
 if (!out.trim()) { console.error('the gate produced no output; nothing to act on'); process.exit(1); }
-const groups = JSON.parse(out).failures.filter((f) => f.kind === 'duplicate-position');
+const report = JSON.parse(out);
+/* Both lists. A group in shared-positions-baseline.json is still a defect — it
+   is only exempt from failing the build — so this tool must see it, or the
+   moment the 19 known groups were baselined this script found nothing to do
+   and reported success. */
+const groups = [
+  ...report.failures.filter((f) => f.kind === 'duplicate-position'),
+  ...(report.baselined || []).map((g) => ({ data: g })),
+];
 
 console.log(`${groups.length} shared position(s), ${groups.reduce((n, g) => n + g.data.members.length, 0)} coordinate(s) to remove\n`);
 
