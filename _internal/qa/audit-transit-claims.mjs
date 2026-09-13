@@ -140,7 +140,14 @@ const RC = readJson(path.join(ROOT, 'astro/src/data/review-coords.json'), {});
 const wishSlug = (u) => String(u || '').replace(/^https?:\/\/[^/]+\//, '').replace(/^\/+/, '').replace(/\.html$/, '').split('?')[0];
 
 /* "เดิน 7 นาทีถึง BTS ห้าแยกลาดพร้าว" · "MRT สีลม" · "~200 ม." */
-const CLAIM = /(?:เดิน\s*)?(\d+)\s*นาที(?:ถึง|จาก)?\s*(BTS|MRT|ARL|SRT|รถไฟฟ้า)?\s*([฀-๿][฀-๿\s]{1,24})/g;
+/* The rail keyword is REQUIRED and the station is ONE token. The first run had
+   it optional and let the name run on across spaces, so "5 นาที เดินถึง…" read
+   "เดิน" as a station, and 204 of 232 claims came back "unknown station" —
+   parser noise drowning the 3 findings that mattered. Thai station names are
+   written as one token (อโศก · ห้าแยกลาดพร้าว · สนามกีฬาแห่งชาติ). */
+const CLAIM = /(\d+)\s*นาที\s*(?:ถึง|จาก|ไป)?\s*(?:สถานี\s*)?(BTS|MRT|ARL|SRT|Airport Rail Link|รถไฟฟ้า(?:สายสีม่วง|สายสีเหลือง|สายสีชมพู|สายสีน้ำเงิน|สายสีเขียว)?)\s*(?:สถานี\s*)?([฀-๿A-Za-z]{2,24})/g;
+/* Colloquial names people write for stations whose OSM name differs. */
+const STATION_ALIAS = { 'ไบเทค': 'บางนา' };
 const NEAR = /(?:BTS|MRT|ARL)\s+([฀-๿][฀-๿\s]{1,24}?)(?:\s+\d+\s*ม\.|\s*·|$)/g;
 
 const rows = [];
@@ -157,7 +164,7 @@ for (const f of fs.readdirSync(dir)) {
     const c = RC[slug];
     for (const m of tag.matchAll(CLAIM)) {
       const mins = Number(m[1]);
-      const name = m[3].trim();
+      const name = STATION_ALIAS[m[3].trim()] || m[3].trim();
       const k = bare(name);
       claims++;
       const hits = index.get(k) || [];
