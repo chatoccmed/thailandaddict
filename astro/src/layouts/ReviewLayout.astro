@@ -1343,10 +1343,11 @@ const shellCtx = {
           · with coordinates — query=lat,lng drops a pin, which asserts "it is
             exactly here", and we only assert that for a verified position.
           · without — query=<name, address> is a SEARCH, which asserts nothing
-            about position and lets Google answer. 240 reviews lost their
-            coordinate when the road-centre and area pins were removed; before
-            this, their address went back to being plain unclickable text, which
-            is a worse page for no gain in honesty. */}
+            about position and lets Google answer. Measured on 2026-09-13, no
+            review is in this branch today: every review without a coordinate
+            carries a mapImg, so its address shows as plain text beside the map
+            image. The branch exists so a future review with neither does not fall
+            back to an unclickable address. */}
     <div class="rv-mapaddr">
       {data.mapImg ? data.mapAddr
         : data.lat && data.lng
