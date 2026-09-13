@@ -1,28 +1,27 @@
 #!/usr/bin/env node
 /* =============================================================================
-   drop-road-pins.mjs — remove the coordinates that are not positions
+   drop-road-pins.mjs — remove the coordinates that are only a road
 
-   Two kinds of entry in _internal/hotel-coords.json cannot honestly be a pin:
+   _internal/geocode-hotels.mjs records precision:'road' when Nominatim only
+   knew the street: the stored point is the street's midpoint — right district,
+   wrong building. Those entries stay IN THE STORE, with their provenance,
+   because the store is a record of what was asked and what came back, and it
+   stops the geocoder re-asking. What this script removes is the lat/lng from
+   the CONTENT files, which is what the layouts and the maps read.
 
-     precision:'road'     Nominatim only knew the street. The stored point is
-                          the street's midpoint. Right district, wrong building.
-
-     shared position      Two or more DIFFERENT hotels carrying identical
-                          coordinates to five decimals. Two buildings cannot
-                          share a rooftop point, so whatever answered was an
-                          area, not an address. (One hotel under several slugs
-                          is excluded — that is one building and is fine.)
-
-   Both are LEFT IN THE STORE, with their provenance, because the store is a
-   record of what was asked and what came back, and because keeping them stops
-   the geocoder re-asking a question that has already been answered. What this
-   script removes is the lat/lng from the CONTENT files, which is what the
-   layouts and the maps read.
+   It no longer clears SHARED positions (two different hotels on one point).
+   It used to, by exact name equality — weaker than check-coords.mjs's
+   same-building test. It read "Mayflower Grande Hotel Chiang Mai (Nimman)" and
+   "Mayflower Grande Hotel Chiang Mai" — one hotel under two slugs, on the same
+   OSM node — as two hotels, and a re-run with --apply would have deleted four
+   verified pins. Shared positions are cleared only by
+   _internal/drop-shared-positions.mjs, which acts on the gate's own verdicts,
+   so the repo has one definition of "same building".
 
    Nothing is substituted. A review with no coordinate renders its address as a
-   Google Maps link (ReviewLayout has done this since 2026-07-18), and the map
-   gates — ≥60% geocoded per kind on a province hub, ≥3 pins and ≥60% on a
-   roundup — simply decline to draw a map they cannot populate honestly.
+   Maps search link, and the map gates — ≥60% geocoded per kind on a province
+   hub, ≥3 pins and ≥60% on a roundup — decline to draw a map they cannot
+   populate honestly.
 
    Run _internal/geocode-overpass.mjs --apply FIRST: it upgrades what it can to
    a real building, and those are no longer road-level by the time this runs.
@@ -42,29 +41,11 @@ const LOC = ['', '-en', '-zh', '-ru', '-ko', '-ja', '-hi', '-he', '-ar'];
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return d; } };
 const store = readJson(SIDECAR, {});
 const reviewPath = (slug, suffix) => path.join(ROOT, `astro/src/content/reviews${suffix}`, slug + '.json');
-const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9฀-๿]+/g, '');
-
-/* Positions held by two or more differently-named hotels. */
-const byPos = new Map();
-for (const [slug, v] of Object.entries(store)) {
-  if (!v || !Number.isFinite(v.lat)) continue;
-  const k = `${v.lat.toFixed(5)},${v.lng.toFixed(5)}`;
-  if (!byPos.has(k)) byPos.set(k, []);
-  byPos.get(k).push(slug);
-}
-const shared = new Map();      /* slug → why */
-for (const [pos, slugs] of byPos) {
-  if (slugs.length < 2) continue;
-  const names = new Set(slugs.map((s) => norm(readJson(reviewPath(s, ''), {}).name)));
-  if (names.size < 2) continue;
-  for (const s of slugs) shared.set(s, `${names.size} different hotels share ${pos}`);
-}
 
 const targets = [];
 for (const [slug, v] of Object.entries(store)) {
   if (!v || !Number.isFinite(v.lat)) continue;
   if (v.precision === 'road') targets.push({ slug, why: `road-only lookup: "${v.q}"` });
-  else if (shared.has(slug)) targets.push({ slug, why: shared.get(slug) });
 }
 
 let files = 0, missing = 0;
@@ -85,10 +66,10 @@ for (const t of targets) {
   if (!hit) missing++;
 }
 
-console.log(`${targets.length} hotel(s) cannot be pinned honestly`);
-console.log(`  ${targets.filter((t) => t.why.startsWith('road')).length} road-only · ${targets.filter((t) => !t.why.startsWith('road')).length} sharing a position with a different hotel`);
+console.log(`${targets.length} road-level hotel(s) cannot be pinned honestly`);
 console.log(`${files} content file(s) ${APPLY ? 'updated' : 'would be updated'}${missing ? ` · ${missing} already had no coordinate` : ''}`);
 for (const [k, v] of Object.entries(per)) console.log(`  ${k.padEnd(14)} ${v}`);
+console.log('Shared positions are handled by _internal/drop-shared-positions.mjs.');
 if (!APPLY) {
   console.log('');
   for (const t of targets.slice(0, 15)) console.log(`  - ${t.slug}\n      ${t.why}`);
