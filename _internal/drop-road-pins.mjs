@@ -32,6 +32,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { serializeLike } from './lib/json-format.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SIDECAR = path.join(ROOT, '_internal/hotel-coords.json');
@@ -77,7 +78,7 @@ for (const t of targets) {
     const j = readJson(f, null);
     if (!j || (j.lat === undefined && j.lng === undefined)) continue;
     delete j.lat; delete j.lng;
-    if (APPLY) fs.writeFileSync(f, JSON.stringify(j, null, 2) + (raw.endsWith('\n') ? '\n' : ''));
+    if (APPLY) fs.writeFileSync(f, serializeLike(raw, j).text);
     per[`reviews${suffix}`] = (per[`reviews${suffix}`] || 0) + 1;
     hit++; files++;
   }

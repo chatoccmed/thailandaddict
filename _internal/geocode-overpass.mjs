@@ -48,6 +48,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { serializeLike } from './lib/json-format.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REVIEWS = path.join(ROOT, 'astro/src/content/reviews');
@@ -420,7 +421,7 @@ for (const a of accepted) {
 /* indent 1, not 2 — that is how _internal/geocode-hotels.mjs writes this file.
    Writing 2 reformatted all 12,700 lines and buried the 19 records that
    actually changed in a diff nobody could read. */
-fs.writeFileSync(SIDECAR, JSON.stringify(store, null, 1) + '\n');
+fs.writeFileSync(SIDECAR, serializeLike(fs.readFileSync(SIDECAR, 'utf8'), store).text);
 console.log(`\nwrote ${accepted.length} upgraded record(s) to _internal/hotel-coords.json`);
 
 /* Then every locale's copy of the review, preserving the file's own formatting
@@ -435,7 +436,7 @@ for (const a of accepted) {
     if (!j) continue;
     j.lat = Number(a.to.lat.toFixed(6));
     j.lng = Number(a.to.lng.toFixed(6));
-    fs.writeFileSync(f, JSON.stringify(j, null, 2) + '\n');
+    fs.writeFileSync(f, serializeLike(fs.readFileSync(f, 'utf8'), j).text);
     per[`reviews${suffix}`] = (per[`reviews${suffix}`] || 0) + 1;
   }
 }

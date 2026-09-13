@@ -20,18 +20,13 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { serializeLike } from './lib/json-format.mjs';
 import { execFileSync } from 'node:child_process';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const APPLY = process.argv.includes('--apply');
 const LOC = ['', '-en', '-zh', '-ru', '-ko', '-ja', '-hi', '-he', '-ar'];
 
-/* Same indent-preserving rule as everywhere else in this repo: the article
-   collections use 1 space, the review collections 2. */
-function indentOf(raw, fallback = 2) {
-  const m = String(raw).match(/^\{\r?\n( +)"/);
-  return m ? m[1].length : fallback;
-}
 
 let out = '';
 try {
@@ -85,7 +80,7 @@ for (const g of groups) {
         && Math.abs(Number(pt.lng) - Number(g.data.pos.split(',')[1])) < 1e-4;
       if (!same) continue;
       delete pt.lat; delete pt.lng;
-      if (APPLY) fs.writeFileSync(f, JSON.stringify(doc, null, indentOf(raw)) + (raw.endsWith('\n') ? '\n' : ''));
+      if (APPLY) fs.writeFileSync(f, serializeLike(raw, doc).text);
       per[`${mem.kind}${suffix}`] = (per[`${mem.kind}${suffix}`] || 0) + 1;
       removed++;
     }

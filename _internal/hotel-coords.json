@@ -12723,5 +12723,22 @@
  "review-zwahotel-amnat-charoen": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
   "q": "หมู่ 5, Amnat Charoen, Thailand"
+ },
+ "review-park-plaza-bangkok-soi-18": {
+  "lat": 13.7329,
+  "lng": 100.56285,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1720469683",
+  "osmName": "Park Plaza Hotels",
+  "q": "brand=Park Plaza (wikidata Q2052550) @ node/1720469683 — found via audit-transit-claims",
+  "wasPrecision": "hand-entered",
+  "wasLat": 13.726,
+  "wasLng": 100.5649
+ },
+ "review-hotel-amber-sukhumvit-85-bangkok": {
+  "why": "pin deleted 2026-09-13: the hand-entered pin 13.6682,100.5984 lay 3.98–4.19 km from every OSM segment of ซอยสุขุมวิท 85, the hotel's own street address, and OSM has no building for the hotel. Found via audit-transit-claims (claimed 5 min to BTS On Nut; the soi is 470–740 m from it).",
+  "q": "8 Soi Sukhumvit 85, Bang Chak, Phra Khanong"
  }
 }

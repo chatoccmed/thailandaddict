@@ -50,6 +50,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { serializeLike } from './lib/json-format.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const ARTICLES = path.join(ROOT, 'astro/src/content/articles');
@@ -116,16 +117,6 @@ const BATCH = 40;              /* names per request */
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return d; } };
 
-/* Read the file's own indent rather than assuming one. This repo uses BOTH:
-   the article collections indent with 1 space, the review collections with 2,
-   and the coordinate stores under _internal with 1. Writing the wrong one
-   reformats every line, turning a two-line change into a 700-line diff nobody
-   can review — which is exactly what happened to 464 article files before this
-   function existed. */
-function indentOf(raw, fallback = 2) {
-  const m = String(raw).match(/^\{\r?\n( +)"/);
-  return m ? m[1].length : fallback;
-}
 
 const R = 6371, rad = (d) => (d * Math.PI) / 180;
 function km(a, b) {
@@ -446,6 +437,23 @@ if (unasked.length) {
 console.log('');
 
 /* ── match ──────────────────────────────────────────────────────────────── */
+/* Median position and outlier limit of the OTHER verified pins in the same
+   article. Cached per file: one read per article, however many blocks. */
+const SIB_CACHE = new Map();
+function siblingsOf(r) {
+  if (!SIB_CACHE.has(r.file)) SIB_CACHE.set(r.file, readJson(path.join(ARTICLES, r.file), null));
+  const doc = SIB_CACHE.get(r.file);
+  if (!doc || !Array.isArray(doc.blocks)) return null;
+  const pts = doc.blocks.filter((b, i) => i !== r.blockIndex && b && Number.isFinite(b.lat) && Number.isFinite(b.lng));
+  if (pts.length < 5) return null;
+  const lats = pts.map((p) => p.lat).sort((a, b) => a - b);
+  const lngs = pts.map((p) => p.lng).sort((a, b) => a - b);
+  const med = { lat: lats[lats.length >> 1], lng: lngs[lngs.length >> 1] };
+  const d = pts.map((p) => km(p, med)).sort((a, b) => a - b);
+  const p90 = d[Math.min(d.length - 1, Math.floor(0.9 * d.length))];
+  return { med, n: pts.length, limit: Math.max(3.5, 1.5 * p90) };
+}
+
 const accepted = [], rejected = [];
 for (const cluster of work) {
   const rows = groups.get(cluster);
@@ -517,6 +525,32 @@ for (const cluster of work) {
       rejected.push({ ...r, why: `"${best.name}" ${best.id} is a large-area polygon (${Object.entries(best.tags).filter(([k]) => !k.startsWith('addr:')).map(([k, v]) => `${k}=${v}`).join(' ')}) — its centroid is not a place anyone visits` });
       continue;
     }
+    /* A new pin must look like its siblings — IN A SUB-AREA CLUSTER.
+       A Bangkok district or an island is boxed around its PARENT's centre, so
+       the box is far bigger than the article, and a same-named branch
+       anywhere in it matches. The first district run proposed "Sunny Bear
+       Coffee Roasters" for a Bang Khen cafe list 14.1 km from that article's
+       other pins, and "Other Café" for Soi Rangnam 4.5 km away. Measured on
+       948 verified pins in district articles, distance from the article's own
+       median pin runs p50 0.7 · p90 3.4 · p99 6.7 · max 10.9 km, so the limit
+       is max(3.5 km, 1.5 × that article's p90).
+       Province clusters are EXEMPT, on evidence: run retroactively over the 299
+       pins commit 16ff237e6 added, this rule flagged 3 of the 26 it could
+       judge — วัดไชโยวรวิหาร, ปราสาทภูมิโปน, วัดพระพุทธบาทเขารวก — and all
+       three are right: each article's own area text says "about 15 km" or
+       "about 45 km from town". A province box already matches the province,
+       and a province top-10 legitimately reaches its far corners. Needs 5+
+       verified siblings; with fewer there is nothing to compare against. */
+    if (r.file && !PROV[r.cluster]) {
+      const sib = siblingsOf(r);
+      if (sib) {
+        const dMed = km(best, sib.med);
+        if (dMed > sib.limit) {
+          rejected.push({ ...r, why: `"${best.name}" ${best.id} is ${dMed.toFixed(1)} km from the median of the ${sib.n} verified pins in the same article (limit ${sib.limit.toFixed(1)} km) — a same-named place elsewhere, not this one` });
+          continue;
+        }
+      }
+    }
     if (best.lat < 5.55 || best.lat > 20.55 || best.lng < 97.30 || best.lng > 105.70) {
       rejected.push({ ...r, why: 'candidate is outside Thailand' }); continue;
     }
@@ -573,7 +607,7 @@ if (ATTRACTIONS) {
   }
   /* indent 1 — the convention _internal/geocode-hotels.mjs writes this file
      with. Reformatting would bury the records that changed. */
-  fs.writeFileSync(PLACE_COORDS, JSON.stringify(store, null, indentOf(pcRaw, 1)) + '\n');
+  fs.writeFileSync(PLACE_COORDS, serializeLike(pcRaw, store).text);
   console.log(`\nwrote ${accepted.length} attraction coordinate(s) to _internal/place-coords.json`);
 } else {
   /* Restaurant coordinates live inside the article, and every locale twin holds
@@ -615,7 +649,7 @@ if (ATTRACTIONS) {
         touched++;
       }
       if (!touched) continue;
-      fs.writeFileSync(f, JSON.stringify(j, null, indentOf(raw)) + (raw.endsWith('\n') ? '\n' : ''));
+      fs.writeFileSync(f, serializeLike(raw, j).text);
       per[`articles${suffix}`] = (per[`articles${suffix}`] || 0) + touched;
     }
   }

@@ -55,6 +55,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { serializeLike } from './lib/json-format.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const REVIEWS = path.join(ROOT, 'astro/src/content/reviews');
@@ -298,7 +299,7 @@ if (APPLY) {
       /* 2-space indent and the file's own trailing-newline convention, so the
          diff is the two added lines and nothing else. These are authored
          content files; a reformat would bury the change in 600 lines of noise. */
-      fs.writeFileSync(f, JSON.stringify(j, null, 2) + (raw.endsWith('\n') ? '\n' : ''));
+      fs.writeFileSync(f, serializeLike(raw, j).text);
       const k = path.basename(dir);
       per[k] = (per[k] || 0) + 1;
       touched = true;
@@ -355,7 +356,7 @@ for (const r of work) {
   if (store[key].lat) ok++; else rej++;
   /* Written every time, not at the end: a 35-minute run must never lose its
      work to one interruption. */
-  fs.writeFileSync(storeFile, JSON.stringify(store, null, 1) + '\n');
+  fs.writeFileSync(storeFile, fs.existsSync(storeFile) ? serializeLike(fs.readFileSync(storeFile, 'utf8'), store).text : JSON.stringify(store, null, 1) + String.fromCharCode(10));
   if (i % 25 === 0 || i === work.length)
     console.log(`  ${String(i).padStart(5)}/${work.length}  accepted ${ok}  rejected ${rej}   ${r.slug.slice(0, 46)}`);
 }
