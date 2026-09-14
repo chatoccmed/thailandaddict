@@ -131,7 +131,13 @@ node _internal/qa/check-coords.mjs [--list|--json]                 # gate
 node _internal/qa/check-map-attribution.mjs                        # gate
 ```
 
-ลำดับที่ถูก: geocode (`--report` → ตรวจรายการ `--out` → `--apply`) → `gen-feeds` → `check-coords` → `gen-hubs`
+ลำดับที่ถูก: geocode (`--report` → ตรวจรายการ `--out` → `--apply`) → `gen-feeds` → `check-coords` → `gen-hubs` → **`localize.mjs` ให้ city hub ภาษาใหม่ที่ localize เป็นเจ้าของ**
+
+> ⚠️ **หน้า city hub ของ zh/ru/ko/ja/hi/he/ar ที่ไม่มี `_internal/province-data-<loc>/<slug>.json` เป็นผลของ `localize.mjs`** (แปลงจากหน้า /en/)
+> และ **prebuild ไม่ได้รันมัน** — หน้าเหล่านี้ฝังข้อมูลแผนที่ `window.__CMAP__` ไว้ในตัว จึงค้างพินเก่าได้ตลอดไป
+> 2026-09-14 พบ 16 เมือง × 7 ภาษา ยังโชว์พินที่ลบไปแล้ว **49 จุดต่อภาษา** (จุดกลางอุทยาน ทะเลสาบ โรงแรมบนถนน) ทั้งที่หน้า TH/EN สะอาด
+> แก้พินเสร็จทุกครั้งให้รัน `node _internal/i18n/localize.mjs zh ru ko ja hi he ar <city-slug …>` **ทุกภาษาพร้อมกันในคำสั่งเดียว** ให้เฉพาะหน้าที่ localize เป็นเจ้าของ
+> (เจ้าของดูจาก `OWNERS` ใน `_internal/qa/check-snapshots.mjs`) · ครั้งนั้น coverage 96.9% เท่าเดิม คำอังกฤษไม่เพิ่ม · build คัดลอก `public/` เข้า `dist/` แบบไบต์ต่อไบต์
 
 ## 9. แก้พินด้วยหลักฐานภายนอก · `fix-pins.mjs`
 
