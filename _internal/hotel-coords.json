@@ -29,7 +29,9 @@
   "prov": "chonburi",
   "via": "nominatim",
   "q": "21st Floor Residence Pattaya, Pattaya, Thailand",
-  "distKm": 56.3
+  "distKm": 56.3,
+  "precision": "area",
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"21st Floor Residence Pattaya, Pattaya, Thailand\" is landuse=residential r24 \"Beach Front Jomtien Residenc\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-28-rachabutr-hostel-riverside-ubon-ratchathani": {
   "lat": 15.2241991,
@@ -166,9 +168,10 @@
   "lng": 98.3838207,
   "prov": "phuket",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "55 Krabi Road, Talat Nuea, Mueang Phuket, Phuket, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"55 Krabi Road, Talat Nuea, Mueang Phuket, Phuket, Thailand\" is highway=tertiary r26 \"ถนนกระบี่\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-aen-guy-boutique-hotel-sukhothai": {
   "lat": 17.0152903,
@@ -193,9 +196,10 @@
   "lng": 102.2730585,
   "prov": "trat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "139 Moo 4, Klong Son, Ko Chang, Ko Chang, Thailand",
-  "distKm": 28.4
+  "distKm": 28.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"139 Moo 4, Klong Son, Ko Chang, Ko Chang, Thailand\" is place=village r19 \"บ้านคลองสน\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-akantuka-homestay-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 8\"",
@@ -625,9 +629,10 @@
   "lng": 99.5008498,
   "prov": "lampang",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "229 Bunyawat Road, Suan Dok, Mueang Lampang, Lampang, Thailand",
-  "distKm": 1.2
+  "distKm": 1.2,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"229 Bunyawat Road, Suan Dok, Mueang Lampang, Lampang, Thailand\" is highway=unclassified r26 \"ถนนบุญวาทย์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-asian-hotel-nipat-uthit-hat-yai": {
   "lat": 7.0066546,
@@ -708,9 +713,10 @@
   "lng": 99.8244926,
   "prov": "sukhothai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "184/1 Wichian Chamnong Road, Mueang Sukhothai, Sukhothai, Thailand",
-  "distKm": 0.8
+  "distKm": 0.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"184/1 Wichian Chamnong Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=tertiary r26 \"ถนนวิเชียรจำนงค์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-at-nata-chiangmai-chic-jungle-chiang-mai": {
   "why": "586 km from chiang-mai",
@@ -835,9 +841,10 @@
   "lng": 99.8608107,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "99 Moo 9, Sam Roi Yot, Sam Roi Yot District, Sam Roi Yot, Prachuap Khiri Khan, Thailand",
-  "distKm": 41.4
+  "distKm": 41.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"99 Moo 9, Sam Roi Yot, Sam Roi Yot District, Sam Roi Yot, Prachuap Khiri Khan, Thailand\" is place=town r18 \"ไร่เก่า\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-b-black-residence-chonburi": {
   "why": "road query was only a village/house number: \"Moo 3\"",
@@ -891,9 +898,10 @@
   "lng": 99.4749581,
   "prov": "lampang",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "64 Ban Dong Phatthana Road, Bo Haeo, Mueang Lampang, Lampang, Thailand",
-  "distKm": 1.7
+  "distKm": 1.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"64 Ban Dong Phatthana Road, Bo Haeo, Mueang Lampang, Lampang, Thailand\" is highway=residential r26 \"ถนนบ้านดงพัฒนา\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-b2-mae-hong-son-premier-mae-hong-son": {
   "lat": 19.3041469,
@@ -1376,13 +1384,20 @@
   "q": "Moo 2, Bang Saphan, Thailand"
  },
  "review-ban-naam-resort-chiang-rai": {
-  "lat": 20.3221956,
-  "lng": 99.8783637,
+  "lat": 20.3220085,
+  "lng": 99.8779078,
   "prov": "chiang-rai",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
   "q": "Ban Naam Resort, Chiang Rai, Thailand",
-  "distKm": 46
+  "distKm": 46,
+  "osm": "node/4529792139",
+  "was": {
+   "lat": 20.3221956,
+   "lng": 99.8783637,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"Ban Naam Resort, Chiang Rai, Thailand\" is highway=residential r26 \"บ้านน้ำ รีสอร์ท\". OSM node/4529792139 \"บ้านน้ำ รีสอร์ท\" carries the hotel's name (same name \"Ban Naam Resort\") 52 m from the pin."
  },
  "review-ban-phumon-talang-resort-mae-hong-son": {
   "why": "159 km from mae-hong-son",
@@ -1487,9 +1502,10 @@
   "lng": 101.2068714,
   "prov": "rayong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "45 Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 7.9
+  "distKm": 7.9,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"45 Noen Phra, Mueang Rayong, Rayong, Thailand\" is place=town r18 \"เนินพระ\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-banyan-resort-rayong": {
   "why": "equals the province centroid",
@@ -1539,9 +1555,10 @@
   "lng": 102.1163591,
   "prov": "sa-kaeo",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "2/8 ถนนสระแก้ว ตำบลสระแก้ว อำเภอเมืองสระแก้ว, Sa Kaeo, Thailand",
-  "distKm": 6.4
+  "distKm": 6.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"2/8 ถนนสระแก้ว ตำบลสระแก้ว อำเภอเมืองสระแก้ว, Sa Kaeo, Thailand\" is highway=primary r26 \"ถนนสระแก้ว-เขาหินซ้อน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-baroque-boutique-resort-ranong": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -1556,18 +1573,20 @@
   "lng": 100.6424328,
   "prov": "samut-prakan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "194 ถนนศรีนครินทร์ ตำบลสำโรงเหนือ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand",
-  "distKm": 7.7
+  "distKm": 7.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"194 ถนนศรีนครินทร์ ตำบลสำโรงเหนือ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand\" is highway=primary r26 \"ถนนศรีนครินทร์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-bb-house-chachoengsao": {
   "lat": 13.5642096,
   "lng": 100.9848027,
   "prov": "chachoengsao",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "BB House Chachoengsao, ฉะเชิงเทรา, Thailand",
-  "distKm": 16.7
+  "distKm": 16.7,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"BB House Chachoengsao, ฉะเชิงเทรา, Thailand\" is landuse=residential r24 \"เข็มทิศวิลเลจ เดอะ กลาส เฮ้า\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-bb-trang-hotel-trang": {
   "why": "no match",
@@ -1945,9 +1964,10 @@
   "lng": 100.4540985,
   "prov": "ang-thong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "66 ถนนเลียบคลองชลประทาน ตำบลโพสะ อำเภอเมืองอ่างทอง, อ่างทอง, Thailand",
-  "distKm": 1.1
+  "distKm": 1.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"66 ถนนเลียบคลองชลประทาน ตำบลโพสะ อำเภอเมืองอ่างทอง, อ่างทอง, Thailand\" is highway=residential r26 \"ถนนเลียบคลองชลประทาน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-bualuang-hotel-ang-thong": {
   "lat": 14.436253,
@@ -1979,9 +1999,10 @@
   "lng": 99.5084689,
   "prov": "kamphaeng-phet",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "11/15 ตำบลนครชุม อำเภอเมืองกำแพงเพชร, Kamphaeng Phet, Thailand",
-  "distKm": 2.5
+  "distKm": 2.5,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"11/15 ตำบลนครชุม อำเภอเมืองกำแพงเพชร, Kamphaeng Phet, Thailand\" is boundary=administrative r16 \"ตำบลนครชุม\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-burasari-phuket-resort-spa-phuket": {
   "why": "no match",
@@ -1992,9 +2013,10 @@
   "lng": 98.972627,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "1 Sirimangkalajarn Road Soi 9, Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"1 Sirimangkalajarn Road Soi 9, Suthep, Mueang Chiang Mai, Chiang Mai, Thailand\" is office=diplomatic r30 \"สถานกงสุลอิตาลี เชียงใหม่\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-buri-sriphu-hotel-hat-yai": {
   "lat": 6.9982981,
@@ -2010,9 +2032,10 @@
   "lng": 100.4773374,
   "prov": "songkhla",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "310 Sripoovanart Road, Hat Yai, Hat Yai, Thailand",
-  "distKm": 26.2
+  "distKm": 26.2,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"310 Sripoovanart Road, Hat Yai, Hat Yai, Thailand\" is highway=secondary r26 \"ถนนศรีภูวนารถ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-busaba-ayutthaya-ayutthaya": {
   "lat": 14.3572126,
@@ -2088,9 +2111,10 @@
   "lng": 99.970172,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "97/2 Phetkasem Road, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand",
-  "distKm": 9.3
+  "distKm": 9.3,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"97/2 Phetkasem Road, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand\" is highway=trunk r26 \"ถนนเพชรเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cape-racha-sriracha-chonburi": {
   "lat": 13.1689463,
@@ -2204,9 +2228,10 @@
   "lng": 102.0642848,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "880 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
-  "distKm": 3.8
+  "distKm": 3.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"880 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-centara-life-hotel-mae-sot-tak": {
   "why": "no match",
@@ -2286,9 +2311,10 @@
   "lng": 99.9662102,
   "prov": "phetchaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Cha Inn @ Cha-am, Cha-am, Thailand",
-  "distKm": 34.6
+  "distKm": 34.6,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Cha Inn @ Cha-am, Cha-am, Thailand\" is railway=station r30 \"ชะอำ\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chababaancham-resort-samut-songkhram": {
   "lat": 13.4278111,
@@ -2410,9 +2436,10 @@
   "lng": 98.2993862,
   "prov": "phuket",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "62 Kata Road, Karon, Mueang Phuket, Phuket, Thailand",
-  "distKm": 12.7
+  "distKm": 12.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"62 Kata Road, Karon, Mueang Phuket, Phuket, Thailand\" is highway=residential r26 \"ถนนกะตะน้อย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chandra-varin-riverfront-loei": {
   "why": "no match",
@@ -2431,9 +2458,10 @@
   "lng": 102.1700278,
   "prov": "chanthaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Chanthaburi Center, Chanthaburi, Thailand",
-  "distKm": 13.4
+  "distKm": 13.4,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Chanthaburi Center, Chanthaburi, Thailand\" is office=government r30 \"Chanthaburi Horticultural Re\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chanthra-hotel-sa-kaeo": {
   "lat": 13.6917588,
@@ -2628,9 +2656,10 @@
   "lng": 99.9717238,
   "prov": "ratchaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "76/2 หมู่ 2 ตำบลขุนพิทักษ์ อำเภอดำเนินสะดวก, Ratchaburi, Thailand",
-  "distKm": 17.9
+  "distKm": 17.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"76/2 หมู่ 2 ตำบลขุนพิทักษ์ อำเภอดำเนินสะดวก, Ratchaburi, Thailand\" is highway=residential r26 \"ตาหลวง หมู่ 5 ซอย 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chumphon-cabana-resort-chumphon": {
   "lat": 10.5573887,
@@ -2671,18 +2700,20 @@
   "lng": 98.9162048,
   "prov": "krabi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "City Hotel Krabi, Krabi, Thailand",
-  "distKm": 2.9
+  "distKm": 2.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Hotel Krabi, Krabi, Thailand\" is tourism=hotel r30 \"โรงแรมซิตี้\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-city-park-hotel-phatthalung": {
   "lat": 7.614392,
   "lng": 100.0804631,
   "prov": "phatthalung",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "City Park Hotel Phatthalung, Phatthalung, Thailand",
-  "distKm": 0.6
+  "distKm": 0.6,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Park Hotel Phatthalung, Phatthalung, Thailand\" is tourism=hotel r30 \"โรงแรม ซิตี้ปาร์ค\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cityview-residence-chonburi": {
   "why": "no match",
@@ -2877,9 +2908,10 @@
   "lng": 101.217922,
   "prov": "rayong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "335/1 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 6.7
+  "distKm": 6.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"335/1 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cs-pattani-hotel-pattani": {
   "why": "equals the province centroid",
@@ -3040,9 +3072,10 @@
   "lng": 102.2926256,
   "prov": "trat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Klong Prao Beach, Ko Chang, Ko Chang, Trat, Thailand",
-  "distKm": 31.9
+  "distKm": 31.9,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Klong Prao Beach, Ko Chang, Ko Chang, Trat, Thailand\" is natural=beach r22 \"หาดคลองพร้าว\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-dluxx-thammasat-pathum-thani": {
   "why": "no match",
@@ -3137,9 +3170,10 @@
   "lng": 100.9109153,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Dusit Thani Pattaya, Pattaya, Thailand",
-  "distKm": 44.7
+  "distKm": 44.7,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Dusit Thani Pattaya, Pattaya, Thailand\" is amenity=college r30 \"วิทยาลัยดุสิตธานีพัทยา\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-dusita-residence-phetchabun": {
   "why": "no match",
@@ -3202,9 +3236,10 @@
   "lng": 99.9555406,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Escape Hua Hin, Hua Hin, Thailand",
-  "distKm": 7.7
+  "distKm": 7.7,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Escape Hua Hin, Hua Hin, Thailand\" is tourism=hotel r30 \"Relo' The Urban Escape\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-eu-bakery-guesthouse-huahin": {
   "why": "no match",
@@ -3224,9 +3259,10 @@
   "lng": 99.975657,
   "prov": "phetchaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "255/24 ถนนราษฎร์พลี 2 ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand",
-  "distKm": 35.6
+  "distKm": 35.6,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"255/24 ถนนราษฎร์พลี 2 ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand\" is highway=residential r26 \"ถนนราษฎร์พลี 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-excella-hotel-ubon-ratchathani": {
   "lat": 15.27261,
@@ -3298,18 +3334,20 @@
   "lng": 100.288767,
   "prov": "samut-sakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "9/9 หมู่ 4 ตำบลบางโทรัด อำเภอเมืองสมุทรสาคร, สมุทรสาคร, Thailand",
-  "distKm": 3.5
+  "distKm": 3.5,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"9/9 หมู่ 4 ตำบลบางโทรัด อำเภอเมืองสมุทรสาคร, สมุทรสาคร, Thailand\" is landuse=residential r24 \"บ้านเอื้ออาทรเศรษฐกิจ3 (ซอยห\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-first-choice-grand-suites-huahin": {
   "lat": 12.5328272,
   "lng": 99.96458,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "85 Soi Moo Ban Hua Don, Nong Kae, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand",
-  "distKm": 4.2
+  "distKm": 4.2,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"85 Soi Moo Ban Hua Don, Nong Kae, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand\" is railway=station r30 \"หนองแก\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-first-choice-suites-by-the-sea-huahin": {
   "why": "no match",
@@ -3411,9 +3449,10 @@
   "lng": 100.8871438,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "G Residence Pattaya, Pattaya, Thailand",
-  "distKm": 45.9
+  "distKm": 45.9,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"G Residence Pattaya, Pattaya, Thailand\" is landuse=residential r24 \"Green Residence\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-g9-bangkok-hostel-bangkok": {
   "lat": 13.8035447,
@@ -3494,9 +3533,10 @@
   "lng": 98.8288989,
   "prov": "krabi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "GLOW Ao Nang Krabi, Krabi, Thailand",
-  "distKm": 10.9
+  "distKm": 10.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"GLOW Ao Nang Krabi, Krabi, Thailand\" is shop=laundry r30 \"Wash & glow\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-go-hotel-nakhon-sawan": {
   "why": "road query was only a village/house number: \"หมู่ 10\"",
@@ -3516,9 +3556,10 @@
   "lng": 99.961585,
   "prov": "phetchaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "208/14 ถนนเพชรเกษม ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand",
-  "distKm": 39.9
+  "distKm": 39.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"208/14 ถนนเพชรเกษม ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand\" is highway=trunk r26 \"ถนนเพชรเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-golden-city-rayong-hotel-rayong": {
   "lat": 12.6838562,
@@ -3581,9 +3622,10 @@
   "lng": 100.8741808,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Grand Hotel Pattaya, Pattaya, Thailand",
-  "distKm": 49.5
+  "distKm": 49.5,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Grand Hotel Pattaya, Pattaya, Thailand\" is tourism=hotel r30 \"Grand Hotel\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-grand-inter-hotel-samut-sakhon": {
   "lat": 13.5692797,
@@ -3608,9 +3650,10 @@
   "lng": 101.1411412,
   "prov": "lopburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Grand Lopburi, Lopburi, Thailand",
-  "distKm": 69.3
+  "distKm": 69.3,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Grand Lopburi, Lopburi, Thailand\" is tourism=hotel r30 \"Narai Grand Hotel\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-grand-mandarin-betong-yala": {
   "lat": 5.7708832,
@@ -3710,9 +3753,10 @@
   "lng": 101.9618278,
   "prov": "narathiwat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "84 ถนนวงศ์วิวัฒน์ ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand",
-  "distKm": 48
+  "distKm": 48,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"84 ถนนวงศ์วิวัฒน์ ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=secondary r26 \"ถนนวงศ์วิวัฒน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-guest-house-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 9\"",
@@ -3736,9 +3780,10 @@
   "lng": 99.8335994,
   "prov": "surat-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Haadtien Beach Resort, Koh Tao, Thailand",
-  "distKm": 116.9
+  "distKm": 116.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Haadtien Beach Resort, Koh Tao, Thailand\" is building=yes r30 \"Beach Club by Haadtien\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hacienda-fishermans-village-samui": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -3805,9 +3850,10 @@
   "lng": 101.4116343,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "49/5 ถนนเทศบาล 15 ตำบลปากช่อง อำเภอปากช่อง, Nakhon Ratchasima, Thailand",
-  "distKm": 79.7
+  "distKm": 79.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"49/5 ถนนเทศบาล 15 ตำบลปากช่อง อำเภอปากช่อง, Nakhon Ratchasima, Thailand\" is highway=residential r26 \"ถนนเทศบาล 15\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hi-scene-resort-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -3909,9 +3955,10 @@
   "lng": 101.2184497,
   "prov": "rayong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "554/5 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 6.7
+  "distKm": 6.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"554/5 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-holiday-station-hostel-krabi": {
   "lat": 8.0698491,
@@ -3939,9 +3986,10 @@
   "lng": 104.1381646,
   "prov": "sakon-nakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "272/37 ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
-  "distKm": 1.3
+  "distKm": 1.3,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"272/37 ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is boundary=administrative r16 \"ตำบลธาตุเชิงชุม\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hop-inn-airport-hat-yai": {
   "lat": 7.0022513,
@@ -4108,9 +4156,10 @@
   "lng": 100.6147059,
   "prov": "pathum-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "92 ถนนพหลโยธิน ตำบลประชาธิปัตย์ อำเภอธัญบุรี, Pathum Thani, Thailand",
-  "distKm": 9.5
+  "distKm": 9.5,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"92 ถนนพหลโยธิน ตำบลประชาธิปัตย์ อำเภอธัญบุรี, Pathum Thani, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hop-inn-rayong": {
   "lat": 12.7044873,
@@ -4148,9 +4197,10 @@
   "lng": 100.1276882,
   "prov": "suphan-buri",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "58 ถนนมาลัยแมน ตำบลรั้วใหญ่ อำเภอเมืองสุพรรณบุรี, Suphan Buri, Thailand",
-  "distKm": 1.4
+  "distKm": 1.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"58 ถนนมาลัยแมน ตำบลรั้วใหญ่ อำเภอเมืองสุพรรณบุรี, Suphan Buri, Thailand\" is highway=primary r26 \"ถนนมาลัยแมน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hop-inn-surin": {
   "why": "no match",
@@ -4222,9 +4272,10 @@
   "lng": 100.9315631,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "63 Sukhumvit Road, Si Racha, Si Racha, Chonburi, Thailand",
-  "distKm": 20.8
+  "distKm": 20.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"63 Sukhumvit Road, Si Racha, Si Racha, Chonburi, Thailand\" is highway=trunk r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hotel-la-casetta-toscana-valley-khao-yai": {
   "why": "road query was only a village/house number: \"หมู่ 11\"",
@@ -4235,9 +4286,10 @@
   "lng": 102.8362071,
   "prov": "khon-kaen",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Hotel La Villa Khon Kaen, Khon Kaen, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hotel La Villa Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"โรงแรมวิลล่า\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hotel-moco-udon-thani": {
   "lat": 17.4026922,
@@ -4257,9 +4309,10 @@
   "lng": 100.5099998,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Hotel Royal Bangkok @ Chinatown, Bangkok, Thailand",
-  "distKm": 1.5
+  "distKm": 1.5,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hotel Royal Bangkok @ Chinatown, Bangkok, Thailand\" is tourism=hotel r30 \"Hotel Royal\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hotel-toscana-trat": {
   "why": "road query was only a village/house number: \"Moo 5\"",
@@ -4356,9 +4409,10 @@
   "lng": 104.1851433,
   "prov": "sakon-nakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Hug Sakonnakhon, Sakon Nakhon, Thailand",
-  "distKm": 9
+  "distKm": 9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hug Sakonnakhon, Sakon Nakhon, Thailand\" is amenity=cafe r30 \"ฟาร์มฮัก\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-huglampang-boutique-hotel-lampang": {
   "why": "no match",
@@ -4414,9 +4468,10 @@
   "lng": 98.9725891,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Hyde Park Chiangmai, Chiang Mai, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hyde Park Chiangmai, Chiang Mai, Thailand\" is building=apartments r30 \"HYDE PARK RESIDENCE\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-i-boutique-hotel-chonburi": {
   "why": "road query was only a village/house number: \"Moo 6\"",
@@ -4555,9 +4610,10 @@
   "lng": 104.1424776,
   "prov": "sakon-nakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "1892 ถนนสุขเกษม ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1892 ถนนสุขเกษม ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนสุขเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-in-a-box-hostel-bangkok": {
   "lat": 13.7558817,
@@ -4603,18 +4659,20 @@
   "lng": 100.55637,
   "prov": "pathum-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "62 หมู่ 7 ตำบลเชียงรากใหญ่ อำเภอสามโคก, Pathum Thani, Thailand",
-  "distKm": 3.9
+  "distKm": 3.9,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"62 หมู่ 7 ตำบลเชียงรากใหญ่ อำเภอสามโคก, Pathum Thani, Thailand\" is place=village r19 \"บ้านท้องคุ้ง\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-innside-by-melia-sukhumvit-bangkok": {
   "lat": 13.7265949,
   "lng": 100.5752626,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "1472 Sukhumvit Road, Phra Khanong, Khlong Toei, Bangkok, Thailand",
-  "distKm": 8.5
+  "distKm": 8.5,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1472 Sukhumvit Road, Phra Khanong, Khlong Toei, Bangkok, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-intercontinental-hua-hin-resort-prachuap-khiri-khan": {
   "lat": 12.5485134,
@@ -4726,9 +4784,10 @@
   "lng": 100.9982691,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "J&Y Lodge Hotel, Mueang Chon Buri, Thailand",
-  "distKm": 6.4
+  "distKm": 6.4,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"J&Y Lodge Hotel, Mueang Chon Buri, Thailand\" is tourism=hotel r30 \"J and Y Lodge\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-j-house-hotel-phetchaburi": {
   "why": "no match",
@@ -4776,9 +4835,10 @@
   "lng": 100.553664,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "Kamphaeng Phet 6 Road, Lat Yao, Chatuchak, Bangkok, Thailand",
-  "distKm": 10.9
+  "distKm": 10.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"Kamphaeng Phet 6 Road, Lat Yao, Chatuchak, Bangkok, Thailand\" is highway=tertiary r26 \"ถนนกำแพงเพชร 6\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-je-taime-cafe-villa-sing-buri": {
   "why": "no match",
@@ -4922,9 +4982,10 @@
   "lng": 101.1901297,
   "prov": "rayong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "305/14 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 10
+  "distKm": 10,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"305/14 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-kameo-hotel-amata-bangpakong-chonburi": {
   "why": "road query was only a village/house number: \"Moo 5\"",
@@ -5004,9 +5065,10 @@
   "lng": 98.8579078,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "1 Moo 6, Ban Klang, San Pa Tong, Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 32.5
+  "distKm": 32.5,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1 Moo 6, Ban Klang, San Pa Tong, Chiang Mai, Chiang Mai, Thailand\" is highway=residential r26 \"BanThung Luk Soi 1\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-kasemsarn-hotel-chanthaburi": {
   "lat": 12.6116628,
@@ -5243,9 +5305,10 @@
   "lng": 101.2781144,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "99 หมู่ 9 ตำบลกลางดง อำเภอปากช่อง, Nakhon Ratchasima, Thailand",
-  "distKm": 96.7
+  "distKm": 96.7,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"99 หมู่ 9 ตำบลกลางดง อำเภอปากช่อง, Nakhon Ratchasima, Thailand\" is tourism=attraction r30 \"สวนซ่อนศิลป์\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-klang-muang-river-home-phetchabun": {
   "why": "no match",
@@ -5316,9 +5379,10 @@
   "lng": 102.5566564,
   "prov": "trat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Koh Kood Beach Resort, Ko Kut, Thailand",
-  "distKm": 71.9
+  "distKm": 71.9,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Koh Kood Beach Resort, Ko Kut, Thailand\" is amenity=bar r30 \"Koh Kood Cafe (Neverland Bea\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-koh-kood-garden-koh-kood": {
   "why": "no match",
@@ -5384,9 +5448,10 @@
   "lng": 102.0446222,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "99/26 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
-  "distKm": 6.1
+  "distKm": 6.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"99/26 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-kosa-hotel-khon-kaen": {
   "lat": 16.4281245,
@@ -5449,9 +5514,10 @@
   "lng": 98.4162245,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "ตำบลแม่แดด อำเภอกัลยาณิวัฒนา, Chiang Mai, Thailand",
-  "distKm": 62.4
+  "distKm": 62.4,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"ตำบลแม่แดด อำเภอกัลยาณิวัฒนา, Chiang Mai, Thailand\" is office=administrative r30 \"องค์การบริหารส่วนตำบลแม่แดด\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-krin-resort-khao-kho-phetchabun": {
   "why": "no match",
@@ -5535,9 +5601,10 @@
   "lng": 100.8787334,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Laguna Beach Resort 2, Pattaya, Thailand",
-  "distKm": 52.4
+  "distKm": 52.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Laguna Beach Resort 2, Pattaya, Thailand\" is landuse=residential r24 \"Laguna Beach Resort 2 Condo\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-laguna-grand-hotel-spa-songkhla": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -5690,9 +5757,10 @@
   "lng": 102.5213719,
   "prov": "sa-kaeo",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Le Blocs Aranyaprathet, Sa Kaeo, Thailand",
-  "distKm": 50.8
+  "distKm": 50.8,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Le Blocs Aranyaprathet, Sa Kaeo, Thailand\" is amenity=cafe r30 \"Le Blocs Café\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-le-casa-bang-saen-hotel-chonburi": {
   "why": "no match",
@@ -5769,13 +5837,20 @@
   "q": "ตำบลทุ่งคลอง, Kalasin, Thailand"
  },
  "review-legendha-sukhothai-resort-sukhothai": {
-  "lat": 17.0189193,
-  "lng": 99.7201941,
+  "lat": 17.018574,
+  "lng": 99.7197235,
   "prov": "sukhothai",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
   "q": "Legendha Sukhothai Resort, Sukhothai, Thailand",
-  "distKm": 10.7
+  "distKm": 10.7,
+  "osm": "relation/21169505",
+  "was": {
+   "lat": 17.0189193,
+   "lng": 99.7201941,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Legendha Sukhothai Resort, Sukhothai, Thailand\" is tourism=hotel r30 \"เลเจนด้า สุโขทัย รีสอร์ท\". OSM relation/21169505 \"Legendha Sukhothai Resort\" carries the hotel's name (same name \"Legendha Sukhothai Resort\") 63 m from the pin."
  },
  "review-lemin-resort-sa-kaeo": {
   "why": "403 km from sa-kaeo",
@@ -5999,9 +6074,10 @@
   "lng": 98.2981453,
   "prov": "phuket",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "5/5 Sawatdirak Road, Patong, Kathu, Phuket, Thailand",
-  "distKm": 10.3
+  "distKm": 10.3,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"5/5 Sawatdirak Road, Patong, Kathu, Phuket, Thailand\" is highway=residential r26 \"ถนนสวัสดิรักษ์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-luck-esan-loft-ubon-ratchathani": {
   "lat": 15.2543115,
@@ -6317,9 +6393,10 @@
   "lng": 100.0544945,
   "prov": "nakhon-pathom",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม, Nakhon Pathom, Thailand",
-  "distKm": 1.5
+  "distKm": 1.5,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม, Nakhon Pathom, Thailand\" is highway=secondary r26 \"ถนนเพชรเกษม (ทางขนาน)\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-mida-hotel-ngamwongwan-nonthaburi": {
   "why": "no match",
@@ -6548,9 +6625,10 @@
   "lng": 101.6656415,
   "prov": "loei",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "93/1 Chai Khong Road, Chiang Khan, Loei, Thailand",
-  "distKm": 46
+  "distKm": 46,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"93/1 Chai Khong Road, Chiang Khan, Loei, Thailand\" is highway=residential r26 \"Chai Khong Road\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-mulberry-pang-sita-sa-kaeo": {
   "why": "no match",
@@ -6821,9 +6899,10 @@
   "lng": 100.1439044,
   "prov": "chai-nat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "2 ถนนพหลโยธิน ตำบลเขาท่าพระ อำเภอเมืองชัยนาท, ชัยนาท, Thailand",
-  "distKm": 1.8
+  "distKm": 1.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"2 ถนนพหลโยธิน ตำบลเขาท่าพระ อำเภอเมืองชัยนาท, ชัยนาท, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-narasiri-service-apartment-prachinburi": {
   "lat": 14.0563727,
@@ -6886,9 +6965,10 @@
   "lng": 104.8510596,
   "prov": "ubon-ratchathani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "434 Chayangkun Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand",
-  "distKm": 0.6
+  "distKm": 0.6,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"434 Chayangkun Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนชยางกูร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-new-siya-hotel-maha-sarakham": {
   "why": "no match",
@@ -7024,9 +7104,10 @@
   "lng": 100.4992725,
   "prov": "nonthaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "219 ถนนนนทบุรี ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, Nonthaburi, Thailand",
-  "distKm": 3.1
+  "distKm": 3.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"219 ถนนนนทบุรี ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, Nonthaburi, Thailand\" is highway=primary r26 \"ถนนนครอินทร์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-nonze-hostel-pattaya": {
   "lat": 12.9319678,
@@ -7103,9 +7184,10 @@
   "lng": 100.5559984,
   "prov": "nonthaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "94 ถนนป๊อปปูล่า ตำบลบ้านใหม่ อำเภอปากเกร็ด, Nonthaburi, Thailand",
-  "distKm": 8
+  "distKm": 8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"94 ถนนป๊อปปูล่า ตำบลบ้านใหม่ อำเภอปากเกร็ด, Nonthaburi, Thailand\" is highway=unclassified r26 \"ถนนป๊อปปูล่า\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-novotel-rayong-rim-pae-resort-rayong": {
   "why": "equals the province centroid",
@@ -7171,13 +7253,20 @@
   "distKm": 1.2
  },
  "review-old-city-wall-inn-chiang-mai": {
-  "lat": 18.7811828,
-  "lng": 98.9951115,
+  "lat": 18.7811975,
+  "lng": 98.9950328,
   "prov": "chiang-mai",
   "via": "nominatim",
   "precision": "poi",
   "q": "The Old City Wall Inn, Chiang Mai, Thailand",
-  "distKm": 1.9
+  "distKm": 1.9,
+  "osm": "node/11487051569",
+  "was": {
+   "lat": 18.7811828,
+   "lng": 98.9951115,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Old City Wall Inn, Chiang Mai, Thailand\" is tourism=hotel r30 \"The Old City Wall Inn\". the matched object is the hotel (same name \"The Old City Wall Inn\"); OSM now places it 8 m from the stored pin."
  },
  "review-old-town-boutique-hostel-lampang": {
   "lat": 18.2908123,
@@ -7264,9 +7353,10 @@
   "lng": 102.7999971,
   "prov": "buriram",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "P Hostel Buriram, Buriram, Thailand",
-  "distKm": 51.4
+  "distKm": 51.4,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"P Hostel Buriram, Buriram, Thailand\" is tourism=hostel r30 \"P.California Inter Hostel, c\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-p2chilltime-hostel-paknam-samut-prakan": {
   "why": "no match",
@@ -7714,9 +7804,10 @@
   "lng": 100.6476999,
   "prov": "lopburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี, ลพบุรี, Thailand",
-  "distKm": 2.7
+  "distKm": 2.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี, ลพบุรี, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-phi-phi-bayview-premier-resort-krabi": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -7828,13 +7919,20 @@
   "distKm": 12.1
  },
  "review-phu-pai-art-resort-pai": {
-  "lat": 19.3867363,
-  "lng": 98.4276187,
+  "lat": 19.394842,
+  "lng": 98.431371,
   "prov": "mae-hong-son",
   "via": "nominatim",
   "precision": "poi",
   "q": "Phu Pai Art Resort, Pai, Thailand",
-  "distKm": 49
+  "distKm": 49,
+  "osm": "node/2482066611",
+  "was": {
+   "lat": 19.3867363,
+   "lng": 98.4276187,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Phu Pai Art Resort, Pai, Thailand\" is tourism=hotel r30 \"Phu Pai Art Resort\". the matched object is the hotel (same name \"Phu Pai Art Resort\"); OSM now places it 979 m from the stored pin."
  },
  "review-phu-pai-mork-resort-nakhon-ratchasima": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -7972,9 +8070,10 @@
   "lng": 102.323669,
   "prov": "sa-kaeo",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "491 ตำบลวัฒนานคร อำเภอวัฒนานคร, Sa Kaeo, Thailand",
-  "distKm": 28.4
+  "distKm": 28.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"491 ตำบลวัฒนานคร อำเภอวัฒนานคร, Sa Kaeo, Thailand\" is place=town r18 \"วัฒนานคร\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-pickbaan-hostel-cafe-lamphun": {
   "why": "no match",
@@ -8219,9 +8318,10 @@
   "lng": 100.7934053,
   "prov": "saraburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท, Saraburi, Thailand",
-  "distKm": 25.3
+  "distKm": 25.3,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท, Saraburi, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-ps-loft-hostel-tha-khon-yang-maha-sarakham": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
@@ -8266,9 +8366,10 @@
   "lng": 99.956275,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "22/65 Naebkehardt Road, Hua Hin, Hua Hin, Thailand",
-  "distKm": 1
+  "distKm": 1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"22/65 Naebkehardt Road, Hua Hin, Hua Hin, Thailand\" is highway=tertiary r26 \"ถนนแนบเคหาสน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-putahracsa-huahin": {
   "lat": 12.5769836,
@@ -8328,9 +8429,10 @@
   "lng": 100.926087,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Racha Residence, Si Racha, Chonburi, Thailand",
-  "distKm": 22.1
+  "distKm": 22.1,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Racha Residence, Si Racha, Chonburi, Thailand\" is tourism=hotel r30 \"โรงแรมโอ๊ควู๊ด โฮเทล แอนด์ เ\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-rachabura-hotel-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -8692,9 +8794,10 @@
   "lng": 100.9359601,
   "prov": "saraburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "ตำบลตะกุด อำเภอเมืองสระบุรี, Saraburi, Thailand",
-  "distKm": 3.6
+  "distKm": 3.6,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"ตำบลตะกุด อำเภอเมืองสระบุรี, Saraburi, Thailand\" is place=municipality r14 \"ตะกุด\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-river-resort-spa-sa-kaeo": {
   "lat": 13.6917588,
@@ -8723,9 +8826,10 @@
   "lng": 100.5039059,
   "prov": "nonthaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "167 ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, นนทบุรี, Thailand",
-  "distKm": 4.1
+  "distKm": 4.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"167 ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, นนทบุรี, Thailand\" is highway=primary r26 \"ถนนพิบูลสงคราม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-riverside-chiangkhan-loei": {
   "why": "no match",
@@ -8799,9 +8903,10 @@
   "lng": 100.4345255,
   "prov": "phichit",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "57 ถนนชมฐีระเวช ตำบลตะพานหิน อำเภอตะพานหิน, พิจิตร, Thailand",
-  "distKm": 26.4
+  "distKm": 26.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"57 ถนนชมฐีระเวช ตำบลตะพานหิน อำเภอตะพานหิน, พิจิตร, Thailand\" is highway=primary r26 \"ถนนชมฐีระเวช\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-royal-cliff-beach-hotel-pattaya": {
   "lat": 12.9235373,
@@ -8864,9 +8969,10 @@
   "lng": 100.179775,
   "prov": "samut-sakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "14 หมู่ 4 ตำบลบ้านบ่อ อำเภอเมืองสมุทรสาคร, สมุทรสาคร, Thailand",
-  "distKm": 10.4
+  "distKm": 10.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"14 หมู่ 4 ตำบลบ้านบ่อ อำเภอเมืองสมุทรสาคร, สมุทรสาคร, Thailand\" is landuse=residential r24 \"หมู่บ้านแสนสุข 4\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-rueanrimnam-hotel-roi-et": {
   "lat": 16.0637063,
@@ -8902,9 +9008,10 @@
   "lng": 100.2661978,
   "prov": "nakhon-pathom",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "88 หมู่ 2 ตำบลยายชา อำเภอสามพราน, Nakhon Pathom, Thailand",
-  "distKm": 24.4
+  "distKm": 24.4,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"88 หมู่ 2 ตำบลยายชา อำเภอสามพราน, Nakhon Pathom, Thailand\" is landuse=residential r24 \"หมู่บ้านแลนซีโอ คริป 2 เพชรเ\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-s-house-hotel-surin": {
   "why": "road query was only a village/house number: \"หมู่ 16\"",
@@ -8944,9 +9051,10 @@
   "lng": 99.8987429,
   "prov": "phayao",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "939 ถนนพหลโยธิน ตำบลท่าวังทอง อำเภอเมืองพะเยา, Phayao, Thailand",
-  "distKm": 1.2
+  "distKm": 1.2,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"939 ถนนพหลโยธิน ตำบลท่าวังทอง อำเภอเมืองพะเยา, Phayao, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-saengcha-farm-resort-prachinburi": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
@@ -8992,13 +9100,20 @@
   "distKm": 21.8
  },
  "review-sairee-cottage-resort-koh-tao-surat-thani": {
-  "lat": 10.09715,
-  "lng": 99.82823,
+  "lat": 10.0971463,
+  "lng": 99.8280337,
   "prov": "surat-thani",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
   "q": "Sairee Cottage Resort, Ko Tao, Thailand",
-  "distKm": 119.6
+  "distKm": 119.6,
+  "osm": "node/2616015331",
+  "was": {
+   "lat": 10.09715,
+   "lng": 99.82823,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Sairee Cottage Resort, Ko Tao, Thailand\" is leisure=beach_resort r30 \"Sairee Cottage Dive Resort\". OSM node/2616015331 \"Sairee Cottage\" carries the hotel's name (same distinctive words \"cottage\") 22 m from the pin."
  },
  "review-sakaekrang-haven-homestay-uthai-thani": {
   "why": "no match",
@@ -9132,18 +9247,20 @@
   "lng": 100.6064243,
   "prov": "samut-prakan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "2 ถนนสุขุมวิท ตำบลปากน้ำ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand",
-  "distKm": 0.8
+  "distKm": 0.8,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"2 ถนนสุขุมวิท ตำบลปากน้ำ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand\" is tourism=apartment r30 \"Star apartments\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sanae-beach-huahin": {
   "lat": 12.4529647,
   "lng": 99.9812153,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Sanae Beach Hua Hin, Hua Hin, Thailand",
-  "distKm": 13.2
+  "distKm": 13.2,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Sanae Beach Hua Hin, Hua Hin, Thailand\" is amenity=restaurant r30 \"เสน่ห์ บีช คลับ\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sanae-hotel-nimman-chiang-mai": {
   "why": "no match",
@@ -9158,9 +9275,10 @@
   "lng": 99.0341128,
   "prov": "krabi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Sand Sea Resort, Krabi, Thailand",
-  "distKm": 59.1
+  "distKm": 59.1,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Sand Sea Resort, Krabi, Thailand\" is tourism=hotel r30 \"Sea Sand Sun Resort\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sand-sea-resort-railay-krabi": {
   "lat": 8.0114135,
@@ -9242,9 +9360,10 @@
   "lng": 99.5155246,
   "prov": "kamphaeng-phet",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet, Kamphaeng Phet, Thailand",
-  "distKm": 1
+  "distKm": 1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet, Kamphaeng Phet, Thailand\" is highway=tertiary r26 \"ถนนเทศา 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sea-beach-1-koh-larn": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -9301,9 +9420,10 @@
   "lng": 100.9202138,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "50-54 Jerm Jom Phon Road, Si Racha, Si Racha District, Chon Buri, Si Racha, Thailand",
-  "distKm": 22.8
+  "distKm": 22.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"50-54 Jerm Jom Phon Road, Si Racha, Si Racha District, Chon Buri, Si Racha, Thailand\" is highway=secondary r26 \"ถนนเจิมจอมพล\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-seeharaj-hotel-uttaradit": {
   "lat": 17.6149658,
@@ -9327,9 +9447,10 @@
   "lng": 100.6431827,
   "prov": "pathum-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "39/9 ซอยลำลูกกา 11 ตำบลคูคต อำเภอลำลูกกา, Pathum Thani, Thailand",
-  "distKm": 13.8
+  "distKm": 13.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"39/9 ซอยลำลูกกา 11 ตำบลคูคต อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ซอยลำลูกกา 11\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sena-place-hotel-bangkok": {
   "lat": 13.7882003,
@@ -9470,9 +9591,10 @@
   "lng": 100.5319351,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "342/3 Phaya Thai Road, Thanon Phetchaburi, Ratchathewi, Bangkok, Thailand",
-  "distKm": 3.5
+  "distKm": 3.5,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"342/3 Phaya Thai Road, Thanon Phetchaburi, Ratchathewi, Bangkok, Thailand\" is highway=primary r26 \"ถนนพญาไท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-siam-river-resort-chaiyaphum": {
   "lat": 15.8039819,
@@ -9660,9 +9782,10 @@
   "lng": 100.0661005,
   "prov": "phatthalung",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Siva Royal Hotel, Phatthalung, Thailand",
-  "distKm": 1.8
+  "distKm": 1.8,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Siva Royal Hotel, Phatthalung, Thailand\" is landuse=residential r24 \"Siva Royal Hotel\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-six-senses-yao-noi-phang-nga": {
   "why": "no match",
@@ -9707,9 +9830,10 @@
   "lng": 103.4771872,
   "prov": "surin",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "169 ถนนหลักเมือง ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand",
-  "distKm": 1.7
+  "distKm": 1.7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"169 ถนนหลักเมือง ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=primary r26 \"ถนนหลักเมือง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-slumber-party-surf-khao-lak-phang-nga": {
   "why": "no match",
@@ -10065,9 +10189,10 @@
   "lng": 103.5196897,
   "prov": "kalasin",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "49 หมู่ 10 ตำบลสหัสขันธ์ อำเภอสหัสขันธ์, Kalasin, Thailand",
-  "distKm": 31.6
+  "distKm": 31.6,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"49 หมู่ 10 ตำบลสหัสขันธ์ อำเภอสหัสขันธ์, Kalasin, Thailand\" is place=neighbourhood r24 \"บ้านโนนบุรี หมู่ 10\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sumali-villa-sing-buri": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -10358,9 +10483,10 @@
   "lng": 100.5358382,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "45 Soi Phetchaburi 13, Thanon Phaya Thai, Ratchathewi, Bangkok, Thailand",
-  "distKm": 3.9
+  "distKm": 3.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"45 Soi Phetchaburi 13, Thanon Phaya Thai, Ratchathewi, Bangkok, Thailand\" is highway=residential r26 \"ซอยเพชรบุรี 13\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-taris-art-hotel-phrae": {
   "why": "no match",
@@ -10422,9 +10548,10 @@
   "lng": 100.7547316,
   "prov": "pathum-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "83 ถนนเทศบาลลำลูกกา 3 ตำบลลำลูกกา อำเภอลำลูกกา, Pathum Thani, Thailand",
-  "distKm": 24.6
+  "distKm": 24.6,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"83 ถนนเทศบาลลำลูกกา 3 ตำบลลำลูกกา อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ถนนเทศบาลลำลูกกา 3\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thanasiri-hotel-resort-sa-kaeo": {
   "lat": 13.8194153,
@@ -10444,9 +10571,10 @@
   "lng": 102.1080254,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "340 Suranarai Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
-  "distKm": 1.4
+  "distKm": 1.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"340 Suranarai Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=primary r26 \"ถนนสุรนารายณ์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thap-lamu-andaman-phang-nga": {
   "why": "no match",
@@ -10530,27 +10658,30 @@
   "lng": 103.6604189,
   "prov": "roi-et",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "The Bed Hotel 101, Roi Et, Thailand",
-  "distKm": 1.5
+  "distKm": 1.5,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Bed Hotel 101, Roi Et, Thailand\" is tourism=hotel r30 \"The Bed Hotel\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bed-kolok-resort-narathiwat": {
   "lat": 6.0290218,
   "lng": 101.9569142,
   "prov": "narathiwat",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "81 ถนนทรายทอง 4 ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand",
-  "distKm": 47.1
+  "distKm": 47.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"81 ถนนทรายทอง 4 ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=primary r26 \"ถนนทรายทอง 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bedroom-railway-hat-yai": {
   "lat": 7.010569,
   "lng": 100.4784712,
   "prov": "songkhla",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "ถนนศุภสารรังสรรค์ ซอย 4/1 อ.หาดใหญ่, Hat Yai, Thailand",
-  "distKm": 25
+  "distKm": 25,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"ถนนศุภสารรังสรรค์ ซอย 4/1 อ.หาดใหญ่, Hat Yai, Thailand\" is highway=tertiary r26 \"ถนนศุภสารรังสรรค์ ซอย 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bedrooms-boutique-hotel-hatyai-songkhla": {
   "why": "no match",
@@ -10914,9 +11045,10 @@
   "lng": 100.7618876,
   "prov": "nan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน, Nan, Thailand",
-  "distKm": 2.2
+  "distKm": 2.2,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน, Nan, Thailand\" is highway=trunk r26 \"ถนนยันตรกิจโกศล\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-indigo-house-phrae": {
   "why": "no match",
@@ -10936,9 +11068,10 @@
   "lng": 102.7889711,
   "prov": "khon-kaen",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "The Lake Hotel Khon Kaen, Khon Kaen, Thailand",
-  "distKm": 5.8
+  "distKm": 5.8,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Lake Hotel Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"เดอะ เลค โฮเทล\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-legend-chiang-rai-boutique-river-resort-spa-chiang-rai": {
   "lat": 19.917945,
@@ -11115,9 +11248,10 @@
   "lng": 98.9821169,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "41/1 Wiang Bua Road, Chang Phueak, Mueang Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 1.8
+  "distKm": 1.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"41/1 Wiang Bua Road, Chang Phueak, Mueang Chiang Mai, Chiang Mai, Thailand\" is highway=residential r26 \"ถนน เวียงบัว\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-orchid-resort-relax-maha-sarakham": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -11251,13 +11385,8 @@
   "distKm": 49.4
  },
  "review-the-quarter-ratchathewi-bangkok": {
-  "lat": 13.7573106,
-  "lng": 100.5205966,
-  "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "poi",
-  "q": "388 Phetchaburi Road, Thanon Phetchaburi, Ratchathewi, Bangkok, Thailand",
-  "distKm": 2.4
+  "why": "pin deleted 2026-09-14: stored point 13.7573106,100.5205966 came from the ADDRESS query but was recorded as poi. OSM has no object numbered 388 anywhere in the 2.4 x 1.3 km box spanning that point and BTS Ratchathewi, so the query cannot have matched the building; the point sits at the western end of Phetchaburi Road, 140 m from Petchburi Soi 1. Addressed OSM objects on the same road run #62/#70 (~900 m west of BTS Ratchathewi), #302 (366 m), #374 (217 m), #444 (151 m), which puts #388 about 150-220 m west of the station: 1.2 km from the old pin, and consistent with the hotel's own 2-minute-walk claim. Found via audit-transit-claims.",
+  "q": "388 Phetchaburi Road, Thanon Phetchaburi, Ratchathewi, Bangkok, Thailand"
  },
  "review-the-quarter-residence-bangkok": {
   "lat": 13.7543311,
@@ -11314,9 +11443,10 @@
   "lng": 104.7942321,
   "prov": "nakhon-phanom",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "The River Hotel Nakhon Phanom, Nakhon Phanom, Thailand",
-  "distKm": 2.2
+  "distKm": 2.2,
+  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The River Hotel Nakhon Phanom, Nakhon Phanom, Thailand\" is tourism=hotel r30 \"The River Hotel\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-riverie-by-katathani-chiang-rai": {
   "lat": 19.9183026,
@@ -11370,9 +11500,10 @@
   "lng": 100.7163047,
   "prov": "pathum-thani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "39/9 หมู่ 18 ตำบลบึงคำพร้อย อำเภอลำลูกกา, ปทุมธานี, Thailand",
-  "distKm": 22.5
+  "distKm": 22.5,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"39/9 หมู่ 18 ตำบลบึงคำพร้อย อำเภอลำลูกกา, ปทุมธานี, Thailand\" is place=village r19 \"บ้านคลองหกวา\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-series-resort-khaoyai-nakhon-ratchasima": {
   "lat": 14.5596364,
@@ -11388,13 +11519,20 @@
   "q": "หมู่ 8 ถนนจิระ, Buriram, Thailand"
  },
  "review-the-shore-at-katathani-phuket": {
-  "lat": 7.8035581,
-  "lng": 98.2999697,
+  "lat": 7.8031138,
+  "lng": 98.2993158,
   "prov": "phuket",
   "via": "nominatim",
   "precision": "poi",
   "q": "The Shore at Katathani, Phuket, Thailand",
-  "distKm": 13.1
+  "distKm": 13.1,
+  "osm": "node/4676434987",
+  "was": {
+   "lat": 7.8035581,
+   "lng": 98.2999697,
+   "via": "nominatim"
+  },
+  "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Shore at Katathani, Phuket, Thailand\" is tourism=hotel r30 \"The Shore At Katathani\". the matched object is the hotel (same name \"The Shore At Katathani\"); OSM now places it 87 m from the stored pin."
  },
  "review-the-sis-kata-resort-phuket": {
   "why": "no match",
@@ -11430,9 +11568,10 @@
   "lng": 100.5403535,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "477 ถนนศรีอยุธยา แขวงถนนพญาไท เขตราชเทวี, Bangkok, Thailand",
-  "distKm": 4.4
+  "distKm": 4.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"477 ถนนศรีอยุธยา แขวงถนนพญาไท เขตราชเทวี, Bangkok, Thailand\" is highway=secondary r26 \"ถนนศรีอยุธยา\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-sun-resort-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
@@ -11536,9 +11675,10 @@
   "lng": 103.4934609,
   "prov": "surin",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "9 ซอยเทศบาลบำรุง ตำบลในเมือง อำเภอเมืองสุรินทร์, สุรินทร์, Thailand",
-  "distKm": 0.9
+  "distKm": 0.9,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"9 ซอยเทศบาลบำรุง ตำบลในเมือง อำเภอเมืองสุรินทร์, สุรินทร์, Thailand\" is highway=residential r26 \"ซอยเทศบาลบำรุง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-wood-pattani-hotel-pattani": {
   "why": "no match",
@@ -11580,9 +11720,10 @@
   "lng": 100.6246389,
   "prov": "samut-prakan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "4277 ซอยสุขุมวิท 107 ตำบลสำโรงเหนือ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand",
-  "distKm": 6.1
+  "distKm": 6.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"4277 ซอยสุขุมวิท 107 ตำบลสำโรงเหนือ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand\" is highway=secondary r26 \"ถนนแบริ่ง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thepnakorn-hotel-buriram": {
   "lat": 14.9965571,
@@ -11602,9 +11743,10 @@
   "lng": 103.4991882,
   "prov": "surin",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "60 ถนนศิริรัฐ ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand",
-  "distKm": 1.3
+  "distKm": 1.3,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"60 ถนนศิริรัฐ ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=tertiary r26 \"ถนน ศิริรัฐ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thongchen-residence-samut-sakhon": {
   "why": "no match",
@@ -11688,18 +11830,20 @@
   "lng": 100.5597034,
   "prov": "bangkok",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "86/1 Vibhavadi Rangsit Road, Chom Phon, Chatuchak, Bangkok, Thailand",
-  "distKm": 9.1
+  "distKm": 9.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"86/1 Vibhavadi Rangsit Road, Chom Phon, Chatuchak, Bangkok, Thailand\" is highway=trunk r26 \"ถนนวิภาวดีรังสิต\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-tobedzz-hotel-ranong": {
   "lat": 9.8515852,
   "lng": 98.6109253,
   "prov": "ranong",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "109 ตำบลบางริ้น อำเภอเมืองระนอง, Ranong, Thailand",
-  "distKm": 12.5
+  "distKm": 12.5,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"109 ตำบลบางริ้น อำเภอเมืองระนอง, Ranong, Thailand\" is place=town r18 \"หงาว\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-toffee-house-nakhon-nayok": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -11790,9 +11934,10 @@
   "lng": 99.8220583,
   "prov": "sukhothai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "27/5 Pravet Nakorn Road, Mueang Sukhothai, Sukhothai, Thailand",
-  "distKm": 1
+  "distKm": 1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"27/5 Pravet Nakorn Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=residential r26 \"ถนนประเวศนคร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-trat-101-hotel-trat": {
   "why": "equals the province centroid",
@@ -11833,9 +11978,10 @@
   "lng": 98.9690388,
   "prov": "chiang-mai",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Mae Mae Village, Mae Na, Chiang Dao District, Chiang Mai, Thailand",
-  "distKm": 59
+  "distKm": 59,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Mae Mae Village, Mae Na, Chiang Dao District, Chiang Mai, Thailand\" is place=village r19 \"บ้านแม่ยะ\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-tree-house-hotel-sisaket": {
   "lat": 15.0730312,
@@ -11903,9 +12049,10 @@
   "lng": 102.0428951,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "111/10 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
-  "distKm": 6.3
+  "distKm": 6.3,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"111/10 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-true-siam-phayathai-hotel-bangkok": {
   "lat": 13.7591649,
@@ -11930,9 +12077,10 @@
   "lng": 102.7148304,
   "prov": "khon-kaen",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "381/27 Mittraphap Road, Nai Mueang, Khon Kaen, Thailand",
-  "distKm": 45.4
+  "distKm": 45.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"381/27 Mittraphap Road, Nai Mueang, Khon Kaen, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-tulip-place-ratchaburi": {
   "lat": 13.3543897,
@@ -11965,18 +12113,20 @@
   "lng": 101.371181,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "U Khao Yai, Nakhon Ratchasima, Thailand",
-  "distKm": 92.1
+  "distKm": 92.1,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"U Khao Yai, Nakhon Ratchasima, Thailand\" is place=village r19 \"เขาใหญ่\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-u-khao-yai": {
   "lat": 14.5341515,
   "lng": 101.371181,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "U Khao Yai, Nakhon Ratchasima, Thailand",
-  "distKm": 92.1
+  "distKm": 92.1,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"U Khao Yai, Nakhon Ratchasima, Thailand\" is place=village r19 \"เขาใหญ่\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-u-nimman-chiang-mai-chiang-mai": {
   "lat": 18.8007303,
@@ -12026,9 +12176,10 @@
   "lng": 104.0990486,
   "prov": "sakon-nakhon",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "65 ถนนนิตโย ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
-  "distKm": 7
+  "distKm": 7,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"65 ถนนนิตโย ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนนิตโย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-udee-condo-chachoengsao": {
   "lat": 13.6093693,
@@ -12077,9 +12228,10 @@
   "lng": 104.8368354,
   "prov": "ubon-ratchathani",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "63 Chaeng Sanit Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand",
-  "distKm": 2.1
+  "distKm": 2.1,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"63 Chaeng Sanit Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนแจ้งสนิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-vanavaree-resort-chanthaburi": {
   "lat": 12.6076744,
@@ -12134,18 +12286,20 @@
   "lng": 100.9021192,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "Venetian Pattaya, Pattaya, Thailand",
-  "distKm": 55.9
+  "distKm": 55.9,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Venetian Pattaya, Pattaya, Thailand\" is landuse=residential r24 \"The Venetian Signature Condo\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-venezia-resort-buriram": {
   "lat": 15.0034465,
   "lng": 103.1086679,
   "prov": "buriram",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "20/1 ถนนหน้าสถานี ตำบลในเมือง อำเภอเมืองบุรีรัมย์, Buriram, Thailand",
-  "distKm": 1.8
+  "distKm": 1.8,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"20/1 ถนนหน้าสถานี ตำบลในเมือง อำเภอเมืองบุรีรัมย์, Buriram, Thailand\" is highway=tertiary r26 \"ถนนหน้าสถานี\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-veranda-high-resort-chiang-mai-mgallery-chiang-mai": {
   "why": "road query was only a village/house number: \"Moo 2\"",
@@ -12257,9 +12411,10 @@
   "lng": 101.7926971,
   "prov": "nakhon-ratchasima",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "Villa Khao Phaengma, Nakhon Ratchasima, Thailand",
-  "distKm": 72.6
+  "distKm": 72.6,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"Villa Khao Phaengma, Nakhon Ratchasima, Thailand\" is highway=service r27 \"Villa Khao Phaengma\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-villa-maroc-resort-pranburi-prachuap-khiri-khan": {
   "why": "road query was only a village/house number: \"Moo 3\"",
@@ -12345,9 +12500,10 @@
   "lng": 100.884822,
   "prov": "chonburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "road",
   "q": "W14 Pattaya, Pattaya, Thailand",
-  "distKm": 47.4
+  "distKm": 47.4,
+  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"W14 Pattaya, Pattaya, Thailand\" is highway=secondary r26 \"ถนนพัทยาสายหนึ่ง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-wake-up-aonang-hotel-krabi": {
   "lat": 8.0324681,
@@ -12448,9 +12604,10 @@
   "lng": 100.3629077,
   "prov": "nonthaburi",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "8/8 หมู่ 8 ตำบลบางแม่นาง อำเภอบางใหญ่, นนทบุรี, Thailand",
-  "distKm": 16
+  "distKm": 16,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"8/8 หมู่ 8 ตำบลบางแม่นาง อำเภอบางใหญ่, นนทบุรี, Thailand\" is place=village r19 \"บ้านตลาดบางคูลัด\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-westory-design-poshtel-kanchanaburi": {
   "why": "no match",
@@ -12559,9 +12716,10 @@
   "lng": 99.9603243,
   "prov": "prachuap-khiri-khan",
   "via": "nominatim",
-  "precision": "poi",
+  "precision": "area",
   "q": "83/199 Nong Kae, Hua Hin, Hua Hin, Thailand",
-  "distKm": 3.2
+  "distKm": 3.2,
+  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"83/199 Nong Kae, Hua Hin, Hua Hin, Thailand\" is place=neighbourhood r24 \"หนองแก\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-world-cat-resort-prachuap-khiri-khan": {
   "why": "159 km from prachuap-khiri-khan",
