@@ -63,6 +63,12 @@ const ATTRACTIONS = process.argv.includes('--attractions');
    unasked instead of fetched. It exists so a finished pass can be re-matched
    and reviewed while another Overpass job is running — one job at a time. */
 const OFFLINE = process.argv.includes('--offline');
+/* --include-guides: let "-guide" attraction slugs into the backlog. Most are
+   ONE place (wat-arun-guide, bridge-river-kwai-guide, hellfire-pass-guide);
+   the slug rule was written for the multi-place ones (phuket-beaches-guide,
+   hat-yai-shopping-guide), which exact-name matching mostly refuses by
+   itself. Opt-in, and every accepted guide is reviewed before --apply. */
+const INCLUDE_GUIDES = process.argv.includes('--include-guides');
 /* --out <file> writes the COMPLETE accepted set as JSON. The console report
    stops at 40 rows, and a verification pass has to see every one. */
 const OUT = (() => { const i = process.argv.indexOf('--out'); return i > 0 ? process.argv[i + 1] : null; })();
@@ -268,7 +274,7 @@ function attractionBacklog() {
     const a = readJson(path.join(ARTICLES, f), null);
     if (!a || a.type !== 'attraction') continue;
     const slug = a.slug || f.replace(/\.json$/, '');
-    if (THEME_GUIDE.test(slug)) continue;
+    if (THEME_GUIDE.test(slug) && !(INCLUDE_GUIDES && slug.endsWith('-guide'))) continue;
     if (Number.isFinite(a.lat) && Number.isFinite(a.lng)) continue;
     const rec = have[`https://thailandaddict.com/${slug}`];
     if (rec && rec.lat) continue;
@@ -407,21 +413,31 @@ let queried = 0, cached = 0;
 const unasked = [];   /* clusters whose requests failed — reported, never silently cached */
 for (const cluster of work) {
   const rows = groups.get(cluster);
-  if (cache.clusters[cluster]) { cached++; continue; }
-  if (OFFLINE) { unasked.push(cluster); continue; }
+  const allNames = [...new Set(rows.flatMap((r) => r.names).filter(askable))];
+  /* A cached cluster used to mean "done", and it was not. A later backlog
+     brings names the earlier run never asked — every attraction whose Nominatim
+     pin was removed on 2026-09-14 — and the cached cluster answered "no exact
+     name match" for all 90 of them without ever asking. Each entry now records
+     the names it has asked; only the missing ones are fetched, and their
+     candidates are merged in. An entry written before this change has no list
+     and is asked again in full, once. */
+  const prev = cache.clusters[cluster];
+  const askedBefore = new Set((prev && prev.asked) || []);
+  const need = allNames.filter((n) => !askedBefore.has(n));
+  if (prev && prev.asked && !need.length) { cached++; continue; }
+  if (OFFLINE) { if (prev) cached++; else unasked.push(cluster); continue; }
   const c = centreOf(cluster);
   const bbox = [
     (c.lat - BOX_DEG).toFixed(3), (c.lng - BOX_DEG).toFixed(3),
     (c.lat + BOX_DEG).toFixed(3), (c.lng + BOX_DEG).toFixed(3),
   ].join(',');
 
-  const allNames = [...new Set(rows.flatMap((r) => r.names).filter(askable))];
-  const cands = [];
+  const cands = prev && prev.asked ? [...prev.cands] : [];
   let failed = 0, batches = 0;
-  for (let i = 0; i < allNames.length; i += BATCH) {
+  for (let i = 0; i < need.length; i += BATCH) {
     if (queried++) await sleep(PAUSE_MS);
     batches++;
-    const j = await fetchNames(bbox, allNames.slice(i, i + BATCH));
+    const j = await fetchNames(bbox, need.slice(i, i + BATCH));
     if (!j) { failed++; continue; }
     for (const el of j.elements || []) {
       const lat = el.lat ?? el.center?.lat, lng = el.lon ?? el.center?.lon;
@@ -440,14 +456,14 @@ for (const cluster of work) {
       }
     }
   }
-  console.log(`   ${cluster.padEnd(22)} ${String(rows.length).padStart(3)} to find · ${String(allNames.length).padStart(3)} name(s) asked · ${cands.length} candidate(s) back${failed ? `  ⚠ ${failed}/${batches} request(s) FAILED — not cached, re-run to retry` : ''}`);
+  console.log(`   ${cluster.padEnd(22)} ${String(rows.length).padStart(3)} to find · ${String(need.length).padStart(3)} name(s) asked${prev && prev.asked ? ` (+${askedBefore.size} already cached)` : ''} · ${cands.length} candidate(s)${failed ? `  ⚠ ${failed}/${batches} request(s) FAILED — not cached, re-run to retry` : ''}`);
   /* A cluster whose requests failed must NOT be cached. Caching it as empty
      would turn a transient Overpass outage into permanent zero coverage for
      that province, silently — and the run would report "done" having never
      asked. Overpass dropped several requests in the first full pass, so this
      is a real path, not a theoretical one. */
   if (failed) { unasked.push(cluster); continue; }
-  cache.clusters[cluster] = { cands, at: new Date().toISOString() };
+  cache.clusters[cluster] = { cands, asked: [...new Set([...askedBefore, ...need])], at: new Date().toISOString() };
   fs.writeFileSync(CACHE, JSON.stringify(cache) + '\n');
 }
 console.log(`\nfetched ${queried} request(s) · ${cached} cluster(s) from cache`);
@@ -627,7 +643,11 @@ if (polyAccepted.length) {
         const lines = e.type === 'way'
           ? [e.geometry || []]
           : (e.members || []).filter((m) => m.type === 'way' && Array.isArray(m.geometry)).map((m) => m.geometry.filter(Boolean));
-        geom[`${e.type}/${e.id}`] = { lines: lines.map((g) => g.map((p) => [p.lat, p.lon])) };
+        const wayGeom = e.geometry || [];
+        const closedWay = e.type === 'way' && wayGeom.length > 3
+          && wayGeom[0].lat === wayGeom[wayGeom.length - 1].lat && wayGeom[0].lon === wayGeom[wayGeom.length - 1].lon;
+        const areaRelation = e.type === 'relation' && ['multipolygon', 'boundary'].includes((e.tags || {}).type);
+        geom[`${e.type}/${e.id}`] = { area: closedWay || areaRelation, lines: lines.map((g) => g.map((p) => [p.lat, p.lon])) };
       }
     }
     fs.writeFileSync(GEOM, JSON.stringify(geom) + '\n');
@@ -643,6 +663,22 @@ if (polyAccepted.length) {
     }
     const lines = g.lines.map((l) => l.map(([lat, lon]) => ({ lat, lon })));
     const pt = { lat: a.to.lat, lng: a.to.lng };
+    /* An open way, or a relation that is not an area (a river, a route, a
+       site), has no inside: its "centre" is only the middle of its bounding
+       box. A short one (a footbridge, a small dam) is still one place; a long
+       one is not a place at all — a guide about a river would otherwise be
+       pinned wherever the middle of that river's box happens to fall. */
+    if (g.area === false) {
+      const all = lines.flat();
+      const acrossM = km({ lat: Math.min(...all.map((p) => p.lat)), lng: Math.min(...all.map((p) => p.lon)) },
+        { lat: Math.max(...all.map((p) => p.lat)), lng: Math.max(...all.map((p) => p.lon)) }) * 1000;
+      if (acrossM / 2 > AMBIGUOUS_M) {
+        accepted.splice(accepted.indexOf(a), 1);
+        rejected.push({ ...a, why: `"${a.osmName}" ${a.osm} is a line or a collection, not an area, ${Math.round(acrossM)} m across — its centre is not one place, refused` });
+        refusedOutline++;
+      }
+      continue;
+    }
     const off = edgeMetres(pt, lines);
     if (insideOutline(pt, lines) || off <= 50) continue;
     const on = nearestOnSurface(lines, pt);
