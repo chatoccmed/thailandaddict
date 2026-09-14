@@ -6294,17 +6294,22 @@
   "osm": "node/1797002638",
   "osmName": "Mayflower Grande Hotel",
   "wasPrecision": "poi",
-  "wasLat": 18.7966535,
-  "wasLng": 98.9673211
+  "wasLat": 18.7978867,
+  "wasLng": 98.9683909
  },
  "review-mayflower-grande-hotel-chiang-mai": {
   "lat": 18.7978867,
   "lng": 98.9683909,
   "prov": "chiang-mai",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "Mayflower Grande Hotel Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 1.5
+  "q": "Mayflower Grande Hotel Chiang Mai @ node/1797002638",
+  "distKm": 1.5,
+  "osm": "node/1797002638",
+  "osmName": "Mayflower Grande Hotel",
+  "wasPrecision": "poi",
+  "wasLat": 18.7978867,
+  "wasLng": 98.9683909
  },
  "review-me-hug-guesthouse-and-hostel-phayao": {
   "lat": 19.1741811,
@@ -7180,14 +7185,18 @@
   "distKm": 9.8
  },
  "review-novotel-bangkok-impact-nonthaburi": {
-  "lat": 13.9166582,
-  "lng": 100.5559984,
+  "lat": 13.9155344,
+  "lng": 100.5483948,
   "prov": "nonthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "94 ถนนป๊อปปูล่า ตำบลบ้านใหม่ อำเภอปากเกร็ด, Nonthaburi, Thailand",
-  "distKm": 8,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"94 ถนนป๊อปปูล่า ตำบลบ้านใหม่ อำเภอปากเกร็ด, Nonthaburi, Thailand\" is highway=unclassified r26 \"ถนนป๊อปปูล่า\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "q": "Novotel Bangkok IMPACT @ way/151982337",
+  "distKm": 7.4,
+  "osm": "way/151982337",
+  "osmName": "Novotel Impact",
+  "wasPrecision": "road",
+  "wasLat": 13.9166582,
+  "wasLng": 100.5559984
  },
  "review-novotel-rayong-rim-pae-resort-rayong": {
   "why": "equals the province centroid",
@@ -12712,14 +12721,18 @@
   "q": "Moo 2, Loei, Thailand"
  },
  "review-wora-bura-hua-hin-resort-spa-huahin": {
-  "lat": 12.5414541,
-  "lng": 99.9603243,
+  "lat": 12.5297701,
+  "lng": 99.9696153,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "83/199 Nong Kae, Hua Hin, Hua Hin, Thailand",
-  "distKm": 3.2,
-  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"83/199 Nong Kae, Hua Hin, Hua Hin, Thailand\" is place=neighbourhood r24 \"หนองแก\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "q": "Wora Bura Hua Hin Resort & Spa @ node/3977297391",
+  "distKm": 4.6,
+  "osm": "node/3977297391",
+  "osmName": "Wora Bura Resort & Spa",
+  "wasPrecision": "area",
+  "wasLat": 12.5414541,
+  "wasLng": 99.9603243
  },
  "review-world-cat-resort-prachuap-khiri-khan": {
   "why": "159 km from prachuap-khiri-khan",
