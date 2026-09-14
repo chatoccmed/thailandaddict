@@ -193,7 +193,9 @@ for (const [, slugs] of byPos) {
 const todo = [];
 for (const [slug, v] of Object.entries(store)) {
   if (!v || !Number.isFinite(v.lat)) continue;
-  const needs = v.precision === 'road' || shared.has(slug);
+  /* 'area' (a village, estate or district answered for the hotel) is as far from
+     the doorstep as 'road', and is upgraded the same way. */
+  const needs = v.precision === 'road' || v.precision === 'area' || shared.has(slug);
   if (!needs) continue;
   const j = readJson(path.join(REVIEWS, slug + '.json'), null);
   if (!j || !j.name) continue;
@@ -206,7 +208,7 @@ for (const [slug, v] of Object.entries(store)) {
   todo.push({
     slug, name: j.name, nameTh: typeof j.nameTh === 'string' ? j.nameTh : '', cluster,
     prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
-    at: { lat: v.lat, lng: v.lng }, why: v.precision === 'road' ? 'road' : 'shared',
+    at: { lat: v.lat, lng: v.lng }, why: v.precision === 'road' || v.precision === 'area' ? v.precision : 'shared',
   });
 }
 
@@ -220,7 +222,7 @@ const clusters = [...groups.keys()].sort();
 const work = LIMIT ? clusters.slice(0, LIMIT) : clusters;
 
 console.log(`${todo.length} hotel(s) to upgrade across ${clusters.length} cluster(s)`);
-console.log(`  ${todo.filter((r) => r.why === 'road').length} road-level · ${todo.filter((r) => r.why === 'shared').length} sharing a position with a different hotel`);
+console.log(`  ${todo.filter((r) => r.why === 'road').length} road-level · ${todo.filter((r) => r.why === 'area').length} area-level · ${todo.filter((r) => r.why === 'shared').length} sharing a position with a different hotel`);
 console.log(`${work.length} cluster(s) this run · ${APPLY ? 'APPLY' : 'REPORT ONLY'}\n`);
 
 /* ── the query ──────────────────────────────────────────────────────────── */

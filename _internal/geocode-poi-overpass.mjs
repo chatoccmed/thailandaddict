@@ -172,10 +172,30 @@ function nameMatch(ours, theirs) {
    parenthetical alias. "วัดม่วง (หลวงพ่อใหญ่ …) — พระพุทธรูปนั่งที่ใหญ่ที่สุดในไทย"
    is one venue, one name and two pieces of copy. Offer every plausible reading
    and let exact identity decide which, if any, is real. */
+/* "A + B + C (D)" is a LIST of places, and a bracket after a "+" belongs to
+   the item it follows, not to the list. The Chiang Rai full-day package
+   "แพ็กเกจเต็มวัน วัดร่องขุ่น + วัดร่องเสือเต้น + บ้านดำ + ไร่บุญรอด (สิงห์ปาร์ค)"
+   was pinned on Singha Park that way — an exact match on the fourth stop's
+   alias. So every derived reading comes from the FIRST item only. A "+"
+   inside brackets ("ภูเก็ตแฟนตาซี (บัตรโชว์ + บุฟเฟต์)") is copy about one
+   place, not a list, and is left alone. */
+function firstListItem(t) {
+  let depth = 0;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (ch === '(' || ch === '（') depth++;
+    else if ((ch === ')' || ch === '）') && depth > 0) depth--;
+    else if (ch === '+' && depth === 0) return t.slice(0, i).trim();
+  }
+  return t;
+}
+
 function splitNames(s) {
   let t = String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   t = t.split(/\s*[—–|·]\s*/)[0].trim();
   const out = new Set([t]);
+  t = firstListItem(t);
+  out.add(t);
   const paren = t.match(/^(.+?)\s*[（(]\s*(.+?)\s*[）)]/);
   if (paren) { out.add(paren[1].trim()); out.add(paren[2].trim()); }
   out.add(t.replace(/\s*[（(].*$/, '').trim());
@@ -351,32 +371,33 @@ function overpassQL(bbox, names) {
 
 /* Each attempt uses the next mirror, so three attempts means three different
    hosts before any waiting is repeated. */
-async function fetchNames(bbox, names, attempt = 1) {
+async function fetchQL(ql, attempt = 1) {
   const endpoint = ENDPOINTS[(attempt - 1) % ENDPOINTS.length];
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'User-Agent': UA, 'Content-Type': 'text/plain' },
-      body: overpassQL(bbox, names),
+      body: ql,
       signal: AbortSignal.timeout(200_000),
     });
     if ([429, 503, 504].includes(res.status)) {
       if (attempt >= 6) { console.log(`   (refused by all mirrors: HTTP ${res.status})`); return null; }
       await sleep(8_000 * attempt);
-      return fetchNames(bbox, names, attempt + 1);
+      return fetchQL(ql, attempt + 1);
     }
     if (!res.ok) {
       if (attempt >= 6) { console.log(`   (HTTP ${res.status} from ${new URL(endpoint).host})`); return null; }
       await sleep(4_000 * attempt);
-      return fetchNames(bbox, names, attempt + 1);
+      return fetchQL(ql, attempt + 1);
     }
     return await res.json();
   } catch (e) {
     if (attempt >= 6) { console.log(`   (gave up after ${attempt} attempts across ${ENDPOINTS.length} mirrors: ${e.message})`); return null; }
     await sleep(8_000 * attempt);
-    return fetchNames(bbox, names, attempt + 1);
+    return fetchQL(ql, attempt + 1);
   }
 }
+const fetchNames = (bbox, names) => fetchQL(overpassQL(bbox, names));
 
 /* ── fetch, cached per cluster ──────────────────────────────────────────── */
 const CACHE = path.join(ROOT, `_internal/.overpass-poi-${ATTRACTIONS ? 'attr' : 'eat'}-cache.json`);
@@ -559,8 +580,135 @@ for (const cluster of work) {
     if (Object.values(PROV).some((pc) => km(best, pc) < 0.025)) {
       rejected.push({ ...r, why: 'lands exactly on a province centroid' }); continue;
     }
+    /* A pin that _internal/fix-pins.mjs removed on evidence is not put back
+       from the same OSM element. */
+    const removed = removedBefore(r, best.id);
+    if (removed) { rejected.push({ ...r, why: `"${best.name}" ${best.id} was removed from this page on evidence [${removed.rule}] — see _internal/pin-fixes.json` }); continue; }
     accepted.push({ ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, how: best.how, tags: best.tags || null });
   }
+}
+
+function removedBefore(r, osmId) {
+  if (!removedBefore.map) {
+    removedBefore.map = new Map();
+    for (const e of readJson(path.join(ROOT, '_internal/pin-fixes.json'), [])) {
+      if (e.action === 'drop' && e.osm) removedBefore.map.set(`${e.kind}:${e.slug}:${e.osm}`, e);
+    }
+  }
+  const key = r.file ? `articles:${r.file.replace(/\.json$/, '')}:${osmId}` : `place-coords:${r.slug}:${osmId}`;
+  return removedBefore.map.get(key) || null;
+}
+
+/* ── outlines ───────────────────────────────────────────────────────────── */
+/* A polygon's pin is the centre of its BOUNDING BOX (Overpass `out center`),
+   and that point is not always on the thing: on 2026-09-14 เกาะเสม็ด's lay
+   287 m out to sea, หาดทุ่งวัวแล่น's 181 m off the beach, บึงโขงหลง's 335 m
+   outside the water. So every accepted polygon is fetched once more with its
+   geometry, and
+     · a centre more than 50 m outside its own outline is moved to the nearest
+       point that IS on it — on a stretch at least max(20 m, 10% of the widest
+       one) across, so it cannot land on a sliver;
+     · an outline that cannot be fetched is refused, not trusted.
+   Geometry is cached by OSM id in _internal/.overpass-poi-geom-cache.json. */
+const polyAccepted = accepted.filter((a) => !String(a.osm).startsWith('node/'));
+if (polyAccepted.length) {
+  const GEOM = path.join(ROOT, '_internal/.overpass-poi-geom-cache.json');
+  const geom = readJson(GEOM, {});
+  const need = [...new Set(polyAccepted.map((a) => a.osm))].filter((id) => !geom[id]);
+  if (need.length && !OFFLINE) {
+    for (let i = 0; i < need.length; i += 50) {
+      const part = need.slice(i, i + 50);
+      const ids = (t) => part.filter((x) => x.startsWith(`${t}/`)).map((x) => x.split('/')[1]);
+      const stmts = ['way', 'relation'].filter((t) => ids(t).length).map((t) => `${t}(id:${ids(t).join(',')});`).join('');
+      if (queried++) await sleep(PAUSE_MS);
+      const j = await fetchQL(`[out:json][timeout:180];(${stmts});out geom;`);
+      if (!j) continue;
+      for (const e of j.elements || []) {
+        const lines = e.type === 'way'
+          ? [e.geometry || []]
+          : (e.members || []).filter((m) => m.type === 'way' && Array.isArray(m.geometry)).map((m) => m.geometry.filter(Boolean));
+        geom[`${e.type}/${e.id}`] = { lines: lines.map((g) => g.map((p) => [p.lat, p.lon])) };
+      }
+    }
+    fs.writeFileSync(GEOM, JSON.stringify(geom) + '\n');
+  }
+  let moved = 0, refusedOutline = 0;
+  for (const a of polyAccepted) {
+    const g = geom[a.osm];
+    if (!g || !g.lines.some((l) => l.length > 3)) {
+      accepted.splice(accepted.indexOf(a), 1);
+      rejected.push({ ...a, why: `"${a.osmName}" ${a.osm} is a polygon whose outline could not be fetched — its centre is unchecked, refused` });
+      refusedOutline++;
+      continue;
+    }
+    const lines = g.lines.map((l) => l.map(([lat, lon]) => ({ lat, lon })));
+    const pt = { lat: a.to.lat, lng: a.to.lng };
+    const off = edgeMetres(pt, lines);
+    if (insideOutline(pt, lines) || off <= 50) continue;
+    const on = nearestOnSurface(lines, pt);
+    if (!on) {
+      accepted.splice(accepted.indexOf(a), 1);
+      rejected.push({ ...a, why: `"${a.osmName}" ${a.osm}: its centre lies ${off} m outside the outline and no point on the outline could be found — refused` });
+      refusedOutline++;
+      continue;
+    }
+    a.how += ` · centre was ${off} m outside the outline, moved ${Math.round(km(pt, on) * 1000)} m onto it`;
+    a.to = on;
+    moved++;
+  }
+  console.log(`outlines: ${polyAccepted.length} polygon pin(s) checked · ${moved} moved onto their outline · ${refusedOutline} refused`);
+}
+
+/* Parity ray-cast over consecutive node pairs of every member way (holes
+   included), so split member ways that join into rings still count right. */
+function insideOutline(pt, lines) {
+  let c = false;
+  for (const g of lines) for (let i = 1; i < g.length; i++) {
+    const a = g[i - 1], b = g[i];
+    if ((a.lat > pt.lat) !== (b.lat > pt.lat) && pt.lng < ((b.lon - a.lon) * (pt.lat - a.lat)) / (b.lat - a.lat) + a.lon) c = !c;
+  }
+  return c;
+}
+function edgeMetres(pt, lines) {
+  const kx = 111320 * Math.cos(rad(pt.lat)), ky = 110574;
+  let best = Infinity;
+  for (const g of lines) for (let i = 1; i < g.length; i++) {
+    const ax = (g[i - 1].lon - pt.lng) * kx, ay = (g[i - 1].lat - pt.lat) * ky;
+    const dx = (g[i].lon - g[i - 1].lon) * kx, dy = (g[i].lat - g[i - 1].lat) * ky;
+    const L = dx * dx + dy * dy;
+    const t = L ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / L)) : 0;
+    best = Math.min(best, Math.hypot(ax + t * dx, ay + t * dy));
+  }
+  return Math.round(best);
+}
+function nearestOnSurface(lines, from) {
+  const pts = lines.flat();
+  const lo = Math.min(...pts.map((p) => p.lat)), hi = Math.max(...pts.map((p) => p.lat));
+  const kx = 111320 * Math.cos(rad(from.lat)), ky = 110574;
+  const spans = [];
+  let widest = 0;
+  for (let k = 1; k < 400; k++) {
+    const y = lo + ((hi - lo) * k) / 400;
+    const xs = [];
+    for (const g of lines) for (let i = 1; i < g.length; i++) {
+      const a = g[i - 1], b = g[i];
+      if ((a.lat > y) !== (b.lat > y)) xs.push(((b.lon - a.lon) * (y - a.lat)) / (b.lat - a.lat) + a.lon);
+    }
+    xs.sort((p, q) => p - q);
+    for (let i = 0; i + 1 < xs.length; i += 2) {
+      const w = (xs[i + 1] - xs[i]) * kx;
+      widest = Math.max(widest, w);
+      spans.push({ lat: y, lng: (xs[i] + xs[i + 1]) / 2, w });
+    }
+  }
+  const minW = Math.max(20, 0.1 * widest);
+  let best = null;
+  for (const s of spans) {
+    if (s.w < minW) continue;
+    const d = Math.hypot((s.lng - from.lng) * kx, (s.lat - from.lat) * ky);
+    if (!best || d < best.d) best = { ...s, d };
+  }
+  return best && { lat: Math.round(best.lat * 1e7) / 1e7, lng: Math.round(best.lng * 1e7) / 1e7 };
 }
 
 /* ── report ─────────────────────────────────────────────────────────────── */

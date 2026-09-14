@@ -45,7 +45,8 @@ const reviewPath = (slug, suffix) => path.join(ROOT, `astro/src/content/reviews$
 const targets = [];
 for (const [slug, v] of Object.entries(store)) {
   if (!v || !Number.isFinite(v.lat)) continue;
-  if (v.precision === 'road') targets.push({ slug, why: `road-only lookup: "${v.q}"` });
+  /* 'area' = a village, estate or district answered instead of the building. */
+  if (v.precision === 'road' || v.precision === 'area') targets.push({ slug, why: `${v.precision}-level lookup: "${v.q}"` });
 }
 
 let files = 0, missing = 0;

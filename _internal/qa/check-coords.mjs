@@ -593,18 +593,22 @@ for (const [pos, rows] of seen) {
    matched — right road, right district, not the doorstep. That is honest
    bookkeeping and worth keeping in the store, but it must not become a PIN:
    on a map a road-centre pin claims a doorstep it does not know, and stacks
-   every hotel on that street into one dot. 207 such records exist. */
+   every hotel on that street into one dot. 207 such records exist.
+   precision:'area' is the same failure one size up — a village, a town, a
+   housing estate or a district answered instead of the building. 26 live pins
+   were exactly that on 2026-09-14 (and 67 more were a road), recorded as 'poi'
+   until Nominatim was re-asked what it had actually matched. */
 const hc = jread(path.join(ROOT, '_internal/hotel-coords.json')) || {};
 
 for (const [slug, v] of Object.entries(hc)) {
-  if (!v || v.precision !== 'road' || !Number.isFinite(v.lat)) continue;
+  if (!v || !['road', 'area'].includes(v.precision) || !Number.isFinite(v.lat)) continue;
   const shipped = truth.get(`reviews:${slug}:(root)`);
   if (!shipped) continue;
   const [sLat, sLng] = shipped.split(',').map(Number);
   if (km({ lat: sLat, lng: sLng }, { lat: v.lat, lng: v.lng }) < 0.05) {
 
     fail('road-level-pin', 'astro/src/content/reviews', `${slug}: ${shipped}`,
-      `this came from a road-only lookup ("${v.q}") — it is the street's midpoint, not the hotel. Delete the coordinate; ReviewLayout falls back to a Maps link on the address.`);
+      `this came from a ${v.precision}-level lookup ("${v.q}") — it is ${v.precision === 'road' ? "a point on the street" : 'the centre of a village, estate or district'}, not the hotel. Delete the coordinate; ReviewLayout falls back to a Maps link on the address.`);
   }
 }
 

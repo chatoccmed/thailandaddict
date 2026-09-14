@@ -68,6 +68,22 @@ const APPLY = argv.includes('--apply');
 const ATTRACTIONS = argv.includes('--attractions');
 const LIMIT = (() => { const i = argv.indexOf('--limit'); return i >= 0 ? Number(argv[i + 1]) : Infinity; })();
 
+/* --attractions is RETIRED (2026-09-14). It asked Nominatim for the first two
+   or three words of a headline and accepted whatever answered inside the
+   province. Re-asking the 405 queries behind its live pins showed 118 were not
+   the place: 27 a different kind of thing (a bus stop for Hellfire Pass, a
+   cannabis shop for Nimman, travel agencies for the tour pages), 43 the centre
+   of a national park, reserve or lake, 8 a village or district centre, 4 a
+   road, 19 a differently named place, 4 one stop of a many-place article, and
+   13 no longer where the query points. Those pins were removed through
+   _internal/pin-fixes.json. Attractions are geocoded by
+   _internal/geocode-poi-overpass.mjs --attractions instead: exact names, the
+   kind of thing, and size and outline checks. */
+if (ATTRACTIONS) {
+  console.error('geocode-hotels.mjs --attractions is retired (2026-09-14) — use: node _internal/geocode-poi-overpass.mjs --attractions');
+  process.exit(2);
+}
+
 /* --attractions geocodes the OTHER half of a province map: the 1,081
    type:'attraction' articles, of which 288 have coordinates and 793 do not.
    They carry NO address — only an h1, a title and a Thai province name — so
@@ -220,10 +236,13 @@ function road(s) {
 function queriesFor(r) {
   const prov = r.locality || r.prov;
   const qs = [];
-  if (r.name) qs.push({ q: `${r.name}, ${prov}, Thailand`, precision: 'poi' });
-  if (r.street) qs.push({ q: `${r.street}, ${prov}, Thailand`, precision: 'poi' });
+  /* `asked` says which query was sent. It no longer SETS the precision — what
+     Nominatim matched does (matchedPrecision); it only stops the road query
+     from vouching for a building. */
+  if (r.name) qs.push({ q: `${r.name}, ${prov}, Thailand`, asked: 'name' });
+  if (r.street) qs.push({ q: `${r.street}, ${prov}, Thailand`, asked: 'address' });
   const rd = road(r.street);
-  if (rd && rd.length > 4) qs.push({ q: `${rd}, ${prov}, Thailand`, precision: 'road' });
+  if (rd && rd.length > 4) qs.push({ q: `${rd}, ${prov}, Thailand`, asked: 'road' });
   return qs;
 }
 
@@ -287,7 +306,11 @@ if (APPLY) {
        _internal/geocode-overpass.mjs is the path that upgrades these to a real
        building; until one succeeds, the page shows a Maps link on the address,
        which is honest. */
-    if (rec.precision === 'road') { rd++; continue; }
+    /* Only a building becomes a pin. 'road' and 'area' records — and any row
+       without a precision at all — are held back. Re-asking Nominatim for the
+       670 live pins on 2026-09-14 showed 93 of them had matched a road (67)
+       or a village, estate or district (26) while recorded as 'poi'. */
+    if (rec.precision !== 'poi') { rd++; continue; }
     let touched = false;
     for (const dir of DIRS) {
       const f = path.join(dir, slug + '.json');
@@ -320,11 +343,48 @@ const UA = 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; one-off ho
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let lastCall = 0;
 
+/* WHAT NOMINATIM MATCHED decides the precision — not which query was sent.
+   Until 2026-09-14 every accepted answer to the name and address queries was
+   recorded as 'poi'. Re-asking the 670 queries behind the live pins with
+   format=jsonv2 showed what had really come back: 67 were a road (highway=*,
+   place_rank 26-27) and 26 a village, town, housing estate or district — all
+   pinned as if they were the hotel. The Quarter Ratchathewi sat on the far
+   end of Phetchaburi Road, 1.2 km from its door. So:
+     · a place to stay (tourism=hotel/hostel/guest_house/motel/apartment/
+       chalet/resort, leisure=resort, building=hotel) is the building,
+       whatever its rank — a large resort's grounds rank 24;
+     · a road (highway=*, or rank 26-27) is 'road';
+     · anything else below building rank is 'area';
+     · any other building-rank feature — a restaurant, a railway station, a
+       consulate, a laundry — is the building only when the ADDRESS query hit
+       its house number; otherwise the name matched the wrong thing, and the
+       answer is refused. */
+const LODGING = {
+  tourism: ['hotel', 'hostel', 'guest_house', 'motel', 'apartment', 'chalet', 'resort'],
+  leisure: ['resort', 'beach_resort'],
+  building: ['hotel'],
+};
+function matchedPrecision(hit, asked) {
+  const cat = hit.category || hit.class || '', type = hit.type || '', rank = Number(hit.place_rank);
+  const match = `${cat}=${type} rank ${rank}${hit.name ? ` "${String(hit.name).slice(0, 40)}"` : ''}`;
+  let precision;
+  if ((LODGING[cat] || []).includes(type)) precision = 'poi';
+  else if (cat === 'highway' || rank === 26 || rank === 27) precision = 'road';
+  else if (!(rank >= 28)) precision = 'area';
+  else if (asked === 'address' && hit.address && hit.address.house_number) precision = 'poi';
+  else return { refuse: `matched ${match} — not a place to stay`, match };
+  /* a road-only query cannot vouch for a building, whatever it hit */
+  if (asked === 'road' && precision === 'poi') precision = 'road';
+  return { precision, match };
+}
+
 async function nominatim(q) {
   const wait = 1100 - (Date.now() - lastCall);   /* 1 req/s, with headroom */
   if (wait > 0) await sleep(wait);
   lastCall = Date.now();
-  const u = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=th&q=' + encodeURIComponent(q);
+  /* jsonv2 + addressdetails: category, type, place_rank and the matched house
+     number are exactly what matchedPrecision() judges by. */
+  const u = 'https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=1&countrycodes=th&q=' + encodeURIComponent(q);
   const res = await fetch(u, { headers: { 'User-Agent': UA, 'Accept-Language': 'th,en' } });
   if (res.status === 429 || res.status === 503) throw Object.assign(new Error('rate limited'), { retry: true });
   if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -336,21 +396,32 @@ const work = todo.slice(0, LIMIT);
 console.log(`geocode ${ATTRACTIONS ? "attractions" : "hotels"}: ${work.length} of ${todo.length} to look up (1 req/s — about ${Math.ceil(work.length * 1.1 / 60)} min)\n`);
 
 let ok = 0, rej = 0, i = 0;
+const RANK = { poi: 3, road: 2, area: 1 };
 for (const r of work) {
   i++;
-  let rec = null;
-  for (const { q, precision } of queriesOf(r)) {
+  let rec = null, best = null;
+  /* Ask in order and keep the MOST PRECISE answer: a name query that only finds
+     the village must not stop the address query from finding the building.
+     `match` records what Nominatim actually returned, so the store can be
+     audited without asking again. */
+  for (const { q, asked } of queriesOf(r)) {
     let hit;
     try { hit = await nominatim(q); }
     catch (e) {
       if (e.retry) { console.log('  rate limited — pausing 60s'); await sleep(60_000); try { hit = await nominatim(q); } catch { hit = null; } }
-      else { rec = { why: 'error: ' + e.message, q }; break; }
+      else { if (!best) rec = { why: 'error: ' + e.message, q }; break; }
     }
-    if (!hit) { rec = { why: 'no match', q }; continue; }
+    if (!hit) { if (!best) rec = { why: 'no match', q }; continue; }
     const v = validate(r, hit);
-    if (v.ok) { rec = { lat: v.lat, lng: v.lng, prov: r.prov, via: 'nominatim', precision, q, distKm: v.distKm }; break; }
-    rec = { why: v.why, q };
+    if (!v.ok) { if (!best) rec = { why: v.why, q }; continue; }
+    const m = matchedPrecision(hit, asked);
+    if (m.refuse) { if (!best) rec = { why: m.refuse, q }; continue; }
+    if (!best || RANK[m.precision] > RANK[best.precision]) {
+      best = { lat: v.lat, lng: v.lng, prov: r.prov, via: 'nominatim', precision: m.precision, q, distKm: v.distKm, match: m.match };
+    }
+    if (m.precision === 'poi') break;
   }
+  if (best) rec = best;
   const key = keyOf(r);
   store[key] = rec || { why: 'no query' };
   if (store[key].lat) ok++; else rej++;
