@@ -3258,5 +3258,17 @@
   "rule": "nominatim-area-answer",
   "evidence": "Nominatim's answer to the stored query \"83/199 Nong Kae, Hua Hin, Hua Hin, Thailand\" is place=neighbourhood r24 \"หนองแก\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
   "demote": "area"
+ },
+ {
+  "batch": "2026-09-15-attraction-review",
+  "action": "drop",
+  "kind": "place-coords",
+  "slug": "ban-don-bay-guide",
+  "at": "(root)",
+  "pos": "9.27648,99.31545",
+  "name": "อ่าวบ้านดอน ฟาร์มหอย ล่องคลอง วิถีประมง",
+  "osm": "node/12517742092",
+  "rule": "area-label",
+  "evidence": "Reviewed before --apply on 2026-09-15: OSM node/12517742092 \"อ่าวบ้านดอน\" is tagged natural=bay, the label point of a bay roughly 50 km across, placed in open water. It is the lake-centre case again, not a place a visitor goes."
  }
 ]
