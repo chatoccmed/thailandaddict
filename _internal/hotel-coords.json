@@ -4722,13 +4722,8 @@
   "distKm": 1.2
  },
  "review-hop-inn-chonburi": {
-  "lat": 12.9334134,
-  "lng": 100.8948078,
-  "prov": "chonburi",
-  "via": "nominatim",
-  "precision": "poi",
-  "q": "Hop Inn Chonburi, Chonburi, Thailand",
-  "distKm": 48.3
+  "why": "pin deleted 2026-09-16 [wrong-branch]: Audited 2026-09-16: the pin (Nominatim answer to \"Hop Inn Chonburi, Chonburi, Thailand\") sits 1 m from OSM way/1447179055 \"HOP INN Central Pattaya\" (brand=HOP INN, website hopinnhotel.com), which reverse-geocodes to Bang Lamung / Pattaya. The review's own address is 40/1 Moo 1, Sukhumvit Road, Samet, Mueang Chonburi, near Big C Extra — a different branch about 30 km north. OSM's cached lodging for Chonburi has HOP INN Si Racha and HOP INN Central Pattaya, no Hop Inn at Samet.",
+  "q": "Hop Inn Chonburi, Chonburi, Thailand"
  },
  "review-hop-inn-hua-hin-huahin": {
   "lat": 12.5795582,
@@ -15677,5 +15672,605 @@
    "via": null
   },
   "why": "pin moved 2026-09-16 [moved-to-osm-element]: Audited 2026-09-16 with geocode-overpass.mjs --corroborate: OSM node/3705421625 \"The Okura Prestige Bangkok Hotel\" is the same name by sameName and carries website=https://www.okurabangkok.com/, matching the review's own address \"57 ถนนวิทยุ Park Ventures Ecoplex แขวงลุมพินี เขตปทุมวัน\". The pin written with the review (no store row) was 221 m from it."
+ },
+ "review-siam-mandarina-hotel-bangkok": {
+  "lat": 13.6899084,
+  "lng": 100.7294474,
+  "prov": "samut-prakan",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/856420191",
+  "osmName": "Siam Mandarina Hotel",
+  "was": {
+   "lat": 13.6875,
+   "lng": 100.7485,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Audited 2026-09-16: the address audit put the pin in Nong Prue while the review's own address is 99 หมู่ 6 ถนนกิ่งแก้ว ตำบลราชาเทวะ อำเภอบางพลี. OSM way/856420191 \"Siam Mandarina Hotel\" (building=hotel) carries addr:housenumber=99 Moo 6, addr:street=กิ่งแก้ว, postcode 10540 and website siammandarinahotel.com — the review's own address. The pin written with the review (no store row) was 2,077 m from it. The review is filed under the bangkok cluster; the hotel is in Samut Prakan, so the cluster-scoped report could not see it."
+ },
+ "review-sinsuvarn-airport-suite-bangkok": {
+  "lat": 13.7206302,
+  "lng": 100.7374262,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/352252038",
+  "osmName": "Sinsuvarn Airport Suite",
+  "was": {
+   "lat": 13.7342,
+   "lng": 100.7524,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"73 ซอยลาดกระบัง 30 ถนนออนนุช-ลาดกระบัง\". OSM way/352252038 \"Sinsuvarn Airport Suite\" sits on ซอยลาดกระบัง 30 in เขตลาดกระบัง / แขวงลาดกระบัง; the pin written with the review (no store row) sat on ซอยร่มเกล้า 25/7 in เขตลาดกระบัง / แขวงคลองสามประเวศ, 2212 m away."
+ },
+ "review-ibis-styles-sukhumvit-phra-khanong-bangkok": {
+  "lat": 13.7124258,
+  "lng": 100.5943726,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/516662142",
+  "osmName": "ibis Styles Bangkok Sukhumvit Phra Khanong",
+  "was": {
+   "lat": 13.7015,
+   "lng": 100.6002,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"1122 Sukhumvit Road, Phra Khanong, Khlong Toei\". OSM way/516662142 \"ibis Styles Bangkok Sukhumvit Phra Khanong\" sits on ถนนสุขุมวิท in เขตคลองเตย / แขวงพระโขนง; the pin written with the review (no store row) sat on ซอยสุขุมวิท 54 in เขตพระโขนง / แขวงพระโขนงใต้, 1368 m away."
+ },
+ "review-amari-don-muang-airport-bangkok": {
+  "lat": 13.920916,
+  "lng": 100.6001478,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/194876474",
+  "osmName": "Amari Don Muang Airport Hotel",
+  "was": {
+   "lat": 13.9108,
+   "lng": 100.6059,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"333 หมู่ 10 ถนนเชิดวุฒากาศ แขวงสีกัน เขตดอนเมือง\". OSM way/194876474 \"Amari Don Muang Airport Hotel\" sits on ถนนเชิดวุฒากาศ in เขตดอนเมือง / แขวงดอนเมือง; the pin written with the review (no store row) sat on พื้นที่รับ-ส่งผู้โดยสารขาออก อาคาร 2 in เขตดอนเมือง / แขวงสนามบิน, 1285 m away."
+ },
+ "review-white-ivory-bed-and-breakfast-bangkok": {
+  "lat": 13.718126,
+  "lng": 100.5010026,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6447788186",
+  "osmName": "White Ivory Bed and Breakfast",
+  "was": {
+   "lat": 13.7256,
+   "lng": 100.4947,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"535, 537 Soi Krung Thonburi 6, Krungthonburi Road, Bang Lamphu Lang, Khlong San\". OSM node/6447788186 \"White Ivory Bed and Breakfast\" sits on Soi Krung Thonburi 6 in เขตคลองสาน / แขวงบางลำภูล่าง; the pin written with the review (no store row) sat on no named road in เขตคลองสาน / แขวงคลองสาน, 1074 m away."
+ },
+ "review-greenery-hostel-bangkok": {
+  "lat": 13.7568039,
+  "lng": 100.5267984,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/5402906822",
+  "osmName": "Greenery Hostel",
+  "was": {
+   "lat": 13.7563,
+   "lng": 100.5352,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"209 ซอยเพชรบุรี 3 ถนนเพชรบุรี แขวงถนนพญาไท เขตราชเทวี\". OSM node/5402906822 \"Greenery Hostel\" sits on ซอยเพชรบุรี 3 in เขตราชเทวี / แขวงทุ่งพญาไท; the pin written with the review (no store row) sat on no named road in เขตราชเทวี / แขวงถนนพญาไท, 909 m away."
+ },
+ "review-centre-point-sukhumvit-10-bangkok": {
+  "lat": 13.7348304,
+  "lng": 100.5573521,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1346389254",
+  "osmName": "Centre Point Sukhumvit 10",
+  "was": {
+   "lat": 13.7419,
+   "lng": 100.5609,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"39 Soi Sukhumvit 10, Sukhumvit Road, Khlong Toei\". OSM way/1346389254 \"Centre Point Sukhumvit 10\" sits on ซอยสุขุมวิท 10 in เขตคลองเตย / แขวงคลองเตย; the pin written with the review (no store row) sat on ซอยสุขุมวิท 19 in วัฒนา / แขวงคลองเตยเหนือ, 875 m away."
+ },
+ "review-nantra-ploenchit-bangkok": {
+  "lat": 13.7468971,
+  "lng": 100.5488286,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/12174909604",
+  "osmName": "Nantra Ploenchit",
+  "was": {
+   "lat": 13.7403,
+   "lng": 100.548,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"27/12 ซอยไนเลิศ ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน\". OSM node/12174909604 \"Nantra Ploenchit\" sits on ซอยนายเลิศ in เขตปทุมวัน / แขวงลุมพินี; the pin written with the review (no store row) sat on ซอยวิทยุ 1 in เขตปทุมวัน / แขวงลุมพินี, 739 m away."
+ },
+ "review-130-hotel-residence-bangkapi-bangkok": {
+  "lat": 13.7716384,
+  "lng": 100.6322,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/13545091801",
+  "osmName": "130 Hotel & Residence Bangkok",
+  "was": {
+   "lat": 13.7755,
+   "lng": 100.637,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"25 Soi Lat Phrao 130, Khlong Chan, Bang Kapi\". OSM node/13545091801 \"130 Hotel & Residence Bangkok\" sits on ซอยลาดพร้าว 130 in เขตบางกะปิ / แขวงคลองจั่น; the pin written with the review (no store row) sat on ซอยลาดพร้าว 109 แยก 15 in เขตบางกะปิ / แขวงคลองจั่น, 673 m away."
+ },
+ "review-citadines-sukhumvit-8-bangkok": {
+  "lat": 13.7356888,
+  "lng": 100.556181,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/330253714",
+  "osmName": "Citadines Sukhumvit 8",
+  "was": {
+   "lat": 13.7412,
+   "lng": 100.5575,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"77/7 Soi Sukhumvit 8, Sukhumvit Road, Khlong Toei\". OSM way/330253714 \"Citadines Sukhumvit 8\" sits on ซอยสุขุมวิท 8 in เขตคลองเตย / แขวงคลองเตย; the pin written with the review (no store row) sat on ซอยสุขุมวิท 13 in วัฒนา / แขวงคลองเตยเหนือ, 629 m away."
+ },
+ "review-oriental-residence-ploenchit-bangkok": {
+  "lat": 13.7382107,
+  "lng": 100.5463558,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4506369202",
+  "osmName": "Oriental Residence",
+  "was": {
+   "lat": 13.7425,
+   "lng": 100.5463,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"110 ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน\". OSM node/4506369202 \"Oriental Residence\" sits on ถนนวิทยุ in เขตปทุมวัน / แขวงลุมพินี; the pin written with the review (no store row) sat on ถนนเพลินจิต in เขตปทุมวัน / แขวงลุมพินี, 477 m away."
+ },
+ "review-old-capital-bike-inn-bangkok": {
+  "lat": 13.7570126,
+  "lng": 100.504711,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/11074685154",
+  "osmName": "Old Capital Bike Inn",
+  "was": {
+   "lat": 13.7593,
+   "lng": 100.501,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"609 ถนนพระสุเมรุ แขวงวัดบวรนิเวศ เขตพระนคร\". OSM node/11074685154 \"Old Capital Bike Inn\" sits on ถนนพระสุเมรุ in เขตพระนคร / แขวงบวรนิเวศ; the pin written with the review (no store row) sat on ตรอกบวรรังษี in เขตพระนคร / แขวงบวรนิเวศ, 475 m away."
+ },
+ "review-talakkia-boutique-hotel-bangkok": {
+  "lat": 13.7325766,
+  "lng": 100.5142967,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1284584402",
+  "osmName": "Talakkia Boutique Hotel",
+  "was": {
+   "lat": 13.7289,
+   "lng": 100.5121,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"988 Talat Noi, Charoen Krung Road, Samphanthawong\". OSM way/1284584402 \"Talakkia Boutique Hotel\" sits on ถนนเจริญกรุง in เขตสัมพันธวงศ์ / แขวงตลาดน้อย; the pin written with the review (no store row) sat on ท่าคลองสาน in เขตคลองสาน / แขวงคลองต้นไทร, 473 m away."
+ },
+ "review-sino-house-phuket": {
+  "lat": 7.886669,
+  "lng": 98.3936126,
+  "prov": "phuket",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2424935435",
+  "osmName": "Sino House",
+  "was": {
+   "lat": 7.8863,
+   "lng": 98.3905,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"1 Montri Road, Talat Yai, Mueang Phuket\". OSM node/2424935435 \"Sino House\" sits on ถนนมนตรี in เมืองเก่าภูเก็ต / ชุมชนสามัคคีสามกอง; the pin written with the review (no store row) sat on ถนนเทพกระษัตรี in เมืองเก่าภูเก็ต / ชุมชนสามัคคีสามกอง, 345 m away."
+ },
+ "review-furama-silom-saphan-taksin-bangkok": {
+  "lat": 13.7247422,
+  "lng": 100.5252689,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/261518754",
+  "osmName": "Furama Silom",
+  "was": {
+   "lat": 13.7238,
+   "lng": 100.5275,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"533 Silom Road, Si Lom, Bang Rak\". OSM way/261518754 \"Furama Silom\" sits on ถนนสีลม in เขตบางรัก / แขวงสีลม; the pin written with the review (no store row) sat on ซอยสีลม 9 in เขตบางรัก / แขวงสีลม, 263 m away."
+ },
+ "review-the-inn-saladaeng-bangkok": {
+  "lat": 13.7273698,
+  "lng": 100.536621,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2408322605",
+  "osmName": "The Inn Saladaeng",
+  "was": {
+   "lat": 13.7274,
+   "lng": 100.5343,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"5/12 Sala Daeng Road, Si Lom, Bang Rak\". OSM node/2408322605 \"The Inn Saladaeng\" sits on ถนนศาลาแดง in เขตบางรัก / แขวงสีลม; the pin written with the review (no store row) sat on ซอยศาลาแดง 2 in เขตบางรัก / แขวงสีลม, 251 m away."
+ },
+ "review-dusit-thani-bangkok": {
+  "lat": 13.7281965,
+  "lng": 100.5382552,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1266545781",
+  "osmName": "Dusit Thani Hotel",
+  "was": {
+   "lat": 13.7261,
+   "lng": 100.5381,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"98 Rama IV Road, Si Lom, Bang Rak\". OSM way/1266545781 \"Dusit Thani Hotel\" sits on ถนนพระรามที่ 4 in เขตปทุมวัน / แขวงลุมพินี; the pin written with the review (no store row) sat on ซอยศาลาแดง 1 in เขตบางรัก / แขวงสีลม, 234 m away."
+ },
+ "review-grande-centre-point-ploenchit-bangkok": {
+  "lat": 13.7423026,
+  "lng": 100.5468416,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/331967770",
+  "osmName": "Grande Centre Point Ploenchit",
+  "was": {
+   "lat": 13.7437,
+   "lng": 100.5455,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"100 ถนนวิทยุ แขวงลุมพินี เขตปทุมวัน\". OSM way/331967770 \"Grande Centre Point Ploenchit\" sits on ถนนวิทยุ in เขตปทุมวัน / แขวงลุมพินี; the pin written with the review (no store row) sat on ถนนเพลินจิต in เขตปทุมวัน / แขวงลุมพินี, 212 m away."
+ },
+ "review-hansar-bangkok": {
+  "lat": 13.740422,
+  "lng": 100.5412364,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/157522245",
+  "osmName": "Hansar Hotel",
+  "was": {
+   "lat": 13.742,
+   "lng": 100.541,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"3/250 ซอยมหาดเล็กหลวง 2 ถนนราชดำริ แขวงลุมพินี เขตปทุมวัน\". OSM way/157522245 \"Hansar Hotel\" sits on ซอยมหาดเล็กหลวง 2 in เขตปทุมวัน / แขวงลุมพินี; the pin written with the review (no store row) sat on ซอยมหาดเล็กหลวง 1 in เขตปทุมวัน / แขวงลุมพินี, 177 m away."
+ },
+ "review-tk-palace-hotel-chaeng-watthana-bangkok": {
+  "lat": 13.8913703,
+  "lng": 100.5612895,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/942310690",
+  "osmName": "TK. Palace Hotel",
+  "was": {
+   "lat": 13.8904,
+   "lng": 100.5476,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"54/7 ถนนแจ้งวัฒนะ ซอย 15 แขวงทุ่งสองห้อง เขตหลักสี่\". OSM node/942310690 \"TK. Palace Hotel\" sits on ซอยแจ้งวัฒนะ 15 in เขตหลักสี่ / แขวงทุ่งสองห้อง; the pin written with the review (no store row) sat on no named road in ตำบลบางตลาด / อำเภอปากเกร็ด, 1482 m away."
+ },
+ "review-grande-centre-point-sukhumvit-55-bangkok": {
+  "lat": 13.7317624,
+  "lng": 100.5823753,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/208693102",
+  "osmName": "Grande Centre Point Sukhumvit 55",
+  "was": {
+   "lat": 13.7232,
+   "lng": 100.5858,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"300 Sukhumvit Soi 55 (Thong Lo), Khlong Tan Nuea, Watthana\". OSM way/208693102 \"Grande Centre Point Sukhumvit 55\" sits on ซอยสุขุมวิท 55 in วัฒนา / แขวงคลองตันเหนือ; the pin written with the review (no store row) sat on ซอยเอกมัย 2 in วัฒนา / แขวงพระโขนงเหนือ, 1021 m away."
+ },
+ "review-baron-residence-bangkok": {
+  "lat": 13.7665785,
+  "lng": 100.6330634,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6337779972",
+  "osmName": "Baron Residence Hotel",
+  "was": {
+   "lat": 13.7697,
+   "lng": 100.6282,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"777 Soi Ladprao 130 (Ramkhamhaeng 81), Khlong Chan, Bang Kapi\". OSM node/6337779972 \"Baron Residence Hotel\" sits on ซอยลาดพร้าว 130 in เขตบางกะปิ / แขวงคลองจั่น; the pin written with the review (no store row) sat on The Connect UP 3 soi 6 in เขตวังทองหลาง / แขวงพลับพลา, 630 m away."
+ },
+ "review-avani-ratchada-bangkok": {
+  "lat": 13.7569339,
+  "lng": 100.5646867,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/182002417",
+  "osmName": "Avani Ratchada Bangkok Hotel",
+  "was": {
+   "lat": 13.76,
+   "lng": 100.568,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"1 Ratchadaphisek Road, Din Daeng\". OSM way/182002417 \"Avani Ratchada Bangkok Hotel\" sits on ซอยเกียรติชัย in เขตดินแดง / แขวงดินแดง; the pin written with the review (no store row) sat on ซอยพระราม 9 สแควร์ in เขตห้วยขวาง / แขวงห้วยขวาง, 494 m away."
+ },
+ "review-amaranta-huai-khwang-bangkok": {
+  "lat": 13.7789757,
+  "lng": 100.5763105,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/3718445441",
+  "osmName": "Amaranta hotel",
+  "was": {
+   "lat": 13.7774,
+   "lng": 100.5736,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"2 Soi 5 Pracharatbumpen Road, Huai Khwang\". OSM node/3718445441 \"Amaranta hotel\" sits on ซอยประชาราษฎร์บำเพ็ญ 5 แยก 2 in เขตห้วยขวาง / แขวงห้วยขวาง; the pin written with the review (no store row) sat on ถนนรัชดาภิเษก in เขตดินแดง / แขวงดินแดง, 341 m away."
+ },
+ "review-amanta-ratchada-bangkok": {
+  "lat": 13.7657494,
+  "lng": 100.5678279,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/368893105",
+  "osmName": "Amanta Hotel & Residence Ratchada",
+  "was": {
+   "lat": 13.7638,
+   "lng": 100.5693,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"77-88 Ratchadaphisek Road, Din Daeng\". OSM way/368893105 \"Amanta Hotel & Residence Ratchada\" sits on ซอยรัชดาภิเษก 5 in เขตดินแดง / แขวงดินแดง; the pin written with the review (no store row) sat on รัชดาภิเษก 6 in เขตห้วยขวาง / แขวงห้วยขวาง, 269 m away."
+ },
+ "review-best-western-premier-amaranth-suvarnabhumi-airport-bangkok": {
+  "lat": 13.6470752,
+  "lng": 100.7144626,
+  "prov": "samut-prakan",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/752238141",
+  "osmName": "Best Western AMARANTH",
+  "was": {
+   "lat": 13.7007,
+   "lng": 100.7601,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"68 Moo 2, Kingkaew Road, Rachathewa, Bangplee\". OSM node/752238141 \"Best Western AMARANTH\" sits on ถนนกิ่งแก้ว in บ้านคลองหนองบอน / องค์การบริหารส่วนตำบลราชาเทวะ; the pin written with the review (no store row) sat on ถนนสุวรรณภูมิ 5 in องค์การบริหารส่วนตำบลหนองปรือ / Nong Prue Subdistrict Administrative Organization, 7715 m away."
+ },
+ "review-the-park-nine-hotel-suvarnabhumi-bangkok": {
+  "lat": 13.723202,
+  "lng": 100.7241633,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6001740959",
+  "osmName": "The Park Nine Hotel & Serviced Residence Suvarnabhumi",
+  "was": {
+   "lat": 13.7328,
+   "lng": 100.7505,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"599-599/1 ถนนลาดกระบัง แขวงลาดกระบัง เขตลาดกระบัง\". OSM node/6001740959 \"The Park Nine Hotel & Serviced Residence Suvarnabhumi\" sits on ซอยลาดกระบัง 1/5 in เขตลาดกระบัง / แขวงลาดกระบัง; the pin written with the review (no store row) sat on ซอยร่มเกล้า 25/7 in เขตลาดกระบัง / แขวงคลองสามประเวศ, 3038 m away."
+ },
+ "review-hive28-bangkok": {
+  "lat": 13.7506354,
+  "lng": 100.6180727,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4130929489",
+  "osmName": "Hive28",
+  "was": {
+   "lat": 13.7563,
+   "lng": 100.6369,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"28 Ramkhamhaeng 24 Alley, Yaek 6, Hua Mak, Bang Kapi\". OSM node/4130929489 \"Hive28\" sits on ซอยรามคำแหง 24 แยก 6 in เขตบางกะปิ / แขวงหัวหมาก; the pin written with the review (no store row) sat on ถนนรามคำแหง in เขตบางกะปิ / แขวงหัวหมาก, 2129 m away."
+ },
+ "review-cassia-rama-9-bangkok": {
+  "lat": 13.7555859,
+  "lng": 100.5835592,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/12343316413",
+  "osmName": "Cassia Rama 9 Bangkok Hotel",
+  "was": {
+   "lat": 13.7568,
+   "lng": 100.5685,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"395/1063 Rama 9 Road, Bangkapi, Huai Khwang\". OSM node/12343316413 \"Cassia Rama 9 Bangkok Hotel\" sits on ถนนพระราม 9 in เขตห้วยขวาง / แขวงบางกะปิ; the pin written with the review (no store row) sat on ซอยทวีมิตร 4 in เขตห้วยขวาง / แขวงห้วยขวาง, 1632 m away."
+ },
+ "review-130-hotel-residence-bangkok": {
+  "lat": 13.7716384,
+  "lng": 100.6322,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/13545091801",
+  "osmName": "130 Hotel & Residence Bangkok",
+  "was": {
+   "lat": 13.7746,
+   "lng": 100.6452,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"25 Lat Phrao Soi 130, Khlong Chan, Bang Kapi\". OSM node/13545091801 \"130 Hotel & Residence Bangkok\" sits on ซอยลาดพร้าว 130 in เขตบางกะปิ / แขวงคลองจั่น; the pin written with the review (no store row) sat on ซอยนวมินทร์ 13 in เขตบางกะปิ / แขวงคลองจั่น, 1442 m away."
+ },
+ "review-ibis-bangkok-riverside": {
+  "lat": 13.717657,
+  "lng": 100.5094346,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/342579213",
+  "osmName": "Ibis Bangkok Riverside",
+  "was": {
+   "lat": 13.7257,
+   "lng": 100.4993,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"27 Soi Charoen Nakhon 17, Charoen Nakhon Road, Banglamphulang, Khlong San\". OSM way/342579213 \"Ibis Bangkok Riverside\" sits on Charoen Nakohn 17 in เขตคลองสาน / แขวงบางลำภูล่าง; the pin written with the review (no store row) sat on ซอยเจริญรัถ 12 in เขตคลองสาน / แขวงคลองต้นไทร, 1414 m away."
+ },
+ "review-the-prima-residence-bangkok": {
+  "lat": 13.9126555,
+  "lng": 100.5928427,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/636822415",
+  "osmName": "The Prima Residence",
+  "was": {
+   "lat": 13.9124,
+   "lng": 100.6048,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"44 Soi Chang Akat Uthit 8 Yaek 2, Don Mueang\". OSM way/636822415 \"The Prima Residence\" sits on Soi Chang Akat Uthit 6, Lane 2 in เขตดอนเมือง / แขวงดอนเมือง; the pin written with the review (no store row) sat on ถนนพหลโยธิน in เขตบางเขน / แขวงอนุสาวรีย์, 1291 m away."
+ },
+ "review-maruay-garden-kaset-bangkok": {
+  "lat": 13.8451092,
+  "lng": 100.5803001,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/397531438",
+  "osmName": "Maruay Garden Hotel",
+  "was": {
+   "lat": 13.849,
+   "lng": 100.5694,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"1 Phaholyothin Road, Senanikhom, Chatuchak\". OSM way/397531438 \"Maruay Garden Hotel\" sits on ซอยพหลโยธิน 40 in เขตจตุจักร / แขวงเสนานิคม; the pin written with the review (no store row) sat on ถนนงามวงศ์วาน in เขตจตุจักร / แขวงลาดยาว, 1254 m away."
+ },
+ "review-le-tada-parkview-hotel-bangkok": {
+  "lat": 13.761416,
+  "lng": 100.5399489,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/631212373",
+  "osmName": "Le Tada Parkview Hotel & Residence",
+  "was": {
+   "lat": 13.7705,
+   "lng": 100.5372,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"440/58 Ratchawithi Soi 3, Ratchawithi Road, Thanon Phaya Thai, Ratchathewi\". OSM way/631212373 \"Le Tada Parkview Hotel & Residence\" sits on ซอยราชวิถี 3 in เขตราชเทวี / แขวงถนนพญาไท; the pin written with the review (no store row) sat on no named road in เขตพญาไท / แขวงพญาไท, 1053 m away."
+ },
+ "review-twin-towers-hotel-bangkok": {
+  "lat": 13.7456331,
+  "lng": 100.519515,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1725736667",
+  "osmName": "Twin Towers Hotel",
+  "was": {
+   "lat": 13.7394,
+   "lng": 100.5218,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"88 Rama VI Road, Rong Mueang, Pathum Wan\". OSM node/1725736667 \"Twin Towers Hotel\" sits on ซอยพระรามที่ 6 ซอย 5 in เขตปทุมวัน / แขวงรองเมือง; the pin written with the review (no store row) sat on ถนนบรรทัดทอง in เขตปทุมวัน / แขวงรองเมือง, 736 m away."
+ },
+ "review-passa-bangkok": {
+  "lat": 13.7267397,
+  "lng": 100.5355291,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1224391209",
+  "osmName": "Passa Hotel Bangkok",
+  "was": {
+   "lat": 13.7242,
+   "lng": 100.5297,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"63 Soi Saladaeng 2, Saladaeng Road, Bang Rak\". OSM way/1224391209 \"Passa Hotel Bangkok\" sits on ซอยศาลาแดง 3 in เขตบางรัก / แขวงสีลม; the pin written with the review (no store row) sat on ถนนนราธิวาสราชนครินทร์ in เขตบางรัก / แขวงสีลม, 690 m away."
+ },
+ "review-the-quarter-ladprao-bangkok": {
+  "lat": 13.8119977,
+  "lng": 100.5617932,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6634320786",
+  "osmName": "The Quarter Ladprao by UHG",
+  "was": {
+   "lat": 13.8165,
+   "lng": 100.5598,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"80 Soi Ladprao 4, Ladprao Road, Chomphon, Chatuchak\". OSM node/6634320786 \"The Quarter Ladprao by UHG\" sits on ซอยลาดพร้าว 4 in เขตจตุจักร / แขวงจอมพล; the pin written with the review (no store row) sat on ถนนพหลโยธิน in เขตจตุจักร / แขวงจตุจักร, 545 m away."
+ },
+ "review-bangkok-loft-inn": {
+  "lat": 13.7219846,
+  "lng": 100.4919234,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4335224489",
+  "osmName": "Loft inn",
+  "was": {
+   "lat": 13.7195,
+   "lng": 100.4895,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16 (Nominatim zoom 18, Thai and English, at both points): the review's own address is \"55 Somdet Phra Chao Tak Sin Road, Bang Yi Ruea, Thon Buri\". OSM node/4335224489 \"Loft inn\" sits on ซอยสมเด็จพระเจ้าตากสิน 7 in เขตธนบุรี / แขวงบางยี่เรือ; the pin written with the review (no store row) sat on no named road in เขตธนบุรี / แขวงบุคคโล, 381 m away."
+ },
+ "review-courtyard-by-marriott-suvarnabhumi-airport-bangkok": {
+  "lat": 13.723103,
+  "lng": 100.7271829,
+  "prov": "bangkok",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/606251106",
+  "osmName": "Courtyard by Marriott Bangkok Suvarnabhumi Airport",
+  "was": {
+   "lat": 13.7228,
+   "lng": 100.7433,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Street-checked 2026-09-16: the review's own address is \"599/9 ถนนลาดกระบัง แขวงลาดกระบัง เขตลาดกระบัง\". OSM way/606251106 \"Courtyard by Marriott Bangkok Suvarnabhumi Airport\" and the pin both reverse-geocode to Lat Krabang Road, 1,741 m apart; the OSM building is 327 m from OSM node/6001740959 \"The Park Nine Hotel & Serviced Residence Suvarnabhumi\", whose own review gives the neighbouring address 599-599/1 ถนนลาดกระบัง, while the pin (written with the review, no store row) is 2,070 m from it."
+ },
+ "review-banyan-tree-krabi": {
+  "lat": 8.0956348,
+  "lng": 98.7476279,
+  "prov": "krabi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/759937993",
+  "osmName": "Banyan Tree Hotel",
+  "was": {
+   "lat": 8.1461,
+   "lng": 98.7355,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [moved-to-osm-element]: Checked 2026-09-16: the review's own address is \"Tubkaek Beach, Moo 3, Nong Thale, Mueang Krabi\". OSM way/759937993 \"Banyan Tree Hotel\" (brand=Banyan Tree) is 80 m from OSM's natural=beach \"Tup Kaek Beach\" and 222 m from the neighbouring Anyavee Tubkaek; the pin written with the review (no store row) was 5738 m from the Banyan Tree element and 3.3-5.5 km from the Tubkaek beaches."
  }
 }
