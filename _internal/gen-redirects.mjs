@@ -76,6 +76,9 @@ const patterns = [
   '/deals/* / 301', '/destination/* / 301',
   '/main-demo/* / 301', '/tour-category/* / 301', '/tour-destination/* / 301', '/tour-month/* / 301',
 ];
+/* The "duplicate review pages" block of _redirects is written separately by
+   _internal/gen-duplicate-redirects.mjs, which appends below what this script
+   writes and never touches bulk-redirects.csv. */
 const header = `# thailandaddict — _redirects (Cloudflare Workers Static Assets · ≤100 dynamic)
 # Splat patterns for WooCommerce/WP/theme paths. Old-URL 301s (both slash variants) are in
 # _internal/bulk-redirects.csv → Cloudflare Bulk Redirects. Regenerate: node _internal/gen-redirects.mjs
