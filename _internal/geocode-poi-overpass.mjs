@@ -587,6 +587,21 @@ for (const cluster of work) {
        112 multi-element groups — the node is the better pin, and collapsing to
        it also removes the apparent ambiguity. */
     const nodes = uniq.filter((h) => h.id.startsWith('node/'));
+    /* ...but only when the polygon IS that place. The pattaya run of 2026-09-15
+       offered "สวนนงนุชพัทยา", a tourism=information node 2.6 km from the
+       garden it is named after, while the garden itself was the polygon
+       "สวนนงนุช พัทยา" 2.9 km away — preferring the node would have pinned the
+       information point. A polygon whose centre is further than AMBIGUOUS_M
+       from every node is a second place, not a second drawing of the first. */
+    if (nodes.length && nodes.length < uniq.length) {
+      const apart = uniq.filter((h) => !h.id.startsWith('node/') && nodes.every((n) => km(n, h) * 1000 > AMBIGUOUS_M));
+      if (apart.length) {
+        const gap = Math.min(...apart.flatMap((h) => nodes.map((n) => km(n, h) * 1000)));
+        rejected.push({ ...r, why: `a node and a polygon share this exact name ${gap.toFixed(0)} m apart — two places, refused`,
+          saw: uniq.map((h) => `${h.name} ${h.id}`).slice(0, 4) });
+        continue;
+      }
+    }
     const pool = nodes.length ? nodes : uniq;
     if (pool.length > 1) {
       let spread = 0;
@@ -656,7 +671,8 @@ for (const cluster of work) {
        from the same OSM element. */
     const removed = removedBefore(r, best.id);
     if (removed) { rejected.push({ ...r, why: `"${best.name}" ${best.id} was removed from this page on evidence [${removed.rule}] — see _internal/pin-fixes.json` }); continue; }
-    accepted.push({ ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, how: best.how, tags: best.tags || null });
+    accepted.push({ ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, how: best.how, tags: best.tags || null,
+      also: uniq.filter((h) => h.id !== best.id).map((h) => `${h.name} ${h.id} ${(km(best, h) * 1000).toFixed(0)} m`) });
   }
 }
 
@@ -704,7 +720,7 @@ async function runParkOffices() {
   const EN_SUFFIX = /\s*(?:marine national park|national park|forest park|wildlife sanctuary)\s*$/i;
   const squash = (s) => String(s || '').toLowerCase().replace(/[\s\-–—_.]+/g, '');
   const namesOf = (t) => [t.name, t['name:th'], t['name:en'], t.official_name, t.alt_name].filter(Boolean);
-  const FILE = path.join(ROOT, '_internal/.overpass-park-office-cache.json');
+  const FILE = path.join(ROOT, '_internal/.overpass-poi-park-cache.json');
   const oc = readJson(FILE, { boundaries: {}, offices: {} });
   const save = () => fs.writeFileSync(FILE, JSON.stringify(oc) + '\n');
   let asked = 0;
@@ -958,6 +974,7 @@ if (OUT) {
     id: a.id, slug: a.slug || null, file: a.file || null, blockIndex: a.blockIndex ?? null, rank: a.rank ?? null,
     cluster: a.cluster, prov: a.prov, names: a.names, food: a.food ?? null,
     lat: a.to.lat, lng: a.to.lng, osm: a.osm, osmName: a.osmName, how: a.how, tags: a.tags,
+    also: a.also && a.also.length ? a.also : null,
   })), null, 2) + '\n');
   console.log('wrote ' + accepted.length + ' accepted row(s) to ' + OUT);
   /* The refusals too, one reason per row. The console only aggregates them, and

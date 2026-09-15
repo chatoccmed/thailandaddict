@@ -3270,5 +3270,41 @@
   "osm": "node/12517742092",
   "rule": "area-label",
   "evidence": "Reviewed before --apply on 2026-09-15: OSM node/12517742092 \"อ่าวบ้านดอน\" is tagged natural=bay, the label point of a bay roughly 50 km across, placed in open water. It is the lake-centre case again, not a place a visitor goes."
+ },
+ {
+  "batch": "2026-09-15-area-review",
+  "action": "drop",
+  "kind": "place-coords",
+  "slug": "wat-pho-guide",
+  "at": "(root)",
+  "pos": "13.76877,100.42703",
+  "name": "วัดโพธิ์ พระนอนองค์ใหญ่ + นวดแผนไทย",
+  "osm": "way/376312450",
+  "rule": "wrong-identity",
+  "evidence": "Reviewed before --apply on 2026-09-15: asked inside the Bangkok boundary, the exact name วัดโพธิ์ (name, name:th, name:en, alt_name) returned way/376312450 — whose full name is วัดโพธิ์บางระมาด, a temple in Bang Ramat, Taling Chan, 7.5 km west of Wat Pho at Tha Tien — and two bus stops beside Wat Pho. The article is about the reclining Buddha at Tha Tien (it names ท่าเตียน, พระนคร, สนามไชย, ถนนมหาราช and เชตุพน). A unique exact name inside the right province, and the wrong temple."
+ },
+ {
+  "batch": "2026-09-15-area-review",
+  "action": "drop",
+  "kind": "place-coords",
+  "slug": "nong-nooch-garden-guide",
+  "at": "(root)",
+  "pos": "12.77897,100.91283",
+  "name": "สวนนงนุชพัทยา คู่มือเที่ยวฉบับเต็ม",
+  "osm": "node/12271991794",
+  "rule": "wrong-kind",
+  "evidence": "Reviewed before --apply on 2026-09-15: node/12271991794 สวนนงนุชพัทยา is tagged tourism=information and stands 2.6–2.9 km from Nong Nooch Tropical Garden itself: the garden is way/318679723 สวนนงนุช พัทยา (leisure=garden), with a tourism=attraction node สวนนงนุช at 12.76878,100.93397 inside it. An information point named after the garden, not the garden. It was accepted because the geocoder preferred the node over the same-named polygon without measuring the gap; it now refuses a node whose same-named polygon lies more than 400 m away (this row: 2917 m)."
+ },
+ {
+  "batch": "2026-09-15-area-review",
+  "action": "drop",
+  "kind": "place-coords",
+  "slug": "pattaya-nong-nooch-garden",
+  "at": "(root)",
+  "pos": "12.77897,100.91283",
+  "name": "สวนนงนุชพัทยา สวนใหญ่ ไดโนเสาร์ โชว์ช้าง ครบในที่เดียว",
+  "osm": "node/12271991794",
+  "rule": "wrong-kind",
+  "evidence": "Reviewed before --apply on 2026-09-15: node/12271991794 สวนนงนุชพัทยา is tagged tourism=information and stands 2.6–2.9 km from Nong Nooch Tropical Garden itself: the garden is way/318679723 สวนนงนุช พัทยา (leisure=garden), with a tourism=attraction node สวนนงนุช at 12.76878,100.93397 inside it. An information point named after the garden, not the garden. Asked inside Bang Lamung + Sattahip, only the information node carries the spelling สวนนงนุชพัทยา — the garden polygon's name has a space — so no rule could see the garden, and the review refused it."
  }
 ]
