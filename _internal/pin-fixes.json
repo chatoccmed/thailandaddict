@@ -3366,5 +3366,65 @@
   "osm": "way/173563978",
   "rule": "unverifiable",
   "evidence": "Reviewed before --apply on 2026-09-15: \"The Imperial Narathiwat Hotel\" matched way/173563978 \"The Imperial Hotel\" at 6.43357,101.82150, which reverse-geocodes to Phupha Phakdi Road; the review's own address is 260 Phichit Bamrung Road, Bang Nak, Mueang Narathiwat. A common hotel name whose street does not agree with the address is not shown to be this hotel."
+ },
+ {
+  "batch": "2026-09-16-hotel-widened-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-takiab-beach-resort-huahin",
+  "at": "(root)",
+  "pos": "12.51290,99.97711",
+  "name": "Takiab Beach Resort",
+  "osm": "node/3970380986",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: \"Takiab Beach Resort\" matched node/3970380986 \"Takiab Beach Hotel\" (its own website takiabbeachhuahin.com) at 12.51290,99.97711 only once \"resort\" and \"hotel\" were set aside, leaving the name of the beach itself. Reverse-geocoded it is on Soi Ao Hua Don 9, Hua Don; the review's address is 33/5-6 Khao Takiab, Nong Kae, and the review names no website to compare. A place name with a different lodging type is not shown to be this hotel."
+ },
+ {
+  "batch": "2026-09-16-hotel-widened-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-viking-nature-resort-phi-phi-krabi",
+  "at": "(root)",
+  "pos": "7.73086,98.78261",
+  "name": "Viking Nature Resort",
+  "osm": "node/574386846",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: node/574386846 \"Viking Natures Resort\" carries the resort's own website (vikingnaturesresort.com), so the identity holds, but it sits at 7.73086,98.78261, 135 m from Paradise Pearl Bungalow on Long Beach. The review puts the resort on Loh Moo Dee beach in its address, badge and body, and OSM's หาดโละหมูดี is 659 m from that node (nearest edge of its bounding box). Where the review and OSM disagree on the beach, the position is not shown."
+ },
+ {
+  "batch": "2026-09-16-hotel-widened-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-fortune-d-hotel-phitsanulok",
+  "at": "(root)",
+  "pos": "16.81881,100.27529",
+  "name": "Fortune D Hotel Phitsanulok",
+  "osm": "way/433024329",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: matched through the former name the review gives, \"(เดิม The Harmony Plus Apartment)\", to way/433024329 \"Harmony Plus Apartment\" (no address or website tags). Reverse-geocoded that building is on Thip Sena Road, Aranyik; the review's address is 40 Saen Phon Phai Road, Nai Mueang, and OSM has no road of that name to measure against."
+ },
+ {
+  "batch": "2026-09-16-hotel-widened-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-m-grand-hotel-roi-et",
+  "at": "(root)",
+  "pos": "16.06488,103.65060",
+  "name": "M Grand Hotel Roi Et",
+  "osm": "way/359368821",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: \"M Grand Hotel Roi Et\" matched way/359368821 \"MGrand Hotel\" (a building, no address or website) at 16.06488,103.65060 by joining the letters. Reverse-geocoded it is on route 214 in Non Tan; the review's address is 99 Haisok Road, Nai Mueang, near Bueng Phlan Chai, and OSM has no road named หายโศรก to measure against (the search returns only a market 281 m away)."
+ },
+ {
+  "batch": "2026-09-16-hotel-widened-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-ps-mae-sod-hotel-tak",
+  "at": "(root)",
+  "pos": "16.72736,98.55791",
+  "name": "PS Mae Sod Hotel",
+  "osm": "way/655283022",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: \"PS Mae Sod Hotel\" matched way/655283022 \"P S Maesod Hotel\" (phone +66 55536642, no address) at 16.72736,98.55791 by joining the letters. Reverse-geocoded it is in Tha Sai Luat; the review's address is 365 Moo 10, Mae Pa sub-district, the nearest places OSM names Mae Pa are 1.4 to 3.1 km away, and the review gives no phone number to compare."
  }
 ]

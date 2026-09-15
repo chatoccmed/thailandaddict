@@ -220,7 +220,7 @@ function nameMatch(a, b, extraNoise, rarity) {
    Kiri Resort by Six Senses". */
 const IDENTITY_DROP = new Set(['hotel', 'hotels', 'resort', 'resorts', 'spa', 'the', 'and', 'by']);
 function nameWords(s) {
-  return String(s || '').replace(LODGING_PHRASE, ' ')
+  return String(s || '').replace(LODGING_PHRASE, ' ').replace(/@/g, ' at ')
     .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
     .replace(/[^a-z0-9฀-๿]+/g, ' ').split(' ')
     .filter((w) => w && !IDENTITY_DROP.has(w));
@@ -230,11 +230,28 @@ function nameWords(s) {
    and OSM's do not: "Dusita Resort Kohkood" is OSM's "Dusita resort", "The
    Countryside Pai" is "Countryside Resort" (2026-09-15). The joined spellings
    ("kohkood") count as the cluster's words too. */
+/* SPELLED APART — the same letters with the spaces, dots and a plural "s"
+   in different places. "K.L. Boutique Hotel" is OSM's "KL Boutique Hotel"
+   (addr:street ถนนมหาราช ซอย 2 — the review's own Maharaj Road Soi 2),
+   "SriLanta Resort & Spa" is "Sri Lanta" (website srilanta.com), "Lazy Day The
+   Resort" is "Lazyday Resort", "Paradise Pearl Bungalows" is "Paradise Pearl
+   Bungalow", and "@" is "at" ("The Chill @ Krabi Hotel"). The words are joined
+   and compared letter for letter, so nothing is dropped that sameName keeps:
+   "Golden Hill" still differs from "Golden Hill Bungalows", and "Lee Gardens
+   Plaza Hotel" from "Lee Garden Hotel". A joined name that is itself a place
+   ("huahin") identifies nothing and is refused. */
+function singular(w) {
+  return w.length >= 5 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w;
+}
 function sameName(a, b, own) {
   const drop = own || new Set();
   const A = nameWords(a).filter((w) => !drop.has(w)), B = nameWords(b).filter((w) => !drop.has(w));
-  if (!A.length || A.join(' ') !== B.join(' ')) return false;
-  return A.some((w) => w.length >= 4 && !PLACE_NOISE.has(w) && !/^\d+$/.test(w));
+  if (!A.length || !B.length) return false;
+  const significant = (w) => w.length >= 4 && !PLACE_NOISE.has(w) && !/^\d+$/.test(w);
+  if (A.join(' ') === B.join(' ')) return A.some(significant) ? 'same name' : false;
+  const joined = A.map(singular).join('');
+  if (joined !== B.map(singular).join('') || PLACE_NOISE.has(joined)) return false;
+  return A.some(significant) || B.some(significant) ? 'same name, spelled apart' : false;
 }
 
 /* ── what needs upgrading ───────────────────────────────────────────────── */
@@ -536,10 +553,17 @@ console.log('Then:       node _internal/qa/check-coords.mjs');
      · an OSM element already carrying a DIFFERENT hotel's pin is refused;
      · an element removed from this review on evidence (pin-fixes.json) is
        never put back;
-     · a stored point of any precision is not a miss: road/area rows belong
-       to the default mode, and poi rows are either live or were taken off the
-       page on purpose (commit 991410af6 removed 19 shared positions and left
-       their store rows).
+     · every hotel with no pin ON THE PAGE is asked, whatever the store holds.
+       Until 2026-09-16 a stored point excluded it: road/area rows were left to
+       the default mode, which searches 9 km around a point that was wrong
+       enough to delete and accepts two words only, and poi rows that commit
+       991410af6 took off the page (a road midpoint, or a position shared by
+       different hotels) were never asked again at all. Neither kind came back.
+       Hua Hin Marriott, 107/1 Phetkasem Road, is OSM's "Hua Hin Marriott
+       Resort & Spa" (addr:street ถนนเพชรเกษม); Crystal Hotel Hat Yai is the
+       element whose website is crystalhotelhatyai.com. The stored point plays
+       no part in the match — the boundary and OSM's element do — and is kept
+       beside the new one as wasLat/wasLng.
    Every accepted row is read against the review's address before --apply;
    --out puts that address beside each match. */
 async function runMisses() {
@@ -566,19 +590,44 @@ async function runMisses() {
     return null;
   };
 
+  /* A review that says what the hotel used to be called — "(เดิม Novotel)",
+     "(formerly W Retreat Koh Samui)" — names something OSM may still carry,
+     because mappers rarely retag a rebrand. A former name of one or two words
+     is a brand, and stands in for the words before the hotel's own place word:
+     "The Nouveau Chumphon Beach Resort and Golf" (เดิม Novotel) was "Novotel
+     Chumphon Beach Resort and Golf". Former names then pass exactly the same
+     rules as the name, and are labelled so the review can see which matched. */
+  const formerNames = (j, cluster, prov) => {
+    const text = [j.title, j.metaDesc, j.typeFull, j.h1, j.schemaDesc].map((v) => String(v || '')).join(' | ');
+    const place = new Set([...String(cluster).split('-'), ...String(prov).split('-')].filter(Boolean));
+    const out = new Set();
+    for (const m of text.matchAll(/\((?:เดิม(?:ชื่อ)?|ชื่อเดิม|formerly)\s*(?:คือ\s*)?([^)]{2,60})\)/gi)) {
+      const f = m[1].split(/[฀-๿]/)[0].replace(/[\s/·,;:–—-]+$/, '').trim();
+      if (f.length < 3 || !/[A-Za-z]{2}/.test(f)) continue;
+      out.add(f);
+      const words = String(j.name).split(/\s+/);
+      const at = words.findIndex((w) => place.has(w.toLowerCase().replace(/[^a-z]/g, '')));
+      if (f.split(/\s+/).length <= 2 && at > 0) out.add(`${f} ${words.slice(at).join(' ')}`);
+    }
+    return [...out].filter((n) => n !== j.name);
+  };
+
   const rows = [];
   for (const f of fs.readdirSync(REVIEWS)) {
     if (!f.endsWith('.json')) continue;
     const slug = f.replace(/\.json$/, '');
     const st = store[slug];
-    if (st && Number.isFinite(st.lat)) continue;
     const j = readJson(path.join(REVIEWS, f), null);
     if (!j || !j.name || Number.isFinite(j.lat)) continue;
+    /* What the store holds for a hotel that has no pin on the page. */
+    const had = !st || !Number.isFinite(st.lat) ? 'no point'
+      : st.precision === 'road' || st.precision === 'area' ? `${st.precision} point` : 'point taken off the page';
     const cluster = j.cluster || '';
+    const prov = PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster;
     rows.push({
-      slug, name: j.name, nameTh: typeof j.nameTh === 'string' ? j.nameTh : '', cluster, scope: scopeOf(cluster),
-      prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
-      addr: [j.streetAddress, j.addressLocality, j.mapAddr].filter(Boolean).join(' | '), was: st ? st.why || null : null,
+      slug, name: j.name, nameTh: typeof j.nameTh === 'string' ? j.nameTh : '', cluster, scope: scopeOf(cluster), prov,
+      addr: [j.streetAddress, j.addressLocality, j.mapAddr].filter(Boolean).join(' | '), was: st ? st.why || null : null, had,
+      former: formerNames(j, cluster, prov),
     });
   }
   const noScope = rows.filter((r) => !r.scope);
@@ -588,7 +637,8 @@ async function runMisses() {
     if (!byScope.has(r.scope.key)) byScope.set(r.scope.key, { scope: r.scope, rows: [] });
     byScope.get(r.scope.key).rows.push(r);
   }
-  console.log(`--misses: ${rows.length} hotel review(s) with no coordinate anywhere · ${byScope.size} area(s) to list`
+  const hadTally = rows.reduce((m, r) => ((m[r.had] = (m[r.had] || 0) + 1), m), {});
+  console.log(`--misses: ${rows.length} hotel review(s) with no pin on the page (${Object.entries(hadTally).map(([k, n]) => `${n} ${k}`).join(' · ')}) · ${byScope.size} area(s) to list`
     + `${noScope.length ? ` · ${noScope.length} in clusters with no area: ${[...new Set(noScope.map((r) => r.cluster))].join(', ')}` : ''}`);
   console.log(`${APPLY ? 'APPLY' : 'REPORT ONLY'}${OFFLINE ? ' · OFFLINE' : ''}\n`);
 
@@ -642,11 +692,12 @@ async function runMisses() {
       const own = new Set([...extraNoise, String(r.cluster || '').replace(/-/g, ''), String(r.prov || '').replace(/-/g, '')].filter(Boolean));
       const hits = [], same = [];
       for (const c of entry.cands) {
-        for (const ours of [r.name, r.nameTh]) {
+        for (const [ours, label] of [[r.name, ''], [r.nameTh, ''], ...(r.former || []).map((n) => [n, `former name "${n}" · `])]) {
           if (!ours) continue;
-          if (sameName(ours, c.name, own)) same.push({ ...c, how: `same name: ${String(c.name).slice(0, 44)}` });
+          const same1 = sameName(ours, c.name, own);
+          if (same1) same.push({ ...c, how: `${label}${same1}: ${String(c.name).slice(0, 44)}` });
           const m = nameMatch(ours, c.name, extraNoise);
-          if (m) { hits.push({ ...c, how: m.how }); break; }
+          if (m) { hits.push({ ...c, how: `${label}${m.how}` }); break; }
         }
       }
       const spreadOf = (list) => { let s = 0; for (const a of list) for (const b of list) s = Math.max(s, km(a, b) * 1000); return s; };
@@ -687,7 +738,7 @@ async function runMisses() {
   const tally = refused.reduce((acc, r) => { const k = r.why.replace(/\d+/g, 'N').replace(/".*?"/g, '"…"').replace(/ inside .*$/, ' inside <area>'); acc[k] = (acc[k] || 0) + 1; return acc; }, {});
   console.log('\nrefusals by reason:');
   for (const [k, n] of Object.entries(tally).sort((a, b) => b[1] - a[1])) console.log(`  ${String(n).padStart(5)}  ${k}`);
-  const strip = (r) => ({ slug: r.slug, cluster: r.cluster, name: r.name, nameTh: r.nameTh || null, addr: r.addr, area: r.scope ? r.scope.label : null });
+  const strip = (r) => ({ slug: r.slug, cluster: r.cluster, name: r.name, nameTh: r.nameTh || null, addr: r.addr, area: r.scope ? r.scope.label : null, had: r.had });
   if (OUT) {
     fs.writeFileSync(OUT, JSON.stringify({
       accepted: accepted.map((a) => ({ ...strip(a), lat: a.to.lat, lng: a.to.lng, osm: a.osm, osmName: a.osmName, kind: a.kind, how: a.how, also: a.also, sameElementAs: a.sameElementAs })),
@@ -698,13 +749,16 @@ async function runMisses() {
   if (!APPLY) { console.log('\nREPORT ONLY — nothing written. Re-run with --apply.'); return; }
 
   for (const a of accepted) {
-    const { why, q, ...rest } = store[a.slug] || {};
+    const prev = store[a.slug] || {};
+    const { why, q, ...rest } = prev;
     store[a.slug] = {
       ...rest, lat: a.to.lat, lng: a.to.lng, prov: a.prov,
       via: 'overpass', precision: 'poi', osm: a.osm, osmName: a.osmName,
       q: `${a.name} @ ${a.osm} (named lodging inside ${a.scope.label})`,
       distKm: PROV[a.prov] ? Math.round(km(a.to, PROV[a.prov]) * 10) / 10 : undefined,
       ...(why ? { wasWhy: why } : {}),
+      /* a stored point that never reached the page is kept beside the new one */
+      ...(Number.isFinite(prev.lat) ? { wasLat: prev.lat, wasLng: prev.lng, wasPrecision: prev.precision || 'poi' } : {}),
     };
   }
   fs.writeFileSync(SIDECAR, serializeLike(fs.readFileSync(SIDECAR, 'utf8'), store).text);

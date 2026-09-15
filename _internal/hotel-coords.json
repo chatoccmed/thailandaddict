@@ -360,13 +360,18 @@
   "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-anantara-chiang-mai-resort-chiang-mai": {
-  "lat": 18.7747286,
-  "lng": 99.000083,
+  "lat": 18.7819529,
+  "lng": 99.003897,
   "prov": "chiang-mai",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "123-123/1 Charoen Prathet Road, Chang Khlan, Mueang Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 2.7
+  "distKm": 2.7,
+  "osm": "node/1030346574",
+  "osmName": "Anantara Chiang Mai 下午茶",
+  "q": "Anantara Chiang Mai Resort @ node/1030346574 (named lodging inside Chiang Mai Province)",
+  "wasLat": 18.7747286,
+  "wasLng": 99.000083,
+  "wasPrecision": "poi"
  },
  "review-anantara-golden-triangle-elephant-camp-resort-chiang-rai": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -613,8 +618,16 @@
   "wasWhy": "no match"
  },
  "review-arize-hotel-sriracha-chonburi": {
-  "why": "road query was only a village/house number: \"Moo 4\"",
-  "q": "Moo 4, Si Racha, Chonburi, Thailand"
+  "lat": 13.1560745,
+  "lng": 100.9198244,
+  "prov": "chonburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1381656906",
+  "osmName": "Arize Hotel Sriracha",
+  "q": "Arize Hotel Sri Racha @ way/1381656906 (named lodging inside Chon Buri Province)",
+  "distKm": 23.6,
+  "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-armonia-village-resort-and-spa-chumphon": {
   "why": "171 km from surat-thani",
@@ -721,14 +734,19 @@
   "distKm": 3.3
  },
  "review-asia-lampang-hotel-lampang": {
-  "lat": 18.2889853,
-  "lng": 99.5008498,
+  "lat": 18.2885534,
+  "lng": 99.4946492,
   "prov": "lampang",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "229 Bunyawat Road, Suan Dok, Mueang Lampang, Lampang, Thailand",
-  "distKm": 1.2,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"229 Bunyawat Road, Suan Dok, Mueang Lampang, Lampang, Thailand\" is highway=unclassified r26 \"ถนนบุญวาทย์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.5,
+  "osm": "node/2774456226",
+  "osmName": "Asia Lampang Hotel",
+  "q": "Asia Lampang Hotel @ node/2774456226 (named lodging inside Lampang Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"229 Bunyawat Road, Suan Dok, Mueang Lampang, Lampang, Thailand\" is highway=unclassified r26 \"ถนนบุญวาทย์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 18.2889853,
+  "wasLng": 99.5008498,
+  "wasPrecision": "road"
  },
  "review-asian-hotel-nipat-uthit-hat-yai": {
   "lat": 7.0066546,
@@ -805,14 +823,19 @@
   "q": "หมู่ 2, Ratchaburi, Thailand"
  },
  "review-at-home-sukhothai-sukhothai": {
-  "lat": 17.0158308,
-  "lng": 99.8244926,
+  "lat": 17.0137925,
+  "lng": 99.8230511,
   "prov": "sukhothai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "184/1 Wichian Chamnong Road, Mueang Sukhothai, Sukhothai, Thailand",
-  "distKm": 0.8,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"184/1 Wichian Chamnong Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=tertiary r26 \"ถนนวิเชียรจำนงค์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.5,
+  "osm": "node/4297318591",
+  "osmName": "At Home Sukhothai",
+  "q": "At Home Sukhothai @ node/4297318591 (named lodging inside Sukhothai Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"184/1 Wichian Chamnong Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=tertiary r26 \"ถนนวิเชียรจำนงค์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 17.0158308,
+  "wasLng": 99.8244926,
+  "wasPrecision": "road"
  },
  "review-at-nata-chiangmai-chic-jungle-chiang-mai": {
   "why": "586 km from chiang-mai",
@@ -964,13 +987,18 @@
   "q": "ถนนอนุวรรตน์, Buriram, Thailand"
  },
  "review-b2-hua-hin-premier-resort-huahin": {
-  "lat": 12.4501208,
-  "lng": 99.9630638,
+  "lat": 12.5532567,
+  "lng": 99.9599223,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "254/23 Phetkasem Road, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand",
-  "distKm": 13.3
+  "distKm": 1.9,
+  "osm": "node/7296219064",
+  "osmName": "B2 Hua Hin Premier Hotel",
+  "q": "B2 Hua Hin Premier Resort @ node/7296219064 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasLat": 12.4501208,
+  "wasLng": 99.9630638,
+  "wasPrecision": "poi"
  },
  "review-b2-jomtien-pattaya-hotel": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -1277,13 +1305,18 @@
   "q": "Nang Ngam Road, Songkhla, Thailand"
  },
  "review-baan-nilrath-hotel-huahin": {
-  "lat": 12.4871346,
-  "lng": 99.9699948,
+  "lat": 12.5673064,
+  "lng": 99.9587079,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "79 Phetkasem Road, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand",
-  "distKm": 9.3
+  "distKm": 0.3,
+  "osm": "node/4098968639",
+  "osmName": "Baan Nilrath",
+  "q": "Baan Nilrath Hotel @ node/4098968639 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasLat": 12.4871346,
+  "wasLng": 99.9699948,
+  "wasPrecision": "poi"
  },
  "review-baan-nueng-service-apartment-bangkok": {
   "lat": 13.7811368,
@@ -1588,8 +1621,16 @@
   "q": "หมู่ 9 บ้านหาดสวรรค์, Nong Bua Lamphu, Thailand"
  },
  "review-ban-thai-guesthouse-sukhothai": {
-  "why": "no match",
-  "q": "Pravet Nakhon Road, Sukhothai, Thailand"
+  "lat": 17.0076516,
+  "lng": 99.8179891,
+  "prov": "sukhothai",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/703520073",
+  "osmName": "Banthai Guest House",
+  "q": "Ban Thai Guesthouse @ node/703520073 (named lodging inside Sukhothai Province)",
+  "distKm": 0.3,
+  "wasWhy": "no match"
  },
  "review-banana-sunset-koh-mak": {
   "lat": 11.798822,
@@ -2202,13 +2243,18 @@
   "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"66 ถนนเลียบคลองชลประทาน ตำบลโพสะ อำเภอเมืองอ่างทอง, อ่างทอง, Thailand\" is highway=residential r26 \"ถนนเลียบคลองชลประทาน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-bualuang-hotel-ang-thong": {
-  "lat": 14.436253,
-  "lng": 100.4821238,
+  "lat": 14.5807983,
+  "lng": 100.4523734,
   "prov": "ang-thong",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนอยุธยา-อ่างทอง, อ่างทอง, Thailand",
-  "distKm": 17.4
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 1.1,
+  "osm": "way/1249176225",
+  "osmName": "Bua Luang Hotel Ang Thong",
+  "q": "Bualuang Hotel Ang Thong @ way/1249176225 (named lodging inside Ang Thong Province)",
+  "wasLat": 14.436253,
+  "wasLng": 100.4821238,
+  "wasPrecision": "road"
  },
  "review-bun-som-apartment-chonburi": {
   "why": "road query was only a village/house number: \"Moo 5\"",
@@ -2913,13 +2959,18 @@
   "q": "Nakhon Phanom-Tha Uthen Road, Nakhon Phanom, Thailand"
  },
  "review-chiang-mai-marriott-hotel-chiang-mai": {
-  "lat": 18.7783526,
-  "lng": 98.9979823,
+  "lat": 18.7845086,
+  "lng": 98.9999194,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Chang Klan Road, Chiang Mai, Thailand",
-  "distKm": 2.3
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 2.2,
+  "osm": "way/475897562",
+  "osmName": "Le Méridien",
+  "q": "Chiang Mai Marriott Hotel @ way/475897562 (named lodging inside Chiang Mai Province)",
+  "wasLat": 18.7783526,
+  "wasLng": 98.9979823,
+  "wasPrecision": "road"
  },
  "review-chiangkhan-river-mountain-resort-loei": {
   "why": "equals the province centroid",
@@ -3044,8 +3095,16 @@
   "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Park Hotel Phatthalung, Phatthalung, Thailand\" is tourism=hotel r30 \"โรงแรม ซิตี้ปาร์ค\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cityview-residence-chonburi": {
-  "why": "no match",
-  "q": "Surasaksanguan Road, Si Racha, Chonburi, Thailand"
+  "lat": 13.1637619,
+  "lng": 100.9269244,
+  "prov": "chonburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/706097645",
+  "osmName": "City View Residence",
+  "q": "Cityview Residence @ way/706097645 (named lodging inside Chon Buri Province)",
+  "distKm": 22.6,
+  "wasWhy": "no match"
  },
  "review-civilize-hotel-udon-thani": {
   "lat": 17.4036961,
@@ -3266,13 +3325,18 @@
   "distKm": 2
  },
  "review-crystal-design-hotel-hat-yai": {
-  "lat": 6.9917534,
-  "lng": 100.4855196,
+  "lat": 6.9916802,
+  "lng": 100.4852126,
   "prov": "songkhla",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "Crystal Hotel, Hat Yai, Thailand",
-  "distKm": 26.4
+  "distKm": 26.4,
+  "osm": "node/2485971307",
+  "osmName": "Crystal Hotel",
+  "q": "Crystal Hotel @ node/2485971307 (named lodging inside Songkhla Province)",
+  "wasLat": 6.9917534,
+  "wasLng": 100.4855196,
+  "wasPrecision": "poi"
  },
  "review-crystal-hotel-hat-yai-songkhla": {
   "lat": 6.9917534,
@@ -3357,13 +3421,18 @@
   "q": "หมู่ 4, Khao Kho, Thailand"
  },
  "review-de-lanna-hotel-chiang-mai": {
-  "lat": 18.7898064,
-  "lng": 98.9868131,
+  "lat": 18.7898038,
+  "lng": 98.9831016,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Intrawarorot Road, Chiang Mai, Thailand",
-  "distKm": 0.7
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.3,
+  "osm": "way/408595881",
+  "osmName": "De Lanna Hotel",
+  "q": "De Lanna Hotel @ way/408595881 (named lodging inside Chiang Mai Province)",
+  "wasLat": 18.7898064,
+  "wasLng": 98.9868131,
+  "wasPrecision": "road"
  },
  "review-de-lit-hotel-ubon-ratchathani": {
   "why": "no match",
@@ -3404,13 +3473,18 @@
   "q": "หมู่ 11, ปราจีนบุรี, Thailand"
  },
  "review-devasom-hua-hin-resort-huahin": {
-  "lat": 12.4871346,
-  "lng": 99.9699948,
+  "lat": 12.6606044,
+  "lng": 99.957358,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Phetkasem Road, Hua Hin, Thailand",
-  "distKm": 9.3
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 10.1,
+  "osm": "node/3090814858",
+  "osmName": "Devasom Hua Hin Resort",
+  "q": "Devasom Hua Hin Resort @ node/3090814858 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasLat": 12.4871346,
+  "wasLng": 99.9699948,
+  "wasPrecision": "road"
  },
  "review-devasom-hua-hin-resort-phetchaburi": {
   "lat": 12.6606044,
@@ -3430,13 +3504,18 @@
   "q": "หมู่ 3, ฉะเชิงเทรา, Thailand"
  },
  "review-dhevaraj-hotel-nan": {
-  "lat": 18.7848369,
-  "lng": 100.7800081,
+  "lat": 18.7782758,
+  "lng": 100.7748299,
   "prov": "nan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสุมนเทวราช, Nan, Thailand",
-  "distKm": 1.2
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.5,
+  "osm": "way/246845823",
+  "osmName": "Dhevaraj Hotel",
+  "q": "Dhevaraj Hotel @ way/246845823 (named lodging inside Nan Province)",
+  "wasLat": 18.7848369,
+  "wasLng": 100.7800081,
+  "wasPrecision": "road"
  },
  "review-diamond-city-place-pattaya": {
   "why": "road query was only a village/house number: \"Moo 10\"",
@@ -3476,14 +3555,19 @@
   "wasWhy": "no match"
  },
  "review-dinso-resort-villas-ko-chang-trat": {
-  "lat": 12.0477149,
-  "lng": 102.2926256,
+  "lat": 12.0410127,
+  "lng": 102.295029,
   "prov": "trat",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Klong Prao Beach, Ko Chang, Ko Chang, Trat, Thailand",
-  "distKm": 31.9,
-  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Klong Prao Beach, Ko Chang, Ko Chang, Trat, Thailand\" is natural=beach r22 \"หาดคลองพร้าว\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 32.2,
+  "osm": "way/1533138724",
+  "osmName": "Dinso Resort & Villas Ko Chang, Vignette Collection by IHG",
+  "q": "Dinso Resort & Villas Ko Chang, Vignette Collection by IHG @ way/1533138724 (named lodging inside Trat Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"Klong Prao Beach, Ko Chang, Ko Chang, Trat, Thailand\" is natural=beach r22 \"หาดคลองพร้าว\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 12.0477149,
+  "wasLng": 102.2926256,
+  "wasPrecision": "area"
  },
  "review-dluxx-thammasat-pathum-thani": {
   "why": "no match",
@@ -3516,13 +3600,18 @@
   "distKm": 11.6
  },
  "review-dreamcatcher-boutique-hotel-samui": {
-  "lat": 9.5587223,
-  "lng": 100.0305547,
+  "lat": 9.5598196,
+  "lng": 100.0291531,
   "prov": "surat-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Bophut, Koh Samui, Thailand",
-  "distKm": 89.9
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 89.8,
+  "osm": "node/10864127739",
+  "osmName": "Dreamcatcher Boutique Hotel",
+  "q": "Dreamcatcher Boutique Hotel @ node/10864127739 (named lodging inside Ko Samui District)",
+  "wasLat": 9.5587223,
+  "wasLng": 100.0305547,
+  "wasPrecision": "road"
  },
  "review-ducati-bike-box-hostel-buriram": {
   "why": "no match",
@@ -3574,14 +3663,19 @@
   "distKm": 17.2
  },
  "review-dusit-thani-pattaya": {
-  "lat": 12.9632643,
-  "lng": 100.9109153,
+  "lat": 12.9503787,
+  "lng": 100.8851204,
   "prov": "chonburi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Dusit Thani Pattaya, Pattaya, Thailand",
-  "distKm": 44.7,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Dusit Thani Pattaya, Pattaya, Thailand\" is amenity=college r30 \"วิทยาลัยดุสิตธานีพัทยา\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 46.7,
+  "osm": "way/623429279",
+  "osmName": "Dusit Thani Resort",
+  "q": "Dusit Thani Pattaya @ way/623429279 (named lodging inside Bang Lamung District + Sattahip District)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Dusit Thani Pattaya, Pattaya, Thailand\" is amenity=college r30 \"วิทยาลัยดุสิตธานีพัทยา\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 12.9632643,
+  "wasLng": 100.9109153,
+  "wasPrecision": "area"
  },
  "review-dusita-residence-phetchabun": {
   "why": "no match",
@@ -3698,8 +3792,16 @@
   "distKm": 3.8
  },
  "review-faasai-resort-spa-chanthaburi": {
-  "why": "no match",
-  "q": "Kung Wiman Beach, Chanthaburi, Thailand"
+  "lat": 12.6097532,
+  "lng": 101.8754071,
+  "prov": "chanthaburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/386121127",
+  "osmName": "Faa Sai Resort & Spa",
+  "q": "Faasai Resort & Spa @ way/386121127 (named lodging inside Chanthaburi Province)",
+  "distKm": 24.4,
+  "wasWhy": "no match"
  },
  "review-fahluang-residence-phichit": {
   "why": "road query was only a village/house number: \"หมู่ 8\"",
@@ -4183,13 +4285,18 @@
   "wasWhy": "no match"
  },
  "review-green-park-grand-yasothon": {
-  "lat": 15.7937969,
-  "lng": 104.1412606,
+  "lat": 15.8055304,
+  "lng": 104.1447019,
   "prov": "yasothon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนวารีราชเดช, Yasothon, Thailand",
-  "distKm": 1
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 1.8,
+  "osm": "way/255755766",
+  "osmName": "The Green Park Grand Hotel",
+  "q": "The Green Park Grand Yasothon @ way/255755766 (named lodging inside Yasothon Province)",
+  "wasLat": 15.7937969,
+  "wasLng": 104.1412606,
+  "wasPrecision": "road"
  },
  "review-green-pix-khao-yai": {
   "why": "road query was only a village/house number: \"หมู่ 4\"",
@@ -4225,8 +4332,16 @@
   "q": "Fisherman's Village, Koh Samui, Thailand"
  },
  "review-greenseaview-resort-prachuap-khiri-khan": {
-  "why": "no match",
-  "q": "Moo 2, Bang Saphan, Thailand"
+  "lat": 11.2420809,
+  "lng": 99.5560463,
+  "prov": "prachuap-khiri-khan",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4092034392",
+  "osmName": "Green Sea View Resort",
+  "q": "Greenseaview Resort @ node/4092034392 (named lodging inside Prachuap Khiri Khan Province)",
+  "distKm": 154.1,
+  "wasWhy": "no match"
  },
  "review-greenview-boutique-sungaikolok-narathiwat": {
   "lat": 6.0220604,
@@ -4930,13 +5045,18 @@
   "wasWhy": "no match"
  },
  "review-hua-hin-marriott-resort-and-spa-huahin": {
-  "lat": 12.4871346,
-  "lng": 99.9699948,
+  "lat": 12.5612455,
+  "lng": 99.9609257,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "107/1 Phetkasem Road, Hua Hin, Hua Hin, Thailand",
-  "distKm": 9.3
+  "distKm": 1,
+  "osm": "node/2413925196",
+  "osmName": "Hua Hin Marriott Resort & Spa",
+  "q": "Hua Hin Marriott Resort and Spa @ node/2413925196 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasLat": 12.4871346,
+  "wasLng": 99.9699948,
+  "wasPrecision": "poi"
  },
  "review-huan-soontaree-rayong": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
@@ -5198,14 +5318,19 @@
   "wasWhy": "no match"
  },
  "review-imperial-sakon-hotel-sakon-nakhon": {
-  "lat": 17.156349,
-  "lng": 104.1424776,
+  "lat": 17.1593209,
+  "lng": 104.1477745,
   "prov": "sakon-nakhon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "1892 ถนนสุขเกษม ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
-  "distKm": 0.9,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1892 ถนนสุขเกษม ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนสุขเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.2,
+  "osm": "node/4867521204",
+  "osmName": "Imperial Sakon Hotel",
+  "q": "Imperial Sakon Hotel @ node/4867521204 (named lodging inside Sakon Nakhon Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1892 ถนนสุขเกษม ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนสุขเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 17.156349,
+  "wasLng": 104.1424776,
+  "wasPrecision": "road"
  },
  "review-in-a-box-hostel-bangkok": {
   "lat": 13.7558817,
@@ -5617,8 +5742,16 @@
   "q": "Moo 5, Chiang Rai, Thailand"
  },
  "review-kaibae-beach-resort-koh-chang": {
-  "why": "road query was only a village/house number: \"Moo 4\"",
-  "q": "Moo 4, Koh Chang, Thailand"
+  "lat": 12.0252917,
+  "lng": 102.2913835,
+  "prov": "trat",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1568591610",
+  "osmName": "Kai Bae Beach Resort",
+  "q": "Kaibae Beach Resort @ node/1568591610 (named lodging inside Ko Chang District)",
+  "distKm": 33.7,
+  "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-kalanan-riverside-resort-nonthaburi": {
   "lat": 13.9054159,
@@ -6036,13 +6169,18 @@
   "distKm": 11.8
  },
  "review-kl-boutique-hotel-krabi": {
-  "lat": 8.0673601,
-  "lng": 98.9157853,
+  "lat": 8.0626038,
+  "lng": 98.9163689,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Maharaj Road Soi 2, Krabi, Thailand",
-  "distKm": 2.6
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 3.1,
+  "osm": "node/3656474030",
+  "osmName": "KL Boutique Hotel",
+  "q": "K.L. Boutique Hotel @ node/3656474030 (named lodging inside Krabi Province)",
+  "wasLat": 8.0673601,
+  "wasLng": 98.9157853,
+  "wasPrecision": "road"
  },
  "review-klang-dong-mountain-view-khao-yai": {
   "lat": 14.6174879,
@@ -6123,18 +6261,31 @@
   "q": "Moo 4, Koh Chang, Thailand"
  },
  "review-koh-chang-grandview-resort-koh-chang": {
-  "why": "road query was only a village/house number: \"Moo 4\"",
-  "q": "Moo 4, Ko Chang, Thailand"
+  "lat": 12.1017046,
+  "lng": 102.2742377,
+  "prov": "trat",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2039526051",
+  "osmName": "Grand View Resort",
+  "q": "Koh Chang Grandview Resort @ node/2039526051 (named lodging inside Ko Chang District)",
+  "distKm": 29.9,
+  "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-koh-kood-beach-resort-koh-kood": {
-  "lat": 11.5952907,
-  "lng": 102.5566564,
+  "lat": 11.6672478,
+  "lng": 102.5344968,
   "prov": "trat",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Koh Kood Beach Resort, Ko Kut, Thailand",
-  "distKm": 71.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Koh Kood Beach Resort, Ko Kut, Thailand\" is amenity=bar r30 \"Koh Kood Cafe (Neverland Bea\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 63.7,
+  "osm": "node/2174602466",
+  "osmName": "Koh Kood Beach Resort",
+  "q": "Koh Kood Beach Resort @ node/2174602466 (named lodging inside Ko Kut)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Koh Kood Beach Resort, Ko Kut, Thailand\" is amenity=bar r30 \"Koh Kood Cafe (Neverland Bea\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 11.5952907,
+  "wasLng": 102.5566564,
+  "wasPrecision": "area"
  },
  "review-koh-kood-garden-koh-kood": {
   "why": "no match",
@@ -6358,13 +6509,18 @@
   "distKm": 59.9
  },
  "review-lada-krabi-residence-krabi": {
-  "lat": 8.0850968,
-  "lng": 98.9063483,
+  "lat": 8.0660524,
+  "lng": 98.9160761,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Maharaj Road, Krabi, Thailand",
-  "distKm": 0.7
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 2.7,
+  "osm": "node/2191968553",
+  "osmName": "Lada Residence",
+  "q": "Lada Krabi Residence @ node/2191968553 (named lodging inside Krabi Province)",
+  "wasLat": 8.0850968,
+  "wasLng": 98.9063483,
+  "wasPrecision": "road"
  },
  "review-laemchabang-city-hotel-chonburi": {
   "why": "no match",
@@ -6549,8 +6705,16 @@
   "q": "Moo 3, Krabi, Thailand"
  },
  "review-lazy-day-koh-mak": {
-  "why": "no match",
-  "q": "หมู่ 1 หาดอ่าวเก๋า, เกาะหมาก, Thailand"
+  "lat": 11.8056315,
+  "lng": 102.4780397,
+  "prov": "trat",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2073637517",
+  "osmName": "Lazyday Resort",
+  "q": "Lazy Day The Resort @ node/2073637517 (named lodging inside Ko Mak, bounding box)",
+  "distKm": 48.4,
+  "wasWhy": "no match"
  },
  "review-le-blocs-aranyaprathet-sa-kaeo": {
   "lat": 13.6806239,
@@ -7107,13 +7271,18 @@
   "distKm": 3
  },
  "review-maven-stylish-hotel-huahin": {
-  "lat": 12.4501208,
-  "lng": 99.9630638,
+  "lat": 12.5664124,
+  "lng": 99.9581086,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
+  "via": "overpass",
   "precision": "poi",
-  "q": "120/99 Phetkasem Road, Hua Hin, Prachuap Khiri Khan, Hua Hin, Thailand",
-  "distKm": 13.3
+  "distKm": 0.4,
+  "osm": "node/9201619638",
+  "osmName": "Maven Stylish Hotel Hua Hin",
+  "q": "Maven Stylish Hotel Hua Hin @ node/9201619638 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasLat": 12.4501208,
+  "wasLng": 99.9630638,
+  "wasPrecision": "poi"
  },
  "review-mayflower-grande-hotel-chiang-mai-chiang-mai": {
   "lat": 18.7978867,
@@ -7370,8 +7539,16 @@
   "q": "Moo 16, Nakhon Ratchasima, Thailand"
  },
  "review-mont-talay-hotel-prachuap-khiri-khan": {
-  "why": "no match",
-  "q": "Suesuk Road, Prachuap Khiri Khan, Thailand"
+  "lat": 11.8067398,
+  "lng": 99.798807,
+  "prov": "prachuap-khiri-khan",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/231882270",
+  "osmName": "Monttalay Hotel",
+  "q": "Mont Talay Hotel @ way/231882270 (named lodging inside Prachuap Khiri Khan Province)",
+  "distKm": 86.7,
+  "wasWhy": "no match"
  },
  "review-montania-lifestyle-hotel-khao-sok-surat-thani": {
   "lat": 8.9062623,
@@ -7447,13 +7624,18 @@
   "q": "Moo 12, Nakhon Ratchasima, Thailand"
  },
  "review-mountain-reef-beach-resort-koh-tao-surat-thani": {
-  "lat": 10.0858812,
-  "lng": 99.8481858,
+  "lat": 10.0841565,
+  "lng": 99.8472527,
   "prov": "surat-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Tanote Bay, Koh Tao, Thailand",
-  "distKm": 119.5
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 119.3,
+  "osm": "way/1183871336",
+  "osmName": "Mountain Reef Resort",
+  "q": "Mountain Reef Beach Resort @ way/1183871336 (named lodging inside Surat Thani Province)",
+  "wasLat": 10.0858812,
+  "wasLng": 99.8481858,
+  "wasPrecision": "road"
  },
  "review-mountain-resort-koh-lipe-satun": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
@@ -8552,8 +8734,16 @@
   "q": "Moo 9, Rayong, Thailand"
  },
  "review-papacrab-boutique-guesthouse-phuket": {
-  "why": "equals the province centroid",
-  "q": "Moo 3, Phuket, Thailand"
+  "lat": 7.9496128,
+  "lng": 98.2800489,
+  "prov": "phuket",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6070339666",
+  "osmName": "Papa Crab Boutique Guesthouse",
+  "q": "PapaCrab Boutique Guesthouse @ node/6070339666 (named lodging inside Phuket Province)",
+  "distKm": 14.4,
+  "wasWhy": "equals the province centroid"
  },
  "review-paplern-resort-takbai-narathiwat": {
   "why": "road query was only a village/house number: \"หมู่ 4\"",
@@ -8590,13 +8780,18 @@
   "distKm": 1.5
  },
  "review-paradise-pearl-bungalows-phi-phi-krabi": {
-  "lat": 7.7884431,
-  "lng": 98.9835782,
+  "lat": 7.730737,
+  "lng": 98.7838316,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Long Beach, Krabi, Thailand",
-  "distKm": 34.5
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 42.3,
+  "osm": "node/632192317",
+  "osmName": "Paradise Pearl Bungalow",
+  "q": "Paradise Pearl Bungalows @ node/632192317 (named lodging inside Krabi Province)",
+  "wasLat": 7.7884431,
+  "wasLng": 98.9835782,
+  "wasPrecision": "road"
  },
  "review-paradiso-boutique-resort-trat": {
   "why": "no match",
@@ -8716,8 +8911,16 @@
   "q": "หมู่ 16 บ้านโนนน้ำแทง, Amnat Charoen, Thailand"
  },
  "review-pentahug-hotel-ubon-ratchathani": {
-  "why": "no match",
-  "q": "Soi Sukha Uppatham 9, Ubon Ratchathani, Thailand"
+  "lat": 15.2489215,
+  "lng": 104.8343936,
+  "prov": "ubon-ratchathani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/3326575696",
+  "osmName": "Pen Ta Hug Hotel",
+  "q": "Pentahug Hotel @ node/3326575696 (named lodging inside Ubon Ratchathani Province)",
+  "distKm": 1.9,
+  "wasWhy": "no match"
  },
  "review-petcharat-garden-hotel-roi-et": {
   "lat": 16.0692326,
@@ -8872,8 +9075,16 @@
   "distKm": 1.6
  },
  "review-phoomthai-garden-phrae": {
-  "why": "no match",
-  "q": "ถนนศศิบุตร, Phrae, Thailand"
+  "lat": 18.1350182,
+  "lng": 100.1411955,
+  "prov": "phrae",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/433297821",
+  "osmName": "Phoom Thai Garden",
+  "q": "PhoomThai Garden Hotel @ way/433297821 (named lodging inside Phrae Province)",
+  "distKm": 0.6,
+  "wasWhy": "no match"
  },
  "review-phowadol-resort-spa-chiang-rai": {
   "lat": 19.9335262,
@@ -9017,13 +9228,18 @@
   "q": "หมู่ 9, Nan, Thailand"
  },
  "review-phukananan-resort-nan": {
-  "lat": 19.1488125,
-  "lng": 101.1543814,
+  "lat": 19.1473951,
+  "lng": 101.1528488,
   "prov": "nan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 1 บ้านบ่อหลวง, Nan, Thailand",
-  "distKm": 57.6
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 57.4,
+  "osm": "node/13432156673",
+  "osmName": "Phukananan",
+  "q": "Phukananan Resort @ node/13432156673 (named lodging inside Nan Province)",
+  "wasLat": 19.1488125,
+  "wasLng": 101.1543814,
+  "wasPrecision": "road"
  },
  "review-phuket-marriott-resort-spa-merlin-beach-phuket": {
   "lat": 7.8834899,
@@ -9110,8 +9326,16 @@
   "distKm": 0.7
  },
  "review-pimanninn-chiang-rai": {
-  "why": "road query was only a village/house number: \"Moo 24\"",
-  "q": "Moo 24, Chiang Rai, Thailand"
+  "lat": 19.8937836,
+  "lng": 99.8249515,
+  "prov": "chiang-rai",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/638746806",
+  "osmName": "Pimann Inn",
+  "q": "Pimanninn @ way/638746806 (named lodging inside Chiang Rai Province)",
+  "distKm": 2.4,
+  "wasWhy": "road query was only a village/house number: \"Moo 24\""
  },
  "review-pimdara-hotel-chanthaburi": {
   "why": "equals the province centroid",
@@ -9153,8 +9377,16 @@
   "q": "หมู่ 1, Tak, Thailand"
  },
  "review-pinnacle-satun-wangmai-hotel-satun": {
-  "why": "no match",
-  "q": "Satuntani Road, สตูล, Thailand"
+  "lat": 6.6213574,
+  "lng": 100.067982,
+  "prov": "satun",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1024730231",
+  "osmName": "Pinnacle Wang Mai Hotel",
+  "q": "Pinnacle Satun Wangmai Hotel @ way/1024730231 (named lodging inside Satun Province)",
+  "distKm": 0.3,
+  "wasWhy": "no match"
  },
  "review-pino-latte-khaokho-phetchabun": {
   "why": "equals the province centroid",
@@ -9395,14 +9627,19 @@
   "q": "หมู่ 5, Pai, Thailand"
  },
  "review-putahracsa-hua-hin-resort-prachuap-khiri-khan": {
-  "lat": 12.578255,
-  "lng": 99.956275,
+  "lat": 12.5769836,
+  "lng": 99.9562376,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "22/65 Naebkehardt Road, Hua Hin, Hua Hin, Thailand",
-  "distKm": 1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"22/65 Naebkehardt Road, Hua Hin, Hua Hin, Thailand\" is highway=tertiary r26 \"ถนนแนบเคหาสน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.9,
+  "osm": "node/4089326011",
+  "osmName": "Putahracsa Hua Hin",
+  "q": "Putahracsa Hua Hin Resort @ node/4089326011 (named lodging inside Prachuap Khiri Khan Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"22/65 Naebkehardt Road, Hua Hin, Hua Hin, Thailand\" is highway=tertiary r26 \"ถนนแนบเคหาสน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 12.578255,
+  "wasLng": 99.956275,
+  "wasPrecision": "road"
  },
  "review-putahracsa-huahin": {
   "lat": 12.5769836,
@@ -9921,8 +10158,16 @@
   "q": "ตำบลคึกคัก, เขาหลัก พังงา, Thailand"
  },
  "review-rockgarden-beach-resort-rayong": {
-  "why": "equals the province centroid",
-  "q": "Moo 6, Rayong, Thailand"
+  "lat": 12.6633475,
+  "lng": 101.6538734,
+  "prov": "rayong",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2499047968",
+  "osmName": "Rock Garden Beach Resort",
+  "q": "Rockgarden Beach Resort @ node/2499047968 (named lodging inside Rayong Province)",
+  "distKm": 40.6,
+  "wasWhy": "equals the province centroid"
  },
  "review-rocko-hotel-uttaradit": {
   "lat": 17.6085745,
@@ -10319,8 +10564,16 @@
   "q": "หมู่ 1, Suphan Buri, Thailand"
  },
  "review-samed-grandview-resort-rayong": {
-  "why": "equals the province centroid",
-  "q": "Moo 4, Rayong, Thailand"
+  "lat": 12.5665795,
+  "lng": 101.4630625,
+  "prov": "rayong",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/617539523",
+  "osmName": "Samed Grand View Resort",
+  "q": "Samed Grandview Resort @ node/617539523 (named lodging inside Rayong Province)",
+  "distKm": 23.5,
+  "wasWhy": "equals the province centroid"
  },
  "review-samed-villa-resort-rayong": {
   "lat": 12.5633015,
@@ -10493,8 +10746,16 @@
   "q": "หมู่ 5, Saraburi, Thailand"
  },
  "review-sarm-mork-guest-house-mae-hong-son": {
-  "why": "no match",
-  "q": "Chamnan Sathit Road, Mae Hong Son, Thailand"
+  "lat": 19.2990857,
+  "lng": 97.9691853,
+  "prov": "mae-hong-son",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/2311815130",
+  "osmName": "Sarmmork Guest House",
+  "q": "Sarm Mork Guest House @ node/2311815130 (named lodging inside Mae Hong Son Province)",
+  "distKm": 0.1,
+  "wasWhy": "no match"
  },
  "review-sarorach-pool-villa-resort-koh-larn": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -10584,13 +10845,18 @@
   "q": "Moo 2, Ko Mak, Thailand"
  },
  "review-seavana-koh-mak": {
-  "lat": 11.8266637,
-  "lng": 102.4703768,
+  "lat": 11.8207697,
+  "lng": 102.4659222,
   "prov": "trat",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "อ่าวสวนใหญ่, เกาะหมาก, Thailand",
-  "distKm": 46.2
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 46.9,
+  "osm": "way/255176455",
+  "osmName": "Seavana Beach Resort",
+  "q": "Seavana Koh Mak Beach Resort @ way/255176455 (named lodging inside Ko Mak, bounding box)",
+  "wasLat": 11.8266637,
+  "wasLng": 102.4703768,
+  "wasPrecision": "road"
  },
  "review-seaview-sriracha-hotel-chonburi": {
   "lat": 13.1630058,
@@ -11001,8 +11267,16 @@
   "q": "หมู่ 9, Sichon, Nakhon Si Thammarat, Thailand"
  },
  "review-sky-view-hotel-buriram": {
-  "why": "road query was only a village/house number: \"Moo 16\"",
-  "q": "Moo 16, Buriram, Thailand"
+  "lat": 14.9620775,
+  "lng": 103.093253,
+  "prov": "buriram",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/772742394",
+  "osmName": "SkyView Resort",
+  "q": "Sky View Hotel Buriram @ way/772742394 (named lodging inside Buri Ram Province)",
+  "distKm": 3.2,
+  "wasWhy": "road query was only a village/house number: \"Moo 16\""
  },
  "review-sleep-by-me-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 8\"",
@@ -11204,8 +11478,16 @@
   "q": "หมู่ 5, Chai Nat, Thailand"
  },
  "review-srilanta-resort-spa-koh-lanta-krabi": {
-  "why": "road query was only a village/house number: \"Moo 6\"",
-  "q": "Moo 6, Krabi, Thailand"
+  "lat": 7.5328393,
+  "lng": 99.0508229,
+  "prov": "krabi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/703054810",
+  "osmName": "Sri Lanta",
+  "q": "SriLanta Resort & Spa @ node/703054810 (named lodging inside Krabi Province)",
+  "distKm": 63.9,
+  "wasWhy": "road query was only a village/house number: \"Moo 6\""
  },
  "review-sripakpra-andacura-boutique-resort-phatthalung": {
   "why": "no match",
@@ -11355,13 +11637,18 @@
   "distKm": 1.1
  },
  "review-sugar-guesthouse-loei": {
-  "lat": 17.5021459,
-  "lng": 101.7318734,
+  "lat": 17.4944838,
+  "lng": 101.7320372,
   "prov": "loei",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi 4 Wisutthithep Road, Loei, Thailand",
-  "distKm": 1.4
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.5,
+  "osm": "node/4552363092",
+  "osmName": "Sugar Guesthouse",
+  "q": "Sugar Guesthouse @ node/4552363092 (named lodging inside Loei Province)",
+  "wasLat": 17.5021459,
+  "wasLng": 101.7318734,
+  "wasPrecision": "road"
  },
  "review-sugar-marina-art-karon-phuket": {
   "lat": 7.8489428,
@@ -11673,13 +11960,18 @@
   "q": "Soi Ruenkwan, Rayong, Thailand"
  },
  "review-tamarind-guesthouse-ayutthaya": {
-  "lat": 14.3631829,
-  "lng": 100.5676212,
+  "lat": 14.3574149,
+  "lng": 100.5691544,
   "prov": "ayutthaya",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Moo 1 ถนนชีกุน, Phra Nakhon Si Ayutthaya, Thailand",
-  "distKm": 2
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 1.4,
+  "osm": "node/2670280862",
+  "osmName": "Tamarind Guest House",
+  "q": "Tamarind Guesthouse @ node/2670280862 (named lodging inside Phra Nakhon Si Ayutthaya Province)",
+  "wasLat": 14.3631829,
+  "wasLng": 100.5676212,
+  "wasPrecision": "road"
  },
  "review-tamarind-village-chiang-mai": {
   "lat": 18.7890942,
@@ -11894,8 +12186,16 @@
   "q": "Moo 10, Pattaya, Thailand"
  },
  "review-the-beach-cha-am-guest-house-phetchaburi": {
-  "why": "no match",
-  "q": "ซอยสถานีขนส่ง, Phetchaburi, Thailand"
+  "lat": 12.7919075,
+  "lng": 99.9822099,
+  "prov": "phetchaburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/10158381750",
+  "osmName": "The Beach Cha-am Guesthouse",
+  "q": "The Beach Cha Am Guest House @ node/10158381750 (named lodging inside Phetchaburi Province)",
+  "distKm": 35.7,
+  "wasWhy": "no match"
  },
  "review-the-beach-cha-am-residence-phetchaburi": {
   "why": "no match",
@@ -12089,13 +12389,18 @@
   "wasWhy": "no match"
  },
  "review-the-chill-at-krabi-hotel-krabi": {
-  "lat": 8.0925092,
-  "lng": 98.890693,
+  "lat": 8.0898446,
+  "lng": 98.8948985,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Watchara Road, Krabi, Thailand",
-  "distKm": 2.1
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 1.7,
+  "osm": "node/5839948191",
+  "osmName": "The Chill @ Krabi Hotel",
+  "q": "The Chill at Krabi Hotel @ node/5839948191 (named lodging inside Krabi Province)",
+  "wasLat": 8.0925092,
+  "wasLng": 98.890693,
+  "wasPrecision": "road"
  },
  "review-the-chill-classic-house-chachoengsao": {
   "lat": 13.6892026,
@@ -12234,8 +12539,16 @@
   "q": "Soi Jakkam, Lamphun, Thailand"
  },
  "review-the-float-house-river-kwai-kanchanaburi": {
-  "why": "equals the province centroid",
-  "q": "Moo 5, Kanchanaburi, Thailand"
+  "lat": 14.303512,
+  "lng": 98.9808564,
+  "prov": "kanchanaburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6997340097",
+  "osmName": "The FloatHouse River Kwai Resort",
+  "q": "The Float House River Kwai @ node/6997340097 (named lodging inside Kanchanaburi Province)",
+  "distKm": 67.1,
+  "wasWhy": "equals the province centroid"
  },
  "review-the-garden-304-prachinburi": {
   "why": "no match",
@@ -12351,8 +12664,16 @@
   "wasWhy": "road query was only a village/house number: \"Moo 3\""
  },
  "review-the-heritage-grand-khon-kaen-hotel-and-convention-khon-kaen": {
-  "why": "no match",
-  "q": "Prachasamran Road, Khon Kaen, Thailand"
+  "lat": 16.4289882,
+  "lng": 102.8304078,
+  "prov": "khon-kaen",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/107568142",
+  "osmName": "Hotel Pullman Khon Kaen Raja Orchid",
+  "q": "The Heritage Grand Khon Kaen Hotel and Convention @ way/107568142 (named lodging inside Khon Kaen Province)",
+  "distKm": 1.2,
+  "wasWhy": "no match"
  },
  "review-the-hill-resort-nong-bua-lamphu": {
   "why": "road query was only a village/house number: \"หมู่ 8\"",
@@ -12385,23 +12706,33 @@
   "distKm": 3.4
  },
  "review-the-impress-hotel-sisaket": {
-  "lat": 15.1073826,
-  "lng": 104.3337212,
+  "lat": 15.1050425,
+  "lng": 104.3337873,
   "prov": "sisaket",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนศรีสุมังค์, Sisaket, Thailand",
-  "distKm": 2
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 2.2,
+  "osm": "way/1125887862",
+  "osmName": "The Impress Hotel",
+  "q": "The Impress Sisaket Hotel @ way/1125887862 (named lodging inside Si Sa Ket Province)",
+  "wasLat": 15.1073826,
+  "wasLng": 104.3337212,
+  "wasPrecision": "road"
  },
  "review-the-impress-nan-hotel-nan": {
-  "lat": 18.762138,
-  "lng": 100.7618876,
+  "lat": 18.7590966,
+  "lng": 100.7613981,
   "prov": "nan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน, Nan, Thailand",
-  "distKm": 2.2,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน, Nan, Thailand\" is highway=trunk r26 \"ถนนยันตรกิจโกศล\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 2.5,
+  "osm": "node/4437163344",
+  "osmName": "Impress Nan Hotel",
+  "q": "The Impress Nan Hotel @ node/4437163344 (named lodging inside Nan Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"4/99 ถนนยันตรกิจโกศล ตำบลดู่ใต้ อำเภอเมืองน่าน, Nan, Thailand\" is highway=trunk r26 \"ถนนยันตรกิจโกศล\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 18.762138,
+  "wasLng": 100.7618876,
+  "wasPrecision": "road"
  },
  "review-the-indigo-house-phrae": {
   "why": "no match",
@@ -12540,8 +12871,16 @@
   "q": "หมู่ 7, Chumphon, Thailand"
  },
  "review-the-nouveau-chumphon-beach-resort-and-golf-chumphon": {
-  "why": "road query was only a village/house number: \"Moo 1\"",
-  "q": "Moo 1, Chumphon, Thailand"
+  "lat": 10.4258693,
+  "lng": 99.2633671,
+  "prov": "chumphon",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/335725041",
+  "osmName": "Novotel Chumphon Beach Resort and Golf",
+  "q": "The Nouveau Chumphon Beach Resort and Golf @ node/335725041 (named lodging inside Chumphon Province)",
+  "distKm": 11.6,
+  "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-the-now-hotel-pattaya": {
   "lat": 12.8831977,
@@ -12957,14 +13296,19 @@
   "distKm": 89.2
  },
  "review-the-sukosol-hotel-bangkok": {
-  "lat": 13.7563872,
-  "lng": 100.5403535,
+  "lat": 13.7580109,
+  "lng": 100.5359177,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "477 ถนนศรีอยุธยา แขวงถนนพญาไท เขตราชเทวี, Bangkok, Thailand",
-  "distKm": 4.4,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"477 ถนนศรีอยุธยา แขวงถนนพญาไท เขตราชเทวี, Bangkok, Thailand\" is highway=secondary r26 \"ถนนศรีอยุธยา\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 4,
+  "osm": "way/333176424",
+  "osmName": "Sukosol Hotel",
+  "q": "The Sukosol Hotel Bangkok @ way/333176424 (named lodging inside Bangkok)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"477 ถนนศรีอยุธยา แขวงถนนพญาไท เขตราชเทวี, Bangkok, Thailand\" is highway=secondary r26 \"ถนนศรีอยุธยา\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 13.7563872,
+  "wasLng": 100.5403535,
+  "wasPrecision": "road"
  },
  "review-the-sun-resort-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
@@ -13168,18 +13512,31 @@
   "distKm": 2.6
  },
  "review-thiwson-beach-resort-koh-yao-yai-phang-nga": {
-  "why": "no match",
-  "q": "Thiwson Beach, เกาะยาวใหญ่, พังงา, Thailand"
+  "lat": 8.0547384,
+  "lng": 98.5970614,
+  "prov": "phang-nga",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/592051797",
+  "osmName": "Thiw Son Beach Resort",
+  "q": "Thiwson Beach Resort @ way/592051797 (named lodging inside Phang-nga Province)",
+  "distKm": 44.6,
+  "wasWhy": "no match"
  },
  "review-thong-tarin-hotel-surin": {
-  "lat": 14.8874095,
-  "lng": 103.4991882,
+  "lat": 14.8863154,
+  "lng": 103.4997379,
   "prov": "surin",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "60 ถนนศิริรัฐ ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand",
+  "via": "overpass",
+  "precision": "poi",
   "distKm": 1.3,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"60 ถนนศิริรัฐ ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=tertiary r26 \"ถนน ศิริรัฐ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "osm": "way/491648448",
+  "osmName": "Thongtarin Hotel",
+  "q": "Thong Tarin Hotel @ way/491648448 (named lodging inside Surin Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"60 ถนนศิริรัฐ ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=tertiary r26 \"ถนน ศิริรัฐ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 14.8874095,
+  "wasLng": 103.4991882,
+  "wasPrecision": "road"
  },
  "review-thongchen-residence-samut-sakhon": {
   "why": "no match",
@@ -13371,14 +13728,19 @@
   "distKm": 48.6
  },
  "review-tr-guesthouse-sukhothai": {
-  "lat": 17.0008458,
-  "lng": 99.8220583,
+  "lat": 17.0082514,
+  "lng": 99.8168636,
   "prov": "sukhothai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "27/5 Pravet Nakorn Road, Mueang Sukhothai, Sukhothai, Thailand",
-  "distKm": 1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"27/5 Pravet Nakorn Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=residential r26 \"ถนนประเวศนคร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 0.4,
+  "osm": "node/703520071",
+  "osmName": "TR Guest House",
+  "q": "TR Guesthouse @ node/703520071 (named lodging inside Sukhothai Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"27/5 Pravet Nakorn Road, Mueang Sukhothai, Sukhothai, Thailand\" is highway=residential r26 \"ถนนประเวศนคร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 17.0008458,
+  "wasLng": 99.8220583,
+  "wasPrecision": "road"
  },
  "review-trat-101-hotel-trat": {
   "why": "equals the province centroid",
@@ -13447,8 +13809,16 @@
   "q": "Moo 4, เกาะยาวน้อย, พังงา, Thailand"
  },
  "review-trex-boutique-buriram": {
-  "why": "no match",
-  "q": "Moo 13, Buriram, Thailand"
+  "lat": 14.933917,
+  "lng": 103.0889507,
+  "prov": "buriram",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/12712925610",
+  "osmName": "T-Rex Boutique Hotel Buriram",
+  "q": "TREX Buriram Boutique Hotel @ node/12712925610 (named lodging inside Buri Ram Province)",
+  "distKm": 6.3,
+  "wasWhy": "no match"
  },
  "review-tri-shawa-resort-prachuap-khiri-khan": {
   "lat": 11.7382085,
@@ -13888,14 +14258,19 @@
   "q": "Moo 6, Chanthaburi, Thailand"
  },
  "review-villa-khao-phaengma-nakhon-ratchasima": {
-  "lat": 14.3891095,
-  "lng": 101.7926971,
+  "lat": 14.3899977,
+  "lng": 101.7942817,
   "prov": "nakhon-ratchasima",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Villa Khao Phaengma, Nakhon Ratchasima, Thailand",
-  "distKm": 72.6,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"Villa Khao Phaengma, Nakhon Ratchasima, Thailand\" is highway=service r27 \"Villa Khao Phaengma\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 72.4,
+  "osm": "node/3367127398",
+  "osmName": "Villa Khao Phaengma",
+  "q": "Villa Khao Phaengma @ node/3367127398 (named lodging inside Nakhon Ratchasima Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"Villa Khao Phaengma, Nakhon Ratchasima, Thailand\" is highway=service r27 \"Villa Khao Phaengma\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 14.3891095,
+  "wasLng": 101.7926971,
+  "wasPrecision": "road"
  },
  "review-villa-maroc-resort-pranburi-prachuap-khiri-khan": {
   "why": "road query was only a village/house number: \"Moo 3\"",
@@ -13935,8 +14310,16 @@
   "q": "หมู่ 2 ถนนเจ้าเสด็จ, Yasothon, Thailand"
  },
  "review-vimarn-samed-resort-rayong": {
-  "why": "equals the province centroid",
-  "q": "Moo 4, Rayong, Thailand"
+  "lat": 12.5548474,
+  "lng": 101.4533074,
+  "prov": "rayong",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/6014816462",
+  "osmName": "Vimarnsamed Resort",
+  "q": "Vimarn Samed Resort @ node/6014816462 (named lodging inside Rayong Province)",
+  "distKm": 23.4,
+  "wasWhy": "equals the province centroid"
  },
  "review-vino-neste-private-pool-villas-khao-yai": {
   "why": "road query was only a village/house number: \"หมู่ 6\"",
@@ -13973,8 +14356,16 @@
   "distKm": 4.7
  },
  "review-w-koh-samui": {
-  "why": "road query was only a village/house number: \"Moo 1\"",
-  "q": "Moo 1, Koh Samui, Thailand"
+  "lat": 9.5731173,
+  "lng": 100.0170254,
+  "prov": "surat-thani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1820969934",
+  "osmName": "W Retreat Koh Samui",
+  "q": "W Koh Samui @ node/1820969934 (named lodging inside Ko Samui District)",
+  "distKm": 89.4,
+  "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-w14-pattaya": {
   "lat": 12.9435007,
@@ -14245,8 +14636,16 @@
   "distKm": 1.7
  },
  "review-x10-khaolak-resort-phang-nga": {
-  "why": "no match",
-  "q": "หมู่ 6 ถนนเพชรเกษม คึกคัก ตะกั่วป่า, เขาหลัก พังงา, Thailand"
+  "lat": 8.6534871,
+  "lng": 98.2480288,
+  "prov": "phang-nga",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4652732210",
+  "osmName": "X 10 Khao Lak Resort",
+  "q": "X10 Khaolak Resort @ node/4652732210 (named lodging inside Phang-nga Province)",
+  "distKm": 38.4,
+  "wasWhy": "no match"
  },
  "review-xanadu-beach-resort-koh-larn": {
   "why": "no match",
