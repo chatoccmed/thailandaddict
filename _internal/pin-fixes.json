@@ -3306,17 +3306,5 @@
   "osm": "node/12271991794",
   "rule": "wrong-kind",
   "evidence": "Reviewed before --apply on 2026-09-15: node/12271991794 สวนนงนุชพัทยา is tagged tourism=information and stands 2.6–2.9 km from Nong Nooch Tropical Garden itself: the garden is way/318679723 สวนนงนุช พัทยา (leisure=garden), with a tourism=attraction node สวนนงนุช at 12.76878,100.93397 inside it. An information point named after the garden, not the garden. Asked inside Bang Lamung + Sattahip, only the information node carries the spelling สวนนงนุชพัทยา — the garden polygon's name has a space — so no rule could see the garden, and the review refused it."
- },
- {
-  "batch": "2026-09-15-eat-review",
-  "action": "drop",
-  "kind": "articles",
-  "slug": "top10-activities-kalasin",
-  "at": "blocks.6",
-  "pos": "16.31915,103.52028",
-  "name": "พระธาตุยาคู + เมืองโบราณฟ้าแดดสงยาง (โบราณสถานสมัยทวารวดี อ.กมลาไสย)",
-  "osm": "node/2521475748",
-  "rule": "duplicate-position",
-  "evidence": "Reviewed before --apply on 2026-09-15: node/2521475748 is Phra That Yakhu — the right place — and top10-attractions-kalasin blocks.5 already carries this exact position as \"พระธาตุยาคู เมืองฟ้าแดดสงยาง\". check-coords' duplicate-position rule cannot equate that spelling with \"พระธาตุยาคู + เมืองโบราณฟ้าแดดสงยาง\" (its name variants do not take the first item of an \"A + B\" list, which the geocoder's splitNames does), so the pin would fail the build. The Kalasin hub map already shows the place from the other article; refused rather than loosening the gate in the same change."
  }
 ]

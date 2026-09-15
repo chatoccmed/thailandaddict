@@ -484,12 +484,31 @@ const flatten = (s) => String(s || '')
    house, and neither string's head matches the other's. So compare SETS of
    variants and treat any intersection as identity. Same idea as splitNames()
    in _internal/geocode-poi-overpass.mjs. */
+/* "A + B + C" names a LIST of places, and a block written that way is pinned on
+   its first item: geocode-poi-overpass's splitNames() derives every reading
+   from it (MAP-DATA-POLICY rule 9). Without the same reading here,
+   "พระธาตุยาคู + เมืองโบราณฟ้าแดดสงยาง" and "พระธาตุยาคู เมืองฟ้าแดดสงยาง" —
+   one place, one pin, two articles — read as two venues sharing a position,
+   and a correct pin had to be refused on 2026-09-15. A "+" inside brackets is
+   copy about one place and is left alone. */
+function firstListItem(t) {
+  let depth = 0;
+  for (let i = 0; i < t.length; i++) {
+    const ch = t[i];
+    if (ch === '(' || ch === '（') depth++;
+    else if ((ch === ')' || ch === '）') && depth > 0) depth--;
+    else if (ch === '+' && depth === 0) return t.slice(0, i).trim();
+  }
+  return t;
+}
 function nameVariants(s) {
   let t = String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   t = t.split(/\s*[—–|·]\s*/)[0].trim();
   const out = new Set();
   const add = (x) => { const f = flatten(x); if (f.length > 2) out.add(f); };
   add(t);
+  const first = firstListItem(t);
+  if (first !== t) { add(first); add(first.replace(/\s*[（(].*$/, '')); }
   add(t.replace(/\s*[（(].*$/, ''));                     /* head, alias dropped */
   const paren = t.match(/[（(]\s*([^）)]+)/);
   if (paren) add(paren[1]);                              /* the alias itself */
