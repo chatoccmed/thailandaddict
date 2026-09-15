@@ -236,7 +236,7 @@ function firstListItem(t) {
   return t;
 }
 
-function splitNames(s) {
+function splitNames(s, cluster) {
   let t = String(s || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   t = t.split(/\s*[—–|·]\s*/)[0].trim();
   const out = new Set([t]);
@@ -247,7 +247,31 @@ function splitNames(s) {
   out.add(t.replace(/\s*[（(].*$/, '').trim());
   out.add(t.replace(/\s+(?:อ\.|จ\.|ต\.|เขต|แขวง)\s*\S.*$/, '').trim());
   out.add(t.replace(/\s*,.*$/, '').trim());
+  /* A trailing park is where the place is, not what it is called:
+     "น้ำตกปาโจ อุทยานแห่งชาติบูโด-สุไหงปาดี" is OSM's waterfall "น้ำตกปาโจ".
+     A separate variant, so a name that keeps its park still gets asked. */
+  out.add(t.replace(/\s*[（(].*$/, '').replace(/\s+(?:อุทยานแห่งชาติ|วนอุทยาน)\S.*$/, '').trim());
+  /* So is a trailing province or cluster written on its own after a space —
+     "วัดภูมินทร์ น่าน" is OSM's "วัดภูมินทร์" (way/246657153, addr:street
+     ผากอง, Nai Wiang, Mueang Nan). Only this cluster's names and its
+     province's, as OSM spells their boundaries; a name that runs into the
+     place ("ข่วงเมืองน่าน") is untouched. */
+  for (const p of placeNamesTh(cluster)) {
+    const tail = new RegExp(`\\s+(?:จ\\.\\s*|จังหวัด)?${p}$`);
+    for (const v of [...out]) { const w = v.replace(tail, '').trim(); if (w && w !== v) out.add(w); }
+  }
   return [...out].filter((x) => x.length > 2);
+}
+/* จังหวัดน่าน → น่าน · อำเภอหัวหิน → หัวหิน · เกาะหมาก stays whole */
+function placeNamesTh(cluster) {
+  const out = new Set();
+  for (const c of [cluster, CLUSTER_PROVINCE[cluster]]) {
+    for (const f of (c && AREAS[c] && AREAS[c].from) || []) {
+      const n = String(f.name || '').replace(/^(?:จังหวัด|อำเภอ|เขต)/, '').trim();
+      if (n.length >= 2 && !/[\\^$.|?*+()[\]{}]/.test(n)) out.add(n);
+    }
+  }
+  return [...out];
 }
 
 /* Which of those variants is worth SENDING. The full editorial string is never
@@ -296,7 +320,7 @@ function restaurantBacklog() {
       const cluster = a.cluster || 'thailand';
       out.push({
         file: f, blockIndex: i, id: `${f.replace(/\.json$/, '')} › ${b.name}`,
-        names: splitNames(b.name), cluster, food: IS_FOOD_BLOCK(b), rank: b.rank,
+        names: splitNames(b.name, cluster), cluster, food: IS_FOOD_BLOCK(b), rank: b.rank,
         prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
       });
     });
@@ -332,7 +356,7 @@ function attractionBacklog() {
     const prefixes = [1, 2, 3].filter((k) => lead.length >= k).map((k) => lead.slice(0, k).join(' '));
     out.push({
       slug, id: slug,
-      names: [...new Set([...splitNames(h1), ...prefixes, slug.replace(/-/g, ' ')])],
+      names: [...new Set([...splitNames(h1, cluster), ...prefixes, slug.replace(/-/g, ' ')])],
       cluster, prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
     });
   }
