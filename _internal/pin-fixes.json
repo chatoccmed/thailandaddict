@@ -3318,5 +3318,17 @@
   "osm": "node/2084102401",
   "rule": "wrong-identity",
   "evidence": "Reviewed before --apply on 2026-09-15: \"Krabi Golden Hill Hotel\" matched node/2084102401 \"Golden Hill Bungalows\" at 7.74113,98.77755 on the words golden + hill — that position is Koh Phi Phi, about 40 km from the hotel, whose own address is 18 Chamai Anusorn Road, Pak Nam, Mueang Krabi (Krabi Town). A different lodging with two generic words in common."
+ },
+ {
+  "batch": "2026-09-15-hotel-identity-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-the-moonlight-resort-pattaya",
+  "at": "(root)",
+  "pos": "12.92269,100.87709",
+  "name": "The Moonlight Resort",
+  "osm": "way/311526197",
+  "rule": "wrong-identity",
+  "evidence": "Reviewed before --apply on 2026-09-15: the same-name path matched way/311526197 \"The Moonlight\" (tourism=guest_house) at 12.92269,100.87709 in Nong Pla Lai, Bang Lamung (Pattaya), because the review is filed under the Pattaya cluster and was searched there. The review's own address is 1/24 Phla, Ban Chang District, Phla Subdistrict, Rayong 21130, about 45 km away and outside that area. A same-named guest house, not this hotel."
  }
 ]

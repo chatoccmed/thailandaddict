@@ -203,6 +203,34 @@ function nameMatch(a, b, extraNoise, rarity) {
   return null;
 }
 
+/* SAME NAME — a second, stricter way in, used by --misses only.
+   The word rule above ignores place words, so a hotel called one distinctive
+   word plus a place ("Pimalai", "Hop Inn Phayao", "Coasta Bangsaen") can never
+   reach two significant words, however exactly OSM spells it. This accepts the
+   name itself instead: every word kept — place words and one-letter words
+   included — except hotel, resort, spa, the, and, by, and the two sequences
+   must be identical, with at least one word of four letters that is not a
+   place.
+   Measured first, 2026-09-15: a looser version that dropped the whole NOISE
+   list collapsed different hotels into one word — "Mango Beach Resort Thailand"
+   = "Mango Spa & Resort", "I Hotel Khonkaen" = "B&P Home Khonkaen", "Samet Inn"
+   = "Samet Beach Resort", "S&G Hometel" = "The P Hometel". Keeping the words
+   refuses all of those and still accepts "The Terminal Khon Kaen Hotel" =
+   "The Terminal Hotel Khon Kaen", and settles "Soneva Kiri" against "Soneva
+   Kiri Resort by Six Senses". */
+const IDENTITY_DROP = new Set(['hotel', 'hotels', 'resort', 'resorts', 'spa', 'the', 'and', 'by']);
+function nameWords(s) {
+  return String(s || '').replace(LODGING_PHRASE, ' ')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+    .replace(/[^a-z0-9฀-๿]+/g, ' ').split(' ')
+    .filter((w) => w && !IDENTITY_DROP.has(w));
+}
+function sameName(a, b) {
+  const A = nameWords(a), B = nameWords(b);
+  if (!A.length || A.join(' ') !== B.join(' ')) return false;
+  return A.some((w) => w.length >= 4 && !PLACE_NOISE.has(w) && !/^\d+$/.test(w));
+}
+
 /* ── what needs upgrading ───────────────────────────────────────────────── */
 const store = readJson(SIDECAR, {});
 
@@ -605,18 +633,25 @@ async function runMisses() {
     for (const r of g.rows) {
       if (!entry) { refused.push({ ...r, why: `${g.scope.label} not listed yet` }); continue; }
       const extraNoise = new Set(String(r.cluster || '').split('-').concat(String(r.prov || '').split('-')));
-      const hits = [];
+      const hits = [], same = [];
       for (const c of entry.cands) {
         for (const ours of [r.name, r.nameTh]) {
           if (!ours) continue;
+          if (sameName(ours, c.name)) same.push({ ...c, how: `same name: ${String(c.name).slice(0, 44)}` });
           const m = nameMatch(ours, c.name, extraNoise);
           if (m) { hits.push({ ...c, how: m.how }); break; }
         }
       }
-      const uniq = [...new Map(hits.map((h) => [h.id, h])).values()];
+      const spreadOf = (list) => { let s = 0; for (const a of list) for (const b of list) s = Math.max(s, km(a, b) * 1000); return s; };
+      let uniq = [...new Map(hits.map((h) => [h.id, h])).values()];
+      const sameUniq = [...new Map(same.map((h) => [h.id, h])).values()];
+      /* The same name decides two cases the word rule cannot: no word match at
+         all, and word matches that are ambiguous while exactly one place (or
+         one place drawn twice) carries the hotel's own name. See sameName(). */
+      if (!uniq.length && sameUniq.length) uniq = sameUniq;
+      else if (uniq.length && spreadOf(uniq) > AMBIGUOUS_M && sameUniq.length && spreadOf(sameUniq) <= AMBIGUOUS_M) uniq = sameUniq;
       if (!uniq.length) { refused.push({ ...r, why: `no name match among the named lodging inside ${g.scope.label}` }); continue; }
-      let spread = 0;
-      for (const a of uniq) for (const b of uniq) spread = Math.max(spread, km(a, b) * 1000);
+      const spread = spreadOf(uniq);
       if (spread > AMBIGUOUS_M) {
         refused.push({ ...r, why: `${uniq.length} matches ${spread.toFixed(0)} m apart — ambiguous, refused`, saw: uniq.slice(0, 4).map((h) => `${h.name} ${h.id}`) });
         continue;
