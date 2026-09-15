@@ -45,6 +45,7 @@
      node _internal/geocode-overpass.mjs --apply       write store + content
      [--limit N]     only the first N clusters (for a quick look)
      node _internal/geocode-overpass.mjs --misses [--out x.json] [--offline] [--apply]
+     node _internal/geocode-overpass.mjs --corroborate [--out x.json]    (report only, from the cache)
                      hotels with NO point at all: list the named lodging inside
                      each cluster's OSM boundary and match names — see runMisses()
    ========================================================================== */
@@ -63,6 +64,11 @@ const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i > 0 ?
 const MISSES = process.argv.includes('--misses');
 /* --offline (with --misses): match from the cached lodging lists, never the network */
 const OFFLINE = process.argv.includes('--offline');
+/* --corroborate: a report-only accuracy check. Every hotel review WITH a pin on the
+   page is matched, from the cached lodging lists only, against its cluster with the
+   same identity rules as --misses, and the distance from the pin to the nearest
+   match is reported. Nothing is written except --out. */
+const CORROBORATE = process.argv.includes('--corroborate');
 /* --out <file> (with --misses): every accepted and refused row, with the review's address */
 const OUT = (() => { const i = process.argv.indexOf('--out'); return i > 0 ? process.argv[i + 1] : null; })();
 
@@ -268,7 +274,7 @@ function sameName(a, b, own) {
 const store = readJson(SIDECAR, {});
 
 /* --misses asks a different question; see runMisses() at the end of this file. */
-if (MISSES) { await runMisses(); process.exit(0); }
+if (MISSES || CORROBORATE) { await runMisses(); process.exit(0); }
 
 /* Positions shared by two or more DIFFERENT hotels are area/road fallbacks even
    when Nominatim called them 'poi' — two buildings cannot share a rooftop. */
@@ -634,9 +640,9 @@ async function runMisses() {
     const slug = f.replace(/\.json$/, '');
     const st = store[slug];
     const j = readJson(path.join(REVIEWS, f), null);
-    if (!j || !j.name || Number.isFinite(j.lat)) continue;
+    if (!j || !j.name || Number.isFinite(j.lat) !== CORROBORATE) continue;
     /* What the store holds for a hotel that has no pin on the page. */
-    const had = !st || !Number.isFinite(st.lat) ? 'no point'
+    const had = CORROBORATE ? `store via ${st ? st.via || '?' : 'none'}` : !st || !Number.isFinite(st.lat) ? 'no point'
       : st.precision === 'road' || st.precision === 'area' ? `${st.precision} point` : 'point taken off the page';
     const cluster = j.cluster || '';
     const prov = PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster;
@@ -644,6 +650,7 @@ async function runMisses() {
       slug, name: j.name, nameTh: typeof j.nameTh === 'string' ? j.nameTh : '', cluster, scope: scopeOf(cluster), prov,
       addr: [j.streetAddress, j.addressLocality, j.mapAddr].filter(Boolean).join(' | '), was: st ? st.why || null : null, had,
       former: formerNames(j, cluster, prov),
+      at: CORROBORATE ? { lat: j.lat, lng: j.lng } : null, via: st ? st.via || null : null,
     });
   }
   const noScope = rows.filter((r) => !r.scope);
@@ -654,7 +661,7 @@ async function runMisses() {
     byScope.get(r.scope.key).rows.push(r);
   }
   const hadTally = rows.reduce((m, r) => ((m[r.had] = (m[r.had] || 0) + 1), m), {});
-  console.log(`--misses: ${rows.length} hotel review(s) with no pin on the page (${Object.entries(hadTally).map(([k, n]) => `${n} ${k}`).join(' · ')}) · ${byScope.size} area(s) to list`
+  console.log(`${CORROBORATE ? '--corroborate' : '--misses'}: ${rows.length} hotel review(s) ${CORROBORATE ? 'with a pin on the page' : 'with no pin on the page'} (${Object.entries(hadTally).map(([k, n]) => `${n} ${k}`).join(' · ')}) · ${byScope.size} area(s) to list`
     + `${noScope.length ? ` · ${noScope.length} in clusters with no area: ${[...new Set(noScope.map((r) => r.cluster))].join(', ')}` : ''}`);
   console.log(`${APPLY ? 'APPLY' : 'REPORT ONLY'}${OFFLINE ? ' · OFFLINE' : ''}\n`);
 
@@ -677,7 +684,7 @@ async function runMisses() {
   };
   let asked = 0, failed = 0;
   for (const [key, g] of byScope) {
-    if (cache.scopes[key] || OFFLINE) continue;
+    if (cache.scopes[key] || OFFLINE || CORROBORATE) continue;
     if (asked++) await sleep(6_000);
     const { prefix, filter } = g.scope;
     const j = await fetchQL(`[out:json][timeout:180];${prefix}(nwr["name"]["tourism"~"^(hotel|hostel|guest_house|motel|apartment|chalet|resort)$"]${filter};nwr["name"]["leisure"="resort"]${filter};nwr["name"]["building"~"^(hotel|dormitory)$"]${filter};);out center tags;`);
@@ -698,7 +705,7 @@ async function runMisses() {
   }
   console.log(`\nlisted ${asked - failed} area(s) now${failed ? ` · ${failed} FAILED` : ''} · ${[...byScope.keys()].filter((k) => cache.scopes[k]).length} of ${byScope.size} available\n`);
 
-  const accepted = [], refused = [];
+  const accepted = [], refused = [], checked = [];
   const reviewName = (slug) => readJson(path.join(REVIEWS, `${slug}.json`), {}).name || slug;
   for (const [key, g] of byScope) {
     const entry = cache.scopes[key];
@@ -719,6 +726,14 @@ async function runMisses() {
       const spreadOf = (list) => { let s = 0; for (const a of list) for (const b of list) s = Math.max(s, km(a, b) * 1000); return s; };
       let uniq = [...new Map(hits.map((h) => [h.id, h])).values()];
       const sameUniq = [...new Map(same.map((h) => [h.id, h])).values()];
+      if (CORROBORATE) {
+        const near = [...new Map([...hits, ...same].map((h) => [h.id, h])).values()]
+          .map((h) => ({ id: h.id, name: h.name, kind: h.kind, how: h.how, m: Math.round(km(r.at, h) * 1000) }))
+          .sort((a, b) => a.m - b.m);
+        checked.push({ slug: r.slug, cluster: r.cluster, name: r.name, via: r.via, addr: r.addr, lat: r.at.lat, lng: r.at.lng,
+          nearest: near.length ? near[0].m : null, matches: near.slice(0, 3) });
+        continue;
+      }
       /* The same name decides two cases the word rule cannot: no word match at
          all, and word matches that are ambiguous while exactly one place (or
          one place drawn twice) carries the hotel's own name. See sameName(). */
@@ -748,6 +763,19 @@ async function runMisses() {
     }
   }
 
+  if (CORROBORATE) {
+    const band = (c) => (c.nearest === null ? 'no identity match in OSM' : c.nearest <= 150 ? 'nearest match ≤150 m' : c.nearest <= 1000 ? 'nearest match 150 m–1 km' : 'nearest match >1 km');
+    const tally = {};
+    for (const c of checked) { const k = `${band(c)} · ${c.via || 'no store row'}`; tally[k] = (tally[k] || 0) + 1; }
+    console.log(`--corroborate: ${checked.length} pinned hotel review(s) checked · ${refused.length} in an area whose lodging list is not cached\n`);
+    for (const [k, n] of Object.entries(tally).sort()) console.log(`  ${String(n).padStart(5)}  ${k}`);
+    console.log('');
+    for (const c of checked.filter((x) => x.nearest !== null && x.nearest > 150).sort((a, b) => b.nearest - a.nearest)) {
+      console.log(`${c.nearest > 1000 ? '✗' : '~'} ${String(c.nearest).padStart(6)} m  ${c.slug.padEnd(52)} [${c.via || 'no store row'}] "${c.name}" ≈ ${c.matches.map((m) => `"${m.name}" ${m.id}`).join(' | ')}`);
+    }
+    if (OUT) { fs.writeFileSync(OUT, JSON.stringify(checked, null, 2) + '\n'); console.log(`\nwrote ${OUT}`); }
+    return;
+  }
   console.log('─'.repeat(78));
   console.log(`ACCEPTED ${accepted.length} · REFUSED ${refused.length}\n`);
   for (const a of accepted) console.log(`✓ ${a.slug.padEnd(54)} "${a.name}" ≈ "${a.osmName}" ${a.osm} ${a.kind} · ${a.how}`);

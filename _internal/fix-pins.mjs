@@ -88,6 +88,19 @@ const whyOf = (e) => `${e.action === 'move' ? 'pin moved' : 'pin deleted'} ${Str
 function fixStoreRow(kind, key, e, lat, lng) {
   const s = store(kind);
   const rec = s.doc[key];
+  /* 371 hotel pins entered content with their reviews and never had a store row
+     (2026-09-16 audit). Moving one on evidence creates the row, so the new point
+     has provenance and the old one is kept under "was". */
+  if (!rec && kind === 'reviews' && e.action === 'move') {
+    const [tlat, tlng] = pair(e.to);
+    s.doc[key] = {
+      lat: tlat, lng: tlng, ...(e.prov ? { prov: e.prov } : {}), via: e.via || null, precision: 'poi',
+      ...(e.osm ? { osm: e.osm } : {}), ...(e.osmName ? { osmName: e.osmName } : {}),
+      was: { lat, lng, via: null }, why: whyOf(e),
+    };
+    s.changed++;
+    return true;
+  }
   if (!samePoint(rec, lat, lng)) return false;
   if (e.action === 'move') {
     const [tlat, tlng] = pair(e.to);
