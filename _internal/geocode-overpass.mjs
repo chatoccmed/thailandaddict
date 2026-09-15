@@ -225,8 +225,14 @@ function nameWords(s) {
     .replace(/[^a-z0-9฀-๿]+/g, ' ').split(' ')
     .filter((w) => w && !IDENTITY_DROP.has(w));
 }
-function sameName(a, b) {
-  const A = nameWords(a), B = nameWords(b);
+/* `own` — the hotel's OWN cluster and province words, dropped from both names
+   before comparing (other places stay). Our review names append the location
+   and OSM's do not: "Dusita Resort Kohkood" is OSM's "Dusita resort", "The
+   Countryside Pai" is "Countryside Resort" (2026-09-15). The joined spellings
+   ("kohkood") count as the cluster's words too. */
+function sameName(a, b, own) {
+  const drop = own || new Set();
+  const A = nameWords(a).filter((w) => !drop.has(w)), B = nameWords(b).filter((w) => !drop.has(w));
   if (!A.length || A.join(' ') !== B.join(' ')) return false;
   return A.some((w) => w.length >= 4 && !PLACE_NOISE.has(w) && !/^\d+$/.test(w));
 }
@@ -633,11 +639,12 @@ async function runMisses() {
     for (const r of g.rows) {
       if (!entry) { refused.push({ ...r, why: `${g.scope.label} not listed yet` }); continue; }
       const extraNoise = new Set(String(r.cluster || '').split('-').concat(String(r.prov || '').split('-')));
+      const own = new Set([...extraNoise, String(r.cluster || '').replace(/-/g, ''), String(r.prov || '').replace(/-/g, '')].filter(Boolean));
       const hits = [], same = [];
       for (const c of entry.cands) {
         for (const ours of [r.name, r.nameTh]) {
           if (!ours) continue;
-          if (sameName(ours, c.name)) same.push({ ...c, how: `same name: ${String(c.name).slice(0, 44)}` });
+          if (sameName(ours, c.name, own)) same.push({ ...c, how: `same name: ${String(c.name).slice(0, 44)}` });
           const m = nameMatch(ours, c.name, extraNoise);
           if (m) { hits.push({ ...c, how: m.how }); break; }
         }

@@ -3330,5 +3330,41 @@
   "osm": "way/311526197",
   "rule": "wrong-identity",
   "evidence": "Reviewed before --apply on 2026-09-15: the same-name path matched way/311526197 \"The Moonlight\" (tourism=guest_house) at 12.92269,100.87709 in Nong Pla Lai, Bang Lamung (Pattaya), because the review is filed under the Pattaya cluster and was searched there. The review's own address is 1/24 Phla, Ban Chang District, Phla Subdistrict, Rayong 21130, about 45 km away and outside that area. A same-named guest house, not this hotel."
+ },
+ {
+  "batch": "2026-09-15-hotel-own-words-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-the-peak-chanthaburi",
+  "at": "(root)",
+  "pos": "12.59181,102.10369",
+  "name": "The Peak Chanthaburi",
+  "osm": "way/511990179",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-15: once the hotel's own place word was dropped, \"The Peak Chanthaburi\" matched way/511990179, named only \"Peak\", at 12.59181,102.10369. Reverse-geocoded to street level that point is on Soi Chanthakam Vithee 7; the review's own address is 9/9 Thung Dong Dang Road, Tambon Talat, Mueang Chanthaburi. A one-word generic name on a different street is not shown to be this hotel."
+ },
+ {
+  "batch": "2026-09-15-hotel-own-words-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-the-space-hotel-lampang",
+  "at": "(root)",
+  "pos": "18.28566,99.48565",
+  "name": "The Space Hotel Lampang",
+  "osm": "way/276736877",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-15: \"The Space Hotel Lampang\" matched way/276736877 \"Space Hotel\" at 18.28566,99.48565, which reverse-geocodes to Thanon Wienglakon in Bo Haeo; the review's own address is 274/1 Chatchai Road, Sob Tui, Mueang Lampang. Neither the street nor the sub-district agrees."
+ },
+ {
+  "batch": "2026-09-15-hotel-own-words-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-imperial-narathiwat",
+  "at": "(root)",
+  "pos": "6.43357,101.82150",
+  "name": "The Imperial Narathiwat Hotel",
+  "osm": "way/173563978",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-15: \"The Imperial Narathiwat Hotel\" matched way/173563978 \"The Imperial Hotel\" at 6.43357,101.82150, which reverse-geocodes to Phupha Phakdi Road; the review's own address is 260 Phichit Bamrung Road, Bang Nak, Mueang Narathiwat. A common hotel name whose street does not agree with the address is not shown to be this hotel."
  }
 ]
