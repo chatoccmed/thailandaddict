@@ -70,6 +70,13 @@ const ATTRACTIONS = process.argv.includes('--attractions') || PARK_OFFICES;
    unasked instead of fetched. It exists so a finished pass can be re-matched
    and reviewed while another Overpass job is running — one job at a time. */
 const OFFLINE = process.argv.includes('--offline');
+/* --corroborate (article blocks): a report-only accuracy check. Every restaurant/
+   venue block WITH a pin is asked by its own names and matched with the same
+   exact-name, kind and venue rules; the distance from its pin to the nearest
+   match is reported. Writes nothing but the name cache (the same answers the
+   normal mode gets for those names) and --out. */
+const CORROBORATE = process.argv.includes('--corroborate');
+if (CORROBORATE && ATTRACTIONS) { console.error('--corroborate checks article blocks; it does not combine with --attractions'); process.exit(2); }
 /* --include-guides: let "-guide" attraction slugs into the backlog. Most are
    ONE place (wat-arun-guide, bridge-river-kwai-guide, hellfire-pass-guide);
    the slug rule was written for the multi-place ones (phuket-beaches-guide,
@@ -311,16 +318,17 @@ function restaurantBacklog() {
     const blocks = Array.isArray(a.blocks) ? a.blocks : [];
     blocks.forEach((b, i) => {
       if (!b || b.kind !== 'restaurant' || !b.name) return;
-      if (Number.isFinite(b.lat) && Number.isFinite(b.lng)) return;
+      if ((Number.isFinite(b.lat) && Number.isFinite(b.lng)) !== CORROBORATE) return;
       /* `kind:'restaurant'` is the layout's generic ranked-item block, and some
          of those items are not places at all — Ang Thong's list includes
          "รถทัวร์จากกรุงเทพฯ ไปอ่างทอง", which is a bus route. A venue block
          carries a map link; a how-to row does not. */
-      if (!b.mapHref) return;
+      if (!b.mapHref && !CORROBORATE) return;
       const cluster = a.cluster || 'thailand';
       out.push({
         file: f, blockIndex: i, id: `${f.replace(/\.json$/, '')} › ${b.name}`,
         names: splitNames(b.name, cluster), cluster, food: IS_FOOD_BLOCK(b), rank: b.rank,
+        at: CORROBORATE ? { lat: b.lat, lng: b.lng } : null,
         prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
       });
     });
@@ -567,7 +575,7 @@ function siblingsOf(r) {
   return { med, n: pts.length, limit: Math.max(3.5, 1.5 * p90) };
 }
 
-const accepted = [], rejected = [];
+const accepted = [], rejected = [], checked = [];
 for (const cluster of work) {
   const rows = groups.get(cluster);
   const scope = scopeOf(cluster);
@@ -602,6 +610,12 @@ for (const cluster of work) {
       }
     }
     const uniq = [...new Map(hits.map((h) => [h.id, h])).values()];
+    if (CORROBORATE) {
+      const near = uniq.map((h) => ({ id: h.id, name: h.name, m: Math.round(km(r.at, h) * 1000) })).sort((a, b) => a.m - b.m);
+      checked.push({ id: r.id, file: r.file, blockIndex: r.blockIndex, cluster: r.cluster, food: r.food, lat: r.at.lat, lng: r.at.lng,
+        nearest: near.length ? near[0].m : null, matches: near.slice(0, 3), why: near.length ? null : wrongType || 'no exact name match in OSM' });
+      continue;
+    }
     if (!uniq.length) { rejected.push({ ...r, why: wrongType || 'no exact name match in OSM' }); continue; }
     /* PREFER A NODE. A node is a point somebody placed — the temple's main
        hall, the park headquarters, the waterfall itself. A way or relation
@@ -974,6 +988,19 @@ function nearestOnSurface(lines, from) {
 }
 
 /* ── report ─────────────────────────────────────────────────────────────── */
+if (CORROBORATE) {
+  const band = (c) => (c.nearest === null ? 'no exact-name match in OSM' : c.nearest <= 150 ? 'nearest match ≤150 m' : c.nearest <= 1000 ? 'nearest match 150 m–1 km' : 'nearest match >1 km');
+  const tally = {};
+  for (const c of checked) tally[band(c)] = (tally[band(c)] || 0) + 1;
+  console.log(`--corroborate: ${checked.length} pinned block(s) checked · ${rejected.length} in clusters with no complete Overpass answer`);
+  for (const [k, n] of Object.entries(tally).sort()) console.log(`  ${String(n).padStart(5)}  ${k}`);
+  console.log('');
+  for (const c of checked.filter((x) => x.nearest !== null && x.nearest > 150).sort((a, b) => b.nearest - a.nearest).slice(0, 80)) {
+    console.log(`${c.nearest > 1000 ? '✗' : '~'} ${String(c.nearest).padStart(6)} m  ${String(c.id).slice(0, 90)} ≈ ${c.matches.map((m) => `"${m.name}" ${m.id}`).join(' | ')}`);
+  }
+  if (OUT) { fs.writeFileSync(OUT, JSON.stringify(checked, null, 2) + '\n'); console.log(`\nwrote ${OUT}`); }
+  process.exit(0);
+}
 console.log('─'.repeat(78));
 console.log(`ACCEPTED ${accepted.length} · REFUSED ${rejected.length}`);
 console.log('');
