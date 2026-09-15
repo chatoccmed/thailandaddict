@@ -17,8 +17,10 @@
 
    HOW THIS ASKS INSTEAD
    ---------------------
-   One Overpass request per batch of names, scoped to the cluster's own bounding
-   box, made of EXACT-EQUALITY lookups — nwr["name"="X"], plus name:en,
+   One Overpass request per batch of names, scoped to the cluster's own OSM
+   boundary (scopeOf() below, from _internal/cluster-areas.json; until
+   2026-09-15 a box around the province's main town, which missed whole
+   islands), made of EXACT-EQUALITY lookups — nwr["name"="X"], plus name:en,
    name:th and alt_name — which Overpass answers from its tag index. An
    earlier version of this header described a unioned regex, ^(a|b|c)$; that
    shape was measured and retired: without a tag filter it was an unindexed
@@ -45,6 +47,7 @@
    Usage:
      node _internal/geocode-poi-overpass.mjs --report                restaurants
      node _internal/geocode-poi-overpass.mjs --attractions --report  attractions
+     node _internal/geocode-poi-overpass.mjs --park-offices          park articles → the park's office
      ... --apply    write · --limit N  only the first N clusters
    ========================================================================== */
 
@@ -56,9 +59,13 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const ARTICLES = path.join(ROOT, 'astro/src/content/articles');
 const PLACE_COORDS = path.join(ROOT, '_internal/place-coords.json');
 const PROV_FILE = path.join(ROOT, '_internal/province-coords.json');
+const AREAS_FILE = path.join(ROOT, '_internal/cluster-areas.json');
 
 const APPLY = process.argv.includes('--apply');
-const ATTRACTIONS = process.argv.includes('--attractions');
+/* --park-offices: pin an article about a national park on the park's own
+   headquarters or visitor centre — see runParkOffices(). Implies --attractions. */
+const PARK_OFFICES = process.argv.includes('--park-offices');
+const ATTRACTIONS = process.argv.includes('--attractions') || PARK_OFFICES;
 /* --offline never touches the network: an uncached cluster is reported as
    unasked instead of fetched. It exists so a finished pass can be re-matched
    and reviewed while another Overpass job is running — one job at a time. */
@@ -68,7 +75,8 @@ const OFFLINE = process.argv.includes('--offline');
    the slug rule was written for the multi-place ones (phuket-beaches-guide,
    hat-yai-shopping-guide), which exact-name matching mostly refuses by
    itself. Opt-in, and every accepted guide is reviewed before --apply. */
-const INCLUDE_GUIDES = process.argv.includes('--include-guides');
+/* --park-offices tests the headline instead of the slug, so it takes guides too. */
+const INCLUDE_GUIDES = process.argv.includes('--include-guides') || PARK_OFFICES;
 /* --out <file> writes the COMPLETE accepted set as JSON. The console report
    stops at 40 rows, and a verification pass has to see every one. */
 const OUT = (() => { const i = process.argv.indexOf('--out'); return i > 0 ? process.argv[i + 1] : null; })();
@@ -102,7 +110,7 @@ const ENDPOINTS = [
   'https://overpass.kumi.systems/api/interpreter',
 ];
 const PAUSE_MS = 6000;         /* bulk work, so well inside the usage policy */
-const BOX_DEG = 0.45;          /* ~50 km around a province centre */
+const BOX_DEG = 0.45;          /* fallback only: a cluster missing from cluster-areas.json */
 const MATCH_KM = 90;           /* inside the province, generously */
 /* Two answers further apart than this = genuinely two places, refuse both.
    400 m, picked from the measured distribution of all 112 exact-name groups
@@ -160,6 +168,38 @@ const CLUSTER_PROVINCE = {
   'bang-sue': 'bangkok',
 };
 const centreOf = (c) => PROV[c] || PROV[CLUSTER_PROVINCE[c]] || null;
+
+/* ── where to ask ───────────────────────────────────────────────────────── */
+/* Until 2026-09-15 every cluster was asked inside a ±0.45° box around its
+   province's main town, and a sub-destination inside its PARENT's box.
+   Measured against the 803 pins already verified, 89 lay outside their own
+   cluster's box — every one for Koh Phangan, Samui, Pai, Khao Yai, Koh Lipe
+   and Koh Kood, boxed around provincial towns 50–100 km away, and 30% for
+   Kanchanaburi. A place outside the box was never asked about, so it came back
+   "no exact name match" however well OSM knew it: ช่องเขาขาด (Hellfire Pass),
+   0.58° west of Kanchanaburi town; น้ำตกธารเสด็จ, about 100 km from the Surat
+   Thani city box that Koh Phangan was being searched in.
+   Each cluster is now asked inside its own OSM boundary — its province, or the
+   district or island a sub-destination actually is — from cluster-areas.json,
+   built and checked by _internal/discover-cluster-areas.mjs. A boundary is
+   also stricter than a box at the edges: a box around a border town reaches
+   into the next province, a boundary does not. */
+const AREAS = readJson(AREAS_FILE, { clusters: {} }).clusters || {};
+function scopeOf(cluster) {
+  const own = AREAS[cluster];
+  const e = own || AREAS[CLUSTER_PROVINCE[cluster]];
+  const label = e ? `${(e.from || []).map((f) => f.nameEn || f.name).join(' + ')}${own ? '' : ' (parent province)'}` : '';
+  if (e && Array.isArray(e.areas) && e.areas.length) {
+    return { key: `area:${e.areas.join('+')}`, prefix: `(${e.areas.map((a) => `area(${a});`).join('')})->.a;\n`, filter: '(area.a)', label };
+  }
+  if (e && Array.isArray(e.bbox)) {
+    return { key: `bbox:${e.bbox.join(',')}`, prefix: '', filter: `(${e.bbox.join(',')})`, label: `${label}, bounding box` };
+  }
+  const c = centreOf(cluster);
+  if (!c) return null;
+  const b = [c.lat - BOX_DEG, c.lng - BOX_DEG, c.lat + BOX_DEG, c.lng + BOX_DEG].map((x) => x.toFixed(3)).join(',');
+  return { key: `box:${b}`, prefix: '', filter: `(${b})`, label: `±${BOX_DEG}° box — not in cluster-areas.json`, box: true };
+}
 
 /* ── name identity ──────────────────────────────────────────────────────── */
 const ident = (s) => String(s || '')
@@ -364,15 +404,15 @@ const NOT_THE_VENUE = (t) => {
    is why name:en and name:th are asked for separately — OSM puts the Latin
    form in one of those about as often as in `name`.
    Type filtering moved to NOT_THE_VENUE, locally, against the cached tags. */
-function overpassQL(bbox, names) {
+function overpassQL(scope, names) {
   const stmts = [];
   for (const n of names) {
     const v = esc(n);
     for (const key of ['name', 'name:en', 'name:th', 'alt_name']) {
-      stmts.push(`nwr["${key}"="${v}"](${bbox});`);
+      stmts.push(`nwr["${key}"="${v}"]${scope.filter};`);
     }
   }
-  return `[out:json][timeout:180];\n(\n${stmts.join('\n')}\n);\nout center tags;`;
+  return `[out:json][timeout:180];\n${scope.prefix}(\n${stmts.join('\n')}\n);\nout center tags;`;
 }
 
 /* Each attempt uses the next mirror, so three attempts means three different
@@ -396,14 +436,27 @@ async function fetchQL(ql, attempt = 1) {
       await sleep(4_000 * attempt);
       return fetchQL(ql, attempt + 1);
     }
-    return await res.json();
+    const j = await res.json();
+    /* A query that runs out of time or memory still answers HTTP 200: the
+       error is in `remark` and the elements are whatever was ready. Taken at
+       face value, that caches a partial answer as complete — "no exact name
+       match" for names that were never looked up. Treat it like a 504. */
+    if (j && typeof j.remark === 'string' && /error|timed out|out of memory/i.test(j.remark)) {
+      if (attempt >= 6) { console.log(`   (partial answers from every mirror: ${j.remark.slice(0, 80)})`); return null; }
+      await sleep(8_000 * attempt);
+      return fetchQL(ql, attempt + 1);
+    }
+    return j;
   } catch (e) {
     if (attempt >= 6) { console.log(`   (gave up after ${attempt} attempts across ${ENDPOINTS.length} mirrors: ${e.message})`); return null; }
     await sleep(8_000 * attempt);
     return fetchQL(ql, attempt + 1);
   }
 }
-const fetchNames = (bbox, names) => fetchQL(overpassQL(bbox, names));
+const fetchNames = (scope, names) => fetchQL(overpassQL(scope, names));
+
+/* --park-offices asks a different question; see runParkOffices(). */
+if (PARK_OFFICES) { await runParkOffices(); process.exit(0); }
 
 /* ── fetch, cached per cluster ──────────────────────────────────────────── */
 const CACHE = path.join(ROOT, `_internal/.overpass-poi-${ATTRACTIONS ? 'attr' : 'eat'}-cache.json`);
@@ -421,23 +474,22 @@ for (const cluster of work) {
      the names it has asked; only the missing ones are fetched, and their
      candidates are merged in. An entry written before this change has no list
      and is asked again in full, once. */
-  const prev = cache.clusters[cluster];
+  /* An answer from another scope is not an answer for this one: the old box
+     around a provincial town and an island's own boundary hold different
+     places. A changed scope asks every name again, once. */
+  const scope = scopeOf(cluster);
+  const prev = cache.clusters[cluster] && cache.clusters[cluster].scope === scope.key ? cache.clusters[cluster] : null;
   const askedBefore = new Set((prev && prev.asked) || []);
   const need = allNames.filter((n) => !askedBefore.has(n));
   if (prev && prev.asked && !need.length) { cached++; continue; }
   if (OFFLINE) { if (prev) cached++; else unasked.push(cluster); continue; }
-  const c = centreOf(cluster);
-  const bbox = [
-    (c.lat - BOX_DEG).toFixed(3), (c.lng - BOX_DEG).toFixed(3),
-    (c.lat + BOX_DEG).toFixed(3), (c.lng + BOX_DEG).toFixed(3),
-  ].join(',');
 
   const cands = prev && prev.asked ? [...prev.cands] : [];
   let failed = 0, batches = 0;
   for (let i = 0; i < need.length; i += BATCH) {
     if (queried++) await sleep(PAUSE_MS);
     batches++;
-    const j = await fetchNames(bbox, need.slice(i, i + BATCH));
+    const j = await fetchNames(scope, need.slice(i, i + BATCH));
     if (!j) { failed++; continue; }
     for (const el of j.elements || []) {
       const lat = el.lat ?? el.center?.lat, lng = el.lon ?? el.center?.lon;
@@ -456,14 +508,14 @@ for (const cluster of work) {
       }
     }
   }
-  console.log(`   ${cluster.padEnd(22)} ${String(rows.length).padStart(3)} to find · ${String(need.length).padStart(3)} name(s) asked${prev && prev.asked ? ` (+${askedBefore.size} already cached)` : ''} · ${cands.length} candidate(s)${failed ? `  ⚠ ${failed}/${batches} request(s) FAILED — not cached, re-run to retry` : ''}`);
+  console.log(`   ${cluster.padEnd(22)} ${String(rows.length).padStart(3)} to find · ${String(need.length).padStart(3)} name(s) asked${prev && prev.asked ? ` (+${askedBefore.size} already cached)` : ''} · ${cands.length} candidate(s) · ${scope.label}${failed ? `  ⚠ ${failed}/${batches} request(s) FAILED — not cached, re-run to retry` : ''}`);
   /* A cluster whose requests failed must NOT be cached. Caching it as empty
      would turn a transient Overpass outage into permanent zero coverage for
      that province, silently — and the run would report "done" having never
      asked. Overpass dropped several requests in the first full pass, so this
      is a real path, not a theoretical one. */
   if (failed) { unasked.push(cluster); continue; }
-  cache.clusters[cluster] = { cands, asked: [...new Set([...askedBefore, ...need])], at: new Date().toISOString() };
+  cache.clusters[cluster] = { cands, asked: [...new Set([...askedBefore, ...need])], scope: scope.key, at: new Date().toISOString() };
   fs.writeFileSync(CACHE, JSON.stringify(cache) + '\n');
 }
 console.log(`\nfetched ${queried} request(s) · ${cached} cluster(s) from cache`);
@@ -494,9 +546,10 @@ function siblingsOf(r) {
 const accepted = [], rejected = [];
 for (const cluster of work) {
   const rows = groups.get(cluster);
-  const entry = cache.clusters[cluster];
+  const scope = scopeOf(cluster);
+  const entry = cache.clusters[cluster] && cache.clusters[cluster].scope === scope.key ? cache.clusters[cluster] : null;
   const centre = centreOf(cluster);
-  if (!entry) { for (const r of rows) rejected.push({ ...r, why: 'no Overpass answer for this cluster' }); continue; }
+  if (!entry) { for (const r of rows) rejected.push({ ...r, why: `no Overpass answer for this cluster inside ${scope.label}` }); continue; }
 
   for (const r of rows) {
     const hits = [];
@@ -505,7 +558,10 @@ for (const cluster of work) {
       for (const ours of r.names) {
         const m = nameMatch(ours, cand.name);
         if (!m) continue;
-        if (km(centre, cand) > MATCH_KM) continue;
+        /* The distance cap was the box's stand-in for a boundary; asked inside
+           a real one, it would only refuse far corners of the right province
+           (Sangkhlaburi is 170 km from Kanchanaburi town). */
+        if (scope.box && km(centre, cand) > MATCH_KM) continue;
         /* Right name, wrong thing. Tags are only present on caches built after
            this filter existed; an older cache entry has none, and then the name
            and the tag list asked for are all we have. */
@@ -613,6 +669,136 @@ function removedBefore(r, osmId) {
   }
   const key = r.file ? `articles:${r.file.replace(/\.json$/, '')}:${osmId}` : `place-coords:${r.slug}:${osmId}`;
   return removedBefore.map.get(key) || null;
+}
+
+/* ── park offices ───────────────────────────────────────────────────────── */
+/* A national park's exact name matches one thing in OSM, its boundary, whose
+   centre is forest — refused above as a large-area polygon or as "named after
+   the venue". Visitors arrive at the park's headquarters or visitor centre,
+   and OSM usually holds that too, inside the boundary and named after the
+   park: "ศูนย์บริการนักท่องเที่ยว อุทยานแห่งชาติแก่งกระจาน".
+   Tested on 2026-09-15 over the 34 unpinned park articles. A name carrying the
+   park word, a visitor word AND the park's own name separated the office from
+   everything else found inside the boundaries — a DISTRICT tourist centre
+   ("ศูนย์บริการนักท่องเที่ยวอำเภอ ภูซาง"), a forest-fire station called
+   "Headquarters", a hiking route named after the visitor centre, a village
+   headman's office. The rules, each from that test:
+     · only an article whose headline STARTS with the park (อุทยานแห่งชาติ…,
+       วนอุทยาน…, เขตรักษาพันธุ์สัตว์ป่า…); an article about a waterfall or an
+       island inside a park is about that, not about the office;
+     · the boundary is found by the headline's exact park name inside the
+       cluster's own area, and must be a single element;
+     · a candidate inside it qualifies when one of its names holds the park word
+       (อุทยาน, อช., national/forest park), a visitor word (ที่ทำการ, ศูนย์
+       บริการ/ข้อมูลนักท่องเที่ยว, visitor centre, headquarters) and the park's
+       own name — or when it is an information office named exactly as the park;
+     · qualifying offices further apart than AMBIGUOUS_M refuse the park: Pha
+       Taem has a headquarters and a visitor centre 880 m apart, and neither is
+       "the" park;
+     · a node beats a building, an information office beats a ranger station,
+       and any other area is refused — only a building's centre is on it. */
+async function runParkOffices() {
+  const PREFIX = /^(อุทยานแห่งชาติ|วนอุทยาน|เขตรักษาพันธุ์สัตว์ป่า)\s*/;
+  const PARK_WORD = /อุทยาน|อช\.|national park|forest park/i;
+  const VISIT_WORD = /ที่ทำการ|ศูนย์บริการนักท่องเที่ยว|ศูนย์ข้อมูลนักท่องเที่ยว|visitor cent(?:er|re)|headquarter|tourist (?:service|information) cent(?:er|re)/i;
+  const EN_SUFFIX = /\s*(?:marine national park|national park|forest park|wildlife sanctuary)\s*$/i;
+  const squash = (s) => String(s || '').toLowerCase().replace(/[\s\-–—_.]+/g, '');
+  const namesOf = (t) => [t.name, t['name:th'], t['name:en'], t.official_name, t.alt_name].filter(Boolean);
+  const FILE = path.join(ROOT, '_internal/.overpass-park-office-cache.json');
+  const oc = readJson(FILE, { boundaries: {}, offices: {} });
+  const save = () => fs.writeFileSync(FILE, JSON.stringify(oc) + '\n');
+  let asked = 0;
+  const ask = async (ql) => { if (asked++) await sleep(PAUSE_MS); return fetchQL(ql); };
+
+  const parks = [];
+  for (const r of todo) {
+    const doc = readJson(path.join(ARTICLES, `${r.slug}.json`), null);
+    const h1 = String((doc && (doc.h1 || doc.title)) || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const m = h1.match(PREFIX);
+    const rest = m ? h1.slice(m[0].length).split(/[\s—–|·(]/)[0] : '';
+    if (rest) parks.push({ ...r, park: `${m[1]}${rest}` });
+  }
+  console.log(`park offices: ${parks.length} article(s) whose headline starts with a park\n`);
+
+  const accepted = [], refused = [];
+  const refuse = (p, why) => { refused.push({ slug: p.slug, cluster: p.cluster, park: p.park, why }); console.log(`✗ ${p.slug}: ${why}`); };
+  for (const p of parks) {
+    const scope = scopeOf(p.cluster);
+    if (!scope) { refuse(p, 'no area to ask inside'); continue; }
+
+    const bkey = `${scope.key}|${p.park}`;
+    if (!oc.boundaries[bkey] && !OFFLINE) {
+      const v = esc(p.park);
+      const j = await ask(`[out:json][timeout:120];\n${scope.prefix}(nwr["name"="${v}"]["boundary"]${scope.filter};nwr["name"="${v}"]["leisure"="nature_reserve"]${scope.filter};);\nout tags bb;\nmap_to_area;\nout ids;`);
+      if (j) { oc.boundaries[bkey] = { els: j.elements || [], at: new Date().toISOString() }; save(); }
+    }
+    const bentry = oc.boundaries[bkey];
+    if (!bentry) { refuse(p, OFFLINE ? 'boundary not yet asked (offline)' : 'no answer from Overpass'); continue; }
+    const areaIds = new Set(bentry.els.filter((e) => e.type === 'area').map((e) => e.id));
+    /* map_to_area passes an element with no area through again as a bare id */
+    const bounds = [...new Map(bentry.els.filter((e) => e.type !== 'area' && e.tags).map((e) => [`${e.type}/${e.id}`, e])).values()];
+    if (bounds.length !== 1) { refuse(p, `${bounds.length} boundaries named exactly "${p.park}" inside ${scope.label}`); continue; }
+    const b = bounds[0];
+    const bid = `${b.type}/${b.id}`;
+    const aid = (b.type === 'relation' ? 3_600_000_000 : 2_400_000_000) + b.id;
+    if (!areaIds.has(aid)) { refuse(p, `boundary ${bid} has no Overpass area to search inside`); continue; }
+
+    if (!oc.offices[bid] && !OFFLINE) {
+      const j = await ask(`[out:json][timeout:180];\narea(${aid})->.p;\n(nwr(area.p)["tourism"="information"];nwr(area.p)["amenity"="ranger_station"];nwr(area.p)["office"];nwr(area.p)["name"~"ที่ทำการ|ศูนย์บริการนักท่องเที่ยว|ศูนย์ข้อมูลนักท่องเที่ยว|[Vv]isitor|[Hh]eadquarter"];);\nout center tags;`);
+      if (j) {
+        oc.offices[bid] = {
+          cands: (j.elements || []).map((e) => ({ id: `${e.type}/${e.id}`, lat: e.lat ?? e.center?.lat, lng: e.lon ?? e.center?.lon, tags: e.tags || {} }))
+            .filter((c) => Number.isFinite(c.lat) && Number.isFinite(c.lng)),
+          at: new Date().toISOString(),
+        };
+        save();
+      }
+    }
+    const oentry = oc.offices[bid];
+    if (!oentry) { refuse(p, OFFLINE ? `offices inside ${bid} not yet asked (offline)` : 'no answer from Overpass'); continue; }
+
+    const coreTh = String(b.tags.name || '').replace(PREFIX, '').trim();
+    const coreEn = String(b.tags['name:en'] || '').replace(EN_SUFFIX, '').trim();
+    const own = (n) => (coreTh && squash(n).includes(squash(coreTh))) || (coreEn && squash(n).includes(squash(coreEn)));
+    const qual = oentry.cands.filter((c) => {
+      const t = c.tags;
+      if (c.id === bid || t.boundary || t.type === 'route' || t.highway || t.amenity === 'fire_station') return false;
+      const ns = namesOf(t);
+      if (ns.some((n) => PARK_WORD.test(n) && VISIT_WORD.test(n) && own(n))) return true;
+      return t.tourism === 'information' && t.information === 'office'
+        && ns.some((n) => squash(n) === squash(b.tags.name) || (b.tags['name:en'] && squash(n) === squash(b.tags['name:en'])));
+    });
+    if (!qual.length) { refuse(p, `nothing inside ${bid} is named as this park's office (${oentry.cands.length} element(s) looked at)`); continue; }
+    let spread = 0;
+    for (const x of qual) for (const y of qual) spread = Math.max(spread, km(x, y) * 1000);
+    if (spread > AMBIGUOUS_M) {
+      refuse(p, `${qual.length} offices ${Math.round(spread)} m apart — ${qual.slice(0, 3).map((c) => `${namesOf(c.tags)[0] || '?'} ${c.id}`).join(' · ')}`);
+      continue;
+    }
+    const rank = (c) => (c.id.startsWith('node/') ? 0 : 2) + (c.tags.tourism === 'information' ? 0 : 1);
+    const pick = [...qual].sort((x, y) => rank(x) - rank(y) || x.id.localeCompare(y.id))[0];
+    if (!pick.id.startsWith('node/') && !pick.tags.building) { refuse(p, `${pick.id} is an area, not a building — its centre is unchecked`); continue; }
+    const removed = removedBefore(p, pick.id);
+    if (removed) { refuse(p, `${pick.id} was removed from this page on evidence [${removed.rule}]`); continue; }
+    const osmName = pick.tags.name || namesOf(pick.tags)[0];
+    accepted.push({ slug: p.slug, cluster: p.cluster, prov: p.prov, park: p.park, boundary: bid, lat: pick.lat, lng: pick.lng, osm: pick.id, osmName, tags: pick.tags, qualifying: qual.length });
+    console.log(`✓ ${p.slug}: ${osmName} ${pick.id} @ ${pick.lat.toFixed(5)},${pick.lng.toFixed(5)} (inside ${bid}${qual.length > 1 ? `; ${qual.length} qualifying, ${Math.round(spread)} m apart` : ''})`);
+  }
+
+  console.log(`\nACCEPTED ${accepted.length} · REFUSED ${refused.length}`);
+  if (OUT) { fs.writeFileSync(OUT, JSON.stringify({ accepted, refused }, null, 2) + '\n'); console.log(`wrote ${OUT}`); }
+  if (!APPLY) { console.log('\nREPORT ONLY — nothing written. Re-run with --apply.'); return; }
+  const pcRaw = fs.existsSync(PLACE_COORDS) ? fs.readFileSync(PLACE_COORDS, 'utf8') : '';
+  const store = readJson(PLACE_COORDS, {});
+  for (const a of accepted) {
+    store[`https://thailandaddict.com/${a.slug}`] = {
+      lat: Number(a.lat.toFixed(6)), lng: Number(a.lng.toFixed(6)),
+      prov: a.prov, via: 'overpass', precision: 'poi',
+      osm: a.osm, osmName: a.osmName, q: `${a.park} — park office inside ${a.boundary} @ ${a.osm}`,
+    };
+  }
+  fs.writeFileSync(PLACE_COORDS, serializeLike(pcRaw, store).text);
+  console.log(`\nwrote ${accepted.length} park office coordinate(s) to _internal/place-coords.json`);
 }
 
 /* ── outlines ───────────────────────────────────────────────────────────── */
@@ -774,6 +960,14 @@ if (OUT) {
     lat: a.to.lat, lng: a.to.lng, osm: a.osm, osmName: a.osmName, how: a.how, tags: a.tags,
   })), null, 2) + '\n');
   console.log('wrote ' + accepted.length + ' accepted row(s) to ' + OUT);
+  /* The refusals too, one reason per row. The console only aggregates them, and
+     "why was Wat Rong Khun refused?" cannot be answered from a tally. */
+  const outRefused = OUT.replace(/\.json$/, '') + '-refused.json';
+  fs.writeFileSync(outRefused, JSON.stringify(rejected.map((r) => ({
+    id: r.id, slug: r.slug || null, file: r.file || null, blockIndex: r.blockIndex ?? null,
+    cluster: r.cluster, names: r.names, why: r.why, saw: r.saw || null,
+  })), null, 2) + '\n');
+  console.log('wrote ' + rejected.length + ' refused row(s) to ' + outRefused);
 }
 
 if (!APPLY) { console.log('\nREPORT ONLY — nothing written. Re-run with --apply.'); process.exit(0); }
