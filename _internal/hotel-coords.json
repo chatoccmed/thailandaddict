@@ -208,14 +208,19 @@
   "distKm": 36.9
  },
  "review-aiyapura-koh-chang": {
-  "lat": 12.1332047,
-  "lng": 102.2730585,
+  "lat": 12.1320794,
+  "lng": 102.2625842,
   "prov": "trat",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "139 Moo 4, Klong Son, Ko Chang, Ko Chang, Thailand",
-  "distKm": 28.4,
-  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"139 Moo 4, Klong Son, Ko Chang, Ko Chang, Thailand\" is place=village r19 \"บ้านคลองสน\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 29.4,
+  "osm": "node/12154282955",
+  "osmName": "The Aiyapura Ko Chang",
+  "q": "The Aiyapura Koh Chang @ node/12154282955 (named lodging inside Ko Chang District)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"139 Moo 4, Klong Son, Ko Chang, Ko Chang, Thailand\" is place=village r19 \"บ้านคลองสน\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 12.1332047,
+  "wasLng": 102.2730585,
+  "wasPrecision": "area"
  },
  "review-akantuka-homestay-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 8\"",
@@ -2589,8 +2594,16 @@
   "distKm": 39.5
  },
  "review-centara-reserve-samui": {
-  "why": "road query was only a village/house number: \"Moo 3\"",
-  "q": "Moo 3, Koh Samui, Thailand"
+  "lat": 9.5196459,
+  "lng": 100.0574998,
+  "prov": "surat-thani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4644697292",
+  "osmName": "Centara Grand Beach Resort Samui",
+  "q": "Centara Reserve Samui @ node/4644697292 (named lodging inside Ko Samui District)",
+  "distKm": 90.3,
+  "wasWhy": "road query was only a village/house number: \"Moo 3\""
  },
  "review-centara-sonrisa-residences-suites-sriracha-chonburi": {
   "lat": 13.1590708,
@@ -2934,8 +2947,16 @@
   "q": "หมู่ 9 ถนนเลียบคลองชลประทาน, นครปฐม, Thailand"
  },
  "review-chaweng-regent-beach-resort-samui": {
-  "why": "no match",
-  "q": "Chaweng Beach Road, Koh Samui, Thailand"
+  "lat": 9.5326606,
+  "lng": 100.0668798,
+  "prov": "surat-thani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1015251813",
+  "osmName": "Chaweng Regent",
+  "q": "Chaweng Regent Beach Resort @ way/1015251813 (named lodging inside Ko Samui District)",
+  "distKm": 91.9,
+  "wasWhy": "no match"
  },
  "review-check-in-phureeya-ville-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 6\"",
@@ -3750,14 +3771,19 @@
   "q": "Moo 4, Koh Chang, Thailand"
  },
  "review-escape-hua-hin-huahin": {
-  "lat": 12.6390214,
-  "lng": 99.9555406,
+  "lat": 12.5475246,
+  "lng": 99.963163,
   "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Escape Hua Hin, Hua Hin, Thailand",
-  "distKm": 7.7,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Escape Hua Hin, Hua Hin, Thailand\" is tourism=hotel r30 \"Relo' The Urban Escape\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 2.5,
+  "osm": "node/2416991945",
+  "osmName": "The Peri Hotel",
+  "q": "Escape Hua Hin @ node/2416991945 (named lodging inside Hua Hin District + Cha-am District)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Escape Hua Hin, Hua Hin, Thailand\" is tourism=hotel r30 \"Relo' The Urban Escape\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 12.6390214,
+  "wasLng": 99.9555406,
+  "wasPrecision": "area"
  },
  "review-eu-bakery-guesthouse-huahin": {
   "why": "no match",
@@ -4379,14 +4405,19 @@
   "wasWhy": "174 km from prachuap-khiri-khan"
  },
  "review-haadtien-beach-resort-koh-tao-surat-thani": {
-  "lat": 10.0666506,
-  "lng": 99.8335994,
+  "lat": 10.0663766,
+  "lng": 99.8314682,
   "prov": "surat-thani",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Haadtien Beach Resort, Koh Tao, Thailand",
-  "distKm": 116.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Haadtien Beach Resort, Koh Tao, Thailand\" is building=yes r30 \"Beach Club by Haadtien\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "via": "overpass",
+  "precision": "poi",
+  "distKm": 116.8,
+  "osm": "node/1617098913",
+  "osmName": "Haadtien Resort",
+  "q": "Haadtien Beach Resort @ node/1617098913 (named lodging inside Surat Thani Province)",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Haadtien Beach Resort, Koh Tao, Thailand\" is building=yes r30 \"Beach Club by Haadtien\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name.",
+  "wasLat": 10.0666506,
+  "wasLng": 99.8335994,
+  "wasPrecision": "area"
  },
  "review-hacienda-fishermans-village-samui": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -4900,8 +4931,16 @@
   "distKm": 14.6
  },
  "review-hostel-by-bed-chiang-mai": {
-  "why": "equals the province centroid",
-  "q": "Singharat Road, Chiang Mai, Thailand"
+  "lat": 18.7936239,
+  "lng": 98.9820684,
+  "prov": "chiang-mai",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/102825210",
+  "osmName": "The Common Hostel",
+  "q": "HOSTEL by BED (The Common Hostel) @ way/102825210 (named lodging inside Chiang Mai Province)",
+  "distKm": 0.5,
+  "wasWhy": "equals the province centroid"
  },
  "review-hotel-de-ladda-riverside-mukdahan": {
   "lat": 16.5341448,
@@ -6603,8 +6642,16 @@
   "q": "Moo 1, Ko Phayam, Thailand"
  },
  "review-lamai-wanta-beach-resort-samui": {
-  "why": "road query was only a village/house number: \"Moo 3\"",
-  "q": "Moo 3, Koh Samui, Thailand"
+  "lat": 9.4627973,
+  "lng": 100.0442377,
+  "prov": "surat-thani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "way/1349716514",
+  "osmName": "The Hive Hotel",
+  "q": "Lamai Wanta Beach Resort @ way/1349716514 (named lodging inside Ko Samui District)",
+  "distKm": 86.2,
+  "wasWhy": "road query was only a village/house number: \"Moo 3\""
  },
  "review-lamoon-boutique-suphan-buri": {
   "lat": 14.4820726,
@@ -7188,8 +7235,16 @@
   "q": "หมู่ 2 ถนนโสธรพัฒนา ซอย 2, Chachoengsao, Thailand"
  },
  "review-manathai-khao-lak-phang-nga": {
-  "why": "no match",
-  "q": "Moo 8, Khao Lak, Phang Nga, Thailand"
+  "lat": 8.7650491,
+  "lng": 98.2638314,
+  "prov": "phang-nga",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/12146364356",
+  "osmName": "OUTRIGGER Khao Lak Beach Resort & Spa",
+  "q": "Manathai Khao Lak @ node/12146364356 (named lodging inside Phang-nga Province)",
+  "distKm": 45.6,
+  "wasWhy": "no match"
  },
  "review-mandarin-oriental-bangkok": {
   "lat": 13.7238854,
@@ -8520,8 +8575,16 @@
   "q": "ถนนวรคามพิพิธ, Narathiwat, Thailand"
  },
  "review-paddys-palms-resort-koh-chang": {
-  "why": "road query was only a village/house number: \"Moo 4\"",
-  "q": "Moo 4, Koh Chang, Thailand"
+  "lat": 12.098457,
+  "lng": 102.2756982,
+  "prov": "trat",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/4742839724",
+  "osmName": "paddys palm",
+  "q": "Paddy's Palms Resort @ node/4742839724 (named lodging inside Ko Chang District)",
+  "distKm": 29.9,
+  "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-paestay-uthai-thani": {
   "why": "no match",
@@ -9761,8 +9824,16 @@
   "wasWhy": "no match"
  },
  "review-ramayana-koh-chang-resort-spa": {
-  "why": "no match",
-  "q": "Klong Prao Beach Road, Koh Chang, Thailand"
+  "lat": 12.0572744,
+  "lng": 102.2955605,
+  "prov": "trat",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/13789370401",
+  "osmName": "Annika Koh Chang",
+  "q": "Ramayana Koh Chang Resort & Spa @ node/13789370401 (named lodging inside Ko Chang District)",
+  "distKm": 30.9,
+  "wasWhy": "no match"
  },
  "review-ramiarndao-boutique-amnat-charoen": {
   "why": "road query was only a village/house number: \"หมู่ 18\"",
@@ -10079,8 +10150,16 @@
   "distKm": 68.9
  },
  "review-river-kwai-jungle-view-kanchanaburi": {
-  "why": "road query was only a village/house number: \"Moo 1\"",
-  "q": "Moo 1, Sai Yok, Thailand"
+  "lat": 14.379896,
+  "lng": 98.8896081,
+  "prov": "kanchanaburi",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/12219621124",
+  "osmName": "Sai Yok Mantra Resort",
+  "q": "River Kwai Jungle View @ node/12219621124 (named lodging inside Kanchanaburi Province)",
+  "distKm": 79.8,
+  "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-river-kwai-resotel-kanchanaburi": {
   "lat": 14.300389,
@@ -10729,8 +10808,16 @@
   "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-santiburi-samui": {
-  "why": "road query was only a village/house number: \"Moo 1\"",
-  "q": "Moo 1, Koh Samui, Thailand"
+  "lat": 9.5724447,
+  "lng": 99.9919147,
+  "prov": "surat-thani",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1808102927",
+  "osmName": "Santiburi Resort",
+  "q": "Santiburi Koh Samui @ node/1808102927 (named lodging inside Ko Samui District)",
+  "distKm": 87.1,
+  "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-santisook-midtown-pattani": {
   "lat": 6.8645755,
@@ -10923,8 +11010,16 @@
   "distKm": 117.7
  },
  "review-serendipity-beach-resort-koh-lipe": {
-  "why": "road query was only a village/house number: \"Moo 7\"",
-  "q": "Moo 7, เกาะหลีเป๊ะ, Thailand"
+  "lat": 6.4836028,
+  "lng": 99.3106544,
+  "prov": "satun",
+  "via": "overpass",
+  "precision": "poi",
+  "osm": "node/1564998902",
+  "osmName": "Serendipity Resort",
+  "q": "Serendipity Beach Resort Koh Lipe @ node/1564998902 (named lodging inside Ko Lipe)",
+  "distKm": 85.2,
+  "wasWhy": "road query was only a village/house number: \"Moo 7\""
  },
  "review-serene-resort-koh-lipe-satun": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",

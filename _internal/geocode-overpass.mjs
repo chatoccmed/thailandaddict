@@ -220,10 +220,14 @@ function nameMatch(a, b, extraNoise, rarity) {
    Kiri Resort by Six Senses". */
 const IDENTITY_DROP = new Set(['hotel', 'hotels', 'resort', 'resorts', 'spa', 'the', 'and', 'by']);
 function nameWords(s) {
-  return String(s || '').replace(LODGING_PHRASE, ' ').replace(/@/g, ' at ')
+  return String(s || '').replace(LODGING_PHRASE, ' ').replace(/@/g, ' at ').replace(/['’]/g, '')
     .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
     .replace(/[^a-z0-9฀-๿]+/g, ' ').split(' ')
-    .filter((w) => w && !IDENTITY_DROP.has(w));
+    /* "beach" directly before resort/hotel describes the lodging, not the
+       name: "Serendipity Beach Resort" is OSM's "Serendipity Resort",
+       "Chaweng Regent Beach Resort" its "Chaweng Regent". Anywhere else it
+       stays ("Sea Beach Koh Larn", "Tawaen Beach"). */
+    .filter((w, i, all) => w && !IDENTITY_DROP.has(w) && !(w === 'beach' && /^(resort|resorts|hotel|hotels)$/.test(all[i + 1] || '')));
 }
 /* `own` — the hotel's OWN cluster and province words, dropped from both names
    before comparing (other places stay). Our review names append the location
@@ -245,7 +249,13 @@ function singular(w) {
 }
 function sameName(a, b, own) {
   const drop = own || new Set();
-  const A = nameWords(a).filter((w) => !drop.has(w)), B = nameWords(b).filter((w) => !drop.has(w));
+  /* "Koh"/"Ko" belongs to the island it names, so it leaves with that island's
+     own word: "The Aiyapura Koh Chang" is OSM's "The Aiyapura Ko Chang",
+     "Santiburi Koh Samui" is "Santiburi Resort". In a koh cluster either
+     spelling is the cluster's own word. */
+  const island = drop.has('koh') || drop.has('ko');
+  const ownOut = (W) => W.filter((w, i) => !drop.has(w) && !((w === 'koh' || w === 'ko') && (island || drop.has(W[i + 1]))));
+  const A = ownOut(nameWords(a)), B = ownOut(nameWords(b));
   if (!A.length || !B.length) return false;
   const significant = (w) => w.length >= 4 && !PLACE_NOISE.has(w) && !/^\d+$/.test(w);
   if (A.join(' ') === B.join(' ')) return A.some(significant) ? 'same name' : false;
@@ -601,7 +611,13 @@ async function runMisses() {
     const text = [j.title, j.metaDesc, j.typeFull, j.h1, j.schemaDesc].map((v) => String(v || '')).join(' | ');
     const place = new Set([...String(cluster).split('-'), ...String(prov).split('-')].filter(Boolean));
     const out = new Set();
-    for (const m of text.matchAll(/\((?:เดิม(?:ชื่อ)?|ชื่อเดิม|formerly)\s*(?:คือ\s*)?([^)]{2,60})\)/gi)) {
+    const said = [
+      ...text.matchAll(/\((?:เดิม(?:ชื่อ)?|ชื่อเดิม|formerly)\s*(?:คือ\s*)?([^)]{2,60})\)/gi),
+      /* the other direction, and the unbracketed form: "ปัจจุบันรีแบรนด์เป็น Annika
+         Koh Chang", "(ปัจจุบันคือ Dinso Resort & Villas, …)", "จากอดีต Centara Grand" */
+      ...text.matchAll(/(?:ปัจจุบัน(?:รีแบรนด์เป็น|เปลี่ยนชื่อเป็น|คือ|ใช้ชื่อ)|อดีต)\s*([A-Za-z][^·(),|]{2,60})/g),
+    ];
+    for (const m of said) {
       const f = m[1].split(/[฀-๿]/)[0].replace(/[\s/·,;:–—-]+$/, '').trim();
       if (f.length < 3 || !/[A-Za-z]{2}/.test(f)) continue;
       out.add(f);
@@ -692,7 +708,7 @@ async function runMisses() {
       const own = new Set([...extraNoise, String(r.cluster || '').replace(/-/g, ''), String(r.prov || '').replace(/-/g, '')].filter(Boolean));
       const hits = [], same = [];
       for (const c of entry.cands) {
-        for (const [ours, label] of [[r.name, ''], [r.nameTh, ''], ...(r.former || []).map((n) => [n, `former name "${n}" · `])]) {
+        for (const [ours, label] of [[r.name, ''], [r.nameTh, ''], ...(r.former || []).map((n) => [n, `name the review also gives "${n}" · `])]) {
           if (!ours) continue;
           const same1 = sameName(ours, c.name, own);
           if (same1) same.push({ ...c, how: `${label}${same1}: ${String(c.name).slice(0, 44)}` });

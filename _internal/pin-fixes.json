@@ -3426,5 +3426,17 @@
   "osm": "way/655283022",
   "rule": "unverifiable",
   "evidence": "Reviewed before --apply on 2026-09-16: \"PS Mae Sod Hotel\" matched way/655283022 \"P S Maesod Hotel\" (phone +66 55536642, no address) at 16.72736,98.55791 by joining the letters. Reverse-geocoded it is in Tha Sai Luat; the review's address is 365 Moo 10, Mae Pa sub-district, the nearest places OSM names Mae Pa are 1.4 to 3.1 km away, and the review gives no phone number to compare."
+ },
+ {
+  "batch": "2026-09-16-hotel-names-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-seanery-beach-resort-prachuap-khiri-khan",
+  "at": "(root)",
+  "pos": "11.17344,99.50031",
+  "name": "SEAnery Beach Resort",
+  "osm": "node/12581647353",
+  "rule": "unverifiable",
+  "evidence": "Reviewed before --apply on 2026-09-16: \"SEAnery Beach Resort\" matched node/12581647353 \"Seanery Hotel\" (no address, website or other tags) at 11.17344,99.50031 only once \"beach resort\" and \"hotel\" were set aside. Reverse-geocoded it is on route 3374 in Ban Suan Luang; the review's address is 100/2 Moo 1, Phongprasan, Bang Saphan, and OSM has no boundary or place named Phong Prasat to measure against."
  }
 ]
