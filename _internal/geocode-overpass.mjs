@@ -152,10 +152,22 @@ const PLACE_NOISE = new Set([
      not an address. */
   'mae', 'phim', 'baan', 'ban', 'rim', 'khong', 'nam', 'doi', 'phu', 'wang',
   'walking', 'street', 'road', 'soi', 'le', 'la', 'el', 'du', 'des',
+  /* Bang Saray is a sub-district of Sattahip: "U Pattaya (Bang Saray)"
+     matched "Bang Saray Villa Hotel" on those two words alone (2026-09-15).
+     The one-word spelling "bangsaray" stays significant — Baan Pimpisa
+     Bangsaray and Kept Bangsaray are right on it plus their own name. */
+  'bang', 'saray',
 ]);
 
+/* "Bed & Breakfast" is a kind of lodging, not a name. As the only two words in
+   common it pinned Si Phum Heritage Boutique Bed & Breakfast on "Riverside
+   House Bed & Breakfast" and Lost and Found Bed and Breakfast on "The Bed &
+   Breakfast" 2.5 km away (first --misses run, 2026-09-15). The PHRASE is
+   dropped, not the words: making "bed" a noise word also refused Bed by Boat
+   Hotel, which is exactly OSM's "BED BY BOAT Hotel & Apt". */
+const LODGING_PHRASE = /\bbed\s*(?:&|and|n)\s*breakfast\b|\bb\s*&\s*b\b/gi;
 function tokens(s, extraNoise) {
-  return String(s || '')
+  return String(s || '').replace(LODGING_PHRASE, ' ')
     .normalize('NFD').replace(/[̀-ͯ]/g, '')   /* Méridien → Meridien: without this,
                                                            "méridien" split into "m" + "ridien" */
     .toLowerCase()

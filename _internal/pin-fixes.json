@@ -3306,5 +3306,17 @@
   "osm": "node/12271991794",
   "rule": "wrong-kind",
   "evidence": "Reviewed before --apply on 2026-09-15: node/12271991794 สวนนงนุชพัทยา is tagged tourism=information and stands 2.6–2.9 km from Nong Nooch Tropical Garden itself: the garden is way/318679723 สวนนงนุช พัทยา (leisure=garden), with a tourism=attraction node สวนนงนุช at 12.76878,100.93397 inside it. An information point named after the garden, not the garden. Asked inside Bang Lamung + Sattahip, only the information node carries the spelling สวนนงนุชพัทยา — the garden polygon's name has a space — so no rule could see the garden, and the review refused it."
+ },
+ {
+  "batch": "2026-09-15-hotel-misses-review",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-krabi-golden-hill-hotel-krabi",
+  "at": "(root)",
+  "pos": "7.74113,98.77755",
+  "name": "Krabi Golden Hill Hotel",
+  "osm": "node/2084102401",
+  "rule": "wrong-identity",
+  "evidence": "Reviewed before --apply on 2026-09-15: \"Krabi Golden Hill Hotel\" matched node/2084102401 \"Golden Hill Bungalows\" at 7.74113,98.77755 on the words golden + hill — that position is Koh Phi Phi, about 40 km from the hotel, whose own address is 18 Chamai Anusorn Road, Pak Nam, Mueang Krabi (Krabi Town). A different lodging with two generic words in common."
  }
 ]
