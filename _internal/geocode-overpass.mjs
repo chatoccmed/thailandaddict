@@ -44,6 +44,9 @@
      node _internal/geocode-overpass.mjs --report      probe, write nothing
      node _internal/geocode-overpass.mjs --apply       write store + content
      [--limit N]     only the first N clusters (for a quick look)
+     node _internal/geocode-overpass.mjs --misses [--out x.json] [--offline] [--apply]
+                     hotels with NO point at all: list the named lodging inside
+                     each cluster's OSM boundary and match names — see runMisses()
    ========================================================================== */
 
 import fs from 'node:fs';
@@ -57,6 +60,11 @@ const PROV_FILE = path.join(ROOT, '_internal/province-coords.json');
 
 const APPLY = process.argv.includes('--apply');
 const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i > 0 ? Number(process.argv[i + 1]) || 0 : 0; })();
+const MISSES = process.argv.includes('--misses');
+/* --offline (with --misses): match from the cached lodging lists, never the network */
+const OFFLINE = process.argv.includes('--offline');
+/* --out <file> (with --misses): every accepted and refused row, with the review's address */
+const OUT = (() => { const i = process.argv.indexOf('--out'); return i > 0 ? process.argv[i + 1] : null; })();
 
 const UA = 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; hotel coordinate upgrade)';
 const ENDPOINT = 'https://overpass-api.de/api/interpreter';
@@ -86,6 +94,20 @@ const CLUSTER_PROVINCE = {
   'khao-yai': 'nakhon-ratchasima', huahin: 'prachuap-khiri-khan',
   railay: 'krabi', 'koh-lanta': 'krabi', 'koh-phi-phi': 'krabi',
   'koh-yao': 'phang-nga', 'khao-lak': 'phang-nga',
+  /* The 33 Bangkok district clusters, as in geocode-poi-overpass.mjs and
+     check-coords.mjs — without them a district's hotels have no province. */
+  ari: 'bangkok', bangna: 'bangkok', 'central-ladprao': 'bangkok',
+  'charoen-krung': 'bangkok', chidlom: 'bangkok', chinatown: 'bangkok',
+  'khao-san': 'bangkok', 'on-nut': 'bangkok', 'phrom-phong': 'bangkok',
+  pinklao: 'bangkok', ploenchit: 'bangkok', rama9: 'bangkok',
+  ramkhamhaeng: 'bangkok', ratchada: 'bangkok', ratchathewi: 'bangkok',
+  riverside: 'bangkok', 'sai-tai': 'bangkok', samyan: 'bangkok',
+  'saphan-taksin': 'bangkok', 'siam-pratunam': 'bangkok',
+  'silom-sathorn': 'bangkok', srinakarin: 'bangkok', sukhumvit: 'bangkok',
+  'talat-phlu': 'bangkok', 'thong-lo': 'bangkok', 'victory-monument': 'bangkok',
+  bangkapi: 'bangkok', 'chaeng-watthana': 'bangkok', kaset: 'bangkok',
+  ladprao: 'bangkok', 'bang-khen': 'bangkok', 'mochit-chatuchak': 'bangkok',
+  'bang-sue': 'bangkok',
 };
 
 /* ── name matching ──────────────────────────────────────────────────────── */
@@ -171,6 +193,9 @@ function nameMatch(a, b, extraNoise, rarity) {
 
 /* ── what needs upgrading ───────────────────────────────────────────────── */
 const store = readJson(SIDECAR, {});
+
+/* --misses asks a different question; see runMisses() at the end of this file. */
+if (MISSES) { await runMisses(); process.exit(0); }
 
 /* Positions shared by two or more DIFFERENT hotels are area/road fallbacks even
    when Nominatim called them 'poi' — two buildings cannot share a rooftop. */
@@ -446,3 +471,205 @@ console.log('applied to content:');
 for (const [k, v] of Object.entries(per)) console.log(`  ${k.padEnd(14)} ${v}`);
 console.log('\nNow re-run: node _internal/gen-feeds.mjs  (review-coords.json feeds every map)');
 console.log('Then:       node _internal/qa/check-coords.mjs');
+
+/* ── --misses: hotels with no point at all ──────────────────────────────── */
+/* The default mode upgrades a road or area point by searching 9 km around it.
+   A hotel Nominatim never placed has no point to search around, so nothing
+   ever asked about it again: 1,118 reviews on 2026-09-15 — 618 with no
+   answer, 378 answered only with a village or a house number, 79 with the
+   province centre.
+   Tested that day on six clusters (43 such hotels): listing every NAMED
+   lodging inside the cluster's own OSM boundary (_internal/cluster-areas.json)
+   and matching with this file's identity rules found 8, each agreeing with the
+   review's own address — Classic Kameo in Ayutthaya, Pai Vieng Fah, six
+   resorts on Koh Kood.
+   With no road point to be near, the boundary is the only anchor, so on top
+   of the name rules:
+     · matches further apart than AMBIGUOUS_M refuse the hotel (Soneva Kiri:
+       two nodes 377 m apart);
+     · an OSM element already carrying a DIFFERENT hotel's pin is refused;
+     · an element removed from this review on evidence (pin-fixes.json) is
+       never put back;
+     · a stored point of any precision is not a miss: road/area rows belong
+       to the default mode, and poi rows are either live or were taken off the
+       page on purpose (commit 991410af6 removed 19 shared positions and left
+       their store rows).
+   Every accepted row is read against the review's address before --apply;
+   --out puts that address beside each match. */
+async function runMisses() {
+  const AREAS = readJson(path.join(ROOT, '_internal/cluster-areas.json'), { clusters: {} }).clusters || {};
+  /* the same mirrors, order and one-job rule as geocode-poi-overpass.mjs */
+  const MIRRORS = [
+    'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+  ];
+  const removed = new Set(readJson(path.join(ROOT, '_internal/pin-fixes.json'), [])
+    .filter((e) => e.action === 'drop' && e.kind === 'reviews' && e.osm).map((e) => `${e.slug}|${e.osm}`));
+  const owner = new Map();
+  for (const [slug, v] of Object.entries(store)) if (v && v.osm && Number.isFinite(v.lat)) owner.set(v.osm, slug);
+
+  const scopeOf = (cluster) => {
+    const e = AREAS[cluster] || AREAS[CLUSTER_PROVINCE[cluster]];
+    if (!e) return null;
+    const label = (e.from || []).map((f) => f.nameEn || f.name).join(' + ');
+    if (Array.isArray(e.areas) && e.areas.length) {
+      return { key: `area:${e.areas.join('+')}`, prefix: `(${e.areas.map((a) => `area(${a});`).join('')})->.a;`, filter: '(area.a)', label };
+    }
+    if (Array.isArray(e.bbox)) return { key: `bbox:${e.bbox.join(',')}`, prefix: '', filter: `(${e.bbox.join(',')})`, label: `${label}, bounding box` };
+    return null;
+  };
+
+  const rows = [];
+  for (const f of fs.readdirSync(REVIEWS)) {
+    if (!f.endsWith('.json')) continue;
+    const slug = f.replace(/\.json$/, '');
+    const st = store[slug];
+    if (st && Number.isFinite(st.lat)) continue;
+    const j = readJson(path.join(REVIEWS, f), null);
+    if (!j || !j.name || Number.isFinite(j.lat)) continue;
+    const cluster = j.cluster || '';
+    rows.push({
+      slug, name: j.name, nameTh: typeof j.nameTh === 'string' ? j.nameTh : '', cluster, scope: scopeOf(cluster),
+      prov: PROV[cluster] ? cluster : CLUSTER_PROVINCE[cluster] || cluster,
+      addr: [j.streetAddress, j.addressLocality, j.mapAddr].filter(Boolean).join(' | '), was: st ? st.why || null : null,
+    });
+  }
+  const noScope = rows.filter((r) => !r.scope);
+  const byScope = new Map();
+  for (const r of rows) {
+    if (!r.scope) continue;
+    if (!byScope.has(r.scope.key)) byScope.set(r.scope.key, { scope: r.scope, rows: [] });
+    byScope.get(r.scope.key).rows.push(r);
+  }
+  console.log(`--misses: ${rows.length} hotel review(s) with no coordinate anywhere · ${byScope.size} area(s) to list`
+    + `${noScope.length ? ` · ${noScope.length} in clusters with no area: ${[...new Set(noScope.map((r) => r.cluster))].join(', ')}` : ''}`);
+  console.log(`${APPLY ? 'APPLY' : 'REPORT ONLY'}${OFFLINE ? ' · OFFLINE' : ''}\n`);
+
+  const CACHE_FILE = path.join(ROOT, '_internal/.overpass-poi-hotel-cache.json');
+  const cache = readJson(CACHE_FILE, { scopes: {} });
+  const fetchQL = async (ql) => {
+    for (let attempt = 1; attempt <= 6; attempt++) {
+      const ep = MIRRORS[(attempt - 1) % MIRRORS.length];
+      try {
+        const res = await fetch(ep, { method: 'POST', headers: { 'User-Agent': UA, 'Content-Type': 'text/plain' }, body: ql, signal: AbortSignal.timeout(200_000) });
+        if (res.ok) {
+          const j = await res.json();
+          /* HTTP 200 with a runtime error in `remark` is a partial list, not the list */
+          if (!(typeof j.remark === 'string' && /error|timed out|out of memory/i.test(j.remark))) return j;
+        }
+      } catch { /* try the next mirror */ }
+      await sleep(8_000 * attempt);
+    }
+    return null;
+  };
+  let asked = 0, failed = 0;
+  for (const [key, g] of byScope) {
+    if (cache.scopes[key] || OFFLINE) continue;
+    if (asked++) await sleep(6_000);
+    const { prefix, filter } = g.scope;
+    const j = await fetchQL(`[out:json][timeout:180];${prefix}(nwr["name"]["tourism"~"^(hotel|hostel|guest_house|motel|apartment|chalet|resort)$"]${filter};nwr["name"]["leisure"="resort"]${filter};nwr["name"]["building"~"^(hotel|dormitory)$"]${filter};);out center tags;`);
+    if (!j) { failed++; console.log(`!  ${g.scope.label}: no complete answer from any mirror — not cached, re-run to retry`); continue; }
+    const cands = [];
+    for (const el of j.elements || []) {
+      const lat = el.lat ?? el.center?.lat, lng = el.lon ?? el.center?.lon;
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const t = el.tags || {};
+      const kind = t.tourism || (t.leisure && `leisure=${t.leisure}`) || (t.building && `building=${t.building}`) || '';
+      for (const n of [t.name, t['name:en'], t['name:th'], t.alt_name, t.int_name]) {
+        if (n) cands.push({ lat, lng, name: n, id: `${el.type}/${el.id}`, kind });
+      }
+    }
+    cache.scopes[key] = { cands, at: new Date().toISOString() };
+    fs.writeFileSync(CACHE_FILE, JSON.stringify(cache) + '\n');
+    console.log(`   ${g.scope.label.slice(0, 44).padEnd(44)} ${String(g.rows.length).padStart(3)} hotel(s) · ${new Set(cands.map((c) => c.id)).size} named lodging element(s)`);
+  }
+  console.log(`\nlisted ${asked - failed} area(s) now${failed ? ` · ${failed} FAILED` : ''} · ${[...byScope.keys()].filter((k) => cache.scopes[k]).length} of ${byScope.size} available\n`);
+
+  const accepted = [], refused = [];
+  const reviewName = (slug) => readJson(path.join(REVIEWS, `${slug}.json`), {}).name || slug;
+  for (const [key, g] of byScope) {
+    const entry = cache.scopes[key];
+    for (const r of g.rows) {
+      if (!entry) { refused.push({ ...r, why: `${g.scope.label} not listed yet` }); continue; }
+      const extraNoise = new Set(String(r.cluster || '').split('-').concat(String(r.prov || '').split('-')));
+      const hits = [];
+      for (const c of entry.cands) {
+        for (const ours of [r.name, r.nameTh]) {
+          if (!ours) continue;
+          const m = nameMatch(ours, c.name, extraNoise);
+          if (m) { hits.push({ ...c, how: m.how }); break; }
+        }
+      }
+      const uniq = [...new Map(hits.map((h) => [h.id, h])).values()];
+      if (!uniq.length) { refused.push({ ...r, why: `no name match among the named lodging inside ${g.scope.label}` }); continue; }
+      let spread = 0;
+      for (const a of uniq) for (const b of uniq) spread = Math.max(spread, km(a, b) * 1000);
+      if (spread > AMBIGUOUS_M) {
+        refused.push({ ...r, why: `${uniq.length} matches ${spread.toFixed(0)} m apart — ambiguous, refused`, saw: uniq.slice(0, 4).map((h) => `${h.name} ${h.id}`) });
+        continue;
+      }
+      const best = uniq.find((h) => h.id.startsWith('node/')) || uniq[0];
+      if (best.lat < 5.55 || best.lat > 20.55 || best.lng < 97.30 || best.lng > 105.70) { refused.push({ ...r, why: 'candidate is outside Thailand' }); continue; }
+      const pc = PROV[r.prov];
+      if (pc && km(best, pc) < 0.025) { refused.push({ ...r, why: 'lands exactly on the province centroid' }); continue; }
+      if (removed.has(`${r.slug}|${best.id}`)) { refused.push({ ...r, why: `${best.id} was removed from this review on evidence — see _internal/pin-fixes.json` }); continue; }
+      const held = owner.get(best.id);
+      if (held && held !== r.slug && !nameMatch(r.name, reviewName(held), extraNoise)) {
+        refused.push({ ...r, why: `${best.id} "${best.name}" already carries the pin of a different hotel, ${held}` });
+        continue;
+      }
+      accepted.push({
+        ...r, to: { lat: best.lat, lng: best.lng }, osm: best.id, osmName: best.name, kind: best.kind, how: best.how,
+        also: uniq.length > 1 ? uniq.filter((h) => h.id !== best.id).map((h) => `${h.name} ${h.id} ${(km(best, h) * 1000).toFixed(0)} m`) : null,
+        sameElementAs: held && held !== r.slug ? held : null,
+      });
+    }
+  }
+
+  console.log('─'.repeat(78));
+  console.log(`ACCEPTED ${accepted.length} · REFUSED ${refused.length}\n`);
+  for (const a of accepted) console.log(`✓ ${a.slug.padEnd(54)} "${a.name}" ≈ "${a.osmName}" ${a.osm} ${a.kind} · ${a.how}`);
+  const tally = refused.reduce((acc, r) => { const k = r.why.replace(/\d+/g, 'N').replace(/".*?"/g, '"…"').replace(/ inside .*$/, ' inside <area>'); acc[k] = (acc[k] || 0) + 1; return acc; }, {});
+  console.log('\nrefusals by reason:');
+  for (const [k, n] of Object.entries(tally).sort((a, b) => b[1] - a[1])) console.log(`  ${String(n).padStart(5)}  ${k}`);
+  const strip = (r) => ({ slug: r.slug, cluster: r.cluster, name: r.name, nameTh: r.nameTh || null, addr: r.addr, area: r.scope ? r.scope.label : null });
+  if (OUT) {
+    fs.writeFileSync(OUT, JSON.stringify({
+      accepted: accepted.map((a) => ({ ...strip(a), lat: a.to.lat, lng: a.to.lng, osm: a.osm, osmName: a.osmName, kind: a.kind, how: a.how, also: a.also, sameElementAs: a.sameElementAs })),
+      refused: refused.map((r) => ({ ...strip(r), why: r.why, saw: r.saw || null })),
+    }, null, 2) + '\n');
+    console.log(`\nwrote ${OUT}`);
+  }
+  if (!APPLY) { console.log('\nREPORT ONLY — nothing written. Re-run with --apply.'); return; }
+
+  for (const a of accepted) {
+    const { why, q, ...rest } = store[a.slug] || {};
+    store[a.slug] = {
+      ...rest, lat: a.to.lat, lng: a.to.lng, prov: a.prov,
+      via: 'overpass', precision: 'poi', osm: a.osm, osmName: a.osmName,
+      q: `${a.name} @ ${a.osm} (named lodging inside ${a.scope.label})`,
+      distKm: PROV[a.prov] ? Math.round(km(a.to, PROV[a.prov]) * 10) / 10 : undefined,
+      ...(why ? { wasWhy: why } : {}),
+    };
+  }
+  fs.writeFileSync(SIDECAR, serializeLike(fs.readFileSync(SIDECAR, 'utf8'), store).text);
+  console.log(`\nwrote ${accepted.length} record(s) to _internal/hotel-coords.json`);
+  const LOCS = ['', '-en', '-zh', '-ru', '-ko', '-ja', '-hi', '-he', '-ar'];
+  const per = {};
+  for (const a of accepted) {
+    for (const suffix of LOCS) {
+      const f = path.join(ROOT, `astro/src/content/reviews${suffix}`, `${a.slug}.json`);
+      if (!fs.existsSync(f)) continue;
+      const j = readJson(f, null);
+      if (!j) continue;
+      j.lat = Number(a.to.lat.toFixed(6));
+      j.lng = Number(a.to.lng.toFixed(6));
+      fs.writeFileSync(f, serializeLike(fs.readFileSync(f, 'utf8'), j).text);
+      per[`reviews${suffix}`] = (per[`reviews${suffix}`] || 0) + 1;
+    }
+  }
+  console.log('applied to content:');
+  for (const [k, v] of Object.entries(per)) console.log(`  ${k.padEnd(14)} ${v}`);
+  console.log('\nNow: node astro/prebuild.mjs (feeds, hubs) · node _internal/qa/check-coords.mjs');
+}

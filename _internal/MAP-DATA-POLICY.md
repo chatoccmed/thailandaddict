@@ -31,6 +31,7 @@
 | ที่พัก | Nominatim `geocode-hotels.mjs` (ชื่อ → ที่อยู่ → ถนน เก็บคำตอบที่ละเอียดที่สุด) | กรอบไทย/จังหวัด/centroid + **ความละเอียดตามสิ่งที่จับได้**: ที่พัก (`tourism=hotel`… `leisure=resort` `building=hotel`) = `poi` · `highway=*` หรือ rank 26–27 = `road` · rank <26 = `area` · อาคารชนิดอื่นนับเป็น `poi` เฉพาะเมื่อคำถามที่อยู่ตรงเลขที่บ้าน ไม่งั้นปฏิเสธ · บันทึก `match` ไว้ตรวจย้อนหลังได้ | `_internal/hotel-coords.json` |
 | ที่พัก (อัปเกรด) | Overpass `geocode-overpass.mjs` กรอบรอบจุดเดิม | ชื่อตรง **2 คำขึ้นไป** | `via:'overpass'` + OSM element id |
 | ที่พัก (ตกชั้น) | Nominatim เจอแต่ถนน / หมู่บ้าน / อำเภอ / ตึกอื่น | — | `precision:'road'` หรือ `'area'` เก็บในสโตร์ **ห้ามเป็นพิน** (`--apply` เขียนเฉพาะ `poi`) |
+| ที่พัก (ไม่มีจุดเลย) | Overpass `geocode-overpass.mjs --misses` — ดึงรายชื่อที่พัก*ที่มีชื่อ*ทั้งหมดในขอบเขตจริงของคลัสเตอร์ (`cluster-areas.json`) | ชื่อตรง **2 คำขึ้นไป** (กฎเดียวกับอัปเกรด) · ห่างกันเกิน 150 ม. = คลุมเครือ · element ที่เป็นพินของโรงแรมอื่นอยู่แล้ว = ปฏิเสธ · element ที่ถูกลบด้วยหลักฐาน = ไม่ใส่คืน · **ตรวจกับที่อยู่ของรีวิวเองทุกแถวก่อน `--apply`** | `via:'overpass'` + OSM id · `wasWhy` เก็บเหตุผลที่เคย miss |
 | ร้านอาหาร / สถานที่ใน blocks | Overpass `geocode-poi-overpass.mjs` | **ชื่อตรงเป๊ะ** + ชนิด + ขนาด + โครงร่าง (กฎข้างล่าง) | `blocks[].lat/lng` ในบทความ |
 | ที่เที่ยว (บทความเดี่ยว) | Overpass `geocode-poi-overpass.mjs --attractions` **เท่านั้น** ถามใน**ขอบเขตจริงของคลัสเตอร์** (กฎข้อ 12) | **ชื่อตรงเป๊ะ** (ลองคำนำหน้า 1–3 คำของ h1 + slug) | `_internal/place-coords.json` |
 | ที่เที่ยว (บทความอุทยาน) | Overpass `geocode-poi-overpass.mjs --park-offices` | ที่ทำการ/ศูนย์บริการ**ของอุทยานนั้น** ภายในเส้นเขตของมันเอง (กฎข้อ 14) | `_internal/place-coords.json` |
@@ -132,6 +133,7 @@ ToS ของ Google ห้ามเก็บ lat/lng ถาวรอยู่�
 ```bash
 node _internal/geocode-hotels.mjs --report                         # หาพิกัดโรงแรมที่ยังไม่มี (--attractions เลิกใช้แล้ว)
 node _internal/geocode-overpass.mjs --report                       # อัปเกรดพินระดับถนน/พื้นที่ → ตัวอาคาร
+node _internal/geocode-overpass.mjs --misses --out x.json          # โรงแรมที่ไม่มีจุดเลย → ที่พักที่มีชื่อในขอบเขตจริง (--offline จับคู่จาก cache)
 node _internal/geocode-poi-overpass.mjs --report                   # ร้านอาหาร/สถานที่ใน blocks
 node _internal/geocode-poi-overpass.mjs --attractions --report     # ที่เที่ยว
 node _internal/geocode-poi-overpass.mjs --report --offline --out x.json   # จับคู่ใหม่จาก cache ไม่แตะเน็ต + รายการเต็ม (+ x-refused.json เหตุผลรายแถว)
