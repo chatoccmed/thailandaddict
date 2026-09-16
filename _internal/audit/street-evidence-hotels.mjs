@@ -28,7 +28,7 @@ const UA = { 'User-Agent': 'thailandaddict-geocoder/1.0 (+https://thailandaddict
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const thaiKey = (s) => String(s || '').replace(/[^\u0E00-\u0E7F]/g, '');
-const latinKey = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '')
+const latinKey = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\bkoh\b/g, 'ko').replace(/[^a-z]/g, '')
   .replace(/sri/g, 'si').replace(/th|ph|kh|ch|dh/g, (m) => m[0]).replace(/([aeiou])r(?=[^aeiou]|$)/g, '$1')
   .replace(/ue|eu/g, 'u').replace(/oe/g, 'o').replace(/ou|oo/g, 'u').replace(/ee/g, 'i')
   .replace(/y/g, 'i').replace(/[wv]/g, 'u').replace(/r/g, 'l').replace(/d/g, 't').replace(/j/g, 'c').replace(/(.)\1+/g, '$1');
@@ -151,7 +151,15 @@ for (const [idx, r] of rows.entries()) {
   const addrText = `${r.addrTh} ${r.addrEn}`;
   const named = (label) => label.split(' / ').some((n) => {
     const bare = n.replace(/^(แขวง|เขต|ตำบล|อำเภอ)/, '').replace(/\s*(Subdistrict|Sub-district|District)$/i, '').trim();
-    return /[\u0E00-\u0E7F]/.test(bare) ? addrText.includes(bare) : String(addrText).split(/[|,]/).some((seg) => latinKey(seg) && latinKey(seg) === latinKey(bare));
+    /* An address saying "Krabi" must match \u0E2D\u0E33\u0E40\u0E20\u0E2D\u0E40\u0E21\u0E37\u0E2D\u0E07\u0E01\u0E23\u0E30\u0E1A\u0E35\u0E48 / Mueang Krabi:
+       Thai capital districts are named \u0E40\u0E21\u0E37\u0E2D\u0E07<province> nationwide. Ko Phi Phi
+       exposed this \u2014 its pin sits in Mueang Krabi while the address says only
+       Krabi \u2014 but it is a naming rule, not an island rule, so it is applied to
+       every province rather than to a list of islands. */
+    const vars = [bare, bare.replace(/^(\u0E40\u0E21\u0E37\u0E2D\u0E07|Mueang|Muang)\s*/i, '')].filter(Boolean);
+    return vars.some((v) => /[\u0E00-\u0E7F]/.test(v)
+      ? addrText.includes(v)
+      : String(addrText).split(/[|,]/).some((seg) => latinKey(seg) && latinKey(seg) === latinKey(v)));
   });
   const inNamed8 = L8.some(named), inNamed6 = L6.some(named);
   /* Order matters, and it was wrong until 2026-09-16. `if (hit)` came first, so
