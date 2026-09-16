@@ -43,6 +43,30 @@
       "decided": "2026-09-16",
       "flaggedAs": "no coordinate, never asked (the only one of 1,226)",
       "why": "Searched OSM 2026-09-16 and found two overlapping candidates 2 m apart: node/4356305293 โรงแรมวิลล่า ชาช่า (website villachacha.com + phone, but addr:housenumber 36, addr:street ตานี) and way/234374862 Villa Cha-Cha (exact name, addr:subdistrict ตลาดยอด and addr:district พระนคร matching the review, but no street). Review address: 327/2-4 ถนนรามบุตรี. NOT PINNED: both sit 53 m from ถนนรามบุตรี (inside the 120 m route) but NEARER to ถนนตานี (29 m and 31 m), and the only element carrying identity proof tags itself on that other street at a different house number. Villa Cha-Cha runs several Khaosan-area properties - the same same-name trap that produced the Lamphu Tree House false positive the same day. Passing a proximity rule while the nearest road contradicts the address is not evidence of position. The page links its address as a Maps search after the 2026-09-16 layout fix, which reaches the hotel."
+    },
+    {
+      "slug": "review-praso-ratchada-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "LOCALITY DIFFERS -> REVIEW (area)",
+      "why": "Kept in the 2026-09-16 street audit: Soi Yu Charoen and Asok-Din Daeng Road both lie within 300 m of the pin, and the OSM element พาโซ่ เรสซิเด้นซ์ is only 145 m away. The admin flag is a Din Daeng / Huai Khwang boundary difference, not a misplaced pin."
+    },
+    {
+      "slug": "review-cozy-at-9-hotel-and-kitchen-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "LOCALITY DIFFERS -> REVIEW (area)",
+      "why": "Kept in the 2026-09-16 street audit: the address road (ถนนริมคลองสามเสน) could not be found in OSM at all, so there is no second independent piece of evidence and the policy default is to keep."
+    },
+    {
+      "slug": "review-matini-hostel-grandstation-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "LOCALITY DIFFERS -> REVIEW (area)",
+      "why": "Kept in the 2026-09-16 street audit: the review address (6/31-32 Phayathai, Phaya Thai) is too coarse to test - it names no soi or house-level road, so an admin mismatch cannot distinguish a wrong pin from a vague address."
+    },
+    {
+      "slug": "review-visa-hotel-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "LOCALITY DIFFERS -> REVIEW (area)",
+      "why": "Kept in the 2026-09-16 street audit (decided in an earlier round). Note the address is 333 Ratchaphruek Road, Bang Khun Kong, Bang Kruai - that is NONTHABURI province, while the pin is in Taling Chan, Bangkok. The two are adjacent across the provincial line, which is why the admin test fires every time."
     }
   ]
 }
