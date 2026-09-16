@@ -16,6 +16,8 @@
                              120 m of the pin — measured, not merely present
      keep (road far)         a highway carries the address's road but runs
                              farther off than that: adjacency, not evidence
+     UNKNOWN (no data)       no admin polygon and no road either — nothing was
+                             tested, which is not the same as nothing is wrong
      keep                    nothing decides
    Main roads are only used to KEEP a pin, never to drop it: a long road is
    split into many ways and the nearest one may not be among Nominatim's results.
@@ -141,6 +143,28 @@ async function search(q, r) {
   }
   return null;
 }
+/* The verdict rules, kept as one pure function so they can be replayed over
+   saved rows and asserted on. Nothing here performs I/O. */
+function decide({ L8, L6, inNamed8, inNamed6, hit, hitDist, found }) {
+  if (L8.length && !inNamed8 && !inNamed6) return 'REVIEW (area)';
+  if (hit && hitDist <= NEAR_M) return 'keep (near road)';
+  if (found && found.d > 300) return 'DROP-CANDIDATE (road)';
+  /* A far hit falls to its own label, never to a drop: `found` is computed only
+     when there is no hit, so the DROP branch above cannot fire for these rows.
+     That is deliberate - measuring a hit is allowed to weaken a keep, never to
+     manufacture a drop. Re-testing far-hit rows through Nominatim would change
+     which pins become drop candidates, so it is left to its own pass. */
+  if (hit) return 'keep (road far)';
+  /* Nothing was tested. Until 2026-09-17 this returned plain `keep`, which reads
+     as "checked and fine" when it actually means "no sub-district polygon, no
+     district polygon and no road either". That is how 36 rows of a 92-row
+     locality audit reported keep while nothing had been asked of them. Islands
+     and rural districts are where OSM most often lacks an admin-8 polygon, so
+     this matters more as the audit moves off Bangkok. */
+  if (!L8.length && !L6.length && !found) return 'UNKNOWN (no data)';
+  return 'keep';
+}
+
 const out = [];
 for (const [idx, r] of rows.entries()) {
   const roads = addressRoads(r);
@@ -209,22 +233,13 @@ for (const [idx, r] of rows.entries()) {
      REVIEW (area) also no longer requires `!found` — whether Nominatim happened
      to locate the road says nothing about which district the pin is in.
      REVIEW still means "a human looks", never an automatic drop. */
-  let decision = 'keep';
-  if (L8.length && !inNamed8 && !inNamed6) decision = 'REVIEW (area)';
-  else if (hit && hitDist <= NEAR_M) decision = 'keep (near road)';
-  else if (found && found.d > 300) decision = 'DROP-CANDIDATE (road)';
-  /* A far hit falls to its own label, never to a drop: `found` is computed only
-     when there is no hit, so the DROP branch above cannot fire for these rows.
-     That is deliberate - this change is allowed to weaken a keep, never to
-     manufacture a drop. Re-testing far-hit rows through Nominatim would change
-     which pins become drop candidates, so it is left for its own pass. */
-  else if (hit) decision = 'keep (road far)';
+  const decision = decide({ L8, L6, inNamed8, inNamed6, hit, hitDist, found });
   out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, hitDist, hitName, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 }
-const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'keep (road far)', 'keep', 'keep (near road)'];
+const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'UNKNOWN (no data)', 'keep (road far)', 'keep', 'keep (near road)'];
 console.log(`\n${out.length} flagged pins · ` + ORDER.map((d) => `${d} ${out.filter((x) => x.decision === d).length}`).join(' · '));
-for (const d of ORDER.slice(0, 3)) {
+for (const d of ORDER.slice(0, 4)) {
   console.log(`\n=== ${d}`);
   for (const x of out.filter((y) => y.decision === d)) console.log(`${x.slug.replace(/^review-/, '')} [${x.verdict}] | addr: ${x.addr.slice(0, 70)}${x.found ? ` | ${x.found.q} → "${x.found.name}" ${x.found.d} m` : ''}${x.nearRoad ? ` | road "${x.hitName}" ${x.hitDist} m` : ''} | pin in ${[...x.L8, ...x.L6].join(' · ').slice(0, 80)}${x.near.length ? ' | NEAR another hotel' : ''}`);
 }
