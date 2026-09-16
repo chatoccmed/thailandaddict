@@ -27,7 +27,7 @@ run hub-counts-en  live-verify-hub-counts.mjs --loc en
 # live-verify-moves.mjs has a built-in BATCHES set for the first four; anything
 # later needs --batch, and omitting one shows up as a suite that passes without
 # testing the batch at all (692 vs 708 checks locally, and nothing visible live).
-run moves          live-verify-moves.mjs --batch 2026-09-16-hotel-street-audit --batch 2026-09-16-hotel-soi-near-audit
+run moves          live-verify-moves.mjs --batch 2026-09-16-hotel-street-audit --batch 2026-09-16-hotel-soi-near-audit --batch 2026-09-16-hotel-locality-audit
 run recluster      live-verify-recluster.mjs
 run hotels         live-verify-hotels.mjs
 run block-moves    live-verify-block-moves.mjs

@@ -27,7 +27,7 @@ run sweep       "$S" sweep-merged-links.mjs
 # one is silent: the suite still says "all passed", just with fewer checks
 # (692 instead of 708 on 2026-09-16). Add the batch here the moment you add it
 # to pin-fixes.json — run-prod-checks.sh needs the same line.
-run moves       "$S" live-verify-moves.mjs --local --batch 2026-09-16-hotel-street-audit --batch 2026-09-16-hotel-soi-near-audit
+run moves       "$S" live-verify-moves.mjs --local --batch 2026-09-16-hotel-street-audit --batch 2026-09-16-hotel-soi-near-audit --batch 2026-09-16-hotel-locality-audit
 run recluster   "$S" live-verify-recluster.mjs --local
 run hotels      "$S" live-verify-hotels.mjs --local
 run block-moves "$S" live-verify-block-moves.mjs --local
