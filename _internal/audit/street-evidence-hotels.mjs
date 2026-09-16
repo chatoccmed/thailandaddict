@@ -154,10 +154,26 @@ for (const [idx, r] of rows.entries()) {
     return /[\u0E00-\u0E7F]/.test(bare) ? addrText.includes(bare) : String(addrText).split(/[|,]/).some((seg) => latinKey(seg) && latinKey(seg) === latinKey(bare));
   });
   const inNamed8 = L8.some(named), inNamed6 = L6.some(named);
+  /* Order matters, and it was wrong until 2026-09-16. `if (hit)` came first, so
+     a road carrying the address name within 300 m of the pin silently outranked
+     everything else — including a pin sitting in an admin area the address does
+     not name at EITHER level. Tints of Blue was kept that way: address Sukhumvit
+     Soi 27 in Khlong Toei Nuea / Watthana, pin in แขวงคลองเตย / เขตคลองเตย, 16 m
+     and 21 m from two Soi 18 hotels that sit at 0 m on their own OSM elements —
+     and the "hit" was Soi 27 lying 231 m away, i.e. across Sukhumvit Road. That
+     is adjacency, not evidence of position. The owner dropped that pin on five
+     independent lines after asking for more evidence.
+
+     So the two-level admin mismatch is tested FIRST: being in the wrong
+     sub-district AND the wrong district is strong, while a road within 300 m is
+     weak in dense Bangkok, where neighbouring sois are well inside that radius.
+     REVIEW (area) also no longer requires `!found` — whether Nominatim happened
+     to locate the road says nothing about which district the pin is in.
+     REVIEW still means "a human looks", never an automatic drop. */
   let decision = 'keep';
-  if (hit) decision = 'keep (near road)';
+  if (L8.length && !inNamed8 && !inNamed6) decision = 'REVIEW (area)';
+  else if (hit) decision = 'keep (near road)';
   else if (found && found.d > 300) decision = 'DROP-CANDIDATE (road)';
-  else if (!found && L8.length && !inNamed8 && !inNamed6) decision = 'REVIEW (area)';
   out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 }
