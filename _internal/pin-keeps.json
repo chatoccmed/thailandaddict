@@ -1,0 +1,42 @@
+{
+  "_comment": "Pins investigated and deliberately KEPT, with the evidence. pin-fixes.json records only drops and moves, so a keep left no trace and every later audit re-flagged the same pin — PASSA Hotel Bangkok was investigated twice on 2026-09-16 for exactly this reason. An audit should treat a slug listed here as already decided and not re-flag it unless the pin itself changes.",
+  "_rule": "ONLY strong evidence belongs here. A keep that rests on the 300 m 'keep (near road)' test is PROVISIONAL and must stay re-flaggable: that same weak test would have kept the Tints of Blue pin, which the owner dropped on 2026-09-16 once five independent lines showed it sat on the wrong soi. Strong means: the pin is at 0 m on the hotel's own named OSM element, or the candidate element was positively identified as a DIFFERENT building.",
+  "decided": [
+    {
+      "slug": "review-passa-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "SOI DIFFERS",
+      "why": "The pin is at 0 m on OSM way/1224391209 'Passa Hotel Bangkok', which it was moved onto earlier the same day (batch 2026-09-16-hotel-pin-accuracy-2) from a point 690 m away on ถนนนราธิวาสราชนครินทร์. The residual disagreement is that the review's address says 63 Soi Saladaeng 2 while OSM tags the building on ซอยศาลาแดง 3 — adjacent parallel sois. That is an OSM-tagging-vs-address difference, not a misplaced pin."
+    },
+    {
+      "slug": "review-maitria-sukhumvit-18-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "agrees (road), near another pin",
+      "why": "At 0 m on OSM node/4460699212 'Maitria Hotel Sukhumvit 18'. Address and pin both give Sukhumvit Soi 18. It was flagged only because Tints of Blue's pin sat 21 m away; that pin was the wrong one and has been dropped."
+    },
+    {
+      "slug": "review-park-plaza-bangkok-soi-18",
+      "decided": "2026-09-16",
+      "flaggedAs": "agrees (road), near another pin",
+      "why": "Address and pin both give Sukhumvit Soi 18, and the pin's sub-district and district both match the address. Flagged only because Tints of Blue's pin sat 16 m away; that pin was the wrong one and has been dropped. NOTE: --corroborate finds no current same-named OSM element for this hotel, so this keep rests on address agreement rather than a 0 m element match — weaker than the others here, but the contradicting pin is gone."
+    },
+    {
+      "slug": "review-the-ambiance-hotel-pattaya",
+      "decided": "2026-09-16",
+      "flaggedAs": "agrees (road), near another pin",
+      "why": "At 0 m on OSM way/337660102 'The Ambiance'. Flagged because The Classroom Hotel's pin lies 28 m away, but that hotel is also at 0 m on its own element (node/3118139439), so OSM itself places the two 28 m apart. Both pins are right."
+    },
+    {
+      "slug": "review-the-classroom-hotel-pattaya",
+      "decided": "2026-09-16",
+      "flaggedAs": "agrees (locality), near another pin",
+      "why": "At 0 m on OSM node/3118139439 'The Classroom's Hotel'. Its address (325/81 Soi 13/4, Central Pattaya) differs from The Ambiance's (325/89 Pattayaland Soi 3) — genuinely different places that OSM maps 28 m apart."
+    },
+    {
+      "slug": "review-lamphu-tree-house-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "PART DIFFERS, near another pin",
+      "why": "--corroborate offered OSM way/234719441 'Lamphu Tree House' 633 m away on the weak '2 words' rule, but its tags are addr:housenumber 2, addr:street Baan Ton Lamphu, addr:subdistrict บ้านพานถม — while the review's address is '155 สะพานวันชาติ ถนนประชาธิปไตย แขวงบวรนิเวศ'. Different house number, different street, different sub-district: a same-named DIFFERENT building. Moving there would have introduced a wrong pin."
+    }
+  ]
+}

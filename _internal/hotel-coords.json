@@ -8276,8 +8276,8 @@
   "distKm": 1.9,
   "osm": "node/11487051569",
   "was": {
-   "lat": 18.7811828,
-   "lng": 98.9951115,
+   "lat": 18.7811975,
+   "lng": 98.9950328,
    "via": "nominatim"
   },
   "why": "pin moved 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Old City Wall Inn, Chiang Mai, Thailand\" is tourism=hotel r30 \"The Old City Wall Inn\". the matched object is the hotel (same name \"The Old City Wall Inn\"); OSM now places it 8 m from the stored pin."
@@ -16604,5 +16604,50 @@
    "via": null
   },
   "why": "pin moved 2026-09-16 [element-on-address-road]: Street audit 2026-09-16: no named highway within 300 m of the pin carries the review's own road, Soi Ton Son (Nominatim finds it 329 m away). OSM way/747343258 \"Sindhorn Kempinski Hotel\" (tourism=hotel, building=hotel, addr:subdistrict ลุมพินี, addr:district ปทุมวัน) lies within 120 m of Soi Ton Son, the review's address (80 Soi Ton Son, Lumphini, Pathumwan)."
+ },
+ "review-shangri-la-bangkok": {
+  "lat": 13.7207468,
+  "lng": 100.5137659,
+  "prov": "bangkok",
+  "via": "osm",
+  "precision": "poi",
+  "osm": "way/342200086",
+  "osmName": "Shangri-La Hotel Bangkok",
+  "was": {
+   "lat": 13.7197,
+   "lng": 100.5143,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [house-number-matches]: Shared-position audit 2026-09-16: the pin sat 24 m from Glad Bangkok's pin, which is impossible for a property this size — it lay near the mouth of ซอยเจริญกรุง 50 rather than on the hotel. OSM way/342200086 'Shangri-La Hotel Bangkok' (tourism=hotel, name:th แชงกรี-ลา กรุงเทพฯ) carries addr:housenumber 89 and addr:street Soi Wat Suan Plu, which is exactly the review's own address '89 ซอยวัดสวนพลู ถนนเจริญกรุง แขวงบางรัก'. Target is the area-weighted centroid of the 25-node polygon, 130 m from the old pin; --corroborate measured 133 m independently, and centroid vs bbox centre differ by only 4 m, so the point lies inside the building."
+ },
+ "review-citrus-sukhumvit-13-bangkok": {
+  "lat": 13.7428068,
+  "lng": 100.558088,
+  "prov": "bangkok",
+  "via": "osm",
+  "precision": "poi",
+  "osm": "way/330242692",
+  "osmName": "Citrus 13",
+  "was": {
+   "lat": 13.7435,
+   "lng": 100.5572,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [house-number-matches]: Soi audit 2026-09-16: the review's address is '22 Sukhumvit Soi 13, Khlong Toei Nuea, Watthana' but the pin reverse-geocoded onto Soi Sukhumvit 11. OSM way/330242692 carries addr:housenumber 22, addr:street Soi Sukhumvit 13, addr:subdistrict คลองเตยเหนือ and addr:district วัฒนา — all four match the review. Note the element is named 'Citrus 13' in OSM today; the --corroborate cache still held its older name 'Citrus Sukhumvit 13 Hotel by Compass Hospitality', so cached names are not proof of current tagging. A second same-brand match 644 m away is a DIFFERENT property (25/1 ซอยสุขุมวิท 6, Citrus Suites Sukhumvit 6) and was excluded. Move 123 m; centroid vs bbox centre 13 m on a 5-node quadrilateral."
+ },
+ "review-buddy-lodge-bangkok": {
+  "lat": 13.7587677,
+  "lng": 100.4985841,
+  "prov": "bangkok",
+  "via": "osm",
+  "precision": "poi",
+  "osm": "way/234738699",
+  "osmName": "Buddy Lodge",
+  "was": {
+   "lat": 13.7583,
+   "lng": 100.4977,
+   "via": null
+  },
+  "why": "pin moved 2026-09-16 [element-near-address-road]: Shared-position audit 2026-09-16: the pin sat 11 m from D&D Inn Khaosan's pin, on ซอยดำเนินกลางเหนือ, while the review's address is '265 Khaosan Road, Taladyod, Phra Nakhon'. OSM way/234738699 'Buddy Lodge' (tourism=hotel) carries NO addr:housenumber and NO addr:street, so the house-number route does not apply; the second documented route does — its addr:subdistrict ตลาดยอด and addr:district พระนคร match the review, and the element lies 34 m from ถนนข้าวสาร (Khao San Road), the road the address names, well inside the 120 m threshold used by the 2026-09-16 street audit (Overpass around:300 with geometry, measured to the nearest segment; maps.mail.ru returned 504 and overpass-api.de answered). Move 109 m; --corroborate measured 112 m independently."
  }
 }

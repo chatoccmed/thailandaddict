@@ -91,6 +91,14 @@ function fixStoreRow(kind, key, e, lat, lng) {
   /* 371 hotel pins entered content with their reviews and never had a store row
      (2026-09-16 audit). Moving one on evidence creates the row, so the new point
      has provenance and the old one is kept under "was". */
+  /* …but only while the review still exists. A page merged into another (or
+     taken down) leaves its pin-fix entry behind as a historical record, and
+     minting a row for it would key a coordinate to a page nobody can open. That
+     is not hypothetical: on 2026-09-16 the entry for review-ibis-bangkok-sathorn
+     (merged into review-ibis-bangkok-sathorn-bangkok) created the ONLY orphan
+     row in 2,132 — while the keeper already carried the corrected point. */
+  if (!rec && kind === 'reviews' && e.action === 'move'
+      && !fs.existsSync(path.join(ROOT, 'astro/src/content/reviews', `${key}.json`))) return false;
   if (!rec && kind === 'reviews' && e.action === 'move') {
     const [tlat, tlng] = pair(e.to);
     s.doc[key] = {
@@ -102,6 +110,14 @@ function fixStoreRow(kind, key, e, lat, lng) {
     return true;
   }
   if (!samePoint(rec, lat, lng)) return false;
+  /* A move whose store row is ALREADY on the target must not be rewritten. The
+     rewrite below fills `was` from the current row, so re-applying an applied
+     move replaces the original position with the moved one and the provenance
+     is gone for good. review-old-city-wall-inn-chiang-mai lost its original
+     `was` exactly that way, and then reported "2 pin(s) would change" on every
+     dry run afterwards — noise that sent a later session hunting a change that
+     did not exist. */
+  if (e.action === 'move') { const [tl, tg] = pair(e.to); if (samePoint(rec, tl, tg)) return false; }
   if (e.action === 'move') {
     const [tlat, tlng] = pair(e.to);
     s.doc[key] = {
