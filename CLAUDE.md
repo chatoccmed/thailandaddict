@@ -97,6 +97,13 @@ _internal/
 - clean build (กัน stale cache): `rm -rf astro/.astro astro/node_modules/.astro` ก่อนเสมอเวลา build ใหญ่
 - production build script ตั้ง `--max-old-space-size=8192` ไว้แล้ว (`astro/package.json`) — ที่สเกลปัจจุบัน (~17,100 หน้า) ยังไม่ OOM แต่เคยเจอตอน ~13k+ หน้าถ้า Windows commit-memory ตึง (ดู memory `attraction-rollout-pipeline`)
 - pre-push check: `bash _internal/build-test.sh` — รัน **dark-pattern lint** (ห้ามสร้างความเร่งรีบ/ของใกล้หมดปลอม) + **Booking→CJ revenue guard** (`_internal/qa/check-booking-cj.mjs` — พิสูจน์ว่า wrapper ทำงานจริง: ต้องเจอลิงก์ที่ wrap แล้ว ≥4,000 และลิงก์ booking.com ดิบ = 0) ทั้งคู่ต้องผ่านก่อน push
+- **ชุดตรวจแผนที่/ลิงก์ = `_internal/audit/`** (ย้ายเข้า repo 2026-09-16 · เดิมอยู่ใน scratchpad ของเซสชันและหายทุกครั้งที่ปิด)
+  - `bash _internal/audit/run-local-checks.sh` — 15 ชุดกับ `astro/dist` **ก่อน** deploy · `bash _internal/audit/run-prod-checks.sh` — 12 ชุดกับเว็บจริง **หลัง** deploy
+  - ข้างในมี `live-verify-*` 11 ตัว · `check-duplicate-redirects` · `sweep-merged-links` (ไล่ลิงก์ค้างทั้ง build ไม่ใช่แค่ไฟล์ที่ diff) · และตัวหาหลักฐานพิน 4 ตัว (`street-audit-nostore` · `street-evidence-hotels` · `recheck-hotel-drops` · `audit-hotel-pins`)
+  - path เป็น relative จากตัวสคริปต์เอง (`import.meta.dirname`) ใช้ได้ทุกเครื่อง ไม่ผูกกับ session id
+  - 🚨 **`_internal/audit/cache/` อยู่ใน .gitignore** — เก็บ snapshot + แคช reverse-geocode (~3 MB) · **clone ใหม่จะไม่มีไฟล์พวกนี้ และชุดตรวจจะ "ผ่าน" ทั้งที่ตรวจน้อยลงเงียบๆ** (2026-09-16: ขาด `hub-maps-before-eat.json`/`hub-maps-before.json` → eat 292→260 · areas 252→216) · ถ้าตัวเลขต่ำกว่าที่เคย ให้ดู `cache/` ก่อนเป็นอย่างแรก
+  - 🚨 **เพิ่ม batch ใหม่ใน `pin-fixes.json` เมื่อไหร่ ต้องใส่ `--batch <ชื่อ>` ใน runner ทั้งสองตัวด้วย** ไม่งั้นพินชุดนั้นไม่ถูกตรวจเลย และ suite ยังขึ้นว่า "ผ่านหมด" (2026-09-16: moves 692 แทนที่จะเป็น 708)
+  - **`_internal/pin-keeps.json`** = พินที่ตรวจแล้วและ**ตั้งใจคงไว้/ตั้งใจไม่ปัก** พร้อมหลักฐาน · `pin-fixes.json` เก็บแค่ move/drop การ "ไม่ทำอะไร" จึงไม่เหลือร่องรอยและถูกทักซ้ำทุกรอบ · `street-audit-nostore.mjs` อ่านไฟล์นี้แล้วข้ามให้
 
 ## 🗺️ ข้อมูลแผนที่ (LOCKED · สเปกเต็ม = `_internal/MAP-DATA-POLICY.md`)
 - **ไม่เดาพิกัด** — พินที่ผิดแย่กว่าไม่มีพิน · ไม่มีพิกัด = โชว์ที่อยู่เป็นลิงก์ Google Maps · พิกัดน้อยกว่า 60% = แผนที่ไม่ขึ้น

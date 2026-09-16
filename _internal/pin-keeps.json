@@ -37,6 +37,12 @@
       "decided": "2026-09-16",
       "flaggedAs": "PART DIFFERS, near another pin",
       "why": "--corroborate offered OSM way/234719441 'Lamphu Tree House' 633 m away on the weak '2 words' rule, but its tags are addr:housenumber 2, addr:street Baan Ton Lamphu, addr:subdistrict บ้านพานถม — while the review's address is '155 สะพานวันชาติ ถนนประชาธิปไตย แขวงบวรนิเวศ'. Different house number, different street, different sub-district: a same-named DIFFERENT building. Moving there would have introduced a wrong pin."
+    },
+    {
+      "slug": "review-villa-cha-cha-rambuttri-bangkok",
+      "decided": "2026-09-16",
+      "flaggedAs": "no coordinate, never asked (the only one of 1,226)",
+      "why": "Searched OSM 2026-09-16 and found two overlapping candidates 2 m apart: node/4356305293 โรงแรมวิลล่า ชาช่า (website villachacha.com + phone, but addr:housenumber 36, addr:street ตานี) and way/234374862 Villa Cha-Cha (exact name, addr:subdistrict ตลาดยอด and addr:district พระนคร matching the review, but no street). Review address: 327/2-4 ถนนรามบุตรี. NOT PINNED: both sit 53 m from ถนนรามบุตรี (inside the 120 m route) but NEARER to ถนนตานี (29 m and 31 m), and the only element carrying identity proof tags itself on that other street at a different house number. Villa Cha-Cha runs several Khaosan-area properties - the same same-name trap that produced the Lamphu Tree House false positive the same day. Passing a proximity rule while the nearest road contradicts the address is not evidence of position. The page links its address as a Maps search after the 2026-09-16 layout fix, which reaches the hotel."
     }
   ]
 }
