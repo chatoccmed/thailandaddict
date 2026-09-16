@@ -2,7 +2,8 @@
    For each flagged row, the roads the review's own address names (the soi
    first, then the main road) are checked two independent ways:
      · Overpass: every named highway within 300 m of the pin — does one of them
-       carry the address's road (same base name, same soi number)?
+       carry the address's road (same base name, same soi number), and how far
+       from the pin does that road actually run?
      · Nominatim: the address's road searched inside a box ±0.05° around the
        pin (road objects with geometry, a numbered soi must carry the number)
        — how far is the pin from the nearest one found?
@@ -11,7 +12,10 @@
                              or road, and Nominatim finds that road > 300 m away
      REVIEW (area)           no road evidence either way, and the pin lies in an
                              admin-8 area the address does not name
-     keep (near road)        a highway within 300 m carries the address's road
+     keep (near road)        a highway carrying the address's road runs within
+                             120 m of the pin — measured, not merely present
+     keep (road far)         a highway carries the address's road but runs
+                             farther off than that: adjacency, not evidence
      keep                    nothing decides
    Main roads are only used to KEEP a pin, never to drop it: a long road is
    split into many ways and the nearest one may not be among Nominatim's results.
@@ -26,6 +30,13 @@ const OUT = `${SP}street-evidence-hotels.json`;
 const rows = JSON.parse(fs.readFileSync(`${SP}street-audit-nostore.json`, 'utf8')).filter((r) => VERDICTS.has(r.verdict));
 const UA = { 'User-Agent': 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; pin accuracy audit)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+/* How close a matching road must run for its name to be evidence of position
+   rather than of adjacency. 120 m is the figure already used on this project:
+   Buddy Lodge was accepted onto its OSM element because that element lies 34 m
+   from Khao San Road, and the pin dropped as Tints of Blue had its "matching"
+   road 231 m away. In dense Bangkok a neighbouring soi is comfortably inside
+   the 300 m search radius, so presence alone decides nothing. */
+const NEAR_M = 120;
 
 const thaiKey = (s) => String(s || '').replace(/[^\u0E00-\u0E7F]/g, '');
 const latinKey = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\bkoh\b/g, 'ko').replace(/[^a-z]/g, '')
@@ -96,20 +107,22 @@ async function overpass(q) {
 }
 
 /* 1. Overpass: highways within 300 m + admin areas, 12 pins per query */
-const near = new Map(), admin = new Map();
+const near = new Map(), nearG = new Map(), admin = new Map();
 for (let i = 0; i < rows.length; i += 12) {
   const part = rows.slice(i, i + 12);
   let q = '[out:json][timeout:180];';
   part.forEach((r, k) => {
-    q += `make m label="h${i + k}";out;way["highway"]["name"](around:300,${r.lat},${r.lng});out tags;`;
+    q += `make m label="h${i + k}";out;way["highway"]["name"](around:300,${r.lat},${r.lng});out tags geom;`;
     q += `make m label="a${i + k}";out;is_in(${r.lat},${r.lng})->.x${k};area.x${k}["boundary"="administrative"]["admin_level"~"^(6|8)$"];out tags;`;
   });
   const els = await overpass(q);
   if (!els) { console.log(`Overpass failed for rows ${i}–${i + part.length - 1}`); continue; }
   let cur = null;
   for (const e of els) {
-    if (e.type === 'm') { cur = e.tags.label; (cur[0] === 'h' ? near : admin).set(Number(cur.slice(1)), []); continue; }
-    (cur[0] === 'h' ? near : admin).get(Number(cur.slice(1))).push(e.tags || {});
+    if (e.type === 'm') { cur = e.tags.label; (cur[0] === 'h' ? near : admin).set(Number(cur.slice(1)), []); if (cur[0] === 'h') nearG.set(Number(cur.slice(1)), []); continue; }
+    const n = Number(cur.slice(1));
+    (cur[0] === 'h' ? near : admin).get(n).push(e.tags || {});
+    if (cur[0] === 'h') nearG.get(n).push(e.geometry || null);
   }
   console.log(`… Overpass ${Math.min(i + 12, rows.length)}/${rows.length}`);
   await sleep(2000);
@@ -131,8 +144,26 @@ async function search(q, r) {
 const out = [];
 for (const [idx, r] of rows.entries()) {
   const roads = addressRoads(r);
-  const hw = near.get(idx) || [];
-  const hit = roads.find((road) => hw.some((t) => carries(t.name, road) || carries(t['name:en'], road) || carries(t['name:th'], road)));
+  const hw = near.get(idx) || [], hg = nearG.get(idx) || [];
+  /* A hit now carries its distance. Until 2026-09-16 it did not, so a road 20 m
+     away and one 231 m away - across six lanes of Sukhumvit - scored identically,
+     and "keep (near road)" read as evidence in both cases. The cause was the
+     query: it asked for `out tags` only, so the geometry needed to measure with
+     was never fetched. `out tags geom` costs 3.4x on a 4.5 KB payload (measured
+     on one Bangkok pin: 4,499 -> 15,504 bytes), which is nothing at this scale.
+     The first road in address order that matches at all still wins, exactly as
+     before; among its matching ways the NEAREST is the one reported. */
+  let hit = null, hitDist = null, hitName = null;
+  for (const road of roads) {
+    const ms = [];
+    hw.forEach((t, p) => {
+      if (!(carries(t.name, road) || carries(t['name:en'], road) || carries(t['name:th'], road))) return;
+      const g = hg[p];
+      ms.push({ d: g && g.length ? distTo([r.lat, r.lng], { type: 'LineString', coordinates: g.map((q) => [q.lon, q.lat]) }) : Infinity,
+                name: t.name || t['name:th'] || t['name:en'] || '' });
+    });
+    if (ms.length) { ms.sort((a, b) => a.d - b.d); hit = road; hitDist = ms[0].d; hitName = ms[0].name; break; }
+  }
   let found = null;
   if (!hit) {
     for (const road of roads.filter((x) => x.soi).slice(0, 2)) {
@@ -180,14 +211,20 @@ for (const [idx, r] of rows.entries()) {
      REVIEW still means "a human looks", never an automatic drop. */
   let decision = 'keep';
   if (L8.length && !inNamed8 && !inNamed6) decision = 'REVIEW (area)';
-  else if (hit) decision = 'keep (near road)';
+  else if (hit && hitDist <= NEAR_M) decision = 'keep (near road)';
   else if (found && found.d > 300) decision = 'DROP-CANDIDATE (road)';
-  out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
+  /* A far hit falls to its own label, never to a drop: `found` is computed only
+     when there is no hit, so the DROP branch above cannot fire for these rows.
+     That is deliberate - this change is allowed to weaken a keep, never to
+     manufacture a drop. Re-testing far-hit rows through Nominatim would change
+     which pins become drop candidates, so it is left for its own pass. */
+  else if (hit) decision = 'keep (road far)';
+  out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, hitDist, hitName, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 }
-const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'keep', 'keep (near road)'];
+const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'keep (road far)', 'keep', 'keep (near road)'];
 console.log(`\n${out.length} flagged pins · ` + ORDER.map((d) => `${d} ${out.filter((x) => x.decision === d).length}`).join(' · '));
-for (const d of ORDER.slice(0, 2)) {
+for (const d of ORDER.slice(0, 3)) {
   console.log(`\n=== ${d}`);
-  for (const x of out.filter((y) => y.decision === d)) console.log(`${x.slug.replace(/^review-/, '')} [${x.verdict}] | addr: ${x.addr.slice(0, 70)}${x.found ? ` | ${x.found.q} → "${x.found.name}" ${x.found.d} m` : ''} | pin in ${[...x.L8, ...x.L6].join(' · ').slice(0, 80)}${x.near.length ? ' | NEAR another hotel' : ''}`);
+  for (const x of out.filter((y) => y.decision === d)) console.log(`${x.slug.replace(/^review-/, '')} [${x.verdict}] | addr: ${x.addr.slice(0, 70)}${x.found ? ` | ${x.found.q} → "${x.found.name}" ${x.found.d} m` : ''}${x.nearRoad ? ` | road "${x.hitName}" ${x.hitDist} m` : ''} | pin in ${[...x.L8, ...x.L6].join(' · ').slice(0, 80)}${x.near.length ? ' | NEAR another hotel' : ''}`);
 }
