@@ -1,0 +1,169 @@
+/* Evidence for the hotel pins street-audit-nostore.mjs flagged. Read-only.
+   For each flagged row, the roads the review's own address names (the soi
+   first, then the main road) are checked two independent ways:
+     · Overpass: every named highway within 300 m of the pin — does one of them
+       carry the address's road (same base name, same soi number)?
+     · Nominatim: the address's road searched inside a box ±0.05° around the
+       pin (road objects with geometry, a numbered soi must carry the number)
+       — how far is the pin from the nearest one found?
+   plus the pin's OSM sub-district / district (Overpass is_in, admin 8 / 6).
+     DROP-CANDIDATE (road)   no highway within 300 m carries the address's soi
+                             or road, and Nominatim finds that road > 300 m away
+     REVIEW (area)           no road evidence either way, and the pin lies in an
+                             admin-8 area the address does not name
+     keep (near road)        a highway within 300 m carries the address's road
+     keep                    nothing decides
+   Main roads are only used to KEEP a pin, never to drop it: a long road is
+   split into many ways and the nearest one may not be among Nominatim's results.
+   Usage: node street-evidence-hotels.mjs [--verdicts "SOI DIFFERS,LOCALITY DIFFERS,PART DIFFERS,road differs"] */
+import fs from 'node:fs';
+import path from 'node:path';
+
+const SP = path.resolve(import.meta.dirname, 'cache') + '/';   // gitignored working data
+const vi = process.argv.indexOf('--verdicts');
+const VERDICTS = new Set((vi > 0 ? process.argv[vi + 1] : 'SOI DIFFERS,LOCALITY DIFFERS,PART DIFFERS,road differs').split(','));
+const OUT = `${SP}street-evidence-hotels.json`;
+const rows = JSON.parse(fs.readFileSync(`${SP}street-audit-nostore.json`, 'utf8')).filter((r) => VERDICTS.has(r.verdict));
+const UA = { 'User-Agent': 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; pin accuracy audit)' };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const thaiKey = (s) => String(s || '').replace(/[^\u0E00-\u0E7F]/g, '');
+const latinKey = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '')
+  .replace(/sri/g, 'si').replace(/th|ph|kh|ch|dh/g, (m) => m[0]).replace(/([aeiou])r(?=[^aeiou]|$)/g, '$1')
+  .replace(/ue|eu/g, 'u').replace(/oe/g, 'o').replace(/ou|oo/g, 'u').replace(/ee/g, 'i')
+  .replace(/y/g, 'i').replace(/[wv]/g, 'u').replace(/r/g, 'l').replace(/d/g, 't').replace(/j/g, 'c').replace(/(.)\1+/g, '$1');
+const ROADW = /\b(road|rd|street|st|soi|alley|lane|thanon|trok|yaek|highway|hwy)\b\.?/gi;
+const numsOf = (s) => [...String(s || '').matchAll(/\d+/g)].map((m) => m[0]);
+/* a road as {base key, first number, soi?, query} */
+function addressRoads(r) {
+  const out = [];
+  for (const m of `${r.addrTh} | ${r.addrEn}`.matchAll(/(?<!แขวง)(ซอย|ถนน|ซ\.|ถ\.|ตรอก)\s*([\u0E00-\u0E7F]+)\s*(\d+(?:\/\d+)?)?/g)) {
+    const kind = m[1].startsWith('ซ') || m[1] === 'ตรอก' ? 'ซอย' : 'ถนน';
+    out.push({ base: thaiKey(m[2]), num: m[3] ? m[3].split('/')[0] : null, soi: kind === 'ซอย' || !!m[3], q: `${kind}${m[2]}${m[3] ? ' ' + m[3] : ''}`, script: 'th' });
+  }
+  for (let seg of `${r.addrEn} | ${r.addrTh}`.split(/[|,]/)) {
+    seg = seg.trim();
+    if (!seg || /[\u0E00-\u0E7F]/.test(seg) || /^thanon\s+\D/i.test(seg)) continue;
+    if (!(/\b(road|rd|street|soi|alley|lane|thanon|trok)\b/i.test(seg) || /^\d/.test(seg))) continue;
+    const s = seg.replace(/^\s*\d+[\d/-]*\s+/, '').replace(/\(.*?\)/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!/[a-z]{3}/i.test(s) || /^(moo|m\.)\b/i.test(s) || /\b(floor|building|room|tower|condo)\b/i.test(s)) continue;
+    const n = numsOf(s);
+    out.push({ base: latinKey(s.replace(/\d+(?:\/\d+)?/g, ' ').replace(ROADW, ' ')), num: n[0] || null, soi: /\b(soi|alley|lane|trok)\b/i.test(s) || n.length > 0, q: s, script: 'en' });
+  }
+  const seen = new Set();
+  return out.filter((x) => x.base && !seen.has(`${x.script}:${x.base}:${x.num}`) && seen.add(`${x.script}:${x.base}:${x.num}`)).sort((a, b) => b.soi - a.soi);
+}
+/* does an OSM highway name carry this road? */
+function carries(name, road) {
+  if (!name) return false;
+  const key = road.script === 'th' ? thaiKey(String(name).replace(/^(ซอย|ถนน|ตรอก)/, '')) : latinKey(String(name).replace(/\d+(?:\/\d+)?/g, ' ').replace(ROADW, ' '));
+  if (!key || !(key === road.base || (Math.min(key.length, road.base.length) >= 5 && (key.includes(road.base) || road.base.includes(key))))) return false;
+  if (!road.num) return true;
+  return numsOf(name)[0] === road.num || numsOf(name).includes(road.num);
+}
+const toXY = (lat, lng, lat0) => [lng * 111320 * Math.cos(lat0 * Math.PI / 180), lat * 110574];
+function distTo(pt, g) {
+  const P = toXY(pt[0], pt[1], pt[0]);
+  let best = Infinity;
+  const line = (cs) => {
+    if (cs.length === 1) { const A = toXY(cs[0][1], cs[0][0], pt[0]); best = Math.min(best, Math.hypot(P[0] - A[0], P[1] - A[1])); }
+    for (let i = 0; i + 1 < cs.length; i++) {
+      const A = toXY(cs[i][1], cs[i][0], pt[0]), B = toXY(cs[i + 1][1], cs[i + 1][0], pt[0]);
+      const dx = B[0] - A[0], dy = B[1] - A[1];
+      const t = Math.max(0, Math.min(1, ((P[0] - A[0]) * dx + (P[1] - A[1]) * dy) / (dx * dx + dy * dy || 1)));
+      best = Math.min(best, Math.hypot(P[0] - A[0] - t * dx, P[1] - A[1] - t * dy));
+    }
+  };
+  if (!g) return Infinity;
+  if (g.type === 'Point') line([g.coordinates]);
+  else if (g.type === 'LineString') line(g.coordinates);
+  else if (g.type === 'MultiLineString' || g.type === 'Polygon') g.coordinates.forEach(line);
+  else if (g.type === 'MultiPolygon') g.coordinates.forEach((p) => p.forEach(line));
+  return Math.round(best);
+}
+
+async function overpass(q) {
+  for (const u of ['https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
+    try {
+      const r = await fetch(u, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { ...UA, 'Content-Type': 'application/x-www-form-urlencoded' }, signal: AbortSignal.timeout(180000) });
+      if (!r.ok) continue;
+      const j = await r.json();
+      if (j.remark) continue;
+      return j.elements;
+    } catch { /* next mirror */ }
+  }
+  return null;
+}
+
+/* 1. Overpass: highways within 300 m + admin areas, 12 pins per query */
+const near = new Map(), admin = new Map();
+for (let i = 0; i < rows.length; i += 12) {
+  const part = rows.slice(i, i + 12);
+  let q = '[out:json][timeout:180];';
+  part.forEach((r, k) => {
+    q += `make m label="h${i + k}";out;way["highway"]["name"](around:300,${r.lat},${r.lng});out tags;`;
+    q += `make m label="a${i + k}";out;is_in(${r.lat},${r.lng})->.x${k};area.x${k}["boundary"="administrative"]["admin_level"~"^(6|8)$"];out tags;`;
+  });
+  const els = await overpass(q);
+  if (!els) { console.log(`Overpass failed for rows ${i}–${i + part.length - 1}`); continue; }
+  let cur = null;
+  for (const e of els) {
+    if (e.type === 'm') { cur = e.tags.label; (cur[0] === 'h' ? near : admin).set(Number(cur.slice(1)), []); continue; }
+    (cur[0] === 'h' ? near : admin).get(Number(cur.slice(1))).push(e.tags || {});
+  }
+  console.log(`… Overpass ${Math.min(i + 12, rows.length)}/${rows.length}`);
+  await sleep(2000);
+}
+
+/* 2. Nominatim: the address's roads, inside a box around the pin */
+async function search(q, r) {
+  const vb = `${r.lng - 0.05},${r.lat + 0.05},${r.lng + 0.05},${r.lat - 0.05}`;
+  for (let t = 0; t < 3; t++) {
+    try {
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&q=${encodeURIComponent(q)}&countrycodes=th&polygon_geojson=1&limit=10&viewbox=${vb}&bounded=1`, { headers: UA, signal: AbortSignal.timeout(30000) });
+      if (res.ok) return await res.json();
+      if (res.status === 429) await sleep(30000);
+    } catch { /* retry */ }
+    await sleep(5000 * (t + 1));
+  }
+  return null;
+}
+const out = [];
+for (const [idx, r] of rows.entries()) {
+  const roads = addressRoads(r);
+  const hw = near.get(idx) || [];
+  const hit = roads.find((road) => hw.some((t) => carries(t.name, road) || carries(t['name:en'], road) || carries(t['name:th'], road)));
+  let found = null;
+  if (!hit) {
+    for (const road of roads.filter((x) => x.soi).slice(0, 2)) {
+      const res = await search(road.q, r); await sleep(1100);
+      const cands = (res || []).filter((x) => x.category === 'highway' && (!road.num || numsOf(x.name).includes(road.num)));
+      for (const c of cands) {
+        const d = distTo([r.lat, r.lng], c.geojson);
+        if (!found || d < found.d) found = { d, name: c.name, osm: `${c.osm_type}/${c.osm_id}`, q: road.q };
+      }
+      if (found) break;
+    }
+  }
+  const ad = admin.get(idx) || [];
+  const L8 = ad.filter((t) => t.admin_level === '8').map((t) => [t['name:th'] || t.name, t['name:en']].filter(Boolean).join(' / '));
+  const L6 = ad.filter((t) => t.admin_level === '6').map((t) => [t['name:th'] || t.name, t['name:en']].filter(Boolean).join(' / '));
+  const addrText = `${r.addrTh} ${r.addrEn}`;
+  const named = (label) => label.split(' / ').some((n) => {
+    const bare = n.replace(/^(แขวง|เขต|ตำบล|อำเภอ)/, '').replace(/\s*(Subdistrict|Sub-district|District)$/i, '').trim();
+    return /[\u0E00-\u0E7F]/.test(bare) ? addrText.includes(bare) : String(addrText).split(/[|,]/).some((seg) => latinKey(seg) && latinKey(seg) === latinKey(bare));
+  });
+  const inNamed8 = L8.some(named), inNamed6 = L6.some(named);
+  let decision = 'keep';
+  if (hit) decision = 'keep (near road)';
+  else if (found && found.d > 300) decision = 'DROP-CANDIDATE (road)';
+  else if (!found && L8.length && !inNamed8 && !inNamed6) decision = 'REVIEW (area)';
+  out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
+  fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
+}
+const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'keep', 'keep (near road)'];
+console.log(`\n${out.length} flagged pins · ` + ORDER.map((d) => `${d} ${out.filter((x) => x.decision === d).length}`).join(' · '));
+for (const d of ORDER.slice(0, 2)) {
+  console.log(`\n=== ${d}`);
+  for (const x of out.filter((y) => y.decision === d)) console.log(`${x.slug.replace(/^review-/, '')} [${x.verdict}] | addr: ${x.addr.slice(0, 70)}${x.found ? ` | ${x.found.q} → "${x.found.name}" ${x.found.d} m` : ''} | pin in ${[...x.L8, ...x.L6].join(' · ').slice(0, 80)}${x.near.length ? ' | NEAR another hotel' : ''}`);
+}

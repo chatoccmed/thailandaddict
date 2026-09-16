@@ -40,3 +40,7 @@ npm-debug.log*
 /astro/public/feeds/
 _internal/.overpass-cache.json
 _internal/.overpass-poi-*-cache.json
+
+# Working data for _internal/audit tools: geocoder caches and run logs.
+# Multi-megabyte and regenerable; the tools belong in git, their scratch does not.
+/_internal/audit/cache/
