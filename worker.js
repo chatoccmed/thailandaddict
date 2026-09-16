@@ -1,6 +1,7 @@
 // thailandaddict Worker — serves /api/* dynamically (Workers AI), passes everything else to static assets.
 // Static .html/assets are served BEFORE this Worker runs (free); the Worker only fires for non-asset paths.
 import { SLUG2TH, provSlug, locSlug } from './worker-provinces.js';
+import { MERGED_PAGES } from './worker-redirects.js';
 
 const MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 const CAP = { see: 8, eat: 5, stay: 4 };           // candidate gap-fill caps per type
@@ -24,6 +25,13 @@ function bookingGo(url) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    // One property, one page (owner decision 2026-09-16). A review page the merge deleted is no longer
+    // an asset, so the request reaches the Worker and is sent on to the page that kept the content.
+    // These live here, not in _redirects: Cloudflare counts EVERY rule in that file against a 100-rule
+    // limit, and a deploy carrying 260 of them was rejected (code 100324). Map = _internal/duplicate-reviews.json
+    // via gen-duplicate-redirects.mjs; it stores the clean path, so strip .html before the lookup.
+    const merged = MERGED_PAGES[url.pathname.replace(/\.html$/, '')];
+    if (merged) return new Response(null, { status: 301, headers: { 'Location': merged + url.search, 'Cache-Control': 'public, max-age=86400' } });
     try {
       if (url.pathname === '/go/b') return bookingGo(url);
       // Abuse guard on the write/compute endpoints. /api/plan burns Workers-AI neurons per call and the
