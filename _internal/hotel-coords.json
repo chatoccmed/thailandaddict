@@ -3195,13 +3195,8 @@
   "wasWhy": "equals the province centroid"
  },
  "review-craftsman-bangkok": {
-  "lat": 13.6988765,
-  "lng": 100.5288676,
-  "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "poi",
-  "q": "Craftsman Bangkok, Bangkok, Thailand",
-  "distKm": 6.5
+  "why": "pin deleted 2026-09-16 [address-road-7km-from-pin]: Locality audit 2026-09-16, owner decision. The review address is 34-36 Soi Phahonyothin 11, Samsen Nai, Phaya Thai; the pin reverse-geocodes to แขวงบางโคล่ / เขตบางคอแหลม - wrong at BOTH admin levels and on the opposite side of the city. An exhaustive Overpass search within 12 km returned 107 ways named พหลโยธิน, the nearest 7,324 m from the pin. NOTE ON THE RULE: main roads normally may only KEEP a pin, never drop it, because a long road is split into many ways and the nearest may be missing from a search. That rationale does not hold here - 107 ways were returned and the nearest is 7.3 km, so no closer segment can exist unfound. The first query for this hotel used a Latin-only name pattern and wrongly reported NOT FOUND; OSM stores the name in Thai. NOT MOVED: no OSM element named Craftsman. The address renders as a Maps search link.",
+  "q": "Craftsman Bangkok, Bangkok, Thailand"
  },
  "review-cresco-hotel-buriram": {
   "lat": 14.971606,

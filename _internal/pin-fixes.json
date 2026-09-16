@@ -6288,5 +6288,29 @@
   "name": "Tints of Blue Hotel",
   "rule": "wrong-soi-admin-mismatch-both-levels",
   "evidence": "Owner decision 2026-09-16 after a second evidence pass. The review's address of record is '47 Sukhumvit Soi 27, Khlong Toei Nuea, Watthana' and both the Thai and English articles name ซอย 27, a walk to BTS Asok / MRT Sukhumvit and Phrom Phong one stop further. FIVE independent lines say the pin was not there: (1) the pin reverse-geocodes to แขวงคลองเตย / เขตคลองเตย — wrong at BOTH admin levels, the only one of 13 soi candidates failing both; (2) it sits 16 m from Park Plaza Bangkok Soi 18 and 21 m from Maitria Sukhumvit 18, each of which --corroborate places at 0 m on its own OSM element, so the pin was on the Soi 18 hotel cluster; (3) ซอยสุขุมวิท 27 (way/156261430) is 231 m away — the pin is not on the soi, it is across Sukhumvit Road; (4) the address of record; (5) the editorial content in both locales. The ONLY contrary signal was street-evidence-hotels.mjs returning 'keep (near road)', which fires when any way carrying the address road lies within 300 m — satisfied here by that same 231 m gap, i.e. adjacency across a main road, not evidence the pin is right. NOT MOVED because no OSM element named tint / ทินท / blue exists within 1 km, and the policy forbids inventing a position. The wrong pin sent readers to Park Plaza on Soi 18, so removing it is right. CORRECTION (verified live after deploy): the fallback stated when this decision was taken - that the address would become a Google Maps search link - DOES NOT happen on this page. ReviewLayout renders the address as plain text whenever the review carries mapImg, and this review does. The layout comment itself records that the search-link branch is unreachable today because every coordinate-less review carries a mapImg. So this page now shows an inert address. That is a separate defect affecting 1,209 coordinate-less reviews (1,201 of which use a hotel PHOTO as mapImg), not a reason to keep a pin that pointed at another hotel."
+ },
+ {
+  "batch": "2026-09-16-hotel-locality-audit",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-qiu-hotel-sukhumvit-on-nut-bangkok",
+  "at": "(root)",
+  "pos": "13.7021,100.6012",
+  "prov": "bangkok",
+  "name": "Qiu Hotel Sukhumvit",
+  "rule": "wrong-soi-admin-mismatch-both-levels",
+  "evidence": "Locality audit 2026-09-16, owner decision. The review address is 9 Soi Sukhumvit 79 (Niyom), Phrakhanong Nua, Wattana. THREE independent pieces: (1) the pin reverse-geocodes to แขวงพระโขนงใต้ / เขตพระโขนง - wrong at BOTH admin levels; (2) no named highway within 300 m of the pin carries Soi Sukhumvit 79; (3) ซอยสุขุมวิท 79 itself is 528 m from the pin. Soi Sukhumvit 79 is a soi, not a main road, so the main-road restriction does not apply. NOT MOVED: --corroborate finds no OSM element named Qiu anywhere, and the policy forbids inventing a position. With no pin the review links its address as a Maps search, which reaches the hotel."
+ },
+ {
+  "batch": "2026-09-16-hotel-locality-audit",
+  "action": "drop",
+  "kind": "reviews",
+  "slug": "review-craftsman-bangkok",
+  "at": "(root)",
+  "pos": "13.6988765,100.5288676",
+  "prov": "bangkok",
+  "name": "Craftsman Bangkok",
+  "rule": "address-road-7km-from-pin",
+  "evidence": "Locality audit 2026-09-16, owner decision. The review address is 34-36 Soi Phahonyothin 11, Samsen Nai, Phaya Thai; the pin reverse-geocodes to แขวงบางโคล่ / เขตบางคอแหลม - wrong at BOTH admin levels and on the opposite side of the city. An exhaustive Overpass search within 12 km returned 107 ways named พหลโยธิน, the nearest 7,324 m from the pin. NOTE ON THE RULE: main roads normally may only KEEP a pin, never drop it, because a long road is split into many ways and the nearest may be missing from a search. That rationale does not hold here - 107 ways were returned and the nearest is 7.3 km, so no closer segment can exist unfound. The first query for this hotel used a Latin-only name pattern and wrongly reported NOT FOUND; OSM stores the name in Thai. NOT MOVED: no OSM element named Craftsman. The address renders as a Maps search link."
  }
 ]
