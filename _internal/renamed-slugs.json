@@ -1,0 +1,12 @@
+{
+  "_comment": "Pages whose URL changed while the page itself stayed. Feeds worker-redirects.js via gen-duplicate-redirects.mjs, alongside the merged/removed pages in duplicate-reviews.json. Kept in a SEPARATE file on purpose: duplicate-reviews.json is the owner's decision record about duplicate pages, and a rename is not a duplicate — mixing them would make that record mean something it does not.",
+  "renamed": [
+    {
+      "from": "review-hotel-icon-bangkok-sukhumvit-22",
+      "to": "review-hotel-icon-bangkok-sukhumvit-2",
+      "locales": ["th", "en"],
+      "decided": "2026-09-16",
+      "why": "The slug said Sukhumvit 22; every reader-visible field said Sukhumvit 2 — title, h1, address '49 Sukhumvit Soi 2, Khlong Toei Nuea, Wattana', and the prose (Soi 2 x18 EN, ซอย 2 x16 TH). The pin moved in batch 2026-09-16-hotel-street-audit onto OSM way/1290405011 'Hotel Icon', whose addr:housenumber 49 and addr:street ซอยสุขุมวิท 2 match that address. Content was right; only the URL was wrong. Owner chose rename + 301."
+    }
+  ]
+}
