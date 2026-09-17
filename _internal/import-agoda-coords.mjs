@@ -88,6 +88,7 @@ function tierOf(r) {
 const ALLOW = new Set(DISTRICT ? ['road', 'area', 'district'] : ['road', 'area']);
 const counts = {};
 const take = [];
+const ownerReversals = [];
 let alreadyPinned = 0, gone = 0, noFeed = 0;
 
 for (const r of ev) {
@@ -100,13 +101,38 @@ for (const r of ev) {
   const cur = readJson(path.join(ROOT, 'astro/src/content/reviews', r.slug + '.json'), null);
   if (!cur) { gone++; continue; }
   if (cur.lat != null && cur.lng != null) { alreadyPinned++; continue; }
-  if (ALLOW.has(t.tier)) take.push({ r, m, tier: t.tier, why: t.why });
+  /* Many of these hotels HAD a pin that was deleted on evidence - 41 of the
+     first 241 did. Restoring them is usually right rather than wrong: those
+     pins were deleted because Nominatim had answered with a road or the wrong
+     building, and the Agoda point is a different source that has just passed
+     the same gate. Craftsman Bangkok is the clearest case - the deleted pin sat
+     7.3 km from its road in the wrong district, and the Agoda point lands 59 m
+     from ซอยพหลโยธิน 13 inside the district its address names.
+     The owner ruled on 2026-09-17, asked with Craftsman as the concrete case,
+     that a validated coordinate from a different source DOES supersede an
+     earlier deletion: the decision had been "this pin is wrong, remove it", not
+     "this hotel may never have a pin". So restorations proceed - but one the
+     owner decided personally is still named in the output rather than folded
+     silently into a count, because a person should be able to see their own
+     decision being revisited. */
+  const prior = store[r.slug];
+  const priorWhy = prior && typeof prior.why === 'string' ? prior.why : '';
+  const wasDeleted = /pin deleted/i.test(priorWhy);
+  const ownerDecided = wasDeleted && /owner decision/i.test(priorWhy);
+  if (ownerDecided) ownerReversals.push({ slug: r.slug, tier: t.tier, why: t.why });
+  if (ALLOW.has(t.tier)) take.push({ r, m, tier: t.tier, why: t.why, wasDeleted, priorWhy });
 }
 
 console.log('evidence rows ' + ev.length + ' · tiers: ' + Object.keys(counts).map((k) => k + ' ' + counts[k]).join(' · '));
 if (alreadyPinned) console.log('  skipped, already pinned: ' + alreadyPinned);
 if (gone) console.log('  skipped, review file gone: ' + gone);
 if (noFeed) console.log('  skipped, no feed row: ' + noFeed);
+const restoring = take.filter((t) => t.wasDeleted).length;
+if (restoring) console.log('  of these, ' + restoring + ' restore a pin that had been deleted on evidence (a different, wrong coordinate)');
+if (ownerReversals.length) {
+  console.log('\n  REVERSING A DELETION THE OWNER DECIDED (approved 2026-09-17, named here so it stays visible):');
+  for (const h of ownerReversals) console.log('    ' + h.slug.replace(/^review-/, '') + ' — validates ' + h.tier + ': ' + h.why.slice(0, 70));
+}
 console.log('would write ' + take.length + ' pin(s) [allowed: ' + [...ALLOW].join(', ') + (DISTRICT ? '' : ' — pass --district to widen') + ']');
 
 if (!APPLY) {
@@ -121,15 +147,34 @@ let locFiles = 0;
 for (const t of take) {
   const lat = Number(Number(t.m.feed.lat).toFixed(6));
   const lng = Number(Number(t.m.feed.lng).toFixed(6));
+  const prev = store[t.r.slug] || {};
+  /* prov must be written. check-coords measures "wrong province" from the
+     province's town centre with a per-province allowance (Kanchanaburi 190 km,
+     because Sangkhlaburi really is that far out), but ONLY when the row names a
+     province; without one it falls back to "within 130 km of SOME province
+     centre", which is far weaker. The first run of this importer wrote no prov
+     at all - street-evidence-hotels did not carry cluster through - so all 241
+     pins skipped the real province check, and only Kingfisher House in
+     Sangkhlaburi was remote enough to trip even the fallback. It was a correct
+     pin failing a weak test, masking the fact that the strong test never ran. */
+  const prov = t.r.cluster || t.m.cluster || null;
+  /* A row that recorded "pin deleted ..." must not keep saying so while holding
+     a live coordinate - that is a record contradicting itself. The deletion note
+     moves to wasWhy, where the history stays readable, and why states plainly
+     what replaced it. */
+  const why = t.wasDeleted
+    ? 'pin restored ' + new Date().toISOString().slice(0, 10) + ' from the Agoda feed, validated ' + t.tier + ': ' + t.why + ' — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate'
+    : prev.why;
   store[t.r.slug] = {
-    ...(store[t.r.slug] || {}),
+    ...prev,
     lat, lng,
-    ...(t.r.cluster ? { prov: t.r.cluster } : {}),
+    ...(prov ? { prov } : {}),
     via: 'agoda',
     precision: 'poi',
     agodaId: t.m.feed.id,
     agodaName: t.m.feed.name,
     q: t.m.name + ' @ agoda:' + t.m.feed.id + ' (' + t.m.tier + ') — validated ' + t.tier + ': ' + t.why,
+    ...(t.wasDeleted ? { wasWhy: t.priorWhy, why } : (why === undefined ? {} : { why })),
   };
   for (const suffix of LOC) {
     const f = path.join(ROOT, 'astro/src/content/reviews' + suffix, t.r.slug + '.json');

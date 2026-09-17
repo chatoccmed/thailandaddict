@@ -250,7 +250,7 @@ for (const [idx, r] of rows.entries()) {
      to locate the road says nothing about which district the pin is in.
      REVIEW still means "a human looks", never an automatic drop. */
   const decision = decide({ L8, L6, inNamed8, inNamed6, hit, hitDist, found });
-  out.push({ slug: r.slug, name: r.name, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, hitDist, hitName, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
+  out.push({ slug: r.slug, name: r.name, cluster: r.cluster || null, lat: r.lat, lng: r.lng, verdict: r.verdict, addr: (r.addrEn || r.addrTh).split(' | ')[0], roads: roads.map((x) => x.q), nearRoad: hit ? hit.q : null, hitDist, hitName, found, L8, L6, inNamed8, inNamed6, near: r.near, decision });
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 }
 const ORDER = ['DROP-CANDIDATE (road)', 'REVIEW (area)', 'UNKNOWN (no data)', 'keep (road far)', 'keep', 'keep (near road)'];
