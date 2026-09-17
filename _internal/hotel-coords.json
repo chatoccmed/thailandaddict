@@ -76,13 +76,15 @@
   "q": "Petchphattana Road, Phetchabun, Thailand"
  },
  "review-a-day-inn-ranong-hostel-ranong": {
-  "lat": 9.9570316,
-  "lng": 98.6333327,
+  "lat": 9.96468,
+  "lng": 98.63403,
   "prov": "ranong",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเรืองราษฎร์, Ranong, Thailand",
-  "distKm": 0.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "A Day Inn Ranong Hostel @ agoda:33839484 (EXACT (name+house no)) — validated road: road \"ถนนเรืองราษฎร์\" runs 15 m from the candidate",
+  "distKm": 0.8,
+  "agodaId": "33839484",
+  "agodaName": "A DAY INN RANONG HOSTEL"
  },
  "review-a-local-something-trang": {
   "lat": 7.534959,
@@ -150,7 +152,14 @@
  },
  "review-abizz-hotel-kwanphayao-phayao": {
   "why": "road query was only a village/house number: \"หมู่ 11\"",
-  "q": "หมู่ 11, Phayao, Thailand"
+  "q": "ABIZZ Hotel KwanPhayao @ agoda:23384344 (EXACT (name+house no)) — validated area: candidate lies in ตำบลบ้านต๋อม / Ban Tom Subdistrict · อำเภอเมืองพะเยา / Mueang Phayao District, both named by the address",
+  "lat": 19.186846,
+  "lng": 99.877686,
+  "prov": "phayao",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "23384344",
+  "agodaName": "ABIZZ hotel KwanPhayao"
  },
  "review-abloom-exclusive-serviced-apartments-bangkok": {
   "lat": 13.7732144,
@@ -180,14 +189,17 @@
   "distKm": 29.1
  },
  "review-aekkeko-hostel-phuket": {
-  "lat": 7.8851057,
-  "lng": 98.3838207,
+  "lat": 7.88492,
+  "lng": 98.386292,
   "prov": "phuket",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "55 Krabi Road, Talat Nuea, Mueang Phuket, Phuket, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Aekkeko Hostel @ agoda:28185295 (EXACT (name+house no)) — validated road: road \"ถนนกระบี่\" runs 13 m from the candidate",
   "distKm": 0.9,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"55 Krabi Road, Talat Nuea, Mueang Phuket, Phuket, Thailand\" is highway=tertiary r26 \"ถนนกระบี่\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนกระบี่\" runs 13 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "28185295",
+  "agodaName": "Aekkeko hostel.",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"55 Krabi Road, Talat Nuea, Mueang Phuket, Phuket, Thailand\" is highway=tertiary r26 \"ถนนกระบี่\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-aen-guy-boutique-hotel-sukhothai": {
   "lat": 17.0152903,
@@ -246,7 +258,14 @@
  },
  "review-alongkorn-hotel-by-sb-samut-songkhram": {
   "why": "equals the province centroid",
-  "q": "ถนนเกษมสุขุม, Samut Songkhram, Thailand"
+  "q": "Alongkorn Hotel by SB @ agoda:18925127 (EXACT (name+house no)) — validated road: road \"ถนนเกษมสุขุม\" runs 47 m from the candidate",
+  "lat": 13.40873,
+  "lng": 100.00119,
+  "prov": "samut-songkhram",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "18925127",
+  "agodaName": "Alongkorn hotel by SB"
  },
  "review-alvarez-hotel-buriram": {
   "lat": 14.9954174,
@@ -326,13 +345,15 @@
   "q": "Pattaya Sai 2 Road, Pattaya, Thailand"
  },
  "review-anajak-bangkok-hotel-bangkok": {
-  "lat": 13.7543311,
-  "lng": 100.5322633,
+  "lat": 13.755977,
+  "lng": 100.534462,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Phayathai Road, Bangkok, Thailand",
-  "distKm": 3.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Anajak Bangkok Hotel @ agoda:1848933 (EXACT (name+house no)) — validated road: road \"ถนนพญาไท\" runs 104 m from the candidate",
+  "distKm": 3.5,
+  "agodaId": "1848933",
+  "agodaName": "Anajak Bangkok Hotel"
  },
  "review-ananta-burin-resort-krabi": {
   "lat": 8.0397992,
@@ -420,13 +441,15 @@
   "q": "หมู่ 5 หาดฉางหลาง ถนนหาดปากเมง-ฉางหลาง, Trang, Thailand"
  },
  "review-anantasila-beach-resort-huahin": {
-  "lat": 12.5116832,
-  "lng": 99.9769469,
-  "prov": "prachuap-khiri-khan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi Hua Don 7, Hua Hin, Thailand",
-  "distKm": 6.7
+  "lat": 12.512814,
+  "lng": 99.978844,
+  "prov": "huahin",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Anantasila Beach Resort Hua Hin @ agoda:108490 (EXACT (name+house no)) — validated road: road \"ซอยอ่าวหัวดอน 7\" runs 12 m from the candidate",
+  "distKm": 6.7,
+  "agodaId": "108490",
+  "agodaName": "Anantasila Beach Resort Hua Hin"
  },
  "review-ananya-lipe-resort-koh-lipe": {
   "lat": 6.485364,
@@ -590,7 +613,14 @@
  },
  "review-areena-resort-and-hotel-uttaradit": {
   "why": "no match",
-  "q": "ถนนสำเนียงเรือน, อุตรดิตถ์, Thailand"
+  "q": "Areena Resort and Hotel Uttaradit @ agoda:22752629 (EXACT (name+house no)) — validated road: road \"ถนนสำราญรื่น ซอย 4\" runs 40 m from the candidate",
+  "lat": 17.628811,
+  "lng": 100.101128,
+  "prov": "uttaradit",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "22752629",
+  "agodaName": "Areena Resort and Hotel Uttaradit"
  },
  "review-arin-hotel-serviced-apartment-sriracha-chonburi": {
   "lat": 13.1784918,
@@ -773,7 +803,14 @@
  },
  "review-at-24-boutique-hotel-nakhon-si-thammarat": {
   "why": "no match",
-  "q": "ซอย 24/1 ถนนพัฒนาการคูขวาง, Nakhon Si Thammarat, Thailand"
+  "q": "@24 Boutique Hotel @ agoda:344851 (EXACT (name+house no)) — validated road: road \"ถนนพัฒนาการคูขวาง 24/1\" runs 9 m from the candidate",
+  "lat": 8.436593,
+  "lng": 99.970016,
+  "prov": "nakhon-si-thammarat",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "344851",
+  "agodaName": "@24Boutique Hotel"
  },
  "review-at-border-hotel-sa-kaeo": {
   "lat": 13.6677323,
@@ -799,11 +836,25 @@
  },
  "review-at-home-at-udon-udon-thani": {
   "why": "no match",
-  "q": "Sampanthamit Road, Udon Thani, Thailand"
+  "q": "@Home at Udon (At Home at Udon) @ agoda:293492 (EXACT (name+house no)) — validated road: road \"ถนนสัมพันธมิตร\" runs 27 m from the candidate",
+  "lat": 17.405666,
+  "lng": 102.801765,
+  "prov": "udon-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "293492",
+  "agodaName": "At Home at Udon"
  },
  "review-at-home-boutique-lampang": {
   "why": "no match",
-  "q": "Thanon Sooksawat 1 Soi 9, Lampang, Thailand"
+  "q": "At Home Boutique @ agoda:1178384 (EXACT (name+house no)) — validated road: road \"ถนนสุขสวัสดิ์ 1 ซอย 9\" runs 5 m from the candidate",
+  "lat": 18.27425,
+  "lng": 99.489525,
+  "prov": "lampang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1178384",
+  "agodaName": "At home boutique"
  },
  "review-at-home-suanphung-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -892,7 +943,14 @@
  },
  "review-aurora-suvarnabhumi-hotel-samut-prakan": {
   "why": "no match",
-  "q": "ซอยนวมินทราชินูทิศ 1 แยก 1 ถนนบางนา-ตราด, สมุทรปราการ, Thailand"
+  "q": "Aurora Suvarnabhumi Hotel @ agoda:8123552 (EXACT (name+house no)) — validated area: candidate lies in ตำบลบางบ่อ / Bang Bo Subdistrict · อำเภอบางบ่อ / Bang Bo District, both named by the address",
+  "lat": 13.61348,
+  "lng": 100.844292,
+  "prov": "samut-prakan",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "8123552",
+  "agodaName": "Aurora Suvarnabhumi"
  },
  "review-avada-hotel-trat": {
   "why": "no match",
@@ -900,7 +958,14 @@
  },
  "review-avana-laemchabang-boutique-hotel-chonburi": {
   "why": "no match",
-  "q": "Soi Laemthong 2, Laem Chabang, Thailand"
+  "q": "Avana Laemchabang Boutique Hotel @ agoda:547339 (EXACT (name+house no)) — validated area: candidate lies in ตำบลทุ่งสุขลา / Thung Sukhla Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.088764,
+  "lng": 100.92392,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "547339",
+  "agodaName": "Avana Laemchabang Boutique Hotel"
  },
  "review-avani-khon-kaen-hotel-convention-centre-khon-kaen": {
   "lat": 16.4374114,
@@ -957,13 +1022,15 @@
   "q": "Moo 3, Chonburi, Thailand"
  },
  "review-b2-boutique-budget-hotel-sisaket": {
-  "lat": 15.0975061,
-  "lng": 104.3347162,
+  "lat": 15.11303,
+  "lng": 104.330282,
   "prov": "sisaket",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนขุขันธ์, Sisaket, Thailand",
-  "distKm": 3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "B2 Sisaket Boutique & Budget Hotel @ agoda:75981337 (STRONG (name+address digits)) — validated road: road \"ถนนขุขันธ์\" runs 27 m from the candidate",
+  "distKm": 3,
+  "agodaId": "75981337",
+  "agodaName": "B2 Sisaket Boutique & Budget Hotel"
  },
  "review-b2-bueng-kan-boutique-budget-bueng-kan": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -1004,13 +1071,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-b2-korat-night-market-boutique-and-budget-hotel-nakhon-ratchasima": {
-  "lat": 14.925622,
-  "lng": 101.9552077,
+  "lat": 14.952388,
+  "lng": 102.04507,
   "prov": "nakhon-ratchasima",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Mittraphap Soi 15, Nakhon Ratchasima, Thailand",
-  "distKm": 16.3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "B2 Korat Night Market Boutique & Budget Hotel @ agoda:47677001 (EXACT (name+house no)) — validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองนครราชสีมา / Mueang Nakhon Ratchasima District, both named by the address",
+  "distKm": 16.3,
+  "agodaId": "47677001",
+  "agodaName": "B2 Korat Night Market Boutique & Budget Hotel"
  },
  "review-b2-lampang-lampang": {
   "lat": 18.2965693,
@@ -1070,13 +1139,15 @@
   "q": "หมู่ 7 ถนนพญาพล, Phrae, Thailand"
  },
  "review-b2-rangsit-boutique-budget-hotel-pathum-thani": {
-  "lat": 13.9937026,
-  "lng": 100.6150054,
+  "lat": 14.004808,
+  "lng": 100.61212,
   "prov": "pathum-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 1 ถนนพหลโยธิน, ปทุมธานี, Thailand",
-  "distKm": 9.6
+  "via": "agoda",
+  "precision": "poi",
+  "q": "B2 Rangsit Boutique & Budget Hotel @ agoda:55584398 (EXACT (name+house no)) — validated area: candidate lies in ตำบลคลองหนึ่ง / Khlong Nueng Subdistrict · อำเภอคลองหลวง / Khlong Luang District, both named by the address",
+  "distKm": 9.6,
+  "agodaId": "55584398",
+  "agodaName": "B2 Rangsit Boutique & Budget Hotel"
  },
  "review-b2-rat-uthit-hat-yai": {
   "lat": 7.0064735,
@@ -1108,17 +1179,26 @@
   "wasWhy": "no match"
  },
  "review-baan-aew-pai-pai": {
-  "lat": 19.3619598,
-  "lng": 98.4403245,
-  "prov": "mae-hong-son",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Khet Khelang Road, Pai, Thailand",
-  "distKm": 49.8
+  "lat": 19.36252,
+  "lng": 98.439056,
+  "prov": "pai",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Baan Aew Pai @ agoda:3076444 (STRONG (name+address digits)) — validated road: road \"ถนนเขตเขลางค์\" runs 113 m from the candidate",
+  "distKm": 49.8,
+  "agodaId": "3076444",
+  "agodaName": "Baan Aew Pai"
  },
  "review-baan-amphawa-resort-spa-samut-songkhram": {
   "why": "no match",
-  "q": "ถนนแก้วฟ้า, Samut Songkhram, Thailand"
+  "q": "Baan Amphawa Resort & Spa @ agoda:230161 (EXACT (name+house no)) — validated road: road \"ซอยวัดแก้วฟ้า\" runs 6 m from the candidate",
+  "lat": 13.410517,
+  "lng": 99.961357,
+  "prov": "samut-songkhram",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "230161",
+  "agodaName": "Baan Amphawa Resort and Spa"
  },
  "review-baan-are-gong-riverside-homestay-ayutthaya": {
   "lat": 14.3563405,
@@ -1147,7 +1227,14 @@
  },
  "review-baan-bua-guest-house-chiang-rai": {
   "why": "no match",
-  "q": "Jetyod Road, Chiang Rai, Thailand"
+  "q": "Baan Bua Guest House @ agoda:256535 (EXACT (name+house no)) — validated road: road \"ถนนเจ็ดยอด\" runs 41 m from the candidate",
+  "lat": 19.904186,
+  "lng": 99.831924,
+  "prov": "chiang-rai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "256535",
+  "agodaName": "Baan Bua Guest House"
  },
  "review-baan-bunga-199-family-chai-nat": {
   "why": "no match",
@@ -1197,7 +1284,14 @@
  },
  "review-baan-i-inspire-phrae": {
   "why": "no match",
-  "q": "ถนนราษฎร์อุทิศ ในเวียง เมืองแพร่, Phrae, Thailand"
+  "q": "Baan I Inspire @ agoda:1199819 (EXACT (name+house no)) — validated road: road \"ถนนราษฎร์อุทิศ\" runs 20 m from the candidate",
+  "lat": 18.1371,
+  "lng": 100.154892,
+  "prov": "phrae",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1199819",
+  "agodaName": "Baan I Inspire"
  },
  "review-baan-i-love-wang-nam-keaw-nakhon-ratchasima": {
   "why": "no match",
@@ -1289,7 +1383,14 @@
  },
  "review-baan-nai-nakhon-boutique-hotel-songkhla": {
   "why": "no match",
-  "q": "Nang Ngam Road, Songkhla, Thailand"
+  "q": "Baan Nai Nakhon Boutique Hotel @ agoda:30165871 (EXACT (name+house no)) — validated road: road \"Nang Ngam Soi\" runs 86 m from the candidate",
+  "lat": 7.195366,
+  "lng": 100.591026,
+  "prov": "songkhla",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "30165871",
+  "agodaName": "Baan Nai Nakhon"
  },
  "review-baan-nilrath-hotel-huahin": {
   "lat": 12.5673064,
@@ -1383,7 +1484,14 @@
  },
  "review-baan-sabai-rim-khong-riverside-nong-khai": {
   "why": "road query was only a village/house number: \"Moo 3\"",
-  "q": "Moo 3, Nong Khai, Thailand"
+  "q": "Baan Sabai Rim Khong @ agoda:433449 (EXACT (name+house no)) — validated road: road \"ถนน แก้ววรวุธ\" runs 64 m from the candidate",
+  "lat": 17.883097,
+  "lng": 102.74033,
+  "prov": "nong-khai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "433449",
+  "agodaName": "Baansabairimkhong"
  },
  "review-baan-sai-thong-koh-larn": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -1391,7 +1499,14 @@
  },
  "review-baan-sattahip-by-the-sea-pattaya": {
   "why": "no match",
-  "q": "หมู่ 1 ถนนชายทะเล, Sattahip, Chonburi, Thailand"
+  "q": "Baan Sattahip by the sea @ agoda:399375 (EXACT (name+house no)) — validated road: road \"ชายทะเล 13\" runs 91 m from the candidate",
+  "lat": 12.662137,
+  "lng": 100.898865,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "399375",
+  "agodaName": "Baan Sattahip by the sea"
  },
  "review-baan-sood-kob-fah-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 6\"",
@@ -1781,7 +1896,14 @@
  },
  "review-basaya-laemchabang-chonburi": {
   "why": "no match",
-  "q": "Moo 9, Laem Chabang, Thailand"
+  "q": "Basaya Laemchabang @ agoda:1060025 (EXACT (name+house no)) — validated area: candidate lies in ตำบลทุ่งสุขลา / Thung Sukhla Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.105248,
+  "lng": 100.921898,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1060025",
+  "agodaName": "Basaya Laemchabang"
  },
  "review-bay-hotel-srinakarin-samut-prakan": {
   "lat": 13.6560776,
@@ -1809,7 +1931,14 @@
  },
  "review-bbg-seaside-luxurious-service-apartment-chonburi": {
   "why": "no match",
-  "q": "Bangsaen Sai 1 Road, Bangsaen, Thailand"
+  "q": "BBG Seaside Luxurious Service Apartment @ agoda:732114 (EXACT (name+house no)) — validated road: road \"บางแสนสาย 1\" runs 32 m from the candidate",
+  "lat": 13.269593,
+  "lng": 100.923693,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "732114",
+  "agodaName": "BBG Seaside Luxurious Service Apartment"
  },
  "review-bc-badin-resort-ranong": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
@@ -1837,7 +1966,14 @@
  },
  "review-bed-nimman-chiang-mai": {
   "why": "no match",
-  "q": "Siri Mangkalajarn Road, Chiang Mai, Thailand"
+  "q": "BED Nimman - Adults Only @ agoda:1120263 (EXACT (name+house no)) — validated road: road \"ซอยจำปี\" runs 26 m from the candidate",
+  "lat": 18.794367,
+  "lng": 98.968201,
+  "prov": "chiang-mai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1120263",
+  "agodaName": "BED Nimman - Adult Only"
  },
  "review-bed-station-hostel-ratchathewi-bangkok": {
   "lat": 13.7532575,
@@ -1908,7 +2044,14 @@
  },
  "review-benri-sriracha-residence-chonburi": {
   "why": "no match",
-  "q": "Sriracha Nakorn Road Soi 1, Si Racha, Chonburi, Thailand"
+  "q": "Benri Sriracha Residence @ agoda:1258082 (EXACT (name+house no)) — validated road: road \"ถนนศรีราชานคร 1\" runs 18 m from the candidate",
+  "lat": 13.166652,
+  "lng": 100.930481,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1258082",
+  "agodaName": "Benri sriracha residence"
  },
  "review-benya-guest-house-phimai-nakhon-ratchasima": {
   "lat": 15.2187141,
@@ -2039,7 +2182,14 @@
  },
  "review-blue-hippo-hotel-samut-prakan": {
   "why": "no match",
-  "q": "หมู่ 10 ซอยแบริ่ง 34, สมุทรปราการ, Thailand"
+  "q": "Blue Hippo Hotel @ agoda:39326729 (EXACT (name+house no)) — validated road: road \"ซอยแบริ่ง 34\" runs 9 m from the candidate",
+  "lat": 13.652109,
+  "lng": 100.615028,
+  "prov": "samut-prakan",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "39326729",
+  "agodaName": "Blue Hippo Hotel"
  },
  "review-blue-house-ang-thong": {
   "lat": 14.5871325,
@@ -2061,7 +2211,14 @@
  },
  "review-blue-rabbit-hotel-chanthaburi": {
   "why": "no match",
-  "q": "หมู่ 2 ถนนรักศักดิ์ชมูล, Chanthaburi, Thailand"
+  "q": "Blue Rabbit Hotel @ agoda:1622493 (EXACT (name+house no)) — validated road: road \"ถนนรักศักดิ์ชมูล\" runs 36 m from the candidate",
+  "lat": 12.648941,
+  "lng": 102.092058,
+  "prov": "chanthaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1622493",
+  "agodaName": "Blue rabbit hotel"
  },
  "review-blues-river-resort-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 4\"",
@@ -2252,23 +2409,28 @@
   "wasWhy": "no match"
  },
  "review-buri-siri-boutique-hotel-chiang-mai": {
-  "lat": 18.7943801,
-  "lng": 98.972627,
+  "lat": 18.794538,
+  "lng": 98.970818,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "1 Sirimangkalajarn Road Soi 9, Suthep, Mueang Chiang Mai, Chiang Mai, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Buri Siri Boutique Hotel @ agoda:1317010 (EXACT (name+house no)) — validated road: road \"ถนนศิริมังคลาจารย์ ซอย 9\" runs 5 m from the candidate",
   "distKm": 0.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"1 Sirimangkalajarn Road Soi 9, Suthep, Mueang Chiang Mai, Chiang Mai, Thailand\" is office=diplomatic r30 \"สถานกงสุลอิตาลี เชียงใหม่\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนศิริมังคลาจารย์ ซอย 9\" runs 5 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "1317010",
+  "agodaName": "Buri Siri Boutique Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"1 Sirimangkalajarn Road Soi 9, Suthep, Mueang Chiang Mai, Chiang Mai, Thailand\" is office=diplomatic r30 \"สถานกงสุลอิตาลี เชียงใหม่\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-buri-sriphu-hotel-hat-yai": {
-  "lat": 6.9982981,
-  "lng": 100.4854811,
-  "prov": "songkhla",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนศรีภูวนารถ, Hat Yai, Thailand",
-  "distKm": 25.7
+  "lat": 6.997783,
+  "lng": 100.482635,
+  "prov": "hat-yai",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Buri Sriphu Hotel @ agoda:393814 (EXACT (name+house no)) — validated road: road \"ถนนศรีภูวนารถ\" runs 44 m from the candidate",
+  "distKm": 25.7,
+  "agodaId": "393814",
+  "agodaName": "Buri Sriphu Hotel"
  },
  "review-busaba-ayutthaya-ayutthaya": {
   "lat": 14.3572126,
@@ -2433,7 +2595,14 @@
  },
  "review-cassia-phuket": {
   "why": "equals the province centroid",
-  "q": "Moo 4, Phuket, Thailand"
+  "q": "Cassia Phuket, part of Banyan Group @ agoda:1044262 (EXACT (name+house no)) — validated area: candidate lies in ตำบลเชิงทะเล / Choeng Thale · อำเภอถลาง / Thalang District, both named by the address",
+  "lat": 8.000137,
+  "lng": 98.295853,
+  "prov": "phuket",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1044262",
+  "agodaName": "Cassia Phuket"
  },
  "review-castaway-resort-koh-lipe": {
   "lat": 6.4870313,
@@ -2487,14 +2656,17 @@
   "distKm": 25.9
  },
  "review-centara-korat-nakhon-ratchasima": {
-  "lat": 14.9718283,
-  "lng": 102.0642848,
+  "lat": 14.997368,
+  "lng": 102.117065,
   "prov": "nakhon-ratchasima",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "880 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Centara Korat @ agoda:31659835 (EXACT (name+house no)) — validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองนครราชสีมา / Mueang Nakhon Ratchasima District, both named by the address",
   "distKm": 3.8,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"880 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองนครราชสีมา / Mueang Nakhon Ratchasima District, both named by the address — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "31659835",
+  "agodaName": "Centara Korat",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"880 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-centara-life-hotel-mae-sot-tak": {
   "why": "no match",
@@ -2553,7 +2725,14 @@
  },
  "review-central-place-hotel-samut-sakhon": {
   "why": "no match",
-  "q": "ซอย 4 ถนนเอกชัย, สมุทรสาคร, Thailand"
+  "q": "Central Place Hotel @ agoda:67340915 (EXACT (agoda id)) — validated road: road \"เอกชัย ซอย 4\" runs 22 m from the candidate",
+  "lat": 13.54573,
+  "lng": 100.260864,
+  "prov": "samut-sakhon",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "67340915",
+  "agodaName": "CENTRAL PLACE HOTEL"
  },
  "review-central-place-serviced-apartment-angsila-chonburi": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -2594,23 +2773,28 @@
   "wasWhy": "no match"
  },
  "review-cha-inn-cha-am-phetchaburi": {
-  "lat": 12.7998336,
-  "lng": 99.9662102,
+  "lat": 12.799545,
+  "lng": 99.985535,
   "prov": "phetchaburi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Cha Inn @ Cha-am, Cha-am, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Cha Inn @ Cha-am @ agoda:176851 (EXACT (name+house no)) — validated road: road \"ถนนร่วมจิตต์\" runs 9 m from the candidate",
   "distKm": 34.6,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Cha Inn @ Cha-am, Cha-am, Thailand\" is railway=station r30 \"ชะอำ\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนร่วมจิตต์\" runs 9 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "176851",
+  "agodaName": "Cha Inn@ Cha-am",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Cha Inn @ Cha-am, Cha-am, Thailand\" is railway=station r30 \"ชะอำ\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chababaancham-resort-samut-songkhram": {
-  "lat": 13.4278111,
-  "lng": 99.9589184,
+  "lat": 13.426684,
+  "lng": 99.956753,
   "prov": "samut-songkhram",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเลียบนที, Samut Songkhram, Thailand",
-  "distKm": 4.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chababaancham Resort @ agoda:280766 (EXACT (name+house no)) — validated road: road \"ถนนเลียบนที\" runs 15 m from the candidate",
+  "distKm": 4.9,
+  "agodaId": "280766",
+  "agodaName": "Chababaancham Resort"
  },
  "review-chada-veranda-hotel-khon-kaen": {
   "lat": 16.4303344,
@@ -2644,13 +2828,15 @@
   "distKm": 13.5
  },
  "review-chainatgrand-hotel-chai-nat": {
-  "lat": 15.2286021,
-  "lng": 100.1813878,
+  "lat": 15.191291,
+  "lng": 100.132637,
   "prov": "chai-nat",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนพหลโยธิน, ชัยนาท, Thailand",
-  "distKm": 7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chainatgrand Hotel @ agoda:59287009 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 50 m from the candidate",
+  "distKm": 7,
+  "agodaId": "59287009",
+  "agodaName": "Chainat Grand Hotel."
  },
  "review-chaisaeng-palace-sing-buri": {
   "lat": 14.8970922,
@@ -2684,13 +2870,15 @@
   "distKm": 1.1
  },
  "review-chala-number-6-chiang-mai": {
-  "lat": 18.7894127,
-  "lng": 98.9889632,
+  "lat": 18.786573,
+  "lng": 98.988304,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Prapokklao Road, Chiang Mai, Thailand",
-  "distKm": 0.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chala Number 6 @ agoda:2845661 (EXACT (name+house no)) — validated road: road \"ถนนพระปกเกล้า ซอย 8\" runs 22 m from the candidate",
+  "distKm": 0.9,
+  "agodaId": "2845661",
+  "agodaName": "Chala Number 6"
  },
  "review-chalelarn-hotel-huahin": {
   "why": "equals the province centroid",
@@ -2709,14 +2897,17 @@
   "wasWhy": "no match"
  },
  "review-chanalai-romantica-resort-phuket": {
-  "lat": 7.8093371,
-  "lng": 98.2993862,
+  "lat": 7.819284,
+  "lng": 98.300323,
   "prov": "phuket",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "62 Kata Road, Karon, Mueang Phuket, Phuket, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chanalai Romantica Resort @ agoda:109886 (EXACT (name+house no)) — validated area: candidate lies in ตำบลกะรน / Karon · อำเภอเมืองภูเก็ต / Mueang Phuket District, both named by the address",
   "distKm": 12.7,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"62 Kata Road, Karon, Mueang Phuket, Phuket, Thailand\" is highway=residential r26 \"ถนนกะตะน้อย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated area: candidate lies in ตำบลกะรน / Karon · อำเภอเมืองภูเก็ต / Mueang Phuket District, both named by the address — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "109886",
+  "agodaName": "Chanalai Romantica Resort - Adults Only",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"62 Kata Road, Karon, Mueang Phuket, Phuket, Thailand\" is highway=residential r26 \"ถนนกะตะน้อย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chandra-varin-riverfront-loei": {
   "why": "no match",
@@ -2731,14 +2922,17 @@
   "q": "Moo 4, Ko Chang, Thailand"
  },
  "review-chanthaburi-center-chanthaburi": {
-  "lat": 12.5108729,
-  "lng": 102.1700278,
+  "lat": 12.611511,
+  "lng": 102.107185,
   "prov": "chanthaburi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Chanthaburi Center, Chanthaburi, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chanthaburi Center @ agoda:1762958 (EXACT (name+house no)) — validated road: road \"ถนนสฤษดิเดช\" runs 7 m from the candidate",
   "distKm": 13.4,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Chanthaburi Center, Chanthaburi, Thailand\" is office=government r30 \"Chanthaburi Horticultural Re\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสฤษดิเดช\" runs 7 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "1762958",
+  "agodaName": "CHANTHABURI CENTER",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Chanthaburi Center, Chanthaburi, Thailand\" is office=government r30 \"Chanthaburi Horticultural Re\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-chanthra-hotel-sa-kaeo": {
   "lat": 13.6917588,
@@ -2751,7 +2945,14 @@
  },
  "review-chaolao-cabana-resort-chanthaburi": {
   "why": "no match",
-  "q": "หมู่ 5 ถนนเฉลิมบูรพาชลทิต, Chanthaburi, Thailand"
+  "q": "Chaolao Cabana Resort @ agoda:293476 (EXACT (name+house no)) — validated road: road \"ถนนเฉลิมบูรพาชลทิต\" runs 83 m from the candidate",
+  "lat": 12.556156,
+  "lng": 101.917915,
+  "prov": "chanthaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "293476",
+  "agodaName": "Chaolao Cabana Resort"
  },
  "review-chaolao-tosang-beach-hotel-chanthaburi": {
   "lat": 12.5573431,
@@ -2768,7 +2969,14 @@
  },
  "review-charisma-residence-rayong": {
   "why": "equals the province centroid",
-  "q": "Moo 3, Rayong, Thailand"
+  "q": "Charisma Residence Rayong @ agoda:2613796 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 8 m from the candidate",
+  "lat": 12.68355,
+  "lng": 101.23481,
+  "prov": "rayong",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2613796",
+  "agodaName": "Charisma Residence"
  },
  "review-charisma-resort-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -2785,7 +2993,14 @@
  },
  "review-charn-residence-chonburi": {
   "why": "no match",
-  "q": "Bangsaen-Ang Sila Road, Bangsaen, Thailand"
+  "q": "Charn Residence @ agoda:339923 (EXACT (name+house no)) — validated road: road \"ถนนอ่างศิลา\" runs 18 m from the candidate",
+  "lat": 13.30641,
+  "lng": 100.906109,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "339923",
+  "agodaName": "Charn Residence"
  },
  "review-charoen-hotel-udon-thani": {
   "lat": 17.4016108,
@@ -2819,13 +3034,15 @@
   "q": "Moo 3, Sangkhla Buri, Thailand"
  },
  "review-chateau-de-sukhumvit-bangkok": {
-  "lat": 13.6982658,
-  "lng": 100.5967746,
+  "lat": 13.699207,
+  "lng": 100.598839,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi Sukhumvit 56, Bangkok, Thailand",
-  "distKm": 11.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chateau de Sukhumvit @ agoda:729559 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 56\" runs 12 m from the candidate",
+  "distKm": 11.9,
+  "agodaId": "729559",
+  "agodaName": "Chateau de Sukhumvit"
  },
  "review-chatfah-resort-khao-kho-phetchabun": {
   "why": "road query was only a village/house number: \"หมู่ 12\"",
@@ -2917,13 +3134,15 @@
   "q": "หมู่ 1, Trat, Thailand"
  },
  "review-chokdee-place-sakon-nakhon": {
-  "lat": 16.8082613,
-  "lng": 103.8834301,
+  "lat": 17.146561,
+  "lng": 104.124336,
   "prov": "sakon-nakhon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสกลนคร-กาฬสินธุ์, Sakon Nakhon, Thailand",
-  "distKm": 48.3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chokdee Place @ agoda:877033 (EXACT (name+house no)) — validated area: candidate lies in ตำบลธาตุเชิงชุม · อำเภอเมืองสกลนคร / Mueang Sakon Nakhon District, both named by the address",
+  "distKm": 48.3,
+  "agodaId": "877033",
+  "agodaName": "Chokdee Place"
  },
  "review-chom-view-hotel-huahin": {
   "why": "no match",
@@ -2939,7 +3158,14 @@
  },
  "review-chomtrang-trang": {
   "why": "no match",
-  "q": "Sathani Road, Trang, Thailand"
+  "q": "ChomTrang @ agoda:1603042 (EXACT (name+house no)) — validated road: road \"ซอยสถานี\" runs 55 m from the candidate",
+  "lat": 7.554506,
+  "lng": 99.605293,
+  "prov": "trang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1603042",
+  "agodaName": "ChomTrang"
  },
  "review-chong-puak-camp-ratchaburi": {
   "lat": 13.5060856,
@@ -2961,13 +3187,15 @@
   "distKm": 12.7
  },
  "review-chumphon-gardens-hotel-chumphon": {
-  "lat": 10.4988387,
-  "lng": 99.1748007,
+  "lat": 10.497749,
+  "lng": 99.174896,
   "prov": "chumphon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนท่าตะเภา, Chumphon, Thailand",
-  "distKm": 1.1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Chumphon Gardens Hotel @ agoda:237409 (EXACT (name+house no)) — validated road: road \"ถนนท่าตะเภา\" runs 39 m from the candidate",
+  "distKm": 1.1,
+  "agodaId": "237409",
+  "agodaName": "Chumphon Gardens Hotel"
  },
  "review-chumphon-palace-hotel-chumphon": {
   "lat": 10.4949088,
@@ -2991,27 +3219,40 @@
  },
  "review-citadines-grand-central-sri-racha-chonburi": {
   "why": "no match",
-  "q": "Surasak 1 Road, Si Racha, Thailand"
+  "q": "Citadines Grand Central Sri Racha @ agoda:772990 (EXACT (name+house no)) — validated road: road \"ถนนสุรศักดิ์ 1\" runs 62 m from the candidate",
+  "lat": 13.165254,
+  "lng": 100.930023,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "772990",
+  "agodaName": "Citadines Grand Central Sri Racha"
  },
  "review-city-hotel-krabi-krabi": {
-  "lat": 8.0649044,
-  "lng": 98.9162048,
+  "lat": 8.064859,
+  "lng": 98.916061,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "City Hotel Krabi, Krabi, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "City Hotel Krabi @ agoda:161809 (EXACT (name+house no)) — validated road: road \"ถนนมหาราช ซอย 10\" runs 17 m from the candidate",
   "distKm": 2.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Hotel Krabi, Krabi, Thailand\" is tourism=hotel r30 \"โรงแรมซิตี้\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนมหาราช ซอย 10\" runs 17 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "161809",
+  "agodaName": "City Hotel Krabi",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Hotel Krabi, Krabi, Thailand\" is tourism=hotel r30 \"โรงแรมซิตี้\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-city-park-hotel-phatthalung": {
-  "lat": 7.614392,
-  "lng": 100.0804631,
+  "lat": 7.614146,
+  "lng": 100.080383,
   "prov": "phatthalung",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "City Park Hotel Phatthalung, Phatthalung, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "City Park Hotel Phatthalung @ agoda:570204 (EXACT (name+house no)) — validated road: road \"ถนนผดุงดอนยอ\" runs 5 m from the candidate",
   "distKm": 0.6,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Park Hotel Phatthalung, Phatthalung, Thailand\" is tourism=hotel r30 \"โรงแรม ซิตี้ปาร์ค\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนผดุงดอนยอ\" runs 5 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "570204",
+  "agodaName": "City Park Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"City Park Hotel Phatthalung, Phatthalung, Thailand\" is tourism=hotel r30 \"โรงแรม ซิตี้ปาร์ค\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cityview-residence-chonburi": {
   "lat": 13.1637619,
@@ -3026,13 +3267,15 @@
   "wasWhy": "no match"
  },
  "review-civilize-hotel-udon-thani": {
-  "lat": 17.4036961,
-  "lng": 102.7997085,
+  "lat": 17.403393,
+  "lng": 102.793251,
   "prov": "udon-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Posri Road, Udon Thani, Thailand",
-  "distKm": 1.2
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Civilize Hotel @ agoda:4917132 (EXACT (name+house no)) — validated road: road \"ถนนโพศรี\" runs 115 m from the candidate",
+  "distKm": 1.2,
+  "agodaId": "4917132",
+  "agodaName": "Civilize Hotel"
  },
  "review-classic-kameo-hotel-serviced-apartments-ayutthaya": {
   "lat": 14.3549886,
@@ -3060,7 +3303,14 @@
  },
  "review-clef-hotel-samut-prakan": {
   "why": "no match",
-  "q": "ซอยแบริ่ง 6 ถนนสุขุมวิท 107, สมุทรปราการ, Thailand"
+  "q": "Clef Hotel @ agoda:1160898 (EXACT (name+house no)) — validated road: road \"ซอยแบริ่ง 6\" runs 14 m from the candidate",
+  "lat": 13.657096,
+  "lng": 100.603508,
+  "prov": "samut-prakan",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1160898",
+  "agodaName": "Clef Hotel Bangkok"
  },
  "review-cliff-cottage-koh-chang": {
   "lat": 11.967452,
@@ -3133,7 +3383,14 @@
  },
  "review-come-moon-loft-phrae": {
   "why": "no match",
-  "q": "ถนนเชตะวัน ซอย 1, Phrae, Thailand"
+  "q": "Come Moon Loft Hotel @ agoda:1495947 (EXACT (name+house no)) — validated road: road \"ซอยเชตวัน 1\" runs 7 m from the candidate",
+  "lat": 18.142477,
+  "lng": 100.132599,
+  "prov": "phrae",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1495947",
+  "agodaName": "Come Moon Loft Hotel"
  },
  "review-comenietee-uthai-uthai-thani": {
   "why": "no match",
@@ -3195,8 +3452,16 @@
   "wasWhy": "equals the province centroid"
  },
  "review-craftsman-bangkok": {
-  "why": "pin deleted 2026-09-16 [address-road-7km-from-pin]: Locality audit 2026-09-16, owner decision. The review address is 34-36 Soi Phahonyothin 11, Samsen Nai, Phaya Thai; the pin reverse-geocodes to แขวงบางโคล่ / เขตบางคอแหลม - wrong at BOTH admin levels and on the opposite side of the city. An exhaustive Overpass search within 12 km returned 107 ways named พหลโยธิน, the nearest 7,324 m from the pin. NOTE ON THE RULE: main roads normally may only KEEP a pin, never drop it, because a long road is split into many ways and the nearest may be missing from a search. That rationale does not hold here - 107 ways were returned and the nearest is 7.3 km, so no closer segment can exist unfound. The first query for this hotel used a Latin-only name pattern and wrongly reported NOT FOUND; OSM stores the name in Thai. NOT MOVED: no OSM element named Craftsman. The address renders as a Maps search link.",
-  "q": "Craftsman Bangkok, Bangkok, Thailand"
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยพหลโยธิน 13\" runs 59 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "q": "Craftsman Bangkok @ agoda:5751348 (EXACT (name+house no)) — validated road: road \"ซอยพหลโยธิน 13\" runs 59 m from the candidate",
+  "lat": 13.787789,
+  "lng": 100.544991,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "5751348",
+  "agodaName": "Craftsman Bangkok",
+  "wasWhy": "pin deleted 2026-09-16 [address-road-7km-from-pin]: Locality audit 2026-09-16, owner decision. The review address is 34-36 Soi Phahonyothin 11, Samsen Nai, Phaya Thai; the pin reverse-geocodes to แขวงบางโคล่ / เขตบางคอแหลม - wrong at BOTH admin levels and on the opposite side of the city. An exhaustive Overpass search within 12 km returned 107 ways named พหลโยธิน, the nearest 7,324 m from the pin. NOTE ON THE RULE: main roads normally may only KEEP a pin, never drop it, because a long road is split into many ways and the nearest may be missing from a search. That rationale does not hold here - 107 ways were returned and the nearest is 7.3 km, so no closer segment can exist unfound. The first query for this hotel used a Latin-only name pattern and wrongly reported NOT FOUND; OSM stores the name in Thai. NOT MOVED: no OSM element named Craftsman. The address renders as a Maps search link."
  },
  "review-cresco-hotel-buriram": {
   "lat": 14.971606,
@@ -3248,27 +3513,32 @@
   "q": "ถนนบายพาส, Yasothon, Thailand"
  },
  "review-crystal-jade-rayong-hotel-rayong": {
-  "lat": 12.6840625,
-  "lng": 101.217922,
+  "lat": 12.682688,
+  "lng": 101.257446,
   "prov": "rayong",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "335/1 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Crystal Jade Rayong Hotel @ agoda:461542 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 15 m from the candidate",
   "distKm": 6.7,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"335/1 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสุขุมวิท\" runs 15 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "461542",
+  "agodaName": "Crystal Jade Rayong Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"335/1 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-cs-pattani-hotel-pattani": {
   "why": "equals the province centroid",
   "q": "หมู่ 4 ถนนหนองจิก, Pattani, Thailand"
  },
  "review-cu-inn-bangkok": {
-  "lat": 13.828707,
-  "lng": 100.5580157,
+  "lat": 13.810612,
+  "lng": 100.559036,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Vibhavadi Rangsit Road, Bangkok, Thailand",
-  "distKm": 10.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "C U Inn Bangkok @ agoda:780560 (EXACT (name+house no)) — validated road: road \"ถนนวิภาวดีรังสิต\" runs 27 m from the candidate",
+  "distKm": 10.8,
+  "agodaId": "780560",
+  "agodaName": "C U Inn Bangkok"
  },
  "review-cuteinnan-hostel-nan": {
   "lat": 18.7781072,
@@ -3306,7 +3576,14 @@
  },
  "review-dd-garden-home-phayao": {
   "why": "no match",
-  "q": "หมู่ 13 บ้านท่าเรือ ถนนพหลโยธิน, Phayao, Thailand"
+  "q": "DD Garden Home Phayao @ agoda:4499623 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 43 m from the candidate",
+  "lat": 19.21726,
+  "lng": 99.867113,
+  "prov": "phayao",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4499623",
+  "agodaName": "DD Garden Home"
  },
  "review-de-bua-valley-resort-nakhon-ratchasima": {
   "why": "road query was only a village/house number: \"หมู่ 10\"",
@@ -3336,7 +3613,14 @@
  },
  "review-de-princess-hotel-udon-thani": {
   "why": "road query was only a village/house number: \"Mu 14\"",
-  "q": "Mu 14, Udon Thani, Thailand"
+  "q": "De Princess Hotel Udon Thani @ agoda:4972298 (EXACT (name+house no)) — validated road: road \"ถนนนิตโย\" runs 82 m from the candidate",
+  "lat": 17.39481,
+  "lng": 102.80986,
+  "prov": "udon-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4972298",
+  "agodaName": "De Princess Hotel Udonthani"
  },
  "review-de-proud-hotel-ubon-ratchathani": {
   "lat": 15.27261,
@@ -3352,13 +3636,15 @@
   "q": "ซอยศรีสวัสดิ์ดำเนิน 6 ถนนศรีสวัสดิ์ดำเนิน, Maha Sarakham, Thailand"
  },
  "review-dee-hotel-phayao": {
-  "lat": 19.1841001,
-  "lng": 99.8812943,
+  "lat": 19.186886,
+  "lng": 99.891426,
   "prov": "phayao",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 12 ถนนพหลโยธิน, Phayao, Thailand",
-  "distKm": 2.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Dee Hotel Phayao @ agoda:17455586 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 21 m from the candidate",
+  "distKm": 2.5,
+  "agodaId": "17455586",
+  "agodaName": "Dee Hotel Phayao"
  },
  "review-destino-hotel-surin": {
   "why": "no match",
@@ -3430,13 +3716,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 18\""
  },
  "review-diamond-plaza-hotel-surat-thani": {
-  "lat": 9.1055136,
-  "lng": 99.304019,
+  "lat": 9.10697,
+  "lng": 99.305191,
   "prov": "surat-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนศรีวิชัย, Surat Thani, Thailand",
-  "distKm": 4.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Diamond Plaza Hotel Suratthani @ agoda:276964 (EXACT (name+house no)) — validated road: road \"ถนนศรีวิชัย\" runs 48 m from the candidate",
+  "distKm": 4.8,
+  "agodaId": "276964",
+  "agodaName": "Diamond Plaza Hotel Suratthani"
  },
  "review-dino-studio-luxury-homestay-kalasin": {
   "lat": 16.4387348,
@@ -3467,7 +3755,14 @@
  },
  "review-dluxx-thammasat-pathum-thani": {
   "why": "no match",
-  "q": "หมู่ 18 ถนนพิรับเขา, ปทุมธานี, Thailand"
+  "q": "Dluxx Thammasat @ agoda:39632837 (EXACT (name+house no)) — validated area: candidate lies in ตำบลคลองหนึ่ง / Khlong Nueng Subdistrict · อำเภอคลองหลวง / Khlong Luang District, both named by the address",
+  "lat": 14.070757,
+  "lng": 100.597595,
+  "prov": "pathum-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "39632837",
+  "agodaName": "DLUXX THAMMASAT"
  },
  "review-doi-bo-luang-fio-chiang-mai": {
   "why": "no match",
@@ -3487,13 +3782,15 @@
   "distKm": 36.6
  },
  "review-dragon-river-avenue-hotel-phitsanulok": {
-  "lat": 16.7500661,
-  "lng": 100.1892722,
+  "lat": 16.828388,
+  "lng": 100.264366,
   "prov": "phitsanulok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเอกาทศรถ, Phitsanulok, Thailand",
-  "distKm": 11.6
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Dragon River Avenue Hotel @ agoda:789273 (EXACT (name+house no)) — validated road: road \"ถนนเอกาทศรถ\" runs 112 m from the candidate",
+  "distKm": 11.6,
+  "agodaId": "789273",
+  "agodaName": "Dragon River Avenue Hotel"
  },
  "review-dreamcatcher-boutique-hotel-samui": {
   "lat": 9.5598196,
@@ -3511,7 +3808,14 @@
  },
  "review-ducati-bike-box-hostel-buriram": {
   "why": "no match",
-  "q": "หมู่ 4 ถนนบุรีรัมย์-ประโคนชัย, Buriram, Thailand"
+  "q": "Ducati Bike Box Hostel @ agoda:2401178 (EXACT (name+house no)) — validated area: candidate lies in ตำบลอิสาณ / Isan Subdistrict · อำเภอเมืองบุรีรัมย์ / Mueang Buri Ram District, both named by the address",
+  "lat": 14.969703,
+  "lng": 103.102173,
+  "prov": "buriram",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2401178",
+  "agodaName": "Ducati Bike Box Hostel"
  },
  "review-dusit-hotel-sakon-nakhon": {
   "lat": 17.1627208,
@@ -3680,13 +3984,15 @@
   "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"255/24 ถนนราษฎร์พลี 2 ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand\" is highway=residential r26 \"ถนนราษฎร์พลี 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-excella-hotel-ubon-ratchathani": {
-  "lat": 15.27261,
-  "lng": 104.84013,
+  "lat": 15.268079,
+  "lng": 104.849205,
   "prov": "ubon-ratchathani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi Chayangkun 40, Ubon Ratchathani, Thailand",
-  "distKm": 3.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Excella Hotel @ agoda:665952 (EXACT (name+house no)) — validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองอุบลราชธานี / Mueang Ubon Ratchathani District, both named by the address",
+  "distKm": 3.8,
+  "agodaId": "665952",
+  "agodaName": "Excella Hotel"
  },
  "review-faasai-resort-spa-chanthaburi": {
   "lat": 12.6097532,
@@ -3786,7 +4092,14 @@
  },
  "review-fisherman-way-beach-villa-phuket": {
   "why": "equals the province centroid",
-  "q": "Moo 5, Phuket, Thailand"
+  "q": "Fisherman Way Beach Villa @ agoda:444070 (EXACT (name+house no)) — validated area: candidate lies in ตำบลราไวย์ / Rawai · อำเภอเมืองภูเก็ต / Mueang Phuket District, both named by the address",
+  "lat": 7.81415,
+  "lng": 98.340248,
+  "prov": "phuket",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "444070",
+  "agodaName": "Fisherman Way Beach Villa"
  },
  "review-flora-creek-chiang-mai": {
   "lat": 18.7723676,
@@ -3816,7 +4129,14 @@
  },
  "review-fortune-d-hotel-phitsanulok": {
   "why": "no match",
-  "q": "ถนนแสนพลพ่าย, Phitsanulok, Thailand"
+  "q": "Fortune D Hotel Phitsanulok @ agoda:907605 (EXACT (name+house no)) — validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองพิษณุโลก / Mueang Phitsanulok District, both named by the address",
+  "lat": 16.818792,
+  "lng": 100.275337,
+  "prov": "phitsanulok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "907605",
+  "agodaName": "Fortune D Hotel Phitsanulok"
  },
  "review-fortune-hotel-korat-nakhon-ratchasima": {
   "lat": 14.9788116,
@@ -3875,14 +4195,17 @@
   "wasWhy": "no match"
  },
  "review-g-residence-pattaya": {
-  "lat": 12.9573844,
-  "lng": 100.8871438,
-  "prov": "chonburi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "G Residence Pattaya, Pattaya, Thailand",
+  "lat": 12.912308,
+  "lng": 100.872284,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "G Residence Pattaya @ agoda:1515979 (EXACT (name+house no)) — validated road: road \"ทัพพระยา 15\" runs 119 m from the candidate",
   "distKm": 45.9,
-  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"G Residence Pattaya, Pattaya, Thailand\" is landuse=residential r24 \"Green Residence\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ทัพพระยา 15\" runs 119 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "1515979",
+  "agodaName": "G Residence",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"G Residence Pattaya, Pattaya, Thailand\" is landuse=residential r24 \"Green Residence\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-g9-bangkok-hostel-bangkok": {
   "lat": 13.8035447,
@@ -3954,7 +4277,14 @@
  },
  "review-gingin-hotel-trang-old-town-trang": {
   "why": "equals the province centroid",
-  "q": "ถนนพระรามที่ 6, Trang, Thailand"
+  "q": "GinGin Hotel, Trang Old Town @ agoda:84385832 (EXACT (name+house no)) — validated road: road \"ถนนพระรามที่ 6\" runs 9 m from the candidate",
+  "lat": 7.555588,
+  "lng": 99.606895,
+  "prov": "trang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "84385832",
+  "agodaName": "GinGin hotel, Trang Old Town"
  },
  "review-glacier-hotel-khon-kaen": {
   "lat": 16.4272049,
@@ -3975,14 +4305,17 @@
   "distKm": 14.4
  },
  "review-glow-ao-nang-krabi-krabi": {
-  "lat": 8.0344317,
-  "lng": 98.8288989,
+  "lat": 8.041574,
+  "lng": 98.817375,
   "prov": "krabi",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "GLOW Ao Nang Krabi, Krabi, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "GLOW Ao Nang Krabi @ agoda:2598442 (EXACT (name+house no)) — validated road: road \"ซอยอ่าวนาง 8\" runs 83 m from the candidate",
   "distKm": 10.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"GLOW Ao Nang Krabi, Krabi, Thailand\" is shop=laundry r30 \"Wash & glow\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยอ่าวนาง 8\" runs 83 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "2598442",
+  "agodaName": "GLOW Ao Nang Krabi",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"GLOW Ao Nang Krabi, Krabi, Thailand\" is shop=laundry r30 \"Wash & glow\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-go-hotel-nakhon-sawan": {
   "why": "road query was only a village/house number: \"หมู่ 10\"",
@@ -3998,14 +4331,17 @@
   "distKm": 7.9
  },
  "review-golden-beach-cha-am-hotel-phetchaburi": {
-  "lat": 12.7521066,
-  "lng": 99.961585,
+  "lat": 12.803817,
+  "lng": 99.98616,
   "prov": "phetchaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "208/14 ถนนเพชรเกษม ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Golden Beach Cha-Am Hotel @ agoda:71646 (EXACT (name+house no)) — validated road: road \"ถนนร่วมจิตต์\" runs 117 m from the candidate",
   "distKm": 39.9,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"208/14 ถนนเพชรเกษม ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand\" is highway=trunk r26 \"ถนนเพชรเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนร่วมจิตต์\" runs 117 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "71646",
+  "agodaName": "Golden Beach Cha-Am Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"208/14 ถนนเพชรเกษม ตำบลชะอำ อำเภอชะอำ, Cha-am, Thailand\" is highway=trunk r26 \"ถนนเพชรเกษม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-golden-city-rayong-hotel-rayong": {
   "lat": 12.6838562,
@@ -4123,13 +4459,15 @@
   "q": "หมู่ 9, Chaiyaphum, Thailand"
  },
  "review-grand-visanu-hotel-nakhon-sawan": {
-  "lat": 15.7084644,
-  "lng": 100.1380531,
+  "lat": 15.706279,
+  "lng": 100.140266,
   "prov": "nakhon-sawan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนอรรถกวี, นครสวรรค์, Thailand",
-  "distKm": 1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Grand Visanu Hotel @ agoda:262527 (EXACT (name+house no)) — validated road: road \"ถนนอรรถกวี\" runs 22 m from the candidate",
+  "distKm": 1,
+  "agodaId": "262527",
+  "agodaName": "Grand Vissanu Hotel"
  },
  "review-grandview-landmark-betong-yala": {
   "why": "no match",
@@ -4232,14 +4570,17 @@
   "wasWhy": "no match"
  },
  "review-greenview-boutique-sungaikolok-narathiwat": {
-  "lat": 6.0220604,
-  "lng": 101.9618278,
+  "lat": 6.021725,
+  "lng": 101.9617,
   "prov": "narathiwat",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "84 ถนนวงศ์วิวัฒน์ ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "GreenView Boutique Hotel @ agoda:1619391 (EXACT (name+house no)) — validated road: road \"ถนนวงศ์วิวัฒน์\" runs 18 m from the candidate",
   "distKm": 48,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"84 ถนนวงศ์วิวัฒน์ ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=secondary r26 \"ถนนวงศ์วิวัฒน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนวงศ์วิวัฒน์\" runs 18 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "1619391",
+  "agodaName": "GreenView Boutique Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"84 ถนนวงศ์วิวัฒน์ ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=secondary r26 \"ถนนวงศ์วิวัฒน์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-guest-house-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 9\"",
@@ -4427,7 +4768,14 @@
  },
  "review-hisea-huahin-hotel-huahin": {
   "why": "no match",
-  "q": "Naeb Kehasan Road, Hua Hin, Thailand"
+  "q": "Hisea Huahin Hotel @ agoda:1274991 (EXACT (name+house no)) — validated road: road \"ถนนแนบเคหาสน์\" runs 11 m from the candidate",
+  "lat": 12.573811,
+  "lng": 99.956779,
+  "prov": "huahin",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1274991",
+  "agodaName": "Hisea Huahin Hotel"
  },
  "review-hmong-hilltribe-lodge-chiang-mai": {
   "lat": 18.9567517,
@@ -4534,14 +4882,17 @@
   "q": "Moo 1, Chiang Rai, Thailand"
  },
  "review-honghub-sakon-sakon-nakhon": {
-  "lat": 17.1628565,
-  "lng": 104.1381646,
+  "lat": 17.180885,
+  "lng": 104.111191,
   "prov": "sakon-nakhon",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "272/37 ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Honghub Sakon Hotel @ agoda:871928 (EXACT (name+house no)) — validated area: candidate lies in ตำบลธาตุเชิงชุม · อำเภอเมืองสกลนคร / Mueang Sakon Nakhon District, both named by the address",
   "distKm": 1.3,
-  "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"272/37 ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is boundary=administrative r16 \"ตำบลธาตุเชิงชุม\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated area: candidate lies in ตำบลธาตุเชิงชุม · อำเภอเมืองสกลนคร / Mueang Sakon Nakhon District, both named by the address — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "871928",
+  "agodaName": "Honghub Sakon Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"272/37 ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is boundary=administrative r16 \"ตำบลธาตุเชิงชุม\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hop-inn-airport-hat-yai": {
   "lat": 7.0022513,
@@ -4562,13 +4913,15 @@
   "distKm": 1.4
  },
  "review-hop-inn-chaengwattana-nonthaburi": {
-  "lat": 13.8960514,
-  "lng": 100.5518127,
+  "lat": 13.905394,
+  "lng": 100.531082,
   "prov": "nonthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 4 ถนนแจ้งวัฒนะ, Nonthaburi, Thailand",
-  "distKm": 6
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Hop Inn Chaengwattana @ agoda:7470189 (EXACT (name+house no)) — validated road: road \"ซอยแจ้งวัฒนะ-ปากเกร็ด 23\" runs 18 m from the candidate",
+  "distKm": 6,
+  "agodaId": "7470189",
+  "agodaName": "HOP INN Chaengwattana"
  },
  "review-hop-inn-chaiyaphum-chaiyaphum": {
   "why": "no match",
@@ -4584,8 +4937,16 @@
   "distKm": 1.2
  },
  "review-hop-inn-chonburi": {
-  "why": "pin deleted 2026-09-16 [wrong-branch]: Audited 2026-09-16: the pin (Nominatim answer to \"Hop Inn Chonburi, Chonburi, Thailand\") sits 1 m from OSM way/1447179055 \"HOP INN Central Pattaya\" (brand=HOP INN, website hopinnhotel.com), which reverse-geocodes to Bang Lamung / Pattaya. The review's own address is 40/1 Moo 1, Sukhumvit Road, Samet, Mueang Chonburi, near Big C Extra — a different branch about 30 km north. OSM's cached lodging for Chonburi has HOP INN Si Racha and HOP INN Central Pattaya, no Hop Inn at Samet.",
-  "q": "Hop Inn Chonburi, Chonburi, Thailand"
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ทางคู่ขนานถนนสุขุมวิท\" runs 47 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "q": "Hop Inn Chonburi @ agoda:5305277 (EXACT (name+house no)) — validated road: road \"ทางคู่ขนานถนนสุขุมวิท\" runs 47 m from the candidate",
+  "lat": 13.326949,
+  "lng": 100.966118,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "5305277",
+  "agodaName": "HOP INN Chonburi",
+  "wasWhy": "pin deleted 2026-09-16 [wrong-branch]: Audited 2026-09-16: the pin (Nominatim answer to \"Hop Inn Chonburi, Chonburi, Thailand\") sits 1 m from OSM way/1447179055 \"HOP INN Central Pattaya\" (brand=HOP INN, website hopinnhotel.com), which reverse-geocodes to Bang Lamung / Pattaya. The review's own address is 40/1 Moo 1, Sukhumvit Road, Samet, Mueang Chonburi, near Big C Extra — a different branch about 30 km north. OSM's cached lodging for Chonburi has HOP INN Si Racha and HOP INN Central Pattaya, no Hop Inn at Samet."
  },
  "review-hop-inn-hua-hin-huahin": {
   "lat": 12.5795582,
@@ -4628,13 +4989,15 @@
   "distKm": 62.6
  },
  "review-hop-inn-mahasarakham-maha-sarakham": {
-  "lat": 16.1994446,
-  "lng": 103.2841223,
-  "prov": "khon-kaen",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนนครสวรรค์, Maha Sarakham, Thailand",
-  "distKm": 55.4
+  "lat": 16.202301,
+  "lng": 103.269623,
+  "prov": "maha-sarakham",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Hop Inn Mahasarakham @ agoda:29465500 (EXACT (name+house no)) — validated road: road \"ถนนนครสวรรค์\" runs 11 m from the candidate",
+  "distKm": 55.4,
+  "agodaId": "29465500",
+  "agodaName": "HOP INN Mahasarakham"
  },
  "review-hop-inn-mukdahan": {
   "lat": 16.5433741,
@@ -4646,13 +5009,15 @@
   "distKm": 0.9
  },
  "review-hop-inn-nakhon-pathom": {
-  "lat": 13.8120869,
-  "lng": 100.0537167,
+  "lat": 13.811212,
+  "lng": 100.054893,
   "prov": "nakhon-pathom",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนราชมรรคา, นครปฐม, Thailand",
-  "distKm": 1.1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Hop Inn Nakhon Pathom @ agoda:11023618 (EXACT (agoda id)) — validated road: road \"ถนน ราชมรรคา\" runs 89 m from the candidate",
+  "distKm": 1.1,
+  "agodaId": "11023618",
+  "agodaName": "HOP INN Nakhon Pathom"
  },
  "review-hop-inn-nakhon-ratchasima": {
   "lat": 14.9591237,
@@ -4717,13 +5082,15 @@
   "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"92 ถนนพหลโยธิน ตำบลประชาธิปัตย์ อำเภอธัญบุรี, Pathum Thani, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hop-inn-rayong": {
-  "lat": 12.7044873,
-  "lng": 101.1832968,
+  "lat": 12.682178,
+  "lng": 101.252914,
   "prov": "rayong",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "355/3 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 10.8
+  "q": "Hop Inn Rayong @ agoda:2090336 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท (นครระยอง 26)\" runs 13 m from the candidate",
+  "distKm": 10.8,
+  "agodaId": "2090336",
+  "agodaName": "HOP INN Rayong"
  },
  "review-hop-inn-roi-et": {
   "why": "no match",
@@ -4853,14 +5220,17 @@
   "wasWhy": "road query was only a village/house number: \"หมู่ 11\""
  },
  "review-hotel-la-villa-khon-kaen": {
-  "lat": 16.4343611,
-  "lng": 102.8362071,
+  "lat": 16.433523,
+  "lng": 102.853371,
   "prov": "khon-kaen",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "Hotel La Villa Khon Kaen, Khon Kaen, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Hotel La Villa Khon Kaen @ agoda:334492 (EXACT (name+house no)) — validated road: road \"ซอยชาตะผดุง 5\" runs 15 m from the candidate",
   "distKm": 0.9,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hotel La Villa Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"โรงแรมวิลล่า\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยชาตะผดุง 5\" runs 15 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "334492",
+  "agodaName": "Hotel La Villa",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"Hotel La Villa Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"โรงแรมวิลล่า\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-hotel-moco-udon-thani": {
   "lat": 17.4026922,
@@ -5008,7 +5378,14 @@
  },
  "review-huglampang-boutique-hotel-lampang": {
   "why": "no match",
-  "q": "57, 59, 61 Thipchang Road, Hua Wiang, Mueang Lampang, Lampang, Thailand"
+  "q": "Huglampang Boutique Hotel @ agoda:9354724 (EXACT (name+house no)) — validated road: road \"ถนนทิพย์วรรณ\" runs 12 m from the candidate",
+  "lat": 18.288933,
+  "lng": 99.499397,
+  "prov": "lampang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "9354724",
+  "agodaName": "Huglampang Boutique Hotel"
  },
  "review-hugpua-hotel-nan": {
   "lat": 19.1791795,
@@ -5066,7 +5443,14 @@
  },
  "review-i-hotel-khon-kaen": {
   "why": "road query was only a village/house number: \"Moo 3\"",
-  "q": "Moo 3, Khon Kaen, Thailand"
+  "q": "I Hotel Khonkaen @ agoda:528792 (EXACT (name+house no)) — validated road: road \"ถนนมิตรภาพ\" runs 43 m from the candidate",
+  "lat": 16.49472,
+  "lng": 102.83194,
+  "prov": "khon-kaen",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "528792",
+  "agodaName": "I Hotel Khonkaen"
  },
  "review-i-na-seaview-rayong": {
   "why": "no match",
@@ -5144,7 +5528,14 @@
  },
  "review-ibiz-boutique-hotel-nakhon-si-thammarat": {
   "why": "no match",
-  "q": "Pattanakan-Kukwang Rd., Mueang, Nakhon Si Thammarat, Thailand"
+  "q": "iBiz Boutique Hotel @ agoda:5055199 (EXACT (name+house no)) — validated road: road \"ถนนพัฒนาการคูขวาง\" runs 11 m from the candidate",
+  "lat": 8.426935,
+  "lng": 99.972359,
+  "prov": "nakhon-si-thammarat",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "5055199",
+  "agodaName": "iBiz Boutique Hotel"
  },
  "review-idin-place-hotel-somdet-kalasin": {
   "why": "road query was only a village/house number: \"หมู่ 14\"",
@@ -5277,14 +5668,17 @@
   "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"62 หมู่ 7 ตำบลเชียงรากใหญ่ อำเภอสามโคก, Pathum Thani, Thailand\" is place=village r19 \"บ้านท้องคุ้ง\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-innside-by-melia-sukhumvit-bangkok": {
-  "lat": 13.7265949,
-  "lng": 100.5752626,
+  "lat": 13.707008,
+  "lng": 100.600006,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "1472 Sukhumvit Road, Phra Khanong, Khlong Toei, Bangkok, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "INNSiDE by Meliá Bangkok Sukhumvit @ agoda:37726884 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 24 m from the candidate",
   "distKm": 8.5,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1472 Sukhumvit Road, Phra Khanong, Khlong Toei, Bangkok, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสุขุมวิท\" runs 24 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "37726884",
+  "agodaName": "INNSiDE by Meliá Bangkok Sukhumvit",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"1472 Sukhumvit Road, Phra Khanong, Khlong Toei, Bangkok, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-intercontinental-hua-hin-resort-prachuap-khiri-khan": {
   "lat": 12.5485134,
@@ -5419,7 +5813,14 @@
  },
  "review-j-house-hotel-phetchaburi": {
   "why": "no match",
-  "q": "หมู่ 6 ซอยไทยเอื้ออุทิศ ถนนต้นมะม่วง, Phetchaburi, Thailand"
+  "q": "J-House Hotel @ agoda:1155509 (EXACT (name+house no)) — validated road: road \"ซอยไทยเอื้ออุทิศ\" runs 8 m from the candidate",
+  "lat": 13.087409,
+  "lng": 99.95047,
+  "prov": "phetchaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1155509",
+  "agodaName": "J-House Phetchaburi"
  },
  "review-j-park-hotel-and-serviced-apartment-chonburi": {
   "why": "no match",
@@ -5536,11 +5937,25 @@
  },
  "review-jn9-poshtel-pattaya": {
   "why": "no match",
-  "q": "Moo 12, Pattaya, Thailand"
+  "q": "JN9 Poshtel Pattaya @ agoda:4509088 (EXACT (name+house no)) — validated road: road \"จอมเทียน ซอย9\" runs 21 m from the candidate",
+  "lat": 12.89155,
+  "lng": 100.876221,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4509088",
+  "agodaName": "JN9 Poshtel"
  },
  "review-jolly-suites-and-spa-petkasem-samut-sakhon": {
   "why": "no match",
-  "q": "หมู่ 11 ถนนเพชรเกษม, สมุทรสาคร, Thailand"
+  "q": "Jolly Suites & Spa Petkasem @ agoda:862820 (EXACT (name+house no)) — validated road: road \"ถนนเพชรเกษม\" runs 50 m from the candidate",
+  "lat": 13.703547,
+  "lng": 100.325005,
+  "prov": "samut-sakhon",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "862820",
+  "agodaName": "Aspira Petchkasem"
  },
  "review-jomtien-boathouse-pattaya": {
   "lat": 12.8943271,
@@ -5565,7 +5980,14 @@
  },
  "review-josh-hotel-bangkok": {
   "why": "no match",
-  "q": "Ari 4 Fang Nua Alley, Bangkok, Thailand"
+  "q": "Josh Hotel @ agoda:2846325 (EXACT (name+house no)) — validated area: candidate lies in แขวงพญาไท / Phaya Thai Subdistrict · เขตพญาไท / Phaya Thai District, both named by the address",
+  "lat": 13.783726,
+  "lng": 100.54393,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2846325",
+  "agodaName": "JOSH Hotel"
  },
  "review-jp-emerald-hotel-yasothon": {
   "why": "no match",
@@ -5641,13 +6063,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 4\""
  },
  "review-kalanan-riverside-resort-nonthaburi": {
-  "lat": 13.9054159,
-  "lng": 100.4922746,
+  "lat": 13.928241,
+  "lng": 100.502129,
   "prov": "nonthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 7 ถนนสุขาประชาสรรค์, นนทบุรี, Thailand",
-  "distKm": 5.4
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Kalanan Riverside Resort @ agoda:267487 (EXACT (name+house no)) — validated area: candidate lies in ตำบลบางพูด / Bang Phut Subdistrict · อำเภอปากเกร็ด / Pak Kret District, both named by the address",
+  "distKm": 5.4,
+  "agodaId": "267487",
+  "agodaName": "Kalanan Riverside Resort"
  },
  "review-kallapangha-resort-prachuap-khiri-khan": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -5670,14 +6094,17 @@
   "wasWhy": "no match"
  },
  "review-kameo-grand-rayong": {
-  "lat": 12.7005912,
-  "lng": 101.1901297,
+  "lat": 12.682419,
+  "lng": 101.260208,
   "prov": "rayong",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "305/14 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Kameo Grand Hotel & Serviced Apartment Rayong @ agoda:172337 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 35 m from the candidate",
   "distKm": 10,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"305/14 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสุขุมวิท\" runs 35 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "172337",
+  "agodaName": "Kameo Grand Hotel & Serviced Apartments - Rayong",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"305/14 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand\" is highway=primary r26 \"ถนนสุขุมวิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-kameo-hotel-amata-bangpakong-chonburi": {
   "why": "road query was only a village/house number: \"Moo 5\"",
@@ -5718,7 +6145,14 @@
  },
  "review-kantary-bay-hotel-serviced-apartments-sriracha-chonburi": {
   "why": "no match",
-  "q": "17/2, 17/3 Soi Jerm Jompon 1, Sriracha, Si Racha, Thailand"
+  "q": "Kantary Bay Hotel & Serviced Apartments Sriracha @ agoda:240261 (STRONG (name+address digits)) — validated area: candidate lies in ตำบลศรีราชา / Si Racha Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.17107,
+  "lng": 100.928932,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "240261",
+  "agodaName": "Kantary Bay Hotel & Serviced Apartments Sriracha"
  },
  "review-kantary-bay-rayong": {
   "lat": 12.6656693,
@@ -5806,7 +6240,14 @@
  },
  "review-kavinburi-green-hotel-udon-thani": {
   "why": "no match",
-  "q": "Prajak Sillapakhom Road, Udon Thani, Thailand"
+  "q": "Kavinburi Green Hotel @ agoda:823389 (EXACT (name+house no)) — validated road: road \"ถนนประจักษ์ศิลปาคม\" runs 9 m from the candidate",
+  "lat": 17.404081,
+  "lng": 102.801704,
+  "prov": "udon-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "823389",
+  "agodaName": "Kavinburi Green Hotel"
  },
  "review-kc-grande-koh-chang": {
   "why": "road query was only a village/house number: \"Moo 4\"",
@@ -5838,13 +6279,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 5\""
  },
  "review-kesorn-boutique-chachoengsao": {
-  "lat": 13.6881909,
-  "lng": 101.0768572,
+  "lat": 13.677406,
+  "lng": 101.083572,
   "prov": "chachoengsao",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสุขประยูร, ฉะเชิงเทรา, Thailand",
-  "distKm": 0.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Kesorn Boutique Residence at 8 Riew @ agoda:1081014 (EXACT (name+house no)) — validated road: road \"ถนนศุขประยูร\" runs 18 m from the candidate",
+  "distKm": 0.8,
+  "agodaId": "1081014",
+  "agodaName": "Kesorn Boutique Residence at 8 Riew"
  },
  "review-kesorn-boutique-hotel-buriram": {
   "why": "road query was only a village/house number: \"หมู่ 11\"",
@@ -6027,7 +6470,14 @@
  },
  "review-kingfisher-house-kanchanaburi": {
   "why": "equals the province centroid",
-  "q": "Moo 1, Kanchanaburi, Thailand"
+  "q": "Kingfisher House @ agoda:3542337 (EXACT (name+house no)) — validated road: road \"ถนนศรีสุวรรณคีรี\" runs 4 m from the candidate",
+  "lat": 15.147318,
+  "lng": 98.453766,
+  "prov": "kanchanaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "3542337",
+  "agodaName": "Kingfisher House"
  },
  "review-kiri-pura-resort-khao-kho-phetchabun": {
   "why": "equals the province centroid",
@@ -6043,13 +6493,15 @@
   "distKm": 1.8
  },
  "review-kk-karon-kata-boutique-hotel-phuket": {
-  "lat": 7.8301821,
-  "lng": 98.2955086,
+  "lat": 7.827608,
+  "lng": 98.296471,
   "prov": "phuket",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "6/1 Karon Road, Karon, Mueang Phuket, Phuket, Thailand",
-  "distKm": 11.8
+  "q": "KK - Karon Kata Boutique Hotel @ agoda:8940167 (EXACT (name+house no)) — validated area: candidate lies in ตำบลกะรน / Karon · อำเภอเมืองภูเก็ต / Mueang Phuket District, both named by the address",
+  "distKm": 11.8,
+  "agodaId": "8940167",
+  "agodaName": "KK Karon Kata Boutique hotel"
  },
  "review-kl-boutique-hotel-krabi": {
   "lat": 8.0626038,
@@ -6077,7 +6529,14 @@
  },
  "review-klang-muang-river-home-phetchabun": {
   "why": "no match",
-  "q": "Klangmuang Pattana Road, Phetchabun, Thailand"
+  "q": "Klang Muang River Home @ agoda:89299685 (EXACT (name+house no)) — validated road: road \"ถนนกลางเมืองพัฒนา\" runs 99 m from the candidate",
+  "lat": 16.41317,
+  "lng": 101.1628,
+  "prov": "phetchabun",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "89299685",
+  "agodaName": "Klang Muang River Home"
  },
  "review-klim-hotel-buriram": {
   "lat": 15.0040092,
@@ -6238,14 +6697,17 @@
   "q": "Moo 1, Koh Chang, Thailand"
  },
  "review-koranaree-courtyard-boutique-hotel-nakhon-ratchasima": {
-  "lat": 14.9580942,
-  "lng": 102.0446222,
+  "lat": 14.974305,
+  "lng": 102.057938,
   "prov": "nakhon-ratchasima",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "99/26 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Koranaree Courtyard Boutique Hotel @ agoda:864104 (EXACT (name+house no)) — validated road: road \"มิตรภาพ ซอย 8\" runs 44 m from the candidate",
   "distKm": 6.1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"99/26 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"มิตรภาพ ซอย 8\" runs 44 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "864104",
+  "agodaName": "Koranaree Courtyard Boutique Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"99/26 Mittraphap Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=trunk r26 \"ถนนมิตรภาพ\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-kosa-hotel-khon-kaen": {
   "lat": 16.4281245,
@@ -6304,7 +6766,14 @@
  },
  "review-krabi-golden-hill-hotel-krabi": {
   "why": "no match",
-  "q": "Chamai Anusorn Road Soi, Krabi, Thailand"
+  "q": "Krabi Golden Hill Hotel @ agoda:4124074 (EXACT (name+house no)) — validated road: road \"ถนนชม้ายอนุสรณ์\" runs 53 m from the candidate",
+  "lat": 8.05582,
+  "lng": 98.917007,
+  "prov": "krabi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4124074",
+  "agodaName": "Krabi Golden Hill Hotel"
  },
  "review-krabi-resort-krabi": {
   "lat": 8.0363317,
@@ -6366,13 +6835,15 @@
   "q": "Moo 5, Khao Lak, Phang Nga, Thailand"
  },
  "review-la-kana-boutique-villa-kamphaeng-phet": {
-  "lat": 16.4712888,
-  "lng": 99.5207425,
+  "lat": 16.46076,
+  "lng": 99.51894,
   "prov": "kamphaeng-phet",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "111/11 หมู่ 2 ตำบลนครชุม อำเภอเมืองกำแพงเพชร, Kamphaeng Phet, Thailand",
-  "distKm": 1
+  "q": "La Kana Boutique Villa @ agoda:84664799 (EXACT (name+house no)) — validated area: candidate lies in ตำบลนครชุม / Nakhom Chum Subdistrict · อำเภอเมืองกำแพงเพชร / Mueang Kamphaeng Phet District, both named by the address",
+  "distKm": 1,
+  "agodaId": "84664799",
+  "agodaName": "La Kana Boutique Villa"
  },
  "review-la-provence-suan-phung-hotel-ratchaburi": {
   "why": "no match",
@@ -6407,7 +6878,14 @@
  },
  "review-laemchabang-city-hotel-chonburi": {
   "why": "no match",
-  "q": "Moo 9, Laem Chabang, Thailand"
+  "q": "Laemchabang City Hotel @ agoda:290694 (EXACT (name+house no)) — validated area: candidate lies in ตำบลทุ่งสุขลา / Thung Sukhla Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.090547,
+  "lng": 100.918861,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "290694",
+  "agodaName": "Laemchabang City Hotel"
  },
  "review-laemtong-serviced-apartment-sriracha-chonburi": {
   "lat": 13.162161,
@@ -6425,7 +6903,14 @@
  },
  "review-laf-hotel-aree-bangkok": {
   "why": "no match",
-  "q": "ซอยพหลโยธิน 5 ถนนพหลโยธิน, Bangkok, Thailand"
+  "q": "LAF Hotel Aree @ agoda:14874753 (STRONG (name+address digits)) — validated road: road \"ซอยพหลโยธิน 5\" runs 7 m from the candidate",
+  "lat": 13.77692,
+  "lng": 100.543411,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "14874753",
+  "agodaName": "LAF Hotel Aree"
  },
  "review-laguna-beach-resort-2-pattaya": {
   "lat": 12.8995145,
@@ -6498,13 +6983,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 3\""
  },
  "review-lamoon-boutique-suphan-buri": {
-  "lat": 14.4820726,
-  "lng": 100.1210022,
+  "lat": 14.474697,
+  "lng": 100.102432,
   "prov": "suphan-buri",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนมาลัยแมน, Suphan Buri, Thailand",
-  "distKm": 1.3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Lamoon Boutique Hotel @ agoda:4426567 (EXACT (name+house no)) — validated road: road \"ถนนมาลัยแมน\" runs 22 m from the candidate",
+  "distKm": 1.3,
+  "agodaId": "4426567",
+  "agodaName": "Lamoon Boutique Hotel"
  },
  "review-lamoon-boutique-trang-trang": {
   "lat": 7.570392,
@@ -6530,7 +7017,14 @@
  },
  "review-lampang-residence-lampang": {
   "why": "no match",
-  "q": "Phaholyothin Road, Lampang, Thailand"
+  "q": "Lampang Residence @ agoda:10672120 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 52 m from the candidate",
+  "lat": 18.2798,
+  "lng": 99.483391,
+  "prov": "lampang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "10672120",
+  "agodaName": "Lampang Residence"
  },
  "review-lampang-river-lodge-lampang": {
   "why": "road query was only a village/house number: \"Moo 11\"",
@@ -6538,7 +7032,14 @@
  },
  "review-lampang-vintage-lampang": {
   "why": "road query was only a village/house number: \"Moo 3\"",
-  "q": "Moo 3, Lampang, Thailand"
+  "q": "Lampang Vintage @ agoda:2653873 (EXACT (name+house no)) — validated area: candidate lies in ตำบลพระบาท / Phra Bat Subdistrict · อำเภอเมืองลำปาง / Mueang Lampang District, both named by the address",
+  "lat": 18.254428,
+  "lng": 99.50717,
+  "prov": "lampang",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2653873",
+  "agodaName": "Lampang Vintage"
  },
  "review-lan-bua-resort-phatthalung": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -6550,7 +7051,14 @@
  },
  "review-lanna-dusita-riverside-boutique-resort-chiang-mai": {
   "why": "no match",
-  "q": "Paton Road, Chiang Mai, Thailand"
+  "q": "Lanna Dusita Riverside Boutique Resort @ agoda:66193 (EXACT (name+house no)) — validated area: candidate lies in ตำบลป่าตัน / Pa Tan Subdistrict · อำเภอเมืองเชียงใหม่ / Mueang Chiang Mai District, both named by the address",
+  "lat": 18.825548,
+  "lng": 98.994843,
+  "prov": "chiang-mai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "66193",
+  "agodaName": "Lanna Dusita Riverside Boutique Resort"
  },
  "review-lanta-castaway-beach-resort-koh-lanta-krabi": {
   "lat": 7.5999436,
@@ -6679,13 +7187,15 @@
   "distKm": 26.2
  },
  "review-lee-gardens-plaza-hotel-hat-yai": {
-  "lat": 7.0071642,
-  "lng": 100.4752789,
-  "prov": "songkhla",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนประชาธิปัตย์, Hat Yai, Thailand",
-  "distKm": 25.5
+  "lat": 7.005495,
+  "lng": 100.471915,
+  "prov": "hat-yai",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Lee Gardens Plaza Hotel @ agoda:782285 (EXACT (name+house no)) — validated road: road \"ถนนประชาธิปัตย์\" runs 72 m from the candidate",
+  "distKm": 25.5,
+  "agodaId": "782285",
+  "agodaName": "Lee Gardens Plaza Hotel"
  },
  "review-leelawadee-resort-kham-muang-kalasin": {
   "why": "no match",
@@ -6722,7 +7232,14 @@
  },
  "review-lertnimit-hotel-chaiyaphum": {
   "why": "no match",
-  "q": "ถนนนิเวศน์รัตน์, Chaiyaphum, Thailand"
+  "q": "Lertnimit Hotel (โรงแรมเลิศนิมิตร) @ agoda:276383 (EXACT (name+house no)) — validated road: road \"ถนนนิเวศรัตน์\" runs 24 m from the candidate",
+  "lat": 15.814624,
+  "lng": 102.035927,
+  "prov": "chaiyaphum",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "276383",
+  "agodaName": "Lertnimitra Hotel"
  },
  "review-lets-sea-hua-hin-al-fresco-resort-huahin": {
   "lat": 12.5311223,
@@ -7014,13 +7531,15 @@
   "q": "Thedsaban 1 Road, Si Racha, Chonburi, Thailand"
  },
  "review-madina-hotel-rayong": {
-  "lat": 12.6669841,
-  "lng": 101.2906353,
+  "lat": 12.674295,
+  "lng": 101.281982,
   "prov": "rayong",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Rim Nam Road, Rayong, Thailand",
-  "distKm": 1.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Madina Hotel Rayong @ agoda:283722 (EXACT (name+house no)) — validated road: road \"ถนนริมน้ำ\" runs 90 m from the candidate",
+  "distKm": 1.9,
+  "agodaId": "283722",
+  "agodaName": "Madina Hotel"
  },
  "review-mae-pim-resort-hotel-rayong": {
   "lat": 12.646216,
@@ -7158,7 +7677,14 @@
  },
  "review-marine-beach-hotel-pattaya": {
   "why": "no match",
-  "q": "Moo 12, Pattaya, Thailand"
+  "q": "Marine Beach Hotel Pattaya @ agoda:3153582 (EXACT (name+house no)) — validated road: road \"จอมเทียน 14/1\" runs 47 m from the candidate",
+  "lat": 12.877544,
+  "lng": 100.885277,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "3153582",
+  "agodaName": "Marine Beach Hotel Pattaya"
  },
  "review-marrakesh-hua-hin-resort-spa-huahin": {
   "lat": 12.5437502,
@@ -7318,18 +7844,28 @@
   "q": "หมู่ 12, Khao Kho, Thailand"
  },
  "review-mida-grande-hotel-dhavaravati-nakhon-pathom": {
-  "lat": 13.8076157,
-  "lng": 100.0544945,
+  "lat": 13.808072,
+  "lng": 100.058182,
   "prov": "nakhon-pathom",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม, Nakhon Pathom, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Mida Grande Hotel Dhavaravati Nakhon Pathom @ agoda:788192 (EXACT (name+house no)) — validated road: road \"ถนนเพชรเกษม (ทางขนาน)\" runs 34 m from the candidate",
   "distKm": 1.5,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม, Nakhon Pathom, Thailand\" is highway=secondary r26 \"ถนนเพชรเกษม (ทางขนาน)\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนเพชรเกษม (ทางขนาน)\" runs 34 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "788192",
+  "agodaName": "Mida Grande Hotel Dhavaravati Nakhon Pathom",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"711 ถนนเพชรเกษม ตำบลสนามจันทร์ อำเภอเมืองนครปฐม, Nakhon Pathom, Thailand\" is highway=secondary r26 \"ถนนเพชรเกษม (ทางขนาน)\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-mida-hotel-ngamwongwan-nonthaburi": {
   "why": "no match",
-  "q": "หมู่ 9 ถนนงามวงศ์วาน, นนทบุรี, Thailand"
+  "q": "Mida Hotel Ngamwongwan @ agoda:408101 (EXACT (name+house no)) — validated road: road \"ถนนงามวงศ์วาน\" runs 5 m from the candidate",
+  "lat": 13.8587,
+  "lng": 100.523293,
+  "prov": "nonthaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "408101",
+  "agodaName": "Mida Hotel Ngamwongwan"
  },
  "review-mike-hotel-pattaya": {
   "lat": 12.9273653,
@@ -7341,13 +7877,15 @@
   "distKm": 49.4
  },
  "review-mila-garden-roi-et": {
-  "lat": 16.0562295,
-  "lng": 103.6280077,
+  "lat": 16.05168,
+  "lng": 103.627113,
   "prov": "roi-et",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเทวาภิบาล ซอย 2, Roi Et, Thailand",
-  "distKm": 2.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Mila Garden @ agoda:1163093 (EXACT (name+house no)) — validated road: road \"ถนนเทวาภิบาล ซอย 2\" runs 19 m from the candidate",
+  "distKm": 2.5,
+  "agodaId": "1163093",
+  "agodaName": "Mila Garden"
  },
  "review-milano-huahin": {
   "lat": 12.5309539,
@@ -7383,13 +7921,15 @@
   "wasWhy": "no match"
  },
  "review-model-garden-hotel-yasothon": {
-  "lat": 15.8170233,
-  "lng": 104.1391933,
+  "lat": 15.811981,
+  "lng": 104.156104,
   "prov": "yasothon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเลี่ยงเมือง, Yasothon, Thailand",
-  "distKm": 3.2
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Model Garden Hotel Yasothon @ agoda:47776535 (EXACT (name+house no)) — validated road: road \"ถนนเลี่ยงเมืองยโสธร\" runs 73 m from the candidate",
+  "distKm": 3.2,
+  "agodaId": "47776535",
+  "agodaName": "The Model Garden"
  },
  "review-modena-by-fraser-buriram": {
   "lat": 14.9632184,
@@ -7740,13 +8280,15 @@
   "wasWhy": "no match"
  },
  "review-nadee-10-resort-hotel-khon-kaen": {
-  "lat": 16.6022387,
-  "lng": 102.6352933,
+  "lat": 16.41227,
+  "lng": 102.822519,
   "prov": "khon-kaen",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi Lao Na Di 10, Khon Kaen, Thailand",
-  "distKm": 27.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Nadee 10 Resort & Hotel @ agoda:4907784 (EXACT (name+house no)) — validated road: road \"ซอยเหล่านาดี 10/11\" runs 19 m from the candidate",
+  "distKm": 27.5,
+  "agodaId": "4907784",
+  "agodaName": "Nadee 10 Resort & Hotel"
  },
  "review-naga-tara-boutique-resort-phayao": {
   "why": "road query was only a village/house number: \"หมู่ 14\"",
@@ -7902,13 +8444,15 @@
   "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"2 ถนนพหลโยธิน ตำบลเขาท่าพระ อำเภอเมืองชัยนาท, ชัยนาท, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-narasiri-service-apartment-prachinburi": {
-  "lat": 14.0563727,
-  "lng": 101.3763117,
+  "lat": 14.057148,
+  "lng": 101.374131,
   "prov": "prachinburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนปราจีนตคาม ซอย 6, ปราจีนบุรี, Thailand",
-  "distKm": 1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Narasiri Service Apartment @ agoda:26079298 (EXACT (name+house no)) — validated road: road \"ถนนปราจีนตคามซอย2\" runs 39 m from the candidate",
+  "distKm": 1,
+  "agodaId": "26079298",
+  "agodaName": "Narasiri Service Apartment"
  },
  "review-natcha-place-thammasat-rangsit-pathum-thani": {
   "why": "no match",
@@ -7945,27 +8489,32 @@
   "q": "หมู่ 2, Pattani, Thailand"
  },
  "review-need-a-nap-hostel-phrae": {
-  "lat": 18.2041917,
-  "lng": 100.1966154,
+  "lat": 18.141451,
+  "lng": 100.142929,
   "prov": "phrae",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเจริญเมือง, Phrae, Thailand",
-  "distKm": 9.3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Need A Nap Hostel Phrae @ agoda:18929795 (EXACT (name+house no)) — validated road: road \"เจริญเมือง\" runs 5 m from the candidate",
+  "distKm": 9.3,
+  "agodaId": "18929795",
+  "agodaName": "Need a Nap Hostel Phrae"
  },
  "review-nest-sense-koh-chang": {
   "why": "no match",
   "q": "หมู่ 1 อ่าวไบลาน เกาะช้าง, เกาะช้าง, Thailand"
  },
  "review-nevada-convention-hotel-ubon-ratchathani": {
-  "lat": 15.2456998,
-  "lng": 104.8510596,
+  "lat": 15.247425,
+  "lng": 104.85141,
   "prov": "ubon-ratchathani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "434 Chayangkun Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Nevada Convention Hotel @ agoda:883580 (EXACT (name+house no)) — validated road: road \"ถนนชยางกูร\" runs 82 m from the candidate",
   "distKm": 0.6,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"434 Chayangkun Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนชยางกูร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนชยางกูร\" runs 82 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "883580",
+  "agodaName": "Nevada Convention Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"434 Chayangkun Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนชยางกูร\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-new-siya-hotel-maha-sarakham": {
   "why": "no match",
@@ -8003,16 +8552,25 @@
  },
  "review-nirundorn-resort-cha-am-phetchaburi": {
   "why": "no match",
-  "q": "ถนนร่วมจิตร หาดชะอำ, Cha-am, Thailand"
+  "q": "Nirundorn Resort Chaam @ agoda:270825 (EXACT (name+house no)) — validated road: road \"ถนนร่วมจิตต์\" runs 10 m from the candidate",
+  "lat": 12.795473,
+  "lng": 99.984021,
+  "prov": "phetchaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "270825",
+  "agodaName": "Nirundorn Resort"
  },
  "review-nirvanan-house-nan": {
-  "lat": 18.7734272,
-  "lng": 100.7743391,
+  "lat": 18.773369,
+  "lng": 100.774849,
   "prov": "nan",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ตรอกพญาภู, Nan, Thailand",
-  "distKm": 0.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "NirvaNAN House @ agoda:3468018 (EXACT (name+house no)) — validated road: road \"ตรอกพญาภู\" runs 25 m from the candidate",
+  "distKm": 0.9,
+  "agodaId": "3468018",
+  "agodaName": "NirvaNAN House"
  },
  "review-nisasiri-boutique-resort-chanthaburi": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -8042,16 +8600,25 @@
  },
  "review-no9-hostel-kanchanaburi": {
   "why": "no match",
-  "q": "Maenamkwae Road, Kanchanaburi, Thailand"
+  "q": "No.9 Hostel Kanchanaburi @ agoda:49727167 (EXACT (name+house no)) — validated road: road \"ถนนแม่น้ำแคว\" runs 34 m from the candidate",
+  "lat": 14.033988,
+  "lng": 99.52022,
+  "prov": "kanchanaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "49727167",
+  "agodaName": "No.9 Hostel kanchanaburi"
  },
  "review-noble-house-chiangmai-chiang-mai": {
-  "lat": 18.7783084,
-  "lng": 98.9873661,
+  "lat": 18.780121,
+  "lng": 98.988167,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Nantaram Road, Chiang Mai, Thailand",
-  "distKm": 1.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Noble House Chiangmai @ agoda:433411 (EXACT (name+house no)) — validated road: road \"ถนนนันทาราม\" runs 0 m from the candidate",
+  "distKm": 1.5,
+  "agodaId": "433411",
+  "agodaName": "Noble House"
  },
  "review-nomads-ao-nang-krabi": {
   "lat": 8.0413884,
@@ -8094,17 +8661,27 @@
  },
  "review-nonrada-boutique-nakhon-phanom": {
   "why": "no match",
-  "q": "Bamrungmuang Road, Nakhon Phanom, Thailand"
+  "q": "Nonrada Boutique Hotel @ agoda:62264237 (EXACT (name+house no)) — validated road: road \"ซอยบำรุงเมือง\" runs 30 m from the candidate",
+  "lat": 17.405842,
+  "lng": 104.783875,
+  "prov": "nakhon-phanom",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "62264237",
+  "agodaName": "Nonrada Boutique hotel"
  },
  "review-nonthaburi-palace-hotel-nonthaburi": {
-  "lat": 13.8343245,
-  "lng": 100.4992725,
+  "lat": 13.859614,
+  "lng": 100.481712,
   "prov": "nonthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "219 ถนนนนทบุรี ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, Nonthaburi, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Nonthaburi Palace Hotel @ agoda:186857 (EXACT (name+house no)) — validated road: road \"ถนนนนทบุรี 1\" runs 56 m from the candidate",
   "distKm": 3.1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"219 ถนนนนทบุรี ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, Nonthaburi, Thailand\" is highway=primary r26 \"ถนนนครอินทร์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนนนทบุรี 1\" runs 56 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "186857",
+  "agodaName": "Nonthaburi Palace Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"219 ถนนนนทบุรี ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, Nonthaburi, Thailand\" is highway=primary r26 \"ถนนนครอินทร์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-nonze-hostel-pattaya": {
   "lat": 12.9319678,
@@ -8130,16 +8707,25 @@
  },
  "review-norn-nab-dao-rimkhong-loei": {
   "why": "equals the province centroid",
-  "q": "Moo 1, Loei, Thailand"
+  "q": "Norn Nab Dao Rimkhong @ agoda:433274 (EXACT (name+house no)) — validated road: road \"ถนนชายโขง\" runs 45 m from the candidate",
+  "lat": 17.893206,
+  "lng": 101.6492,
+  "prov": "loei",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "433274",
+  "agodaName": "Norn Nab Dao Rimkhong Hotel"
  },
  "review-norn-nanta-house-chiang-mai": {
-  "lat": 18.7783084,
-  "lng": 98.9873661,
+  "lat": 18.778448,
+  "lng": 98.987274,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Nantaram Road, Chiang Mai, Thailand",
-  "distKm": 1.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Norn-Nanta House @ agoda:886078 (EXACT (name+house no)) — validated road: road \"ถนนนันทาราม\" runs 15 m from the candidate",
+  "distKm": 1.5,
+  "agodaId": "886078",
+  "agodaName": "Norn-Nanta House"
  },
  "review-nornchill-khao-yai": {
   "lat": 14.641931,
@@ -8196,11 +8782,25 @@
  },
  "review-np-hotel-buriram": {
   "why": "road query was only a village/house number: \"หมู่ 17\"",
-  "q": "หมู่ 17, Buriram, Thailand"
+  "q": "NP Hotel Buriram @ agoda:1030918 (EXACT (name+house no)) — validated area: candidate lies in ตำบลชุมเห็ด / Chum Het Subdistrict · อำเภอเมืองบุรีรัมย์ / Mueang Buri Ram District, both named by the address",
+  "lat": 15.010242,
+  "lng": 103.105286,
+  "prov": "buriram",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1030918",
+  "agodaName": "NP Hotel Buriram"
  },
  "review-np-residence-nakhon-phanom": {
   "why": "no match",
-  "q": "Aphibanbancha Road, Nakhon Phanom, Thailand"
+  "q": "NP Residence Nakhon Phanom @ agoda:908994 (EXACT (name+house no)) — validated road: road \"ถนนอภิบาลบัญชา\" runs 18 m from the candidate",
+  "lat": 17.410061,
+  "lng": 104.780113,
+  "prov": "nakhon-phanom",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "908994",
+  "agodaName": "NP Residence"
  },
  "review-numhom-resort-uthai-thani": {
   "why": "no match",
@@ -8299,13 +8899,15 @@
   "q": "Moo 2, Chiang Mai, Thailand"
  },
  "review-orchid-place-hotel-phichit": {
-  "lat": 16.4362091,
-  "lng": 100.3420138,
+  "lat": 16.434301,
+  "lng": 100.342903,
   "prov": "phichit",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสระหลวง, พิจิตร, Thailand",
-  "distKm": 1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Orchid Place Hotel @ agoda:981099 (EXACT (name+house no)) — validated road: road \"ถนนสระหลวง (ซอยข้างออร์คิด)\" runs 7 m from the candidate",
+  "distKm": 1,
+  "agodaId": "981099",
+  "agodaName": "Orchid Place Hotel"
  },
  "review-oriental-beach-pearl-resort-prachuap-khiri-khan": {
   "why": "road query was only a village/house number: \"Moo 2\"",
@@ -8355,7 +8957,14 @@
  },
  "review-ozo-chaweng-samui": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Koh Samui, Thailand"
+  "q": "OZO Chaweng Samui @ agoda:546163 (EXACT (name+house no)) — validated road: road \"ถนนหาดเฉวงใหญ่\" runs 14 m from the candidate",
+  "lat": 9.525481,
+  "lng": 100.059227,
+  "prov": "samui",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "546163",
+  "agodaName": "OZO Chaweng Samui"
  },
  "review-ozone-park-nan": {
   "why": "no match",
@@ -8521,13 +9130,15 @@
   "distKm": 1
  },
  "review-paksina-hotel-narathiwat": {
-  "lat": 6.4076539,
-  "lng": 101.7870172,
+  "lat": 6.416283,
+  "lng": 101.81292,
   "prov": "narathiwat",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสุริยะประดิษฐ์, Narathiwat, Thailand",
-  "distKm": 4.4
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Paksina Hotel @ agoda:685245 (EXACT (name+house no)) — validated road: road \"ถนนสุริยะประดิษฐ์\" runs 67 m from the candidate",
+  "distKm": 4.4,
+  "agodaId": "685245",
+  "agodaName": "Paksina Hotel"
  },
  "review-palio-inn-khao-yai": {
   "why": "no match",
@@ -8729,13 +9340,15 @@
   "q": "หมู่ 4 หมู่บ้านคีรีวง, Lan Saka, Nakhon Si Thammarat, Thailand"
  },
  "review-pathum-thani-place-hotel-pathum-thani": {
-  "lat": 14.0259445,
-  "lng": 100.5387555,
+  "lat": 13.975799,
+  "lng": 100.550049,
   "prov": "pathum-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 1 ถนนติวานนท์, ปทุมธานี, Thailand",
-  "distKm": 1.2
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Pathum Thani Place Hotel @ agoda:341791 (EXACT (name+house no)) — validated road: road \"ถนนติวานนท์\" runs 61 m from the candidate",
+  "distKm": 1.2,
+  "agodaId": "341791",
+  "agodaName": "Pathum Thani Place Hotel"
  },
  "review-patio-luxury-suites-bangkok": {
   "why": "no match",
@@ -8788,13 +9401,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 2\""
  },
  "review-peamsuk-sweet-prachinburi": {
-  "lat": 14.0765781,
-  "lng": 101.8318809,
+  "lat": 14.05467,
+  "lng": 101.375877,
   "prov": "prachinburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนปราจีน, ปราจีนบุรี, Thailand",
-  "distKm": 49.9
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Peamsuk Sweet Prachin Buri @ agoda:6734719 (EXACT (name+house no)) — validated road: road \"ถนนปราจีนตคาม\" runs 74 m from the candidate",
+  "distKm": 49.9,
+  "agodaId": "6734719",
+  "agodaName": "Peamsuk Sweet Prachin Buri"
  },
  "review-pearl-by-the-sea-resort-prachuap-khiri-khan": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -8895,21 +9510,31 @@
  },
  "review-phetara-hotel-mahachai-samut-sakhon": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
-  "q": "หมู่ 7, สมุทรสาคร, Thailand"
+  "q": "Phetara Hotel Mahachai by PCL @ agoda:80484879 (EXACT (name+house no)) — validated area: candidate lies in ตำบลโคกขาม / Khok Kham Subdistrict · อำเภอเมืองสมุทรสาคร / Mueang Samut Sakhon District, both named by the address",
+  "lat": 13.565487,
+  "lng": 100.32594,
+  "prov": "samut-sakhon",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "80484879",
+  "agodaName": "Phetara Hotel Mahachai by PCL"
  },
  "review-phetcharat-grand-mae-sot-tak": {
   "why": "no match",
   "q": "ถนนสายเอเชีย, Mae Sot, Tak, Thailand"
  },
  "review-phetlada-pavilion-resort-lopburi": {
-  "lat": 14.8242878,
-  "lng": 100.6476999,
+  "lat": 14.828088,
+  "lng": 100.646996,
   "prov": "lopburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี, ลพบุรี, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Phetlada Pavilion & Resort @ agoda:4897538 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 14 m from the candidate",
   "distKm": 2.7,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี, ลพบุรี, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนพหลโยธิน\" runs 14 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "4897538",
+  "agodaName": "Phetlada Pavilion & Resort",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"142/49 ถนนพหลโยธิน ตำบลเขาสามยอด อำเภอเมืองลพบุรี, ลพบุรี, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-phi-phi-bayview-premier-resort-krabi": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -9253,13 +9878,15 @@
   "distKm": 11.3
  },
  "review-ping-nakara-chiang-mai": {
-  "lat": 18.7747286,
-  "lng": 99.000083,
+  "lat": 18.779957,
+  "lng": 99.004639,
   "prov": "chiang-mai",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "135/9 Charoen Prathet Road, Chang Khlan, Mueang Chiang Mai, Chiang Mai, Thailand",
-  "distKm": 2.7
+  "q": "Ping Nakara Boutique Hotel And Spa @ agoda:161845 (EXACT (name+house no)) — validated road: road \"ถนนเจริญประเทศ\" runs 33 m from the candidate",
+  "distKm": 2.7,
+  "agodaId": "161845",
+  "agodaName": "Ping Nakara Boutique Hotel and Spa"
  },
  "review-pingview-villa-resort-tak": {
   "why": "309 km from tak",
@@ -9282,13 +9909,15 @@
   "q": "Moo 3, Phetchabun, Thailand"
  },
  "review-plaai-prime-rayong": {
-  "lat": 12.7044873,
-  "lng": 101.1832968,
+  "lat": 12.683302,
+  "lng": 101.251167,
   "prov": "rayong",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "590 Sukhumvit Road, Noen Phra, Mueang Rayong, Rayong, Thailand",
-  "distKm": 10.8
+  "q": "PLAAI Prime Hotel Rayong @ agoda:1192767 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 23 m from the candidate",
+  "distKm": 10.8,
+  "agodaId": "1192767",
+  "agodaName": "PLAAI Prime Hotel Rayong"
  },
  "review-plai-mang-tang-rak-nan": {
   "why": "150 km from nan",
@@ -9317,7 +9946,14 @@
  },
  "review-plus-hostel-ayutthaya-ayutthaya": {
   "why": "road query was only a village/house number: \"Moo 5\"",
-  "q": "Moo 5, Phra Nakhon Si Ayutthaya, Thailand"
+  "q": "Plus Hostel Ayutthaya @ agoda:6508555 (EXACT (name+house no)) — validated area: candidate lies in ตำบลท่าวาสุกรี / Tha Wasukri Subdistrict · อำเภอพระนครศรีอยุธยา / Phra Nakhon Si Ayutthaya District, both named by the address",
+  "lat": 14.365578,
+  "lng": 100.56382,
+  "prov": "ayutthaya",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "6508555",
+  "agodaName": "Plus Hostel Ayutthaya"
  },
  "review-pob-choke-residences-pattaya": {
   "why": "road query was only a village/house number: \"หมู่ 6\"",
@@ -9441,7 +10077,14 @@
  },
  "review-prew-lom-chom-nam-chonburi": {
   "why": "road query was only a village/house number: \"Moo 7\"",
-  "q": "Moo 7, Chonburi, Thailand"
+  "q": "Prew Lom Chom Nam Resort @ agoda:18942496 (EXACT (name+house no)) — validated area: candidate lies in ตำบลบ่อวิน / Bo Win Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.0363,
+  "lng": 101.1269,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "18942496",
+  "agodaName": "Prew Lom Chom Nam Resort"
  },
  "review-pribpandao-home-and-camping-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
@@ -9468,14 +10111,17 @@
   "q": "หมู่ 5, Nan, Thailand"
  },
  "review-ps-hotel-saraburi": {
-  "lat": 14.7271095,
-  "lng": 100.7934053,
+  "lat": 14.730179,
+  "lng": 100.785744,
   "prov": "saraburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท, Saraburi, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "PS Hotel Saraburi @ agoda:61381253 (EXACT (name+house no)) — validated road: road \"ถนนพหลโยธิน\" runs 65 m from the candidate",
   "distKm": 25.3,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท, Saraburi, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนพหลโยธิน\" runs 65 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "61381253",
+  "agodaName": "PS Hotel Saraburi",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"11/4 ถนนพหลโยธิน ตำบลพระพุทธบาท อำเภอพระพุทธบาท, Saraburi, Thailand\" is highway=trunk r26 \"ถนนพหลโยธิน\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-ps-loft-hostel-tha-khon-yang-maha-sarakham": {
   "why": "road query was only a village/house number: \"หมู่ 7\"",
@@ -9825,13 +10471,15 @@
   "distKm": 88.8
  },
  "review-rest-point-sampran-nakhon-pathom": {
-  "lat": 13.8048488,
-  "lng": 100.0406529,
+  "lat": 13.757456,
+  "lng": 100.189919,
   "prov": "nakhon-pathom",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเพชรเกษม, นครปฐม, Thailand",
-  "distKm": 2.7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Rest Point Sampran @ agoda:5745702 (EXACT (name+house no)) — validated road: road \"ถนนเพชรเกษม\" runs 50 m from the candidate",
+  "distKm": 2.7,
+  "agodaId": "5745702",
+  "agodaName": "Rest Point sampran"
  },
  "review-rest-sea-resort-koh-kood": {
   "why": "no match",
@@ -9881,7 +10529,14 @@
  },
  "review-rimkhobfa-urban-resort-samut-prakan": {
   "why": "no match",
-  "q": "หมู่ 9 ถนนสุขุมวิท, สมุทรปราการ, Thailand"
+  "q": "Rimkhobfa Urban Resort @ agoda:488227 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 104 m from the candidate",
+  "lat": 13.539362,
+  "lng": 100.62278,
+  "prov": "samut-prakan",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "488227",
+  "agodaName": "Rimkhobfa Urban Resort"
  },
  "review-rimpao-hotel-kalasin": {
   "lat": 16.4275963,
@@ -9927,13 +10582,15 @@
   "q": "หมู่ 11, Chachoengsao, Thailand"
  },
  "review-river-city-hotel-pattani": {
-  "lat": 6.8710237,
-  "lng": 101.2376383,
+  "lat": 6.870632,
+  "lng": 101.238113,
   "prov": "pattani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "หมู่ 1 ถนนเจริญประดิษฐ์, Pattani, Thailand",
-  "distKm": 1.4
+  "via": "agoda",
+  "precision": "poi",
+  "q": "River City Hotel Pattani @ agoda:80167689 (EXACT (agoda id)) — validated road: road \"ถนนเจริญประดิษฐ์\" runs 28 m from the candidate",
+  "distKm": 1.4,
+  "agodaId": "80167689",
+  "agodaName": "RIVER CITY HOTEL PATTANI"
  },
  "review-river-front-krabi-hotel-krabi": {
   "why": "no match",
@@ -9989,13 +10646,15 @@
   "why": "pin deleted 2026-09-14 [nominatim-area-answer]: Nominatim's answer to the stored query \"ตำบลตะกุด อำเภอเมืองสระบุรี, Saraburi, Thailand\" is place=municipality r14 \"ตะกุด\" — a area, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-river-resort-spa-sa-kaeo": {
-  "lat": 13.6917588,
-  "lng": 102.5027079,
+  "lat": 13.808628,
+  "lng": 102.081879,
   "prov": "sa-kaeo",
-  "via": "nominatim",
+  "via": "agoda",
   "precision": "poi",
-  "q": "405 ถนนสุวรรณศร ตำบลสระแก้ว อำเภอเมืองสระแก้ว, Sa Kaeo, Thailand",
-  "distKm": 48.6
+  "q": "River Resort & Spa Sa Kaeo @ agoda:1576847 (EXACT (name+house no)) — validated road: road \"ทางคู่ขนานถนนสุวรรณศร\" runs 22 m from the candidate",
+  "distKm": 48.6,
+  "agodaId": "1576847",
+  "agodaName": "River Resort & Spa"
  },
  "review-riverawan-hotel-chanthaburi": {
   "why": "no match",
@@ -10011,14 +10670,17 @@
   "distKm": 1.3
  },
  "review-riverine-place-nonthaburi": {
-  "lat": 13.8231633,
-  "lng": 100.5039059,
+  "lat": 13.828699,
+  "lng": 100.500908,
   "prov": "nonthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "167 ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, นนทบุรี, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Riverine Place Hotel and Residence @ agoda:108667 (EXACT (name+house no)) — validated road: road \"ถนนพิบูลสงคราม\" runs 109 m from the candidate",
   "distKm": 4.1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"167 ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, นนทบุรี, Thailand\" is highway=primary r26 \"ถนนพิบูลสงคราม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนพิบูลสงคราม\" runs 109 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "108667",
+  "agodaName": "Riverine Place Hotel and Residence",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"167 ถนนพิบูลสงคราม ตำบลสวนใหญ่ อำเภอเมืองนนทบุรี, นนทบุรี, Thailand\" is highway=primary r26 \"ถนนพิบูลสงคราม\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-riverside-chiangkhan-loei": {
   "why": "no match",
@@ -10112,14 +10774,17 @@
   "q": "Nimmana Haeminda Road Soi 7, Chiang Mai, Thailand"
  },
  "review-roseinn-hotel-taphanhin-phichit": {
-  "lat": 16.2173127,
-  "lng": 100.4345255,
+  "lat": 16.219879,
+  "lng": 100.425011,
   "prov": "phichit",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "57 ถนนชมฐีระเวช ตำบลตะพานหิน อำเภอตะพานหิน, พิจิตร, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Roseinn Hotel Taphanhin @ agoda:2424486 (EXACT (name+house no)) — validated road: road \"ถนนชมฐีระเวช\" runs 57 m from the candidate",
   "distKm": 26.4,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"57 ถนนชมฐีระเวช ตำบลตะพานหิน อำเภอตะพานหิน, พิจิตร, Thailand\" is highway=primary r26 \"ถนนชมฐีระเวช\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนชมฐีระเวช\" runs 57 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "2424486",
+  "agodaName": "Roseinn Hotel Taphanhin",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"57 ถนนชมฐีระเวช ตำบลตะพานหิน อำเภอตะพานหิน, พิจิตร, Thailand\" is highway=primary r26 \"ถนนชมฐีระเวช\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-royal-cliff-beach-hotel-pattaya": {
   "lat": 12.9235373,
@@ -10170,7 +10835,14 @@
  },
  "review-royal-sammuk-villa-chonburi": {
   "why": "no match",
-  "q": "The Royal Sammuk, Bangsaen, Chonburi, Thailand"
+  "q": "Royal Sammuk Villa @ agoda:237394 (EXACT (name+house no)) — validated road: road \"ถนนอ่างศิลา\" runs 64 m from the candidate",
+  "lat": 13.306045,
+  "lng": 100.906807,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "237394",
+  "agodaName": "Royal Sammuk Villa"
  },
  "review-royal-twins-palace-pattaya": {
   "lat": 12.9280147,
@@ -10265,7 +10937,14 @@
  },
  "review-sa-bai-dee-condo-pattaya": {
   "why": "no match",
-  "q": "Bang Saen Sai 3 Road, Bangsaen, Thailand"
+  "q": "Sa-Bai-Dee Condo @ agoda:565151 (EXACT (name+house no)) — validated road: road \"ถนนบางแสนสาย3\" runs 45 m from the candidate",
+  "lat": 13.285997,
+  "lng": 100.921844,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "565151",
+  "agodaName": "Sa-Bai-Dee Condo"
  },
  "review-sabaidee-place-phetchabun": {
   "why": "no match",
@@ -10444,7 +11123,14 @@
  },
  "review-sam-kwan-village-pattaya": {
   "why": "no match",
-  "q": "Bangsaen Sai 4 Tai Road, Bangsaen, Chonburi, Thailand"
+  "q": "Sam Kwan Village @ agoda:1077305 (EXACT (name+house no)) — validated road: road \"บางแสนสาย 4 ใต้\" runs 17 m from the candidate",
+  "lat": 13.286376,
+  "lng": 100.92836,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1077305",
+  "agodaName": "Sam Kwan Village"
  },
  "review-samchook-resort-suphan-buri": {
   "why": "road query was only a village/house number: \"หมู่ 1\"",
@@ -10497,21 +11183,31 @@
  },
  "review-sams-house-guesthouse-kanchanaburi": {
   "why": "no match",
-  "q": "Maenamkwae Road, Kanchanaburi, Thailand"
+  "q": "Sam's House Guesthouse @ agoda:253972 (EXACT (name+house no)) — validated road: road \"ถนนแม่น้ำแคว\" runs 120 m from the candidate",
+  "lat": 14.034681,
+  "lng": 99.517113,
+  "prov": "kanchanaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "253972",
+  "agodaName": "Sam's House Guesthouse"
  },
  "review-samui-resotel-beach-resort-surat-thani": {
   "why": "road query was only a village/house number: \"Moo 3\"",
   "q": "Moo 3, Koh Samui, Thailand"
  },
  "review-samutprakarn-hotel-samut-prakan": {
-  "lat": 13.5969819,
-  "lng": 100.6064243,
+  "lat": 13.601322,
+  "lng": 100.597824,
   "prov": "samut-prakan",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "2 ถนนสุขุมวิท ตำบลปากน้ำ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Samutprakarn Hotel @ agoda:64869438 (EXACT (name+house no)) — validated road: road \"ถนนสุขุมวิท\" runs 43 m from the candidate",
   "distKm": 0.8,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"2 ถนนสุขุมวิท ตำบลปากน้ำ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand\" is tourism=apartment r30 \"Star apartments\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสุขุมวิท\" runs 43 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "64869438",
+  "agodaName": "Samutprakarn Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"2 ถนนสุขุมวิท ตำบลปากน้ำ อำเภอเมืองสมุทรปราการ, สมุทรปราการ, Thailand\" is tourism=apartment r30 \"Star apartments\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sanae-beach-huahin": {
   "lat": 12.4529647,
@@ -10525,7 +11221,14 @@
  },
  "review-sanae-hotel-nimman-chiang-mai": {
   "why": "no match",
-  "q": "Soi Sukkasem, Chiang Mai, Thailand"
+  "q": "Sanae' Hotel Nimman @ agoda:1159104 (EXACT (name+house no)) — validated road: road \"ถนนสุขเกษม\" runs 10 m from the candidate",
+  "lat": 18.799288,
+  "lng": 98.965614,
+  "prov": "chiang-mai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1159104",
+  "agodaName": "Sanae' Hotel  Nimman"
  },
  "review-sand-dunes-chaolao-beach-resort-chanthaburi": {
   "why": "no match",
@@ -10552,7 +11255,14 @@
  },
  "review-sands-place-apartment-and-hotel-samut-sakhon": {
   "why": "no match",
-  "q": "หมู่ 7 ซอยรุ่งเศรษฐกิจ 9 ถนนเศรษฐกิจ 1, สมุทรสาคร, Thailand"
+  "q": "Sands Place Apartment and Hotel @ agoda:6741643 (EXACT (name+house no)) — validated area: candidate lies in ตำบลท่าทราย / Tha Sai Subdistrict · อำเภอเมืองสมุทรสาคร / Mueang Samut Sakhon District, both named by the address",
+  "lat": 13.56605,
+  "lng": 100.26696,
+  "prov": "samut-sakhon",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "6741643",
+  "agodaName": "Sands Place Apartment and Hotel"
  },
  "review-sandy-bay-bungalows-haad-yao-koh-phangan": {
   "lat": 9.7730552,
@@ -10628,13 +11338,15 @@
   "wasWhy": "road query was only a village/house number: \"Moo 1\""
  },
  "review-santisook-midtown-pattani": {
-  "lat": 6.8645755,
-  "lng": 101.2544958,
+  "lat": 6.865562,
+  "lng": 101.252754,
   "prov": "pattani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนพิพิธ, Pattani, Thailand",
-  "distKm": 0.8
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Santisook Midtown Pattani @ agoda:68446550 (EXACT (name+house no)) — validated road: road \"ถนนพิพิธ\" runs 2 m from the candidate",
+  "distKm": 0.8,
+  "agodaId": "68446550",
+  "agodaName": "Santisookmidtown pattani"
  },
  "review-saraburi-garden-resort-saraburi": {
   "why": "road query was only a village/house number: \"หมู่ 5\"",
@@ -10665,14 +11377,17 @@
   "q": "Anurak 2 Alley, Mukdahan, Thailand"
  },
  "review-scenic-riverside-resort-kamphaeng-phet": {
-  "lat": 16.4874485,
-  "lng": 99.5155246,
+  "lat": 16.491095,
+  "lng": 99.508499,
   "prov": "kamphaeng-phet",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet, Kamphaeng Phet, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Scenic Riverside Resort @ agoda:338079 (EXACT (name+house no)) — validated road: road \"ถนนเทศา 2\" runs 13 m from the candidate",
   "distKm": 1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet, Kamphaeng Phet, Thailand\" is highway=tertiary r26 \"ถนนเทศา 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนเทศา 2\" runs 13 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "338079",
+  "agodaName": "Scenic Riverside Resort",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"325/16 Thesa 2 Rd, Nai Mueang, Mueang Kamphaeng Phet, Kamphaeng Phet, Thailand\" is highway=tertiary r26 \"ถนนเทศา 2\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sea-beach-1-koh-larn": {
   "why": "road query was only a village/house number: \"Moo 7\"",
@@ -10781,14 +11496,17 @@
   "q": "หมู่ 2, Satun, Thailand"
  },
  "review-sena-house-lamlukka-klong2-pathum-thani": {
-  "lat": 13.9625816,
-  "lng": 100.6431827,
+  "lat": 13.955944,
+  "lng": 100.642723,
   "prov": "pathum-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "39/9 ซอยลำลูกกา 11 ตำบลคูคต อำเภอลำลูกกา, Pathum Thani, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Sena House Lamlukka Klong2 @ agoda:23647390 (EXACT (name+house no)) — validated road: road \"ซอยลำลูกกา 11\" runs 23 m from the candidate",
   "distKm": 13.8,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"39/9 ซอยลำลูกกา 11 ตำบลคูคต อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ซอยลำลูกกา 11\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยลำลูกกา 11\" runs 23 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "23647390",
+  "agodaName": "Sena House Lamlukka Klong2",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"39/9 ซอยลำลูกกา 11 ตำบลคูคต อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ซอยลำลูกกา 11\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-sena-place-hotel-bangkok": {
   "lat": 13.7882003,
@@ -10889,13 +11607,15 @@
   "q": "ถนนมิตรภาพ ซอย 18, Nakhon Ratchasima, Thailand"
  },
  "review-shi-ro-i-poshtel-songkhla": {
-  "lat": 7.0087056,
-  "lng": 100.490943,
+  "lat": 7.008803,
+  "lng": 100.477257,
   "prov": "songkhla",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนศุภสารรังสรรค์, Hat Yai, Thailand",
-  "distKm": 24.4
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Shi-ro-i Poshtel @ agoda:56352019 (EXACT (name+house no)) — validated road: road \"ถนนศุภสารรังสรรค์\" runs 16 m from the candidate",
+  "distKm": 24.4,
+  "agodaId": "56352019",
+  "agodaName": "Shi-ro-i Poshtel"
  },
  "review-shon-boutique-uthai-thani": {
   "why": "no match",
@@ -10966,7 +11686,14 @@
  },
  "review-siam-tharadol-bangkok": {
   "why": "no match",
-  "q": "Sukhumvit 97/1 Alley, Bangkok, Thailand"
+  "q": "Siam Tharadol @ agoda:2802526 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 97/1\" runs 13 m from the candidate",
+  "lat": 13.698483,
+  "lng": 100.610489,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2802526",
+  "agodaName": "Siam Tharadol"
  },
  "review-siamdasada-khaoyai-prachinburi": {
   "why": "no match",
@@ -11030,16 +11757,25 @@
  },
  "review-similan-mansion-pattaya": {
   "why": "no match",
-  "q": "Long Had Bangsaen Road, Bangsaen, Thailand"
+  "q": "Similan Mansion @ agoda:338897 (EXACT (name+house no)) — validated road: road \"ถนนลงหาดบางแสน\" runs 81 m from the candidate",
+  "lat": 13.284525,
+  "lng": 100.920635,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "338897",
+  "agodaName": "Similan Mansion"
  },
  "review-sindys-hostel-pattaya-chonburi": {
-  "lat": 12.9315998,
-  "lng": 100.8831853,
-  "prov": "chonburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Pattaya Soi 2, Pattaya, Thailand",
-  "distKm": 48.8
+  "lat": 12.94653,
+  "lng": 100.8893,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Sindy's Hostel Pattaya @ agoda:4947167 (EXACT (name+house no)) — validated road: road \"พัทยาสายสอง ซอย2\" runs 5 m from the candidate",
+  "distKm": 48.8,
+  "agodaId": "4947167",
+  "agodaName": "Sindy Hostel"
  },
  "review-sing-buri-homestay-sing-buri": {
   "why": "no match",
@@ -11191,14 +11927,17 @@
   "distKm": 11
  },
  "review-slive-hotel-surin": {
-  "lat": 14.8890147,
-  "lng": 103.4771872,
+  "lat": 14.876525,
+  "lng": 103.502285,
   "prov": "surin",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "169 ถนนหลักเมือง ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Slive Hotel @ agoda:4138864 (EXACT (name+house no)) — validated road: road \"ถนนหลักเมือง\" runs 2 m from the candidate",
   "distKm": 1.7,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"169 ถนนหลักเมือง ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=primary r26 \"ถนนหลักเมือง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนหลักเมือง\" runs 2 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "4138864",
+  "agodaName": "Slive Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"169 ถนนหลักเมือง ตำบลในเมือง อำเภอเมืองสุรินทร์, Surin, Thailand\" is highway=primary r26 \"ถนนหลักเมือง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-slumber-party-surf-khao-lak-phang-nga": {
   "why": "no match",
@@ -11206,7 +11945,14 @@
  },
  "review-small-town-hostel-phatthalung": {
   "why": "no match",
-  "q": "หมู่ 2 ถนนมโนราห์, Phatthalung, Thailand"
+  "q": "Small Town Hostel @ agoda:15852750 (EXACT (name+house no)) — validated road: road \"ถนนมโนราห์\" runs 15 m from the candidate",
+  "lat": 7.603152,
+  "lng": 100.062851,
+  "prov": "phatthalung",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "15852750",
+  "agodaName": "Small Town Hostel"
  },
  "review-smile-samed-house-rayong": {
   "why": "equals the province centroid",
@@ -11274,11 +12020,25 @@
  },
  "review-songphanburi-hotel-suphan-buri": {
   "why": "no match",
-  "q": "ถ.ประชาธิปไตย, Suphan Buri, Thailand"
+  "q": "Songphanburi Hotel (โรงแรมสองพันบุรี) @ agoda:407866 (EXACT (name+house no)) — validated road: road \"ถนนประชาธิปไตย\" runs 44 m from the candidate",
+  "lat": 14.482656,
+  "lng": 100.123413,
+  "prov": "suphan-buri",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "407866",
+  "agodaName": "Songphanburi Hotel"
  },
  "review-sor-kor-sor-resort-pattaya": {
   "why": "no match",
-  "q": "ซอยสุขุมวิท 45 หมู่ 3 ถนนสุขุมวิท, Sattahip, Chonburi, Thailand"
+  "q": "Sor Kor Sor Resort @ agoda:2634319 (EXACT (name+house no)) — validated road: road \"ซอยสัตหีบสุขุมวิท 45\" runs 13 m from the candidate",
+  "lat": 12.688481,
+  "lng": 100.8993,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2634319",
+  "agodaName": "Sor Kor Sor Resort"
  },
  "review-sorin-boutique-hotel-surin": {
   "lat": 14.8804546,
@@ -11347,7 +12107,14 @@
  },
  "review-sri-ngachang-chiang-mai": {
   "why": "no match",
-  "q": "Wua Lai Road Soi 2, Chiang Mai, Thailand"
+  "q": "Sri Ngachang @ agoda:1636345 (EXACT (name+house no)) — validated road: road \"ถนนวัวลาย ซอย 2\" runs 15 m from the candidate",
+  "lat": 18.77976,
+  "lng": 98.983032,
+  "prov": "chiang-mai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1636345",
+  "agodaName": "Sri Ngachang"
  },
  "review-sri-panwa-phuket": {
   "lat": 7.802076,
@@ -11385,7 +12152,14 @@
  },
  "review-sriracha-orchid-chonburi": {
   "why": "no match",
-  "q": "Surasak 3 Road, Si Racha, Chonburi, Thailand"
+  "q": "Sriracha Orchid @ agoda:532450 (STRONG (name+address digits)) — validated road: road \"ถนนสุรศักดิ์ 3\" runs 20 m from the candidate",
+  "lat": 13.162278,
+  "lng": 100.922664,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "532450",
+  "agodaName": "Sriracha Orchid"
  },
  "review-srisawat-resort-cha-am-phetchaburi": {
   "lat": 12.7948039,
@@ -11613,7 +12387,14 @@
  },
  "review-suneta-hostel-chiangkhan-loei": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Loei, Thailand"
+  "q": "Suneta Hostel Chiangkhan @ agoda:535725 (EXACT (name+house no)) — validated road: road \"ถนนชายโขง\" runs 4 m from the candidate",
+  "lat": 17.896005,
+  "lng": 101.655969,
+  "prov": "loei",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "535725",
+  "agodaName": "Suneta Hostel Chiangkhan"
  },
  "review-sunrise-resort-prachuap-khiri-khan": {
   "lat": 11.150628,
@@ -11837,13 +12618,15 @@
   "distKm": 58.4
  },
  "review-tamajun-hotel-chanthaburi": {
-  "lat": 12.6089451,
-  "lng": 102.1158664,
+  "lat": 12.61204,
+  "lng": 102.113701,
   "prov": "chanthaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสุขาภิบาล, Chanthaburi, Thailand",
-  "distKm": 1.7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Tamajun Hotel @ agoda:869492 (EXACT (name+house no)) — validated road: road \"ถนนสุขาภิบาล\" runs 15 m from the candidate",
+  "distKm": 1.7,
+  "agodaId": "869492",
+  "agodaName": "Tamajun Hotel"
  },
  "review-tamarind-garden-hotel-rayong": {
   "why": "no match",
@@ -11874,7 +12657,14 @@
  },
  "review-tanawit-hotel-spa-huahin": {
   "why": "equals the province centroid",
-  "q": "Amnuaysin Road, Hua Hin, Thailand"
+  "q": "Tanawit Hotel & Spa, Hua Hin @ agoda:48550 (EXACT (name+house no)) — validated road: road \"หัวหิน 74 ถนนอำนวยสินธุ์\" runs 48 m from the candidate",
+  "lat": 12.569189,
+  "lng": 99.956276,
+  "prov": "huahin",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "48550",
+  "agodaName": "Tanawit Hotel Hua Hin"
  },
  "review-tansino-hotel-city-center-nong-khai": {
   "lat": 17.866559,
@@ -11894,14 +12684,17 @@
   "q": "หมู่ 12 บ้านสงคุ้ม, Khao Kho, Thailand"
  },
  "review-tarawish-hotel-bangkok": {
-  "lat": 13.75343,
-  "lng": 100.5358382,
+  "lat": 13.755775,
+  "lng": 100.536637,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "45 Soi Phetchaburi 13, Thanon Phaya Thai, Ratchathewi, Bangkok, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Tarawish Hotel @ agoda:2978377 (EXACT (name+house no)) — validated road: road \"ซอยเพชรบุรี 13\" runs 17 m from the candidate",
   "distKm": 3.9,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"45 Soi Phetchaburi 13, Thanon Phaya Thai, Ratchathewi, Bangkok, Thailand\" is highway=residential r26 \"ซอยเพชรบุรี 13\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยเพชรบุรี 13\" runs 17 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "2978377",
+  "agodaName": "Tarawish Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"45 Soi Phetchaburi 13, Thanon Phaya Thai, Ratchathewi, Bangkok, Thailand\" is highway=residential r26 \"ซอยเพชรบุรี 13\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-taris-art-hotel-phrae": {
   "lat": 18.1401983,
@@ -11964,17 +12757,27 @@
  },
  "review-thana-apartment-chonburi": {
   "why": "road query was only a village/house number: \"Moo 5\"",
-  "q": "Moo 5, Khao Khan Song, Si Racha, Chon Buri, Thailand"
+  "q": "Thana Apartment @ agoda:26114865 (EXACT (name+house no)) — validated area: candidate lies in ตำบลเขาคันทรง / Khao Khansong Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.047632,
+  "lng": 101.150787,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "26114865",
+  "agodaName": "Thana Apartment"
  },
  "review-thana-residence-lamlukka-pathum-thani": {
-  "lat": 13.9823154,
-  "lng": 100.7547316,
+  "lat": 13.936103,
+  "lng": 100.749596,
   "prov": "pathum-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "83 ถนนเทศบาลลำลูกกา 3 ตำบลลำลูกกา อำเภอลำลูกกา, Pathum Thani, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Thana Residence Lamlukka @ agoda:4310359 (EXACT (name+house no)) — validated road: road \"ถนนเทศบาลลำลูกกา 3\" runs 15 m from the candidate",
   "distKm": 24.6,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"83 ถนนเทศบาลลำลูกกา 3 ตำบลลำลูกกา อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ถนนเทศบาลลำลูกกา 3\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนเทศบาลลำลูกกา 3\" runs 15 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "4310359",
+  "agodaName": "Thana Residence Lamlukka",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"83 ถนนเทศบาลลำลูกกา 3 ตำบลลำลูกกา อำเภอลำลูกกา, Pathum Thani, Thailand\" is highway=tertiary r26 \"ถนนเทศบาลลำลูกกา 3\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thanasiri-hotel-resort-sa-kaeo": {
   "lat": 13.8194153,
@@ -11998,14 +12801,17 @@
   "wasWhy": "no match"
  },
  "review-thap-kaeo-poshtel-city-center-korat-nakhon-ratchasima": {
-  "lat": 14.9804548,
-  "lng": 102.1080254,
+  "lat": 14.985084,
+  "lng": 102.11349,
   "prov": "nakhon-ratchasima",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "340 Suranarai Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Thap Kaeo Poshtel City Center Korat @ agoda:75971089 (EXACT (name+house no)) — validated road: road \"ถนนสุรนารายณ์\" runs 35 m from the candidate",
   "distKm": 1.4,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"340 Suranarai Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=primary r26 \"ถนนสุรนารายณ์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนสุรนารายณ์\" runs 35 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "75971089",
+  "agodaName": "Thap Kaeo Poshtel City Center Korat",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"340 Suranarai Road, Nai Mueang, Mueang Nakhon Ratchasima, Nakhon Ratchasima, Thailand\" is highway=primary r26 \"ถนนสุรนารายณ์\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-thap-lamu-andaman-phang-nga": {
   "why": "no match",
@@ -12127,24 +12933,30 @@
   "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Bed Hotel 101, Roi Et, Thailand\" is tourism=hotel r30 \"The Bed Hotel\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bed-kolok-resort-narathiwat": {
-  "lat": 6.0290218,
-  "lng": 101.9569142,
+  "lat": 6.031412,
+  "lng": 101.96645,
   "prov": "narathiwat",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "81 ถนนทรายทอง 4 ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Bed Kolok Resort @ agoda:2670889 (STRONG (name+address digits)) — validated road: road \"ถนนทรายทอง 4\" runs 85 m from the candidate",
   "distKm": 47.1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"81 ถนนทรายทอง 4 ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=primary r26 \"ถนนทรายทอง 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนทรายทอง 4\" runs 85 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "2670889",
+  "agodaName": "The Bed Kolok Resort",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"81 ถนนทรายทอง 4 ตำบลสุไหงโก-ลก อำเภอสุไหงโก-ลก, Su-ngai Kolok, Thailand\" is highway=primary r26 \"ถนนทรายทอง 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bedroom-railway-hat-yai": {
-  "lat": 7.010569,
-  "lng": 100.4784712,
-  "prov": "songkhla",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนศุภสารรังสรรค์ ซอย 4/1 อ.หาดใหญ่, Hat Yai, Thailand",
+  "lat": 7.011314,
+  "lng": 100.477013,
+  "prov": "hat-yai",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Bedroom @ agoda:1460421 (EXACT (name+house no)) — validated road: road \"ถนนศุภสารรังสรรค์ ซอย 4/3\" runs 81 m from the candidate",
   "distKm": 25,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"ถนนศุภสารรังสรรค์ ซอย 4/1 อ.หาดใหญ่, Hat Yai, Thailand\" is highway=tertiary r26 \"ถนนศุภสารรังสรรค์ ซอย 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนศุภสารรังสรรค์ ซอย 4/3\" runs 81 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "1460421",
+  "agodaName": "The Bedroom Hat Yai",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"ถนนศุภสารรังสรรค์ ซอย 4/1 อ.หาดใหญ่, Hat Yai, Thailand\" is highway=tertiary r26 \"ถนนศุภสารรังสรรค์ ซอย 4\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-bedrooms-boutique-hotel-hatyai-songkhla": {
   "why": "no match",
@@ -12169,7 +12981,14 @@
  },
  "review-the-bliss-ubon-ubon-ratchathani": {
   "why": "no match",
-  "q": "Soi Sukha-Uppatham 19, Ubon Ratchathani, Thailand"
+  "q": "The Bliss Ubon @ agoda:995559 (EXACT (name+house no)) — validated area: candidate lies in ตำบลในเมือง / Nai Mueang Subdistrict · อำเภอเมืองอุบลราชธานี / Mueang Ubon Ratchathani District, both named by the address",
+  "lat": 15.251991,
+  "lng": 104.83149,
+  "prov": "ubon-ratchathani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "995559",
+  "agodaName": "The Bliss Ubon"
  },
  "review-the-bloc-hotel-phuket": {
   "lat": 7.8957055,
@@ -12210,7 +13029,14 @@
  },
  "review-the-brown-house-hotel-chachoengsao": {
   "why": "no match",
-  "q": "556, 558 ถนนศุภกิจ ตำบลหน้าเมือง อำเภอเมืองฉะเชิงเทรา, Chachoengsao, Thailand"
+  "q": "The Brown House Hotel @ agoda:1657340 (STRONG (name+address digits)) — validated road: road \"ถนนศุภกิจ\" runs 17 m from the candidate",
+  "lat": 13.697418,
+  "lng": 101.09024,
+  "prov": "chachoengsao",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1657340",
+  "agodaName": "The Brown House Hotel"
  },
  "review-the-bua-boutique-resort-saraburi": {
   "why": "no match",
@@ -12233,13 +13059,15 @@
   "wasWhy": "road query was only a village/house number: \"หมู่ 10\""
  },
  "review-the-capital-hotel-roi-et": {
-  "lat": 16.0423593,
-  "lng": 103.6552122,
+  "lat": 16.046803,
+  "lng": 103.654076,
   "prov": "roi-et",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนสุริยเดชบำรุง, Roi Et, Thailand",
-  "distKm": 1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Capital Hotel Roi Et @ agoda:523489 (EXACT (name+house no)) — validated road: road \"ถนนสุริยเดชบำรุง\" runs 43 m from the candidate",
+  "distKm": 1,
+  "agodaId": "523489",
+  "agodaName": "The Capital Hotel"
  },
  "review-the-castello-resort-koh-larn": {
   "why": "no match",
@@ -12303,7 +13131,14 @@
  },
  "review-the-city-hotel-sriracha-chonburi": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Si Racha, Chonburi, Thailand"
+  "q": "The City Hotel Sriracha @ agoda:70207 (EXACT (name+house no)) — validated area: candidate lies in ตำบลศรีราชา / Si Racha Subdistrict · อำเภอศรีราชา / Si Racha District, both named by the address",
+  "lat": 13.164405,
+  "lng": 100.932556,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "70207",
+  "agodaName": "The City Hotel Sriracha by BBH Japan"
  },
  "review-the-classroom-hotel-pattaya": {
   "lat": 12.9275122,
@@ -12324,7 +13159,14 @@
  },
  "review-the-core-gallery-hotel-chiang-mai": {
   "why": "no match",
-  "q": "99/64, 99/105-107 หมู่ 1 ถนนห้วยแก้ว ต.ช้างเผือก อ.เมืองเชียงใหม่, Chiang Mai, Thailand"
+  "q": "The Core Gallery Hotel @ agoda:1135661 (EXACT (name+house no)) — validated road: road \"ถนนห้วยแก้ว\" runs 18 m from the candidate",
+  "lat": 18.807451,
+  "lng": 98.956932,
+  "prov": "chiang-mai",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1135661",
+  "agodaName": "The Core Gallery Hotel"
  },
  "review-the-corner-lodge-pattaya": {
   "lat": 12.9235834,
@@ -12360,17 +13202,26 @@
   "wasWhy": "equals the province centroid"
  },
  "review-the-craft-nimman-chiang-mai": {
-  "lat": 18.7966535,
-  "lng": 98.9673211,
+  "lat": 18.797428,
+  "lng": 98.968025,
   "prov": "chiang-mai",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ซอย 9 ถนนนิมมานเหมินทร์, Chiang Mai, Thailand",
-  "distKm": 1.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Craft Nimman @ agoda:1389766 (EXACT (name+house no)) — validated road: road \"ถนนนิมมานเหมินทร์ ซอย 9\" runs 18 m from the candidate",
+  "distKm": 1.5,
+  "agodaId": "1389766",
+  "agodaName": "The Craft Nimman"
  },
  "review-the-crystal-hotel-buriram": {
   "why": "no match",
-  "q": "หมู่ 10 ถนนบุรีรัมย์–นางรอง, Buriram, Thailand"
+  "q": "The Crystal Hotel Buriram @ agoda:1159122 (EXACT (name+house no)) — validated area: candidate lies in ตำบลอิสาณ / Isan Subdistrict · อำเภอเมืองบุรีรัมย์ / Mueang Buri Ram District, both named by the address",
+  "lat": 14.973598,
+  "lng": 103.069194,
+  "prov": "buriram",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1159122",
+  "agodaName": "The Crystal Hotel Buriram"
  },
  "review-the-de-hotel-by-257-group-phetchabun": {
   "why": "no match",
@@ -12389,13 +13240,15 @@
   "wasWhy": "no match"
  },
  "review-the-eight-samut-sakhon": {
-  "lat": 13.5572047,
-  "lng": 100.2791012,
+  "lat": 13.556877,
+  "lng": 100.27936,
   "prov": "samut-sakhon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนนรราชอุทิศ, สมุทรสาคร, Thailand",
-  "distKm": 1.3
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Eight @ agoda:89300244 (EXACT (name+house no)) — validated road: road \"ถนนนรราชอุทิศ\" runs 22 m from the candidate",
+  "distKm": 1.3,
+  "agodaId": "89300244",
+  "agodaName": "The Eight"
  },
  "review-the-empress-hotel-chiang-mai": {
   "lat": 18.7752158,
@@ -12466,7 +13319,14 @@
  },
  "review-the-grand-residence-bang-yai-nonthaburi": {
   "why": "no match",
-  "q": "หมู่ 11 ซอยวัดพระเงิน, นนทบุรี, Thailand"
+  "q": "The Grand Residence Bang Yai @ agoda:25019754 (EXACT (agoda id)) — validated area: candidate lies in ตำบลบางม่วง / Bang Muang Subdistrict · อำเภอบางใหญ่ / Bang Yai District, both named by the address",
+  "lat": 13.836376,
+  "lng": 100.41228,
+  "prov": "nonthaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "25019754",
+  "agodaName": "THE GRAND RESIDENCE-Bang Yai"
  },
  "review-the-grand-riverside-hotel-phitsanulok": {
   "lat": 16.8140747,
@@ -12626,7 +13486,14 @@
  },
  "review-the-indigo-house-phrae": {
   "why": "no match",
-  "q": "หมู่ 5 ถนนยันตรกิจโกศล ทุ่งโฮ้ง เมืองแพร่, Phrae, Thailand"
+  "q": "The Indigo House Phrae @ agoda:1192150 (EXACT (name+house no)) — validated road: road \"ถนนยันตรกิจโกศล\" runs 18 m from the candidate",
+  "lat": 18.168282,
+  "lng": 100.170647,
+  "prov": "phrae",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1192150",
+  "agodaName": "The Indigo House Phrae"
  },
  "review-the-jolly-frog-kanchanaburi": {
   "lat": 14.0325044,
@@ -12638,14 +13505,17 @@
   "distKm": 1.7
  },
  "review-the-lake-hotel-khon-kaen": {
-  "lat": 16.4057544,
-  "lng": 102.7889711,
+  "lat": 16.406497,
+  "lng": 102.788568,
   "prov": "khon-kaen",
-  "via": "nominatim",
-  "precision": "area",
-  "q": "The Lake Hotel Khon Kaen, Khon Kaen, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Lake Hotel Khon Kaen @ agoda:793439 (EXACT (name+house no)) — validated road: road \"ถนนเหล่านาดี\" runs 21 m from the candidate",
   "distKm": 5.8,
-  "why": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Lake Hotel Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"เดอะ เลค โฮเทล\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนเหล่านาดี\" runs 21 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "793439",
+  "agodaName": "The Lake Hotel Khon Kaen",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-building-answer]: Nominatim's answer to the stored query \"The Lake Hotel Khon Kaen, Khon Kaen, Thailand\" is tourism=hotel r30 \"เดอะ เลค โฮเทล\", and none of that object's names identifies this hotel; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-legend-chiang-rai-boutique-river-resort-spa-chiang-rai": {
   "lat": 19.917945,
@@ -13278,7 +14148,14 @@
  },
  "review-the-vijitt-resort-phuket": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Phuket, Thailand"
+  "q": "The Vijitt Resort Phuket @ agoda:108804 (EXACT (name+house no)) — validated area: candidate lies in ตำบลราไวย์ / Rawai · อำเภอเมืองภูเก็ต / Mueang Phuket District, both named by the address",
+  "lat": 7.792695,
+  "lng": 98.333603,
+  "prov": "phuket",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "108804",
+  "agodaName": "The Vijitt Resort Phuket"
  },
  "review-the-waterfront-boutique-hotel-samui": {
   "why": "road query was only a village/house number: \"Moo 1\"",
@@ -13294,7 +14171,14 @@
  },
  "review-the-wind-hotel-pattaya": {
   "why": "no match",
-  "q": "Moo 8, Pattaya, Thailand"
+  "q": "The Wind Hotel Pattaya @ agoda:738053 (EXACT (name+house no)) — validated road: road \"ซอยนาจอมเทียน 56\" runs 51 m from the candidate",
+  "lat": 12.774074,
+  "lng": 100.908157,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "738053",
+  "agodaName": "The Wind Hotel"
  },
  "review-the-wisdom-residence-bueng-kan": {
   "lat": 18.3608687,
@@ -13313,14 +14197,17 @@
   "q": "หมู่ 6, Chachoengsao, Thailand"
  },
  "review-the-wood-hotel-surin": {
-  "lat": 14.8870876,
-  "lng": 103.4934609,
+  "lat": 14.887314,
+  "lng": 103.49337,
   "prov": "surin",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "9 ซอยเทศบาลบำรุง ตำบลในเมือง อำเภอเมืองสุรินทร์, สุรินทร์, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Wood Hotel @ agoda:13753342 (EXACT (agoda id)) — validated road: road \"ซอยเทศบาลบำรุง\" runs 15 m from the candidate",
   "distKm": 0.9,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"9 ซอยเทศบาลบำรุง ตำบลในเมือง อำเภอเมืองสุรินทร์, สุรินทร์, Thailand\" is highway=residential r26 \"ซอยเทศบาลบำรุง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยเทศบาลบำรุง\" runs 15 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "13753342",
+  "agodaName": "THE WOOD",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"9 ซอยเทศบาลบำรุง ตำบลในเมือง อำเภอเมืองสุรินทร์, สุรินทร์, Thailand\" is highway=residential r26 \"ซอยเทศบาลบำรุง\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-the-wood-pattani-hotel-pattani": {
   "why": "no match",
@@ -13421,7 +14308,14 @@
  },
  "review-thongchen-residence-samut-sakhon": {
   "why": "no match",
-  "q": "ซอยเอกชัย 11 ถนนเอกชัย, สมุทรสาคร, Thailand"
+  "q": "Thongchen Residence @ agoda:2157581 (EXACT (name+house no)) — validated road: road \"ถนนเอกชัย\" runs 67 m from the candidate",
+  "lat": 13.5513,
+  "lng": 100.278397,
+  "prov": "samut-sakhon",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2157581",
+  "agodaName": "Thongchen Residence"
  },
  "review-thongphaphum-place-kanchanaburi": {
   "why": "equals the province centroid",
@@ -13455,7 +14349,14 @@
  },
  "review-tide-tribe-hostel-thong-sala-koh-phangan": {
   "why": "road query was only a village/house number: \"Moo 1\"",
-  "q": "Moo 1, Koh Phangan, Thailand"
+  "q": "Tide & Tribe Hostel Phangan @ agoda:85759188 (EXACT (name+house no)) — validated area: candidate lies in ตำบลเกาะพะงัน · อำเภอเกาะพะงัน / Ko Pha-ngan District, both named by the address",
+  "lat": 9.713502,
+  "lng": 99.99081,
+  "prov": "koh-phangan",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "85759188",
+  "agodaName": "TIDE & TRIBE HOSTEL Phangan"
  },
  "review-tidjai-homestay-ratchaburi": {
   "why": "road query was only a village/house number: \"หมู่ 2\"",
@@ -13463,7 +14364,14 @@
  },
  "review-tinidee-hotel-bangkok-golf-club-pathum-thani": {
   "why": "no match",
-  "q": "หมู่ 2 ถนนติวานนท์, Pathum Thani, Thailand"
+  "q": "Tinidee Hotel Bangkok Golf Club @ agoda:4122288 (EXACT (name+house no)) — validated area: candidate lies in ตำบลบางกะดี / Bang Kadi Subdistrict · อำเภอเมืองปทุมธานี / Mueang Pathum Thani District, both named by the address",
+  "lat": 13.982394,
+  "lng": 100.540794,
+  "prov": "pathum-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4122288",
+  "agodaName": "Tinidee Hotel Bangkok Golf Club"
  },
  "review-tinidee-hotel-ranong-ranong": {
   "lat": 9.9625641,
@@ -13484,13 +14392,15 @@
   "distKm": 67.7
  },
  "review-tj-boutique-hotel-uthai-thani": {
-  "lat": 15.3704609,
-  "lng": 100.0409335,
+  "lat": 15.37376,
+  "lng": 100.03645,
   "prov": "uthai-thani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนวงศาโรจน์, อุทัยธานี, Thailand",
-  "distKm": 2.5
+  "via": "agoda",
+  "precision": "poi",
+  "q": "TJ Boutique Hotel @ agoda:87272472 (EXACT (name+house no)) — validated road: road \"ถนนวงศาโรจน์\" runs 52 m from the candidate",
+  "distKm": 2.5,
+  "agodaId": "87272472",
+  "agodaName": "TJ Boutique Hotel"
  },
  "review-tk-residence-kalasin": {
   "why": "no match",
@@ -13546,13 +14456,15 @@
   "q": "หมู่ 5 ถนนศรีชาววัง, อุตรดิตถ์, Thailand"
  },
  "review-tonkhoon-hotel-chaiyaphum": {
-  "lat": 15.8065077,
-  "lng": 102.0344235,
+  "lat": 15.806724,
+  "lng": 102.026283,
   "prov": "chaiyaphum",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนบรรณาการ, Chaiyaphum, Thailand",
-  "distKm": 0.6
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Tonkhoon Hotel (โรงแรมต้นคูณ) @ agoda:276576 (EXACT (name+house no)) — validated road: road \"ถนนบรรณาการ\" runs 68 m from the candidate",
+  "distKm": 0.6,
+  "agodaId": "276576",
+  "agodaName": "Tonkhoon Hotel"
  },
  "review-tonliw-hotel-si-bun-rueang-nong-bua-lamphu": {
   "why": "no match",
@@ -13625,7 +14537,14 @@
  },
  "review-trat-101-hotel-trat": {
   "why": "equals the province centroid",
-  "q": "Thana Charoen Road, Trat, Thailand"
+  "q": "Trat 101 Hotel @ agoda:2816838 (EXACT (name+house no)) — validated road: road \"ถนน ธนเจริญ\" runs 11 m from the candidate",
+  "lat": 12.241885,
+  "lng": 102.511276,
+  "prov": "trat",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2816838",
+  "agodaName": "Trat 101 Hotel"
  },
  "review-trat-city-hotel-trat": {
   "why": "road query was only a village/house number: \"Moo 2\"",
@@ -13651,7 +14570,14 @@
  },
  "review-travelodge-pattaya": {
   "why": "road query was only a village/house number: \"Moo 10\"",
-  "q": "Moo 10, Pattaya, Thailand"
+  "q": "Travelodge Pattaya @ agoda:691147 (EXACT (name+house no)) — validated road: road \"พัทยาสายสอง 15\" runs 33 m from the candidate",
+  "lat": 12.928657,
+  "lng": 100.881798,
+  "prov": "pattaya",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "691147",
+  "agodaName": "Travelodge Pattaya"
  },
  "review-trebel-pattaya": {
   "why": "road query was only a village/house number: \"Moo 10\"",
@@ -13853,14 +14779,17 @@
   "q": "หมู่ 3, Sisaket, Thailand"
  },
  "review-u-style-hotel-sakon-nakhon": {
-  "lat": 17.2000424,
-  "lng": 104.0990486,
+  "lat": 17.192921,
+  "lng": 104.093964,
   "prov": "sakon-nakhon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "65 ถนนนิตโย ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "U Style Hotel @ agoda:276510 (EXACT (name+house no)) — validated road: road \"ถนนนิตโย\" runs 22 m from the candidate",
   "distKm": 7,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"65 ถนนนิตโย ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนนิตโย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนนิตโย\" runs 22 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "276510",
+  "agodaName": "U Style Hotel",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"65 ถนนนิตโย ตำบลธาตุเชิงชุม อำเภอเมืองสกลนคร, Sakon Nakhon, Thailand\" is highway=primary r26 \"ถนนนิตโย\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-udee-condo-chachoengsao": {
   "lat": 13.6093693,
@@ -13873,7 +14802,14 @@
  },
  "review-uj-apartment-pattaya": {
   "why": "no match",
-  "q": "Thanon Long Hat Bangsaen, Saen Suk, Chon Buri, Thailand"
+  "q": "UJ Apartment @ agoda:2448683 (EXACT (name+house no)) — validated road: road \"ถนนลงหาดบางแสน\" runs 68 m from the candidate",
+  "lat": 13.285796,
+  "lng": 100.91949,
+  "prov": "chonburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2448683",
+  "agodaName": "UJ Apartment"
  },
  "review-umphangburi-resort-tak": {
   "lat": 16.0137779,
@@ -13913,14 +14849,17 @@
   "q": "หมู่ 2, อุทัยธานี, Thailand"
  },
  "review-v-hotel-ubon-ratchathani": {
-  "lat": 15.2534126,
-  "lng": 104.8368354,
+  "lat": 15.248673,
+  "lng": 104.842476,
   "prov": "ubon-ratchathani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "63 Chaeng Sanit Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand",
+  "via": "agoda",
+  "precision": "poi",
+  "q": "V Hotel Ubon Ratchathani @ agoda:906354 (EXACT (name+house no)) — validated road: road \"ถนนแจ้งสนิท\" runs 7 m from the candidate",
   "distKm": 2.1,
-  "why": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"63 Chaeng Sanit Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนแจ้งสนิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ถนนแจ้งสนิท\" runs 7 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "agodaId": "906354",
+  "agodaName": "V Hotel Ubon Ratchathani",
+  "wasWhy": "pin deleted 2026-09-14 [nominatim-road-answer]: Nominatim's answer to the stored query \"63 Chaeng Sanit Road, Nai Mueang, Mueang Ubon Ratchathani, Ubon Ratchathani, Thailand\" is highway=primary r26 \"ถนนแจ้งสนิท\" — a road, not the building; no OSM object within 100 m of the pin carries the hotel's name."
  },
  "review-vanavaree-resort-chanthaburi": {
   "lat": 12.6076744,
@@ -14058,13 +14997,15 @@
   "distKm": 0.8
  },
  "review-vic3-bangkok": {
-  "lat": 13.8508861,
-  "lng": 100.5801185,
+  "lat": 13.77441,
+  "lng": 100.542168,
   "prov": "bangkok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Soi Phahonyothin 3, Bangkok, Thailand",
-  "distKm": 14.2
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Vic3 Bangkok @ agoda:248363 (EXACT (name+house no)) — validated road: road \"ซอยพหลโยธิน 3\" runs 14 m from the candidate",
+  "distKm": 14.2,
+  "agodaId": "248363",
+  "agodaName": "Vic3 Bangkok"
  },
  "review-vie-hotel-bangkok-mgallery-bangkok": {
   "lat": 13.7506876,
@@ -14113,7 +15054,14 @@
  },
  "review-villa-blanca-hotel-chanthaburi": {
   "why": "no match",
-  "q": "หมู่ 5 ถนนเฉลิมบูรพาชลทิต, Chanthaburi, Thailand"
+  "q": "Villa Blanca Hotel & Restaurant @ agoda:1163605 (EXACT (name+house no)) — validated road: road \"ถนนเฉลิมบูรพาชลทิต\" runs 58 m from the candidate",
+  "lat": 12.554066,
+  "lng": 101.920532,
+  "prov": "chanthaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1163605",
+  "agodaName": "Villa Blanca Hotel and Restaurant"
  },
  "review-villa-cha-cha-chaolao-beach-resort-pattaya": {
   "why": "147 km from chonburi",
@@ -14279,7 +15227,14 @@
  },
  "review-wangtai-hotel-surat-thani": {
   "why": "equals the province centroid",
-  "q": "Talad Mai Road, Surat Thani, Thailand"
+  "q": "Wangtai Hotel @ agoda:302091 (EXACT (name+house no)) — validated road: road \"ถนนตลาดใหม่\" runs 50 m from the candidate",
+  "lat": 9.131387,
+  "lng": 99.3144,
+  "prov": "surat-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "302091",
+  "agodaName": "Wangtai Hotel"
  },
  "review-wangtaparb-resort-prachinburi": {
   "why": "road query was only a village/house number: \"หมู่ 4\"",
@@ -14325,13 +15280,15 @@
   "q": "ใกล้นิคมอุตสาหกรรมเวลโกรว์, ฉะเชิงเทรา, Thailand"
  },
  "review-western-grand-hotel-ratchaburi": {
-  "lat": 13.5496509,
-  "lng": 99.81278,
+  "lat": 13.53793,
+  "lng": 99.807526,
   "prov": "ratchaburi",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนเพชรเกษมสายเก่า, Ratchaburi, Thailand",
-  "distKm": 1.1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Western Grand Hotel Ratchaburi @ agoda:15459394 (EXACT (name+house no)) — validated road: road \"ถนนเพชรเกษม\" runs 32 m from the candidate",
+  "distKm": 1.1,
+  "agodaId": "15459394",
+  "agodaName": "Westerngrand Hotel Ratchaburi"
  },
  "review-westgate-residence-hotel-nonthaburi": {
   "lat": 13.8438825,
@@ -14345,7 +15302,14 @@
  },
  "review-westory-design-poshtel-kanchanaburi": {
   "why": "no match",
-  "q": "Saengchuto Road, Kanchanaburi, Thailand"
+  "q": "Westory Design Poshtel @ agoda:3328106 (EXACT (name+house no)) — validated road: road \"ถนนแสงชูโต\" runs 16 m from the candidate",
+  "lat": 14.027769,
+  "lng": 99.530352,
+  "prov": "kanchanaburi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "3328106",
+  "agodaName": "WesTory"
  },
  "review-whale-hotel-nakhon-pathom": {
   "lat": 13.8145573,
@@ -14358,7 +15322,14 @@
  },
  "review-whalecome-aonang-resort-krabi": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Krabi, Thailand"
+  "q": "Whalecome Aonang Resort @ agoda:4638473 (EXACT (name+house no)) — validated road: road \"ซอยอ่าวนาง 6\" runs 9 m from the candidate",
+  "lat": 8.032876,
+  "lng": 98.824181,
+  "prov": "krabi",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4638473",
+  "agodaName": "Whalecome Aonang Resort"
  },
  "review-wheeler-bed-and-bike-chonburi": {
   "why": "no match",
@@ -14366,7 +15337,14 @@
  },
  "review-whereder-poshtel-udon-thani": {
   "why": "no match",
-  "q": "Prajak Sillapakom Road, Udon Thani, Thailand"
+  "q": "Whereder Poshtel Udon Thani @ agoda:4859727 (EXACT (name+house no)) — validated area: candidate lies in ตำบลหมากแข้ง / Mak Khaeng Subdistrict · อำเภอเมืองอุดรธานี / Mueang Udon Thani District, both named by the address",
+  "lat": 17.406746,
+  "lng": 102.793869,
+  "prov": "udon-thani",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4859727",
+  "agodaName": "Whereder Poshtel"
  },
  "review-white-house-hotel-suphan-buri": {
   "why": "road query was only a village/house number: \"หมู่ 3\"",
@@ -14408,7 +15386,14 @@
  },
  "review-white-wall-riverfront-hotel-kamphaeng-phet": {
   "why": "1042 km from kamphaeng-phet",
-  "q": "Moo 1, Kamphaeng Phet, Thailand"
+  "q": "White Wall Riverfront Hotel @ agoda:6909197 (EXACT (name+house no)) — validated area: candidate lies in ตำบลนครชุม / Nakhom Chum Subdistrict · อำเภอเมืองกำแพงเพชร / Mueang Kamphaeng Phet District, both named by the address",
+  "lat": 16.451012,
+  "lng": 99.51886,
+  "prov": "kamphaeng-phet",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "6909197",
+  "agodaName": "White Wall Riverfront Hotel"
  },
  "review-wiang-inn-hotel-chiang-rai": {
   "lat": 19.9038412,
@@ -14451,7 +15436,14 @@
  },
  "review-with-a-view-hotel-at-chiangkhan-loei": {
   "why": "road query was only a village/house number: \"Moo 2\"",
-  "q": "Moo 2, Loei, Thailand"
+  "q": "With A View Hotel @ Chiangkhan @ agoda:1178726 (EXACT (name+house no)) — validated road: road \"ถนนชายโขง\" runs 9 m from the candidate",
+  "lat": 17.896135,
+  "lng": 101.65699,
+  "prov": "loei",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1178726",
+  "agodaName": "With A View Hotel @ Chiangkhan"
  },
  "review-wora-bura-hua-hin-resort-spa-huahin": {
   "lat": 12.5297701,
@@ -14552,22 +15544,26 @@
   "distKm": 4.5
  },
  "review-yenjit-resort-chachoengsao": {
-  "lat": 13.6892026,
-  "lng": 101.0764687,
+  "lat": 13.6943,
+  "lng": 101.059998,
   "prov": "chachoengsao",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนมหาจักรพรรดิ์, ฉะเชิงเทรา, Thailand",
-  "distKm": 0.7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Yenjit Resort @ agoda:462016 (EXACT (name+house no)) — validated road: road \"ถนนมหาจักรพรรดิ์\" runs 41 m from the candidate",
+  "distKm": 0.7,
+  "agodaId": "462016",
+  "agodaName": "Yenjit Resort"
  },
  "review-yodia-heritage-hotel-phitsanulok": {
-  "lat": 16.8050799,
-  "lng": 100.2502219,
+  "lat": 16.824938,
+  "lng": 100.262604,
   "prov": "phitsanulok",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ซอยพุทธบูชา, Phitsanulok, Thailand",
-  "distKm": 2.7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "Yodia Heritage Hotel @ agoda:148864 (EXACT (name+house no)) — validated road: road \"ถนนพุทธบูชา\" runs 18 m from the candidate",
+  "distKm": 2.7,
+  "agodaId": "148864",
+  "agodaName": "Yodia Heritage Hotel"
  },
  "review-yoma-hotel-pai": {
   "lat": 19.3677657,
@@ -14579,13 +15575,15 @@
   "distKm": 49.8
  },
  "review-yuu-hotel-ubon-ratchathani": {
-  "lat": 15.2410509,
-  "lng": 105.2383729,
+  "lat": 15.232277,
+  "lng": 104.855515,
   "prov": "ubon-ratchathani",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "Uparat Road, Ubon Ratchathani, Thailand",
-  "distKm": 41.7
+  "via": "agoda",
+  "precision": "poi",
+  "q": "YUU Hotel & Cafe @ agoda:2094284 (STRONG (name+address digits)) — validated road: road \"ถนนอุปราช\" runs 7 m from the candidate",
+  "distKm": 41.7,
+  "agodaId": "2094284",
+  "agodaName": "YUU HOTEL UBONRATCHATANI"
  },
  "review-z-touch-lipe-island-resort-koh-lipe": {
   "lat": 6.4874517,
@@ -14626,13 +15624,15 @@
   "q": "หมู่ 1 บ้านหม้อแกงทอง, Phayao, Thailand"
  },
  "review-zen-hotel-yasothon": {
-  "lat": 15.7937969,
-  "lng": 104.1412606,
+  "lat": 15.811124,
+  "lng": 104.146431,
   "prov": "yasothon",
-  "via": "nominatim",
-  "precision": "road",
-  "q": "ถนนวารีราชเดช, Yasothon, Thailand",
-  "distKm": 1
+  "via": "agoda",
+  "precision": "poi",
+  "q": "The Zen Hotel Yasothon @ agoda:33946557 (EXACT (name+house no)) — validated road: road \"ถนนวารีราชเดช\" runs 86 m from the candidate",
+  "distKm": 1,
+  "agodaId": "33946557",
+  "agodaName": "The Zen Hotel"
  },
  "review-zen-villa-khao-yai": {
   "lat": 14.5193926,
@@ -14674,8 +15674,16 @@
   "wasLng": 100.5649
  },
  "review-hotel-amber-sukhumvit-85-bangkok": {
-  "why": "pin deleted 2026-09-13: the hand-entered pin 13.6682,100.5984 lay 3.98–4.19 km from every OSM segment of ซอยสุขุมวิท 85, the hotel's own street address, and OSM has no building for the hotel. Found via audit-transit-claims (claimed 5 min to BTS On Nut; the soi is 470–740 m from it).",
-  "q": "8 Soi Sukhumvit 85, Bang Chak, Phra Khanong"
+  "why": "pin restored 2026-09-17 from the Agoda feed, validated road: road \"ซอยสุขุมวิท 85\" runs 10 m from the candidate — supersedes the deletion recorded in wasWhy, which removed a different and wrong coordinate",
+  "q": "Hotel Amber Sukhumvit 85 @ agoda:433315 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 85\" runs 10 m from the candidate",
+  "lat": 13.702421,
+  "lng": 100.60302,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "433315",
+  "agodaName": "Hotel Amber Sukhumvit 85",
+  "wasWhy": "pin deleted 2026-09-13: the hand-entered pin 13.6682,100.5984 lay 3.98–4.19 km from every OSM segment of ซอยสุขุมวิท 85, the hotel's own street address, and OSM has no building for the hotel. Found via audit-transit-claims (claimed 5 min to BTS On Nut; the soi is 470–740 m from it)."
  },
  "review-loftel-22-hostel-bangkok": {
   "lat": 13.7332329,
@@ -16644,5 +17652,305 @@
    "via": null
   },
   "why": "pin moved 2026-09-16 [element-near-address-road]: Shared-position audit 2026-09-16: the pin sat 11 m from D&D Inn Khaosan's pin, on ซอยดำเนินกลางเหนือ, while the review's address is '265 Khaosan Road, Taladyod, Phra Nakhon'. OSM way/234738699 'Buddy Lodge' (tourism=hotel) carries NO addr:housenumber and NO addr:street, so the house-number route does not apply; the second documented route does — its addr:subdistrict ตลาดยอด and addr:district พระนคร match the review, and the element lies 34 m from ถนนข้าวสาร (Khao San Road), the road the address names, well inside the 120 m threshold used by the 2026-09-16 street audit (Overpass around:300 with geometry, measured to the nearest segment; maps.mail.ru returned 504 and overpass-api.de answered). Move 109 m; --corroborate measured 112 m independently."
+ },
+ "review-48-metro-hotel-bangkok": {
+  "lat": 13.818453,
+  "lng": 100.59182,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1668151",
+  "agodaName": "48 Metro Hotel",
+  "q": "48 Metro Hotel @ agoda:1668151 (EXACT (name+house no)) — validated road: road \"ซอยลาดพร้าววังหิน 48\" runs 13 m from the candidate"
+ },
+ "review-aunchaleena-grand-hotel-bangkok": {
+  "lat": 13.762572,
+  "lng": 100.624153,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2324778",
+  "agodaName": "Aunchaleena Grand Hotel",
+  "q": "Aunchaleena Grand Hotel @ agoda:2324778 (EXACT (name+house no)) — validated road: road \"ซอยลาดพร้าว 122\" runs 16 m from the candidate"
+ },
+ "review-best-western-ratchada-bangkok": {
+  "lat": 13.763049,
+  "lng": 100.565468,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "37826779",
+  "agodaName": "Best Western Ratchada Hotel",
+  "q": "Best Western Ratchada Hotel @ agoda:37826779 (EXACT (name+house no)) — validated road: road \"ซอยรัชดาภิเษก 3 แยก 4\" runs 12 m from the candidate"
+ },
+ "review-bewish-residence-bangphlat-bangkok": {
+  "lat": 13.794913,
+  "lng": 100.508789,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "12490865",
+  "agodaName": "BeWish Residence Bangphlat",
+  "q": "BeWish Residence Bangphlat @ agoda:12490865 (EXACT (name+house no)) — validated road: road \"ซอยจรัญสนิทวงศ์ 84\" runs 4 m from the candidate"
+ },
+ "review-charoenkrung-place-bangkok": {
+  "lat": 13.698169,
+  "lng": 100.495483,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2063405",
+  "agodaName": "Charoenkrung Place",
+  "q": "Charoenkrung Place (เจริญกรุง เพลส) @ agoda:2063405 (EXACT (name+house no)) — validated road: road \"ซอยมไหสวรรย์ 6\" runs 62 m from the candidate"
+ },
+ "review-don-muang-hotel-bangkok": {
+  "lat": 13.925656,
+  "lng": 100.598404,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1129368",
+  "agodaName": "Don Muang Hotel",
+  "q": "Don Muang Hotel @ agoda:1129368 (EXACT (name+house no)) — validated road: road \"ซอยสรณคมน์ 5\" runs 84 m from the candidate"
+ },
+ "review-ekanake-hostel-bangkok": {
+  "lat": 13.752687,
+  "lng": 100.483757,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "5164242",
+  "agodaName": "Ekanake Hostel",
+  "q": "Ekanake Hostel @ agoda:5164242 (EXACT (name+house no)) — validated road: road \"ถนนอรุณอมรินทร์\" runs 20 m from the candidate"
+ },
+ "review-fx-hotel-nana-bangkok": {
+  "lat": 13.74723,
+  "lng": 100.55319,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "88028898",
+  "agodaName": "FX HOTEL NANA",
+  "q": "FX Hotel Nana Bangkok @ agoda:88028898 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 1/1\" runs 14 m from the candidate"
+ },
+ "review-gardina-asoke-hotel-residence-bangkok": {
+  "lat": 13.728986,
+  "lng": 100.561378,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "29384771",
+  "agodaName": "Gardina Asoke Hotel & Residence",
+  "q": "Gardina Asoke Hotel & Residence @ agoda:29384771 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 16\" runs 22 m from the candidate"
+ },
+ "review-impact-challenger-muang-thong-thani-serviced-apartment-bangkok": {
+  "lat": 13.910303,
+  "lng": 100.552521,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "446242",
+  "agodaName": "IMPACT - Challenger Muang Thong Thani Serviced Apartment",
+  "q": "IMPACT Challenger Muang Thong Thani Serviced Apartment @ agoda:446242 (STRONG (name+address digits)) — validated area: candidate lies in ตำบลบ้านใหม่ / Ban Mai Subdistrict · อำเภอปากเกร็ด / Pak Kret District, both named by the address"
+ },
+ "review-kepler-residence-bangkok": {
+  "lat": 13.747269,
+  "lng": 100.582695,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2167373",
+  "agodaName": "Kepler Residence Bangkok",
+  "q": "Kepler Residence Bangkok @ agoda:2167373 (EXACT (name+house no)) — validated road: road \"ซอยเพชรบุรี 47 แยก 3\" runs 10 m from the candidate"
+ },
+ "review-kiatthada-resort-bangkok": {
+  "lat": 13.822398,
+  "lng": 100.607476,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "51212994",
+  "agodaName": "Kiatthada Resort",
+  "q": "Kiatthada Resort @ agoda:51212994 (EXACT (name+house no)) — validated area: candidate lies in แขวงลาดพร้าว / Lat Phrao Subdistrict · เขตลาดพร้าว / Lat Phrao District, both named by the address"
+ },
+ "review-kokotel-bangkok-sukhumvit-50": {
+  "lat": 13.704595,
+  "lng": 100.599464,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "7466954",
+  "agodaName": "Kokotel Bangkok Sukhumvit 50",
+  "q": "Kokotel Bangkok Sukhumvit 50 @ agoda:7466954 (EXACT (name+house no)) — validated area: candidate lies in แขวงพระโขนง / Phra Khanong Subdistrict · เขตคลองเตย / Khlong Toei District, both named by the address"
+ },
+ "review-koo-hotel-chaeng-watthana-bangkok": {
+  "lat": 13.90118,
+  "lng": 100.539715,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "37233637",
+  "agodaName": "KOO Hotel",
+  "q": "KOO Hotel Bangkok @ agoda:37233637 (EXACT (name+house no)) — validated road: road \"ซอยแจ้งวัฒนะ-ปากเกร็ด 35\" runs 13 m from the candidate"
+ },
+ "review-la49-hotel-bangkok": {
+  "lat": 13.73604,
+  "lng": 100.57856,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2094330",
+  "agodaName": "The LA49 Hotel",
+  "q": "The LA49 Hotel @ agoda:2094330 (EXACT (name+house no)) — validated road: road \"ซอยพร้อมพรรค\" runs 6 m from the candidate"
+ },
+ "review-midtown-hotel-bangkok": {
+  "lat": 13.757381,
+  "lng": 100.523422,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4063418",
+  "agodaName": "Bangkok Midtown Hotel",
+  "q": "Bangkok Midtown Hotel @ agoda:4063418 (EXACT (name+house no)) — validated road: road \"ถนนพระรามที่ 6\" runs 44 m from the candidate"
+ },
+ "review-narra-hotel-chaengwattana-bangkok": {
+  "lat": 13.891745,
+  "lng": 100.562439,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "4363456",
+  "agodaName": "Narra hotel",
+  "q": "Narra Hotel Chaengwattana @ agoda:4363456 (EXACT (name+house no)) — validated road: road \"ซอยแจ้งวัฒนะ 13\" runs 19 m from the candidate"
+ },
+ "review-p9-ratchada-bangkok": {
+  "lat": 13.786239,
+  "lng": 100.56904,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "62527330",
+  "agodaName": "P9 Ratchada",
+  "q": "P9 Ratchada Hotel @ agoda:62527330 (EXACT (name+house no)) — validated road: road \"ซอยอินทามระ 45\" runs 12 m from the candidate"
+ },
+ "review-pannapat-place-kaset-bangkok": {
+  "lat": 13.831868,
+  "lng": 100.567017,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "271187",
+  "agodaName": "Pannapat Place",
+  "q": "Pannapat Place (ปัณณภัทร เพลส) @ agoda:271187 (EXACT (name+house no)) — validated road: road \"ซอยพหลโยธิน 35 แยก 5\" runs 8 m from the candidate"
+ },
+ "review-pillow-b-hotel-ramkhamhaeng-bangkok": {
+  "lat": 13.763679,
+  "lng": 100.615654,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "56355477",
+  "agodaName": "Pillow B Hotel",
+  "q": "Pillow B Hotel @ agoda:56355477 (EXACT (name+house no)) — validated road: road \"ซอยรามคำแหง 43/1\" runs 15 m from the candidate"
+ },
+ "review-s-box-sukhumvit-hotel": {
+  "lat": 13.733395,
+  "lng": 100.566227,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "788411",
+  "agodaName": "S BOX SUKHUMVIT HOTEL",
+  "q": "S Box Sukhumvit Hotel @ agoda:788411 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 31\" runs 8 m from the candidate"
+ },
+ "review-s33-compact-sukhumvit-bangkok": {
+  "lat": 13.735291,
+  "lng": 100.5676,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "288622",
+  "agodaName": "S33 Compact Sukhumvit Hotel",
+  "q": "S33 Compact Sukhumvit Hotel @ agoda:288622 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 33\" runs 12 m from the candidate"
+ },
+ "review-shade-house-bitec-bangna": {
+  "lat": 13.670438,
+  "lng": 100.615059,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1177881",
+  "agodaName": "Shade House-Bitec Bangna",
+  "q": "Shade House BITEC Bangna @ agoda:1177881 (EXACT (name+house no)) — validated road: road \"ซอยบางนา-ตราด 4\" runs 8 m from the candidate"
+ },
+ "review-somerset-sukhumvit-71-bangkok": {
+  "lat": 13.736342,
+  "lng": 100.594994,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "63346812",
+  "agodaName": "Somerset Sukhumvit 71 Bangkok",
+  "q": "Somerset Sukhumvit 71 Bangkok @ agoda:63346812 (STRONG (name+address digits)) — validated road: road \"ซอยปรีดีพนมยงค์ 45\" runs 81 m from the candidate"
+ },
+ "review-t3-residence-ladprao-bangkok": {
+  "lat": 13.807958,
+  "lng": 100.609123,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1267156",
+  "agodaName": "T3 RESIDENCE",
+  "q": "T3 Residence Ladprao @ agoda:1267156 (EXACT (name+house no)) — validated area: candidate lies in แขวงลาดพร้าว / Lat Phrao Subdistrict · เขตลาดพร้าว / Lat Phrao District, both named by the address"
+ },
+ "review-the-aiyapura-bangkok": {
+  "lat": 13.724338,
+  "lng": 100.494789,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "161759",
+  "agodaName": "The Aiyapura Bangkok",
+  "q": "The Aiyapura Bangkok @ agoda:161759 (EXACT (name+house no)) — validated area: candidate lies in แขวงคลองต้นไทร / Khlong Ton Sai Subdistrict · เขตคลองสาน / Khlong San District, both named by the address"
+ },
+ "review-the-bedrooms-sukhumvit-on-nut-bangkok": {
+  "lat": 13.709406,
+  "lng": 100.602348,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "73841",
+  "agodaName": "The Bedrooms Boutique Hotel",
+  "q": "The Bedrooms Boutique Hotel Sukhumvit @ agoda:73841 (EXACT (name+house no)) — validated area: candidate lies in แขวงพระโขนงเหนือ / Phra Khanong Nuea Subdistrict · วัฒนา / Vadhana District, both named by the address"
+ },
+ "review-tints-of-blue-hotel-bangkok": {
+  "lat": 13.737136,
+  "lng": 100.563545,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "1120419",
+  "agodaName": "Tints Of Blue Hotel",
+  "q": "Tints of Blue Hotel @ agoda:1120419 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 27\" runs 6 m from the candidate"
+ },
+ "review-villa-cha-cha-rambuttri-bangkok": {
+  "lat": 13.759453,
+  "lng": 100.498421,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "2467930",
+  "agodaName": "Villa Cha-Cha Khaosan Rambuttri",
+  "q": "Villa Cha-Cha Khaosan Rambuttri @ agoda:2467930 (EXACT (name+house no)) — validated road: road \"ถนนรามบุตรี\" runs 11 m from the candidate"
+ },
+ "review-walton-suites-sukhumvit-bangkok": {
+  "lat": 13.73687,
+  "lng": 100.575607,
+  "prov": "bangkok",
+  "via": "agoda",
+  "precision": "poi",
+  "agodaId": "16068096",
+  "agodaName": "Walton Suites Sukhumvit",
+  "q": "Walton Suites Sukhumvit @ agoda:16068096 (EXACT (name+house no)) — validated road: road \"ซอยสุขุมวิท 49/11\" runs 11 m from the candidate"
  }
 }

@@ -352,6 +352,7 @@ const CONTENT = path.join(ROOT, 'astro/src/content');
 const truth = new Map();   /* `${kind}:${slug}` → "lat,lng" */
 const truthName = new Map();   /* same key → the venue name, for the duplicate-position test */
 const truthKind = new Map();   /* same key → the block kind, so presentation blocks can be excluded */
+const truthCluster = new Map();   /* slug → its content cluster, so the derived artifact can be province-checked too */
 const key5 = (lat, lng) => `${lat.toFixed(5)},${lng.toFixed(5)}`;
 
 let contentOk = 0, twinsChecked = 0;
@@ -385,7 +386,7 @@ for (const kind of ['reviews', 'articles', 'roundups']) {
         if (!good) continue;
         contentOk++;
         const tk = `${kind}:${slug}:${pt.at}`;
-        if (isTruth) { truth.set(tk, key5(pt.lat, pt.lng)); truthName.set(tk, pt.name || j.name || slug); truthKind.set(tk, pt.kind); }
+        if (isTruth) { truth.set(tk, key5(pt.lat, pt.lng)); truthName.set(tk, pt.name || j.name || slug); truthKind.set(tk, pt.kind); if (cluster) truthCluster.set(slug, cluster); }
         else {
           const want = truth.get(tk);
           if (want) {
@@ -418,7 +419,18 @@ if (!fs.existsSync(RC)) {
       continue;
     }
     const [lat, lng] = v;
-    if (!checkPoint({ lat, lng, id: slug, where: 'astro/src/data/review-coords.json', cluster: null })) continue;
+    /* Passing the review's own cluster rather than null. This file is generated
+       from the content, so the cluster is known - hardcoding null meant every
+       entry got only the weak "within 130 km of SOME province centre" fallback,
+       which is both too lax (a pin wrong by 100 km inside its own province
+       passes) and too strict (a correct pin in a far district of a long
+       province fails). Kingfisher House in Sangkhlaburi was the second kind:
+       4 m from the road its address names, inside the district its address
+       names, 171 km from the Kanchanaburi town centre where the per-province
+       allowance is 190 km. Measured before changing: of 1,176 entries with a
+       usable cluster, 0 fail the stricter per-province test and exactly 1 - that
+       one - failed the weak one. */
+    if (!checkPoint({ lat, lng, id: slug, where: 'astro/src/data/review-coords.json', cluster: truthCluster.get(slug) || null })) continue;
     derivedOk++;
     /* It is generated from the content JSON, so it must agree with it.
        Compared at 4 dp (~11 m), not 5: gen-feeds rounds with toFixed and this
