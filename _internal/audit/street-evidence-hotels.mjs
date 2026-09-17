@@ -103,14 +103,23 @@ function distTo(pt, g) {
 }
 
 async function overpass(q) {
-  for (const u of ['https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter']) {
-    try {
-      const r = await fetch(u, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { ...UA, 'Content-Type': 'application/x-www-form-urlencoded' }, signal: AbortSignal.timeout(180000) });
-      if (!r.ok) continue;
-      const j = await r.json();
-      if (j.remark) continue;
-      return j.elements;
-    } catch { /* next mirror */ }
+  /* One pass over the three mirrors used to be the whole of it, so a batch was
+     abandoned whenever all three happened to be busy at once. On a long run that
+     is common - a 54-batch pass on 2026-09-17 lost three batches that way, and
+     every row in them came back untestable. All three refusing usually means we
+     have been leaning on them, so the wait between rounds is generous. */
+  const mirrors = ['https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+  for (let round = 0; round < 3; round++) {
+    if (round) { console.log(`   all mirrors busy - waiting ${30 * round}s before round ${round + 1}`); await sleep(30000 * round); }
+    for (const u of mirrors) {
+      try {
+        const r = await fetch(u, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { ...UA, 'Content-Type': 'application/x-www-form-urlencoded' }, signal: AbortSignal.timeout(180000) });
+        if (!r.ok) continue;
+        const j = await r.json();
+        if (j.remark) continue;
+        return j.elements;
+      } catch { /* next mirror */ }
+    }
   }
   return null;
 }
