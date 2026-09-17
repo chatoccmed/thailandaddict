@@ -85,10 +85,46 @@ function tierOf(r) {
   return { tier: 'reject', why: 'no admin polygon and no road — nothing was tested' };
 }
 
+/* The OSM gate does NOT verify that the matched hotel is the right hotel, and
+   assuming it did was a mistake. It asks whether a coordinate is a real place
+   consistent with the address it was given - so when the feed hands back a
+   DIFFERENT hotel of a similar name, the gate happily confirms that other
+   hotel's position. BaanKong Hostel in Lamphun matched "OYO 75469 Baan Kong
+   Hostel" in Khao Lak and passed at 7 m from a road, 1,087 km from Lamphun.
+   Dusita Residence in Phetchabun matched a Bangkok hotel of exactly that name
+   and passed at 55 m from a road, 298 km away.
+
+   Identity is what the province test decides, and it is cheap: the review says
+   which province it is in, so a candidate that lands outside it is a different
+   hotel however well its coordinate validates. The limits are check-coords'
+   own, because a gate that disagrees with the gate downstream is worse than no
+   gate. */
+const PROV_CENTRES = readJson(path.join(ROOT, '_internal/province-coords.json'), {});
+const PROVINCE_KM = {
+  kanchanaburi: 190, 'prachuap-khiri-khan': 180, 'chiang-mai': 200, tak: 180,
+  'mae-hong-son': 180, 'surat-thani': 160, 'nakhon-ratchasima': 160,
+  nan: 150, 'nakhon-si-thammarat': 150, ranong: 150,
+  'chiang-rai': 140, 'ubon-ratchathani': 140, loei: 140,
+};
+const MAX_PROVINCE_KM = 130;
+const kmBetween = (a, b) => {
+  const R = 6371, rad = (d) => (d * Math.PI) / 180;
+  const dLa = rad(b.lat - a.lat), dLo = rad(b.lng - a.lng);
+  const h = Math.sin(dLa / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLo / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+};
+function wrongProvince(prov, lat, lng) {
+  const c = PROV_CENTRES[prov];
+  if (!c || !Number.isFinite(c.lat)) return null;         /* unknown province: cannot judge */
+  const d = kmBetween({ lat, lng }, c), limit = PROVINCE_KM[prov] || MAX_PROVINCE_KM;
+  return d > limit ? Math.round(d) + ' km from ' + prov + ' (limit ' + limit + ' km) — this is a different hotel of a similar name' : null;
+}
+
 const ALLOW = new Set(DISTRICT ? ['road', 'area', 'district'] : ['road', 'area']);
 const counts = {};
 const take = [];
 const ownerReversals = [];
+const rejectedProvince = [];
 let alreadyPinned = 0, gone = 0, noFeed = 0;
 
 for (const r of ev) {
@@ -119,11 +155,51 @@ for (const r of ev) {
   const priorWhy = prior && typeof prior.why === 'string' ? prior.why : '';
   const wasDeleted = /pin deleted/i.test(priorWhy);
   const ownerDecided = wasDeleted && /owner decision/i.test(priorWhy);
-  if (ownerDecided) ownerReversals.push({ slug: r.slug, tier: t.tier, why: t.why });
+  const provSlug = r.cluster || m.cluster || null;
+  const wrong = provSlug ? wrongProvince(provSlug, Number(m.feed.lat), Number(m.feed.lng)) : null;
+  if (wrong) { rejectedProvince.push({ slug: r.slug, ours: m.name, feed: m.feed.name, city: m.feed.city, why: wrong, tier: t.tier }); continue; }
+  if (ownerReversals && ownerDecided) ownerReversals.push({ slug: r.slug, tier: t.tier, why: t.why });
   if (ALLOW.has(t.tier)) take.push({ r, m, tier: t.tier, why: t.why, wasDeleted, priorWhy });
 }
 
+/* One feed hotel cannot be two of our hotels. Both IMPACT Muang Thong Thani
+   properties matched the same feed row and were written to the same point,
+   which check-coords rejects as a duplicate position - correctly, since a
+   position two venues share is a complex or a road, not either building.
+   Neither can be preferred on the evidence, so both are dropped and listed. */
+const byFeedId = new Map();
+/* Seed with feed ids already used by an earlier run, or the clash is invisible
+   whenever the two reviews are imported in different batches - which is exactly
+   how the two IMPACT Muang Thong Thani properties ended up sharing a point:
+   one arrived in round 1, the other in round 2, and a per-run check saw one
+   of each. */
+for (const [slug, v] of Object.entries(store)) {
+  if (v && v.agodaId && Number.isFinite(v.lat)) byFeedId.set(String(v.agodaId), [{ r: { slug }, m: { feed: { id: v.agodaId, name: v.agodaName || '' } }, alreadyStored: true }]);
+}
+for (const t of take) {
+  const id = String(t.m.feed.id);
+  if (!byFeedId.has(id)) byFeedId.set(id, []);
+  byFeedId.get(id).push(t);
+}
+const contested = [...byFeedId.values()].filter((g) => g.length > 1);
+/* Only the new claimants are dropped. An entry already in the store was written
+   by an earlier run and has passed check-coords where it stands; re-litigating
+   it here would mean this run silently deleting a shipped pin. */
+const contestedSlugs = new Set(contested.flat().filter((t) => !t.alreadyStored).map((t) => t.r.slug));
+if (contestedSlugs.size) {
+  const kept = take.filter((t) => !contestedSlugs.has(t.r.slug));
+  take.length = 0; take.push(...kept);
+}
+
 console.log('evidence rows ' + ev.length + ' · tiers: ' + Object.keys(counts).map((k) => k + ' ' + counts[k]).join(' · '));
+if (rejectedProvince.length) {
+  console.log('  REJECTED, wrong province (a different hotel of a similar name): ' + rejectedProvince.length);
+  for (const x of rejectedProvince) console.log('    ' + x.slug.replace(/^review-/, '').slice(0, 44).padEnd(44) + ' feed "' + String(x.feed).slice(0, 34) + '" in ' + x.city + ' — ' + x.why.slice(0, 46));
+}
+for (const g of contested) {
+  console.log('  REJECTED, ' + g.length + ' reviews claim one feed hotel (' + String(g[0].m.feed.name).slice(0, 40) + '):');
+  for (const t of g) console.log('    ' + t.r.slug.replace(/^review-/, ''));
+}
 if (alreadyPinned) console.log('  skipped, already pinned: ' + alreadyPinned);
 if (gone) console.log('  skipped, review file gone: ' + gone);
 if (noFeed) console.log('  skipped, no feed row: ' + noFeed);
