@@ -27,8 +27,17 @@ try {
   for (const g of dup.groups || []) for (const s of g.redirect) merged.add(s);
   for (const r of dup.removed || []) merged.add(r.slug);
 } catch { /* no decision file yet */ }
-const fixes = JSON.parse(fs.readFileSync('_internal/pin-fixes.json', 'utf8'))
-  .filter((e) => BATCHES.has(e.batch) && e.kind === 'reviews' && !merged.has(e.slug));
+/* pin-fixes.json is a chronological ledger, so a slug can be decided more than
+   once and only the LAST decision describes the world. On 2026-09-17 the Agoda
+   import restored 100 pins that earlier batches had dropped - each on new
+   evidence from a different source, and each recorded as a `restore` entry -
+   and asserting the old drops as well made 158 checks fail while describing
+   nothing that was wrong. An entry superseded by a later one for the same slug
+   is therefore skipped rather than tested. */
+const ALL = JSON.parse(fs.readFileSync('_internal/pin-fixes.json', 'utf8')).filter((e) => e.kind === 'reviews');
+const latest = new Map();
+for (const e of ALL) latest.set(e.slug, e);
+const fixes = ALL.filter((e) => BATCHES.has(e.batch) && !merged.has(e.slug) && latest.get(e.slug) === e);
 const bust = `v=${Date.now()}`;
 const cache = new Map();
 async function get(p) {

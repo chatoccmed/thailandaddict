@@ -99,6 +99,18 @@ function tierOf(r) {
    hotel however well its coordinate validates. The limits are check-coords'
    own, because a gate that disagrees with the gate downstream is worse than no
    gate. */
+/* pin-fixes.json is the ledger of every pin decision ever made, and the only
+   record for a dropped content-pipeline pin, which leaves no store row at all.
+   Latest entry per slug wins, because a slug can be decided more than once. */
+const LEDGER = (() => {
+  const m = new Map();
+  for (const e of readJson(path.join(ROOT, '_internal/pin-fixes.json'), [])) {
+    if (e && e.kind === 'reviews') m.set(e.slug, e);
+  }
+  return m;
+})();
+const ledgerDrop = (slug) => { const e = LEDGER.get(slug); return e && e.action === 'drop' ? e : null; };
+
 const PROV_CENTRES = readJson(path.join(ROOT, '_internal/province-coords.json'), {});
 const PROVINCE_KM = {
   kanchanaburi: 190, 'prachuap-khiri-khan': 180, 'chiang-mai': 200, tak: 180,
@@ -153,8 +165,16 @@ for (const r of ev) {
      decision being revisited. */
   const prior = store[r.slug];
   const priorWhy = prior && typeof prior.why === 'string' ? prior.why : '';
-  const wasDeleted = /pin deleted/i.test(priorWhy);
-  const ownerDecided = wasDeleted && /owner decision/i.test(priorWhy);
+  /* The ledger, not the store, is the record of what was decided. Reading the
+     store's `why` missed every hotel that had no store row - and a dropped
+     content-pipeline pin leaves none, which is 48 of the 181 review drops. On
+     2026-09-17 that gap silently restored Tints of Blue and Qiu Hotel, two pins
+     the owner had personally decided to delete, without either appearing in
+     this script's own "owner reversal" list. I had documented that exact hazard
+     hours earlier and then wrote the guard against the wrong file. */
+  const led = ledgerDrop(r.slug);
+  const wasDeleted = !!led || /pin deleted/i.test(priorWhy);
+  const ownerDecided = /owner decision/i.test(String(led && led.evidence || '')) || (wasDeleted && /owner decision/i.test(priorWhy));
   const provSlug = r.cluster || m.cluster || null;
   const wrong = provSlug ? wrongProvince(provSlug, Number(m.feed.lat), Number(m.feed.lng)) : null;
   if (wrong) { rejectedProvince.push({ slug: r.slug, ours: m.name, feed: m.feed.name, city: m.feed.city, why: wrong, tier: t.tier }); continue; }
