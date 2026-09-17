@@ -21,15 +21,22 @@
      keep                    nothing decides
    Main roads are only used to KEEP a pin, never to drop it: a long road is
    split into many ways and the nearest one may not be among Nominatim's results.
-   Usage: node street-evidence-hotels.mjs [--verdicts "SOI DIFFERS,LOCALITY DIFFERS,PART DIFFERS,road differs"] */
+   Usage: node street-evidence-hotels.mjs [--verdicts "SOI DIFFERS,..."]
+                                         [--in rows.json] [--out evidence.json] */
 import fs from 'node:fs';
 import path from 'node:path';
 
 const SP = path.resolve(import.meta.dirname, 'cache') + '/';   // gitignored working data
 const vi = process.argv.indexOf('--verdicts');
 const VERDICTS = new Set((vi > 0 ? process.argv[vi + 1] : 'SOI DIFFERS,LOCALITY DIFFERS,PART DIFFERS,road differs').split(','));
-const OUT = `${SP}street-evidence-hotels.json`;
-const rows = JSON.parse(fs.readFileSync(`${SP}street-audit-nostore.json`, 'utf8')).filter((r) => VERDICTS.has(r.verdict));
+/* --in / --out keep this off the shared cache files. The pilot run on 2026-09-17
+   had to overwrite street-audit-nostore.json to score a different row set, which
+   is how shared state gets clobbered; naming the files explicitly costs nothing. */
+const ii = process.argv.indexOf('--in');
+const oi = process.argv.indexOf('--out');
+const IN = ii > 0 ? process.argv[ii + 1] : `${SP}street-audit-nostore.json`;
+const OUT = oi > 0 ? process.argv[oi + 1] : `${SP}street-evidence-hotels.json`;
+const rows = JSON.parse(fs.readFileSync(IN, 'utf8')).filter((r) => VERDICTS.has(r.verdict));
 const UA = { 'User-Agent': 'thailandaddict-geocoder/1.0 (+https://thailandaddict.com; pin accuracy audit)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /* How close a matching road must run for its name to be evidence of position
