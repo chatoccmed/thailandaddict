@@ -61,6 +61,11 @@ const tokens = (s) => String(s || '').toLowerCase().normalize('NFD').replace(/[Ì
 
 const classify = {
   agoda(u) {
+    /* Agoda's partner deep link names the property by id, so it reaches one
+       hotel and cannot reach the wrong one. Used where our slug pointed at a
+       different hotel entirely and no correct slug was known - see
+       _internal/fix-wrong-agoda-links.mjs. */
+    if (/agoda\.com\/partners\/partnersearch\.aspx\?[^"']*\bhid=\d+/i.test(u)) return 'direct';
     if (/agoda\.com\/[a-z0-9_.-]+\/hotel\//i.test(u)) return 'direct';
     if (/agoda\.com\/(city|country)\//i.test(u)) return 'generic';
     if (/agoda\.com\/search/i.test(u)) return /[?&](q|textToSearch)=[^&]+/i.test(u) ? 'search' : 'generic';
