@@ -875,7 +875,16 @@ const shellFooter = {
       { href: link(data.parentHref), label: data.parentShort },
       { href: link(data.crumbCityHref ?? 'country-thailand.html'), label: data.crumbCityName ?? 'เที่ยวไทย' },
       { href: link(data.countryHref ?? 'country-thailand.html'), label: data.countryGuideLabel ?? 'Thailand Guide' },
-      { href: 'https://www.agoda.com/?cid=1965862', label: S.navCta, rel: 'sponsored nofollow noopener' },
+      /* This sent every reader to the Agoda home page - no property, no
+         destination, no dates - from a page about ONE hotel whose own Agoda
+         URL is sitting in data.bookingAgoda. Same treatment the roundup
+         mobile CTA already had. If this stay has no Agoda URL (a minority of
+         rural places are on Facebook or their own site only) the link is not
+         rendered, because S.navCta names Agoda and a label must match where
+         it goes. */
+      ...(/agoda\.com/i.test(data.bookingAgoda || '')
+        ? [{ href: goB(data.bookingAgoda), label: S.navCta, rel: 'sponsored nofollow noopener' }]
+        : []),
     ] },
     { title: S.ftAbout, links: [
       { href: link('about.html'), label: 'About ThailandAddict' },

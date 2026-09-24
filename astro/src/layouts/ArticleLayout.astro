@@ -408,9 +408,15 @@ const shellCtx = {
         { href: link(data.crumbCityHref + '#see'), label: S.ftSee },
         { href: link(data.crumbCityHref + '#hotels'), label: S.ftStay },
         // The header CTA the shell has no slot for. Kept rather than dropped:
-        // same href, same cid=1965862, same translated label — now a real <a>
-        // with rel="sponsored" instead of <button onclick="window.open(...)">.
-        { href: 'https://www.agoda.com/?cid=1965862', label: S.cta, rel: 'sponsored nofollow noopener' },
+        // same cid=1965862, same translated label — a real <a> with
+        // rel="sponsored" instead of <button onclick="window.open(...)">.
+        // It used to open the Agoda home page from a page that knows exactly
+        // which city it is about; it now searches that city, the same way the
+        // hub booking cards and the article CTAs do. Falls back to nothing
+        // rather than to the home page, since the label names Agoda.
+        ...(data.crumbCityName
+          ? [{ href: `https://www.agoda.com/search?cid=1965862&q=${encodeURIComponent(data.crumbCityName)}`, label: S.cta, rel: 'sponsored nofollow noopener' }]
+          : []),
       ] },
       { title: S.ftAboutH, links: [
         { href: link('about.html'), label: S.ftAboutUs },
