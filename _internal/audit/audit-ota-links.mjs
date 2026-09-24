@@ -66,7 +66,12 @@ const classify = {
        different hotel entirely and no correct slug was known - see
        _internal/fix-wrong-agoda-links.mjs. */
     if (/agoda\.com\/partners\/partnersearch\.aspx\?[^"']*\bhid=\d+/i.test(u)) return 'direct';
-    if (/agoda\.com\/[a-z0-9_.-]+\/hotel\//i.test(u)) return 'direct';
+    /* The optional (xx-yy/) is a locale prefix - agoda.com/th-th/<slug>/hotel/...
+       Without it this counted every locale-prefixed hotel link as NOT direct,
+       which inflated "reviews with no direct hotel link" by more than half:
+       178 such reviews became 84 once the prefix was allowed for. Those links
+       resolve correctly; verified live. */
+    if (/agoda\.com\/(?:[a-z]{2}-[a-z]{2}\/)?[a-z0-9_.-]+\/hotel\//i.test(u)) return 'direct';
     if (/agoda\.com\/(city|country)\//i.test(u)) return 'generic';
     if (/agoda\.com\/search/i.test(u)) return /[?&](q|textToSearch)=[^&]+/i.test(u) ? 'search' : 'generic';
     return 'other';
