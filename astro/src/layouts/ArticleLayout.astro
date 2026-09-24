@@ -1,4 +1,6 @@
 ---
+import AGODA_CITY_IDS_RAW from '../data/agoda-city-ids.json';
+const AGODA_CITY_IDS: Record<string,string> = (AGODA_CITY_IDS_RAW as any).ids || {};
 // ThailandAddict — ArticleLayout (Vibrant Island Pop / Direction C)
 // Renders food / attraction / itinerary / prep / guide articles from a flexible block list.
 import Analytics from '../components/Analytics.astro';
@@ -414,8 +416,15 @@ const shellCtx = {
         // which city it is about; it now searches that city, the same way the
         // hub booking cards and the article CTAs do. Falls back to nothing
         // rather than to the home page, since the label names Agoda.
-        ...(data.crumbCityName
-          ? [{ href: `https://www.agoda.com/search?cid=1965862&q=${encodeURIComponent(data.crumbCityName)}`, label: S.cta, rel: 'sponsored nofollow noopener' }]
+        // ...and q=<city name> does NOT resolve: agoda.com/search?cid=..&q=X
+        // 301s to the Agoda home page for every query tested, Latin and
+        // non-Latin alike, so it would swap a home-page link for one that
+        // lands on the home page anyway. Only a city id resolves.
+        // _internal/agoda-city-ids.json maps our cluster slugs to those ids,
+        // derived from the owner's Agoda feed. No id for this cluster means no
+        // link, since the label names Agoda.
+        ...(AGODA_CITY_IDS[data.cluster]
+          ? [{ href: `https://www.agoda.com/search?city=${AGODA_CITY_IDS[data.cluster]}&cid=1965862`, label: S.cta, rel: 'sponsored nofollow noopener' }]
           : []),
       ] },
       { title: S.ftAboutH, links: [

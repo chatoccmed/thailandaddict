@@ -223,8 +223,15 @@ const goB = (u, sid) => u && /booking\.com/.test(u)
    would have to be guessed for 6 of our 89 hubs - hat-yai, huahin, koh-kood,
    koh-larn, koh-mak and samui are not the spellings Agoda uses - and a guessed
    slug 404s on the highest-intent click on the page. */
+const AGODA_CITY = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/agoda-city-ids.json'), 'utf8')).ids || {}; } catch { return {}; } })();
 const otaCity = {
-  agoda: (name) => `https://www.agoda.com/search?cid=1965862&q=${encodeURIComponent(name)}`,
+  /* An Agoda city id, NOT a q= search. `search?cid=..&q=Krabi` 301s to the
+     Agoda home page - verified for Latin, Thai, Chinese and Arabic queries
+     alike, so it is not a language problem - which would have replaced a
+     home-page link with a link that lands on the home page anyway. A city id
+     resolves; so does the /city/<slug>-th.html path. Where a cluster has no id
+     the card is not rendered, because its label names Agoda. */
+  agoda: (name, slug) => (AGODA_CITY[slug] ? `https://www.agoda.com/search?city=${AGODA_CITY[slug]}&cid=1965862` : ''),
   booking: (name) => `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(name)}`,
   trip: (name) => `https://www.trip.com/hotels/list?keyword=${encodeURIComponent(name)}&Allianceid=6861268&SID=312919111`,
 };
@@ -1105,7 +1112,7 @@ function provinceHub(slug, th, r, d){
   const hoods=hls.map((h,i)=>`<div class="hood hg${i%6}"><h4>${esc(h.name)}</h4><p>${esc(stripTags(h.blurb).slice(0,64))}</p></div>`).join('');
   // neighbors cards
   const nbCards=(d.neighbors||[]).filter(n=>TH[n]).map(n=>{const nd=readData(n);return provCard(n,NAME(n),(nd&&nd.heroEmoji)||'📍',(nd&&nd.tagline)||tx(`เที่ยว${TH[n]}`,`Explore ${NAME(n)}`))}).join('');
-  const aff=`<div class="affgrid"><div class="affcard"><div class="an"><span class="adot" style="background:#FF2938"></span>Agoda</div><p>${tx('คนไทยใช้เยอะที่สุด · cashback บ่อย · จ่ายเงินไทยได้','Most popular in Thailand · frequent cashback · pay in THB')}</p><a class="b-agoda" href="${otaCity.agoda(NAME(slug))}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm r">a</span>${tx('ค้นหาบน Agoda →','Search on Agoda →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#003580"></span>Booking.com</div><p>${tx('ห้องเยอะที่สุด · ยกเลิกได้ส่วนใหญ่ · UI สะอาด','Largest inventory · mostly free cancellation · clean UI')}</p><a class="b-booking" href="${goB(otaCity.booking(NAME(slug)),slug)}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm sq">B.</span>${tx('ค้นหาบน Booking →','Search on Booking →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#287DFA"></span>Trip.com</div><p>${tx('ราคาคุ้มในเอเชีย · ดีลบ่อย · สะสมแต้มได้','Great value in Asia · frequent deals · earn points')}</p><a class="b-trip" href="${otaCity.trip(NAME(slug))}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm sq">t</span>${tx('ค้นหาบน Trip.com →','Search on Trip.com →')}</a></div></div>`;
+  const aff=`<div class="affgrid"><div class="affcard"><div class="an"><span class="adot" style="background:#FF2938"></span>Agoda</div><p>${tx('คนไทยใช้เยอะที่สุด · cashback บ่อย · จ่ายเงินไทยได้','Most popular in Thailand · frequent cashback · pay in THB')}</p><a class="b-agoda" href="${otaCity.agoda(NAME(slug), slug)}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm r">a</span>${tx('ค้นหาบน Agoda →','Search on Agoda →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#003580"></span>Booking.com</div><p>${tx('ห้องเยอะที่สุด · ยกเลิกได้ส่วนใหญ่ · UI สะอาด','Largest inventory · mostly free cancellation · clean UI')}</p><a class="b-booking" href="${goB(otaCity.booking(NAME(slug)),slug)}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm sq">B.</span>${tx('ค้นหาบน Booking →','Search on Booking →')}</a></div><div class="affcard"><div class="an"><span class="adot" style="background:#287DFA"></span>Trip.com</div><p>${tx('ราคาคุ้มในเอเชีย · ดีลบ่อย · สะสมแต้มได้','Great value in Asia · frequent deals · earn points')}</p><a class="b-trip" href="${otaCity.trip(NAME(slug))}" target="_blank" rel="sponsored nofollow noopener"><span class="bkm sq">t</span>${tx('ค้นหาบน Trip.com →','Search on Trip.com →')}</a></div></div>`;
   const tab=(id,emo,label,count)=>`<div class="tab${id==='stay'?' active':''}" data-tab="${id}">${emo} ${label}${count?`<span class="tc">${count}</span>`:''}</div>`;
   // ── expert-hub UI blocks (quick-answer, season, budget, map, klook, FAQ) ──
   const quickAns=`<div class="qabox">
