@@ -76,9 +76,16 @@ const classify = {
     return 'other';
   },
 };
-/* Affiliate attribution, audited separately in 2026-07 but cheap to re-assert:
-   a link that reaches the hotel but drops the tag earns nothing. */
+/* Affiliate attribution is NOT decided here and must not be judged from the
+   content files. stampAffiliate() in astro/src/lib/affiliate.ts adds the tag at
+   RENDER, through goB() in all three layouts, so a URL stored bare still ships
+   tagged. Scanning content for a missing cid=/Allianceid= reported 98 links as
+   earning nothing on 2026-09-24; every one of them was tagged in astro/dist.
+   The built HTML is the only place this question has an answer, so it is asked
+   there or not at all. */
 const tagged = { agoda: (u) => /[?&]cid=\d+/i.test(u), trip: (u) => /[?&]Allianceid=\d+/i.test(u) };
+const DIST = path.join(ROOT, 'astro/dist');
+const CAN_CHECK_TAGS = fs.existsSync(DIST);
 
 const rows = [];
 for (const suffix of LOCALES) {
@@ -110,7 +117,15 @@ for (const r of rows) {
       const c = classify[ota](u);
       tally[ota][c] = (tally[ota][c] || 0) + 1;
       if (c === 'direct') direct++;
-      if (!tagged[ota](u) && untagged[ota].length < 400) untagged[ota].push({ slug: r.slug, loc: r.loc, url: u });
+      /* only meaningful against the BUILT page - see the note on `tagged` */
+      if (CAN_CHECK_TAGS && !tagged[ota](u) && untagged[ota].length < 400) {
+        const built = path.join(DIST, (r.loc === 'th' ? '' : r.loc.replace('-', '') + '/') + r.slug + '.html');
+        const html = fs.existsSync(built) ? fs.readFileSync(built, 'utf8') : '';
+        const stem = u.split('?')[0].replace(/^https?:\/\//, '');
+        const i = html.indexOf(stem);
+        const rendered = i < 0 ? null : html.slice(i, i + stem.length + 120).split(/["'<\s]/)[0];
+        if (!rendered || !tagged[ota](rendered)) untagged[ota].push({ slug: r.slug, loc: r.loc, url: u, rendered });
+      }
     }
     if (!direct) noDirect[ota].push({ slug: r.slug, loc: r.loc, has: r[ota].length });
   }
