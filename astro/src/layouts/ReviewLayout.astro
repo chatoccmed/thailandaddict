@@ -189,7 +189,9 @@ const S = {
     bylineLink: 'วิธีการรีวิวของเรา →',
     secGallery: 'Gallery · ภาพโรงแรมและสถานที่', galleryMore: 'ภาพทั้งหมด',
     secBody: 'บทวิจารณ์จากทีมงาน · Our Full Review',
-    secRating: 'คะแนนของเรา · Our Rating', ratingOut: 'จาก 10 คะแนน',
+    secRating: 'คะแนนจากผู้เข้าพักจริง · Guest Scores', ratingOut: 'จาก 10',
+    overlayAria: 'ดูราคาและห้องว่างบน Agoda (ลิงก์พันธมิตร)',
+    ratingSrcNote: 'คะแนนนี้เก็บโดย Booking.com และ Agoda จากผู้ที่จองและเข้าพักจริง เราไม่ได้ให้คะแนนเอง และไม่ได้ปรับตัวเลข',
     secGuest: 'สรุปจากแขกจริง · Guest Reviews Summary',
     prCount: 'หลายร้อยรีวิว', prPros: '✦ จุดเด่น', prCons: '◎ ข้อสังเกต',
     secHonest: 'ความเห็นตรงๆ · Honest Take',
@@ -224,7 +226,9 @@ const S = {
     bylineLink: 'Our review methodology →',
     secGallery: 'Gallery · Hotel &amp; Area Photos', galleryMore: 'all photos',
     secBody: 'Our Full Review',
-    secRating: 'Our Rating', ratingOut: 'out of 10',
+    secRating: 'Guest Scores', ratingOut: 'out of 10',
+    overlayAria: 'Check prices and availability on Agoda (affiliate link)',
+    ratingSrcNote: 'Collected by Booking.com and Agoda from verified guests. We do not score properties ourselves and we do not adjust these numbers.',
     secGuest: 'Guest Reviews Summary',
     prCount: 'hundreds of reviews', prPros: '✦ Pros', prCons: '◎ Things to note',
     secHonest: 'Honest Take',
@@ -777,10 +781,13 @@ const schema = {
       name: data.name,
       description: data.schemaDesc,
       starRating: { '@type': 'Rating', ratingValue: String(data.starRating) },
-      ...((Number(data.score) > 0 && Number(data.ratingCount) > 0) ? { aggregateRating: {
-        '@type': 'AggregateRating', ratingValue: String(data.score),
-        bestRating: '10', worstRating: '1', ratingCount: String(data.ratingCount),
-      } } : {}),
+      /* No aggregateRating. It published data.score - a composite skewed 18:1
+         above both platform sources with no recorded derivation - as a
+         first-party rating, and Google's review-snippet policy separately
+         forbids aggregating ratings collected by other sites. Removed
+         2026-09-24 by owner decision, accepting the loss of the star rich
+         result on 2,371 pages. The sourced per-platform figures are shown on
+         the page instead, each attributed to who collected it. */
       address: {
         '@type': 'PostalAddress', streetAddress: data.streetAddress,
         addressLocality: data.addressLocality, addressCountry: data.addressCountry,
@@ -792,7 +799,9 @@ const schema = {
     ...(Number(data.score) > 0 ? [{
       '@type': 'Review', '@id': `${url}#review`,
       itemReviewed: { '@id': `${url}#hotel` },
-      reviewRating: { '@type': 'Rating', ratingValue: String(data.score), bestRating: '10' },
+      /* reviewRating removed with the aggregate above - same unsourced figure,
+         and asserting it here is the same claim in a different shape. The Review
+         node itself stays: we did write this review, and that part is true. */
       author: authorNode,
       publisher: { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'ThailandAddict', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
       datePublished: today, ...(_modDate ? { dateModified: _modDate } : {}),
@@ -1023,7 +1032,7 @@ const shellCtx = {
 <div class="hero">
   <div class="hero-grid">
     <div class="hero-main">
-      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" class="rv-overlay"></a>
+      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener nofollow sponsored" aria-label={S.overlayAria} class="rv-overlay"></a>
       {hasWebp(data.heroImg) ? (
         <picture>
           <source srcset={asset(webpOf(data.heroImg))} type="image/webp" />
@@ -1055,7 +1064,7 @@ const shellCtx = {
       </div>
     </div>
     <div class="hero-sub">
-      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener" class="rv-overlay"></a>
+      <a href={goB(data.bookingAgoda)} target="_blank" rel="noopener nofollow sponsored" aria-label={S.overlayAria} class="rv-overlay"></a>
       {hasWebp(data.heroSub1) ? (
         <picture><source srcset={asset(webpOf(data.heroSub1))} type="image/webp" />
           <img src={asset(data.heroSub1)} alt={data.galleryAlts?.[0] || data.name} class="rv-fill" />
@@ -1206,21 +1215,34 @@ const shellCtx = {
     ))}
   </div>
 
-  <!-- Rating -->
+  <!-- Guest scores, attributed to the platform that collected them.
+       This block used to print one composite "Our Rating" plus six sub-score
+       bars. Both were removed on 2026-09-24 because neither could be sourced.
+       Measured across the corpus: the printed figure sat ABOVE both Booking and
+       Agoda on 395 reviews and below both on 22 - an 18:1 upward skew, max
+       +2.4 - with no record anywhere of how it was derived, inches from a
+       button we earn commission on. The six bars were worse: the corpus used
+       604 different axis label sets while both sources publish fixed axes, and
+       on 1,479 of 2,371 reviews the six values averaged to within 0.1 of the
+       headline they claimed to explain. They had been written backwards from
+       the number.
+       The owner chose on 2026-09-24 to remove it outright and accept losing the
+       star rich result on 2,371 pages rather than keep an unexplainable figure.
+       No review count is shown: `booking` and `agoda` carry only {score, pros,
+       cons} - there is no per-platform count in any of the 2,371 files, and the
+       top-level ratingCount has no stated source either. -->
   <div class="rating-box fade-up">
     <div class="sec-label">{S.secRating}</div>
     <div class="rating-top">
-      <div class="rating-big">
-        <div class="r-num" set:html={data.score.toFixed(1).replace(/\.(\d)/, '.<span>$1</span>')}></div>
-        <div class="r-stars">{Array.from({ length: data.starRating }).map(() => <span class="s">★</span>)}</div>
-        <div class="r-out">{S.ratingOut}</div>
-        <div class="r-count">{ratingCountText}</div>
+      <div class="r-src-grid">
+        {data.booking?.score ? (
+          <div class="r-src"><div class="r-src-name">Booking.com</div><div class="r-src-num">{data.booking.score}</div><div class="r-src-out">{S.ratingOut}</div></div>
+        ) : null}
+        {data.agoda?.score ? (
+          <div class="r-src"><div class="r-src-name">Agoda</div><div class="r-src-num">{data.agoda.score}</div><div class="r-src-out">{S.ratingOut}</div></div>
+        ) : null}
       </div>
-      <div class="r-bars">
-        {data.ratingBars.map((b) => (
-          <div class="rbar"><div class="rbar-lbl">{b.label}</div><div class="rbar-track"><div class="rbar-fill" style={`width:${b.width}%`}></div></div><div class="rbar-v">{b.value}</div></div>
-        ))}
-      </div>
+      <p class="r-src-note">{S.ratingSrcNote}</p>
     </div>
   </div>
 

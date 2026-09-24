@@ -112,7 +112,7 @@ _internal/
 - **ห้ามใช้จุดกลางจังหวัด/อำเภอ/ถนนแทนตำแหน่งสถานที่** — `precision:'road'` เก็บไว้ในสโตร์ได้ แต่ห้ามเขียนลงเนื้อหา
 - **ODbL: attribution ต้องมีคำว่า "contributors" + ลิงก์ใบอนุญาต** ไม่ใช่ของประดับ — เคยหลุดไป 1,311 หน้า
 - 2 gate บังคับ: `check-coords.mjs` (exit 11, 8 ข้อ) · `check-map-attribution.mjs` (exit 12) — อยู่ใน `build-test.sh` แล้ว
-- Leaflet + tile OSM self-host ทั้งหมด ไม่มี Google Maps Platform / ไม่มี API key ในสาย build
+- **Leaflet self-host แต่ tile ไม่ได้ self-host** — ประโยคเดิมตรงนี้เขียนว่า self-host ทั้งหมด ซึ่ง**ผิด** (ตรวจ 2026-09-24): `ArticleLayout.astro` · `RoundupLayout.astro` · `gen-hubs.mjs` ดึงจาก `https://{s}.tile.openstreetmap.org` ตรงๆ = เซิร์ฟเวอร์ชุมชนฟรีของ OSMF ซึ่งนโยบายเขาไม่ให้ใช้ระดับนี้ · **86 ฮับจะจอขาวพร้อมกันถ้าโดนตัด และไม่มี fallback** · ไม่มี Google Maps Platform / ไม่มี API key ในสาย build (ส่วนนี้ยังจริง)
 
 ## มาตรฐานเนื้อหา (ยกจาก wherebest — LOCKED)
 - **โทน v2-clean**: เพื่อนเล่าให้เพื่อน · ห้าม slang `อ่ะ/ปะ/แหละ/ล่ะ` · ห้ามคำ AI `ตอบโจทย์/โดดเด่น/ครบครัน/ระดับโลก/สุดยอด/อันซีน`

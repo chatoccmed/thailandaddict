@@ -32,6 +32,18 @@ export default {
     // via gen-duplicate-redirects.mjs; it stores the clean path, so strip .html before the lookup.
     const merged = MOVED_PAGES[url.pathname.replace(/\.html$/, '')];
     if (merged) return new Response(null, { status: 301, headers: { 'Location': merged + url.search, 'Cache-Control': 'public, max-age=86400' } });
+    /* Three pages live only at the root - the planner, the saved list and the
+       font comparison - because their engines are keyed in Thai and there is no
+       per-locale build of them. astro/src/lib/locales.ts calls that set
+       ROOT_ONLY_SLUGS and every layout link() already honours it, so nothing on
+       the site links to /en/trip. But the URL was still a 404 for anyone who
+       typed it, followed an old external link, or guessed the pattern from the
+       other 226 localised pages. It now lands on the page that exists.
+       This is containment, not the fix: an English reader still arrives at a
+       Thai-language planner. Re-keying that engine to locale-neutral IDs is
+       Phase 2 work and is not something a redirect can stand in for. */
+    const rootOnly = url.pathname.replace(/\.html$/, '').match(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\/(trip|my-list|font-compare)$/);
+    if (rootOnly) return new Response(null, { status: 301, headers: { 'Location': '/' + rootOnly[1] + url.search, 'Cache-Control': 'public, max-age=86400' } });
     try {
       if (url.pathname === '/go/b') return bookingGo(url);
       // Abuse guard on the write/compute endpoints. /api/plan burns Workers-AI neurons per call and the

@@ -249,7 +249,18 @@ html #cv-bar{inset-block-end:calc(var(--floor) + var(--cta-h) + 56px)}
 
 /* RATING */
 .rating-box{background:var(--card);border:1px solid var(--faint);border-radius:24px;padding:26px;margin:32px 0;box-shadow:var(--sh);}
-.rating-top{display:flex;gap:26px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--faint);}
+.rating-top{display:flex;flex-direction:column;gap:14px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--faint);}
+/* Guest scores, one card per platform that collected them. Replaced the single
+   composite number and its six sub-score bars on 2026-09-24: neither could be
+   sourced, and the composite ran 18:1 above both platforms. The old .rating-big
+   / .r-bars rules below are kept because roundup and other templates still use
+   .r-num and .r-stars. */
+.r-src-grid{display:flex;flex-wrap:wrap;gap:12px;}
+.r-src{flex:1 1 150px;border:1px solid var(--faint);border-radius:16px;padding:14px 16px;}
+.r-src-name{font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;}
+.r-src-num{font-family:'Outfit',sans-serif;font-size:34px;font-weight:900;color:var(--ink);line-height:1.1;letter-spacing:-1px;font-variant-numeric:tabular-nums;}
+.r-src-out{font-size:11px;color:var(--muted);}
+.r-src-note{font-size:12px;color:var(--muted);line-height:1.7;margin:0;}
 .rating-big{text-align:center;min-width:110px;}
 .r-num{font-family:'Outfit',sans-serif;font-size:58px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-2px;}
 .r-num span{color:var(--rust);}

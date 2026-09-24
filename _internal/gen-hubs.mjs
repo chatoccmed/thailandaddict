@@ -1120,11 +1120,31 @@ function provinceHub(slug, th, r, d){
     <div class="qa"><span class="qa-e">⏱️</span><div><b>${tx('เที่ยวกี่วัน','How long')}</b><p>${dayRec}</p></div></div>
     <div class="qa"><span class="qa-e">💰</span><div><b>${tx('งบต่อวัน','Budget/day')}</b><p>฿800–4,500+</p></div></div>
     <a class="qa-cta" href="/trip?provinces=${slug}"><b>✨ ${tx('ออกแบบทริปเฉพาะคุณ','Design your trip')}</b><span>${tx('คัดเส้นทางโดยทีม ThailandAddict · เลือกตามความต้องการของคุณ','Curated by the ThailandAddict team · tailored to you')}</span></a></div>`;
-  const _seas=[
+  /* The season card was ONE hardcoded table rendered on all 89 hubs, and on the
+     lower Gulf it was inverted: it told readers November-February is the best
+     season and June-October is the quiet green one. On Samui, Phangan and the
+     rest of the Samui archipelago that is backwards - the northeast monsoon
+     puts the heaviest rain and the roughest seas in October-January, and
+     June-September is reliably good. The site already knew this: its own pillar
+     is subtitled "Gulf vs Andaman month-by-month" and it publishes a
+     koh-samui-vs-koh-phangan comparison, while every hub card said the same
+     thing. Only the lower Gulf is overridden here - the default table is
+     already right for the Andaman side and for inland Thailand, and inventing
+     finer distinctions than the evidence supports is how this went wrong the
+     first time. */
+  const GULF_SOUTH = new Set(['samui','koh-phangan','surat-thani','chumphon','nakhon-si-thammarat','songkhla','hat-yai','pattani','narathiwat','phatthalung','yala']);
+  const isGulfSouth = GULF_SOUTH.has(slug);
+  const _seasGulf=[
+    [tx('ก.พ.–เม.ย.','Feb–Apr'),'✅',tx('ดีที่สุด','Best'),tx('ทะเลใส ลมสงบ แดดดี','Clearest seas, calm water, reliable sun')],
+    [tx('พ.ค.–ก.ย.','May–Sep'),'🔆',tx('ร้อน ฝนเป็นช่วง','Hot, passing rain'),tx('ฝนตกสั้น ๆ ทะเลยังเที่ยวได้ คนน้อยกว่า','Short showers, seas still good, fewer visitors')],
+    [tx('ต.ค.–ม.ค.','Oct–Jan'),'🌧️',tx('ฝนหนัก คลื่นแรง','Wettest, rough seas'),tx('ฝนมากที่สุดของฝั่งอ่าวไทย เรือบางเที่ยวงด','The wettest months on this coast — some boat services cancelled')],
+  ];
+  const _seasDefault=[
     [tx('พ.ย.–ก.พ.','Nov–Feb'),'✅',tx('หนาว/แห้ง','Cool & dry'),tx('ช่วงเที่ยวดีที่สุด อากาศเย็น ฟ้าใส','Best season — cool and clear')],
     [tx('มี.ค.–พ.ค.','Mar–May'),'🔆',tx('ร้อน','Hot'),tx('แดดแรง ร้อนช่วงกลางวัน','Hot, strong midday sun')],
     [tx('มิ.ย.–ต.ค.','Jun–Oct'),'🌧️',tx('ฝน','Rainy'),tx('ฝนเป็นช่วง สีเขียวสวย นักท่องเที่ยวน้อย','Lush and green, fewer crowds, passing rain')],
   ];
+  const _seas = isGulfSouth ? _seasGulf : _seasDefault;
   const seasonTable=`<div class="seasgrid">`+_seas.map(s=>`<div class="seascard"><div class="seas-mo">${s[1]} ${s[0]}</div><div class="seas-nm">${s[2]}</div><p>${s[3]}</p></div>`).join('')+`</div>`+(isNorth?`<div class="seas-warn">⚠️ ${tx(`${th}อยู่ภาคเหนือ — ช่วง ก.พ.–เม.ย. อาจมีหมอกควันและฝุ่น PM2.5 สูง ควรเช็กค่าฝุ่นก่อนเดินทางและเลี่ยงกิจกรรมกลางแจ้งหนัก ๆ`,`${nm} is in the North — Feb–Apr can bring seasonal haze (high PM2.5). Check air quality before you go and ease up on strenuous outdoor activities.`)}</div>`:'');
   const _bud=[['🎒',tx('สายประหยัด','Budget'),'฿800–1,500'],['🏨',tx('กลาง ๆ','Mid-range'),'฿1,800–3,500'],['✨',tx('สบายกระเป๋า','Comfort'),'฿4,500+']];
   const budgetBox=`<div class="budgrid">`+_bud.map(b=>`<div class="budcard"><div class="bud-e">${b[0]}</div><div class="bud-nm">${b[1]}</div><div class="bud-amt">${b[2]}</div></div>`).join('')+`</div><p class="budnote">${tx('* ประมาณการต่อคน/วัน รวมที่พัก อาหาร และค่าเที่ยว','* Rough estimate per person/day — stay, food and activities')}</p>`;
