@@ -68,8 +68,33 @@ const goB = (u, sid) => (u && String(u).includes('booking.com'))
    to has a real EN twin on disk, so an English reader must never be dropped
    onto a Thai page. /api/* and /go/* are worker routes and stay unprefixed,
    and an href that is already localised is left alone. */
-const P = (lang, u) => (lang === 'en' && typeof u === 'string' && u.charAt(0) === '/'
-  && !/^\/(en\/|api\/|go\/)/.test(u)) ? '/en' + u : u;
+/* Which page slugs really exist in a locale: its roundups, reviews and
+   articles on disk, plus the ~195 snapshots localize.mjs writes into
+   astro/public/<loc>/. Same rule and same fallback as gen-hubs::AVAIL — a link
+   is prefixed only when that locale's page is actually there, and otherwise
+   goes to /en/. Offering a prefix that 404s is worse than offering none. */
+const AVAIL_CACHE = {};
+function availFor(loc) {
+  if (AVAIL_CACHE[loc]) return AVAIL_CACHE[loc];
+  const json = (d) => { try { return fs.readdirSync(path.join(ROOT, 'astro/src/content', d)).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5)); } catch { return []; } };
+  const html = (() => { try { return fs.readdirSync(path.join(ROOT, 'astro/public', loc)).filter((f) => f.endsWith('.html')).map((f) => f.slice(0, -5)); } catch { return []; } })();
+  return (AVAIL_CACHE[loc] = new Set([...json(L[loc].rou), ...json('reviews-' + loc), ...json(L[loc].art), ...html]));
+}
+/* astro/src/lib/locales.ts::ROOT_ONLY_SLUGS — the planner, the saved list and
+   the font page exist only at the root, in Thai. They are never prefixed. */
+const ROOT_ONLY = new Set(['trip', 'my-list', 'font-compare']);
+
+const P = (lang, u) => {
+  if (lang === 'th' || typeof u !== 'string' || u.charAt(0) !== '/') return u;
+  if (/^\/(en|zh|ru|ko|ja|hi|he|ar)\/|^\/(api|go)\//.test(u)) return u;
+  const m = /^\/([^#?]*)(.*)$/.exec(u);
+  if (!m) return u;
+  const slug = m[1], rest = m[2] || '';
+  if (ROOT_ONLY.has(slug)) return u;
+  /* Every page has an EN twin, so English never needs the existence check. */
+  if (lang === 'en') return '/en' + u;
+  return (availFor(lang).has(slug) ? '/' + lang + '/' + slug : '/en/' + slug) + rest;
+};
 
 /* ── head blocks the two targets do NOT share ──────────────────────────────
    Everything else in <head> comes from chrome.mjs::shellHead(). These are the
@@ -123,6 +148,11 @@ function PROTO_HEAD(t, up) {
 }
 
 /* ───────────────────────── region + destination tables ───────────────────── */
+/* HOME_LOCALES itself is declared far below, after the copy table, and L needs
+   the list here. Same nine, asserted identical at load so the two can never
+   drift apart silently. */
+const HOME_LOCALES_EARLY = ['th', 'en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
+
 const HUBS = (() => {
   const src = fs.readFileSync(path.join(ROOT, '_internal/gen-hubs.mjs'), 'utf8');
   const grab = (name) => {
@@ -143,6 +173,11 @@ const HUBS = (() => {
   return { REG, all: [...prov, ...dest], byslug: Object.fromEntries([...prov, ...dest].map(h => [h.slug, h])) };
 })();
 const REGION_ORDER = ['n', 'ne', 'c', 'e', 'w', 's'];
+/* gen-hubs names the regions "Northern Thailand"; _internal/homepage-i18n names
+   them "North". Same six regions, two vocabularies — and a lookup keyed on the
+   English label matched none of them, so every locale page printed the English
+   region names under a translated heading. */
+const REGION_I18N_KEY = { n: 'North', ne: 'Isan', c: 'Central', e: 'East', w: 'West', s: 'South' };
 
 const ALIAS = {
   korat: 'nakhon-ratchasima', ubon: 'ubon-ratchathani', udon: 'udon-thani',
@@ -165,8 +200,22 @@ const SELECTABLE = Object.keys(TIERS)
   .filter(d => d.hub)
   .sort((a, b) => a.hub.slug.localeCompare(b.hub.slug));
 
+/* Place-name dictionaries from the previous homepage's i18n files. */
+const PLACES_CACHE = {};
+function placesFor(lang) {
+  if (PLACES_CACHE[lang]) return PLACES_CACHE[lang];
+  let j = {};
+  try { j = rd(path.join(ROOT, '_internal/homepage-i18n', lang + '.json')); } catch {}
+  return (PLACES_CACHE[lang] = { prov: j.prov || {}, regions: j.regions || {} });
+}
+
 /* ───────────────────────────── content readers ───────────────────────────── */
-const L = { th: { art: 'articles', rou: 'roundups' }, en: { art: 'articles-en', rou: 'roundups-en' } };
+/* Which content directories a locale reads. Thai is the unsuffixed original;
+   every other locale has its own -<loc> pair, and the readers below all return
+   [] when a file is not there, so a locale simply shows what it has rather than
+   borrowing another language's text. */
+const L = Object.fromEntries(HOME_LOCALES_EARLY.map((l) => [l,
+  l === 'th' ? { art: 'articles', rou: 'roundups' } : { art: 'articles-' + l, rou: 'roundups-' + l }]));
 const blockImg = (b) => {
   const g = b.gallery && b.gallery[0];
   const s = (g && (g.src || g.url || g)) || b.libImg || '';
@@ -245,7 +294,13 @@ function artDate(slug, lang) {
   const m = /^(\d{4})-(\d{2})/.exec(d);
   if (!m) return '';
   const mm = parseInt(m[2], 10) - 1;
-  return lang === 'th' ? (MON_TH[mm] + ' ' + m[1]) : (MON_EN[mm] + ' ' + m[1]);
+  if (lang === 'th') return MON_TH[mm] + ' ' + m[1];
+  if (lang === 'en') return MON_EN[mm] + ' ' + m[1];
+  /* Everything else gets its own short month from Intl rather than a seventh
+     hand-typed array. Day is not shown, so only the month name is localised. */
+  try {
+    return new Intl.DateTimeFormat(lang, { month: 'short' }).format(new Date(Date.UTC(2000, mm, 1))) + ' ' + m[1];
+  } catch { return MON_EN[mm] + ' ' + m[1]; }
 }
 
 function countHotelReviews(prov) {
@@ -716,6 +771,13 @@ function foldCardHtml(o, root) {
    site where a hard-coded nine is the correct availability answer rather than a
    lazy one. Everything else must ask whether the page really exists. */
 const HOME_LOCALES = ['th', 'en', 'zh', 'ru', 'ko', 'ja', 'hi', 'he', 'ar'];
+/* L is built ~650 lines above this, before HOME_LOCALES exists, from its own
+   copy of the list. The two must be the same nine; a silent drift would give a
+   locale content directories it never builds a page for, or the reverse. */
+if (HOME_LOCALES.join() !== HOME_LOCALES_EARLY.join()) {
+  throw new Error('HOME_LOCALES and HOME_LOCALES_EARLY disagree: ' +
+    HOME_LOCALES.join() + ' vs ' + HOME_LOCALES_EARLY.join());
+}
 const homeHref = (l) => (l === 'th' ? '/' : '/' + l + '/');
 /* Locale-prefix a site-root path, for all nine. `P()` above is the th/en-only
    version this file already had; it stays because it is applied to hrefs that
@@ -829,9 +891,32 @@ function build(lang, target) {
   const t = Object.assign({}, base, { asset, tripHref, canonical, site: isSite });
   const up = base.up;
   const root = asset;
-  const NAME = (h) => lang === 'th' ? h.th : h.en;
-  const RN = (k) => lang === 'th' ? HUBS.REG[k].th : HUBS.REG[k].en;
-  const RI = (k) => lang === 'th' ? HUBS.REG[k].intro : HUBS.REG[k].intro_en;
+  /* The editor's title and bio exist in editorial.json in Thai and English
+     only. A locale that has them in its copy table uses those; otherwise the
+     English reads as an untranslated gap, which is the honest signal. */
+  const edRole = lang === 'th' ? EDITOR.role : (base.editorRole || EDITOR.roleEn);
+  const edBio = lang === 'th' ? EDITOR.bio : (base.editorBio || EDITOR.bioEn);
+  /* Province and region names in the reader's language.
+     _internal/homepage-i18n/<lang>.json carries all 77 provinces and all six
+     regions in every Tier-1 language — written for the previous homepage and
+     unused since it was replaced. Region INTROS are not in that file, so they
+     come from the copy table; the English text is the last resort, and shows up
+     as a gap to fill rather than as silence. */
+  const PLACES = placesFor(lang);
+  /* Names come from three sources, most specific first: the locale's own copy
+     table (destNames covers the 12 tourism destinations homepage-i18n has no
+     row for — Samui, Pai, Pattaya, the islands), then homepage-i18n's 77
+     provinces, then English, which shows as a gap rather than as silence. */
+  const NAME = (h) => (lang === 'th' ? h.th
+    : (base.destNames && base.destNames[h.slug])
+      || (PLACES.prov[h.slug] && PLACES.prov[h.slug].n)
+      || h.en);
+  const RN = (k) => (lang === 'th' ? HUBS.REG[k].th
+    : (base.regionName && base.regionName[k])
+      || PLACES.regions[REGION_I18N_KEY[k]]
+      || HUBS.REG[k].en);
+  const RI = (k) => (lang === 'th' ? HUBS.REG[k].intro
+    : (base.regionIntro && base.regionIntro[k]) || HUBS.REG[k].intro_en);
   const plans = planData(lang);
   const panels = PANELS.map(p => ({ def: p, hub: HUBS.byslug[p.slug], data: panelData(p, lang) }));
 
@@ -1071,8 +1156,8 @@ function build(lang, target) {
   if (EDITOR && EDITOR.name) {
     ld.push({
       '@context': 'https://schema.org', '@type': 'Person', name: EDITOR.name,
-      jobTitle: lang === 'th' ? EDITOR.role : EDITOR.roleEn,
-      description: lang === 'th' ? EDITOR.bio : EDITOR.bioEn,
+      jobTitle: edRole,
+      description: edBio,
       image: r2(EDITOR.image), worksFor: { '@type': 'Organization', name: 'ThailandAddict', url: site }
     });
   } else {
@@ -1104,14 +1189,14 @@ function build(lang, target) {
   }
 
   /* ---- page --------------------------------------------------------------- */
-  return PAGE({ t, lang, isSite, ctx: shellCtx(lang), up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+  return PAGE({ t, lang, isSite, ctx: shellCtx(lang), up, root, edRole, edBio, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
     guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
     foldLead, foldRail, foldData });
 }
 
 /* ────────────────────────────── page template ───────────────────────────── */
 function PAGE(x) {
-  const { t, lang, isSite, ctx, up, root, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
+  const { t, lang, isSite, ctx, up, root, edRole, edBio, optgroups, nightChips, chips, tabs, dayStrip, panelsHtml,
     guideCards, regionCards, popChips, pills, ld, plans, panels, NAME,
     foldLead, foldRail, foldData } = x;
 
@@ -1372,12 +1457,12 @@ ${shellTop(ctx)}
       <div class="ta-sec-head"><h2 id="h-editor">${esc(t.editorH2)}</h2></div>
       <article class="ta-card ta-card-editorial ta-editor">
         <span class="ta-media ta-r-1-1">
-          <picture><source type="image/webp" srcset="${root}images/_cards/team/doctor-chat-avatar-560.webp"><img src="${root}images/_cards/team/doctor-chat-avatar-560.jpg" alt="${esc(EDITOR.name)} ${esc(lang === 'th' ? EDITOR.role : EDITOR.roleEn)}" width="400" height="400" loading="lazy" decoding="async"></picture>
+          <picture><source type="image/webp" srcset="${root}images/_cards/team/doctor-chat-avatar-560.webp"><img src="${root}images/_cards/team/doctor-chat-avatar-560.jpg" alt="${esc(EDITOR.name)} ${esc(edRole)}" width="400" height="400" loading="lazy" decoding="async"></picture>
         </span>
         <div class="ta-editor-body">
           <span class="eyebrow">${esc(t.editorEyebrow)}</span>
           <h3 class="ta-editor-name">${esc(EDITOR.name)}</h3>
-          <p class="ta-fine">${esc(lang === 'th' ? EDITOR.bio : EDITOR.bioEn)}</p>
+          <p class="ta-fine">${esc(edBio)}</p>
           <a class="ta-sec-more" href="${P(lang,'/about')}">${esc(t.editorMore)}</a>
         </div>
       </article>
@@ -1509,11 +1594,25 @@ ${JS}
    and letting it go stale is how a reference stops being one. */
 const PROTO_ONLY = process.argv.includes('--proto-only');
 
+/* One site homepage per locale that has a copy table. Driven by what is on
+   disk rather than by a list, so a locale appears the moment its translation
+   lands and cannot be half-added: no copy file, no page, and the previous
+   snapshot stays until there is something better to replace it with.
+
+   HOME_COPY_LOCALES is sorted into HOME_LOCALES order so the build log reads
+   th, en, zh, ru, … rather than alphabetically. */
+const SITE_LANGS = HOME_LOCALES.filter((l) => HOME_COPY_LOCALES.includes(l));
+const ORPHAN_COPY = HOME_COPY_LOCALES.filter((l) => !HOME_LOCALES.includes(l));
+if (ORPHAN_COPY.length) {
+  console.error('home-copy/ has locales the site does not: ' + ORPHAN_COPY.join(', '));
+  process.exit(1);
+}
+
 const TARGETS = [
-  ...(PROTO_ONLY ? [] : [
-    { target: 'site', lang: 'th', out: 'astro/public/index.html' },
-    { target: 'site', lang: 'en', out: 'astro/public/en/index.html' },
-  ]),
+  ...(PROTO_ONLY ? [] : SITE_LANGS.map((lang) => ({
+    target: 'site', lang,
+    out: lang === 'th' ? 'astro/public/index.html' : 'astro/public/' + lang + '/index.html',
+  }))),
   { target: 'proto', lang: 'th', out: 'astro/public/_proto/home.html' },
   { target: 'proto', lang: 'en', out: 'astro/public/_proto/en/home.html' },
 ];
