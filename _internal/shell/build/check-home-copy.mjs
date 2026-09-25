@@ -20,9 +20,14 @@ const LOCALES = fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) =
 
 /* Values that are the same in every language by design. */
 const VERBATIM = new Set(['newsPh']);
-/* Brand and product names, and the handful of technical terms that have no
-   translation on any site — "noindex" is a robots directive, not a word. */
-const BRANDS = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip\.com|Trip|Google|IHG|Michelin|Wi-?Fi|PM2\.5|SHA|noindex|nofollow|AI|BTS|MRT|ARL|SRT|km|kg|USD|THB)\b/g;
+/* Names that stay Latin in every language, and the few technical terms with no
+   translation anywhere — "noindex" is a robots directive, BTS and MRT are
+   Bangkok's transit lines, and the last three are the proper names of an award,
+   a Michelin category and our own annual guide.
+
+   Whole PHRASES, never their parts: allowing a bare "Best" or "Thailand" would
+   let "Best beaches in Thailand" through as if it were translated. */
+const BRANDS = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip\.com|Trip|Google|IHG|Michelin|Wi-?Fi|PM2\.5|SHA|noindex|nofollow|AI|BTS|MRT|ARL|SRT|km|kg|USD|THB|Asia's 50 Best|Best of Thailand 2026|Bib Gourmand)\b/g;
 /* Locales the Latin-leak check applies to. Thai is the SOURCE language and
    carries English brand words on purpose; English is the contract. */
 const NON_LATIN = new Set(['zh', 'ko', 'ja', 'hi', 'he', 'ar']);
