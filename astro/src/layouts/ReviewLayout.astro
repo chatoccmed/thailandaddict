@@ -109,6 +109,13 @@ const goB = (u: string) => {
 // Traveloka / Trivago) in the booking fields — label each by its destination and de-duplicate identical
 // hrefs. OTA hotels render exactly as before (Agoda / Booking.com / Trip.com). `S` is defined below and
 // only read at render time (after init), so referencing it here is safe.
+/* The one score this page is allowed to show, and who collected it. Booking is
+   preferred only because it is the more commonly present of the two; either is
+   equally sourced. If neither exists the page shows no score at all rather than
+   falling back to data.score - which is exactly the number being removed. */
+const _srcScore = (data as any).booking?.score
+  ? { v: (data as any).booking.score, src: 'Booking.com' }
+  : ((data as any).agoda?.score ? { v: (data as any).agoda.score, src: 'Agoda' } : null);
 const REAL_OTA = /(agoda\.com|booking\.com|trip\.com|traveloka)/;
 const bookButtons = (d: any) => {
   const out: any[] = [], seen = new Set();
@@ -155,10 +162,10 @@ const tabTitle = (() => {
 const _qaCat = (isEn ? (data.typeEn || '') : (data.type || '')).trim();
 const _qaPrice = data.qiPrice || data.priceRange || '';
 const _qaUnit = isEn ? (String(data.qiPriceUnit || '').includes('คืน') ? '/night' : (data.qiPriceUnit || '')) : (data.qiPriceUnit || '');
-const _derivedQA = (data.name && Number(data.score) > 0)
+const _derivedQA = (data.name && _srcScore)
   ? (isEn
-      ? `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · ${data.score}/10 guest review score${_qaPrice ? ` · from ${_qaPrice}${_qaUnit}` : ''}`
-      : `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · คะแนนรีวิวรวม ${data.score}/10${_qaPrice ? ` · ราคาเริ่ม ${_qaPrice}${_qaUnit}` : ''}`)
+      ? `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · ${_srcScore.v}/10 on ${_srcScore.src}${_qaPrice ? ` · from ${_qaPrice}${_qaUnit}` : ''}`
+      : `<strong>${data.name}</strong>${_qaCat ? ` · ${_qaCat}` : ''} · คะแนน ${_srcScore.v}/10 บน ${_srcScore.src}${_qaPrice ? ` · ราคาเริ่ม ${_qaPrice}${_qaUnit}` : ''}`)
   : '';
 const qaHtml = (data as any).quickAnswerHtml || _derivedQA;
 
@@ -189,7 +196,7 @@ const S = {
     bylineLink: 'วิธีการรีวิวของเรา →',
     secGallery: 'Gallery · ภาพโรงแรมและสถานที่', galleryMore: 'ภาพทั้งหมด',
     secBody: 'บทวิจารณ์จากทีมงาน · Our Full Review',
-    secRating: 'คะแนนจากผู้เข้าพักจริง · Guest Scores', ratingOut: 'จาก 10',
+    secRating: 'คะแนนจากผู้เข้าพักจริง · Guest Scores', ratingOut: 'จาก 10', prNoScore: 'ไม่มีคะแนน',
     overlayAria: 'ดูราคาและห้องว่างบน Agoda (ลิงก์พันธมิตร)',
     ratingSrcNote: 'คะแนนนี้เก็บโดย Booking.com และ Agoda จากผู้ที่จองและเข้าพักจริง เราไม่ได้ให้คะแนนเอง และไม่ได้ปรับตัวเลข',
     secGuest: 'สรุปจากแขกจริง · Guest Reviews Summary',
@@ -226,7 +233,7 @@ const S = {
     bylineLink: 'Our review methodology →',
     secGallery: 'Gallery · Hotel &amp; Area Photos', galleryMore: 'all photos',
     secBody: 'Our Full Review',
-    secRating: 'Guest Scores', ratingOut: 'out of 10',
+    secRating: 'Guest Scores', ratingOut: 'out of 10', prNoScore: 'No score yet',
     overlayAria: 'Check prices and availability on Agoda (affiliate link)',
     ratingSrcNote: 'Collected by Booking.com and Agoda from verified guests. We do not score properties ourselves and we do not adjust these numbers.',
     secGuest: 'Guest Reviews Summary',
@@ -274,8 +281,10 @@ const S = {
     "secGallery": "图库 · 酒店及周边照片",
     "galleryMore": "全部照片",
     "secBody": "完整点评",
-    "secRating": "我们的评分",
+    "secRating": "住客评分",
+    "ratingSrcNote": "这些评分由 Booking.com 和 Agoda 向实际入住的客人收集。我们不自行评分，也不调整这些数字。",
     "ratingOut": "满分10分",
+    "prNoScore": "暂无评分",
     "secGuest": "住客点评摘要",
     "prCount": "数百条点评",
     "prPros": "✦ 优点",
@@ -339,8 +348,10 @@ const S = {
     "secGallery": "Галерея · Фото отеля и окрестностей",
     "galleryMore": "все фото",
     "secBody": "Полный обзор",
-    "secRating": "Наша оценка",
+    "secRating": "Оценки гостей",
+    "ratingSrcNote": "Эти оценки собраны Booking.com и Agoda у гостей, которые действительно останавливались. Мы не выставляем оценки сами и не корректируем эти цифры.",
     "ratingOut": "из 10",
+    "prNoScore": "Нет оценки",
     "secGuest": "Отзывы гостей",
     "prCount": "сотни отзывов",
     "prPros": "✦ Плюсы",
@@ -404,8 +415,10 @@ const S = {
     "secGallery": "갤러리 · 호텔 &amp; 주변 사진",
     "galleryMore": "사진 전체 보기",
     "secBody": "상세 리뷰",
-    "secRating": "저희 평점",
+    "secRating": "숙박객 평점",
+    "ratingSrcNote": "이 평점은 Booking.com과 Agoda가 실제로 숙박한 이용자에게서 수집한 것입니다. 저희가 직접 평가하거나 숫자를 조정하지 않습니다.",
     "ratingOut": "10점 만점",
+    "prNoScore": "평점 없음",
     "secGuest": "투숙객 리뷰 요약",
     "prCount": "수백 건의 리뷰",
     "prPros": "✦ 장점",
@@ -469,8 +482,10 @@ const S = {
     "secGallery": "ギャラリー · ホテル&amp;周辺エリアの写真",
     "galleryMore": "写真をすべて見る",
     "secBody": "詳しいレビュー",
-    "secRating": "評価スコア",
+    "secRating": "宿泊者の評価",
+    "ratingSrcNote": "これらの評価は Booking.com と Agoda が実際に宿泊したゲストから集めたものです。当サイトが独自に採点したり、数値を調整したりすることはありません。",
     "ratingOut": "10点満点中",
+    "prNoScore": "評価なし",
     "secGuest": "宿泊者レビューまとめ",
     "prCount": "数百件のレビュー",
     "prPros": "✦ 良い点",
@@ -534,8 +549,10 @@ const S = {
     "secGallery": "गैलरी · होटल और आसपास की फ़ोटो",
     "galleryMore": "सभी फ़ोटो",
     "secBody": "हमारा पूरा रिव्यू",
-    "secRating": "हमारी रेटिंग",
+    "secRating": "अतिथि रेटिंग",
+    "ratingSrcNote": "ये रेटिंग Booking.com और Agoda ने वास्तव में ठहरे मेहमानों से एकत्र की हैं। हम स्वयं रेटिंग नहीं देते और इन आँकड़ों में बदलाव नहीं करते।",
     "ratingOut": "10 में से",
+    "prNoScore": "कोई रेटिंग नहीं",
     "secGuest": "गेस्ट रिव्यू सारांश",
     "prCount": "सैकड़ों रिव्यू",
     "prPros": "✦ फ़ायदे",
@@ -599,8 +616,10 @@ const S = {
     "secGallery": "גלריה · תמונות מלון וסביבה",
     "galleryMore": "כל התמונות",
     "secBody": "הביקורת המלאה שלנו",
-    "secRating": "הדירוג שלנו",
+    "secRating": "דירוגי אורחים",
+    "ratingSrcNote": "הדירוגים נאספו על ידי Booking.com ו-Agoda מאורחים ששהו במקום. איננו מדרגים בעצמנו ואיננו משנים את המספרים.",
     "ratingOut": "מתוך 10",
+    "prNoScore": "אין דירוג",
     "secGuest": "סיכום ביקורות אורחים",
     "prCount": "מאות ביקורות",
     "prPros": "✦ יתרונות",
@@ -664,8 +683,10 @@ const S = {
     "secGallery": "معرض الصور · صور الفندق والمنطقة",
     "galleryMore": "كل الصور",
     "secBody": "مراجعتنا الكاملة",
-    "secRating": "تقييمنا",
+    "secRating": "تقييمات النزلاء",
+    "ratingSrcNote": "جُمعت هذه التقييمات من قِبل Booking.com وAgoda من نزلاء أقاموا فعليًا. نحن لا نمنح تقييمات بأنفسنا ولا نعدّل هذه الأرقام.",
     "ratingOut": "من 10",
+    "prNoScore": "لا يوجد تقييم",
     "secGuest": "ملخص تقييمات النزلاء",
     "prCount": "مئات التقييمات",
     "prPros": "✦ الإيجابيات",
@@ -796,7 +817,7 @@ const schema = {
       image: imgAbs,
       url,
     },
-    ...(Number(data.score) > 0 ? [{
+    ...(_srcScore ? [{
       '@type': 'Review', '@id': `${url}#review`,
       itemReviewed: { '@id': `${url}#hotel` },
       /* reviewRating removed with the aggregate above - same unsourced figure,
@@ -1056,7 +1077,7 @@ const shellCtx = {
         <span class="htag mid">{data.badgeMid}</span>
         <span class="htag loc">{data.badgeLoc}</span>
       </div>
-      <div class="hero-rating"><span class="s">★</span> {data.score} / 10</div>
+      {_srcScore && <div class="hero-rating"><span class="s">★</span> {_srcScore.v} / 10 <small>{_srcScore.src}</small></div>}
       <div class="hero-info">
         <div class="hi-loc">{data.hiLoc}</div>
         <div class="hi-name">{data.name}</div>
@@ -1096,7 +1117,7 @@ const shellCtx = {
     </div>
     <div class="qi">
       <div class="qi-lbl">{S.qiScore}</div>
-      <div class="qi-val">{data.score} <small>/ 10</small></div>
+      <div class="qi-val">{_srcScore ? _srcScore.v : '—'} <small>{_srcScore ? '/ 10 · ' + _srcScore.src : ''}</small></div>
     </div>
     <div class="qi">
       <div class="qi-lbl">{S.qiPrice}</div>
@@ -1231,7 +1252,7 @@ const shellCtx = {
        No review count is shown: `booking` and `agoda` carry only {score, pros,
        cons} - there is no per-platform count in any of the 2,371 files, and the
        top-level ratingCount has no stated source either. */}
-  <div class="rating-box fade-up">
+  {_srcScore && <div class="rating-box fade-up">
     <div class="sec-label">{S.secRating}</div>
     <div class="rating-top">
       <div class="r-src-grid">
@@ -1244,7 +1265,7 @@ const shellCtx = {
       </div>
       <p class="r-src-note">{S.ratingSrcNote}</p>
     </div>
-  </div>
+  </div>}
 
   <!-- Platform Reviews -->
   <div class="fade-up">
@@ -1257,7 +1278,7 @@ const shellCtx = {
             <div class="pr-logo booking">B.</div>
             <div><div class="pr-nm">Booking.com</div><div class="pr-ct">{S.prCount}</div></div>
           </div>
-          <div class="pr-sc">{data.booking.score} <small>/ 10</small></div>
+          <div class="pr-sc">{data.booking?.score ? <>{data.booking.score} <small>/ 10</small></> : <small>{S.prNoScore}</small>}</div>
         </div>
         <div class="pr-pos-lbl">{S.prPros}</div>
         <ul class="pr-ul">
@@ -1274,7 +1295,7 @@ const shellCtx = {
             <div class="pr-logo agoda">A</div>
             <div><div class="pr-nm">Agoda</div><div class="pr-ct">{S.prCount}</div></div>
           </div>
-          <div class="pr-sc">{data.agoda.score} <small>/ 10</small></div>
+          <div class="pr-sc">{data.agoda?.score ? <>{data.agoda.score} <small>/ 10</small></> : <small>{S.prNoScore}</small>}</div>
         </div>
         <div class="pr-pos-lbl">{S.prPros}</div>
         <ul class="pr-ul">

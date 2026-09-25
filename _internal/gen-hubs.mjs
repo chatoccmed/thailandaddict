@@ -1134,6 +1134,18 @@ function provinceHub(slug, th, r, d){
      first time. */
   const GULF_SOUTH = new Set(['samui','koh-phangan','surat-thani','chumphon','nakhon-si-thammarat','songkhla','hat-yai','pattani','narathiwat','phatthalung','yala']);
   const isGulfSouth = GULF_SOUTH.has(slug);
+  /* Three of those have no sea to describe: Yala is landlocked, Phatthalung
+     faces the freshwater side of Songkhla Lake, and Hat Yai is an inland city.
+     The northeast-monsoon TIMING is right for all three - Oct-Jan is the wet
+     season across the whole lower south, and Hat Yai's floods land in exactly
+     those months - so they keep the Gulf calendar and lose the sea wording. */
+  const GULF_INLAND = new Set(['hat-yai','phatthalung','yala']);
+  const isGulfInland = GULF_INLAND.has(slug);
+  const _seasGulfInland=[
+    [tx('ก.พ.–เม.ย.','Feb–Apr'),'✅',tx('ดีที่สุด','Best'),tx('ฝนน้อยที่สุด ฟ้าเปิด เที่ยวได้ทั้งวัน','Driest months, clear skies, easiest days out')],
+    [tx('พ.ค.–ก.ย.','May–Sep'),'🔆',tx('ร้อน ฝนเป็นช่วง','Hot, passing rain'),tx('ฝนตกสั้น ๆ สลับแดด คนน้อยกว่า','Short showers between sun, fewer visitors')],
+    [tx('ต.ค.–ม.ค.','Oct–Jan'),'🌧️',tx('ฝนหนัก','Wettest'),tx('ฝนมากที่สุดของปี บางปีมีน้ำท่วมขัง ควรเช็กสภาพอากาศก่อนเดินทาง','The wettest months of the year — some years bring flooding, so check conditions before you travel')],
+  ];
   const _seasGulf=[
     [tx('ก.พ.–เม.ย.','Feb–Apr'),'✅',tx('ดีที่สุด','Best'),tx('ทะเลใส ลมสงบ แดดดี','Clearest seas, calm water, reliable sun')],
     [tx('พ.ค.–ก.ย.','May–Sep'),'🔆',tx('ร้อน ฝนเป็นช่วง','Hot, passing rain'),tx('ฝนตกสั้น ๆ ทะเลยังเที่ยวได้ คนน้อยกว่า','Short showers, seas still good, fewer visitors')],
@@ -1144,8 +1156,10 @@ function provinceHub(slug, th, r, d){
     [tx('มี.ค.–พ.ค.','Mar–May'),'🔆',tx('ร้อน','Hot'),tx('แดดแรง ร้อนช่วงกลางวัน','Hot, strong midday sun')],
     [tx('มิ.ย.–ต.ค.','Jun–Oct'),'🌧️',tx('ฝน','Rainy'),tx('ฝนเป็นช่วง สีเขียวสวย นักท่องเที่ยวน้อย','Lush and green, fewer crowds, passing rain')],
   ];
-  const _seas = isGulfSouth ? _seasGulf : _seasDefault;
-  const seasonTable=`<div class="seasgrid">`+_seas.map(s=>`<div class="seascard"><div class="seas-mo">${s[1]} ${s[0]}</div><div class="seas-nm">${s[2]}</div><p>${s[3]}</p></div>`).join('')+`</div>`+(isNorth?`<div class="seas-warn">⚠️ ${tx(`${th}อยู่ภาคเหนือ — ช่วง ก.พ.–เม.ย. อาจมีหมอกควันและฝุ่น PM2.5 สูง ควรเช็กค่าฝุ่นก่อนเดินทางและเลี่ยงกิจกรรมกลางแจ้งหนัก ๆ`,`${nm} is in the North — Feb–Apr can bring seasonal haze (high PM2.5). Check air quality before you go and ease up on strenuous outdoor activities.`)}</div>`:'');
+  const MONSOON_CLOSE = new Set(['koh-lipe','satun','koh-kood','koh-mak','koh-chang','trat']);
+  const isMonsoonClose = MONSOON_CLOSE.has(slug);
+  const _seas = isGulfInland ? _seasGulfInland : (isGulfSouth ? _seasGulf : _seasDefault);
+  const seasonTable=`<div class="seasgrid">`+_seas.map(s=>`<div class="seascard"><div class="seas-mo">${s[1]} ${s[0]}</div><div class="seas-nm">${s[2]}</div><p>${s[3]}</p></div>`).join('')+`</div>`+(isNorth?`<div class="seas-warn">⚠️ ${tx(`${th}อยู่ภาคเหนือ — ช่วง ก.พ.–เม.ย. อาจมีหมอกควันและฝุ่น PM2.5 สูง ควรเช็กค่าฝุ่นก่อนเดินทางและเลี่ยงกิจกรรมกลางแจ้งหนัก ๆ`,`${nm} is in the North — Feb–Apr can bring seasonal haze (high PM2.5). Check air quality before you go and ease up on strenuous outdoor activities.`)}</div>`:'')+(isMonsoonClose?`<div class="seas-warn">⚠️ ${tx('ช่วงมรสุม (พ.ค.–ต.ค.) ที่พักและร้านอาหารบนเกาะหลายแห่งปิดตามฤดูกาล และเรือบางเที่ยวงดวิ่ง — เช็กวันเปิดกับที่พักและตารางเรือก่อนจองทุกครั้ง','During the monsoon (May–Oct) many island stays and restaurants close for the season and some boat services stop running — confirm opening dates with your stay and check the ferry schedule before you book.')}</div>`:'');
   const _bud=[['🎒',tx('สายประหยัด','Budget'),'฿800–1,500'],['🏨',tx('กลาง ๆ','Mid-range'),'฿1,800–3,500'],['✨',tx('สบายกระเป๋า','Comfort'),'฿4,500+']];
   const budgetBox=`<div class="budgrid">`+_bud.map(b=>`<div class="budcard"><div class="bud-e">${b[0]}</div><div class="bud-nm">${b[1]}</div><div class="bud-amt">${b[2]}</div></div>`).join('')+`</div><p class="budnote">${tx('* ประมาณการต่อคน/วัน รวมที่พัก อาหาร และค่าเที่ยว','* Rough estimate per person/day — stay, food and activities')}</p>`;
   /* THE PROVINCE MAP (blueprint §884).

@@ -42,7 +42,7 @@ export default {
        This is containment, not the fix: an English reader still arrives at a
        Thai-language planner. Re-keying that engine to locale-neutral IDs is
        Phase 2 work and is not something a redirect can stand in for. */
-    const rootOnly = url.pathname.replace(/\.html$/, '').match(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\/(trip|my-list|font-compare)$/);
+    const rootOnly = url.pathname.replace(/\.html$/, '').replace(/\/$/, '').match(/^\/(?:en|zh|ru|ko|ja|hi|he|ar)\/(trip|my-list|font-compare|t\/[A-Za-z0-9_-]{1,64})$/);
     if (rootOnly) return new Response(null, { status: 301, headers: { 'Location': '/' + rootOnly[1] + url.search, 'Cache-Control': 'public, max-age=86400' } });
     try {
       if (url.pathname === '/go/b') return bookingGo(url);
