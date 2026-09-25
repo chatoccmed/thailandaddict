@@ -209,6 +209,17 @@ function placesFor(lang) {
   return (PLACES_CACHE[lang] = { prov: j.prov || {}, regions: j.regions || {} });
 }
 
+/* What a destination is called in a given language. build() has NAME() for the
+   same job, but planData() and foldRows() are top-level and were still on the
+   th/en ternary — so the planner's destination label and the fold rail printed
+   "Krabi" on a Japanese page while the tab right above them said クラビ. */
+function hubName(lang, h) {
+  if (!h) return '';
+  if (lang === 'th') return h.th;
+  const c = copyFor(lang), pl = placesFor(lang);
+  return (c.destNames && c.destNames[h.slug]) || (pl.prov[h.slug] && pl.prov[h.slug].n) || h.en;
+}
+
 /* ───────────────────────────── content readers ───────────────────────────── */
 /* Which content directories a locale reads. Thai is the unsuffixed original;
    every other locale has its own -<loc> pair, and the readers below all return
@@ -370,7 +381,7 @@ function planData(lang) {
     const st = stays(hub ? hub.slug : d, lang, 1)[0] || null;
     out[d + '|' + t] = {
       href: P(lang, '/' + d + '-' + t + '-itinerary'),
-      dest: hub ? (lang === 'th' ? hub.th : hub.en) : d,
+      dest: hub ? hubName(lang, hub) : d,
       slug: hub ? hub.slug : d,
       title: String(j.h1 || '').replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim(),
       src: String(j.title || '').split('|')[0].replace(/\s+—.*$/, '').trim(),
@@ -476,6 +487,10 @@ const PROTO_PATH = {
 const fill = (tpl, vars) => String(tpl == null ? '' : tpl)
   .replace(/\{(\w+)\}/g, (_, k) => (vars[k] == null ? '' : String(vars[k])));
 
+/* English is what a locale falls back to for any runtime string it has not
+   filled in — visible as a gap, which is the point, rather than an empty
+   button. */
+const RT_FALLBACK = (() => { try { return rd(path.join(COPY_DIR, 'en.json')).rt || {}; } catch { return {}; } })();
 const COPY_CACHE = {};
 function copyFor(loc) {
   if (COPY_CACHE[loc]) return COPY_CACHE[loc];
@@ -682,7 +697,7 @@ function foldArt(img, alt, root, lead) {
    then see · eat · stay · see · eat so all three categories are in the rail
    and the two visible rail slots on a phone are a sight and a restaurant. */
 function foldRows(p, lang, t) {
-  const d = p.data, pn = lang === 'th' ? p.hub.th : p.hub.en, prov = p.hub.slug;
+  const d = p.data, pn = hubName(lang, p.hub), prov = p.hub.slug;
   const stayRow = (s) => {
     const a = attributableScore(s.rev);
     return {
@@ -907,10 +922,7 @@ function build(lang, target) {
      table (destNames covers the 12 tourism destinations homepage-i18n has no
      row for — Samui, Pai, Pattaya, the islands), then homepage-i18n's 77
      provinces, then English, which shows as a gap rather than as silence. */
-  const NAME = (h) => (lang === 'th' ? h.th
-    : (base.destNames && base.destNames[h.slug])
-      || (PLACES.prov[h.slug] && PLACES.prov[h.slug].n)
-      || h.en);
+  const NAME = (h) => hubName(lang, h);
   const RN = (k) => (lang === 'th' ? HUBS.REG[k].th
     : (base.regionName && base.regionName[k])
       || PLACES.regions[REGION_I18N_KEY[k]]
@@ -1094,8 +1106,11 @@ function build(lang, target) {
     return '<li><button class="ta-fac" type="button" data-pick-dest="' + esc(d.it) + '">' + esc(NAME(d.hub)) + '</button></li>';
   }).join('');
 
+  /* Pill labels come from the copy table; the th/en pair in PILLS is the
+     fallback for a locale that has not filled them in yet. */
   const pills = PILLS.map(([slug, th, en]) =>
-    '<li><a class="ta-btn ta-btn-ghost" href="' + P(lang, '/' + slug) + '">' + esc(lang === 'th' ? th : en) + '</a></li>').join('');
+    '<li><a class="ta-btn ta-btn-ghost" href="' + P(lang, '/' + slug) + '">'
+    + esc(lang === 'th' ? th : ((base.pills && base.pills[slug]) || en)) + '</a></li>').join('');
 
   /* ---- JSON-LD ----------------------------------------------------------- */
   const site = 'https://thailandaddict.com/';
@@ -1549,35 +1564,7 @@ window.TA_HOME = {
      the HTML so the block is complete with scripting off. */
   fold: ${J(foldData)},
   copy: ${J({
-    loading: lang === 'th' ? 'กำลังจัดแผน…' : 'Building the plan…',
-    restart: lang === 'th' ? 'เริ่มใหม่' : 'Start over',
-    openTrip: lang === 'th' ? 'เปิดในหน้าทริป' : 'Open in the trip planner',
-    readFull: lang === 'th' ? 'อ่านคู่มือฉบับเต็ม' : 'Read the full guide',
-    prov: lang === 'th' ? 'เรียบเรียงจากคู่มือ “%s” — อ่านฉบับเต็ม →' : 'Adapted from our guide “%s” — read it in full →',
-    roll: lang === 'th' ? '%n จุด · เวลาในคู่มือ %a–%b' : '%n stops · guide times %a–%b',
-    legMethod: lang === 'th' ? 'เวลาจากคู่มือ ไม่ใช่ระยะทาง' : 'clock gap from the guide, not a distance',
-    legGap: lang === 'th' ? '%a → %b · เว้นไว้ %g' : '%a → %b · %g in between',
-    hr: lang === 'th' ? ' ชม.' : ' hr', min: lang === 'th' ? ' นาที' : ' min',
-    stayRow: lang === 'th' ? 'ค้างคืน' : 'Overnight',
-    savedList: lang === 'th' ? 'ที่บันทึกไว้' : 'Saved',
-    showLabel: lang === 'th' ? 'ที่พัก ที่กิน ที่เที่ยว ใน%p' : 'Stay, eat and explore in %p',
-    dayN: lang === 'th' ? 'วันที่ %n' : 'Day %n',
-    addDay: lang === 'th' ? 'เพิ่มเข้าวันที่ %n' : 'Add to day %n',
-    saveOff: lang === 'th' ? 'เก็บไว้ก่อน' : 'Keep this',
-    saveOn: lang === 'th' ? 'บันทึกแล้ว' : 'Saved',
-    tripMeta: lang === 'th' ? '%p จุด · %d วัน · แก้ล่าสุด %e' : '%p stops · %d days · last edited %e',
-    ago0: lang === 'th' ? 'วันนี้' : 'today',
-    ago1: lang === 'th' ? 'เมื่อวาน' : 'yesterday',
-    agoN: lang === 'th' ? '%n วันก่อน' : '%n days ago',
-    savedNoDays: lang === 'th' ? 'บันทึกไว้ %n ที่%p · ยังไม่ได้จัดเป็นวัน' : '%n places saved%p · not sorted into days yet',
-    inProv: lang === 'th' ? ' ใน %p' : ' in %p',
-    railCount: lang === 'th' ? 'ในทริปของคุณ %n รายการ' : '%n in your trip',
-    missTier: lang === 'th' ? 'จุดหมายนี้เรามีแผน %h — ยังไม่มีแบบที่เลือก' : 'For this destination we have %h — not the length you picked',
-    missBtn: lang === 'th' ? 'ดูแผน 3 วัน 2 คืน แล้วเพิ่มวันเอง' : 'Show the 3-day plan, then add days',
-    submit: lang === 'th' ? 'ดูแผนเลย' : 'Show me the plan',
-    submitFor: lang === 'th' ? 'ดูแผน%d %t' : 'Show the %d %t plan',
-    conflictName: lang === 'th' ? 'ทริปที่มีอยู่: %t' : 'Your existing trip: %t',
-    noTitle: lang === 'th' ? 'ทริปของคุณ' : 'Your trip',
+    ...RT_FALLBACK, ...(t.rt || {}),
     tier: t.tier
   })}
 };

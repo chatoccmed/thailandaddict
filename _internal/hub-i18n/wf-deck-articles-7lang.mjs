@@ -43,14 +43,30 @@ FIELD RULES (article schema) — translate these, preserving all HTML tags/entit
   related[].title (KEEP related[].href), rail[].title, rail[].note (KEEP rail[].href/.img).
 
   Per BLOCK KIND inside blocks[]:
-  - restaurant: translate .area, .cuisine, .signature, .descHtml (keep tags), .mustOrder[] (keep
-    authentic dish names recognisable — transliterate, do not invent), .tags[], .stayLabel (a short
-    CTA like "Book a stay" — this IS UI text, translate it).
-    KEEP UNCHANGED: .rank, .name (the business's own name — never translate or rename), .nameEn,
-    .priceRange, .score, .img, .creditHref, .mapHref, .fbHref, .fbPage, .igPost, .libImg,
-    .libCreditHref, .stayHref, .hours, .priceUsd, .lat, .lng (never touch coordinates), .rating,
-    .ratingCount, .ratingSrc, .bestFor, .zone, .foodType.
-    .gallery[].alt and .gallery[].credit translate; .gallery[].src and .creditHref do not.
+  - restaurant (this block kind also carries ATTRACTIONS in the top10-attractions-* files).
+    The rule here is simple: if a reader SEES it, translate it. Every field below is printed on
+    the page or on its filter row, and earlier passes left several of them in English:
+      .area .cuisine .signature .descHtml (keep tags) .mustOrder[] .tags[] .stayLabel .alt .credit
+      .zone      — short area label under the name, and a filter chip
+      .bestFor   — a sentence printed under "Best for"
+      .foodType  — the category on the filter row ("Temple", "Market", "Street food")
+      .hours     — "Wed–Sat 09:00–19:30 (closed Sun–Tue)": translate the DAY NAMES and the words,
+                   keep every clock time exactly
+      .priceRange — "10 THB for Thais / 50 THB for foreigners": translate the words, keep every
+                   figure, and you may write the currency the way your language does
+      .priceUsd  — "$40+/dish": translate the unit word, keep the figure FIRST in the string
+                   (a filter reads the leading number)
+      .spice     — "Medium–spicy (drunken stir-fry, adjustable)"
+    Keep .zone and .foodType SHORT — they sit in chips, so match the English length.
+    .mustOrder[]: keep the dish recognisable — transliterate, never invent a new dish.
+    .name: for a real business, keep its own name recognisable — do not rename it. For a temple,
+    museum, park or viewpoint, give the name the way your language's travel media writes it, and
+    translate any descriptive part in brackets, e.g. "Wat Mahathat (Buddha Head in Banyan Roots)".
+    KEEP UNCHANGED — identifiers and measurements, never prose:
+      .rank .nameEn .score .img .creditHref .mapHref .fbHref .fbPage .igPost .libImg
+      .libCreditHref .stayHref .lat .lng (never touch coordinates) .rating .ratingCount
+      .ratingSrc .veg .halal .englishMenu
+    .gallery[].alt and .gallery[].credit translate; .gallery[].src and .gallery[].creditHref do not.
   - h2: translate .text (KEEP .id — it is an anchor slug other pages link to)
   - p: translate .html (keep all tags)
   - image: translate .alt, .caption, .credit (KEEP .src, .creditHref)

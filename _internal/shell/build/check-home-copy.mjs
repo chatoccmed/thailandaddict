@@ -22,7 +22,7 @@ const LOCALES = fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) =
 const VERBATIM = new Set(['newsPh']);
 /* Brand and product names, and the handful of technical terms that have no
    translation on any site — "noindex" is a robots directive, not a word. */
-const BRANDS = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip\.com|Trip|Google|IHG|Michelin|Wi-?Fi|PM2\.5|SHA|noindex|nofollow|AI|km|kg|USD|THB)\b/g;
+const BRANDS = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip\.com|Trip|Google|IHG|Michelin|Wi-?Fi|PM2\.5|SHA|noindex|nofollow|AI|BTS|MRT|ARL|SRT|km|kg|USD|THB)\b/g;
 /* Locales the Latin-leak check applies to. Thai is the SOURCE language and
    carries English brand words on purpose; English is the contract. */
 const NON_LATIN = new Set(['zh', 'ko', 'ja', 'hi', 'he', 'ar']);
@@ -70,8 +70,11 @@ function walk(loc, enV, v, keyPath) {
   if (typeof enV !== 'string') return;
   if (typeof v !== 'string') return add(loc, where + ' should be a string');
 
-  /* placeholders are code */
-  const ph = (s) => (String(s).match(/\{\w+\}/g) || []).sort().join(',');
+  /* placeholders are code. Two syntaxes: {p} in the server-rendered strings,
+     %n in the runtime block the browser fills in. A dropped %n renders
+     "stops · guide times –" with the numbers missing, on the one part of the
+     page that does the actual work. */
+  const ph = (s) => (String(s).match(/\{\w+\}|%[a-z]/g) || []).sort().join(',');
   if (ph(enV) !== ph(v)) add(loc, `${where} placeholders differ — en "${ph(enV) || 'none'}" vs "${ph(v) || 'none'}"  [${v.slice(0, 60)}]`);
 
   /* emoji and arrows are layout */
