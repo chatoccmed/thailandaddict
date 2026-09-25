@@ -5,7 +5,7 @@ import Shell from '../components/Shell.astro';
 import editorial from '../data/editorial.json';
 import webpManifest from '../data/webp-manifest.json';
 import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
-import { stampAffiliate } from '../lib/affiliate';
+import { stampAffiliate, relFor } from '../lib/affiliate';
 
 interface Props {
   // Raw JSON entry, read from disk by the route (src/lib/content-fs.ts). Shape is enforced before the
@@ -1069,7 +1069,7 @@ const shellCtx = {
       {data.heroCredit && (
         <span class="rv-credit">
           {data.heroCreditHref
-            ? <a href={goB(data.heroCreditHref)} target="_blank" rel="nofollow noopener" set:html={data.heroCredit} />
+            ? <a href={goB(data.heroCreditHref)} target="_blank" rel={relFor(data.heroCreditHref)} set:html={data.heroCredit} />
             : <span set:html={data.heroCredit} />}
         </span>
       )}
@@ -1533,10 +1533,6 @@ const shellCtx = {
     entries.forEach(function(e){if(e.isIntersecting){e.target.style.animation='fadeUp .65s ease forwards';io.unobserve(e.target);}});
   },{threshold:0.08});
   document.querySelectorAll('.fade-up').forEach(function(el){io.observe(el);});
-  var bo=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('.rbar-fill').forEach(function(b){var w=b.style.width;b.style.width='0';setTimeout(function(){b.style.width=w;},120);});bo.unobserve(e.target);}});
-  },{threshold:0.3});
-  document.querySelectorAll('.rating-box').forEach(function(el){bo.observe(el);});
   // Share row — one listener, replacing three inline onclick="" handlers.
   document.querySelectorAll('[data-share]').forEach(function(b){
     b.addEventListener('click',function(){

@@ -35,3 +35,22 @@ export function stampAffiliate(u: string): string {
   }
   return changed ? url.toString() : u;
 }
+
+/* Photo credits and source links carry whatever url the content file holds, and
+   some of them land on an OTA we earn from — 16 review hero credits point at
+   trip.com today. Those need rel="sponsored"; a credit pointing at the hotel's
+   own site does not, and saying otherwise would be a false declaration in the
+   other direction. So the destination decides, not the slot. */
+export function relFor(u: string | undefined | null, base = 'nofollow noopener'): string {
+  if (!u || typeof u !== 'string') return base;
+  if (u.startsWith('/go/')) return 'sponsored ' + base;
+  let host = '';
+  try {
+    host = new URL(u, 'https://thailandaddict.com').hostname;
+  } catch {
+    return base;
+  }
+  // booking.com is not in PARTNERS (it is monetised through the CJ /go/b hop, not a query id)
+  if (/(^|\.)booking\.com$/i.test(host)) return 'sponsored ' + base;
+  return PARTNERS.some((p) => p.host.test(host)) ? 'sponsored ' + base : base;
+}

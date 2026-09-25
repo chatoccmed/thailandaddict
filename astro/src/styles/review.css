@@ -269,11 +269,6 @@ html #cv-bar{inset-block-end:calc(var(--floor) + var(--cta-h) + 56px)}
 .r-out{font-size:11px;color:var(--muted);}
 .r-count{font-size:11px;color:var(--faint);margin-top:2px;}
 .r-bars{flex:1;}
-.rbar{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
-.rbar-lbl{font-size:12px;color:var(--muted);width:88px;flex-shrink:0;}
-.rbar-track{flex:1;height:5px;background:var(--faint);border-radius:3px;overflow:hidden;}
-.rbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#06B6D4,#FB7185);transition:width 1.1s ease;}
-.rbar-v{font-size:12px;font-weight:600;color:var(--ink);inline-size:26px;text-align:end;}
 
 /* PLATFORM REVIEWS */
 .pr-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
