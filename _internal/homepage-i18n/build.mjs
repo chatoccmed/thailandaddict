@@ -18,6 +18,17 @@
  * gone, as is the `<script>\n/*GEN:PROV*\/` data block it needs. It fails on
  * the first one.
  *
+ * RESOLVED 2026-09-25 — gen-proto-home now owns all nine homepages. Its copy
+ * table is _internal/shell/build/home-copy/<loc>.json (116 UI strings + the
+ * runtime block + place names, gated by check-home-copy.mjs) and its L table
+ * maps each locale to its own articles-<loc>/roundups-<loc>. The 77 itineraries
+ * and 14 deck articles the page reads were translated into all seven.
+ *
+ * This file is kept for its DICTIONARIES, not its generator: <lang>.json here
+ * still holds 77 province names and six region names per language, and
+ * gen-proto-home reads them through placesFor(). Deleting them would take the
+ * place names down with them.
+ *
  * That is not a bug to fix here. Find-and-replace over one locale's HTML was
  * never going to carry a page whose visible copy is 75% opening hours,
  * admission prices and review counts read out of content files. The seven

@@ -450,24 +450,26 @@ for(const loc of locs){
 
   /* ...and the homepage, for a different reason.
    *
-   * Since 2026-09-12 / and /en/ are the planner-first page, generated whole by
-   * _internal/shell/build/gen-proto-home.mjs. Translating the EN one here gives
-   * 40.4% coverage (measured), because 513 of its 683 unique strings are not UI
-   * copy at all — they are opening hours, admission prices and review counts
-   * lifted out of content data:
+   * Since 2026-09-12 / and /en/ are the planner-first page, generated whole
+   * by _internal/shell/build/gen-proto-home.mjs. Translating the EN one here
+   * gave 40.4% coverage (measured), because 513 of its 683 unique strings are
+   * not UI copy at all — they are opening hours, admission prices and review
+   * counts lifted out of content data:
    *
    *     "08:00–16:00 (closed 3rd Wed–Thu of the month)"
    *     "฿200 for foreigners · free for Thais"
    *     "1,099 reviews · riverside, Khlong San side"
    *
    * No translation memory should ever hold those. They belong to the locale's
-   * own content files, which is where gen-proto-home reads them from — its `L`
-   * table already maps a locale to articles-<loc>/roundups-<loc>, exactly as
-   * gen-hubs does for the 30 city hubs it owns.
+   * own content files.
    *
-   * So the seven locale homepages stay on the previous page until
-   * gen-proto-home learns their copy table, rather than being replaced with a
-   * 60%-English one. Removing this line before that happens is the regression. */
+   * As of 2026-09-25 gen-proto-home owns all NINE homepages, not two: its copy
+   * table lives in _internal/shell/build/home-copy/<loc>.json (gated by
+   * check-home-copy.mjs) and its `L` table maps every locale to its own
+   * articles-<loc>/roundups-<loc>. So this line is no longer a placeholder for
+   * work not yet done — it is the permanent boundary. index.html is
+   * gen-proto-home's page in every language, and localize must not overwrite
+   * it with a find-and-replace of the English one. */
   const HOME_OWNED = files.includes('index.html');
   if (HOME_OWNED) OWNED.add('index.html');
 

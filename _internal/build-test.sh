@@ -48,6 +48,7 @@
 #   9  check-file-count — the deploy would exceed the Cloudflare asset cap
 #  11  check-coords — a wrong or invented map pin would ship
 #  12  check-map-attribution — OSM tiles without the ODbL credit
+#  13  check-home-copy — a homepage copy table lost a key or a {p}/%n placeholder
 #   other = the astro build itself failed
 #   NOTE on 5: the blueprint assigns exit 5 to check-touch-targets and this
 #   script has used 5 for a lock timeout since it was written. Both are kept —
@@ -223,6 +224,8 @@ echo "=== dark-pattern lint (honesty guardrail — no manufactured urgency/scarc
 # that but an exit code.
 run_gate i18n 6 "i18n key guard — no tx() key may change (blueprint §2.6)" -- \
   node _internal/qa/check-i18n-keys.mjs
+run_gate homecopy 13 "homepage copy tables — 9 locales, same keys, same placeholders" -- \
+  node _internal/shell/build/check-home-copy.mjs
 run_gate rtl 7 "RTL guard — logical CSS properties only (he + ar are live)" -- \
   node _internal/qa/check-rtl.mjs
 run_gate snapshots 8 "snapshot freshness — no generated page older than its generator" -- \
