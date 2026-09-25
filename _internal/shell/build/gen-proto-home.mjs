@@ -395,159 +395,51 @@ const STATS = {
 };
 
 /* ───────────────────────────────── copy ──────────────────────────────────── */
-const T = {
-  th: {
-    lang: 'th', dir: 'ltr', selfLabel: 'ไทย', otherHref: 'en/home', otherLabel: 'English',
-    up: '', canonical: 'https://thailandaddict.com/_proto/home.html',
-    title: 'วางแผนเที่ยวไทย 2026 — ที่พัก ที่กิน ที่เที่ยว จากรีวิวที่เราเขียนเอง | ThailandAddict',
-    desc: 'เลือกจุดหมายกับจำนวนวัน แล้วดูแผนเที่ยวได้ทันที พร้อมที่พัก ที่กิน ที่เที่ยวจริงจากรีวิวที่เราเขียนเอง ครบ 77 จังหวัด',
-    skip: 'ข้ามไปเนื้อหาหลัก',
-    navExplore: 'สำรวจ', navPlaces: 'จุดหมาย', navTrip: 'ทริป', navSearch: 'ค้นหา', navMore: 'เมนู',
-    searchLabel: 'ค้นหา', searchPh: 'ที่พัก ร้านอาหาร จุดหมาย',
-    h1: 'วางแผนเที่ยวไทย จากรีวิวที่เราเขียนเอง และคะแนนที่เราเทียบให้',
-    lead: 'เลือกจุดหมายกับจำนวนวัน แล้วกดดูแผน — หรือเลื่อนลงไปกด 🔖 เก็บที่ที่ชอบไว้ก่อนก็ได้',
-    slotEyebrow: 'จัดทริปเอง ใน 2 แตะ',
-    lWhere: 'ไปไหน', phWhere: 'เลือกจุดหมาย', lNights: 'กี่วัน',
-    tier: { '1-day': '1 วัน', '2d1n': '2 วัน 1 คืน', '3d2n': '3 วัน 2 คืน', '4plus': '4 วัน+' },
-    /* One row of four chips only fits if the visible word is the day count.
-       The nights ride along as screen-reader text, so the accessible name is
-       still the full tier and nothing is hidden from anybody. */
-    tierShort: { '1-day': '1 วัน', '2d1n': '2 วัน', '3d2n': '3 วัน', '4plus': '4 วัน+' },
-    tierSr: { '1-day': '', '2d1n': ' 1 คืน', '3d2n': ' 2 คืน', '4plus': '' },
-    submit: 'ดูแผนเลย',
-    fine: 'แผนมาจากคู่มือที่เราเขียนเอง ไม่ใช่ AI แต่งขึ้น',
-    showH2: 'ที่พัก ที่กิน ที่เที่ยว ครบ 77 จังหวัด',
-    showLabel: (p) => 'ที่พัก ที่กิน ที่เที่ยว ใน' + p,
-    showMore: 'ดูทั้งหมด →',
-    kStay: 'ที่พัก', kEat: 'ที่กิน', kSee: 'ที่เที่ยว',
-    noJsEscape: 'หรือดูจุดหมายทั้งหมด →',
-    sheetTitle: 'เลือกจุดหมาย', sheetPh: 'พิมพ์ชื่อจังหวัดหรือเกาะ',
-    sheetPop: 'ยอดนิยม', sheetByRegion: 'ตามภาค', close: 'ปิด', noMatch: 'ไม่พบจุดหมายที่ค้นหา',
-    chipsEyebrow: 'แผนยอดนิยม แตะเดียวได้เลย',
-    conflictTitle: 'มีทริปอยู่แล้ว', conflictAdd: 'เพิ่มเข้าทริปเดิม',
-    conflictNew: 'สร้างทริปใหม่ (เก็บทริปเดิมไว้ในที่บันทึก)', cancel: 'ยกเลิก',
-    deckH2: 'เลือกจุดหมาย แล้วดูที่พัก ที่กิน ที่เที่ยว',
-    deckAll: 'ดูทั้ง 77 จังหวัด →',
-    addingTo: 'กำลังเพิ่มเข้า:', savedList: 'ที่บันทึกไว้',
-    shStay: (p) => 'พักที่ไหนดีใน' + p, shEat: (p) => 'กินอะไรดีใน' + p, shSee: (p) => 'เที่ยวไหนดีใน' + p,
-    tlStay: (p) => 'ดูที่พัก' + p + 'ทั้งหมด →', tlEat: (p) => 'ดูร้านอาหาร' + p + 'ทั้งหมด →', tlSee: (p) => 'ดูที่เที่ยว' + p + 'ทั้งหมด →',
-    readReview: 'อ่านรีวิวเต็ม →', readMore: 'อ่านต่อ →',
-    saveOff: 'เก็บไว้ก่อน', saveOn: 'บันทึกแล้ว',
-    priceFrom: 'จาก', perNight: '/ คืน', approx: 'ราคาเริ่มประมาณ', updated: (d) => 'อัปเดต ' + d,
-    unknownHours: 'ยังไม่ยืนยันเวลาเปิด — เช็กก่อนไป',
-    reviewsWord: 'รีวิว', free: 'ฟรี',
-    inventory: (p, n) => p + ': ที่พักที่เราเขียนรีวิวไว้ ' + n + ' แห่ง',
-    dockH2: 'ในทริปของคุณ', dockOpen: 'เปิดแผน',
-    pillsH2: 'เลือกตามสิ่งที่อยากทำ',
-    answerH2: 'เที่ยวไทยครั้งแรก เริ่มยังไงดี',
-    answerP: 'เริ่มจากเลือกทะเลหรือภูเขาก่อน แล้วค่อยเลือกเมือง — ถ้ามีเวลา 3 วัน 2 คืน จุดหมายที่เดินทางง่ายที่สุดคือ กระบี่ (ทะเลอันดามัน บินตรงจากกรุงเทพ 1 ชั่วโมง 20 นาที) เชียงใหม่ (เมืองเก่า ดอย คาเฟ่) และกรุงเทพเอง (วัด ตลาด รถไฟฟ้าถึงเกือบทุกที่) ทั้งสามมีแผนรายวันพร้อมใช้บนเว็บนี้ พร้อมที่พักที่เราเขียนรีวิวไว้รายแห่ง เดือนที่อากาศดีที่สุดของฝั่งอันดามันคือ พฤศจิกายน–เมษายน ส่วนอ่าวไทยฝนมาช้ากว่า จึงเที่ยวได้ถึงกันยายน',
-    answerMore: 'อ่านคู่มือเที่ยวไทยครั้งแรก →',
-    guidesH2: 'แผนพร้อมใช้ — ก๊อปไปแก้ต่อได้', guideRead: 'อ่านแผนเต็ม', guideUse: 'ใช้แผนนี้',
-    regionsH2: 'เลือกตามภาค — 77 จังหวัด', regionOpen: 'ดูรายชื่อจุดหมาย', regionsAll: 'ดูจุดหมายทั้งหมด →',
-    regionCount: (n, d) => n + ' จังหวัด' + (d ? ' + ' + d + ' เมืองท่องเที่ยว' : ''),
-    statsH2: 'เว็บนี้มีอะไรบ้าง',
-    stReview: 'รีวิวที่พักรายแห่ง', stRound: 'ไกด์จัดอันดับ', stArt: 'บทความและคู่มือ',
-    stPlan: 'แผนรายวัน', stProv: 'จังหวัด · 9 ภาษา',
-    statsNote: 'นับจากไฟล์เนื้อหาไทยในระบบ ตรวจนับ 8 กันยายน 2026',
-    editorH2: 'ใครเขียนเว็บนี้', editorEyebrow: 'บรรณาธิการ', editorMore: 'อ่านเกี่ยวกับเรา →',
-    newsH2: 'รับไกด์ใหม่ทางอีเมล',
-    newsLead: 'เดือนละไม่กี่ฉบับ — คู่มือจังหวัดใหม่ ที่พักที่เพิ่งรีวิว และแผนเที่ยวที่อัปเดต ยกเลิกได้ทุกเมื่อ',
-    newsLabel: 'อีเมลของคุณ', newsBtn: 'สมัครรับข่าว', newsPh: 'you@example.com',
-    footDesc: 'ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย',
-    footTag: 'Thailandaddict — Explore Thailand Like a Local',
-    footAbout: 'เกี่ยวกับเรา', footDest: 'จุดหมายทั้งหมด', footTrip: 'ทริปของฉัน', footNear: 'ใกล้ฉัน', footSearch: 'ค้นหา',
-    protoNote: 'หน้านี้เป็นต้นแบบ (prototype) ตั้ง noindex ไว้ และไม่ได้ลิงก์จากเว็บจริง',
-    myTrip: 'ทริปของคุณ', resumeOpen: 'เปิดแผน', resumeNew: 'เริ่มทริปใหม่', resumeHide: 'ซ่อนไว้ก่อน',
-    resumePlanNew: '＋ วางแผนที่ใหม่',
-    makeDays: 'จัดเป็นวัน ๆ ให้เลย',
-    localOnly: 'เก็บไว้ในเบราว์เซอร์นี้เท่านั้น — ไม่มีใครเห็น และเราไม่ได้เก็บไว้ที่เซิร์ฟเวอร์',
-    railTitle: 'ทริปของคุณ', railEmpty: 'ยังไม่มีรายการ — กด 🔖 ที่การ์ดไหนก็ได้เพื่อเริ่ม', railOpen: 'เปิดหน้าทริป',
-    moreDisplay: 'การแสดงผล', moreTheme: 'ธีม', moreThemeSys: 'ตามระบบ', moreLang: 'ภาษา',
-    moreTrip: 'ทริปของฉัน', moreNear: 'ใกล้ฉัน', moreInstall: 'ติดตั้งเป็นแอป',
-    faq: [
-      ['เที่ยวไทย 3 วัน 2 คืน ไปไหนดี',
-       'ถ้าเดินทางจากกรุงเทพและมีเวลา 3 วัน 2 คืน จุดหมายที่คุ้มเวลาที่สุดคือ กระบี่ (บินตรงราว 1 ชั่วโมง 20 นาที ได้ทั้งหาด ทัวร์สี่เกาะ และธรรมชาติบนบก) เชียงใหม่ (เมืองเก่า ดอยสุเทพ คาเฟ่ ครบใน 3 วัน) และอยุธยาแบบ 2 วัน 1 คืน ถ้าไม่อยากบิน เว็บนี้มีแผนรายวันของทั้งสามที่ให้อ่านฉบับเต็ม'],
-      ['เที่ยวไทยเดือนไหนดีที่สุด',
-       'ฝั่งอันดามัน (ภูเก็ต กระบี่ พังงา) อากาศดีที่สุดช่วงพฤศจิกายนถึงเมษายน ส่วนฝั่งอ่าวไทย (สมุย พะงัน) ฝนมาช้ากว่า จึงเที่ยวได้ยาวถึงกันยายน ภาคเหนืออากาศเย็นและฟ้าใสที่สุดช่วงพฤศจิกายนถึงกุมภาพันธ์ แต่ช่วงมีนาคมถึงเมษายนมักมีหมอกควันจากการเผา'],
-      ['จองที่พักเว็บไหนถูกกว่ากัน',
-       'ไม่มีเว็บไหนถูกที่สุดตลอด เราเทียบ Agoda / Booking.com / Trip.com ไว้บนทุกรีวิว ราคาต่างกันบ่อยและเปลี่ยนตามช่วงเวลา แนะนำให้เช็กทั้งสามเว็บก่อนกดจอง']
-    ]
-  },
-  en: {
-    lang: 'en', dir: 'ltr', selfLabel: 'English', otherHref: '../home', otherLabel: 'ไทย',
-    up: '../', canonical: 'https://thailandaddict.com/_proto/en/home.html',
-    title: 'Plan a Thailand trip 2026 — reviews we wrote, guest scores compared | ThailandAddict',
-    desc: 'Pick a destination and how many days, and see a real day-by-day plan built from reviews we wrote ourselves, with Booking.com and Agoda guest scores side by side, across all 77 provinces.',
-    skip: 'Skip to main content',
-    navExplore: 'Explore', navPlaces: 'Destinations', navTrip: 'Trip', navSearch: 'Search', navMore: 'More',
-    searchLabel: 'Search', searchPh: 'Stays, restaurants, destinations',
-    h1: 'Plan a Thailand trip from reviews we wrote and guest scores we compared',
-    lead: 'Pick a destination and how many days, then see the plan — or scroll on and tap 🔖 to keep places for later.',
-    slotEyebrow: 'Build your own trip in two taps',
-    lWhere: 'Where to', phWhere: 'Choose a destination', lNights: 'How long',
-    tier: { '1-day': '1 day', '2d1n': '2 days, 1 night', '3d2n': '3 days, 2 nights', '4plus': '4 days+' },
-    tierShort: { '1-day': '1 day', '2d1n': '2 days', '3d2n': '3 days', '4plus': '4 days+' },
-    tierSr: { '1-day': '', '2d1n': ', 1 night', '3d2n': ', 2 nights', '4plus': '' },
-    submit: 'Show me the plan',
-    fine: 'Plans come from guides we wrote, not from an AI',
-    showH2: 'Stays, food and places across 77 provinces',
-    showLabel: (p) => 'Stay, eat and explore in ' + p,
-    showMore: 'See all →',
-    kStay: 'Stay', kEat: 'Eat', kSee: 'See',
-    noJsEscape: 'Or browse every destination →',
-    sheetTitle: 'Choose a destination', sheetPh: 'Type a province or island',
-    sheetPop: 'Popular', sheetByRegion: 'By region', close: 'Close', noMatch: 'No destination matches that',
-    chipsEyebrow: 'Popular plans — one tap',
-    conflictTitle: 'You already have a trip', conflictAdd: 'Add to the existing trip',
-    conflictNew: 'Start a new trip (the old one moves to saved)', cancel: 'Cancel',
-    deckH2: 'Pick a destination, then see where to stay, eat and go',
-    deckAll: 'See all 77 provinces →',
-    addingTo: 'Adding to:', savedList: 'Saved',
-    shStay: (p) => 'Where to stay in ' + p, shEat: (p) => 'Where to eat in ' + p, shSee: (p) => 'What to see in ' + p,
-    tlStay: (p) => 'All ' + p + ' stays →', tlEat: (p) => 'All ' + p + ' restaurants →', tlSee: (p) => 'All ' + p + ' sights →',
-    readReview: 'Read the full review →', readMore: 'Read more →',
-    saveOff: 'Keep this', saveOn: 'Saved',
-    priceFrom: 'From', perNight: '/ night', approx: 'approximate starting price', updated: (d) => 'updated ' + d,
-    unknownHours: 'Opening hours not confirmed — check before you go',
-    reviewsWord: 'reviews', free: 'Free',
-    inventory: (p, n) => p + ': ' + n + ' stays we have written up',
-    dockH2: 'In your trip', dockOpen: 'Open the plan',
-    pillsH2: 'Browse by what you want to do',
-    answerH2: 'First time in Thailand — where do you start?',
-    answerP: 'Start by choosing coast or mountains, then pick the town. With three days and two nights the easiest bases are Krabi (Andaman beaches, a 1 hour 20 minute flight from Bangkok, four-island boat trips and inland nature), Chiang Mai (old town, Doi Suthep, cafés) and Bangkok itself (temples, markets, and a train to almost everything). All three have a day-by-day plan on this site and individual hotel reviews behind every stay. The Andaman coast is driest from November to April; the Gulf coast keeps its rain later, so it still works through September.',
-    answerMore: 'Read the first-time Thailand guide →',
-    guidesH2: 'Ready-made plans — copy one and edit it', guideRead: 'Read the full plan', guideUse: 'Use this plan',
-    regionsH2: 'By region — all 77 provinces', regionOpen: 'See the destinations', regionsAll: 'See every destination →',
-    regionCount: (n, d) => n + ' provinces' + (d ? ' + ' + d + ' tourism towns' : ''),
-    statsH2: "What's on this site",
-    stReview: 'Individual hotel reviews', stRound: 'Ranked guides', stArt: 'Articles and guides',
-    stPlan: 'Day-by-day plans', stProv: 'provinces · 9 languages',
-    statsNote: 'Counted from the Thai content files in the repo, 8 September 2026',
-    editorH2: 'Who writes this site', editorEyebrow: 'Editor', editorMore: 'About us →',
-    newsH2: 'New guides by email',
-    newsLead: 'A few emails a month — new province guides, stays we have just reviewed, and updated plans. Unsubscribe any time.',
-    newsLabel: 'Your email', newsBtn: 'Subscribe', newsPh: 'you@example.com',
-    footDesc: 'The best places to stay, eat and explore across Thailand',
-    footTag: 'Thailandaddict — Explore Thailand Like a Local',
-    footAbout: 'About us', footDest: 'All destinations', footTrip: 'My trip', footNear: 'Near me', footSearch: 'Search',
-    protoNote: 'This is a prototype page. It is noindex and is not linked from the live site.',
-    myTrip: 'Your trip', resumeOpen: 'Open the plan', resumeNew: 'Start a new trip', resumeHide: 'Hide for now',
-    resumePlanNew: '＋ Plan somewhere new',
-    makeDays: 'Sort them into days for me',
-    localOnly: 'Kept in this browser only — nobody else can see it and we do not store it on a server',
-    railTitle: 'Your trip', railEmpty: 'Nothing yet — tap 🔖 on any card to start', railOpen: 'Open the trip page',
-    moreDisplay: 'Display', moreTheme: 'Theme', moreThemeSys: 'System', moreLang: 'Language',
-    moreTrip: 'My trip', moreNear: 'Near me', moreInstall: 'Install as an app',
-    faq: [
-      ['Where should I go in Thailand for 3 days and 2 nights?',
-       'Leaving from Bangkok with three days and two nights, the destinations that waste the least time are Krabi (a 1 hour 20 minute flight, with beaches, the four-island boat trip and inland nature), Chiang Mai (old town, Doi Suthep and cafés all fit in three days), and Ayutthaya as a 2 day, 1 night trip if you would rather not fly. This site has a full day-by-day plan for all three.'],
-      ['What is the best month to visit Thailand?',
-       'The Andaman side (Phuket, Krabi, Phang Nga) is at its best from November to April. The Gulf side (Koh Samui, Koh Phangan) gets its rain later, so it still works into September. The north is coolest and clearest from November to February, but March and April often bring burning-season haze.'],
-      ['Which booking site is cheaper?',
-       'No single site is always cheapest. We show Agoda, Booking.com and Trip.com side by side on every review because the prices genuinely differ and move around. Check all three before you book.']
-    ]
-  }
+/* ── the copy table ───────────────────────────────────────────────────────
+   One JSON per locale in _internal/shell/build/home-copy/. This used to be an
+   object literal with a th branch and an en branch, which is exactly why the
+   other seven locales were stuck on the pre-redesign homepage: adding a
+   language meant editing code, and 116 strings had nowhere to live.
+
+   Ten entries take arguments — "Where to stay in {p}", "{n} provinces" — and
+   are stored as templates, so a translator only ever writes text. They are
+   rebuilt below into the exact function shapes the page already calls, so no
+   call site changes. regionCount keeps two templates rather than hiding a
+   conditional inside one string a translator would have to reproduce.
+
+   Memoised function rather than an object built at import time: it needs
+   homeHref(), declared further down as a const, and an eager IIFE here would
+   hit its temporal dead zone as soon as a locale other than th/en appeared.
+
+   `up` and `canonical` say where the /_proto/ mirror sits; only the two
+   locales that mirror has need them. The site target computes its own. */
+const COPY_DIR = path.resolve(import.meta.dirname, 'home-copy');
+const PROTO_PATH = {
+  th: { up: '', canonical: SITE_URL + '/_proto/home.html' },
+  en: { up: '../', canonical: SITE_URL + '/_proto/en/home.html' },
 };
+const fill = (tpl, vars) => String(tpl == null ? '' : tpl)
+  .replace(/\{(\w+)\}/g, (_, k) => (vars[k] == null ? '' : String(vars[k])));
+
+const COPY_CACHE = {};
+function copyFor(loc) {
+  if (COPY_CACHE[loc]) return COPY_CACHE[loc];
+  const c = rd(path.join(COPY_DIR, loc + '.json'));
+  const one = (k) => (p) => fill(c[k], { p });
+  return (COPY_CACHE[loc] = Object.assign({}, c, {
+    lang: loc,
+    dir: dirOf(loc),
+    up: (PROTO_PATH[loc] || {}).up || '',
+    canonical: (PROTO_PATH[loc] || {}).canonical || (SITE_URL + homeHref(loc)),
+    showLabel: one('showLabel'),
+    shStay: one('shStay'), shEat: one('shEat'), shSee: one('shSee'),
+    tlStay: one('tlStay'), tlEat: one('tlEat'), tlSee: one('tlSee'),
+    updated: (d) => fill(c.updated, { d }),
+    inventory: (p, n) => fill(c.inventory, { p, n }),
+    regionCount: (n, d) => (d ? fill(c.regionCountTowns, { n, d }) : fill(c.regionCount, { n })),
+  }));
+}
+const HOME_COPY_LOCALES = fs.readdirSync(COPY_DIR).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -5));
 
 /* ─────────────────────────── rendering helpers ───────────────────────────── */
 const SRC_RE = /(Agoda|Booking\.com|Booking|Trip\.com|Wongnai|Google|TripAdvisor|Klook)/g;
@@ -915,7 +807,7 @@ function shellCtx(lang) {
 
 function build(lang, target) {
   const isSite = target === 'site';
-  const base = T[lang];
+  const base = copyFor(lang);
   /* The two targets differ in exactly one mechanical way: where the document
      sits. At the site root, / and /en/index.html can both name assets
      absolutely. The /_proto/ mirror is two and three directories down, so it
