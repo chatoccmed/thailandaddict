@@ -79,7 +79,7 @@ console.log(`reviews indexed ${pairs} · mismatches ${rows.length} ` + Object.en
 const props = [...new Set(rows.map((r) => r.slug))];
 console.log(`distinct properties affected: ${props.length}`);
 for (const r of rows) {
-  console.log(`  ${r.kind.padEnd(5)} ${r.name.slice(0, 32).padEnd(32)} roundup=${String(r.roundup).slice(0, 16).padEnd(16)} review=${String(r.review).slice(0, 16)}  [${r.file}]`);
+  console.log(`  ${r.kind.padEnd(5)} ${r.name.slice(0, 32).padEnd(32)} roundup=${String(r.roundup).padEnd(30)} review=${String(r.review)}  [${r.file}]`);
 }
 if (OUT) { fs.writeFileSync(OUT, JSON.stringify(rows, null, 1)); console.log(`\nwrote ${OUT}`); }
 process.exit(rows.length ? 1 : 0);
