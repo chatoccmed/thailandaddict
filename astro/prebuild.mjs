@@ -44,7 +44,11 @@ import { fileURLToPath } from 'node:url';
 // committed as "verified and deployed" on 2026-09-09 and reached only /_proto/, because nothing in
 // the build ever wrote the real one. A generator that is not in prebuild is a generator whose output
 // is stale the moment somebody forgets.
-for (const mod of ['../_internal/gen-shell.mjs', '../_internal/gen-hubs.mjs', '../_internal/shell/build/gen-proto-home.mjs', '../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-home-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs']) {
+// canonicalise-place-names runs LAST of the page writers, and has to: gen-hubs rewrites the 30
+// tourism-city hubs per locale on every build, so a province name fixed by hand is Latin again the
+// next morning. It is idempotent — a second run reports 0 — and it only rewrites reader-visible text,
+// never an href. It writes by default and takes --dry to look without touching anything.
+for (const mod of ['../_internal/gen-shell.mjs', '../_internal/gen-hubs.mjs', '../_internal/shell/build/gen-proto-home.mjs', '../_internal/gen-home.mjs', '../_internal/gen-sitemap.mjs', '../_internal/gen-search-index.mjs', '../_internal/gen-home-index.mjs', '../_internal/gen-feeds.mjs', '../_internal/gen-near-me.mjs', '../_internal/qa/canonicalise-place-names.mjs']) {
   // The isolated _internal/build-test.sh copy has no _internal/ — skip a genuinely-absent generator so a
   // content-only validation build still passes. But if the generator IS present and throws, let it fail the
   // build: swallowing it shipped a green build with stale/broken home/sitemap/search/feeds/near-me.

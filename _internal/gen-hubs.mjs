@@ -132,9 +132,13 @@ for(const l of NEW_LOCS){
   try{
     const h=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/homepage-i18n',l+'.json'),'utf8'));
     for(const [rk,hk] of Object.entries(REGION_HKEY)) if(h.regions && h.regions[hk]) REGION_NAME[l][rk]=h.regions[hk];
+    // All 77 provinces, translated, in every locale — the floor under the loop below. Without it a
+    // province that is not a tourism city kept its Latin name inside an otherwise translated page:
+    // "Kamphaeng Phet उत्तर थाईलैंड में है" on the Hindi hub, and the same on 40-odd others.
+    for(const [sl,v] of Object.entries(h.prov||{})) if(v && v.n) CITY_NAME[l][sl]=v.n;
   }catch{}
-  // city display names: read each tourism city's OWN translated data file (covers provinces +
-  // sub-destinations alike — the homepage `prov` dict only has the 77 provinces, not pai/huahin/etc).
+  // city display names: each tourism city's OWN translated data file wins over the homepage dict —
+  // it covers sub-destinations the `prov` dict has no row for (pai, huahin, the islands).
   for(const sl of TOURISM){
     try{ const c=JSON.parse(fs.readFileSync(path.join(ROOT,'_internal/province-data-'+l,sl+'.json'),'utf8')); if(c&&c.th) CITY_NAME[l][sl]=c.th; }catch{}
   }
