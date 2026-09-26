@@ -226,6 +226,8 @@ run_gate i18n 6 "i18n key guard — no tx() key may change (blueprint §2.6)" --
   node _internal/qa/check-i18n-keys.mjs
 run_gate homecopy 13 "homepage copy tables — 9 locales, same keys, same placeholders" -- \
   node _internal/shell/build/check-home-copy.mjs
+run_gate twins 14 "translated articles — same blocks, same figures, same HTML as the English" -- \
+  node _internal/hub-i18n/validate-article-twin.mjs --quiet
 run_gate rtl 7 "RTL guard — logical CSS properties only (he + ar are live)" -- \
   node _internal/qa/check-rtl.mjs
 run_gate snapshots 8 "snapshot freshness — no generated page older than its generator" -- \

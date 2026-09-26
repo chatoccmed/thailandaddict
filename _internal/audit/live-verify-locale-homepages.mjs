@@ -48,13 +48,24 @@ const visible = (h) => h
    in urls, photo-credit sources. Same list the Thai page is measured with, so
    the comparison is like for like. */
 const BRAND = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip\.com|Trip|Google|Klook|IHG|Michelin|Wikimedia|Commons|BY-SA|Wongnai|TripAdvisor|SHA|Doi|Wat|Koh|Ko|Baan|Ban|Hotel|Hotels|Resort|Resorts|Villa|Villas|Suite|Suites|Spa|Inn|House|Cafe|Café|Small|Luxury|Best|Siam|Nimman|Chiang|Bangkok|Krabi|Phuket|Pattaya|Rayavadee|BTS|MRT)\b/g;
-const latinWords = (h) => (visible(h).replace(BRAND, ' ').match(/[A-Za-z][A-Za-z'’-]{3,}/g) || []);
+const stripped = (h) => visible(h).replace(BRAND, ' ').replace(/https?:\/\/\S+/g, ' ');
+const latinWords = (h) => (stripped(h).match(/[A-Za-z][A-Za-z'’-]{3,}/g) || []);
+/* Counting every Latin word measured the wrong thing. A Chinese travel site
+   romanises the hotel and restaurant names a Thai one writes in Thai script,
+   so zh carried 152 Latin words against Thai's 133 and looked half-English
+   while being nothing of the sort — every one of those words was a name.
+   English PROSE is lowercase, because that is what grammar is made of; names
+   are capitalised in every language that uses this alphabet. So the baseline
+   compares lowercase words, and the total is printed beside it so a jump is
+   still visible to a human. */
+const proseWords = (h) => (stripped(h).match(/\b[a-z][a-z'’-]{3,}\b/g) || []);
 
 /* the baseline: Thai, a page nobody would call half-translated */
 const th = await page('th');
 if (th.status !== 200) { console.error('cannot read the Thai homepage — no baseline'); process.exit(1); }
-const BASELINE = latinWords(th.body).length;
-console.log('Thai homepage baseline: ' + BASELINE + ' Latin words (' + (LOCAL ? 'local build' : BASE) + ')\n');
+const BASELINE = proseWords(th.body).length;
+console.log('Thai homepage baseline: ' + BASELINE + ' lowercase Latin words, '
+  + latinWords(th.body).length + ' Latin words in all (' + (LOCAL ? 'local build' : BASE) + ')\n');
 
 /* English strings that must NOT survive into a translated page */
 const ENGLISH_RUNTIME = ['Building the plan', 'Start over', 'Open in the trip planner',
@@ -108,9 +119,9 @@ for (const loc of LOCS) {
   else ok(`${loc}: region names, editor bio and pills localised`);
 
   /* the overall measure */
-  const n = latinWords(h).length;
-  if (n > BASELINE) bad(`${loc}: ${n} Latin words, worse than the Thai page's ${BASELINE}`);
-  else ok(`${loc}: ${n} Latin words (Thai baseline ${BASELINE})`);
+  const n = proseWords(h).length, all = latinWords(h).length;
+  if (n > BASELINE) bad(`${loc}: ${n} lowercase Latin words, worse than the Thai page's ${BASELINE} — ${[...new Set(proseWords(h))].slice(0, 8).join(' ')}`);
+  else ok(`${loc}: ${n} lowercase Latin words (Thai baseline ${BASELINE}), ${all} Latin words in all`);
 
   /* Money. The homepage deliberately links to our own review pages, not to the
      OTAs — the booking urls travel as data on the saved-item payload, for the

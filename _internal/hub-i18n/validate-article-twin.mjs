@@ -50,6 +50,7 @@ const BRANDS = /\b(Thailandaddict|ThailandAddict|Agoda|Booking\.com|Booking|Trip
 const NON_LATIN = new Set(['zh', 'ko', 'ja', 'hi', 'he', 'ar', 'ru']);
 
 const fails = [];
+const warns = [];
 let filesChecked = 0, valuesChecked = 0;
 
 function compare(loc, rel, en, tr, keyPath) {
@@ -82,19 +83,45 @@ function compare(loc, rel, en, tr, keyPath) {
   const tags = (s) => (String(s).match(/<\/?[a-z][a-z0-9]*/gi) || []).map((t) => t.toLowerCase()).sort().join(',');
   if (tags(en) !== tags(tr)) fails.push(`${at()} HTML tags changed — "${tags(en)}" -> "${tags(tr)}"`);
 
-  /* An opening time or a price may be reworded, never renumbered. Every figure
-     in the source must survive; the translation may ADD figures, because "per
-     person" is 1人 in Japanese and 1인 in Korean and those are words, not
-     prices. Separators and leading zeros are formatting, not value: Russian
-     writes 1200 where English writes 1,200, and Japanese writes 9:00 for
-     09:00. */
+  /* An opening time or a price may be reworded, never renumbered — but
+     "renumbered" has to mean the figure, not its spelling, or the check ends up
+     demanding the bug. Three things are spelling:
+
+       · separators — Russian writes 1 000 and 1,5 where English writes 1,000
+         and 1.50, so both sides are folded to a plain number first
+       · leading zeros — ~2am is 02:00 in Russian and 2:00 in Chinese
+       · small counts a language says in words — "dinner for 2" is ужин на
+         двоих, "Open 24 hrs" is Круглосуточно, "closed 3rd Wed" is 每月第三个
+         周三. Nothing was renumbered; the number became a word.
+
+     So a lost figure is a FAILURE when it is a clock time, when it is 32 or
+     larger (a price or a rate — no language turns 1,200 baht into a word), or
+     when the translation carries a number in its place that the source does
+     not have, which is a substitution rather than a rewording. Everything else
+     is a warning for a human to glance at. */
   if (KEEP_FIGURES.has(key)) {
-    const norm = (s) => (String(s).match(/\d[\d,.:]*/g) || [])
-      .map((n) => n.replace(/,/g, '').replace(/\b0+(\d)/g, '$1').replace(/[.:]$/, ''));
-    const want = norm(en), got = norm(tr);
-    const pool = [...got];
-    const lost = want.filter((n) => { const i = pool.indexOf(n); if (i < 0) return true; pool.splice(i, 1); return false; });
-    if (lost.length) fails.push(`${at()} lost figures [${lost.join(', ')}] — "${String(en).slice(0, 44)}" -> "${String(tr).slice(0, 44)}"`);
+    const figures = (s) => {
+      const t = String(s)
+        .replace(/(\d)[    ](?=\d{3}(?!\d))/g, '$1') /* 1 000 -> 1000 */
+        .replace(/(\d),(?=\d{3}(?!\d))/g, '$1')                     /* 1,000 -> 1000 */
+        .replace(/(\d),(?=\d{1,2}(?!\d))/g, '$1.');                 /* 1,5   -> 1.5  */
+      return {
+        clocks: [...t.matchAll(/\b(\d{1,2}):(\d{2})\b/g)].map((m) => Number(m[1]) + ':' + m[2]),
+        nums: [...t.replace(/\b\d{1,2}:\d{2}\b/g, ' ').matchAll(/\d+(?:\.\d+)?/g)].map((m) => String(Number(m[0]))),
+      };
+    };
+    const a = figures(en), b = figures(tr);
+    const unmatched = (want, have) => {
+      const pool = [...have];
+      return want.filter((n) => { const i = pool.indexOf(n); if (i < 0) return true; pool.splice(i, 1); return false; });
+    };
+    const lostClocks = unmatched(a.clocks, b.clocks);
+    const lostNums = unmatched(a.nums, b.nums);
+    const substituted = lostNums.length && unmatched(b.nums, a.nums).length;
+    const hard = [...lostClocks, ...lostNums.filter((n) => substituted || Number(n) >= 32)];
+    const soft = lostNums.filter((n) => !hard.includes(n));
+    if (hard.length) fails.push(`${at()} lost figures [${hard.join(', ')}] — "${String(en).slice(0, 44)}" -> "${String(tr).slice(0, 44)}"`);
+    else if (soft.length) warns.push(`${at()} figure [${soft.join(', ')}] is not in the translation — a word, or a drift? "${String(en).slice(0, 40)}" -> "${String(tr).slice(0, 40)}"`);
   }
 
   if (!NON_LATIN.has(loc)) return;
@@ -137,6 +164,12 @@ for (const loc of LOCALES) {
 }
 
 console.log('\nchecked ' + filesChecked + ' files, ' + valuesChecked + ' values');
+if (warns.length) {
+  console.log(warns.length + ' warnings — a figure the translation says in words, or a drift nobody caught:');
+  for (const w of warns.slice(0, QUIET ? 5 : 40)) console.log('  ! ' + w);
+  if (warns.length > (QUIET ? 5 : 40)) console.log('  … and ' + (warns.length - (QUIET ? 5 : 40)) + ' more');
+  console.log('');
+}
 if (fails.length) {
   console.error(fails.length + ' FAILURES');
   const show = QUIET ? 15 : 60;

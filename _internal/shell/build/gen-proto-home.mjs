@@ -263,6 +263,18 @@ function stays(prov, lang, n) {
     type: e.type, agoda: e.agodaUrl, booking: goB(e.bookingUrl, 'home'), trip: e.tripUrl
   }));
 }
+/* The credits come with the photo, and the photo comes from the Thai file, so
+   every other locale was printing "ภาพโดย kallerna / Wikimedia Commons (CC
+   BY-SA 3.0)" — the Thai words for "photo by" on an Arabic page, nineteen
+   times. The photographer's name, the source and the licence ARE the
+   attribution and stay exactly as written; only the word in front of them is
+   ours to say in the reader's language. */
+function creditFor(lang, credit) {
+  const c = String(credit || '').trim();
+  if (!c || lang === 'th') return c;
+  const tpl = copyFor(lang).photoBy;
+  return tpl ? fill(tpl, { n: c.replace(/^ภาพโดย\s*/, '') }) : c;
+}
 function artBlocks(slug, lang, n, needPhoto) {
   const p = C(L[lang].art + '/' + slug + '.json');
   if (!ex(p)) return [];
@@ -286,7 +298,7 @@ function artBlocks(slug, lang, n, needPhoto) {
       rating: b.rating, count: b.ratingCount, src: b.ratingSrc,
       hours: b.hours, price: b.priceRange, lat: b.lat, lng: b.lng,
       img: got.img,
-      credit: got.cr && got.cr.credit ? got.cr.credit : '',
+      credit: creditFor(lang, got.cr && got.cr.credit),
       creditHref: got.cr && got.cr.creditHref ? got.cr.creditHref : '',
       alt: (got.cr && got.cr.alt) || '',
       kindLabel: b.foodType || b.cuisine, href: P(lang, '/' + slug + '#r' + b.rank)
