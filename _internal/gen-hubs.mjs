@@ -243,9 +243,12 @@ const ALT = slug => LOC === 'en' ? '/'+slug+'.html' : '/en/'+slug+'.html'; // ot
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 const escAttr = s => esc(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-// Hub content images (cm/ + hotels/) are served from R2 — same bucket the layouts use — because those dirs are
-// excluded from the Cloudflare static bundle (.assetsignore) to stay under the 20k-file limit. heroes/ + cities/
-// stay in the bundle, so heroSrc / neighbor cards keep plain /images/ paths. Override via PUBLIC_IMG_BASE env.
+// Hub content images are served from R2 — same bucket the layouts use — because the image dirs are excluded
+// from the Cloudflare static bundle (.assetsignore) to stay under the 20k-file limit. heroes/ + cities/ joined
+// them on 2026-09-26: the deploy hit 19,831 files and those 299 bought the room back. Every /images/ path a hub
+// page prints therefore goes through imgUrl(); nothing in astro/dist may reference /images/ directly any more,
+// because the worker has no R2 fallback and a bundle path that is not in the bundle is a 404. Override via
+// PUBLIC_IMG_BASE env.
 const IMG_BASE = process.env.PUBLIC_IMG_BASE || 'https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev';
 const imgUrl = s => !s ? '' : (/^https?:/.test(s) ? s : IMG_BASE + (s.startsWith('/') ? s : '/'+s));
 // webp twin for the LCP hero (gated on the shared manifest, same as the Astro layouts). heroSrc may be a
@@ -879,7 +882,10 @@ function cleanLinks(html) {
 function page({ title, desc, slug, jsonld, body, extraJS, image }) {
   const canon = `https://thailandaddict.com/${LOC==='th'?'':LOC+'/'}${slug}`;
   const altTH = `https://thailandaddict.com/${slug}`;
-  const ogImg = image ? (/^https?:/.test(image) ? image : 'https://thailandaddict.com' + image) : 'https://thailandaddict.com/images/heroes/krabi.jpg';
+  /* An /images/ path resolves on R2, not on our own domain — heroes/ and cities/ left the bundle. */
+  const ogImg = image
+    ? (/^https?:/.test(image) ? image : (image.startsWith('/images/') ? imgUrl(image) : 'https://thailandaddict.com' + image))
+    : imgUrl('/images/heroes/krabi.jpg');
   /* One ctx, three positions — exactly what Shell.astro does with it:
      shellHead() in <head>, shellTop() first in <body>, shellBottom() last.
      The viewport meta, both theme-color metas, the hashed shell stylesheet, the
@@ -1027,8 +1033,8 @@ function provinceHub(slug, th, r, d){
   const tagline = d.tagline || tx(`เที่ยว${th}`,`Explore ${nm}`);
   const best = d.bestTime || tx('เที่ยวได้ตลอดปี','Good year-round');
   const emoji = d.heroEmoji || R.emoji;
-  const heroSrc = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? `/images/heroes/${slug}.jpg`
-    : (fs.existsSync(path.join(PUB,'images/cities',slug+'.jpg')) ? `/images/cities/${slug}.jpg` : '');
+  const heroSrc = fs.existsSync(path.join(PUB,'images/heroes',slug+'.jpg')) ? imgUrl(`/images/heroes/${slug}.jpg`)
+    : (fs.existsSync(path.join(PUB,'images/cities',slug+'.jpg')) ? imgUrl(`/images/cities/${slug}.jpg`) : '');
   const arts = ARTS[slug]||[];
   const wtsArt = arts.find(a=>a.slug==='where-to-stay-'+slug);   // "where to stay" neighborhood guide, if it exists
   const cSee=arts.filter(a=>a.type==='attraction').length, cEat=arts.filter(a=>['food','eat-ranking'].includes(a.type)).length, cPlan=arts.filter(a=>a.type==='itinerary').length, cStay=(REVS[slug]||[]).length;
@@ -1355,7 +1361,7 @@ ${ep?`<div class="section"><div class="sh"><div class="slbl">⭐ ${tx('ไฮไ
   return page({title:tx(`พักย่าน${nm} กรุงเทพฯ — ที่พัก·ของกินเด่น·ไฮไลท์ห้ามพลาด | ThailandAddict`,`${nm}, Bangkok — Where to Stay, Eat & Top Highlights | ThailandAddict`),desc:tx(`ย่าน${nm} กรุงเทพฯ: คัด ${hotels.length} ที่พักทุกงบ + ของกินเด่น ${foods.length} อย่าง + ไฮไลท์ห้ามพลาด ${highlights.length} จุด`,`${nm}, Bangkok — ${hotels.length} hotels for every budget, ${foods.length} signature eats and ${highlights.length} must-see highlights.`),slug:`area-bangkok-${hood}`,jsonld,body,extraJS,image:heroSrc});
 }
 function provCard(s,th,em,tg){
-  const img=fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?`/images/heroes/${s}.jpg`:(fs.existsSync(path.join(PUB,'images/cities',s+'.jpg'))?`/images/cities/${s}.jpg`:'');
+  const img=fs.existsSync(path.join(PUB,'images/heroes',s+'.jpg'))?imgUrl(`/images/heroes/${s}.jpg`):(fs.existsSync(path.join(PUB,'images/cities',s+'.jpg'))?imgUrl(`/images/cities/${s}.jpg`):'');
   return `<a class="dcard" href="city-${s}.html"><div class="dphoto">${img?`<img src="${img}" alt="${esc(th)}" loading="lazy" onerror="this.style.opacity=0">`:''}<span class="tagn">${em}</span></div><div class="dbody"><h3>${th}</h3><p style="font-size:13px;color:var(--sub);margin-top:3px">${esc(tg)}</p><span class="go">${tx('เที่ยว'+th+' →','Explore '+th+' →')}</span></div></a>`;
 }
 function regionPage(r){

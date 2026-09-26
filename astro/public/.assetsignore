@@ -1,17 +1,24 @@
 # Cloudflare Workers Static Assets — .assetsignore (gitignore syntax, relative to the assets dir = dist)
 # PERMANENT image architecture (no per-deploy file-count risk):
-#   • Bulk content images (cm/ + hotels/ + food/ + gallery/) are EXCLUDED from the static bundle and served
-#     from the R2 public bucket instead. Both the content layouts (Article/Roundup/ReviewLayout → asset())
-#     AND the hub generator (gen-hubs → imgUrl()) prepend IMG_BASE = PUBLIC_IMG_BASE env
-#     (default https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev), so every cm/hotels/food image URL points
-#     at R2. Verified: 0 plain /images/(cm|hotels|food|gallery)/ refs remain in any generated HTML.
-#   • heroes/ + cities/ STAY in the bundle (small, slow-growing): hub hero, neighbour cards and og:image use
-#     plain /images/heroes|cities/ paths served straight from the deploy.
+#   • EVERY image directory is EXCLUDED from the static bundle and served from the R2 public bucket instead.
+#     Both the content layouts (Article/Roundup/ReviewLayout → asset()) AND the generators
+#     (gen-hubs → imgUrl(), gen-proto-home → r2()) prepend IMG_BASE = PUBLIC_IMG_BASE env
+#     (default https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev), so every image URL points at R2.
+#   • heroes/ + cities/ joined them on 2026-09-26. They had stayed in the bundle as "small and slow-growing",
+#     which was true of the directories and beside the point: what grew was the PAGE count. Translating 175
+#     articles into seven languages put the deploy at 19,831 files against a 20,000 hard cap, and those 299
+#     images bought the room back. All 299 were already on R2 (verified reachable) — this only stopped
+#     shipping a second copy.
 #
-# File count: 22,627 total − hotels(7,693) − cm(3,216) − food(102) − gallery(1) ≈ 11,615 static files → well
-# under Cloudflare's 20,000 limit, with ~8k headroom for growth. New content images just need to be in R2
-# (see _internal/upload-r2*.{mjs,sh}); they never count against the bundle limit again.
+# 🚨 THE WORKER HAS NO R2 FALLBACK. A /images/ path that is not in the bundle is a 404, not a redirect — so
+#    nothing in astro/dist may reference /images/ directly. The build gate for this is a grep over the whole
+#    of dist; run it after any change to a generator that prints an image path:
+#      grep -rlo '"/images/' astro/dist --include=*.html | head
+#
+# File count after this change: ~19,532 deployable, ~470 below the cap.
 images/hotels/
 images/cm/
 images/food/
 images/gallery/
+images/heroes/
+images/cities/

@@ -610,7 +610,7 @@ async function serveSharedTrip(request, env, id) {
   let title = 'แผนการเดินทางของฉัน', desc = 'แผนเที่ยวไทยที่จัดโดย Thailandaddict';
   const rec = await env.TRIPS.get('trip:' + id);
   if (rec) { try { const t = JSON.parse(rec); if (t.itin && t.itin.title) title = t.itin.title; const p = t.prefs || {}; const provs = (p.provinces || []).join(' · '); desc = [provs, p.days ? p.days + ' วัน ' + (p.nights || '') + ' คืน' : '', 'จัดโดย Thailandaddict'].filter(Boolean).join(' · '); } catch (e) {} }
-  const og = `<meta property="og:type" content="article"><meta property="og:title" content="${escAttr(title)}"><meta property="og:description" content="${escAttr(desc)}"><meta property="og:image" content="https://thailandaddict.com/images/heroes/chiang-mai.jpg"><meta name="twitter:card" content="summary_large_image"><script>window.__TRIP_ID__=${JSON.stringify(id)};</script>`;
+  const og = `<meta property="og:type" content="article"><meta property="og:title" content="${escAttr(title)}"><meta property="og:description" content="${escAttr(desc)}"><meta property="og:image" content="https://pub-65cf98dcb15e4c06a7a465ec411b870a.r2.dev/images/heroes/chiang-mai.jpg"><meta name="twitter:card" content="summary_large_image"><script>window.__TRIP_ID__=${JSON.stringify(id)};</script>`;
   // function replacement so a `$` in the (escAttr'd) title/desc can't be read as a $-pattern (e.g. $&, $1)
   html = html.replace('</head>', () => og + '</head>');
   // frame-ancestors 'self' = clickjacking defense on this cross-user page; SEC_HEADERS adds nosniff/frame-options.

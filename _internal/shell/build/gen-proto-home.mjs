@@ -46,8 +46,8 @@ const nfmt = (n) => Number(n).toLocaleString('en-US');
 /* Idempotent: an already-absolute URL passes through untouched, so a caller can
    r2() a value of unknown provenance without ever producing "r2.dev/https://".
    Every image key on this page must leave the generator absolute, because the
-   directories they live in (images/hotels|cm|food|gallery) are NOT in the deploy
-   bundle - they exist only on R2. */
+   directories they live in (images/hotels|cm|food|gallery, and heroes|cities
+   since 2026-09-26) are NOT in the deploy bundle - they exist only on R2. */
 const r2 = (p) => {
   const v = String(p == null ? '' : p);
   if (!v) return '';
@@ -132,7 +132,7 @@ ${FAVICON}
 <meta property="og:site_name" content="ThailandAddict"><meta property="og:type" content="website">
 <meta property="og:title" content="${esc(t.title)}"><meta property="og:description" content="${esc(t.desc)}">
 <meta property="og:url" content="${canon}"><meta property="og:locale" content="${OG_LOCALE[lang] || 'th_TH'}">
-<meta property="og:image" content="${SITE_URL}/images/heroes/krabi.jpg">
+<meta property="og:image" content="${r2('/images/heroes/krabi.jpg')}">
 <meta name="twitter:card" content="summary_large_image">`;
 }
 
