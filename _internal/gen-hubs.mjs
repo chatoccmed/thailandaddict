@@ -795,7 +795,12 @@ function hubHref(p){
    collided with the shell's tab bar. */
 function shellFooter(){
   return {
-    tagline: 'Explore Thailand Like a Local',
+    /* Thai keeps the English slogan by design (CLAUDE.md: the footer's ft-tag
+       is the EN slogan on every Thai page). Every other locale says its own,
+       from the same ui.<lang>.json the content layouts read — this was a
+       hardcoded English string, so the seven locale hubs printed English here
+       on every build and sync-hub-snapshots corrected 210 nodes after it. */
+    tagline: (LOC !== 'th' && UI[LOC] && UI[LOC].footer && UI[LOC].footer.tagline) || 'Explore Thailand Like a Local',
     blurb: tx('ชีวิตติดเที่ยว — ที่สุดของที่พัก ที่กิน ที่เที่ยว ทั่วไทย คัดจากเสียงรีวิวจริง','Life on the road — the best stays, food and sights across Thailand, picked from real reviews.'),
     columns: [
       { title: tx('จุดหมาย','Destinations'), links: [

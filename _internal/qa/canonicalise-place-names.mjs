@@ -70,9 +70,25 @@ let total = 0, filesTouched = 0;
 
 for (const lang of LANGS) {
   const canon = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/homepage-i18n', lang + '.json'), 'utf8')).prov || {};
+  /* 🚨 Whole words in a non-Latin context ONLY. The first version replaced
+     the English name as a plain substring, and short province names live
+     inside other words: "Tak" in Saphan Taksin became "Saphan 来兴sin", "Nan"
+     in Ao Nang became "Ao 楠府g", Khao Takiab became "Khao 来兴iab" — on live
+     pages for five days (Worker 616608d0 → b3a697c7). It also translated half
+     of brand names: "Hotel Bangkok" → "Hotel 曼谷", "Novotel Bangkok" →
+     "Novotel בנגקוק".
+
+     So the name is replaced only when nothing Latin touches it on either
+     side, across whitespace: no letter or digit glued to it, and no Latin word
+     beside it. A province name next to another Latin word is part of a proper
+     noun or of an untranslated English fragment, and in both cases the
+     English is what belongs there. */
   const pairs = Object.entries(canon)
     .filter(([, v]) => v && v.n && !/^[\x00-\x7F]+$/.test(v.n))
-    .map(([slug, v]) => ({ en: titleCase(slug), tr: v.n }))
+    .map(([slug, v]) => {
+      const en = titleCase(slug);
+      return { en, tr: v.n, rx: new RegExp('(?<![A-Za-z0-9][\\s\\u00A0]*)' + en.replace(/[.*+?^${}()|[\]\\]/g, (m) => '\\' + m) + '(?![\\s\\u00A0]*[A-Za-z0-9])', 'g') };
+    })
     /* longest English name first: "Nakhon Si Thammarat" before "Nakhon Si" */
     .sort((a, b) => b.en.length - a.en.length);
 
@@ -84,7 +100,7 @@ for (const lang of LANGS) {
     let hits = 0;
     const out = mapVisible(src, (text) => {
       let t = text;
-      for (const { en, tr } of pairs) if (t.includes(en)) { t = t.split(en).join(tr); hits++; }
+      for (const { rx, tr } of pairs) t = t.replace(rx, () => { hits++; return tr; });
       return t;
     });
     if (!hits) continue;
