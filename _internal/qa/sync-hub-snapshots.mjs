@@ -70,7 +70,11 @@ for (const lang of LANGS) {
   Object.assign(dict, uiPairs(lang));
   const plain = new Map(Object.entries(dict).filter(([k]) => !k.includes('${') && !k.includes('<') && k.trim().length >= 2));
   const templ = Object.entries(dict).filter(([k]) => k.includes('${nm}') && !k.includes('<'));
-  for (const [k] of Object.entries(dict)) if (k.includes('<')) unmatchedMarkup.add(k);
+  /* markup keys without a token, whose translation keeps the same tags */
+  const tagsOf = (s) => (String(s).match(/<\/?[a-z]+/gi) || []).join();
+  const markupPairs = Object.entries(dict)
+    .filter(([k, v]) => k.includes('<') && !k.includes('${') && typeof v === 'string' && v !== k && tagsOf(k) === tagsOf(v));
+  for (const [k] of Object.entries(dict)) if (k.includes('<') && (k.includes('${') || !markupPairs.some(([m]) => m === k))) unmatchedMarkup.add(k);
   const places = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/homepage-i18n', lang + '.json'), 'utf8')).prov || {};
 
   const dir = path.join(ROOT, 'astro/public', lang);
@@ -100,6 +104,18 @@ for (const lang of LANGS) {
       seen.set(core, (seen.get(core) || 0) + 1);
       return '>' + lead + tr + trail + '<';
     });
+    /* Keys that carry markup — "Top <em>tourist cities</em>" — span several
+       text nodes, so the node pass above cannot see them. Match the key,
+       markup included, as an element's ENTIRE content: still whole-content,
+       never a fragment of a sentence. */
+    for (const [k, v] of markupPairs) {
+      const from = '>' + k + '<';
+      if (!masked.includes(from)) continue;
+      const count = masked.split(from).length - 1;
+      masked = masked.split(from).join('>' + v + '<');
+      hits += count;
+      seen.set(k, (seen.get(k) || 0) + count);
+    }
     if (!hits) continue;
     files++; n += hits;
     if (!APPLY) continue;
