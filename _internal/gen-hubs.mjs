@@ -200,12 +200,22 @@ const tx = (th, en) => {
   if (!dict) return en;
   if (en in dict) return dict[en];
   const entries = Object.entries(DYN).filter(([, v]) => v != null && String(v) !== '').sort((a, b) => String(b[1]).length - String(a[1]).length);
-  let key = en;
-  for (const [name, val] of entries) key = key.split(String(val)).join('${' + name + '}');
-  if (key !== en && (key in dict)) {
-    let out = dict[key];
-    for (const [name, val] of entries) out = out.split('${' + name + '}').join(String(val));
-    return out;
+  /* Two candidates, because a numeric value can EQUAL a literal number in the
+     sentence. On every hub whose ranking holds exactly ten hotels cStay is
+     "10", and "Top 10 清迈 Hotels" was rebuilt as "Top ${cStay} ${nm} Hotels" —
+     not a key — so that heading stayed English on six hubs per locale while
+     the dictionary held its translation. Longest-first ordering only guards
+     against a short number matching INSIDE a longer one, not this. The full
+     rebuild goes first because "(${cStay} hotels)" needs it; the second
+     leaves pure numbers where they are. */
+  const rebuild = (es) => { let k = en; for (const [name, val] of es) k = k.split(String(val)).join('${' + name + '}'); return k; };
+  for (const es of [entries, entries.filter(([, v]) => !/^\d+$/.test(String(v)))]) {
+    const key = rebuild(es);
+    if (key !== en && (key in dict)) {
+      let out = dict[key];
+      for (const [name, val] of es) out = out.split('${' + name + '}').join(String(val));
+      return out;
+    }
   }
   return en;
 };
@@ -1053,6 +1063,14 @@ function provinceHub(slug, th, r, d){
   const isNorth = R.slug==='north';
   const bestShort = stripTags(best);
   const dayRec = cPlan>=3 ? tx('2–4 วัน','2–4 days') : tx('2–3 วัน','2–3 days');
+  /* dayRec did not exist yet where DYN was built above, so the translator had
+     no value to rebuild the "Usually ${dayRec} covers…" template from, and
+     that sentence stayed English in all seven locales however the dictionary
+     was filled. Measured as a dead key on a generated page, not assumed.
+     (Written without the literal call syntax on purpose: check-i18n-keys
+     counts those occurrences, and a comment mentioning it reads as a 25th
+     unparseable call and fails the gate.) */
+  DYN = { ...DYN, dayRec };
   const faqs=[
     {q:tx(`เที่ยว${th}กี่วันดี?`,`How many days do you need in ${nm}?`),
      a:tx(`ส่วนใหญ่ ${dayRec} กำลังพอดีสำหรับไฮไลต์หลัก ถ้ามีเวลาเพิ่มค่อยต่อไปจังหวัดข้างเคียง`,`Usually ${dayRec} covers the main highlights; with more time, continue to nearby provinces.`)},
