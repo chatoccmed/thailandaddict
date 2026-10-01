@@ -35,6 +35,10 @@ run lang-hubs      live-verify-lang-hubs.mjs
 run eat            live-verify-eat.mjs
 run twins          live-verify-twins.mjs
 run areas          live-verify-areas.mjs
+# The 2026-09-26 canonicaliser rewrote province names inside other words
+# (Saphan Taksin → "Saphan 来兴sin", Ao Nang → "Ao 楠府g") and was live for five
+# days with every check here green. This is the check that would have caught it.
+run place-names    live-verify-place-names.mjs
 run base           live-verify.mjs
 echo "======================================"
 if [ -n "$failed" ]; then echo "FAILED:$failed"; exit 1; fi

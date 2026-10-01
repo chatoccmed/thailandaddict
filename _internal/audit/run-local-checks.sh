@@ -43,6 +43,10 @@ run attribution "$R" _internal/qa/check-map-attribution.mjs
 run file-count  "$R" _internal/qa/check-file-count.mjs
 run dark-pattern "$R" _internal/lint-dark-patterns.mjs
 run booking-cj  "$R" _internal/qa/check-booking-cj.mjs
+# Province names fused into other words (Saphan Taksin → "Saphan 来兴sin") — the
+# 2026-09-26 canonicaliser shipped that for five days past every check above.
+run place-names "$S" live-verify-place-names.mjs --local
+run locale-home "$S" live-verify-locale-homepages.mjs --local
 echo "======================================"
 if [ -n "$failed" ]; then echo "FAILED:$failed"; exit 1; fi
 echo "ALL LOCAL CHECKS PASSED"
