@@ -39,6 +39,8 @@ run areas          live-verify-areas.mjs
 # (Saphan Taksin → "Saphan 来兴sin", Ao Nang → "Ao 楠府g") and was live for five
 # days with every check here green. This is the check that would have caught it.
 run place-names    live-verify-place-names.mjs
+# Paid buttons must name their partner: ~8,900 read "plan"/"reservation" until 2026-10-04.
+run ota-labels     live-verify-ota-labels.mjs
 run base           live-verify.mjs
 echo "======================================"
 if [ -n "$failed" ]; then echo "FAILED:$failed"; exit 1; fi

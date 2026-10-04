@@ -261,6 +261,9 @@ function hreflangSet(slug, builtCodes){
 // branch on the day gen-hubs (or a layout) starts emitting a .ta-topbar.
 const isShellPage = doc => !!find(doc, n => n.tagName==='header' && hasClass(n,'ta-topbar'));
 const isLangMenu  = n => getAttr(n,'id')==='taLang';
+const BRAND_LABELS = new Set(['Agoda','Booking','Booking.com','Trip','Trip.com','Klook','klook']);
+const textOf = n => (n.childNodes||[]).map(c => c.nodeName==='#text' ? c.value : textOf(c)).join('');
+const isBrandButton = n => n.tagName==='a' && BRAND_LABELS.has(textOf(n).trim());
 
 // Two things in the shell chrome are about WHICH locale this is, so no
 // dictionary can produce them — they have to be re-pointed by hand.
@@ -300,7 +303,15 @@ function localizeDoc(html, loc, cleanSlug, fileSlug, builtCodes, tr, avail){
   // language names, and its nine hrefs are already absolute and per-locale —
   // "/en/city-krabi" there is the link to the English page, not a link that
   // needs moving to this locale. Rewriting it pointed English at /zh/.
-  processStrings(doc, tr, null, shell ? isLangMenu : null);
+  /* A booking button's label is the partner's NAME. This translator works
+     string by string with no context, and the same English word means two
+     things on one page: "Trip" is both the Trip.com button and the shell's
+     trip tab, "Booking" both the Booking.com button and the noun. So it
+     labelled ~8,900 paid buttons "itinerary" / "plan" / "reservation"
+     (行程, План, Бронирование, 予約…) beside ones still reading "Agoda" — the
+     reader could no longer tell which partner a button opens. Any anchor
+     whose whole label is a partner name is pruned from translation. */
+  processStrings(doc, tr, null, (n) => (shell && isLangMenu(n)) || isBrandButton(n));
   rewriteUrls(doc, loc, avail, shell ? isLangMenu : null);
   if(shell) retargetShellChrome(doc, loc, shellLabelsFor(loc));
   // head meta rewrites (canonical/og:url use the clean, extension-less URL)

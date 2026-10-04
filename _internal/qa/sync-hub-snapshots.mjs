@@ -69,6 +69,30 @@ for (const lang of LANGS) {
   const dict = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/hub-i18n', lang + '.json'), 'utf8'));
   Object.assign(dict, uiPairs(lang));
   const plain = new Map(Object.entries(dict).filter(([k]) => !k.includes('${') && !k.includes('<') && k.trim().length >= 2));
+  /* The translation memory is the snapshots' own source, and it kept growing
+     after they were written: on 2026-10-04, 391 English nodes on locale hubs
+     already had a translation in tm.<lang>.json that no page had picked up.
+     Same whole-node rule — this is exactly how localize.mjs itself applies it.
+     The hub dictionary wins where both have a key: its entries are newer and
+     went through merge-hub-debt's checks. */
+  /* 🚨 PROSE ONLY from the memory. It is context-free, and it maps "Booking"
+     to "Бронирование" (ru) and "予約" (ja) — right for the noun, wrong for the
+     Booking.com button beside the Agoda and Trip.com ones; applied blindly it
+     would have renamed 331 Russian affiliate buttons "Reservation". It also
+     transliterates venue names. Brands, venue names and one-word labels have
+     no lowercase words, so a memory entry is used only when the English has
+     at least two — a phrase or a sentence. Labels belong in the hub
+     dictionary, at their source. */
+  const memory = new Map();
+  try {
+    const tm = JSON.parse(fs.readFileSync(path.join(ROOT, '_internal/i18n', 'tm.' + lang + '.json'), 'utf8'));
+    for (const [k, v] of Object.entries(tm)) {
+      if (typeof v !== 'string' || v === k || k.includes('${') || k.includes('<')) continue;
+      const key = k.trim();
+      if ((key.match(/\b[a-z][a-z'’-]+\b/g) || []).length < 2) continue;
+      if (!plain.has(key)) memory.set(key, v);
+    }
+  } catch { /* no memory for this locale — dictionary only */ }
   const templ = Object.entries(dict).filter(([k]) => k.includes('${nm}') && !k.includes('<'));
   /* markup keys without a token, whose translation keeps the same tags */
   const tagsOf = (s) => (String(s).match(/<\/?[a-z]+/gi) || []).join();
@@ -93,7 +117,7 @@ for (const lang of LANGS) {
       const lead = text.match(/^\s*/)[0], trail = text.match(/\s*$/)[0];
       const core = text.trim();
       if (!core || !/[A-Za-z]/.test(core)) return whole;
-      let tr = plain.get(core);
+      let tr = plain.has(core) ? plain.get(core) : memory.get(core);
       if (tr === undefined && nm && core.includes(nm)) {
         const key = core.split(nm).join('${nm}');
         const hit = templ.find(([k]) => k === key);
