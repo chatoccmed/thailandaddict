@@ -416,7 +416,7 @@ chk() { # chk <label> <url> <expected-code>
 echo "== 1. TLS =="
 echo | openssl s_client -connect thailandaddict.com:443 -servername thailandaddict.com 2>/dev/null \
   | openssl x509 -noout -serial -issuer -dates
-# Serial 3837D7FE95E82DCD13E420BCF23FF86A = STILL ON ACCOUNT A. Any other serial = you are on B.
+# Serial 79987B0481A6FDF613FDA5465AE087DD = STILL ON ACCOUNT A (renewed 2026-10-17; was 3837D7FE…). Certs renew ~every 60 days: re-read the serial in P2 on cutover day and use that one.
 curl -s -o /dev/null -w "  chain verify result: %{ssl_verify_result} (0 = valid)\n" "$H/"
 
 echo "== 2. Locale homepages (9) =="

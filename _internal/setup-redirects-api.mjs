@@ -73,16 +73,29 @@ for (let i = 0; i < 30; i++) {
 const after = await cf('GET', `/accounts/${ACC}/rules/lists/${list.id}`);
 console.log('list now has ' + after.num_items + ' items');
 
-// 4) set the account http_request_redirect rule to use this list (PUT entrypoint = replace rules)
-const rule = {
-  rules: [{
-    expression: `http.request.full_uri in $${LIST_NAME}`,
-    action: 'redirect',
-    action_parameters: { from_list: { name: LIST_NAME, key: 'http.request.full_uri' } },
-    enabled: true,
-    description: 'WP old-URL 301s',
-  }],
+// 4) set the account http_request_redirect rule to use this list.
+// PUT entrypoint REPLACES every rule on the account. An account that also holds other sites
+// (chatoccmed has 12) may already have redirect rules of its own, so keep every rule that is not
+// ours and put ours alongside them. A 404 means the account has no entrypoint yet.
+const ours = {
+  expression: `http.request.full_uri in $${LIST_NAME}`,
+  action: 'redirect',
+  action_parameters: { from_list: { name: LIST_NAME, key: 'http.request.full_uri' } },
+  enabled: true,
+  description: 'WP old-URL 301s',
 };
-const rs = await cf('PUT', `/accounts/${ACC}/rulesets/phases/http_request_redirect/entrypoint`, rule);
+const EP = `/accounts/${ACC}/rulesets/phases/http_request_redirect/entrypoint`;
+const prev = await fetch(API + EP, { headers: { Authorization: `Bearer ${TOKEN}` } });
+let others = [];
+if (prev.status !== 404) {
+  const j = await prev.json().catch(() => ({}));
+  if (!j.success) throw new Error('GET entrypoint → ' + prev.status + ' ' + JSON.stringify(j.errors || j).slice(0, 300));
+  const snap = path.join(os.tmpdir(), `redirect-entrypoint-${ACC}-before.json`);
+  fs.writeFileSync(snap, JSON.stringify(j.result, null, 2));
+  others = (j.result.rules || []).filter(r => !String(r.expression || '').includes(`$${LIST_NAME}`))
+    .map(({ expression, action, action_parameters, enabled, description }) => ({ expression, action, action_parameters, enabled, description }));
+  console.log(`entrypoint had ${(j.result.rules || []).length} rule(s); keeping ${others.length} that are not ours (snapshot: ${snap})`);
+}
+const rs = await cf('PUT', EP, { rules: [...others, ours] });
 console.log('✓ redirect rule deployed (ruleset ' + rs.id + ', rules: ' + rs.rules.length + ')');
 console.log('\nDONE — verify a few URLs now.');
