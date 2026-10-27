@@ -6,6 +6,7 @@ const AGODA_CITY_IDS: Record<string,string> = (AGODA_CITY_IDS_RAW as any).ids ||
 import Analytics from '../components/Analytics.astro';
 import Shell from '../components/Shell.astro';
 import editorial from '../data/editorial.json';
+import entryRules from '../data/entry-rules.json';
 import webpManifest from '../data/webp-manifest.json';
 import { localizedSlugSet, ROOT_ONLY_SLUGS } from '../lib/locales';
 import { stampAffiliate, relFor } from '../lib/affiliate';
@@ -190,6 +191,16 @@ const TH_MON = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','�
 const thaiDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}` : (iso || ''); };
 const EN_MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const fmtDate = (iso) => { const p = String(iso || '').split('-'); return p.length === 3 ? (!isTh ? `${parseInt(p[2],10)} ${EN_MON[parseInt(p[1],10)-1]} ${p[0]}` : `${parseInt(p[2],10)} ${TH_MON[parseInt(p[1],10)-1]} ${p[0]}`) : (iso || ''); };
+// Entry rules box: the visa/TDAC facts come ONLY from data/entry-rules.json (gated by
+// _internal/qa/check-entry-rules.mjs), so a rule change is one edit there, not a hunt through prose.
+const entryBox = (() => {
+  if (!data.entryRules) return null;
+  const t = (entryRules as any).text[lang] || (entryRules as any).text.en;
+  const vals: Record<string, any> = { ...(entryRules as any).facts, checked: fmtDate(entryRules.lastChecked) };
+  vals.effective = fmtDate(vals.effective);
+  const fill = (s: string) => s.replace(/\{(\w+)\}/g, (m, k) => (k in vals ? String(vals[k]) : m));
+  return { title: fill(t.title), checked: fill(t.checked), items: t.items.map(fill), footer: fill(t.footer) };
+})();
 // Restaurant-roundup mode: rich editorial cards + immersive hero + quick-nav (only when restaurant blocks present)
 const restos = (data.blocks ?? []).filter((b) => b.kind === 'restaurant');
 const isResto = restos.length > 0;
@@ -536,6 +547,15 @@ html body{padding-block-end:calc(var(--floor) + var(--cta-h) + var(--sp-4))}
 .qa-body{font-size:15.5px;line-height:1.8;color:#0F172A}
 .qa-body strong{color:#0891b2;font-weight:700}
 .qa-body a{color:#0891b2}
+.entry-rules{background:#fff;border:1px solid #cbeef5;border-inline-start:5px solid #0891b2;border-radius:18px;padding:16px 20px;margin:0 0 24px}
+.er-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 14px;margin-bottom:8px}
+.er-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;color:#0F172A}
+.er-checked{font-size:13px;color:#0891b2;font-weight:700}
+.entry-rules ul{margin:0;padding-inline-start:20px}
+.entry-rules li{font-size:14.5px;line-height:1.7;color:#1e293b;margin:4px 0}
+.entry-rules li strong{color:#0F172A}
+.entry-rules a{color:#0891b2;text-decoration:underline}
+.er-foot{font-size:12.5px;color:#64748b;margin:10px 0 0}
 .rhero{background-size:cover;background-position:center;color:#fff;padding:clamp(72px,12vw,118px) 0 clamp(56px,7vw,76px);position:relative;min-height:clamp(440px,58vh,620px);display:flex;flex-direction:column;justify-content:flex-end}
 .rhero-kick{font-family:'Outfit';font-weight:700;font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.92);margin-bottom:16px;display:flex;align-items:center;gap:9px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
 .rhero-kick::before{content:"";width:28px;height:2px;background:var(--mango);border-radius:2px;flex-shrink:0}
@@ -937,6 +957,13 @@ html[dir="rtl"] .resto-book .bk-klook:hover .kl-arr{transform:scaleX(-1) transla
     <aside class="quick-answer">
       <div class="qa-eyebrow">{S.quickAnswerEyebrow}</div>
       <div class="qa-body" set:html={quickAnswerHtml}></div>
+    </aside>
+  )}
+  {entryBox && (
+    <aside class="entry-rules" data-entry-rules data-checked={entryRules.lastChecked}>
+      <div class="er-head"><span class="er-title">🛂 {entryBox.title}</span><span class="er-checked">✅ {entryBox.checked}</span></div>
+      <ul>{entryBox.items.map((i) => <li set:html={i} />)}</ul>
+      <p class="er-foot" set:html={entryBox.footer} />
     </aside>
   )}
   {bodyBlocks.map((b) => (

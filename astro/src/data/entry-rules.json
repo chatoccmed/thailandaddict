@@ -1,0 +1,153 @@
+{
+  "_comment": "The ONE place Thailand's entry rules live. ArticleLayout renders the entry-rules box from this file on every article with \"entryRules\": true, filling {placeholders} from `facts`. _internal/qa/check-entry-rules.mjs fails the deploy when lastChecked is older than maxAgeDays, or when any page's prose states a visa-free stay that is not in allowedVisaFreeDays. When a rule changes: edit `facts`, re-check the sources, set lastChecked, then fix whatever prose the gate names.",
+  "lastChecked": "2026-10-27",
+  "maxAgeDays": 120,
+  "facts": {
+    "effective": "2026-09-15",
+    "visaExemptDays": 30,
+    "visaExemptCountries": 60,
+    "extensionDays": 30,
+    "extensionFee": "1,900",
+    "landEntries": 2,
+    "tdacDays": 3,
+    "entryFee": 300,
+    "tdacLink": "<a href=\"https://tdac.immigration.go.th\" target=\"_blank\" rel=\"noopener\">tdac.immigration.go.th</a>",
+    "evisaLink": "<a href=\"https://www.thaievisa.go.th\" target=\"_blank\" rel=\"noopener\">thaievisa.go.th</a>"
+  },
+  "allowedVisaFreeDays": [14, 15, 30, 90],
+  "sources": [
+    { "label": "Royal Gazette, Vol. 143, Special Issue 207 Ngor (31 Aug 2026): 30-day exemption list", "url": "https://ratchakitcha.soc.go.th/documents/128703.pdf" },
+    { "label": "Siam Legal summary of the 31 Aug 2026 notices (extension fee, land-border cap, bilateral stays)", "url": "https://siam-legal.com/travel-to-thailand/thailand-approves-end-of-60-day-visa-free-stay/" },
+    { "label": "VisasNews: full 60-country list, effective 15 Sep 2026", "url": "https://visasnews.com/en/thailand-to-officially-cut-visa-free-stay-to-30-days-on-september-15-2026/" },
+    { "label": "Tilleke & Gibbins: TDAC mandatory from 1 May 2025, within 3 days before arrival", "url": "https://www.tilleke.com/insights/thailand-launches-mandatory-digital-arrival-card-for-foreign-nationals/3/" },
+    { "label": "Wego: ฿300 tourist entry fee not in force", "url": "https://blog.wego.com/thailand-tourist-entry-fee-2026/" }
+  ],
+  "text": {
+    "en": {
+      "title": "Thailand entry rules",
+      "checked": "Last checked {checked}",
+      "items": [
+        "<strong>Visa-free: {visaExemptDays} days</strong> for nationals of {visaExemptCountries} countries and territories, including the US, UK, all EU states, Canada, Australia, New Zealand, Japan, India, Singapore, Malaysia and the Gulf states. Tourism only. In force since {effective}.",
+        "<strong>Different stays by agreement:</strong> 90 days for South Korea, Brazil, Argentina, Chile and Peru · 30 days for China, Hong Kong, Macau and Russia · 14 days for Cambodia and Myanmar.",
+        "<strong>Extend once</strong> by up to {extensionDays} days at an immigration office in Thailand (฿{extensionFee}, at the officer's discretion).",
+        "<strong>Crossing by land:</strong> no more than {landEntries} visa-free entries per calendar year (Malaysian, Singaporean, Bruneian and Indonesian passports excepted).",
+        "<strong>TDAC arrival card:</strong> every foreign visitor, by air, land or sea, fills it in free within the {tdacDays} days before arrival, only on {tdacLink}. Sites that charge for it are not official.",
+        "<strong>฿{entryFee} tourist entry fee:</strong> announced, but not being collected yet.",
+        "Passport not listed, or staying longer? Check {evisaLink} for your nationality."
+      ],
+      "footer": "Source: Royal Gazette notices of 31 Aug 2026 and the Thai Immigration Bureau. Rules change, so confirm for your own passport before you fly."
+    },
+    "th": {
+      "title": "กฎการเข้าประเทศไทย",
+      "checked": "ตรวจล่าสุด {checked}",
+      "items": [
+        "<strong>ยกเว้นวีซ่า {visaExemptDays} วัน</strong> สำหรับพาสปอร์ต {visaExemptCountries} ประเทศและดินแดน เช่น สหรัฐฯ สหราชอาณาจักร ทุกประเทศในสหภาพยุโรป แคนาดา ออสเตรเลีย นิวซีแลนด์ ญี่ปุ่น อินเดีย สิงคโปร์ มาเลเซีย และกลุ่มประเทศอ่าวอาหรับ เพื่อการท่องเที่ยวเท่านั้น มีผลตั้งแต่ {effective}",
+        "<strong>บางประเทศได้ไม่เท่ากันตามความตกลงทวิภาคี:</strong> 90 วัน เกาหลีใต้ บราซิล อาร์เจนตินา ชิลี เปรู · 30 วัน จีน ฮ่องกง มาเก๊า รัสเซีย · 14 วัน กัมพูชา เมียนมา",
+        "<strong>ขอขยายได้ 1 ครั้ง</strong> สูงสุด {extensionDays} วัน ที่สำนักงานตรวจคนเข้าเมืองในไทย (ค่าธรรมเนียม ฿{extensionFee} ขึ้นกับการพิจารณาของเจ้าหน้าที่)",
+        "<strong>เข้าทางบก:</strong> ยกเว้นวีซ่าได้ไม่เกิน {landEntries} ครั้งต่อปีปฏิทิน (ยกเว้นพาสปอร์ตมาเลเซีย สิงคโปร์ บรูไน อินโดนีเซีย)",
+        "<strong>บัตร TDAC:</strong> ชาวต่างชาติทุกคนที่เข้าทางอากาศ ทางบก หรือทางเรือ กรอกฟรีภายใน {tdacDays} วันก่อนเดินทางถึง ที่ {tdacLink} เท่านั้น เว็บที่เก็บเงินไม่ใช่เว็บทางการ",
+        "<strong>ค่าธรรมเนียมเข้าประเทศ ฿{entryFee}:</strong> ประกาศแล้ว แต่ยังไม่เริ่มเก็บ",
+        "พาสปอร์ตไม่อยู่ในรายการ หรือจะอยู่นานกว่านั้น ตรวจตามสัญชาติได้ที่ {evisaLink}"
+      ],
+      "footer": "ที่มา: ประกาศในราชกิจจานุเบกษา 31 ส.ค. 2026 และสำนักงานตรวจคนเข้าเมือง กฎเปลี่ยนได้ ตรวจกับพาสปอร์ตของคุณก่อนบินทุกครั้ง"
+    },
+    "zh": {
+      "title": "泰国入境规定",
+      "checked": "最近核实：{checked}",
+      "items": [
+        "<strong>免签 {visaExemptDays} 天</strong>：适用于 {visaExemptCountries} 个国家和地区的护照，包括美国、英国、所有欧盟国家、加拿大、澳大利亚、新西兰、日本、印度、新加坡、马来西亚及海湾国家。仅限旅游。自 {effective} 起生效。",
+        "<strong>按双边协定停留期不同：</strong>韩国、巴西、阿根廷、智利、秘鲁 90 天 · 中国、香港、澳门、俄罗斯 30 天 · 柬埔寨、缅甸 14 天。",
+        "<strong>可延期一次</strong>：在泰国移民局最多延长 {extensionDays} 天（费用 ฿{extensionFee}，由官员决定）。",
+        "<strong>陆路入境：</strong>每个日历年免签入境不超过 {landEntries} 次（马来西亚、新加坡、文莱、印度尼西亚护照除外）。",
+        "<strong>TDAC 电子入境卡：</strong>所有外国旅客，无论空路、陆路或海路，都须在抵达前 {tdacDays} 天内免费填写，只认 {tdacLink}。收费的网站都不是官方网站。",
+        "<strong>฿{entryFee} 旅游入境费：</strong>已宣布，但尚未开始征收。",
+        "护照不在名单上，或要停留更久？请在 {evisaLink} 查询你的国籍。"
+      ],
+      "footer": "来源：2026 年 8 月 31 日《皇家公报》公告及泰国移民局。规定可能变化，出发前请按自己的护照再确认。"
+    },
+    "ru": {
+      "title": "Правила въезда в Таиланд",
+      "checked": "Проверено: {checked}",
+      "items": [
+        "<strong>Без визы — {visaExemptDays} дней</strong> для граждан {visaExemptCountries} стран и территорий, в том числе США, Великобритании, всех стран ЕС, Канады, Австралии, Новой Зеландии, Японии, Индии, Сингапура, Малайзии и стран Персидского залива. Только для туризма. Действует с {effective}.",
+        "<strong>По двусторонним соглашениям сроки другие:</strong> 90 дней — Южная Корея, Бразилия, Аргентина, Чили, Перу · 30 дней — Китай, Гонконг, Макао, Россия · 14 дней — Камбоджа, Мьянма.",
+        "<strong>Продлить можно один раз</strong> — до {extensionDays} дней в иммиграционном офисе в Таиланде (฿{extensionFee}, на усмотрение офицера).",
+        "<strong>По суше:</strong> не больше {landEntries} безвизовых въездов за календарный год (кроме паспортов Малайзии, Сингапура, Брунея и Индонезии).",
+        "<strong>Карта прибытия TDAC:</strong> каждый иностранец — по воздуху, суше или морю — заполняет её бесплатно в течение {tdacDays} дней до прибытия, только на {tdacLink}. Сайты, которые берут деньги, не официальные.",
+        "<strong>Туристический сбор ฿{entryFee}:</strong> объявлен, но пока не взимается.",
+        "Вашего паспорта нет в списке или вы остаётесь дольше? Проверьте свою страну на {evisaLink}."
+      ],
+      "footer": "Источник: уведомления Royal Gazette от 31 августа 2026 г. и Иммиграционное бюро Таиланда. Правила меняются, поэтому перед вылетом проверьте их для своего паспорта."
+    },
+    "ko": {
+      "title": "태국 입국 규정",
+      "checked": "최종 확인: {checked}",
+      "items": [
+        "<strong>무비자 {visaExemptDays}일</strong>: 미국, 영국, 모든 EU 국가, 캐나다, 호주, 뉴질랜드, 일본, 인도, 싱가포르, 말레이시아, 걸프 국가 등 {visaExemptCountries}개 국가·지역 여권 소지자. 관광 목적만 해당. {effective}부터 시행.",
+        "<strong>양자 협정에 따라 체류 기간이 다릅니다:</strong> 한국·브라질·아르헨티나·칠레·페루 90일 · 중국·홍콩·마카오·러시아 30일 · 캄보디아·미얀마 14일.",
+        "<strong>한 번 연장 가능</strong>: 태국 내 이민국에서 최대 {extensionDays}일 (฿{extensionFee}, 심사관 재량).",
+        "<strong>육로 입국:</strong> 무비자 입국은 역년 기준 {landEntries}회까지 (말레이시아·싱가포르·브루나이·인도네시아 여권 제외).",
+        "<strong>TDAC 입국 카드:</strong> 항공·육로·해상으로 들어오는 모든 외국인은 도착 전 {tdacDays}일 이내에 무료로 작성합니다. {tdacLink}에서만 작성하세요. 돈을 받는 사이트는 공식 사이트가 아닙니다.",
+        "<strong>฿{entryFee} 관광객 입국세:</strong> 발표됐지만 아직 징수하지 않습니다.",
+        "여권이 목록에 없거나 더 오래 머무나요? {evisaLink}에서 국적별로 확인하세요."
+      ],
+      "footer": "출처: 2026년 8월 31일 왕실 관보 공고 및 태국 이민국. 규정은 바뀔 수 있으니 출발 전 본인 여권 기준으로 다시 확인하세요."
+    },
+    "ja": {
+      "title": "タイ入国ルール",
+      "checked": "最終確認：{checked}",
+      "items": [
+        "<strong>ビザ免除 {visaExemptDays}日</strong>：アメリカ、イギリス、EU全加盟国、カナダ、オーストラリア、ニュージーランド、日本、インド、シンガポール、マレーシア、湾岸諸国など {visaExemptCountries} の国・地域のパスポートが対象。観光目的のみ。{effective}から施行。",
+        "<strong>二国間協定で日数が異なる国：</strong>韓国・ブラジル・アルゼンチン・チリ・ペルーは90日 · 中国・香港・マカオ・ロシアは30日 · カンボジア・ミャンマーは14日。",
+        "<strong>延長は1回まで</strong>：タイ国内の入国管理局で最大{extensionDays}日（฿{extensionFee}、審査官の裁量）。",
+        "<strong>陸路での入国：</strong>ビザ免除での入国は暦年で{landEntries}回まで（マレーシア、シンガポール、ブルネイ、インドネシアのパスポートを除く）。",
+        "<strong>TDAC（デジタル入国カード）：</strong>空路・陸路・海路を問わず、すべての外国人が到着前{tdacDays}日以内に無料で提出します。{tdacLink} 以外では手続きしないでください。料金を取るサイトは公式ではありません。",
+        "<strong>฿{entryFee}の観光入国料：</strong>発表済みですが、まだ徴収されていません。",
+        "パスポートが一覧にない、またはもっと長く滞在する場合は、{evisaLink} で国籍ごとに確認してください。"
+      ],
+      "footer": "出典：2026年8月31日付の官報（ロイヤル・ガゼット）告示およびタイ入国管理局。ルールは変わることがあるため、出発前にご自身のパスポートで確認してください。"
+    },
+    "hi": {
+      "title": "थाईलैंड प्रवेश नियम",
+      "checked": "आख़िरी बार जाँचा गया: {checked}",
+      "items": [
+        "<strong>{visaExemptDays} दिन वीज़ा-मुक्त</strong>: अमेरिका, ब्रिटेन, सभी EU देश, कनाडा, ऑस्ट्रेलिया, न्यूज़ीलैंड, जापान, भारत, सिंगापुर, मलेशिया और खाड़ी देशों समेत {visaExemptCountries} देशों और क्षेत्रों के पासपोर्ट के लिए। सिर्फ़ पर्यटन के लिए। {effective} से लागू।",
+        "<strong>द्विपक्षीय समझौतों से अलग अवधि:</strong> दक्षिण कोरिया, ब्राज़ील, अर्जेंटीना, चिली, पेरू — 90 दिन · चीन, हांगकांग, मकाऊ, रूस — 30 दिन · कंबोडिया, म्यांमार — 14 दिन।",
+        "<strong>एक बार बढ़ा सकते हैं</strong>: थाईलैंड के किसी इमिग्रेशन ऑफ़िस में {extensionDays} दिन तक (฿{extensionFee}, अधिकारी के विवेक पर)।",
+        "<strong>ज़मीनी रास्ते से:</strong> एक कैलेंडर वर्ष में {landEntries} से ज़्यादा वीज़ा-मुक्त प्रवेश नहीं (मलेशिया, सिंगापुर, ब्रुनेई और इंडोनेशिया के पासपोर्ट को छोड़कर)।",
+        "<strong>TDAC आगमन कार्ड:</strong> हवाई, ज़मीनी या समुद्री रास्ते से आने वाले हर विदेशी यात्री को पहुँचने से पहले के {tdacDays} दिनों में इसे मुफ़्त भरना होता है, सिर्फ़ {tdacLink} पर। पैसे माँगने वाली साइटें आधिकारिक नहीं हैं।",
+        "<strong>฿{entryFee} पर्यटक प्रवेश शुल्क:</strong> घोषित हुआ है, लेकिन अभी वसूला नहीं जा रहा।",
+        "आपका पासपोर्ट सूची में नहीं है या ज़्यादा रुकना है? अपनी नागरिकता के लिए {evisaLink} देखें।"
+      ],
+      "footer": "स्रोत: 31 अगस्त 2026 के रॉयल गज़ट नोटिस और थाई इमिग्रेशन ब्यूरो। नियम बदलते रहते हैं, इसलिए उड़ान से पहले अपने पासपोर्ट के हिसाब से ज़रूर जाँचें।"
+    },
+    "he": {
+      "title": "כללי הכניסה לתאילנד",
+      "checked": "נבדק לאחרונה: {checked}",
+      "items": [
+        "<strong>פטור מוויזה ל-{visaExemptDays} ימים</strong> לבעלי דרכונים של {visaExemptCountries} מדינות וטריטוריות, ובהן ארה״ב, בריטניה, כל מדינות האיחוד האירופי, קנדה, אוסטרליה, ניו זילנד, יפן, הודו, סינגפור, מלזיה, ישראל ומדינות המפרץ. לתיירות בלבד. בתוקף מ-{effective}.",
+        "<strong>לפי הסכמים דו-צדדיים התקופות שונות:</strong> 90 יום לדרום קוריאה, ברזיל, ארגנטינה, צ׳ילה ופרו · 30 יום לסין, הונג קונג, מקאו ורוסיה · 14 יום לקמבודיה ולמיאנמר.",
+        "<strong>אפשר להאריך פעם אחת</strong> בעד {extensionDays} ימים במשרד הגירה בתאילנד (฿{extensionFee}, לפי שיקול דעת הפקיד).",
+        "<strong>מעבר יבשתי:</strong> לא יותר מ-{landEntries} כניסות בפטור מוויזה בשנה קלנדרית (למעט דרכוני מלזיה, סינגפור, ברוניי ואינדונזיה).",
+        "<strong>כרטיס הנחיתה TDAC:</strong> כל מבקר זר, באוויר, ביבשה או בים, ממלא אותו בחינם ב-{tdacDays} הימים שלפני ההגעה, ורק ב-{tdacLink}. אתרים שגובים תשלום אינם רשמיים.",
+        "<strong>אגרת כניסה לתיירים בסך ฿{entryFee}:</strong> הוכרזה, אבל עדיין לא נגבית.",
+        "הדרכון שלכם לא ברשימה, או שאתם נשארים יותר זמן? בדקו את האזרחות שלכם ב-{evisaLink}."
+      ],
+      "footer": "מקור: הודעות ה-Royal Gazette מ-31 באוגוסט 2026 ולשכת ההגירה של תאילנד. הכללים משתנים, אז בדקו לפי הדרכון שלכם לפני הטיסה."
+    },
+    "ar": {
+      "title": "قواعد الدخول إلى تايلاند",
+      "checked": "آخر تحقق: {checked}",
+      "items": [
+        "<strong>إعفاء من التأشيرة لمدة {visaExemptDays} يومًا</strong> لحاملي جوازات {visaExemptCountries} دولة وإقليمًا، منها الولايات المتحدة والمملكة المتحدة وجميع دول الاتحاد الأوروبي وكندا وأستراليا ونيوزيلندا واليابان والهند وسنغافورة وماليزيا ودول الخليج. للسياحة فقط. سارٍ منذ {effective}.",
+        "<strong>مدد مختلفة بموجب اتفاقيات ثنائية:</strong> 90 يومًا لكوريا الجنوبية والبرازيل والأرجنتين وتشيلي وبيرو · 30 يومًا للصين وهونغ كونغ وماكاو وروسيا · 14 يومًا لكمبوديا وميانمار.",
+        "<strong>يمكن التمديد مرة واحدة</strong> حتى {extensionDays} يومًا في مكتب الهجرة داخل تايلاند (฿{extensionFee}، وفق تقدير الموظف).",
+        "<strong>الدخول برًا:</strong> عدد مرات الدخول بالإعفاء لا يتجاوز {landEntries} في السنة الميلادية (باستثناء جوازات ماليزيا وسنغافورة وبروناي وإندونيسيا).",
+        "<strong>بطاقة الوصول TDAC:</strong> يملؤها كل زائر أجنبي مجانًا، جوًا أو برًا أو بحرًا، خلال {tdacDays} أيام قبل الوصول، وعلى {tdacLink} فقط. المواقع التي تطلب رسومًا ليست رسمية.",
+        "<strong>رسوم دخول السياح ฿{entryFee}:</strong> أُعلن عنها، لكن لم يبدأ تحصيلها بعد.",
+        "جوازك غير مدرج، أو ستبقى مدة أطول؟ تحقّق من جنسيتك على {evisaLink}."
+      ],
+      "footer": "المصدر: إعلانات الجريدة الملكية الرسمية بتاريخ 31 أغسطس 2026 ومكتب الهجرة التايلاندي. القواعد تتغير، فتحقّق منها لجوازك قبل السفر."
+    }
+  }
+}
