@@ -243,6 +243,8 @@ Diff the sorted key names against A. They must match character for character.
 
 ### P11 — Get a TLS certificate onto B **before** the cutover · assistant, then **owner** if it needs money
 
+> **2026-10-28 status:** zone B (`b14349f65c9e10bbee53e3fab55ca35f`, NS **meilani / sonny**) shows *No certificates* while Pending, so P11a is not available. **Owner decided: no ACM.** Accept a short outage after C3 while Universal SSL issues; make C4 (force activation / re-check nameservers) and the certificate poll the first things done after the nameserver change.
+
 This is the step the whole migration turns on. Try the free path first; it costs two minutes.
 
 **P11a — free path.** Dashboard (as B) → `thailandaddict.com` → **SSL/TLS → Edge Certificates**, or:
@@ -274,6 +276,8 @@ cf "https://api.cloudflare.com/client/v4/zones/$ZONE_B/ssl/certificate_packs?sta
 **Rollback:** delete the DCV TXT records from zone A (300s TTL, they affect nothing else).
 
 ### P12 — Recreate the 472 Bulk Redirects on account B · assistant
+
+> **2026-10-28: superseded.** The 472 rows now ship inside the Worker (`worker-legacy-redirects.js`, generated from `_internal/bulk-redirects.csv` by `_internal/gen-legacy-redirects.mjs`; the 4 old URLs that are also built pages are routed to the Worker first via `assets.run_worker_first`). Nothing account-level to recreate on B; after D6, the Bulk Redirect list on A can be left or removed.
 **Do:** edit `_internal/setup-redirects-api.mjs` line 12 so the account id comes from a new `CF_ACCOUNT_ID` variable rather than `R2_ACCOUNT_ID` — `R2_ACCOUNT_ID` must keep pointing at A for `upload-r2-api.mjs`. Add `CF_ACCOUNT_ID=2dd73a8e73f3df114fe87b1c159a2bfd` to `~/.r2-creds`. Then run it. It creates a `thailandaddict` redirect list on B and sets B's account-level `http_request_redirect` entrypoint.
 
 **Verify:**

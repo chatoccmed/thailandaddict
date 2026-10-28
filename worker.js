@@ -2,6 +2,7 @@
 // Static .html/assets are served BEFORE this Worker runs (free); the Worker only fires for non-asset paths.
 import { SLUG2TH, provSlug, locSlug } from './worker-provinces.js';
 import { MOVED_PAGES } from './worker-redirects.js';
+import { LEGACY_WP } from './worker-legacy-redirects.js';
 
 const MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 const CAP = { see: 8, eat: 5, stay: 4 };           // candidate gap-fill caps per type
@@ -32,6 +33,11 @@ export default {
     // via gen-duplicate-redirects.mjs; it stores the clean path, so strip .html before the lookup.
     const merged = MOVED_PAGES[url.pathname.replace(/\.html$/, '')];
     if (merged) return new Response(null, { status: 301, headers: { 'Location': merged + url.search, 'Cache-Control': 'public, max-age=86400' } });
+    // Old WordPress URLs (_internal/bulk-redirects.csv via gen-legacy-redirects.mjs). These used to be
+    // account-level Bulk Redirects, which do not move with the zone; here they deploy with the site.
+    // The few that are also built pages are routed here first by assets.run_worker_first in wrangler.jsonc.
+    const legacy = LEGACY_WP[url.pathname.replace(/\/$/, '')];
+    if (legacy) return new Response(null, { status: 301, headers: { 'Location': legacy + url.search, 'Cache-Control': 'public, max-age=86400' } });
     /* Three pages live only at the root - the planner, the saved list and the
        font comparison - because their engines are keyed in Thai and there is no
        per-locale build of them. astro/src/lib/locales.ts calls that set

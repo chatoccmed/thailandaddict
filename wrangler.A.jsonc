@@ -8,7 +8,10 @@
   "assets": {
     "directory": "./astro/dist",
     "not_found_handling": "404-page",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Old WP URLs that are also built pages: the Worker must answer first so their 301 still wins.
+    // Kept in step by _internal/gen-legacy-redirects.mjs (it fails if one is missing).
+    "run_worker_first": ["/top10-hotels-pattaya","/top10-hotels-pattaya/","/top10-hotels-phetchaburi","/top10-hotels-phetchaburi/","/top10-hotels-prachuap-khiri-khan","/top10-hotels-prachuap-khiri-khan/","/top5-krabi-airport-hotels","/top5-krabi-airport-hotels/"]
   },
   "ai": { "binding": "AI" },
   "kv_namespaces": [{ "binding": "TRIPS", "id": "fc95757f7ce54294a1b9af14f8f69c2f" }],
