@@ -9,6 +9,7 @@
 // Token: CF_MOVE_TOKEN (environment or ~/.r2-creds), else the `wrangler login` OAuth token. Never printed.
 // Run:   node _internal/kv-copy.mjs                 → list A's keys only (dry run)
 //        NS_B=<B namespace id> node _internal/kv-copy.mjs --write   → copy, then diff key names
+//        … --write --missing-only   → after the cutover: add only keys B lacks (B is live)
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -44,8 +45,12 @@ console.log('keys on A:', keys.length);
 for (const k of keys) console.log('  ', k.name, k.expiration ? '(exp ' + new Date(k.expiration * 1000).toISOString() + ')' : '(no TTL)');
 if (!WRITE) { console.log('\ndry run — add --write and NS_B=… to copy'); process.exit(0); }
 
+// --missing-only (runbook D1, after the cutover): B is now the live store, so never overwrite a key
+// B already has — only add keys that exist on A alone.
+const MISSING_ONLY = process.argv.includes('--missing-only');
+const already = MISSING_ONLY ? new Set((await keysOf(B, NS_B)).map(k => k.name)) : new Set();
 const bulk = [];
-for (const k of keys) {
+for (const k of keys.filter(k => !already.has(k.name))) {
   const res = await api(`/accounts/${A}/storage/kv/namespaces/${NS_A}/values/${encodeURIComponent(k.name)}`);
   if (!res.ok) throw new Error(`read ${k.name}: HTTP ${res.status}`);
   const item = { key: k.name, value: await res.text() };

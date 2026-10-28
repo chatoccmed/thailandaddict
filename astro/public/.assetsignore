@@ -1,4 +1,6 @@
 # Cloudflare Workers Static Assets — .assetsignore (gitignore syntax, relative to the assets dir = dist)
+# NOTE 2026-10-28: since the move to account B (Workers Paid) the cap is 100,000, not 20,000; the history
+# below explains why each directory is excluded and still holds.
 # PERMANENT image architecture (no per-deploy file-count risk):
 #   • EVERY image directory is EXCLUDED from the static bundle and served from the R2 public bucket instead.
 #     Both the content layouts (Article/Roundup/ReviewLayout → asset()) AND the generators

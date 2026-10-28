@@ -4,7 +4,12 @@
   // Account B (chatoccmed, Workers Paid). Pinned so a deploy can never land on another account.
   // Emergency path back to account A: wrangler.A.jsonc.
   "account_id": "2dd73a8e73f3df114fe87b1c159a2bfd",
-  "workers_dev": true,
+  "workers_dev": true,   // permanent staging URL: thailandaddict.chatoccmed.workers.dev
+  // Production. Routes, not Custom Domains: apex + www are proxied AAAA 100:: placeholders on zone B.
+  "routes": [
+    { "pattern": "thailandaddict.com/*", "zone_name": "thailandaddict.com" },
+    { "pattern": "www.thailandaddict.com/*", "zone_name": "thailandaddict.com" }
+  ],
   "main": "worker.js",
   "compatibility_date": "2026-05-16",
   "assets": {
