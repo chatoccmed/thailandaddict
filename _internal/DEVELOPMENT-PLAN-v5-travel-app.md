@@ -270,7 +270,7 @@ fact { placeId, field, value, sources[{type, url, seenAt, quote}], verifiedAt, m
 
 ## N. เรื่องที่ owner ต้องตัดสินใจ (ถามทีละข้อ)
 
-1. Workers Paid บนบัญชีปัจจุบัน หรือย้ายโซนไป chatoccmed ก่อน
+1. ~~Workers Paid บนบัญชีปัจจุบัน หรือย้ายโซนไป chatoccmed ก่อน~~ → **ตัดสินแล้ว: ย้ายไป chatoccmed (Workers Paid) เสร็จ 2026-10-28** — เพดาน 100,000 ไฟล์, คำแปล zh/ru/ko คืนแล้ว; รูปยังอยู่ R2 บัญชี chatmaliwan (ห้ามปิดบัญชีนั้น, ย้ายรูปอีก 2–4 สัปดาห์)
 2. เปิดแอปในนามบุคคลหรือบริษัท (กระทบชื่อผู้พัฒนาใน store, D-U-N-S, ภาษี)
 3. งบรายเดือนสำหรับ AI API + Places API + ผู้ตรวจท้องถิ่น
 4. ราคาและสิ่งที่รวมใน ThailandAddict+
