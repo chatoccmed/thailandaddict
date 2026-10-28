@@ -1,5 +1,7 @@
 # Runbook — Move `thailandaddict.com` from Cloudflare account A → B
 
+> **✅ DONE 2026-10-28 15:38 ICT.** Nameservers changed at name.com ~15:32; zone B active; ~5 min outage (15:33–15:38) while Universal SSL issued (owner chose no ACM). New cert Let's Encrypt YE1, serial `05DBE3CA…`. Live checks all pass: 9 locale homes, `/go/b` 302, `/t/:id` 200, 472/472 old WP URLs 301 as browser navigations, sitemap 16,466, security headers unchanged, MX/SPF/Search Console TXT intact. Deploy now: `TA_MAX_DEPLOY_FILES=95000 env -u CLOUDFLARE_API_TOKEN npm run deploy`. Remaining: §9 clean-up (old zone on A, token/OAuth hygiene).
+
 **A** = `chatmaliwan@gmail.com` · `46cdce4b7061ce5424b187cf9353ba92` (Workers FREE, 20,000-asset cap)
 **B** = `chatoccmed@gmail.com` · `2dd73a8e73f3df114fe87b1c159a2bfd` (Workers PAID, 100,000-asset cap)
 Registrar: **name.com**. Zone type: full. DNSSEC: off. Current NS: `aisha` / `greg`.
