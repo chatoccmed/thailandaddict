@@ -67,7 +67,9 @@ let bad = 0;
 for (const cfg of ['wrangler.jsonc', 'wrangler.A.jsonc']) {
   const f = path.join(ROOT, cfg);
   if (!fs.existsSync(f)) continue;
-  const m = fs.readFileSync(f, 'utf8').match(/"run_worker_first"\s*:\s*(\[[^\]]*\])/);
+  const src = fs.readFileSync(f, 'utf8');
+  if (/"run_worker_first"\s*:\s*true/.test(src)) continue;   // every request reaches the Worker
+  const m = src.match(/"run_worker_first"\s*:\s*(\[[^\]]*\])/);
   const listed = new Set(m ? JSON.parse(m[1]) : []);
   const missing = shadowed.filter(p => !listed.has(p));
   if (missing.length) { bad++; console.error(`✗ ${cfg} assets.run_worker_first is missing: ${missing.join(' ')}`); }

@@ -1,18 +1,26 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "thailandaddict",
+  // Account B (chatoccmed, Workers Paid). Pinned so a deploy can never land on another account.
+  // Emergency path back to account A: wrangler.A.jsonc.
+  "account_id": "2dd73a8e73f3df114fe87b1c159a2bfd",
+  "workers_dev": true,
   "main": "worker.js",
   "compatibility_date": "2026-05-16",
   "assets": {
     "directory": "./astro/dist",
     "not_found_handling": "404-page",
     "binding": "ASSETS",
-    // Old WP URLs that are also built pages: the Worker must answer first so their 301 still wins.
-    // Kept in step by _internal/gen-legacy-redirects.mjs (it fails if one is missing).
-    "run_worker_first": ["/top10-hotels-pattaya","/top10-hotels-pattaya/","/top10-hotels-phetchaburi","/top10-hotels-phetchaburi/","/top10-hotels-prachuap-khiri-khan","/top10-hotels-prachuap-khiri-khan/","/top5-krabi-airport-hotels","/top5-krabi-airport-hotels/"]
+    // Every request reaches the Worker first; whatever it does not handle it passes to ASSETS (worker.js end).
+    // Needed because since compatibility date 2025-04-01 a browser NAVIGATION that matches no file is answered
+    // with 404.html without invoking the Worker — that silently 404ed /go/b (Booking affiliate), /t/:id shared
+    // trips, merged-review 301s and the old WordPress URLs for real visitors (curl, which sends no
+    // Sec-Fetch-Mode, still worked). A pattern list cannot cover it: ~1,000 paths, limit 100 entries.
+    // Costs one Worker request per page view (Workers Paid on account B). wrangler.A.jsonc keeps the short list.
+    "run_worker_first": true
   },
   "ai": { "binding": "AI" },
-  "kv_namespaces": [{ "binding": "TRIPS", "id": "fc95757f7ce54294a1b9af14f8f69c2f" }],
+  "kv_namespaces": [{ "binding": "TRIPS", "id": "856e7f4ce7c2460a8fcc49175f789c63" }],  // account B; A was fc95757f7ce54294a1b9af14f8f69c2f (wrangler.A.jsonc),
   "ratelimits": [
     { "name": "RL_PLAN", "namespace_id": "2001", "simple": { "limit": 15, "period": 60 } },
     { "name": "RL_WRITE", "namespace_id": "2002", "simple": { "limit": 40, "period": 60 } }
