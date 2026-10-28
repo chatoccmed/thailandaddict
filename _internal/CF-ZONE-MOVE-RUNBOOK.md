@@ -536,7 +536,7 @@ Only if B is unrecoverable and you have burned 30+ minutes. Zone A is recoverabl
 
 # 9. After the dust settles
 
-> **2026-10-28 status:** D1 done (KV: nothing on A missing from B; `kv-copy.mjs --missing-only`), D3 done (gate 90,000 / cap 100,000), D4 done (routes in wrangler.jsonc, Worker 3d57922c), D5 n/a (no ACM, no DCV records), D7 done (HSTS now `max-age=31536000`: not on the preload list; mail.thailandaddict.com fails cert verification, so includeSubDomains was locking browsers out of it). Open: D2 (we deploy with `wrangler login` OAuth; a B-scoped token would replace it), D6 Search Console watch (owner), D8 R2 move (2–4 weeks out). Also found: http:// is served, not redirected to https (Always Use HTTPS off, same as on A).
+> **2026-10-28 status:** D1 done (KV: nothing on A missing from B; `kv-copy.mjs --missing-only`), D3 done (gate 90,000 / cap 100,000), D4 done (routes in wrangler.jsonc, Worker 3d57922c), D5 n/a (no ACM, no DCV records), D7 done (HSTS now `max-age=31536000`: not on the preload list; mail.thailandaddict.com fails cert verification, so includeSubDomains was locking browsers out of it). Open: D2 (we deploy with `wrangler login` OAuth; a B-scoped token would replace it), D6 Search Console watch (owner), D8 R2 move (2–4 weeks out). Always Use HTTPS turned ON on zone B 2026-10-28 (owner request): http:// now 301s to https:// with path + query kept, apex and www.
 
 | # | Who | Step | Verify |
 |---|---|---|---|
