@@ -20,6 +20,8 @@ repo นี้มีหลายเครื่อง/หลาย session push 
 
 ## 🧭 แผนหลัก + การตัดสินใจของ owner (2026-10-27 · อ่านก่อนวางงานใหม่)
 
+> 📌 **เริ่มงานรอบใหม่ อ่าน `_internal/HANDOFF-2026-10-29.md` ก่อน** — สถานะ production (บัญชี chatoccmed), งานค้าง, แนวทางที่ต้องใช้
+
 แผนหลักปัจจุบัน = **`_internal/DEVELOPMENT-PLAN-v5-travel-app.md`** (เป้า: แอปเที่ยวไทยเฉพาะทางอันดับ 1 ของโลก) — แผน v1–v4 และ REDESIGN-BLUEPRINT ยังเป็นบริบท แต่ถ้าขัดกัน v5 ชนะ
 - **ทำ Native App iOS + Android (React Native + Expo) + เว็บที่มีข้อมูลครบ** บนแพลตฟอร์มข้อมูลเดียว (D1 + Worker API + MCP) — PWA เป็นแค่สะพาน
 - **เราไม่ได้ไปสถานที่จริง** → ทุกข้อเท็จจริงต้องมาจาก ≥2 แหล่งอิสระ + วันที่ + confidence (high/medium/low/unknown) · ห้ามเขียนว่า "ไปมาเอง"
@@ -106,6 +108,7 @@ _internal/
 ```
 
 ## Build / test (เครื่องนี้ C:\Users\Imac)
+- 🚀 **Deploy (ตั้งแต่ 2026-10-28 production อยู่บัญชี chatoccmed):** `env -u CLOUDFLARE_API_TOKEN npm run deploy` — env token เดิมเป็นของบัญชีเก่า · ใช้ `wrangler login` (OAuth) · `wrangler.jsonc` ปักบัญชี B, ทางถอย `wrangler.A.jsonc` · **ตรวจ route ของ Worker ด้วย `-H "Sec-Fetch-Mode: navigate"` เสมอ** (คลิกจริงที่ไม่ใช่ไฟล์จะได้ 404 ถ้าไม่มี `run_worker_first: true`)
 - **Node v24** อยู่ที่ `~/nodejs` — bash: `export PATH="$HOME/nodejs:$PATH"` ก่อน (PowerShell ไม่โหลด PATH นี้)
 - **Python ใช้ไม่ได้** → ใช้ Node / PowerShell แทน
 - clean build (กัน stale cache): `rm -rf astro/.astro astro/node_modules/.astro` ก่อนเสมอเวลา build ใหญ่

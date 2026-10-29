@@ -206,9 +206,10 @@ fact { placeId, field, value, sources[{type, url, seenAt, quote}], verifiedAt, m
 ## J. แผนงานตามเวลา
 
 ### Phase 0 — แก้ด่วน + ปลดล็อก (ตอนนี้ – 2 สัปดาห์)
-- [กำลังทำ] แก้วีซ่า 60→30 วัน ทุกภาษา + `entry-rules.json` + gate + live check
-- [กำลังทำ] sitemap lastmod จริง
-- Workers Paid ($5/เดือน) หรือย้ายโซนไปบัญชี chatoccmed ให้จบ → คืนคำแปล 2,384 ไฟล์
+> สถานะล่าสุด + งานค้าง: `_internal/HANDOFF-2026-10-29.md`
+- [✔ 2026-10-27/28] แก้วีซ่า 60→30 วัน ทุกภาษา + `entry-rules.json` + gate + live check (zh/ru/ko ตามมา 10-28)
+- [✔ 2026-10-27] sitemap lastmod จริง
+- [✔ 2026-10-28] ย้ายโซนไปบัญชี chatoccmed → คืนคำแปล 2,437 ไฟล์ (zh/ru/ko)
 - รวมหน้า getting-around ซ้อน 77 เมือง · merge `redesign/andaman-deck` → `main`
 - ให้สิทธิ์อ่าน analytics (Cloudflare Analytics:Read token, Search Console, GA4)
 - เขียน `_internal/VERIFICATION-POLICY.md` (ส่วน D.2 เป็นกฎ ใช้แหล่งไหนได้/ไม่ได้)
